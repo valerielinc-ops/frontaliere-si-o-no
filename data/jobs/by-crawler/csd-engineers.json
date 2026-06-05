@@ -23,9 +23,9 @@
       },
       "description": "Ingénieur - Chef de Projet Géotechnique et Travaux Spéciaux (f/h/d) 80-100% — CSD ENGINEERS, Lausanne",
       "descriptionByLocale": {
-        "it": "Ingegnere - Capo del Progetto Geotecnico e Special Works (e/h/d) 80-100% — CSD ENGINEERS, Losanna",
-        "en": "Engineer - Head of Geotechnical and Special Works Project (e/h/d) 80-100% — CSD ENGINEERS, Lausanne",
-        "de": "Ingenieur - Leiter des Projekts Geotechnische und Sonderwerke (e/h/d) 80-100% — CSD ENGINEERS, Lausanne",
+        "it": "Ingegnere - Capo del Progetto Geotecnico e Special Works (f/h/d) 80-100% — CSD ENGINEERS, Losanna",
+        "en": "Engineer - Chief of Geotechnical and Special Works Project (f/h/d) 80-100% — CSD ENGINEERS, Lausanne",
+        "de": "Ingenieur - Projektleiter Geotechnische und Sonderwerke (f/h/d) 80-100% — CSD ENGINEERS, Lausanne",
         "fr": "Ingénieur - Chef de Projet Géotechnique et Travaux Spéciaux (f/h/d) 80-100% — CSD ENGINEERS, Lausanne"
       },
       "location": "Lausanne",
@@ -64,7 +64,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-b193302f66ca",
@@ -504,7 +505,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:18.208Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -604,7 +604,7 @@
       "titleByLocale": {
         "it": "Bauingenieur come Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
         "en": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
-        "de": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
+        "de": "Bauingenieur (m/w/d)",
         "fr": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100 % (m/m/j)"
       },
       "description": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
@@ -656,7 +656,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-627a1a16dd28",
@@ -812,7 +813,7 @@
       "titleByLocale": {
         "it": "Chef de projet CVC 80-100% (f/h/d)",
         "en": "Project Chef CVC 80-100% (f/h/d)",
-        "de": "Chef de projet CVC 80-100% (f/h/d)",
+        "de": "Chef de projet CVC 80-100 % (f/h/d)",
         "fr": "Chef de projet CVC 80-100 % (f/h/d)"
       },
       "description": "Chef de projet CVC 80-100% (f/h/d) — CSD ENGINEERS, Lausanne",
@@ -855,7 +856,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-eab65ce3570e",
@@ -1014,7 +1016,7 @@
         "it": "Avanzato Project Manager Ingegneria civile / Ricostruzione 80-100% (w/m/d) — CSD ENGINEERS, Zurigo",
         "en": "Advanced Project Manager Civil Engineering / Reconstruction 80-100% (w/m/d) — CSD ENGINEERS, Zurich",
         "de": "Erfahrener Projektleiter Tiefbau / Rückbau 80-100% (w/m/d) — CSD ENGINEERS, Zürich",
-        "fr": "Directeur de projet avancé Génie civil / Reconstruction 80-100% (w/m/d) — CSD ENGINEERS, Zurich"
+        "fr": "Directeur de projet avancé Génie civil / Reconstruction 80-100% (m/j) — CSD ENGINEERS, Zurich"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -1066,7 +1068,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-a6a9ec139ed8",
@@ -1167,7 +1170,7 @@
         "it": "Projektleiter Umwelt (m/w/d) 70-100% con focus sullo sviluppo del team — CSD ENGINEERS, Pratteln",
         "en": "Projektleiter Umwelt (m/w/d) 70-100% with focus on team development — CSD ENGINEERS, Pratteln",
         "de": "Projektleiter Umwelt (m/w/d) 70-100% mit Schwerpunkt Teamentwicklung — CSD ENGINEERS, Pratteln",
-        "fr": "Projektleiter Umwelt (m/p/j) 70-100% avec un accent sur le développement d'équipes — CSD ENGINEERS, Pratteln"
+        "fr": "Projektleiter Umwelt (m/p/j) 70-100 % en se concentrant sur le développement d'équipes — CSD ENGINEERS, Pratteln"
       },
       "location": "Pratteln",
       "canton": "BL",
@@ -1219,7 +1222,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-ec479f56f58d",
@@ -1312,7 +1316,7 @@
       "titleByLocale": {
         "it": "Ingegnere dell'ingegneria civile - Leader del progetto 80-100% (f/m/d)",
         "en": "Civil engineering engineer - Project leader 80-100% (f/m/d)",
-        "de": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d)",
+        "de": "Bauingenieur - Projektleiter 80-100% (f/m/d)",
         "fr": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d)"
       },
       "description": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
@@ -1369,7 +1373,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-4d21f9217016",
@@ -1428,7 +1433,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:12.541Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1577,7 +1581,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.859Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1655,7 +1658,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.396Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1805,7 +1807,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.458Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1869,7 +1870,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T23:14:09.998Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1972,7 +1972,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:17.486Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2050,7 +2049,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:09.195Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2067,11 +2065,11 @@
     },
     {
       "id": "csd-engineers-cbb9b77ee626",
-      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+      "slug": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
-        "it": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+        "it": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
         "en": "chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+        "de": "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2114,21 +2112,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
-        "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne"
+        "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
-          "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.736Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2145,11 +2139,11 @@
     },
     {
       "id": "csd-engineers-6e8ca344904c",
-      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+      "slug": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
-        "it": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+        "it": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
         "en": "chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+        "de": "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2192,21 +2186,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
-        "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne"
+        "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
-          "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.267Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2347,7 +2337,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T23:14:07.582Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2425,7 +2414,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.774Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2503,7 +2491,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.304Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2578,7 +2565,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.840Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2656,7 +2642,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:11:52.666Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2734,7 +2719,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.159Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2812,7 +2796,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.700Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2890,7 +2873,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.234Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2907,11 +2889,11 @@
     },
     {
       "id": "csd-engineers-7e71baf0dc1c",
-      "slug": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
+      "slug": "collaboratore-contabilita-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
       "slugByLocale": {
-        "it": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
-        "en": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
-        "de": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch",
+        "it": "collaboratore-contabilita-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
+        "en": "collaborator-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
+        "de": "mitarbeiter-accounting-ap-ar-80-100-e-h-d-csd-engineers-givisiez",
         "fr": "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2919,17 +2901,17 @@
       "companyDomain": "csd.ch",
       "title": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)",
       "titleByLocale": {
-        "it": "Collaborateur Comptabilité AP + AR 80-100% (f/m/d)",
-        "en": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)",
-        "de": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)",
+        "it": "Collaboratore Contabilità AP + AR 80-100% (e/h/d)",
+        "en": "Collaborator Accounting AP + AR 80-100% (e/h/d)",
+        "de": "Mitarbeiter Accounting AP + AR 80-100% (e/h/d)",
         "fr": "Collaborateur Comptabilité AP + AR 80-100% (f/h/d)"
       },
       "description": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
       "descriptionByLocale": {
-        "it": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
-        "en": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
-        "de": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
-        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre équipe <strong>Comptabilité</strong> à <strong>Givisiez</strong> un <strong>Collaborateur Comptabilité AP + AR</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Assurer le suivi de la facturation client, les postes ouverts et des encaissements</p></li><li><p>Gestion des relances clients et du processus de recouvrement</p></li><li><p>Traitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP</p></li><li><p>Gestion des relances et les relations avec les fournisseurs</p></li><li><p>Gestion des cartes de crédit</p></li><li><p>Facturation intercompagnie (AR et AP)</p></li><li><p>Contribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais</p></li><li><p>Mise à jour la documentation destinées aux utilisateurs internes</p></li><li><p>Mise à jour la documentation relative aux processus et procédures</p></li><li><p>Contribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>CFC d’employé/e de commerce ou titre jugé équivalent</p></li><li><p>Minimum 2 ans d’expérience professionnelle dans la comptabilité</p></li><li><p>Affinités avec les ERP (idéalement connaissances de Dynamics 365)</p></li><li><p>Bonnes connaissances d’Excel</p></li><li><p>Maitrise de l’allemand et du français (min. B2)</p></li><li><p>Expérience en société de services appréciée</p></li><li><p>Idéalement connaissances de la TVA suisse et européenne</p></li><li><p>Affinité pour les chiffres, rigueur et respect des règles</p></li><li><p>Motivé/e et engagé/e et orienté/e services</p></li><li><p>Envie d’apprendre</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un réseau de professionnels provenant de différents domaines</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>"
+        "it": "Più di 1.000 dipendenti in 30 sedi in Svizzera e in Europa: il Gruppo CSD è una società dinamica e in crescita. Grazie all'ingegno, alla competenza e alla multidisciplinarità che caratterizzano i nostri team, CSD offre soluzioni innovative e sostenibili per i nostri clienti con un \"plus\" per la qualità della vita e dell'ambiente.\n\nStiamo cercando il nostro team di contabilità a Givisez un Collaboratore Contabilità AP + AR 80-100% (f/h/d).\n\n• I vostri compiti\n\n- No.\nMonitorare la fatturazione client, le posizioni aperte e le ricevute in contanti\n\n- No.\nGestione del processo di recupero e recupero del cliente\n\n- No.\nTrattamento delle fatture dei fornitori garantendo la corretta integrazione dei dati nell'ERP\n\n- No.\nGestione del recupero e relazioni dei fornitori\n\n- No.\nGestione della carta di credito\n\n- No.\nFatturazione interlinea (AR e AP)\n\n- No.\nContributo alla chiusura mensile, trimestrale e annuale entro le scadenze\n\n- No.\nAggiornamento della documentazione per gli utenti interni\n\n- No.\nAggiornamento della documentazione di processo e procedura\n\n- No.\nContributo al miglioramento degli strumenti digitali, partecipazione ai test di non regressione durante gli aggiornamenti dell'ERP\n\n• Il tuo profilo\n\n- No.\nSWC del dipendente commerciale o equivalente\n\n- No.\nMinimo 2 anni di esperienza professionale nella contabilità\n\n- No.\nProblemi con LES (conoscenza di dinamica 365)\n\n- No.\nBuona conoscenza di Excel\n\n- No.\nMastery of German and French (min. B2)\n\n- No.\nEsperienza in una società di servizi apprezzata\n\n- No.\nConoscenza ideale dell'IVA svizzera ed europea\n\n- No.\nAffinità per numeri, rigore e conformità\n\n- No.\nServizi motivati e impegnati e orientati\n\n- No.\nVuoi imparare\n\nVi offriamo\n\n- No.\nUna rete di professionisti di diversi campi\n\n- No.\nOpportunità multiple per lo sviluppo professionale e personale\n\n- No.\nUn ambiente di lavoro dinamico con rispetto reciproco\n\n- No.\nCondizioni attraenti che permettono una grande flessibilità nell'organizzazione del tempo di lavoro\n\nLe offerte di agenzie di lavoro non sono prese in considerazione in questo reclutamento. Di conseguenza, CSD non entrerà in alcuna negoziazione per il pagamento di alcun reclamo.",
+        "en": "More than 1,000 employees at 30 locations in Switzerland and Europe: the CSD Group is a dynamic and growing company. Thanks to the ingenuity, competence and multidisciplinarity that characterize our teams, CSD offers innovative and sustainable solutions for our customers with a \"plus\" for quality of life and the environment.\n\nWe are looking for our Accounting team in Givisez a Collaborator Accounting AP + AR 80-100% (f/h/d).\n\n• Your tasks\n\n-\nMonitor client billing, open positions and cash receipts\n\n-\nManagement of customer recovery and recovery process\n\n-\nProcessing of supplier invoices by ensuring the proper integration of data into the ERP\n\n-\nRecovery management and vendor relations\n\n-\nCredit card management\n\n-\nInterline billing (AR and AP)\n\n-\nContribution to monthly, quarterly and annual closure within deadlines\n\n-\nUpdating documentation for internal users\n\n-\nUpdating process and procedure documentation\n\n-\nContribution to the improvement of digital tools, participation in non-regression tests during updates of the ERP\n\n• Your profile\n\n-\nSWC of trade employee or equivalent\n\n-\nMinimum 2 years of professional experience in accounting\n\n-\nAffinities with LES (ideally knowledge of Dynamics 365)\n\n-\nGood knowledge of Excel\n\n-\nMastery of German and French (min. B2)\n\n-\nExperience in a service company appreciated\n\n-\nIdeally knowledge of Swiss and European VAT\n\n-\nAffinity for numbers, rigour and compliance\n\n-\nMotivated and engaged and oriented services\n\n-\nWant to learn\n\nWe offer you\n\n-\nA network of professionals from different fields\n\n-\nMultiple opportunities for professional and personal development\n\n-\nA dynamic working environment with mutual respect\n\n-\nAttractive conditions allowing great flexibility in the organization of working time\n\nOffers of employment agencies are not taken into account in this recruitment. Consequently, CSD will not enter into any negotiation for the payment of any claim.",
+        "de": "Mehr als 1.000 Mitarbeiter an 30 Standorten in der Schweiz und Europa: Die CSD Group ist ein dynamisches und wachsendes Unternehmen. Dank der Ingenuität, Kompetenz und Multidisziplinarität, die unsere Teams charakterisieren, bietet CSD innovative und nachhaltige Lösungen für unsere Kunden mit einem \"plus\" für Lebensqualität und Umwelt.\n\nWir suchen unser Accounting-Team in Givisez a Collaborator Accounting AP + AR 80-100% (f/h/d).\n\n• Ihre Aufgaben\n\n- Ja.\nÜberwachen Sie die Kundenrechnung, offene Positionen und Bareinnahmen\n\n- Ja.\nManagement von Kundenwiederherstellung und Erholungsprozess\n\n- Ja.\nVerarbeitung von Lieferantenrechnungen durch Sicherstellung der ordnungsgemäßen Integration von Daten in das ERP\n\n- Ja.\nErholungsmanagement und Lieferantenbeziehungen\n\n- Ja.\nKreditkartenverwaltung\n\n- Ja.\nZwischenabrechnung (AR und AP)\n\n- Ja.\nBeitrag zur monatlichen, vierteljährlichen und jährlichen Schließung innerhalb von Fristen\n\n- Ja.\nAktualisierung der Dokumentation für interne Benutzer\n\n- Ja.\nAktualisierung der Prozess- und Verfahrensdokumentation\n\n- Ja.\nBeitrag zur Verbesserung der digitalen Tools, Beteiligung an Nicht-Regressionstests bei Aktualisierungen des ERP\n\n• Ihr Profil\n\n- Ja.\nSWC von Gewerbeangestellten oder gleichwertigen\n\n- Ja.\nMindestens 2 Jahre Berufserfahrung in der Rechnungslegung\n\n- Ja.\nAffinitäten mit LES (ideales Wissen über Dynamics 365)\n\n- Ja.\nGute Kenntnisse von Excel\n\n- Ja.\nMeisterschaft Deutsch und Französisch (min. B2)\n\n- Ja.\nErfahrung in einem Service-Unternehmen geschätzt\n\n- Ja.\nIdeale Kenntnis der Schweizer und europäischen Mehrwertsteuer\n\n- Ja.\nAffinität für Zahlen, Härte und Compliance\n\n- Ja.\nMotivierte und engagierte und orientierte Dienstleistungen\n\n- Ja.\nSie wollen lernen\n\nWir bieten Ihnen\n\n- Ja.\nEin Netzwerk von Fachleuten aus verschiedenen Bereichen\n\n- Ja.\nMehrere Möglichkeiten für professionelle und persönliche Entwicklung\n\n- Ja.\nEine dynamische Arbeitsumgebung mit gegenseitiger Achtung\n\n- Ja.\nAttraktive Bedingungen, die eine große Flexibilität bei der Organisation der Arbeitszeit ermöglichen\n\nDie Angebote von Arbeitsagenturen werden bei dieser Einstellung nicht berücksichtigt. Folglich wird CSD keine Verhandlungen für die Zahlung eines Anspruchs eingehen.",
+        "fr": "Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.\n\nNous recherchons pour notre équipe Comptabilité à Givisiez un Collaborateur Comptabilité AP + AR 80-100% (f/h/d).\n\n• Vos tâches\n\n-\nAssurer le suivi de la facturation client, les postes ouverts et des encaissements\n\n-\nGestion des relances clients et du processus de recouvrement\n\n-\nTraitement des factures fournisseurs en assurant la bonne intégration des données dans l’ERP\n\n-\nGestion des relances et les relations avec les fournisseurs\n\n-\nGestion des cartes de crédit\n\n-\nFacturation intercompagnie (AR et AP)\n\n-\nContribution à la clôture mensuelle, trimestrielle et annuelle en respectant les délais\n\n-\nMise à jour la documentation destinées aux utilisateurs internes\n\n-\nMise à jour la documentation relative aux processus et procédures\n\n-\nContribution à l’amélioration des outils digitaux, participation aux tests de non-régression lors des mises à jour de l’ERP\n\n• Votre profil\n\n-\nCFC d’employé/e de commerce ou titre jugé équivalent\n\n-\nMinimum 2 ans d’expérience professionnelle dans la comptabilité\n\n-\nAffinités avec les ERP (idéalement connaissances de Dynamics 365)\n\n-\nBonnes connaissances d’Excel\n\n-\nMaitrise de l’allemand et du français (min. B2)\n\n-\nExpérience en société de services appréciée\n\n-\nIdéalement connaissances de la TVA suisse et européenne\n\n-\nAffinité pour les chiffres, rigueur et respect des règles\n\n-\nMotivé/e et engagé/e et orienté/e services\n\n-\nEnvie d’apprendre\n\nNous vous offrons\n\n-\nUn réseau de professionnels provenant de différents domaines\n\n-\nDe multiples possibilités de développement professionnel et personnel\n\n-\nUn environnement de travail dynamique dans un climat de respect mutuel\n\n-\nDes conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail\n\nLes offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention."
       },
       "location": "Givisiez",
       "canton": "FR",
@@ -2953,7 +2935,6 @@
       "applyUrl": "https://jobs.csd.ch/jobs/7839292-collaborateur-comptabilite-ap-ar-80-100-f-h-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T14:49:11.471Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2967,15 +2948,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "en": [
+          "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "de": [
+          "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-comptabilite-ap-ar-80-100-f-h-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-e418fe092dc6",
-      "slug": "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd",
+      "slug": "trattamento-e-gestione-dell-acqua-trainee-6-mesi-dal-luglio-2026-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd",
-        "en": "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd",
-        "de": "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd",
+        "it": "trattamento-e-gestione-dell-acqua-trainee-6-mesi-dal-luglio-2026-e-h-d-80-100-csd-engineers-lausanne",
+        "en": "trainee-water-treatment-and-management-6-months-from-july-2026-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "trainee-water-treatment-and-management-6-monate-ab-juli-2026-e-h-d-80-100-csd-engineers-lausanne",
         "fr": "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd"
       },
       "company": "CSD ENGINEERS",
@@ -2983,17 +2978,17 @@
       "companyDomain": "csd.ch",
       "title": "Stagiaire Traitement et Gestion des Eaux – 6 mois à partir de Juillet 2026 (f/h/d) 80-100%",
       "titleByLocale": {
-        "it": "Stagiaire Traitement et Gestion des Eaux – 6 mois à partir de Juillet 2026 (f/m/d) 80-100%",
-        "en": "Stagiaire Traitement et Gestion des Eaux – 6 mois à partir de Juillet 2026 (f/h/d) 80-100%",
-        "de": "Stagiaire Traitement et Gestion des Eaux – 6 mois à partir de Juillet 2026 (f/h/d) 80-100%",
+        "it": "Trattamento e gestione dell'acqua Trainee – 6 mesi dal luglio 2026 (e/h/d) 80-100%",
+        "en": "Trainee Water Treatment and Management – 6 months from July 2026 (e/h/d) 80-100%",
+        "de": "Trainee Water Treatment and Management – 6 Monate ab Juli 2026 (e/h/d) 80-100%",
         "fr": "Stagiaire Traitement et Gestion des Eaux – 6 mois à partir de Juillet 2026 (f/h/d) 80-100%"
       },
       "description": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p><span>Nous recherchons pour notre succursale<strong> Environnement </strong>à<strong> Lausanne (VD) </strong>un<strong> Stagiaire Traitement et Gestion des Eaux pour une durée de 6 mois à partir de juillet 2026 (f/h/d) 80-100%.</strong></span></p><p><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer à la réalisation de projets dans le domaine du traitement des eaux usées et de l’eau potable : incinération des boues de STEP, dimensionnement de filières de traitement de STEP</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à des projets liés au traitement et à la valorisation du biogaz</span></p></li><li class=\"MsoNormal\"><p><span>Participer aux dimensionnements hydrauliques et aux procédés de traitement</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études hydrauliques sur les réseaux d’eau potable (réservoirs, conduites, pompages, captages)</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études sur les réseaux d’évacuation (eaux usées / eaux claires)</span></p></li><li class=\"MsoNormal\"><p><span>Aider à la rédaction de rapports et de notes de calcul et à l’élaboration de plans de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participer au suivi des travaux et des chantiers</span></p></li></ul><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Étudiant/e en dernière année en ingénierie de l’environnement (EPF/HES) ou génie civil ou formation jugée équivalente</span></p></li><li class=\"MsoNormal\"><p><span>Intérêt pour les domaines du traitement des eaux usées, de l’eau potable</span></p></li><li class=\"MsoNormal\"><p><span>Polyvalence et esprit de synthèse</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique, motivée et proactive avec le sens de l’initiative</span></p></li></ul>",
       "descriptionByLocale": {
-        "it": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p><span>Nous recherchons pour notre succursale<strong> Environnement </strong>à<strong> Lausanne (VD) </strong>un<strong> Stagiaire Traitement et Gestion des Eaux pour une durée de 6 mois à partir de juillet 2026 (f/h/d) 80-100%.</strong></span></p><p><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer à la réalisation de projets dans le domaine du traitement des eaux usées et de l’eau potable : incinération des boues de STEP, dimensionnement de filières de traitement de STEP</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à des projets liés au traitement et à la valorisation du biogaz</span></p></li><li class=\"MsoNormal\"><p><span>Participer aux dimensionnements hydrauliques et aux procédés de traitement</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études hydrauliques sur les réseaux d’eau potable (réservoirs, conduites, pompages, captages)</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études sur les réseaux d’évacuation (eaux usées / eaux claires)</span></p></li><li class=\"MsoNormal\"><p><span>Aider à la rédaction de rapports et de notes de calcul et à l’élaboration de plans de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participer au suivi des travaux et des chantiers</span></p></li></ul><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Étudiant/e en dernière année en ingénierie de l’environnement (EPF/HES) ou génie civil ou formation jugée équivalente</span></p></li><li class=\"MsoNormal\"><p><span>Intérêt pour les domaines du traitement des eaux usées, de l’eau potable</span></p></li><li class=\"MsoNormal\"><p><span>Polyvalence et esprit de synthèse</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique, motivée et proactive avec le sens de l’initiative</span></p></li></ul>",
-        "en": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p><span>Nous recherchons pour notre succursale<strong> Environnement </strong>à<strong> Lausanne (VD) </strong>un<strong> Stagiaire Traitement et Gestion des Eaux pour une durée de 6 mois à partir de juillet 2026 (f/h/d) 80-100%.</strong></span></p><p><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer à la réalisation de projets dans le domaine du traitement des eaux usées et de l’eau potable : incinération des boues de STEP, dimensionnement de filières de traitement de STEP</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à des projets liés au traitement et à la valorisation du biogaz</span></p></li><li class=\"MsoNormal\"><p><span>Participer aux dimensionnements hydrauliques et aux procédés de traitement</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études hydrauliques sur les réseaux d’eau potable (réservoirs, conduites, pompages, captages)</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études sur les réseaux d’évacuation (eaux usées / eaux claires)</span></p></li><li class=\"MsoNormal\"><p><span>Aider à la rédaction de rapports et de notes de calcul et à l’élaboration de plans de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participer au suivi des travaux et des chantiers</span></p></li></ul><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Étudiant/e en dernière année en ingénierie de l’environnement (EPF/HES) ou génie civil ou formation jugée équivalente</span></p></li><li class=\"MsoNormal\"><p><span>Intérêt pour les domaines du traitement des eaux usées, de l’eau potable</span></p></li><li class=\"MsoNormal\"><p><span>Polyvalence et esprit de synthèse</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique, motivée et proactive avec le sens de l’initiative</span></p></li></ul>",
-        "de": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p><span>Nous recherchons pour notre succursale<strong> Environnement </strong>à<strong> Lausanne (VD) </strong>un<strong> Stagiaire Traitement et Gestion des Eaux pour une durée de 6 mois à partir de juillet 2026 (f/h/d) 80-100%.</strong></span></p><p><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer à la réalisation de projets dans le domaine du traitement des eaux usées et de l’eau potable : incinération des boues de STEP, dimensionnement de filières de traitement de STEP</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à des projets liés au traitement et à la valorisation du biogaz</span></p></li><li class=\"MsoNormal\"><p><span>Participer aux dimensionnements hydrauliques et aux procédés de traitement</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études hydrauliques sur les réseaux d’eau potable (réservoirs, conduites, pompages, captages)</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études sur les réseaux d’évacuation (eaux usées / eaux claires)</span></p></li><li class=\"MsoNormal\"><p><span>Aider à la rédaction de rapports et de notes de calcul et à l’élaboration de plans de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participer au suivi des travaux et des chantiers</span></p></li></ul><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Étudiant/e en dernière année en ingénierie de l’environnement (EPF/HES) ou génie civil ou formation jugée équivalente</span></p></li><li class=\"MsoNormal\"><p><span>Intérêt pour les domaines du traitement des eaux usées, de l’eau potable</span></p></li><li class=\"MsoNormal\"><p><span>Polyvalence et esprit de synthèse</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique, motivée et proactive avec le sens de l’initiative</span></p></li></ul>",
-        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p><span>Nous recherchons pour notre succursale<strong> Environnement </strong>à<strong> Lausanne (VD) </strong>un<strong> Stagiaire Traitement et Gestion des Eaux pour une durée de 6 mois à partir de juillet 2026 (f/h/d) 80-100%.</strong></span></p><p><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer à la réalisation de projets dans le domaine du traitement des eaux usées et de l’eau potable : incinération des boues de STEP, dimensionnement de filières de traitement de STEP</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à des projets liés au traitement et à la valorisation du biogaz</span></p></li><li class=\"MsoNormal\"><p><span>Participer aux dimensionnements hydrauliques et aux procédés de traitement</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études hydrauliques sur les réseaux d’eau potable (réservoirs, conduites, pompages, captages)</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux études sur les réseaux d’évacuation (eaux usées / eaux claires)</span></p></li><li class=\"MsoNormal\"><p><span>Aider à la rédaction de rapports et de notes de calcul et à l’élaboration de plans de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participer au suivi des travaux et des chantiers</span></p></li></ul><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Étudiant/e en dernière année en ingénierie de l’environnement (EPF/HES) ou génie civil ou formation jugée équivalente</span></p></li><li class=\"MsoNormal\"><p><span>Intérêt pour les domaines du traitement des eaux usées, de l’eau potable</span></p></li><li class=\"MsoNormal\"><p><span>Polyvalence et esprit de synthèse</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique, motivée et proactive avec le sens de l’initiative</span></p></li></ul>"
+        "it": "Più di 1.000 dipendenti in 30 sedi in Svizzera e in Europa: il Gruppo CSD è una società dinamica e in crescita. Grazie all'ingegno, alla competenza e alla multidisciplinarità che caratterizzano i nostri team, CSD offre soluzioni innovative e sostenibili per i nostri clienti con un \"plus\" per la qualità della vita e dell'ambiente.\n\nStiamo cercando un Internship per il nostro ramo Ambiente a Losanna (VD) per 6 mesi dal luglio 2026 (f/h/d) 80-100%.\n\n• Le vostre missioni\n\n- No.\nPartecipazione a progetti nel settore del trattamento delle acque reflue e dell'acqua potabile: incenerimento dei fanghi STEP, dimensionamento delle linee di trattamento STEP\n\n- No.\nContribuire a progetti di trattamento e recupero di biogas\n\n- No.\nPartecipazione ai processi di dimensionamento e lavorazione idraulici\n\n- No.\nPartecipazione agli studi sull'acqua sui sistemi di acqua potabile (reservoir, tubazioni, pompaggio, catture)\n\n- No.\nPartecipazione agli studi sui sistemi di acque reflue/chiare\n\n- No.\nAssistere nella preparazione di report, fogli di calcolo e piani di progetto\n\n- No.\nPartecipazione al monitoraggio dei lavori e dei progetti\n\n• Il tuo profilo\n\n- No.\nAnno finale studente di ingegneria ambientale (EPF/HES) o studente di ingegneria civile o equivalente\n\n- No.\nInteressi nel trattamento delle acque reflue, acqua potabile\n\n- No.\nversatilità e sintesi\n\n- No.\nPersonalità dinamica, motivata e proattiva con direzione di iniziativa",
+        "en": "More than 1,000 employees at 30 locations in Switzerland and Europe: the CSD Group is a dynamic and growing company. Thanks to the ingenuity, competence and multidisciplinarity that characterize our teams, CSD offers innovative and sustainable solutions for our customers with a \"plus\" for quality of life and the environment.\n\nWe are looking for an Internship for our Environment branch in Lausanne (VD) for 6 months from July 2026 (f/h/d) 80-100%.\n\n• Your missions\n\n-\nParticipate in projects in the field of wastewater treatment and drinking water: incineration of STEP sludge, dimensioning of STEP treatment lines\n\n-\nContribute to biogas processing and recovery projects\n\n-\nParticipate in hydraulic dimensioning and processing processes\n\n-\nParticipation in water studies on drinking water systems (reservoirs, pipes, pumping, catchments)\n\n-\nParticipation in studies on sewage/clear water systems\n\n-\nAssist in the preparation of reports, spreadsheets and project plans\n\n-\nParticipate in the monitoring of works and projects\n\n• Your profile\n\n-\nFinal year environmental engineering student (EPF/HES) or civil engineering student or equivalent\n\n-\nInterest in wastewater treatment, drinking water\n\n-\nversatility and synthesis\n\n-\nDynamic, motivated and proactive personality with initiative direction",
+        "de": "Mehr als 1.000 Mitarbeiter an 30 Standorten in der Schweiz und Europa: Die CSD Group ist ein dynamisches und wachsendes Unternehmen. Dank der Ingenuität, Kompetenz und Multidisziplinarität, die unsere Teams charakterisieren, bietet CSD innovative und nachhaltige Lösungen für unsere Kunden mit einem \"plus\" für Lebensqualität und Umwelt.\n\nWir suchen ein Praktikum für unsere Umweltbranche in Lausanne (VD) für 6 Monate ab Juli 2026 (f/h/d) 80-100%.\n\n• Ihre Missionen\n\n- Ja.\nBeteiligung an Projekten im Bereich der Abwasseraufbereitung und Trinkwasser: Verbrennung von STEP-Schlamm, Dimensionierung von STEP-Behandlungslinien\n\n- Ja.\nBeitrag zur Biogasaufbereitung und -gewinnung\n\n- Ja.\nBeteiligung an hydraulischen Dimensionierungs- und Verarbeitungsvorgängen\n\n- Ja.\nTeilnahme an Wasserstudien über Trinkwassersysteme (Reservoirs, Rohre, Pumpen, Fänge)\n\n- Ja.\nTeilnahme an Studien über Abwasser/klare Wassersysteme\n\n- Ja.\nAssist bei der Erstellung von Berichten, Tabellen und Projektplänen\n\n- Ja.\nTeilnahme an der Überwachung von Arbeiten und Projekten\n\n• Ihr Profil\n\n- Ja.\nAbschlussjahr Umweltingenieur Student (EPF/HES) oder Bauingenieur Student oder gleichwertig\n\n- Ja.\nInteresse an Abwasserbehandlung, Trinkwasser\n\n- Ja.\nVielseitigkeit und Synthese\n\n- Ja.\nDynamische, motivierte und proaktive Persönlichkeit mit Initiativrichtung",
+        "fr": "Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.\n\nNous recherchons pour notre succursale Environnement à Lausanne (VD) un Stagiaire Traitement et Gestion des Eaux pour une durée de 6 mois à partir de juillet 2026 (f/h/d) 80-100%.\n\n• Vos missions\n\n-\nParticiper à la réalisation de projets dans le domaine du traitement des eaux usées et de l’eau potable : incinération des boues de STEP, dimensionnement de filières de traitement de STEP\n\n-\nContribuer à des projets liés au traitement et à la valorisation du biogaz\n\n-\nParticiper aux dimensionnements hydrauliques et aux procédés de traitement\n\n-\nParticipation aux études hydrauliques sur les réseaux d’eau potable (réservoirs, conduites, pompages, captages)\n\n-\nParticipation aux études sur les réseaux d’évacuation (eaux usées / eaux claires)\n\n-\nAider à la rédaction de rapports et de notes de calcul et à l’élaboration de plans de projet\n\n-\nParticiper au suivi des travaux et des chantiers\n\n• Votre profil\n\n-\nÉtudiant/e en dernière année en ingénierie de l’environnement (EPF/HES) ou génie civil ou formation jugée équivalente\n\n-\nIntérêt pour les domaines du traitement des eaux usées, de l’eau potable\n\n-\nPolyvalence et esprit de synthèse\n\n-\nPersonnalité dynamique, motivée et proactive avec le sens de l’initiative"
       },
       "location": "Lausanne",
       "canton": "VD",
@@ -3017,7 +3012,6 @@
       "applyUrl": "https://jobs.csd.ch/jobs/7852725-stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T14:49:10.601Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -3031,15 +3025,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd"
+        ],
+        "en": [
+          "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd"
+        ],
+        "de": [
+          "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100-csd"
+      ]
     },
     {
       "id": "csd-engineers-63086a1600fa",
-      "slug": "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch",
+      "slug": "stage-in-ambiente-acqua-f-h-d-100-csd-engineers-lancy",
       "slugByLocale": {
-        "it": "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch",
-        "en": "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch",
-        "de": "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch",
+        "it": "stage-in-ambiente-acqua-f-h-d-100-csd-engineers-lancy",
+        "en": "internship-in-environment-water-f-h-d-100-csd-engineers-lancy",
+        "de": "praktikum-in-umwelt-wasser-f-h-d-100-csd-engineers-lancy",
         "fr": "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -3047,17 +3055,17 @@
       "companyDomain": "csd.ch",
       "title": "Stagiaire en Environnement / Eau (f/h/d) 100%",
       "titleByLocale": {
-        "it": "Stagiaire en Environnement / Eau (f/m/d) 100%",
-        "en": "Stagiaire en Environnement / Eau (f/h/d) 100%",
-        "de": "Stagiaire en Environnement / Eau (f/h/d) 100%",
+        "it": "Stage in Ambiente / Acqua (f/h/d) 100%",
+        "en": "Internship in Environment / Water (f/h/d) 100%",
+        "de": "Praktikum in Umwelt / Wasser (f/h/d) 100%",
         "fr": "Stagiaire en Environnement / Eau (f/h/d) 100%"
       },
       "description": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre<strong> succursale Environnement </strong>à<strong> Grand-Lancy (GE), </strong>un<strong> Stagiaire en Environnement / Eau (f/h/d) 100% </strong>pour une durée de <strong>6 mois</strong>.</p><p><strong>\n• Vos tâches </strong></p><ul><li><p>Participation aux études et projets en cours (étude d’impact environnement, gravières, gestion intégrée des eaux et hydraulique, étude de bruit, pollution de l'air, gestion des déchets et valorisation des ressources, etc.) et à la vie de bureau</p></li><li><p>Collecte de données, relevés et mesures de terrain</p></li><li><p>Modélisation à l’aide de logiciels techniques</p></li><li><p>Participation et contribution à l'élaboration de plans/cartes dans les domaines précités à l'aide d'ArcGIS</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>Étudiant/e EPF en sciences et techniques de l’environnement ou formation jugée équivalente. Les personnes diplômées ne peuvent pas être retenues.</p></li><li><p>Bonnes connaissances des outils SIG (ArcGis)</p></li><li><p>Être au bénéfice d’un permis de conduire </p></li><li><p>Personnalité dynamique et autonome avec le sens de l'initiative</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
       "descriptionByLocale": {
-        "it": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre<strong> succursale Environnement </strong>à<strong> Grand-Lancy (GE), </strong>un<strong> Stagiaire en Environnement / Eau (f/h/d) 100% </strong>pour une durée de <strong>6 mois</strong>.</p><p><strong>\n• Vos tâches </strong></p><ul><li><p>Participation aux études et projets en cours (étude d’impact environnement, gravières, gestion intégrée des eaux et hydraulique, étude de bruit, pollution de l'air, gestion des déchets et valorisation des ressources, etc.) et à la vie de bureau</p></li><li><p>Collecte de données, relevés et mesures de terrain</p></li><li><p>Modélisation à l’aide de logiciels techniques</p></li><li><p>Participation et contribution à l'élaboration de plans/cartes dans les domaines précités à l'aide d'ArcGIS</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>Étudiant/e EPF en sciences et techniques de l’environnement ou formation jugée équivalente. Les personnes diplômées ne peuvent pas être retenues.</p></li><li><p>Bonnes connaissances des outils SIG (ArcGis)</p></li><li><p>Être au bénéfice d’un permis de conduire </p></li><li><p>Personnalité dynamique et autonome avec le sens de l'initiative</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
-        "en": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre<strong> succursale Environnement </strong>à<strong> Grand-Lancy (GE), </strong>un<strong> Stagiaire en Environnement / Eau (f/h/d) 100% </strong>pour une durée de <strong>6 mois</strong>.</p><p><strong>\n• Vos tâches </strong></p><ul><li><p>Participation aux études et projets en cours (étude d’impact environnement, gravières, gestion intégrée des eaux et hydraulique, étude de bruit, pollution de l'air, gestion des déchets et valorisation des ressources, etc.) et à la vie de bureau</p></li><li><p>Collecte de données, relevés et mesures de terrain</p></li><li><p>Modélisation à l’aide de logiciels techniques</p></li><li><p>Participation et contribution à l'élaboration de plans/cartes dans les domaines précités à l'aide d'ArcGIS</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>Étudiant/e EPF en sciences et techniques de l’environnement ou formation jugée équivalente. Les personnes diplômées ne peuvent pas être retenues.</p></li><li><p>Bonnes connaissances des outils SIG (ArcGis)</p></li><li><p>Être au bénéfice d’un permis de conduire </p></li><li><p>Personnalité dynamique et autonome avec le sens de l'initiative</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
-        "de": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre<strong> succursale Environnement </strong>à<strong> Grand-Lancy (GE), </strong>un<strong> Stagiaire en Environnement / Eau (f/h/d) 100% </strong>pour une durée de <strong>6 mois</strong>.</p><p><strong>\n• Vos tâches </strong></p><ul><li><p>Participation aux études et projets en cours (étude d’impact environnement, gravières, gestion intégrée des eaux et hydraulique, étude de bruit, pollution de l'air, gestion des déchets et valorisation des ressources, etc.) et à la vie de bureau</p></li><li><p>Collecte de données, relevés et mesures de terrain</p></li><li><p>Modélisation à l’aide de logiciels techniques</p></li><li><p>Participation et contribution à l'élaboration de plans/cartes dans les domaines précités à l'aide d'ArcGIS</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>Étudiant/e EPF en sciences et techniques de l’environnement ou formation jugée équivalente. Les personnes diplômées ne peuvent pas être retenues.</p></li><li><p>Bonnes connaissances des outils SIG (ArcGis)</p></li><li><p>Être au bénéfice d’un permis de conduire </p></li><li><p>Personnalité dynamique et autonome avec le sens de l'initiative</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>",
-        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre<strong> succursale Environnement </strong>à<strong> Grand-Lancy (GE), </strong>un<strong> Stagiaire en Environnement / Eau (f/h/d) 100% </strong>pour une durée de <strong>6 mois</strong>.</p><p><strong>\n• Vos tâches </strong></p><ul><li><p>Participation aux études et projets en cours (étude d’impact environnement, gravières, gestion intégrée des eaux et hydraulique, étude de bruit, pollution de l'air, gestion des déchets et valorisation des ressources, etc.) et à la vie de bureau</p></li><li><p>Collecte de données, relevés et mesures de terrain</p></li><li><p>Modélisation à l’aide de logiciels techniques</p></li><li><p>Participation et contribution à l'élaboration de plans/cartes dans les domaines précités à l'aide d'ArcGIS</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>Étudiant/e EPF en sciences et techniques de l’environnement ou formation jugée équivalente. Les personnes diplômées ne peuvent pas être retenues.</p></li><li><p>Bonnes connaissances des outils SIG (ArcGis)</p></li><li><p>Être au bénéfice d’un permis de conduire </p></li><li><p>Personnalité dynamique et autonome avec le sens de l'initiative</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong></p>"
+        "it": "Più di 1.000 dipendenti in 30 sedi in Svizzera e in Europa: il Gruppo CSD è una società dinamica e in crescita. Grazie all'ingegno, alla competenza e alla multidisciplinarità che caratterizzano i nostri team, CSD offre soluzioni innovative e sostenibili per i nostri clienti con un \"plus\" per la qualità della vita e dell'ambiente.\n\nSiamo alla ricerca del nostro ramo Ambiente in Grand-Lancy (GE), un ambiente / Water Intern (f/h/d) 100% per un periodo di 6 mesi.\n\n• I vostri compiti\n\n- No.\nPartecipazione a studi e progetti in corso (studio sull'impatto ambientale, studio sulla gravità, gestione integrata dell'acqua e dell'idraulica, studio del rumore, inquinamento atmosferico, gestione dei rifiuti e recupero delle risorse, ecc.) e vita dell'ufficio\n\n- No.\nRaccolta dati, indagini e misurazioni sul campo\n\n- No.\nModelli con software tecnico\n\n- No.\nPartecipazione e contributo alla stesura di piani/mappa nelle aree sopra citate con l'aiuto di ArcGIS\n\n• Il tuo profilo\n\n- No.\nStudente EPF in scienze ambientali e tecnologia o formazione ritenuto equivalente. I laureati non possono essere detenuti.\n\n- No.\nBuona conoscenza degli strumenti GIS (ArcGis)\n\n- No.\nPer beneficiare di una patente di guida\n\n- No.\nPersonalità dinamica e autonoma con il senso di iniziativa\n\nLe offerte di agenzie di lavoro non sono prese in considerazione in questo reclutamento. Di conseguenza, CSD non entrerà in alcuna negoziazione per il pagamento di alcun reclamo.",
+        "en": "More than 1,000 employees at 30 locations in Switzerland and Europe: the CSD Group is a dynamic and growing company. Thanks to the ingenuity, competence and multidisciplinarity that characterize our teams, CSD offers innovative and sustainable solutions for our customers with a \"plus\" for quality of life and the environment.\n\nWe are looking for our Environment branch in Grand-Lancy (GE), an Environment / Water Intern (f/h/d) 100% for a period of 6 months.\n\n• Your tasks\n\n-\nParticipation in ongoing studies and projects (environmental impact study, gravity study, integrated water and hydraulic management, noise study, air pollution, waste management and resource recovery, etc.) and office life\n\n-\nData collection, surveys and field measurements\n\n-\nModelling using technical software\n\n-\nParticipation and contribution in drawing up plans/maps in the above-mentioned areas with the help of ArcGIS\n\n• Your profile\n\n-\nEPF student in environmental science and technology or training deemed equivalent. Graduates cannot be detained.\n\n-\nGood knowledge of GIS tools (ArcGis)\n\n-\nTo benefit from a driving licence\n\n-\nDynamic and autonomous personality with the sense of initiative\n\nOffers of employment agencies are not taken into account in this recruitment. Consequently, CSD will not enter into any negotiation for the payment of any claim.",
+        "de": "Mehr als 1.000 Mitarbeiter an 30 Standorten in der Schweiz und Europa: Die CSD Group ist ein dynamisches und wachsendes Unternehmen. Dank der Ingenuität, Kompetenz und Multidisziplinarität, die unsere Teams charakterisieren, bietet CSD innovative und nachhaltige Lösungen für unsere Kunden mit einem \"plus\" für Lebensqualität und Umwelt.\n\nWir suchen unsere Umweltbranche in Grand-Lancy (GE), ein Umwelt / Wasser Intern (f/h/d) 100% für einen Zeitraum von 6 Monaten.\n\n• Ihre Aufgaben\n\n- Ja.\nTeilnahme an laufenden Studien und Projekten (Umweltverträglichkeitsstudie, Schwerkraftstudie, integriertes Wasser- und Hydraulikmanagement, Lärmstudie, Luftverschmutzung, Abfallwirtschaft und Ressourcenrückgewinnung usw.) und Bürolebensdauer\n\n- Ja.\nDatenerhebung, Erhebungen und Feldmessungen\n\n- Ja.\nModellierung mit technischer Software\n\n- Ja.\nTeilnahme und Beitrag bei der Erstellung von Plänen/Karten in den oben genannten Bereichen mit Hilfe von ArcGIS\n\n• Ihr Profil\n\n- Ja.\nEPF-Studierende in der Umweltwissenschaft und -technologie oder -ausbildung als gleichwertig. Absolventen können nicht inhaftiert werden.\n\n- Ja.\nGute Kenntnisse der GIS-Werkzeuge (ArcGis)\n\n- Ja.\nUm einen Führerschein zu nutzen\n\n- Ja.\nDynamische und autonome Persönlichkeit mit dem Sinne der Initiative\n\nDie Angebote von Arbeitsagenturen werden bei dieser Einstellung nicht berücksichtigt. Folglich wird CSD keine Verhandlungen für die Zahlung eines Anspruchs eingehen.",
+        "fr": "Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.\n\nNous recherchons pour notre succursale Environnement à Grand-Lancy (GE), un Stagiaire en Environnement / Eau (f/h/d) 100% pour une durée de 6 mois .\n\n• Vos tâches\n\n-\nParticipation aux études et projets en cours (étude d’impact environnement, gravières, gestion intégrée des eaux et hydraulique, étude de bruit, pollution de l'air, gestion des déchets et valorisation des ressources, etc.) et à la vie de bureau\n\n-\nCollecte de données, relevés et mesures de terrain\n\n-\nModélisation à l’aide de logiciels techniques\n\n-\nParticipation et contribution à l'élaboration de plans/cartes dans les domaines précités à l'aide d'ArcGIS\n\n• Votre profil\n\n-\nÉtudiant/e EPF en sciences et techniques de l’environnement ou formation jugée équivalente. Les personnes diplômées ne peuvent pas être retenues.\n\n-\nBonnes connaissances des outils SIG (ArcGis)\n\n-\nÊtre au bénéfice d’un permis de conduire\n\n-\nPersonnalité dynamique et autonome avec le sens de l'initiative\n\nLes offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention."
       },
       "location": "Lancy",
       "canton": "GE",
@@ -3081,7 +3089,6 @@
       "applyUrl": "https://jobs.csd.ch/jobs/7853687-stagiaire-en-environnement-eau-f-h-d-100",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T14:49:09.709Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -3095,14 +3102,28 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch"
+        ],
+        "en": [
+          "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch"
+        ],
+        "de": [
+          "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-en-environnement-eau-f-h-d-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-ce214e42ff9c",
       "slug": "praktikant-geologie-e-umwelt-80-100-m-w-d-csd-engineers-chur",
       "slugByLocale": {
         "it": "praktikant-geologie-e-umwelt-80-100-m-w-d-csd-engineers-chur",
-        "en": "praktikant-geologie-und-umwelt-80-100-m-w-d-csd-engineers-ch",
+        "en": "intern-geology-and-environment-80-100-m-w-d-csd-engineers-chur",
         "de": "praktikant-geologie-und-umwelt-80-100-m-w-d-csd-engineers-ch",
         "fr": "praktikant-geologie-und-umwelt-80-100-m-w-d-csd-engineers-ch"
       },
@@ -3111,17 +3132,17 @@
       "companyDomain": "csd.ch",
       "title": "Praktikant Geologie und Umwelt 80-100% (m/w/d)",
       "titleByLocale": {
-        "it": "Praktikant Geologie e Umwelt 80-100% (m/w/d)",
-        "en": "Praktikant Geologie und Umwelt 80-100% (m/w/d)",
+        "it": "Geologie Praktikant und Umwelt 80-100% (m/w/d)",
+        "en": "Intern geology and environment 80-100% (m/w/d)",
         "de": "Praktikant Geologie und Umwelt 80-100% (m/w/d)",
-        "fr": "Praktikant Geologie und Umwelt 80-100% (m/w/d)"
+        "fr": "Praktikant Geologie und Umwelt 80-100% (m/m/j)"
       },
       "description": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Umwelt</strong> in <strong>Chur</strong> einen Praktikant Geologie und Umwelt 80-100% (m/w/d).</p><p><strong>Ihr Aufgabengebiet</strong></p><ul><li><p>Aktive Mitarbeit in verschiedenen abwechlungsreichen Projekten</p></li><li><p>Unterstützung der Arbeitskolleginnen und -kollegen in aktuellen \n• Aufgaben der Geologie und Umwelt</p></li><li><p>Zusammenarbeit in interdisziplinären Teams innerhalb des CSD-Netzwerks<br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p>Sie haben Ihr Hoch-, bzw. Fachhochschulstudium in Umweltwissenschaften, Geologie, Umweltingenieurwesen oder einer ähnlichen Fachrichtung mit dem Bachelor abgeschlossen (Master noch bevorstehend)</p></li><li><p>Sie besitzen gute Kenntnisse der MS-Office-Palette</p></li><li><p>Erfahrung mit GIS (ArcGIS) ist für diese Stelle von Vorteil</p></li><li><p>Zuverlässigkeit, Selbstständigkeit und Engagement zeichnen Sie aus</p></li></ul><p></p>",
       "descriptionByLocale": {
-        "it": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Umwelt</strong> in <strong>Chur</strong> einen Praktikant Geologie und Umwelt 80-100% (m/w/d).</p><p><strong>Ihr Aufgabengebiet</strong></p><ul><li><p>Aktive Mitarbeit in verschiedenen abwechlungsreichen Projekten</p></li><li><p>Unterstützung der Arbeitskolleginnen und -kollegen in aktuellen\n• Aufgaben der Geologie und Umwelt</p></li><li><p>Zusammenarbeit in interdisziplinären Teams innerhalb des CSD-Netzwerks<br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p>Sie haben Ihr Hoch-, bzw. Fachhochschulstudium in Umweltwissenschaften, Geologie, Umweltingenieurwesen oder einer ähnlichen Fachrichtung mit dem Bachelor abgeschlossen (Master noch bevorstehend)</p></li><li><p>Sie besitzen gute Kenntnisse der MS-Office-Palette</p></li><li><p>Erfahrung mit GIS (ArcGIS) ist für diese Stelle von Vorteil</p></li><li><p>Zuverlässigkeit, Selbstständigkeit und Engagement zeichnen Sie aus</p></li></ul><p></p>",
-        "en": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Umwelt</strong> in <strong>Chur</strong> einen Praktikant Geologie und Umwelt 80-100% (m/w/d).</p><p><strong>Ihr Aufgabengebiet</strong></p><ul><li><p>Aktive Mitarbeit in verschiedenen abwechlungsreichen Projekten</p></li><li><p>Unterstützung der Arbeitskolleginnen und -kollegen in aktuellen\n• Aufgaben der Geologie und Umwelt</p></li><li><p>Zusammenarbeit in interdisziplinären Teams innerhalb des CSD-Netzwerks<br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p>Sie haben Ihr Hoch-, bzw. Fachhochschulstudium in Umweltwissenschaften, Geologie, Umweltingenieurwesen oder einer ähnlichen Fachrichtung mit dem Bachelor abgeschlossen (Master noch bevorstehend)</p></li><li><p>Sie besitzen gute Kenntnisse der MS-Office-Palette</p></li><li><p>Erfahrung mit GIS (ArcGIS) ist für diese Stelle von Vorteil</p></li><li><p>Zuverlässigkeit, Selbstständigkeit und Engagement zeichnen Sie aus</p></li></ul><p></p>",
-        "de": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Umwelt</strong> in <strong>Chur</strong> einen Praktikant Geologie und Umwelt 80-100% (m/w/d).</p><p><strong>Ihr Aufgabengebiet</strong></p><ul><li><p>Aktive Mitarbeit in verschiedenen abwechlungsreichen Projekten</p></li><li><p>Unterstützung der Arbeitskolleginnen und -kollegen in aktuellen \n• Aufgaben der Geologie und Umwelt</p></li><li><p>Zusammenarbeit in interdisziplinären Teams innerhalb des CSD-Netzwerks<br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p>Sie haben Ihr Hoch-, bzw. Fachhochschulstudium in Umweltwissenschaften, Geologie, Umweltingenieurwesen oder einer ähnlichen Fachrichtung mit dem Bachelor abgeschlossen (Master noch bevorstehend)</p></li><li><p>Sie besitzen gute Kenntnisse der MS-Office-Palette</p></li><li><p>Erfahrung mit GIS (ArcGIS) ist für diese Stelle von Vorteil</p></li><li><p>Zuverlässigkeit, Selbstständigkeit und Engagement zeichnen Sie aus</p></li></ul><p></p>",
-        "fr": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Umwelt</strong> in <strong>Chur</strong> einen Praktikant Geologie und Umwelt 80-100% (m/w/d).</p><p><strong>Ihr Aufgabengebiet</strong></p><ul><li><p>Aktive Mitarbeit in verschiedenen abwechlungsreichen Projekten</p></li><li><p>Unterstützung der Arbeitskolleginnen und -kollegen in aktuellen\n• Aufgaben der Geologie und Umwelt</p></li><li><p>Zusammenarbeit in interdisziplinären Teams innerhalb des CSD-Netzwerks<br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p>Sie haben Ihr Hoch-, bzw. Fachhochschulstudium in Umweltwissenschaften, Geologie, Umweltingenieurwesen oder einer ähnlichen Fachrichtung mit dem Bachelor abgeschlossen (Master noch bevorstehend)</p></li><li><p>Sie besitzen gute Kenntnisse der MS-Office-Palette</p></li><li><p>Erfahrung mit GIS (ArcGIS) ist für diese Stelle von Vorteil</p></li><li><p>Zuverlässigkeit, Selbstständigkeit und Engagement zeichnen Sie aus</p></li></ul><p></p>"
+        "it": "Più di 1000 dipendenti in 30 sedi in Svizzera e in Europa: il Gruppo CSD è una società di ingegneria dinamica e in costante crescita. I nostri team, soluzioni ottimali per i nostri clienti con un aumento della qualità della vita e per l'ambiente sono il nostro marchio. Ti piace lavorare in un ambiente professionale e agile e mettere grande valore sulla qualità ed efficienza? Fai parte del nostro successo!\n\nStiamo cercando una geologia pratica e ambiente 80-100% (m/w/d).\n\nLe tue responsabilità\n\n- No.\nCooperazione attiva in vari progetti ricchi di progetti\n\n- No.\nSupporto per colleghi di lavoro in corso\n• Compiti geologici e ambientali\n\n- No.\nCooperazione in team interdisciplinari all'interno della rete CSD\n\n• Il tuo profilo\n\n- No.\nHai completato il tuo livello di istruzione superiore, superiore in Scienze Ambientali, Geologia, Ingegneria Ambientale, o un soggetto simile con il Bachelor (Master)\n\n- No.\nHai una buona conoscenza della tavolozza di MS Office\n\n- No.\nL'esperienza con GIS (ArcGIS) è utile per questa posizione\n\n- No.\nAffidabilità, lavoro autonomo e impegno",
+        "en": "More than 1000 employees at 30 locations in Switzerland and Europe: The CSD Group is a dynamic, steadily growing engineering company. Our teams, optimal solutions for our customers with an increase in quality of life and for the environment are our brand name. You like to work in a professional and agile environment and place great value on quality and efficiency? Be part of our success!\n\nWe are looking for a practical geology and environment 80-100% (m/w/d).\n\nYour responsibilities\n\n-\nActive cooperation in various project-rich projects\n\n-\nSupport for work colleagues in current\n• Geology and Environment Tasks\n\n-\nCooperation in interdisciplinary teams within the CSD network\n\n• Your profile\n\n-\nYou have completed your Higher, Higher Education degree in Environmental Sciences, Geology, Environmental Engineering, or a similar subject with the Bachelor (Master)\n\n-\nYou have good knowledge of MS Office palette\n\n-\nExperience with GIS (ArcGIS) is beneficial for this location\n\n-\nReliability, self-employment and commitment",
+        "de": "Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!\n\nWir suchen für unseren Bereich Umwelt in Chur einen Praktikant Geologie und Umwelt 80-100% (m/w/d).\n\nIhr Aufgabengebiet\n\n-\nAktive Mitarbeit in verschiedenen abwechlungsreichen Projekten\n\n-\nUnterstützung der Arbeitskolleginnen und -kollegen in aktuellen\n• Aufgaben der Geologie und Umwelt\n\n-\nZusammenarbeit in interdisziplinären Teams innerhalb des CSD-Netzwerks\n\n• Ihr Profil\n\n-\nSie haben Ihr Hoch-, bzw. Fachhochschulstudium in Umweltwissenschaften, Geologie, Umweltingenieurwesen oder einer ähnlichen Fachrichtung mit dem Bachelor abgeschlossen (Master noch bevorstehend)\n\n-\nSie besitzen gute Kenntnisse der MS-Office-Palette\n\n-\nErfahrung mit GIS (ArcGIS) ist für diese Stelle von Vorteil\n\n-\nZuverlässigkeit, Selbstständigkeit und Engagement zeichnen Sie aus",
+        "fr": "Plus de 1000 collaborateurs dans 30 sites en Suisse et en Europe : Le Groupe CSD est une entreprise d'ingénierie dynamique et en croissance constante. Nos équipes, solutions optimales pour nos clients avec une amélioration de la qualité de vie et pour l'environnement sont notre marque. Vous aimez travailler dans un environnement professionnel et agile et mettre une grande valeur sur la qualité et l'efficacité? Faites partie de notre succès!\n\nNous sommes à la recherche d'une géologie et d'un environnement pratiques 80 à 100% (m/p/j).\n\nVos responsabilités\n\n- Oui.\nCoopération active dans divers projets riches en projets\n\n- Oui.\nSoutien aux collègues de travail actuels\n• Tâches en géologie et environnement\n\n- Oui.\nCoopération dans les équipes interdisciplinaires au sein du réseau de la CDD\n\n• Votre profil\n\n- Oui.\nVous avez obtenu votre diplôme d'études supérieures en sciences de l'environnement, en géologie, en génie de l'environnement ou une matière semblable avec le baccalauréat (Master)\n\n- Oui.\nVous avez une bonne connaissance de la palette MS Office\n\n- Oui.\nL'expérience avec le SIG (ArcGIS) est bénéfique pour cet endroit\n\n- Oui.\nFiabilité, travail indépendant et engagement"
       },
       "location": "Chur",
       "canton": "GR",
@@ -3151,9 +3172,11 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-geologie-und-umwelt-80-100-m-w-d-csd-engineers-ch"
+        ],
+        "en": [
+          "praktikant-geologie-und-umwelt-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T14:49:08.812Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -3171,29 +3194,29 @@
     },
     {
       "id": "csd-engineers-35cef2550c4d",
-      "slug": "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch",
+      "slug": "intern-werkstudent-sustainable-building-60-100-m-w-d-csd-engineers-zurich",
       "slugByLocale": {
-        "it": "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch",
+        "it": "intern-werkstudent-sustainable-building-60-100-m-w-d-csd-engineers-zurich",
         "en": "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch",
         "de": "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch",
-        "fr": "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch"
+        "fr": "stagiaire-batiment-durable-pour-les-etudiants-de-werks-60-a-100-m-p-j-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
       "companyDomain": "csd.ch",
       "title": "Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d)",
       "titleByLocale": {
-        "it": "Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d)",
-        "en": "Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d)",
+        "it": "Intern / Werkstudent Sustainable Building 60–100% (m/w/d)",
+        "en": "Intern / Werkstudent Sustainable Building 60–100% (m/w/d)",
         "de": "Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d)",
-        "fr": "Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d)"
+        "fr": "Stagiaire / Bâtiment durable pour les étudiants de Werks 60 à 100% (m/p/j)"
       },
       "description": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD-Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams; optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Nachhaltiges Bauen</strong> in <strong>Zürich</strong> oder <strong>Bern</strong> einen Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d). <br></p><p><strong>Ihr Aufgabengebiet</strong></p><p>In Ihrer Tätigkeit wirken Sie aktiv an folgenden Schwerpunkten mit:</p><ul><li><p><strong>Zertifizierungsprojekte:</strong> Begleitung und Unterstützung bei Zertifizierungen nach SNBS, Minergie-Eco, BREEAM sowie DGNB / SGNI</p></li><li><p><strong>Strategieentwicklung:</strong> Mitarbeit an der Ausarbeitung und Verfeinerung von Nachhaltigkeitsstrategien für Bauvorhaben</p></li><li><p><strong>Berechnungen:</strong> Durchführung energetischer, thermischer und tageslichttechnischer Analysen</p></li><li><p><strong>Ökobilanzen:</strong> Erarbeitung von Ökobilanzen (Life Cycle Assessment) und Berechnung von Lebenszykluskosten</p></li><li><p><strong>Materialprüfung:</strong> Unterstützung bei Bauprodukt- und Materialprüfungen <br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p><strong>Ausbildung:</strong> Sie sind aktuell Student/in oder befinden sich im Abschlussphase Ihrer Ausbildung in den Bereichen Umwelt, Bau, Architektur, Ingenieurwesen oder Gebäudetechnik</p></li><li><p><strong>Kenntnisse:</strong> Gute Kenntnisse in gängigen Office-Programmen (Word, Excel, PowerPoint) sind erforderlich</p></li><li><p><strong>Fachwissen:</strong> Grundkenntnisse im Nachhaltigen Bauen sind von Vorteil</p></li><li><p><strong>Sprachen:</strong> Sehr gute Deutsch- und / oder gute Englischkenntnisse in Wort und Schrift sind Voraussetzung</p></li></ul><p></p>",
       "descriptionByLocale": {
-        "it": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD-Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams; optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Nachhaltiges Bauen</strong> in <strong>Zürich</strong> oder <strong>Bern</strong> einen Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d). <br></p><p><strong>Ihr Aufgabengebiet</strong></p><p>In Ihrer Tätigkeit wirken Sie aktiv an folgenden Schwerpunkten mit:</p><ul><li><p><strong>Zertifizierungsprojekte:</strong> Begleitung und Unterstützung bei Zertifizierungen nach SNBS, Minergie-Eco, BREEAM sowie DGNB / SGNI</p></li><li><p><strong>Strategieentwicklung:</strong> Mitarbeit an der Ausarbeitung und Verfeinerung von Nachhaltigkeitsstrategien für Bauvorhaben</p></li><li><p><strong>Berechnungen:</strong> Durchführung energetischer, thermischer und tageslichttechnischer Analysen</p></li><li><p><strong>Ökobilanzen:</strong> Erarbeitung von Ökobilanzen (Life Cycle Assessment) und Berechnung von Lebenszykluskosten</p></li><li><p><strong>Materialprüfung:</strong> Unterstützung bei Bauprodukt- und Materialprüfungen <br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p><strong>Ausbildung:</strong> Sie sind aktuell Student/in oder befinden sich im Abschlussphase Ihrer Ausbildung in den Bereichen Umwelt, Bau, Architektur, Ingenieurwesen oder Gebäudetechnik</p></li><li><p><strong>Kenntnisse:</strong> Gute Kenntnisse in gängigen Office-Programmen (Word, Excel, PowerPoint) sind erforderlich</p></li><li><p><strong>Fachwissen:</strong> Grundkenntnisse im Nachhaltigen Bauen sind von Vorteil</p></li><li><p><strong>Sprachen:</strong> Sehr gute Deutsch- und / oder gute Englischkenntnisse in Wort und Schrift sind Voraussetzung</p></li></ul><p></p>",
-        "en": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD-Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams; optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Nachhaltiges Bauen</strong> in <strong>Zürich</strong> oder <strong>Bern</strong> einen Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d). <br></p><p><strong>Ihr Aufgabengebiet</strong></p><p>In Ihrer Tätigkeit wirken Sie aktiv an folgenden Schwerpunkten mit:</p><ul><li><p><strong>Zertifizierungsprojekte:</strong> Begleitung und Unterstützung bei Zertifizierungen nach SNBS, Minergie-Eco, BREEAM sowie DGNB / SGNI</p></li><li><p><strong>Strategieentwicklung:</strong> Mitarbeit an der Ausarbeitung und Verfeinerung von Nachhaltigkeitsstrategien für Bauvorhaben</p></li><li><p><strong>Berechnungen:</strong> Durchführung energetischer, thermischer und tageslichttechnischer Analysen</p></li><li><p><strong>Ökobilanzen:</strong> Erarbeitung von Ökobilanzen (Life Cycle Assessment) und Berechnung von Lebenszykluskosten</p></li><li><p><strong>Materialprüfung:</strong> Unterstützung bei Bauprodukt- und Materialprüfungen <br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p><strong>Ausbildung:</strong> Sie sind aktuell Student/in oder befinden sich im Abschlussphase Ihrer Ausbildung in den Bereichen Umwelt, Bau, Architektur, Ingenieurwesen oder Gebäudetechnik</p></li><li><p><strong>Kenntnisse:</strong> Gute Kenntnisse in gängigen Office-Programmen (Word, Excel, PowerPoint) sind erforderlich</p></li><li><p><strong>Fachwissen:</strong> Grundkenntnisse im Nachhaltigen Bauen sind von Vorteil</p></li><li><p><strong>Sprachen:</strong> Sehr gute Deutsch- und / oder gute Englischkenntnisse in Wort und Schrift sind Voraussetzung</p></li></ul><p></p>",
-        "de": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD-Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams; optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Nachhaltiges Bauen</strong> in <strong>Zürich</strong> oder <strong>Bern</strong> einen Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d). <br></p><p><strong>Ihr Aufgabengebiet</strong></p><p>In Ihrer Tätigkeit wirken Sie aktiv an folgenden Schwerpunkten mit:</p><ul><li><p><strong>Zertifizierungsprojekte:</strong> Begleitung und Unterstützung bei Zertifizierungen nach SNBS, Minergie-Eco, BREEAM sowie DGNB / SGNI</p></li><li><p><strong>Strategieentwicklung:</strong> Mitarbeit an der Ausarbeitung und Verfeinerung von Nachhaltigkeitsstrategien für Bauvorhaben</p></li><li><p><strong>Berechnungen:</strong> Durchführung energetischer, thermischer und tageslichttechnischer Analysen</p></li><li><p><strong>Ökobilanzen:</strong> Erarbeitung von Ökobilanzen (Life Cycle Assessment) und Berechnung von Lebenszykluskosten</p></li><li><p><strong>Materialprüfung:</strong> Unterstützung bei Bauprodukt- und Materialprüfungen <br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p><strong>Ausbildung:</strong> Sie sind aktuell Student/in oder befinden sich im Abschlussphase Ihrer Ausbildung in den Bereichen Umwelt, Bau, Architektur, Ingenieurwesen oder Gebäudetechnik</p></li><li><p><strong>Kenntnisse:</strong> Gute Kenntnisse in gängigen Office-Programmen (Word, Excel, PowerPoint) sind erforderlich</p></li><li><p><strong>Fachwissen:</strong> Grundkenntnisse im Nachhaltigen Bauen sind von Vorteil</p></li><li><p><strong>Sprachen:</strong> Sehr gute Deutsch- und / oder gute Englischkenntnisse in Wort und Schrift sind Voraussetzung</p></li></ul><p></p>",
-        "fr": "<p><strong>Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD-Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams; optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!</strong></p><p>Wir suchen für unseren Bereich <strong>Nachhaltiges Bauen</strong> in <strong>Zürich</strong> oder <strong>Bern</strong> einen Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d). <br></p><p><strong>Ihr Aufgabengebiet</strong></p><p>In Ihrer Tätigkeit wirken Sie aktiv an folgenden Schwerpunkten mit:</p><ul><li><p><strong>Zertifizierungsprojekte:</strong> Begleitung und Unterstützung bei Zertifizierungen nach SNBS, Minergie-Eco, BREEAM sowie DGNB / SGNI</p></li><li><p><strong>Strategieentwicklung:</strong> Mitarbeit an der Ausarbeitung und Verfeinerung von Nachhaltigkeitsstrategien für Bauvorhaben</p></li><li><p><strong>Berechnungen:</strong> Durchführung energetischer, thermischer und tageslichttechnischer Analysen</p></li><li><p><strong>Ökobilanzen:</strong> Erarbeitung von Ökobilanzen (Life Cycle Assessment) und Berechnung von Lebenszykluskosten</p></li><li><p><strong>Materialprüfung:</strong> Unterstützung bei Bauprodukt- und Materialprüfungen <br></p></li></ul><p><strong>\n• Ihr Profil</strong></p><ul><li><p><strong>Ausbildung:</strong> Sie sind aktuell Student/in oder befinden sich im Abschlussphase Ihrer Ausbildung in den Bereichen Umwelt, Bau, Architektur, Ingenieurwesen oder Gebäudetechnik</p></li><li><p><strong>Kenntnisse:</strong> Gute Kenntnisse in gängigen Office-Programmen (Word, Excel, PowerPoint) sind erforderlich</p></li><li><p><strong>Fachwissen:</strong> Grundkenntnisse im Nachhaltigen Bauen sind von Vorteil</p></li><li><p><strong>Sprachen:</strong> Sehr gute Deutsch- und / oder gute Englischkenntnisse in Wort und Schrift sind Voraussetzung</p></li></ul><p></p>"
+        "it": "Più di 1000 dipendenti in 30 sedi in Svizzera e in Europa: il Gruppo CSD è una società di ingegneria dinamica e in costante crescita. I nostri team plasmano lo spirito di invenzione, competenza e multidisciplinarità; soluzioni ottimali per i nostri clienti con un plus per la qualità della vita e per l'ambiente sono il nostro marchio. Ti piace lavorare in un ambiente professionale e agile e mettere grande valore sulla qualità ed efficienza? Fai parte del nostro successo!\n\nStiamo cercando un tirocinante / studente di lavoro Sustainable Building 60-100% (m/w/d).\n\nLe tue responsabilità\n\nNella vostra attività, state attivamente lavorando sulle seguenti priorità:\n\n- No.\nProgetti di Certificazione: Accompagnamento e Supporto per Certificazioni di SNBS, Minergie-Eco, BREEAM e DGNB / SGNI\n\n- No.\nSviluppo della strategia: cooperazione nello sviluppo e nel perfezionamento delle strategie di sostenibilità per i progetti di costruzione\n\n- No.\nCalcolo delle analisi energetiche, termiche e diurne\n\n- No.\nBilancio ecologico: sviluppo di fogli di bilancio eco (valutazione del ciclo di vita) e calcolo dei costi del ciclo di vita\n\n- No.\nTest dei materiali: Supporto per la costruzione e la sperimentazione dei materiali\n\n• Il tuo profilo\n\n- No.\nIstruzione: Attualmente sei uno studente o sei nella fase finale della tua formazione nei settori dell'ambiente, della costruzione, dell'architettura, dell'ingegneria o della tecnologia costruttiva\n\n- No.\nConoscenza: È necessaria una buona conoscenza nei programmi di ufficio comuni (Word, Excel, PowerPoint)\n\n- No.\nConoscenza: La conoscenza di base della costruzione sostenibile è vantaggiosa\n\n- No.\nLingue: Molto buono tedesco e/o buone competenze in inglese in parola e scrittura sono richiesti",
+        "en": "More than 1000 employees at 30 locations in Switzerland and Europe: The CSD Group is a dynamic, steadily growing engineering company. Our teams shape the spirit of invention, competence and multidisciplinaryness; optimal solutions for our customers with a plus for quality of life and for the environment are our brand name. You like to work in a professional and agile environment and place great value on quality and efficiency? Be part of our success!\n\nWe are looking for an intern / working student Sustainable Building 60–100% (m/w/d).\n\nYour responsibilities\n\nIn your activity, you are actively working on the following priorities:\n\n-\nCertification Projects: Accompanying and Support for Certifications by SNBS, Minergie-Eco, BREEAM and DGNB / SGNI\n\n-\nStrategy development: cooperation in the development and refinement of sustainability strategies for construction projects\n\n-\nCalculation of energy, thermal and daylight analyses\n\n-\nEco balance sheets: development of eco balance sheets (life cycle assessment) and calculation of life cycle costs\n\n-\nMaterial testing: Support for construction and material testing\n\n• Your profile\n\n-\nEducation: You are currently a student or are in the final phase of your training in the fields of environment, construction, architecture, engineering or building technology\n\n-\nKnowledge: Good knowledge in common office programs (Word, Excel, PowerPoint) are required\n\n-\nKnowledge: Basic knowledge of sustainable construction is advantageous\n\n-\nLanguages: Very good German and/or good English skills in word and writing are required",
+        "de": "Mehr als 1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD-Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindungsgeist, Kompetenz und Multidisziplinarität prägen unsere Teams; optimale Lösungen für unsere Kundschaft mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz? Werden Sie Teil unseres Erfolges!\n\nWir suchen für unseren Bereich Nachhaltiges Bauen in Zürich oder Bern einen Praktikant / Werkstudent Nachhaltiges Bauen 60–100% (m/w/d).\n\nIhr Aufgabengebiet\n\nIn Ihrer Tätigkeit wirken Sie aktiv an folgenden Schwerpunkten mit:\n\n-\nZertifizierungsprojekte: Begleitung und Unterstützung bei Zertifizierungen nach SNBS, Minergie-Eco, BREEAM sowie DGNB / SGNI\n\n-\nStrategieentwicklung: Mitarbeit an der Ausarbeitung und Verfeinerung von Nachhaltigkeitsstrategien für Bauvorhaben\n\n-\nBerechnungen: Durchführung energetischer, thermischer und tageslichttechnischer Analysen\n\n-\nÖkobilanzen: Erarbeitung von Ökobilanzen (Life Cycle Assessment) und Berechnung von Lebenszykluskosten\n\n-\nMaterialprüfung: Unterstützung bei Bauprodukt- und Materialprüfungen\n\n• Ihr Profil\n\n-\nAusbildung: Sie sind aktuell Student/in oder befinden sich im Abschlussphase Ihrer Ausbildung in den Bereichen Umwelt, Bau, Architektur, Ingenieurwesen oder Gebäudetechnik\n\n-\nKenntnisse: Gute Kenntnisse in gängigen Office-Programmen (Word, Excel, PowerPoint) sind erforderlich\n\n-\nFachwissen: Grundkenntnisse im Nachhaltigen Bauen sind von Vorteil\n\n-\nSprachen: Sehr gute Deutsch- und / oder gute Englischkenntnisse in Wort und Schrift sind Voraussetzung",
+        "fr": "Plus de 1000 collaborateurs dans 30 sites en Suisse et en Europe : Le Groupe CSD est une entreprise d'ingénierie dynamique et en croissance constante. Nos équipes façonnent l'esprit d'invention, de compétence et de multidisciplinaire ; des solutions optimales pour nos clients avec un plus pour la qualité de vie et pour l'environnement sont notre marque. Vous aimez travailler dans un environnement professionnel et agile et mettre une grande valeur sur la qualité et l'efficacité? Faites partie de notre succès!\n\nNous sommes à la recherche d'un stagiaire / étudiant travaillant Bâtiment durable 60 à 100% (m/w/d).\n\nVos responsabilités\n\nDans votre activité, vous travaillez activement sur les priorités suivantes :\n\n- Oui.\nProjets de certification: Accompagnement et soutien pour les certifications par SNBS, Minergie-Eco, BREEAM et DGNB / SGNI\n\n- Oui.\nÉlaboration de stratégies : coopération pour l ' élaboration et le perfectionnement de stratégies de durabilité pour les projets de construction\n\n- Oui.\nCalcul des analyses d'énergie, de chaleur et de lumière du jour\n\n- Oui.\nBilans écologiques: développement des bilans écologiques (évaluation du cycle de vie) et calcul des coûts du cycle de vie\n\n- Oui.\nEssai des matériaux: support pour la construction et l'essai des matériaux\n\n• Votre profil\n\n- Oui.\nÉducation: Vous êtes actuellement étudiant ou en phase finale de votre formation dans les domaines de l'environnement, de la construction, de l'architecture, de l'ingénierie ou de la technologie du bâtiment\n\n- Oui.\nConnaissances : Une bonne connaissance des programmes communs de bureau (Word, Excel, PowerPoint) est requise\n\n- Oui.\nConnaissances: La connaissance de base de la construction durable est avantageuse\n\n- Oui.\nLangues: De très bonnes compétences en allemand et/ou en anglais en paroles et en écriture sont requises"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -3217,7 +3240,6 @@
       "applyUrl": "https://jobs.csd.ch/jobs/7853916-praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T14:49:08.255Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -3231,7 +3253,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch"
+        ],
+        "fr": [
+          "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d-csd-engineers-ch"
+      ]
     }
   ]
 }

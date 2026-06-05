@@ -59,6 +59,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Internal/Intensive Medicine Doctor EOC Bellinzona',
     'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'The Cantonal Hospital Organization (EOC) is seeking doctor candidates for the Internal Medicine and/or Intensive Care divisions at the Bellinzona Regional Hospital. Open positions for specialists and assistants.',
     'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Castles of Bellinzona, a symbol of job opportunities in Ticino',
+    'blog.article.frontalieri-svizzera.title': 'Cross-border workers in Switzerland',
+    'blog.article.frontalieri-svizzera.excerpt': 'Practical information for cross-border commuters',
+    'blog.article.frontalieri-svizzera.imageAlt': 'View of the city of Lugano',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'Cross-Border Permits G vs B: Changes Beyond 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Research Results and Data for the Area Beyond 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Map of Lugano with the Italian-Swiss border and the area beyond 20 km',
+    'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Calculate Swiss Net Salary for Cross-Border Workers',
+    'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Practical guide to calculate net salary in Switzerland, including taxes, deductions, and contributions for cross-border commuters.',
+    'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Woman with pay slip',
 };
 
 export default blogMetaChEn;

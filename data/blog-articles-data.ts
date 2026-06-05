@@ -25290,6 +25290,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'naspi-unemployment-benefits',
+ category: 'fiscale',
+ date: '2026-06-05T01:56:51.476Z',
+ image: '/images/blog/naspi-unemployment-benefits.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'concierge-ticino-lonza-ch',
+ category: 'pratico',
+ date: '2026-06-05T03:20:12.683Z',
+ image: '/images/blog/concierge-ticino-lonza-ch.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'chiasso-grenzubergang',
+ category: 'pratico',
+ date: '2026-06-05T05:22:51.147Z',
+ image: '/images/blog/chiasso-grenzubergang.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'educatore-infanzia-ticino-stipendio',
+ category: 'pratico',
+ date: '2026-06-05T07:00:39.982Z',
+ image: '/images/blog/educatore-infanzia-ticino-stipendio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

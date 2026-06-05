@@ -59,6 +59,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Médecin Médecine Interne/Intensive EOC Bellinzona',
     'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'L\'Ente Ospedaliero Cantonale (EOC) recherche des candidats médecins pour les divisions de Médecine Interne et/ou Médecine Intensive à l\'Hôpital Régional de Bellinzona. Postes ouverts pour spécialistes et assistants.',
     'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Châteaux de Bellinzona, un symbole d\'opportunités d\'emploi au Tessin',
+    'blog.article.frontalieri-svizzera.title': 'Frontaliers en Suisse',
+    'blog.article.frontalieri-svizzera.excerpt': 'Informations pratiques pour frontaliers',
+    'blog.article.frontalieri-svizzera.imageAlt': 'Vue de la ville de Lugano',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'Permessi G vs B frontaliers 2026: les changements au-delà de 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Résultats de recherche et données sur la zone au-delà des 20 km 💡',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Carte de Lugano avec la frontière italo-suisse et la zone au-delà de 20 km',
+    'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Calculer le Salaire Net pour Frontaliers en Suisse',
+    'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Guide pratique pour calculer le salaire net en Suisse, en tenant compte des impôts, déductions et cotisations',
+    'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Femme avec bulletin de salaire',
 };
 
 export default blogMetaChFr;

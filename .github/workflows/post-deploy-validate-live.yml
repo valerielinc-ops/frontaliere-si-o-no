@@ -318,3 +318,19 @@ jobs:
             --reopen-within-hours 6 \
             --label Bug \
             --workflow "Post-deploy Validate Live"
+
+      - name: Resolve GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Mirror of the failure reporter: live validation passed, so close the
+          # canonical "Validation Failure (live)" issue if open — no stale issue
+          # while the state is green. Idempotent; reopens on a re-flap via the
+          # failure reporter's --reopen-within-hours 6.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "Validation Failure (live): post-deploy" \
+            --workflow "Post-deploy Validate Live" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

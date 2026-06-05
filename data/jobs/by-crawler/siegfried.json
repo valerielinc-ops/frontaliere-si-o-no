@@ -94,7 +94,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -250,7 +249,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.286Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -353,7 +351,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -452,7 +449,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.800Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -525,7 +521,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -613,7 +608,6 @@
         "mecanicien-m-f-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -697,7 +691,6 @@
         "kalibriertechniker-m-w-d-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -762,7 +755,6 @@
       "jobReqId": "R26_406",
       "hiringOrganization": "Siegfried AG",
       "firstSeenAt": "2026-05-01T22:19:23.354Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -916,7 +908,6 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:37:48.270Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -936,10 +927,10 @@
       "id": "siegfried-8bf702f14b39",
       "slug": "ingegnere-di-produzione-siegfried-zofingen",
       "slugByLocale": {
-        "it": "ingegnere-di-produzione-siegfried-zofingen",
+        "it": "betriebsingenieur-in-siegfried-zofingen",
         "en": "betriebsingenieur-in-siegfried-zofingen",
         "de": "betriebsingenieur-in-siegfried-ch",
-        "fr": "ingenieur-de-production-siegfried-zofingen"
+        "fr": "betriebsingenieur-in-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -982,20 +973,17 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "betriebsingenieur-in-siegfried-zofingen"
+        "ingenieur-de-production-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsingenieur-in-siegfried-ch",
-          "betriebsingenieur-in-siegfried-zofingen"
+          "betriebsingenieur-in-siegfried-ch"
         ],
         "fr": [
-          "betriebsingenieur-in-siegfried-zofingen",
           "ingenieur-de-production-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1071,7 +1059,6 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1089,9 +1076,9 @@
     },
     {
       "id": "siegfried-612b054c6700",
-      "slug": "lab-technician-r-d-siegfried-ch",
+      "slug": "laboratorio-tecnico-r-d-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "lab-technician-r-d-siegfried-ch",
+        "it": "laboratorio-tecnico-r-d-siegfried-evionnaz",
         "en": "lab-technician-r-d-siegfried-evionnaz",
         "de": "lab-techniker-r-d-siegfried-evionnaz",
         "fr": "lab-technician-r-d-siegfried-ch"
@@ -1136,16 +1123,14 @@
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "laboratorio-tecnico-r-d-siegfried-evionnaz"
+        "lab-technician-r-d-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratorio-tecnico-r-d-siegfried-evionnaz",
           "lab-technician-r-d-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1163,9 +1148,9 @@
     },
     {
       "id": "siegfried-ac6024cfb924",
-      "slug": "executive-assistant-siegfried-ch",
+      "slug": "assistente-esecutivo-siegfried-zofingen",
       "slugByLocale": {
-        "it": "executive-assistant-siegfried-ch",
+        "it": "assistente-esecutivo-siegfried-zofingen",
         "en": "executive-assistant-siegfried-ch",
         "de": "executive-assistant-siegfried-ch",
         "fr": "executive-assistant-siegfried-zofingen"
@@ -1210,16 +1195,14 @@
       "jobReqId": "R26_413",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "assistente-esecutivo-siegfried-zofingen"
+        "executive-assistant-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-esecutivo-siegfried-zofingen",
           "executive-assistant-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-12T11:59:11.839Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1467,7 +1450,6 @@
         "spezialist-in-geratewartung-labor-m-w-d-siegfried-ch"
       ],
       "firstSeenAt": "2026-05-01T22:19:22.405Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1532,17 +1514,23 @@
       "jobReqId": "R26_482",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "head-of-sales-business-development-drug-products-siegfried-ch"
+        "head-of-sales-business-development-drug-products-siegfried-ch",
+        "responsabile-sales-business-development-drug-products-siegfried-zofingen",
+        "leiter-sales-business-development-drug-products-siegfried-zofingen",
+        "responsable-sales-business-development-drug-products-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-sales-business-development-drug-products-siegfried-ch"
+          "head-of-sales-business-development-drug-products-siegfried-ch",
+          "responsabile-sales-business-development-drug-products-siegfried-zofingen"
         ],
         "fr": [
-          "head-of-sales-business-development-drug-products-siegfried-ch"
+          "head-of-sales-business-development-drug-products-siegfried-ch",
+          "responsable-sales-business-development-drug-products-siegfried-zofingen"
         ],
         "de": [
-          "head-of-sales-business-development-drug-products-siegfried-ch"
+          "head-of-sales-business-development-drug-products-siegfried-ch",
+          "leiter-sales-business-development-drug-products-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-04T13:31:49.514Z",

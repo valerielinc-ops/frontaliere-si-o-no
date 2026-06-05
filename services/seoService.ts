@@ -3924,6 +3924,13 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-calendario-festivi-ticino-2026': { name: 'Festivi Ticino 2026', path: '/articoli-frontaliere/calendario-festivi-ticino-2026', parent: 'blog' },
     'blog-medico-medicina-interna-intensiva-eoc': { name: 'Medico EOC Bellinzona', path: '/articoli-svizzera/medico-medicina-interna-intensiva-eoc/', parent: 'blog' },
     'blog-telelavoro-frontalieri-italia-svizzera': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera', parent: 'blog' },
+    'blog-naspi-unemployment-benefits': { name: 'NASPI disoccupazione', path: '/articoli-frontaliere/naspi-unemployment-benefits', parent: 'blog' },
+    'blog-frontalieri-svizzera': { name: 'Frontalieri', path: '/articoli-svizzera/frontalieri-svizzera/', parent: 'blog' },
+    'blog-concierge-ticino-lonza-ch': { name: 'Offerte Lavoro', path: '/articoli-frontaliere/concierge-ticino-lonza-ch', parent: 'blog' },
+    'blog-permesso-g-vs-b-2026-oltre-20-km': { name: 'Permessi frontalieri', path: '/articoli-svizzera/permesso-g-vs-b-2026-oltre-20-km/', parent: 'blog' },
+    'blog-chiasso-grenzubergang': { name: 'Chiasso', path: '/articoli-frontaliere/chiasso-grenzubergang', parent: 'blog' },
+    'blog-calcul-salaire-net-suiss-frontalier': { name: 'Come Calcolare il Salario Netto per Fron', path: '/articoli-svizzera/calcul-salaire-net-suiss-frontalier/', parent: 'blog' },
+    'blog-educatore-infanzia-ticino-stipendio': { name: 'Lavoro Educatori', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

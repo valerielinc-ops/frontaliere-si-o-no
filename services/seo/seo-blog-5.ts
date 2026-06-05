@@ -42467,6 +42467,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naspi-unemployment-benefits': {
+    title: 'NASPI e frontalieri: cosa cambia | Frontaliere Ticino',
+    description: 'La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naspi, cosa, cambia, prestazione',
+    ogTitle: 'NASPI e frontalieri: cosa cambia',
+    ogDescription: 'La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?',
+    canonicalPath: '/articoli-frontaliere/naspi-unemployment-benefits',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "NASPI e frontalieri: cosa cambia",
+      "description": "La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naspi-unemployment-benefits.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona con un certificato e il telefono in mano, sullo sfondo la città di Lugano"
+      },
+      "datePublished": "2026-06-05T01:56:51+00:00",
+      "dateModified": "2026-06-05T01:56:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-unemployment-benefits`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-concierge-ticino-lonza-ch': {
+    title: 'Lonza cerca Concierge in Ticino | Frontaliere Ticino',
+    description: 'Lonza SA offre una posizione di Concierge in Ticino (80-100%). Scopri i dettagli dell\'offerta di lavoro per frontalieri. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lonza, cerca, concierge, alla',
+    ogTitle: 'Lonza cerca Concierge in Ticino',
+    ogDescription: 'Lonza SA offre una posizione di Concierge in Ticino (80-100%). Scopri i dettagli dell\'offerta di lavoro per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/concierge-ticino-lonza-ch',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lonza cerca Concierge in Ticino",
+      "description": "Lonza SA offre una posizione di Concierge in Ticino (80-100%). Scopri i dettagli dell'offerta di lavoro per frontalieri. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/concierge-ticino-lonza-ch.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lungolago di Lugano con edifici moderni."
+      },
+      "datePublished": "2026-06-05T03:20:12+00:00",
+      "dateModified": "2026-06-05T03:20:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/concierge-ticino-lonza-ch`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chiasso-grenzubergang': {
+    title: 'Grenzübergang Chiasso: cosa c\'è da sapere | Frontaliere Ticino',
+    description: 'Informazioni sulle attuali condizioni del passaggio frontaliere a Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grenzübergang, chiasso, cosa, sapere',
+    ogTitle: 'Grenzübergang Chiasso',
+    ogDescription: 'Informazioni sulle attuali condizioni del passaggio frontaliere a Chiasso.',
+    canonicalPath: '/articoli-frontaliere/chiasso-grenzubergang',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grenzübergang Chiasso: cosa c'è da sapere",
+      "description": "Informazioni sulle attuali condizioni del passaggio frontaliere a Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiasso-grenzubergang.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La stazione di Chiasso"
+      },
+      "datePublished": "2026-06-05T05:22:51+00:00",
+      "dateModified": "2026-06-05T05:22:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-grenzubergang`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-educatore-infanzia-ticino-stipendio': {
+    title: 'Educatore infanzia in Ticino: stipendio e requisiti',
+    description: 'Guida completa per educatori in Ticino: diploma SSS, stipendio 73-97k CHF, Permesso G e confronto salariale con Italia e Germania. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, educatore, infanzia, stipendio, requisiti',
+    ogTitle: 'Educatore infanzia in Ticino: stipendio e requisiti',
+    ogDescription: 'Scopri quanto guadagna un educatore in Ticino, i requisiti SSS e come ottenere il Permesso G per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Educatore infanzia in Ticino: stipendio e requisiti",
+      "description": "Guida completa per educatori in Ticino: diploma SSS, stipendio 73-97k CHF, Permesso G e confronto salariale con Italia e Germania. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/educatore-infanzia-ticino-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Educatore dell'infanzia al lavoro in un asilo moderno in Ticino con panorama alpino."
+      },
+      "datePublished": "2026-06-05T07:00:40+00:00",
+      "dateModified": "2026-06-05T07:00:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
