@@ -1,22 +1,22 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-06-05T11:32:50.218Z",
+  "generatedAt": "2026-06-05T21:44:47.140Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 75764,
-  "avgDurationMs": 75764,
+  "durationMs": 85563,
+  "avgDurationMs": 85563,
   "durationHistory": [
-    75764
+    85563
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-fooban",
-      "slug": "assistente-sales-marketing-customer-support-mercato-tedesco-cambiavalute-ch-ticino",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
       "location": "Ticino",
@@ -57,7 +57,7 @@
     },
     {
       "id": "company-a24znt",
-      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
+      "slug": "assistente-vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-ticino",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
       "location": "Ticino",
@@ -125,7 +125,6 @@
       "firstSeenAt": "2026-06-05T07:22:32.187Z",
       "country": "CH",
       "sourceLang": "it",
-      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "streetAddress": "Via Pessina 6",
@@ -134,6 +133,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
