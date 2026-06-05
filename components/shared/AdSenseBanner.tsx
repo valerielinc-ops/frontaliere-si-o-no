@@ -252,6 +252,22 @@ export default function AdSenseBanner({
  }
  }
 
+ // First-interaction trigger: load on the first real user engagement so a
+ // quick-bounce mobile session that taps/scrolls before the idle fallback
+ // fires still serves the anchor/in-page Auto Ads. Mirrors the interaction
+ // listeners in ADSENSE_LOADER_CONTENT (build-plugins/constants.ts).
+ const INTERACTION_EVENTS: Array<keyof DocumentEventMap> = ['scroll', 'touchstart', 'pointerdown', 'keydown', 'mousemove'];
+ const onFirstInteraction = () => {
+ io.disconnect();
+ loadAdSenseScript();
+ setState('waiting_width');
+ };
+ if (!SKIP_FOR_BOT && typeof document !== 'undefined') {
+ for (const ev of INTERACTION_EVENTS) {
+ document.addEventListener(ev, onFirstInteraction, { once: true, passive: true, capture: true });
+ }
+ }
+
  return () => {
  io.disconnect();
  const cic = (window as unknown as {
@@ -259,6 +275,11 @@ export default function AdSenseBanner({
  }).cancelIdleCallback;
  if (idleHandle !== undefined && typeof cic === 'function') cic(idleHandle);
  if (idleTimer !== undefined) clearTimeout(idleTimer);
+ if (typeof document !== 'undefined') {
+ for (const ev of INTERACTION_EVENTS) {
+ document.removeEventListener(ev, onFirstInteraction, true);
+ }
+ }
  };
  }, [enabled, adSlot, loadAdSenseScript]);
 
