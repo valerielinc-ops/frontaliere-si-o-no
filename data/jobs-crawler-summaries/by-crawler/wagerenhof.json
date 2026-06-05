@@ -1,18 +1,55 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-06-04T23:20:24.400Z",
+  "generatedAt": "2026-06-05T12:55:38.719Z",
   "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 4,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 14872,
-  "avgDurationMs": 14872,
+  "durationMs": 13965,
+  "avgDurationMs": 13965,
   "durationHistory": [
-    14872
+    13965
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "wagerenhof-4a1664f08e9a",
+      "slug": "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-trompete-80-100-wagerenhof-uster",
+      "company": "Stiftung Wagerenhof",
+      "companyKey": "wagerenhof",
+      "companyDomain": "wagerenhof.ch",
+      "title": "Fachperson Betreuung (FaBe) für die Wohngemeinschaft Trompete (80 – 100%)",
+      "needsRetranslation": true,
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-481&cHash=ab6ec5d181bc2200b9091dacde2898b9",
+      "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-05T12:55:29.001Z",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-05",
+      "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-481&cHash=ab6ec5d181bc2200b9091dacde2898b9",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "wagerenhof-bd4a61e982ac",
@@ -27,7 +64,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-496&cHash=ab8b4947005e7fcc52ec66840b136463",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T23:20:14.392Z",
+      "crawledAt": "2026-06-05T12:55:31.346Z",
       "addressLocality": "Bauma",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -43,11 +80,11 @@
       "postedDate": "2026-06-04",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-496&cHash=ab8b4947005e7fcc52ec66840b136463",
       "firstSeenAt": "2026-06-04T16:03:16.893Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -64,7 +101,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-528&cHash=88e33377daaa77f070b8fff50c44a193",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T23:20:16.287Z",
+      "crawledAt": "2026-06-05T12:55:33.006Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,11 +117,11 @@
       "postedDate": "2026-06-04",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-528&cHash=88e33377daaa77f070b8fff50c44a193",
       "firstSeenAt": "2026-06-04T16:03:19.550Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +138,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T23:20:18.709Z",
+      "crawledAt": "2026-06-05T12:55:34.401Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,11 +154,11 @@
       "postedDate": "2026-06-04",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
       "firstSeenAt": "2026-06-04T16:03:21.177Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -138,7 +175,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-527&cHash=f803eb301a13fc1d731c04f49d266371",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T23:20:20.325Z",
+      "crawledAt": "2026-06-05T12:55:36.661Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -154,28 +191,29 @@
       "postedDate": "2026-06-04",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-527&cHash=f803eb301a13fc1d731c04f49d266371",
       "firstSeenAt": "2026-06-04T16:03:23.010Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "wagerenhof-620c7177f6d2",
-      "slug": "fachperson-gesundheit-oder-betreuung-fur-die-intensiv-wohngemeinschaft-seestern-orange-60",
+      "slug": "fachperson-gesundheit-o-betreuung-per-la-intensiv-wohngemeinschaft-seestern-orange-60-100-stiftung-wagerenhof-uster",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Fachperson Gesundheit oder Betreuung für die intensiv Wohngemeinschaft Seestern orange (60 – 100%)",
-      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-513&cHash=eac28eeb0e663066e1dd16fa3bf6ad57",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T23:20:22.160Z",
+      "crawledAt": "2026-06-04T16:03:24.992Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -190,16 +228,17 @@
       "featured": false,
       "postedDate": "2026-06-04",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-513&cHash=eac28eeb0e663066e1dd16fa3bf6ad57",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "firstSeenAt": "2026-06-04T16:03:24.992Z",
-      "_qualityScore": 79,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
