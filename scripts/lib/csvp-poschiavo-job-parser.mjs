@@ -108,7 +108,11 @@ export async function fetchAllCsvpPoschiavoJobs() {
         'Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).',
       ].filter(Boolean),
     });
-    const sourceLang = detectLang(description || title, 'it');
+    // Detect the source locale from the stable Italian listing fields (title +
+    // intro), NOT the now-PDF-backed description: a German-leaning PDF could
+    // otherwise flip sourceLang to 'de' and route the text to descriptionByLocale.de
+    // while the boilerplate guard reads descriptionByLocale.it.
+    const sourceLang = detectLang(`${title} ${it.intro || ''}`.trim() || description, 'it');
     const jobSlug = slugify(`${title} ${CSVP_POSCHIAVO_KEY} poschiavo`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
     jobs.push({
