@@ -46,14 +46,20 @@ const SWISS_PHONE_RX =
 // Used only when anchored to a "(tel. …)" parenthetical (steps 1–2).
 const NAME = "[A-ZÀ-Þ][a-zà-öø-ÿ'’.-]*(?:\\s+[A-ZÀ-Þ][a-zà-öø-ÿ'’.-]*){1,2}";
 
-// "contattare/contatti/rivolgersi a/chiamare/telefonare a <Name> (tel. …)"
+// "contattare/contatti/rivolgersi a/chiamare/telefonare a <Name> (tel. …)".
+// NOTE: no global `i` flag here — it would make `[A-ZÀ-Þ]` in NAME match
+// lowercase too, defeating the "capitalized token only" precision guard (a
+// lowercase phrase before "(tel. …)" would be captured as a name and removed
+// elsewhere). Case-insensitivity is scoped to the verb's leading letter only,
+// so a sentence-initial "Contattare" still matches.
 const CONTACT_VERB_RX = new RegExp(
-  `\\b(contatt\\w+|rivolgersi a|chiamare|telefonare a|scrivere a)\\s+(${NAME})\\s*\\(\\s*tel\\.?[^)]{0,40}\\)`,
-  'giu',
+  `\\b([Cc]ontatt\\w+|[Rr]ivolgersi a|[Cc]hiamare|[Tt]elefonare a|[Ss]crivere a)\\s+(${NAME})\\s*\\(\\s*[Tt]el\\.?[^)]{0,40}\\)`,
+  'gu',
 );
 
-// Bare "<Name> (tel. …)" not preceded by a contact verb.
-const NAME_PHONE_RX = new RegExp(`(${NAME})\\s*\\(\\s*tel\\.?[^)]{0,40}\\)`, 'giu');
+// Bare "<Name> (tel. …)" not preceded by a contact verb. No `i` flag — NAME must
+// start uppercase (see CONTACT_VERB_RX note).
+const NAME_PHONE_RX = new RegExp(`(${NAME})\\s*\\(\\s*[Tt]el\\.?[^)]{0,40}\\)`, 'gu');
 
 // Any leftover phone parenthetical "(tel. …)" / "(Tel. …)".
 const PHONE_PAREN_RX = /\(\s*tel\.?[^)]{0,40}\)/giu;

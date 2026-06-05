@@ -83,6 +83,21 @@ describe('stripContactPII', () => {
     }
   });
 
+  it('does NOT treat a lowercase phrase before "(tel. …)" as a name (precision guard)', () => {
+    // Without the case-insensitive `i` flag, NAME must start uppercase, so a
+    // generic lowercase phrase is left in place — only the phone is stripped.
+    const out = stripContactPII('Per info contattare il nostro team (tel. 058 123 45 67).');
+    expect(out).toMatch(/contattare il nostro team/);
+    expect(out).not.toMatch(/058 123 45 67/);
+  });
+
+  it('still matches a sentence-initial capitalized verb "Contattare"', () => {
+    const out = stripContactPII('Contattare Mario Rossi (tel. 058 123 45 67) per info.');
+    expect(out).not.toMatch(/Mario Rossi/);
+    expect(out).not.toMatch(/058 123 45 67/);
+    expect(out).toMatch(/Contattare l'agenzia per info\./);
+  });
+
   it('strips a phone inside a "(Name, phone)" list but keeps the name', () => {
     const out = stripContactPII('Setzen Sie sich mit (Anna Verdi, 056 100 20 30) in Kontakt.');
     expect(out).toMatch(/\(Anna Verdi\)/);
