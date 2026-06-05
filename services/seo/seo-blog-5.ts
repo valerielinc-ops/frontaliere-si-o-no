@@ -42467,6 +42467,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naspi-unemployment-benefits': {
+    title: 'NASPI e frontalieri: cosa cambia | Frontaliere Ticino',
+    description: 'La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naspi, cosa, cambia, prestazione',
+    ogTitle: 'NASPI e frontalieri: cosa cambia',
+    ogDescription: 'La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?',
+    canonicalPath: '/articoli-frontaliere/naspi-unemployment-benefits',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "NASPI e frontalieri: cosa cambia",
+      "description": "La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naspi-unemployment-benefits.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona con un certificato e il telefono in mano, sullo sfondo la città di Lugano"
+      },
+      "datePublished": "2026-06-05T01:56:51+00:00",
+      "dateModified": "2026-06-05T01:56:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-unemployment-benefits`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
