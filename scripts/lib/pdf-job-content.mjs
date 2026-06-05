@@ -148,7 +148,7 @@ export async function extractPdfJobContentFromUrl(
     headers = {},
   } = {},
 ) {
-  if (!pdfUrl) return { text: '', totalPages: 0, rawText: '', sourceUrl: '' };
+  if (!pdfUrl) return { text: '', thin: false, totalPages: 0, rawText: '', sourceUrl: '' };
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -177,14 +177,30 @@ export async function extractPdfJobContentFromUrl(
     const totalPages = Number(extracted?.totalPages || 0);
     const normalizedText = normalizePdfJobText(rawText);
 
-    // Diagnostic: detect image-only PDFs (pages exist but no text layer)
+    // Detect image-only PDFs (pages exist but no usable text layer). A thin
+    // extraction (1–49 chars: a broken fragment, page number remnant, etc.) is
+    // NOT real job content. We must surface `text: ''` for it, not the fragment:
+    // consumers reading `pdf.text` fall back to their inline intro via
+    // `pdfText || fallbackText` (buildPdfBackedDescription) ONLY when `text` is
+    // empty. Returning the thin fragment instead glues intro+fragment+footer
+    // into a boilerplate-only description that hard-fails the crawler's
+    // boilerplate guard (#1485).
+    //
+    // `rawText` is intentionally NOT blanked: it carries the image-only
+    // diagnostic and is the un-normalized source that `buildPdfBackedDescription`
+    // / `buildFartDescription` normalize themselves. But several consumers prefer
+    // `pdf.rawText || pdf.text`, which would bypass the `text: ''` guard. They
+    // must honor the `thin` flag (`pdf.thin ? '' : (pdf.rawText || pdf.text)`) so
+    // the fallback happens for them too. The `warning` is preserved either way so
+    // operators still see the image-only diagnostic.
     const thinContent = totalPages > 0 && normalizedText.length < 50;
     const warning = thinContent
       ? `PDF has ${totalPages} page(s) but only ${normalizedText.length} chars extracted (possible image-only/scanned PDF)`
       : undefined;
 
     return {
-      text: normalizedText,
+      text: thinContent ? '' : normalizedText,
+      thin: thinContent,
       rawText,
       totalPages,
       sourceUrl: pdfUrl,
@@ -193,6 +209,7 @@ export async function extractPdfJobContentFromUrl(
   } catch (error) {
     return {
       text: '',
+      thin: false,
       rawText: '',
       totalPages: 0,
       sourceUrl: pdfUrl,
