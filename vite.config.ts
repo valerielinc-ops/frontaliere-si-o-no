@@ -321,10 +321,20 @@ export default defineConfig(({ mode }) => {
  ...(ASSET_CDN
  ? {
  experimental: {
- renderBuiltUrl(filename: string) {
- // filename is output-relative, e.g. "assets/index-abc.js" → served
- // from the CDN repo at the same path.
- return `${ASSET_CDN}/${filename}`;
+ renderBuiltUrl(filename: string, { type }: { type: 'asset' | 'public' }) {
+ // Only BUNDLER-emitted assets (dist/assets/* JS/CSS/chunks) are pushed to the
+ // CDN, so only those may be rebased. public/* files — favicon, PWA icons,
+ // manifest.webmanifest, fonts, llms.txt, AND /.well-known/ai-plugin.json — are
+ // copied as-is and MUST stay same-origin: they are NOT on the CDN (rebasing
+ // 404s every page) and several are origin-bound by contract (AI/plugin
+ // discovery + the PWA manifest & its icons). #1293's blanket rebase sent them
+ // all to the CDN (incl. a malformed `${ASSET_CDN}//fonts/…` double slash from
+ // @font-face url(/fonts/…)); scoping to `type === 'asset'` fixes the whole class.
+ // public assets → same-origin absolute (matches the pre-#1293 base '/' default;
+ // strip a leading slash so a CSS `url(/fonts/…)` filename doesn't double it).
+ if (type !== 'asset') return `/${filename.replace(/^\/+/, '')}`;
+ // bundler assets → CDN, same output-relative path (e.g. "assets/index-abc.js").
+ return `${ASSET_CDN}/${filename.replace(/^\/+/, '')}`;
  },
  },
  }
