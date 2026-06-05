@@ -140,11 +140,16 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(src).toMatch(/setJobs\(finalJobs\)/);
     });
 
-    it('renders a seeded active detail immediately instead of the jobsLoading spinner', () => {
-      // Without this the unconditional `if (jobsLoading) return <spinner>` masks
+    it('renders a seeded active detail immediately instead of the jobsLoading loader', () => {
+      // Without this the unconditional `if (jobsLoading) return <loader>` masks
       // the seed until the full index lands — the seed would be dead weight.
+      // The loader/skeleton returns must be gated behind `!seededActiveDetail`
+      // so a seeded active detail falls through to the real render.
       expect(src).toMatch(/const seededActiveDetail = selectedJob && initialJobSlug/);
-      expect(src).toMatch(/if \(!seededActiveDetail\) \{[\s\S]{0,1200}Loader2/);
+      const guardIdx = src.indexOf('if (!seededActiveDetail) {');
+      const loaderIdx = src.indexOf('<Loader2 className="w-9 h-9 text-accent animate-spin" />');
+      expect(guardIdx).toBeGreaterThan(0);
+      expect(loaderIdx).toBeGreaterThan(guardIdx);
     });
   });
 });

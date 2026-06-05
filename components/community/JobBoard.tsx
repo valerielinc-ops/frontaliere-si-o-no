@@ -4851,14 +4851,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  );
  }
- // A build-seeded active job-detail renders its real content immediately —
- // skip the spinner and fall through to the `if (selectedJob)` block below so
- // the page paints on the first frame without waiting for the full index.
- // (CLS-safe: real layout replaces the reserve, no late jump.) Without this,
- // the unconditional spinner masks the seed until jobsLoading flips false.
+ // A build-seeded active job-detail (window.__JOB_SEED__) renders its real
+ // content immediately — skip the loader and fall through to the
+ // `if (selectedJob)` block below so the page paints on the first frame
+ // without waiting for the full index. (CLS-safe: real layout, no late jump.)
+ // Without this, the loader masks the seed until jobsLoading flips false.
  const seededActiveDetail = selectedJob && initialJobSlug
  && !companySlugFilter && !locationSlugFilter && !searchSlugFilter;
  if (!seededActiveDetail) {
+ // Non-seeded job-detail URL (SPA navigation, or a page built before the
+ // seed shipped): render the layout-matching SkeletonJobDetail instead of the
+ // generic centered spinner, so first paint matches the eventual detail layout
+ // (CLS) and we never expose a generic loading state before the index resolves.
+ // Seeded expired/orphan pages are exempt — `seeded` window-data renders
+ // synchronously above. (#1511)
+ if (initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded) {
+ return <SkeletonJobDetail />;
+ }
  return (
  // Reserve ~viewport height during the async job fetch. Search/filter URLs
  // (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this JobBoard

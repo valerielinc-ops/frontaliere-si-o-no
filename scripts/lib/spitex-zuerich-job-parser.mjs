@@ -12,10 +12,11 @@
  *   https://www.spitex-zuerich.ch/jobs    (corporate)
  *   https://spitex-zuerich.onlyfy.jobs/   (onlyfy portal, server-rendered HTML)
  *
- * Listing format: same softgarden HTML as Vitrea Gesundheit
- *   <strong class="job-title"><a href="/job/{hash}">Title</a></strong>
- *   followed by `<i class="icon-map-marker">Location</i>` and
- *   `<i class="icon-time">Employment type</i>` cells.
+ * Listing format: onlyfy.jobs redesigned card markup (shared with Vitrea
+ * Gesundheit), parsed by `parseOnlyfyListing` in onlyfy-listing-common.mjs:
+ *   <a data-testid="job-card" aria-label="{Title}" href="/{lang}/job/{hash}">
+ *     <h3 data-testid="job-title">{Title}</h3>
+ *     <div data-testid="job-more-info">{Location} | {Type} | {Date}</div>
  *
  * Detail page: rich `<p>/<li>/<h2-6>` content blocks describing the role.
  */
@@ -31,6 +32,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { isDetailContentValid } from './umantis-listing-common.mjs';
+import { parseOnlyfyListing } from './onlyfy-listing-common.mjs';
 
 export const SPITEX_ZUERICH_KEY = 'spitex-zuerich';
 export const SPITEX_ZUERICH_COMPANY_NAME = 'Spitex Zürich';
@@ -67,26 +69,9 @@ export function isTrustedDomain(rawUrl = '') {
 }
 
 export function parseSpitexZuerichListing(html) {
-  const out = [];
-  const seen = new Set();
-  const rx = /<strong class="job-title">\s*<a\s+href="(\/job\/[a-z0-9]+)"[^>]*>([\s\S]*?)<\/a>/g;
-  let m;
-  while ((m = rx.exec(html))) {
-    const path = m[1];
-    const title = normalizeSpace(decodeEntities(m[2].replace(/<[^>]+>/g, '')));
-    if (!title || title.length < 5) continue;
-    const url = `${PORTAL_BASE}${path}`;
-    if (seen.has(url)) continue;
-    seen.add(url);
-    const followIdx = m.index + m[0].length;
-    const window = html.slice(followIdx, followIdx + 1200);
-    const locMatch = window.match(/icon-map-marker[\s\S]*?>\s*([^<]+?)\s*</);
-    const typeMatch = window.match(/icon-time[\s\S]*?>\s*([^<]+?)\s*</);
-    const location = locMatch ? normalizeSpace(decodeEntities(locMatch[1])) : DEFAULT_CITY;
-    const employmentTypeStr = typeMatch ? normalizeSpace(decodeEntities(typeMatch[1])) : '';
-    out.push({ url, title, location, employmentTypeStr });
-  }
-  return out;
+  // softgarden/onlyfy redesigned the listing markup (2026) — shared parser
+  // handles the new `data-testid="job-card"` cards for every onlyfy tenant.
+  return parseOnlyfyListing(html, { portalBase: PORTAL_BASE, defaultLocation: DEFAULT_CITY });
 }
 
 async function fetchDetailContent(url) {
