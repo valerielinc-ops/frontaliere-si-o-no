@@ -18,7 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
-import { fetchViaJina, detectJinaErrorBody } from './lib/jina-proxy.mjs';
+import { fetchViaJinaWithRetry, detectJinaErrorBody } from './lib/jina-proxy.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -324,7 +324,7 @@ async function fetchCambiavalute() {
   if (links.length === 0) {
     try {
       console.log('🛰️  Sitemap empty from direct fetch — retrying via egress proxy...');
-      const res = await fetchViaJina(CAMBIAVALUTE_SITEMAP_URL, { timeoutMs });
+      const res = await fetchViaJinaWithRetry(CAMBIAVALUTE_SITEMAP_URL, { timeoutMs });
       if (res.ok) {
         const body = await res.text();
         // Jina answers 200 even when it never reached the target (challenge /
