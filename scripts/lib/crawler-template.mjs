@@ -154,13 +154,14 @@ import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
 import {
   RETRYABLE_STATUS,
   isTransientFetchError,
+  isConnectionLevelFetchError,
   fetchWithRetry,
 } from './transient-fetch.mjs';
 import { fetchViaJina, detectJinaErrorBody } from './jina-proxy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
-export { RETRYABLE_STATUS, isTransientFetchError, fetchWithRetry };
+export { RETRYABLE_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -502,10 +503,13 @@ export async function fetchHtml(url, options = {}) {
     // can't reach an otherwise-healthy site (~1-3% of fetches/wave; the sites
     // return 200 from a clean IP). Fetch once through the Jina Reader proxy
     // (reliable egress + real browser → raw HTML) so the data IS collected
-    // rather than failing. Only for transient connection errors; HTTP/parse
-    // errors still propagate. (fetchJson is intentionally NOT proxied — Jina
-    // returns HTML, which would corrupt a JSON response.)
-    if (isTransientFetchError(err)) {
+    // rather than failing. ONLY for connection-level failures (no HTTP response
+    // ever received) — a non-ok HTTP status (503/4xx/5xx) means the server DID
+    // respond, so the egress works and Jina cannot help; routing those through
+    // the proxy would just add a pointless request. HTTP/parse errors propagate.
+    // (fetchJson is intentionally NOT proxied — Jina returns HTML, which would
+    // corrupt a JSON response.)
+    if (isConnectionLevelFetchError(err)) {
       let res;
       try {
         res = await fetchViaJina(url, { timeoutMs });

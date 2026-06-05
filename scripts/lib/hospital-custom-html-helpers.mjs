@@ -9,7 +9,7 @@
  * same. Keep this module DRY and importable from any hospital-specific parser.
  */
 
-import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from './transient-fetch.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS, isConnectionLevelFetchError } from './transient-fetch.mjs';
 import { fetchViaJina, detectJinaErrorBody } from './jina-proxy.mjs';
 
 export const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -115,9 +115,11 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
     // 200 from a clean IP). Rather than give up (or keep retrying the same flaky
     // egress), fetch this once through the Jina Reader proxy: a reliable egress +
     // real browser that returns the page's raw HTML, so the parsers are
-    // unchanged and the data IS collected. Only for connection-level transient
-    // errors — HTTP 4xx/5xx and parse errors are real and still propagate.
-    if (isTransientFetchError(err)) {
+    // unchanged and the data IS collected. ONLY for connection-level failures
+    // (no HTTP response received) — a non-ok HTTP status (4xx/5xx) means the
+    // server DID respond, so the egress works and Jina cannot help; those (and
+    // parse errors) are real and still propagate.
+    if (isConnectionLevelFetchError(err)) {
       let res;
       try {
         res = await fetchViaJina(url, { timeoutMs: t });

@@ -61,4 +61,13 @@ describe('fetchHtml egress proxy fallback', () => {
     await expect(fetchHtml('https://example.test/jobs', { retries: 0 })).rejects.toThrow(/404/);
     expect(fetchViaJina).not.toHaveBeenCalled();
   });
+
+  it('does NOT proxy a persistent (retryable) HTTP 503 — server responded, egress works', async () => {
+    // A 5xx means the server WAS reached; re-routing through Jina cannot help and
+    // would break the "exactly N attempts" contract. The fallback is gated to
+    // connection-level failures only (no HTTP response received).
+    global.fetch = vi.fn(async () => ({ ok: false, status: 503, text: async () => '' })) as any;
+    await expect(fetchHtml('https://example.test/jobs', { retries: 0 })).rejects.toThrow(/503/);
+    expect(fetchViaJina).not.toHaveBeenCalled();
+  });
 });
