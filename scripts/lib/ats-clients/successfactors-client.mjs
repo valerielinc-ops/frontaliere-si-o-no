@@ -76,6 +76,7 @@
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
+import { rescueHtmlIfChallenged } from '../jina-proxy.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -636,7 +637,8 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
       userAgent,
       accept: 'text/html,application/xhtml+xml',
     });
-    const html = await res.text();
+    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
+    const html = await rescueHtmlIfChallenged(await res.text(), careerUrl, { timeoutMs });
     const raw = parseHtmlCareerDetail(html);
     if (!raw) return;
     const tenant = tenantOverride || parsed.searchParams.get('company') || '';
@@ -660,7 +662,8 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
         userAgent,
         accept: 'text/html,application/xhtml+xml',
       });
-      const html = await res.text();
+      // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
+      const html = await rescueHtmlIfChallenged(await res.text(), pageUrl, { timeoutMs });
       const ldJob = extractJsonLdJobPosting(html);
       if (ldJob) {
         const job = extractSuccessFactorsJobIdentity(ldJob, { company });

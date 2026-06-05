@@ -11,7 +11,7 @@
 
 import { describe, it, expect } from 'vitest';
 // @ts-expect-error — modulo .mjs senza tipi
-import { detectJinaErrorBody, fetchViaJinaWithRetry } from '../scripts/lib/jina-proxy.mjs';
+import { detectJinaErrorBody, fetchViaJinaWithRetry, looksLikeAntiBotChallenge, rescueHtmlIfChallenged } from '../scripts/lib/jina-proxy.mjs';
 
 describe('detectJinaErrorBody', () => {
   it('flags an empty / whitespace-only body', () => {
@@ -148,5 +148,35 @@ describe('fetchViaJinaWithRetry', () => {
     });
     expect(calls).toBe(1);
     expect(res.ok).toBe(true);
+  });
+});
+
+describe('looksLikeAntiBotChallenge', () => {
+  it('flags WAF challenge banners (sgcaptcha, Cloudflare, Incapsula)', () => {
+    expect(looksLikeAntiBotChallenge('<meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?y=ipr:1.2.3.4">')).toBe(true);
+    expect(looksLikeAntiBotChallenge('<title>Just a moment...</title>')).toBe(true);
+    expect(looksLikeAntiBotChallenge('<h1>Attention Required!</h1> Cloudflare')).toBe(true);
+    expect(looksLikeAntiBotChallenge('Checking your browser before accessing the site.')).toBe(true);
+    expect(looksLikeAntiBotChallenge('window.__CF$cv$params; cf_chl_opt')).toBe(true);
+    expect(looksLikeAntiBotChallenge('<script>_Incapsula_Resource</script>')).toBe(true);
+  });
+
+  it('does NOT flag a genuine jobs page (marker-only, no length heuristic)', () => {
+    // A real (even short) jobs page must pass through — this is what makes it safe
+    // to run on EVERY successful fetch across all crawlers.
+    expect(looksLikeAntiBotChallenge('<h1>Offene Stellen</h1><a href="/job/1">Pflegefachperson HF</a>')).toBe(false);
+    expect(looksLikeAntiBotChallenge('')).toBe(false);
+    expect(looksLikeAntiBotChallenge(null)).toBe(false);
+    expect(looksLikeAntiBotChallenge('Posizioni aperte: nessuna al momento.')).toBe(false);
+  });
+});
+
+describe('rescueHtmlIfChallenged', () => {
+  it('returns a genuine page unchanged without any network call', async () => {
+    const genuine = '<html><body><h1>Stellenangebote</h1><a href="/job/42">Kardiologe</a></body></html>';
+    // No fetch stub installed — if it tried to hit the network the test env would
+    // fail; passing proves the genuine-page fast path never calls Jina.
+    const out = await rescueHtmlIfChallenged(genuine, 'https://example.ch/jobs', { timeoutMs: 1000 });
+    expect(out).toBe(genuine);
   });
 });

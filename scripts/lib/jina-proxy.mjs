@@ -242,3 +242,51 @@ export async function fetchHtmlViaJinaWithRetry(
   console.warn(`⚠️ Jina egress exhausted ${maxRetries + 1} attempt(s) for ${targetUrl} (last: ${lastReason}).`);
   return null;
 }
+
+// Unambiguous WAF anti-bot challenge banners served on an HTTP 200 to a blocked
+// egress IP (the "200-but-not-the-page" case). Distinct from detectJinaErrorBody:
+// this list is MARKER-ONLY (no short/empty heuristic), so it is high-precision
+// and safe to run on EVERY successful direct fetch across all crawlers without
+// false-positiving a real (possibly short) jobs page. Covers SiteGround sgcaptcha
+// (#1363), Cloudflare, and Incapsula — the cambiavalute IP-reputation class.
+const ANTI_BOT_CHALLENGE_MARKERS = [
+  'sgcaptcha',
+  '/.well-known/sgcaptcha',
+  'just a moment...',
+  'attention required!',
+  'checking your browser before accessing',
+  'enable javascript and cookies to continue',
+  'cf-browser-verification',
+  'cf_chl_',
+  '_incapsula_resource',
+];
+
+/**
+ * Does `body` look like a WAF anti-bot challenge page (served on a 200 to a
+ * blocked egress IP), rather than the real target page? Marker-only → no false
+ * positives on a genuine page. Used to decide whether a successful-but-wrong
+ * direct fetch should be re-routed through the clean-IP Jina proxy.
+ */
+export function looksLikeAntiBotChallenge(body) {
+  const lower = String(body || '').toLowerCase();
+  return ANTI_BOT_CHALLENGE_MARKERS.some((m) => lower.includes(m));
+}
+
+/**
+ * Shared "200-but-challenge → Jina rescue" used at every direct-fetch chokepoint
+ * (crawler-template fetchHtml, the SAP SuccessFactors family, hospital helpers).
+ *
+ * If `html` is a genuine page → returns it unchanged (zero cost, the common
+ * path). If it is a WAF challenge (IP-reputation block that answered 200), it
+ * re-fetches `url` through the Jina Reader proxy (clean IP, retried across Jina's
+ * IP pool) and returns the real page. If Jina is also blocked/unavailable →
+ * returns the ORIGINAL `html` so the caller's existing 0-result /
+ * 0-total-preserves-data path runs unchanged. Never throws → no regression vs.
+ * today for any crawler that wasn't already being silently fed a challenge.
+ */
+export async function rescueHtmlIfChallenged(html, url, { timeoutMs } = {}) {
+  if (!looksLikeAntiBotChallenge(html)) return html;
+  const rescued = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
+  if (rescued != null && !looksLikeAntiBotChallenge(rescued)) return rescued;
+  return html;
+}
