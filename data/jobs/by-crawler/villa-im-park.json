@@ -301,12 +301,12 @@
     },
     {
       "id": "villa-im-park-a42b98f03a66",
-      "slug": "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist",
+      "slug": "specialista-anestesia-80-privatklinik-villa-im-park-rothrist",
       "slugByLocale": {
-        "it": "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist",
-        "en": "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist",
+        "it": "specialista-anestesia-80-privatklinik-villa-im-park-rothrist",
+        "en": "specialist-anesthesia-80-privatklinik-villa-im-park-rothrist",
         "de": "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist",
-        "fr": "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist"
+        "fr": "anesthesie-specialisee-80-privatklinik-villa-im-park-rothrist"
       },
       "company": "Privatklinik Villa im Park",
       "companyKey": "villa-im-park",
@@ -360,16 +360,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist"
+        ],
+        "en": [
+          "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist"
+        ],
+        "fr": [
+          "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-anasthesie-80-villa-im-park-rothrist"
+      ]
     },
     {
       "id": "villa-im-park-674e550b7e8e",
       "slug": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
       "slugByLocale": {
         "it": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
-        "en": "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist",
+        "en": "specialist-in-storage-care-60-80-privatklinik-villa-im-park-rothrist",
         "de": "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist",
-        "fr": "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
+        "fr": "specialiste-des-soins-de-conservation-60-80-privatklinik-villa-im-park-rothrist"
       },
       "company": "Privatklinik Villa im Park",
       "companyKey": "villa-im-park",
@@ -416,6 +430,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
+        ],
+        "en": [
+          "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
+        ],
+        "fr": [
           "fachperson-fur-lagerungspflege-60-80-villa-im-park-rothrist"
         ]
       },
