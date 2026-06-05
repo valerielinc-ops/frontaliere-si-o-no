@@ -68,6 +68,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Calculate Swiss Net Salary for Cross-Border Workers',
     'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Practical guide to calculate net salary in Switzerland, including taxes, deductions, and contributions for cross-border commuters.',
     'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Woman with pay slip',
+    'blog.article.lonza-concierge-ticino-job.title': 'Lonza seeks reception staff',
+    'blog.article.lonza-concierge-ticino-job.excerpt': 'Job opportunities 80-100% for installation and reception staff at Lonza in Ticino.',
+    'blog.article.lonza-concierge-ticino-job.imageAlt': 'Lonza building in Switzerland, a symbol of employment and innovation.',
 };
 
 export default blogMetaChEn;

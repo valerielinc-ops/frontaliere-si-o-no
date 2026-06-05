@@ -1,0 +1,19 @@
+{
+  "id": "lonza-concierge-ticino-job",
+  "slug": "lonza-concierge-ticino-job",
+  "publishedAt": "2026-06-05T07:29:17.594Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 96.23427814000001,
+    "confidence": 1,
+    "finalScore": 96.23427814000001,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 48.11713907000001,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

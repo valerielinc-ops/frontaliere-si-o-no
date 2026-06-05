@@ -206,6 +206,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lonza-concierge-ticino-job',
+    category: 'pratico',
+    date: '2026-06-05T07:29:16.330Z',
+    image: '/images/blog/lonza-concierge-ticino-job.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
