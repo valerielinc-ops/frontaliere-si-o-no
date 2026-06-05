@@ -9,9 +9,9 @@
  * esplicito) senza falsi positivi su una pagina target reale.
  */
 
-import { describe, it, expect } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 // @ts-expect-error — modulo .mjs senza tipi
-import { detectJinaErrorBody, fetchViaJinaWithRetry, looksLikeAntiBotChallenge, rescueHtmlIfChallenged } from '../scripts/lib/jina-proxy.mjs';
+import { detectJinaErrorBody, fetchViaJinaWithRetry, fetchHtmlViaJinaWithRetry, jinaBreakerOpen, looksLikeAntiBotChallenge, rescueHtmlIfChallenged, __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
 
 describe('detectJinaErrorBody', () => {
   it('flags an empty / whitespace-only body', () => {
@@ -178,5 +178,86 @@ describe('rescueHtmlIfChallenged', () => {
     // fail; passing proves the genuine-page fast path never calls Jina.
     const out = await rescueHtmlIfChallenged(genuine, 'https://example.ch/jobs', { timeoutMs: 1000 });
     expect(out).toBe(genuine);
+  });
+});
+
+describe('Jina egress circuit breaker (#1461 item 2)', () => {
+  // Under a broad egress outage every URL fails connection-level and routes
+  // through a Jina retry helper; without a breaker each pays (retries+1) ×
+  // timeoutMs + backoff, piling latency that can blow the job timeout. The
+  // breaker fast-fails after N consecutive exhaustions; a success resets it.
+  const CHALLENGE = `<html><body>Just a moment... ${'x'.repeat(300)}</body></html>`;
+  const REAL = `<html><body>${'<a href="/job/Lugano-Nurse/1/">Nurse</a>'.repeat(6)} ${'x'.repeat(200)}</body></html>`;
+  const origFetch = global.fetch;
+
+  beforeEach(() => {
+    __resetJinaBreaker();
+    process.env.JOBS_JINA_RETRY_BASE_MS = '1'; // negligible backoff in tests
+  });
+  afterEach(() => {
+    global.fetch = origFetch;
+    __resetJinaBreaker();
+    delete process.env.JOBS_JINA_BREAKER_THRESHOLD;
+    delete process.env.JOBS_JINA_RETRY_BASE_MS;
+    vi.restoreAllMocks();
+  });
+
+  it('trips after N consecutive fetchHtml exhaustions, then fast-fails with no attempt', async () => {
+    process.env.JOBS_JINA_BREAKER_THRESHOLD = '3';
+    const fetchMock = vi.fn(async () => ({ ok: true, text: async () => CHALLENGE }));
+    global.fetch = fetchMock as any;
+
+    // 3 exhausting calls (retries:0 → 1 attempt each) push the counter to 3.
+    for (let i = 0; i < 3; i += 1) {
+      expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 })).toBeNull();
+    }
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(jinaBreakerOpen()).toBe(true);
+
+    // 4th call: breaker open → fast-fail, NO new fetch attempt.
+    expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 })).toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('resets the counter on a successful rescue (sprinkled flakiness never trips)', async () => {
+    process.env.JOBS_JINA_BREAKER_THRESHOLD = '2';
+    // exhaust, success, exhaust, success, exhaust — never 2 consecutive failures.
+    const bodies = [CHALLENGE, REAL, CHALLENGE, REAL, CHALLENGE];
+    let i = 0;
+    global.fetch = vi.fn(async () => ({ ok: true, text: async () => bodies[i++] })) as any;
+    for (const expectNull of [true, false, true, false, true]) {
+      const html = await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 });
+      expect(html === null).toBe(expectNull);
+    }
+    expect(jinaBreakerOpen()).toBe(false);
+  });
+
+  it('shares one breaker across fetchHtmlViaJinaWithRetry and fetchViaJinaWithRetry', async () => {
+    process.env.JOBS_JINA_BREAKER_THRESHOLD = '2';
+    global.fetch = vi.fn(async () => ({ ok: true, text: async () => CHALLENGE })) as any;
+    // One exhaustion from each helper → counter reaches 2.
+    expect(await fetchHtmlViaJinaWithRetry('https://example.test/a', { timeoutMs: 50, retries: 0 })).toBeNull();
+    const blockedFetch = vi.fn(async () => new Response(CHALLENGE, { status: 200 }));
+    const r1 = await fetchViaJinaWithRetry('https://example.test/b', { attempts: 1, retryDelayMs: 0, fetchImpl: blockedFetch });
+    expect(detectJinaErrorBody(await r1.text())).toMatch(/error\/challenge marker/);
+    expect(jinaBreakerOpen()).toBe(true);
+
+    // Breaker open: fetchViaJinaWithRetry fast-fails with the exhausted shape, no fetch.
+    blockedFetch.mockClear();
+    const r2 = await fetchViaJinaWithRetry('https://example.test/c', { attempts: 4, retryDelayMs: 0, fetchImpl: blockedFetch });
+    expect(blockedFetch).not.toHaveBeenCalled();
+    expect(r2.status).toBe(502);
+    expect(r2.headers.get('x-jina-retry-reason')).toBe('circuit-breaker-open');
+  });
+
+  it('threshold 0 disables the breaker (never trips)', async () => {
+    process.env.JOBS_JINA_BREAKER_THRESHOLD = '0';
+    const fetchMock = vi.fn(async () => ({ ok: true, text: async () => CHALLENGE }));
+    global.fetch = fetchMock as any;
+    for (let i = 0; i < 12; i += 1) {
+      expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 })).toBeNull();
+    }
+    expect(jinaBreakerOpen()).toBe(false);
+    expect(fetchMock).toHaveBeenCalledTimes(12);
   });
 });
