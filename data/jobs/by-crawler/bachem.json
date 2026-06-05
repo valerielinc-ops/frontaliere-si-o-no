@@ -391,12 +391,12 @@
     },
     {
       "id": "bachem-e8f6ebcacd50",
-      "slug": "manager-qa-100-a-bachem-bubendorf",
+      "slug": "responsabile-qa-100-a-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "senior-manager-qa-100-m-f-d-bachem-bubendorf",
-        "it": "manager-qa-100-a-bachem-bubendorf",
+        "it": "responsabile-qa-100-a-bachem-ag-bubendorf",
         "en": "senior-manager-qa-100-m-f-d-bachem-bubendorf",
-        "fr": "manager-qa-100-a-bachem-bubendorf"
+        "fr": "gestionnaire-qa-100-a-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -451,7 +451,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T21:53:24.282Z"
+      "firstSeenAt": "2026-06-04T21:53:24.282Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-qa-100-a-bachem-bubendorf"
+        ],
+        "fr": [
+          "manager-qa-100-a-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "manager-qa-100-a-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-39a816a13858",

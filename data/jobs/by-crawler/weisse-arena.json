@@ -545,12 +545,12 @@
     },
     {
       "id": "weisse-arena-35c0453be143",
-      "slug": "koch-kochin-weisse-arena-ch",
+      "slug": "cucina-kochin-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "koch-kochin-weisse-arena-ch",
-        "en": "koch-kochin-weisse-arena-ch",
+        "it": "cucina-kochin-weisse-arena-gruppe-laax",
+        "en": "cook-kochin-weisse-arena-gruppe-laax",
         "de": "koch-kochin-weisse-arena-ch",
-        "fr": "koch-kochin-weisse-arena-ch"
+        "fr": "cuisiniere-kochin-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -607,7 +607,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-weisse-arena-ch"
+        ],
+        "en": [
+          "koch-kochin-weisse-arena-ch"
+        ],
+        "fr": [
+          "koch-kochin-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-faeb9def7024",
@@ -699,12 +713,12 @@
     },
     {
       "id": "weisse-arena-cd283da9af58",
-      "slug": "barmitarbeiter-in-weisse-arena-ch",
+      "slug": "dipendenti-da-bar-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "barmitarbeiter-in-weisse-arena-ch",
-        "en": "barmitarbeiter-in-weisse-arena-ch",
+        "it": "dipendenti-da-bar-weisse-arena-gruppe-laax",
+        "en": "bar-employees-weisse-arena-gruppe-laax",
         "de": "barmitarbeiter-in-weisse-arena-ch",
-        "fr": "barmitarbeiter-in-weisse-arena-ch"
+        "fr": "employes-du-barreau-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -761,7 +775,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "barmitarbeiter-in-weisse-arena-ch"
+        ],
+        "en": [
+          "barmitarbeiter-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "barmitarbeiter-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "barmitarbeiter-in-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-2765974aca91",

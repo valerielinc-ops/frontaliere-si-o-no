@@ -149,12 +149,12 @@
     },
     {
       "id": "spitex-ch-33c2437cd148",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+      "slug": "salute-professionale-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
-        "en": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
+        "it": "salute-professionale-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "en": "professional-health-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "de": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        "fr": "sante-professionnelle-efz-fage-50-90-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -199,11 +199,19 @@
       "firstSeenAt": "2026-06-04T15:49:39.774Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
+          "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
+        "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

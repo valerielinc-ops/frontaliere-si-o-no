@@ -682,7 +682,7 @@
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "fr": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1032,12 +1032,12 @@
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
-      "slug": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
+      "slug": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "it": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "de": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "fr": "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        "it": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
+        "de": "reise-fleet-supervisor-landausfluge-msc-group-geneva",
+        "fr": "superviseur-de-la-flotte-itinerante-excursions-a-terre-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1093,7 +1093,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-04T22:50:29.103Z"
+      "firstSeenAt": "2026-06-04T22:50:29.103Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ],
+        "de": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ],
+        "fr": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+      ]
     }
   ]
 }
