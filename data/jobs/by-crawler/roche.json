@@ -63,7 +63,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz"
+        ]
+      },
+      "previousSlugs": [
+        "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz"
+      ]
     },
     {
       "id": "roche-d1545f9546ad",
@@ -8088,16 +8096,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-beijing",
-        "roche-ch-17",
-        "roche-changchun-4mxe1n",
-        "roche-ch-74",
-        "roche-changchun",
-        "roche-nanjing-4mxh6m",
-        "roche-ch-141",
-        "roche-nanjing",
-        "roche-zhengzhou-4mxh6f",
-        "roche-ch-142",
         "roche-beijing-xgknfl",
         "roche-ch-170",
         "roche-ch-43",
@@ -8116,11 +8114,11 @@
         "roche-zhengzhou",
         "roche-guangzhou-4mww96",
         "roche-ch-69",
-        "roche-guangzhou"
+        "roche-guangzhou",
+        "roche-ch-18"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-beijing",
           "roche-ch-17",
           "roche-changchun-4mxe1n",
           "roche-ch-74",
@@ -8139,7 +8137,8 @@
           "roche-ch-42",
           "roche-changsha",
           "roche-beijing-o74bqf",
-          "roche-basel"
+          "roche-basel",
+          "roche-ch-18"
         ],
         "de": [
           "roche-basel"
@@ -10350,16 +10349,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-zhengzhou",
-        "roche-ch-25",
-        "roche-changchun-4mxe1n",
-        "roche-ch-74",
-        "roche-changchun",
-        "roche-nanjing-4mxh6m",
-        "roche-ch-141",
-        "roche-nanjing",
-        "roche-zhengzhou-4mxh6f",
-        "roche-ch-142",
         "roche-beijing-xgknfl",
         "roche-ch-170",
         "roche-ch-43",
@@ -10378,11 +10367,11 @@
         "roche-ch-67",
         "roche-guangzhou-4mww96",
         "roche-ch-69",
-        "roche-guangzhou"
+        "roche-guangzhou",
+        "roche-ch-26"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-zhengzhou",
           "roche-ch-25",
           "roche-changchun-4mxe1n",
           "roche-ch-74",
@@ -10401,7 +10390,8 @@
           "roche-changsha-o74d7r",
           "roche-ch-42",
           "roche-changsha",
-          "roche-basel"
+          "roche-basel",
+          "roche-ch-26"
         ],
         "de": [
           "roche-basel"
@@ -10841,18 +10831,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-27",
-        "roche-basel",
-        "roche-zhengzhou",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
         "roche-ch-66",
         "roche-changchun-4mxe1n",
         "roche-ch-71",
@@ -10863,15 +10841,19 @@
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174"
+        "roche-ch-174",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-nanjing",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-beijing",
+        "roche-guangzhou-xgko6y"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-27",
-          "roche-basel",
-          "roche-zhengzhou",
-          "roche-chengdu",
-          "roche-beijing-o74bqf",
           "roche-ch-41",
           "roche-jinan-4mwu2u",
           "roche-ch-60",
@@ -10882,7 +10864,16 @@
           "roche-ch-66",
           "roche-changchun-4mxe1n",
           "roche-ch-71",
-          "roche-changchun"
+          "roche-changchun",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-nanjing",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-beijing",
+          "roche-guangzhou-xgko6y"
         ],
         "de": [
           "roche-basel"
@@ -12050,16 +12041,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-changsha",
-        "roche-ch-30",
-        "roche-changchun-4mxe1n",
-        "roche-ch-74",
-        "roche-changchun",
-        "roche-nanjing-4mxh6m",
-        "roche-ch-141",
-        "roche-nanjing",
-        "roche-zhengzhou-4mxh6f",
-        "roche-ch-142",
         "roche-beijing-xgknfl",
         "roche-ch-170",
         "roche-ch-43",
@@ -12078,11 +12059,11 @@
         "roche-zhengzhou",
         "roche-guangzhou-4mww96",
         "roche-ch-69",
-        "roche-guangzhou"
+        "roche-guangzhou",
+        "roche-ch-31"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-changsha",
           "roche-ch-30",
           "roche-changchun-4mxe1n",
           "roche-ch-74",
@@ -12101,7 +12082,8 @@
           "roche-changsha-o74d7r",
           "roche-ch-42",
           "roche-beijing-o74bqf",
-          "roche-basel"
+          "roche-basel",
+          "roche-ch-31"
         ],
         "de": [
           "roche-basel"
@@ -14666,18 +14648,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-36",
-        "roche-basel",
-        "roche-beijing",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
         "roche-ch-66",
         "roche-changchun-4mxe1n",
         "roche-ch-71",
@@ -14688,15 +14658,19 @@
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174"
+        "roche-ch-174",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-nanjing",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-zhengzhou",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-guangzhou-xgko6y"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-36",
-          "roche-basel",
-          "roche-beijing",
-          "roche-chengdu",
-          "roche-beijing-o74bqf",
           "roche-ch-41",
           "roche-jinan-4mwu2u",
           "roche-ch-60",
@@ -14707,7 +14681,16 @@
           "roche-ch-66",
           "roche-changchun-4mxe1n",
           "roche-ch-71",
-          "roche-changchun"
+          "roche-changchun",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-nanjing",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-zhengzhou",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-guangzhou-xgko6y"
         ],
         "de": [
           "roche-basel"
@@ -16480,11 +16463,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-40"
+        "roche-ch-40",
+        "traduzione-roche-changsha-6ed8a3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-40"
+          "roche-ch-40",
+          "traduzione-roche-changsha-6ed8a3"
         ]
       },
       "needsRetranslation": true,
@@ -21135,18 +21120,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-46",
-        "roche-basel",
-        "roche-jinan",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
         "roche-ch-66",
         "roche-changchun-4mxe1n",
         "roche-ch-71",
@@ -21157,15 +21130,19 @@
         "roche-hangzhou-xgl4hi",
         "roche-ch-173",
         "roche-hangzhou",
-        "roche-chengdu-xgl520"
+        "roche-chengdu-xgl520",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-nanjing",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-zhengzhou",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-beijing"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-46",
-          "roche-basel",
-          "roche-jinan",
-          "roche-ch-174",
-          "roche-chengdu",
           "roche-beijing-o74bqf",
           "roche-ch-41",
           "roche-jinan-4mwu2u",
@@ -21176,7 +21153,16 @@
           "roche-ch-66",
           "roche-changchun-4mxe1n",
           "roche-ch-71",
-          "roche-changchun"
+          "roche-changchun",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-nanjing",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-zhengzhou",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-beijing"
         ],
         "de": [
           "roche-basel"
@@ -24378,12 +24364,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-regulatory-roche-ch",
-        "technical-regulatory-roche-shanghai"
+        "technical-regulatory-roche-shanghai",
+        "regolamentazione-tecnica-roche-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-regulatory-roche-ch",
-          "technical-regulatory-roche-shanghai"
+          "technical-regulatory-roche-shanghai",
+          "regolamentazione-tecnica-roche-shanghai"
         ]
       },
       "needsRetranslation": true,
@@ -24752,18 +24740,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-52",
-        "roche-basel",
-        "roche-nanjing",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
         "roche-ch-66",
         "roche-changchun-4mxe1n",
         "roche-ch-71",
@@ -24774,15 +24750,19 @@
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174"
+        "roche-ch-174",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-zhengzhou",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-beijing",
+        "roche-guangzhou-xgko6y"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-52",
-          "roche-basel",
-          "roche-nanjing",
-          "roche-chengdu",
-          "roche-beijing-o74bqf",
           "roche-ch-41",
           "roche-jinan-4mwu2u",
           "roche-ch-60",
@@ -24793,7 +24773,16 @@
           "roche-ch-66",
           "roche-changchun-4mxe1n",
           "roche-ch-71",
-          "roche-changchun"
+          "roche-changchun",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-zhengzhou",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-beijing",
+          "roche-guangzhou-xgko6y"
         ],
         "de": [
           "roche-basel"
@@ -25392,13 +25381,6 @@
           "mce-roche-ch"
         ],
         "it": [
-          "mce-roche-ch-2",
-          "mce-roche-hangzhou",
-          "roche-basel",
-          "roche-chengdu-xgl520",
-          "roche-ch-174",
-          "roche-chengdu",
-          "roche-beijing-o74bqf",
           "roche-ch-41",
           "roche-jinan-4mwu2u",
           "roche-ch-60",
@@ -25409,7 +25391,16 @@
           "roche-ch-66",
           "roche-changchun-4mxe1n",
           "roche-ch-71",
-          "roche-changchun"
+          "roche-changchun",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-nanjing",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-zhengzhou",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-beijing"
         ],
         "de": [
           "mce-roche-hangzhou",
@@ -25421,19 +25412,6 @@
         ]
       },
       "previousSlugs": [
-        "roche-ch",
-        "mce-roche-ch-2",
-        "mce-roche-hangzhou",
-        "roche-basel",
-        "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
         "roche-ch-64",
         "roche-guangzhou-4mww96",
         "roche-ch-66",
@@ -25444,7 +25422,16 @@
         "roche-ch-172",
         "roche-guangzhou",
         "roche-hangzhou-xgl4hi",
-        "roche-ch-173"
+        "roche-ch-173",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-nanjing",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-zhengzhou",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-beijing"
       ],
       "firstSeenAt": "2026-06-03T15:19:06.295Z",
       "needsRetranslation": true,
@@ -29162,18 +29149,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-59",
-        "roche-basel",
-        "roche-guangzhou",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
         "roche-ch-66",
         "roche-changchun-4mxe1n",
         "roche-ch-71",
@@ -29184,15 +29159,19 @@
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174"
+        "roche-ch-174",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-nanjing",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-zhengzhou",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-beijing"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-59",
-          "roche-basel",
-          "roche-guangzhou",
-          "roche-chengdu",
-          "roche-beijing-o74bqf",
           "roche-ch-41",
           "roche-jinan-4mwu2u",
           "roche-ch-60",
@@ -29203,7 +29182,16 @@
           "roche-ch-66",
           "roche-changchun-4mxe1n",
           "roche-ch-71",
-          "roche-changchun"
+          "roche-changchun",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-nanjing",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-zhengzhou",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-beijing"
         ],
         "de": [
           "roche-basel"
@@ -30812,18 +30800,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-61",
-        "roche-basel",
-        "roche-changchun",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
         "roche-guangzhou-4mww96",
         "roche-ch-66",
         "roche-changchun-4mxe1n",
@@ -30834,15 +30810,19 @@
         "roche-hangzhou-xgl4hi",
         "roche-ch-173",
         "roche-hangzhou",
-        "roche-chengdu-xgl520"
+        "roche-chengdu-xgl520",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-nanjing",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-zhengzhou",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-beijing"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-61",
-          "roche-basel",
-          "roche-changchun",
-          "roche-ch-174",
-          "roche-chengdu",
           "roche-beijing-o74bqf",
           "roche-ch-41",
           "roche-jinan-4mwu2u",
@@ -30853,7 +30833,16 @@
           "roche-guangzhou-4mww96",
           "roche-ch-66",
           "roche-changchun-4mxe1n",
-          "roche-ch-71"
+          "roche-ch-71",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-nanjing",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-zhengzhou",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-beijing"
         ],
         "de": [
           "roche-basel"
@@ -39035,19 +39024,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-90",
-        "localizzazioni-di-destinazione-ug-dati-locali-roche-chengdu",
-        "roche-basel",
-        "roche-chengdu",
-        "roche-hangzhou",
-        "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
         "roche-ch-64",
         "roche-guangzhou-4mww96",
         "roche-ch-66",
@@ -39058,19 +39034,19 @@
         "roche-ch-172",
         "roche-guangzhou",
         "roche-hangzhou-xgl4hi",
-        "roche-ch-173"
+        "roche-ch-173",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-138",
+        "roche-nanjing",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-139",
+        "roche-zhengzhou",
+        "roche-beijing-xgknfl",
+        "roche-ch-165",
+        "roche-beijing"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-90",
-          "localizzazioni-di-destinazione-ug-dati-locali-roche-chengdu",
-          "roche-basel",
-          "roche-chengdu",
-          "roche-hangzhou",
-          "roche-chengdu-xgl520",
-          "roche-ch-174",
-          "roche-beijing-o74bqf",
-          "roche-ch-41",
           "roche-jinan-4mwu2u",
           "roche-ch-60",
           "roche-jinan",
@@ -39081,7 +39057,16 @@
           "roche-changchun-4mxe1n",
           "roche-ch-71",
           "roche-changchun",
-          "roche-ch-93"
+          "roche-ch-93",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-138",
+          "roche-nanjing",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-139",
+          "roche-zhengzhou",
+          "roche-beijing-xgknfl",
+          "roche-ch-165",
+          "roche-beijing"
         ],
         "de": [
           "roche-basel"
@@ -39985,11 +39970,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-105"
+        "roche-ch-105",
+        "terreno-della-societa-us-regionali-roche-fuzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-105"
+          "roche-ch-105",
+          "terreno-della-societa-us-regionali-roche-fuzhou"
         ]
       },
       "needsRetranslation": true,
@@ -78509,7 +78496,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm"
+      ]
     },
     {
       "id": "roche-e9d8d8ba84f6",
@@ -78635,7 +78630,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "operazioni-aziendali-piombo-associate-principal-roche-central-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "operazioni-aziendali-piombo-associate-principal-roche-central-singapore"
+      ]
     },
     {
       "id": "roche-aaa3eeab22bd",
@@ -78995,7 +78998,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city"
+        ]
+      },
+      "previousSlugs": [
+        "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city"
+      ]
     },
     {
       "id": "roche-338b7de0ef2b",
@@ -79058,7 +79069,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city"
+        ]
+      },
+      "previousSlugs": [
+        "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city"
+      ]
     },
     {
       "id": "roche-03d6a33a4bdf",
@@ -79496,7 +79515,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot"
+        ]
+      },
+      "previousSlugs": [
+        "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot"
+      ]
     },
     {
       "id": "roche-51673cfe321d",
@@ -79559,7 +79586,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris"
+        ]
+      },
+      "previousSlugs": [
+        "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris"
+      ]
     },
     {
       "id": "roche-ff898bef0a57",
@@ -79850,7 +79885,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot"
+        ]
+      },
+      "previousSlugs": [
+        "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot"
+      ]
     },
     {
       "id": "roche-5037dbfab684",
@@ -79913,7 +79956,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "area-di-competenza-roche-kyiv"
+        ]
+      },
+      "previousSlugs": [
+        "area-di-competenza-roche-kyiv"
+      ]
     },
     {
       "id": "roche-71688013a8e3",
@@ -79976,7 +80027,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "esperto-di-consegna-della-campagna-digitale-roche-riga"
+        ]
+      },
+      "previousSlugs": [
+        "esperto-di-consegna-della-campagna-digitale-roche-riga"
+      ]
     },
     {
       "id": "roche-3f32f3ef573f",
@@ -80102,7 +80161,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris"
+        ]
+      },
+      "previousSlugs": [
+        "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris"
+      ]
     },
     {
       "id": "roche-c51985e87254",
@@ -80315,7 +80382,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "ricerca-clinica-specialistica-csd-d-f-m-roche-paris"
+        ]
+      },
+      "previousSlugs": [
+        "ricerca-clinica-specialistica-csd-d-f-m-roche-paris"
+      ]
     },
     {
       "id": "roche-1dd789c8c6b3",
@@ -80441,7 +80516,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "servizio-ingegnere-guadalupa-d-f-m-roche-france"
+        ]
+      },
+      "previousSlugs": [
+        "servizio-ingegnere-guadalupa-d-f-m-roche-france"
+      ]
     },
     {
       "id": "roche-29faf0fb460a",
@@ -80849,7 +80932,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france"
+        ]
+      },
+      "previousSlugs": [
+        "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france"
+      ]
     },
     {
       "id": "roche-bcc47510abfc",
@@ -80912,7 +81003,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "stadio-di-ingegneria-roche-sao-paulo"
+        ]
+      },
+      "previousSlugs": [
+        "stadio-di-ingegneria-roche-sao-paulo"
+      ]
     },
     {
       "id": "roche-c4a56fbb516d",
@@ -81198,7 +81297,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "piombo-di-magazzino-e-distribuzione-roche-quito"
+        ]
+      },
+      "previousSlugs": [
+        "piombo-di-magazzino-e-distribuzione-roche-quito"
+      ]
     },
     {
       "id": "roche-8a07bd90b148",
@@ -81261,7 +81368,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-del-programma-regolamentare-pharma-regolazione-tecnica-roche-mississauga"
+        ]
+      },
+      "previousSlugs": [
+        "gestione-del-programma-regolamentare-pharma-regolazione-tecnica-roche-mississauga"
+      ]
     },
     {
       "id": "roche-1d1986cb2803",
@@ -81610,7 +81725,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinator-de-almacen-roche-el-coyol"
+        ]
+      },
+      "previousSlugs": [
+        "coordinator-de-almacen-roche-el-coyol"
+      ]
     },
     {
       "id": "roche-f72ef61797eb",
@@ -81673,7 +81796,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga"
+        ]
+      },
+      "previousSlugs": [
+        "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga"
+      ]
     },
     {
       "id": "roche-46ebbde4e059",
@@ -81802,11 +81933,33 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-38"
+          "roche-ch-38",
+          "roche-ch-69",
+          "roche-guangzhou",
+          "roche-changchun-4mxe1n",
+          "roche-ch-74",
+          "roche-changchun",
+          "roche-nanjing-4mxh6m",
+          "roche-ch-141",
+          "roche-zhengzhou-4mxh6f",
+          "roche-ch-142",
+          "roche-beijing-xgknfl",
+          "roche-ch-170"
         ]
       },
       "previousSlugs": [
-        "roche-ch-38"
+        "roche-ch-38",
+        "roche-ch-69",
+        "roche-guangzhou",
+        "roche-changchun-4mxe1n",
+        "roche-ch-74",
+        "roche-changchun",
+        "roche-nanjing-4mxh6m",
+        "roche-ch-141",
+        "roche-zhengzhou-4mxh6f",
+        "roche-ch-142",
+        "roche-beijing-xgknfl",
+        "roche-ch-170"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
