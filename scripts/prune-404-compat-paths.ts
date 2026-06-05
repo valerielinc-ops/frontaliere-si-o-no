@@ -18,21 +18,40 @@ import path from 'node:path';
 
 const FILE = path.resolve(process.cwd(), 'data', 'seo-404-compat-paths.json');
 
+// Strict (fail-closed) mode. The graceful default below self-skips (exit 0)
+// when the resolver/dataset isn't available, which is correct for general
+// data-refresh workflows that prune BEFORE pushing. But the in-rebase JSON
+// 3-way merge in git-commit-data.sh runs AFTER that gate and re-introduces
+// upstream paths; if the resolver were unavailable there, a silent skip would
+// let a non-resolving path survive into the committed merge → main red (the
+// exact outage this guard prevents). Callers in that path set
+// PRUNE_404_STRICT=1 so unavailability becomes a hard failure (exit 1, abort
+// the push) instead of a silent no-op. Reuses the single resolvability source
+// rather than duplicating resolver wiring.
+const STRICT = process.env.PRUNE_404_STRICT === '1';
+
 async function main(): Promise<void> {
   // Dynamic import: the resolver statically pulls in data/jobs.json (via
   // slugCantonIndex). If that dataset isn't assembled in this job, we CANNOT
   // validate resolvability — skip gracefully (exit 0) rather than crash, so the
   // step is safe to add to any data-refresh workflow. Workflows that want the
-  // prune to actually run must assemble jobs first.
+  // prune to actually run must assemble jobs first. In STRICT mode the same
+  // unavailability is fatal (the caller cannot tolerate an unvalidated file).
   let resolveSearchConsoleCompatTarget: (p: string) => unknown | null;
   try {
     ({ resolveSearchConsoleCompatTarget } = await import('../build-plugins/searchConsoleCompat'));
   } catch (err) {
-    console.log(
-      `[prune-404-compat] resolver unavailable (likely data/jobs.json not assembled) — skipping. ${
-        (err as Error)?.message ?? ''
-      }`,
-    );
+    const msg = `[prune-404-compat] resolver unavailable (likely data/jobs.json not assembled)`;
+    if (STRICT) {
+      console.error(
+        `${msg} — STRICT mode: refusing to leave data/seo-404-compat-paths.json unvalidated. ${
+          (err as Error)?.message ?? ''
+        }`,
+      );
+      process.exitCode = 1;
+      return;
+    }
+    console.log(`${msg} — skipping. ${(err as Error)?.message ?? ''}`);
     return;
   }
 

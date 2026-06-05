@@ -139,13 +139,15 @@ process.stdout.write(
 // turning tests/search-console-compat.test.ts red → main red (the R2-B pattern,
 // #1155 / #1166 item 5). Re-validate here so the merged commit is always
 // test-clean. Reuses the single resolvability source (the .ts prune via tsx,
-// same idiom as the workflows) instead of duplicating resolver wiring. The
-// prune self-skips (exit 0) when the dataset isn't assembled, and is idempotent
-// (a no-op when the merged set is already clean).
+// same idiom as the workflows) instead of duplicating resolver wiring.
+// PRUNE_404_STRICT=1 = fail-closed: if tsx or the assembled dataset isn't
+// available at this in-rebase point, the prune ABORTS (exit 1) rather than
+// silently no-op'ing and letting an unvalidated path survive the merge.
 try {
   execFileSync('npx', ['tsx', 'scripts/prune-404-compat-paths.ts'], {
     stdio: 'inherit',
     cwd: process.cwd(),
+    env: { ...process.env, PRUNE_404_STRICT: '1' },
   });
 } catch (err) {
   process.stderr.write(
