@@ -1,78 +1,7 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-06-04T13:04:22.966Z",
+  "assembledAt": "2026-06-05T22:30:38.808Z",
   "jobs": [
-    {
-      "id": "nestle-1293641201",
-      "slug": "anlagenfuhrer-in-prodotti-speciali-100-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "anlagenfuhrer-in-prodotti-speciali-100-nestle-konolfingen-ch",
-        "en": "anlagenfuhrer-in-special-products-100-nestle-ch",
-        "de": "anlagenfuhrer-in-special-products-100-nestle-ch",
-        "fr": "anlagenfuhrer-in-special-products-100-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Anlagenführer/-in Special Products 100%",
-      "titleByLocale": {
-        "it": "Anlagenführer/-in Prodotti Speciali 100%",
-        "en": "Anlagenführer/-in Special Products 100%",
-        "de": "Anlagenführer/-in Special Products 100%",
-        "fr": "Anlagenführer/-in Special Products 100%"
-      },
-      "description": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:20.348Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagenfuhrer-in-special-products-100-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-special-products-100-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:28.666Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
-    },
     {
       "id": "nestle-1383917033",
       "slug": "stagiaire-cost-control-h-f-d-nestle-ch",
@@ -104,7 +33,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-cost-control-%28HFD%29/1383917033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:04:19.638Z",
+      "crawledAt": "2026-06-05T22:30:35.986Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -167,7 +96,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Anlagenf%C3%BChrerin-Abf%C3%BCllung/1293376401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:18.893Z",
+      "crawledAt": "2026-06-05T22:30:35.177Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,7 +167,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-Mikrobiologie/1399460633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:18.182Z",
+      "crawledAt": "2026-06-05T22:30:34.360Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -301,7 +230,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-EFZ-Chemie/1398219033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:17.329Z",
+      "crawledAt": "2026-06-05T22:30:33.546Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -372,7 +301,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Automatikerin-Automationsfachmann-frau/1283886901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:16.570Z",
+      "crawledAt": "2026-06-05T22:30:32.749Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -443,7 +372,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:04:15.861Z",
+      "crawledAt": "2026-06-05T22:30:31.949Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -514,7 +443,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:04:15.149Z",
+      "crawledAt": "2026-06-05T22:30:31.143Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -589,7 +518,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Op%C3%A9rateur%C2%B7trice-de-production-5x8/1167106701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:04:14.361Z",
+      "crawledAt": "2026-06-05T22:30:30.326Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -660,7 +589,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Betriebselektrikerin/1220980901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:04:13.626Z",
+      "crawledAt": "2026-06-05T22:30:29.521Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -733,7 +662,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Planificateur%C2%B7trice-de-maintenance-Services-Industriels-%28SI%29/1393207333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:12.949Z",
+      "crawledAt": "2026-06-05T22:30:28.727Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -804,7 +733,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Anlagenf%C3%BChrerin/1374185733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:04:12.227Z",
+      "crawledAt": "2026-06-05T22:30:27.928Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -879,7 +808,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Smart-Sensors-Specialist/1398041633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:11.483Z",
+      "crawledAt": "2026-06-05T22:30:27.134Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -956,7 +885,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:10.788Z",
+      "crawledAt": "2026-06-05T22:30:26.320Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1019,7 +948,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Macronutrient-Physiology/1392977733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:09.990Z",
+      "crawledAt": "2026-06-05T22:30:25.489Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1096,7 +1025,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Teamleiterin-Produktion-%283-Schicht%29/1388899233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:09.286Z",
+      "crawledAt": "2026-06-05T22:30:24.699Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1159,7 +1088,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Packaging-Materials-Specialist/1391913333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:08.514Z",
+      "crawledAt": "2026-06-05T22:30:23.903Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1236,7 +1165,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Legal-Counsel-Employment-and-Labour-Law/1365350433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:07.769Z",
+      "crawledAt": "2026-06-05T22:30:23.058Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1307,7 +1236,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-&-EUR-Safety-Lead/1398542833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:07.070Z",
+      "crawledAt": "2026-06-05T22:30:22.249Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1378,7 +1307,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:06.325Z",
+      "crawledAt": "2026-06-05T22:30:21.448Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1449,7 +1378,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Tierarztberaterin-Vet-Advisor/1392313033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:04:05.563Z",
+      "crawledAt": "2026-06-05T22:30:20.651Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1523,7 +1452,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Senior-Key-Account-Manager/1391905133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:04.861Z",
+      "crawledAt": "2026-06-05T22:30:19.851Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1556,6 +1485,378 @@
       "addressRegion": "VD"
     },
     {
+      "id": "nestle-1386977033",
+      "slug": "project-manager-r-d-nestle-konolfingen-ch",
+      "slugByLocale": {
+        "it": "project-manager-r-d-nestle-konolfingen-ch",
+        "en": "r-d-project-manager-nestle-ch",
+        "de": "r-d-project-manager-nestle-ch",
+        "fr": "r-d-project-manager-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "R&D Project Manager",
+      "titleByLocale": {
+        "it": "Project Manager R&D",
+        "en": "R&D Project Manager",
+        "de": "R&D Project Manager",
+        "fr": "R&D Project Manager"
+      },
+      "description": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+      "descriptionByLocale": {
+        "it": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "en": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "de": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "fr": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
+      },
+      "location": "Konolfingen, CH",
+      "canton": "BE",
+      "url": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-05T22:30:19.050Z",
+      "addressLocality": "Konolfingen, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-22",
+      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "r-d-project-manager-nestle-ch",
+        "r-d-project-manager-nestle-konolfingen-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-project-manager-nestle-ch"
+        ],
+        "en": [
+          "r-d-project-manager-nestle-konolfingen-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:32.795Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
+    },
+    {
+      "id": "nestle-1399480733",
+      "slug": "addetto-a-alla-logistica-nestle-basel-ch",
+      "slugByLocale": {
+        "it": "addetto-a-alla-logistica-nestle-basel-ch",
+        "en": "associate-logistik-nestle-basel-ch",
+        "de": "mitarbeiter-in-logistik-nestle-ch",
+        "fr": "collaborateur-trice-logistik-nestle-basel-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Mitarbeiter:in Logistik",
+      "titleByLocale": {
+        "it": "Addetto/a alla logistica",
+        "en": "Associate Logistik",
+        "de": "Mitarbeiter:in Logistik",
+        "fr": "Collaborateur/trice Logistik"
+      },
+      "description": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+      "descriptionByLocale": {
+        "it": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "en": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "de": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "fr": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu."
+      },
+      "location": "Basel, CH",
+      "canton": "BS",
+      "url": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-05T22:30:18.238Z",
+      "addressLocality": "Basel, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-logistik-nestle-ch",
+        "mitarbeiter-in-logistik-nestle-basel-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-logistik-nestle-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-nestle-basel-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-nestle-basel-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T00:41:30.548Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001",
+      "addressRegion": "BS"
+    },
+    {
+      "id": "nestle-1381548133",
+      "slug": "barista-bardo-del-caffe-nestle-basel-ch",
+      "slugByLocale": {
+        "it": "barista-bardo-del-caffe-nestle-basel-ch",
+        "en": "barista-coffee-bard-nestle-ch",
+        "de": "barista-coffee-bard-nestle-ch",
+        "fr": "barista-coffee-bard-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Barista / Coffee Bard",
+      "titleByLocale": {
+        "it": "Barista / Coffee Bard",
+        "en": "Barista / Coffee Bard",
+        "de": "Barista / Coffee Bard",
+        "fr": "Barista / Coffee Bard"
+      },
+      "description": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus.\n\nStellenübersicht\n\nStandort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai)\n\nUnternehmen: Nespresso Schweizer Markt\nBeschäftigungsgrad: Vollzeit, 100%\nVertragsart: Unbefristeter Vertrag\n\nWas wir bei Nespresso bieten\n\nViele Möglichkeiten für die berufliche und persönliche Entwicklung\n\nDynamisches internationales Arbeitsumfeld\n\nAttraktive zusätzliche Vorteile\n\nDie Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten\n\nDie Rolle im Überblick\n\nAls Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern.\n\nEin Tag im Leben als Barista / Coffee Bard\n\n•\nExklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n\n•\nKund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n\n•\nDurchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n\n•\nAktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n\n•\nKreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n\n•\nSorgfältige Pflege und laufende Aktualisierung der Kundendatei\n\nDas macht Sie erfolgreich\n\n•\nAusbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n\n•\nErfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n\n•\nLeidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n\n•\nOffene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n\n•\nGute Rede- und Präsentationsfähigkeiten\n\n•\nAusgeprägte Serviceorientierung und überzeugende Ausstrahlung\n\n•\nVerhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus\n\nNespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt.\n\nBei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
+      "descriptionByLocale": {
+        "it": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
+        "en": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
+        "de": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
+        "fr": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati"
+      },
+      "location": "Basel, CH",
+      "canton": "BS",
+      "url": "https://jobdetails.nestle.com/job/Basel-Barista-Coffee-Bard/1381548133/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-05T22:30:17.441Z",
+      "addressLocality": "Basel, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://jobdetails.nestle.com/job/Basel-Barista-Coffee-Bard/1381548133/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "barista-coffee-bard-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "barista-coffee-bard-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:31.441Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001",
+      "addressRegion": "BS"
+    },
+    {
+      "id": "nestle-1381591733",
+      "slug": "responsabile-dello-sviluppo-globale-del-prodotto-neonato-e-nutrizione-precoce-nestle-konolfingen-ch",
+      "slugByLocale": {
+        "it": "responsabile-dello-sviluppo-globale-del-prodotto-neonato-e-nutrizione-precoce-nestle-konolfingen-ch",
+        "en": "global-product-development-manager-infant-early-nutrition-nestle-ch",
+        "de": "global-product-development-manager-infant-early-nutrition-nestle-ch",
+        "fr": "global-product-development-manager-infant-early-nutrition-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Global Product Development Manager Infant & Early Nutrition",
+      "titleByLocale": {
+        "it": "Responsabile dello sviluppo globale del prodotto Neonato e nutrizione precoce",
+        "en": "Global Product Development Manager Infant & Early Nutrition",
+        "de": "Global Product Development Manager Infant & Early Nutrition",
+        "fr": "Global Product Development Manager Infant & Early Nutrition"
+      },
+      "description": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+      "descriptionByLocale": {
+        "it": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "en": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "de": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "fr": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
+      },
+      "location": "Konolfingen, CH",
+      "canton": "BE",
+      "url": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-05T22:30:16.617Z",
+      "addressLocality": "Konolfingen, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "global-product-development-manager-infant-early-nutrition-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-product-development-manager-infant-early-nutrition-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:30.769Z",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
+    },
+    {
+      "id": "nestle-1381829433",
+      "slug": "data-science-specialista-nestle-konolfingen-ch",
+      "slugByLocale": {
+        "it": "data-science-specialista-nestle-konolfingen-ch",
+        "en": "data-science-specialist-nestle-ch",
+        "de": "data-science-spezialist-nestle-konolfingen-ch",
+        "fr": "data-science-specialiste-nestle-konolfingen-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Data Science Specialist",
+      "titleByLocale": {
+        "it": "Data Science Specialista",
+        "en": "Data Science Specialist",
+        "de": "Data Science Spezialist",
+        "fr": "Data Science Spécialiste"
+      },
+      "description": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+      "descriptionByLocale": {
+        "it": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "en": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "de": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "fr": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
+      },
+      "location": "Konolfingen, CH",
+      "canton": "BE",
+      "url": "https://jobdetails.nestle.com/job/Konolfingen-Data-Science-Specialist/1381829433/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-05T22:30:15.805Z",
+      "addressLocality": "Konolfingen, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Data-Science-Specialist/1381829433/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "data-science-specialist-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "data-science-specialist-nestle-ch"
+        ],
+        "de": [
+          "data-science-specialist-nestle-ch"
+        ],
+        "fr": [
+          "data-science-specialist-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-29T00:03:43.586Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
+    },
+    {
       "id": "nestle-978705001",
       "slug": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
       "slugByLocale": {
@@ -1586,7 +1887,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:04:04.118Z",
+      "crawledAt": "2026-06-05T22:30:14.990Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1657,7 +1958,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Early-Life-Nutrition-&-Growth-Data-Science-Intern/1398035633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:03.411Z",
+      "crawledAt": "2026-06-05T22:30:14.172Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1720,7 +2021,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:02.719Z",
+      "crawledAt": "2026-06-05T22:30:13.371Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1797,7 +2098,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:01.953Z",
+      "crawledAt": "2026-06-05T22:30:12.550Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1860,7 +2161,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Women's-Health-Proteomics-Data-Science-Intern/1400446133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:04:01.237Z",
+      "crawledAt": "2026-06-05T22:30:11.751Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1875,8 +2176,9 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Women's-Health-Proteomics-Data-Science-Intern/1400446133/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-03T14:41:19.259Z",
+      "previousSlugs": [
+        "women-s-health-proteomics-data-science-intern-nestle-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "women-s-health-proteomics-data-science-intern-nestle-ch"
@@ -1888,9 +2190,8 @@
           "women-s-health-proteomics-data-science-intern-nestle-ch"
         ]
       },
-      "previousSlugs": [
-        "women-s-health-proteomics-data-science-intern-nestle-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-03T14:41:19.259Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1937,7 +2238,7 @@
       "url": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:04:00.556Z",
+      "crawledAt": "2026-06-05T22:30:10.960Z",
       "addressLocality": "Zug, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2011,7 +2312,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:59.782Z",
+      "crawledAt": "2026-06-05T22:30:10.131Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2086,7 +2387,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-Qualit%C3%A9-%28HFD%29/1378808633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:59.097Z",
+      "crawledAt": "2026-06-05T22:30:09.328Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2119,81 +2420,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1386977033",
-      "slug": "project-manager-r-d-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "project-manager-r-d-nestle-konolfingen-ch",
-        "en": "r-d-project-manager-nestle-ch",
-        "de": "r-d-project-manager-nestle-ch",
-        "fr": "r-d-project-manager-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "R&D Project Manager",
-      "titleByLocale": {
-        "it": "Project Manager R&D",
-        "en": "R&D Project Manager",
-        "de": "R&D Project Manager",
-        "fr": "R&D Project Manager"
-      },
-      "description": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-      "descriptionByLocale": {
-        "it": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "en": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "de": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "fr": "At Nestlé Nutrition & Health, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:58.332Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "r-d-project-manager-nestle-ch",
-        "r-d-project-manager-nestle-konolfingen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "r-d-project-manager-nestle-ch"
-        ],
-        "en": [
-          "r-d-project-manager-nestle-konolfingen-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:32.795Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
-    },
-    {
       "id": "nestle-1390417333",
       "slug": "pianificatore-di-produzione-e-mrp-nestle-henniez-ch",
       "slugByLocale": {
@@ -2224,7 +2450,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Production-&-MRP-Planner/1390417333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:57.648Z",
+      "crawledAt": "2026-06-05T22:30:08.492Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2295,7 +2521,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:56.970Z",
+      "crawledAt": "2026-06-05T22:30:07.663Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2372,7 +2598,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Content-&-Editorial/1396565233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:56.164Z",
+      "crawledAt": "2026-06-05T22:30:06.854Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2443,7 +2669,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Connectivity-Intern/1384575533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:55.489Z",
+      "crawledAt": "2026-06-05T22:30:06.050Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2524,7 +2750,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:54.761Z",
+      "crawledAt": "2026-06-05T22:30:05.251Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2587,7 +2813,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:54.061Z",
+      "crawledAt": "2026-06-05T22:30:04.462Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2662,7 +2888,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieure-Engineering-%28HFD%29/1377993633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:53.382Z",
+      "crawledAt": "2026-06-05T22:30:03.658Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2695,161 +2921,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1370956633",
-      "slug": "senior-engineering-specialista-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "senior-engineering-specialista-nestle-konolfingen-ch",
-        "en": "senior-engineering-specialist-nestle-ch",
-        "de": "senior-engineering-spezialist-nestle-konolfingen-ch",
-        "fr": "senior-engineering-specialiste-nestle-konolfingen-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Senior Engineering Specialist",
-      "titleByLocale": {
-        "it": "Senior Engineering Specialista",
-        "en": "Senior Engineering Specialist",
-        "de": "Senior Engineering Spezialist",
-        "fr": "Senior Engineering Spécialiste"
-      },
-      "description": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-      "descriptionByLocale": {
-        "it": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "en": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "de": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "fr": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:52.680Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-03",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-engineering-specialist-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-engineering-specialist-nestle-ch"
-        ],
-        "de": [
-          "senior-engineering-specialist-nestle-ch"
-        ],
-        "fr": [
-          "senior-engineering-specialist-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:36.955Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
-    },
-    {
-      "id": "nestle-1399480733",
-      "slug": "addetto-a-alla-logistica-nestle-basel-ch",
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-nestle-basel-ch",
-        "en": "associate-logistik-nestle-basel-ch",
-        "de": "mitarbeiter-in-logistik-nestle-ch",
-        "fr": "collaborateur-trice-logistik-nestle-basel-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Mitarbeiter:in Logistik",
-      "titleByLocale": {
-        "it": "Addetto/a alla logistica",
-        "en": "Associate Logistik",
-        "de": "Mitarbeiter:in Logistik",
-        "fr": "Collaborateur/trice Logistik"
-      },
-      "description": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
-      "descriptionByLocale": {
-        "it": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
-        "en": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
-        "de": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
-        "fr": "Positions Übersicht Standort: Basel, Schweiz Unternehmen: Nestlé Suisse SA Beschäftigungsgrad: 100% Vertragsart: Befristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n• Dynamisches und internationales Arbeitsumfeld\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung Kurzüberblick Position Die Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her. Für unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik . Ein Tag im Leben eines/-r Mitarbeiter:in Logistik\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n• Bereitstellung von Inland- und Exportaufträgen\n• Verladung von Exportwaren\n• Entladung von Rohstoffen\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n• Musterentnahme\n• Ein- und Auslagerungen\n• Versorgung der Produktionslinien\n• Reinigungsarbeiten nach Reinigungsplan\n• Zusammenarbeit mit internen und externen Ansprechpersonen Das macht Sie erfolgreich\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n• Staplerfahrausweis (SUVA anerkannt)\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n• SAP-Kenntnisse\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Unser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt. Möchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu."
-      },
-      "location": "Basel, CH",
-      "canton": "BS",
-      "url": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:03:51.967Z",
-      "addressLocality": "Basel, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-logistik-nestle-ch",
-        "mitarbeiter-in-logistik-nestle-basel-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-nestle-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-logistik-nestle-basel-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-logistik-nestle-basel-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-02T00:41:30.548Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4001",
-      "addressRegion": "BS"
-    },
-    {
       "id": "nestle-1389798633",
       "slug": "manager-auditor-nestle-vevey-ch",
       "slugByLocale": {
@@ -2880,7 +2951,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Audit-Manager/1389798633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:51.279Z",
+      "crawledAt": "2026-06-05T22:30:02.853Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2955,7 +3026,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:50.561Z",
+      "crawledAt": "2026-06-05T22:30:02.026Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3002,83 +3073,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1395939233",
-      "slug": "manufacturing-projects-tirocinante-nestle-vevey-ch",
-      "slugByLocale": {
-        "it": "manufacturing-projects-tirocinante-nestle-vevey-ch",
-        "en": "manufacturing-projects-intern-nestle-ch",
-        "de": "manufacturing-projects-praktikant-nestle-vevey-ch",
-        "fr": "manufacturing-projects-stagiaire-nestle-vevey-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Manufacturing Projects Intern",
-      "titleByLocale": {
-        "it": "Manufacturing Projects Tirocinante",
-        "en": "Manufacturing Projects Intern",
-        "de": "Manufacturing Projects Praktikant",
-        "fr": "Manufacturing Projects Stagiaire"
-      },
-      "description": "Manufacturing Projects Intern — Nestlé, Vevey, CH.\n\nKey details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Manufacturing Projects Intern — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Manufacturing Projects Intern — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Manufacturing Projects Intern — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Manufacturing Projects Intern — Nestlé, Vevey, CH. Key details:\n• Location: Vevey, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
-      },
-      "location": "Vevey, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Vevey-Manufacturing-Projects-Intern/1395939233/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:49.849Z",
-      "addressLocality": "Vevey, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Manufacturing-Projects-Intern/1395939233/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "manufacturing-projects-intern-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manufacturing-projects-intern-nestle-ch"
-        ],
-        "de": [
-          "manufacturing-projects-intern-nestle-ch"
-        ],
-        "fr": [
-          "manufacturing-projects-intern-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:58.311Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1800",
-      "addressRegion": "VD"
-    },
-    {
       "id": "nestle-1399285033",
       "slug": "responsabile-delle-richieste-di-visto-e-posta-nestle-vevey-ch",
       "slugByLocale": {
@@ -3109,7 +3103,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Gestionnaire-des-demandes-Visas-&-Courriers/1399285033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:49.147Z",
+      "crawledAt": "2026-06-05T22:30:01.240Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3182,7 +3176,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-ing%C3%A9nieur-Digital-Manufacturing-%28HFD%29/1377885033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:48.444Z",
+      "crawledAt": "2026-06-05T22:30:00.448Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3245,7 +3239,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:47.743Z",
+      "crawledAt": "2026-06-05T22:29:59.649Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3316,7 +3310,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Hardware/1377556533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:47.013Z",
+      "crawledAt": "2026-06-05T22:29:58.842Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3393,7 +3387,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Firmware/1377548533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:46.333Z",
+      "crawledAt": "2026-06-05T22:29:58.053Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3470,7 +3464,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Senior-Specialist-System-Development/1377559333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:45.648Z",
+      "crawledAt": "2026-06-05T22:29:57.256Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3547,7 +3541,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-Packaging-Material-Characterization/1368496533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:44.942Z",
+      "crawledAt": "2026-06-05T22:29:56.464Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3594,225 +3588,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1381829433",
-      "slug": "data-science-specialista-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "data-science-specialista-nestle-konolfingen-ch",
-        "en": "data-science-specialist-nestle-ch",
-        "de": "data-science-spezialist-nestle-konolfingen-ch",
-        "fr": "data-science-specialiste-nestle-konolfingen-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Data Science Specialist",
-      "titleByLocale": {
-        "it": "Data Science Specialista",
-        "en": "Data Science Specialist",
-        "de": "Data Science Spezialist",
-        "fr": "Data Science Spécialiste"
-      },
-      "description": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-      "descriptionByLocale": {
-        "it": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "en": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "de": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "fr": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Data-Science-Specialist/1381829433/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:44.271Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Data-Science-Specialist/1381829433/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "data-science-specialist-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "data-science-specialist-nestle-ch"
-        ],
-        "de": [
-          "data-science-specialist-nestle-ch"
-        ],
-        "fr": [
-          "data-science-specialist-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-29T00:03:43.586Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
-    },
-    {
-      "id": "nestle-1381591733",
-      "slug": "responsabile-dello-sviluppo-globale-del-prodotto-neonato-e-nutrizione-precoce-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "responsabile-dello-sviluppo-globale-del-prodotto-neonato-e-nutrizione-precoce-nestle-konolfingen-ch",
-        "en": "global-product-development-manager-infant-early-nutrition-nestle-ch",
-        "de": "global-product-development-manager-infant-early-nutrition-nestle-ch",
-        "fr": "global-product-development-manager-infant-early-nutrition-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Global Product Development Manager Infant & Early Nutrition",
-      "titleByLocale": {
-        "it": "Responsabile dello sviluppo globale del prodotto Neonato e nutrizione precoce",
-        "en": "Global Product Development Manager Infant & Early Nutrition",
-        "de": "Global Product Development Manager Infant & Early Nutrition",
-        "fr": "Global Product Development Manager Infant & Early Nutrition"
-      },
-      "description": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-      "descriptionByLocale": {
-        "it": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "en": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "de": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "fr": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:43.619Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-product-development-manager-infant-early-nutrition-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-product-development-manager-infant-early-nutrition-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:30.769Z",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
-    },
-    {
-      "id": "nestle-1375889233",
-      "slug": "gestore-dell-impianto-in-fill-pack-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "gestore-dell-impianto-in-fill-pack-nestle-konolfingen-ch",
-        "en": "anlagenfuhrer-in-fill-pack-nestle-ch",
-        "de": "anlagenfuhrer-in-fill-pack-nestle-ch",
-        "fr": "anlagenfuhrer-in-fill-pack-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Anlagenführer:in Fill & Pack",
-      "titleByLocale": {
-        "it": "Gestore dell'impianto:in Fill & Pack",
-        "en": "Anlagenführer:in Fill & Pack",
-        "de": "Anlagenführer:in Fill & Pack",
-        "fr": "Anlagenführer:in Fill & Pack"
-      },
-      "description": "Übersicht Position\n\nStandort: Konolfingen, Schweiz Unternehmen: Nestlé Schweiz S.A. Beschäftigungsgrad: 100% Vertragsart: unbefristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Internationales Arbeitsumfeld\n\n• Durchschnittlich 41-Stunden-Woche, je nach Schichtplan\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Schichtpauschale sowie Schichtzulagen über den gesetzlichen Vorgaben\n\n• Kostenfreies Schichtessen\n\n• Kostenfreier Parkplatz\n\n• Rabatt im Nestlé Shop (vor Ort in Konolfingen)\n\n• Mitgliedschaft im Fitnessstudio in Konolfingen zu Sonderkonditionen\n\n• Viele Möglichkeiten zur Karriereentwicklung und persönlichen Entfaltung\n\nKurzüberblick Position\n\n550 Mitarbeitende, die für die Herstellung hochwertiger Säuglingsnahrung für das In- und Ausland zuständig sind, prägen das dynamische, hochautomatisierte Arbeitsumfeld der Fabrik Konolfingen. Dies stellt täglich hohe Ansprüche an unser Team in Bezug auf Einhaltung von Hygienebestimmungen und Arbeitssicherheit. Möchten auch Sie Teil unseres Teams sein?\n\nZur Verstärkung unserer Abteilung Fill & Pack suchen wir eine kommunikative und verantwortungsbewusste Persönlichkeit als Anlagenführer/-in.\n\nEin Tag im Leben eines/-r Anlagenführer/-in\n\n• Produkt- und Dosenherstellung unter Einhaltung der Sicherheits-, Hygiene- und Umweltvorschriften sowie nach NGMP und SOPs\n\n• Ausführung der Linienlaboranalysen und Nachtragen der Produktions-, Störungsrapporte und Checklisten\n\n• Ausführung der Reinigungen gemäss Arbeitsanweisungen\n\n• Sicherstellung eines schonenden Umgangs mit Roh- und Packstoffen sowie Energien, Anlagen, Laborgeräten und Reinigungsmitteln\n\n• Verständnis des TPM-Prozesses und Abstimmung der Tätigkeiten an der Linie auf dessen Ziele\n\n• Tägliche Arbeit mit DMO (Digital Manufacturing Objects) und SAP (Zeitabrechnung und Materialabrechnung)\n\n• Unterstützung bei technischen Problemen\n\n• Bereitschaft zur Schicht- und Wochenendarbeit (4-Schichtbetrieb)\n\nDas macht Sie erfolgreich\n\n• Erfolgreich abgeschlossene Ausbildung im Verpackungsbereich oder als Lebensmitteltechnologe (EFZ) oder eine vergleichbare Ausbildung mit entsprechender Qualifikation\n\n• Mehrjährige Berufserfahrung in gleicher oder ähnlicher Funktion\n\n• Ausgeprägtes technisches Flair und Interesse an technischen Erneuerungen\n\n• Teamfähige, flexible, initiative und aufgeschlossene Persönlichkeit\n\n• Gute Kommunikationseigenschaften und Durchsetzungsvermögen\n\n• Sehr gute Deutschkenntnisse\n\n• Gute IT-Kenntnisse\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nSie möchten für die ganz Kleinen auf dieser Welt Grosses bewirken? Werden Sie Teil von Nestlé und senden uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) direkt online zu.",
-      "descriptionByLocale": {
-        "it": "Übersicht Position Standort: Konolfingen, Schweiz Unternehmen: Nestlé Schweiz S.A. Beschäftigungsgrad: 100% Vertragsart: unbefristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Internationales Arbeitsumfeld\n• Durchschnittlich 41-Stunden-Woche, je nach Schichtplan\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Schichtpauschale sowie Schichtzulagen über den gesetzlichen Vorgaben\n• Kostenfreies Schichtessen\n• Kostenfreier Parkplatz\n• Rabatt im Nestlé Shop (vor Ort in Konolfingen)\n• Mitgliedschaft im Fitnessstudio in Konolfingen zu Sonderkonditionen\n• Viele Möglichkeiten zur Karriereentwicklung und persönlichen Entfaltung Kurzüberblick Position 550 Mitarbeitende, die für die Herstellung hochwertiger Säuglingsnahrung für das In- und Ausland zuständig sind, prägen das dynamische, hochautomatisierte Arbeitsumfeld der Fabrik Konolfingen. Dies stellt täglich hohe Ansprüche an unser Team in Bezug auf Einhaltung von Hygienebestimmungen und Arbeitssicherheit. Möchten auch Sie Teil unseres Teams sein? Zur Verstärkung unserer Abteilung Fill & Pack suchen wir eine kommunikative und verantwortungsbewusste Persönlichkeit als Anlagenführer/-in. Ein Tag im Leben eines/-r Anlagenführer/-in\n• Produkt- und Dosenherstellung unter Einhaltung der Sicherheits-, Hygiene- und Umweltvorschriften sowie nach NGMP und SOPs\n• Ausführung der Linienlaboranalysen und Nachtragen der Produktions-, Störungsrapporte und Checklisten\n• Ausführung der Reinigungen gemäss Arbeitsanweisungen\n• Sicherstellung eines schonenden Umgangs mit Roh- und Packstoffen sowie Energien, Anlagen, Laborgeräten und Reinigungsmitteln\n• Verständnis des TPM-Prozesses und Abstimmung der Tätigkeiten an der Linie auf dessen Ziele\n• Tägliche Arbeit mit DMO (Digital Manufacturing Objects) und SAP (Zeitabrechnung und Materialabrechnung)\n• Unterstützung bei technischen Problemen\n• Bereitschaft zur Schicht- und Wochenendarbeit (4-Schichtbetrieb) Das macht Sie erfolgreich\n• Erfolgreich abgeschlossene Ausbildung im Verpackungsbereich oder als Lebensmitteltechnologe (EFZ) oder eine vergleichbare Ausbildung mit entsprechender Qualifikation\n• Mehrjährige Berufserfahrung in gleicher oder ähnlicher Funktion\n• Ausgeprägtes technisches Flair und Interesse an technischen Erneuerungen\n• Teamfähige, flexible, initiative und aufgeschlossene Persönlichkeit\n• Gute Kommunikationseigenschaften und Durchsetzungsvermögen\n• Sehr gute Deutschkenntnisse\n• Gute IT-Kenntnisse Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Sie möchten für die ganz Kleinen auf dieser Welt Grosses bewirken? Werden Sie Teil von Nestlé und senden uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) direkt online zu.",
-        "en": "Übersicht Position Standort: Konolfingen, Schweiz Unternehmen: Nestlé Schweiz S.A. Beschäftigungsgrad: 100% Vertragsart: unbefristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Internationales Arbeitsumfeld\n• Durchschnittlich 41-Stunden-Woche, je nach Schichtplan\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Schichtpauschale sowie Schichtzulagen über den gesetzlichen Vorgaben\n• Kostenfreies Schichtessen\n• Kostenfreier Parkplatz\n• Rabatt im Nestlé Shop (vor Ort in Konolfingen)\n• Mitgliedschaft im Fitnessstudio in Konolfingen zu Sonderkonditionen\n• Viele Möglichkeiten zur Karriereentwicklung und persönlichen Entfaltung Kurzüberblick Position 550 Mitarbeitende, die für die Herstellung hochwertiger Säuglingsnahrung für das In- und Ausland zuständig sind, prägen das dynamische, hochautomatisierte Arbeitsumfeld der Fabrik Konolfingen. Dies stellt täglich hohe Ansprüche an unser Team in Bezug auf Einhaltung von Hygienebestimmungen und Arbeitssicherheit. Möchten auch Sie Teil unseres Teams sein? Zur Verstärkung unserer Abteilung Fill & Pack suchen wir eine kommunikative und verantwortungsbewusste Persönlichkeit als Anlagenführer/-in. Ein Tag im Leben eines/-r Anlagenführer/-in\n• Produkt- und Dosenherstellung unter Einhaltung der Sicherheits-, Hygiene- und Umweltvorschriften sowie nach NGMP und SOPs\n• Ausführung der Linienlaboranalysen und Nachtragen der Produktions-, Störungsrapporte und Checklisten\n• Ausführung der Reinigungen gemäss Arbeitsanweisungen\n• Sicherstellung eines schonenden Umgangs mit Roh- und Packstoffen sowie Energien, Anlagen, Laborgeräten und Reinigungsmitteln\n• Verständnis des TPM-Prozesses und Abstimmung der Tätigkeiten an der Linie auf dessen Ziele\n• Tägliche Arbeit mit DMO (Digital Manufacturing Objects) und SAP (Zeitabrechnung und Materialabrechnung)\n• Unterstützung bei technischen Problemen\n• Bereitschaft zur Schicht- und Wochenendarbeit (4-Schichtbetrieb) Das macht Sie erfolgreich\n• Erfolgreich abgeschlossene Ausbildung im Verpackungsbereich oder als Lebensmitteltechnologe (EFZ) oder eine vergleichbare Ausbildung mit entsprechender Qualifikation\n• Mehrjährige Berufserfahrung in gleicher oder ähnlicher Funktion\n• Ausgeprägtes technisches Flair und Interesse an technischen Erneuerungen\n• Teamfähige, flexible, initiative und aufgeschlossene Persönlichkeit\n• Gute Kommunikationseigenschaften und Durchsetzungsvermögen\n• Sehr gute Deutschkenntnisse\n• Gute IT-Kenntnisse Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Sie möchten für die ganz Kleinen auf dieser Welt Grosses bewirken? Werden Sie Teil von Nestlé und senden uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) direkt online zu.",
-        "de": "Übersicht Position Standort: Konolfingen, Schweiz Unternehmen: Nestlé Schweiz S.A. Beschäftigungsgrad: 100% Vertragsart: unbefristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Internationales Arbeitsumfeld\n• Durchschnittlich 41-Stunden-Woche, je nach Schichtplan\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Schichtpauschale sowie Schichtzulagen über den gesetzlichen Vorgaben\n• Kostenfreies Schichtessen\n• Kostenfreier Parkplatz\n• Rabatt im Nestlé Shop (vor Ort in Konolfingen)\n• Mitgliedschaft im Fitnessstudio in Konolfingen zu Sonderkonditionen\n• Viele Möglichkeiten zur Karriereentwicklung und persönlichen Entfaltung Kurzüberblick Position 550 Mitarbeitende, die für die Herstellung hochwertiger Säuglingsnahrung für das In- und Ausland zuständig sind, prägen das dynamische, hochautomatisierte Arbeitsumfeld der Fabrik Konolfingen. Dies stellt täglich hohe Ansprüche an unser Team in Bezug auf Einhaltung von Hygienebestimmungen und Arbeitssicherheit. Möchten auch Sie Teil unseres Teams sein? Zur Verstärkung unserer Abteilung Fill & Pack suchen wir eine kommunikative und verantwortungsbewusste Persönlichkeit als Anlagenführer/-in. Ein Tag im Leben eines/-r Anlagenführer/-in\n• Produkt- und Dosenherstellung unter Einhaltung der Sicherheits-, Hygiene- und Umweltvorschriften sowie nach NGMP und SOPs\n• Ausführung der Linienlaboranalysen und Nachtragen der Produktions-, Störungsrapporte und Checklisten\n• Ausführung der Reinigungen gemäss Arbeitsanweisungen\n• Sicherstellung eines schonenden Umgangs mit Roh- und Packstoffen sowie Energien, Anlagen, Laborgeräten und Reinigungsmitteln\n• Verständnis des TPM-Prozesses und Abstimmung der Tätigkeiten an der Linie auf dessen Ziele\n• Tägliche Arbeit mit DMO (Digital Manufacturing Objects) und SAP (Zeitabrechnung und Materialabrechnung)\n• Unterstützung bei technischen Problemen\n• Bereitschaft zur Schicht- und Wochenendarbeit (4-Schichtbetrieb) Das macht Sie erfolgreich\n• Erfolgreich abgeschlossene Ausbildung im Verpackungsbereich oder als Lebensmitteltechnologe (EFZ) oder eine vergleichbare Ausbildung mit entsprechender Qualifikation\n• Mehrjährige Berufserfahrung in gleicher oder ähnlicher Funktion\n• Ausgeprägtes technisches Flair und Interesse an technischen Erneuerungen\n• Teamfähige, flexible, initiative und aufgeschlossene Persönlichkeit\n• Gute Kommunikationseigenschaften und Durchsetzungsvermögen\n• Sehr gute Deutschkenntnisse\n• Gute IT-Kenntnisse Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Sie möchten für die ganz Kleinen auf dieser Welt Grosses bewirken? Werden Sie Teil von Nestlé und senden uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) direkt online zu.",
-        "fr": "Übersicht Position Standort: Konolfingen, Schweiz Unternehmen: Nestlé Schweiz S.A. Beschäftigungsgrad: 100% Vertragsart: unbefristet Anstellungsbeginn: per sofort oder nach Vereinbarung Benefits\n• Internationales Arbeitsumfeld\n• Durchschnittlich 41-Stunden-Woche, je nach Schichtplan\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n• 13. Monatslohn und Bonusmöglichkeit\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n• Schichtpauschale sowie Schichtzulagen über den gesetzlichen Vorgaben\n• Kostenfreies Schichtessen\n• Kostenfreier Parkplatz\n• Rabatt im Nestlé Shop (vor Ort in Konolfingen)\n• Mitgliedschaft im Fitnessstudio in Konolfingen zu Sonderkonditionen\n• Viele Möglichkeiten zur Karriereentwicklung und persönlichen Entfaltung Kurzüberblick Position 550 Mitarbeitende, die für die Herstellung hochwertiger Säuglingsnahrung für das In- und Ausland zuständig sind, prägen das dynamische, hochautomatisierte Arbeitsumfeld der Fabrik Konolfingen. Dies stellt täglich hohe Ansprüche an unser Team in Bezug auf Einhaltung von Hygienebestimmungen und Arbeitssicherheit. Möchten auch Sie Teil unseres Teams sein? Zur Verstärkung unserer Abteilung Fill & Pack suchen wir eine kommunikative und verantwortungsbewusste Persönlichkeit als Anlagenführer/-in. Ein Tag im Leben eines/-r Anlagenführer/-in\n• Produkt- und Dosenherstellung unter Einhaltung der Sicherheits-, Hygiene- und Umweltvorschriften sowie nach NGMP und SOPs\n• Ausführung der Linienlaboranalysen und Nachtragen der Produktions-, Störungsrapporte und Checklisten\n• Ausführung der Reinigungen gemäss Arbeitsanweisungen\n• Sicherstellung eines schonenden Umgangs mit Roh- und Packstoffen sowie Energien, Anlagen, Laborgeräten und Reinigungsmitteln\n• Verständnis des TPM-Prozesses und Abstimmung der Tätigkeiten an der Linie auf dessen Ziele\n• Tägliche Arbeit mit DMO (Digital Manufacturing Objects) und SAP (Zeitabrechnung und Materialabrechnung)\n• Unterstützung bei technischen Problemen\n• Bereitschaft zur Schicht- und Wochenendarbeit (4-Schichtbetrieb) Das macht Sie erfolgreich\n• Erfolgreich abgeschlossene Ausbildung im Verpackungsbereich oder als Lebensmitteltechnologe (EFZ) oder eine vergleichbare Ausbildung mit entsprechender Qualifikation\n• Mehrjährige Berufserfahrung in gleicher oder ähnlicher Funktion\n• Ausgeprägtes technisches Flair und Interesse an technischen Erneuerungen\n• Teamfähige, flexible, initiative und aufgeschlossene Persönlichkeit\n• Gute Kommunikationseigenschaften und Durchsetzungsvermögen\n• Sehr gute Deutschkenntnisse\n• Gute IT-Kenntnisse Wir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen. Sie möchten für die ganz Kleinen auf dieser Welt Grosses bewirken? Werden Sie Teil von Nestlé und senden uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) direkt online zu."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:03:42.939Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-17",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagenfuhrer-in-fill-pack-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-fill-pack-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:39.715Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
-    },
-    {
       "id": "nestle-1376955433",
       "slug": "associate-r-d-specialista-flavors-nestle-lausanne-ch",
       "slugByLocale": {
@@ -3843,7 +3618,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:42.256Z",
+      "crawledAt": "2026-06-05T22:29:55.658Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3920,7 +3695,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-R&D-Laboratory-Technician/1389544733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:41.474Z",
+      "crawledAt": "2026-06-05T22:29:54.860Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3991,7 +3766,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:40.782Z",
+      "crawledAt": "2026-06-05T22:29:54.047Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4062,7 +3837,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:40.108Z",
+      "crawledAt": "2026-06-05T22:29:53.230Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4125,7 +3900,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-journ%C3%A9e-%28HFD%29/1388867533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:39.354Z",
+      "crawledAt": "2026-06-05T22:29:52.440Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4158,77 +3933,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1381548133",
-      "slug": "barista-bardo-del-caffe-nestle-basel-ch",
-      "slugByLocale": {
-        "it": "barista-bardo-del-caffe-nestle-basel-ch",
-        "en": "barista-coffee-bard-nestle-ch",
-        "de": "barista-coffee-bard-nestle-ch",
-        "fr": "barista-coffee-bard-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Barista / Coffee Bard",
-      "titleByLocale": {
-        "it": "Barista / Caffè Bard",
-        "en": "Barista / Coffee Bard",
-        "de": "Barista / Coffee Bard",
-        "fr": "Barista / Coffee Bard"
-      },
-      "description": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus.\n\nStellenübersicht\n\nStandort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai)\n\nUnternehmen: Nespresso Schweizer Markt\nBeschäftigungsgrad: Vollzeit, 100%\nVertragsart: Unbefristeter Vertrag\n\nWas wir bei Nespresso bieten\n\nViele Möglichkeiten für die berufliche und persönliche Entwicklung\n\nDynamisches internationales Arbeitsumfeld\n\nAttraktive zusätzliche Vorteile\n\nDie Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten\n\nDie Rolle im Überblick\n\nAls Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern.\n\nEin Tag im Leben als Barista / Coffee Bard\n\n•\nExklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n\n•\nKund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n\n•\nDurchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n\n•\nAktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n\n•\nKreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n\n•\nSorgfältige Pflege und laufende Aktualisierung der Kundendatei\n\nDas macht Sie erfolgreich\n\n•\nAusbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n\n•\nErfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n\n•\nLeidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n\n•\nOffene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n\n•\nGute Rede- und Präsentationsfähigkeiten\n\n•\nAusgeprägte Serviceorientierung und überzeugende Ausstrahlung\n\n•\nVerhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus\n\nNespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt.\n\nBei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
-      "descriptionByLocale": {
-        "it": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
-        "en": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
-        "de": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati",
-        "fr": "Wir bei Nespresso glauben, dass wir die Welt des Kaffees aufwerten können. Und wir möchten einen positiven Beitrag leisten, um Leben und Landschaften zum Besseren zu verändern. Bei uns stehen die Menschen im Mittelpunkt unseres Erfolgs – jede und jeder Einzelne unserer 14. 000 Mitarbeitenden. Um dies zu erreichen, leben wir nach vier Verhaltensweisen. We Inspire, we Care, we Act, and we iNnovate. Und Sie? Wollen Sie diesen spannenden Weg mit uns gehen? Werden Sie Teil des Nespresso-Teams! Und entdecken Sie mit uns, wie unglaublich vielfältig Kaffee sein kann. Malen Sie sich Ihre Zukunft bei uns aus. Stellenübersicht Standort: Basel – unsere neue, moderne Boutique an der Freie Strasse (ab Mai) Unternehmen: Nespresso Schweizer Markt Beschäftigungsgrad: Vollzeit, 100% Vertragsart: Unbefristeter Vertrag Was wir bei Nespresso bieten Viele Möglichkeiten für die berufliche und persönliche Entwicklung Dynamisches internationales Arbeitsumfeld Attraktive zusätzliche Vorteile Die Gelegenheit, für ein B Corp-zertifiziertes Unternehmen und eine der vertrauenswürdigsten Marken der Welt zu arbeiten Die Rolle im Überblick Als Barista / Coffee Bard bringen Sie Ihre Kaffee‑Expertise und Ihr Gespür für persönliche Beratung gezielt ein. Mit Ihrer Leidenschaft für Kaffee schaffen Sie besondere Momente – vom ersten Austausch bis zum vertiefenden Beratungsgespräch. Ihre Begeisterung wirkt ansteckend und macht jeden Besuch zu einem Erlebnis. Zusätzlich organisieren und moderieren Sie inspirierende Kaffee‑Schulungen, um Kund:innen für die Vielfalt und Nuancen der Kaffee‑Welt zu begeistern. Ein Tag im Leben als Barista / Coffee Bard\n• Exklusive Kundenbedienung sowie individuelle Beratung an unserer modernen Kaffee-Bar (Kaffee als Gestaltungsbereich)\n• Kund:innen durch authentisches Storytelling begeistern, indem Gastfreundschaft als Kern der Kaffeeauswahl vermittelt wird und so ein unvergessliches Verkaufserlebnis entsteht\n• Durchführung von Schulungen und Masterclasses rund um Kaffee und Produktwissen - Sie sind die Anlaufstelle für Trainings und teilen Ihre Expertise mit dem Team\n• Aktive Steigerung der Umsätze durch gezielten Verkauf: Kund:innen proaktiv ansprechen, Bedürfnisse erkennen und passende Produkte überzeugend empfehlen\n• Kreative Mitarbeit an Social-Media-Inhalten (z. B. TikTok, Instagram), wenn Interesse besteht – Sie bringen Ideen ein, die unsere Community für die Nespresso Welt begeistern\n• Sorgfältige Pflege und laufende Aktualisierung der Kundendatei Das macht Sie erfolgreich\n• Ausbildung oder Berufserfahrung im Retail oder in der Gastronomie, kombiniert mit echter Begeisterung für aktive Beratung\n• Erfahrung als Barista / Barman / Brewers von Vorteil oder Interesse, sich zur Kaffee‑Expertin / zum Kaffee‑Experten weiterzuentwickeln\n• Leidenschaft für Kaffee und Freude daran, Kund:innen zu begeistern\n• Offene, gewinnende Persönlichkeit mit natürlicher Verkaufsstärke\n• Gute Rede- und Präsentationsfähigkeiten\n• Ausgeprägte Serviceorientierung und überzeugende Ausstrahlung\n• Verhandlungssichere Deutschkenntnisse, weitere Sprachen wie Englisch sind ein Plus Nespresso verpflichtet sich, die Zugänglichkeit seines Rekrutierungsprozesses zu gewährleisten. Wenn Sie während dieses Prozesses eine Anpassung benötigen, bitten wir Sie, uns darüber zu informieren, damit wir Ihnen angemessene Unterstützung bieten können. Alle Informationen werden vertraulich behandelt. Bei Nespresso haben wir eine Kultur der Fürsorge und Inklusion entwickelt, die es allen ermöglicht, sich frei zu entfalten und mit dem Unternehmen zu wachsen. Wir sind innovati"
-      },
-      "location": "Basel, CH",
-      "canton": "BS",
-      "url": "https://jobdetails.nestle.com/job/Basel-Barista-Coffee-Bard/1381548133/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:03:38.586Z",
-      "addressLocality": "Basel, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://jobdetails.nestle.com/job/Basel-Barista-Coffee-Bard/1381548133/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "barista-coffee-bard-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "barista-coffee-bard-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:31.441Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4001",
-      "addressRegion": "BS"
-    },
-    {
       "id": "nestle-1395506733",
       "slug": "mentore-nestle-basel-ch",
       "slugByLocale": {
@@ -4259,7 +3963,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:03:37.915Z",
+      "crawledAt": "2026-06-05T22:29:51.624Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4334,7 +4038,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:37.147Z",
+      "crawledAt": "2026-06-05T22:29:50.842Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4409,7 +4113,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-logistique-%28HFD%29/1369989533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:36.325Z",
+      "crawledAt": "2026-06-05T22:29:50.041Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4480,7 +4184,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:35.547Z",
+      "crawledAt": "2026-06-05T22:29:49.213Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4551,7 +4255,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-Syst%C3%A8mes-Logistiques-%28HFD%29/1369038433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:34.704Z",
+      "crawledAt": "2026-06-05T22:29:48.417Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4614,7 +4318,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Ing%C3%A9nieur_e-Digital-&-Performance/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:34.000Z",
+      "crawledAt": "2026-06-05T22:29:47.606Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4668,7 +4372,7 @@
       "companyDomain": "nestle.com",
       "title": "MPS & MRP Planner",
       "titleByLocale": {
-        "it": "Pianificatore MPS e MRP",
+        "it": "MPS & MRP Planner",
         "en": "MPS & MRP Planner",
         "de": "MPS & MRP Planner",
         "fr": "MPS & MRP Planner"
@@ -4685,7 +4389,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-MPS-&-MRP-Planner/1385532533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T13:03:33.198Z",
+      "crawledAt": "2026-06-05T22:29:46.801Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4748,7 +4452,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T13:03:32.478Z",
+      "crawledAt": "2026-06-05T22:29:45.979Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4772,6 +4476,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:47.255Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
