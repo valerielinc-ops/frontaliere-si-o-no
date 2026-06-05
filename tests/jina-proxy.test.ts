@@ -61,7 +61,14 @@ describe('detectJinaErrorBody', () => {
 });
 
 describe('fetchViaJinaWithRetry', () => {
-  const SGCAPTCHA = `<html><head><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?y=ipr:34.96.49.15"></head><body></body></html>`;
+  // Padded past detectJinaErrorBody's too-short floor so these tests exercise the
+  // explicit `sgcaptcha` marker (not the length heuristic) — a long real challenge
+  // variant, which is exactly what the marker exists to catch. (The short form
+  // was caught only by "body too short", so the exhaustion assertion below — which
+  // checks for the marker reason specifically — needs the marker to fire.)
+  const SGCAPTCHA =
+    `<html><head><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?y=ipr:34.96.49.15"></head>` +
+    `<body>${'x'.repeat(400)}</body></html>`;
   const REAL_SITEMAP =
     `<html><body>` +
     `<a href="https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/">job</a>` +
