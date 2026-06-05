@@ -110,6 +110,31 @@ describe('fetchViaJinaWithRetry', () => {
     expect(detectJinaErrorBody(await res.text())).toMatch(/error\/challenge marker/);
   });
 
+  it('retries (and drains the body) on a Jina non-2xx, then returns the clean page', async () => {
+    let calls = 0;
+    let drained = 0;
+    const fetchImpl = async () => {
+      calls += 1;
+      if (calls < 3) {
+        // 429 from Jina rate-limit — body must be drained before the next attempt.
+        const r = new Response('rate limited', { status: 429 });
+        const orig = r.arrayBuffer.bind(r);
+        r.arrayBuffer = async () => { drained += 1; return orig(); };
+        return r;
+      }
+      return new Response(REAL_SITEMAP, { status: 200 });
+    };
+    const res = await fetchViaJinaWithRetry('https://cambiavalute.ch/career-sitemap.xml', {
+      attempts: 4,
+      retryDelayMs: 0,
+      fetchImpl,
+    });
+    expect(calls).toBe(3);
+    expect(drained).toBe(2); // both 429 bodies drained
+    expect(res.ok).toBe(true);
+    expect(await res.text()).toContain('legal-compliance-officer');
+  });
+
   it('returns immediately on a clean first attempt (no wasted retries)', async () => {
     let calls = 0;
     const fetchImpl = async () => {
