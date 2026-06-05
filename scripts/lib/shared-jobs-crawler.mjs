@@ -2293,7 +2293,11 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     // sgcaptcha IP-reputation WAF, so a single proxied fetch drops that detail
     // page → the job is parsed empty. Short-circuit so every proxied detail page
     // gets the same retry-until-clean-IP treatment as the sitemap discovery.
-    if (canRetry) {
+    // GET-only: Jina Reader always issues a GET, so a HEAD must NOT be routed here
+    // (canRetry also allows HEAD) — it would silently become a GET with a full
+    // body. Let HEAD fall through to the generic proxied fetch below, which keeps
+    // the original method.
+    if (canRetry && upperMethod === 'GET') {
       return await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
     }
     const proxied = jinaProxiedRequest(url);

@@ -82,6 +82,9 @@ export async function fetchViaJinaWithRetry(
       lastStatus = res.status;
       if (!res.ok) {
         // Jina's own non-2xx (rate limit / upstream) — a fresh IP may fare better.
+        // Drain the unused body so undici reclaims the connection before retrying;
+        // otherwise N abandoned streams pile up under concurrent proxied fetches.
+        try { await res.arrayBuffer(); } catch { /* already aborted/closed */ }
         lastBody = '';
         lastReason = `HTTP ${res.status}`;
       } else {
