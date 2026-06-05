@@ -720,6 +720,8 @@ const enCore: Record<string, string> = {
  'jobBoard.searchFallback.hint': 'Showing related offerings based on the keywords from your search, ranked by relevance.',
  'jobBoard.crossCantonFallback.title': 'No in-canton offers for «{query}» — {count} matches from other cantons',
  'jobBoard.crossCantonFallback.hint': 'For Italian cross-border workers any Swiss canton can still be relevant: showing the closest matches anywhere in Switzerland.',
+ 'jobBoard.broadenedSearch.title': 'Few in-canton results for «{query}» — extended to {count} including nearby cantons',
+ 'jobBoard.broadenedSearch.hint': 'For Italian cross-border workers, offers in other cantons are still relevant: we top up the few local matches with the most relevant ones elsewhere in Switzerland.',
  'jobBoard.companyBroaden.title': 'No openings in this canton for {company} — {count} positions across Switzerland',
  'jobBoard.companyBroaden.hint': 'This employer is based in another canton: showing all its open positions across Switzerland, still relevant for cross-border workers.',
  'jobBoard.crossLocaleFallback.title': 'No English results for «{query}» — {count} listings from other-language postings',

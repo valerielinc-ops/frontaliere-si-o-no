@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-06-04T14:54:05.371Z",
+  "assembledAt": "2026-06-04T22:12:55.752Z",
   "jobs": [
     {
       "id": "company-4te3t0",
@@ -43,10 +43,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
-        "en": "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+        "it": "consulente-di-vendita-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
         "de": "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-        "fr": "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur"
+        "fr": "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b"
       },
       "requirementsByLocale": {
         "it": [],
@@ -74,22 +74,35 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-766z9v"
         ],
         "en": [
+          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
           "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
         ],
         "fr": [
+          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+        ],
+        "it": [
           "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+        "verkaufsberater-in-textil-coop-city-chur-graubunden-766z9v",
+        "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+        "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
         "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl",
         "consulente-vendite-tessile-coop-city-chur-graubunden",
         "textile-sales-consultant-coop-city-chur-graubunden"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-dfo3tv",
@@ -165,14 +178,22 @@
       },
       "previousSlugsByLocale": {
         "en": [
+          "seller-in-cash-services-coop-genossenschaft-chur-dfo3tv",
           "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv"
         ],
         "fr": [
+          "vendeur-en-especes-services-coop-genossenschaft-chur-dfo3tv",
           "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-chur-dfo3tv"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv"
+        "seller-in-cash-services-coop-genossenschaft-chur-dfo3tv",
+        "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv",
+        "vendeur-en-especes-services-coop-genossenschaft-chur-dfo3tv",
+        "verkaufer-in-kassen-services-coop-genossenschaft-chur-dfo3tv"
       ]
     },
     {
@@ -216,10 +237,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
-        "en": "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
-        "de": "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
-        "fr": "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos"
+        "it": "scala-rayon-in-prodotti-freschi-coop-genossenschaft-davos",
+        "en": "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-59b58c",
+        "de": "rayonleiter-in-frischprodukte-coop-davos-platz-bqi6wr",
+        "fr": "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-59b58c"
       },
       "requirementsByLocale": {
         "it": [],
@@ -245,16 +266,32 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
+          "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
+          "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
           "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
         ],
         "fr": [
+          "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu",
+          "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos",
+          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
+        ],
+        "de": [
+          "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu",
+          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
+        ],
+        "it": [
           "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
         ]
       },
       "previousSlugs": [
+        "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
+        "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
+        "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu",
+        "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos",
+        "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu",
         "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
       ]
     },
@@ -331,14 +368,22 @@
       "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "en": [
+          "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
           "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
         ],
         "fr": [
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse",
           "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-felsberg-b0fgse"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+        "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
+        "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse",
+        "verkaufer-in-food-coop-genossenschaft-felsberg-b0fgse"
       ]
     },
     {
@@ -382,10 +427,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-        "en": "seller-in-food-coop-genossenschaft-disentis-muster",
-        "de": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster"
+        "it": "venditore-in-food-coop-genossenschaft-disentis-muster",
+        "en": "seller-in-food-coop-genossenschaft-disentis-muster-ae3aab",
+        "de": "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-ae3aab"
       },
       "requirementsByLocale": {
         "it": [],
@@ -412,15 +457,31 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
+        "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+        "seller-in-food-coop-genossenschaft-disentis-muster",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
+        "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
         "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-        "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv"
+        "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
+        "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+          "seller-in-food-coop-genossenschaft-disentis-muster",
           "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
         ],
         "fr": [
+          "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
+          "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+          "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
+        ],
+        "it": [
           "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
         ]
       }
@@ -501,22 +562,30 @@
         ],
         "en": [
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
+          "seller-in-food-coop-genossenschaft-chur-vnskkx",
           "verkaufer-in-food-coop-chur-graubunden-0l919m"
         ],
         "de": [
-          "verkaufer-in-food-coop-chur-graubunden-vnskkx"
+          "verkaufer-in-food-coop-chur-graubunden-vnskkx",
+          "verkaufer-in-food-coop-genossenschaft-chur-vnskkx"
         ],
         "fr": [
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx",
           "verkaufer-in-food-coop-chur-graubunden-0l919m"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-chur-graubunden-vnskkx",
+        "seller-in-food-coop-genossenschaft-chur-vnskkx",
         "verkaufer-in-food-coop-chur-graubunden-0l919m",
+        "verkaufer-in-food-coop-genossenschaft-chur-vnskkx",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx",
         "seller-in-food-coop-genossenschaft-chur-0l919m",
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
-        "verkaufer-in-food-coop-genossenschaft-chur-0l919m"
+        "verkaufer-in-food-coop-genossenschaft-chur-0l919m",
+        "seller-in-food-coop-genossenschaft-chur-aa0cb5",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-aa0cb5"
       ]
     },
     {
@@ -591,17 +660,23 @@
       },
       "previousSlugsByLocale": {
         "de": [
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ],
         "en": [
+          "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ],
         "fr": [
+          "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ]
       },
       "previousSlugs": [
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+        "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
+        "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb",
         "store-manager-christ-orologi-gioielli-chur-graubunden",
         "direttore-direttrice-christ-orologi-gioielli-chur-graubunden",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f",
@@ -680,17 +755,23 @@
       },
       "previousSlugsByLocale": {
         "de": [
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ],
         "en": [
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ],
         "fr": [
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ]
       },
       "previousSlugs": [
+        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+        "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
+        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g",
         "sales-advisor-christ-orologi-gioielli-chur-graubunden",
         "consulente-di-vendita-christ-orologi-gioielli-chur-graubunden",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g",
@@ -742,7 +823,6 @@
         "en": "Tasks\n\n- The best possible shopping experience means for you as Stv. Managing Director: an optimal management in terms of sales readiness, goods presentation and sales promotion.\n\n- Employees lead, but also promote: This is modern management for you.\n\n- The fact that business principles are adhered to in your department is obvious to you.\n\n- Also clear to you: compliance with quality and POS guidelines such as freshness/quality, hygiene, temperature regulations and waste data.\n\n- If the management is absent, you take over the management of the sales office.\n\nRequirements\n\n- Complete basic training in retail trade or corresponding professional experience in sales? Both fit for us.\n\n- Management tasks in a comparable function: you have experience with this.\n\n- You give everything – for the company and the clientele.\n\n- German you master perfectly: in word and writing.\n\n- You are kind, team-oriented and perform well maintained.\n\n- Benefits: up to 20% discount in all Coop Group formats\n\n- Conditions of employment: Pension: 2/3 is paid by Coop\n\n- Working hours: 6 weeks\n\n- Training: Support for external training and training\n\n- Sustainability: commitment to humans and animals and nature with more than 400 deeds\n\n- Communication:\n\n- Health:\n\nYour contact person\nStefanie Thoma\nHR Marketing",
         "fr": "Tâche\n\n- La meilleure expérience d'achat possible signifie pour vous en tant que directeur général de Stv.: une gestion optimale en termes de disponibilité des ventes, de présentation des marchandises et de promotion des ventes.\n\n- Les employés dirigent, mais aussi promeuvent : C'est une gestion moderne pour vous.\n\n- Le fait que les principes commerciaux soient respectés dans votre département est évident pour vous.\n\n- Aussi clair pour vous: respect des directives de qualité et de POS telles que la fraîcheur/qualité, l'hygiène, la régulation de la température et les données de déchets.\n\n- Si la direction est absente, vous prenez la direction du bureau de vente.\n\nExigences\n\n- Compléter la formation de base dans le commerce de détail ou l'expérience professionnelle correspondante dans les ventes? Tous les deux.\n\n- Tâches de gestion dans une fonction comparable: vous avez de l'expérience avec cela.\n\n- Vous donnez tout – pour l'entreprise et la clientèle.\n\n- Allemand vous maîtrisez parfaitement: en paroles et en écriture.\n\n- Vous êtes gentil, tourné vers l'équipe et vous êtes bien entretenu.\n\n- Avantages: jusqu'à 20% de réduction dans tous les formats Coop Group\n\n- Conditions d'emploi: Pension: 2/3 est versée par Coop\n\n- Heures de travail: 6 semaines\n\n- Formation : soutien à la formation externe\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication :\n\n- Santé :\n\nVotre personne à contacter\nStefanie Thoma\nMarketing des ressources humaines"
       },
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [],
         "en": [],
@@ -934,10 +1014,10 @@
         "fr": "Tâche\n\n- Le comptoir ouvert est notre point de contact phare et important pour nos clients. Vous conseillez et servez ce buffet passionné.\n\n- Coupe fraîche et habillée : Vous préparez les produits de viande de façon professionnelle et attrayante et vous produisez également des produits maison tels que des saucisses.\n\n- Vous gérez les marchandises en libre-service et les aidez à mieux vendre.\n\n- Les commandes du client concernant l'activité à jour fixe, mais aussi à l'extérieur, sont également incluses et fournies.\n\nExigences\n\n- Vous apportez de la joie dans les conseils ou le service à la clientèle, dans le cas optimal dans le secteur alimentaire, avec et l'intérêt pour la viande et le poisson.\n\n- Vous marquez également avec une expérience professionnelle dans une boucherie servie. Les expériences en tant que cuisinier/cuisinier (p/m/j) vous aident dans votre travail de consultation quotidien.\n\n- Vous appréciez l'échange de clients et êtes heureux de vous conseiller pour votre vie.\n\n- Vous appliquez systématiquement les exigences de qualité et les lignes directrices.\n\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (dans le même ménage\n\n- Conditions d'emploi : Caisse de pension : 2/3 est payé par Coop, Conditions d'emploi attrayantes et égalité salariale certifiée, Primes de fidélité, Plan d'épargne à la Caisse de pension, Contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue: plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : mise à jour de la forme physique : 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
+        "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb"
       },
       "requirementsByLocale": {},
       "addressLocality": "Klosters-Serneus",
@@ -959,32 +1039,30 @@
       "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "en": [
-          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb"
+          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
+          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus"
         ],
         "fr": [
-          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb"
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we"
         ],
         "it": [
-          "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we"
         ]
       },
       "previousSlugs": [
-        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
+        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we",
-        "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
-        "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus"
+        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2406
@@ -1156,48 +1234,49 @@
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
         ],
         "en": [
-          "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
           "managing-director-in-christ-uhren-schmuck-ag-chur-0b3645",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
           "managing-director-in-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+          "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ],
         "de": [
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen",
           "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0b3645",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ],
         "fr": [
           "directeur-general-in-christ-uhren-schmuck-ag-chur-cprmen",
           "directeur-general-in-christ-uhren-schmuck-ag-chur",
           "directeur-general-in-christ-uhren-schmuck-ag-chur-0b3645",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
           "directeur-general-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+          "directeur-general-christ-uhren-schmuck-ag-chur-cprmen",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
         "managing-director-in-christ-uhren-schmuck-ag-chur-0b3645",
         "managing-director-in-christ-uhren-schmuck-ag-chur",
+        "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
-        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0b3645",
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen",
         "directeur-general-in-christ-uhren-schmuck-ag-chur-cprmen",
         "directeur-general-in-christ-uhren-schmuck-ag-chur",
         "directeur-general-in-christ-uhren-schmuck-ag-chur-0b3645",
         "directeur-general-christ-uhren-schmuck-ag-chur",
+        "directeur-general-christ-uhren-schmuck-ag-chur-cprmen",
         "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
         "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb",
-        "directeur-general-christ-uhren-schmuck-ag-chur-cprmen",
-        "store-manager-christ-orologi-gioielli-chur-graubunden",
-        "direttore-direttrice-christ-orologi-gioielli-chur-graubunden"
-      ]
+        "store-manager-christ-orologi-gioielli-chur-graubunden"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-w2vgxm",
@@ -1273,47 +1352,47 @@
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
         ],
         "en": [
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
           "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
           "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ],
         "de": [
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
           "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ],
         "fr": [
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm",
           "consultant-en-ventes-christ-uhren-schmuck-ag-chur-110c5e",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
           "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+        "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-110c5e",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
+        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g",
         "sales-advisor-christ-orologi-gioielli-chur-graubunden",
         "consulente-di-vendita-christ-orologi-gioielli-chur-graubunden",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g",
-        "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden"
-      ]
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-iz6bhk",
@@ -1562,13 +1641,13 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-food-coop-genossenschaft-chur-0l919m",
           "seller-in-food-coop-genossenschaft-chur",
+          "seller-in-food-coop-genossenschaft-chur-0l919m",
           "verkaufer-in-food-coop-chur-graubunden-0l919m"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
           "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
           "verkaufer-in-food-coop-chur-graubunden-0l919m"
         ],
         "de": [
@@ -1576,11 +1655,11 @@
         ]
       },
       "previousSlugs": [
-        "seller-in-food-coop-genossenschaft-chur-0l919m",
         "seller-in-food-coop-genossenschaft-chur",
+        "seller-in-food-coop-genossenschaft-chur-0l919m",
         "verkaufer-in-food-coop-chur-graubunden-0l919m",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
         "verkaufer-in-food-coop-genossenschaft-chur-0l919m"
       ]
     },
@@ -1656,33 +1735,36 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
-          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
           "seller-in-food-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+          "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
           "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn",
-          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
           "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn",
           "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
-          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+          "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn"
         ],
         "it": [
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ]
       },
       "previousSlugs": [
-        "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
-        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
         "seller-in-food-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
         "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
-        "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn",
+        "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
+        "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse",
+        "verkaufer-in-food-coop-genossenschaft-felsberg-b0fgse"
       ],
       "retranslationAttempts": 1
     },
@@ -3127,9 +3209,9 @@
           "lagerist-in-jumbo-chur-graubunden-utbp1c"
         ],
         "fr": [
-          "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
           "stockiste-en-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
           "stockiste-en-jumbo-division-der-coop-genossenschaft-chur",
+          "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
           "lagerist-in-jumbo-chur-graubunden-utbp1c"
         ],
         "en": [
@@ -3139,9 +3221,9 @@
       "previousSlugs": [
         "lagerist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
         "lagerist-in-jumbo-chur-graubunden-utbp1c",
-        "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
         "stockiste-en-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
         "stockiste-en-jumbo-division-der-coop-genossenschaft-chur",
+        "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
         "stockist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c"
       ],
       "retranslationAttempts": 4,
@@ -3476,12 +3558,12 @@
       },
       "descriptionByLocale": {
         "de": "Aufgaben\n\n- Dein Einsatz im Non-Food-Bereich: Du sorgst dafür, dass Waren aktiv verkauft und sorgfältig bewirtschaftet werden.\n\n- Keine Frage, du hältst die Qualitätsrichtlinien und die Vorgaben am Verkaufspunkt ausnahmslos ein.\n\n- Dein geschätzter Einsatz ist auch an der Kasse gefragt.\n\nAnforderungen\n\n- Bist du ausgebildete:r Detailhändler:in? Perfekt! Oder hast du bereits Berufserfahrung im Verkauf gesammelt? Auch gut.\n\n- Du leistest deinen Einsatz gerne auch flexibel.\n\n- Du kannst Deutsch gut sprechen und schreiben.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nNadia Ruetsch\nHR Marketing",
-        "it": "Compiti\n\n- Il vostro utilizzo nel settore non alimentare: assicuratevi che le merci siano vendute attivamente e accuratamente gestite.\n\n- Nessuna domanda, hai le linee guida di qualità e i requisiti al punto di vendita senza eccezione.\n\n- La tua puntata stimata è richiesta anche al checkout.\n\nRequisiti\n\n- Sei addestrato: il rivenditore:in? Perfetto! O hai già acquisito esperienza professionale nella vendita? Bene.\n\n- È anche possibile rendere il vostro uso flessibile.\n\n- Puoi parlare e scrivere bene il tedesco.\n\n- Vantaggi: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati di Coop Group, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto sulla mobilità CarSharing, sconto personale anche per i partner:in (nella stessa famiglia\n\n- Condizioni di lavoro: Fondo pensionistico: 2/3 è pagato da Coop, condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio presso il Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità pagato\n\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo di lavoro flessibili\n\n- Formazione continua: oltre 600 corsi di formazione interna, gestione del talento con una vasta gamma di possibilità di sviluppo, formazione e formazione offerta da L-GAV e Coop\n\n- Sostenibilità: impegno per l'uomo, gli animali e la natura con più di 400 atti\n\n- Comunicazione: applicazione interna per i dipendenti\n\n- Salute: Aggiornamento fitness: Fr. 200.– Sconto su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte sportive interne\n\nLa persona di contatto\nNadia Ruetsch\nHR Marketing",
-        "en": "Tasks\n\n- Your use in the non-food sector: You make sure that goods are sold actively and carefully managed.\n\n- No question, you have the quality guidelines and the requirements at the point of sale without exception.\n\n- Your estimated bet is also in demand at the checkout.\n\nRequirements\n\n- Are you trained: the retailer:in? Perfect! Or have you already gained professional experience in the sale? Good.\n\n- You can also make your use flexible.\n\n- You can speak and write German well.\n\n- Benefits: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all Coop Group formats, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, discount on mobility CarSharing, personal discount also for partners:in (in the same household\n\n- Conditions of employment : Pension fund: 2/3 is paid by Coop, Attractive conditions of employment and certified pay equality, loyalty premiums, savings plan at the Pension Fund, total employment contract (GAV), 18 weeks paid maternity leave and three weeks paid paternity leave\n\n- Working time : 5 weeks vacation, flexible working time models\n\n- Continuing education : Over 600 internal training courses, talent management with a wide range of possibilities for development, training and further training offered by L-GAV and Coop\n\n- Sustainability: commitment to humans, animals and nature with more than 400 deeds\n\n- Communication: internal app for employees\n\n- Health: Update fitness: Fr. 200.– Discount on annual subscription, Free participation in various company courses, Internal sports offers\n\nYour contact person\nNadia Ruetsch\nHR Marketing",
-        "fr": "Tâches\n\n- Votre utilisation dans le secteur non alimentaire: Vous assurez que les marchandises sont vendues activement et soigneusement gérées.\n\n- Sans aucun doute, vous avez les directives de qualité et les exigences au point de vente sans exception.\n\n- Votre pari estimé est aussi en demande à la caisse.\n\nExigences\n\n- Êtes-vous formé: le détaillant: en? Parfait ! Ou avez-vous déjà acquis une expérience professionnelle dans la vente? Parfait.\n\n- Vous pouvez aussi rendre votre utilisation flexible.\n\n- Tu peux bien parler et écrire l'allemand.\n\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (dans le même ménage\n\n- Conditions d'emploi : Caisse de pension : 2/3 est payée par Coop, Conditions d'emploi attractives et égalité salariale certifiée, primes de fidélité, plan d'épargne à la Caisse de pension, contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail : 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue : Plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication: application interne pour les salariés\n\n- Santé: Mise à jour de la forme physique: P. 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
+        "it": "Compiti\n\n- Il vostro utilizzo nel settore non alimentare: assicuratevi che le merci siano vendute attivamente e accuratamente gestite.\n\n- Nessuna domanda, avete le linee guida di qualità e le specifiche al punto di vendita senza eccezione.\n\n- La tua puntata stimata è richiesta anche al checkout.\n\nRequisiti\n\n- Sei addestrato: il rivenditore:in? Perfetto! O hai già acquisito esperienza professionale nella vendita? Bene.\n\n- È anche possibile rendere il vostro uso flessibile.\n\n- Puoi parlare e scrivere bene il tedesco.\n\n- Vantaggi: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto sulla mobilità CarSharing, sconto personale anche per i partner:in (nella stessa famiglia\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, condizioni di lavoro attraente e parità di retribuzione certificata, premi fedeltà, piano di risparmio presso il Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo di lavoro flessibili\n\n- Formazione continua: oltre 600 corsi di formazione interna, gestione del talento con una vasta gamma di possibilità di sviluppo, formazione e formazione offerta da L-GAV e Coop\n\n- Sostenibilità: impegno per l'uomo, gli animali e la natura con più di 400 azioni\n\n- Comunicazione: applicazione interna dei lavoratori\n\n- Salute: Aggiornamento fitness: Fr. 200.– Sconto su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte sportive interne\n\nLa persona di contatto\nNadia Ruetsch\nHR Marketing",
+        "en": "Tasks\n\n- Your use in the non-food sector: You make sure that goods are sold actively and carefully managed.\n\n- No question, you have the quality guidelines and the specifications at the point of sale without exception.\n\n- Your estimated bet is also in demand at the checkout.\n\nRequirements\n\n- Are you trained: the retailer:in? Perfect! Or have you already gained professional experience in the sale? Good.\n\n- You can also make your use flexible.\n\n- You can speak and write German well.\n\n- Benefits: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all Coop Group formats, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, discount on mobility CarSharing, personal discount also for partners:in (in the same household\n\n- Conditions of employment : Pension fund: 2/3 is paid by Coop, Attractive employment conditions and certified pay equality, Loyalty premiums, savings plan at the Pension Fund, Total employment contract (GAV), 18 weeks paid maternity leave and three weeks paid paternity leave\n\n- Working time: 5 weeks vacation, flexible working time models\n\n- Continuing education: Over 600 internal training courses, talent management with a wide range of possibilities for development, training and further training offered by L-GAV and Coop\n\n- Sustainability: commitment to humans, animals and nature with more than 400 deeds\n\n- Communication : internal app for employees\n\n- Health: Update fitness: Fr. 200.– Discount on annual subscription, Free participation in various company courses, Internal sports offers\n\nYour contact person\nNadia Ruetsch\nHR Marketing",
+        "fr": "Tâche\n\n- Votre utilisation dans le secteur non alimentaire: Vous assurez que les marchandises sont vendues activement et soigneusement gérées.\n\n- Sans aucun doute, vous avez les directives de qualité et les spécifications au point de vente sans exception.\n\n- Votre pari estimé est aussi en demande à la caisse.\n\nExigences\n\n- Êtes-vous formé: le détaillant: en? Parfait ! Ou avez-vous déjà acquis une expérience professionnelle dans la vente? Parfait.\n\n- Vous pouvez aussi rendre votre utilisation flexible.\n\n- Tu peux bien parler et écrire l'allemand.\n\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (dans le même ménage\n\n- Conditions d'emploi : Caisse de pension : 2/3 est payé par Coop, Conditions d'emploi attrayantes et égalité salariale certifiée, Primes de fidélité, Plan d'épargne à la Caisse de pension, Contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue: plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : mise à jour de la forme physique : 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
       },
       "slugByLocale": {
-        "it": "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
+        "it": "venditore-in-nonfood-coop-genossenschaft-chur",
         "en": "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "de": "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
         "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5"
@@ -3519,7 +3601,7 @@
           "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
         ],
         "it": [
-          "venditore-in-nonfood-coop-genossenschaft-chur",
+          "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
           "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
         ],
         "de": [
@@ -3532,7 +3614,7 @@
         "seller-in-nonfood-coop-genossenschaft-chur",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-7u0021",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
-        "venditore-in-nonfood-coop-genossenschaft-chur",
+        "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021",
         "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
       ],
@@ -3716,9 +3798,9 @@
           "vendeur-dans-les-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
           "vendeur-dans-les-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus",
           "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
-          "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
           "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus-46rasq",
           "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus",
+          "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
           "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq"
         ],
         "it": [
@@ -3740,9 +3822,9 @@
         "vendeur-dans-les-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
         "vendeur-dans-les-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus",
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
-        "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
         "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus-46rasq",
         "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus",
+        "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
         "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus",
         "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus-82026e",
         "personnel-en-inventaire-coop-genossenschaft-basel",
@@ -11746,7 +11828,7 @@
     },
     {
       "id": "company-j9odwp",
-      "slug": "venditore-in-nonfood-coop-genossenschaft-chur",
+      "slug": "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Nonfood",
       "location": "Chur",
@@ -11779,9 +11861,9 @@
       },
       "descriptionByLocale": {
         "de": "Aufgaben\n\n- Dein Einsatz im Non-Food-Bereich: Du sorgst dafür, dass Waren aktiv verkauft und sorgfältig bewirtschaftet werden.\n\n- Keine Frage, du hältst die Qualitätsrichtlinien und die Vorgaben am Verkaufspunkt ausnahmslos ein.\n\n- Dein geschätzter Einsatz ist auch an der Kasse gefragt.\n\nAnforderungen\n\n- Bist du ausgebildete:r Detailhändler:in? Perfekt! Oder hast du bereits Berufserfahrung im Verkauf gesammelt? Auch gut.\n\n- Du leistest deinen Einsatz gerne auch flexibel.\n\n- Du kannst Deutsch gut sprechen und schreiben.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nNadia Ruetsch\nHR Marketing",
-        "it": "Compiti\n\n- Il vostro utilizzo nel settore non alimentare: assicuratevi che le merci siano vendute attivamente e accuratamente gestite.\n\n- Nessuna domanda, hai le linee guida di qualità e i requisiti al punto di vendita senza eccezione.\n\n- La tua puntata stimata è richiesta anche al checkout.\n\nRequisiti\n\n- Sei addestrato: il rivenditore:in? Perfetto! O hai già acquisito esperienza professionale nella vendita? Bene.\n\n- È anche possibile rendere il vostro uso flessibile.\n\n- Puoi parlare e scrivere bene il tedesco.\n\n- Vantaggi: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati di Coop Group, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto sulla mobilità CarSharing, sconto personale anche per i partner:in (nella stessa famiglia\n\n- Condizioni di lavoro: Fondo pensionistico: 2/3 è pagato da Coop, condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio presso il Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità pagato\n\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo di lavoro flessibili\n\n- Formazione continua: oltre 600 corsi di formazione interna, gestione del talento con una vasta gamma di possibilità di sviluppo, formazione e formazione offerta da L-GAV e Coop\n\n- Sostenibilità: impegno per l'uomo, gli animali e la natura con più di 400 atti\n\n- Comunicazione: applicazione interna per i dipendenti\n\n- Salute: Aggiornamento fitness: Fr. 200.– Sconto su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte sportive interne\n\nLa persona di contatto\nNadia Ruetsch\nHR Marketing",
-        "en": "Tasks\n\n- Your use in the non-food sector: You make sure that goods are sold actively and carefully managed.\n\n- No question, you have the quality guidelines and the requirements at the point of sale without exception.\n\n- Your estimated bet is also in demand at the checkout.\n\nRequirements\n\n- Are you trained: the retailer:in? Perfect! Or have you already gained professional experience in the sale? Good.\n\n- You can also make your use flexible.\n\n- You can speak and write German well.\n\n- Benefits: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all Coop Group formats, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, discount on mobility CarSharing, personal discount also for partners:in (in the same household\n\n- Conditions of employment : Pension fund: 2/3 is paid by Coop, Attractive conditions of employment and certified pay equality, loyalty premiums, savings plan at the Pension Fund, total employment contract (GAV), 18 weeks paid maternity leave and three weeks paid paternity leave\n\n- Working time : 5 weeks vacation, flexible working time models\n\n- Continuing education : Over 600 internal training courses, talent management with a wide range of possibilities for development, training and further training offered by L-GAV and Coop\n\n- Sustainability: commitment to humans, animals and nature with more than 400 deeds\n\n- Communication: internal app for employees\n\n- Health: Update fitness: Fr. 200.– Discount on annual subscription, Free participation in various company courses, Internal sports offers\n\nYour contact person\nNadia Ruetsch\nHR Marketing",
-        "fr": "Tâches\n\n- Votre utilisation dans le secteur non alimentaire: Vous assurez que les marchandises sont vendues activement et soigneusement gérées.\n\n- Sans aucun doute, vous avez les directives de qualité et les exigences au point de vente sans exception.\n\n- Votre pari estimé est aussi en demande à la caisse.\n\nExigences\n\n- Êtes-vous formé: le détaillant: en? Parfait ! Ou avez-vous déjà acquis une expérience professionnelle dans la vente? Parfait.\n\n- Vous pouvez aussi rendre votre utilisation flexible.\n\n- Tu peux bien parler et écrire l'allemand.\n\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (dans le même ménage\n\n- Conditions d'emploi : Caisse de pension : 2/3 est payée par Coop, Conditions d'emploi attractives et égalité salariale certifiée, primes de fidélité, plan d'épargne à la Caisse de pension, contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail : 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue : Plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication: application interne pour les salariés\n\n- Santé: Mise à jour de la forme physique: P. 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
+        "it": "Compiti\n\n- Il vostro utilizzo nel settore non alimentare: assicuratevi che le merci siano vendute attivamente e accuratamente gestite.\n\n- Nessuna domanda, avete le linee guida di qualità e le specifiche al punto di vendita senza eccezione.\n\n- La tua puntata stimata è richiesta anche al checkout.\n\nRequisiti\n\n- Sei addestrato: il rivenditore:in? Perfetto! O hai già acquisito esperienza professionale nella vendita? Bene.\n\n- È anche possibile rendere il vostro uso flessibile.\n\n- Puoi parlare e scrivere bene il tedesco.\n\n- Vantaggi: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto sulla mobilità CarSharing, sconto personale anche per i partner:in (nella stessa famiglia\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, condizioni di lavoro attraente e parità di retribuzione certificata, premi fedeltà, piano di risparmio presso il Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo di lavoro flessibili\n\n- Formazione continua: oltre 600 corsi di formazione interna, gestione del talento con una vasta gamma di possibilità di sviluppo, formazione e formazione offerta da L-GAV e Coop\n\n- Sostenibilità: impegno per l'uomo, gli animali e la natura con più di 400 azioni\n\n- Comunicazione: applicazione interna dei lavoratori\n\n- Salute: Aggiornamento fitness: Fr. 200.– Sconto su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte sportive interne\n\nLa persona di contatto\nNadia Ruetsch\nHR Marketing",
+        "en": "Tasks\n\n- Your use in the non-food sector: You make sure that goods are sold actively and carefully managed.\n\n- No question, you have the quality guidelines and the specifications at the point of sale without exception.\n\n- Your estimated bet is also in demand at the checkout.\n\nRequirements\n\n- Are you trained: the retailer:in? Perfect! Or have you already gained professional experience in the sale? Good.\n\n- You can also make your use flexible.\n\n- You can speak and write German well.\n\n- Benefits: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all Coop Group formats, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, discount on mobility CarSharing, personal discount also for partners:in (in the same household\n\n- Conditions of employment : Pension fund: 2/3 is paid by Coop, Attractive employment conditions and certified pay equality, Loyalty premiums, savings plan at the Pension Fund, Total employment contract (GAV), 18 weeks paid maternity leave and three weeks paid paternity leave\n\n- Working time: 5 weeks vacation, flexible working time models\n\n- Continuing education: Over 600 internal training courses, talent management with a wide range of possibilities for development, training and further training offered by L-GAV and Coop\n\n- Sustainability: commitment to humans, animals and nature with more than 400 deeds\n\n- Communication : internal app for employees\n\n- Health: Update fitness: Fr. 200.– Discount on annual subscription, Free participation in various company courses, Internal sports offers\n\nYour contact person\nNadia Ruetsch\nHR Marketing",
+        "fr": "Tâche\n\n- Votre utilisation dans le secteur non alimentaire: Vous assurez que les marchandises sont vendues activement et soigneusement gérées.\n\n- Sans aucun doute, vous avez les directives de qualité et les spécifications au point de vente sans exception.\n\n- Votre pari estimé est aussi en demande à la caisse.\n\nExigences\n\n- Êtes-vous formé: le détaillant: en? Parfait ! Ou avez-vous déjà acquis une expérience professionnelle dans la vente? Parfait.\n\n- Vous pouvez aussi rendre votre utilisation flexible.\n\n- Tu peux bien parler et écrire l'allemand.\n\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (dans le même ménage\n\n- Conditions d'emploi : Caisse de pension : 2/3 est payé par Coop, Conditions d'emploi attrayantes et égalité salariale certifiée, Primes de fidélité, Plan d'épargne à la Caisse de pension, Contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue: plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : mise à jour de la forme physique : 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
       },
       "requirementsByLocale": {
         "it": [],
@@ -11792,7 +11874,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-nonfood-coop-genossenschaft-chur",
+        "it": "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "en": "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "de": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
         "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5"
@@ -11825,7 +11907,7 @@
           "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
           "verkaufer-in-nonfood-coop-chur-graubunden",
           "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-          "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5"
+          "venditore-in-nonfood-coop-genossenschaft-chur"
         ],
         "de": [
           "verkaufer-in-nonfood-coop-genossenschaft-chur-j9odwp",
@@ -11838,7 +11920,7 @@
         "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
         "verkaufer-in-nonfood-coop-chur-graubunden",
-        "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
+        "venditore-in-nonfood-coop-genossenschaft-chur",
         "verkaufer-in-nonfood-coop-genossenschaft-chur-j9odwp",
         "venditore-a-coop-genossenschaft-chur",
         "seller-in-nonfood-coop-genossenschaft-chur-7u0021",
@@ -13340,7 +13422,9 @@
         "consultant-en-ventes-coop-genossenschaft-chur",
         "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl",
         "consulente-vendite-tessile-coop-city-chur-graubunden",
-        "textile-sales-consultant-coop-city-chur-graubunden"
+        "textile-sales-consultant-coop-city-chur-graubunden",
+        "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -13440,7 +13524,10 @@
         "rayonleiter-in-frischprodukte-coop-davos-platz",
         "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
         "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos",
-        "rayonleiter-in-frischprodukte-coop-genossenschaft-davos"
+        "rayonleiter-in-frischprodukte-coop-genossenschaft-davos",
+        "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
+        "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu",
+        "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -13448,7 +13535,7 @@
     },
     {
       "id": "company-uwtky9",
-      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
+      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus-b54dfb",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Klosters-Serneus",
@@ -13485,7 +13572,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus-b54dfb",
         "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
         "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb"
@@ -13510,8 +13597,9 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-scuol",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-poschiavo",
           "macellaio-specialista-della-carne-coop-genossenschaft-klosters-serneus",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden"
+          "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
@@ -13533,8 +13621,9 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-scuol",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-poschiavo",
         "macellaio-specialista-della-carne-coop-genossenschaft-klosters-serneus",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
+        "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
         "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus",
@@ -13731,7 +13820,10 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
         "verkaufer-in-food-coop-genossenschaft-disentis-muster",
         "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-        "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv"
+        "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
+        "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6",
+        "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6"
       ],
       "addressCountry": "CH",
       "country": "CH",

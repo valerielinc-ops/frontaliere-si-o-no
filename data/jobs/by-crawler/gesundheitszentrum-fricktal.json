@@ -1,40 +1,39 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-06-04T14:59:31.649Z",
+  "assembledAt": "2026-06-04T22:18:15.855Z",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-f20b8847e2e9",
       "slug": "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "it": "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "en": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
       "companyDomain": "gzf.ch",
       "title": "Dipl. Pflegefachperson HF (w/m/d)",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson HF (w/m/d)",
+        "it": "Consulente senior (w/m/d)",
         "en": "Dipl. Pflegefachperson HF (w/m/d)",
-        "it": "Dipl. Pflegefachperson HF (w/m/d)",
-        "fr": "Dipl. Pflegefachperson HF (w/m/d)"
+        "de": "Dipl.-Ing. Pflegefachperson HF (w/m/d)",
+        "fr": "Dipl. Consultant principal (m/j)"
       },
       "description": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
+        "it": "Rivolgiti ai nostri pazienti: sia individualmente che con molta empatia – le loro esigenze sono sempre al centro di te\n\n• Area: Villa Robersten\n• Tipo: Parttime\n• Termine ultimo: illimitato",
+        "en": "You address our patients: both individually and with a lot of empathy – their needs are always at the heart of you\n\n• Area: Villa Robersten\n• Type: Parttime\n• Deadline: Unlimited",
         "de": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "it": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "en": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet"
+        "fr": "Vous adressez nos patients : individuellement et avec beaucoup d'empathie – leurs besoins sont toujours au cœur de vous\n\n• Région: Villa Robersten\n• Type: temps partiel\n• Date limite: illimitée"
       },
-      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2087/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:29.901Z",
+      "crawledAt": "2026-06-04T22:18:13.851Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -50,17 +49,16 @@
       "postedDate": "2026-06-04",
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2087/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
+      "firstSeenAt": "2026-06-04T14:59:29.901Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -72,8 +70,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-04T14:59:29.901Z"
+      }
     },
     {
       "id": "gesundheitszentrum-fricktal-af5ac4960f12",
@@ -106,7 +103,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2225/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:29.095Z",
+      "crawledAt": "2026-06-04T22:18:12.919Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -176,7 +173,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1861/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:28.288Z",
+      "crawledAt": "2026-06-04T22:18:12.025Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -246,7 +243,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1833/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:27.491Z",
+      "crawledAt": "2026-06-04T22:18:11.106Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -327,7 +324,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2227/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:26.694Z",
+      "crawledAt": "2026-06-04T22:18:10.190Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -407,7 +404,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2166/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:25.889Z",
+      "crawledAt": "2026-06-04T22:18:09.246Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -478,7 +475,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1980/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:25.082Z",
+      "crawledAt": "2026-06-04T22:18:08.313Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -557,7 +554,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2243/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:24.280Z",
+      "crawledAt": "2026-06-04T22:18:07.386Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -634,7 +631,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2222/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:23.475Z",
+      "crawledAt": "2026-06-04T22:18:06.448Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -711,7 +708,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2237/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:59:22.667Z",
+      "crawledAt": "2026-06-04T22:18:05.544Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",

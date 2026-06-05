@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-06-04T15:29:09.941Z",
+  "generatedAt": "2026-06-04T22:47:15.552Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9594,
-  "avgDurationMs": 9594,
+  "durationMs": 8566,
+  "avgDurationMs": 8566,
   "durationHistory": [
-    9594
+    8566
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,11 +43,11 @@
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
       "firstSeenAt": "2026-06-04T13:00:30.601Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
