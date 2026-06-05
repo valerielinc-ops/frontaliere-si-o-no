@@ -367,7 +367,7 @@ NON è rilevante:
 - Eventi culturali, sportivi, festival, gastronomia
 - Notizie estere senza impatto diretto su chi vive o lavora in Svizzera
 - Singoli episodi di cronaca (multe, incidenti, arresti)
-- Temi SPECIFICI DEI FRONTALIERI Italia-Svizzera (appartengono a una sezione separata, NON a quella nazionale): permesso G/B/C per frontalieri, ristorni Ticino-Italia, imposta alla fonte/tassazione frontalieri, dogane/valichi e pendolarismo Italia-Svizzera, telelavoro frontalieri, accordo frontalieri Italia-Svizzera, soglia 20 km. In questa sezione nazionale sarebbero duplicati fuori scopo
+- Articoli il cui ARGOMENTO PRINCIPALE è esclusivamente frontaliero (appartengono a una sezione separata, NON a quella nazionale): permesso G/B/C per frontalieri, ristorni Ticino-Italia, imposta alla fonte/tassazione frontalieri, dogane/valichi e pendolarismo Italia-Svizzera, telelavoro frontalieri, accordo frontalieri Italia-Svizzera, soglia 20 km. In questa sezione nazionale sarebbero duplicati fuori scopo. ATTENZIONE: una riforma o statistica NAZIONALE (es. AVS/LPP, LAMal, mercato del lavoro, Consiglio federale) che menziona i frontalieri come categoria tra quelle impattate è RILEVANTE — il tema principale è nazionale, non frontaliero
 
 HEADLINE: ${String(headline || '').slice(0, 240)}
 ${summary ? `SOMMARIO: ${String(summary).slice(0, 320)}\n` : ''}
