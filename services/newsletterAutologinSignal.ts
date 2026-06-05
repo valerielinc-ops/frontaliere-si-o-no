@@ -16,15 +16,45 @@
  * unit-testable without the heavy authService import graph.
  */
 
+export interface NewsletterAutologin {
+ /** `ac` — HMAC autologin code (never expires, exchanged for a fresh token). */
+ code: string | null;
+ /** `at` / `authToken` — legacy Firebase custom token (expires in 1h). */
+ legacyToken: string | null;
+ /** Raw recipient email (`ne` / `newsletter_email` / `email`), not normalized. */
+ email: string;
+ /** `action` param, if any (unsubscribe / resubscribe / confirm_newsletter / …). */
+ action: string | null;
+ /**
+ * True when the URL carries an autologin credential + recipient email and is
+ * not an unsubscribe/resubscribe action — i.e. App.tsx's autologin effect will
+ * attempt a sign-in. `confirm_newsletter` naturally yields `false` (it carries
+ * a `token`, not `ac`/`at`).
+ */
+ isAutologin: boolean;
+}
+
+/**
+ * Single source of truth for "is this URL a newsletter autologin link, and what
+ * does it carry". Consumed by both this signal (module-load detection) and the
+ * App.tsx autologin effect, so the credential/email param names live in ONE
+ * place — adding a future code param (e.g. a `v2`) updates both by construction.
+ */
+export function parseNewsletterAutologin(search: string | URLSearchParams): NewsletterAutologin {
+ const p = typeof search === 'string' ? new URLSearchParams(search) : search;
+ const action = p.get('action');
+ const code = p.get('ac');
+ const legacyToken = p.get('at') || p.get('authToken');
+ const email = p.get('ne') || p.get('newsletter_email') || p.get('email') || '';
+ const isExcludedAction = action === 'unsubscribe' || action === 'resubscribe';
+ const isAutologin = !isExcludedAction && Boolean(code || legacyToken) && Boolean(email);
+ return { code, legacyToken, email, action, isAutologin };
+}
+
 let inFlight = ((): boolean => {
  if (typeof window === 'undefined') return false;
  try {
- const p = new URLSearchParams(window.location.search);
- const action = p.get('action');
- if (action === 'unsubscribe' || action === 'resubscribe') return false;
- const hasCode = Boolean(p.get('ac') || p.get('at') || p.get('authToken'));
- const hasEmail = Boolean(p.get('ne') || p.get('newsletter_email') || p.get('email'));
- return hasCode && hasEmail;
+ return parseNewsletterAutologin(window.location.search).isAutologin;
  } catch {
  return false;
  }
