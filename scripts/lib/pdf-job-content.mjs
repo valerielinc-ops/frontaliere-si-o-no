@@ -177,14 +177,21 @@ export async function extractPdfJobContentFromUrl(
     const totalPages = Number(extracted?.totalPages || 0);
     const normalizedText = normalizePdfJobText(rawText);
 
-    // Diagnostic: detect image-only PDFs (pages exist but no text layer)
+    // Detect image-only PDFs (pages exist but no usable text layer). A thin
+    // extraction (1–49 chars: a broken fragment, page number remnant, etc.) is
+    // NOT real job content. We must surface `text: ''` for it, not the fragment:
+    // every consumer falls back to its inline intro via `pdfText || fallbackText`
+    // (buildPdfBackedDescription) ONLY when `text` is empty. Returning the thin
+    // fragment instead glues intro+fragment+footer into a boilerplate-only
+    // description that hard-fails the crawler's boilerplate guard (#1485). The
+    // `warning` is preserved so operators still see the image-only diagnostic.
     const thinContent = totalPages > 0 && normalizedText.length < 50;
     const warning = thinContent
       ? `PDF has ${totalPages} page(s) but only ${normalizedText.length} chars extracted (possible image-only/scanned PDF)`
       : undefined;
 
     return {
-      text: normalizedText,
+      text: thinContent ? '' : normalizedText,
       rawText,
       totalPages,
       sourceUrl: pdfUrl,

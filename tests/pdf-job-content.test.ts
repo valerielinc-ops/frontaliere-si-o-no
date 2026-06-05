@@ -105,6 +105,38 @@ describe('pdf-job-content', () => {
     expect(result.error).toBeUndefined();
   });
 
+  it('returns empty text (not the thin fragment) for image-only PDFs so consumers fall back to intro', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      arrayBuffer: async () => new TextEncoder().encode('fake-pdf').buffer,
+    }));
+    // Image-only PDF yielding a non-empty-but-thin fragment (1–49 chars). Left as
+    // truthy `text` it would glue intro+fragment+footer into a boilerplate-only
+    // description and hard-fail the boilerplate guard (#1485). Must surface ''.
+    const extractTextImpl = vi.fn(async () => ({
+      totalPages: 4,
+      text: 'Pagina 1 di 4',
+    }));
+
+    const result = await extractPdfJobContentFromUrl('https://example.com/scan-fragment.pdf', {
+      fetchImpl: fetchImpl as any,
+      extractTextImpl,
+    });
+
+    expect(result.totalPages).toBe(4);
+    expect(result.text).toBe('');
+    expect((result as any).warning).toContain('image-only/scanned PDF');
+    // The thin fragment, falsy `text`, makes `pdfText || fallbackText` fall back
+    // to the inline intro — exactly the empty-PDF path PR #1468 declared safe.
+    const description = buildPdfBackedDescription({
+      introLines: ['Infermiere/a 80-100% — inizio da concordare'],
+      pdfText: result.text,
+      fallbackText: 'Infermiere/a 80-100% — inizio da concordare',
+      footerLines: ['Dettagli (PDF): https://example.com/scan-fragment.pdf'],
+    });
+    expect(description).toContain('Infermiere/a 80-100%');
+  });
+
   it('returns no warning when extraction yields sufficient content', async () => {
     const fetchImpl = vi.fn(async () => ({
       ok: true,
