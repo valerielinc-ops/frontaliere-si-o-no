@@ -210,7 +210,7 @@ export async function fetchAllClinicaHildebrandJobs() {
     if (pdf.error) {
       console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     }
-    const pdfText = pdf.rawText || pdf.text || '';
+    const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
 
     const { description, warnings } = buildHildebrandDescription({
       title: listing.title,

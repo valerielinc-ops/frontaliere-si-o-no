@@ -255,7 +255,7 @@ async function fetchFartJobs() {
     // Fall back to already-normalized text if rawText is unavailable.
     const { description, warnings } = buildFartDescription(
       listing.title,
-      pdfContent.rawText || pdfContent.text || ''
+      pdfContent.thin ? '' : (pdfContent.rawText || pdfContent.text || '')
     );
     for (const w of warnings) {
       console.warn(`  ⚠️ ${w}`);

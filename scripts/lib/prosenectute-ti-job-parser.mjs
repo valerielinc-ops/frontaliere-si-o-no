@@ -133,7 +133,7 @@ export async function fetchAllProSenectuteTiJobs() {
     const pdf = await extractPdfJobContentFromUrl(it.pdfUrl, { timeoutMs });
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
-    const pdfText = pdf.rawText || pdf.text || '';
+    const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
     const description = buildPdfBackedDescription({
       introLines: [
         `${title}.`,
