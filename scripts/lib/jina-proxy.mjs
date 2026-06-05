@@ -251,7 +251,6 @@ export async function fetchHtmlViaJinaWithRetry(
 // (#1363), Cloudflare, and Incapsula — the cambiavalute IP-reputation class.
 const ANTI_BOT_CHALLENGE_MARKERS = [
   'sgcaptcha',
-  '/.well-known/sgcaptcha',
   'just a moment...',
   'attention required!',
   'checking your browser before accessing',
