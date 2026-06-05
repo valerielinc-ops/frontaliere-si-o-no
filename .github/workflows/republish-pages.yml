@@ -1,9 +1,9 @@
 name: Republish Pages from prior run artifact
-# Outage recovery: redeploy an already-built github-pages artifact from a prior
-# run WITHOUT a ~50-min rebuild. Downloads the artifact cross-run, re-uploads it
-# in-run, then publishes via the Pages API with NO action-level cancel (the
-# 13GB server-side sync routinely exceeds deploy-pages' 10-min cap). Dispatch
-# with run_id of a completed build whose CDN assets are still live (additive CDN).
+# Outage recovery: redeploy an already-built site WITHOUT a ~50-min rebuild.
+# Downloads a prior run's github-pages artifact, RE-CREATES it as a valid Pages
+# artifact via upload-pages-artifact (a plain upload-artifact is rejected by the
+# Pages deployment API with 404), then publishes via the Pages API with NO
+# action-level cancel (the 13GB sync exceeds deploy-pages' 10-min cap).
 on:
   workflow_dispatch:
     inputs:
@@ -20,7 +20,7 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - name: Download github-pages artifact from prior run
+      - name: Download prior github-pages artifact
         uses: actions/download-artifact@v4
         with:
           name: github-pages
@@ -28,11 +28,15 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           path: dl
-      - name: Re-upload as this run's github-pages artifact
-        uses: actions/upload-artifact@v4
+      - name: Unpack artifact tar into a directory
+        run: |
+          mkdir -p site
+          tar -xf dl/artifact.tar -C site
+          echo "unpacked $(find site -type f | wc -l) files, $(du -sh site | cut -f1)"
+      - name: Re-create as a valid Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: dl/artifact.tar
+          path: site
           retention-days: 1
       - name: Publish via Pages API (no cancel, extended)
         env:
@@ -43,18 +47,21 @@ jobs:
                   --jq '[.artifacts[] | select(.name=="github-pages")][0].id // empty')
           oidc=$(curl -s "${ACTIONS_ID_TOKEN_REQUEST_URL}" \
                   -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" | jq -r '.value // empty')
-          if [ -z "$art" ] || [ -z "$oidc" ]; then echo "::error::missing artifact ($art) or OIDC token"; exit 1; fi
-          ver="republish-${GITHUB_RUN_ID}"
+          if [ -z "$art" ] || [ -z "$oidc" ]; then echo "::error::missing artifact ($art) or OIDC"; exit 1; fi
+          ver="republish-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           echo "creating Pages deployment version=${ver} artifact=${art}"
-          printf '{"artifact_id":%s,"pages_build_version":"%s","oidc_token":"%s"}' "$art" "$ver" "$oidc" \
-            | gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/deployments" --input -
+          resp=$(printf '{"artifact_id":%s,"pages_build_version":"%s","oidc_token":"%s"}' "$art" "$ver" "$oidc" \
+            | gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/deployments" --input -)
+          echo "create response: $resp"
+          surl=$(printf '%s' "$resp" | jq -r '.status_url // empty')
+          [ -z "$surl" ] && { echo "::error::no status_url in response"; exit 1; }
           deadline=$(( $(date +%s) + 40*60 ))
           while [ "$(date +%s)" -lt "$deadline" ]; do
-            st=$(gh api "repos/${GITHUB_REPOSITORY}/pages/deployments/${ver}" --jq '.status // empty' 2>/dev/null || echo "")
+            st=$(gh api "$surl" --jq '.status // empty' 2>/dev/null || echo "")
             echo "$(date -u +%H:%M:%S) status=${st:-<none>}"
             case "$st" in
-              succeed) echo "✅ republished (no-cancel API)"; exit 0 ;;
-              deployment_failed|deployment_content_failed|deployment_attempt_error) echo "::error::publish failed: $st"; exit 1 ;;
+              succeed) echo "✅ republished via no-cancel API"; exit 0 ;;
+              deployment_failed|deployment_content_failed|deployment_attempt_error) echo "::error::failed: $st"; exit 1 ;;
             esac
             sleep 30
           done
