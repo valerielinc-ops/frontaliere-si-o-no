@@ -35,6 +35,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { assertCompatFloor } from './compat-paths-floor-guard.mjs';
 
 const TARGET = 'data/seo-404-compat-paths.json';
 const STATE_FILE = 'data/inspection-state.json';
@@ -116,6 +117,15 @@ if (local.lastUpdated || upstream.lastUpdated) {
   merged.lastUpdated = local.lastUpdated || upstream.lastUpdated;
 }
 if (local.generatedAt) merged.generatedAt = local.generatedAt;
+
+// Floor-guard (#1353): a parse failure on ANY of base/upstream/local degrades
+// that input to `{paths:[]}` (see parseCompat above), so the 3-way set merge can
+// collapse to a tiny array and clobber the hundreds-of-thousands-of-path
+// accumulator on disk. Compare the merged result against the LARGEST input set
+// (the prior good size we'd be replacing): if the merge would truncate below the
+// floor while a large version existed, abort loudly instead of staging garbage.
+const prevCount = Math.max(baseSet.size, upstreamSet.size, localSet.size);
+assertCompatFloor(prevCount, finalSet.size, { label: TARGET });
 
 const outPath = path.resolve(process.cwd(), TARGET);
 fs.writeFileSync(outPath, JSON.stringify(merged, null, 2) + '\n', 'utf-8');
