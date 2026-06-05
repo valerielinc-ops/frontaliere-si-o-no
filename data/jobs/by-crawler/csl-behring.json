@@ -3991,7 +3991,7 @@
       "slugByLocale": {
         "it": "director-biostatistics-hematology-csl-behring-ch",
         "en": "director-biostatistics-hematology-csl-behring-ch",
-        "de": "director-biostatistics-hematologie-csl-behring-bern",
+        "de": "direktor-biostatistics-hematology-csl-behring-bern",
         "fr": "directeur-biostatistique-hematologie-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -4046,7 +4046,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "de": [
+          "director-biostatistics-hematologie-csl-behring-bern"
+        ]
+      },
+      "previousSlugs": [
+        "director-biostatistics-hematologie-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-dfbe362c3ed2",

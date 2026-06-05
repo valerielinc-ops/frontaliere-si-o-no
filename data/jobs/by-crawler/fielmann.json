@@ -63,8 +63,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "de": [
-          "augenoptiker-w-m-d-fielmann-group-st",
-          "augenoptiker-w-m-d-fielmann-ch"
+          "augenoptiker-w-m-d-fielmann-group-st"
         ]
       },
       "firstSeenAt": "2026-05-17T10:14:16.197Z",
@@ -1795,9 +1794,6 @@
       "previousSlugsByLocale": {
         "it": [
           "projektmanager-m-d-fielmann-group-bern"
-        ],
-        "de": [
-          "horakustiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
@@ -2208,9 +2204,6 @@
         ],
         "de": [
           "optimierung-n-f-h-d-fielmann-group-martigny"
-        ],
-        "fr": [
-          "opticien-ne-f-h-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
@@ -2774,8 +2767,7 @@
         "de": [
           "horakustikermeister-w-m-d-fielmann-ch",
           "leitung-eines-horakustikstudios-w-m-d-fielmann-ch",
-          "leitung-eines-horakustikstudios-w-m-d-fielmann-group-aarau",
-          "horakustikermeister-w-m-d-fielmann-group-aarau"
+          "leitung-eines-horakustikstudios-w-m-d-fielmann-group-aarau"
         ],
         "it": [
           "horakustikermeister-w-m-d-fielmann-group-aarau",
@@ -3047,7 +3039,6 @@
         "opticien-ne-f-m-d-fielmann-group-geneve",
         "optician-m-f-d-fielmann-group-geneve",
         "optimierung-n-h-f-d-fielmann-group-geneve",
-        "opticien-ne-h-f-d-fielmann-ch",
         "opticien-ne-h-f-d-fielmann-ch-2"
       ],
       "firstSeenAt": "2026-05-13T11:02:13.280Z",
@@ -3150,7 +3141,6 @@
         "augenoptiker-w-m-d-fielmann-ch-4",
         "optician-w-m-d-fielmann-group-wadenswil",
         "opticien-w-m-d-fielmann-group-wadenswil",
-        "augenoptiker-w-m-d-fielmann-ch-8",
         "augenoptiker-w-m-d-fielmann-ch-25"
       ],
       "firstSeenAt": "2026-05-13T11:02:37.448Z",
@@ -3245,9 +3235,9 @@
     },
     {
       "id": "fielmann-d537ca82a766",
-      "slug": "fachberater-augenoptik-w-m-d-fielmann-ch",
+      "slug": "projektleiter-m-m-d-fielmann-group-winterthur",
       "slugByLocale": {
-        "it": "fachberater-augenoptik-w-m-d-fielmann-ch",
+        "it": "projektleiter-m-m-d-fielmann-group-winterthur",
         "en": "fachberater-augenoptik-w-m-d-fielmann-ch",
         "de": "fachberater-augenoptik-w-m-d-fielmann-ch",
         "fr": "fachberater-augenoptik-w-m-d-fielmann-ch"
@@ -3305,7 +3295,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachberater-augenoptik-w-m-d-fielmann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachberater-augenoptik-w-m-d-fielmann-ch"
+      ]
     }
   ]
 }

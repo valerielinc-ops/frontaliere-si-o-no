@@ -187,12 +187,12 @@
     },
     {
       "id": "uroviva-96e79df12d52",
-      "slug": "medizinische-r-praxisassistent-in-60-80-uroviva-sursee",
+      "slug": "assistente-medico-pratico-60-80-uroviva-sursee",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-60-80-uroviva-sursee",
-        "en": "medizinische-r-praxisassistent-in-60-80-uroviva-sursee",
+        "it": "assistente-medico-pratico-60-80-uroviva-sursee",
+        "en": "medical-practice-assistant-60-80-uroviva-sursee",
         "de": "medizinische-r-praxisassistent-in-60-80-uroviva-sursee",
-        "fr": "medizinische-r-praxisassistent-in-60-80-uroviva-sursee"
+        "fr": "assistant-medical-professionnel-60-80-uroviva-sursee"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -245,7 +245,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-60-80-uroviva-sursee"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-60-80-uroviva-sursee"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-60-80-uroviva-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-60-80-uroviva-sursee"
+      ]
     },
     {
       "id": "uroviva-f03bed849426",

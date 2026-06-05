@@ -10766,11 +10766,11 @@
     },
     {
       "id": "roche-618810aada21",
-      "slug": "roche-zhengzhou",
+      "slug": "traduzione-roche-zhengzhou-cdd3e6",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "traduzione-roche-zhengzhou-cdd3e6",
         "en": "roche-ch",
-        "de": "roche-basel",
+        "de": "eine-neue-technologie-roche-zhengzhou-cdd3e6",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -10812,13 +10812,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-27",
-        "roche-ch",
+        "roche-basel",
+        "roche-zhengzhou",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
         "roche-nanjing",
         "roche-zhengzhou-4mxh6f",
         "roche-ch-139",
-        "roche-zhengzhou",
         "roche-beijing-xgknfl",
         "roche-ch-165",
         "roche-beijing",
@@ -10829,24 +10829,16 @@
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-ch-174"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-27"
+          "roche-ch-27",
+          "roche-basel",
+          "roche-zhengzhou"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T13:45:07.613Z",
@@ -14646,11 +14638,11 @@
     },
     {
       "id": "roche-c47033c2f67e",
-      "slug": "roche-beijing",
+      "slug": "traduzione-roche-beijing-ecc602",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "traduzione-roche-beijing-ecc602",
         "en": "roche-ch",
-        "de": "roche-basel",
+        "de": "eine-neue-technologie-roche-beijing-ecc602",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -14692,7 +14684,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-36",
-        "roche-ch",
+        "roche-basel",
+        "roche-beijing",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
         "roche-nanjing",
@@ -14701,7 +14694,6 @@
         "roche-zhengzhou",
         "roche-beijing-xgknfl",
         "roche-ch-165",
-        "roche-beijing",
         "roche-guangzhou-xgko6y",
         "roche-ch-172",
         "roche-guangzhou",
@@ -14709,24 +14701,16 @@
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-ch-174"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-36"
+          "roche-ch-36",
+          "roche-basel",
+          "roche-beijing"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T13:44:14.807Z",
@@ -16820,8 +16804,8 @@
       "slugByLocale": {
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
-        "de": "strategic-account-executive-pathology-lab-roche-ch",
-        "fr": "strategic-account-executive-pathology-lab-roche-ch"
+        "de": "strategischer-account-executive-pathologielabor-roche-basel",
+        "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -16861,20 +16845,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+        "strategic-account-executive-pathology-lab-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "de": [
-          "strategischer-account-executive-pathologielabor-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "fr": [
-          "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ]
       },
@@ -17102,7 +17082,6 @@
       "previousSlugs": [
         "roche-ch",
         "roche-ch-6",
-        "roche-basel",
         "locale-registrati-locali-roche-basel",
         "klassisch-eingehalten-roche-basel",
         "c-est-pas-vrai-roche-basel"
@@ -21319,11 +21298,11 @@
     },
     {
       "id": "roche-dc6c40016357",
-      "slug": "roche-jinan",
+      "slug": "traduzione-roche-jinan-6ed23b",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "traduzione-roche-jinan-6ed23b",
         "en": "roche-ch",
-        "de": "roche-basel",
+        "de": "eine-neue-technologie-roche-jinan",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -21365,7 +21344,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-46",
-        "roche-ch",
+        "roche-basel",
+        "roche-jinan",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
         "roche-nanjing",
@@ -21381,25 +21361,16 @@
         "roche-hangzhou-xgl4hi",
         "roche-ch-173",
         "roche-hangzhou",
-        "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-chengdu-xgl520"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-46"
+          "roche-ch-46",
+          "roche-basel",
+          "roche-jinan"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T15:57:16.977Z",
@@ -25072,11 +25043,11 @@
     },
     {
       "id": "roche-85499009d4d6",
-      "slug": "roche-nanjing",
+      "slug": "traduzione-roche-nanjing-0975e8",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "traduzione-roche-nanjing-0975e8",
         "en": "roche-ch",
-        "de": "roche-basel",
+        "de": "eine-neue-technologie-roche-nanjing",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -25118,10 +25089,10 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-52",
-        "roche-ch",
+        "roche-basel",
+        "roche-nanjing",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
-        "roche-nanjing",
         "roche-zhengzhou-4mxh6f",
         "roche-ch-139",
         "roche-zhengzhou",
@@ -25135,24 +25106,16 @@
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-ch-174"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-52"
+          "roche-ch-52",
+          "roche-basel",
+          "roche-nanjing"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T13:41:53.308Z",
@@ -25700,10 +25663,10 @@
       "id": "roche-6d705c37327b",
       "slug": "roche-hangzhou",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "roche-hangzhou",
         "en": "roche-ch",
-        "de": "roche-basel",
-        "fr": "roche-basel"
+        "de": "eine-neue-technologie-roche-hangzhou",
+        "fr": "les-roche-hangzhou"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25745,8 +25708,8 @@
       "previousSlugs": [
         "mce-roche-ch-2",
         "mce-roche-hangzhou",
+        "roche-basel",
         "mce-roche-ch",
-        "roche-ch",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
         "roche-nanjing",
@@ -25760,37 +25723,24 @@
         "roche-ch-172",
         "roche-guangzhou",
         "roche-hangzhou-xgl4hi",
-        "roche-ch-173",
-        "roche-hangzhou",
-        "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-ch-173"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mce-roche-ch-2",
-          "mce-roche-hangzhou"
+          "mce-roche-hangzhou",
+          "roche-basel"
         ],
         "en": [
           "mce-roche-ch"
         ],
         "de": [
-          "mce-roche-hangzhou"
+          "mce-roche-hangzhou",
+          "roche-basel"
         ],
         "fr": [
-          "mce-roche-hangzhou"
+          "mce-roche-hangzhou",
+          "roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-03T15:19:06.295Z",
@@ -29614,11 +29564,11 @@
     },
     {
       "id": "roche-62bd747b0e89",
-      "slug": "roche-guangzhou",
+      "slug": "traduzione-roche-guangzhou-63c6d4",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "traduzione-roche-guangzhou-63c6d4",
         "en": "roche-ch",
-        "de": "roche-basel",
+        "de": "eine-neue-technologie-roche-guangzhou",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -29660,7 +29610,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-59",
-        "roche-ch",
+        "roche-basel",
+        "roche-guangzhou",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
         "roche-nanjing",
@@ -29672,29 +29623,20 @@
         "roche-beijing",
         "roche-guangzhou-xgko6y",
         "roche-ch-172",
-        "roche-guangzhou",
         "roche-hangzhou-xgl4hi",
         "roche-ch-173",
         "roche-hangzhou",
         "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-ch-174"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-59"
+          "roche-ch-59",
+          "roche-basel",
+          "roche-guangzhou"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -31329,11 +31271,11 @@
     },
     {
       "id": "roche-5edf2c28cc26",
-      "slug": "roche-changchun",
+      "slug": "traduzione-roche-changchun-a6ef2a",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "traduzione-roche-changchun-a6ef2a",
         "en": "roche-ch",
-        "de": "roche-basel",
+        "de": "eine-neue-technologie-roche-changchun",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -31375,7 +31317,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-61",
-        "roche-ch",
+        "roche-basel",
+        "roche-changchun",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
         "roche-nanjing",
@@ -31391,25 +31334,16 @@
         "roche-hangzhou-xgl4hi",
         "roche-ch-173",
         "roche-hangzhou",
-        "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-chengdu-xgl520"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-61"
+          "roche-ch-61",
+          "roche-basel",
+          "roche-changchun"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T15:54:47.242Z",
@@ -39532,11 +39466,11 @@
     },
     {
       "id": "roche-8749ce3ec4d3",
-      "slug": "roche-chengdu",
+      "slug": "traduzione-roche-chengdu-cc4738",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "traduzione-roche-chengdu-cc4738",
         "en": "roche-ch",
-        "de": "roche-basel",
+        "de": "eine-neue-technologie-roche-chengdu",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -39580,7 +39514,8 @@
         "roche-ch-93",
         "roche-ch-90",
         "localizzazioni-di-destinazione-ug-dati-locali-roche-chengdu",
-        "roche-ch",
+        "roche-basel",
+        "roche-chengdu",
         "roche-nanjing-4mxh6m",
         "roche-ch-138",
         "roche-nanjing",
@@ -39594,29 +39529,18 @@
         "roche-ch-172",
         "roche-guangzhou",
         "roche-hangzhou-xgl4hi",
-        "roche-ch-173",
-        "roche-hangzhou",
-        "roche-chengdu-xgl520",
-        "roche-ch-174",
-        "roche-chengdu",
-        "roche-beijing-o74bqf",
-        "roche-ch-41",
-        "roche-jinan-4mwu2u",
-        "roche-ch-60",
-        "roche-jinan",
-        "roche-zhengzhou-4mwu80",
-        "roche-ch-64",
-        "roche-guangzhou-4mww96",
-        "roche-ch-66",
-        "roche-changchun-4mxe1n",
-        "roche-ch-71",
-        "roche-changchun"
+        "roche-ch-173"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-93",
           "roche-ch-90",
-          "localizzazioni-di-destinazione-ug-dati-locali-roche-chengdu"
+          "localizzazioni-di-destinazione-ug-dati-locali-roche-chengdu",
+          "roche-basel",
+          "roche-chengdu"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T01:09:00.673Z",
@@ -43071,10 +42995,7 @@
         "it-business-analista-pharma-medicines-techops-roche-pune",
         "it-business-analyste-pharma-medicines-techops-roche-pune",
         "it-business-analista-pharma-r-d-roche-basel-vne1td",
-        "it-business-analyst-pharma-r-d-roche-ch",
-        "it-business-analyst-pharma-r-d-roche-ch-2-ek66fc",
-        "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel",
-        "it-business-analyst-pharma-r-d-roche-ch-2"
+        "it-business-analyst-pharma-r-d-roche-ch-2-ek66fc"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -56116,7 +56037,7 @@
         "it": "it-business-analista-pharma-r-d-roche-basel",
         "en": "it-business-analyst-pharma-r-d-roche-ch",
         "de": "it-business-analyst-pharma-r-d-roche-ch",
-        "fr": "it-business-analyste-pharma-r-d-roche-basel"
+        "fr": "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel-a11357"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -56161,11 +56082,13 @@
           "it-business-analyst-pharma-r-d-roche-ch"
         ],
         "fr": [
-          "it-business-analyst-pharma-r-d-roche-ch"
+          "it-business-analyst-pharma-r-d-roche-ch",
+          "it-business-analyste-pharma-r-d-roche-basel"
         ]
       },
       "previousSlugs": [
         "it-business-analyst-pharma-r-d-roche-ch",
+        "it-business-analyste-pharma-r-d-roche-basel",
         "it-business-analyst-pharma-r-d-roche-ch-2-ek66fc",
         "it-business-analista-pharma-r-d-roche-basel-vne1td",
         "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel",
@@ -58457,7 +58380,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -61298,7 +61220,6 @@
         "analytics-intelligence-analista-senior-analisi-medica-roche-basel",
         "analytics-intelligence-senior-analyst-medical-analytics-roche-ch",
         "analytics-intelligence-senior-analyste-medical-analytics-roche-basel",
-        "analytics-intelligence-senior-analista-roche-basel",
         "analisi-e-intelligenza-senior-analyst-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -69685,12 +69606,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -69730,16 +69651,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -75816,9 +75734,6 @@
         "global-study-lead-molecular-lab-roche-ch",
         "global-study-lead-molekularlabor-roche-basel",
         "etude-mondiale-de-plomb-lab-moleculaire-roche-basel",
-        "piombo-di-studio-globale-roche-basel",
-        "globaler-studienleiter-roche-basel",
-        "etude-mondiale-chef-de-file-roche-basel",
         "piombo-di-studio-globale-laboratorio-molecolare-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -82735,7 +82650,7 @@
         "en": "global-program-manager-gps-business-process-operations-bpo-roche-ch",
         "it": "global-program-manager-gps-business-process-operations-bpo-roche-ch",
         "de": "global-program-manager-gps-business-process-operations-bpo-roche-ch",
-        "fr": "global-program-manager-gps-business-process-operations-bpo-roche-ch"
+        "fr": "gestionnaire-de-programme-mondial-operations-et-processus-operationnels-gps-bpo-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -82863,8 +82778,8 @@
       "slugByLocale": {
         "en": "field-application-specialist-core-lab-austin-tx-roche-ch",
         "it": "field-application-specialist-core-lab-austin-tx-roche-ch",
-        "de": "field-application-specialist-core-lab-austin-tx-roche-ch",
-        "fr": "field-application-specialist-core-lab-austin-tx-roche-ch"
+        "de": "anwendungsspezialist-core-lab-austin-tx-roche-basel",
+        "fr": "specialiste-des-applications-sur-le-terrain-core-lab-austin-tx-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83053,12 +82968,12 @@
     },
     {
       "id": "roche-46ebbde4e059",
-      "slug": "digital-workflow-consultant-roche-ch",
+      "slug": "consulente-del-flusso-di-lavoro-digitale-roche-basel",
       "slugByLocale": {
         "en": "digital-workflow-consultant-roche-ch",
-        "it": "digital-workflow-consultant-roche-ch",
+        "it": "consulente-del-flusso-di-lavoro-digitale-roche-basel",
         "de": "digital-workflow-consultant-roche-ch",
-        "fr": "digital-workflow-consultant-roche-ch"
+        "fr": "consultant-en-flux-de-travail-numerique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83113,7 +83028,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T22:57:54.011Z"
+      "firstSeenAt": "2026-06-04T22:57:54.011Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-workflow-consultant-roche-ch"
+        ],
+        "fr": [
+          "digital-workflow-consultant-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-workflow-consultant-roche-ch"
+      ]
     }
   ]
 }
