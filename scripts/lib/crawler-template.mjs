@@ -156,6 +156,7 @@ import {
   isTransientFetchError,
   fetchWithRetry,
 } from './transient-fetch.mjs';
+import { fetchViaJina } from './jina-proxy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
@@ -475,26 +476,41 @@ export async function fetchJson(url, options = {}) {
  */
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  return fetchWithRetry(async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        method: 'GET',
-        headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
-        signal: controller.signal,
-      });
-      if (!res.ok) {
-        const err = new Error(`HTTP ${res.status} from ${url}`);
-        err.status = res.status;
-        err.retryable = RETRYABLE_STATUS.has(res.status);
-        throw err;
+  try {
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, {
+          method: 'GET',
+          headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const err = new Error(`HTTP ${res.status} from ${url}`);
+          err.status = res.status;
+          err.retryable = RETRYABLE_STATUS.has(res.status);
+          throw err;
+        }
+        return await res.text();
+      } finally {
+        clearTimeout(timer);
       }
-      return await res.text();
-    } finally {
-      clearTimeout(timer);
+    }, options);
+  } catch (err) {
+    // Connection-level failure after retries: the runner's datacenter egress
+    // can't reach an otherwise-healthy site (~1-3% of fetches/wave; the sites
+    // return 200 from a clean IP). Fetch once through the Jina Reader proxy
+    // (reliable egress + real browser → raw HTML) so the data IS collected
+    // rather than failing. Only for transient connection errors; HTTP/parse
+    // errors still propagate. (fetchJson is intentionally NOT proxied — Jina
+    // returns HTML, which would corrupt a JSON response.)
+    if (isTransientFetchError(err)) {
+      const res = await fetchViaJina(url, { timeoutMs });
+      if (res.ok) return await res.text();
     }
-  }, options);
+    throw err;
+  }
 }
 
 /**

@@ -9,7 +9,8 @@
  * same. Keep this module DRY and importable from any hospital-specific parser.
  */
 
-import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from './transient-fetch.mjs';
+import { fetchViaJina } from './jina-proxy.mjs';
 
 export const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -87,25 +88,41 @@ export function stripInlineJsCode(text = '') {
 
 export async function fetchHtml(url, { timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  return fetchWithRetry(async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), t);
-    try {
-      const res = await fetch(url, {
-        headers: { Accept: 'text/html,application/xhtml+xml,application/xml,application/rss+xml,*/*', 'User-Agent': USER_AGENT },
-        signal: controller.signal,
-      });
-      if (!res.ok) {
-        const err = new Error(`HTTP ${res.status} from ${url}`);
-        err.status = res.status;
-        err.retryable = RETRYABLE_STATUS.has(res.status);
-        throw err;
+  try {
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), t);
+      try {
+        const res = await fetch(url, {
+          headers: { Accept: 'text/html,application/xhtml+xml,application/xml,application/rss+xml,*/*', 'User-Agent': USER_AGENT },
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const err = new Error(`HTTP ${res.status} from ${url}`);
+          err.status = res.status;
+          err.retryable = RETRYABLE_STATUS.has(res.status);
+          throw err;
+        }
+        return await res.text();
+      } finally {
+        clearTimeout(timer);
       }
-      return await res.text();
-    } finally {
-      clearTimeout(timer);
+    }, { label: `hospital-custom-html ${url}` });
+  } catch (err) {
+    // The plain retries above all hit a connection-level `fetch failed`: the
+    // GitHub runner's datacenter egress intermittently can't reach an otherwise
+    // healthy site (~1-3% of fetches per wave; verified — the same sites return
+    // 200 from a clean IP). Rather than give up (or keep retrying the same flaky
+    // egress), fetch this once through the Jina Reader proxy: a reliable egress +
+    // real browser that returns the page's raw HTML, so the parsers are
+    // unchanged and the data IS collected. Only for connection-level transient
+    // errors — HTTP 4xx/5xx and parse errors are real and still propagate.
+    if (isTransientFetchError(err)) {
+      const res = await fetchViaJina(url, { timeoutMs: t });
+      if (res.ok) return await res.text();
     }
-  }, { label: `hospital-custom-html ${url}` });
+    throw err;
+  }
 }
 
 /**
