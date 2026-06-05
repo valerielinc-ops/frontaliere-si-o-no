@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-06-04T21:47:41.167Z",
+  "generatedAt": "2026-06-05T11:21:00.325Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 2,
+  "newCount": 2,
+  "updatedCount": 1,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 3441,
-  "avgDurationMs": 3441,
+  "durationMs": 2765,
+  "avgDurationMs": 2765,
   "durationHistory": [
-    3441
+    2765
   ],
   "newJobs": [
     {
@@ -32,12 +32,12 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-04",
+      "postedDate": "2026-06-05",
       "url": "https://www.alpiq.com/career/open-jobs/your-application/9547",
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T21:47:38.943Z",
+      "crawledAt": "2026-06-05T11:20:58.482Z",
       "_qualityScore": 53,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -45,21 +45,19 @@
         "translation": 4,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
-      "id": "alpiq-70d91ad872b7",
-      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
+      "id": "alpiq-ed4f15a0b253",
+      "slug": "financial-lead-nuclear-power-alpiq-olten",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
-      "title": "Electricien(ne) - automaticien(ne)",
-      "location": "Martigny",
+      "title": "Financial Lead Nuclear Power",
+      "location": "Olten",
       "canton": "",
-      "postalCode": "",
+      "postalCode": "4600",
       "streetAddress": "",
-      "addressLocality": "Martigny",
+      "addressLocality": "Olten",
       "addressRegion": "",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
@@ -67,22 +65,22 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9518",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
+      "postedDate": "2026-06-05",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9538",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9538&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T21:47:38.941Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "_qualityScore": 54,
+      "crawledAt": "2026-06-05T11:20:58.482Z",
+      "_qualityScore": 56,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
-        "translation": 15,
-        "completeness": 14
+        "richness": 10,
+        "translation": 4,
+        "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "alpiq-3452a89e108f",
       "slug": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
@@ -107,7 +105,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T21:47:38.942Z",
+      "crawledAt": "2026-06-05T11:20:58.481Z",
       "firstSeenAt": "2026-05-30T09:56:14.282Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -153,6 +151,45 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "alpiq-70d91ad872b7",
+      "slug": "elettricista-automatico-alpiq-martigny",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Electricien(ne) - automaticien(ne)",
+      "location": "Martigny",
+      "canton": "VS",
+      "postalCode": "1920",
+      "streetAddress": "",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-30",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9518",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-30T09:56:14.281Z",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "country": "CH",
+      "firstSeenAt": "2026-05-30T09:56:14.281Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 15,
         "completeness": 22
       }
     },
