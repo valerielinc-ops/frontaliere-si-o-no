@@ -1,16 +1,16 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-06-04T22:37:34.600Z",
+  "generatedAt": "2026-06-05T12:12:11.902Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19216,
-  "avgDurationMs": 19216,
+  "durationMs": 16051,
+  "avgDurationMs": 16051,
   "durationHistory": [
-    19216
+    16051
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -56,7 +56,7 @@
     },
     {
       "id": "company-j9y9s6",
-      "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
+      "slug": "direttore-di-filiale-m-f-d-80-100-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
       "location": "St. Moritz",
@@ -77,7 +77,6 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-28T13:18:37.201Z",
       "firstSeenAt": "2026-05-28T13:18:37.201Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
       "streetAddress": "",
@@ -86,18 +85,17 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1,
-      "_qualityScore": 84,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 25,
         "completeness": 22
       }
     },
     {
       "id": "company-alqha9",
-      "slug": "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
+      "slug": "vendita-m-w-d-20-40-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
       "location": "St. Moritz",
@@ -126,13 +124,11 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "_qualityScore": 78,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 25,
         "completeness": 22
       }
     },
