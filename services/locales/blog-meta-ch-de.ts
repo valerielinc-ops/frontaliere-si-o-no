@@ -65,6 +65,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'G-Bewilligung G vs B Grenzgänger 2026: Was ändert sich über 20 km',
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Erfolgsergebnisse und Daten zur Zone über 20 km 📊💡⚠️',
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Karte von Lugano mit der italienisch-schweizerischen Grenze und dem Bereich über 20 km',
+    'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Saldo Netto für Grenzgänger in der Schweiz berechnen',
+    'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Praktische Anleitung zur Berechnung des Netto-Saldos in der Schweiz, einschließlich Steuern, Abzüge und Beiträge',
+    'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Frau mit Gehaltsabrechnung',
 };
 
 export default blogMetaChDe;

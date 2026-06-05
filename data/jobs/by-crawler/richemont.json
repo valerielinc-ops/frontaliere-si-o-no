@@ -6675,16 +6675,15 @@
           "stage-in-hospitality-richemont-meyrin",
           "specialista-hris-cdd-richemont-meyrin",
           "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin",
-          "hris-specialist-cdd-richemont-meyrin",
           "responsabile-gioielli-europa-richemont-meyrin",
           "hospitality-tirocinante-richemont-meyrin",
-          "hospitality-intern-richemont-meyrin"
+          "hospitality-intern-richemont-meyrin",
+          "hris-specialist-cdd-richemont-meyrin"
         ],
         "en": [
           "gioielli-manager-europa-richemont-meyrin",
           "manager-giadelli-europe-richemont-meyrin",
-          "jewelry-manager-europe-richemont-meyrin",
-          "activations-specialist-cdd-richemont-meyrin"
+          "jewelry-manager-europe-richemont-meyrin"
         ],
         "de": [
           "schmuckmanager-europa-richemont-meyrin",
@@ -6707,7 +6706,6 @@
         "stage-in-hospitality-richemont-meyrin",
         "specialista-hris-cdd-richemont-meyrin",
         "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin",
-        "hris-specialist-cdd-richemont-meyrin",
         "responsabile-gioielli-europa-richemont-meyrin",
         "hospitality-tirocinante-richemont-meyrin",
         "hospitality-intern-richemont-meyrin",
@@ -6842,9 +6840,8 @@
           "ospitalita-richemont-meyrin",
           "stage-in-hospitality-richemont-meyrin",
           "hospitality-tirocinante-richemont-meyrin",
-          "ospitalita-interno-richemont-meyrin",
           "hospitality-intern-richemont-meyrin",
-          "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin"
+          "ospitalita-interno-richemont-meyrin"
         ],
         "en": [
           "hris-specialist-cdd-richemont-meyrin",
@@ -6871,7 +6868,6 @@
         "ospitalita-richemont-meyrin",
         "stage-in-hospitality-richemont-meyrin",
         "hospitality-tirocinante-richemont-meyrin",
-        "ospitalita-interno-richemont-meyrin",
         "hospitality-intern-richemont-meyrin",
         "hris-specialist-cdd-richemont-meyrin",
         "krankenhaus-intern-richemont-meyrin",
@@ -6879,7 +6875,6 @@
         "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.476Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -6892,8 +6887,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "retranslationAttempts": 1
+      "postalCode": "1204"
     },
     {
       "id": "richemont-d18cb38a5c91",
@@ -10234,8 +10228,8 @@
           "gruppo-l-d-richemont-bellevue",
           "stage-l-d-di-gruppo-richemont-bellevue",
           "group-l-d-tirocinante-richemont-bellevue",
-          "stage-retail-partner-retail-excellence-piaget-plan-les-ouates",
-          "group-l-d-intern-richemont-bellevue"
+          "group-l-d-intern-richemont-bellevue",
+          "stage-retail-partner-retail-excellence-piaget-plan-les-ouates"
         ],
         "de": [
           "gruppe-l-d-intern-richemont-bellevue-034384",
@@ -10254,7 +10248,6 @@
         "gruppo-l-d-richemont-bellevue",
         "stage-l-d-di-gruppo-richemont-bellevue",
         "group-l-d-tirocinante-richemont-bellevue",
-        "stage-retail-partner-retail-excellence-piaget-plan-les-ouates",
         "group-l-d-intern-richemont-bellevue",
         "gruppe-l-d-intern-richemont-bellevue-034384",
         "gruppe-l-d-intern-richemont-bellevue",
@@ -10263,7 +10256,8 @@
         "commercio-al-dettaglio-e-partner-piaget-plan-les-ouates",
         "stage-d-excellence-en-commerce-de-detail-et-partenaire-piaget-plan-les-ouates",
         "retail-partner-retail-excellence-intern-piaget-plan-les-ouates",
-        "group-l-d-intern-richemont-bellevue-e8uyst"
+        "group-l-d-intern-richemont-bellevue-e8uyst",
+        "stage-retail-partner-retail-excellence-piaget-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.443Z",
       "salaryMin": 41600,
@@ -12055,8 +12049,8 @@
       "previousSlugsByLocale": {
         "it": [
           "specialista-internazionale-dei-premi-cartier-meyrin",
-          "international-rewards-specialist-richemont-meyrin",
-          "hr-admin-specialist-richemont-meyrin"
+          "hr-admin-specialist-richemont-meyrin",
+          "international-rewards-specialist-richemont-meyrin"
         ],
         "en": [
           "international-rewards-specialist-cartier-meyrin"

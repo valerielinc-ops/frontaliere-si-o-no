@@ -65,6 +65,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'Permessi G vs B frontalieri 2026: cosa cambia oltre 20 km',
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Risultati di ricerca e dati sulla zona oltre i 20 km',
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Mappa di Lugano con il confine italo-svizzero e la zona oltre i 20 km',
+    'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Come Calcolare il Salario Netto per Frontaliere in Svizzera',
+    'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Guida pratica per calcolare il salario netto in Svizzera, considerando imposte, deduzioni e contributi',
+    'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Donna con foglio salariale',
 };
 
 export default blogMetaChIt;
