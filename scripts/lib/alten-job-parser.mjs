@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './swiss-locality-sentence-split.mjs';
 
 function compact(text = '') {
   return String(text || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -95,9 +96,10 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
   );
   const location = rawLocationNode
     .replace(/^.*?Location\s*[:.]?\s*/i, '')
-    // Mirror of sanitizeJobLocationField in scripts/assemble-jobs-dataset.mjs:
-    // negative lookbehind keeps the period after a "St"/"Ste" token.
-    .split(/[\n;]|(?<!\bSte?)\./)[0]
+    // Shared cut with sanitizeJobLocationField in scripts/assemble-jobs-dataset.mjs:
+    // negative lookbehind keeps the period after a "St"/"Ste" token (St. Moritz,
+    // St. Gallen, Ste. Croix). See swiss-locality-sentence-split.mjs.
+    .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
     .trim();
   const postedDate =
     compact(
