@@ -124,9 +124,9 @@
       },
       "slugByLocale": {
         "it": "direttore-di-filiale-m-f-d-80-100-lidl-svizzera-st-moritz",
-        "en": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-j9y9s6",
+        "en": "senior-consultant-m-w-d-80-100-lidl-svizzera-st-moritz",
         "de": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-j9y9s6",
-        "fr": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-j9y9s6"
+        "fr": "consultant-principal-m-m-j-80-100-lidl-svizzera-st-moritz"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -134,6 +134,12 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-j9y9s6"
+        ],
+        "en": [
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-j9y9s6"
+        ],
+        "fr": [
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-j9y9s6"
         ]
       },
@@ -165,7 +171,7 @@
     },
     {
       "id": "company-alqha9",
-      "slug": "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
+      "slug": "vendita-m-w-d-20-40-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
       "location": "St. Moritz",
@@ -189,10 +195,10 @@
       "crawledAt": "2026-05-17T10:36:40.425Z",
       "firstSeenAt": "2026-05-17T10:36:40.425Z",
       "slugByLocale": {
-        "it": "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
+        "it": "vendita-m-w-d-20-40-lidl-svizzera-st-moritz",
+        "en": "seller-m-w-d-20-40-lidl-svizzera-st-moritz",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
+        "fr": "vendeur-m-m-j-20-40-lidl-svizzera-st-moritz"
       },
       "titleByLocale": {
         "it": "Vendita (m/w/d) 20-40 %",
@@ -228,6 +234,7 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
         "venditore-m-f-d-20-40-lidl-svizzera-st",
+        "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
         "vendita-m-w-d-lidl-svizzera-st-moritz",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
@@ -238,10 +245,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
-          "venditore-m-f-d-20-40-lidl-svizzera-st"
+          "venditore-m-f-d-20-40-lidl-svizzera-st",
+          "venditore-m-f-d-20-40-lidl-svizzera-st-moritz"
         ],
         "de": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
         ]
       },
       "salaryMin": 49500,

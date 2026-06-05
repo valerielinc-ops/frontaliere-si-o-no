@@ -202,8 +202,8 @@
       "slugByLocale": {
         "it": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
         "en": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
-        "de": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
-        "fr": "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+        "de": "miu-miu-filialleiter-saint-moritz-prada-group-st-moritz",
+        "fr": "directeur-du-magasin-miu-miu-saint-moritz-prada-group-st-moritz"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -246,6 +246,12 @@
           "miu-miu-store-manager-saint-moritz-prada-mendrisio",
           "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
           "miu-miu-store-manager-saint-moritz-prada-group-st-moritz"
+        ],
+        "de": [
+          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+        ],
+        "fr": [
+          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
         ]
       },
       "previousSlugs": [
