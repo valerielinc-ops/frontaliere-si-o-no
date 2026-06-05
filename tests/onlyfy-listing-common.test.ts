@@ -55,4 +55,28 @@ describe('parseOnlyfyListing', () => {
     });
     expect(rows).toHaveLength(2);
   });
+
+  // onlyfy hashes are opaque; a `-` separator must NOT make the listing guard
+  // reject the card (silent-zero) nor truncate the per-tenant matchKey to a
+  // partial key (previousSlugs fragmentation, #829 class). Hash char-class is
+  // `[a-z0-9-]` here AND in the update-* matchKey regex — keep them in lockstep.
+  it('accepts job hashes that contain a hyphen separator', () => {
+    const HYPHEN_MARKUP = `
+      <a data-testid="job-card" aria-label="Pflegefachperson HF 80%"
+         href="/de/job/abc123-def456-ghi789">
+        <div><h3 data-testid="job-title">Pflegefachperson HF 80%</h3></div>
+        <div data-testid="job-more-info">Zürich | Vollzeit | 01.06.2026</div>
+      </a>`;
+    const rows = parseOnlyfyListing(HYPHEN_MARKUP, {
+      portalBase: 'https://spitex-zuerich.onlyfy.jobs',
+    });
+    expect(rows).toHaveLength(1);
+    expect(rows[0].url).toBe('https://spitex-zuerich.onlyfy.jobs/de/job/abc123-def456-ghi789');
+
+    // Mirror of the `matchKey` extraction in the update-* crawlers: the full
+    // hyphenated hash must survive, not truncate at the first `-`.
+    const matchKey = (j: { url: string }) =>
+      j.url.match(/\/job\/([a-z0-9-]+)/i)?.[1] || j.url;
+    expect(matchKey(rows[0])).toBe('abc123-def456-ghi789');
+  });
 });
