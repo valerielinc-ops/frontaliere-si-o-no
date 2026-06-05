@@ -60,6 +60,34 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
     });
   });
 
+  describe('Cold-load active-job race guard (2026-06-05 regression)', () => {
+    // A LIVE job page (e.g. /cerca-lavoro-grigioni/<slug>/) flashed
+    // JobOrphanView on the FIRST cold load and rendered correctly only after a
+    // reload. Root cause: the multi-MB jobs index is still downloading on first
+    // paint, so `selectedJob` is transiently undefined and the cascade fell
+    // through to Orphan. Fix: while `jobsLoading` is true and the page is not
+    // build-seeded, render a skeleton instead of asserting the slug is orphan.
+    it('returns SkeletonJobDetail while jobsLoading is true and the page is not seeded', () => {
+      expect(jobBoardSrc).toMatch(
+        /if \(jobsLoading && !seeded\) \{[\s\S]{0,120}return <SkeletonJobDetail \/>;[\s\S]{0,40}\}/,
+      );
+    });
+
+    it('places the cold-load guard above the JobOrphanView fallback', () => {
+      const guardIdx = jobBoardSrc.indexOf('if (jobsLoading && !seeded)');
+      const orphanIdx = jobBoardSrc.indexOf('<JobOrphanView');
+      expect(guardIdx).toBeGreaterThan(0);
+      expect(orphanIdx).toBeGreaterThan(0);
+      expect(guardIdx).toBeLessThan(orphanIdx);
+    });
+
+    it('exempts seeded pages so expired/orphan window-data still paints synchronously', () => {
+      // The `!seeded` clause is load-bearing: without it, seeded expired pages
+      // would be delayed behind the jobs-index fetch they do not need.
+      expect(jobBoardSrc).toContain('if (jobsLoading && !seeded)');
+    });
+  });
+
   describe('router eager slug-map preload', () => {
     it('defines an isJobDetailUrl predicate that matches cerca-lavoro / find-jobs / jobs-in / trouver-emploi prefixes', () => {
       expect(routerSrc).toContain('const isJobDetailUrl');

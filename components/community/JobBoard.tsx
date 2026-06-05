@@ -5684,6 +5684,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (robotsMeta?.getAttribute('content')?.includes('noindex')) {
  robotsMeta.remove();
  }
+ // Cold-load hydration race: the multi-MB jobs index may still be downloading
+ // on first paint, so `selectedJob` is transiently undefined for a job that is
+ // actually live. Until the index finishes loading we cannot assert this slug
+ // is an orphan — render the skeleton instead of flashing JobOrphanView
+ // ("Questo annuncio non è più disponibile"). (A reload hides the bug only
+ // because the index is then warm in the browser cache.) Seeded expired/orphan
+ // pages are exempt: `useExpiredJob` resolves their window-data synchronously
+ // below, so gating them here would needlessly delay their first paint.
+ if (jobsLoading && !seeded) {
+ return <SkeletonJobDetail />;
+ }
  // Bridge-in-flight guard: if the slug-map knows this slug points to a real
  // job (different canton, slug-rename alias, or cross-locale), the bridge
  // fallback effect above is still merging it into `jobs`. Show a skeleton
