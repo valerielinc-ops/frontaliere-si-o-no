@@ -513,9 +513,9 @@
     },
     {
       "id": "pictet-7550dbff6ffd",
-      "slug": "client-support-officer-fund-operations-pictet-luxembourg",
+      "slug": "funzionario-dell-assistenza-clienti-operazioni-del-fondo-pictet-group-luxembourg",
       "slugByLocale": {
-        "it": "client-support-officer-fund-operations-pictet-luxembourg",
+        "it": "funzionario-dell-assistenza-clienti-operazioni-del-fondo-pictet-group-luxembourg",
         "en": "client-support-officer-fund-operations-pictet-luxembourg",
         "de": "client-support-officer-fund-operations-pictet-luxembourg",
         "fr": "client-support-officer-fund-operations-pictet-luxembourg"
@@ -573,7 +573,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-support-officer-fund-operations-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "client-support-officer-fund-operations-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-fbff331a17bc",
@@ -643,12 +651,12 @@
     },
     {
       "id": "pictet-ed076ae71a6e",
-      "slug": "finance-data-analytics-specialist-pictet-geneva",
+      "slug": "finanza-data-analytics-specialista-pictet-group-geneva",
       "slugByLocale": {
         "fr": "finance-data-analytics-specialist-pictet-geneva",
-        "it": "finance-data-analytics-specialist-pictet-geneva",
+        "it": "finanza-data-analytics-specialista-pictet-group-geneva",
         "en": "finance-data-analytics-specialist-pictet-geneva",
-        "de": "finance-data-analytics-specialist-pictet-geneva"
+        "de": "finanzen-data-analytics-spezialist-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -705,7 +713,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-05T12:23:51.288Z"
+      "firstSeenAt": "2026-06-05T12:23:51.288Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finance-data-analytics-specialist-pictet-geneva"
+        ],
+        "de": [
+          "finance-data-analytics-specialist-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "finance-data-analytics-specialist-pictet-geneva"
+      ]
     }
   ]
 }

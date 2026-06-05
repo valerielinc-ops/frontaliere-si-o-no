@@ -4239,9 +4239,9 @@
     },
     {
       "id": "zurzach-care-67a7e7f9a531",
-      "slug": "stv-leitung-pflegedienst-50-100-zurzach-care-bad-zurzach",
+      "slug": "stv-head-care-service-50-100-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "stv-leitung-pflegedienst-50-100-zurzach-care-bad-zurzach",
+        "it": "stv-head-care-service-50-100-zurzach-care-bad-zurzach",
         "en": "stv-leitung-pflegedienst-50-100-zurzach-care-bad-zurzach",
         "de": "stv-leitung-pflegedienst-50-100-zurzach-care-bad-zurzach",
         "fr": "stv-leitung-pflegedienst-50-100-zurzach-care-bad-zurzach"
@@ -4298,7 +4298,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leitung-pflegedienst-50-100-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leitung-pflegedienst-50-100-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-0b2de942cc26",
@@ -4763,9 +4771,9 @@
     },
     {
       "id": "zurzach-care-819c07d7dac6",
-      "slug": "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad-zurzach",
+      "slug": "personale-ufficiale-del-personale-termincoordinamento-80-100-determinato-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad-zurzach",
+        "it": "personale-ufficiale-del-personale-termincoordinamento-80-100-determinato-zurzach-care-bad-zurzach",
         "en": "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad",
         "de": "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad",
         "fr": "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad"
@@ -4811,11 +4819,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad"
+        "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad",
+        "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad-zurzach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad"
+          "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad",
+          "sachbearbeiterin-sachbearbeiter-terminkoordination-80-100-befristet-zurzach-care-bad-zurzach"
         ]
       },
       "firstSeenAt": "2026-06-04T16:04:54.224Z",
@@ -4834,9 +4844,9 @@
     },
     {
       "id": "zurzach-care-cd54ffa8fef5",
-      "slug": "diplomierte-r-pflegefachfrau-pflegefachmann-psychiatrie-80-100-zurzach-care-braunwald",
+      "slug": "diploma-in-infermieristica-specialista-in-allattamento-psichiatria-80-100-zurzach-care-braunwald",
       "slugByLocale": {
-        "it": "diplomierte-r-pflegefachfrau-pflegefachmann-psychiatrie-80-100-zurzach-care-braunwald",
+        "it": "diploma-in-infermieristica-specialista-in-allattamento-psichiatria-80-100-zurzach-care-braunwald",
         "en": "diplomierte-r-pflegefachfrau-pflegefachmann-psychiatrie-80-100-zurzach-care-braunwald",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-psychiatrie-80-100-zurzach-care-braunwald",
         "fr": "diplomierte-r-pflegefachfrau-pflegefachmann-psychiatrie-80-100-zurzach-care-braunwald"
@@ -4893,7 +4903,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-psychiatrie-80-100-zurzach-care-braunwald"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-r-pflegefachfrau-pflegefachmann-psychiatrie-80-100-zurzach-care-braunwald"
+      ]
     },
     {
       "id": "zurzach-care-123487adc764",
@@ -5126,9 +5144,9 @@
     },
     {
       "id": "zurzach-care-7d1bf9f21624",
-      "slug": "sachbearbeiter-empfang-reception-zurzach-care-zollikerberg",
+      "slug": "ricezione-specialistica-reception-zurzach-care-zollikerberg",
       "slugByLocale": {
-        "it": "sachbearbeiter-empfang-reception-zurzach-care-zollikerberg",
+        "it": "ricezione-specialistica-reception-zurzach-care-zollikerberg",
         "en": "sachbearbeiter-empfang-reception-zurzach-care-zollikerberg",
         "de": "sachbearbeiter-empfang-reception-zurzach-care-zollikerberg",
         "fr": "sachbearbeiter-empfang-reception-zurzach-care-zollikerberg"
@@ -5185,13 +5203,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-empfang-reception-zurzach-care-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-empfang-reception-zurzach-care-zollikerberg"
+      ]
     },
     {
       "id": "zurzach-care-45b745a4c5ca",
-      "slug": "ergotherapeutin-ergotherapeut-neurologie-80-100-befristet-zurzach-care-bad-zurzach",
+      "slug": "ergotherapeutin-ergotherapeut-neurologia-80-100-limitata-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "ergotherapeutin-ergotherapeut-neurologie-80-100-befristet-zurzach-care-bad-zurzach",
+        "it": "ergotherapeutin-ergotherapeut-neurologia-80-100-limitata-zurzach-care-bad-zurzach",
         "en": "ergotherapeutin-ergotherapeut-neurologie-80-100-befristet-zurzach-care-bad-zurzach",
         "de": "ergotherapeutin-ergotherapeut-neurologie-80-100-befristet-zurzach-care-bad-zurzach",
         "fr": "ergotherapeutin-ergotherapeut-neurologie-80-100-befristet-zurzach-care-bad-zurzach"
@@ -5248,7 +5274,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeutin-ergotherapeut-neurologie-80-100-befristet-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeutin-ergotherapeut-neurologie-80-100-befristet-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-67a8d715fceb",

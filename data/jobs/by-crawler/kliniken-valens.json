@@ -8332,9 +8332,9 @@
       "slug": "esperto-infermieristico-m-f-a-80-100-kliniken-valens-gais",
       "slugByLocale": {
         "it": "esperto-infermieristico-m-f-a-80-100-kliniken-valens-gais",
-        "en": "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais",
+        "en": "senior-consultant-m-w-a-kliniken-valens-gais",
         "de": "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais",
-        "fr": "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
+        "fr": "consultant-principal-m-m-a-kliniken-valens-gais"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8377,20 +8377,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais",
-        "senior-consultant-m-w-a-kliniken-valens-gais",
-        "consultant-principal-m-m-a-kliniken-valens-gais"
+        "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
         ],
         "en": [
-          "senior-consultant-m-w-a-kliniken-valens-gais",
           "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
         ],
         "fr": [
-          "consultant-principal-m-m-a-kliniken-valens-gais",
           "pflegeexpert-in-m-w-a-80-100-kliniken-valens-gais"
         ]
       },
@@ -8410,9 +8406,9 @@
     },
     {
       "id": "kliniken-valens-261be6e8f214",
-      "slug": "assistenzarztin-assistenzarzt-neurologie-m-w-a-100-kliniken-valens-valens",
+      "slug": "medico-assistente-neurologia-m-f-a-100-kliniken-valens-valens",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-neurologie-m-w-a-100-kliniken-valens-valens",
+        "it": "medico-assistente-neurologia-m-f-a-100-kliniken-valens-valens",
         "en": "assistenzarztin-assistenzarzt-neurologie-m-w-a-100-kliniken-valens-valens",
         "de": "assistenzarztin-assistenzarzt-neurologie-m-w-a-100-kliniken-valens-valens",
         "fr": "assistenzarztin-assistenzarzt-neurologie-m-w-a-100-kliniken-valens-valens"
@@ -8469,7 +8465,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-neurologie-m-w-a-100-kliniken-valens-valens"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-neurologie-m-w-a-100-kliniken-valens-valens"
+      ]
     },
     {
       "id": "kliniken-valens-51b7225bbca5",

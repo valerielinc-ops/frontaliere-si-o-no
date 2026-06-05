@@ -7414,10 +7414,10 @@
     },
     {
       "id": "lups-ee6dbc35b935",
-      "slug": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen",
+      "slug": "operatore-sanitario-notturno-f-m-d-60-100-luzerner-psychiatrie-lups-sarnen",
       "slugByLocale": {
         "de": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen",
-        "it": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen",
+        "it": "operatore-sanitario-notturno-f-m-d-60-100-luzerner-psychiatrie-lups-sarnen",
         "en": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen",
         "fr": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen"
       },
@@ -7475,7 +7475,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:17:32.675Z"
+      "firstSeenAt": "2026-06-05T12:17:32.675Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen"
+      ]
     }
   ]
 }

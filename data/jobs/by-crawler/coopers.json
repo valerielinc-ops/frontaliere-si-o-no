@@ -4662,8 +4662,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fullstack-software-engineer-cloud-microservices-m-w-d-coopers-bern",
-          "fullstack-software-ingegnere-cloud-microservices-m-w-d-coopers-group-ag-bern"
+          "fullstack-software-engineer-cloud-microservices-m-w-d-coopers-bern"
         ],
         "fr": [
           "fullstack-software-ingenieur-cloud-microservices-m-w-d-coopers-group-ag-bern"
@@ -4785,10 +4784,10 @@
     },
     {
       "id": "coopers-ae22554aa5e3",
-      "slug": "ikt-netzwerk-spezialist-in-m-w-d-coopers-bern",
+      "slug": "specialista-in-rete-ict-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "ikt-netzwerk-spezialist-in-m-w-d-coopers-bern",
-        "it": "ikt-netzwerk-spezialist-in-m-w-d-coopers-bern",
+        "it": "specialista-in-rete-ict-m-f-d-coopers-group-ag-bern",
         "en": "ikt-netzwerk-spezialist-in-m-w-d-coopers-bern",
         "fr": "ikt-netzwerk-spezialist-in-m-w-d-coopers-bern"
       },
@@ -4866,7 +4865,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-05T11:41:21.147Z"
+      "firstSeenAt": "2026-06-05T11:41:21.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ikt-netzwerk-spezialist-in-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ikt-netzwerk-spezialist-in-m-w-d-coopers-bern"
+      ]
     }
   ]
 }

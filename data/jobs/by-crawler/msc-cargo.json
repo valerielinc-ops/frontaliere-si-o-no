@@ -447,10 +447,10 @@
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "responsabile-del-servizio-f-b-msc-group-geneva",
       "slugByLocale": {
         "en": "f-b-service-manager-msc-geneva",
-        "it": "f-b-service-manager-msc-geneva",
+        "it": "responsabile-del-servizio-f-b-msc-group-geneva",
         "de": "f-b-service-manager-msc-geneva",
         "fr": "f-b-service-manager-msc-geneva"
       },
@@ -509,7 +509,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-05T12:25:43.785Z"
+      "firstSeenAt": "2026-06-05T12:25:43.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-a231a60627cc",

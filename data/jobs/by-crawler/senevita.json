@@ -438,9 +438,9 @@
     },
     {
       "id": "senevita-fe51cbd9ecf2",
-      "slug": "kochin-koch-efz-80-100-senevita-erlenbach-zh",
+      "slug": "apprendista-koch-kochin-cfc-senevita-bern-be",
       "slugByLocale": {
-        "it": "kochin-koch-efz-80-100-senevita-erlenbach-zh",
+        "it": "apprendista-koch-kochin-cfc-senevita-bern-be",
         "en": "kochin-koch-efz-80-100-senevita-erlenbach-zh",
         "de": "lernende-r-koch-kochin-efz-senevita-bern-be",
         "fr": "kochin-koch-efz-80-100-senevita-erlenbach-zh"
@@ -488,12 +488,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-r-koch-kochin-efz-senevita-bern-be",
-        "apprendista-koch-kochin-cfc-senevita-bern-be"
+        "kochin-koch-efz-80-100-senevita-erlenbach-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-koch-kochin-efz-senevita-bern-be",
-          "apprendista-koch-kochin-cfc-senevita-bern-be"
+          "kochin-koch-efz-80-100-senevita-erlenbach-zh"
         ],
         "en": [
           "lernende-r-koch-kochin-efz-senevita-bern-be"
@@ -2405,9 +2405,9 @@
     },
     {
       "id": "senevita-783ee0b6550b",
-      "slug": "haushaltangestellte-ohne-srk-20-50-im-stundenlohn-senevita-basel-bs-und-bl",
+      "slug": "dipendenti-domestici-senza-srk-20-50-al-salario-orario-senevita-basel-bs-und-bl",
       "slugByLocale": {
-        "it": "haushaltangestellte-ohne-srk-20-50-im-stundenlohn-senevita-basel-bs-und-bl",
+        "it": "dipendenti-domestici-senza-srk-20-50-al-salario-orario-senevita-basel-bs-und-bl",
         "en": "haushaltangestellte-ohne-srk-20-50-im-stundenlohn-senevita-basel-bs-und-bl",
         "de": "haushaltangestellte-ohne-srk-20-50-im-stundenlohn-senevita-basel-bs-und-bl",
         "fr": "haushaltangestellte-ohne-srk-20-50-im-stundenlohn-senevita-basel-bs-und-bl"
@@ -2465,7 +2465,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "haushaltangestellte-ohne-srk-20-50-im-stundenlohn-senevita-basel-bs-und-bl"
+        ]
+      },
+      "previousSlugs": [
+        "haushaltangestellte-ohne-srk-20-50-im-stundenlohn-senevita-basel-bs-und-bl"
+      ]
     },
     {
       "id": "senevita-9e3eac2a4a29",

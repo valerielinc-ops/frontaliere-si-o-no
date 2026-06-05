@@ -4232,7 +4232,7 @@
         "it": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "en": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "de": "data-center-techniker-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "fr": "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+        "fr": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4297,12 +4297,16 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+        "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
           "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        ],
+        "fr": [
+          "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln"
         ]
       },
       "firstSeenAt": "2026-06-03T05:02:09.521Z",
@@ -9366,7 +9370,7 @@
         "it": "data-center-technician-svizzera-ginevra-in-loco-reboot-monkey-geneva",
         "en": "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva",
         "de": "data-center-techniker-switzerland-geneva-on-site-reboot-monkey-geneva",
-        "fr": "data-center-technicien-switzerland-geneva-on-site-reboot-monkey-geneva"
+        "fr": "technicien-en-informatique-suisse-geneve-sur-place-reboot-monkey-geneva"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9435,10 +9439,14 @@
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-2"
+        ],
+        "fr": [
+          "data-center-technicien-switzerland-geneva-on-site-reboot-monkey-geneva"
         ]
       },
       "previousSlugs": [
-        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-2"
+        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-2",
+        "data-center-technicien-switzerland-geneva-on-site-reboot-monkey-geneva"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -544,10 +544,10 @@
       "id": "ameos-ch-e52dd5d11525",
       "slug": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "it": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
+        "it": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "fr": "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
+        "fr": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -591,15 +591,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-m-w-d-ameos-einsiedeln",
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+          "physiotherapeut-m-w-d-ameos-einsiedeln"
         ],
         "fr": [
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
           "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
         ]
       },

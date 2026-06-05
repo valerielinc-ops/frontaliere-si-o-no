@@ -7244,10 +7244,10 @@
     },
     {
       "id": "eth-zurich-0bdc27ec6a6f",
-      "slug": "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch",
+      "slug": "posizione-di-dottorato-in-materia-robotica-programmabile-multistato-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch",
-        "it": "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch",
+        "it": "posizione-di-dottorato-in-materia-robotica-programmabile-multistato-eth-zurich-zurich",
         "de": "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch",
         "fr": "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch"
       },
@@ -7305,14 +7305,22 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-05T11:48:31.826Z"
+      "firstSeenAt": "2026-06-05T11:48:31.826Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-multi-state-programmable-robotic-matter-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-eb6412aaab4f",
-      "slug": "phd-position-in-biohybrid-robotics-eth-zurich-ch",
+      "slug": "posizione-di-dottorato-in-robotica-bioibrida-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-biohybrid-robotics-eth-zurich-ch",
-        "it": "phd-position-in-biohybrid-robotics-eth-zurich-ch",
+        "it": "posizione-di-dottorato-in-robotica-bioibrida-eth-zurich-zurich",
         "de": "phd-position-in-biohybrid-robotics-eth-zurich-ch",
         "fr": "phd-position-in-biohybrid-robotics-eth-zurich-ch"
       },
@@ -7370,14 +7378,22 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-05T11:48:31.359Z"
+      "firstSeenAt": "2026-06-05T11:48:31.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-biohybrid-robotics-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-biohybrid-robotics-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-45d18e34f1cc",
-      "slug": "office-manager-professorship-for-history-of-the-modern-world-eth-zurich-ch",
+      "slug": "office-manager-professore-di-storia-del-mondo-moderno-eth-zurich-zurich",
       "slugByLocale": {
         "en": "office-manager-professorship-for-history-of-the-modern-world-eth-zurich-ch",
-        "it": "office-manager-professorship-for-history-of-the-modern-world-eth-zurich-ch",
+        "it": "office-manager-professore-di-storia-del-mondo-moderno-eth-zurich-zurich",
         "de": "office-manager-professorship-for-history-of-the-modern-world-eth-zurich-ch",
         "fr": "office-manager-professorship-for-history-of-the-modern-world-eth-zurich-ch"
       },
@@ -7435,7 +7451,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-05T11:48:30.875Z"
+      "firstSeenAt": "2026-06-05T11:48:30.875Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "office-manager-professorship-for-history-of-the-modern-world-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "office-manager-professorship-for-history-of-the-modern-world-eth-zurich-ch"
+      ]
     }
   ]
 }
