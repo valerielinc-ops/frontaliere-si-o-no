@@ -290,3 +290,32 @@ describe('generateFuelItalianCityPages() — matchKey collision guard', () => {
     expect(() => generateFuelItalianCityPages({ dataset, today })).not.toThrow();
   });
 });
+
+describe('generateFuelItalianCityPages() — station brand logos', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+  // rootDir = repo root so the build-time fs probe finds the real brand SVGs
+  // under public/images/brands/ (eni→agipeni.svg via the shared alias map,
+  // q8.svg, shell.svg, tamoil.svg). Without rootDir the card falls back to the
+  // neutral fuel-pump icon — the "logo if available" contract.
+  const rootDir = process.cwd();
+
+  it('renders the brand logo <img> when rootDir resolves a logo on disk', () => {
+    const pages = generateFuelItalianCityPages({ dataset: DATASET, today, rootDir });
+    const como = pages['/prezzi-benzina/italia/como/oggi/'];
+    // "Eni" maps to agipeni.svg through the shared BRAND_LOGO_ALIASES map.
+    expect(como).toMatch(
+      htmlTagWithAttrs('img', { src: '/images/brands/agipeni.svg', alt: 'Eni' }),
+    );
+    const varese = pages['/prezzi-benzina/italia/varese/oggi/'];
+    expect(varese).toMatch(
+      htmlTagWithAttrs('img', { src: '/images/brands/q8.svg', alt: 'Q8' }),
+    );
+  });
+
+  it('omits brand <img> and keeps the neutral icon when rootDir is absent', () => {
+    const pages = generateFuelItalianCityPages({ dataset: DATASET, today });
+    for (const path of Object.keys(pages)) {
+      expect(pages[path]).not.toContain('/images/brands/');
+    }
+  });
+});
