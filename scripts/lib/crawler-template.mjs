@@ -585,7 +585,28 @@ export async function runStandardCrawlerPipeline(config) {
 
   // ─── Step 2: Fetch ──────────────────────────────────────────
   // Parser returns source-locale jobs only. DO NOT set non-source locale fields.
-  const parsedJobs = await fetchJobs();
+  let parsedJobs;
+  try {
+    parsedJobs = await fetchJobs();
+  } catch (err) {
+    // A purely transient network failure (source briefly unreachable — a burst
+    // of these hits the evening dispatch wave when many crawlers run at once)
+    // must NOT hard-fail the run. Exiting 1 here opens a noisy per-run "Crawler
+    // Failure" issue even though the same source crawls fine minutes later
+    // (#1393-#1437, all `crawler-transient`). Treat it like the empty case:
+    // keep the existing slice and exit cleanly. A genuinely persistent outage is
+    // still surfaced by the crawler-health monitor (stale after 7d / broken),
+    // because this early return — like the no-jobs path — writes no fresh
+    // summary. Structural errors (parse bugs, 4xx) still throw → real failure.
+    if (isTransientFetchError(err)) {
+      console.log(
+        `\n⚠️ ${companyLabel}: transient fetch failure (${err?.message || err}). ` +
+          'Keeping existing jobs, skipping this run (no false-positive failure).',
+      );
+      return;
+    }
+    throw err;
+  }
 
   if (!parsedJobs || parsedJobs.length === 0) {
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);

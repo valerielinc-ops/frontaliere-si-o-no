@@ -35,6 +35,7 @@ import {
   inferSkyguideCanton,
   buildSkyguideLocalizedContent,
 } from './lib/skyguide-job-parser.mjs';
+import { isTransientFetchError } from './lib/transient-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -385,6 +386,16 @@ async function main() {
 }
 
 main().catch((err) => {
+  // Skyguide runs a bespoke pipeline (not crawler-template), so apply the same
+  // transient-skip guard here: a network blip must not open a false-positive
+  // "Crawler Failure" issue (#1404). Persistent outages are still caught by the
+  // crawler-health monitor (stale/broken). Structural errors still exit 1.
+  if (isTransientFetchError(err)) {
+    console.warn(
+      `⚠️ Skyguide: transient fetch failure (${err?.message || err}). Keeping existing jobs, skipping this run.`,
+    );
+    process.exit(0);
+  }
   console.error(`❌ Skyguide crawler failed: ${err?.message || err}`);
   process.exit(1);
 });
