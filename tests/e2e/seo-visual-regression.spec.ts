@@ -38,9 +38,15 @@ interface VisualCase {
 
 const CASES: VisualCase[] = [
   // Home renders CalcolatoreTabContent: InputCard is lazy + its locale chunk
-  // (`it-calculator.ts`) is lazy too. Without a ready selector the screenshot
-  // can fire while SkeletonInputCard is still rendered, producing ~11% diff.
-  { name: 'home', url: '/', readySelector: '[data-testid="calculator-input-card"]' },
+  // (`it-calculator.ts`) is lazy too. But gating only on the left InputCard is
+  // NOT enough: the right-side ResultsView hydrates independently (default
+  // RAL=75k auto-computes), and `results-advantage-banner` is the last element
+  // to mount — same as salary-calculator. Gating only on the input card let the
+  // screenshot fire while the entire ResultsView (Analisi Comparativa + Vivere
+  // cards) was still empty, baking an empty-results-pane baseline that then
+  // diffed ~11% against every fully-hydrated live render (run 26999410533).
+  // Gate on the banner so the capture is always at full hydration.
+  { name: 'home', url: '/', readySelector: '[data-testid="results-advantage-banner"]' },
   {
     name: 'salary-calculator',
     url: '/calcola-stipendio/',
@@ -63,6 +69,46 @@ const DYNAMIC_REGION_SELECTORS = [
 ];
 
 test.use({ viewport: { width: 1280, height: 800 } });
+
+// ---- Structural guardrail against partial-hydration baselines ----
+// A per-case `readySelector` only proves ONE element mounted. Other
+// above-the-fold regions can still be showing a loading skeleton when the
+// screenshot fires — and if that happens during baseline *generation*, the
+// partial state is frozen into the PNG and diffs against every fully-hydrated
+// live render forever (the home ResultsView empty-pane bug, run 26999410533,
+// 108122px / ratio 0.11). Because both baseline-gen and validate-live share
+// this spec, a single capture-path gate fixes both sides.
+//
+// Every loading placeholder in the app carries the same signature: the
+// `animate-pulse` class AND a `surface-raised` background (see the `pulse`
+// primitive in components/shared/Skeletons.tsx and every Suspense fallback in
+// the calculator tree). Decorative pulses (Lucide icons: Volume2, Trophy) use
+// `animate-pulse` WITHOUT a surface-raised background, so they're excluded.
+// AdSense slots never match this signature, so the ad system is untouched.
+//
+// This is generic: a future VisualCase whose `readySelector` resolves early
+// while another hero region is still a skeleton is caught here, with no
+// per-page knowledge required.
+async function waitForNoAboveFoldSkeletons(
+  page: import('playwright/test').Page,
+  viewportHeight: number,
+): Promise<void> {
+  await page.waitForFunction(
+    (vh) => {
+      const nodes = Array.from(document.querySelectorAll('[class*="animate-pulse"]'));
+      return !nodes.some((el) => {
+        const cls = (el.getAttribute('class') ?? '').toString();
+        // Skeleton loaders carry a surface-raised bg; decorative icon pulses don't.
+        if (!cls.includes('surface-raised')) return false;
+        const r = el.getBoundingClientRect();
+        // Only count placeholders intersecting the captured viewport.
+        return r.top < vh && r.bottom > 0 && r.width > 0 && r.height > 0;
+      });
+    },
+    viewportHeight,
+    { timeout: 20_000 },
+  );
+}
 
 // `salary-calculator` baseline is stale after commit 5f81803062
 // ("fix(seo): scope seo-static.css h1-h4 + main rules to main.seo-static-content"):
@@ -93,6 +139,10 @@ for (const c of CASES) {
     }
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => window.scrollTo(0, 0));
+    // Structural net: no above-the-fold loading skeleton may remain, on ANY
+    // page, before we capture — prevents freezing a partial-hydration baseline
+    // even if a future case's readySelector under-specifies readiness.
+    await waitForNoAboveFoldSkeletons(page, 800);
     // Brief settle: wait for layout shift to stabilize after font load.
     await page.waitForTimeout(500);
     // Viewport-only screenshot (1280x800). Full-page / element screenshots
