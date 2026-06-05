@@ -122,17 +122,29 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
   describe('JobBoard consumption', () => {
     const src = fs.readFileSync(path.resolve(root, 'components/community/JobBoard.tsx'), 'utf-8');
 
-    it('reads window.__JOB_SEED__ via readSeededJob', () => {
+    it('reads window.__JOB_SEED__ via readSeededJob (memoised once per mount)', () => {
       expect(src).toMatch(/window as unknown as Record<string, unknown>\)\.__JOB_SEED__/);
+      expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
     });
 
     it('seeds the initial jobs state with the build-injected record', () => {
-      expect(src).toMatch(/useState<JobListing\[\]>\(\(\) => \{[\s\S]{0,160}readSeededJob\(\)/);
+      expect(src).toMatch(/useState<JobListing\[\]>\(\(\) => \(seededJob \? \[seededJob\] : \[\]\)\)/);
     });
 
     it('re-applies fetched detail in finalize so the full-index load does not clobber it', () => {
       expect(src).toMatch(/resolvedJobDetail\.get\(j\.id\)/);
-      expect(src).toMatch(/setJobs\(reEnriched\)/);
+    });
+
+    it('keeps the seed in finalize when the loaded shard lacks it (no orphan flash at jobsLoading===false)', () => {
+      expect(src).toMatch(/seededJob\?\.id && !reEnriched\.some\(\(j\) => j\.id === seededJob\.id\)/);
+      expect(src).toMatch(/setJobs\(finalJobs\)/);
+    });
+
+    it('renders a seeded active detail immediately instead of the jobsLoading spinner', () => {
+      // Without this the unconditional `if (jobsLoading) return <spinner>` masks
+      // the seed until the full index lands — the seed would be dead weight.
+      expect(src).toMatch(/const seededActiveDetail = selectedJob && initialJobSlug/);
+      expect(src).toMatch(/if \(!seededActiveDetail\) \{[\s\S]{0,1200}Loader2/);
     });
   });
 });

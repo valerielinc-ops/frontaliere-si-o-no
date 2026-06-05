@@ -1717,14 +1717,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [initialFilterCanton, locale],
  );
 
- // Seed with the build-injected slim record (active job-detail pages only) so
- // `selectedJob` resolves on the first frame — no orphan flash, no wait on the
- // ~1.2 MB (gzip) slim index. The full index load below replaces this array;
- // `finalize` re-applies any detail fetched in the meantime (clobber-proof).
- const [jobs, setJobs] = useState<JobListing[]>(() => {
- const seed = readSeededJob();
- return seed ? [seed] : [];
- });
+ // Build-injected slim record for THIS active job-detail page (window.__JOB_SEED__),
+ // or null on board pages / SPA navigation. Read once per mount.
+ const seededJob = useMemo(() => readSeededJob(), []);
+ // Seed the jobs array so `selectedJob` resolves on the first frame — no orphan
+ // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
+ // replaces this array; `finalize` re-applies any detail fetched meanwhile and
+ // keeps the seed if the loaded shard doesn't contain it (clobber-proof).
+ const [jobs, setJobs] = useState<JobListing[]>(() => (seededJob ? [seededJob] : []));
  // Cross-canton fallback pool: the locale-wide unscoped corpus loaded by
  // `loadLegacyLocaleJobs` BEFORE `scopeJobsToCanton` narrows it. When a
  // canton-scoped search yields zero strict+OR matches we re-run the OR-match
@@ -2066,8 +2066,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const d = j.id ? resolvedJobDetail.get(j.id) : undefined;
  return d ? { ...j, ...d } : j;
  });
- setJobs(reEnriched);
- registerJobSlugMap(reEnriched);
+ // Keep the build-seeded detail job if the loaded shard doesn't contain it
+ // (cross-shard / bridge target): otherwise replacing `jobs` would null out
+ // `selectedJob` and flash JobOrphanView at the jobsLoading===false boundary.
+ let finalJobs: JobListing[] = reEnriched;
+ if (seededJob?.id && !reEnriched.some((j) => j.id === seededJob.id)) {
+ const d = resolvedJobDetail.get(seededJob.id);
+ finalJobs = [d ? { ...seededJob, ...d } : seededJob, ...reEnriched];
+ }
+ setJobs(finalJobs);
+ registerJobSlugMap(finalJobs);
  // Capture the unscoped pool for cross-canton fallback when canton-scoped
  // searches return zero. Same normalize+dedupe so cross-canton matches share
  // the JobListing shape downstream consumers expect.
@@ -4843,6 +4851,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  );
  }
+ // A build-seeded active job-detail renders its real content immediately —
+ // skip the spinner and fall through to the `if (selectedJob)` block below so
+ // the page paints on the first frame without waiting for the full index.
+ // (CLS-safe: real layout replaces the reserve, no late jump.) Without this,
+ // the unconditional spinner masks the seed until jobsLoading flips false.
+ const seededActiveDetail = selectedJob && initialJobSlug
+ && !companySlugFilter && !locationSlugFilter && !searchSlugFilter;
+ if (!seededActiveDetail) {
  return (
  // Reserve ~viewport height during the async job fetch. Search/filter URLs
  // (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this JobBoard
@@ -4857,6 +4873,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Loader2 className="w-9 h-9 text-accent animate-spin" />
  </div>
  );
+ }
  }
 
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (
