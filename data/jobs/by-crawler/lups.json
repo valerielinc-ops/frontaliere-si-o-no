@@ -7351,8 +7351,8 @@
       "slugByLocale": {
         "de": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen",
         "it": "operatore-sanitario-notturno-f-m-d-60-100-luzerner-psychiatrie-lups-sarnen",
-        "en": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen",
-        "fr": "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen"
+        "en": "senior-consultant-m-d-60-100-luzerner-psychiatrie-lups-sarnen",
+        "fr": "consultant-principal-m-j-60-100-luzerner-psychiatrie-lups-sarnen"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7410,6 +7410,12 @@
       "firstSeenAt": "2026-06-05T12:17:32.675Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen"
+        ],
+        "en": [
+          "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen"
+        ],
+        "fr": [
           "fachangestellte-gesundheit-nachtdienst-w-m-d-60-100-lups-sarnen"
         ]
       },

@@ -1740,12 +1740,12 @@
     },
     {
       "id": "ubs-f044bfbd8150",
-      "slug": "mandate-specialist-ubs",
+      "slug": "specialista-mandate-ubs-ticino",
       "slugByLocale": {
         "en": "mandate-specialist-ubs",
-        "it": "mandate-specialist-ubs",
-        "de": "mandate-specialist-ubs",
-        "fr": "mandate-specialist-ubs"
+        "it": "specialista-mandate-ubs-ticino",
+        "de": "mandat-spezialist-ubs-ticino",
+        "fr": "specialiste-du-mandat-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1807,7 +1807,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:52:38.694Z"
+      "firstSeenAt": "2026-06-05T12:52:38.694Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mandate-specialist-ubs"
+        ],
+        "de": [
+          "mandate-specialist-ubs"
+        ],
+        "fr": [
+          "mandate-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "mandate-specialist-ubs"
+      ]
     },
     {
       "id": "ubs-4609c6768598",
@@ -1955,12 +1969,12 @@
     },
     {
       "id": "ubs-32a7451319a1",
-      "slug": "lombard-and-mortgage-specialist-ubs",
+      "slug": "specialista-lombardo-e-mortgage-ubs-ticino",
       "slugByLocale": {
         "en": "lombard-and-mortgage-specialist-ubs",
-        "it": "lombard-and-mortgage-specialist-ubs",
-        "de": "lombard-and-mortgage-specialist-ubs",
-        "fr": "lombard-and-mortgage-specialist-ubs"
+        "it": "specialista-lombardo-e-mortgage-ubs-ticino",
+        "de": "lombard-und-hypothek-spezialist-ubs-ticino",
+        "fr": "lombard-et-specialiste-en-hypotheques-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2022,7 +2036,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:52:38.690Z"
+      "firstSeenAt": "2026-06-05T12:52:38.690Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lombard-and-mortgage-specialist-ubs"
+        ],
+        "de": [
+          "lombard-and-mortgage-specialist-ubs"
+        ],
+        "fr": [
+          "lombard-and-mortgage-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "lombard-and-mortgage-specialist-ubs"
+      ]
     },
     {
       "id": "ubs-f39af08c95e8",
@@ -2098,12 +2126,12 @@
     },
     {
       "id": "ubs-740871baed50",
-      "slug": "channel-marketing-specialist-ubs",
+      "slug": "specialista-di-vendita-del-canale-ubs-ticino",
       "slugByLocale": {
         "en": "channel-marketing-specialist-ubs",
-        "it": "channel-marketing-specialist-ubs",
+        "it": "specialista-di-vendita-del-canale-ubs-ticino",
         "de": "channel-marketing-specialist-ubs",
-        "fr": "channel-marketing-specialist-ubs"
+        "fr": "specialiste-de-la-commercialisation-des-canaux-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2165,7 +2193,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:52:38.687Z"
+      "firstSeenAt": "2026-06-05T12:52:38.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "channel-marketing-specialist-ubs"
+        ],
+        "fr": [
+          "channel-marketing-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "channel-marketing-specialist-ubs"
+      ]
     },
     {
       "id": "ubs-c325f998ce2b",
@@ -2241,12 +2280,12 @@
     },
     {
       "id": "ubs-0697d8e80552",
-      "slug": "presentation-specialist-ubs",
+      "slug": "presentation-specialista-ubs-ticino",
       "slugByLocale": {
         "en": "presentation-specialist-ubs",
-        "it": "presentation-specialist-ubs",
-        "de": "presentation-specialist-ubs",
-        "fr": "presentation-specialist-ubs"
+        "it": "presentation-specialista-ubs-ticino",
+        "de": "presentation-spezialist-ubs-ticino",
+        "fr": "presentation-specialiste-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2309,7 +2348,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:52:38.684Z"
+      "firstSeenAt": "2026-06-05T12:52:38.684Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "presentation-specialist-ubs"
+        ],
+        "de": [
+          "presentation-specialist-ubs"
+        ],
+        "fr": [
+          "presentation-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "presentation-specialist-ubs"
+      ]
     },
     {
       "id": "ubs-3b214c889919",
@@ -2823,10 +2876,10 @@
     },
     {
       "id": "ubs-5816ddba7c70",
-      "slug": "client-advisor-gfim-ubs",
+      "slug": "consulente-clienti-gfim-ubs-ticino",
       "slugByLocale": {
         "en": "client-advisor-gfim-ubs",
-        "it": "client-advisor-gfim-ubs",
+        "it": "consulente-clienti-gfim-ubs-ticino",
         "de": "client-advisor-gfim-ubs",
         "fr": "client-advisor-gfim-ubs"
       },
@@ -2892,11 +2945,17 @@
       },
       "firstSeenAt": "2026-06-05T12:52:38.673Z",
       "previousSlugs": [
+        "client-advisor-gfim-ubs",
         "client-consulente-ubs",
         "client-advisor-ubs",
         "client-berater-ubs",
         "client-conseiller-ubs"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-gfim-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-346aba7fc9ec",
@@ -2972,12 +3031,12 @@
     },
     {
       "id": "ubs-1e4b0d03668b",
-      "slug": "integrated-middle-office-specialist-ubs",
+      "slug": "specialista-di-ufficio-centrale-integrato-ubs-ticino",
       "slugByLocale": {
         "en": "integrated-middle-office-specialist-ubs",
-        "it": "integrated-middle-office-specialist-ubs",
+        "it": "specialista-di-ufficio-centrale-integrato-ubs-ticino",
         "de": "integrated-middle-office-specialist-ubs",
-        "fr": "integrated-middle-office-specialist-ubs"
+        "fr": "specialiste-integre-des-bureaux-moyens-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3039,7 +3098,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:52:38.671Z"
+      "firstSeenAt": "2026-06-05T12:52:38.671Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "integrated-middle-office-specialist-ubs"
+        ],
+        "fr": [
+          "integrated-middle-office-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "integrated-middle-office-specialist-ubs"
+      ]
     },
     {
       "id": "ubs-e0088f6afaf4",
@@ -3343,8 +3413,8 @@
       "slugByLocale": {
         "en": "infrastructure-engineer-cloud-developer-postgresql-ubs",
         "it": "infrastructure-engineer-cloud-developer-postgresql-ubs",
-        "de": "infrastructure-engineer-cloud-developer-postgresql-ubs",
-        "fr": "infrastructure-engineer-cloud-developer-postgresql-ubs"
+        "de": "infrastructure-ingenieur-cloud-entwickler-postgresql-ubs-ticino",
+        "fr": "ingenieur-infrastructure-developpeur-cloud-postgresql-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3410,12 +3480,12 @@
     },
     {
       "id": "ubs-19b76d9c15ed",
-      "slug": "investment-advisor-ubs",
+      "slug": "investment-consulente-ubs-ticino",
       "slugByLocale": {
         "en": "investment-advisor-ubs",
-        "it": "investment-advisor-ubs",
-        "de": "investment-advisor-ubs",
-        "fr": "investment-advisor-ubs"
+        "it": "investment-consulente-ubs-ticino",
+        "de": "investment-berater-ubs-ticino",
+        "fr": "investment-conseiller-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3478,7 +3548,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:52:38.663Z"
+      "firstSeenAt": "2026-06-05T12:52:38.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-advisor-ubs"
+        ],
+        "de": [
+          "investment-advisor-ubs"
+        ],
+        "fr": [
+          "investment-advisor-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "investment-advisor-ubs"
+      ]
     },
     {
       "id": "ubs-2120155b3172",
