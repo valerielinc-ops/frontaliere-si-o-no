@@ -317,6 +317,11 @@ const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
 /** Module-level cache for per-job detail data (fetched on-demand when detail view opens). */
 const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
 
+/** Resolved (settled) detail payloads, keyed by job id. Lets a later full-index
+ * load re-apply enrichment it would otherwise clobber when it replaces `jobs`
+ * (e.g. after a seeded first paint — see readSeededJob / finalize). */
+const resolvedJobDetail = new Map<string, Partial<JobListing>>();
+
 /**
  * Fetch a single job's detail data (~15KB) instead of the full locale file (~11MB).
  * Per-job detail files are generated at build time by localeJobsSplitPlugin. (FRO-detail-split)
@@ -325,7 +330,11 @@ function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
  if (!jobDetailCache.has(jobId)) {
  const promise = fetch(cdnDataUrl(`/data/job-detail/${jobId}.json`))
  .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
- .then((data: unknown) => (data && typeof data === 'object' ? data : {}) as Partial<JobListing>)
+ .then((data: unknown) => {
+ const detail = (data && typeof data === 'object' ? data : {}) as Partial<JobListing>;
+ if (Object.keys(detail).length > 0) resolvedJobDetail.set(jobId, detail);
+ return detail;
+ })
  .catch(() => ({} as Partial<JobListing>));
  jobDetailCache.set(jobId, promise);
  }
@@ -538,6 +547,28 @@ function normalizeIncomingJob(raw: any): JobListing {
  companyDomain: canonicalHost || String(raw?.companyDomain || '').trim() || undefined,
  sector: String(raw?.sector || '').trim() || undefined,
  };
+}
+
+/**
+ * Build-seeded slim job record for the active job-detail page, injected by
+ * jobsSeoPagesPlugin as `window.__JOB_SEED__`. Seeding `jobs` with this record
+ * lets `selectedJob` resolve from the first paint — the detail view renders
+ * immediately and fetches only /data/job-detail/<id>.json for the body, instead
+ * of blocking on the ~1.2 MB (gzip) slim index. Returns null when absent (board
+ * pages, SPA navigation) or malformed. (companion to the bridge/expired seeds)
+ */
+function readSeededJob(): JobListing | null {
+ try {
+ const raw = (window as unknown as Record<string, unknown>).__JOB_SEED__;
+ if (raw && typeof raw === 'object'
+ && typeof (raw as { slug?: unknown }).slug === 'string'
+ && (raw as { slug: string }).slug.trim()
+ && typeof (raw as { id?: unknown }).id === 'string'
+ && (raw as { id: string }).id.trim()) {
+ return normalizeIncomingJob(raw);
+ }
+ } catch { /* SSR or missing */ }
+ return null;
 }
 
 function contractTranslationKey(job: Pick<JobListing, 'contract' | 'title' | 'description'>): string {
@@ -1686,7 +1717,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [initialFilterCanton, locale],
  );
 
- const [jobs, setJobs] = useState<JobListing[]>([]);
+ // Build-injected slim record for THIS active job-detail page (window.__JOB_SEED__),
+ // or null on board pages / SPA navigation. Read once per mount.
+ const seededJob = useMemo(() => readSeededJob(), []);
+ // Seed the jobs array so `selectedJob` resolves on the first frame — no orphan
+ // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
+ // replaces this array; `finalize` re-applies any detail fetched meanwhile and
+ // keeps the seed if the loaded shard doesn't contain it (clobber-proof).
+ const [jobs, setJobs] = useState<JobListing[]>(() => (seededJob ? [seededJob] : []));
  // Cross-canton fallback pool: the locale-wide unscoped corpus loaded by
  // `loadLegacyLocaleJobs` BEFORE `scopeJobsToCanton` narrows it. When a
  // canton-scoped search yields zero strict+OR matches we re-run the OR-match
@@ -2020,8 +2058,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (cancelled) return;
  const normalized = raw.map((job) => normalizeIncomingJob(job));
  const deduped = dedupeJobsForListing(normalized);
- setJobs(deduped);
- registerJobSlugMap(deduped);
+ // Re-apply any per-job detail already fetched (e.g. enriched onto the seeded
+ // record before this full-index load landed) so replacing `jobs` doesn't drop it.
+ const reEnriched = resolvedJobDetail.size === 0
+ ? deduped
+ : deduped.map((j) => {
+ const d = j.id ? resolvedJobDetail.get(j.id) : undefined;
+ return d ? { ...j, ...d } : j;
+ });
+ // Keep the build-seeded detail job if the loaded shard doesn't contain it
+ // (cross-shard / bridge target): otherwise replacing `jobs` would null out
+ // `selectedJob` and flash JobOrphanView at the jobsLoading===false boundary.
+ let finalJobs: JobListing[] = reEnriched;
+ if (seededJob?.id && !reEnriched.some((j) => j.id === seededJob.id)) {
+ const d = resolvedJobDetail.get(seededJob.id);
+ finalJobs = [d ? { ...seededJob, ...d } : seededJob, ...reEnriched];
+ }
+ setJobs(finalJobs);
+ registerJobSlugMap(finalJobs);
  // Capture the unscoped pool for cross-canton fallback when canton-scoped
  // searches return zero. Same normalize+dedupe so cross-canton matches share
  // the JobListing shape downstream consumers expect.
@@ -4797,15 +4851,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  );
  }
- // Cold-load hydration race: the multi-MB jobs index may still be downloading
- // on first paint, so `selectedJob` is transiently undefined for a job that is
- // actually live. For a non-seeded job-detail URL render the layout-matching
- // SkeletonJobDetail (same reserve convention as the !authResolved branch
- // below) instead of the generic centered spinner, so first paint matches the
- // eventual detail layout (CLS) and we never expose a generic loading state
- // before the index resolves. Seeded expired/orphan pages are exempt: the
- // fast-path above renders their window-data synchronously, so gating them
- // here would needlessly delay their first paint.
+ // A build-seeded active job-detail (window.__JOB_SEED__) renders its real
+ // content immediately — skip the loader and fall through to the
+ // `if (selectedJob)` block below so the page paints on the first frame
+ // without waiting for the full index. (CLS-safe: real layout, no late jump.)
+ // Without this, the loader masks the seed until jobsLoading flips false.
+ const seededActiveDetail = selectedJob && initialJobSlug
+ && !companySlugFilter && !locationSlugFilter && !searchSlugFilter;
+ if (!seededActiveDetail) {
+ // Non-seeded job-detail URL (SPA navigation, or a page built before the
+ // seed shipped): render the layout-matching SkeletonJobDetail instead of the
+ // generic centered spinner, so first paint matches the eventual detail layout
+ // (CLS) and we never expose a generic loading state before the index resolves.
+ // Seeded expired/orphan pages are exempt — `seeded` window-data renders
+ // synchronously above. (#1511)
  if (initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded) {
  return <SkeletonJobDetail />;
  }
@@ -4823,6 +4882,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Loader2 className="w-9 h-9 text-accent animate-spin" />
  </div>
  );
+ }
  }
 
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (

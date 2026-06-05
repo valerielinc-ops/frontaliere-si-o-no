@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
+import { buildLocaleJob, buildLocaleJobSlim, type JobEntry } from './shared/slimJobIndex';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -29,20 +30,10 @@ function isFixtureJobEntry(j: Record<string, unknown>): boolean {
  return false;
 }
 
-/** Fields included in the slim index file (used for listing + filtering + routing).
- * Detail-only fields (description, requirements, canonicalContent, baseSalary,
- * streetAddress, postalCode, applyUrl) are excluded to keep the index small. */
-const SLIM_INDEX_FIELDS = new Set([
- 'id', 'slug', 'previousSlugs', 'previousSlugsByLocale',
- 'title',
- 'company', 'companyKey', 'companyDomain', 'url',
- 'location', 'canton',
- 'addressLocality', 'sector',
- 'category', 'contract', 'department',
- 'salaryMin', 'salaryMax', 'currency',
- 'postedDate', 'crawledAt', 'firstSeenAt',
- 'featured', 'source', 'qualityScore',
-]);
+// SLIM_INDEX_FIELDS / JobEntry / buildLocaleJob / buildLocaleJobSlim now live in
+// ./shared/slimJobIndex — shared with jobsSeoPagesPlugin's window.__JOB_SEED__
+// emit so the seeded record stays byte-shape-identical to the index entry
+// (AGENTS.md §6: a literal-duplicated field set across ≥2 files → one module).
 
 /** Fields included in per-job detail files (fetched on-demand when a job detail is opened).
  * This avoids fetching the full 11MB locale file just to show one job's details. */
@@ -62,55 +53,6 @@ const DETAIL_FIELDS = new Set([
  'applicationDeadline',
 ]);
 
-interface JobEntry {
- id?: string;
- title?: string;
- description?: string;
- requirements?: string[];
- slug?: string;
- titleByLocale?: Record<string, string>;
- descriptionByLocale?: Record<string, string>;
- requirementsByLocale?: Record<string, string[]>;
- slugByLocale?: Record<string, string>;
- canonicalContent?: { byLocale?: Record<string, unknown>; [k: string]: unknown };
- [key: string]: unknown;
-}
-
-function buildLocaleJobSlim(localeJob: Record<string, unknown>): Record<string, unknown> {
- const slim: Record<string, unknown> = {};
- for (const key of SLIM_INDEX_FIELDS) {
- if (key in localeJob) slim[key] = localeJob[key];
- }
- return slim;
-}
-
-function buildLocaleJob(job: JobEntry, locale: string): Record<string, unknown> {
- const {
- titleByLocale,
- descriptionByLocale,
- requirementsByLocale,
- slugByLocale,
- canonicalContent,
- ...rest
- } = job;
-
- // Strip byLocale from canonicalContent too (it holds per-locale keywords/excerpts)
- let strippedCanonical: Record<string, unknown> | undefined;
- if (canonicalContent) {
- const { byLocale, ...canonRest } = canonicalContent;
- const localeContent = byLocale?.[locale];
- strippedCanonical = { ...canonRest, ...(localeContent ? { content: localeContent } : {}) };
- }
-
- return {
- ...rest,
- title: titleByLocale?.[locale] || job.title || '',
- description: descriptionByLocale?.[locale] || job.description || '',
- requirements: requirementsByLocale?.[locale] || job.requirements || [],
- slug: slugByLocale?.[locale] || job.slug || '',
- ...(strippedCanonical ? { canonicalContent: strippedCanonical } : {}),
- };
-}
 
 /**
  * Generates locale-specific job JSON files at build time.

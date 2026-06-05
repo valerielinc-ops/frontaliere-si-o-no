@@ -14,6 +14,7 @@ import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSe
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
@@ -1083,7 +1084,7 @@ ${href}
  <head>
 ${headTags}
  ${blogPreloads}
- <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${JSON.stringify(localizedTitle)}</script>
+ <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${inlineScriptJson(localizedTitle)}</script>
  <style>${criticalCSS}</style>
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">

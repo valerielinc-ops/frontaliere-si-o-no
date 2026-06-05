@@ -33,6 +33,7 @@
 // remains a valid indexable page.
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
+import { inlineScriptJson } from './inlineJsonScript';
 
 const LOCALE_LISTING_PATH: Record<string, string> = {
   it: '/cerca-lavoro-ticino/',
@@ -140,6 +141,6 @@ export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, loca
   if (withThinBody === cachedHtml) return cachedHtml;
 
   const bridgeScript =
-    `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(targetSlug)};window.__THIN_SHELL__=1;</script>`;
+    `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(targetSlug)};window.__THIN_SHELL__=1;</script>`;
   return withThinBody.replace('</head>', ` ${bridgeScript}\n </head>`);
 }
