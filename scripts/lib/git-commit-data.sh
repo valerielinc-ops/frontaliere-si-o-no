@@ -228,6 +228,25 @@ restore_stashed_changes_with_safe_merge() {
         echo "❌ Failed safe merge for $f"
         exit 1
       }
+
+      # Re-prune the seo-404 compat file after the 3-way set-merge. The
+      # committing workflows (sync-gsc-orphans, discover-404s) prune BEFORE
+      # pushing, but mergeArrayByDelta keeps everything already present in the
+      # `remote`/upstream side: a non-resolving path that entered upstream after
+      # `base` (and is absent from local) is neither an add nor a remove, so it
+      # SURVIVES this merge and would poison the committed file →
+      # tests/search-console-compat.test.ts red → main red (R2-B pattern, #1166
+      # item 5). Re-validate here, reusing the single resolvability source.
+      # PRUNE_404_STRICT=1 = fail-closed: if tsx or the assembled dataset isn't
+      # available at this in-rebase point, the prune ABORTS the push (exit 1)
+      # rather than silently committing an unvalidated merge.
+      if [ "$f" = "data/seo-404-compat-paths.json" ]; then
+        echo "🔎 Re-validating $f after 3-way merge (fail-closed)…"
+        PRUNE_404_STRICT=1 npx tsx scripts/prune-404-compat-paths.ts || {
+          echo "❌ Post-merge resolvability prune failed for $f — refusing to stage a possibly-poisoned file."
+          exit 1
+        }
+      fi
     else
       cp "$snapshot_dir/local/$f" "$f"
     fi
