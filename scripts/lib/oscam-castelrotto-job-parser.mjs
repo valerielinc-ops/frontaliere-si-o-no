@@ -203,7 +203,7 @@ export async function fetchAllOscamCastelrottoJobs() {
       const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl, { timeoutMs });
       if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
       if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
-      pdfText = pdf.rawText || pdf.text || '';
+      pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
     }
     const description = buildDescription(title, listing.pdfUrl, pdfText);
     const haystack = `${title} ${description}`;

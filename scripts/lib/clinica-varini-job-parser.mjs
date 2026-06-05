@@ -207,7 +207,7 @@ export async function fetchAllClinicaVariniJobs() {
     console.log(`  📄 Processing: ${listing.filename}`);
     const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl, { timeoutMs });
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
-    const pdfText = pdf.rawText || pdf.text || '';
+    const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
 
     const { description, warnings } = buildVariniDescription({
       title: listing.title,
