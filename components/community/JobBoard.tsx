@@ -166,6 +166,18 @@ const DEFAULT_CANTON_DISPLAY = 'Ticino';
 const DEFAULT_POSTAL_CODE = '6900';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 
+// Search-broaden floor: when a canton-scoped search yields FEWER than this many
+// in-canton results, the cross-canton tier is merged in (appended) so the page
+// shows a useful number of listings instead of a near-empty result set. Mirrors
+// the documented "SPA may over-recover vs the static landing" intent — broadening
+// never de-indexes a canonical page, it only fills the hydrated board.
+const BROADEN_BELOW = 10;
+// Rank boost applied to a broadened cross-canton job whose LOCATION matches a
+// city named in the query (e.g. "…lausanne" → jobs physically in Lausanne sort
+// above jobs that merely mention the city in their description). Large enough to
+// dominate token-hit score so city-relevant listings lead the broadened tail.
+const CITY_MATCH_BOOST = 1000;
+
 // Foreign country/city keywords — jobs matching these are EXCLUDED entirely.
 // These are locations outside Switzerland that should never appear on a Swiss job board.
 const FOREIGN_LOCATION_KEYWORDS = [
@@ -1699,6 +1711,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // company-broadening tier can surface its openings Switzerland-wide instead
  // of rendering the empty-state. One-shot per mount.
  const companyBroadenFetchAttempted = useRef(false);
+ // Search-broaden: when a canton-scoped SEARCH yields a thin in-canton set
+ // (< BROADEN_BELOW) we lazy-load the locale-wide pool so the cross-canton tier
+ // can fill the page. Closes the gap left by `unscopedJobs` (populated only via
+ // the legacy path) for the healthy-shard search case. One-shot per mount.
+ const searchBroadenFetchAttempted = useRef(false);
  const [jobsLoading, setJobsLoading] = useState(true);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
@@ -2758,14 +2775,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const crossCantonFallbackJobs = useMemo<JobListing[]>(() => {
  const query = deferredSearchQuery.trim();
  if (!query) return [];
- if (strictFilteredJobs.length > 0) return [];
- if (orFallbackInCantonJobs.length > 0) return [];
+ // Broaden when the in-canton tiers returned FEWER than BROADEN_BELOW jobs
+ // (was: only when they returned exactly zero). A single weak in-canton match
+ // — e.g. a TI job whose description happens to mention "lausanne" — used to
+ // suppress the much richer cross-canton set, leaving the page stuck at 1.
+ // The in-canton result is whichever tier won: strict (AND) if it has any,
+ // else the in-canton OR fallback. These are merged-with (not replaced) by the
+ // consumer (`filteredJobs`), so this tier only supplies the broadened tail.
+ const inCantonCount = strictFilteredJobs.length > 0 ? strictFilteredJobs.length : orFallbackInCantonJobs.length;
+ if (inCantonCount >= BROADEN_BELOW) return [];
  if (unscopedJobs.length === 0) return [];
 
  // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
  // tokens match the floor's content-token count.
  const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return [];
+
+ // City-aware relevance: query tokens that are part of the location vocabulary
+ // (`searchLocationTokens`) name a place ("lausanne"). A broadened job whose
+ // own LOCATION matches one of them is far more relevant than a job that only
+ // mentions the city in prose, so it gets CITY_MATCH_BOOST and leads the tail.
+ const cityTokens = queryTokens.filter((t) => searchLocationTokens.has(t));
 
  const now = Date.now();
  const dateRangeMs: Record<DateRange, number> = {
@@ -2791,11 +2821,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
  }
- if (score >= orFallbackMinScore) scored.push({ job, score });
+ if (score < orFallbackMinScore) continue;
+ let locBoost = 0;
+ if (cityTokens.length > 0) {
+ const locHay = buildStemmedHaystack(`${job.addressLocality || ''} ${job.location || ''}`);
+ for (const ct of cityTokens) {
+ if (locHay.includes(` ${ct}`)) { locBoost = CITY_MATCH_BOOST; break; }
+ }
+ }
+ scored.push({ job, score: score + locBoost });
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore]);
+ }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore, searchLocationTokens]);
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
@@ -2853,12 +2891,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
  unscopedJobs, sortedJobs,
  ]);
 
+ // Shared locale-wide pool loader (slim index → locale monolith fallback).
+ // Used by BOTH the company-hub broaden and the search-broaden triggers so the
+ // fetch/normalize/dedupe path lives in exactly one place (no copy-paste drift).
+ // Returns the normalized pool, or null when nothing usable came back; the
+ // caller owns the cancelled-guard + setState.
+ const loadUnscopedPool = useCallback(async (): Promise<JobListing[] | null> => {
+ let pool: unknown[] = [];
+ const slimRes = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
+ if (slimRes.ok) {
+ pool = await slimRes.json();
+ } else {
+ const localeRes = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
+ if (localeRes.ok) pool = await localeRes.json();
+ }
+ const arr = Array.isArray(pool) ? pool : [];
+ if (arr.length === 0) return null;
+ return dedupeJobsForListing(arr.map((job) => normalizeIncomingJob(job)));
+ }, [locale]);
+
  // Company-hub broadening trigger: when a company filter is active and the
  // canton-scoped pool has ZERO openings for that employer (HQ in another
  // canton), lazy-load the locale-wide pool into `unscopedJobs` so the
  // company-broadening tier below can show its Swiss-wide openings instead of
- // the empty-state. Mirrors the legacy loader (slim index → locale monolith).
- // One-shot per mount; skipped when the pool is already loaded.
+ // the empty-state. One-shot per mount; skipped when the pool is already loaded.
  useEffect(() => {
  if (companyBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
@@ -2870,25 +2926,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
  (async () => {
  try {
- let pool: unknown[] = [];
- const slimRes = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
- if (slimRes.ok) {
- pool = await slimRes.json();
- } else {
- const localeRes = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
- if (localeRes.ok) pool = await localeRes.json();
- }
- if (cancelled) return;
- const arr = Array.isArray(pool) ? pool : [];
- if (arr.length === 0) return;
- const normalized = arr.map((job) => normalizeIncomingJob(job));
- setUnscopedJobs(dedupeJobsForListing(normalized));
+ const pool = await loadUnscopedPool();
+ if (cancelled || !pool) return;
+ setUnscopedJobs(pool);
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.companyBroaden');
  }
  })();
  return () => { cancelled = true; };
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale]);
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale, loadUnscopedPool]);
+
+ // Search-broaden trigger: a canton-scoped SEARCH whose in-canton tiers are
+ // thin (< BROADEN_BELOW) needs the locale-wide pool so the city-aware cross-
+ // canton tier can fill the page. Distinct from the company trigger (no search)
+ // and the cross-locale tier (other locales): this is same-locale, other-canton.
+ // Skipped on the aggregate board (already nationwide) and when the pool is
+ // already loaded. One-shot per mount (ref set only when we actually fetch, so a
+ // later thin search still triggers if the first search was well-populated).
+ useEffect(() => {
+ if (searchBroadenFetchAttempted.current) return;
+ if (jobsLoading) return;
+ if (companySlugFilter) return; // company path owns its loader
+ if (!deferredSearchQuery.trim()) return;
+ if ((initialFilterCanton || getDefaultCantonForVisit()) === AGGREGATE_CANTON_CODE) return;
+ if (unscopedJobs.length > 0) return; // pool already available
+ const inCantonCount = strictFilteredJobs.length > 0 ? strictFilteredJobs.length : orFallbackInCantonJobs.length;
+ if (inCantonCount >= BROADEN_BELOW) return; // enough in-canton results already
+ searchBroadenFetchAttempted.current = true;
+ let cancelled = false;
+ (async () => {
+ try {
+ const pool = await loadUnscopedPool();
+ if (cancelled || !pool) return;
+ setUnscopedJobs(pool);
+ } catch (err: unknown) {
+ reportCaughtError(err, 'jobBoard.loadJobs.searchBroaden');
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
@@ -2985,12 +3061,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  //   3. crossCantonFallbackJobs (partial-token OR, other cantons, same locale)
  //   3.5 companyBroadeningFallbackJobs (company filter, Swiss-wide, no query)
  //   4. crossLocaleFallbackJobs (partial-token OR, other locale shards)
- // Each tier is consulted only when the previous one yielded zero, so the
- // canton-scoped intent stays primary and the safety nets only kick in when
- // the local query has no support whatsoever.
+ // The canton-scoped intent stays primary, but when the in-canton tier returns
+ // a thin set (< BROADEN_BELOW) the cross-canton tier is APPENDED rather than
+ // replacing it: in-canton matches first, then the city-aware broadened tail,
+ // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
+ // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
  const filteredJobs = useMemo<JobListing[]>(() => {
- if (strictFilteredJobs.length > 0) return strictFilteredJobs;
- if (orFallbackInCantonJobs.length > 0) return orFallbackInCantonJobs;
+ const inCanton = strictFilteredJobs.length > 0
+ ? strictFilteredJobs
+ : orFallbackInCantonJobs.length > 0
+ ? orFallbackInCantonJobs
+ : [];
+ if (inCanton.length > 0) {
+ if (crossCantonFallbackJobs.length === 0) return inCanton;
+ const seen = new Set<string>();
+ const merged: JobListing[] = [];
+ for (const j of inCanton) { if (!seen.has(j.id)) { seen.add(j.id); merged.push(j); } }
+ for (const j of crossCantonFallbackJobs) { if (!seen.has(j.id)) { seen.add(j.id); merged.push(j); } }
+ return merged;
+ }
  if (crossCantonFallbackJobs.length > 0) return crossCantonFallbackJobs;
  if (companyBroadeningFallbackJobs.length > 0) return companyBroadeningFallbackJobs;
  return crossLocaleFallbackJobs;
@@ -3001,8 +3090,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isUsingSearchFallback = useMemo(() => {
  return Boolean(deferredSearchQuery.trim())
  && strictFilteredJobs.length === 0
- && orFallbackInCantonJobs.length > 0;
- }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length]);
+ && orFallbackInCantonJobs.length > 0
+ && crossCantonFallbackJobs.length === 0; // broadened → the broaden banner owns the message
+ }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length]);
+
+ // True when SOME in-canton results exist but were thin (< BROADEN_BELOW) and
+ // the city-aware cross-canton tier was appended. Distinct from the pure
+ // cross-canton banner (which asserts ZERO in-canton offers) — here we DO have
+ // a few local matches, so the copy says the search was *extended*.
+ const isBroadenedSearch = useMemo(() => {
+ return Boolean(deferredSearchQuery.trim())
+ && (strictFilteredJobs.length > 0 || orFallbackInCantonJobs.length > 0)
+ && crossCantonFallbackJobs.length > 0;
+ }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length]);
 
  // True when the result set is the cross-canton fallback (Tier 3). Drives
  // a distinct banner so users understand they're seeing jobs from outside
@@ -7096,6 +7196,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.crossCantonFallback.hint')}
+ </p>
+ </div>
+ </div>
+ </div>
+ )}
+ {isBroadenedSearch && (
+ <div
+ role="status"
+ aria-live="polite"
+ className="rounded-xl border border-info-border bg-info-subtle px-4 py-3 text-sm text-body"
+ >
+ <div className="flex items-start gap-2">
+ <Search className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
+ <div>
+ <p className="font-semibold font-display text-strong">
+ {t('jobBoard.broadenedSearch.title', { query: deferredSearchQuery.trim(), count: String(filteredJobs.length) })}
+ </p>
+ <p className="text-xs text-subtle mt-1">
+ {t('jobBoard.broadenedSearch.hint')}
  </p>
  </div>
  </div>

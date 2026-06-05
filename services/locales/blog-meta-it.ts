@@ -7979,6 +7979,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-grenzubergang.title': 'Grenzübergang Chiasso: cosa c\'è da sapere',
     'blog.article.chiasso-grenzubergang.excerpt': 'Informazioni sulle attuali condizioni del passaggio frontaliere a Chiasso.',
     'blog.article.chiasso-grenzubergang.imageAlt': 'La stazione di Chiasso',
+    'blog.article.educatore-infanzia-ticino-stipendio.title': 'Educatore infanzia in Ticino: stipendio e requisiti',
+    'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Guida per lavorare come educatore: diploma SSS, stipendio CHF 73K–97K e processo per il Permesso G.',
+    'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Educatore dell\'infanzia al lavoro in un asilo moderno in Ticino con panorama alpino.',
 };
 
 export default blogMetaIt;

@@ -3930,6 +3930,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permesso-g-vs-b-2026-oltre-20-km': { name: 'Permessi frontalieri', path: '/articoli-svizzera/permesso-g-vs-b-2026-oltre-20-km/', parent: 'blog' },
     'blog-chiasso-grenzubergang': { name: 'Chiasso', path: '/articoli-frontaliere/chiasso-grenzubergang', parent: 'blog' },
     'blog-calcul-salaire-net-suiss-frontalier': { name: 'Come Calcolare il Salario Netto per Fron', path: '/articoli-svizzera/calcul-salaire-net-suiss-frontalier/', parent: 'blog' },
+    'blog-educatore-infanzia-ticino-stipendio': { name: 'Lavoro Educatori', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

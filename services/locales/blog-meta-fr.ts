@@ -7979,6 +7979,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-grenzubergang.title': 'Passage frontalier de Chiasso : ce qu\'il faut savoir',
     'blog.article.chiasso-grenzubergang.excerpt': 'Informations sur les conditions actuelles du passage frontalier à Chiasso.\n\n### Informations importantes 📊\n- Le passage frontalier de Chiasso est ouvert 24 heures sur 24, 7 jours sur 7.\n- Les travailleurs frontaliers et les résidents de la région peuvent passer librement.\n- Les autres personnes doivent disposer d\'un permis frontalier.\n\n### Conditions de passage ⚠️\n- Il est recommandé de vérifier les conditions de circulation avant de partir.\n- Les travaux de construction et les fermetures de route peuvent affecter le passage.\n- Les ponts et les jours fériés peuvent entraîner des retards.\n\n### Liens utiles\n- [Informations sur le passage frontalier](nav:passage-frontalier)\n- [Conseils pour les travailleurs frontaliers](nav:travailleur-frontalier)',
     'blog.article.chiasso-grenzubergang.imageAlt': 'Gare de Chiasso',
+    'blog.article.educatore-infanzia-ticino-stipendio.title': 'Éducateur en enfance au Tessin : salaire et exigences',
+    'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Guide pour travailler comme éducateur : diplôme SSS, salaire CHF 73K–97K et processus pour le permis G',
+    'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Éducateur de la petite enfance au travail dans un jardin d\'enfants moderne au Tessin avec panorama alpin.',
 };
 
 export default blogMetaFr;
