@@ -126,7 +126,11 @@ export function registerCrawlerSummaryGuard(key, label) {
  *
  * Rules (mirror scripts/lib/alten-job-parser.mjs):
  *   1. Strip a leading "Location" label, optional `:` / `.`, and whitespace.
- *   2. Cut at the first sentence boundary (`.`, `;`, newline).
+ *   2. Cut at the first sentence boundary (`;`, newline, or a sentence-ending
+ *      `.`) — but NOT a period that belongs to a "St."/"Ste." abbreviation in
+ *      a Swiss city name. Splitting on every `.` truncated "St. Moritz" →
+ *      "St" / "St. Gallen" → "St", which then failed the Swiss-municipality
+ *      whitelist below and silently dropped every job for those employers.
  *   3. Strip a leading `:` / whitespace left over from `Location:Ticino`.
  *   4. Trim.
  *   5. If the value still smells like prose (>60 char OR contains tell-tale
@@ -148,7 +152,11 @@ function sanitizeJobLocationField(rawValue) {
   }
   let s = original
     .replace(/^.*?Location\s*[:.]?\s*/i, '')
-    .split(/[\n.;]/)[0]
+    // Sentence-boundary cut that preserves "St."/"Ste." abbreviation periods
+    // in Swiss city names (St. Moritz, St. Gallen, Ste. Croix). The negative
+    // lookbehind keeps the period when it directly follows a "St"/"Ste" token;
+    // prose still cuts on every other period (e.g. "…Switzerland.Availability").
+    .split(/[\n;]|(?<!\bSte?)\./)[0]
     .replace(/^[\s:]+/, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
