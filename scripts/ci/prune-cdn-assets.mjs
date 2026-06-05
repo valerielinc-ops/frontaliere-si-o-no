@@ -21,6 +21,17 @@
  * Prima run: registra tutti gli hash con firstSeen=now, pota 0 file (bootstrap).
  * Run successive: pota hash sostituiti con firstSeen > GRACE_DAYS.
  *
+ * INVOCAZIONE (anti-clobber by sequencing):
+ *   Eseguito come STEP INLINE in `.github/workflows/deploy.yml`, subito DOPO il
+ *   force-push della CDN, nello STESSO job sequenziale. NON come cron standalone.
+ *   Motivo: un cron standalone clona la CDN (stato A), poi un deploy concorrente
+ *   force-pusha il commit B (nuovi bundle), poi il cron force-pusha A' (parent A)
+ *   → B sparisce → l'HTML live punta a hash 404 → SPA morta (outage class
+ *   2026-06-04). Inline nello stesso job = nessun writer concorrente tra il push
+ *   del deploy e questo prune: il clone vede la tip appena pushata.
+ *   Difesa in profondità: se mai eseguito fuori da quel contesto, prima di OGNI
+ *   force-push ricontrolla che la tip remota combaci con il clone (assertFresh).
+ *
  * Env:
  *   CDN_DEPLOY_KEY  SSH private key (write access su valerielinc-ops/frontaliere-cdn)
  *   GRACE_DAYS      grace-window giorni per hash sostituiti (default: 7)
@@ -52,6 +63,32 @@ function git(dir, args, extraEnv = {}) {
     env: { ...process.env, ...extraEnv },
     stdio: ['ignore', 'pipe', 'pipe'],
   });
+}
+
+/**
+ * Defense-in-depth anti-clobber guard. The CDN `main` is force-pushed by
+ * deploy.yml as a PARENTLESS single commit (fresh `git init`), so we CANNOT rely
+ * on parent ancestry to detect a concurrent deploy. Instead we snapshot the
+ * remote tip SHA at clone time (clonedTip) and, right before each force-push,
+ * re-query the live remote tip (`git ls-remote`). If it moved, a deploy ran
+ * mid-flight and our clone is stale → aborting prevents our force-push from
+ * clobbering the deploy's fresh build commit (which would 404 in-flight HTML).
+ * In the normal inline-step invocation (post-push, same sequential job) nothing
+ * writes concurrently, so the tips always match and this is a no-op.
+ */
+function assertFreshRemote(clonedTip, sshEnv) {
+  const out = execFileSync('git', ['ls-remote', CDN_REPO_SSH, 'refs/heads/main'], {
+    encoding: 'utf8',
+    env: { ...process.env, ...sshEnv },
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  const liveTip = (out.split(/\s+/)[0] || '').trim();
+  if (liveTip && clonedTip && liveTip !== clonedTip) {
+    throw new Error(
+      `stale clone — CDN main moved ${clonedTip.slice(0, 8)} → ${liveTip.slice(0, 8)} ` +
+      `(a deploy ran mid-run); aborting to avoid clobbering the fresh build commit`,
+    );
+  }
 }
 
 async function fetchActiveHashes() {
@@ -93,6 +130,10 @@ async function main() {
     ], { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
     const repoDir = join(tmpDir, 'cdn');
     git(repoDir, ['sparse-checkout', 'set', '--cone', 'assets'], sshEnv);
+
+    // Snapshot the remote tip we cloned — re-checked before each force-push to
+    // detect a concurrent deploy (see assertFreshRemote).
+    const clonedTip = git(repoDir, ['rev-parse', 'HEAD']).trim();
 
     const assetsDir = join(repoDir, 'assets');
     if (!existsSync(assetsDir)) {
@@ -141,6 +182,7 @@ async function main() {
           '-c', 'user.name=cdn-janitor',
           'commit', '-m', `chore(cdn-janitor): register ${newCount} new hash(es) (no prune, fetch failed)`,
         ]);
+        assertFreshRemote(clonedTip, sshEnv);
         execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
           { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
         console.log('[janitor] persisted hash-age registry update (no prune)');
@@ -216,6 +258,7 @@ async function main() {
       'commit', '-m', commitMsg,
     ]);
 
+    assertFreshRemote(clonedTip, sshEnv);
     execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
       { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
 

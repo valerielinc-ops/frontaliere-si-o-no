@@ -740,9 +740,9 @@ jobs:
           echo "CDN payload: $(du -sh "$stage" | cut -f1)"
           # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
           # With additive assets/ the payload grows slowly across deploys (only NEW
-          # hashes accumulate; data/og/images are refreshed, not stacked). A separate
-          # zero-Claude janitor cron prunes assets/ hashes no longer referenced by
-          # any live sitemap page once past a grace window (follow-up).
+          # hashes accumulate; data/og/images are refreshed, not stacked). The inline
+          # "Prune superseded CDN asset hashes" step below GCs superseded hashes past
+          # a grace window (runs post-push in this same job — no concurrent-deploy race).
           payload_bytes="$(du -sb "$stage" | cut -f1)"
           if [ "$payload_bytes" -gt 950000000 ]; then
             echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; run the CDN assets/ janitor or split (e.g. keep blog heroes on jsDelivr)"
@@ -764,6 +764,26 @@ jobs:
             echo "⚠️ CDN push failed — offload skipped, og/data stay in dist"
           fi
           rm -f "$keyfile"
+
+      # ── CDN assets/ GC janitor (anti-clobber by SEQUENCING) ───────────────
+      # The additive assets/ merge above (cp -n) lets old + new content hashes
+      # coexist so in-flight HTML keeps booting — but it grows the CDN repo
+      # monotonically toward the GitHub Pages ~1 GB soft limit. This step GCs
+      # superseded hashes past a grace window. It runs HERE, inline in the SAME
+      # sequential job, IMMEDIATELY AFTER the CDN force-push — NOT as a standalone
+      # cron. Rationale: a standalone cron clones the CDN (state A), then a
+      # concurrent deploy.yml force-pushes commit B (new build assets), then the
+      # cron force-pushes A' (parent A) → commit B vanishes → live HTML's fresh
+      # hash URLs 404 → SPA dead. Sequencing inside this job makes that race
+      # impossible: nothing else writes the CDN between the push above and the
+      # prune below, and the prune clones the tip we JUST pushed.
+      # Guarded on CDN_BASE (only runs when the push above succeeded).
+      - name: Prune superseded CDN asset hashes (inline GC, post-push)
+        if: github.event.inputs.profile_sequential != 'true' && env.CDN_BASE != ''
+        continue-on-error: true
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+        run: node scripts/ci/prune-cdn-assets.mjs
 
       - name: Offload og refs + data base into dist (non-fatal)
         if: github.event.inputs.profile_sequential != 'true'
