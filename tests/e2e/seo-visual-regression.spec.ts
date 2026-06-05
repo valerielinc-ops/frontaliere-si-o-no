@@ -68,7 +68,11 @@ const DYNAMIC_REGION_SELECTORS = [
   '[data-testid="results-advantage-banner"]',
 ];
 
-test.use({ viewport: { width: 1280, height: 800 } });
+// Single source of truth for the captured viewport — the skeleton net below
+// scans this exact above-the-fold region, so the two must never drift.
+const VIEWPORT = { width: 1280, height: 800 } as const;
+
+test.use({ viewport: VIEWPORT });
 
 // ---- Structural guardrail against partial-hydration baselines ----
 // A per-case `readySelector` only proves ONE element mounted. Other
@@ -142,7 +146,7 @@ for (const c of CASES) {
     // Structural net: no above-the-fold loading skeleton may remain, on ANY
     // page, before we capture — prevents freezing a partial-hydration baseline
     // even if a future case's readySelector under-specifies readiness.
-    await waitForNoAboveFoldSkeletons(page, 800);
+    await waitForNoAboveFoldSkeletons(page, VIEWPORT.height);
     // Brief settle: wait for layout shift to stabilize after font load.
     await page.waitForTimeout(500);
     // Viewport-only screenshot (1280x800). Full-page / element screenshots
