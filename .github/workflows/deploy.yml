@@ -1308,45 +1308,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
-          # ── Root fix for the publish wall ────────────────────────────────
-          # Both deploy-pages attempts above CANCEL their Pages deployment at
-          # the action's 10-min polling cap — for the ~13 GB site the
-          # server-side file-sync routinely runs longer, so the publish never
-          # lands and the live build is stranded (prod outage 2026-06-04/05).
-          # Here we create a FRESH deployment straight through the Pages API
-          # (OIDC, in-workflow) from the already-uploaded github-pages
-          # artifact and NEVER cancel it — GitHub finishes the sync server-side
-          # in its own time. We then poll BOTH that api-versioned deployment
-          # and any sha-scoped deployment until one reports success.
-          ver=""
-          art=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts" \
-                  --jq '[.artifacts[] | select(.name=="github-pages" and .expired==false)][0].id // empty' 2>/dev/null || echo "")
-          oidc=$(curl -s "${ACTIONS_ID_TOKEN_REQUEST_URL}" \
-                  -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
-                  | jq -r '.value // empty' 2>/dev/null || echo "")
-          if [ -n "$art" ] && [ -n "$oidc" ]; then
-            ver="api-${GITHUB_SHA}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-            if printf '{"artifact_id":%s,"pages_build_version":"%s","oidc_token":"%s"}' "$art" "$ver" "$oidc" \
-                 | gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/deployments" --input - >/dev/null 2>&1; then
-              echo "✅ created non-cancelled Pages deployment via API (version ${ver}, artifact ${art})"
-            else
-              echo "::warning::API deployment create failed (OIDC/permissions?) — falling back to polling deploy-pages deployments"
-              ver=""
-            fi
-          else
-            echo "::warning::no github-pages artifact_id ('${art}') or OIDC token — falling back to polling existing deployments"
-          fi
           deadline=$(( $(date +%s) + 40*60 ))
           while [ "$(date +%s)" -lt "$deadline" ]; do
-            # (a) our own non-cancelled API deployment, polled by version
-            if [ -n "$ver" ]; then
-              apist=$(gh api "repos/${GITHUB_REPOSITORY}/pages/deployments/${ver}" --jq '.status // empty' 2>/dev/null || echo "")
-              echo "$(date -u +%H:%M:%S) api deployment ${ver} status=${apist:-<none>}"
-              case "$apist" in
-                succeed) echo "✅ GitHub Pages published our build server-side (API, no cancel)."; exit 0 ;;
-              esac
-            fi
-            # (b) any deploy-pages deployment for this sha that completes anyway
             ids=$(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
             if [ -n "$ids" ]; then
               any_active=0
@@ -1360,13 +1323,12 @@ jobs:
                 # error/failure/in_progress/pending/<none> may still reach success → keep waiting
                 if [ "$st" != "inactive" ]; then any_active=1; fi
               done
-              # Only give up early on supersession when we have NO live API deployment of our own.
-              if [ "$any_active" = "0" ] && [ -z "$ver" ]; then
+              if [ "$any_active" = "0" ]; then
                 echo "::warning::All github-pages deployments for ${GITHUB_SHA} are inactive (superseded by a newer deploy) — not waiting further."
                 exit 1
               fi
             else
-              echo "$(date -u +%H:%M:%S) no sha-scoped github-pages deployment for ${GITHUB_SHA} yet — waiting"
+              echo "$(date -u +%H:%M:%S) no github-pages deployment for ${GITHUB_SHA} yet — waiting"
             fi
             sleep 60
           done
