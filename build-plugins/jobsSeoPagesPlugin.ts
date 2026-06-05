@@ -34,6 +34,7 @@ import {
  type JobCardJob,
  type JobCardLocale,
 } from './shared/jobCardHtml';
+import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
 import {
  renderJobBoardCommuterContext,
@@ -3485,6 +3486,21 @@ ${staticAnalyticsHtml}
  return `<li class="s-hjzncp">${cardHtml}</li>`;
  };
 
+ /**
+  * Build the `<ul>` inner HTML for a job-card list, prepending the shared
+  * `LOGO_FALLBACK_SCRIPT` once so the global `jcLF` (called by each card's
+  * `onerror="jcLF(this)"`) is defined. These hub pages assemble their own
+  * `<ul>` and do NOT emit `JOB_CARD_ICON_SYMBOLS`, so without this the
+  * handler would throw `ReferenceError` on a logo 404. `<script>` is a valid
+  * child of `<ul>` (a script-supporting element). Re-emitting it on a page
+  * that also emits the symbols block just re-assigns `window.jcLF`.
+  */
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ const jobCardListBody = (jobs: ReadonlyArray<any>, locale: 'it' | 'en' | 'de' | 'fr'): string =>
+ jobs.length === 0
+ ? ''
+ : LOGO_FALLBACK_SCRIPT + jobs.map((job) => renderJobCardLi(job, locale)).join('');
+
  /** Render a row of sector/city hub link chips for the company. */
  const renderHubChipsHtml = (
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -3626,7 +3642,7 @@ ${staticAnalyticsHtml}
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`,
  ].join('\n');
 
- const jobListHtml = companyJobs.slice(0, 20).map((job) => renderJobCardLi(job, locale)).join('');
+ const jobListHtml = jobCardListBody(companyJobs.slice(0, 20), locale);
 
  const breadcrumbLd = JSON.stringify({
  '@context': 'https://schema.org',
@@ -3750,10 +3766,7 @@ ${staticAnalyticsHtml}
  )}</p></div>`,
  )
  .join('');
- const openRolesListHtml = companyJobs
- .slice(0, 10)
- .map((job) => renderJobCardLi(job, locale))
- .join('');
+ const openRolesListHtml = jobCardListBody(companyJobs.slice(0, 10), locale);
  const listingUrlCurated = `${BASE_URL}${withSlash(
  `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
  )}`;
@@ -4568,7 +4581,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -4729,7 +4742,7 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -4896,7 +4909,7 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5075,7 +5088,7 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5239,7 +5252,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5424,7 +5437,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5641,7 +5654,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5800,7 +5813,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -6072,7 +6085,7 @@ ${staticAnalyticsHtml}
  url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
  })),
  });
- const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const listHtml = jobCardListBody(cappedJobs, locale);
  const backLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
  const intro = (() => {
  if (isCityEmpty) {
@@ -6245,7 +6258,7 @@ ${staticAnalyticsHtml}
  const pgNextHref = pageNum < totalListingPages ? `${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${pageNum + 1}`.replace(/\/+/g, '/'))}` : '';
  const pgPrevLink = ` <link rel="prev" href="${pgPrevHref}">`;
  const pgNextLink = pgNextHref ? `\n <link rel="next" href="${pgNextHref}">` : '';
- const pgListHtml = pgJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const pgListHtml = jobCardListBody(pgJobs, locale);
  const pgCompanyCount = new Set(pgJobs.map((job: any) => String(job.company || '')).filter(Boolean)).size;
  const pgLocationCount = new Set(pgJobs.map((job: any) => String(job.location || '')).filter(Boolean)).size;
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
@@ -6376,7 +6389,7 @@ ${staticAnalyticsHtml}
  const pgNextHref = pageNum < cTotalPages ? `${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${pageNum + 1}`.replace(/\/+/g, '/'))}` : '';
  const pgPrevLink = ` <link rel="prev" href="${pgPrevHref}">`;
  const pgNextLink = pgNextHref ? `\n <link rel="next" href="${pgNextHref}">` : '';
- const pgListHtml = pgJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const pgListHtml = jobCardListBody(pgJobs, locale);
  const pgCompanyCount = new Set(pgJobs.map((job: any) => String(job.company || '')).filter(Boolean)).size;
  const pgLocationCount = new Set(pgJobs.map((job: any) => String(job.location || '')).filter(Boolean)).size;
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
@@ -6506,7 +6519,7 @@ ${staticAnalyticsHtml}
  ...catAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
- const catListHtml = catPageJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const catListHtml = jobCardListBody(catPageJobs, locale);
  const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -6654,7 +6667,7 @@ ${staticAnalyticsHtml}
  ...catAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
- const catListHtml = catPageJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const catListHtml = jobCardListBody(catPageJobs, locale);
  const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${withSlash(`${localePrefix[locale]}/${sectionSlug}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
@@ -6868,7 +6881,7 @@ ${staticAnalyticsHtml}
  return `<section class="s-7uP4UM"><h2>Travailler comme ${sectorDisplay.toLowerCase()} à ${esc(cDisplay)}</h2><p>Le Canton de ${esc(cDisplay)} fait partie du marché du travail suisse. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="/fr/">simulateur fiscal gratuit</a>.</p></section>`;
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
- const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const listHtml = jobCardListBody(cappedJobs, locale);
  const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${renderJobBoardListingDensityProse(locale, { subject: sectorDisplay, location: cDisplay, resultCount: sJobs.length, companyCount: sUniqueCompanies.length, locationCount: sUniqueLocations.length })}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const html = buildSeoPageHtml({
@@ -7071,7 +7084,7 @@ ${staticAnalyticsHtml}
  },
  };
  const organizationLd = JSON.stringify(orgLdObj);
- const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const listHtml = jobCardListBody(cappedJobs, locale);
  const intro = (() => {
  if (locale === 'it') return `<p>Sono attualmente <strong>${companyJobs.length} le offerte di lavoro</strong> presso ${esc(companyName)} in ${esc(cDisplay)}, distribuite in ${companyLocations.length} ${companyLocations.length === 1 ? 'località' : 'località'}. Gli annunci sono aggiornati quotidianamente dal nostro crawler automatico.</p>`;
  if (locale === 'en') return `<p>There are currently <strong>${companyJobs.length} job openings</strong> at ${esc(companyName)} in ${esc(cDisplay)}, across ${companyLocations.length} location${companyLocations.length === 1 ? '' : 's'}. Listings are refreshed daily by our automated crawler.</p>`;
@@ -7295,7 +7308,7 @@ ${staticAnalyticsHtml}
  },
  };
  const organizationLd = JSON.stringify(orgLdObj);
- const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const listHtml = jobCardListBody(cappedJobs, locale);
  const intro = (() => {
  if (locale === 'it') return `<p>Sono attualmente disponibili <strong>${ccJobs.length} offerte di lavoro</strong> presso ${esc(companyName)} a ${esc(cityDisplay)} (Canton ${esc(cDisplay)}). Le offerte sono aggiornate quotidianamente dal nostro crawler automatico.</p>`;
  if (locale === 'en') return `<p>There are currently <strong>${ccJobs.length} job openings</strong> at ${esc(companyName)} in ${esc(cityDisplay)} (Canton of ${esc(cDisplay)}). Listings are refreshed daily by our automated crawler.</p>`;
@@ -7440,7 +7453,7 @@ ${staticAnalyticsHtml}
  ...kwAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
  ` <link rel="alternate" hreflang="x-default" href="${kwXDefaultHref}">`,
  ].join('\n');
- const kwListHtml = kwJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const kwListHtml = jobCardListBody(kwJobs, locale);
  const kwCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: kwTitle, url: kwCanonicalUrl, description: kwDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const kwCtaCopy: Record<string, string> = {
  it: `Consulta le ${kwJobs.length} posizioni aperte qui sotto. Le offerte vengono aggiornate quotidianamente da aziende con sede in Ticino e Grigioni. Utilizza il nostro calcolatore per confrontare stipendio netto, tasse e costo della vita tra Svizzera e Italia.`,
@@ -7630,7 +7643,7 @@ ${staticAnalyticsHtml}
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
   ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
- const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const listHtml = jobCardListBody(matchingJobs, locale);
 
  const searchBodyParts: string[] = [];
  {
@@ -7814,7 +7827,7 @@ ${staticAnalyticsHtml}
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
   ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
- const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const listHtml = jobCardListBody(matchingJobs, locale);
 
  const comboOgImage = ` <meta property="og:image" content="${BASE_URL}/og-image.png">\n <meta property="og:image:width" content="1200">\n <meta property="og:image:height" content="630">\n <meta property="og:image:type" content="image/png">`;
  const comboBodyParts: string[] = [];
@@ -10085,8 +10098,8 @@ ${staticAnalyticsHtml}
  // Externalised from inline <svg> (~700 B/page) — same logo now served from
  // /assets/logo.svg, cached by browser. Saves ~68 MB across ~98k soft-landing
  // pages. Static path; browser caches first-load globally.
- const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="lazy" decoding="async">`;
- const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : '';
+ const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">`;
+ const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : '';
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
  // Per-locale pre-built nav + footer (only 4 strings to cache).
  //
@@ -10104,10 +10117,9 @@ ${staticAnalyticsHtml}
  // for `footer.ft-f` (drops inner `<div class="ft-wrap">`).
  const localeShells = Object.fromEntries(localeList.map(l => {
  const lp = `${localePrefix[l]}/${sectionByLocale[l]}/`.replace(/\/+/g, '/');
- const sectionLink = `${BASE_URL}${lp}`;
  const sectionName = esc(localeCopy[l].sectionName);
- const nav = `<nav class="ft-n" aria-label="Navigazione principale"><a href="/" class="ft-nb">${navSvg} Frontaliere Ticino</a><a href="${sectionLink}" class="ft-ns">${sectionName}</a></nav>`;
- const footer = `<footer class="ft-f">&copy; ${currentYear} <a href="/">Frontaliere Ticino</a> &mdash; <a href="${sectionLink}">${sectionName}</a></footer>`;
+ const nav = `<nav class="ft-n" aria-label="Navigazione principale"><a href="/" class="ft-nb">${navSvg} Frontaliere Ticino</a><a href="${lp}" class="ft-ns">${sectionName}</a></nav>`;
+ const footer = `<footer class="ft-f">&copy; ${currentYear} <a href="/">Frontaliere Ticino</a> &mdash; <a href="${lp}">${sectionName}</a></footer>`;
  return [l, { nav, footer, listingPath: lp }];
  }));
 

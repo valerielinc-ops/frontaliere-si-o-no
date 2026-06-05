@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-06-03T22:59:34.454Z",
+  "assembledAt": "2026-06-04T21:58:12.057Z",
   "jobs": [
     {
       "id": "cds-savognin-405-1cd490e9fc19",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/stellen.html#subtitle_DE_405",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T22:59:32.651Z",
+      "crawledAt": "2026-06-04T21:58:10.106Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://cds-savognin.ch/DE/stellen.html#subtitle_DE_410",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T22:59:32.648Z",
+      "crawledAt": "2026-06-04T21:58:10.104Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://cds-savognin.ch/DE/stellen.html#subtitle_DE_402",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T22:59:32.623Z",
+      "crawledAt": "2026-06-04T21:58:10.103Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -207,6 +207,77 @@
         ],
         "de": [
           "dipl-ing-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T15:48:46.293Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "cds-savognin-413-5fbdae2fbbe0",
+      "slug": "pflegehilfsperson-srk-50-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
+      "slugByLocale": {
+        "it": "pflegehilfsperson-srk-50-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
+        "en": "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
+        "de": "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
+        "fr": "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+      },
+      "company": "Center da Sanadad Savognin",
+      "companyKey": "cds-savognin",
+      "companyDomain": "cds-savognin.ch",
+      "title": "Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren",
+      "titleByLocale": {
+        "it": "Pflegehilfsperson SRK (50-100%) o Pflegehilfsperson con Bereitschaft, den SRK-Kurs zu absolvieren",
+        "en": "Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren",
+        "de": "Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren",
+        "fr": "Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren"
+      },
+      "description": "Beschäftigungsumfang: ca. 50% - 100%\n\nStellenantritt: per sofort oder nach Vereinbarung\n\nBeachten Sie auch das Stelleninserat (unten aufgeführt)\n\nSind Sie interessiert?\n\nNähere Auskünfte erteilt Ihnen gerne\n\nFrau Beatrice Dedual\n\nE-Mail: beatrice.dedual@spital-savognin.ch\n\nTelefon: 081 669 14 00\n\nWir freuen uns über Ihre schriftliche Bewerbung an\n\nOnline Bewerbungsformular\n\nPflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+      "descriptionByLocale": {
+        "it": "Beschäftigungsumfang: ca. 50% - 100% Stellenantritt: per sofort oder nach Vereinbarung Beachten Sie auch das Stelleninserat (unten aufgeführt) Sind Sie interessiert? Nähere Auskünfte erteilt Ihnen gerne Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Telefon: 081 669 14 00 Wir freuen uns über Ihre schriftliche Bewerbung an Online Bewerbungsformular Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung.\n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+        "en": "Beschäftigungsumfang: ca. 50% - 100% Stellenantritt: per sofort oder nach Vereinbarung Beachten Sie auch das Stelleninserat (unten aufgeführt) Sind Sie interessiert? Nähere Auskünfte erteilt Ihnen gerne Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Telefon: 081 669 14 00 Wir freuen uns über Ihre schriftliche Bewerbung an Online Bewerbungsformular Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung.\n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+        "de": "Beschäftigungsumfang: ca. 50% - 100% Stellenantritt: per sofort oder nach Vereinbarung Beachten Sie auch das Stelleninserat (unten aufgeführt) Sind Sie interessiert? Nähere Auskünfte erteilt Ihnen gerne Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Telefon: 081 669 14 00 Wir freuen uns über Ihre schriftliche Bewerbung an Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Online Bewerbungsformular Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+        "fr": "Beschäftigungsumfang: ca. 50% - 100% Stellenantritt: per sofort oder nach Vereinbarung Beachten Sie auch das Stelleninserat (unten aufgeführt) Sind Sie interessiert? Nähere Auskünfte erteilt Ihnen gerne Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Telefon: 081 669 14 00 Wir freuen uns über Ihre schriftliche Bewerbung an Online Bewerbungsformular Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung.\n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung."
+      },
+      "needsRetranslation": true,
+      "location": "Savognin",
+      "canton": "GR",
+      "url": "https://cds-savognin.ch/DE/stellen.html#subtitle_DE_413",
+      "source": "CDS Savognin Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-04T21:58:10.085Z",
+      "addressLocality": "Savognin",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7460",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-04",
+      "applyUrl": "https://cds-savognin.ch/uploads/files/pflegehilfsperson_mitqr-code.pdf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
         ]
       },
       "firstSeenAt": "2026-05-19T15:48:46.293Z",

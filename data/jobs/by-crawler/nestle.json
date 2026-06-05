@@ -1,7 +1,78 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-06-03T14:41:36.855Z",
+  "assembledAt": "2026-06-04T13:04:22.966Z",
   "jobs": [
+    {
+      "id": "nestle-1293641201",
+      "slug": "anlagenfuhrer-in-prodotti-speciali-100-nestle-konolfingen-ch",
+      "slugByLocale": {
+        "it": "anlagenfuhrer-in-prodotti-speciali-100-nestle-konolfingen-ch",
+        "en": "anlagenfuhrer-in-special-products-100-nestle-ch",
+        "de": "anlagenfuhrer-in-special-products-100-nestle-ch",
+        "fr": "anlagenfuhrer-in-special-products-100-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Anlagenführer/-in Special Products 100%",
+      "titleByLocale": {
+        "it": "Anlagenführer/-in Prodotti Speciali 100%",
+        "en": "Anlagenführer/-in Special Products 100%",
+        "de": "Anlagenführer/-in Special Products 100%",
+        "fr": "Anlagenführer/-in Special Products 100%"
+      },
+      "description": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "en": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+      },
+      "location": "Konolfingen, CH",
+      "canton": "BE",
+      "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-04T13:04:20.348Z",
+      "addressLocality": "Konolfingen, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagenfuhrer-in-special-products-100-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-special-products-100-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:28.666Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
+    },
     {
       "id": "nestle-1383917033",
       "slug": "stagiaire-cost-control-h-f-d-nestle-ch",
@@ -33,7 +104,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-cost-control-%28HFD%29/1383917033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:34.468Z",
+      "crawledAt": "2026-06-04T13:04:19.638Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,7 +167,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Anlagenf%C3%BChrerin-Abf%C3%BCllung/1293376401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:33.765Z",
+      "crawledAt": "2026-06-04T13:04:18.893Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,6 +182,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Basel-Anlagenf%C3%BChrerin-Abf%C3%BCllung/1293376401/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagenfuhrer-in-abfullung-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-abfullung-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-03T00:31:12.471Z",
       "salaryMin": 49500,
@@ -126,15 +205,7 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS",
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-abfullung-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-abfullung-nestle-ch"
-      ]
+      "addressRegion": "BS"
     },
     {
       "id": "nestle-1399460633",
@@ -167,7 +238,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-Mikrobiologie/1399460633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:33.128Z",
+      "crawledAt": "2026-06-04T13:04:18.182Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -230,7 +301,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-EFZ-Chemie/1398219033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:32.484Z",
+      "crawledAt": "2026-06-04T13:04:17.329Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -301,7 +372,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Automatikerin-Automationsfachmann-frau/1283886901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:31.858Z",
+      "crawledAt": "2026-06-04T13:04:16.570Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -342,77 +413,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1293641201",
-      "slug": "anlagenfuhrer-in-prodotti-speciali-100-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "anlagenfuhrer-in-prodotti-speciali-100-nestle-konolfingen-ch",
-        "en": "anlagenfuhrer-in-special-products-100-nestle-ch",
-        "de": "anlagenfuhrer-in-special-products-100-nestle-ch",
-        "fr": "anlagenfuhrer-in-special-products-100-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Anlagenführer/-in Special Products 100%",
-      "titleByLocale": {
-        "it": "Anlagenführer/-in Prodotti Speciali 100%",
-        "en": "Anlagenführer/-in Special Products 100%",
-        "de": "Anlagenführer/-in Special Products 100%",
-        "fr": "Anlagenführer/-in Special Products 100%"
-      },
-      "description": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Anlagenführer/-in Special Products 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:31.194Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagenfuhrer-in-special-products-100-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-special-products-100-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:28.666Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
-    },
-    {
       "id": "nestle-1378330133",
       "slug": "vivier-de-talent-tecnico-di-manutenzione-5x8-nestle-orbe-ch",
       "slugByLocale": {
@@ -443,7 +443,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:30.549Z",
+      "crawledAt": "2026-06-04T13:04:15.861Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -514,7 +514,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:29.896Z",
+      "crawledAt": "2026-06-04T13:04:15.149Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -589,7 +589,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Op%C3%A9rateur%C2%B7trice-de-production-5x8/1167106701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:29.270Z",
+      "crawledAt": "2026-06-04T13:04:14.361Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -660,7 +660,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Betriebselektrikerin/1220980901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:41:28.628Z",
+      "crawledAt": "2026-06-04T13:04:13.626Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -733,7 +733,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Planificateur%C2%B7trice-de-maintenance-Services-Industriels-%28SI%29/1393207333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:27.950Z",
+      "crawledAt": "2026-06-04T13:04:12.949Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -804,7 +804,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Anlagenf%C3%BChrerin/1374185733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:41:27.272Z",
+      "crawledAt": "2026-06-04T13:04:12.227Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -879,7 +879,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Smart-Sensors-Specialist/1398041633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:26.631Z",
+      "crawledAt": "2026-06-04T13:04:11.483Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -956,7 +956,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:25.987Z",
+      "crawledAt": "2026-06-04T13:04:10.788Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -982,69 +982,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
-      "id": "nestle-1398035633",
-      "slug": "early-life-nutrition-growth-data-science-intern-nestle-ch",
-      "slugByLocale": {
-        "it": "early-life-nutrition-growth-data-science-intern-nestle-ch",
-        "en": "early-life-nutrition-growth-data-science-intern-nestle-ch",
-        "de": "early-life-nutrition-growth-data-science-intern-nestle-ch",
-        "fr": "early-life-nutrition-growth-data-science-intern-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Early-Life Nutrition & Growth Data Science Intern",
-      "titleByLocale": {
-        "it": "Early-Life Nutrition & Growth Data Science Tirocinante",
-        "en": "Early-Life Nutrition & Growth Data Science Intern",
-        "de": "Early-Life Nutrition & Growth Data Science Praktikant",
-        "fr": "Early-Life Nutrition & Growth Data Science Stagiaire"
-      },
-      "description": "Location: Lausanne, Switzerland\nWork model: On-site\nContract type / duration: Internship – 6 months\n\nStart date: September / October 2026\n\nBe a force for good and transform your potential into something extraordinary.\n\nAs an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as an Early-Life Nutrition Data Science Intern\n\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact.\n\nWhat will make you successful\n\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n\n• Using English fluently in both spoken and written communication.\n\n• Demonstrating courage, collaboration, speed and continuous learning.\n\nAt Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities to grow your career\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
-      "descriptionByLocale": {
-        "it": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary.",
-        "en": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary.",
-        "de": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary.",
-        "fr": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary."
-      },
-      "location": "Lausanne, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Lausanne-Early-Life-Nutrition-&-Growth-Data-Science-Intern/1398035633/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:25.342Z",
-      "addressLocality": "Lausanne, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Early-Life-Nutrition-&-Growth-Data-Science-Intern/1398035633/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-28T13:35:49.594Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
           "unitText": "YEAR"
         }
       },
@@ -1082,7 +1019,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Macronutrient-Physiology/1392977733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:24.619Z",
+      "crawledAt": "2026-06-04T13:04:09.990Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1159,7 +1096,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Teamleiterin-Produktion-%283-Schicht%29/1388899233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:23.910Z",
+      "crawledAt": "2026-06-04T13:04:09.286Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1222,7 +1159,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Packaging-Materials-Specialist/1391913333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:23.249Z",
+      "crawledAt": "2026-06-04T13:04:08.514Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1299,7 +1236,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Legal-Counsel-Employment-and-Labour-Law/1365350433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:22.528Z",
+      "crawledAt": "2026-06-04T13:04:07.769Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1370,7 +1307,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-&-EUR-Safety-Lead/1398542833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:21.860Z",
+      "crawledAt": "2026-06-04T13:04:07.070Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1441,7 +1378,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:21.226Z",
+      "crawledAt": "2026-06-04T13:04:06.325Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1512,7 +1449,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Tierarztberaterin-Vet-Advisor/1392313033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:41:20.558Z",
+      "crawledAt": "2026-06-04T13:04:05.563Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1586,7 +1523,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Senior-Key-Account-Manager/1391905133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:19.893Z",
+      "crawledAt": "2026-06-04T13:04:04.861Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1619,38 +1556,38 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1400446133",
-      "slug": "women-s-health-proteomics-data-science-intern-nestle-ch",
+      "id": "nestle-978705001",
+      "slug": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
       "slugByLocale": {
-        "en": "women-s-health-proteomics-data-science-intern-nestle-ch",
-        "it": "women-s-health-proteomics-data-science-intern-nestle-ch",
-        "de": "women-s-health-proteomics-data-science-intern-nestle-ch",
-        "fr": "women-s-health-proteomics-data-science-intern-nestle-ch"
+        "it": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
+        "en": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
+        "de": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
+        "fr": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
       "companyDomain": "nestle.com",
-      "title": "Women's Health Proteomics Data Science Intern",
+      "title": "Apprenti-e Technologue du Brassage et des Boissons",
       "titleByLocale": {
-        "en": "Women's Health Proteomics Data Science Intern",
-        "it": "Women's Health Proteomics Data Science Tirocinante",
-        "de": "Women's Health Proteomics Data Science Praktikant",
-        "fr": "Women's Health Proteomics Data Science Stagiaire"
+        "it": "Apprendista Tecnologo della Birra e delle Bevande",
+        "en": "Apprenti-e Technologue du Brassage et des Boissons",
+        "de": "Apprenti-e Technologue du Brassage et des Boissons",
+        "fr": "Apprenti-e Technologue du Brassage et des Boissons"
       },
-      "description": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "description": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
       "descriptionByLocale": {
-        "en": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "it": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+        "it": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
+        "en": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
+        "de": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
+        "fr": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année."
       },
-      "location": "Lausanne, CH",
+      "location": "Henniez, CH",
       "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Lausanne-Women's-Health-Proteomics-Data-Science-Intern/1400446133/",
+      "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:19.259Z",
-      "addressLocality": "Lausanne, CH",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T13:04:04.118Z",
+      "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -1660,13 +1597,20 @@
       "sector": "Food / Beverage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-03",
-      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Women's-Health-Proteomics-Data-Science-Intern/1400446133/",
+      "postedDate": "2026-05-18",
+      "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:45.157Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1680,8 +1624,287 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-06-03T14:41:19.259Z"
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1398035633",
+      "slug": "early-life-nutrition-growth-data-science-intern-nestle-ch",
+      "slugByLocale": {
+        "it": "early-life-nutrition-growth-data-science-intern-nestle-ch",
+        "en": "early-life-nutrition-growth-data-science-intern-nestle-ch",
+        "de": "early-life-nutrition-growth-data-science-intern-nestle-ch",
+        "fr": "early-life-nutrition-growth-data-science-intern-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Early-Life Nutrition & Growth Data Science Intern",
+      "titleByLocale": {
+        "it": "Early-Life Nutrition & Growth Data Science Tirocinante",
+        "en": "Early-Life Nutrition & Growth Data Science Intern",
+        "de": "Early-Life Nutrition & Growth Data Science Praktikant",
+        "fr": "Early-Life Nutrition & Growth Data Science Stagiaire"
+      },
+      "description": "Location: Lausanne, Switzerland\nWork model: On-site\nContract type / duration: Internship – 6 months\n\nStart date: September / October 2026\n\nBe a force for good and transform your potential into something extraordinary.\n\nAs an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as an Early-Life Nutrition Data Science Intern\n\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact.\n\nWhat will make you successful\n\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n\n• Using English fluently in both spoken and written communication.\n\n• Demonstrating courage, collaboration, speed and continuous learning.\n\nAt Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities to grow your career\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
+      "descriptionByLocale": {
+        "it": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary.",
+        "en": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary.",
+        "de": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary.",
+        "fr": "Location: Lausanne, Switzerland Work model: On-site Contract type / duration: Internship – 6 months Start date: September / October 2026 Be a force for good and transform your potential into something extraordinary. As an Early-Life Nutrition & Growth Data Science Intern at Nestlé Research, your mission is to uncover how early-life nutrition influences children’s growth and long-term cardiometabolic health. You will make a difference by collaborating closely with scientists and research teams across the R&D organization. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career. How you’ll make an impact as an Early-Life Nutrition Data Science Intern\n• Analyzing data from internal datasets and external cohorts to generate evidence on how dietary nutrients shape healthy growth and development.\n• Reviewing scientific literature to identify the most relevant findings and strengthen the evidence base for the project.\n• Presenting clear, insight-led recommendations to research groups and department teams to support informed decision-making.\n• Delivering a well-structured report that translates complex scientific analysis into actionable project findings.\n• Generating practical recommendations that help turn research outcomes into meaningful business and health impact. What will make you successful\n• Currently pursuing or freshly graduated from a degree in data science, biostatistics, human nutritional physiology, and biochemistry to explore complex questions in early-life nutrition.\n• Having good knowledge in data analysis, modelling, R and Python languages, and meta-analysis tools to turn data into meaningful insights.\n• Being curious about infant and child health and nutrition, with the ability to connect scientific evidence to real-world outcomes.\n• Using English fluently in both spoken and written communication.\n• Demonstrating courage, collaboration, speed and continuous learning. At Nestlé Research, Nestlé Institute of Health Science, we place people at the heart of everything we do. Our benefits are designed to support your growth and well-being, so you can thrive at work and in life:\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n• Learning and development opportunities to grow your career\n• Healthcare contribution and access to the Employee Assistance Program\n• Attractive employee discounts across various products and services What to expect from our hiring process We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone. The hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially. Ready to start your career journey with us? Apply now and transform your potential into something extraordinary."
+      },
+      "location": "Lausanne, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Lausanne-Early-Life-Nutrition-&-Growth-Data-Science-Intern/1398035633/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-04T13:04:03.411Z",
+      "addressLocality": "Lausanne, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Early-Life-Nutrition-&-Growth-Data-Science-Intern/1398035633/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-28T13:35:49.594Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1390964833",
+      "slug": "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch",
+      "slugByLocale": {
+        "it": "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch",
+        "en": "packaging-material-science-specialist-recycled-pet-nestle-ch",
+        "de": "packaging-material-science-spezialist-recycled-pet-nestle-lausanne-ch",
+        "fr": "packaging-material-science-specialiste-recycled-pet-nestle-lausanne-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Packaging Material Science Specialist (recycled PET)",
+      "titleByLocale": {
+        "it": "Packaging Material Science Specialista (recycled PET)",
+        "en": "Packaging Material Science Specialist (recycled PET)",
+        "de": "Packaging Material Science Spezialist (recycled PET)",
+        "fr": "Packaging Material Science Spécialiste (recycled PET)"
+      },
+      "description": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "en": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+      },
+      "location": "Lausanne, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-04T13:04:02.719Z",
+      "addressLocality": "Lausanne, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-06",
+      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "packaging-material-science-specialist-recycled-pet-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "packaging-material-science-specialist-recycled-pet-nestle-ch"
+        ],
+        "de": [
+          "packaging-material-science-specialist-recycled-pet-nestle-ch"
+        ],
+        "fr": [
+          "packaging-material-science-specialist-recycled-pet-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:49.999Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1397550233",
+      "slug": "demand-supply-chain-manager-nestle-ch",
+      "slugByLocale": {
+        "it": "demand-supply-chain-manager-nestle-ch",
+        "en": "demand-supply-chain-manager-nestle-ch",
+        "de": "demand-lieferkette-manager-nestle-henniez-ch",
+        "fr": "demand-chaine-d-approvisionnement-manager-nestle-henniez-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Demand & Supply Chain Manager",
+      "titleByLocale": {
+        "it": "Demand & Supply Chain Manager",
+        "en": "Demand & Supply Chain Manager",
+        "de": "Demand & Lieferkette Manager",
+        "fr": "Demand & Chaîne d'approvisionnement Manager"
+      },
+      "description": "Demand & Supply Chain Manager — Nestlé, Henniez, CH.\n\nKey details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "en": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+      },
+      "location": "Henniez, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-04T13:04:01.953Z",
+      "addressLocality": "Henniez, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-27T13:23:18.816Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1400446133",
+      "slug": "women-s-health-proteomics-data-science-tirocinante-nestle-lausanne-ch",
+      "slugByLocale": {
+        "it": "women-s-health-proteomics-data-science-tirocinante-nestle-lausanne-ch",
+        "en": "women-s-health-proteomics-data-science-intern-nestle-ch",
+        "de": "women-s-health-proteomics-data-science-praktikant-nestle-lausanne-ch",
+        "fr": "women-s-health-proteomics-data-science-stagiaire-nestle-lausanne-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Women's Health Proteomics Data Science Intern",
+      "titleByLocale": {
+        "it": "Women's Health Proteomics Data Science Tirocinante",
+        "en": "Women's Health Proteomics Data Science Intern",
+        "de": "Women's Health Proteomics Data Science Praktikant",
+        "fr": "Women's Health Proteomics Data Science Stagiaire"
+      },
+      "description": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "en": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Women's Health Proteomics Data Science Intern — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+      },
+      "location": "Lausanne, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Lausanne-Women's-Health-Proteomics-Data-Science-Intern/1400446133/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-04T13:04:01.237Z",
+      "addressLocality": "Lausanne, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-03",
+      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Women's-Health-Proteomics-Data-Science-Intern/1400446133/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-03T14:41:19.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "women-s-health-proteomics-data-science-intern-nestle-ch"
+        ],
+        "de": [
+          "women-s-health-proteomics-data-science-intern-nestle-ch"
+        ],
+        "fr": [
+          "women-s-health-proteomics-data-science-intern-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "women-s-health-proteomics-data-science-intern-nestle-ch"
+      ],
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
     },
     {
       "id": "nestle-1389579533",
@@ -1714,7 +1937,7 @@
       "url": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:41:18.585Z",
+      "crawledAt": "2026-06-04T13:04:00.556Z",
       "addressLocality": "Zug, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1788,7 +2011,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:17.922Z",
+      "crawledAt": "2026-06-04T13:03:59.782Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1863,7 +2086,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-Qualit%C3%A9-%28HFD%29/1378808633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:17.254Z",
+      "crawledAt": "2026-06-04T13:03:59.097Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1926,7 +2149,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:16.626Z",
+      "crawledAt": "2026-06-04T13:03:58.332Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2001,7 +2224,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Production-&-MRP-Planner/1390417333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:15.939Z",
+      "crawledAt": "2026-06-04T13:03:57.648Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2072,7 +2295,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:15.268Z",
+      "crawledAt": "2026-06-04T13:03:56.970Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2149,7 +2372,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Content-&-Editorial/1396565233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:14.622Z",
+      "crawledAt": "2026-06-04T13:03:56.164Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2164,6 +2387,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Content-&-Editorial/1396565233/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "communications-manager-content-editorial-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "communications-manager-content-editorial-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T14:08:10.885Z",
       "salaryMin": 68000,
@@ -2179,15 +2410,7 @@
         }
       },
       "postalCode": "1800",
-      "addressRegion": "VD",
-      "previousSlugsByLocale": {
-        "it": [
-          "communications-manager-content-editorial-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "communications-manager-content-editorial-nestle-ch"
-      ]
+      "addressRegion": "VD"
     },
     {
       "id": "nestle-1384575533",
@@ -2220,7 +2443,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Connectivity-Intern/1384575533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:13.956Z",
+      "crawledAt": "2026-06-04T13:03:55.489Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2301,7 +2524,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:13.326Z",
+      "crawledAt": "2026-06-04T13:03:54.761Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2364,7 +2587,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:12.666Z",
+      "crawledAt": "2026-06-04T13:03:54.061Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2439,7 +2662,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieure-Engineering-%28HFD%29/1377993633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:11.999Z",
+      "crawledAt": "2026-06-04T13:03:53.382Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2502,7 +2725,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:11.330Z",
+      "crawledAt": "2026-06-04T13:03:52.680Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2579,7 +2802,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:41:10.675Z",
+      "crawledAt": "2026-06-04T13:03:51.967Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2657,7 +2880,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Audit-Manager/1389798633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:10.009Z",
+      "crawledAt": "2026-06-04T13:03:51.279Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2732,7 +2955,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:09.315Z",
+      "crawledAt": "2026-06-04T13:03:50.561Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2809,7 +3032,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Manufacturing-Projects-Intern/1395939233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:08.573Z",
+      "crawledAt": "2026-06-04T13:03:49.849Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2886,7 +3109,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Gestionnaire-des-demandes-Visas-&-Courriers/1399285033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:07.876Z",
+      "crawledAt": "2026-06-04T13:03:49.147Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2959,7 +3182,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-ing%C3%A9nieur-Digital-Manufacturing-%28HFD%29/1377885033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:41:07.208Z",
+      "crawledAt": "2026-06-04T13:03:48.444Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3022,7 +3245,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:06.526Z",
+      "crawledAt": "2026-06-04T13:03:47.743Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3093,7 +3316,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Hardware/1377556533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:05.879Z",
+      "crawledAt": "2026-06-04T13:03:47.013Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3170,7 +3393,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Firmware/1377548533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:05.160Z",
+      "crawledAt": "2026-06-04T13:03:46.333Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3247,7 +3470,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Senior-Specialist-System-Development/1377559333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:04.494Z",
+      "crawledAt": "2026-06-04T13:03:45.648Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3324,7 +3547,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-Packaging-Material-Characterization/1368496533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:03.800Z",
+      "crawledAt": "2026-06-04T13:03:44.942Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3401,7 +3624,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Data-Science-Specialist/1381829433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:03.145Z",
+      "crawledAt": "2026-06-04T13:03:44.271Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3448,83 +3671,6 @@
       "addressRegion": "BE"
     },
     {
-      "id": "nestle-1390964833",
-      "slug": "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch",
-      "slugByLocale": {
-        "it": "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch",
-        "en": "packaging-material-science-specialist-recycled-pet-nestle-ch",
-        "de": "packaging-material-science-spezialist-recycled-pet-nestle-lausanne-ch",
-        "fr": "packaging-material-science-specialiste-recycled-pet-nestle-lausanne-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Packaging Material Science Specialist (recycled PET)",
-      "titleByLocale": {
-        "it": "Packaging Material Science Specialista (recycled PET)",
-        "en": "Packaging Material Science Specialist (recycled PET)",
-        "de": "Packaging Material Science Spezialist (recycled PET)",
-        "fr": "Packaging Material Science Spécialiste (recycled PET)"
-      },
-      "description": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Packaging Material Science Specialist (recycled PET) — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
-      },
-      "location": "Lausanne, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:02.494Z",
-      "addressLocality": "Lausanne, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "packaging-material-science-specialist-recycled-pet-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "packaging-material-science-specialist-recycled-pet-nestle-ch"
-        ],
-        "de": [
-          "packaging-material-science-specialist-recycled-pet-nestle-ch"
-        ],
-        "fr": [
-          "packaging-material-science-specialist-recycled-pet-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:49.999Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
       "id": "nestle-1381591733",
       "slug": "responsabile-dello-sviluppo-globale-del-prodotto-neonato-e-nutrizione-precoce-nestle-konolfingen-ch",
       "slugByLocale": {
@@ -3555,7 +3701,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:01.783Z",
+      "crawledAt": "2026-06-04T13:03:43.619Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3626,7 +3772,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:41:01.134Z",
+      "crawledAt": "2026-06-04T13:03:42.939Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3697,7 +3843,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:41:00.477Z",
+      "crawledAt": "2026-06-04T13:03:42.256Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3774,7 +3920,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-R&D-Laboratory-Technician/1389544733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:40:59.818Z",
+      "crawledAt": "2026-06-04T13:03:41.474Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3845,7 +3991,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:40:59.162Z",
+      "crawledAt": "2026-06-04T13:03:40.782Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3886,69 +4032,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1397550233",
-      "slug": "demand-supply-chain-manager-nestle-ch",
-      "slugByLocale": {
-        "it": "demand-supply-chain-manager-nestle-ch",
-        "en": "demand-supply-chain-manager-nestle-ch",
-        "de": "demand-lieferkette-manager-nestle-henniez-ch",
-        "fr": "demand-chaine-d-approvisionnement-manager-nestle-henniez-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Demand & Supply Chain Manager",
-      "titleByLocale": {
-        "it": "Demand & Supply Chain Manager",
-        "en": "Demand & Supply Chain Manager",
-        "de": "Demand & Lieferkette Manager",
-        "fr": "Demand & Chaîne d'approvisionnement Manager"
-      },
-      "description": "Demand & Supply Chain Manager — Nestlé, Henniez, CH.\n\nKey details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Demand & Supply Chain Manager — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
-      },
-      "location": "Henniez, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:40:58.483Z",
-      "addressLocality": "Henniez, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-27T13:23:18.816Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
       "id": "nestle-1388870033",
       "slug": "technicien-de-maintenance-en-horaire-d-equipe-4x8-h-f-d-nestle-ch",
       "slugByLocale": {
@@ -3979,7 +4062,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:40:57.834Z",
+      "crawledAt": "2026-06-04T13:03:40.108Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4042,7 +4125,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-journ%C3%A9e-%28HFD%29/1388867533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:40:57.180Z",
+      "crawledAt": "2026-06-04T13:03:39.354Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4105,7 +4188,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Barista-Coffee-Bard/1381548133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:40:56.519Z",
+      "crawledAt": "2026-06-04T13:03:38.586Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4176,7 +4259,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:40:55.852Z",
+      "crawledAt": "2026-06-04T13:03:37.915Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4251,7 +4334,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:40:55.169Z",
+      "crawledAt": "2026-06-04T13:03:37.147Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4326,7 +4409,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-logistique-%28HFD%29/1369989533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:40:54.527Z",
+      "crawledAt": "2026-06-04T13:03:36.325Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4397,7 +4480,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:40:53.876Z",
+      "crawledAt": "2026-06-04T13:03:35.547Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4422,77 +4505,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:45.862Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
-      "id": "nestle-978705001",
-      "slug": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
-      "slugByLocale": {
-        "it": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
-        "en": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "de": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "fr": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Apprenti-e Technologue du Brassage et des Boissons",
-      "titleByLocale": {
-        "it": "Apprendista Tecnologo della Birra e delle Bevande",
-        "en": "Apprenti-e Technologue du Brassage et des Boissons",
-        "de": "Apprenti-e Technologue du Brassage et des Boissons",
-        "fr": "Apprenti-e Technologue du Brassage et des Boissons"
-      },
-      "description": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
-      "descriptionByLocale": {
-        "it": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
-        "en": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
-        "de": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année.",
-        "fr": "Division « Eau » du groupe Nestlé, Nestlé Waters (Suisse) SA est le leader suisse du marché des eaux minérales avec des marques telles que Henniez, S. Pellegrino, Vittel, Contrex, Perrier et Acqua Panna, ainsi que d’autres grandes marques de boissons sans alcool. Nestlé Waters Suisse forme une vingtaine d’apprentis par année."
-      },
-      "location": "Henniez, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:40:53.247Z",
-      "addressLocality": "Henniez, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:45.157Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4539,7 +4551,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-Syst%C3%A8mes-Logistiques-%28HFD%29/1369038433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:40:52.601Z",
+      "crawledAt": "2026-06-04T13:03:34.704Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4602,7 +4614,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Ing%C3%A9nieur_e-Digital-&-Performance/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:40:51.971Z",
+      "crawledAt": "2026-06-04T13:03:34.000Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4673,7 +4685,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-MPS-&-MRP-Planner/1385532533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T14:40:51.324Z",
+      "crawledAt": "2026-06-04T13:03:33.198Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4736,7 +4748,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:40:50.618Z",
+      "crawledAt": "2026-06-04T13:03:32.478Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",

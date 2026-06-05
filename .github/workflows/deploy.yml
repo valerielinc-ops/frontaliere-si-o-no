@@ -694,7 +694,11 @@ jobs:
           # (JS/CSS) whose URLs renderBuiltUrl already rebased to the CDN, and the
           # git-tracked full blog heroes (served at cdn.frontaliereticino.ch/images/
           # blog; finalize plugin already rewrote HTML + deleted dist heroes, so we
-          # push from the public/ source). 480w thumbnails stay same-origin.
+          # push from the public/ source). The build-generated 480w thumbnails are
+          # written to public/images/blog/thumbnails/ by generate-image-thumbnails.mjs
+          # (gitignored but on disk at push time), so the public/images/blog copy
+          # below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
+          # script then deletes the dist copy of dist/images/blog/thumbnails.
           [ -d dist/og ]           && cp -r dist/og           "$stage/og"
           [ -d dist/data ]         && cp -r dist/data         "$stage/data"
           [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
@@ -703,23 +707,56 @@ jobs:
             echo "no offloadable assets present — skipping CDN push"; exit 0
           fi
           printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
-          echo "CDN payload: $(du -sh "$stage" | cut -f1)"
-          # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
-          payload_bytes="$(du -sb "$stage" | cut -f1)"
-          if [ "$payload_bytes" -gt 950000000 ]; then
-            echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; consider splitting (e.g. keep blog heroes on jsDelivr)"
-          fi
           keyfile="$RUNNER_TEMP/cdn_deploy_key"
           printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
           export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          # ── Additive assets/ (anti-clobber) ──────────────────────────────────
+          # The bundler assets/ are CONTENT-HASHED (index-*.js / App-*.js etc) and
+          # therefore immutable: a given hash always holds identical bytes. The old
+          # force-push replaced the whole CDN repo each deploy, DELETING the entry
+          # hashes still referenced by the currently-live HTML — which, for the
+          # ~13 GB Pages site, keeps serving the previous build for the 10-20 min
+          # the new publish takes to propagate (and longer on a rollback). Result:
+          # live HTML → 404 on its own JS → SPA dead (prod outage 2026-06-04).
+          # Fix: carry forward the prior CDN assets/ and merge the new build ON TOP
+          # (cp -n never overwrites a freshly-built file), so old + new hashes
+          # coexist and any in-flight HTML keeps booting. og/data/images are
+          # same-path and fully refreshed above (overwrite is correct for them).
+          # Sparse + blob:none keeps the clone to the small assets/ tree only.
+          if [ -d "$stage/assets" ]; then
+            prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
+            if git clone --depth 1 --filter=blob:none --sparse \
+                 git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
+              git -C "$prev" sparse-checkout set assets 2>/dev/null || true
+              if [ -d "$prev/assets" ]; then
+                cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
+                echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
+              fi
+            else
+              echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
+            fi
+            rm -rf "$prev"
+          fi
+          echo "CDN payload: $(du -sh "$stage" | cut -f1)"
+          # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
+          # With additive assets/ the payload grows slowly across deploys (only NEW
+          # hashes accumulate; data/og/images are refreshed, not stacked). A separate
+          # zero-Claude janitor cron prunes assets/ hashes no longer referenced by
+          # any live sitemap page once past a grace window (follow-up).
+          payload_bytes="$(du -sb "$stage" | cut -f1)"
+          if [ "$payload_bytes" -gt 950000000 ]; then
+            echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; run the CDN assets/ janitor or split (e.g. keep blog heroes on jsDelivr)"
+          fi
           cd "$stage"
           git init -q
           git checkout -q -b main
           git config user.email "deploy-bot@frontaliereticino.ch"
           git config user.name "deploy-bot"
           git add -A
-          git commit -qm "cdn assets (og + data + assets) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+          git commit -qm "cdn assets (og + data + additive assets) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
           # Force-push a single fresh commit → CDN repo history never accumulates.
+          # Content is additive (prior assets/ merged above), so the force-push no
+          # longer clobbers in-flight entry hashes — it just flattens history.
           if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
             echo "CDN_BASE=https://cdn.frontaliereticino.ch" >> "$GITHUB_ENV"
             echo "✅ pushed assets to frontaliere-cdn"
@@ -935,6 +972,8 @@ jobs:
             -cf "$RUNNER_TEMP/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
+            --exclude=.write-collisions.json \
+            --exclude=.write-collisions-data \
             .
           # Surface size early so a regression past the 1 GB Pages
           # threshold is visible in the workflow log right after pack
@@ -1114,8 +1153,25 @@ jobs:
           **Branch:** ${{ github.ref_name }}
           **Trigger:** ${{ github.event_name }}" \
             --priority 1 \
+            --reopen-within-hours 6 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      - name: Resolve build GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Build succeeded → close the canonical "CI Failure (build)" issue if
+          # open. Paired with --reopen-within-hours 6 on the reporter above so the
+          # close↔reopen cycle stays on ONE canonical issue (no per-run storm,
+          # no stale issue while green). Idempotent no-op when nothing is open.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (build): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   # ───────────────────────────────────────────────────────────────────────
   # deploy: publish dist/ to GitHub Pages (actions/deploy-pages reads the
@@ -1202,6 +1258,41 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
+
+      # Reset a stuck Pages `errored` state BEFORE publishing. After bursts of
+      # failed/cancelled deployments GitHub Pages can latch into status=errored
+      # and then refuse to ACTIVATE even successful deployments → the site
+      # freezes on an old build (prod outage 2026-06-05). Clearing the state
+      # first lets THIS deploy's deployment activate. Conditional: no-op unless
+      # currently errored, so healthy deploys are untouched. Tries the safe
+      # build request first, then a build_type toggle (transient, via the
+      # existing gh-pages branch) only if still errored.
+      - name: Reset Pages errored state (only if stuck)
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          R="${GITHUB_REPOSITORY}"
+          st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+          echo "pages status before publish: $st"
+          if [ "$st" != "errored" ]; then echo "not errored — no reset needed"; exit 0; fi
+          echo "::warning::Pages stuck 'errored' — resetting so this deploy can activate"
+          gh api -X POST "repos/$R/pages/builds" >/dev/null 2>&1 || true
+          sleep 15
+          st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+          echo "after safe reset: $st"
+          if [ "$st" = "errored" ]; then
+            echo "toggling build_type legacy(gh-pages) -> workflow"
+            printf '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || true
+            sleep 8
+            printf '{"build_type":"workflow"}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || true
+            sleep 10
+            st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+            echo "after toggle: $st"
+          fi
+          [ "$st" = "errored" ] && echo "::warning::still errored after reset — deploy may not activate; manual unstick-pages may be needed" || echo "✅ pages state cleared"
 
       # GitHub Pages allows only one deployment at a time. When concurrent
       # pushes trigger this workflow, the second run can hit "in progress
@@ -1332,8 +1423,24 @@ jobs:
           **Branch:** ${{ github.ref_name }}
           **Trigger:** ${{ github.event_name }}" \
             --priority 1 \
+            --reopen-within-hours 6 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      - name: Resolve deploy GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Deploy succeeded → close the canonical "CI Failure (deploy)" issue if
+          # open. Paired with --reopen-within-hours 6 above so close↔reopen stay
+          # on ONE canonical issue. Idempotent no-op when nothing is open.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (deploy): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   # ───────────────────────────────────────────────────────────────────────
   # validate-dist: dist-side gates (bfs-depth, text-html-ratio, ...).

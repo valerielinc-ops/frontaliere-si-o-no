@@ -1,16 +1,16 @@
 {
   "key": "sune-egge",
   "label": "Fachspital Sune-Egge",
-  "generatedAt": "2026-06-04T01:22:55.024Z",
+  "generatedAt": "2026-06-04T23:10:35.496Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2769,
-  "avgDurationMs": 2769,
+  "durationMs": 2431,
+  "avgDurationMs": 2431,
   "durationHistory": [
-    2769
+    2431
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2645745",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T01:22:53.104Z",
+      "crawledAt": "2026-06-04T23:10:33.823Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2595649",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T01:22:53.101Z",
+      "crawledAt": "2026-06-04T23:10:33.821Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T01:22:53.102Z",
+      "crawledAt": "2026-06-04T23:10:33.821Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2616543",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T01:22:53.103Z",
+      "crawledAt": "2026-06-04T23:10:33.822Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,45 +163,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "sune-egge-d180ecb6abe3",
-      "slug": "fisioterapista-fisioterapista-30-50-fachspital-sune-egge-zurich",
-      "company": "Fachspital Sune-Egge",
-      "companyKey": "sune-egge",
-      "companyDomain": "swsieber.ch",
-      "title": "Physiotherapeutin/Physiotherapeuten 30–50%",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://swsieber.jobs.personio.com/job/2609975",
-      "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-03T01:17:17.067Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8005",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "applyUrl": "https://swsieber.jobs.personio.com/job/2609975",
-      "firstSeenAt": "2026-05-20T06:03:29.944Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -3,6 +3,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fetchViaJina, detectJinaErrorBody } from './lib/jina-proxy.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -81,10 +82,12 @@ function slugify(value = '') {
 }
 
 async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000) {
+  // Chrome major version inside the window WAFs tend to accept (some block the
+  // newest, e.g. 131+, as bot-common) — see the cambiavalute finding (#1363).
   const USER_AGENTS = [
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
   ];
 
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -112,7 +115,28 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
         console.log(`  ⚠️  fetch attempt ${attempt + 1} failed (${err.message}), retrying in ${delay / 1000}s...`);
         await new Promise((r) => setTimeout(r, delay));
       } else {
-        console.log(`  ⚠️  all fetch attempts failed (${err.message}), trying Playwright fallback...`);
+        // The direct 403 is typically an anti-bot/IP block: goline.ch serves a
+        // challenge to GitHub Actions datacenter IPs even via a real browser, so
+        // the Playwright fallback also comes back empty (#1408). Try the Jina
+        // Reader egress proxy first — it fetches with a real browser from a clean
+        // IP and returns the page's raw HTML, which the parser handles unchanged.
+        console.log(`  ⚠️  all fetch attempts failed (${err.message}), trying egress proxy...`);
+        try {
+          const pr = await fetchViaJina(url, { timeoutMs });
+          if (pr.ok) {
+            const html = await pr.text();
+            // Jina answers 200 even when it never reached the target (challenge /
+            // error page, or empty body) → the parser would silently see 0 roles.
+            // Log an explicit "200-but-not-target" warning so a degraded proxy is
+            // diagnosable, then pass the HTML through unchanged (#1422 item 1).
+            const reason = detectJinaErrorBody(html);
+            if (reason) console.log(`  ⚠️  egress proxy 200 but not the target page (${reason}) — parser will likely yield 0 roles.`);
+            return html;
+          }
+          console.log(`  ⚠️  egress proxy returned HTTP ${pr.status}, trying Playwright fallback...`);
+        } catch (proxyErr) {
+          console.log(`  ⚠️  egress proxy failed (${proxyErr.message}), trying Playwright fallback...`);
+        }
         try {
           const browser = await launchChromium({ headless: true });
           try {

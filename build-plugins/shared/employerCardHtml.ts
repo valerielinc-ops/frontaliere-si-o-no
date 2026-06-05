@@ -10,11 +10,8 @@
  * class used here is preserved in the production CSS bundle.
  */
 import { escHtml } from './htmlEscape';
-import {
-  resolveJobLogoSrc,
-  generateInitialsLogo,
-  LOGO_FALLBACK_SRC,
-} from './companyLogoResolver';
+import { resolveJobLogoSrc } from './companyLogoResolver';
+import { LOGO_FALLBACK_SCRIPT } from './logoFallbackScript';
 
 export type EmployerCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -78,12 +75,19 @@ function renderLogoSlot(e: EmployerCardEmployer, sizeClass: string): string {
     url: e.url,
     logo: e.logo,
   });
-  const fallbackSrc = e.name ? generateInitialsLogo(e.name) : LOGO_FALLBACK_SRC;
-  const onerror = `this.onerror=null;this.src=&quot;${escHtml(fallbackSrc)}&quot;`;
+  // Runtime fallback to the deterministic coloured-initials data URI when the
+  // primary src 404s — externalised from a ~586 B inline data-URI handler to
+  // the shared `jcLF()` (defined once per page via LOGO_FALLBACK_SCRIPT,
+  // prepended in `renderEmployerCardListHtml`). `jcLF` rebuilds the
+  // byte-identical SVG from the company name in `alt="Logo {name}"`. Name-less
+  // cards already resolve their primary src to the static `LOGO_FALLBACK_SRC`
+  // (see `resolveJobLogoSrc`), so an onerror re-pointing to the same file is a
+  // no-op — omit it there.
+  const onerror = e.name ? ' onerror="jcLF(this)"' : '';
   // `.ec-logoslot` covers the static layout (rounded-lg, border, flex centering).
   // `sizeClass` (w-* / h-* utility pair) varies per call site (compact vs detailed
   // vs ultra-compact list) — kept as-is so caller picks the size.
-  return `<div class="ec-logoslot ${sizeClass}"><img alt="${safeAlt}" class="ec-logoimg" width="40" height="40" loading="lazy" src="${escHtml(logoSrc)}" onerror="${onerror}"></div>`;
+  return `<div class="ec-logoslot ${sizeClass}"><img alt="${safeAlt}" class="ec-logoimg" width="40" height="40" loading="lazy" src="${escHtml(logoSrc)}"${onerror}></div>`;
 }
 
 export function renderEmployerCardHtml(
@@ -173,5 +177,10 @@ export function renderEmployerCardListHtml(
       })}</li>`,
     )
     .join('');
-  return `<ul role="list" class="${escHtml(ulClass)}">${cards}</ul>`;
+  // Prepend the shared logo-fallback `<script>` once per list so `jcLF` (called
+  // by each card's `onerror`) is defined even on employer-only pages that emit
+  // no job-card icon DEFS (e.g. aziende-che-assumono / costo-vita landings —
+  // `renderEmployerCardListHtml` is their sole employer-card entry point). On
+  // pages that also render job cards the script is re-emitted harmlessly.
+  return `${LOGO_FALLBACK_SCRIPT}<ul role="list" class="${escHtml(ulClass)}">${cards}</ul>`;
 }

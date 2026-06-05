@@ -36,14 +36,19 @@ const MAIN_CLOSE = /<\/main>/i;
 const LITERAL_BOLD_RE = /\*\*[^*\n]{1,200}\*\*/g;
 // 3+ run of `_`, `=`, `~` as separator decoration
 const SEPARATOR_RUN_RE = /[_=~]{3,}/g;
+// Inline <script>/<style> blocks are code, not visible body. Their contents
+// can legitimately contain `===` (JS strict-equality, e.g. the per-card logo
+// fallback script `w.length===0`) or `~`/`_` runs that are NOT literal
+// markdown. Strip them before detection so code can't false-flag the gate.
+const CODE_BLOCK_RE = /<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi;
 
 function extractMainBody(html) {
   const openMatch = html.match(SEO_STATIC_OPEN);
   if (!openMatch) return '';
   const startIdx = openMatch.index + openMatch[0].length;
   const closeIdx = html.slice(startIdx).search(MAIN_CLOSE);
-  if (closeIdx < 0) return html.slice(startIdx);
-  return html.slice(startIdx, startIdx + closeIdx);
+  const raw = closeIdx < 0 ? html.slice(startIdx) : html.slice(startIdx, startIdx + closeIdx);
+  return raw.replace(CODE_BLOCK_RE, '');
 }
 
 function isJobDetailPage(absPath) {

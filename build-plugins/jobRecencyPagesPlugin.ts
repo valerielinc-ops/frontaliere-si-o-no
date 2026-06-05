@@ -296,7 +296,7 @@ ${alternates}
             `/${SECTION_BY_LOCALE.it}/${JOB_RECENCY_LANDING_SLUGS[variant].it}`.replace(/\/+/g, '/'),
           )}">
     <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
     ${SEO_STATIC_CSS_LINK}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}

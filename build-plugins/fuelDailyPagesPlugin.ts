@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import {
   BASE_URL,
+  FUEL_CHART_SCRIPT_TAG,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
 } from './constants';
@@ -83,19 +84,14 @@ import {
   WEEKLY_EMPLOYERS_SECTION,
 } from './weeklyEmployersData';
 import {
-  H1_STYLE,
-  H2_STYLE,
-  HERO_EYEBROW_STYLE,
   ICON_BAR_CHART_SVG,
   ICON_FUEL_SVG,
   ICON_MAP_PIN_SVG,
   ICON_NAVIGATION_SVG,
   ICON_TROPHY_SVG,
-  LEDE_STYLE,
   LINK_ACCENT_STYLE,
   renderDiscoverMore,
   renderEntityCard,
-  resolveBrandLogoUrl,
   STAT_TILE_BASE,
   STAT_TILE_DANGER,
   STAT_TILE_SUCCESS,
@@ -103,6 +99,7 @@ import {
   clampSiteSuffix,
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
+import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F6 fuel-daily feature.
@@ -1036,9 +1033,9 @@ function renderFuelAreaChartSvg(opts: {
 
   if (series.length < 2) {
     return `<svg class="s-hUQt0t" role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${dims.width} ${dims.height}" preserveAspectRatio="xMidYMid meet">
-      <rect x="${dims.padLeft}" y="${dims.padTop}" width="${plotW}" height="${plotH}" fill="var(--color-surface-muted)" rx="8"></rect>
+      <rect x="${dims.padLeft}" y="${dims.padTop}" width="${plotW}" height="${plotH}" rx="8" class="s-crect"></rect>
       <text x="${dims.padLeft + plotW / 2}" y="${dims.padTop + plotH / 2}" text-anchor="middle" dominant-baseline="middle"
-        style="font:13px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-subtle)">${esc(FUEL_RANGE_EMPTY_MSG[locale])}</text>
+        class="s-cempty">${esc(FUEL_RANGE_EMPTY_MSG[locale])}</text>
     </svg>`;
   }
 
@@ -1084,31 +1081,34 @@ function renderFuelAreaChartSvg(opts: {
     .map((idx) => coords[idx]);
 
   const gradientId = `fuelGradient-${rangeKey}-${zone_safe(rangeKey)}`;
-  const tickStyle =
-    'font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-chart-label);font-variant-numeric:tabular-nums';
+  // Axis-tick text style lives in seo-static.css `.s-ctk` (font + fill +
+  // tabular-nums) — repeats ~13×/page, so a class instead of an inline style
+  // strips ~1.4 MB across the fuel corpus.
 
+  // Grid-line + path stroke styling lives in seo-static.css (.s-cgl / .s-cgx /
+  // .s-cpl / .s-cpa); only the per-element geometry stays inline.
   const yGridLines = yTicks
     .map(
       (t) =>
-        `<line x1="${dims.padLeft}" x2="${dims.width - dims.padRight}" y1="${t.y.toFixed(1)}" y2="${t.y.toFixed(1)}" stroke="var(--color-chart-grid)" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"></line>`,
+        `<line x1="${dims.padLeft}" x2="${dims.width - dims.padRight}" y1="${t.y.toFixed(1)}" y2="${t.y.toFixed(1)}" class="s-cgl"></line>`,
     )
     .join('');
   const yLabels = yTicks
     .map(
       (t) =>
-        `<text x="${(dims.padLeft - 6).toFixed(0)}" y="${t.y.toFixed(1)}" text-anchor="end" dominant-baseline="middle" style="${tickStyle}">${esc(formatValue(t.v))}</text>`,
+        `<text x="${(dims.padLeft - 6).toFixed(0)}" y="${t.y.toFixed(1)}" text-anchor="end" dominant-baseline="middle" class="s-ctk">${esc(formatValue(t.v))}</text>`,
     )
     .join('');
   const xGridLines = xTicks
     .map(
       (t) =>
-        `<line x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${dims.padTop}" y2="${(dims.padTop + plotH).toFixed(1)}" stroke="var(--color-chart-grid)" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"></line>`,
+        `<line x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${dims.padTop}" y2="${(dims.padTop + plotH).toFixed(1)}" class="s-cgx"></line>`,
     )
     .join('');
   const xLabels = xTicks
     .map(
       (t) =>
-        `<text x="${t.x.toFixed(1)}" y="${(dims.padTop + plotH + 18).toFixed(1)}" text-anchor="middle" style="${tickStyle}">${esc(formatFuelDateShort(t.date, locale))}</text>`,
+        `<text x="${t.x.toFixed(1)}" y="${(dims.padTop + plotH + 18).toFixed(1)}" text-anchor="middle" class="s-ctk">${esc(formatFuelDateShort(t.date, locale))}</text>`,
     )
     .join('');
 
@@ -1121,8 +1121,8 @@ function renderFuelAreaChartSvg(opts: {
     </defs>
     ${yGridLines}
     ${xGridLines}
-    <path d="${areaPath}" fill="url(#${gradientId})" stroke="none"></path>
-    <path d="${linePath}" fill="none" stroke="var(--color-chart-line)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="${areaPath}" fill="url(#${gradientId})" class="s-cpa"></path>
+    <path d="${linePath}" class="s-cpl"></path>
     ${yLabels}
     ${xLabels}
   </svg>`;
@@ -1206,78 +1206,46 @@ function renderFuelHistoryCard(opts: {
     return { rangeKey: rk, svg, stat };
   });
 
+  // Button visuals (base + active/inactive) live in seo-static.css `.s-rbtn`,
+  // keyed off `aria-pressed` — so the inline script no longer writes
+  // `style.background`/`style.color`, just flips the attribute.
   const buttonsHtml = FUEL_RANGE_KEYS.map((rk) => {
     const isActive = rk === FUEL_DEFAULT_RANGE;
-    const baseStyle =
-      'border:0;cursor:pointer;padding:6px 12px;border-radius:8px;font:600 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;transition:background-color 0.15s,color 0.15s';
-    const activeStyle = 'background:var(--color-success-strong);color:var(--color-on-accent)';
-    const inactiveStyle = 'background:var(--color-surface-raised);color:var(--color-subtle)';
-    return `<button type="button" data-range-btn="${rk}" aria-pressed="${isActive ? 'true' : 'false'}" style="${baseStyle};${isActive ? activeStyle : inactiveStyle}">${esc(FUEL_RANGE_BUTTON_LABEL[locale][rk])}</button>`;
+    return `<button type="button" data-range-btn="${rk}" aria-pressed="${isActive ? 'true' : 'false'}" class="s-rbtn">${esc(FUEL_RANGE_BUTTON_LABEL[locale][rk])}</button>`;
   }).join('');
 
+  // `.s-rcont` default-hides; the active range carries `.s-on` (display:block).
   const variantsHtml = variants
     .map(
       (v) =>
-        `<div data-range-content="${v.rangeKey}" style="display:${v.rangeKey === FUEL_DEFAULT_RANGE ? 'block' : 'none'}">${v.svg}</div>`,
+        `<div data-range-content="${v.rangeKey}" class="s-rcont${v.rangeKey === FUEL_DEFAULT_RANGE ? ' s-on' : ''}">${v.svg}</div>`,
     )
     .join('');
 
   const formatStatVal = (n: number): string => `${formatValue(n)} ${currency}`;
+  // `.s-rstat` default-hides; the active range carries `.s-on` (display:flex).
   const statsVariantsHtml = variants
     .map((v) => {
       const visible = v.rangeKey === FUEL_DEFAULT_RANGE;
       const inner = v.stat
         ? `<span><strong>${esc(stats.min)}:</strong> ${esc(formatStatVal(v.stat.min))}</span><span><strong>${esc(stats.avg)}:</strong> ${esc(formatStatVal(v.stat.avg))}</span><span><strong>${esc(stats.max)}:</strong> ${esc(formatStatVal(v.stat.max))}</span>`
         : `<span class="s-FYTH34">—</span>`;
-      return `<div data-range-stats="${v.rangeKey}" style="display:${visible ? 'flex' : 'none'};justify-content:space-between;gap:8px;margin-top:14px;font:500 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-subtle);min-height:20px">${inner}</div>`;
+      return `<div data-range-stats="${v.rangeKey}" class="s-rstat${visible ? ' s-on' : ''}">${inner}</div>`;
     })
     .join('');
 
-  const cardStyle =
-    'background:var(--color-surface);border:1px solid var(--color-edge);border-radius:16px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.04);max-width:720px;margin:0 0 14px';
-  const headerStyle =
-    'display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:14px';
-  const buttonsRowStyle = 'display:flex;gap:6px;flex-wrap:wrap';
-
-  // Inline IIFE to wire up the range selector. Reads data-range-btn / data-range-content
-  // / data-range-stats attributes; flips visibility + button styling on click.
-  const script = `<script>(function(){
-    var root = document.currentScript.previousElementSibling;
-    if(!root) return;
-    var btns = root.querySelectorAll('[data-range-btn]');
-    var contents = root.querySelectorAll('[data-range-content]');
-    var statsEls = root.querySelectorAll('[data-range-stats]');
-    function setActive(r){
-      btns.forEach(function(b){
-        var on = b.getAttribute('data-range-btn') === r;
-        b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        if(on){
-          b.style.background = 'var(--color-success-strong)';
-          b.style.color = 'var(--color-on-accent)';
-        } else {
-          b.style.background = 'var(--color-surface-raised)';
-          b.style.color = 'var(--color-subtle)';
-        }
-      });
-      contents.forEach(function(c){
-        c.style.display = c.getAttribute('data-range-content') === r ? 'block' : 'none';
-      });
-      statsEls.forEach(function(s){
-        s.style.display = s.getAttribute('data-range-stats') === r ? 'flex' : 'none';
-      });
-    }
-    btns.forEach(function(b){
-      b.addEventListener('click', function(){ setActive(b.getAttribute('data-range-btn')); });
-    });
-  })();</script>`;
-
-  return `<div data-fuel-history-chart style="${cardStyle}">
-    <div style="${headerStyle}">
-      <div style="${buttonsRowStyle}" role="tablist" aria-label="${esc(trendLabel)}">${buttonsHtml}</div>
+  // Range-selector wiring is externalised to one cached
+  // `/assets/fuel-chart-{hash}.js` (FUEL_CHART_SCRIPT_TAG) instead of a ~600 B
+  // inline IIFE repeated on every chart page. The external script self-wires
+  // ALL `[data-fuel-history-chart]` blocks and is idempotent across duplicate
+  // tags, so emitting it next to each card is safe.
+  return `<div data-fuel-history-chart class="s-fhc">
+    <div class="s-fhc-h">
+      <div class="s-fhc-r" role="tablist" aria-label="${esc(trendLabel)}">${buttonsHtml}</div>
     </div>
     <div data-fuel-history-charts>${variantsHtml}</div>
     ${statsVariantsHtml}
-  </div>${script}`;
+  </div>${FUEL_CHART_SCRIPT_TAG}`;
 }
 
 /**
@@ -1321,7 +1289,7 @@ function renderFuelTodayFrontalierContext(args: {
   };
   const c = copy[locale] || copy.it;
   return `<section class="s-ziawP1" aria-labelledby="fuelTodayFrontalier">
-    <h2 id="fuelTodayFrontalier" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <h2 id="fuelTodayFrontalier" class="s-h2">${esc(c.h)}</h2>
     <p class="s-KwuhOL">${c.p1}</p>
     <p class="s-E7ZJqo">${c.p2}</p>
   </section>`;
@@ -1488,16 +1456,16 @@ function renderFuelTodayMethodologyAndScenarios(args: {
     .join('');
 
   return `<section class="s-ziawP1" aria-labelledby="fuelTodayMethodology">
-    <h2 id="fuelTodayMethodology" style="${H2_STYLE}">${esc(c.methodologyH)}</h2>
+    <h2 id="fuelTodayMethodology" class="s-h2">${esc(c.methodologyH)}</h2>
     <p class="s-E7ZJqo">${esc(c.methodologyP)}</p>
   </section>
   <section class="s-ziawP1" aria-labelledby="fuelTodayScenario">
-    <h2 id="fuelTodayScenario" style="${H2_STYLE}">${esc(c.scenarioH)}</h2>
+    <h2 id="fuelTodayScenario" class="s-h2">${esc(c.scenarioH)}</h2>
     <p class="s-KwuhOL">${esc(c.scenarioP1)}</p>
     <p class="s-E7ZJqo">${c.scenarioP2}</p>
   </section>
   <section class="s-ziawP1" aria-labelledby="fuelTodayExtraFaq">
-    <h2 id="fuelTodayExtraFaq" style="${H2_STYLE}">${esc(
+    <h2 id="fuelTodayExtraFaq" class="s-h2">${esc(
       locale === 'it'
         ? 'Altre domande frequenti'
         : locale === 'de'
@@ -1578,7 +1546,7 @@ function renderRecentMonthsArchiveNav(args: {
     .join('');
 
   return `<aside class="s-card" style="margin:24px 0;padding:18px 20px" aria-labelledby="fuelArchiveNav">
-    <h2 id="fuelArchiveNav" style="${H2_STYLE};margin:0 0 8px;font-size:18px">${esc(heading)}</h2>
+    <h2 id="fuelArchiveNav" class="s-h2" style="margin:0 0 8px;font-size:18px">${esc(heading)}</h2>
     ${groups}
   </aside>`;
 }
@@ -1644,13 +1612,7 @@ function renderPage(inp: PageInputs): string {
           const stationHref = stationZone && s.slug
             ? buildFuelStationPath(locale, fuel, stationZone, s.slug)
             : undefined;
-          const brandSlug = (s.brand || '')
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '');
-          const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, brandSlug) : null;
+          const logoUrl = resolveStationBrandLogoUrl(rootDir, s.brand);
           const card = renderEntityCard({
             href: stationHref,
             logoUrl: logoUrl ?? undefined,
@@ -1745,7 +1707,7 @@ function renderPage(inp: PageInputs): string {
   // FAQ section
   const faqItems = copy.faq;
   const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="fuelDailyFaq">
-    <h2 id="fuelDailyFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    <h2 id="fuelDailyFaq" class="s-h2">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
         (f) => `<details class="s-card" style="margin-bottom:8px">
@@ -1818,9 +1780,9 @@ function renderPage(inp: PageInputs): string {
     <span>${esc(zoneLabel)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
-    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
+    <p class="s-eyb">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <h1 class="s-h1">${esc(h1)}</h1>
+    <p class="s-lede">${esc(introTagline)}</p>
   </header>
   <section class="s-Bk-L3k">
     <div class="s-tacc">
@@ -1839,15 +1801,15 @@ function renderPage(inp: PageInputs): string {
   </section>
   ${unavailableNoteHtml}
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="fuelReview">
-    <h2 id="fuelReview" style="${H2_STYLE}">${esc(editorialAssessment.heading)}</h2>
+    <h2 id="fuelReview" class="s-h2">${esc(editorialAssessment.heading)}</h2>
     <p class="s-E7ZJqo">${esc(editorialAssessment.body)}</p>
   </section>
   <section class="s-ziawP1" aria-labelledby="top3">
-    <h2 id="top3" style="${H2_STYLE}">${esc(copy.top3Label)}</h2>
+    <h2 id="top3" class="s-h2">${esc(copy.top3Label)}</h2>
     ${stationsHtml}
   </section>
   <section class="s-ziawP1" aria-labelledby="trend7">
-    <h2 id="trend7" style="${H2_STYLE}">${esc(copy.trendLabel)}</h2>
+    <h2 id="trend7" class="s-h2">${esc(copy.trendLabel)}</h2>
     <p class="s-C63fWv">${esc(historyCopy)}</p>
     ${historyCard}
     ${trendTableHtml}
@@ -1975,7 +1937,7 @@ function renderFuelArchiveProse(args: {
   };
   const c = copy[locale] || copy.it;
   return `<section class="s-PBAEDX" aria-labelledby="archiveContext">
-    <h2 id="archiveContext" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <h2 id="archiveContext" class="s-h2">${esc(c.h)}</h2>
     <p class="s-p6u8io">${c.p1}</p>
     <p class="s-p6u8io">${c.p2}</p>
     <p class="s-zXvi5E">${c.p3}</p>
@@ -2110,9 +2072,9 @@ function renderArchive(inp: ArchiveInputs): string {
           <span>${esc(monthKey)}</span>
         </nav>
         <header class="s-Nv0GaD">
-          <p style="${HERO_EYEBROW_STYLE}">${esc(copy.archiveLabel)} · ${esc(monthKey)}</p>
-          <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-          <p style="${LEDE_STYLE}">${esc(archiveTaglineByLocale[locale])}</p>
+          <p class="s-eyb">${esc(copy.archiveLabel)} · ${esc(monthKey)}</p>
+          <h1 class="s-h1">${esc(h1)}</h1>
+          <p class="s-lede">${esc(archiveTaglineByLocale[locale])}</p>
         </header>
         ${archiveChartHtml}
         <section>${tableHtml}</section>
@@ -2484,7 +2446,7 @@ function buildStationSignaturePargaraph(inp: StationSignatureInput): string {
 //
 // All styling binds to the OKLCH semantic tokens from `seoContentTokens.ts`
 // (no inline hex, per CLAUDE.md rule #17). Brand logos are resolved via
-// `resolveBrandLogoUrl` against `public/images/brands/{slug}.{png,svg}`;
+// `resolveStationBrandLogoUrl` against `public/images/brands/{slug}.{png,svg}`;
 // missing logos fall back to a neutral monogram chip. The mini-map embeds
 // an OpenStreetMap iframe lazy-loaded (no API key, no script). The history
 // chart reuses the existing zone-level `renderFuelHistoryCard` machinery —
@@ -2614,15 +2576,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
   },
 };
 
-/** Normalised slug for `resolveBrandLogoUrl` (matches its [a-z0-9-] filter). */
-function brandLogoSlug(brand: string): string {
-  return String(brand || '')
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9-]/g, '');
-}
-
 /** Compose the inline SVG monogram fallback when no brand logo is on disk. */
 function renderBrandMonogram(brand: string, size: number): string {
   const initials = String(brand || '?')
@@ -2636,8 +2589,7 @@ function renderBrandMonogram(brand: string, size: number): string {
 
 /** Render the brand visual: real logo if available, monogram fallback. */
 function renderBrandVisual(rootDir: string | undefined, brand: string, size: number): string {
-  const slug = brandLogoSlug(brand);
-  const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, slug) : null;
+  const logoUrl = resolveStationBrandLogoUrl(rootDir, brand);
   if (!logoUrl) return renderBrandMonogram(brand, size);
   return `<img src="${esc(logoUrl)}" alt="${esc(brand)}" width="${size}" height="${size}" loading="lazy" decoding="async" style="display:block;width:${size}px;height:${size}px;border-radius:14px;object-fit:contain;background:var(--color-surface-alt);padding:6px;border:1px solid var(--color-edge);flex-shrink:0">`;
 }
@@ -2787,7 +2739,7 @@ function renderStationLocationCard(inp: StationLocationInput): string {
         aria-label="${esc(labels.mapAria(inp.brand, inp.city))}"></iframe>
     </div>
     <div class="s-cAzRHD">
-      <h2 id="stationLocation" style="${H2_STYLE};margin:0 0 10px;font-size:18px">${esc(labels.locationHeading)}</h2>
+      <h2 id="stationLocation" class="s-h2" style="margin:0 0 10px;font-size:18px">${esc(labels.locationHeading)}</h2>
       <p class="s-ZZMNPP">${esc(labels.locationCaption(inp.brand, inp.city))}</p>
       <dl class="s-PiTkcJ">
         <dt class="s-KBaHZf" aria-hidden="true">${ICON_MAP_PIN_SVG}</dt><dd class="s-q3nqK4">${esc(inp.address || `${inp.city}`)}</dd>
@@ -2865,7 +2817,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     });
     const lastUpdatedLine = `<p class="s-oF62Kj">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
     return `<section class="s-ziawP1" aria-labelledby="stationHistory">
-  <h2 id="stationHistory" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
+  <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
   <p class="s-MZT5qc">${esc(labels.historyCaptionStation)}</p>
   ${chartCard}
   ${lastUpdatedLine}
@@ -2898,7 +2850,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
   });
   const lastUpdatedLine = `<p class="s-oF62Kj">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
   return `<section class="s-ziawP1" aria-labelledby="stationHistory">
-  <h2 id="stationHistory" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
+  <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
   <p class="s-YUEhlJ">${esc(labels.historyDisclaimer)}</p>
   ${chartCard}
   ${lastUpdatedLine}
@@ -2952,7 +2904,7 @@ function renderFuelStationFrontalierContext(args: {
   };
   const c = copy[locale] || copy.it;
   return `<section class="s-ziawP1" aria-labelledby="fuelFrontalierContext">
-    <h2 id="fuelFrontalierContext" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <h2 id="fuelFrontalierContext" class="s-h2">${esc(c.h)}</h2>
     <p class="s-KwuhOL">${esc(c.p1)}</p>
     <p class="s-KwuhOL">${esc(c.p2)}</p>
     <p class="s-E7ZJqo">${esc(c.p3)}</p>
@@ -3187,20 +3139,20 @@ function renderStationPage(opts: {
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
   <header class="s-S1RSUf">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
-    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(stationTaglineByLocale[locale])}</p>
+    <p class="s-eyb">${esc(dateStamp)}</p>
+    <h1 class="s-h1">${esc(h1)}</h1>
+    <p class="s-lede">${esc(stationTaglineByLocale[locale])}</p>
   </header>
   ${heroHtml}
   ${adviceHtml}
   ${locationHtml}
   ${historyHtml}
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="stationReview">
-    <h2 id="stationReview" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(editorialAssessment.heading)}</h2>
+    <h2 id="stationReview" class="s-h2" style="margin:0 0 12px;font-size:20px">${esc(editorialAssessment.heading)}</h2>
     <p class="s-E7ZJqo">${esc(editorialAssessment.body)}</p>
   </section>
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="stationInfo">
-    <h2 id="stationInfo" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
+    <h2 id="stationInfo" class="s-h2" style="margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
     <dl class="s-RPPdPW">
       <dt class="s-bovPrI">${esc(copy.infoBrand)}</dt><dd class="s-q3nqK4">${esc(ctx.brandDisplay)}</dd>
       <dt class="s-bovPrI">${esc(copy.infoAddress)}</dt><dd class="s-q3nqK4">${esc(ctx.station.address ?? '—')}</dd>
@@ -3208,7 +3160,7 @@ function renderStationPage(opts: {
     </dl>
   </section>
   <section class="s-ziawP1" aria-labelledby="stationContext">
-    <h2 id="stationContext" style="${H2_STYLE}">${esc(copy.contextHeading)}</h2>
+    <h2 id="stationContext" class="s-h2">${esc(copy.contextHeading)}</h2>
     ${copy.contextParagraphs(ctx.brandDisplay, ctx.city, zoneLabel, fuelLabel)
       .map((p) => `<p class="s-ZLNNaY">${p}</p>`)
       .join('')}
@@ -3597,7 +3549,7 @@ function renderItalianCityFrontalierExtra(args: {
   };
   const c = copy[locale] || copy.it;
   return `<section class="s-ziawP1" aria-labelledby="itCityFrontalierExtra">
-    <h2 id="itCityFrontalierExtra" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <h2 id="itCityFrontalierExtra" class="s-h2">${esc(c.h)}</h2>
     <p class="s-KwuhOL">${c.p1}</p>
     <p class="s-E7ZJqo">${c.p2}</p>
   </section>`;
@@ -3630,8 +3582,10 @@ function renderItalianCityPage(opts: {
   alternates: Record<FuelDailyLocale, string>;
   today: Date;
   distDir?: string;
+  /** Project root, threaded through for build-time brand-logo resolution. */
+  rootDir?: string;
 }): string {
-  const { entry, locale, fuel, stations, history, crossBorder, canonicalPath, alternates, today, distDir } = opts;
+  const { entry, locale, fuel, stations, history, crossBorder, canonicalPath, alternates, today, distDir, rootDir } = opts;
   const copy = IT_CITY_COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -3742,9 +3696,12 @@ function renderItalianCityPage(opts: {
           .map((s) => {
             const matched = s.id ? ctxBySlug.get(s.id) : undefined;
             const href = matched ? buildFuelItalianStationPath(locale, fuel, entry.slug, matched.slug) : undefined;
+            const logoUrl = resolveStationBrandLogoUrl(rootDir, s.brand);
             const card = renderEntityCard({
               href,
-              iconSvg: ICON_FUEL_SVG,
+              logoUrl: logoUrl ?? undefined,
+              logoAlt: s.brand || s.stationName,
+              iconSvg: logoUrl ? undefined : ICON_FUEL_SVG,
               title: s.stationName || s.brand || '—',
               subtitle: s.address || '—',
               metric: `${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) : '—'} ${copy.currency}`,
@@ -3839,9 +3796,9 @@ function renderItalianCityPage(opts: {
     <span>${esc(entry.display)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
-    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(italianCityTaglineByLocale[locale])}</p>
+    <p class="s-eyb">${esc(dateStamp)}</p>
+    <h1 class="s-h1">${esc(h1)}</h1>
+    <p class="s-lede">${esc(italianCityTaglineByLocale[locale])}</p>
   </header>
   <section class="s-gfdc7T">
     <div class="s-tacc">
@@ -3856,12 +3813,12 @@ function renderItalianCityPage(opts: {
   </section>
   ${verdictBannerHtml}
   <section class="s-ziawP1" aria-labelledby="itCityTable">
-    <h2 id="itCityTable" style="${H2_STYLE}">${esc(copy.tableTitle(entry.display))}</h2>
+    <h2 id="itCityTable" class="s-h2">${esc(copy.tableTitle(entry.display))}</h2>
     ${stationListHtml}
   </section>
   ${historyCard
     ? `<section class="s-ziawP1" aria-labelledby="itCityTrend">
-        <h2 id="itCityTrend" style="${H2_STYLE}">${esc(IT_TREND_LABEL[locale])}</h2>
+        <h2 id="itCityTrend" class="s-h2">${esc(IT_TREND_LABEL[locale])}</h2>
         <p class="s-C63fWv">${esc(IT_TREND_INTRO[locale])}</p>
         ${historyCard}
       </section>`
@@ -3870,13 +3827,13 @@ function renderItalianCityPage(opts: {
     <p class="s-BMekyJ">${esc(copy.crossBorderTip)}</p>
   </section>
   <section class="s-ziawP1" aria-labelledby="itCityContext">
-    <h2 id="itCityContext" style="${H2_STYLE}">${esc(copy.contextHeading)}</h2>
+    <h2 id="itCityContext" class="s-h2">${esc(copy.contextHeading)}</h2>
     ${copy.contextParagraphs(fuelLabel, entry.display, nearestZoneLabel)
       .map((p) => `<p class="s-ZLNNaY">${p}</p>`)
       .join('')}
   </section>
   <section class="s-ziawP1" aria-labelledby="itCityTips">
-    <h2 id="itCityTips" style="${H2_STYLE}">${esc(copy.tipsHeading)}</h2>
+    <h2 id="itCityTips" class="s-h2">${esc(copy.tipsHeading)}</h2>
     <ul class="s-diIsZC">
       ${copy.tipsItems.map((t) => `<li class="s-Pkexk_">${esc(t)}</li>`).join('')}
     </ul>
@@ -4096,11 +4053,13 @@ export function generateFuelItalianCityPages(opts: {
   history?: HistorySnapshot[];
   today?: Date;
   distDir?: string;
+  rootDir?: string;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const rootDir = opts.rootDir;
   const pages: Record<string, string> = {};
 
   // Per-station contexts are fuel-specific now (diesel only covers stations
@@ -4142,6 +4101,7 @@ export function generateFuelItalianCityPages(opts: {
           alternates,
           today,
           distDir,
+          rootDir,
         });
         pages[canonicalPath] = html;
       }
@@ -4586,7 +4546,7 @@ function renderItalianStationFrontalierExtra(args: {
   };
   const c = copy[locale] || copy.it;
   return `<section class="s-ziawP1" aria-labelledby="itStationFrontalierExtra">
-    <h2 id="itStationFrontalierExtra" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <h2 id="itStationFrontalierExtra" class="s-h2">${esc(c.h)}</h2>
     <p class="s-KwuhOL">${c.p1}</p>
     <p class="s-E7ZJqo">${c.p2}</p>
   </section>`;
@@ -4748,7 +4708,7 @@ function renderItalianStationPage(opts: {
   readonly canonicalPath: string;
   readonly alternates: Record<FuelDailyLocale, string>;
   readonly distDir?: string;
-  /** Project root for resolving brand logos via resolveBrandLogoUrl. */
+  /** Project root for resolving brand logos via resolveStationBrandLogoUrl. */
   readonly rootDir?: string;
 }): string {
   const { ctx, locale, fuel, cityAvg, cityStations, history, today, canonicalPath, alternates, distDir, rootDir } = opts;
@@ -4894,7 +4854,7 @@ function renderItalianStationPage(opts: {
 
   const siblingsHtml = siblingStations.length > 0
     ? `<section class="s-ZqtBbL" aria-labelledby="itStationSiblings">
-        <h2 id="itStationSiblings" style="${H2_STYLE}">${esc(copy.siblingsHeading)}</h2>
+        <h2 id="itStationSiblings" class="s-h2">${esc(copy.siblingsHeading)}</h2>
         <ul class="s-RBoxs1">
           ${siblingStations
             .map((s) => {
@@ -4951,23 +4911,23 @@ function renderItalianStationPage(opts: {
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
   <header class="s-S1RSUf">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
-    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(italianStationTaglineByLocale[locale])}</p>
+    <p class="s-eyb">${esc(dateStamp)}</p>
+    <h1 class="s-h1">${esc(h1)}</h1>
+    <p class="s-lede">${esc(italianStationTaglineByLocale[locale])}</p>
   </header>
   ${heroHtml}
   ${adviceHtml}
   ${locationHtml}
   ${historyCard
     ? `<section class="s-ziawP1" aria-labelledby="itStationTrend">
-        <h2 id="itStationTrend" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(IT_TREND_LABEL[locale])}</h2>
+        <h2 id="itStationTrend" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(IT_TREND_LABEL[locale])}</h2>
         <p class="s-zYNVmR">${esc(IT_TREND_INTRO[locale])}</p>
         ${historyCard}
         ${lastUpdatedLine}
       </section>`
     : ''}
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="itStationInfo">
-    <h2 id="itStationInfo" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
+    <h2 id="itStationInfo" class="s-h2" style="margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
     <dl class="s-RPPdPW">
       <dt class="s-bovPrI">${esc(copy.infoBrand)}</dt><dd class="s-q3nqK4">${esc(ctx.brandDisplay)}</dd>
       <dt class="s-bovPrI">${esc(copy.infoAddress)}</dt><dd class="s-q3nqK4">${esc(ctx.station.address ?? '—')}, ${esc(cityName)} (${esc(ctx.cityEntry.province)})</dd>
@@ -4976,7 +4936,7 @@ function renderItalianStationPage(opts: {
     </dl>
   </section>
   <section class="s-ziawP1" aria-labelledby="itStationContext">
-    <h2 id="itStationContext" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.contextHeading)}</h2>
+    <h2 id="itStationContext" class="s-h2" style="margin:0 0 12px;font-size:20px">${esc(copy.contextHeading)}</h2>
     <p class="s-ZLNNaY">${esc(intro)}</p>
     <p class="s-ZLNNaY">${esc(paragraph)}</p>
     ${copy.contextParagraphs(ctx.brandDisplay, cityName, nearestZoneLabel)
@@ -5286,7 +5246,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         history,
         rootDir,
       });
-      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir });
+      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir, rootDir });
       const italianStationPages = generateFuelItalianStationPages({
         dataset,
         history,

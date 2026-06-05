@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-04T00:57:50.301Z",
+  "generatedAt": "2026-06-04T22:59:04.360Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7833,
-  "avgDurationMs": 7833,
+  "durationMs": 7643,
+  "avgDurationMs": 7643,
   "durationHistory": [
-    7833
+    7643
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -54,8 +54,45 @@
       }
     },
     {
+      "title": "Lackierer Flugzeugkomponenten 100% (w/m/d)",
+      "slug": "lackierer-flugzeugkomponenten-100-w-m-d-ruag-ag-wilderswil",
+      "url": "https://jobs.ruag.ch/offene-stellen/lackierer-flugzeugkomponenten/db553ad0-d143-4625-97b2-bd72c3fbe739",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/db553ad0-d143-4625-97b2-bd72c3fbe739",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Wilderswil",
+      "addressLocality": "Wilderswil",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2053-10-10",
+      "id": "ruag-ag-3fabefc4a11d",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-04T13:26:47.246Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Lehrstelle als Logistiker/in EFZ 2027 100% (w/m/d)",
-      "slug": "apprendistato-come-logistiker-in-cfc-2027-100-m-w-d-ruag-ag-thun",
+      "slug": "apprendistato-come-logistiker-in-cfc-2027-100-w-m-d-ruag-ag-thun",
       "url": "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-2027/39a02ff4-efa3-4e1a-932f-322aa1a5caef",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/39a02ff4-efa3-4e1a-932f-322aa1a5caef",
       "company": "RUAG AG",
@@ -91,7 +128,7 @@
     },
     {
       "title": "Technical Instructor 80-100 (w/m/d)",
-      "slug": "istruttore-tecnico-80-100-w-m-d-ruag-ag-dubendorf-zh",
+      "slug": "technical-instructor-80-100-w-m-d-ruag-ag-dubendorf-zh",
       "url": "https://jobs.ruag.ch/offene-stellen/technical-instructor/88307c5a-c6e9-44c1-80dc-4f527ac09c62",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/88307c5a-c6e9-44c1-80dc-4f527ac09c62",
       "company": "RUAG AG",
@@ -118,11 +155,11 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-02T14:31:23.679Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -160,41 +197,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "title": "AvionikerIn / ElektrikerIn Helikopter 100 (w/m/d)",
-      "slug": "avionikerin-elektrikerin-helikopter-100-w-m-d-ruag-ag-alpnach",
-      "url": "https://jobs.ruag.ch/offene-stellen/avionikerin-elektrikerin-helikopter/f3dc5c5b-6759-4f2b-97cd-23348a8ce785",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/f3dc5c5b-6759-4f2b-97cd-23348a8ce785",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Alpnach",
-      "addressLocality": "Alpnach",
-      "addressRegion": "OW",
-      "addressCountry": "CH",
-      "canton": "OW",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-02",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "2053-10-16",
-      "id": "ruag-ag-4cb829aaf4eb",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-02T14:31:23.679Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
       }
     }
   ]

@@ -18,6 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
+import { fetchViaJina, detectJinaErrorBody } from './lib/jina-proxy.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -55,6 +56,11 @@ const CAMBIAVALUTE_COMPANY_NAME = 'CambiaValute.ch';
 const CAMBIAVALUTE_COMPANY_DOMAIN = 'cambiavalute.ch';
 const CAMBIAVALUTE_HOST = 'cambiavalute.ch';
 const CAMBIAVALUTE_LISTING_URL = 'https://cambiavalute.ch/annunci-di-lavoro/';
+// Yoast sitemap for the "career" (annuncio-di-lavoro) custom post type. Used as
+// a discovery fallback when the listing-page DOM yields 0 links — it lists the
+// canonical job URLs as plain <loc> entries, so it survives Elementor layout
+// changes and is a second path past the same WAF (gated by the same UA window).
+const CAMBIAVALUTE_SITEMAP_URL = 'https://cambiavalute.ch/career-sitemap.xml';
 const CAMBIAVALUTE_LOCALES = ['it', 'en', 'de', 'fr'];
 
 /* ── HTML helpers ──────────────────────────────────────────── */
@@ -145,13 +151,48 @@ function parseJobLinksFromHtml(html = '') {
   return [...seen.values()];
 }
 
+/**
+ * Extract job detail links from a Yoast sitemap XML body. Same /annuncio-di-lavoro/
+ * filter + canonicalization as parseJobLinksFromHtml, but over <loc> entries.
+ */
+function parseJobLinksFromSitemap(xml = '') {
+  const source = String(xml || '');
+  const locRe = /<loc>\s*([^<\s]+)\s*<\/loc>/gi;
+  const seen = new Map();
+  let match = null;
+  while ((match = locRe.exec(source)) !== null) {
+    const absolute = toAbsoluteUrl(decodeHtmlEntities(match[1] || ''));
+    if (!absolute) continue;
+    if (!/\/annuncio-di-lavoro\/[^/?#]+/i.test(absolute)) continue;
+    try {
+      const url = new URL(absolute);
+      if (url.hostname.toLowerCase() !== CAMBIAVALUTE_HOST) continue;
+      const canonical = `${url.origin}${url.pathname.replace(/\/+$/, '/')}`
+        .replace(/([^/])$/, '$1/');
+      const key = canonical.toLowerCase();
+      if (!seen.has(key)) seen.set(key, canonical);
+    } catch {
+      // skip malformed URLs
+    }
+  }
+  return [...seen.values()];
+}
+
 // Realistic browser User-Agents rotated across attempts to defeat anti-bot
-// 403s (cambiavalute.ch blocks the bot UA — issues #1277/#1303). Same pattern
-// as the goline crawler (scripts/update-goline-jobs.mjs:fetchPage).
+// 403s (cambiavalute.ch blocks the bot UA — issues #1277/#1303/#1363).
+//
+// IMPORTANT — the WAF gates on the Chrome MAJOR version, not just "browser vs
+// bot": empirically (2026-06-04, residential probe) Chrome/122–130 return 200
+// while Chrome/120 and Chrome/131+ return 403. The previous UAs were ALL
+// Chrome/131, so every plain-fetch attempt AND the Playwright fallback (which
+// sets page UA = BROWSER_USER_AGENTS[0]) were served the anti-bot page → 0 job
+// links parsed in CI. Pin a few versions inside the known-good window. If the
+// window drifts and these start 403'ing again, the run skips gracefully (no
+// false-failure issue) — bump the versions then.
 const BROWSER_USER_AGENTS = [
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
 ];
 
 async function fetchListingPage(url, timeoutMs, userAgent) {
@@ -161,12 +202,21 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Language': 'it-CH,it;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Cache-Control': 'no-cache',
+        // Mirror a real Chrome top-level navigation. The Sec-Fetch-* metadata +
+        // Upgrade-Insecure-Requests are sent by every modern browser; their
+        // absence is a strong bot tell for the WAF. `Accept-Encoding` is left
+        // unset on purpose so undici negotiates + auto-decompresses the body
+        // (manually pinning br/gzip makes res.text() return compressed bytes).
+        // No fake `Referer` — a direct navigation has Sec-Fetch-Site: none.
+        Accept:
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Upgrade-Insecure-Requests': '1',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Sec-Fetch-User': '?1',
         'User-Agent': userAgent,
-        Referer: 'https://www.google.com/',
       },
     });
     const html = await res.text();
@@ -245,8 +295,60 @@ async function fetchCambiavalute() {
     return { seedUrls: [], seedMetaByUrl: {} };
   }
 
-  const links = parseJobLinksFromHtml(html);
-  console.log(`📦 Found ${links.length} job detail link(s).`);
+  let links = parseJobLinksFromHtml(html);
+  console.log(`📦 Found ${links.length} job detail link(s) on the listing page.`);
+
+  // Fallback: the listing DOM yielded nothing (anti-bot challenge page, or an
+  // Elementor layout change). Try the career sitemap, which lists the canonical
+  // job URLs as plain <loc> entries and is far harder to break.
+  if (links.length === 0) {
+    console.log(`🗺️  Listing empty — trying career sitemap ${CAMBIAVALUTE_SITEMAP_URL}...`);
+    try {
+      const sitemapXml = await fetchListingPageWithRetry(
+        CAMBIAVALUTE_SITEMAP_URL,
+        timeoutMs,
+        userAgent,
+      );
+      links = parseJobLinksFromSitemap(sitemapXml);
+      console.log(`📦 Found ${links.length} job detail link(s) via sitemap.`);
+    } catch (err) {
+      console.warn(`⚠️ Sitemap fallback failed: ${err?.message || err}.`);
+    }
+  }
+
+  // Still nothing → the egress IP is WAF-blocked (datacenter IP on CI gets a
+  // challenge page even with a perfect browser UA — see #1363). Fetch the
+  // sitemap through the Jina Reader proxy (clean IP) for discovery; the detail
+  // pages are then fetched through the same proxy by the shared crawler via
+  // JOBS_CRAWLER_FETCH_PROXY (set in runBaseCrawler below).
+  if (links.length === 0) {
+    try {
+      console.log('🛰️  Sitemap empty from direct fetch — retrying via egress proxy...');
+      const res = await fetchViaJina(CAMBIAVALUTE_SITEMAP_URL, { timeoutMs });
+      if (res.ok) {
+        const body = await res.text();
+        // Jina answers 200 even when it never reached the target (challenge /
+        // error page, or empty body) → the link union below would silently be 0.
+        // Log an explicit "200-but-not-target" warning so a degraded proxy is
+        // diagnosable, then parse the body unchanged (#1422 item 1).
+        const reason = detectJinaErrorBody(body);
+        if (reason) console.warn(`⚠️ Proxied sitemap 200 but not the target page (${reason}) — link union will likely be empty.`);
+        // Jina with X-Return-Format: html renders the XML sitemap as an HTML
+        // page (<a href> links, not <loc>), so parse with both extractors and
+        // union — robust whether the proxy returns raw XML or rendered HTML.
+        const merged = new Map();
+        for (const link of [...parseJobLinksFromSitemap(body), ...parseJobLinksFromHtml(body)]) {
+          merged.set(link.toLowerCase(), link);
+        }
+        links = [...merged.values()];
+        console.log(`📦 Found ${links.length} job detail link(s) via proxied sitemap.`);
+      } else {
+        console.warn(`⚠️ Proxied sitemap returned HTTP ${res.status}.`);
+      }
+    } catch (err) {
+      console.warn(`⚠️ Proxied sitemap fallback failed: ${err?.message || err}.`);
+    }
+  }
 
   const seedMetaByUrl = {};
   for (const link of links) {
@@ -299,6 +401,11 @@ async function runBaseCrawler() {
     companyKeys: CAMBIAVALUTE_KEY,
     disableWorkdayForce: true,
     forceLocalizationWhenAiEnabledOnly: true,
+    // Route cambiavalute.ch fetches (the detail pages) through the Jina Reader
+    // egress proxy: the WAF blocks GitHub Actions datacenter IPs regardless of
+    // UA/headers (#1363), but the jobs are reachable from a clean IP. Scoped to
+    // this host only — every other crawler's fetch path is untouched.
+    extraEnv: { JOBS_CRAWLER_FETCH_PROXY: CAMBIAVALUTE_HOST },
   });
 }
 

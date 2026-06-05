@@ -101,6 +101,24 @@ const EMPTY_OK_CRAWLERS = new Set([
   // Ticino/Graubünden roles; same legitimately-empty regional-filter case as
   // zurich-insurance-sede-ticino and manor. Parser is healthy.
   'alten-switzerland',
+  // The Living Circle: the feed (https://jobs.thelivingcircle.ch/jobs.feed.json)
+  // currently returns 13 open jobs CH-wide but 0 in Ticino. The luxury-hotel
+  // group hires mostly in ZH/GR/VS; the crawler is scoped to TI and is healthy
+  // — same legitimately-empty regional-filter case as manor and alten-switzerland.
+  // Re-arms when a TI listing appears.
+  'the-living-circle',
+  // Banca Raiffeisen Vedeggio-Cassarate: the single regional bank's careers page
+  // (https://www.raiffeisen.ch/vedeggio-cassarate/it/chi-siamo/carriera/lavorare-banca-raiffeisen.html)
+  // returns HTTP 200 with 0 open positions ("Offerte attive: 0"). A small local
+  // cooperative bank legitimately has no openings for weeks at a time; the
+  // crawler completes cleanly and re-arms when a vacancy is published.
+  'banca-raiffeisen-vedeggio-cassarate',
+  // Linnea SA (Riazzino, TI): the careers page (https://www.linnea.ch/careers/)
+  // returns HTTP 200 and explicitly states "No open positions at this time."
+  // The parser correctly finds 0 accordion items; the botanical-ingredients
+  // manufacturer simply has no current openings. Healthy, re-arms when a
+  // vacancy is published.
+  'linnea',
 ]);
 
 /** Read JSON file, return null on any error. */

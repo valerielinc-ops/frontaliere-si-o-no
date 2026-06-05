@@ -1,21 +1,22 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-06-03T22:31:47.892Z",
+  "generatedAt": "2026-06-04T21:45:10.828Z",
   "total": 14,
-  "newCount": 1,
-  "updatedCount": 12,
+  "newCount": 0,
+  "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 59335,
-  "avgDurationMs": 59335,
+  "durationMs": 65849,
+  "avgDurationMs": 65849,
   "durationHistory": [
-    59335
+    65849
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-fv2iws",
-      "slug": "r-d-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "r-d-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-fv2iws",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "R&D Engineer (80-100%)",
       "location": "Quartino, Ticino",
@@ -39,16 +40,22 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
-      "_qualityScore": 67,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 15,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-2eqea5",
       "slug": "continuous-improvement-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-2eqea5",

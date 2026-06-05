@@ -7968,6 +7968,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-italia-svizzera.title': 'Telearbeit für Grenzgänger: Neue Regeln',
     'blog.article.telelavoro-frontalieri-italia-svizzera.excerpt': 'Die Schweiz und Italien diskutieren neue Vorschriften für die Telearbeit von Grenzgängern. Hier erfahren Sie, was sich ändern könnte.',
     'blog.article.telelavoro-frontalieri-italia-svizzera.imageAlt': 'Heimarbeiter mit Blick auf Lugano',
+    'blog.article.naspi-unemployment-benefits.title': 'NASPI und Grenzgänger: Was ändert sich',
+    'blog.article.naspi-unemployment-benefits.excerpt': 'Die NASPI ist eine Arbeitslosenleistung für italienische Arbeitnehmer. Wie funktioniert sie für Grenzgänger?',
+    'blog.article.naspi-unemployment-benefits.imageAlt': 'Eine Person mit einem Zertifikat und einem Telefon in der Hand, mit Lugano-Stadt im Hintergrund',
+    'blog.article.concierge-ticino-lonza-ch.title': 'Lonza sucht Service des Installations Concierge in Ticino',
+    'blog.article.concierge-ticino-lonza-ch.excerpt': 'Lonza SA sucht einen Service des Installations Concierge (80-100%) in Ticino. Alle Details der Stellenausschreibung finden Sie hier. 📊',
+    'blog.article.concierge-ticino-lonza-ch.imageAlt': 'Panoramablick auf den Luganersee mit modernen Gebäuden.',
+    'blog.article.chiasso-grenzubergang.title': 'Grenzübergang Chiasso: Was ist zu beachten',
+    'blog.article.chiasso-grenzubergang.excerpt': 'Informationen zu den aktuellen Bedingungen des Grenzübergangs in Chiasso.\n\n### Aktuelle Informationen\n\n- Die aktuellen Bedingungen des Grenzübergangs in Chiasso können auf der Website der Schweizerischen Zollverwaltung [https://www.ezv.admin.ch](https://www.ezv.admin.ch) abgerufen werden.\n\n### Was ist eine G-Bewilligung?\n\nEine G-Bewilligung ist ein Dokument, das für Grenzgänger benötigt wird, um den Grenzübergang in der Schweiz zu nutzen. Die G-Bewilligung wird von der Schweizerischen Zollverwaltung ausgestellt und muss im Besitz des Grenzgängers sein, wenn er den Grenzübergang nutzt.\n\n### Was sind Franken?\n\nFranken sind die Währung der Schweiz. Der Kurs der Franken kann je nach Tag und Uhrzeit variieren. Es ist ratsam, sich vor dem Grenzübergang über den aktuellen Kurs zu informieren.\n\n### Brückentage\n\nBrückentage sind Feiertage, an denen die Grenzübergänge in der Schweiz geschlossen sind. Die Brückentage in der Schweiz sind: 1. Januar, 1. Mai, 8. Dezember und Weihnachten.\n\n### Swissminiatur\n\nDie Swissminiatur ist ein beliebtes Ausflugsziel in der Schweiz. Es bietet eine Miniaturversion der Schweizer Städte und Sehenswürdigkeiten.\n\n### Grenzgänger\n\nGrenzgänger sind Personen, die regelmäßig zwischen der Schweiz und Italien pendeln. Sie benötigen eine G-Bewilligung, um den Grenzübergang in der Schweiz zu nutzen.\n\n### Einrichtungen\n\nDie Einrichtungen am Grenzübergang in Chiasso bieten verschiedene Dienstleistungen an, wie z.B. die Einreise- und Ausreiseformalitäten, die Abfertigung von Gütern und die Information über die aktuellen Bedingungen des Grenzübergangs.',
+    'blog.article.chiasso-grenzubergang.imageAlt': 'Chiasso Bahnhof',
+    'blog.article.educatore-infanzia-ticino-stipendio.title': 'Kindererzieher im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Anleitung, um als Kindererzieher zu arbeiten: Diplom SSS, Gehalt CHF 73K–97K und Verfahren für die G-Bewilligung.',
+    'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Kinderbetreuer bei der Arbeit in einem modernen Kindergarten im Tessin mit Alpenpanorama.',
 };
 
 export default blogMetaDe;

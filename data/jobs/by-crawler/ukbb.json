@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-05-28T00:44:55.095Z",
+  "assembledAt": "2026-06-04T23:16:37.826Z",
   "jobs": [
     {
       "id": "ukbb-03f013ec268d",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ukbb.ch/offer/praktikantin-ict-80-100/fd23cf01-8257-48f5-9cc3-9e624e721a71",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:53.127Z",
+      "crawledAt": "2026-06-04T23:16:35.809Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
     },
     {
       "id": "ukbb-0a70150fbb3e",
-      "slug": "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
+      "slug": "dipl-professionista-della-salute-hf-o-esperto-in-cura-d-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel",
       "slugByLocale": {
         "it": "dipl-professionista-della-salute-hf-o-esperto-in-cura-d-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel",
         "en": "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
@@ -135,7 +135,7 @@
       "url": "https://jobs.ukbb.ch/offer/dipl-pflegefachperson-hf-oder-exper/f69fbdc5-453d-4542-99b6-1263650af319",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:52.593Z",
+      "crawledAt": "2026-06-04T23:16:35.272Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -183,11 +183,13 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel",
+        "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel"
+          "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel",
+          "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
         ],
         "de": [
           "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
@@ -209,7 +211,7 @@
     },
     {
       "id": "ukbb-1434c36e275d",
-      "slug": "physiotherapeut-in-zentrum-per-bewegungsanalyse-80-universitats-kinderspital-beider-basel-basel",
+      "slug": "fisioterapista-centro-per-l-analisi-del-movimento-80-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-centro-per-l-analisi-del-movimento-80-universitats-kinderspital-beider-basel-basel",
         "en": "physiotherapist-movement-analysis-center-80-universitats-kinderspital-beider-basel-basel",
@@ -238,7 +240,7 @@
       "url": "https://jobs.ukbb.ch/offer/physiotherapeutin-zentrum-fur-beweg/bfbb604c-87b7-42a2-9c76-9742d01d4dee",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:52.139Z",
+      "crawledAt": "2026-06-04T23:16:34.818Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -293,7 +295,8 @@
         ],
         "it": [
           "physiotherapeut-in-zentrum-fur-bewegungsanalyse-80-ukbb-basel",
-          "physiotherapist-in-center-for-motion-analysis-80-universitats-kinderspital-beider-basel-basel"
+          "physiotherapist-in-center-for-motion-analysis-80-universitats-kinderspital-beider-basel-basel",
+          "physiotherapeut-in-zentrum-per-bewegungsanalyse-80-universitats-kinderspital-beider-basel-basel"
         ],
         "fr": [
           "physiotherapeute-au-centre-d-analyse-des-mouvements-80-universitats-kinderspital-beider-basel-basel"
@@ -302,6 +305,7 @@
       "previousSlugs": [
         "physiotherapeut-in-zentrum-fur-bewegungsanalyse-80-ukbb-basel",
         "physiotherapist-in-center-for-motion-analysis-80-universitats-kinderspital-beider-basel-basel",
+        "physiotherapeut-in-zentrum-per-bewegungsanalyse-80-universitats-kinderspital-beider-basel-basel",
         "physiotherapeute-au-centre-d-analyse-des-mouvements-80-universitats-kinderspital-beider-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T20:46:02.277Z",
@@ -349,7 +353,7 @@
       "url": "https://jobs.ukbb.ch/offer/dipl-pflegefachperson-hf-oder-mpa-e/be9d134e-7e7a-4237-aeb6-017a7c1857fb",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:51.600Z",
+      "crawledAt": "2026-06-04T23:16:34.237Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -455,7 +459,7 @@
       "url": "https://jobs.ukbb.ch/offer/medizinischer-praxisassistentin-mpa/a1865c4c-69e3-41ba-845b-41f91bff6471",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:51.135Z",
+      "crawledAt": "2026-06-04T23:16:33.686Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -551,7 +555,7 @@
       "url": "https://jobs.ukbb.ch/offer/zivildienst-in-der-pflege/9e85a9e1-d299-4796-a9c7-3f9753f0fe39",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:50.684Z",
+      "crawledAt": "2026-06-04T23:16:33.143Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -625,7 +629,7 @@
       "url": "https://jobs.ukbb.ch/offer/oberarztin-fur-die-padiatrische-nep/8e1a53b0-b9a3-49a4-acf3-40134bbe6938",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:50.241Z",
+      "crawledAt": "2026-06-04T23:16:32.597Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -709,7 +713,7 @@
       "url": "https://jobs.ukbb.ch/offer/ausbildung-dipl-fachperson-operatio/8be0a0b6-8af9-4fb1-8665-568622035e09",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:49.779Z",
+      "crawledAt": "2026-06-04T23:16:32.060Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -777,12 +781,160 @@
       }
     },
     {
+      "id": "ukbb-4b21f2214a74",
+      "slug": "leitung-pflege-neonatologische-intensivstation-90-universitats-kinderspital-beider-basel-basel",
+      "slugByLocale": {
+        "it": "leitung-pflege-neonatologische-intensivstation-90-universitats-kinderspital-beider-basel-basel",
+        "en": "leitung-pflege-neonatologische-intensivstation-90-universitats-kinderspital-beider-basel-basel",
+        "de": "leitung-pflege-neonatologische-intensivstation-90-ukbb-basel",
+        "fr": "leitung-pflege-neonatologische-intensivstation-90-universitats-kinderspital-beider-basel-basel"
+      },
+      "company": "Universitäts-Kinderspital beider Basel",
+      "companyKey": "ukbb",
+      "companyDomain": "ukbb.ch",
+      "title": "Leitung Pflege Neonatologische Intensivstation 90%",
+      "titleByLocale": {
+        "it": "Cura della testa Cura intensiva Neonatologica 90%",
+        "en": "Head care Neonatological intensive care 90%",
+        "de": "Leitung Pflege Neonatologische Intensivstation 90%",
+        "fr": "Soins de la tête Soins néonatologiques intensifs 90%"
+      },
+      "description": "Die Neonatologie des UKBB mit 16 Betten, davon jeweils sechs Beatmungsplätze, Intermediate Care und Special Care im Rooming-in, befindet sich in direkter Nähe zum Gebärsaal der Frauenklinik des Universitätsspitals Basel. Wir betreuen Neonaten und Neugeborene ab der 24. SSW. Das Pflegeteam besteht aus 60 Mitarbeitenden bei insgesamt 40 FTE. Die Mitarbeitenden vom Lactarium mit 4 FTE sind Teil des Neonatologie Teams.\n\nEintrittsdatum : 1.9.2026 oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Führung der Station gemeinsam mit Ihren 2 Stellvertreter*innen, inkl. der strategischen Ausrichtung und Zieldefinition, nach fachlichen und wirtschaftlichen Grundsätzen\n\nFörderung einer hervorragenden interprofessionellen und interdisziplinären Zusammenarbeit\n\nSicherstellung einer qualitativ hochwertigen, patientenzentrierten und familienorientierten Pflege und Betreuung\n\nSicherstellung des Ausbildungsauftrages und Gewährleisten einer guten Aus- Fort- und Weiterbildungsqualität in Zusammenarbeit mit der Pflegeentwicklung und der Berufsbildung Pflege\n\nFörderung und Unterstützung einer evidenzbasierten Pflege sowie Mitarbeit beim Aufbau weiterer ANP-Teams\n\n\\n\\n\\nIhr Profil\\n\\n\n Sie haben eine abgeschlossene Führungsausbildung und mehrjährige Berufserfahrung in einer ähnlichen Stelle\n\nSie sind Expertin Intensivpflege NDS HF oder verfügen über einen ÜWP in Neonatologie und bringen eine mehrjährige Erfahrung im Umgang mit Neonaten oder Intensivpatienten mit\n\nMit Ihrem personen- und aufgabenorientierten Führungsstil schaffen Sie ein Arbeitsklima, in dem der persönliche Einsatz und die Eigenverantwortung der Mitarbeitenden gefördert werden\n\nSie arbeiten gerne in einem Leitungsteam\n\nZiel- und lösungsorientiertes Denken und Handeln, Engagement, Freude und Motivation sind für Sie selbstverständlich\n\nSie sind eine kompetente, starke und kreative Führungsperson, die sich ausgesprochen für das Personal sowie für die Patienten und deren Familien einsetzt\n\n\\n\\n\\nUnser Angebot\\n\\n\n Eine interessante, vielseitige und anspruchsvolle Tätigkeit mit viel Eigenverantwortung in einem dynamischen Umfeld und insgesamt 60 Mitarbeitenden\n\nEin aufgeschlossenes, hochmotiviertes Team, dass Sie unterstützt\n\nEine kollegiale Zusammenarbeit in einem interdisziplinären und interprofessionellen Umfeld\n\nEin modernes, dynamisches Arbeitsumfeld mitten in Basel\n\nEin vielfältiges Weiterbildungsangebot sowie weitere Benefits\n\nAttraktive Anstellungsbedingungen\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilen Ihnen gerne Frau Caroline Stade, Direktorin Pflege Tel +41 61 704 27 17, Mail: caroline.stade@ukbb.ch",
+      "descriptionByLocale": {
+        "it": "La neonatologia della UKBB con 16 posti letto, tra cui sei posti di respirazione, Intermediate Care e Special Care nel Rooming-in, si trova nelle immediate vicinanze della clinica femminile dell'Ospedale Universitario di Basilea. Serviamo neonate e neonati della 24esima SSW. Il team di cura è composto da 60 dipendenti con un totale di 40 FTE. I dipendenti del Lactarium con 4 FTE fanno parte del team Neonatology. Data d'entrata: 1.9.2026 o d'accordo\\n\\n\\n\\n Hai completato la formazione manageriale e diversi anni di esperienza professionale in un luogo simile Sei un esperto in terapia intensiva NDS HF o hai un TWP in neonatologia e portare un'esperienza pluriennale nel trattare con neonate o pazienti intensivi con il tuo stile di leadership personale e orientato al compito per creare un ambiente di lavoro in cui l'uso personale e la responsabilità personale dei dipendenti sono promossi Naturalmente sei un leader competente, forte e creativo che si impegna per il personale e per i pazienti e le loro famiglie \\n\\n\\nLa nostra offerta\\n Un'attività interessante, versatile e impegnativa con un sacco di auto-interessante \\n\\n\\n Si prega di prendere un breve tempo e riempire i campi sulla pagina successiva. Mantenere i documenti di applicazione completi elettronicamente pronti. Per domande generali sul lavoro o il processo di applicazione, il nostro team HR, telefono +41 61 704 12 32 sarà lieto di aiutarvi. Per ulteriori informazioni rivolgersi a Mrs Caroline Stade, Director Care Tel +41 61 704 27 17, Mail: caroline.stade@ukbb.ch",
+        "en": "The neonatology of the UKBB with 16 beds, including six respiration places, Intermediate Care and Special Care in the Rooming-in, is located in the immediate vicinity of the female clinic of the University Hospital Basel. We serve neonates and newborns from the 24th SSW. The nursing team consists of 60 employees with a total of 40 FTE. The employees of the Lactarium with 4 FTE are part of the Neonatology team.\n\nDate of entry: 1.9.2026 or by agreement\n• Tasks\nManagement of the station together with your 2 alternates, including the strategic orientation and target definition, according to technical and economic principles\n\nPromoting excellent interprofessional and interdisciplinary cooperation\n\nEnsuring high-quality, patient-centric and family-oriented care and care\n\nEnsuring training and guaranteeing a good quality of education and training in cooperation with care development and vocational training\n\nPromoting and supporting evidence-based care and cooperation in building further ANP teams\n\nYour profile\\n\\n\\n\nYou have completed management training and several years of professional experience in a similar place\n\nThey are an expert in intensive care NDS HF or have a TWP in neonatology and bring a multi-year experience in dealing with neonates or intensive patients with\n\nWith your personal and task-oriented leadership style, you create a working environment in which the personal commitment and responsibility of the employees are promoted.\n\nYou like to work in a management team\n\nTarget and solution-oriented thinking and action, commitment, joy and motivation are of course for you\n\nThey are a competent, strong and creative leader who is committed to the staff and to the patients and their families.\n\nOur offer\\n\\n\nAn interesting, versatile and demanding activity with great responsibility in a dynamic environment and a total of 60 employees\n\nAn open-minded, highly motivated team that supports you\n\nA collegial cooperation in an interdisciplinary and interprofessional environment\n\nA modern, dynamic working environment in the middle of Basel\n\nA diverse range of training and other benefits\n\nAttractive employment conditions\n\nWe look forward to your online application!\n\nPlease take a short time and fill out the fields on the next page. Keep your complete application documents electronically ready.\n\nFor general questions about the job or the application process, our HR team, phone +41 61 704 12 32 will be happy to help you. For further information please contact Mrs Caroline Stade, Director Care Tel +41 61 704 27 17, Mail: caroline.stade@ukbb.ch",
+        "de": "Die Neonatologie des UKBB mit 16 Betten, davon jeweils sechs Beatmungsplätze, Intermediate Care und Special Care im Rooming-in, befindet sich in direkter Nähe zum Gebärsaal der Frauenklinik des Universitätsspitals Basel. Wir betreuen Neonaten und Neugeborene ab der 24. SSW. Das Pflegeteam besteht aus 60 Mitarbeitenden bei insgesamt 40 FTE. Die Mitarbeitenden vom Lactarium mit 4 FTE sind Teil des Neonatologie Teams.\n\nEintrittsdatum : 1.9.2026 oder nach Vereinbarung\\n\\n\\nIhre\n• Aufgaben\\n\\n\n Führung der Station gemeinsam mit Ihren 2 Stellvertreter*innen, inkl. der strategischen Ausrichtung und Zieldefinition, nach fachlichen und wirtschaftlichen Grundsätzen\n\nFörderung einer hervorragenden interprofessionellen und interdisziplinären Zusammenarbeit\n\nSicherstellung einer qualitativ hochwertigen, patientenzentrierten und familienorientierten Pflege und Betreuung\n\nSicherstellung des Ausbildungsauftrages und Gewährleisten einer guten Aus- Fort- und Weiterbildungsqualität in Zusammenarbeit mit der Pflegeentwicklung und der Berufsbildung Pflege\n\nFörderung und Unterstützung einer evidenzbasierten Pflege sowie Mitarbeit beim Aufbau weiterer ANP-Teams\n\n\\n\\n\\nIhr Profil\\n\\n\n Sie haben eine abgeschlossene Führungsausbildung und mehrjährige Berufserfahrung in einer ähnlichen Stelle\n\nSie sind Expertin Intensivpflege NDS HF oder verfügen über einen ÜWP in Neonatologie und bringen eine mehrjährige Erfahrung im Umgang mit Neonaten oder Intensivpatienten mit\n\nMit Ihrem personen- und aufgabenorientierten Führungsstil schaffen Sie ein Arbeitsklima, in dem der persönliche Einsatz und die Eigenverantwortung der Mitarbeitenden gefördert werden\n\nSie arbeiten gerne in einem Leitungsteam\n\nZiel- und lösungsorientiertes Denken und Handeln, Engagement, Freude und Motivation sind für Sie selbstverständlich\n\nSie sind eine kompetente, starke und kreative Führungsperson, die sich ausgesprochen für das Personal sowie für die Patienten und deren Familien einsetzt\n\n\\n\\n\\nUnser Angebot\\n\\n\n Eine interessante, vielseitige und anspruchsvolle Tätigkeit mit viel Eigenverantwortung in einem dynamischen Umfeld und insgesamt 60 Mitarbeitenden\n\nEin aufgeschlossenes, hochmotiviertes Team, dass Sie unterstützt\n\nEine kollegiale Zusammenarbeit in einem interdisziplinären und interprofessionellen Umfeld\n\nEin modernes, dynamisches Arbeitsumfeld mitten in Basel\n\nEin vielfältiges Weiterbildungsangebot sowie weitere Benefits\n\nAttraktive Anstellungsbedingungen\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilen Ihnen gerne Frau Caroline Stade, Direktorin Pflege Tel +41 61 704 27 17, Mail: caroline.stade@ukbb.ch",
+        "fr": "La néonatologie de l'UKBB avec 16 lits, y compris six lieux de respiration, soins intermédiaires et soins spéciaux dans le Rooming-in, est située à proximité immédiate de la clinique féminine de l'hôpital universitaire de Bâle. Nous servons les nouveau-nés et les nouveau-nés du 24e SSW. L'équipe de soins infirmiers est composée de 60 employés avec un total de 40 ETP. Les employés du Lactarium avec 4 ETP font partie de l'équipe de néonatologie. Date d'entrée: 1.9.2026 ou par accord\\n\\n\\nYour • Tâches\\n leadership de la station avec vos 2 adjoints, y compris l'orientation stratégique et la définition de la cible, selon les principes techniques et économiques Promouvoir une excellente coopération interprofessionnelle et interdisciplinaire Assurer des soins de qualité, centrés sur le patient et la famille et assurer l'ordre de formation et garantir une bonne qualité de formation Vous avez terminé une formation en gestion et plusieurs années d'expérience professionnelle dans un endroit semblable Vous êtes un expert en soins intensifs NDS HF ou avez un TWP en néonatologie et apportez une expérience pluriannuelle dans les relations avec les nouveau-nés ou les patients intensifs avec votre style de leadership personnel et axé sur les tâches pour créer un environnement de travail dans lequel l'utilisation personnelle et la responsabilité personnelle des employés sont promues Vous êtes bien sûr un chef compétent, fort et créatif qui est engagé envers le personnel et pour les patients et leurs familles \\n\\n\\nNotre offre\\n Une activité intéressante, polyvalente et exigeante avec beaucoup d'intérêt personnel \\n\\n\\n Veuillez prendre un peu de temps et remplir les champs sur la page suivante. Gardez vos documents de demande complets prêts par voie électronique. Pour des questions générales sur l'emploi ou le processus de candidature, notre équipe RH, téléphone +41 61 704 12 32 sera heureuse de vous aider. Pour de plus amples informations, veuillez contacter Mme Caroline Stade, Directrice Care Tél. +41 61 704 27 17, Mail: caroline.stade@ukbb.ch"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.ukbb.ch/offer/leitung-pflege-neonatologische-inte/74aa0ed6-e14f-468e-bca7-8e8ab693d388",
+      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-04T23:16:31.516Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4056",
+      "streetAddress": "Spitalstrasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "applyUrl": "https://jobs.ukbb.ch/offer/leitung-pflege-neonatologische-inte/74aa0ed6-e14f-468e-bca7-8e8ab693d388",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leitung-pflege-neonatologische-intensivstation-90-ukbb-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-pflege-neonatologische-intensivstation-90-ukbb-basel"
+        ]
+      },
+      "firstSeenAt": "2026-06-04T15:59:15.127Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ukbb-1347f61e4016",
+      "slug": "medizinstudent-in-come-studentische-aushilfe-40-50-universitats-kinderspital-beider-basel",
+      "slugByLocale": {
+        "it": "medizinstudent-in-come-studentische-aushilfe-40-50-universitats-kinderspital-beider-basel",
+        "en": "medical-student-as-student-help-40-50-universitats-kinderspital-beider-basel-basel",
+        "de": "medizinstudent-in-als-studentische-aushilfe-40-50-ukbb-basel",
+        "fr": "etudiants-en-medecine-comme-aide-etudiante-40-50-universitats-kinderspital-beider-basel-basel"
+      },
+      "company": "Universitäts-Kinderspital beider Basel",
+      "companyKey": "ukbb",
+      "companyDomain": "ukbb.ch",
+      "title": "Medizinstudent*in als studentische Aushilfe 40-50%",
+      "titleByLocale": {
+        "it": "Medizinstudent*in come studentische Aushilfe 40-50%",
+        "en": "Medical student as student help 40-50 %",
+        "de": "Medizinstudent*in als studentische Aushilfe 40-50%",
+        "fr": "Étudiants en médecine comme aide étudiante 40-50 %"
+      },
+      "description": "Wanted: Sie unterstützen als studentische Aushilfe per sofort oder nach Vereinbarung befristet für zunächst 6 Monate (mit Option der Verlängerung) unser Sekretariat Orthopädie.\n\nEintrittsdatum : Per sofort oder nach Vereinbarung für mind. 6 Monate\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Sie sind interessiert, sich befristet im Sekretariat der Orthopädie des UKBB zu engagieren, medizinische Berichte zu redigieren, E-Mails beantworten, IV- und KK-Berichte zu bearbeiten und allgemeine Arbeiten eines medizinischen Sekretariates zu übernehmen?\n\n\\n\\n\\nIhr Profil\\n\\n\n Wenn Sie schnell und korrekt im 10-Fingersystem schreiben und ab sofort oder nach Vereinbarung im Stundenlohn für min. 3 Monate zu einem 40-50% Pensum verfügbar sind, anschliessend ggf. mit einem kleineren Pensum, dann suchen wir Sie!\n\n\\n\\n\\nUnser Angebot\\n\\n Ein motiviertes und aufgeschlossenes Team in professioneller Arbeitsatmosphäre\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Melden Sie sich gerne und schicken Sie uns einen kurzen CV. Wir freuen uns, Sie schon bald im Team willkommen zu heissen.",
+      "descriptionByLocale": {
+        "it": "Descrizione\nRicercato: Come rimedio studentesco, supporterete immediatamente la nostra Segreteria Ortopedia o su appuntamento per 6 mesi (con opzione di estensione).\n\nData d'entrata: Immediatamente o d'accordo per almeno 6 mesi\n\nMansioni\n- Sei interessato a impegnarsi permanentemente nel Segretariato dell'Ortopedia delle UKBB, a redigere relazioni mediche, a rispondere alle e-mail, a modificare i rapporti IV e KK e a riprendere il lavoro generale di un segretariato medico?\n\nRequisiti\n- Se si scrive rapidamente e correttamente nel sistema di 10 finger e da ora in poi o dopo accordo nel salario orario per min. 3 mesi sono a disposizione di un 40-50% Pensum, se necessario con un Pensum più piccolo, allora cercheremo per voi!\n\nCosa?\n- Un team motivato e aperto in un ambiente di lavoro professionale\n\nContatto\nNon vediamo l'ora della tua applicazione online!\n\nSi prega di prendere un breve periodo di tempo e compilare i campi sulla pagina successiva. Mantenere i documenti di applicazione completi elettronicamente pronti.\n\nPer domande generali sul lavoro o il processo di applicazione, il nostro team HR, telefono +41 61 704 12 32 sarà lieto di aiutarvi. Si prega di registrarsi e inviarci un breve CV. Siamo lieti di darvi il benvenuto alla squadra presto.",
+        "en": "Descrizione\nWanted: As a student remedy, you will support our Orthopaedic Secretariat immediately or by appointment for 6 months (with option of extension).\n\nDate of entry : By immediately or by agreement for at least 6 months\n\nMansioni\n- Are you interested in permanently engaging in the UKBB Orthopaedics Secretariat, editing medical reports, answering e-mails, editing IV and KK reports and taking over general work of a medical secretariat?\n\nRequisiti\n- If you write quickly and correctly in the 10-finger system and from now on or after agreement in the hourly wage for min. 3 months are available to a 40-50% Pensum, if necessary with a smaller Pensum, then we will look for you!\n\nCosa offriamo\n- A motivated and open-minded team in a professional working atmosphere\n\nContatto\nWe look forward to your online application!\n\nPlease take a short time and fill out the fields on the next page. Keep your complete application documents electronically ready.\n\nFor general questions about the job or the application process, our HR team, phone +41 61 704 12 32 will be happy to help you. Please register and send us a short CV. We are happy to welcome you to the team soon.",
+        "de": "## Descrizione\nWanted: Sie unterstützen als studentische Aushilfe per sofort oder nach Vereinbarung befristet für zunächst 6 Monate (mit Option der Verlängerung) unser Sekretariat Orthopädie.\n\nEintrittsdatum : Per sofort oder nach Vereinbarung für mind. 6 Monate\n\n## Mansioni\n- Sie sind interessiert, sich befristet im Sekretariat der Orthopädie des UKBB zu engagieren, medizinische Berichte zu redigieren, E-Mails beantworten, IV- und KK-Berichte zu bearbeiten und allgemeine Arbeiten eines medizinischen Sekretariates zu übernehmen?\n\n## Requisiti\n- Wenn Sie schnell und korrekt im 10-Fingersystem schreiben und ab sofort oder nach Vereinbarung im Stundenlohn für min. 3 Monate zu einem 40-50% Pensum verfügbar sind, anschliessend ggf. mit einem kleineren Pensum, dann suchen wir Sie!\n\n## Cosa offriamo\n- Ein motiviertes und aufgeschlossenes Team in professioneller Arbeitsatmosphäre\n\n## Contatto\nWir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Melden Sie sich gerne und schicken Sie uns einen kurzen CV. Wir freuen uns, Sie schon bald im Team willkommen zu heissen.",
+        "fr": "Descrizione\nRecherché : Comme un remède étudiant, vous soutiendrez notre Secrétariat orthopédique immédiatement ou sur rendez-vous pour 6 mois (avec option de prolongation).\n\nDate d'entrée : Par immédiatement ou par accord pendant au moins 6 mois\n\nMansioni\n- Êtes-vous intéressé à s'engager en permanence dans le secrétariat d'orthopédie UKBB, à éditer les rapports médicaux, à répondre aux courriels, à éditer les rapports IV et KK et à reprendre le travail général d'un secrétariat médical?\n\nRequisiti\n- Si vous écrivez rapidement et correctement dans le système de 10 doigts et à partir de maintenant le ou après accord dans le salaire horaire pour min. 3 mois sont disponibles pour un Pensum 40-50%, si nécessaire avec un Pensum plus petit, alors nous vous chercherons!\n\nCosa offriamo\n- Une équipe motivée et ouverte dans une ambiance professionnelle\n\nContatto\nNous nous réjouissons de votre candidature en ligne!\n\nVeuillez prendre un peu de temps et remplir les champs de la page suivante. Gardez vos documents de demande complets prêts par voie électronique.\n\nPour des questions générales sur l'emploi ou le processus de candidature, notre équipe RH, téléphone +41 61 704 12 32 sera heureuse de vous aider. Veuillez vous inscrire et nous envoyer un court CV. Nous sommes heureux de vous accueillir bientôt dans l'équipe."
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.ukbb.ch/offer/medizinstudentin-als-studentische-a/66f0d97c-11c0-483c-b8ff-041f4dbf4de0",
+      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-04T23:16:30.828Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4056",
+      "streetAddress": "Spitalstrasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "applyUrl": "https://jobs.ukbb.ch/offer/medizinstudentin-als-studentische-a/66f0d97c-11c0-483c-b8ff-041f4dbf4de0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinstudent-in-als-studentische-aushilfe-40-50-ukbb-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinstudent-in-als-studentische-aushilfe-40-50-ukbb-basel"
+        ],
+        "en": [
+          "medizinstudent-in-als-studentische-aushilfe-40-50-ukbb-basel"
+        ],
+        "fr": [
+          "medizinstudent-in-als-studentische-aushilfe-40-50-ukbb-basel"
+        ]
+      },
+      "firstSeenAt": "2026-06-04T15:59:14.581Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ukbb-ee9b97916de9",
       "slug": "responsabile-clinica-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
-        "de": "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
         "it": "responsabile-clinica-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
         "en": "clinic-manager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
+        "de": "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
         "fr": "directeur-de-clinique-a-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
@@ -790,24 +942,25 @@
       "companyDomain": "ukbb.ch",
       "title": "Klinikmanager*in Kinderchirurgie 40%",
       "titleByLocale": {
-        "de": "Klinikmanager*in Kinderchirurgie 40%",
         "it": "Responsabile clinica* in Kinderchirurgie 40 %",
         "en": "Clinic manager*in Kinderchirurgie 40 %",
+        "de": "Klinikmanager*in Kinderchirurgie 40%",
         "fr": "Directeur de clinique* à Kinderchirurgie 40 %"
       },
-      "description": "Wir suchen eine*n engagierte*n und erfahrene*n Klinikmanager*in, die mit Überblick und Organisationstalent die Ärzteschaft unterstützt und einen reibungslosen Ablauf sicherstellt. Das Hauptziel liegt in der organisatorischen Entlastung der Ärztinnen und Ärzte, damit sie sich auf ihre Kerntätigkeiten konzentrieren können. In dieser Funktion übernehmen Sie Verantwortung in den Bereichen Planung der chirurgischen Klinik, Administration, strategischer Support sowie Leistungscontrolling.\n\nEintrittsdatum : 1.Juli oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Organisation und Koordination des IntestTeam sowie Unterstützung beim Aufbau des IDAS-Netzwerks Schweiz\n\nPlanung, Durchführung und Protokollierung von Klinikkonferenzen und Leitungsgremien\n\nGesamtverantwortung für das UKBB Mini-Symposium Chirurgie (vor Ort und virtuell)\n\nKoordination von Veranstaltungen, Fortbildungen sowie regelmässigen Formaten (Journal Club, Traumarapport, Wochenplanung)\n\nOrganisation von Sitzungen inkl. Raumplanung und virtuellen Meetings\n\nVerantwortung für eDOC-Dokumente sowie Pflege der Anmeldevorlagen im KISIM\n\nBetreuung und kontinuierliche Aktualisierung der Homepage und Organigramme\n\nVorbereitung und Koordination von MAG inkl. Feedbackeinholung\n\nOrganisation und Durchführung von Gipskursen via Easylearn sowie Unterstützung bei Umfragen\n\nBewirtschaftung der Funktions-Mailadressen\n\nKontrolle der Leistungserfassung (IBI Care) sowie HSM Trauma\n\nErstellung von OP-Statistiken und Auswertungen für den Jahresbericht\n\nMonitoring und Analyse der ambulanten und stationären Leistungszahlen\n\nMitarbeit an der strategischen Weiterentwicklung der chirurgischen Klinik\n\nEnge Zusammenarbeit mit internen Schnittstellen (u.a. Ertragsmanagement, Kommunikation, ICT, Sekretariate, Catering, Hausdienst)\n\n\\n\\n\\nIhr Profil\\n\\n\n Sie haben eine kaufmännische Ausbildung bzw. einen Hochschulabschluss und bringen mehrjährige Berufserfahrung in einer ähnlichen Funktion, vorzugsweise im Gesundheitswesen mit.\n\nFundierte Kenntnisse in den spitalrelevanten Systemen und Abläufen sowie Erfahrung und/oder Kenntnisse\n\nSehr gute organisatorische Fähigkeiten und Erfahrung in der Optimierung von Prozessen\n\nErfahrung im Projekt- und Prozessmanagement\n\nKommunikationsstärke und Teamfähigkeit, auch in hektischen Phasen\n\nSpeditives und selbstständiges Arbeiten\n\nSehr gute Computerkenntnisse Office 365\n\nSehr gute Deutschkenntnisse, idealerweise gute Sprachkenntnisse in Französisch und/oder Englisch\n\n\\n\\n\\nUnser Angebot\\n\\n\n Eine abwechslungsreiche Tätigkeit, in der Sie sich aktiv einbringen können\n\nEin motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft\n\nProfitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen\n\nEntdecken Sie ausserdem viele weitere Vorteile unten unter «unsere Benefits», die wir unseren Mitarbeitenden bieten\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Herr Stefan Holland-Cunz, Chefarzt Chirurgie, T +41 61 704 24 40.",
+      "description": "Wir suchen eine*n engagierte*n und erfahrene*n Klinikmanager*in, die mit Überblick und Organisationstalent die Ärzteschaft unterstützt und einen reibungslosen Ablauf sicherstellt. Das Hauptziel liegt in der organisatorischen Entlastung der Ärztinnen und Ärzte, damit sie sich auf ihre Kerntätigkeiten konzentrieren können. In dieser Funktion übernehmen Sie Verantwortung in den Bereichen Planung der chirurgischen Klinik, Administration, strategischer Support sowie Leistungscontrolling.\n\nEintrittsdatum : 1.Juli oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Organisation und Koordination des IntestTeam sowie Unterstützung beim Aufbau des IDAS-Netzwerks Schweiz\n\nPlanung, Durchführung und Protokollierung von Klinikkonferenzen und Leitungsgremien\n\nGesamtverantwortung für das UKBB Mini-Symposium Chirurgie (vor Ort und virtuell)\n\nKoordination von Veranstaltungen, Fortbildungen sowie regelmässigen Formaten (Journal Club, Traumarapport, Wochenplanung)\n\nOrganisation von Sitzungen inkl. Raumplanung und virtuellen Meetings\n\nVerantwortung für eDOC-Dokumente sowie Pflege der Anmeldevorlagen im KISIM\n\nBetreuung und kontinuierliche Aktualisierung der Homepage und Organigramme\n\nVorbereitung und Koordination von MAG inkl. Feedbackeinholung\n\nOrganisation und Durchführung von Gipskursen via Easylearn sowie Unterstützung bei Umfragen\n\nBewirtschaftung der Funktions-Mailadressen\n\nKontrolle der Leistungserfassung (IBI Care) sowie HSM Trauma\n\nErstellung von OP-Statistiken und Auswertungen für den Jahresbericht\n\nMonitoring und Analyse der ambulanten und stationären Leistungszahlen\n\nMitarbeit an der strategischen Weiterentwicklung der chirurgischen Klinik\n\nEnge Zusammenarbeit mit internen Schnittstellen (u.a. Ertragsmanagement, Kommunikation, ICT, Sekretariate, Catering, Hausdienst)\n\n\\n\\n\\nIhr Profil\\n\\n\n Sie haben eine kaufmännische Ausbildung bzw. einen Hochschulabschluss und bringen mehrjährige Berufserfahrung in einer ähnlichen Funktion, vorzugsweise im Gesundheitswesen mit.\n\nFundierte Kenntnisse in den spitalrelevanten Systemen und Abläufen sowie Erfahrung und/oder Kenntnisse\n\nSehr gute organisatorische Fähigkeiten und Erfahrung in der Optimierung von Prozessen\n\nErfahrung im Projekt- und Prozessmanagement\n\nKommunikationsstärke und Teamfähigkeit, auch in hektischen Phasen\n\nSpeditives und selbstständiges Arbeiten\n\nSehr gute Computerkenntnisse Office 365\n\nSehr gute Deutschkenntnisse, idealerweise gute Sprachkenntnisse in Französisch und/oder Englisch\n\n\\n\\n\\nUnser Angebot\\n\\n\n Eine abwechslungsreiche Tätigkeit, in der Sie sich aktiv einbringen können\n\nEin motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft\n\nProfitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen\n\nEntdecken Sie ausserdem viele weitere Vorteile unten unter «unsere Benefits», die wir unseren Mitarbeitenden bieten\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Herr Stefan Holland-Cunz, Chefarzt Chirurgie, T +41 61 704 28 40.",
       "descriptionByLocale": {
-        "de": "Wir suchen eine*n engagierte*n und erfahrene*n Klinikmanager*in, die mit Überblick und Organisationstalent die Ärzteschaft unterstützt und einen reibungslosen Ablauf sicherstellt. Das Hauptziel liegt in der organisatorischen Entlastung der Ärztinnen und Ärzte, damit sie sich auf ihre Kerntätigkeiten konzentrieren können. In dieser Funktion übernehmen Sie Verantwortung in den Bereichen Planung der chirurgischen Klinik, Administration, strategischer Support sowie Leistungscontrolling.\n\nEintrittsdatum : 1.Juli oder nach Vereinbarung\\n\\n\\nIhre\n• Aufgaben\\n\\n\n Organisation und Koordination des IntestTeam sowie Unterstützung beim Aufbau des IDAS-Netzwerks Schweiz\n\nPlanung, Durchführung und Protokollierung von Klinikkonferenzen und Leitungsgremien\n\nGesamtverantwortung für das UKBB Mini-Symposium Chirurgie (vor Ort und virtuell)\n\nKoordination von Veranstaltungen, Fortbildungen sowie regelmässigen Formaten (Journal Club, Traumarapport, Wochenplanung)\n\nOrganisation von Sitzungen inkl. Raumplanung und virtuellen Meetings\n\nVerantwortung für eDOC-Dokumente sowie Pflege der Anmeldevorlagen im KISIM\n\nBetreuung und kontinuierliche Aktualisierung der Homepage und Organigramme\n\nVorbereitung und Koordination von MAG inkl. Feedbackeinholung\n\nOrganisation und Durchführung von Gipskursen via Easylearn sowie Unterstützung bei Umfragen\n\nBewirtschaftung der Funktions-Mailadressen\n\nKontrolle der Leistungserfassung (IBI Care) sowie HSM Trauma\n\nErstellung von OP-Statistiken und Auswertungen für den Jahresbericht\n\nMonitoring und Analyse der ambulanten und stationären Leistungszahlen\n\nMitarbeit an der strategischen Weiterentwicklung der chirurgischen Klinik\n\nEnge Zusammenarbeit mit internen Schnittstellen (u.a. Ertragsmanagement, Kommunikation, ICT, Sekretariate, Catering, Hausdienst)\n\n\\n\\n\\nIhr Profil\\n\\n\n Sie haben eine kaufmännische Ausbildung bzw. einen Hochschulabschluss und bringen mehrjährige Berufserfahrung in einer ähnlichen Funktion, vorzugsweise im Gesundheitswesen mit.\n\nFundierte Kenntnisse in den spitalrelevanten Systemen und Abläufen sowie Erfahrung und/oder Kenntnisse\n\nSehr gute organisatorische Fähigkeiten und Erfahrung in der Optimierung von Prozessen\n\nErfahrung im Projekt- und Prozessmanagement\n\nKommunikationsstärke und Teamfähigkeit, auch in hektischen Phasen\n\nSpeditives und selbstständiges Arbeiten\n\nSehr gute Computerkenntnisse Office 365\n\nSehr gute Deutschkenntnisse, idealerweise gute Sprachkenntnisse in Französisch und/oder Englisch\n\n\\n\\n\\nUnser Angebot\\n\\n\n Eine abwechslungsreiche Tätigkeit, in der Sie sich aktiv einbringen können\n\nEin motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft\n\nProfitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen\n\nEntdecken Sie ausserdem viele weitere Vorteile unten unter «unsere Benefits», die wir unseren Mitarbeitenden bieten\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Herr Stefan Holland-Cunz, Chefarzt Chirurgie, T +41 61 704 24 40.",
-        "it": "Siamo alla ricerca di un responsabile clinico dedicato*n ed esperto*in, che supporta il dottorato con una visione d'insieme e talento organizzativo e garantisce un processo regolare. L'obiettivo principale è quello di ridurre l'onere organizzativo dei medici in modo che possano concentrarsi sulle loro attività fondamentali. In questa funzione si assume la responsabilità nelle aree di pianificazione della clinica chirurgica, amministrazione, supporto strategico e controllo delle prestazioni.\n\nData d'entrata: 1 luglio o d'accordo\n• Compiti\nOrganizzazione e coordinamento dell'IntestTeam e supporto nella costruzione della rete IDAS Svizzera\n\nPianificazione, implementazione e registrazione di conferenze cliniche e organismi di gestione\n\nResponsabilità complessiva per la chirurgia mini-simposio UKBB (in loco e virtuale)\n\nCoordinamento di eventi, formazione e formati regolari (Journal Club, Traumarapport, pianificazione settimanale)\n\nOrganizzazione delle riunioni incl. Pianificazione delle camere e incontri virtuali\n\nResponsabilità per i documenti eDOC e mantenimento dei modelli di registrazione in KISIM\n\nSupporto e aggiornamento continuo della homepage e degli organigrammi\n\nPreparazione e coordinamento del MAG incl. Ripristino del feedback\n\nOrganizzazione e realizzazione di corsi di gesso tramite Easylearn e supporto in sondaggi\n\nGestione degli indirizzi e-mail di funzione\n\nControllo del rilevamento delle prestazioni (IBI Care) e HSM Trauma\n\nPreparazione delle statistiche e delle valutazioni dei PO per la relazione annuale\n\nMonitoraggio e analisi dei dati di performance ambulatoriale e stazionario\n\nPartecipazione allo sviluppo strategico della clinica chirurgica\n\nChiudere la cooperazione con le interfacce interne (compresa la gestione del reddito, la comunicazione, ICT, segretariati, catering, servizio domestico)\n\nIl tuo profilo\nHanno una formazione commerciale o una laurea e portano diversi anni di esperienza professionale in una funzione simile, preferibilmente in sanità.\n\nConoscenza acquisita nei sistemi e processi spital, nonché esperienza e/o conoscenza\n\nMolto buone capacità organizzative ed esperienza nell'ottimizzazione dei processi\n\nEsperienza nella gestione dei progetti e dei processi\n\nForza di comunicazione e capacità di squadra, anche in fasi frenetiche\n\nLavoro Speditivo e indipendente\n\nMolto buone competenze informatiche Office 365\n\nMolto buona conoscenza del tedesco, idealmente buone competenze linguistiche in francese e/o inglese\n\nLa nostra offerta\nUna variegata attività in cui è possibile contribuire attivamente\n\nUn team motivato e di mentalità aperta che crea un ambiente di lavoro professionale\n\nVantaggio di condizioni di lavoro attraenti e contemporanee\n\nInoltre, scopri molti altri vantaggi sotto \"i nostri vantaggi\", che offriamo ai nostri dipendenti\n\nNon vediamo l'ora della tua applicazione online!\n\nSi prega di prendere un breve periodo di tempo e compilare i campi sulla pagina successiva. Mantenere i documenti di applicazione completi elettronicamente pronti.\n\nPer domande generali sul lavoro o il processo di applicazione, il nostro team HR, telefono +41 61 704 12 32 sarà lieto di aiutarvi. Per ulteriori informazioni si prega di contattare il Sig. Stefan Holland-Cunz, Chirurgia Medica Capo, T +41 61 704 24 40.",
-        "en": "We are looking for a dedicated*n and experienced clinic manager*in, who supports the doctorate with an overview and organizational talent and ensures a smooth process. The main objective is to reduce the organisational burden on doctors so that they can concentrate on their core activities. In this function you take responsibility in the areas of planning the surgical clinic, administration, strategic support and performance controlling.\n\nDate of entry: 1 July or by agreement\n• Tasks\nOrganisation and coordination of the IntestTeam and support in building the IDAS network Switzerland\n\nPlanning, implementation and logging of clinic conferences and management bodies\n\nOverall responsibility for the UKBB Mini-Symposium Surgery (on site and virtual)\n\nCoordination of events, training and regular formats (Journal Club, Traumarapport, weekly planning)\n\nOrganization of meetings incl. Room planning and virtual meetings\n\nResponsibility for eDOC documents as well as maintenance of registration templates in KISIM\n\nSupport and continuous updating of the homepage and organigrams\n\nPreparation and coordination of MAG incl. Feedback recovery\n\nOrganization and implementation of plaster courses via Easylearn and support in surveys\n\nManagement of function email addresses\n\nControl of performance detection (IBI Care) and HSM Trauma\n\nPreparation of OP statistics and evaluations for the annual report\n\nMonitoring and analysis of outpatient and stationary performance figures\n\nParticipation in the strategic development of the surgical clinic\n\nClose cooperation with internal interfaces (including income management, communication, ICT, secretariats, catering, home service)\n\nYour profile\\n\\n\\n\nThey have a commercial training or a university degree and bring several years of professional experience in a similar function, preferably in health care.\n\nKnowledge gained in spital systems and processes, as well as experience and/or knowledge\n\nVery good organizational skills and experience in optimizing processes\n\nExperience in project and process management\n\nCommunication strength and team capacity, even in hectic phases\n\nSpeditive and independent work\n\nVery good computer skills Office 365\n\nVery good knowledge of German, ideally good language skills in French and/or English\n\nOur offer\\n\\n\nA varied activity in which you can actively contribute\n\nA motivated and open-minded team that creates a professional working atmosphere\n\nBenefit from attractive and contemporary employment conditions\n\nIn addition, discover many other benefits below under \"our Benefits\", which we offer to our employees\n\nWe look forward to your online application!\n\nPlease take a short time and fill out the fields on the next page. Keep your complete application documents electronically ready.\n\nFor general questions about the job or the application process, our HR team, phone +41 61 704 12 32 will be happy to help you. For further information please contact Mr. Stefan Holland-Cunz, Chief Physician Surgery, T +41 61 704 24 40.",
-        "fr": "Nous sommes à la recherche d'un directeur de clinique* spécialisé*n et expérimenté*in, qui soutient le doctorat avec un aperçu et talent organisationnel et assure un processus en douceur. L'objectif principal est de réduire la charge organisationnelle des médecins afin qu'ils puissent se concentrer sur leurs activités de base. Dans cette fonction, vous assumez la responsabilité de planifier la clinique chirurgicale, l'administration, le soutien stratégique et le contrôle du rendement.\n\nDate d'entrée : 1er juillet ou par accord\n• Tâches\nOrganisation et coordination de l'équipe Intest et soutien à la construction du réseau IDAS Suisse\n\nPlanification, mise en œuvre et enregistrement des conférences et des organes de gestion des cliniques\n\nResponsabilité globale de la chirurgie mini-symposium UKBB (sur place et virtuelle)\n\nCoordination des manifestations, de la formation et des formats réguliers (Journal Club, Traumarapport, planification hebdomadaire)\n\nOrganisation des réunions Planification des salles et réunions virtuelles\n\nResponsabilité pour les documents eDOC ainsi que la maintenance des modèles d'enregistrement dans KISIM\n\nSoutien et mise à jour continue de la page d'accueil et des organigrammes\n\nPréparation et coordination du MAG y compris Récupération des retours\n\nOrganisation et mise en œuvre de cours de plâtre via EasyLearn et soutien dans les enquêtes\n\nGestion des adresses e-mail de fonction\n\nContrôle de la détection des performances (IBI Care) et du traumatisme HSM\n\nÉlaboration des statistiques et évaluations du PO pour le rapport annuel\n\nSurveillance et analyse des résultats obtenus en consultation externe et en établissement\n\nParticipation au développement stratégique de la clinique chirurgicale\n\nCoopération étroite avec les interfaces internes (gestion des revenus, communication, TIC, secrétariats, restauration, service à domicile)\n\nVotre profil\\n\\n\\n\nIls ont une formation commerciale ou un diplôme universitaire et apportent plusieurs années d'expérience professionnelle dans une fonction similaire, de préférence dans les soins de santé.\n\nConnaissances acquises dans les systèmes et processus de craquage, ainsi que expérience et/ou connaissance\n\nTrès bonnes compétences organisationnelles et expérience dans l'optimisation des processus\n\nExpérience en gestion de projets et de processus\n\nForce de communication et capacité d'équipe, même en phases mouvementées\n\nTravail spécial et indépendant\n\nTrès bonnes compétences en informatique Office 365\n\nTrès bonne connaissance de l'allemand, idéalement de bonnes compétences linguistiques en français et/ou en anglais\n\nNotre offre\nUne activité variée dans laquelle vous pouvez contribuer activement\n\nUne équipe motivée et ouverte d'esprit qui crée une atmosphère de travail professionnelle\n\nBénéficier de conditions d'emploi attrayantes et contemporaines\n\nEn outre, découvrez de nombreux autres avantages ci-dessous sous «nos avantages», que nous offrons à nos employés\n\nNous nous réjouissons de votre candidature en ligne!\n\nVeuillez prendre un peu de temps et remplir les champs de la page suivante. Gardez vos documents de demande complets prêts par voie électronique.\n\nPour des questions générales sur l'emploi ou le processus de candidature, notre équipe RH, téléphone +41 61 704 12 32 sera heureuse de vous aider. Pour de plus amples informations, veuillez contacter M. Stefan Holland-Cunz, Chirurgie en chef, T +41 61 704 24 40."
+        "it": "Siamo alla ricerca di un responsabile clinico dedicato*n ed esperto*in, che supporta il dottorato con una visione d'insieme e talento organizzativo e garantisce un processo regolare. L'obiettivo principale è quello di ridurre l'onere organizzativo dei medici in modo che possano concentrarsi sulle loro attività fondamentali. In questa funzione si assume la responsabilità nelle aree di pianificazione della clinica chirurgica, amministrazione, supporto strategico e controllo delle prestazioni. Data d'entrata: 1 luglio o d'accordo\n• Compiti Organizzazione e coordinamento dell'IntestTeam e supporto nella costruzione della rete IDAS Svizzera Pianificazione, implementazione e registrazione di conferenze cliniche e organismi di gestione Responsabilità complessiva per la chirurgia mini-simposio UKBB (in loco e virtuale) Coordinamento di eventi, formazione e formati regolari (Journal Club, Traumarapport, pianificazione settimanale) Organizzazione delle riunioni incl. Pianificazione delle camere e incontri virtuali Responsabilità per i documenti eDOC e mantenimento dei modelli di registrazione in KISIM Supporto e aggiornamento continuo della homepage e degli organigrammi Preparazione e coordinamento del MAG incl. Ripristino del feedback Organizzazione e realizzazione di corsi di gesso tramite Easylearn e supporto in sondaggi Gestione degli indirizzi e-mail di funzione Controllo del rilevamento delle prestazioni (IBI Care) e HSM Trauma Preparazione delle statistiche e delle valutazioni dei PO per la relazione annuale Monitoraggio e analisi dei dati di performance ambulatoriale e stazionario Partecipazione allo sviluppo strategico della clinica chirurgica Chiudere la cooperazione con le interfacce interne (compresa la gestione del reddito, la comunicazione, ICT, segretariati, catering, servizio domestico) Il tuo profilo Hanno una formazione commerciale o una laurea e portano diversi anni di esperienza professionale in una funzione simile, preferibilmente in sanità. Conoscenza acquisita nei sistemi e processi spital, nonché esperienza e/o conoscenza Molto buone capacità organizzative ed esperienza nell'ottimizzazione dei processi Esperienza nella gestione dei progetti e dei processi Forza di comunicazione e capacità di squadra, anche in fasi frenetiche Lavoro Speditivo e indipendente Molto buone competenze informatiche Office 365 Molto buona conoscenza del tedesco, idealmente buone competenze linguistiche in francese e/o inglese La nostra offerta Una variegata attività in cui è possibile contribuire attivamente Un team motivato e di mentalità aperta che crea un ambiente di lavoro professionale Vantaggio di condizioni di lavoro attraenti e contemporanee Inoltre, scopri molti altri vantaggi sotto \"i nostri vantaggi\", che offriamo ai nostri dipendenti Non vediamo l'ora della tua applicazione online! Si prega di prendere un breve periodo di tempo e compilare i campi sulla pagina successiva. Mantenere i documenti di applicazione completi elettronicamente pronti. Per domande generali sul lavoro o il processo di applicazione, il nostro team HR, telefono +41 61 704 12 32 sarà lieto di aiutarvi. Per ulteriori informazioni si prega di contattare il Sig. Stefan Holland-Cunz, Chirurgia Medica Capo, T +41 61 704 24 40.",
+        "en": "We are looking for a dedicated*n and experienced clinic manager*in, who supports the doctorate with an overview and organizational talent and ensures a smooth process. The main objective is to reduce the organisational burden on doctors so that they can concentrate on their core activities. In this function you take responsibility in the areas of planning the surgical clinic, administration, strategic support and performance controlling. Date of entry: 1 July or by agreement\n• Tasks Organisation and coordination of the IntestTeam and support in building the IDAS network Switzerland Planning, implementation and logging of clinic conferences and management bodies Overall responsibility for the UKBB Mini-Symposium Surgery (on site and virtual) Coordination of events, training and regular formats (Journal Club, Traumarapport, weekly planning) Organization of meetings incl. Room planning and virtual meetings Responsibility for eDOC documents as well as maintenance of registration templates in KISIM Support and continuous updating of the homepage and organigrams Preparation and coordination of MAG incl. Feedback recovery Organization and implementation of plaster courses via Easylearn and support in surveys Management of function email addresses Control of performance detection (IBI Care) and HSM Trauma Preparation of OP statistics and evaluations for the annual report Monitoring and analysis of outpatient and stationary performance figures Participation in the strategic development of the surgical clinic Close cooperation with internal interfaces (including income management, communication, ICT, secretariats, catering, home service) Your profile\\n\\n\\n They have a commercial training or a university degree and bring several years of professional experience in a similar function, preferably in health care. Knowledge gained in spital systems and processes, as well as experience and/or knowledge Very good organizational skills and experience in optimizing processes Experience in project and process management Communication strength and team capacity, even in hectic phases Speditive and independent work Very good computer skills Office 365 Very good knowledge of German, ideally good language skills in French and/or English Our offer\\n\\n A varied activity in which you can actively contribute A motivated and open-minded team that creates a professional working atmosphere Benefit from attractive and contemporary employment conditions In addition, discover many other benefits below under \"our Benefits\", which we offer to our employees We look forward to your online application! Please take a short time and fill out the fields on the next page. Keep your complete application documents electronically ready. For general questions about the job or the application process, our HR team, phone +41 61 704 12 32 will be happy to help you. For further information please contact Mr. Stefan Holland-Cunz, Chief Physician Surgery, T +41 61 704 24 40.",
+        "de": "Wir suchen eine*n engagierte*n und erfahrene*n Klinikmanager*in, die mit Überblick und Organisationstalent die Ärzteschaft unterstützt und einen reibungslosen Ablauf sicherstellt. Das Hauptziel liegt in der organisatorischen Entlastung der Ärztinnen und Ärzte, damit sie sich auf ihre Kerntätigkeiten konzentrieren können. In dieser Funktion übernehmen Sie Verantwortung in den Bereichen Planung der chirurgischen Klinik, Administration, strategischer Support sowie Leistungscontrolling. Eintrittsdatum : 1.Juli oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n Organisation und Koordination des IntestTeam sowie Unterstützung beim Aufbau des IDAS-Netzwerks Schweiz Planung, Durchführung und Protokollierung von Klinikkonferenzen und Leitungsgremien Gesamtverantwortung für das UKBB Mini-Symposium Chirurgie (vor Ort und virtuell) Koordination von Veranstaltungen, Fortbildungen sowie regelmässigen Formaten (Journal Club, Traumarapport, Wochenplanung) Organisation von Sitzungen inkl. Raumplanung und virtuellen Meetings Verantwortung für eDOC-Dokumente sowie Pflege der Anmeldevorlagen im KISIM Betreuung und kontinuierliche Aktualisierung der Homepage und Organigramme Vorbereitung und Koordination von MAG inkl. Feedbackeinholung Organisation und Durchführung von Gipskursen via Easylearn sowie Unterstützung bei Umfragen Bewirtschaftung der Funktions-Mailadressen Kontrolle der Leistungserfassung (IBI Care) sowie HSM Trauma Erstellung von OP-Statistiken und Auswertungen für den Jahresbericht Monitoring und Analyse der ambulanten und stationären Leistungszahlen Mitarbeit an der strategischen Weiterentwicklung der chirurgischen Klinik Enge Zusammenarbeit mit internen Schnittstellen (u.a. Ertragsmanagement, Kommunikation, ICT, Sekretariate, Catering, Hausdienst) \\n\\n\\nIhr Profil\\n\\n Sie haben eine kaufmännische Ausbildung bzw. einen Hochschulabschluss und bringen mehrjährige Berufserfahrung in einer ähnlichen Funktion, vorzugsweise im Gesundheitswesen mit. Fundierte Kenntnisse in den spitalrelevanten Systemen und Abläufen sowie Erfahrung und/oder Kenntnisse Sehr gute organisatorische Fähigkeiten und Erfahrung in der Optimierung von Prozessen Erfahrung im Projekt- und Prozessmanagement Kommunikationsstärke und Teamfähigkeit, auch in hektischen Phasen Speditives und selbstständiges Arbeiten Sehr gute Computerkenntnisse Office 365 Sehr gute Deutschkenntnisse, idealerweise gute Sprachkenntnisse in Französisch und/oder Englisch \\n\\n\\nUnser Angebot\\n\\n Eine abwechslungsreiche Tätigkeit, in der Sie sich aktiv einbringen können Ein motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft Profitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen Entdecken Sie ausserdem viele weitere Vorteile unten unter «unsere Benefits», die wir unseren Mitarbeitenden bieten \\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung! Bitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit. Bei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Herr Stefan Holland-Cunz, Chefarzt Chirurgie, T +41 61 704 28 40.",
+        "fr": "Nous sommes à la recherche d'un directeur de clinique* spécialisé*n et expérimenté*in, qui soutient le doctorat avec un aperçu et talent organisationnel et assure un processus en douceur. L'objectif principal est de réduire la charge organisationnelle des médecins afin qu'ils puissent se concentrer sur leurs activités de base. Dans cette fonction, vous assumez la responsabilité de planifier la clinique chirurgicale, l'administration, le soutien stratégique et le contrôle du rendement. Date d'entrée : 1er juillet ou par accord\n• Tâches Organisation et coordination de l'équipe Intest et soutien à la construction du réseau IDAS Suisse Planification, mise en œuvre et enregistrement des conférences et des organes de gestion des cliniques Responsabilité globale de la chirurgie mini-symposium UKBB (sur place et virtuelle) Coordination des manifestations, de la formation et des formats réguliers (Journal Club, Traumarapport, planification hebdomadaire) Organisation des réunions Planification des salles et réunions virtuelles Responsabilité pour les documents eDOC ainsi que la maintenance des modèles d'enregistrement dans KISIM Soutien et mise à jour continue de la page d'accueil et des organigrammes Préparation et coordination du MAG y compris Récupération des retours Organisation et mise en œuvre de cours de plâtre via EasyLearn et soutien dans les enquêtes Gestion des adresses e-mail de fonction Contrôle de la détection des performances (IBI Care) et du traumatisme HSM Élaboration des statistiques et évaluations du PO pour le rapport annuel Surveillance et analyse des résultats obtenus en consultation externe et en établissement Participation au développement stratégique de la clinique chirurgicale Coopération étroite avec les interfaces internes (gestion des revenus, communication, TIC, secrétariats, restauration, service à domicile) Votre profil\\n\\n\\n Ils ont une formation commerciale ou un diplôme universitaire et apportent plusieurs années d'expérience professionnelle dans une fonction similaire, de préférence dans les soins de santé. Connaissances acquises dans les systèmes et processus de craquage, ainsi que expérience et/ou connaissance Très bonnes compétences organisationnelles et expérience dans l'optimisation des processus Expérience en gestion de projets et de processus Force de communication et capacité d'équipe, même en phases mouvementées Travail spécial et indépendant Très bonnes compétences en informatique Office 365 Très bonne connaissance de l'allemand, idéalement de bonnes compétences linguistiques en français et/ou en anglais Notre offre Une activité variée dans laquelle vous pouvez contribuer activement Une équipe motivée et ouverte d'esprit qui crée une atmosphère de travail professionnelle Bénéficier de conditions d'emploi attrayantes et contemporaines En outre, découvrez de nombreux autres avantages ci-dessous sous «nos avantages», que nous offrons à nos employés Nous nous réjouissons de votre candidature en ligne! Veuillez prendre un peu de temps et remplir les champs de la page suivante. Gardez vos documents de demande complets prêts par voie électronique. Pour des questions générales sur l'emploi ou le processus de candidature, notre équipe RH, téléphone +41 61 704 12 32 sera heureuse de vous aider. Pour de plus amples informations, veuillez contacter M. Stefan Holland-Cunz, Chirurgie en chef, T +41 61 704 24 40."
       },
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.ukbb.ch/offer/klinikmanagerin-kinderchirurgie-40/573aea5d-82d4-49d8-b00f-aa9be90f45e9",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:48.881Z",
+      "crawledAt": "2026-06-04T23:16:29.639Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -824,15 +977,10 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://jobs.ukbb.ch/offer/klinikmanagerin-kinderchirurgie-40/573aea5d-82d4-49d8-b00f-aa9be90f45e9",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "klinikmanager-in-kinderchirurgie-40-ukbb-basel",
-          "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
-        ],
-        "de": [
+          "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
           "klinikmanager-in-kinderchirurgie-40-ukbb-basel"
         ],
         "en": [
@@ -840,25 +988,28 @@
         ],
         "fr": [
           "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
+        ],
+        "de": [
+          "klinikmanager-in-kinderchirurgie-40-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "klinikmanager-in-kinderchirurgie-40-ukbb-basel",
-        "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
+        "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
+        "klinikmanager-in-kinderchirurgie-40-ukbb-basel"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-05-28T00:44:48.881Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-28T00:44:48.881Z"
+      }
     },
     {
       "id": "ukbb-d8905a4838f8",
@@ -891,7 +1042,7 @@
       "url": "https://jobs.ukbb.ch/offer/leitender-arztin-neuropadiatrie-80-/561a465d-827e-40a8-8819-9d202e19acc9",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:48.325Z",
+      "crawledAt": "2026-06-04T23:16:28.938Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -996,7 +1147,7 @@
       "url": "https://jobs.ukbb.ch/offer/oberarztin-radiologie-80-100/54d1da0e-4853-495a-a390-152f1d0ab94e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:47.789Z",
+      "crawledAt": "2026-06-04T23:16:28.308Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1097,7 +1248,7 @@
       "url": "https://jobs.ukbb.ch/offer/dipl-expertin-anasthesiepflege-nds-/5311a306-0f60-4445-aaba-fbac3e9d939a",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:47.244Z",
+      "crawledAt": "2026-06-04T23:16:27.652Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1202,7 +1353,7 @@
       "url": "https://jobs.ukbb.ch/offer/bachelor-of-science-in-der-pflege-z/4ef9779e-7780-4c07-a093-5805a5882beb",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:46.707Z",
+      "crawledAt": "2026-06-04T23:16:27.104Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1299,7 +1450,7 @@
       "url": "https://jobs.ukbb.ch/offer/kodiererin-40-60/4da8ff37-3d23-40b2-b716-289d0bdf53a6",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:46.163Z",
+      "crawledAt": "2026-06-04T23:16:26.649Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1365,6 +1516,77 @@
       }
     },
     {
+      "id": "ukbb-6f8ed2c890e5",
+      "slug": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
+      "slugByLocale": {
+        "it": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
+        "en": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
+        "de": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel",
+        "fr": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
+      },
+      "company": "Universitäts-Kinderspital beider Basel",
+      "companyKey": "ukbb",
+      "companyDomain": "ukbb.ch",
+      "title": "Ausbildung Fachfrau/Fachmann Gesundheit EFZ (Schwerpunkt Pädiatrie)",
+      "titleByLocale": {
+        "it": "Ausbildung Fachfrau/Fachmann Gesundheit CFC (Schwerpunkt Pädiatrie)",
+        "en": "Training specialist health EFZ (focus on pediatrics)",
+        "de": "Ausbildung Fachfrau/Fachmann Gesundheit EFZ (Schwerpunkt Pädiatrie)",
+        "fr": "Formation de spécialistes de la santé EFZ (accent sur la pédiatrie)"
+      },
+      "description": "Starten Sie Ihre Ausbildung zur Fachperson Gesundheit EFZ in einem renommierten Kinderspital! Sie erhalten praxisnahe Einblicke in die Pflege und Betreuung von Kindern und Jugendlichen und lernen, wie Sie die jungen Patientinnen und Patienten sowie deren Familien in verschiedenen Situationen unterstützen. Profitieren Sie von einem motivierten Team und einer umfassenden Ausbildung in einem spezialisierten Bereich der Gesundheitsversorgung.\n\nEintrittsdatum : August 2027\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Unterstützung bei der Pflege und Betreuung von Kindern und Jugendlichen\n\nDurchführung von therapeutischen und medizinischen Massnahmen nach Anweisung\n\nBeobachtung und Dokumentation des Gesundheitszustandes der Patient*innen\n\nZusammenarbeit im interdisziplinären Team\n\nFörderung der Mobilität und des Wohlbefindens der Patient*innen\n\n\\n\\n\\nIhr Profil\\n\\n\n Abgeschlossene obligatorische Schulzeit (vorzugsweise Sekundarschule Niveau E)\n\nAusgeprägtes Interesse an der Pädiatrie und der spezialisierten Pflege von Kindern und Jugendlichen\n\nFreude am einfühlsamen und professionellen Umgang mit pädiatrischen Patient*innen sowie deren Bezugspersonen\n\nHohe Sozialkompetenz, Verantwortungsbewusstsein und Teamgeist\n\nEngagement und Bereitschaft zur interdisziplinären Zusammenarbeit in einem dynamischen Umfeld\n\n\\n\\n\\nUnser Angebot\\n\\n\n Entdecken Sie die Vielfalt der pädiatrischen Pflege und lassen Sie sich inspirieren\n\nPraxisnahe Anleitung durch erfahrene Pflegefachpersonen\n\nEnge Begleitung durch ein kompetentes und unterstützendes Team\n\nEin wertschätzendes und interprofessionelles Arbeitsumfeld\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Gloria Asgari, Leitung Berufsbildung Pflege, T +41 61 704 27 20, Sandra Künzli, Berufsbildungsverantwortliche Pflege T +41 61 704 27 22, Caterina Schliebe, Berufsbildungsverantwortliche Pflege, T +41 61 704 27 21.",
+      "descriptionByLocale": {
+        "it": "Descrizione\nInizia la tua formazione come specialista Health EFZ in un prestigioso ospedale per bambini! Potrai ottenere informazioni pratiche sulla cura e la cura dei bambini e degli adolescenti e imparare a sostenere i giovani pazienti e le loro famiglie in diverse situazioni. Approfitta di un team motivato e formazione completa in un'area specializzata di assistenza sanitaria.\n\nData di entrata: agosto 2027\n\nMansioni\n- Supporto nella cura e nella cura dei bambini e dei giovani\n- Attuazione delle misure terapeutiche e mediche mediante istruzione\n- Osservazione e documentazione della salute dei pazienti\n- Cooperazione nel team interdisciplinare\n- Promuovere la mobilità e il benessere dei pazienti\n\nRequisiti\n- Scuola obbligatoria completa (preferibilmente livello scuola secondaria E)\n- Ottimo interesse per la pediatrica e la cura specializzata per bambini e giovani\n- Gioia nella gestione sensibile e professionale dei pazienti pediatrici e dei loro riferimenti\n- Alta competenza sociale, senso di responsabilità e spirito di squadra\n- impegno e volontà di cooperazione interdisciplinare in un ambiente dinamico\n\nCosa?\n- Scopri la diversità della cura pediatrica e ispirati\n- Guida pratica da infermieri esperti\n- Chiudere il supporto di un team competente e di supporto\n- Un ambiente di lavoro prezioso e interprofessionale\n\nContatto\nNon vediamo l'ora della tua applicazione online!\n\nSi prega di prendere un breve periodo di tempo e compilare i campi sulla pagina successiva. Mantenere i documenti di applicazione completi elettronicamente pronti.\n\nPer domande generali sul lavoro o il processo di applicazione, il nostro team HR, telefono +41 61 704 12 32 sarà lieto di aiutarvi. Per ulteriori informazioni si prega di contattare Gloria Asgari, responsabile dell'istruzione e della formazione professionale, T +41 61 704 27 20, Sandra Künzli, cura della formazione professionale T +41 61 704 27 22, Caterina Schliebe, cura della formazione professionale, T +41 61 704 27 21.",
+        "en": "Descrizione\nStart your training as a specialist Health EFZ in a prestigious children's hospital! You will get practical insights into the care and care of children and adolescents and learn how to support young patients and their families in different situations. Benefit from a motivated team and comprehensive training in a specialized area of healthcare.\n\nDate of entry: August 2027\n\nMansioni\n- Support in the care and care of children and young people\n- Implementation of therapeutic and medical measures by instruction\n- Observation and documentation of patient health\n- Cooperation in the interdisciplinary team\n- Promoting patient mobility and well-being\n\nRequisiti\n- Complete compulsory schooling (preferably secondary school level E)\n- Excellent interest in pediatrics and specialized care for children and young people\n- Joy in sensitive and professional handling of paediatric patients and their references\n- High social competence, sense of responsibility and team spirit\n- commitment and willingness to interdisciplinary cooperation in a dynamic environment\n\nCosa offriamo\n- Discover the diversity of paediatric care and get inspired\n- Practical guidance by experienced nurses\n- Close support by a competent and supportive team\n- A valuable and interprofessional working environment\n\nContatto\nWe look forward to your online application!\n\nPlease take a short time and fill out the fields on the next page. Keep your complete application documents electronically ready.\n\nFor general questions about the job or the application process, our HR team, phone +41 61 704 12 32 will be happy to help you. For further information please contact Gloria Asgari, Head of Vocational Education and Training Care, T +41 61 704 27 20, Sandra Künzli, Care for Vocational Training T +41 61 704 27 22, Caterina Schliebe, Care for Vocational Training, T +41 61 704 27 21.",
+        "de": "## Descrizione\nStarten Sie Ihre Ausbildung zur Fachperson Gesundheit EFZ in einem renommierten Kinderspital! Sie erhalten praxisnahe Einblicke in die Pflege und Betreuung von Kindern und Jugendlichen und lernen, wie Sie die jungen Patientinnen und Patienten sowie deren Familien in verschiedenen Situationen unterstützen. Profitieren Sie von einem motivierten Team und einer umfassenden Ausbildung in einem spezialisierten Bereich der Gesundheitsversorgung.\n\nEintrittsdatum : August 2027\n\n## Mansioni\n- Unterstützung bei der Pflege und Betreuung von Kindern und Jugendlichen\n- Durchführung von therapeutischen und medizinischen Massnahmen nach Anweisung\n- Beobachtung und Dokumentation des Gesundheitszustandes der Patient*innen\n- Zusammenarbeit im interdisziplinären Team\n- Förderung der Mobilität und des Wohlbefindens der Patient*innen\n\n## Requisiti\n- Abgeschlossene obligatorische Schulzeit (vorzugsweise Sekundarschule Niveau E)\n- Ausgeprägtes Interesse an der Pädiatrie und der spezialisierten Pflege von Kindern und Jugendlichen\n- Freude am einfühlsamen und professionellen Umgang mit pädiatrischen Patient*innen sowie deren Bezugspersonen\n- Hohe Sozialkompetenz, Verantwortungsbewusstsein und Teamgeist\n- Engagement und Bereitschaft zur interdisziplinären Zusammenarbeit in einem dynamischen Umfeld\n\n## Cosa offriamo\n- Entdecken Sie die Vielfalt der pädiatrischen Pflege und lassen Sie sich inspirieren\n- Praxisnahe Anleitung durch erfahrene Pflegefachpersonen\n- Enge Begleitung durch ein kompetentes und unterstützendes Team\n- Ein wertschätzendes und interprofessionelles Arbeitsumfeld\n\n## Contatto\nWir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Gloria Asgari, Leitung Berufsbildung Pflege, T +41 61 704 27 20, Sandra Künzli, Berufsbildungsverantwortliche Pflege T +41 61 704 27 22, Caterina Schliebe, Berufsbildungsverantwortliche Pflege, T +41 61 704 27 21.",
+        "fr": "Descrizione\nCommencez votre formation en tant que spécialiste de la santé EFZ dans un hôpital pour enfants prestigieux! Vous obtiendrez des conseils pratiques sur les soins et les soins aux enfants et aux adolescents et apprendrez à soutenir les jeunes patients et leur famille dans des situations différentes. Bénéficiez d'une équipe motivée et d'une formation complète dans un domaine spécialisé de la santé.\n\nDate d'entrée : août 2027\n\nMansioni\n- Soutien à la prise en charge des enfants et des jeunes\n- Mise en œuvre de mesures thérapeutiques et médicales par instruction\n- Observation et documentation de la santé des patients\n- Coopération au sein de l'équipe interdisciplinaire\n- Promouvoir la mobilité et le bien-être des patients\n\nRequisiti\n- Achèvement de la scolarité obligatoire (de préférence au niveau du secondaire E)\n- Excellent intérêt pour la pédiatrie et les soins spécialisés pour les enfants et les jeunes\n- Joy dans le traitement sensible et professionnel des patients pédiatriques et de leurs références\n- Haute compétence sociale, sens des responsabilités et esprit d'équipe\n- engagement et volonté de coopération interdisciplinaire dans un environnement dynamique\n\nCosa offriamo\n- Découvrez la diversité des soins pédiatriques et inspirez-vous\n- Conseils pratiques d'infirmières expérimentées\n- Soutien étroit par une équipe compétente et solidaire\n- Un environnement de travail précieux et interprofessionnel\n\nContatto\nNous nous réjouissons de votre candidature en ligne!\n\nVeuillez prendre un peu de temps et remplir les champs de la page suivante. Gardez vos documents de demande complets prêts par voie électronique.\n\nPour des questions générales sur l'emploi ou le processus de candidature, notre équipe RH, téléphone +41 61 704 12 32 sera heureuse de vous aider. Pour de plus amples informations, veuillez contacter Gloria Asgari, responsable de l'enseignement et de la formation professionnels, T +41 61 704 27 20, Sandra Künzli, responsable de la formation professionnelle, T +41 61 704 27 22, Caterina Schliebe, responsable de la formation professionnelle, T +41 61 704 27 21."
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.ukbb.ch/offer/ausbildung-fachfrau-fachmann-gesund/486fc7ae-609a-46bc-a5a7-00f395a579de",
+      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-04T23:16:26.174Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4056",
+      "streetAddress": "Spitalstrasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://jobs.ukbb.ch/offer/ausbildung-fachfrau-fachmann-gesund/486fc7ae-609a-46bc-a5a7-00f395a579de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel"
+        ]
+      },
+      "firstSeenAt": "2026-06-04T15:59:09.951Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ukbb-1e62b4c8247d",
       "slug": "terminkoordinator-in-polikliniken-80-ab-januar-2027-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
@@ -1383,11 +1605,11 @@
         "de": "Terminkoordinator*in Polikliniken 80% (ab Januar 2027 100%)",
         "fr": "Coordinateur*rice d'appels Poliklinique 80% (à partir de janvier 2027 à temps plein)"
       },
-      "description": "Für das Patienten- und Zuweisermanagement für den Bereich Poliklinik suchen wir eine*n Terminkoordinator*in Polikliniken 80%, ab Januar 2027 100%. In dieser Funktion übernehmen Sie die Organisation und Koordination von Patientenanmeldungen, Terminen und Informationsflüssen. Als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Partner sichern Sie einen reibungslosen Ablauf. Mit Ihrer vielseitigen Mitarbeit in administrativen \n• Aufgaben und der Prozessoptimierung tragen Sie maßgeblich zu einer optimalen Patientenbetreuung bei.\n\nEintrittsdatum : ab sofort oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Sie nehmen Patientenanmeldungen mit höchster Professionalität entgegen und bearbeiten diese sorgfältig\n\nSie organisieren und koordinieren Termine, sowohl persönlich als auch telefonisch, und übernehmen die Erteilung von Auskünften sowie die Anpassung von Terminen\n\nSie fungieren als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Zuweisende und stellen einen reibungslosen Informationsfluss sicher\n\nSie bringen sich aktiv in die Optimierung von Prozessen ein und übernehmen delegierte \n• Aufgaben zur Unterstützung eines effizienten Betriebsablaufs\n\nSie führen administrative Tätigkeiten gewissenhaft aus und tragen so zu einer strukturierten und serviceorientierten Arbeitsweise bei\n\n\\n\\n\\nIhr Profil\\n\\n\n Sie verfügen über eine abgeschlossene medizinische Ausbildung EFZ mit mindestens zwei Jahren Berufserfahrung und bringen sehr gute Kenntnisse der medizinischen Terminologie mit\n\nSie arbeiten strukturiert, ruhig, effizient und selbstständig und sind in der Lage, Prioritäten zu setzen, während Sie durch eine hohe Sozialkompetenz und Offenheit für ein interkulturelles Umfeld überzeugen\n\nSie zeichnen sich durch eine ausgeprägte Dienstleistungsorientierung, hohe Flexibilität sowie ein starkes Verantwortungs- und Qualitätsbewusstsein aus und schätzen die interdisziplinäre Zusammenarbeit\n\nSie sind versiert im Umgang mit verschiedenen PC-Programmen und verfügen über sehr gute kommunikative Fähigkeiten\n\nSie beherrschen die deutsche Sprache in Wort und Schrift auf sehr hohem Niveau und verfügen idealerweise über Fremdsprachenkenntnisse in Englisch und Französisch\n\n\\n\\n\\nUnser Angebot\\n\\n\n Freuen Sie sich auf eine abwechslungsreiche und spannende Tätigkeit in einem modernen, zukunftsorientierten Arbeitsumfeld\n\nRegelmässige Arbeitszeiten von Montag bis Freitag für eine optimale Planung\n\nEin motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft\n\nProfitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte zur Stelle erteilt Ihnen gerne Frau Stefania Pagano Teamleiterin Terminkoordination Leitstelle Polikliniken und Radiologie, T +41 61 704 22 92",
+      "description": "Für das Patienten- und Zuweisermanagement für den Bereich Poliklinik suchen wir eine*n Terminkoordinator*in Polikliniken 80%, ab Januar 2027 100%. In dieser Funktion übernehmen Sie die Organisation und Koordination von Patientenanmeldungen, Terminen und Informationsflüssen. Als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Partner sichern Sie einen reibungslosen Ablauf. Mit Ihrer vielseitigen Mitarbeit in administrativen \n• Aufgaben und der Prozessoptimierung tragen Sie maßgeblich zu einer optimalen Patientenbetreuung bei.\n\nEintrittsdatum : ab sofort oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Sie nehmen Patientenanmeldungen mit höchster Professionalität entgegen und bearbeiten diese sorgfältig\n\nSie organisieren und koordinieren Termine, sowohl persönlich als auch telefonisch, und übernehmen die Erteilung von Auskünften sowie die Anpassung von Terminen\n\nSie fungieren als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Zuweisende und stellen einen reibungslosen Informationsfluss sicher\n\nSie bringen sich aktiv in die Optimierung von Prozessen ein und übernehmen delegierte \n• Aufgaben zur Unterstützung eines effizienten Betriebsablaufs\n\nSie führen administrative Tätigkeiten gewissenhaft aus und tragen so zu einer strukturierten und serviceorientierten Arbeitsweise bei\n\n\\n\\n\\nIhr Profil\\n\\n\n Sie verfügen über eine abgeschlossene Ausbildung EFZ als medizinische Praxisassistentin (MPA), Arztsekretärin oder Hotelfachfrau mit fundierten Kenntnissen der medizinischen Terminologie und mit mindestens zwei Jahren Berufserfahrung\n\nSie arbeiten strukturiert, ruhig, effizient und selbstständig und sind in der Lage, Prioritäten zu setzen, während Sie durch eine hohe Sozialkompetenz und Offenheit für ein interkulturelles Umfeld überzeugen\n\nSie zeichnen sich durch eine ausgeprägte Dienstleistungsorientierung, hohe Flexibilität sowie ein starkes Verantwortungs- und Qualitätsbewusstsein aus und schätzen die interdisziplinäre Zusammenarbeit\n\nSie sind versiert im Umgang mit verschiedenen PC-Programmen und verfügen über sehr gute kommunikative Fähigkeiten\n\nSie beherrschen die deutsche Sprache in Wort und Schrift auf sehr hohem Niveau und verfügen idealerweise über Fremdsprachenkenntnisse in Englisch und Französisch\n\n\\n\\n\\nUnser Angebot\\n\\n\n Freuen Sie sich auf eine abwechslungsreiche und spannende Tätigkeit in einem modernen, zukunftsorientierten Arbeitsumfeld\n\nRegelmässige Arbeitszeiten von Montag bis Freitag für eine optimale Planung\n\nEin motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft\n\nProfitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte zur Stelle erteilt Ihnen gerne Frau Stefania Pagano Teamleiterin Terminkoordination Leitstelle Polikliniken und Radiologie, T +41 61 704 22 92",
       "descriptionByLocale": {
         "it": "Descrizione del lavoro Per la gestione dei pazienti e dei referenti per l'area policlinica, cerchiamo un coordinatore appuntamenti per i policlinici 80%, da gennaio 2027 100%. Mansioni - Accetti le registrazioni dei pazienti con la massima professionalità e le elabori con attenzione - Organizzi e coordini gli appuntamenti, sia di persona che telefonicamente, e sei responsabile di fornire informazioni e modificare gli appuntamenti - Agisci come persona di contatto centrale per pazienti, genitori e referenti interni ed esterni e assicuri un flusso regolare di informazioni - Partecipi attivamente all'ottimizzazione dei processi e assumi compiti delegati per supportare operazioni efficienti - Svolgi e svolgi coscienziosamente attività amministrative Ciò porta ad un modo di lavorare strutturato e orientato al servizio presso\n• Requisiti - Hai completato la formazione medica EFZ con almeno due anni di esperienza professionale e possiedi un'ottima conoscenza della terminologia medica - Lavori in modo strutturato, calmo, efficiente e indipendente e sei in grado di stabilire le priorità, impressionando con un alto livello di abilità sociali e apertura all'ambiente interculturale - Sei caratterizzato da un marcato orientamento al servizio, elevata flessibilità, nonché un forte senso di responsabilità e collaborazione interdisciplinare di qualità e valore - Sei esperto nell'uso di vari programmi per PC e hai ottime capacità di comunicazione - Hai un livello molto elevato di comando della lingua tedesca, sia parlata che scritta, e preferibilmente avere competenze linguistiche in inglese e francese.\n• Cosa offriamo - Attendo con ansia un lavoro vario ed entusiasmante in un ambiente di lavoro moderno e orientato al futuro - Orario di lavoro regolare dal lunedì al venerdì per una pianificazione ottimale - Un team motivato e di mentalità aperta che crea un'atmosfera di lavoro professionale - Approfitta di condizioni di lavoro attraenti e contemporanee Contatto Saremo lieti di ricevere la tua candidatura online! Ti preghiamo di dedicare un momento a compilare i campi nella pagina successiva. Si prega di tenere pronti i documenti di candidatura completi in formato elettronico. Se avete domande generali sulla posizione o sul processo di candidatura, il nostro team HR sarà lieto di aiutarvi al numero +41 61 704 12 32. La signora Stefania Pagano, responsabile del team per il coordinamento degli appuntamenti, policlinico e centro di controllo radiologico, sarà lieta di fornirvi ulteriori informazioni sulla posizione, T +41 61 704 22 92.",
         "en": "Descrizione del lavoro For patient and referrer management for the polyclinic area, we are looking for an appointment coordinator for polyclinics 80%, from January 2027 100%. Mansioni - You accept patient registrations with the highest level of professionalism and process them carefully - You organize and coordinate appointments, both in person and by telephone, and are responsible for providing information and adjusting appointments - You act as the central contact person for patients, parents and internal and external referrers and ensure a smooth flow of information - You actively participate in the optimization of processes and take on delegated tasks to support efficient operations - You conscientiously carry out and carry out administrative activities This leads to a structured and service-oriented way of working at\n• Requisiti - You have completed EFZ medical training with at least two years of professional experience and have very good knowledge of medical terminology - You work in a structured, calm, efficient and independent manner and are able to set priorities, while impressing with a high level of social skills and openness to an intercultural environment - You are characterized by a pronounced service orientation, high flexibility as well as a strong sense of responsibility and quality and value interdisciplinary collaboration - You are well versed in Use various PC programs and have very good communication skills - You have a very high level of command of the German language, both spoken and written, and ideally have foreign language skills in English and French\n• Cosa offriamo - Look forward to a varied and exciting job in a modern, future-oriented working environment - Regular working hours from Monday to Friday for optimal planning - A motivated and open-minded team that creates a professional working atmosphere - Benefit from attractive and contemporary employment conditions Contatto We look forward to receiving your online application! Please take a moment and fill out the fields on the next page. Please have your complete application documents ready electronically. If you have general questions about the position or the application process, our HR team will be happy to help you on +41 61 704 12 32. Ms. Stefania Pagano, team leader for appointment coordination, polyclinic and radiology control center, will be happy to provide you with further information about the position, T +41 61 704 22 92.",
-        "de": "Für das Patienten- und Zuweisermanagement für den Bereich Poliklinik suchen wir eine*n Terminkoordinator*in Polikliniken 80%, ab Januar 2027 100%. In dieser Funktion übernehmen Sie die Organisation und Koordination von Patientenanmeldungen, Terminen und Informationsflüssen. Als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Partner sichern Sie einen reibungslosen Ablauf. Mit Ihrer vielseitigen Mitarbeit in administrativen \n• Aufgaben und der Prozessoptimierung tragen Sie maßgeblich zu einer optimalen Patientenbetreuung bei. Eintrittsdatum : ab sofort oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n Sie nehmen Patientenanmeldungen mit höchster Professionalität entgegen und bearbeiten diese sorgfältig Sie organisieren und koordinieren Termine, sowohl persönlich als auch telefonisch, und übernehmen die Erteilung von Auskünften sowie die Anpassung von Terminen Sie fungieren als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Zuweisende und stellen einen reibungslosen Informationsfluss sicher Sie bringen sich aktiv in die Optimierung von Prozessen ein und übernehmen delegierte \n• Aufgaben zur Unterstützung eines effizienten Betriebsablaufs Sie führen administrative Tätigkeiten gewissenhaft aus und tragen so zu einer strukturierten und serviceorientierten Arbeitsweise bei \\n\\n\\nIhr Profil\\n\\n Sie verfügen über eine abgeschlossene medizinische Ausbildung EFZ mit mindestens zwei Jahren Berufserfahrung und bringen sehr gute Kenntnisse der medizinischen Terminologie mit Sie arbeiten strukturiert, ruhig, effizient und selbstständig und sind in der Lage, Prioritäten zu setzen, während Sie durch eine hohe Sozialkompetenz und Offenheit für ein interkulturelles Umfeld überzeugen Sie zeichnen sich durch eine ausgeprägte Dienstleistungsorientierung, hohe Flexibilität sowie ein starkes Verantwortungs- und Qualitätsbewusstsein aus und schätzen die interdisziplinäre Zusammenarbeit Sie sind versiert im Umgang mit verschiedenen PC-Programmen und verfügen über sehr gute kommunikative Fähigkeiten Sie beherrschen die deutsche Sprache in Wort und Schrift auf sehr hohem Niveau und verfügen idealerweise über Fremdsprachenkenntnisse in Englisch und Französisch \\n\\n\\nUnser Angebot\\n\\n Freuen Sie sich auf eine abwechslungsreiche und spannende Tätigkeit in einem modernen, zukunftsorientierten Arbeitsumfeld Regelmässige Arbeitszeiten von Montag bis Freitag für eine optimale Planung Ein motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft Profitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen \\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung! Bitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit. Bei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte zur Stelle erteilt Ihnen gerne Frau Stefania Pagano Teamleiterin Terminkoordination Leitstelle Polikliniken und Radiologie, T +41 61 704 22 92",
+        "de": "Für das Patienten- und Zuweisermanagement für den Bereich Poliklinik suchen wir eine*n Terminkoordinator*in Polikliniken 80%, ab Januar 2027 100%. In dieser Funktion übernehmen Sie die Organisation und Koordination von Patientenanmeldungen, Terminen und Informationsflüssen. Als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Partner sichern Sie einen reibungslosen Ablauf. Mit Ihrer vielseitigen Mitarbeit in administrativen \n• Aufgaben und der Prozessoptimierung tragen Sie maßgeblich zu einer optimalen Patientenbetreuung bei. Eintrittsdatum : ab sofort oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n Sie nehmen Patientenanmeldungen mit höchster Professionalität entgegen und bearbeiten diese sorgfältig Sie organisieren und koordinieren Termine, sowohl persönlich als auch telefonisch, und übernehmen die Erteilung von Auskünften sowie die Anpassung von Terminen Sie fungieren als zentrale Ansprechperson für Patient*innen, Eltern sowie interne und externe Zuweisende und stellen einen reibungslosen Informationsfluss sicher Sie bringen sich aktiv in die Optimierung von Prozessen ein und übernehmen delegierte \n• Aufgaben zur Unterstützung eines effizienten Betriebsablaufs Sie führen administrative Tätigkeiten gewissenhaft aus und tragen so zu einer strukturierten und serviceorientierten Arbeitsweise bei \\n\\n\\nIhr Profil\\n\\n Sie verfügen über eine abgeschlossene Ausbildung EFZ als medizinische Praxisassistentin (MPA), Arztsekretärin oder Hotelfachfrau mit fundierten Kenntnissen der medizinischen Terminologie und mit mindestens zwei Jahren Berufserfahrung Sie arbeiten strukturiert, ruhig, effizient und selbstständig und sind in der Lage, Prioritäten zu setzen, während Sie durch eine hohe Sozialkompetenz und Offenheit für ein interkulturelles Umfeld überzeugen Sie zeichnen sich durch eine ausgeprägte Dienstleistungsorientierung, hohe Flexibilität sowie ein starkes Verantwortungs- und Qualitätsbewusstsein aus und schätzen die interdisziplinäre Zusammenarbeit Sie sind versiert im Umgang mit verschiedenen PC-Programmen und verfügen über sehr gute kommunikative Fähigkeiten Sie beherrschen die deutsche Sprache in Wort und Schrift auf sehr hohem Niveau und verfügen idealerweise über Fremdsprachenkenntnisse in Englisch und Französisch \\n\\n\\nUnser Angebot\\n\\n Freuen Sie sich auf eine abwechslungsreiche und spannende Tätigkeit in einem modernen, zukunftsorientierten Arbeitsumfeld Regelmässige Arbeitszeiten von Montag bis Freitag für eine optimale Planung Ein motiviertes und aufgeschlossenes Team, das eine professionelle Arbeitsatmosphäre schafft Profitieren Sie von attraktiven und zeitgemässen Anstellungsbedingungen \\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung! Bitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit. Bei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte zur Stelle erteilt Ihnen gerne Frau Stefania Pagano Teamleiterin Terminkoordination Leitstelle Polikliniken und Radiologie, T +41 61 704 22 92",
         "fr": "Descrizione del lavoro Pour la gestion des patients et des référents pour la zone polyclinique, nous recherchons un coordinateur de rendez-vous pour les polycliniques 80%, à partir de janvier 2027 100%. Mansioni - Vous acceptez les inscriptions des patients avec le plus haut niveau de professionnalisme et les traitez avec soin - Vous organisez et coordonnez les rendez-vous, tant en personne que par téléphone, et êtes responsable de l'information et de l'ajustement des rendez-vous - Vous agissez en tant qu'interlocuteur central pour les patients, les parents et les référents internes et externes et assurez la fluidité de l'information - Vous participez activement à l'optimisation des processus et assumez des tâches déléguées pour soutenir des opérations efficaces - Vous effectuez et réalisez consciencieusement les activités administratives Cela conduit à une manière de travailler structurée et axée sur le service chez\n• Requisiti - Vous avez suivi une formation médicale EFZ avec au moins deux ans d'expérience professionnelle et avez une très bonne connaissance de la terminologie médicale - Vous travaillez de manière structurée, calme, efficace et indépendante et êtes capable de fixer des priorités, tout en impressionnant par un haut niveau d'aptitudes sociales et une ouverture à un environnement interculturel - Vous vous caractérisez par une orientation prononcée vers le service, une grande flexibilité ainsi qu'un fort sens des responsabilités et une collaboration interdisciplinaire de qualité et de valeur - Vous maîtrisez bien l'utilisation de divers programmes PC et avez de très bonnes capacités de communication - Vous avez un très haut niveau de maîtrise de la langue allemande, tant parlée qu'écrite, et idéalement des compétences en langues étrangères en anglais et en français Cosa ofriamo - Réjouissez-vous d'un travail varié et passionnant dans un environnement de travail moderne et tourné vers l'avenir - Des horaires de travail réguliers du lundi au vendredi pour une planification optimale - Une équipe motivée et ouverte d'esprit qui crée une atmosphère de travail professionnelle - Bénéficiez de conditions d'emploi attractives et contemporaines Contatto Nous attendons avec impatience de recevoir votre candidature en ligne ! Veuillez prendre un moment et remplir les champs de la page suivante. Veuillez préparer vos documents de candidature complets par voie électronique. Si vous avez des questions d'ordre général sur le poste ou sur le processus de candidature, notre équipe RH se fera un plaisir de vous aider au +41 61 704 12 32. Mme Stefania Pagano, chef d'équipe pour la coordination des rendez-vous, la polyclinique et le centre de contrôle de radiologie, se fera un plaisir de vous fournir de plus amples informations sur le poste, T +41 61 704 22 92."
       },
       "location": "Basel",
@@ -1395,7 +1617,7 @@
       "url": "https://jobs.ukbb.ch/offer/terminkoordinatorin-polikliniken-80/3c883067-6f02-40c3-b675-4cf0a51e76d8",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:45.610Z",
+      "crawledAt": "2026-06-04T23:16:25.624Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1448,8 +1670,85 @@
       }
     },
     {
+      "id": "ukbb-0999f809a219",
+      "slug": "arztsekretar-in-orthopala-60-universitats-kinderspital-beider-basel-basel",
+      "slugByLocale": {
+        "it": "arztsekretar-in-orthopala-60-universitats-kinderspital-beider-basel-basel",
+        "en": "doctor-s-secretary-in-orthopaedics-60-universitats-kinderspital-beider-basel-basel",
+        "de": "arztsekretar-in-orthopadie-60-ukbb-basel",
+        "fr": "docteur-en-orthopedie-60-universitats-kinderspital-beider-basel-basel"
+      },
+      "company": "Universitäts-Kinderspital beider Basel",
+      "companyKey": "ukbb",
+      "companyDomain": "ukbb.ch",
+      "title": "Arztsekretär*in Orthopädie 60%",
+      "titleByLocale": {
+        "it": "Arztsekretär*in Orthopäla 60%",
+        "en": "Doctor's Secretary in Orthopaedics 60%",
+        "de": "Arztsekretär*in Orthopädie 60%",
+        "fr": "Docteur en orthopédie 60%"
+      },
+      "description": "Wir suchen eine*n engagierte*n und erfahrene*n Arztsekretär*in, der*die Freude daran hat, sich in ein lebhaftes orthopädisches Umfeld einzubringen und Verantwortung zu übernehmen. Mit Ihrem proaktiven und strukturierten Arbeitsstil treiben Sie Verbesserungen voran, unterstützen unser Team fachlich und bringen Ihr ausgeprägtes organisatorisches Talent ein.\n\nEintrittsdatum : per 01.08.2026 oder nach Vereinbarung\\n\\n\\nIhre \n• Aufgaben\\n\\n\n Zuständig für die Jahresplanung und -Organisation der Ärzteschaft\n\nBetreuen des Berichtswesens und Bearbeitung von medizinischen Dokumenten\n\nErstellen, Redigieren und Verwalten von Berichten\n\nVerantwortlich für die externen Sprechstunden u.a. mit Korrespondenz in Französisch\n\nKontaktperson zu internen und externen Stellen, Institutionen, Therapeuten, Spitälern, Sozialversicherungen sowie Eltern und Patienten und regelmässige Absprachen mit der zugeordneten Ärzteschaft\n\nKorrespondenz in den Sprachen Deutsch, Französisch und Italienisch\n\nAllgemeine Sekretariatsaufgaben (Führen diverser Agenden der Ärzteschaft, Bearbeitung eingehender Emails, Anlegen der Sprechstundenberichte, Erstellen und Versand von Verordnungen, Rezepten sowie Hilfsmitteln, Stammdatenpflege, Aktenherausgabe, Abrechnungen, etc.)\n\nBearbeiten von Versicherungs- und IV-Anfragen\n\nAllg. administrative Unterstützung der Ärzte\n\nFerienvertretung der Teamkolleginnen\n\n\\n\\n\\nIhr Profil\\n\\n\n Eine abgeschlossene kaufmännische/administrative/wirtschaftliche Ausbildung und/oder abgeschlossene Ausbildung als MPA mit sehr guten administrativen Kenntnissen.\n\nMehrjährige Berufserfahrung vorzugsweise im Gesundheitswesen/als Arztsekretärin und gute Kenntnisse der medizinischen Terminologie\n\nStilsicheres Französisch und Deutsch, Italienisch von Vorteil\n\nFreude an abwechslungsreicher Arbeit\n\nVersierter Umgang mit dem PC, gute Anwenderkenntnisse der Microsoft Office Produkte\n\nEine strukturierte, ruhige, speditive und selbständige Arbeitsweise und eine schnelle Auffassungsgabe, die Fähigkeit zur Priorisierung sowie ein hohes Verantwortungs- und Qualitätsbewusstsein sind unerlässlich\n\nEine zuverlässige, mitdenkende, freundliche und unkomplizierte sowie belastbare Persönlichkeit, welcher der Umgang mit Veränderungen leichtfällt und die Freude an der Zusammenarbeit im Team hat.\n\n\\n\\n\\nUnser Angebot\\n\\n\n Einen attraktiven, modernen Arbeitsplatz direkt im Dreiländereck\n\nEine abwechslungsreiche und herausfordernde Tätigkeit in einem kooperativen, kollegialen Team\n\nEine unterstützende, partizipative Führung\n\n\\n\\n\\nKontakt\\n\\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Frau Andrea Faller, Teamleiterin Orthopädie, T +41 61 704 24 34",
+      "descriptionByLocale": {
+        "it": "Descrizione\nSiamo alla ricerca di un segretario medico dedicato*n ed esperto che ha il piacere di entrare in un ambiente ortopedico vivace e assumersi la responsabilità. Con il vostro stile di lavoro proattivo e strutturato, guidi miglioramenti, supporti il nostro team professionalmente e introduci il vostro forte talento organizzativo.\n\nData d'entrata: 01.08.2026 o d'accordo\n\nMansioni\n- Responsabile della pianificazione e dell'organizzazione annuale dei medici\n- Mantenere la segnalazione e il trattamento dei documenti medici\n- Creare, modificare e gestire report\n- Responsabile per ore di conversazione esterne, compresa la corrispondenza in francese\n- Contattare la persona a organismi interni ed esterni, istituzioni, terapisti, ospedali, sistemi di sicurezza sociale, genitori e pazienti e accordi regolari con i medici associati\n- corrispondenza nelle lingue tedesco, francese e italiano\n- Compiti di segretariato generale (guida di varie nomine di medici, elaborazione di e-mail in arrivo, applicazione dei rapporti di conversazione, creazione e spedizione di regolamenti, ricette e aiuti, manutenzione dei dati master, consegna dei file, fatturazione, ecc.)\n- Trattamento delle domande di assicurazione e IV\n- Allg. supporto amministrativo dei medici\n- Rappresentanza di vacanze dei compagni di squadra\n\nRequisiti\n- Una formazione commerciale/amministrativa/economica completata e/o formazione completa come MPA con una buona conoscenza amministrativa.\n- Esperienza professionale pluriennale preferibilmente in assistenza sanitaria/come segretaria del medico e buona conoscenza della terminologia medica\n- Elegante francese e tedesco, italiano di vantaggio\n- Gioia di lavoro vario\n- Gestione verificata del PC, buona conoscenza utente dei prodotti Microsoft Office\n- Un modo di lavorare strutturato, tranquillo, speditivo e indipendente e una rapida comprensione, la capacità di priorità e un elevato senso di responsabilità e qualità sono essenziali\n- Una personalità affidabile, commemorativa, amichevole e semplice e resiliente che influisce facilmente sulla gestione dei cambiamenti e ha il piacere di lavorare con il team.\n\nCosa?\n- Un posto di lavoro attraente e moderno nel Triangolo\n- Un'attività variegata e impegnativa in un team cooperativo e collegiale\n- Una leadership solida e partecipativa\n\nContatto\nNon vediamo l'ora della tua applicazione online!\n\nSi prega di prendere un breve periodo di tempo e compilare i campi sulla pagina successiva. Mantenere i documenti di applicazione completi elettronicamente pronti.\n\nPer domande generali sul lavoro o il processo di applicazione, il nostro team HR, telefono +41 61 704 12 32 sarà lieto di aiutarvi. Per ulteriori informazioni, rivolgersi a Mrs Andrea Faller, team leader Orthopaedia, T +41 61 704 24 34",
+        "en": "Descrizione\nWe are looking for a dedicated*n and experienced doctor's secretary who has the pleasure of getting into a lively orthopedic environment and taking responsibility. With your proactive and structured working style, you drive improvements, support our team professionally and introduce your strong organizational talent.\n\nDate of entry: 01.08.2026 or by agreement\n\nMansioni\n- Responsible for the annual planning and organisation of doctors\n- Maintaining the reporting and processing of medical documents\n- Create, edit and manage reports\n- Responsible for external speaking hours, including correspondence in French\n- Contact person to internal and external bodies, institutions, therapists, hospitals, social security systems, parents and patients and regular agreements with the associated doctors\n- correspondence in the languages German, French and Italian\n- General secretarial tasks (guides of various doctors' appointments, processing of incoming emails, application of the speaking-time reports, creation and dispatch of regulations, recipes and aids, master data maintenance, file delivery, billing, etc.)\n- Processing of insurance and IV requests\n- Allg. administrative support of doctors\n- Holiday representation of teammates\n\nRequisiti\n- A completed commercial/administrative/economic training and/or completed training as MPA with very good administrative knowledge.\n- Multiannual professional experience preferably in health care/as a doctor's secretary and good knowledge of medical terminology\n- Stylish French and German, Italian of advantage\n- Joy of varied work\n- Versified handling of PC, good user knowledge of Microsoft Office products\n- A structured, quiet, speditive and independent way of working and a quick understanding, the ability to prioritize and a high sense of responsibility and quality are essential\n- A reliable, commemorative, friendly and uncomplicated as well as resilient personality that easily affects the handling of changes and has the pleasure of working with the team.\n\nCosa offriamo\n- An attractive, modern workplace right in the Triangle\n- A varied and challenging activity in a cooperative, collegial team\n- A supportive, participative leadership\n\nContatto\nWe look forward to your online application!\n\nPlease take a short time and fill out the fields on the next page. Keep your complete application documents electronically ready.\n\nFor general questions about the job or the application process, our HR team, phone +41 61 704 12 32 will be happy to help you. For further information please contact Mrs Andrea Faller, team leader Orthopaedia, T +41 61 704 24 34",
+        "de": "## Descrizione\nWir suchen eine*n engagierte*n und erfahrene*n Arztsekretär*in, der*die Freude daran hat, sich in ein lebhaftes orthopädisches Umfeld einzubringen und Verantwortung zu übernehmen. Mit Ihrem proaktiven und strukturierten Arbeitsstil treiben Sie Verbesserungen voran, unterstützen unser Team fachlich und bringen Ihr ausgeprägtes organisatorisches Talent ein.\n\nEintrittsdatum : per 01.08.2026 oder nach Vereinbarung\n\n## Mansioni\n- Zuständig für die Jahresplanung und -Organisation der Ärzteschaft\n- Betreuen des Berichtswesens und Bearbeitung von medizinischen Dokumenten\n- Erstellen, Redigieren und Verwalten von Berichten\n- Verantwortlich für die externen Sprechstunden u.a. mit Korrespondenz in Französisch\n- Kontaktperson zu internen und externen Stellen, Institutionen, Therapeuten, Spitälern, Sozialversicherungen sowie Eltern und Patienten und regelmässige Absprachen mit der zugeordneten Ärzteschaft\n- Korrespondenz in den Sprachen Deutsch, Französisch und Italienisch\n- Allgemeine Sekretariatsaufgaben (Führen diverser Agenden der Ärzteschaft, Bearbeitung eingehender Emails, Anlegen der Sprechstundenberichte, Erstellen und Versand von Verordnungen, Rezepten sowie Hilfsmitteln, Stammdatenpflege, Aktenherausgabe, Abrechnungen, etc.)\n- Bearbeiten von Versicherungs- und IV-Anfragen\n- Allg. administrative Unterstützung der Ärzte\n- Ferienvertretung der Teamkolleginnen\n\n## Requisiti\n- Eine abgeschlossene kaufmännische/administrative/wirtschaftliche Ausbildung und/oder abgeschlossene Ausbildung als MPA mit sehr guten administrativen Kenntnissen.\n- Mehrjährige Berufserfahrung vorzugsweise im Gesundheitswesen/als Arztsekretärin und gute Kenntnisse der medizinischen Terminologie\n- Stilsicheres Französisch und Deutsch, Italienisch von Vorteil\n- Freude an abwechslungsreicher Arbeit\n- Versierter Umgang mit dem PC, gute Anwenderkenntnisse der Microsoft Office Produkte\n- Eine strukturierte, ruhige, speditive und selbständige Arbeitsweise und eine schnelle Auffassungsgabe, die Fähigkeit zur Priorisierung sowie ein hohes Verantwortungs- und Qualitätsbewusstsein sind unerlässlich\n- Eine zuverlässige, mitdenkende, freundliche und unkomplizierte sowie belastbare Persönlichkeit, welcher der Umgang mit Veränderungen leichtfällt und die Freude an der Zusammenarbeit im Team hat.\n\n## Cosa offriamo\n- Einen attraktiven, modernen Arbeitsplatz direkt im Dreiländereck\n- Eine abwechslungsreiche und herausfordernde Tätigkeit in einem kooperativen, kollegialen Team\n- Eine unterstützende, partizipative Führung\n\n## Contatto\nWir freuen uns auf Ihre Online-Bewerbung!\n\nBitte nehmen Sie sich einen kurzen Moment Zeit und füllen Sie die Felder auf der nächsten Seite aus. Halten Sie dazu Ihre vollständigen Bewerbungsunterlagen elektronisch bereit.\n\nBei allgemeinen Fragen zur Stelle oder zum Bewerbungsprozess hilft Ihnen unser HR Team, Telefon +41 61 704 12 32 gerne weiter. Weitere Auskünfte erteilt Ihnen gerne Frau Andrea Faller, Teamleiterin Orthopädie, T +41 61 704 24 34",
+        "fr": "Descrizione\nNous recherchons une secrétaire médicale dévouée et expérimentée qui a le plaisir d'entrer dans un environnement orthopédique vivant et de prendre ses responsabilités. Grâce à votre style de travail proactif et structuré, vous conduisez des améliorations, soutenez notre équipe professionnellement et présentez votre solide talent organisationnel.\n\nDate d'entrée: 01.08.2026 ou par accord\n\nMansioni\n- Responsable de la planification et de l'organisation annuelles des médecins\n- Maintien de la déclaration et du traitement des documents médicaux\n- Créer, modifier et gérer des rapports\n- Responsable des heures de parole extérieures, y compris la correspondance en français\n- Personne de contact avec les organismes internes et externes, les institutions, les thérapeutes, les hôpitaux, les systèmes de sécurité sociale, les parents et les patients et accords réguliers avec les médecins associés\n- correspondance dans les langues allemande, française et italienne\n- tâches générales de secrétariat (guides des différents rendez-vous des médecins, traitement des e-mails entrants, application des rapports de temps de parole, création et envoi de règlements, recettes et aides, maintenance des données de base, livraison de fichiers, facturation, etc.)\n- Traitement des demandes d'assurance et IV\n- Soutien administratif des médecins\n- Représentation des jours fériés des coéquipiers\n\nRequisiti\n- Une formation commerciale/administrative/économique et/ou une formation en tant que ZPM avec de très bonnes connaissances administratives.\n- Expérience professionnelle pluriannuelle de préférence en soins de santé/en tant que secrétaire de médecin et bonne connaissance de la terminologie médicale\n- Élégant français et allemand, italien d'avantage\n- Joy de travail varié\n- Manipulation vérifiée de PC, bonne connaissance utilisateur des produits Microsoft Office\n- Un mode de travail structuré, calme, spéditif et indépendant et une compréhension rapide, la capacité de prioriser et un haut sens des responsabilités et de la qualité sont essentiels\n- Une personnalité fiable, commémorative, amicale et simple et résiliente qui affecte facilement la gestion des changements et a le plaisir de travailler avec l'équipe.\n\nCosa offriamo\n- Un lieu de travail attrayant et moderne dans le Triangle\n- Une activité variée et stimulante dans une équipe coopérative et collégiale\n- Un leadership solidaire et participatif\n\nContatto\nNous nous réjouissons de votre candidature en ligne!\n\nVeuillez prendre un peu de temps et remplir les champs de la page suivante. Gardez vos documents de demande complets prêts par voie électronique.\n\nPour des questions générales sur l'emploi ou le processus de candidature, notre équipe RH, téléphone +41 61 704 12 32 sera heureuse de vous aider. Pour de plus amples informations, veuillez contacter Mme Andrea Faller, chef d'équipe Orthopaedia, T +41 61 704 24 34"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.ukbb.ch/offer/arztsekretarin-orthopadie-60/30a86f34-8d81-4b81-b7c4-78853af5df8e",
+      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-04T23:16:25.061Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4056",
+      "streetAddress": "Spitalstrasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "applyUrl": "https://jobs.ukbb.ch/offer/arztsekretarin-orthopadie-60/30a86f34-8d81-4b81-b7c4-78853af5df8e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "arztsekretar-in-orthopadie-60-ukbb-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-orthopadie-60-ukbb-basel"
+        ],
+        "en": [
+          "arztsekretar-in-orthopadie-60-ukbb-basel"
+        ],
+        "fr": [
+          "arztsekretar-in-orthopadie-60-ukbb-basel"
+        ]
+      },
+      "firstSeenAt": "2026-06-04T15:59:08.867Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ukbb-a49cbc60a583",
-      "slug": "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel",
+      "slug": "leitung-pflege-station-a3-90-ukbb-basel",
       "slugByLocale": {
         "it": "leitung-pflege-station-a3-90-ukbb-basel",
         "en": "leitung-pflege-station-a3-90-ukbb-basel",
@@ -1479,7 +1778,7 @@
       "url": "https://jobs.ukbb.ch/offer/leitung-pflege-station-a3-90/2ecccd9c-e535-4dc1-ad34-70bd15fcdc15",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:45.067Z",
+      "crawledAt": "2026-06-04T23:16:24.441Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1498,18 +1797,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "it": [
+          "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel"
+        ],
         "en": [
           "head-of-care-station-a3-90-universitats-kinderspital-beider-basel-basel"
         ],
         "fr": [
           "chef-du-centre-de-soins-a3-90-universitats-kinderspital-beider-basel-basel"
-        ],
-        "de": [
-          "leitung-pflege-station-a3-90-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "leitung-pflege-station-a3-90-ukbb-basel",
+        "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel",
         "head-of-care-station-a3-90-universitats-kinderspital-beider-basel-basel",
         "chef-du-centre-de-soins-a3-90-universitats-kinderspital-beider-basel-basel"
       ],
@@ -1558,7 +1857,7 @@
       "url": "https://jobs.ukbb.ch/offer/wissenschaftliche-assistenz-hiwi/1a5f9605-a79b-40da-a1a6-9a3055fdc162",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:44.520Z",
+      "crawledAt": "2026-06-04T23:16:23.852Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1663,7 +1962,7 @@
       "url": "https://jobs.ukbb.ch/offer/pflegeexpertin-bscn-oder-mscn-80-90/14d8998d-4557-49b4-b40b-288982c844eb",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:43.972Z",
+      "crawledAt": "2026-06-04T23:16:23.258Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1762,7 +2061,7 @@
       "url": "https://jobs.ukbb.ch/offer/bachelor-of-science-in-der-pflege-6/0f18bad6-f17e-4cbd-9e86-d94cc4b5a1c6",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:44:43.419Z",
+      "crawledAt": "2026-06-04T23:16:22.639Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",

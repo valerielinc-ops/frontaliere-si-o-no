@@ -1,10 +1,10 @@
 {
   "crawlerKey": "therapiezentrum-meggen",
-  "assembledAt": "2026-06-01T00:01:19.734Z",
+  "assembledAt": "2026-06-04T23:14:02.337Z",
   "jobs": [
     {
       "id": "therapiezentrum-meggen-psychotherapie-stellenausschreibung-erfahren-mit-z-7c520020f93c",
-      "slug": "psychotherapeut-psychotherapeutin-80-100-con-zusatzaufgaben-therapiezentrum-meggen-meggen",
+      "slug": "psicoterapista-80-100-con-compiti-aggiuntivi-therapiezentrum-meggen-meggen",
       "slugByLocale": {
         "it": "psicoterapista-80-100-con-compiti-aggiuntivi-therapiezentrum-meggen-meggen",
         "en": "psychotherapeut-psychotherapeutin-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen",
@@ -34,7 +34,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T00:01:17.185Z",
+      "crawledAt": "2026-06-04T23:14:00.288Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -70,11 +70,13 @@
       },
       "previousSlugs": [
         "psychotherapeut-psychotherapeutin-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen",
+        "psychotherapeut-psychotherapeutin-80-100-con-zusatzaufgaben-therapiezentrum-meggen-meggen",
         "psychotherapie-psychotherapie-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeut-psychotherapeutin-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen"
+          "psychotherapeut-psychotherapeutin-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen",
+          "psychotherapeut-psychotherapeutin-80-100-con-zusatzaufgaben-therapiezentrum-meggen-meggen"
         ],
         "fr": [
           "psychotherapie-psychotherapie-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen"
@@ -126,7 +128,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T00:01:16.957Z",
+      "crawledAt": "2026-06-04T23:14:00.026Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",

@@ -1234,7 +1234,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${collectionLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    <script type="application/ld+json">${collectionLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
     ${SEO_STATIC_CSS_LINK}
     ${ADSENSE_SNIPPET}
   </head>
@@ -1782,7 +1782,7 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <link rel="canonical" href="${canonicalUrl}">
     ${SEO_STATIC_CSS_LINK}
-    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
