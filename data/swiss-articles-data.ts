@@ -188,6 +188,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-g-vs-b-2026-oltre-20-km',
+    category: 'pratico',
+    date: '2026-06-05T05:07:38.563Z',
+    image: '/images/blog/permesso-g-vs-b-2026-oltre-20-km.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

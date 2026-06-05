@@ -3927,6 +3927,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-naspi-unemployment-benefits': { name: 'NASPI disoccupazione', path: '/articoli-frontaliere/naspi-unemployment-benefits', parent: 'blog' },
     'blog-frontalieri-svizzera': { name: 'Frontalieri', path: '/articoli-svizzera/frontalieri-svizzera/', parent: 'blog' },
     'blog-concierge-ticino-lonza-ch': { name: 'Offerte Lavoro', path: '/articoli-frontaliere/concierge-ticino-lonza-ch', parent: 'blog' },
+    'blog-permesso-g-vs-b-2026-oltre-20-km': { name: 'Permessi frontalieri', path: '/articoli-svizzera/permesso-g-vs-b-2026-oltre-20-km/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

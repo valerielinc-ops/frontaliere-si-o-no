@@ -62,6 +62,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-svizzera.title': 'Cross-border workers in Switzerland',
     'blog.article.frontalieri-svizzera.excerpt': 'Practical information for cross-border commuters',
     'blog.article.frontalieri-svizzera.imageAlt': 'View of the city of Lugano',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'Cross-Border Permits G vs B: Changes Beyond 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Research Results and Data for the Area Beyond 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Map of Lugano with the Italian-Swiss border and the area beyond 20 km',
 };
 
 export default blogMetaChEn;
