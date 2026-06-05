@@ -11240,5 +11240,119 @@
         "pending": 16
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-05T06:33:30.617Z",
+    "label": "before",
+    "total": 10827,
+    "needsRetranslation": 2955,
+    "suppressed": 28,
+    "incomplete": 660,
+    "complete": 10167,
+    "missingByLocale": {
+      "it": 358,
+      "en": 274,
+      "de": 221,
+      "fr": 345
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 99
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 77
+      },
+      {
+        "company": "Roche",
+        "pending": 59
+      },
+      {
+        "company": "The Swatch Group (UK) Limited",
+        "pending": 28
+      },
+      {
+        "company": "UBS",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "Richemont",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Sulzer",
+        "pending": 16
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 16
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-05T08:22:35.664Z",
+    "label": "after",
+    "total": 10827,
+    "needsRetranslation": 2857,
+    "suppressed": 28,
+    "incomplete": 622,
+    "complete": 10205,
+    "missingByLocale": {
+      "it": 343,
+      "en": 261,
+      "de": 217,
+      "fr": 331
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 99
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 77
+      },
+      {
+        "company": "Roche",
+        "pending": 59
+      },
+      {
+        "company": "The Swatch Group (UK) Limited",
+        "pending": 28
+      },
+      {
+        "company": "UBS",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "Richemont",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Sulzer",
+        "pending": 16
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 16
+      }
+    ]
   }
 ]
