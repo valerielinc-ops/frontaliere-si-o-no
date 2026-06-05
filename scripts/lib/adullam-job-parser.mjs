@@ -1,28 +1,33 @@
 #!/usr/bin/env node
 /**
- * Adullam-Stiftung Basel & Riehen job parser — Umantis tenant 2562.
+ * Adullam-Stiftung Basel & Riehen job parser — Solique board.
  *
- * Public career site: https://www.adullam.ch/stellen-karriere/offene-stellen
- * Raw listing:        https://recruitingapp-2562.umantis.com/Jobs/All?lang=ger
+ * Live source:   https://live.solique.ch/adullam/   (Solique recruiting board, flat SSR)
+ * Public career: https://www.adullam.ch/stellen-karriere/offene-stellen
+ *                (embeds the Solique board in an iframe)
  *
- * Geriatric / palliative care foundation operating sites in:
- *   - Basel (Adullam Spital)
- *   - Riehen
+ * Migrated off Umantis: the old tenant 2562 listing still answers but its
+ * `/Vacancies/{id}/Description/1` page now 302-redirects to the public site
+ * (issue #1245), and the Solique board carries a DIFFERENT, current job set with
+ * real server-rendered descriptions. So Solique is now the source of truth and we
+ * crawl it directly via the shared `createSoliqueParser` (same module as
+ * spital-emmental / oberengadin / svar).
  *
- * Older Umantis UI (pipe-separated text).
+ * Geriatric / palliative care foundation operating a Spital + Pflegezentrum in
+ * Basel and Riehen.
  */
-import { createUmantisListingParser } from './umantis-listing-common.mjs';
+import { createSoliqueParser } from './solique-common.mjs';
 
 export const ADULLAM_KEY = 'adullam';
 export const ADULLAM_COMPANY_NAME = 'Adullam-Stiftung';
 export const ADULLAM_COMPANY_DOMAIN = 'adullam.ch';
 
-const parser = createUmantisListingParser({
+const parser = createSoliqueParser({
+  soliqueTenant: 'adullam',
+  migratedBoard: true,
   companyKey: ADULLAM_KEY,
   companyName: ADULLAM_COMPANY_NAME,
   companyDomain: ADULLAM_COMPANY_DOMAIN,
-  tenantId: 2562,
-  lang: 'ger',
   defaultCanton: 'BS',
   defaultCity: 'Basel',
   defaultPostalCode: '4054',

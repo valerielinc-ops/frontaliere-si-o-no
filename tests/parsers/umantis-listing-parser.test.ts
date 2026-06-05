@@ -4,8 +4,11 @@
  * Covers Basel/Basel-Land hospitals using the Umantis ATS via the shared
  * factory in `scripts/lib/umantis-listing-common.mjs`:
  *   - Bethesda Spital (tenant 2998, newer UI)
- *   - Adullam-Stiftung (tenant 2562, older UI)
  *   - Klinik Sonnenhalde Riehen (tenant 3030, newer UI)
+ *
+ * Adullam-Stiftung (ex-tenant 2562) MIGRATED off Umantis to the Solique board
+ * (#1245/#1506); its matcher tests below assert the new Solique source, not the
+ * dead tenant.
  *
  * Verifies:
  *   - Exported constants from each thin wrapper
@@ -66,8 +69,11 @@ describe('Umantis hospitals — isCompanyJob matchers', () => {
     expect(isBethesdaSpitalJob({ url: 'https://recruitingapp-2562.umantis.com/x' })).toBe(false);
   });
 
-  it('Adullam matches by tenant URL', () => {
-    expect(isAdullamJob({ url: 'https://recruitingapp-2562.umantis.com/x' })).toBe(true);
+  it('Adullam (migrated off Umantis → Solique) matches by Solique board URL, not the dead tenant', () => {
+    expect(isAdullamJob({ url: 'https://live.solique.ch/adullam/job/details/123' })).toBe(true);
+    // Re-pointed to Solique (#1245): the old Umantis tenant URL is no longer the
+    // source and is matched only via companyKey (see below), not by URL.
+    expect(isAdullamJob({ url: 'https://recruitingapp-2562.umantis.com/x' })).toBe(false);
   });
 
   it('Klinik Sonnenhalde matches by tenant URL', () => {
@@ -87,9 +93,11 @@ describe('Umantis hospitals — isTrustedDomain', () => {
     expect(isBethesdaTrusted('https://recruitingapp-2998.umantis.com/Vacancies/1/Description/1')).toBe(true);
   });
 
-  it('Adullam trusts both corporate + umantis tenant', () => {
+  it('Adullam trusts corporate + Solique board (migrated off Umantis)', () => {
     expect(isAdullamTrusted('https://www.adullam.ch/x')).toBe(true);
-    expect(isAdullamTrusted('https://recruitingapp-2562.umantis.com/x')).toBe(true);
+    expect(isAdullamTrusted('https://live.solique.ch/adullam/job/details/123')).toBe(true);
+    // No longer a Umantis tenant — the dead tenant host is not trusted.
+    expect(isAdullamTrusted('https://recruitingapp-2562.umantis.com/x')).toBe(false);
   });
 
   it('Sonnenhalde rejects unrelated domains', () => {
