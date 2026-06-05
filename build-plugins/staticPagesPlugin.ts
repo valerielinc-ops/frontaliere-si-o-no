@@ -24,7 +24,7 @@ import {
  type JobBoardLocale,
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
-import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
@@ -1053,6 +1053,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  articlesTotalPages = Math.max(1, Math.ceil(titleKeys.size / ARTICLES_PAGE_SIZE));
  } catch (e) {
  console.warn('[static-pages] Could not compute articlesTotalPages from blog-meta-it.ts:', e);
+ }
+
+ /* ── 0ter. Same for the svizzera (Switzerland-wide) article section ──
+  * The svizzera bare index (`/articoli-svizzera/` + locale variants) needs
+  * the SAME crawl-reachability scaffold the frontaliere index gets: a NAV
+  * entry (depth-1 from `/`), a visible CTA to `/articoli-svizzera/tutti/`,
+  * and a page-N navigator. Without it the entire sitemap-blog-ch.xml shard
+  * ships orphan at BFS depth > 4 (audit-bfs-depth hard-fails a brand-new
+  * shard that buries an entire tier — no `noindex`, no baseline flooring;
+  * the fix is internal links per CLAUDE.md non-negotiable #5). Slug source
+  * mirrors emitSvizzeraArticlesHub: blog-meta-ch-it.ts title keys. */
+ const svizzeraArchiveBases = svizzeraArticlesArchiveBasePaths();
+ let svizzeraArticlesTotalPages = 1;
+ try {
+ const chMetaSrc = fs.readFileSync(np.resolve(rootDir, 'services/locales/blog-meta-ch-it.ts'), 'utf-8');
+ const chTitleKeys = new Set<string>();
+ const chTitleRx = /'blog\.article\.([^']+?)\.title'/g;
+ let cm: RegExpExecArray | null;
+ while ((cm = chTitleRx.exec(chMetaSrc)) !== null) chTitleKeys.add(cm[1]);
+ svizzeraArticlesTotalPages = Math.max(1, Math.ceil(chTitleKeys.size / ARTICLES_PAGE_SIZE));
+ } catch (e) {
+ console.warn('[static-pages] Could not compute svizzeraArticlesTotalPages from blog-meta-ch-it.ts:', e);
  }
 
  // Same for the jobs hub: emit a deep-link navigator on /cerca-lavoro-ticino/
@@ -2248,6 +2270,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
  { href: '/glossario-frontaliere/', label: 'Glossario' },
  { href: '/articoli-frontaliere/', label: 'Articoli' },
+ { href: '/articoli-svizzera/', label: 'Articoli Svizzera' },
  { href: '/mappa-del-sito/', label: 'Mappa del Sito' },
  { href: '/chi-siamo/', label: 'Chi Siamo' },
  { href: '/correzioni/', label: 'Correzioni' },
@@ -2266,6 +2289,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/en/cross-border-faq/', label: 'FAQ' },
  { href: '/en/cross-border-glossary/', label: 'Glossary' },
  { href: '/en/cross-border-articles/', label: 'Articles' },
+ { href: '/en/swiss-articles/', label: 'Swiss Articles' },
  { href: '/en/site-map/', label: 'Site Map' },
  { href: '/about/', label: 'About Us' },
  { href: '/contact/', label: 'Contact Us' },
@@ -2279,6 +2303,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/de/grenzgaenger-faq/', label: 'FAQ' },
  { href: '/de/grenzgaenger-glossar/', label: 'Glossar' },
  { href: '/de/grenzgaenger-artikel/', label: 'Artikel' },
+ { href: '/de/schweiz-artikel/', label: 'Schweiz-Artikel' },
  { href: '/de/seitenplan/', label: 'Seitenplan' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
@@ -2292,6 +2317,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/fr/faq-frontaliers/', label: 'FAQ' },
  { href: '/fr/glossaire-frontalier/', label: 'Glossaire' },
  { href: '/fr/articles-frontalier/', label: 'Articles' },
+ { href: '/fr/articles-suisse/', label: 'Articles Suisse' },
  { href: '/fr/plan-du-site/', label: 'Plan du Site' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
@@ -2539,6 +2565,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const isHomePage = canonicalPath === '/';
  const isJobsIndex = /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/?$/.test(canonicalPath);
  const isArticlesIndex = /\/(articoli-frontaliere|frontier-articles|grenzgaenger-artikel|articles-frontalier)\/?$/.test(canonicalPath);
+ // Svizzera (Switzerland-wide) article section bare index — separate branch
+ // (own copy + own /tutti/ archive base) so the bare index links its hub and
+ // becomes a depth-1 → tutti (2) → article (3) crawl path, mirroring the
+ // frontaliere index. Locale slugs from ARTICLE_SECTIONS.svizzera.indexSlug.
+ const isSvizzeraArticlesIndex = /\/(articoli-svizzera|swiss-articles|schweiz-artikel|articles-suisse)\/?$/.test(canonicalPath);
  const isCalcStipendioIndex =
    /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath) ||
    /^\/(en|de|fr)\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath);
@@ -3055,6 +3086,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const SEG_SEE_ALL: Record<string, { href: string; label: string }> = {
  'calcola-stipendio': { href: '/calcola-stipendio/scenari/', label: '→ Vedi tutti gli scenari di stipendio' },
  'articoli-frontaliere': { href: '/articoli-frontaliere/tutti/', label: '→ Vedi tutti gli articoli' },
+ 'articoli-svizzera': { href: '/articoli-svizzera/tutti/', label: '→ Vedi tutti gli articoli Svizzera' },
  };
 
  // Static lists for hubs that are NOT in sitemap-pages.xml but whose
@@ -3831,6 +3863,69 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<p class="s-c06OMF">Fonte: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · Agenzia delle Entrate · Canton Ticino DFE</p>` +
  `</div></details>`,
  );
+ } else if (isSvizzeraArticlesIndex) {
+ // Svizzera article section index — mirrors the frontaliere isArticlesIndex
+ // scaffold so `/articoli-svizzera/tutti/` (and every paginated archive page)
+ // is reachable at BFS depth ≤ 3 from `/`. The bare index is reached at
+ // depth-1 via the NAV_LABELS "Articoli Svizzera" entry; this CTA + page
+ // navigator then close the path to the hub and its articles. Without it the
+ // whole sitemap-blog-ch.xml shard ships orphan (audit-bfs-depth hard-fail).
+ const svIntro = locale === 'en'
+   ? `<p class="s-6g7z41"><strong>Swiss Articles</strong> is the Switzerland-wide editorial section of Frontaliere Ticino: news, analysis and guides about living and working across all of Switzerland, beyond Canton Ticino. Topics span federal and cantonal taxation, health-insurance premiums (LAMal/KVG), cost of living, the labour market and legislative updates relevant to Italian residents and cross-border workers. Every article cites primary sources and links directly to the platform's calculators so you can move from the news to a personalised estimate in a few clicks.</p>`
+   : locale === 'de'
+   ? `<p class="s-6g7z41"><strong>Schweiz-Artikel</strong> ist die schweizweite Redaktionssektion von Frontaliere Ticino: Nachrichten, Analysen und Ratgeber zum Leben und Arbeiten in der ganzen Schweiz, über den Kanton Tessin hinaus. Die Themen reichen von der eidgenössischen und kantonalen Besteuerung über Krankenkassenprämien (KVG/LAMal) und Lebenshaltungskosten bis zum Arbeitsmarkt und zu Gesetzesänderungen, die für in Italien wohnhafte Personen und Grenzgänger relevant sind. Jeder Artikel zitiert Primärquellen und verlinkt direkt auf die Rechner der Plattform.</p>`
+   : locale === 'fr'
+   ? `<p class="s-6g7z41"><strong>Articles Suisse</strong> est la section éditoriale couvrant toute la Suisse de Frontaliere Ticino : actualités, analyses et guides sur la vie et le travail dans l'ensemble du pays, au-delà du Canton du Tessin. Les thèmes couvrent la fiscalité fédérale et cantonale, les primes d'assurance maladie (LAMal/KVG), le coût de la vie, le marché du travail et les évolutions législatives pertinentes pour les résidents italiens et les frontaliers. Chaque article cite ses sources primaires et renvoie directement aux calculateurs de la plateforme.</p>`
+   : `<p class="s-6g7z41"><strong>Articoli Svizzera</strong> è la sezione editoriale nazionale di Frontaliere Ticino: notizie, analisi e guide sulla vita e sul lavoro in tutta la Svizzera, oltre il Canton Ticino. I temi spaziano dalla fiscalità federale e cantonale ai premi delle casse malati (LAMal), dal costo della vita al mercato del lavoro fino agli aggiornamenti legislativi rilevanti per i residenti italiani e i lavoratori frontalieri. Ogni articolo cita le fonti primarie e collega direttamente ai simulatori della piattaforma, così da passare dalla notizia alla stima numerica in pochi click.</p>`;
+ editorialBlocks.push(svIntro);
+ const svArchiveBase = svizzeraArchiveBases[locale as ArchiveHubLocale] ?? '/articoli-svizzera/tutti/';
+ const svCtaLabel = locale === 'en' ? 'View the full Switzerland archive →'
+   : locale === 'de' ? 'Vollständiges Schweiz-Archiv ansehen →'
+   : locale === 'fr' ? 'Voir toutes les archives Suisse →'
+   : 'Vedi l\'archivio completo Svizzera →';
+ editorialBlocks.push(
+ `<p class="s-_TvFy0"><a class="s-277ZFO" href="${svArchiveBase}">${esc(svCtaLabel)}</a></p>`,
+ );
+ // Deep-link navigator — one anchor per archive page so every page-K is
+ // reachable at depth-2 from `/` even when the section grows past one page.
+ const svNavLabel = locale === 'en' ? 'Browse the full Switzerland article archive by page'
+   : locale === 'de' ? 'Vollständiges Schweiz-Artikelarchiv nach Seite durchsuchen'
+   : locale === 'fr' ? 'Parcourir toutes les archives Suisse par page'
+   : 'Sfoglia tutto l\'archivio articoli Svizzera per pagina';
+ const svPageWord = locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : locale === 'fr' ? 'Page' : 'Pagina';
+ if (svizzeraArticlesTotalPages > 1) {
+ const svPageAnchors: string[] = [];
+ for (let p = 1; p <= svizzeraArticlesTotalPages; p++) {
+ svPageAnchors.push(`<a class="s-4pFg-C" href="${paginatedPath(svArchiveBase, p)}">${svPageWord}&nbsp;${p}</a>`);
+ }
+ editorialBlocks.push(
+ `<nav class="s-rzdYWi" aria-label="${esc(svNavLabel)}"><p class="s-AYnHp_">${esc(svNavLabel)}:</p>${svPageAnchors.join('')}</nav>`,
+ );
+ }
+ const svBody = locale === 'en'
+   ? [
+       `<h2 class="s-o3IET6">What this section covers</h2>`,
+       `The Switzerland section complements the Ticino-focused cross-border articles with a nationwide perspective: cantonal tax comparisons, health-premium trends across cantons, cost-of-living shifts in the main Swiss cities, and federal labour-market and legislative news. It is the right starting point when a decision depends on where in Switzerland you work or plan to move, not only on the Ticino border region.`,
+       `Each article links to the relevant tool — the <a class="s-OsohZU" href="/en/calculate-salary/">salary simulator</a>, the LAMal-vs-SSN comparator and the cost-of-living pages — so you can turn a general update into a personalised, number-backed decision.`,
+     ]
+   : locale === 'de'
+   ? [
+       `<h2 class="s-o3IET6">Was diese Sektion abdeckt</h2>`,
+       `Die Schweiz-Sektion ergänzt die auf das Tessin fokussierten Grenzgänger-Artikel um eine landesweite Perspektive: kantonale Steuervergleiche, Entwicklung der Krankenkassenprämien über die Kantone, Lebenshaltungskosten in den grossen Schweizer Städten sowie eidgenössische Arbeitsmarkt- und Gesetzesnachrichten. Sie ist der richtige Ausgangspunkt, wenn eine Entscheidung davon abhängt, wo in der Schweiz Sie arbeiten oder hinziehen möchten.`,
+       `Jeder Artikel verlinkt auf das passende Tool — den <a class="s-OsohZU" href="/de/gehalt-berechnen/">Lohnsimulator</a>, den KVG/SSN-Vergleicher und die Lebenshaltungskosten-Seiten — damit aus einer allgemeinen Information eine personalisierte, zahlenbasierte Entscheidung wird.`,
+     ]
+   : locale === 'fr'
+   ? [
+       `<h2 class="s-o3IET6">Ce que couvre cette section</h2>`,
+       `La section Suisse complète les articles frontaliers centrés sur le Tessin par une perspective nationale : comparaisons fiscales cantonales, évolution des primes d'assurance maladie entre cantons, coût de la vie dans les principales villes suisses, ainsi que l'actualité fédérale du marché du travail et de la législation. C'est le bon point de départ lorsqu'une décision dépend de l'endroit où vous travaillez ou comptez vous installer en Suisse.`,
+       `Chaque article renvoie à l'outil pertinent — le <a class="s-OsohZU" href="/fr/calculer-salaire/">simulateur de salaire</a>, le comparateur LAMal/SSN et les pages sur le coût de la vie — pour transformer une information générale en une décision personnalisée et chiffrée.`,
+     ]
+   : [
+       `<h2 class="s-o3IET6">Cosa copre questa sezione</h2>`,
+       `La sezione Svizzera affianca agli articoli frontalieri focalizzati sul Ticino una prospettiva nazionale: confronti fiscali cantonali, andamento dei premi delle casse malati tra i cantoni, costo della vita nelle principali città svizzere e novità federali su mercato del lavoro e legislazione. È il punto di partenza giusto quando una decisione dipende da dove in Svizzera si lavora o ci si vuole trasferire, e non solo dalla zona di confine ticinese.`,
+       `Ogni articolo collega allo strumento pertinente — il <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, il confronto LAMal vs SSN e le pagine sul costo della vita — così da trasformare un aggiornamento generico in una decisione personalizzata e supportata dai numeri.`,
+     ];
+ editorialBlocks.push(...svBody);
  } else if (canonicalPath === '/chi-siamo' || canonicalPath === '/chi-siamo/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Chi siamo — Il team di Frontaliere Ticino</h2>`,
@@ -4401,6 +4496,7 @@ ${hrefTags}
  <a href="/contact/">Contact</a>
  <a href="/privacy-policy/">Privacy Policy</a>
  <a href="/articoli-frontaliere/">Articoli</a>
+ <a href="/articoli-svizzera/">Articoli Svizzera</a>
  <a href="/glossario-frontaliere/">Glossario</a>
  </nav>
  </body>
