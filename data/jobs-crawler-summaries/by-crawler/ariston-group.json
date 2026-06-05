@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-06-05T11:24:15.376Z",
-  "total": 26,
+  "generatedAt": "2026-06-05T21:34:54.897Z",
+  "total": 25,
   "newCount": 0,
   "updatedCount": 21,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 12800,
-  "avgDurationMs": 12800,
+  "removedCount": 1,
+  "unchangedCount": 4,
+  "durationMs": 12760,
+  "avgDurationMs": 12760,
   "durationHistory": [
-    12800
+    12760
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -516,11 +516,11 @@
       "currency": "CHF",
       "postalCode": "8400",
       "firstSeenAt": "2026-06-04T21:50:19.033Z",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -624,11 +624,11 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-06-04T14:29:55.562Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 19,
         "completeness": 19
       }
     },
@@ -707,39 +707,39 @@
       }
     },
     {
-      "title": "PRE-SALES TRANSILVANIA",
-      "slug": "pre-sales-transilvania-ariston-group-bucharest-ro-010505",
-      "url": "https://careers.aristongroup.com/job/Bucuresti-PRE-SALES-TRANSILVANIA-Buch-010505/1387220933/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1387220933/?locale=en_US",
+      "title": "RESPONSABLE TECHNIQUE ER - NORD VAUDOIS/FRIBOURG (M/F)",
+      "slug": "responsable-technique-er-nord-vaudois-fribourg-m-f-ariston-group-preverenges-ch-1028",
+      "url": "https://careers.aristongroup.com/job/Preverenges-RESPONSABLE-TECHNIQUE-ER-NORD-VAUDOISFRIBOURG-%28MF%29-Pr%C3%A9v-1028/1392848033/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1392848033/?locale=en_US",
       "company": "Ariston Group",
       "companyKey": "ariston-group",
       "companyDomain": "aristongroup.com",
-      "location": "Bucharest, RO, 010505",
-      "addressLocality": "Bucharest, RO, 010505",
-      "addressRegion": "",
+      "location": "Préverenges, CH, 1028",
+      "addressLocality": "Préverenges, CH, 1028",
+      "addressRegion": "VD",
       "addressCountry": "CH",
-      "canton": "",
+      "canton": "VD",
       "country": "CH",
       "category": "engineering",
       "sector": "Energia & Riscaldamento",
       "source": "ariston-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-23",
+      "sourceLang": "fr",
+      "postedDate": "2026-05-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-05",
-      "id": "ariston-group-77e21c16d8fd",
+      "validThrough": "2026-07-04",
+      "id": "ariston-group-c43f0290a98c",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-17T09:38:09.822Z",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "postalCode": "1028",
+      "firstSeenAt": "2026-06-04T14:29:55.562Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -780,7 +780,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "PRE-SALES TRANSILVANIA",
+      "slug": "prevendita-transilvania-ariston-group-bucharest-ro-010505",
+      "url": "https://careers.aristongroup.com/job/Bucuresti-PRE-SALES-TRANSILVANIA-Buch-010505/1387220933/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1387220933/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Bucharest, RO, 010505",
+      "addressLocality": "Bucharest, RO, 010505",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-05",
+      "id": "ariston-group-77e21c16d8fd",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "needsRetranslation": true,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 19,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "SERVICE TECHNICIAN",
@@ -919,49 +956,12 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-04T14:29:55.562Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "RESPONSABLE TECHNIQUE ER - NORD VAUDOIS/FRIBOURG (M/F)",
-      "slug": "responsable-technique-er-nord-vaudois-fribourg-m-f-ariston-group-preverenges-ch-1028",
-      "url": "https://careers.aristongroup.com/job/Preverenges-RESPONSABLE-TECHNIQUE-ER-NORD-VAUDOISFRIBOURG-%28MF%29-Pr%C3%A9v-1028/1392848033/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1392848033/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Préverenges, CH, 1028",
-      "addressLocality": "Préverenges, CH, 1028",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-05-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-04",
-      "id": "ariston-group-c43f0290a98c",
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "1028",
-      "firstSeenAt": "2026-06-04T14:29:55.562Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 22
+        "translation": 19,
+        "completeness": 19
       }
     }
   ]
