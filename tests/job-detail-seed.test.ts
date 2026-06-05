@@ -133,6 +133,20 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(jp).toMatch(/const expiredWindowData = inlineScriptJson\(expiredDataObj\)/);
       expect(jp).toMatch(/window\.__JOB_SEED__=\$\{inlineScriptJson\(/);
     });
+
+    it('jobsSeoPagesPlugin emits NO raw JSON-LD: every <script type="application/ld+json"> payload is escaped', () => {
+      // The job-detail page carries the most arbitrary JSON-LD payload (title/
+      // company). Both forms must be neutralised: inline `${JSON.stringify(...)}`
+      // in the tag, and `const *Ld = JSON.stringify(...)` vars emitted into one.
+      const jp = fs.readFileSync(path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
+      expect(jp).not.toMatch(/application\/ld\+json">\$\{JSON\.stringify/);
+      expect(jp).not.toMatch(/const [A-Za-z]*Ld = JSON\.stringify\(/);
+    });
+
+    it('the shared HTML shell escapes JSON-LD centrally (covers seoPageShell consumers)', () => {
+      const tpl = fs.readFileSync(path.resolve(root, 'build-plugins/htmlTemplate.ts'), 'utf-8');
+      expect(tpl).toMatch(/jsonLdScripts\.map\(ld =>[\s\S]{0,80}escapeInlineScript\(ld\)/);
+    });
   });
 
   describe('jobsSeoPagesPlugin emit', () => {

@@ -8,6 +8,7 @@
  * Phase 3 optimization: reduces string concatenation overhead for 55k+ pages.
  */
 import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
+import { escapeInlineScript } from './shared/inlineJsonScript';
 
 /**
  * Common <head> prefix: charset + viewport + favicon + security meta.
@@ -196,7 +197,11 @@ export function buildSimplePage(opts: SimplePageOpts): string {
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
  const extraHead = extraHeadHtml ? `\n${extraHeadHtml}` : '';
- const ldTags = jsonLdScripts.map(ld => ` <script type="application/ld+json">${ld}</script>`).join('\n');
+ // Escape `<` in each (already-serialized) JSON-LD string so a "</script>" in
+ // arbitrary content (titles, names) can't break out of the inline tag and
+ // invalidate the structured data on indexed pages. Shared choke point for
+ // every plugin that renders via this shell / seoPageShell.
+ const ldTags = jsonLdScripts.map(ld => ` <script type="application/ld+json">${escapeInlineScript(ld)}</script>`).join('\n');
  const cssLink = entryCss ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : '';
  // PR #454 extracted ~3 920 static inline `style=` attributes into content-
  // hashed CSS classes (s-{6char}) appended to public/assets/seo-static.css.
