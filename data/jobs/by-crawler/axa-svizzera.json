@@ -2439,9 +2439,9 @@
       },
       "slugByLocale": {
         "it": "haftpflichtspezialist-in-sachschaden-e-bau-axa-svizzera-st-gallen-smart-working",
-        "en": "haftpflichtspezialist-in-sachschaden-und-bau-axa-svizzera-st-gallen-smart-working",
+        "en": "liability-specialist-in-property-damage-and-construction-axa-svizzera-st-gallen",
         "de": "haftpflichtspezialist-in-sachschaden-und-bau-axa-svizzera-st-gallen-smart-working",
-        "fr": "haftpflichtspezialist-in-sachschaden-und-bau-axa-svizzera-st-gallen-smart-working"
+        "fr": "specialiste-de-la-responsabilite-dommages-materiels-et-construction-axa-svizzera-st-gallen"
       },
       "id": "axa-svizzera-4d819930bc57",
       "previousSlugsByLocale": {
@@ -2450,10 +2450,17 @@
         ],
         "de": [
           "haftpflichtspezialist-in-sachschaden-und-bau-axa-st-gallen-smart-working-onstbm"
+        ],
+        "en": [
+          "haftpflichtspezialist-in-sachschaden-und-bau-axa-svizzera-st-gallen-smart-working"
+        ],
+        "fr": [
+          "haftpflichtspezialist-in-sachschaden-und-bau-axa-svizzera-st-gallen-smart-working"
         ]
       },
       "previousSlugs": [
-        "haftpflichtspezialist-in-sachschaden-und-bau-axa-st-gallen-smart-working-onstbm"
+        "haftpflichtspezialist-in-sachschaden-und-bau-axa-st-gallen-smart-working-onstbm",
+        "haftpflichtspezialist-in-sachschaden-und-bau-axa-svizzera-st-gallen-smart-working"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

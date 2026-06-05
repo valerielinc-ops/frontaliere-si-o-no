@@ -106,7 +106,7 @@
       "slugByLocale": {
         "it": "partecipante-in-camera-zimmerdame-m-w-d-kulm-hotel-st-moritz-st-254b75",
         "en": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
-        "de": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
+        "de": "zimmerausstattung-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -160,6 +160,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "de": [
           "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
         ]
       },
@@ -443,12 +446,12 @@
     },
     {
       "id": "kulm-hotel-515cf45462f0",
-      "slug": "impiegato-di-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "slug": "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
-        "it": "impiegato-di-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "it": "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "laundry-employee-m-w-d-kulm-hotel-st-moritz",
         "de": "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-        "fr": "laundry-employee-m-w-d-kulm-hotel-st-moritz"
+        "fr": "gestion-personnelle-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -493,10 +496,15 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "laundry-employee-m-w-d-kulm-hotel-st-moritz"
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz",
+        "impiegato-di-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "laundry-employee-m-w-d-kulm-hotel-st-moritz",
+          "impiegato-di-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ],
+        "fr": [
           "laundry-employee-m-w-d-kulm-hotel-st-moritz"
         ]
       },
@@ -592,12 +600,12 @@
     },
     {
       "id": "kulm-hotel-d0995712e416",
-      "slug": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+      "slug": "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
-        "it": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+        "it": "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
         "de": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
-        "fr": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+        "fr": "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -653,7 +661,18 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-78fbe7770e75",
@@ -1098,7 +1117,7 @@
         "it": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
         "en": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
-        "fr": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz"
+        "fr": "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
