@@ -75,6 +75,28 @@ export function isTransientFetchError(err) {
 }
 
 /**
+ * Whether a thrown fetch error is a CONNECTION-LEVEL failure: the runner's
+ * egress could not reach the server at all (DNS/socket/abort/network), so NO
+ * HTTP response was ever received. This is the only class the Jina egress
+ * fallback may rescue — it re-fetches the same URL through a clean IP.
+ *
+ * Crucially this EXCLUDES HTTP error statuses (4xx/5xx). Those mean the server
+ * DID respond (the egress works); a persistent 503/500 is a real server-side
+ * failure, and re-routing it through Jina would just make an extra request that
+ * cannot help (and corrupts the "exactly N attempts" contract — see
+ * tests/crawler-fetch-retry.test.ts "exhausts retries … after persistent 503").
+ * HTTP errors in this codebase are always thrown with a finite `err.status`
+ * (RETRYABLE_STATUS path), so the presence of `err.status` is the discriminator.
+ */
+export function isConnectionLevelFetchError(err) {
+  if (!err) return false;
+  // A response was received (HTTP error status tagged by the caller) → NOT a
+  // connection-level failure, even though it may be a retryable 5xx.
+  if (Number.isFinite(err.status)) return false;
+  return isTransientFetchError(err);
+}
+
+/**
  * Run an async fetch operation with exponential backoff + jitter on transient
  * failures (429/5xx, network errors, timeouts). 4xx and other persistent
  * errors fail fast. Defaults: 3 retries → backoff 1s/2s/4s (+ jitter).

@@ -154,12 +154,14 @@ import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
 import {
   RETRYABLE_STATUS,
   isTransientFetchError,
+  isConnectionLevelFetchError,
   fetchWithRetry,
 } from './transient-fetch.mjs';
+import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
-export { RETRYABLE_STATUS, isTransientFetchError, fetchWithRetry };
+export { RETRYABLE_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -475,26 +477,49 @@ export async function fetchJson(url, options = {}) {
  */
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  return fetchWithRetry(async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        method: 'GET',
-        headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
-        signal: controller.signal,
-      });
-      if (!res.ok) {
-        const err = new Error(`HTTP ${res.status} from ${url}`);
-        err.status = res.status;
-        err.retryable = RETRYABLE_STATUS.has(res.status);
-        throw err;
+  try {
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, {
+          method: 'GET',
+          headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const err = new Error(`HTTP ${res.status} from ${url}`);
+          err.status = res.status;
+          err.retryable = RETRYABLE_STATUS.has(res.status);
+          throw err;
+        }
+        return await res.text();
+      } finally {
+        clearTimeout(timer);
       }
-      return await res.text();
-    } finally {
-      clearTimeout(timer);
+    }, options);
+  } catch (err) {
+    // Connection-level failure after retries: the runner's datacenter egress
+    // can't reach an otherwise-healthy site (~1-3% of fetches/wave; the sites
+    // return 200 from a clean IP). Fetch once through the Jina Reader proxy
+    // (reliable egress + real browser → raw HTML) so the data IS collected
+    // rather than failing. ONLY for connection-level failures (no HTTP response
+    // ever received) — a non-ok HTTP status (503/4xx/5xx) means the server DID
+    // respond, so the egress works and Jina cannot help; routing those through
+    // the proxy would just add a pointless request. HTTP/parse errors propagate.
+    // (fetchJson is intentionally NOT proxied — Jina returns HTML, which would
+    // corrupt a JSON response.)
+    if (isConnectionLevelFetchError(err)) {
+      // Retry the proxy itself: Jina's egress IP can be transiently 429'd or
+      // WAF-blocked (200 challenge/empty body) — a retry lands on a different
+      // Jina IP and usually succeeds. Returns null on exhaustion → safe-fail by
+      // re-throwing the original error (dataset preserved). Body validation +
+      // original-error preservation live in the shared helper.
+      const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
+      if (html != null) return html;
     }
-  }, options);
+    throw err;
+  }
 }
 
 /**
