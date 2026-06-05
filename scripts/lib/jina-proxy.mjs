@@ -223,6 +223,9 @@ export async function fetchHtmlViaJinaWithRetry(
         if (!reason) return html;
         lastReason = reason;
       } else {
+        // Drain the unused non-2xx body so undici reclaims the connection before
+        // retrying (same leak fixed in fetchViaJinaWithRetry above).
+        try { await res.arrayBuffer(); } catch { /* already aborted/closed */ }
         lastReason = `HTTP ${res.status}`;
       }
     } catch (err) {
