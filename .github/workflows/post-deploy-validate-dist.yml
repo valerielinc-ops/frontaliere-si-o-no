@@ -566,3 +566,20 @@ jobs:
             --reopen-within-hours 6 \
             --label Bug \
             --workflow "Post-deploy Validate Dist"
+
+      - name: Resolve GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Mirror of the failure reporter: every gating step above passed, so
+          # close the canonical "Validation Failure (dist)" issue if it is open.
+          # Without this the issue stays open while the state is already green
+          # (stale-issue churn). Idempotent no-op when nothing is open; the
+          # failure reporter's --reopen-within-hours 6 reopens it on a re-flap.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "Validation Failure (dist): post-deploy" \
+            --workflow "Post-deploy Validate Dist" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

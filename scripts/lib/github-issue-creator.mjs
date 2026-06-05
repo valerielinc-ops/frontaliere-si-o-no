@@ -187,6 +187,53 @@ function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) 
 }
 
 /**
+ * Resolve (close) the canonical OPEN issue with the given stable title prefix.
+ *
+ * The mirror of the `reopenWithinHours` flap-collapse logic: failure reporters
+ * REOPEN the canonical issue on red, so a green run must CLOSE it again —
+ * otherwise the issue stays open while the state is already OK (stale-issue
+ * churn). Idempotent: a no-op when no matching OPEN issue exists, so it's safe
+ * to run on every green pass. Best-effort — never throws; returns the closed
+ * issue ref or null.
+ *
+ * @param {string} titlePrefix  Stable title (first DEDUP_TITLE_PREFIX_LEN chars
+ *                              are matched, exactly as createGithubIssue dedups).
+ * @param {{ workflow?: string, runUrl?: string }} [ctx]
+ */
+export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
+  if (process.env.ENABLE_FAILURE_REPORT === 'false') {
+    console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
+    return null;
+  }
+  if (!titlePrefix) {
+    console.error('[github-issue-creator] resolve: title is required');
+    return null;
+  }
+  const prefix = titlePrefix.slice(0, DEDUP_TITLE_PREFIX_LEN);
+  const existing = findOpenIssueByTitlePrefix(prefix);
+  if (!existing) {
+    console.log(`[github-issue-creator] resolve: no open issue matching "${prefix}" — nothing to close`);
+    return null;
+  }
+  const note = [
+    '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
+    runUrl ? `\nGreen run: ${runUrl}` : '',
+    '\nClosed automatically; it will reopen if the same failure recurs.',
+  ].join('');
+  gh(['issue', 'comment', String(existing.number), '--body', note, ...repoFlag()], { allowFailure: true });
+  const closed = gh(
+    ['issue', 'close', String(existing.number), '--reason', 'completed', ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (closed !== null) {
+    console.log(`[github-issue-creator] resolve: closed #${existing.number} — ${existing.title}`);
+    return { number: existing.number, title: existing.title, url: existing.url };
+  }
+  console.error(`[github-issue-creator] resolve: could not close #${existing.number} (best-effort)`);
+  return null;
+}
+
+/**
  * Create a GitHub issue, or comment on an existing open duplicate.
  */
 export async function createGithubIssue({
@@ -381,8 +428,16 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N] [--consecutive-gate N] [--gate-window-hours H]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N] [--consecutive-gate N] [--gate-window-hours H] [--resolve]');
     process.exit(1);
+  }
+
+  // --resolve: close the OPEN canonical issue with this stable title (green run).
+  // Mirror of the failure reporter; runs from `if: success()` steps so a recovered
+  // gate doesn't leave a stale open issue. Best-effort, always exits 0.
+  if (args.includes('--resolve')) {
+    resolveGithubIssue(title, { workflow: get('--workflow'), runUrl: get('--run-url') });
+    process.exit(0);
   }
 
   // --consecutive-gate: N>0 forces the gate (escalate on the Nth failure);
