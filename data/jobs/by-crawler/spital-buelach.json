@@ -3616,12 +3616,12 @@
     },
     {
       "id": "spital-buelach-b42b127f2fde",
-      "slug": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
+      "slug": "dipl-specialista-di-cura-cura-intensiva-spital-bulach-bulach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
-        "it": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
+        "it": "dipl-specialista-di-cura-cura-intensiva-spital-bulach-bulach",
         "en": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach"
+        "fr": "dipl-specialiste-des-soins-soins-intensifs-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3678,21 +3678,21 @@
       },
       "firstSeenAt": "2026-06-05T12:37:41.641Z",
       "previousSlugs": [
+        "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach",
         "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
-        "dipl-specialista-di-cura-cura-intensiva-spital-bulach-bulach",
-        "dipl-specialiste-des-soins-soins-intensifs-spital-bulach-bulach",
+        "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach",
         "infermiere-professionale-chirurgia-spital-bulach-bulach",
         "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
-        "infirmier-diplome-chirurgie-spital-bulach-bulach",
-        "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach",
-        "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach"
+        "infirmier-diplome-chirurgie-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach"
+          "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach",
+          "dipl-pflegefachperson-intensivstation-spital-buelach-bulach"
         ],
         "fr": [
-          "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach"
+          "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach",
+          "dipl-pflegefachperson-intensivstation-spital-buelach-bulach"
         ]
       }
     },
@@ -3770,12 +3770,12 @@
     },
     {
       "id": "spital-buelach-915253d954d7",
-      "slug": "fachperson-gesundheit-medizin-spital-buelach-bulach",
+      "slug": "dipartimento-di-medicina-della-salute-spital-bulach-bulach",
       "slugByLocale": {
         "de": "fachperson-gesundheit-medizin-spital-buelach-bulach",
-        "it": "fachperson-gesundheit-medizin-spital-buelach-bulach",
-        "en": "fachperson-gesundheit-medizin-spital-buelach-bulach",
-        "fr": "fachperson-gesundheit-medizin-spital-buelach-bulach"
+        "it": "dipartimento-di-medicina-della-salute-spital-bulach-bulach",
+        "en": "department-of-health-medicine-spital-bulach-bulach",
+        "fr": "departement-de-medecine-sanitaire-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3832,31 +3832,34 @@
       },
       "firstSeenAt": "2026-06-05T12:37:41.638Z",
       "previousSlugs": [
-        "fachperson-gesundheit-medizin-spital-buelach-bulach",
         "specialista-sanita-medico-spital-bulach-bulach",
+        "fachperson-gesundheit-medizin-spital-buelach-bulach",
         "healthcare-professional-medical-spital-bulach-bulach",
         "specialiste-en-sante-medical-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-sanita-medico-spital-bulach-bulach"
+          "specialista-sanita-medico-spital-bulach-bulach",
+          "fachperson-gesundheit-medizin-spital-buelach-bulach"
         ],
         "en": [
-          "healthcare-professional-medical-spital-bulach-bulach"
+          "healthcare-professional-medical-spital-bulach-bulach",
+          "fachperson-gesundheit-medizin-spital-buelach-bulach"
         ],
         "fr": [
-          "specialiste-en-sante-medical-spital-bulach-bulach"
+          "specialiste-en-sante-medical-spital-bulach-bulach",
+          "fachperson-gesundheit-medizin-spital-buelach-bulach"
         ]
       }
     },
     {
       "id": "spital-buelach-c0c6f1437416",
-      "slug": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
+      "slug": "interno-in-reparto-privato-di-allattamento-spital-bulach-bulach",
       "slugByLocale": {
         "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
-        "it": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
-        "en": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
-        "fr": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
+        "it": "interno-in-reparto-privato-di-allattamento-spital-bulach-bulach",
+        "en": "intern-in-nursing-private-department-spital-bulach-bulach",
+        "fr": "stagiaire-en-soins-infirmiers-departement-prive-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3913,31 +3916,34 @@
       },
       "firstSeenAt": "2026-06-05T12:37:41.636Z",
       "previousSlugs": [
-        "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
         "stage-privato-spital-bulach-bulach",
+        "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
         "private-ward-nursing-intern-spital-bulach-bulach",
         "stagiaire-en-soins-prives-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-privato-spital-bulach-bulach"
+          "stage-privato-spital-bulach-bulach",
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
         ],
         "en": [
-          "private-ward-nursing-intern-spital-bulach-bulach"
+          "private-ward-nursing-intern-spital-bulach-bulach",
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
         ],
         "fr": [
-          "stagiaire-en-soins-prives-spital-bulach-bulach"
+          "stagiaire-en-soins-prives-spital-bulach-bulach",
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach"
         ]
       }
     },
     {
       "id": "spital-buelach-afb5ec1d747f",
-      "slug": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
+      "slug": "dipl-cura-piscina-professionale-spital-bulach-bulach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
-        "it": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
-        "en": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
+        "it": "dipl-cura-piscina-professionale-spital-bulach-bulach",
+        "en": "dipl-care-professional-care-pool-spital-bulach-bulach",
+        "fr": "dipl-pool-de-soins-professionnels-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3994,20 +4000,23 @@
       },
       "firstSeenAt": "2026-06-05T12:37:41.613Z",
       "previousSlugs": [
-        "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
         "diplomato-di-assistenza-infermieristica-pool-di-assistenza-spital-bulach-bulach",
+        "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach",
         "diploma-in-nursing-nursing-pool-spital-bulach-bulach",
         "diplome-e-en-soins-infirmiers-pool-de-soins-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomato-di-assistenza-infermieristica-pool-di-assistenza-spital-bulach-bulach"
+          "diplomato-di-assistenza-infermieristica-pool-di-assistenza-spital-bulach-bulach",
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
         ],
         "en": [
-          "diploma-in-nursing-nursing-pool-spital-bulach-bulach"
+          "diploma-in-nursing-nursing-pool-spital-bulach-bulach",
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-pool-de-soins-spital-bulach-bulach"
+          "diplome-e-en-soins-infirmiers-pool-de-soins-spital-bulach-bulach",
+          "dipl-pflegefachperson-pflege-pool-spital-buelach-bulach"
         ]
       }
     }

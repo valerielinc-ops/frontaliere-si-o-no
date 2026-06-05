@@ -89,8 +89,8 @@
       "slugByLocale": {
         "fr": "preparatrice-eur-en-pharmacie-100-cdd-5-mois-jusqu-au-31-decembre-2026-hfr-hopital",
         "it": "preparatrice-in-farmacia-100-cdd-5-mesi-fino-al-31-dicembre-2026-hopital-fribourgeois-hfr-fribourg",
-        "en": "preparatrice-eur-en-pharmacie-100-cdd-5-mois-jusqu-au-31-decembre-2026-hfr-hopital",
-        "de": "preparatrice-eur-en-pharmacie-100-cdd-5-mois-jusqu-au-31-decembre-2026-hfr-hopital"
+        "en": "pharmacy-preparer-100-cdd-5-months-until-december-31-2026-hopital-fribourgeois-hfr-fribourg",
+        "de": "pharmazie-zubereiter-100-cdd-5-monate-bis-31-dezember-2026-hopital-fribourgeois-hfr-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -149,6 +149,12 @@
       "firstSeenAt": "2026-06-05T11:56:22.497Z",
       "previousSlugsByLocale": {
         "it": [
+          "preparatrice-eur-en-pharmacie-100-cdd-5-mois-jusqu-au-31-decembre-2026-hfr-hopital"
+        ],
+        "en": [
+          "preparatrice-eur-en-pharmacie-100-cdd-5-mois-jusqu-au-31-decembre-2026-hfr-hopital"
+        ],
+        "de": [
           "preparatrice-eur-en-pharmacie-100-cdd-5-mois-jusqu-au-31-decembre-2026-hfr-hopital"
         ]
       },
@@ -1559,7 +1565,7 @@
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital",
         "it": "collaborateur-trice-administratif-ve-60-collaboratore-trice-administration-60-hopital-fribourgeois-hfr-fribourg",
-        "en": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital",
+        "en": "administrative-collaborator-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg",
         "de": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1606,6 +1612,9 @@
       "externalId": "df7451e3ad4c",
       "previousSlugsByLocale": {
         "it": [
+          "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
+        ],
+        "en": [
           "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
         ]
       },

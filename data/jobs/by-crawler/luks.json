@@ -565,9 +565,6 @@
         "zivildienstleistende-als-allrounder-lager-ts-pflichtenheft-101156-luks-luzern",
         "prestataire-de-service-civil-comme-tout-faire-en-entrepot-ts-tache-101156-luzerner-kantonsspital-luks-luzern",
         "lagerhelfer-als-allrounder-zivildienst-anforderungsbeschreibung-101156-luzerner-kantonsspital-luks-luzern",
-        "prestatore-di-servizio-civile-come-tuttofare-in-ufficio-tecnico-incarico-101157-luzerner-kantonsspital-luks-luzern",
-        "civilian-service-personnel-as-a-jack-of-all-trades-in-the-drawing-office-position-101157-luzerner-kantonsspital-luks",
-        "prestataire-de-service-civil-comme-polyvalent-dans-le-bureau-de-dessin-poste-101157-luzerner-kantonsspital-luks-luzern",
         "prestatore-di-servizio-civile-come-tuttofare-magazzino-ts-incarico-101156-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -1526,7 +1523,6 @@
         "civilian-service-employees-as-logistics-emergency-service-staff-requirements-101145-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-als-mitarbeiter-logistik-rettungsdienst-pflichtenheft-101145-luks",
         "employes-de-service-civil-comme-personnel-logistique-service-de-secours-exigences-101145-luzerner-kantonsspital-luks",
-        "zivildienstleistende-come-assistenti-alla-cura-centro-di-emergenza-requisiti-101140-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-come-dipendenti-logistica-servizio-di-soccorso-requisiti-101145-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -2180,7 +2176,6 @@
         "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern",
         "employe-de-service-civil-comme-membre-de-l-equipe-informatique-projet-101160-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-come-membro-del-team-informatik-progetto-101160-luzerner-kantonsspital-luks-luzern",
-        "addetto-alla-pulizia-come-zivildienst-progetto-101153-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-come-collaboratore-trice-informatik-pflichtenheft-101160-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -2263,9 +2258,6 @@
       "previousSlugs": [
         "zivildienstleistende-als-assistenzarzt-chirurgische-klinik-pflichtenheft-101138-luks",
         "zivildienstleistende-als-pflegefachmann-fachmann-gesundheit-chirurgische-klinik",
-        "prestatore-di-servizio-civile-come-assistente-medico-clinica-chirurgica-requisiti-101138-luzerner-kantonsspital-luks",
-        "civilian-service-provider-as-assistant-physician-surgical-clinic-requirements-101138-luzerner-kantonsspital-luks-luzern",
-        "prestataire-de-service-civil-comme-medecin-assistant-clinique-chirurgicale-exigences-101138-luzerner-kantonsspital-luks",
         "prestatore-di-servizio-civile-come-professionista-sanitario-clinica-chirurgica-requisiti-101139-luzerner-kantonsspital"
       ],
       "previousSlugsByLocale": {
@@ -2350,9 +2342,6 @@
         "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern",
         "employe-de-service-civil-comme-membre-de-l-equipe-informatique-projet-101160-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-come-membro-del-team-informatik-progetto-101160-luzerner-kantonsspital-luks-luzern",
-        "personale-di-servizio-civile-come-dipendente-lavapiatti-progetto-101152-luzerner-kantonsspital-luks-luzern",
-        "civilian-service-employees-as-dishwasher-project-101152-luzerner-kantonsspital-luks-luzern",
-        "employes-de-service-civil-comme-employe-de-cuisine-projet-101152-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-come-collaboratore-trice-informatik-pflichtenheft-101160-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -7618,7 +7607,6 @@
         "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
         "betreiber-technik-80-luzerner-kantonsspital-luks-luzern",
-        "operatorin-operator-technik-80-luks-luzern-2",
         "technical-operator-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operatorin-operator-technik-80-luks-luzern"
@@ -18795,8 +18783,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee",
         "it": "specialista-specialista-sanitario-pronto-soccorso-100-luzerner-kantonsspital-luks-sursee",
-        "en": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee",
-        "fr": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee"
+        "en": "professional-health-emergency-station-100-luzerner-kantonsspital-luks-sursee",
+        "fr": "poste-d-urgence-sanitaire-professionnel-100-luzerner-kantonsspital-luks-sursee"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18855,6 +18843,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee"
         ]
       },
       "previousSlugs": [
@@ -18867,8 +18861,8 @@
       "slugByLocale": {
         "de": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
         "it": "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
-        "en": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
-        "fr": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans"
+        "en": "head-of-physiotherapy-also-jobsharing-possible-100-luzerner-kantonsspital-luks-stans",
+        "fr": "responsable-de-la-physiotherapie-egalement-le-partage-d-emploi-possible-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18927,14 +18921,13 @@
       },
       "previousSlugs": [
         "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
-        "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
+        "capo-capo-di-fisioterapia-possibilita-di-lavoro-in-condivisione-100-luzerner-kantonsspital-luks-stans",
+        "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
+        "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans",
         "responsabile-fisioterapia-anche-con-lavoro-a-turni-luzerner-kantonsspital-luks-stans",
         "physiotherapy-manager-also-part-time-possible-luzerner-kantonsspital-luks-stans",
         "responsable-de-physiotherapie-teletravail-partiel-possible-luzerner-kantonsspital-luks-stans",
-        "responsable-de-la-kinesitherapie-possibilite-de-travail-partage-100-luzerner-kantonsspital-luks-stans",
-        "capo-capo-di-fisioterapia-possibilita-di-lavoro-in-condivisione-100-luzerner-kantonsspital-luks-stans",
-        "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
-        "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans"
+        "responsable-de-la-kinesitherapie-possibilite-de-travail-partage-100-luzerner-kantonsspital-luks-stans"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
