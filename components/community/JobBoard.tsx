@@ -101,6 +101,7 @@ import {
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
+import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  isMultiLocation,
  normalizeJobCategory,
@@ -1700,6 +1701,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { t } = useTranslation();
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
+ // exchanging — the visitor is about to be signed in; flashing the gate is noise.
+ const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
  const nav = useNavigation();
  const pageSize = 10;
  // Runtime kill-switches for the "Strumenti correlati" sidebar cross-links.
@@ -5799,10 +5803,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  if (selectedJob) {
- if (!authResolved) {
+ if (!authResolved || newsletterAutologinInFlight) {
  // Use a layout-matching skeleton instead of a tiny spinner to prevent CLS:
  // the spinner occupies ~80px but the full detail layout is 800-1200px,
  // causing a large measurable layout shift when auth resolves.
+ // Also hold the skeleton while a newsletter autologin is exchanging so the
+ // gate never flashes before the imminent sign-in lands.
  return <SkeletonJobDetail />;
  }
  if (!hasAccess) {
