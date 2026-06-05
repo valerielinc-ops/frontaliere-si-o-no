@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-06-05T11:28:04.429Z",
+  "assembledAt": "2026-06-05T21:38:50.513Z",
   "jobs": [
     {
       "id": "bls-e310036fa7f0",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/89fcd35e-8e59-4e80-a59f-e559eed14465",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:28:01.990Z",
+      "crawledAt": "2026-06-05T21:38:47.663Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:43.687Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -127,7 +128,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahntechnik/bd190472-238b-4323-b57a-d0bbace8cdaa",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:28:01.229Z",
+      "crawledAt": "2026-06-05T21:38:46.806Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -176,6 +177,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:42.963Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -221,7 +223,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/projektleiter-in-rollmaterial-flottenmanagement/443db38e-ac6c-40b7-b846-98fdad74395a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:28:00.470Z",
+      "crawledAt": "2026-06-05T21:38:45.955Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -268,6 +270,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:42.203Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -313,7 +316,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operator-in-bahntechnik-und-bahnstrom/f10e62e2-7e65-4942-9b4e-1adec0a6fb2f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:59.440Z",
+      "crawledAt": "2026-06-05T21:38:45.092Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,6 +365,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:41.436Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -407,7 +411,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/zugverkehrsleiter-in-zweitausbildung/7c8772d1-6e5a-461c-9237-4b5df9b677a4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:58.768Z",
+      "crawledAt": "2026-06-05T21:38:44.354Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -450,6 +454,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.769Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -495,7 +500,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/business-controller-in/a7a4ffa3-9a42-4583-b084-53649b04abe5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:58.033Z",
+      "crawledAt": "2026-06-05T21:38:43.475Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -544,6 +549,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.044Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -589,7 +595,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/e027b324-5ab6-4dac-bb05-3e7787348ffc",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:57.294Z",
+      "crawledAt": "2026-06-05T21:38:42.601Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -629,6 +635,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:39.303Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -674,7 +681,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:56.628Z",
+      "crawledAt": "2026-06-05T21:38:41.876Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -708,6 +715,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -753,7 +761,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:55.957Z",
+      "crawledAt": "2026-06-05T21:38:41.154Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -802,6 +810,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -847,7 +856,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/31717c27-97b9-4577-bbe9-190c61bb1c0c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:55.286Z",
+      "crawledAt": "2026-06-05T21:38:40.421Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -895,6 +904,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.337Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -940,7 +950,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugmechaniker-in-schwere-schienenfahrzeuge/fce9646e-94ea-4db8-b20f-c43af0476566",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:54.606Z",
+      "crawledAt": "2026-06-05T21:38:39.703Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -988,6 +998,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:36.666Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1033,7 +1044,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-oberflaechenbearbeitung-und-lackierung/33fbbf6c-3136-4ed1-96c7-2ae02b3e93c0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:53.833Z",
+      "crawledAt": "2026-06-05T21:38:38.964Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1081,6 +1092,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.993Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1126,7 +1138,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:53.171Z",
+      "crawledAt": "2026-06-05T21:38:38.244Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1175,6 +1187,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1220,7 +1233,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/dbd67d58-b838-4e01-a0e1-91de615b02a6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:52.415Z",
+      "crawledAt": "2026-06-05T21:38:37.377Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1270,6 +1283,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:34.611Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1315,7 +1329,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-instandhaltung-schienenfahrzeuge/2560f7be-3020-453c-8dac-0650df731afd",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:51.738Z",
+      "crawledAt": "2026-06-05T21:38:36.647Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1361,6 +1375,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.941Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1406,7 +1421,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in/b902f38a-e2ae-46be-a6f8-d05911ff6585",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:51.001Z",
+      "crawledAt": "2026-06-05T21:38:35.787Z",
       "addressLocality": "Langnau im Emmental",
       "addressCountry": "CH",
       "country": "CH",
@@ -1454,6 +1469,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.211Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1499,7 +1515,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-abap-virtuos-in/fa0faeac-0e3f-4bd1-a519-b222357e1bdc",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:50.299Z",
+      "crawledAt": "2026-06-05T21:38:35.060Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1538,6 +1554,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:32.553Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1583,7 +1600,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-fahrzeugreinigung/5cf9faa7-4e3c-4951-9b69-e921365abdce",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:49.554Z",
+      "crawledAt": "2026-06-05T21:38:34.071Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1624,6 +1641,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:31.813Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1669,7 +1687,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/8537b4eb-a106-47a7-8b63-13b2ea7e3492",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:48.886Z",
+      "crawledAt": "2026-06-05T21:38:33.346Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1720,6 +1738,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:30.891Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1765,7 +1784,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-operations/d5657b12-dcf7-40a8-8ce5-7c96ddd10f9f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:48.218Z",
+      "crawledAt": "2026-06-05T21:38:32.617Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1815,6 +1834,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:30.223Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1828,6 +1848,82 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-4c7ce03a3a23",
+      "slug": "collaboratore-trice-gasteservice-schifffahrt-bls-ag-bern",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
+        "it": "collaboratore-trice-gasteservice-schifffahrt-bls-ag-bern",
+        "en": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
+        "fr": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Mitarbeiter:in Gästeservice Schifffahrt",
+      "titleByLocale": {
+        "de": "Mitarbeiter:in Gästeservice Schifffahrt",
+        "it": "Collaboratore/trice Gästeservice Schifffahrt",
+        "en": "Associate Gästeservice Schifffahrt",
+        "fr": "Collaborateur/trice Gästeservice Schifffahrt"
+      },
+      "description": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+      "descriptionByLocale": {
+        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "it": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "en": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "fr": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-gaesteservice-schifffahrt/0c8b7bfd-ec27-448b-8270-bf05c95ee2ae",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-05T21:38:31.757Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-05",
+      "validThrough": "2026-07-04",
+      "pensum": "60-80%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/0c8b7bfd-ec27-448b-8270-bf05c95ee2ae",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-06-05T21:38:31.757Z"
     },
     {
       "id": "bls-12ce67f8780b",
@@ -1860,7 +1956,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/key-account-manager-in-industrie-mit-teamleitung/09f4bd5b-b798-4f50-bd20-484cfcfd63ee",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-05T11:27:47.465Z",
+      "crawledAt": "2026-06-05T21:38:31.034Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1911,6 +2007,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:29.457Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
