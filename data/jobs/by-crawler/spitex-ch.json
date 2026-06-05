@@ -909,12 +909,12 @@
     },
     {
       "id": "spitex-ch-046476d5fefe",
-      "slug": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
+      "slug": "dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
-        "it": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
+        "it": "dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "en": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
-        "fr": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        "fr": "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
       "company": "Spitex Pratteln-Augst-Giebenach GmbH",
       "companyKey": "spitex-ch",
@@ -970,16 +970,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:42:20.551Z"
+      "firstSeenAt": "2026-06-05T12:42:20.551Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+      ]
     },
     {
       "id": "spitex-ch-e668652af716",
-      "slug": "fachperson-gesundheit-50-100-spitex-ch-dornach",
+      "slug": "salute-professionale-50-100-spitex-region-birs-gmbh-dornach",
       "slugByLocale": {
         "de": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "it": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "en": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "fr": "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        "it": "salute-professionale-50-100-spitex-region-birs-gmbh-dornach",
+        "en": "professional-health-50-100-spitex-region-birs-gmbh-dornach",
+        "fr": "sante-professionnelle-50-100-spitex-region-birs-gmbh-dornach"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1037,19 +1048,28 @@
       },
       "firstSeenAt": "2026-06-05T12:42:19.842Z",
       "previousSlugs": [
-        "salute-professionale-50-100-spitex-region-birs-gmbh-dornach",
-        "professional-health-50-100-spitex-region-birs-gmbh-dornach",
-        "sante-professionnelle-50-100-spitex-region-birs-gmbh-dornach"
-      ]
+        "fachperson-gesundheit-50-100-spitex-ch-dornach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "en": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "fr": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ]
+      }
     },
     {
       "id": "spitex-ch-12e86fbadba7",
-      "slug": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
+      "slug": "salute-professionale-80-100-spitex-region-birs-gmbh-reinach-bl",
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "it": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "en": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "fr": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        "it": "salute-professionale-80-100-spitex-region-birs-gmbh-reinach-bl",
+        "en": "professional-health-80-100-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "sante-professionnelle-80-100-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1105,7 +1125,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:42:19.053Z"
+      "firstSeenAt": "2026-06-05T12:42:19.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+      ]
     },
     {
       "id": "spitex-ch-8412852a6438",
@@ -1113,8 +1147,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein",
         "it": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein",
-        "en": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein",
-        "fr": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein"
+        "en": "dipl-nursing-specialist-in-outpatient-care-20-100-spitex-birseck-munchenstein",
+        "fr": "dipl-specialiste-des-soins-ambulatoires-20-100-spitex-birseck-munchenstein"
       },
       "company": "Spitex Birseck",
       "companyKey": "spitex-ch",
@@ -1161,6 +1195,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein"
         ]
       },
       "previousSlugs": [
@@ -1186,8 +1226,8 @@
       "slugByLocale": {
         "de": "leitung-finanzen-und-ict-m-w-d-70-100-spitex-ch-tagerwilen",
         "it": "leitung-finanzen-e-ict-m-w-d-70-100-spitex-region-kreuzlingen-tagerwilen",
-        "en": "leitung-finanzen-und-ict-m-w-d-70-100-spitex-ch-tagerwilen",
-        "fr": "leitung-finanzen-und-ict-m-w-d-70-100-spitex-ch-tagerwilen"
+        "en": "head-of-finance-and-ict-m-w-d-70-100-spitex-region-kreuzlingen-tagerwilen",
+        "fr": "responsable-des-finances-et-des-tic-m-m-j-70-100-spitex-region-kreuzlingen-tagerwilen"
       },
       "company": "Spitex Region Kreuzlingen",
       "companyKey": "spitex-ch",
@@ -1234,6 +1274,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leitung-finanzen-und-ict-m-w-d-70-100-spitex-ch-tagerwilen"
+        ],
+        "en": [
+          "leitung-finanzen-und-ict-m-w-d-70-100-spitex-ch-tagerwilen"
+        ],
+        "fr": [
+          "leitung-finanzen-und-ict-m-w-d-70-100-spitex-ch-tagerwilen"
         ]
       },
       "previousSlugs": [
@@ -1259,8 +1305,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein",
         "it": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
-        "en": "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein",
-        "fr": "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein"
+        "en": "staff-in-planning-70-100-spitex-birseck-munchenstein",
+        "fr": "personnel-en-planification-70-100-spitex-birseck-munchenstein"
       },
       "company": "Spitex Birseck",
       "companyKey": "spitex-ch",
@@ -1306,6 +1352,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein"
+        ],
+        "en": [
+          "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein"
+        ],
+        "fr": [
           "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein"
         ]
       },

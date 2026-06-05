@@ -246,11 +246,11 @@
     },
     {
       "id": "hopital-de-lavaux-74136737f34e",
-      "slug": "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux",
+      "slug": "assistente-socio-educativo-esa-80-hopital-de-lavaux-bourg-en-lavaux",
       "slugByLocale": {
         "fr": "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux",
-        "it": "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux",
-        "en": "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux",
+        "it": "assistente-socio-educativo-esa-80-hopital-de-lavaux-bourg-en-lavaux",
+        "en": "socio-educational-assistant-esa-80-hopital-de-lavaux-bourg-en-lavaux",
         "de": "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux"
       },
       "company": "Hôpital de Lavaux",
@@ -307,7 +307,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:00:42.633Z"
+      "firstSeenAt": "2026-06-05T12:00:42.633Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux"
+        ],
+        "en": [
+          "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-socio-educatif-ve-ase-80-hopital-de-lavaux-bourg-en-lavaux"
+      ]
     },
     {
       "id": "hopital-de-lavaux-9ccc33534413",
