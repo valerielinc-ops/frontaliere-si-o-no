@@ -79,8 +79,8 @@ import {
   STAT_TILE_SUCCESS,
   clampSiteSuffix,
   renderEntityCard,
-  resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
+import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 
 // ── Visual style constants (local to the index pages) ─────────────
 //
@@ -211,7 +211,7 @@ export interface FuelIndexInputs {
   readonly distDir?: string;
   /**
    * Project root (Vite `config.root`). When provided the index pages render
-   * real brand logos for each station via `resolveBrandLogoUrl`; when
+   * real brand logos for each station via `resolveStationBrandLogoUrl`; when
    * omitted the entity-card falls back to the inline fuel-pump icon — keeps
    * the test suite logo-free without extra fixtures.
    */
@@ -245,39 +245,6 @@ export interface FuelIndexInputs {
   readonly emittedPaths?: ReadonlySet<string>;
 }
 
-/**
- * Common Italian-spelling aliases so brand strings from the TCS / MIMIT
- * feeds map to the logo slugs we actually have on disk. Keys are the
- * normalised brand (lowercased, non-[a-z0-9-] stripped); values are the
- * logo-manifest slug.
- */
-const BRAND_LOGO_ALIASES: Record<string, string> = {
-  eni: 'agipeni',
-  agip: 'agipeni',
-  coop: 'cooppronto',
-  cooppronto: 'cooppronto',
-  ruedirussel: 'ruedirussel',
-  ruedirüssel: 'ruedirussel',
-  migrolino: 'migrol',
-  total: 'totalenergies',
-  totalenergies: 'totalenergies',
-};
-
-/**
- * Resolve a brand string to a public logo URL (PNG/SVG under
- * `/images/brands/...`). Falls back to `null` when the brand has no logo
- * on disk, so callers can render the neutral fuel-pump icon instead.
- */
-function resolveStationLogoUrl(
-  rootDir: string | undefined,
-  brand: string | undefined,
-): string | null {
-  if (!rootDir || !brand) return null;
-  const normalised = String(brand).toLowerCase().replace(/[^a-z0-9-]/g, '');
-  if (!normalised) return null;
-  const aliased = BRAND_LOGO_ALIASES[normalised] ?? normalised;
-  return resolveBrandLogoUrl(rootDir, aliased);
-}
 
 // ── Locale-aware index slugs ──────────────────────────────────────
 
@@ -1128,7 +1095,7 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
               href: buildFuelStationPath(locale, fuel, zone, s.slug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
               subtitle: s.address,
-              logoUrl: resolveStationLogoUrl(rootDir, s.brand),
+              logoUrl: resolveStationBrandLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
             }))
             .filter((a) => isEmitted(a.href));
@@ -1215,7 +1182,7 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
               href: buildFuelItalianStationPath(locale, fuel, s.citySlug, s.stationSlug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
               subtitle: s.address || cityDisplay,
-              logoUrl: resolveStationLogoUrl(rootDir, s.brand),
+              logoUrl: resolveStationBrandLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
             }))
             .filter((a) => isEmitted(a.href));
