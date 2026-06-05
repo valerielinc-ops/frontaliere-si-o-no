@@ -28,6 +28,11 @@
  * file resolved + staged. `git rebase --continue` then closes the cycle.
  * No abort, no human intervention.
  *
+ * After the merge it re-runs `scripts/prune-404-compat-paths.ts` so the
+ * resolvability gate (which the committing workflows apply pre-push) also
+ * covers paths reintroduced by the set-union with `upstream` — otherwise a
+ * non-resolving upstream path could survive the merge and turn main red.
+ *
  * `data/inspection-state.json` is exclusively owned by
  * discover-404s-via-inspection.mjs — if it ever shows up as conflicted,
  * surface the fact instead of merging silently.
@@ -124,5 +129,33 @@ process.stdout.write(
   `[resolve-404-compat] base=${baseSet.size} upstream=${upstreamSet.size} local=${localSet.size} ` +
     `→ +${added.length} added, -${removed.length} removed = ${finalSet.size} final\n`,
 );
+
+// Re-run the resolvability prune on the merged result before staging. The
+// committing workflows (discover-404s, sync-gsc-orphans) prune BEFORE pushing,
+// but this 3-way set merge runs AFTER that gate, inside the rebase. The merge
+// keeps everything in `upstream`, so a non-resolving path present upstream — a
+// rebase `base` predating the prune-gate deploy, or any future ungated writer —
+// would survive into the committed file even though local already pruned it,
+// turning tests/search-console-compat.test.ts red → main red (the R2-B pattern,
+// #1155 / #1166 item 5). Re-validate here so the merged commit is always
+// test-clean. Reuses the single resolvability source (the .ts prune via tsx,
+// same idiom as the workflows) instead of duplicating resolver wiring.
+// PRUNE_404_STRICT=1 = fail-closed: if tsx or the assembled dataset isn't
+// available at this in-rebase point, the prune ABORTS (exit 1) rather than
+// silently no-op'ing and letting an unvalidated path survive the merge.
+try {
+  execFileSync('npx', ['tsx', 'scripts/prune-404-compat-paths.ts'], {
+    stdio: 'inherit',
+    cwd: process.cwd(),
+    env: { ...process.env, PRUNE_404_STRICT: '1' },
+  });
+} catch (err) {
+  process.stderr.write(
+    `[resolve-404-compat] post-merge prune failed; refusing to stage a possibly-poisoned file: ${
+      err?.message ?? err
+    }\n`,
+  );
+  process.exit(1);
+}
 
 execFileSync('git', ['add', TARGET]);
