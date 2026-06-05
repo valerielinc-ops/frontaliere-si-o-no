@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2728,
+ "numberOfItems": 2729,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7368,7 +7368,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2725, "name": "Festivi Ticino 2026: il calendario completo per...", "url": `${BASE_URL}/articoli-frontaliere/calendario-festivi-ticino-2026` },
           { "@type": "ListItem", "position": 2726, "name": "Medico Medicina Interna/Intensiva EOC Bellinzona", "url": `${BASE_URL}/articoli-frontaliere/medico-medicina-interna-intensiva-eoc` },
           { "@type": "ListItem", "position": 2727, "name": "Telelavoro per frontalieri: cosa cambia con la ...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera` },
-          { "@type": "ListItem", "position": 2728, "name": "NASPI e frontalieri: cosa cambia", "url": `${BASE_URL}/articoli-frontaliere/naspi-unemployment-benefits` }
+          { "@type": "ListItem", "position": 2728, "name": "NASPI e frontalieri: cosa cambia", "url": `${BASE_URL}/articoli-frontaliere/naspi-unemployment-benefits` },
+          { "@type": "ListItem", "position": 2729, "name": "Frontalieri in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-svizzera` }
  ]
  },
  {

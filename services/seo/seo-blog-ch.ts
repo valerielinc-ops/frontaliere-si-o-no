@@ -683,6 +683,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-svizzera': {
+    title: 'Frontalieri in Svizzera | Frontaliere Ticino',
+    description: 'Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, informazioni, pratiche, frontalieri-svizzera',
+    ogTitle: 'Frontalieri in Svizzera',
+    ogDescription: 'Informazioni pratiche per frontalieri in Svizzera',
+    canonicalPath: '/articoli-svizzera/frontalieri-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Svizzera",
+      "description": "Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista della città di Lugano"
+      },
+      "datePublished": "2026-06-05T03:01:14+00:00",
+      "dateModified": "2026-06-05T03:01:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3925,6 +3925,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-medico-medicina-interna-intensiva-eoc': { name: 'Medico EOC Bellinzona', path: '/articoli-svizzera/medico-medicina-interna-intensiva-eoc/', parent: 'blog' },
     'blog-telelavoro-frontalieri-italia-svizzera': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera', parent: 'blog' },
     'blog-naspi-unemployment-benefits': { name: 'NASPI disoccupazione', path: '/articoli-frontaliere/naspi-unemployment-benefits', parent: 'blog' },
+    'blog-frontalieri-svizzera': { name: 'Frontalieri', path: '/articoli-svizzera/frontalieri-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
