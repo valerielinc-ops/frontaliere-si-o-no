@@ -105,13 +105,33 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(JSON.parse(out.replace(/\\u003c/g, '<'))).toEqual(payload); // still valid JSON
     });
 
-    it('every window.__*__ inline emit goes through inlineScriptJson, never a raw JSON.stringify', () => {
-      const src = fs.readFileSync(path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
-      // No `window.__X__=${JSON.stringify(...)}` without the escape helper.
-      expect(src).not.toMatch(/window\.__[A-Z_]+__=\$\{JSON\.stringify/);
-      // The arbitrary-content blobs specifically must use the helper.
-      expect(src).toMatch(/window\.__JOB_SEED__=\$\{inlineScriptJson\(/);
-      expect(src).toMatch(/const expiredWindowData = inlineScriptJson\(expiredDataObj\)/);
+    it('no inline window.__*__ emit anywhere uses a raw JSON.stringify (non-leaky: scans every build-plugin + the offload script)', () => {
+      // A raw emit = `window.__X__=${JSON.stringify(ident)}` closed immediately
+      // (no `.replace(/</g,…)` and not via inlineScriptJson). This catches the
+      // whole class repo-wide — the previous guard only read one file, so the
+      // og/bridge/cdn siblings stayed raw while it passed.
+      const RAW = /window\.__[A-Z_]+__=\$\{JSON\.stringify\([\w.[\]]+\)\}/;
+      const walk = (dir: string): string[] => {
+        const out: string[] = [];
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+          const full = path.join(dir, e.name);
+          if (e.isDirectory()) out.push(...walk(full));
+          else if (/\.(ts|tsx)$/.test(e.name)) out.push(full);
+        }
+        return out;
+      };
+      const files = [
+        ...walk(path.resolve(root, 'build-plugins')),
+        path.resolve(root, 'scripts/offload-generated-images-cdn.mjs'),
+      ];
+      const offenders = files.filter((f) => RAW.test(fs.readFileSync(f, 'utf-8')));
+      expect(offenders).toEqual([]);
+      // And the three arbitrary-content sites specifically go through the escape.
+      const og = fs.readFileSync(path.resolve(root, 'build-plugins/ogPagesPlugin.ts'), 'utf-8');
+      expect(og).toMatch(/window\.__ARTICLE_TITLE__=\$\{inlineScriptJson\(localizedTitle\)\}/);
+      const jp = fs.readFileSync(path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
+      expect(jp).toMatch(/const expiredWindowData = inlineScriptJson\(expiredDataObj\)/);
+      expect(jp).toMatch(/window\.__JOB_SEED__=\$\{inlineScriptJson\(/);
     });
   });
 
