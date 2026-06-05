@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-04T22:59:04.360Z",
+  "generatedAt": "2026-06-05T12:34:40.074Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7643,
-  "avgDurationMs": 7643,
+  "durationMs": 8645,
+  "avgDurationMs": 8645,
   "durationHistory": [
-    7643
+    8645
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -55,7 +55,7 @@
     },
     {
       "title": "Lackierer Flugzeugkomponenten 100% (w/m/d)",
-      "slug": "lackierer-flugzeugkomponenten-100-w-m-d-ruag-ag-wilderswil",
+      "slug": "componenti-aerei-100-w-m-d-ruag-ag-wilderswil",
       "url": "https://jobs.ruag.ch/offene-stellen/lackierer-flugzeugkomponenten/db553ad0-d143-4625-97b2-bd72c3fbe739",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/db553ad0-d143-4625-97b2-bd72c3fbe739",
       "company": "RUAG AG",
@@ -76,17 +76,16 @@
       "contractType": "full-time",
       "validThrough": "2053-10-10",
       "id": "ruag-ag-3fabefc4a11d",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-04T13:26:47.246Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
