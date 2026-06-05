@@ -1151,8 +1151,25 @@ jobs:
           **Branch:** ${{ github.ref_name }}
           **Trigger:** ${{ github.event_name }}" \
             --priority 1 \
+            --reopen-within-hours 6 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      - name: Resolve build GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Build succeeded → close the canonical "CI Failure (build)" issue if
+          # open. Paired with --reopen-within-hours 6 on the reporter above so the
+          # close↔reopen cycle stays on ONE canonical issue (no per-run storm,
+          # no stale issue while green). Idempotent no-op when nothing is open.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (build): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   # ───────────────────────────────────────────────────────────────────────
   # deploy: publish dist/ to GitHub Pages (actions/deploy-pages reads the
@@ -1404,8 +1421,24 @@ jobs:
           **Branch:** ${{ github.ref_name }}
           **Trigger:** ${{ github.event_name }}" \
             --priority 1 \
+            --reopen-within-hours 6 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      - name: Resolve deploy GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Deploy succeeded → close the canonical "CI Failure (deploy)" issue if
+          # open. Paired with --reopen-within-hours 6 above so close↔reopen stay
+          # on ONE canonical issue. Idempotent no-op when nothing is open.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (deploy): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   # ───────────────────────────────────────────────────────────────────────
   # validate-dist: dist-side gates (bfs-depth, text-html-ratio, ...).
