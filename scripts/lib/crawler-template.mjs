@@ -157,7 +157,7 @@ import {
   isConnectionLevelFetchError,
   fetchWithRetry,
 } from './transient-fetch.mjs';
-import { fetchViaJina, detectJinaErrorBody } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
@@ -510,22 +510,13 @@ export async function fetchHtml(url, options = {}) {
     // (fetchJson is intentionally NOT proxied — Jina returns HTML, which would
     // corrupt a JSON response.)
     if (isConnectionLevelFetchError(err)) {
-      let res;
-      try {
-        res = await fetchViaJina(url, { timeoutMs });
-      } catch {
-        // Proxy fetch itself failed — re-throw the ORIGINAL egress error.
-        throw err;
-      }
-      if (res.ok) {
-        const html = await res.text();
-        // Jina returns HTTP 200 even on a challenge / error / empty page; feeding
-        // that to parsers silently yields 0 jobs → expired-archival / de-index on
-        // multi-page crawlers. Detect and safe-fail (re-throw original) instead.
-        const reason = detectJinaErrorBody(html);
-        if (!reason) return html;
-        console.warn(`⚠️ Jina egress returned a non-target body (${reason}) for ${url} — preserving safe-fail.`);
-      }
+      // Retry the proxy itself: Jina's egress IP can be transiently 429'd or
+      // WAF-blocked (200 challenge/empty body) — a retry lands on a different
+      // Jina IP and usually succeeds. Returns null on exhaustion → safe-fail by
+      // re-throwing the original error (dataset preserved). Body validation +
+      // original-error preservation live in the shared helper.
+      const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
+      if (html != null) return html;
     }
     throw err;
   }

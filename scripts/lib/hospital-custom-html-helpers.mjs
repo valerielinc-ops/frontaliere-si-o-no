@@ -10,7 +10,7 @@
  */
 
 import { fetchWithRetry, RETRYABLE_STATUS, isConnectionLevelFetchError } from './transient-fetch.mjs';
-import { fetchViaJina, detectJinaErrorBody } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 
 export const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -120,27 +120,13 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
     // server DID respond, so the egress works and Jina cannot help; those (and
     // parse errors) are real and still propagate.
     if (isConnectionLevelFetchError(err)) {
-      let res;
-      try {
-        res = await fetchViaJina(url, { timeoutMs: t });
-      } catch {
-        // The proxy fetch itself failed — re-throw the ORIGINAL egress error so
-        // the failure log reports the real cause, not a Jina-side error.
-        throw err;
-      }
-      if (res.ok) {
-        const html = await res.text();
-        // Jina answers HTTP 200 even when it never reached the target (a
-        // challenge / error / empty page). Feeding that non-target HTML to the
-        // parsers would silently yield 0 jobs → on a multi-page crawler those
-        // pages' jobs look "removed" → archived as expired → de-indexed. Detect
-        // it and re-throw the original error instead (safe-fail: dataset
-        // preserved, exactly the pre-proxy behaviour). Same guard as goline /
-        // cambiavalute.
-        const reason = detectJinaErrorBody(html);
-        if (!reason) return html;
-        console.warn(`⚠️ Jina egress returned a non-target body (${reason}) for ${url} — preserving safe-fail.`);
-      }
+      // Retry the proxy: Jina's egress IP can be transiently 429'd or WAF-blocked
+      // (200 challenge/empty body) — a retry lands on a different Jina IP and
+      // usually succeeds. Returns null on exhaustion → safe-fail by re-throwing
+      // the original error (dataset preserved). Body validation + original-error
+      // preservation live in the shared helper.
+      const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: t });
+      if (html != null) return html;
     }
     throw err;
   }

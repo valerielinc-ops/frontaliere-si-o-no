@@ -111,3 +111,56 @@ export function hostMatchesProxyList(url, listCsv) {
     .filter(Boolean)
     .some((h) => host === h || host.endsWith(`.${h}`));
 }
+const jinaSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Fetch a URL's HTML through the Jina proxy WITH retries. Returns the target's
+ * HTML on success, or `null` if every attempt failed / was non-target (the
+ * caller then safe-fails by re-throwing the original error).
+ *
+ * Why retry the proxy (not the flaky origin egress): Jina's OWN egress IP can be
+ * transiently rate-limited (HTTP 429) or soft-blocked by the target's WAF, in
+ * which case it answers HTTP 200 with a challenge / empty body. A retry usually
+ * lands on a DIFFERENT Jina egress IP, so re-attempting often succeeds where the
+ * first call was blocked. Retries on: proxy throw (abort/network), non-ok
+ * status, and a 200-but-not-target body (detectJinaErrorBody). Exponential
+ * backoff + jitter. Tunable via JOBS_JINA_RETRIES / JOBS_JINA_RETRY_BASE_MS.
+ */
+export async function fetchHtmlViaJinaWithRetry(
+  targetUrl,
+  { timeoutMs = 30000, retries, retryBaseMs } = {},
+) {
+  const maxRetries = Math.max(
+    0,
+    Number.isFinite(retries) ? retries : Number(process.env.JOBS_JINA_RETRIES) || 2,
+  );
+  const baseMs = Math.max(
+    0,
+    Number.isFinite(retryBaseMs) ? retryBaseMs : Number(process.env.JOBS_JINA_RETRY_BASE_MS) || 1000,
+  );
+  let lastReason = 'unknown';
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    try {
+      const res = await fetchViaJina(targetUrl, { timeoutMs });
+      if (res.ok) {
+        const html = await res.text();
+        const reason = detectJinaErrorBody(html);
+        if (!reason) return html;
+        lastReason = reason;
+      } else {
+        lastReason = `HTTP ${res.status}`;
+      }
+    } catch (err) {
+      lastReason = err?.message || String(err);
+    }
+    if (attempt < maxRetries) {
+      const delay = baseMs * 2 ** attempt + Math.floor(Math.random() * baseMs);
+      console.warn(
+        `⚠️ Jina egress attempt ${attempt + 1}/${maxRetries + 1} for ${targetUrl} not usable (${lastReason}); retrying in ${delay}ms…`,
+      );
+      await jinaSleep(delay);
+    }
+  }
+  console.warn(`⚠️ Jina egress exhausted ${maxRetries + 1} attempt(s) for ${targetUrl} (last: ${lastReason}).`);
+  return null;
+}
