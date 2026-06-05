@@ -142,7 +142,11 @@ function offloadAll(distDir, cdnBase) {
   // data inject + ref-collect + same-origin→CDN rewrite setup.
   const dataDir = path.join(distDir, 'data');
   const hasData = fs.existsSync(dataDir);
-  const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase)}</script>`;
+  // Escape `<` so the inline <script> can't be broken out of — same class as
+  // build-plugins/shared/inlineJsonScript.ts (inlined here: this .mjs runs under
+  // plain Node and can't import the TS helper). cdnBase is a controlled config
+  // URL so the risk is low, but the class fix must be complete.
+  const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase).replace(/</g, '\\u003c')}</script>`;
   // Every file present under dist/data was already pushed to the CDN repo (deploy
   // `cp -r dist/data` runs BEFORE this script), so a same-origin `/data/<rel>`
   // content ref to one of them can be rewritten to ${CDN}/data/<rel> and the file
