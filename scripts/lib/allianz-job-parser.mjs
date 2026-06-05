@@ -19,6 +19,7 @@ import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { stripContactPII } from './strip-contact-pii.mjs';
 
 const BASE_URL = 'https://recruitingapp-2872.umantis.com';
 
@@ -275,7 +276,11 @@ export function isAllianzTicinoRelevant(agency = '', location = '') {
  */
 export function buildAllianzLocalizedContent(job) {
   const title = normalizeSpace(job.title);
-  let description = normalizeDescriptionSpace(job.description);
+  // Allianz vacancy bodies copy the source ATS verbatim, which names an
+  // individual recruiter + their direct phone (and embeds the agent's name in
+  // the "Agenzia generale <Name>" address block). Re-publishing that is personal
+  // data we have no basis to mirror (erasure request, 2026-06-05) — strip it.
+  let description = stripContactPII(normalizeDescriptionSpace(job.description));
   const slug = slugify(title);
   const location = normalizeSpace(job.location) || 'Ticino';
 
