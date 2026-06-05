@@ -7970,6 +7970,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-italia-svizzera.title': 'Telelavoro per frontalieri: cosa cambia con la nuova normativa',
     'blog.article.telelavoro-frontalieri-italia-svizzera.excerpt': 'La Svizzera e l\'Italia stanno discutendo nuove regole per il telelavoro dei frontalieri. Ecco cosa potrebbe cambiare.',
     'blog.article.telelavoro-frontalieri-italia-svizzera.imageAlt': 'Persona che lavora da remoto con vista su Lugano',
+    'blog.article.naspi-unemployment-benefits.title': 'NASPI e frontalieri: cosa cambia',
+    'blog.article.naspi-unemployment-benefits.excerpt': 'La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?',
+    'blog.article.naspi-unemployment-benefits.imageAlt': 'Una persona con un certificato e il telefono in mano, sullo sfondo la città di Lugano',
 };
 
 export default blogMetaIt;

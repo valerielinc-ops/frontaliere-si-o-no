@@ -1,0 +1,18 @@
+{
+  "id": "naspi-unemployment-benefits",
+  "slug": "naspi-unemployment-benefits",
+  "publishedAt": "2026-06-05T01:56:53.161Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3,
+    "confidence": 0.3,
+    "finalScore": 0.8999999999999999,
+    "cluster": "pratico",
+    "score": 0.8999999999999999,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

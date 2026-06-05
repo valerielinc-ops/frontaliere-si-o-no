@@ -7968,6 +7968,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-italia-svizzera.title': 'Telearbeit für Grenzgänger: Neue Regeln',
     'blog.article.telelavoro-frontalieri-italia-svizzera.excerpt': 'Die Schweiz und Italien diskutieren neue Vorschriften für die Telearbeit von Grenzgängern. Hier erfahren Sie, was sich ändern könnte.',
     'blog.article.telelavoro-frontalieri-italia-svizzera.imageAlt': 'Heimarbeiter mit Blick auf Lugano',
+    'blog.article.naspi-unemployment-benefits.title': 'NASPI und Grenzgänger: Was ändert sich',
+    'blog.article.naspi-unemployment-benefits.excerpt': 'Die NASPI ist eine Arbeitslosenleistung für italienische Arbeitnehmer. Wie funktioniert sie für Grenzgänger?',
+    'blog.article.naspi-unemployment-benefits.imageAlt': 'Eine Person mit einem Zertifikat und einem Telefon in der Hand, mit Lugano-Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

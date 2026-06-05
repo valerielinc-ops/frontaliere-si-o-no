@@ -25290,6 +25290,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'naspi-unemployment-benefits',
+ category: 'fiscale',
+ date: '2026-06-05T01:56:51.476Z',
+ image: '/images/blog/naspi-unemployment-benefits.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

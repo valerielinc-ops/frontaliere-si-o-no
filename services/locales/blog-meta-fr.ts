@@ -7970,6 +7970,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-italia-svizzera.title': 'Télétravail frontalier: nouvelles règles',
     'blog.article.telelavoro-frontalieri-italia-svizzera.excerpt': 'La Suisse et l\'Italie discutent de nouvelles règles pour le télétravail des frontaliers. Voici ce qui pourrait changer.',
     'blog.article.telelavoro-frontalieri-italia-svizzera.imageAlt': 'Travailleur à distance avec vue sur Lugano',
+    'blog.article.naspi-unemployment-benefits.title': 'NASPI et frontaliers: changements',
+    'blog.article.naspi-unemployment-benefits.excerpt': 'La NASPI est une prestation de chômage pour les travailleurs italiens. Comment fonctionne-t-elle pour les frontaliers?',
+    'blog.article.naspi-unemployment-benefits.imageAlt': 'Une personne avec un certificat et un téléphone à la main, avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

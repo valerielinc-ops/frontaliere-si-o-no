@@ -7969,6 +7969,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-italia-svizzera.title': 'New rules for cross-border remote work',
     'blog.article.telelavoro-frontalieri-italia-svizzera.excerpt': 'Switzerland and Italy are discussing new regulations for cross-border remote work. Here\'s what might change.',
     'blog.article.telelavoro-frontalieri-italia-svizzera.imageAlt': 'Remote worker with a view of Lugano',
+    'blog.article.naspi-unemployment-benefits.title': 'NASPI for cross-border workers: what\'s changing',
+    'blog.article.naspi-unemployment-benefits.excerpt': 'NASPI is an unemployment benefit for Italian workers. How does it work for cross-border commuters?',
+    'blog.article.naspi-unemployment-benefits.imageAlt': 'A person with a certificate and phone in hand, with Lugano cityscape in the background',
 };
 
 export default blogMetaEn;
