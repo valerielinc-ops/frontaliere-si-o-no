@@ -367,7 +367,7 @@ NON è rilevante:
 - Eventi culturali, sportivi, festival, gastronomia
 - Notizie estere senza impatto diretto su chi vive o lavora in Svizzera
 - Singoli episodi di cronaca (multe, incidenti, arresti)
-- Temi SPECIFICI DEI FRONTALIERI Italia-Svizzera (appartengono a una sezione separata, NON a quella nazionale): permesso G/B/C per frontalieri, ristorni Ticino-Italia, imposta alla fonte/tassazione frontalieri, dogane/valichi e pendolarismo Italia-Svizzera, telelavoro frontalieri, accordo frontalieri Italia-Svizzera, soglia 20 km. In questa sezione nazionale sarebbero duplicati fuori scopo
+- Articoli il cui ARGOMENTO PRINCIPALE è esclusivamente frontaliero (appartengono a una sezione separata, NON a quella nazionale): permesso G/B/C per frontalieri, ristorni Ticino-Italia, imposta alla fonte/tassazione frontalieri, dogane/valichi e pendolarismo Italia-Svizzera, telelavoro frontalieri, accordo frontalieri Italia-Svizzera, soglia 20 km. In questa sezione nazionale sarebbero duplicati fuori scopo. ATTENZIONE: una riforma o statistica NAZIONALE (es. AVS/LPP, LAMal, mercato del lavoro, Consiglio federale) che menziona i frontalieri come categoria tra quelle impattate è RILEVANTE — il tema principale è nazionale, non frontaliero
 
 HEADLINE: ${String(headline || '').slice(0, 240)}
 ${summary ? `SOMMARIO: ${String(summary).slice(0, 320)}\n` : ''}
@@ -1449,7 +1449,7 @@ CRITERI DI SELEZIONE (in ordine di priorità):
 5. NO SPORT: Evita risultati sportivi, partite, campionati
 6. NO INTRATTENIMENTO: Evita gossip, spettacolo, celebrità senza rilevanza politico-economica
 7. RESPIRO NAZIONALE: La notizia può riguardare qualsiasi cantone o le istituzioni federali; non limitarti al Ticino.
-8. ⚠️ NO TEMI FRONTALIERI (CRITICO): SCARTA le headline su temi specifici dei frontalieri Italia-Svizzera (permesso G/B/C, ristorni Ticino-Italia, imposta alla fonte frontalieri, dogane/valichi e pendolarismo IT-CH, telelavoro frontalieri, accordo frontalieri IT-CH, soglia 20 km). Appartengono alla sezione frontalieri separata; qui sarebbero duplicati fuori scopo. Scegli temi a interesse nazionale generale.
+8. ⚠️ NO TEMI FRONTALIERI (CRITICO): SCARTA le headline il cui ARGOMENTO PRINCIPALE è esclusivamente frontaliero (permesso G/B/C, ristorni Ticino-Italia, imposta alla fonte frontalieri, dogane/valichi e pendolarismo IT-CH, telelavoro frontalieri, accordo frontalieri IT-CH, soglia 20 km). Appartengono alla sezione frontalieri separata; qui sarebbero duplicati fuori scopo. ATTENZIONE: una riforma o statistica NAZIONALE (es. AVS/LPP, LAMal, mercato del lavoro, Consiglio federale) che menziona i frontalieri come categoria tra quelle impattate è RILEVANTE — il tema principale è nazionale, non frontaliero. Scegli temi a interesse nazionale generale.
 
 Rispondi con un JSON object (no markdown, no code fences):
 {
