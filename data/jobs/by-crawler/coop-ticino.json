@@ -43,10 +43,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
-        "en": "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+        "it": "consulente-di-vendita-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
         "de": "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-        "fr": "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur"
+        "fr": "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b"
       },
       "requirementsByLocale": {
         "it": [],
@@ -74,28 +74,35 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-766z9v"
         ],
         "en": [
           "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
-          "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0"
+          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
         ],
         "fr": [
           "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+        ],
+        "it": [
           "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+        "verkaufsberater-in-textil-coop-city-chur-graubunden-766z9v",
         "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+        "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
         "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
         "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl",
         "consulente-vendite-tessile-coop-city-chur-graubunden",
-        "textile-sales-consultant-coop-city-chur-graubunden",
-        "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0"
+        "textile-sales-consultant-coop-city-chur-graubunden"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-dfo3tv",
@@ -230,10 +237,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
-        "en": "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
-        "de": "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
-        "fr": "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos"
+        "it": "scala-rayon-in-prodotti-freschi-coop-genossenschaft-davos",
+        "en": "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-59b58c",
+        "de": "rayonleiter-in-frischprodukte-coop-davos-platz-bqi6wr",
+        "fr": "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-59b58c"
       },
       "requirementsByLocale": {
         "it": [],
@@ -259,25 +266,33 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
+          "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
           "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
         ],
         "fr": [
           "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu",
+          "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos",
           "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
         ],
         "de": [
-          "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu"
+          "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu",
+          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
+        ],
+        "it": [
+          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
         ]
       },
       "previousSlugs": [
         "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
-        "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
+        "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
         "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu",
-        "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu"
+        "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos",
+        "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu",
+        "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
       ]
     },
     {
@@ -412,10 +427,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-        "en": "seller-in-food-coop-genossenschaft-disentis-muster",
-        "de": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster"
+        "it": "venditore-in-food-coop-genossenschaft-disentis-muster",
+        "en": "seller-in-food-coop-genossenschaft-disentis-muster-ae3aab",
+        "de": "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-ae3aab"
       },
       "requirementsByLocale": {
         "it": [],
@@ -443,23 +458,31 @@
       },
       "previousSlugs": [
         "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
-        "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
+        "seller-in-food-coop-genossenschaft-disentis-muster",
         "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
         "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
         "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-        "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv"
+        "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
+        "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
       ],
       "previousSlugsByLocale": {
         "en": [
           "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+          "seller-in-food-coop-genossenschaft-disentis-muster",
           "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
           "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6"
+          "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+          "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
+        ],
+        "it": [
+          "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6"
         ]
       }
     },
@@ -646,11 +669,7 @@
         ],
         "fr": [
           "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
-          "directeur-general-in-christ-uhren-schmuck-ag-chur"
-        ],
-        "it": [
-          "managing-director-in-christ-uhren-schmuck-ag-chur-56b8b7"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ]
       },
       "previousSlugs": [
@@ -661,9 +680,7 @@
         "store-manager-christ-orologi-gioielli-chur-graubunden",
         "direttore-direttrice-christ-orologi-gioielli-chur-graubunden",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f",
-        "directeur-directrice-christ-orologi-gioielli-chur-graubunden",
-        "managing-director-in-christ-uhren-schmuck-ag-chur-56b8b7",
-        "directeur-general-in-christ-uhren-schmuck-ag-chur"
+        "directeur-directrice-christ-orologi-gioielli-chur-graubunden"
       ]
     },
     {
@@ -739,24 +756,15 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ],
         "en": [
           "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur-03579f",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-03579f",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
         ],
         "fr": [
           "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
-        ],
-        "it": [
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-03579f",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm"
         ]
       },
       "previousSlugs": [
@@ -767,14 +775,7 @@
         "sales-advisor-christ-orologi-gioielli-chur-graubunden",
         "consulente-di-vendita-christ-orologi-gioielli-chur-graubunden",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g",
-        "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur-03579f",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-03579f",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-03579f",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e"
+        "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden"
       ]
     },
     {
@@ -861,8 +862,8 @@
         ]
       },
       "previousSlugs": [
-        "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
         "stv-geschaftsfuhrer-in-coop-arosa-graubunden-nn7tsc",
+        "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
         "stv-directeur-general-in-coop-genossenschaft-arosa-p6gv2y",
         "stv-directeur-general-in-coop-genossenschaft-arosa",
         "stv-managing-director-in-coop-genossenschaft-arosa-p6gv2y",
@@ -942,6 +943,8 @@
         }
       },
       "previousSlugs": [
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
+        "butcher-charcuterie-butcher-m-w-d-coop-genossenschaft-castione-2t1a5g",
         "metzger-charcuterie-metzger-m-w-d-coop-genossenschaft-castione-2t1a5g",
         "boucher-charcuterie-boucher-m-w-d-coop-genossenschaft-castione-2t1a5g",
         "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-riazzino-ticino",
@@ -956,18 +959,12 @@
         "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino",
         "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino-9xtr67",
         "metzger-feinkostspezialist-w-m-d-coop-genossenschaft-mendrisio",
-        "boucher-specialiste-charcuterie-h-f-d-coop-genossenschaft-mendrisio",
-        "butcher-deli-clerk-f-m-d-coop-genossenschaft-riazzino",
-        "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-riazzino",
-        "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-mendrisio",
-        "butcher-deli-specialist-f-m-d-coop-genossenschaft-mendrisio",
-        "boucher-bouchere-vendeur-vendeuse-de-charcuterie-f-m-d-coop-genossenschaft-riazzino"
+        "boucher-specialiste-charcuterie-h-f-d-coop-genossenschaft-mendrisio"
       ],
       "previousSlugsByLocale": {
         "en": [
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
-          "butcher-charcuterie-butcher-m-w-d-coop-genossenschaft-castione-2t1a5g",
-          "butcher-deli-specialist-f-m-d-coop-genossenschaft-mendrisio"
+          "butcher-charcuterie-butcher-m-w-d-coop-genossenschaft-castione-2t1a5g"
         ],
         "de": [
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
@@ -976,12 +973,6 @@
         "fr": [
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
           "boucher-charcuterie-boucher-m-w-d-coop-genossenschaft-castione-2t1a5g"
-        ],
-        "it": [
-          "butcher-deli-clerk-f-m-d-coop-genossenschaft-riazzino",
-          "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-riazzino",
-          "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-mendrisio",
-          "boucher-bouchere-vendeur-vendeuse-de-charcuterie-f-m-d-coop-genossenschaft-riazzino"
         ]
       }
     },
@@ -1023,10 +1014,10 @@
         "fr": "Tâche\n\n- Le comptoir ouvert est notre point de contact phare et important pour nos clients. Vous conseillez et servez ce buffet passionné.\n\n- Coupe fraîche et habillée : Vous préparez les produits de viande de façon professionnelle et attrayante et vous produisez également des produits maison tels que des saucisses.\n\n- Vous gérez les marchandises en libre-service et les aidez à mieux vendre.\n\n- Les commandes du client concernant l'activité à jour fixe, mais aussi à l'extérieur, sont également incluses et fournies.\n\nExigences\n\n- Vous apportez de la joie dans les conseils ou le service à la clientèle, dans le cas optimal dans le secteur alimentaire, avec et l'intérêt pour la viande et le poisson.\n\n- Vous marquez également avec une expérience professionnelle dans une boucherie servie. Les expériences en tant que cuisinier/cuisinier (p/m/j) vous aident dans votre travail de consultation quotidien.\n\n- Vous appréciez l'échange de clients et êtes heureux de vous conseiller pour votre vie.\n\n- Vous appliquez systématiquement les exigences de qualité et les lignes directrices.\n\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (dans le même ménage\n\n- Conditions d'emploi : Caisse de pension : 2/3 est payé par Coop, Conditions d'emploi attrayantes et égalité salariale certifiée, Primes de fidélité, Plan d'épargne à la Caisse de pension, Contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue: plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : mise à jour de la forme physique : 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
+        "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb"
       },
       "requirementsByLocale": {},
       "addressLocality": "Klosters-Serneus",
@@ -1048,32 +1039,30 @@
       "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "en": [
-          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we"
+          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
+          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus"
         ],
         "fr": [
-          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we"
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we"
         ],
         "it": [
-          "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we"
         ]
       },
       "previousSlugs": [
-        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
         "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
-        "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we",
-        "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus"
+        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2406
@@ -1242,11 +1231,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-          "directeur-general-in-christ-uhren-schmuck-ag-chur-0i1ujb",
-          "directeur-directrice-christ-orologi-gioielli-chur-graubunden",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f",
-          "direttore-direttrice-christ-orologi-gioielli-chur-graubunden"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
         ],
         "en": [
           "managing-director-in-christ-uhren-schmuck-ag-chur-0b3645",
@@ -1269,11 +1254,12 @@
           "directeur-general-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
           "directeur-general-christ-uhren-schmuck-ag-chur-cprmen",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
-          "directeur-general-in-christ-uhren-schmuck-ag-chur-56b8b7"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
         ]
       },
       "previousSlugs": [
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+        "managing-director-in-christ-uhren-schmuck-ag-chur-0b3645",
         "managing-director-in-christ-uhren-schmuck-ag-chur",
         "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
@@ -1288,12 +1274,7 @@
         "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
         "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb",
-        "store-manager-christ-orologi-gioielli-chur-graubunden",
-        "directeur-general-in-christ-uhren-schmuck-ag-chur-56b8b7",
-        "directeur-general-in-christ-uhren-schmuck-ag-chur-0i1ujb",
-        "directeur-directrice-christ-orologi-gioielli-chur-graubunden",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f",
-        "direttore-direttrice-christ-orologi-gioielli-chur-graubunden"
+        "store-manager-christ-orologi-gioielli-chur-graubunden"
       ],
       "needsRetranslation": true
     },
@@ -1368,8 +1349,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-          "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
         ],
         "en": [
           "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e",
@@ -1410,8 +1390,7 @@
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g",
         "sales-advisor-christ-orologi-gioielli-chur-graubunden",
         "consulente-di-vendita-christ-orologi-gioielli-chur-graubunden",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g",
-        "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden"
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g"
       ],
       "needsRetranslation": true
     },
@@ -3584,10 +3563,10 @@
         "fr": "Tâche\n\n- Votre utilisation dans le secteur non alimentaire: Vous assurez que les marchandises sont vendues activement et soigneusement gérées.\n\n- Sans aucun doute, vous avez les directives de qualité et les spécifications au point de vente sans exception.\n\n- Votre pari estimé est aussi en demande à la caisse.\n\nExigences\n\n- Êtes-vous formé: le détaillant: en? Parfait ! Ou avez-vous déjà acquis une expérience professionnelle dans la vente? Parfait.\n\n- Vous pouvez aussi rendre votre utilisation flexible.\n\n- Tu peux bien parler et écrire l'allemand.\n\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (dans le même ménage\n\n- Conditions d'emploi : Caisse de pension : 2/3 est payé par Coop, Conditions d'emploi attrayantes et égalité salariale certifiée, Primes de fidélité, Plan d'épargne à la Caisse de pension, Contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation continue: plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : mise à jour de la forme physique : 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre personne à contacter\nNadia Ruetsch\nMarketing des ressources humaines"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-        "en": "seller-in-nonfood-coop-genossenschaft-chur",
-        "de": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur"
+        "it": "venditore-in-nonfood-coop-genossenschaft-chur",
+        "en": "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
+        "de": "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
+        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3612,34 +3591,32 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
           "seller-in-nonfood-coop-genossenschaft-chur-7u0021",
+          "seller-in-nonfood-coop-genossenschaft-chur",
           "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
         ],
         "fr": [
-          "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5",
           "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-7u0021",
+          "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
           "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
         ],
         "it": [
-          "venditore-in-nonfood-coop-genossenschaft-chur",
-          "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5"
+          "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
+          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
         ],
         "de": [
-          "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
-          "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021"
+          "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021",
+          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
         ]
       },
       "previousSlugs": [
-        "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "seller-in-nonfood-coop-genossenschaft-chur-7u0021",
-        "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-        "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5",
+        "seller-in-nonfood-coop-genossenschaft-chur",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-7u0021",
-        "venditore-in-nonfood-coop-genossenschaft-chur",
+        "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
         "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
-        "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
-        "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021"
+        "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021",
+        "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -3829,10 +3806,7 @@
         "it": [
           "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus",
           "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus-82026e",
-          "personnel-en-inventaire-coop-genossenschaft-basel",
-          "personale-in-inventario-coop-genossenschaft-basel",
-          "associate-inventuren-coop-grigioni-4whh8x",
-          "staff-in-inventory-coop-genossenschaft-basel"
+          "personnel-en-inventaire-coop-genossenschaft-basel"
         ],
         "de": [
           "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
@@ -3841,6 +3815,7 @@
         ]
       },
       "previousSlugs": [
+        "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-82026e",
         "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-46rasq",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq",
         "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-82026e",
@@ -3857,10 +3832,7 @@
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-genossenschaft-klosters-serneus-46rasq",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-genossenschaft-klosters-serneus",
-        "collaboratore-trice-inventuren-coop-grigioni-4whh8x",
-        "personale-in-inventario-coop-genossenschaft-basel",
-        "associate-inventuren-coop-grigioni-4whh8x",
-        "staff-in-inventory-coop-genossenschaft-basel"
+        "collaboratore-trice-inventuren-coop-grigioni-4whh8x"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -4320,6 +4292,8 @@
           "verkaufer-in-food-coop-genossenschaft-arosa-8ij9x8"
         ],
         "it": [
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-62c54a",
           "seller-in-food-coop-genossenschaft-chur",
           "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
           "verkaufer-in-food-coop-chur-graubunden",
@@ -4337,9 +4311,7 @@
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
           "verkaufer-in-food-coop-arosa-graubunden-yu1lr4",
           "seller-in-food-coop-genossenschaft-chur-7ee3d2",
-          "verkaufer-in-food-coop-genossenschaft-chur-vnskkx",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-7ee3d2",
-          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+          "verkaufer-in-food-coop-genossenschaft-chur-vnskkx"
         ]
       },
       "previousSlugs": [
@@ -4360,9 +4332,7 @@
         "verkaufer-in-food-coop-felsberg-graubunden",
         "venditore-in-food-coop-genossenschaft-chur",
         "seller-in-food-coop-genossenschaft-chur-62c54a",
-        "seller-in-food-coop-genossenschaft-felsberg",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-7ee3d2",
-        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+        "seller-in-food-coop-genossenschaft-felsberg"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -11248,15 +11218,13 @@
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
         "retail-salesperson-interdiscount-grigioni",
-        "vendeur-e-en-detail-interdiscount-grigioni",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10"
+        "vendeur-e-en-detail-interdiscount-grigioni"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
           "retailer-man-coop-gossau-1ceqqh",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10"
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop"
         ],
         "en": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6v37ek",
@@ -11860,7 +11828,7 @@
     },
     {
       "id": "company-j9odwp",
-      "slug": "venditore-in-nonfood-coop-genossenschaft-chur",
+      "slug": "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Nonfood",
       "location": "Chur",
@@ -11906,7 +11874,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-nonfood-coop-genossenschaft-chur",
+        "it": "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "en": "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "de": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
         "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5"
@@ -11937,9 +11905,9 @@
         ],
         "it": [
           "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
+          "verkaufer-in-nonfood-coop-chur-graubunden",
           "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-          "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
-          "verkaufer-in-nonfood-coop-chur-graubunden"
+          "venditore-in-nonfood-coop-genossenschaft-chur"
         ],
         "de": [
           "verkaufer-in-nonfood-coop-genossenschaft-chur-j9odwp",
@@ -11951,8 +11919,8 @@
         "seller-in-nonfood-coop-genossenschaft-chur",
         "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
-        "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "verkaufer-in-nonfood-coop-chur-graubunden",
+        "venditore-in-nonfood-coop-genossenschaft-chur",
         "verkaufer-in-nonfood-coop-genossenschaft-chur-j9odwp",
         "venditore-a-coop-genossenschaft-chur",
         "seller-in-nonfood-coop-genossenschaft-chur-7u0021",
@@ -13567,7 +13535,7 @@
     },
     {
       "id": "company-uwtky9",
-      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
+      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus-b54dfb",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Klosters-Serneus",
@@ -13604,7 +13572,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus-b54dfb",
         "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
         "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb"
@@ -13629,8 +13597,9 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-scuol",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-poschiavo",
           "macellaio-specialista-della-carne-coop-genossenschaft-klosters-serneus",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden"
+          "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
@@ -13652,8 +13621,9 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-scuol",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-poschiavo",
         "macellaio-specialista-della-carne-coop-genossenschaft-klosters-serneus",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
+        "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
         "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus",
