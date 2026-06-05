@@ -131,6 +131,8 @@ import {
  consumeAuthJobContext,
 } from '@/services/authService';
 import type { AuthJobContext } from '@/services/authService';
+import { settleNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
  normalizeNewsletterEmail,
@@ -168,6 +170,11 @@ const App: React.FC = () => {
  signInFacebook: facebookSignIn,
  signInEmail,
  } = useAuth();
+
+ // True while a newsletter autologin code is being exchanged for a session.
+ // Suppresses One Tap (and downstream auth gates) so newsletter visitors see
+ // the linked content immediately instead of a redundant sign-in prompt.
+ const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
 
  // Navigation state: tabs, sub-tabs, deep links, popstate, SEO effects, etc.
  const {
@@ -478,6 +485,10 @@ const App: React.FC = () => {
  } catch (error) {
  reportCaughtError(error, 'app.newsletterAutologin');
  Analytics.trackUIInteraction('newsletter', 'autologin', 'error');
+ } finally {
+ // Re-enable sign-in affordances (One Tap, auth gates) once the exchange
+ // resolves — success or failure. Idempotent + no-op when never in flight.
+ settleNewsletterAutologin();
  }
  })();
  return () => { cancelled = true; };
@@ -965,6 +976,9 @@ const App: React.FC = () => {
  cancelOneTap();
  return; // Already signed in
  }
+ // Don't even arm the prompt while a newsletter autologin is exchanging — the
+ // user is about to be signed in. Effect re-runs when the signal settles.
+ if (newsletterAutologinInFlight) return;
  if (sessionStorage.getItem('onetap_prompted')) return;
 
  let queued = false;
@@ -1004,19 +1018,20 @@ const App: React.FC = () => {
  window.removeEventListener(e, trigger, { capture: true });
  cancelOneTap();
  };
- }, [authLoading, authUser]);
+ }, [authLoading, authUser, newsletterAutologinInFlight]);
 
  // If the first interaction happened while auth was still loading,
  // trigger One Tap as soon as auth state is resolved.
  useEffect(() => {
  if (authLoading || authUser) return;
+ if (newsletterAutologinInFlight) return;
  if (sessionStorage.getItem('onetap_prompted')) return;
  if (sessionStorage.getItem('onetap_pending') !== '1') return;
 
  sessionStorage.setItem('onetap_prompted', '1');
  sessionStorage.removeItem('onetap_pending');
  promptOneTap().catch(() => {});
- }, [authLoading, authUser]);
+ }, [authLoading, authUser, newsletterAutologinInFlight]);
 
  // Theme init, analytics init, SPA pageview tracking, deferred widgets,
  // and toggleTheme are all managed by useUIState (hooks/useUIState.ts).
