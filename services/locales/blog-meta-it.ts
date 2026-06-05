@@ -7976,6 +7976,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.concierge-ticino-lonza-ch.title': 'Lonza cerca Concierge in Ticino',
     'blog.article.concierge-ticino-lonza-ch.excerpt': 'Lonza SA è alla ricerca di un Service des Installations Concierge (80-100%) in Ticino. Scopri i dettagli dell\'offerta di lavoro.',
     'blog.article.concierge-ticino-lonza-ch.imageAlt': 'Vista panoramica del lungolago di Lugano con edifici moderni.',
+    'blog.article.chiasso-grenzubergang.title': 'Grenzübergang Chiasso: cosa c\'è da sapere',
+    'blog.article.chiasso-grenzubergang.excerpt': 'Informazioni sulle attuali condizioni del passaggio frontaliere a Chiasso.',
+    'blog.article.chiasso-grenzubergang.imageAlt': 'La stazione di Chiasso',
 };
 
 export default blogMetaIt;

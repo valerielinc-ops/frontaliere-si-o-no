@@ -7975,6 +7975,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.concierge-ticino-lonza-ch.title': 'Lonza seeks Concierge for Installations in Ticino',
     'blog.article.concierge-ticino-lonza-ch.excerpt': 'Lonza SA is looking for a Service des Installations Concierge (80-100%) in Ticino. Discover the details of the job offer.',
     'blog.article.concierge-ticino-lonza-ch.imageAlt': 'Panoramic view of Lugano lakefront with modern buildings.',
+    'blog.article.chiasso-grenzubergang.title': 'Chiasso Border Crossing: What You Need to Know',
+    'blog.article.chiasso-grenzubergang.excerpt': 'Information on the current conditions of the border crossing in Chiasso. 📊💡⚠️\n\n### Informazioni sulle attuali condizioni del passaggio frontaliere a Chiasso.\n\n- Per informazioni aggiornate sulle condizioni del passaggio frontaliere, visitate il sito web ufficiale del [Chiasso Border Crossing](nav:chiasso-border-crossing).\n\n> Le condizioni del passaggio frontaliere possono variare a seconda delle esigenze di sicurezza e del traffico.\n\n### Consigli per i viaggiatori\n\n- Verificate le condizioni del passaggio frontaliere prima di partire.\n\n- Rispettate le regole di sicurezza e le indicazioni dei funzionari di frontiera.\n\n- Siate pronti a presentare i documenti richiesti per il passaggio frontaliere.',
+    'blog.article.chiasso-grenzubergang.imageAlt': 'Chiasso railway station',
 };
 
 export default blogMetaEn;

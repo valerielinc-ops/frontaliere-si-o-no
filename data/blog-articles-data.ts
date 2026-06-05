@@ -25308,6 +25308,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chiasso-grenzubergang',
+ category: 'pratico',
+ date: '2026-06-05T05:22:51.147Z',
+ image: '/images/blog/chiasso-grenzubergang.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
