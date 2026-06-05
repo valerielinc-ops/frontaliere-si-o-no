@@ -8,13 +8,20 @@
  * dall'accumulo additivo introdotto da PR #1426.
  *
  * Algoritmo di sicurezza (senza accesso al vite manifest):
- *   - "Attivo" = referenziato direttamente nel live HTML (import statici + preload)
- *   - "Sostituito" = esiste un hash più recente per lo STESSO chunk-name prefix
- *     (es. "vendor-react" compare con 2+ hash → il più vecchio è sostituito)
- *   - Prune solo se: SOSTITUITO && firstSeen > GRACE_DAYS && NON ATTIVO nel HTML
- *   - Hash "unici" (un solo file per chunk-name prefix) NON vengono MAI potati
- *     → copre lazy vendor chunks invariati (firebase, charts, maps, pdf) che
- *     non appaiono nel HTML ma sono ancora attivi nel build corrente.
+ *   - "Attivo" (AUTORITATIVO) = presente in `dist/assets/`, l'output appena
+ *     buildato. Copre TUTTI gli hash del build corrente: entry, modulepreload E
+ *     dynamic-import (lazy) chunks (firebase/charts/maps/pdf) — questi ultimi NON
+ *     compaiono nel live HTML. Path overridabile via DIST_ASSETS_DIR; se assente
+ *     → FAIL-CLOSED, non pota nulla (mai pruning alla cieca).
+ *   - "Attivo" (belt-and-suspenders) = anche referenziato nel live HTML (entry +
+ *     preload). Check secondario, non blocca più il prune se il fetch fallisce.
+ *   - "Sostituito" = esiste un sibling con firstSeen STRETTAMENTE più recente per
+ *     lo STESSO chunk-name prefix. Al bootstrap tutti i firstSeen === now → nessun
+ *     sibling strettamente-più-nuovo → niente prunabile (ordine readdirSync NON
+ *     decide mai una delete fra i duplicati #1426 con timestamp identici).
+ *   - Prune solo se: NON in dist/assets && NON in live HTML && SOSTITUITO
+ *     (sibling strettamente più nuovo) && firstSeen > GRACE_DAYS.
+ *   - Hash "unici" (un solo file per chunk-name prefix) NON vengono MAI potati.
  *
  * Tracking età: assets/.hash-age.json nel repo CDN (preserved deploy→deploy
  * tramite `cp -n` in deploy.yml che copia dal CDN precedente).
@@ -36,6 +43,8 @@
  *   CDN_DEPLOY_KEY  SSH private key (write access su valerielinc-ops/frontaliere-cdn)
  *   GRACE_DAYS      grace-window giorni per hash sostituiti (default: 7)
  *   DRY_RUN         "1" → stampa piano senza modificare nulla
+ *   DIST_ASSETS_DIR override del path active-set (default: <repo>/dist/assets,
+ *                   il path inline di deploy.yml). Assente → FAIL-CLOSED, no prune.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -45,6 +54,17 @@ import {
 } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
+
+// Shared Vite content-hash matcher (base64url alphabet `[A-Za-z0-9_-]`).
+// Imported — NOT copy-pasted — so the char class can't drift from the canonical
+// SPA extractor in build-plugins/shared/spaBundleRx.ts (AGENTS.md #6). A
+// quote-strict `[a-zA-Z0-9]` would silently miss the ~1-in-5 hashes containing
+// `_`/`-`, leaving those orphans ungrouped → never pruned → CDN keeps growing.
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const { VITE_ASSET_RX } = await import(
+  join(__dirname, '..', '..', 'build-plugins', 'shared', 'viteAssetHashRx.mjs')
+);
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const GRACE_DAYS = Number(process.env.GRACE_DAYS ?? 7);
@@ -53,8 +73,16 @@ const CDN_REPO_SSH = 'git@github.com:valerielinc-ops/frontaliere-cdn.git';
 const LIVE_ENTRY_URL = 'https://frontaliereticino.ch/';
 const CDN_ASSETS_HOST = 'cdn.frontaliereticino.ch/assets/';
 
-// Vite content-hashed filename pattern: <chunk-name>-<8chars>.<js|css>
-const VITE_ASSET_RX = /^(.+)-([a-zA-Z0-9]{8})\.(js|css)$/;
+// Authoritative set of CURRENTLY-active asset hashes: the just-built output on
+// disk (dist/assets/). When the janitor runs inline in deploy.yml (post-CDN-push,
+// before the "Drop dist/assets" step), this dir holds EVERY hash the live build
+// references — entry, modulepreload AND dynamic-import (lazy) chunks. The live
+// HTML scrape only sees entry+preload, so dist/assets/ is the only source that
+// covers firebase/charts/maps/pdf lazy chunks. Overridable for standalone/test
+// runs; if absent we FAIL-CLOSED on pruning (never prune blind).
+const DIST_ASSETS_DIR = process.env.DIST_ASSETS_DIR
+  ?? join(__dirname, '..', '..', 'dist', 'assets');
+
 const HASH_AGE_FILENAME = '.hash-age.json';
 
 function git(dir, args, extraEnv = {}) {
@@ -107,6 +135,21 @@ async function fetchActiveHashes() {
     console.warn(`[janitor] ⚠️  live HTML fetch failed (${err.message}) — abort (conservative, no prune)`);
     return null;
   }
+}
+
+/**
+ * Read the set of asset filenames present in the just-built `dist/assets/`.
+ * This is the AUTHORITATIVE list of hashes the current build actually
+ * references — including dynamic-import (lazy) chunks that never appear in the
+ * entry HTML. Returns null when the dir is absent (e.g. standalone cron with no
+ * fresh build) so the caller can FAIL-CLOSED and skip pruning rather than prune
+ * blind against an incomplete active set.
+ */
+function readDistAssetHashes() {
+  if (!existsSync(DIST_ASSETS_DIR)) return null;
+  const set = new Set(readdirSync(DIST_ASSETS_DIR).filter(f => VITE_ASSET_RX.test(f)));
+  console.log(`[janitor] dist/assets/ active hashes: ${set.size} (from ${DIST_ASSETS_DIR})`);
+  return set;
 }
 
 async function main() {
@@ -170,23 +213,40 @@ async function main() {
     const registryDirty = newCount > 0;
     if (newCount > 0) console.log(`[janitor] registered ${newCount} new hash(es) in age registry`);
 
-    // Fetch active hashes from live HTML (belt-and-suspenders check)
-    const activeHashes = await fetchActiveHashes();
-    if (!activeHashes) {
-      // Still persist new registry entries even if we can't prune safely
-      if (registryDirty && !DRY_RUN) {
-        writeFileSync(hashAgePath, JSON.stringify(registry, null, 2));
-        git(repoDir, ['add', `assets/${HASH_AGE_FILENAME}`]);
-        git(repoDir, [
-          '-c', 'user.email=cdn-janitor@frontaliereticino.ch',
-          '-c', 'user.name=cdn-janitor',
-          'commit', '-m', `chore(cdn-janitor): register ${newCount} new hash(es) (no prune, fetch failed)`,
-        ]);
-        assertFreshRemote(clonedTip, sshEnv);
-        execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
-          { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
-        console.log('[janitor] persisted hash-age registry update (no prune)');
-      }
+    // AUTHORITATIVE active set: the just-built dist/assets/ (covers lazy/dynamic
+    // chunks invisible to the HTML scrape — firebase/charts/maps/pdf). This is
+    // the PRIMARY protection: a hash present here is referenced by the current
+    // build and must NEVER be pruned. Absent → FAIL-CLOSED: register ages but
+    // prune nothing (never prune blind against an incomplete active set).
+    const distHashes = readDistAssetHashes();
+    const canPrune = distHashes !== null;
+
+    // Live-HTML scrape: SECONDARY belt-and-suspenders (entry + modulepreload only).
+    // No longer required to prune — dist/assets/ is authoritative — but when it
+    // succeeds it adds an extra protect set. A failed fetch is non-blocking.
+    const activeHashes = canPrune ? await fetchActiveHashes() : null;
+
+    const persistRegistryOnly = (reason) => {
+      if (!(registryDirty && !DRY_RUN)) return;
+      writeFileSync(hashAgePath, JSON.stringify(registry, null, 2));
+      git(repoDir, ['add', `assets/${HASH_AGE_FILENAME}`]);
+      git(repoDir, [
+        '-c', 'user.email=cdn-janitor@frontaliereticino.ch',
+        '-c', 'user.name=cdn-janitor',
+        'commit', '-m', `chore(cdn-janitor): register ${newCount} new hash(es) (no prune, ${reason})`,
+      ]);
+      assertFreshRemote(clonedTip, sshEnv);
+      execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
+        { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
+      console.log(`[janitor] persisted hash-age registry update (no prune, ${reason})`);
+    };
+
+    if (!canPrune) {
+      console.warn(
+        '[janitor] ⚠️  dist/assets/ absent (no fresh build alongside this run) — ' +
+        'FAIL-CLOSED: registering ages but pruning nothing this run',
+      );
+      persistRegistryOnly('dist/assets absent');
       return;
     }
 
@@ -203,17 +263,35 @@ async function main() {
       groups.get(key).push({ file: f, firstSeen: registry[f] ?? now });
     }
 
-    // Build prune list: superseded (group size >1) + old enough + not in active HTML
+    // Build prune list. A candidate is pruned ONLY when ALL hold:
+    //   1. NOT in dist/assets/ (current build) — authoritative active set.
+    //   2. NOT in live HTML (when the scrape succeeded) — belt-and-suspenders.
+    //   3. A sibling with a STRICTLY-NEWER firstSeen exists (truly superseded).
+    //      At bootstrap every firstSeen === now → no strictly-newer sibling →
+    //      nothing prunable → safe even with identical #1426-backlog timestamps
+    //      (where readdirSync order is arbitrary and must NOT decide deletion).
+    //   4. firstSeen older than the grace-window.
     const toPrune = [];
     for (const [chunkKey, entries] of groups) {
       if (entries.length < 2) continue; // single hash → keep (might be active lazy chunk)
-      // Oldest first by firstSeen timestamp
-      entries.sort((a, b) => a.firstSeen.localeCompare(b.firstSeen));
-      // All but the newest are superseded candidates
-      for (const { file, firstSeen } of entries.slice(0, -1)) {
-        if (activeHashes.has(file)) {
+      // Newest firstSeen in the group; only hashes strictly older than this are
+      // "superseded". Ties (equal firstSeen) are NOT superseded by each other.
+      let newestSeen = entries[0].firstSeen;
+      for (const e of entries) if (e.firstSeen.localeCompare(newestSeen) > 0) newestSeen = e.firstSeen;
+      for (const { file, firstSeen } of entries) {
+        if (distHashes.has(file)) {
+          // Referenced by the current build (entry OR lazy/dynamic chunk) → never prune.
+          console.log(`[janitor] keep ${file} (present in dist/assets — active in current build)`);
+          continue;
+        }
+        if (activeHashes && activeHashes.has(file)) {
           // In live HTML → definitely still in use, never prune
           console.log(`[janitor] keep ${file} (active in live HTML despite supersession by newer ${chunkKey})`);
+          continue;
+        }
+        if (firstSeen.localeCompare(newestSeen) >= 0) {
+          // No strictly-newer sibling (it IS the newest, or tied with it) → not superseded.
+          console.log(`[janitor] keep ${file} (no strictly-newer sibling — not superseded, ${chunkKey})`);
           continue;
         }
         if (new Date(firstSeen).getTime() > graceCutoffMs) {

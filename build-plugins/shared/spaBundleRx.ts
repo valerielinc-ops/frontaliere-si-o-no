@@ -25,6 +25,14 @@
  * `scripts/audit-spa-bundle-injection.mjs` (which scans per-page minified HTML
  * where `removeAttributeQuotes` may have stripped quotes), nor the *rewrite*
  * regex in `asyncCssPlugin.ts`. Those are different jobs and stay separate.
+ *
+ * The hash CHARACTER CLASS (`[A-Za-z0-9_-]`, base64url) is shared with the
+ * generic CDN-janitor matcher via `./viteAssetHashRx` so the two can't drift
+ * (AGENTS.md #6). Only the alphabet is shared; the SPA-`index`-specific shape
+ * (quoted-attr extract, `index-` prefix, no fixed length) stays local here.
  */
-export const SPA_ENTRY_JS_RX = /src="[^"]*\/assets\/(index-[A-Za-z0-9_-]+\.js)"/;
-export const SPA_ENTRY_CSS_RX = /href="[^"]*\/assets\/(index-[A-Za-z0-9_-]+\.css)"/;
+import { VITE_HASH_CHARS } from './viteAssetHashRx';
+
+const H = `[${VITE_HASH_CHARS}]`;
+export const SPA_ENTRY_JS_RX = new RegExp(`src="[^"]*\\/assets\\/(index-${H}+\\.js)"`);
+export const SPA_ENTRY_CSS_RX = new RegExp(`href="[^"]*\\/assets\\/(index-${H}+\\.css)"`);
