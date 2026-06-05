@@ -4,6 +4,7 @@ import {
   parseAltenDetailHtml,
   isAltenTicinoLocation,
 } from '../scripts/lib/alten-job-parser.mjs';
+import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from '../scripts/lib/swiss-locality-sentence-split.mjs';
 
 describe('alten-job-parser', () => {
   it('recognizes ticino locations', () => {
@@ -57,5 +58,40 @@ describe('alten-job-parser', () => {
     expect(parsed.description).toContain('## Intro');
     expect(parsed.description).toContain('Responsibilities');
     expect(parsed.slug).toContain('sviluppatore-full-stack-net');
+  });
+
+  // Regression for #1451 / verification of #1457: the location cut must preserve
+  // the abbreviation period in Swiss city names beginning with "St." (St. Moritz,
+  // St. Gallen). A blanket "." split truncated these to "St", which then failed
+  // the Swiss-municipality whitelist downstream and silently dropped the jobs from
+  // the dataset. End-to-end through the parser, with trailing prose run into the
+  // same node (no newline before the next sentence).
+  it.each([
+    ['St. Moritz, Switzerland', 'St. Moritz, Switzerland'],
+    ['St. Gallen, Switzerland', 'St. Gallen, Switzerland'],
+  ])('preserves the "St." period in %s and cuts trailing prose', (city, expected) => {
+    const html = `
+      <div class="wp-block-jobboard-offer">
+        <h1>Cloud Engineer</h1>
+        <div class="block--inner">Location: ${city}.Availability to work on-site is required. What we offer you…</div>
+        <a href="https://www.alten.ch/jobs/999-cloud-engineer/apply">APPLY</a>
+      </div>`;
+    const parsed = parseAltenDetailHtml(html, 'https://www.alten.ch/jobs/999-cloud-engineer/');
+    expect(parsed.location).toBe(expected);
+  });
+
+  // Verification of #1457: the variable-length negative lookbehind in the shared
+  // split constant runs in the MAIN Node V8 (the crawler hands page.content() to
+  // parseAltenDetailHtml as a plain string — NOT inside page.evaluate / a vm
+  // sandbox), so it is fully supported. Assert the shared regex directly so any
+  // drift in either call site (alten-job-parser / assemble-jobs-dataset) is caught,
+  // including "Ste." which the alten whitelist does not currently accept.
+  it.each([
+    ['St. Moritz, Switzerland. Availability…', 'St. Moritz, Switzerland'],
+    ['St. Gallen.Trailing prose', 'St. Gallen'],
+    ['Ste. Croix, Switzerland. More text', 'Ste. Croix, Switzerland'],
+    ['Ticino, Switzerland.Availability', 'Ticino, Switzerland'],
+  ])('SWISS_LOCALITY_SENTENCE_SPLIT_RX cuts %s to the bare locality', (input, expected) => {
+    expect(input.split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0].trim()).toBe(expected);
   });
 });
