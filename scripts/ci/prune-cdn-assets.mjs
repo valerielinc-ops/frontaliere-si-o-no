@@ -19,14 +19,21 @@
  *     lo STESSO chunk-name prefix. Al bootstrap tutti i firstSeen === now → nessun
  *     sibling strettamente-più-nuovo → niente prunabile (ordine readdirSync NON
  *     decide mai una delete fra i duplicati #1426 con timestamp identici).
+ *   - Grace ANCORATA alla SOSTITUZIONE, non all'età assoluta: supersededAt =
+ *     firstSeen del sibling PIÙ VECCHIO strettamente più recente del candidato
+ *     (il momento in cui è comparso il rimpiazzo). Un chunk lazy/dynamic
+ *     (firebase/charts/maps/pdf, invisibile allo scrape HTML) può essere stabile
+ *     per mesi: ancorare al suo firstSeen lo poterebbe nella STESSA run in cui
+ *     l'hash ruota → 404 per i browser con HTML vecchio (outage class 2026-06-04).
+ *     Ancorando a supersededAt resta per l'intera grace dopo la rotazione.
  *   - Prune solo se: NON in dist/assets && NON in live HTML && SOSTITUITO
- *     (sibling strettamente più nuovo) && firstSeen > GRACE_DAYS.
+ *     (sibling strettamente più nuovo) && supersededAt > GRACE_DAYS fa.
  *   - Hash "unici" (un solo file per chunk-name prefix) NON vengono MAI potati.
  *
  * Tracking età: assets/.hash-age.json nel repo CDN (preserved deploy→deploy
  * tramite `cp -n` in deploy.yml che copia dal CDN precedente).
  * Prima run: registra tutti gli hash con firstSeen=now, pota 0 file (bootstrap).
- * Run successive: pota hash sostituiti con firstSeen > GRACE_DAYS.
+ * Run successive: pota hash sostituiti la cui supersessione è > GRACE_DAYS fa.
  *
  * INVOCAZIONE (anti-clobber by sequencing):
  *   Eseguito come STEP INLINE in `.github/workflows/deploy.yml`, subito DOPO il
@@ -67,7 +74,12 @@ const { VITE_ASSET_RX } = await import(
 );
 
 const DRY_RUN = process.env.DRY_RUN === '1';
-const GRACE_DAYS = Number(process.env.GRACE_DAYS ?? 7);
+// Defensive numeric env parse: `?? 7` only catches `undefined`, so GRACE_DAYS=''
+// or a non-numeric value would yield NaN/0 → graceCutoffMs becomes NaN/now →
+// grace bypassed → every superseded hash pruned at zero grace (mass in-flight
+// 404). Require a finite positive number, else fall back to the 7-day default.
+const __graceRaw = Number(process.env.GRACE_DAYS);
+const GRACE_DAYS = Number.isFinite(__graceRaw) && __graceRaw > 0 ? __graceRaw : 7;
 const CDN_DEPLOY_KEY = process.env.CDN_DEPLOY_KEY ?? '';
 const CDN_REPO_SSH = 'git@github.com:valerielinc-ops/frontaliere-cdn.git';
 const LIVE_ENTRY_URL = 'https://frontaliereticino.ch/';
@@ -270,14 +282,22 @@ async function main() {
     //      At bootstrap every firstSeen === now → no strictly-newer sibling →
     //      nothing prunable → safe even with identical #1426-backlog timestamps
     //      (where readdirSync order is arbitrary and must NOT decide deletion).
-    //   4. firstSeen older than the grace-window.
+    //   4. SUPERSESSION older than the grace-window. Grace is anchored to WHEN
+    //      the candidate was superseded — `supersededAt` = the firstSeen of the
+    //      OLDEST sibling strictly newer than the candidate — NOT to the
+    //      candidate's own (absolute) firstSeen. A lazy/dynamic chunk
+    //      (firebase/charts/maps/pdf — invisible to the live-HTML scrape) can be
+    //      stable for months: its firstSeen is far past the grace cutoff, yet its
+    //      hash may rotate only today. Anchoring to firstSeen would prune it the
+    //      SAME run it rotates → 404 for browsers holding the old HTML / open tabs
+    //      requesting the old dynamic-import chunk (the 2026-06-04 outage class).
+    //      Anchoring to supersededAt keeps it for the full grace window after the
+    //      rotation, which also covers the entry-bundle case where a failed
+    //      fetchActiveHashes() (returns null) could otherwise prune an entry hash
+    //      still referenced by the not-yet-redeployed live HTML.
     const toPrune = [];
     for (const [chunkKey, entries] of groups) {
       if (entries.length < 2) continue; // single hash → keep (might be active lazy chunk)
-      // Newest firstSeen in the group; only hashes strictly older than this are
-      // "superseded". Ties (equal firstSeen) are NOT superseded by each other.
-      let newestSeen = entries[0].firstSeen;
-      for (const e of entries) if (e.firstSeen.localeCompare(newestSeen) > 0) newestSeen = e.firstSeen;
       for (const { file, firstSeen } of entries) {
         if (distHashes.has(file)) {
           // Referenced by the current build (entry OR lazy/dynamic chunk) → never prune.
@@ -289,13 +309,23 @@ async function main() {
           console.log(`[janitor] keep ${file} (active in live HTML despite supersession by newer ${chunkKey})`);
           continue;
         }
-        if (firstSeen.localeCompare(newestSeen) >= 0) {
+        // supersededAt = firstSeen of the OLDEST sibling strictly newer than this
+        // candidate (the moment a replacement first appeared). Undefined ⇒ no
+        // strictly-newer sibling ⇒ candidate is the newest/tied ⇒ not superseded.
+        let supersededAt;
+        for (const e of entries) {
+          if (e.firstSeen.localeCompare(firstSeen) <= 0) continue; // not strictly newer
+          if (supersededAt === undefined || e.firstSeen.localeCompare(supersededAt) < 0) {
+            supersededAt = e.firstSeen; // oldest such sibling = earliest supersession
+          }
+        }
+        if (supersededAt === undefined) {
           // No strictly-newer sibling (it IS the newest, or tied with it) → not superseded.
           console.log(`[janitor] keep ${file} (no strictly-newer sibling — not superseded, ${chunkKey})`);
           continue;
         }
-        if (new Date(firstSeen).getTime() > graceCutoffMs) {
-          console.log(`[janitor] keep ${file} (superseded but within grace-window: firstSeen ${firstSeen})`);
+        if (new Date(supersededAt).getTime() > graceCutoffMs) {
+          console.log(`[janitor] keep ${file} (superseded recently — within grace-window: supersededAt ${supersededAt})`);
           continue;
         }
         toPrune.push(file);
