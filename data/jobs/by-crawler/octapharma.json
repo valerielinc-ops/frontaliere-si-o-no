@@ -110,7 +110,7 @@
       "slugByLocale": {
         "it": "architetto-di-soluzioni-sap-uomo-donna-diverso-wm-mm-octapharma-wien",
         "en": "sap-solution-architect-m-f-d-wm-mm-octapharma-wien",
-        "de": "sap-losungarchitekt-m-w-d-wm-mm-octapharma-wien",
+        "de": "sap-losungsarchitekt-m-w-d-wm-mm-octapharma-wien",
         "fr": "architecte-de-solutions-sap-h-f-wm-mm-octapharma-wien"
       },
       "company": "Octapharma",
@@ -185,11 +185,15 @@
         ]
       },
       "previousSlugs": [
-        "sap-solution-architect-m-f-d-wm-mm-octapharma-wien"
+        "sap-solution-architect-m-f-d-wm-mm-octapharma-wien",
+        "sap-losungarchitekt-m-w-d-wm-mm-octapharma-wien"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-solution-architect-m-f-d-wm-mm-octapharma-wien"
+        ],
+        "de": [
+          "sap-losungarchitekt-m-w-d-wm-mm-octapharma-wien"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:25.936Z",

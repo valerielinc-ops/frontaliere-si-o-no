@@ -3810,12 +3810,12 @@
     },
     {
       "id": "zurzach-care-887f18ec983f",
-      "slug": "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden",
+      "slug": "dipendenti-servizi-dipendenti-80-100-zurzach-care-baden",
       "slugByLocale": {
-        "it": "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden",
-        "en": "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden",
+        "it": "dipendenti-servizi-dipendenti-80-100-zurzach-care-baden",
+        "en": "service-employees-service-employees-80-100-zurzach-care-baden",
         "de": "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden",
-        "fr": "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden"
+        "fr": "employes-de-service-service-employes-80-100-zurzach-care-baden"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -3868,7 +3868,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden"
+        ],
+        "en": [
+          "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden"
+        ],
+        "fr": [
+          "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden"
+        ]
+      },
+      "previousSlugs": [
+        "service-mitarbeitende-service-mitarbeitender-80-100-zurzach-care-baden"
+      ]
     },
     {
       "id": "zurzach-care-c8c29abcc48b",
@@ -4288,12 +4302,12 @@
     },
     {
       "id": "zurzach-care-0b2de942cc26",
-      "slug": "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren",
+      "slug": "diploma-r-specialista-in-allattamento-60-100-zurzach-care-schlieren",
       "slugByLocale": {
-        "it": "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren",
-        "en": "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren",
+        "it": "diploma-r-specialista-in-allattamento-60-100-zurzach-care-schlieren",
+        "en": "diploma-r-nursing-specialist-60-100-zurzach-care-schlieren",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren",
-        "fr": "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren"
+        "fr": "diplome-r-specialiste-en-soins-infirmiers-60-100-zurzach-care-schlieren"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -4346,16 +4360,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren"
+        ],
+        "en": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren"
+        ],
+        "fr": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-r-pflegefachfrau-pflegefachmann-60-100-zurzach-care-schlieren"
+      ]
     },
     {
       "id": "zurzach-care-0ac633707ec7",
-      "slug": "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel",
+      "slug": "ergoterapeutina-ergoterapeutico-50-80-zurzach-care-basel",
       "slugByLocale": {
-        "it": "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel",
+        "it": "ergoterapeutina-ergoterapeutico-50-80-zurzach-care-basel",
         "en": "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel",
         "de": "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel",
-        "fr": "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel"
+        "fr": "ergotherapeutine-ergotherapeut-50-80-zurzach-care-basel"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -4408,7 +4436,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeutin-ergotherapeut-50-80-zurzach-care-basel"
+      ]
     },
     {
       "id": "zurzach-care-9b54791ad9f4",
@@ -4651,9 +4690,9 @@
       "slug": "assistenzarztin-assistenzarzt-psychiatrie-e-psychotherapie-100-zurzach-care-zurich",
       "slugByLocale": {
         "it": "assistenzarztin-assistenzarzt-psychiatrie-e-psychotherapie-100-zurzach-care-zurich",
-        "en": "assistenzarztin-assistenzarzt-psychiatrie-und-psychotherapie-100-zurzach-care-zurich",
+        "en": "assistant-doctor-psychiatry-and-psychotherapy-100-zurzach-care-zurich",
         "de": "assistenzarztin-assistenzarzt-psychiatrie-und-psychotherapie-100-zurzach-care-zurich",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrie-und-psychotherapie-100-zurzach-care-zurich"
+        "fr": "assistant-medecin-psychiatrie-et-psychotherapie-100-zurzach-care-zurich"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -4699,6 +4738,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-psychiatrie-und-psychotherapie-100-zurzach-care-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrie-und-psychotherapie-100-zurzach-care-zurich"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-psychiatrie-und-psychotherapie-100-zurzach-care-zurich"
         ]
       },
@@ -5013,7 +5058,7 @@
         "it": "service-collaboratore-trice-in-80-100-zurzach-care-baden",
         "en": "service-mitarbeiter-in-80-100-zurzach-care-baden",
         "de": "service-mitarbeiter-in-80-100-zurzach-care-baden",
-        "fr": "service-mitarbeiter-in-80-100-zurzach-care-baden"
+        "fr": "personnel-de-services-en-80-100-zurzach-care-baden"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5059,6 +5104,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "service-mitarbeiter-in-80-100-zurzach-care-baden"
+        ],
+        "fr": [
           "service-mitarbeiter-in-80-100-zurzach-care-baden"
         ]
       },
