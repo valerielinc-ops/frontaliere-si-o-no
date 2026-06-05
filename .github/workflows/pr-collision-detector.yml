@@ -1,0 +1,81 @@
+name: PR collision detector (funnel-critical, no-Claude)
+
+# Rileva coppie di PR aperte che toccano gli STESSI file funnel-critical (root
+# cause del main-red #1454↔#1459: due PR parallele sugli stessi file, la seconda
+# mergiata senza rebase). Etichetta `collision-risk` su entrambe → il gate di
+# auto-merge-on-lgtm (P1) blocca il merge della seconda finché non è rebasata
+# oltre la prima. Tutto deterministico (scripts/ci/pr-collision-detector.mjs).
+# ZERO Claude.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  schedule:
+    - cron: '*/30 * * * *' # ricalcolo periodico (anche per togliere la label)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente label/commenti'
+        type: boolean
+        default: false
+
+# Serializza: evita due scan concorrenti che si pestano sulle label.
+concurrency:
+  group: pr-collision-detector
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "ℹ️ Nessuna Firebase SA — GITHUB_PAT non caricato; le label collision-risk verranno applicate via GITHUB_TOKEN (sufficiente per il gating di P1)."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Detect funnel-critical collisions (deterministic, no Claude)
+        env:
+          # PAT preferito per coerenza con gli altri workflow, ma una label via
+          # GITHUB_TOKEN è sufficiente per il gating di P1 → fallback su token.
+          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "${DRY_RUN:-false}" = "true" ]; then
+            node scripts/ci/pr-collision-detector.mjs --dry-run
+          else
+            node scripts/ci/pr-collision-detector.mjs
+          fi
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json

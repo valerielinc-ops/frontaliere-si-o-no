@@ -1,0 +1,207 @@
+name: PR 🔴 fixer (bounded loop-closure on bot PRs)
+
+# Quando il reviewer Claude posta un `🔴` su una PR autonoma (bot-authored o
+# head `fix/*`), questo workflow auto-applica il fix sullo stesso branch — in
+# modo BOUNDED. Il push ri-triggera pr-review-loop (re-review) → se pulito,
+# auto-merge; se 🔴 di nuovo, questo workflow ri-parte fino al round cap.
+# NON agisce mai su PR scritte da umani.
+#
+# ANTI-LOOP: un marker nascosto `<!-- REDFLAG_FIX_ROUND: N -->` sulla PR conta i
+# round. A N>=2 → label `needs-human` + escalation, STOP senza Claude (frugalità
+# quota: non bruciare turni in un loop che non converge).
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+# Un fixer alla volta per PR: evita due round Claude concorrenti sullo stesso
+# branch (push race).
+concurrency:
+  group: redflag-fix-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  redflag-fix:
+    # Gate evento (tutti necessari):
+    #   - review autore = claude-bot (user.type=='Bot' + startsWith 'claude').
+    #   - review body contiene `🔴 Important` (finding important reale; NON il
+    #     bare 🔴 che può comparire in prosa/legenda anche in una review LGTM
+    #     pulita → falso trigger che brucerebbe un round Claude. Simmetrico col
+    #     gate di blocco in auto-merge-eval.mjs).
+    #   - PR autonoma: autore Bot OPPURE head ref `fix/*`. MAI su PR umane.
+    #   - PR non draft.
+    if: |
+      github.event.review.user.type == 'Bot' &&
+      startsWith(github.event.review.user.login, 'claude') &&
+      contains(github.event.review.body, '🔴 Important') &&
+      github.event.pull_request.draft == false &&
+      (github.event.pull_request.user.type == 'Bot' ||
+       startsWith(github.event.pull_request.head.ref, 'fix/'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il push del fix userà GITHUB_TOKEN (non ri-triggera la re-review automatica)."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # ── Round cap + capability guard (deterministico, prima di Claude) ────
+      # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=2 →
+      # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
+      # Capability guard: se la PR tocca .github/workflows/** e non c'è PAT, il
+      # push verrebbe rifiutato (scope workflows) → skip senza bruciare un turno.
+      - name: Round cap + capability guard + tier
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HAS_PAT: ${{ env.GITHUB_PAT != '' }}
+        run: |
+          set -uo pipefail
+          MAX_ROUNDS=2
+
+          # Round corrente = numero di marker già presenti.
+          comments=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null || echo "")
+          ROUND=$(printf '%s' "$comments" | grep -oE 'REDFLAG_FIX_ROUND: [0-9]+' \
+            | grep -oE '[0-9]+' | sort -rn | head -1 || true)
+          ROUND=${ROUND:-0}
+          NEXT=$((ROUND + 1))
+          echo "Round 🔴-fix correnti: $ROUND (cap $MAX_ROUNDS)"
+
+          if [ "$ROUND" -ge "$MAX_ROUNDS" ]; then
+            echo "::warning::Round cap raggiunto ($ROUND >= $MAX_ROUNDS) → escalation needs-human, no Claude."
+            gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+              || echo "label needs-human assente — creala: gh label create needs-human"
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '🛑 **needs-human** (auto): il 🔴-fixer ha già tentato %s round senza chiudere i findings 🔴. STOP automatico (anti-loop, frugalità quota). Serve revisione umana: leggi le review più recenti e applica il fix a mano.' "$ROUND")" \
+              2>/dev/null || true
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # File cambiati dalla PR (per tier + capability guard).
+          files=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json files --jq '.files[].path' 2>/dev/null || echo "")
+          touches_wf=$(echo "$files" | grep -E '^\.github/workflows/' || true)
+          if [ -n "$touches_wf" ] && [ "$HAS_PAT" != "true" ]; then
+            echo "::warning::PR tocca .github/workflows/** ma manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '⏭️ 🔴-fixer skip: la PR tocca \x60.github/workflows/**\x60 e non è disponibile un PAT con scope \x60workflows\x60 → il push fallirebbe. Applicare il fix dei 🔴 a mano.')" \
+              2>/dev/null || true
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Tier (mirror di pr-review-loop / issue-fix): high (opus) se la PR
+          # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
+          # services/seo*), normal (sonnet) altrimenti.
+          crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
+          if [ -n "$crit" ]; then
+            echo "tier=high"   >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-4-8"   >> "$GITHUB_OUTPUT"
+          else
+            echo "tier=normal" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
+          fi
+
+          # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
+          # run muore, il round è comunque contato → l'anti-loop tiene).
+          gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_FIX_ROUND: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
+            2>/dev/null || true
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+          echo "round=$NEXT"  >> "$GITHUB_OUTPUT"
+
+      - name: Configure git identity
+        if: steps.guard.outputs.proceed == 'true'
+        run: |
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+
+      # Push via PAT (ri-attiva pr-review-loop = re-review). Senza PAT il push
+      # userebbe GITHUB_TOKEN e la re-review non partirebbe (anti-ricorsione);
+      # il fix verrebbe comunque committato. Esposto come remote authenticato.
+      - name: Configure PAT remote
+        if: steps.guard.outputs.proceed == 'true' && env.GITHUB_PAT != ''
+        env:
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+        run: git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${REPO}.git"
+
+      - name: Run Claude 🔴-fix
+        id: claude_review
+        if: steps.guard.outputs.proceed == 'true'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          REPO: ${{ github.repository }}
+          FIX_TIER: ${{ steps.guard.outputs.tier }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+        with:
+          # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          show_full_output: true
+          # Le review/PR autonome sono di claude[bot] / github-actions[bot].
+          allowed_bots: 'github-actions[bot], claude[bot]'
+          claude_args: "--max-turns 30 --model ${{ steps.guard.outputs.model }} --allowedTools 'Bash(gh:*),Bash(git:*),Bash(npm:*),Bash(node:*),Bash(rg:*),Bash(ls:*),Bash(cat:*),Read,Grep,Glob,Edit,Write'"
+          prompt: |
+            Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
+
+            **Bootstrap:**
+            1. Leggi `REVIEW.md` (severity/scopo) + `AGENTS.md` (non-negotiables + Privacy). VINCOLANTI.
+            2. Carica la PR + le review: `gh pr view $PR_NUMBER --json title,body,headRefName,files`, `gh api repos/$REPO/pulls/$PR_NUMBER/reviews --jq '[.[] | select(.user.login|test("claude";"i"))] | last | .body'`. Il branch è già checkoutato sulla head della PR.
+
+            **Obiettivo:** applica un fix CLASS-COMPLETE ai SOLI findings `🔴 Important` della review più recente su QUESTO branch. NON mergiare.
+
+            **Regole:**
+            - Fix CHIRURGICO alla CLASSE del bug (AGENTS.md non-negotiable #6): se il 🔴 segnala un pattern (regex/guard/floor/threshold/selector/idiom), `rg` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`, `services/seoService.ts`) e sweepa l'intera classe nella STESSA commit, oppure giustifica ogni sibling non toccato in `## Non implementato`.
+            - Mai abbassare quality gate/test/validation/SEO gate per "far passare" (#1). Mai disabilitare AdSense Auto Ads (#7). Mai path home assoluti o email personali (Privacy).
+            - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
+            - Esegui i test pertinenti: `npm test` (o il subset rilevante) per validare il fix prima di committare.
+            - Commit con identity canonica già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional, nessuna email non-canonica in coda.
+            - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato col PAT (se disponibile) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.
+            - Aggiorna il body della PR (`gh pr edit $PR_NUMBER --body`) mantenendo `## Implementato` (aggiungi cosa hai fixato) + `## Non implementato (ancora)`.
+
+            **Constraint:**
+            - SOLO i 🔴 della review corrente. Non rifare l'intera PR, non drive-by.
+            - Se i 🔴 non sono fixabili con confidenza (root cause non chiara / serve giudizio umano) → commenta "🔴 non auto-fixabile: <motivo>" e TERMINA senza commit (il round cap + needs-human gestiranno l'escalation).
+            - Una sola passata: applica, valida, committa, pusha, aggiorna body, STOP.
+
+      - name: Claude usage metrics
+        if: always() && steps.guard.outputs.proceed == 'true'
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redflag-fixer"
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json

@@ -1,8 +1,28 @@
 name: Auto-merge on Claude LGTM
 
+# Auto-merge scatta SOLO quando coesistono DUE condizioni, qualunque arrivi prima:
+#   A) review claude-bot sulla HEAD corrente con `## LGTM` e NO `🔴 Important`;
+#   B) check-run `vitest (unit + integration)` sulla HEAD == `success`.
+# In passato il gate vitest bloccava SOLO su conclusion==failure: se vitest era
+# pending/mancante il merge PROCEDEVA → una PR poteva mergiare prima della fine
+# dei test e, se poi andavano rossi, main andava rosso (osservato #1454: LGTM
+# mentre vitest girava → vitest failure → main red cascade). Ora il merge
+# richiede vitest == success.
+#
+# Per coprire entrambi gli ordini di arrivo ci sono DUE trigger:
+#   - pull_request_review (LGTM appena postato): se vitest non è ancora success,
+#     esce 0 quietamente — il completamento di `tests` ri-valuterà.
+#   - workflow_run di `tests` completato: se vitest è verde, risolve la PR dalla
+#     head e ri-valuta (potrebbe esserci già un `## LGTM` in attesa).
+# La decisione è centralizzata in scripts/ci/auto-merge-eval.mjs (single source
+# of truth: stessi gate per entrambi i trigger).
+
 on:
   pull_request_review:
     types: [submitted]
+  workflow_run:
+    workflows: ['tests'] # name: del workflow tests.yml (check-run vitest)
+    types: [completed]
 
 permissions:
   contents: write
@@ -10,29 +30,24 @@ permissions:
 
 jobs:
   auto-merge:
-    # Trigger condizioni:
-    # - review autore = GitHub App "claude[bot]" (user.type=='Bot' + startsWith
-    #   safety net).
-    # - review.state = "commented" (gh pr review --comment).
-    # - body contiene `## LGTM` (signal esplicito da REVIEW.md: "Zero 🔴
-    #   Important: chiudi con `## LGTM`"). Sostituisce il check precedente
-    #   `!contains(body, '🔴')` che generava false negatives quando il bot
-    #   scriveva meta-language tipo "Nessun 🔴 Important" per affermare zero
-    #   blocker — l'emoji nel testo di negazione bloccava il merge.
-    # - body NON contiene `🔴 Important` (guard belt-and-suspenders contro
-    #   reviewer-error: se il bot scrive `## LGTM` per sbaglio E lascia un
-    #   `🔴 Important` nei findings, l'auto-merge non scatta). Token
-    #   `🔴 Important` (non solo emoji 🔴) per evitare di bloccare merge dove
-    #   l'emoji appare in legend/meta-language. REVIEW.md istruisce comunque
-    #   il reviewer a NON scrivere `## LGTM` con 🔴 aperto.
-    # - PR non draft.
+    # Pre-filtro a livello di evento (il resto dei gate è in auto-merge-eval.mjs,
+    # uguale per entrambi i trigger):
+    #   - pull_request_review: review autore = claude-bot (user.type=='Bot' +
+    #     startsWith 'claude'), state 'commented', body con `## LGTM` e senza
+    #     `🔴 Important`, PR non draft.
+    #   - workflow_run: solo se la run di `tests` è conclusa con success (vitest
+    #     verde) — altrimenti inutile valutare.
     if: |
-      github.event.review.user.type == 'Bot' &&
-      startsWith(github.event.review.user.login, 'claude') &&
-      github.event.review.state == 'commented' &&
-      contains(github.event.review.body, '## LGTM') &&
-      !contains(github.event.review.body, '🔴 Important') &&
-      github.event.pull_request.draft == false
+      (github.event_name == 'pull_request_review' &&
+        github.event.review.user.type == 'Bot' &&
+        startsWith(github.event.review.user.login, 'claude') &&
+        github.event.review.state == 'commented' &&
+        contains(github.event.review.body, '## LGTM') &&
+        !contains(github.event.review.body, '🔴 Important') &&
+        github.event.pull_request.draft == false)
+      ||
+      (github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     steps:
       # ── Perché tutto questo setup per un semplice merge ──────────────────
@@ -75,74 +90,63 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # ── vitest gate guard ────────────────────────────────────────────
-      # PERCHÉ: l'auto-merge scatta appena il reviewer Claude posta `## LGTM`,
-      # SENZA aspettare la CI (design "don't wait for CI" — vedi AGENTS.md). Ma
-      # `tests.yml` (job `vitest (unit + integration)`) si auto-dichiara
-      # "BLOCKING CI gate": se i test sono ROSSI e il reviewer dà comunque LGTM
-      # (es. PR #955, che ha mergiato con `tests/faq-coverage.test.ts` rosso →
-      # main rosso fino al fix di follow-up), il merge avveniva lo stesso.
-      # COSA: prima di mergiare, leggiamo i check-runs della HEAD SHA della PR e
-      # cerchiamo il check `vitest (unit + integration)`.
-      #   - conclusion == failure  → ROSSO NOTO: failiamo il job (no merge).
-      #   - conclusion == success  → verde: si procede.
-      #   - pending/queued/mancante/altro (non ancora concluso) → si procede,
-      #     così NON aggiungiamo latenza nel caso comune (preserva il design
-      #     "don't wait for CI"). Blocchiamo SOLO su un fallimento NOTO.
-      # AUTH: query read-only sui check-runs → basta `GH_TOKEN: github.token`
-      # (non serve il GITHUB_PAT, che resta dedicato al merge col cascade).
-      - name: Block merge if vitest gate is RED
+      # ── Risolvi il PR number dall'evento ─────────────────────────────────
+      # pull_request_review: PR = quella dell'evento.
+      # workflow_run: l'evento NON porta il PR; lo risolviamo dalla head del run
+      # di `tests`. Prima via head_sha (più preciso: matcha il commit testato),
+      # poi fallback su head_branch. Se non c'è PR aperta per quella head →
+      # niente da fare (pr_number resta vuoto, lo step di merge fa skip).
+      - name: Resolve PR number
+        id: resolve
         env:
           GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
           REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          REVIEW_PR: ${{ github.event.pull_request.number }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
-          # HEAD SHA della PR (il commit che la CI ha effettivamente testato).
-          HEAD_SHA=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid -q .headRefOid)
-          echo "PR #$PR_NUMBER HEAD SHA: $HEAD_SHA"
-          # conclusion del check-run `vitest (unit + integration)` per quella SHA.
-          # Stringa vuota se il check non è ancora stato registrato/concluso.
-          VITEST_CONCLUSION=$(gh api \
-            "repos/$REPO/commits/$HEAD_SHA/check-runs?per_page=100" \
-            --jq '[.check_runs[] | select(.name == "vitest (unit + integration)")][0].conclusion // ""')
-          echo "vitest gate conclusion: '${VITEST_CONCLUSION:-<none>}'"
-          if [ "$VITEST_CONCLUSION" = "failure" ]; then
-            echo "::error::vitest gate is RED — refusing to auto-merge to protect main; fix tests, re-review"
-            exit 1
-          elif [ "$VITEST_CONCLUSION" = "success" ]; then
-            echo "vitest gate è VERDE — procedo col merge."
-          else
-            echo "::warning::vitest gate non ancora concluso (conclusion='${VITEST_CONCLUSION:-<none>}') — procedo (design: non aspetto la CI, blocco solo su fallimento NOTO)."
+          set -uo pipefail
+          if [ "$EVENT_NAME" = "pull_request_review" ]; then
+            echo "pr_number=$REVIEW_PR" >> "$GITHUB_OUTPUT"
+            echo "Risolto PR #$REVIEW_PR (pull_request_review)."
+            exit 0
           fi
+          # workflow_run: cerca la PR aperta con quella head SHA.
+          PRN=$(gh api "repos/$REPO/commits/$RUN_HEAD_SHA/pulls" \
+            --jq '[.[] | select(.state == "open")][0].number // empty' 2>/dev/null || true)
+          if [ -z "${PRN:-}" ] && [ -n "${RUN_HEAD_BRANCH:-}" ]; then
+            PRN=$(gh pr list --repo "$REPO" --head "$RUN_HEAD_BRANCH" --state open \
+              --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          fi
+          if [ -z "${PRN:-}" ]; then
+            echo "Nessuna PR aperta per head_sha=$RUN_HEAD_SHA / branch=$RUN_HEAD_BRANCH — niente da mergiare."
+          else
+            echo "Risolto PR #$PRN (workflow_run tests completato)."
+          fi
+          echo "pr_number=${PRN:-}" >> "$GITHUB_OUTPUT"
 
-      - name: Squash-merge + delete branch
+      # ── Valutazione unica + merge ────────────────────────────────────────
+      # La decisione (LGTM + vitest==success + collision gate) e il merge vivono
+      # in auto-merge-eval.mjs, identici per entrambi i trigger. Esce 0 quando un
+      # gate non è soddisfatto (l'altro trigger ri-valuterà): non è un errore.
+      - name: Evaluate gates + squash-merge
+        if: steps.resolve.outputs.pr_number != ''
         env:
+          # GH_TOKEN read-only per le query (check-runs/reviews/compare).
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
           # Token primario = env.GITHUB_PAT (da Remote Config): il push del merge
           # triggera deploy.yml + tests + lighthouse, e il pull_request:closed
           # triggera post-merge-followup. Il GITHUB_TOKEN di fallback serve in
           # DUE casi (entrambi → merge avviene ma senza cascade, = pre-fix):
           #   1. RC non carica → env.GITHUB_PAT vuoto → fallback diretto.
           #   2. Merge col PAT fallisce (es. PAT senza scope PR-write) → retry
-          #      sotto con GITHUB_TOKEN, così l'auto-merge non si rompe mai.
-          PRIMARY_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
-          FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #      con GITHUB_TOKEN, così l'auto-merge non si rompe mai.
+          MERGE_PRIMARY_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          MERGE_FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HAS_PAT: ${{ env.GITHUB_PAT != '' }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
-        run: |
-          if [ "$HAS_PAT" = "true" ]; then
-            echo "Auto-merge PR #$PR_NUMBER via GITHUB_PAT (cascade atteso: deploy + followup)."
-          else
-            echo "::warning::GITHUB_PAT assente — merge via GITHUB_TOKEN, nessun cascade (deploy/followup non partiranno)."
-          fi
-          if ! GH_TOKEN="$PRIMARY_TOKEN" gh pr merge "$PR_NUMBER" --squash --delete-branch --repo "$REPO"; then
-            if [ "$HAS_PAT" = "true" ]; then
-              echo "::warning::Merge col GITHUB_PAT fallito (scope insufficiente?) — retry con GITHUB_TOKEN, nessun cascade."
-              GH_TOKEN="$FALLBACK_TOKEN" gh pr merge "$PR_NUMBER" --squash --delete-branch --repo "$REPO"
-            else
-              exit 1
-            fi
-          fi
+        run: node scripts/ci/auto-merge-eval.mjs "${{ steps.resolve.outputs.pr_number }}"
 
       - name: Cleanup Firebase credentials
         if: always()

@@ -204,8 +204,19 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 
 **`auto-merge-on-lgtm.yml`**
 
-- Fires on `pull_request_review` events where the review author is the Claude review bot.
-- If the review body contains the exact marker `## LGTM`, squash-merges the PR via `gh pr merge --squash --delete-branch`. Any other body content is a no-op. See `REVIEW.md` for which review outcomes are allowed to emit `## LGTM`.
+- Fires on **two** triggers: `pull_request_review` (the Claude review bot just posted) **and** `workflow_run` of the `tests` workflow `completed` (vitest just finished). Either ordering is covered.
+- The merge decision is centralized in `scripts/ci/auto-merge-eval.mjs` (single source of truth, identical gates for both triggers). It squash-merges PR `N` **only when ALL hold**: PR open + not draft; the latest claude-bot review on the **current head** contains `## LGTM` and **not** `🔴 Important`; the `vitest (unit + integration)` check-run on the head is `success` (**not** merely `!= failure` — pending/missing does **not** merge); and the P3 collision gate passes. Merge mechanism unchanged (PAT primary for the deploy/follow-up cascade, `GITHUB_TOKEN` fallback). See `REVIEW.md` for which outcomes emit `## LGTM`.
+- **Why two triggers + require-success:** previously the gate only blocked on vitest `conclusion == failure`; a pending/missing vitest **proceeded** → a PR could merge before its tests finished, and if they went red, main went red (`#1454`: merged on LGTM while vitest was still running → vitest failed → main red cascade). On `pull_request_review` with vitest not yet `success`, the job exits 0 quietly; the `tests` completion re-evaluates.
+
+### Pipeline hardening — auto-rebase, collision detector, bounded 🔴 fixer
+
+Three deterministic (zero-Claude) helpers + one bounded Claude fixer close the gaps around near-merge PRs. **Labels used:** `collision-risk` (P1 gate input), `needs-human` (P4 escalation), plus the existing `stale-review`. Create them once if missing: `gh label create collision-risk` / `gh label create needs-human` (idempotent, `|| true`).
+
+| Workflow | Trigger | Role |
+|---|---|---|
+| `.github/workflows/pr-autorebase.yml` | `schedule` `*/30` + dispatch | `scripts/ci/pr-autorebase.mjs`: actually runs `git merge origin/main` + push (PAT) for **near-merge** PRs behind main, so review + vitest re-run. **Frugality gate:** only PRs that already have a `## LGTM` review or carry `collision-risk`/`stale-review` (a rebase push re-triggers the Claude reviewer = quota). `MERGEABLE` only; `CONFLICTING` → abort + ensure `stale-review` + one dedup'd comment (`<!-- AUTOREBASE_CONFLICT -->`). Cap ~10 PR/run. |
+| `.github/workflows/pr-collision-detector.yml` | `pull_request` (open/sync/reopen) + `schedule` `*/30` + dispatch | `scripts/ci/pr-collision-detector.mjs`: labels `collision-risk` on **both** PRs of any open pair sharing ≥1 funnel-critical file (globs: `scripts/lib/**`, `build-plugins/**`, `services/seoService.ts`, `services/seo/**`, `.github/workflows/**`, `scripts/update-*.mjs`), one dedup'd comment per PR (`<!-- COLLISION:<other> -->`). Recomputed every run — removes the label when a PR no longer collides. This feeds P1's collision gate: the second-to-merge must rebase past the first. Root cause of the `#1454`↔`#1459` main-red. |
+| `.github/workflows/pr-redflag-fixer.yml` | `pull_request_review` submitted | When the reviewer posts a `🔴` on an **autonomous** PR (author Bot **or** head `fix/*` — never human PRs), Claude applies a class-complete fix on the same branch, runs tests, commits (canonical identity) + pushes (PAT re-triggers re-review). **Anti-loop:** a hidden `<!-- REDFLAG_FIX_ROUND: N -->` marker counts rounds; at `N>=2` → label `needs-human` + escalation comment, **STOP without Claude**. Capability guard: PR touching `.github/workflows/**` without a PAT → skip (push would be rejected). Tier: opus if funnel-critical (`tests/`, `build-plugins/`, `scripts/lib/`, `services/seo*`) else sonnet. Auth via `CLAUDE_CODE_OAUTH_TOKEN`. |
 
 ### GITHUB_TOKEN Limitation
 
