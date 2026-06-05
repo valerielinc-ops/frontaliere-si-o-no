@@ -68,6 +68,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Come Calcolare il Salario Netto per Frontaliere in Svizzera',
     'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Guida pratica per calcolare il salario netto in Svizzera, considerando imposte, deduzioni e contributi',
     'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Donna con foglio salariale',
+    'blog.article.lonza-concierge-ticino-job.title': 'Lonza cerca personale di portineria',
+    'blog.article.lonza-concierge-ticino-job.excerpt': 'Opportunità di impiego all\'80-100% per addetti alle installazioni e alla portineria presso Lonza in Ticino.',
+    'blog.article.lonza-concierge-ticino-job.imageAlt': 'Edificio Lonza in Svizzera, simbolo di occupazione e innovazione.',
 };
 
 export default blogMetaChIt;
