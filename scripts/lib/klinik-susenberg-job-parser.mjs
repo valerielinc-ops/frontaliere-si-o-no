@@ -172,7 +172,7 @@ export async function fetchAllKlinikSusenbergJobs() {
     const pdf = await extractPdfJobContentFromUrl(r.url, { timeoutMs });
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
-    const pdfText = pdf.rawText || pdf.text || '';
+    const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
     const description = buildDescription(r, pdfText);
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${KLINIK_SUSENBERG_KEY} ${DEFAULT_CITY}`);

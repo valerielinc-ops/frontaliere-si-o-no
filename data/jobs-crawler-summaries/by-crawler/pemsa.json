@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-04T22:53:44.091Z",
+  "generatedAt": "2026-06-05T12:29:20.436Z",
   "total": 55,
   "newCount": 1,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 50,
-  "durationMs": 114794,
-  "avgDurationMs": 114794,
+  "durationMs": 132168,
+  "avgDurationMs": 132168,
   "durationHistory": [
-    114794
+    132168
   ],
   "newJobs": [
     {
@@ -148,7 +148,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-27T13:31:55.469Z",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -195,45 +194,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Gruista",
-      "slug": "gruista-pemsa-mendrisio",
-      "url": "https://www.pemsa.ch/it/job/gruista-2675701/",
-      "applyUrl": "https://www.pemsa.ch/it/job/gruista-2675701/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-20",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-04",
-      "id": "pemsa-78ea9100859b",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-21T12:58:58.143Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Autista C",
