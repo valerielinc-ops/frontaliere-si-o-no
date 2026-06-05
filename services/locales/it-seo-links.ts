@@ -84,6 +84,7 @@ const translations: Record<string, string> = {
   'seoHubs.footer.allCompanies': 'Tutte le aziende →',
   'seoHubs.footer.articles': 'Ultimi articoli',
   'seoHubs.footer.allArticles': 'Tutti gli articoli →',
+  'seoHubs.footer.allSwissArticles': 'Tutti gli articoli Svizzera →',
 
   // Phase 2-UI — SEO hub-page (used by SeoHubPages.tsx and the static emitter)
   'seo.hub.jobs.title': 'Tutti gli annunci di lavoro',

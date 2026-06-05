@@ -75,6 +75,7 @@ const enSeoLinks: Record<string, string> = {
   'seoHubs.footer.allCompanies': 'All companies →',
   'seoHubs.footer.articles': 'Latest articles',
   'seoHubs.footer.allArticles': 'All articles →',
+  'seoHubs.footer.allSwissArticles': 'All Switzerland articles →',
 
   // Phase 2-UI — SEO hub-page
   'seo.hub.jobs.title': 'All job listings',
