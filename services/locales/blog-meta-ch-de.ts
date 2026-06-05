@@ -68,6 +68,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Saldo Netto für Grenzgänger in der Schweiz berechnen',
     'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Praktische Anleitung zur Berechnung des Netto-Saldos in der Schweiz, einschließlich Steuern, Abzüge und Beiträge',
     'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Frau mit Gehaltsabrechnung',
+    'blog.article.lonza-concierge-ticino-job.title': 'Lonza sucht Mitarbeiter für den Portierdienst im Tessin',
+    'blog.article.lonza-concierge-ticino-job.excerpt': 'Stellenangebote (80-100%) für Mitarbeiter im Bereich Anlagen und Portierdienst bei Lonza im Tessin.',
+    'blog.article.lonza-concierge-ticino-job.imageAlt': 'Lonza-Gebäude in der Schweiz, ein Symbol für Beschäftigung und Innovation.',
 };
 
 export default blogMetaChDe;

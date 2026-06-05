@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import {
   isTransientFetchError,
+  isConnectionLevelFetchError,
   fetchWithRetry,
   RETRYABLE_STATUS,
 } from '../scripts/lib/transient-fetch.mjs';
@@ -43,6 +44,41 @@ describe('isTransientFetchError', () => {
 
   it('honours an explicit retryable=true tag', () => {
     expect(isTransientFetchError(Object.assign(new Error('whatever'), { retryable: true }))).toBe(true);
+  });
+});
+
+describe('isConnectionLevelFetchError (Jina egress fallback gate)', () => {
+  it('classifies a node "fetch failed" network error as connection-level', () => {
+    const err = Object.assign(new TypeError('fetch failed'), { cause: { code: 'ECONNRESET' } });
+    expect(isConnectionLevelFetchError(err)).toBe(true);
+  });
+
+  it('classifies an AbortError (our own timeout) as connection-level', () => {
+    const err = Object.assign(new Error('aborted'), { name: 'AbortError' });
+    expect(isConnectionLevelFetchError(err)).toBe(true);
+  });
+
+  it.each([500, 502, 503, 504, 429, 408, 425])(
+    'does NOT classify a retryable HTTP %i (server responded) as connection-level',
+    (status) => {
+      // Even though these are transient/retryable, the server WAS reached → the
+      // egress works → the Jina fallback must NOT fire on them.
+      const err = Object.assign(new Error(`HTTP ${status} from https://x.test`), {
+        status,
+        retryable: true,
+      });
+      expect(isTransientFetchError(err)).toBe(true);
+      expect(isConnectionLevelFetchError(err)).toBe(false);
+    },
+  );
+
+  it.each([400, 403, 404])('does NOT classify a persistent HTTP %i as connection-level', (status) => {
+    expect(isConnectionLevelFetchError({ status })).toBe(false);
+  });
+
+  it('returns false for nullish input', () => {
+    expect(isConnectionLevelFetchError(null)).toBe(false);
+    expect(isConnectionLevelFetchError(undefined)).toBe(false);
   });
 });
 
