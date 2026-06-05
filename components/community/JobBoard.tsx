@@ -4797,6 +4797,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  );
  }
+ // Cold-load hydration race: the multi-MB jobs index may still be downloading
+ // on first paint, so `selectedJob` is transiently undefined for a job that is
+ // actually live. For a non-seeded job-detail URL render the layout-matching
+ // SkeletonJobDetail (same reserve convention as the !authResolved branch
+ // below) instead of the generic centered spinner, so first paint matches the
+ // eventual detail layout (CLS) and we never expose a generic loading state
+ // before the index resolves. Seeded expired/orphan pages are exempt: the
+ // fast-path above renders their window-data synchronously, so gating them
+ // here would needlessly delay their first paint.
+ if (initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded) {
+ return <SkeletonJobDetail />;
+ }
  return (
  // Reserve ~viewport height during the async job fetch. Search/filter URLs
  // (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this JobBoard

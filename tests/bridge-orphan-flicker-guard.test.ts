@@ -60,6 +60,47 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
     });
   });
 
+  describe('Cold-load active-job race guard (2026-06-05 regression)', () => {
+    // A LIVE job page (e.g. /cerca-lavoro-grigioni/<slug>/) showed a generic
+    // centered spinner (and, post-load, could flash JobOrphanView in the
+    // cross-canton bridge window) on the FIRST cold load. Root cause: the
+    // multi-MB jobs index is still downloading on first paint, so `selectedJob`
+    // is transiently undefined. The `if (jobsLoading)` block returns
+    // unconditionally, so the guard MUST live inside it (a guard placed in the
+    // post-`jobsLoading` orphan cascade is dead code — that cascade is only
+    // reached once `jobsLoading === false`). Fix: for a non-seeded job-detail
+    // URL, return the layout-matching SkeletonJobDetail inside the
+    // `if (jobsLoading)` block, before the generic spinner.
+    it('returns SkeletonJobDetail for a non-seeded job-detail URL while jobsLoading is true', () => {
+      expect(jobBoardSrc).toMatch(
+        /if \(initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded\) \{[\s\S]{0,80}return <SkeletonJobDetail \/>;[\s\S]{0,20}\}/,
+      );
+    });
+
+    it('places the cold-load skeleton INSIDE the jobsLoading block, before the generic spinner', () => {
+      // Reachability is the whole point: `if (jobsLoading)` returns in every
+      // branch, so the guard must precede the generic spinner AND sit after the
+      // `if (jobsLoading) {` opener — otherwise it is dead code.
+      const jobsLoadingIdx = jobBoardSrc.indexOf('if (jobsLoading) {');
+      const coldGuardIdx = jobBoardSrc.indexOf('!searchSlugFilter && !seeded');
+      const spinnerIdx = jobBoardSrc.indexOf("min-h-[80vh]");
+      const orphanIdx = jobBoardSrc.indexOf('<JobOrphanView');
+      expect(jobsLoadingIdx).toBeGreaterThan(0);
+      expect(coldGuardIdx).toBeGreaterThan(0);
+      expect(spinnerIdx).toBeGreaterThan(0);
+      expect(orphanIdx).toBeGreaterThan(0);
+      expect(coldGuardIdx).toBeGreaterThan(jobsLoadingIdx);
+      expect(coldGuardIdx).toBeLessThan(spinnerIdx);
+      expect(coldGuardIdx).toBeLessThan(orphanIdx);
+    });
+
+    it('exempts seeded pages so expired/orphan window-data still paints synchronously', () => {
+      // The `!seeded` clause is load-bearing: without it, seeded expired pages
+      // would be delayed behind the jobs-index fetch they do not need.
+      expect(jobBoardSrc).toContain('!searchSlugFilter && !seeded');
+    });
+  });
+
   describe('router eager slug-map preload', () => {
     it('defines an isJobDetailUrl predicate that matches cerca-lavoro / find-jobs / jobs-in / trouver-emploi prefixes', () => {
       expect(routerSrc).toContain('const isJobDetailUrl');
