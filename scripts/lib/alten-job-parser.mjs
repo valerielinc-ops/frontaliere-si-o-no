@@ -83,9 +83,11 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
   //      java-software-ingegnere-alten-switzerland-… page.
   //   2. The label can be `Location:Ticino` (no space) → strip the optional
   //      colon explicitly so we don't keep a leading `:` in the value.
-  //   3. Cut at the first sentence boundary (`.`, `;`, newline) so a
-  //      compact city string survives even when the surrounding markup
-  //      runs prose into the same node.
+  //   3. Cut at the first sentence boundary (`;`, newline, sentence-ending
+  //      `.`) so a compact city string survives even when the surrounding
+  //      markup runs prose into the same node — but preserve "St."/"Ste."
+  //      abbreviation periods in Swiss city names (St. Moritz, St. Gallen,
+  //      Ste. Croix), which a blanket "." split truncated to "St"/"Ste".
   const rawLocationNode = compact(
     Array.from(document.querySelectorAll('.block--inner, .wp-block-jobboard-offer-sidebar, .card-location, [class*="location"]'))
       .map((el) => compact(el.textContent || ''))
@@ -93,7 +95,9 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
   );
   const location = rawLocationNode
     .replace(/^.*?Location\s*[:.]?\s*/i, '')
-    .split(/[\n.;]/)[0]
+    // Mirror of sanitizeJobLocationField in scripts/assemble-jobs-dataset.mjs:
+    // negative lookbehind keeps the period after a "St"/"Ste" token.
+    .split(/[\n;]|(?<!\bSte?)\./)[0]
     .trim();
   const postedDate =
     compact(
