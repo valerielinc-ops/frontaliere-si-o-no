@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { SLIM_INDEX_FIELDS, buildLocaleJob, buildSlimSeed } from '../build-plugins/shared/slimJobIndex';
+import { inlineScriptJson } from '../build-plugins/shared/inlineJsonScript';
 
 const root = path.resolve(__dirname, '..');
 
@@ -95,6 +96,25 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
     });
   });
 
+  describe('inline <script> JSON escaping (class fix)', () => {
+    it('inlineScriptJson neutralises "<" so a "</script>" in the payload cannot break out', () => {
+      const payload = { title: 'Dev </script><img src=x>', desc: 'a < b' };
+      const out = inlineScriptJson(payload);
+      expect(out).not.toContain('</script>');
+      expect(out).not.toMatch(/<(?!\\u003c)/); // no raw '<' survives
+      expect(JSON.parse(out.replace(/\\u003c/g, '<'))).toEqual(payload); // still valid JSON
+    });
+
+    it('every window.__*__ inline emit goes through inlineScriptJson, never a raw JSON.stringify', () => {
+      const src = fs.readFileSync(path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
+      // No `window.__X__=${JSON.stringify(...)}` without the escape helper.
+      expect(src).not.toMatch(/window\.__[A-Z_]+__=\$\{JSON\.stringify/);
+      // The arbitrary-content blobs specifically must use the helper.
+      expect(src).toMatch(/window\.__JOB_SEED__=\$\{inlineScriptJson\(/);
+      expect(src).toMatch(/const expiredWindowData = inlineScriptJson\(expiredDataObj\)/);
+    });
+  });
+
   describe('jobsSeoPagesPlugin emit', () => {
     const src = fs.readFileSync(path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
 
@@ -104,10 +124,6 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
 
     it('forces the seed slug to the canonical per-locale slug (bridge-safe)', () => {
       expect(src).toMatch(/__jobSeed\.slug = perLocaleSlug\[locale\]/);
-    });
-
-    it('escapes "<" so a title/company cannot break out of the inline script', () => {
-      expect(src).toMatch(/JSON\.stringify\(__jobSeed\)\.replace\(\/<\/g, '\\\\u003c'\)/);
     });
 
     it('places the seed before the SPA action-redirect script', () => {

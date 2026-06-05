@@ -15,6 +15,7 @@ import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsM
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildSlimSeed } from './shared/slimJobIndex';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
@@ -2939,7 +2940,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // title/company containing it cannot break out of the inline <script>.
  const __jobSeed = buildSlimSeed(job, locale);
  __jobSeed.slug = perLocaleSlug[locale];
- const seedScript = `<script>window.__JOB_SEED__=${JSON.stringify(__jobSeed).replace(/</g, '\\u003c')};</script>`;
+ const seedScript = `<script>window.__JOB_SEED__=${inlineScriptJson(__jobSeed)};</script>`;
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -3304,7 +3305,7 @@ ${staticAnalyticsHtml}
  const __tLegacyBridge = startTimer();
  const legacyRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  if (!activeJobDirs.has(legacyRel.replace(/\/+$/, ''))) {
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(perLocaleSlug[locale])};</script>`;
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
  const legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
  const legacyDir = np.join(distDir, legacyRel);
  _md(legacyDir);
@@ -3334,7 +3335,7 @@ ${staticAnalyticsHtml}
  const __tCrossCantonLegacy = startTimer();
  const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  if (!activeJobDirs.has(legacyTIRel.replace(/\/+$/, ''))) {
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(perLocaleSlug[locale])};</script>`;
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
  const legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
  const legacyTIDir = np.join(distDir, legacyTIRel);
  _md(legacyTIDir);
@@ -10518,7 +10519,10 @@ ${staticAnalyticsHtml}
    expiredDataObj.gscImpressions = gscInfo.totalImpressions;
    expiredDataObj.gscClicks = gscInfo.totalClicks;
  }
- const expiredWindowData = JSON.stringify(expiredDataObj);
+ // Escape `<` — expiredDataObj carries arbitrary prose (descriptionByLocale)
+ // and GSC queries; an unescaped "</script>" would break the inline emit at
+ // L10184 on INDEXED soft-landing pages. Same guard as __JOB_SEED__.
+ const expiredWindowData = inlineScriptJson(expiredDataObj);
 
  recordPhase('ejp:title', __tEjpTitle);
  const __tEjpBody = phaseTimer();
@@ -10961,7 +10965,7 @@ ${staticAnalyticsHtml}
  if (fs2 && fs2 !== baseSlug) foreignSlugs.add(fs2);
  }
  if (foreignSlugs.size === 0) continue;
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(baseSlug)};</script>`;
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>`;
  const bridgeHtml = baseHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
  for (const foreignSlug of foreignSlugs) {
  // Sector/city hubs win over cross-locale reconciliation — same
@@ -11166,7 +11170,7 @@ ${staticAnalyticsHtml}
  return { indexHtml: bridgeThinIndexHtml, flatHtml: bridgeThinFlatHtml };
  }
  if (bridgeIndexHtml === null || bridgeFlatHtml === null) {
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};</script>`;
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(currentSlug)};</script>`;
  bridgeIndexHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
  bridgeFlatHtml = bridgeIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  }
@@ -11384,7 +11388,7 @@ ${staticAnalyticsHtml}
  }
  if (foreignSlugs.size === 0) continue;
  // Compute once per (job, baseLocale) — same HTML is written at every foreign slug path.
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(baseSlug)};</script>`;
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(baseSlug)};</script>`;
  const bridgeHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
  for (const foreignSlug of foreignSlugs) {
  // Skip cross-locale reconciliation when the foreign slug is a
