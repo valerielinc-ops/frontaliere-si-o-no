@@ -14,6 +14,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildSlimSeed } from './shared/slimJobIndex';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
@@ -2928,6 +2929,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
  const __tPh_template = phaseTimer();
+ // Seed the slim job record into the page so the SPA resolves `selectedJob`
+ // from the first paint without downloading the ~1.2 MB (gzip) slim index —
+ // it then fetches only /data/job-detail/<id>.json (~2-4 KB gzip) for the body.
+ // `slug` is forced to the canonical per-locale slug: on a bridge page the SPA
+ // looks the job up by __BRIDGE_TARGET_SLUG__ (= perLocaleSlug[locale]), so the
+ // seed must match that, not the legacy URL slug. Shape is identical to a
+ // jobs-<locale>-index.json entry (shared buildSlimSeed). `<` is escaped so a
+ // title/company containing it cannot break out of the inline <script>.
+ const __jobSeed = buildSlimSeed(job, locale);
+ __jobSeed.slug = perLocaleSlug[locale];
+ const seedScript = `<script>window.__JOB_SEED__=${JSON.stringify(__jobSeed).replace(/</g, '\\u003c')};</script>`;
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -2953,6 +2965,7 @@ ${hreflangHtml}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
  <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true"><noscript><link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true"></noscript>` : ''}
+ ${seedScript}
  ${SPA_ACTION_REDIRECT_SCRIPT}
 ${staticAnalyticsHtml}
  </head>
