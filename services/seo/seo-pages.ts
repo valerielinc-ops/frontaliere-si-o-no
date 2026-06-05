@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2733,
+ "numberOfItems": 2734,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7373,7 +7373,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2730, "name": "Lonza cerca Concierge in Ticino", "url": `${BASE_URL}/articoli-frontaliere/concierge-ticino-lonza-ch` },
           { "@type": "ListItem", "position": 2731, "name": "Permessi G vs B frontalieri 2026: cosa cambia o...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-2026-oltre-20-km` },
           { "@type": "ListItem", "position": 2732, "name": "Grenzübergang Chiasso: cosa c'è da sapere", "url": `${BASE_URL}/articoli-frontaliere/chiasso-grenzubergang` },
-          { "@type": "ListItem", "position": 2733, "name": "Come Calcolare il Salario Netto per Frontaliere...", "url": `${BASE_URL}/articoli-frontaliere/calcul-salaire-net-suiss-frontalier` }
+          { "@type": "ListItem", "position": 2733, "name": "Come Calcolare il Salario Netto per Frontaliere...", "url": `${BASE_URL}/articoli-frontaliere/calcul-salaire-net-suiss-frontalier` },
+          { "@type": "ListItem", "position": 2734, "name": "Educatore infanzia in Ticino: stipendio e requi...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendio` }
  ]
  },
  {

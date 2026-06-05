@@ -42584,6 +42584,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-educatore-infanzia-ticino-stipendio': {
+    title: 'Educatore infanzia in Ticino: stipendio e requisiti',
+    description: 'Guida completa per educatori in Ticino: diploma SSS, stipendio 73-97k CHF, Permesso G e confronto salariale con Italia e Germania. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, educatore, infanzia, stipendio, requisiti',
+    ogTitle: 'Educatore infanzia in Ticino: stipendio e requisiti',
+    ogDescription: 'Scopri quanto guadagna un educatore in Ticino, i requisiti SSS e come ottenere il Permesso G per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Educatore infanzia in Ticino: stipendio e requisiti",
+      "description": "Guida completa per educatori in Ticino: diploma SSS, stipendio 73-97k CHF, Permesso G e confronto salariale con Italia e Germania. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/educatore-infanzia-ticino-stipendio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Educatore dell'infanzia al lavoro in un asilo moderno in Ticino con panorama alpino."
+      },
+      "datePublished": "2026-06-05T07:00:40+00:00",
+      "dateModified": "2026-06-05T07:00:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
