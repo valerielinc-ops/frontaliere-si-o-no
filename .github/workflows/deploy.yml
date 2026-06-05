@@ -972,6 +972,8 @@ jobs:
             -cf "$RUNNER_TEMP/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
+            --exclude=.write-collisions.json \
+            --exclude=.write-collisions-data \
             .
           # Surface size early so a regression past the 1 GB Pages
           # threshold is visible in the workflow log right after pack
