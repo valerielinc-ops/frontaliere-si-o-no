@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-04T23:14:52.274Z",
-  "total": 21,
+  "generatedAt": "2026-06-05T12:50:10.084Z",
+  "total": 20,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 19,
-  "durationMs": 25686,
-  "avgDurationMs": 25686,
+  "unchangedCount": 18,
+  "durationMs": 19655,
+  "avgDurationMs": 19655,
   "durationHistory": [
-    25686
+    19655
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -667,43 +667,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-213ibh",
-      "slug": "1-apprendista-impiegato-a-in-logistica-afc-indirizzo-professionale-magazzino-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-s-213ibh",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Requisiti:",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-14",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4179",
-      "source": "Company Careers Crawler",
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-05-14T22:57:10.168Z",
-      "firstSeenAt": "2026-05-14T22:57:10.168Z",
-      "sourceLang": "it",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
