@@ -31,6 +31,7 @@ import {
   buildCityCantonIndex,
   buildOrphanLocalePaths,
 } from './lib/orphan-canton-paths.mjs';
+import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1262,6 +1263,14 @@ async function main() {
         paths: [...existingCompatPaths].filter(p => typeof p === 'string' && p.startsWith('/')).sort(),
         lastUpdated: new Date().toISOString().split('T')[0]
       };
+      // Floor-guard (#1353): seo-404-compat-paths.json è un ACCUMULATORE indicizzato
+      // (404→301 engine). readJsonSafe ritorna `null` su file corrotto/parse-fail →
+      // compatData=null → existingCompatPaths parte vuoto → con feedbackAdded>0 questo
+      // write TRONCA i centinaia di migliaia di path buoni a poche migliaia. prevCount
+      // da una lettura on-disk fresca; il guard condiviso aborta se il write scende
+      // sotto floor mentre l'esistente è già grande (stessa semantica di discover-404s).
+      const prevCount = readJsonSafe(compatPathsFile)?.paths?.length ?? 0;
+      assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatPathsFile });
       fs.writeFileSync(compatPathsFile, JSON.stringify(updatedCompat, null, 2) + '\n');
       console.log(`  ✅ Fed back ${feedbackAdded} orphan paths to seo-404-compat-paths.json`);
     } else {

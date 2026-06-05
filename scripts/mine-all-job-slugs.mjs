@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -499,6 +500,13 @@ function main() {
       paths: [...existingCompat].filter((p) => typeof p === 'string' && p.startsWith('/')).sort(),
       lastUpdated: new Date().toISOString().split('T')[0],
     };
+    // Floor-guard (#1353): additive writer (same class as discover-404s/sync-gsc-orphans).
+    // readJson() returns null on a corrupt file → `compat={paths:[]}` → existingCompat
+    // seeded only from tracking → this write TRUNCATES the accumulator. Re-read on-disk
+    // for an authoritative prevCount and abort via the shared guard if it would shrink
+    // below the floor while a large version exists.
+    const prevCount = readJson(compatFile)?.paths?.length ?? 0;
+    assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatFile });
     fs.writeFileSync(compatFile, JSON.stringify(updatedCompat, null, 2) + '\n');
     console.log('\n  ✅ Files written');
   } else {
