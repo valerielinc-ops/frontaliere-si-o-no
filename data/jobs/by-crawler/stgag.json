@@ -80,9 +80,9 @@
       "slug": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+        "en": "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen",
         "de": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+        "fr": "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -125,9 +125,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
-        "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen"
+        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -135,11 +133,9 @@
           "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
-          "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen",
           "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
         ],
         "fr": [
-          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
           "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
         ]
       },
@@ -162,9 +158,9 @@
       "slug": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen-9a9ff8",
       "slugByLocale": {
         "it": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen-9a9ff8",
-        "en": "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
+        "en": "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen-9a9ff8",
         "de": "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
-        "fr": "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen"
+        "fr": "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -207,9 +203,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
-        "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-munsterlingen",
-        "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen-9a9ff8",
-        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8"
+        "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -217,11 +211,9 @@
           "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
-          "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen-9a9ff8",
           "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen"
         ],
         "fr": [
-          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8",
           "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen"
         ]
       },
@@ -694,12 +686,12 @@
     },
     {
       "id": "stgag-d0588a1dc3f8",
-      "slug": "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen",
+      "slug": "dipl-expert-in-assistenza-di-emergenza-nds-hf-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen",
-        "it": "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen",
+        "it": "dipl-expert-in-assistenza-di-emergenza-nds-hf-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen",
-        "fr": "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen"
+        "fr": "dipl-expert-en-soins-d-urgence-nds-hf-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -754,7 +746,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:44:36.497Z"
+      "firstSeenAt": "2026-06-05T12:44:36.497Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen"
+      ]
     }
   ]
 }

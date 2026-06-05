@@ -584,10 +584,10 @@
     },
     {
       "id": "pictet-fbff331a17bc",
-      "slug": "front-desk-cotation-specialist-pictet-geneva",
+      "slug": "specialista-alla-reception-e-cotation-pictet-group-geneva",
       "slugByLocale": {
         "fr": "front-desk-cotation-specialist-pictet-geneva",
-        "it": "front-desk-cotation-specialist-pictet-geneva",
+        "it": "specialista-alla-reception-e-cotation-pictet-group-geneva",
         "en": "front-desk-cotation-specialist-pictet-geneva",
         "de": "front-desk-cotation-specialist-pictet-geneva"
       },
@@ -645,7 +645,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-05T12:23:52.558Z"
+      "firstSeenAt": "2026-06-05T12:23:52.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-desk-cotation-specialist-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "front-desk-cotation-specialist-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-ed076ae71a6e",

@@ -1547,8 +1547,8 @@
       "slugByLocale": {
         "de": "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik",
         "it": "eeg-assistentin-assistent-o-fachfrau-fachmann-neurophysiologische-diagnostik-klinik-lengg-zurich",
-        "en": "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik",
-        "fr": "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
+        "en": "eeg-assistant-assistant-specialist-professional-neurophysiological-diagnostics-klinik-lengg-zurich",
+        "fr": "assistant-eeg-assistant-specialiste-diagnostic-neurophysiologique-professionnel-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1594,6 +1594,12 @@
       "previousSlugsByLocale": {
         "it": [
           "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
+        ],
+        "en": [
+          "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
+        ],
+        "fr": [
+          "eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik-klinik"
         ]
       },
       "previousSlugs": [
@@ -1619,7 +1625,7 @@
       "slugByLocale": {
         "de": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
         "it": "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
-        "en": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
+        "en": "beginner-in-neurophysiology-in-tagdienst-klinik-lengg-zurich",
         "fr": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
@@ -1678,6 +1684,9 @@
       "firstSeenAt": "2026-06-05T12:05:44.589Z",
       "previousSlugsByLocale": {
         "it": [
+          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+        ],
+        "en": [
           "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
         ]
       },
