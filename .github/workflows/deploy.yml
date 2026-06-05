@@ -1240,6 +1240,41 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
+      # Reset a stuck Pages `errored` state BEFORE publishing. After bursts of
+      # failed/cancelled deployments GitHub Pages can latch into status=errored
+      # and then refuse to ACTIVATE even successful deployments → the site
+      # freezes on an old build (prod outage 2026-06-05). Clearing the state
+      # first lets THIS deploy's deployment activate. Conditional: no-op unless
+      # currently errored, so healthy deploys are untouched. Tries the safe
+      # build request first, then a build_type toggle (transient, via the
+      # existing gh-pages branch) only if still errored.
+      - name: Reset Pages errored state (only if stuck)
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          R="${GITHUB_REPOSITORY}"
+          st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+          echo "pages status before publish: $st"
+          if [ "$st" != "errored" ]; then echo "not errored — no reset needed"; exit 0; fi
+          echo "::warning::Pages stuck 'errored' — resetting so this deploy can activate"
+          gh api -X POST "repos/$R/pages/builds" >/dev/null 2>&1 || true
+          sleep 15
+          st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+          echo "after safe reset: $st"
+          if [ "$st" = "errored" ]; then
+            echo "toggling build_type legacy(gh-pages) -> workflow"
+            printf '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || true
+            sleep 8
+            printf '{"build_type":"workflow"}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || true
+            sleep 10
+            st=$(gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?")
+            echo "after toggle: $st"
+          fi
+          [ "$st" = "errored" ] && echo "::warning::still errored after reset — deploy may not activate; manual unstick-pages may be needed" || echo "✅ pages state cleared"
+
       # GitHub Pages allows only one deployment at a time. When concurrent
       # pushes trigger this workflow, the second run can hit "in progress
       # deployment" errors. Retry once after a short wait to handle this.
