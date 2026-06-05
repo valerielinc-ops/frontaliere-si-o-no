@@ -90,6 +90,16 @@ export function writeRegistryReportPlugin(opts: LifecycleOptions): Plugin {
  sequential: true,
  handler: async () => {
  const distDir = path.resolve(opts.rootDir, 'dist');
+
+ // Deploy file-delta observability: when DEPLOY_CONTENT_MANIFEST=1, dump a
+ // `path<TAB>sha1` manifest of every claim()'d page so the post-build step
+ // can diff this deploy against the previous one (scripts/deploy-file-delta).
+ // The sha1 is the hash claim() already computed for collision detection, so
+ // this adds ZERO hashing — only a serialization walk of getPathHistory().
+ // Runs BEFORE the zero-collisions early return below so clean builds still
+ // emit the manifest. Best-effort: failures never break the build.
+ emitDeployContentManifest(opts.rootDir, distDir);
+
  const records = getCollisions();
  const mode = (process.env.WRITE_COLLISION_MODE || 'report').toLowerCase();
 
@@ -158,6 +168,46 @@ function collectCollidingPaths(): Array<{
  // — useful when eyeballing the JSON.
  out.sort((a, b) => b.versions.length - a.versions.length);
  return out;
+}
+
+/**
+ * Emit `<rootDir>/content-manifest.tsv` — one `relPath\tsha1` line per page
+ * the registry saw, using each path's latest claimed content hash. Consumed by
+ * `scripts/deploy-file-delta.mjs` to count in-place HTML changes vs the
+ * previous deploy. Gated on `DEPLOY_CONTENT_MANIFEST` so local/dev builds skip
+ * the ~1.2M-line write. Paths are POSIX-normalised and dist-relative for
+ * cross-run stability. Streamed + chunked to bound memory on the large map.
+ * Best-effort: any failure is logged and swallowed (observability, not a gate).
+ */
+function emitDeployContentManifest(rootDir: string, distDir: string): void {
+ const flag = (process.env.DEPLOY_CONTENT_MANIFEST || '').toLowerCase();
+ if (flag !== '1' && flag !== 'true' && flag !== 'yes') return;
+
+ const outPath = path.resolve(rootDir, 'content-manifest.tsv');
+ try {
+ const stream = fs.createWriteStream(outPath, { encoding: 'utf-8' });
+ let buf = '';
+ let count = 0;
+ for (const [absPath, versions] of getPathHistory()) {
+ if (versions.length === 0) continue;
+ const rel = path.relative(distDir, absPath).split(path.sep).join('/');
+ // Skip anything that escaped dist (defensive — shouldn't happen).
+ if (rel.startsWith('..')) continue;
+ buf += `${rel}\t${versions[versions.length - 1].contentHash}\n`;
+ count += 1;
+ if (count % 50000 === 0) {
+ stream.write(buf);
+ buf = '';
+ }
+ }
+ if (buf) stream.write(buf);
+ stream.end();
+ // eslint-disable-next-line no-console
+ console.log(`\x1b[36m[write-registry]\x1b[0m deploy content manifest → ${outPath} (${count} paths)`);
+ } catch (err) {
+ // eslint-disable-next-line no-console
+ console.error(`[write-registry] content manifest emit failed (non-fatal): ${(err as Error)?.message ?? err}`);
+ }
 }
 
 interface CollisionSummary {

@@ -114,3 +114,7 @@ data/adzuna-cache/
 
 # APM dependencies
 apm_modules/
+
+# Deploy file-delta manifests (emitted during build, persisted via actions/cache — never committed)
+content-manifest.tsv
+prev-content-manifest.tsv

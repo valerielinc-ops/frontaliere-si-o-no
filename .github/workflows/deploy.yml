@@ -419,6 +419,31 @@ jobs:
       # `data/jobs.json` assembly cache (next step above) stays — it's net
       # positive (~60s saved, ~28 MB tarball).
 
+      # Restore the PREVIOUS deploy's content manifest so the post-build
+      # "File delta vs previous deploy" step can diff in-place HTML changes.
+      # Keyed on run_id (always a miss → always saves the fresh manifest at
+      # post-job) with a constant restore-keys prefix that fetches the most
+      # recent prior manifest. The Build step overwrites content-manifest.tsv
+      # with THIS deploy's pages, so we copy the restored one aside first.
+      - name: Restore previous deploy content manifest
+        if: github.event.inputs.profile_sequential != 'true'
+        uses: actions/cache@v5
+        with:
+          path: content-manifest.tsv
+          key: deploy-content-manifest-${{ github.run_id }}
+          restore-keys: |
+            deploy-content-manifest-
+
+      - name: Stash previous content manifest before build overwrites it
+        if: github.event.inputs.profile_sequential != 'true'
+        run: |
+          if [ -f content-manifest.tsv ]; then
+            mv content-manifest.tsv prev-content-manifest.tsv
+            echo "[file-delta] previous manifest stashed ($(wc -l < prev-content-manifest.tsv) lines)"
+          else
+            echo "[file-delta] no previous manifest (first run after enabling / cache miss)"
+          fi
+
       - name: Build
         env:
           # UV_THREADPOOL_SIZE=64 was tested in commit 119475af96 (run
@@ -544,6 +569,12 @@ jobs:
           # when triaging a specific collision and you need the rendered
           # HTML. Saves ~100-200s/build on push events.
           WRITE_COLLISION_DUMP: ${{ github.event.inputs.write_collision_dump == 'true' && '1' || '' }}
+          # Emit `content-manifest.tsv` (path<TAB>sha1, one line per claim()'d
+          # page) so the post-build "File delta vs previous deploy" step can
+          # count in-place HTML changes. Reuses the sha1 claim() already
+          # computes — ZERO extra hashing, just a serialization walk. See
+          # build-plugins/writeRegistryLifecyclePlugin.ts + scripts/deploy-file-delta.mjs.
+          DEPLOY_CONTENT_MANIFEST: '1'
         shell: bash
         run: |
           set -o pipefail
@@ -1021,6 +1052,20 @@ jobs:
             --tar-size-bytes="${TAR_BYTES}" \
             --run-id="${GITHUB_RUN_ID}" \
             --sha="${GITHUB_SHA}"
+
+      # File delta vs previous deploy → GitHub Step Summary. Runs AFTER the
+      # audit step so signal 1 sees the row it just appended to
+      # data/dist-size-history.jsonl, and after Build so signal 2 has this
+      # deploy's content-manifest.tsv. Observability only — the script always
+      # exits 0 and never blocks the upload.
+      - name: File delta vs previous deploy (build summary)
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        run: |
+          node scripts/deploy-file-delta.mjs \
+            --history=data/dist-size-history.jsonl \
+            --prev-manifest=prev-content-manifest.tsv \
+            --cur-manifest=content-manifest.tsv
 
       # Maintain data/url-first-seen.json — stamps every URL that
       # appears in dist sitemaps with today's date the first time we
