@@ -105,6 +105,50 @@ describe('pdf-job-content', () => {
     expect(result.error).toBeUndefined();
   });
 
+  it('returns empty text (not the thin fragment) for image-only PDFs so consumers fall back to intro', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      arrayBuffer: async () => new TextEncoder().encode('fake-pdf').buffer,
+    }));
+    // Image-only PDF yielding a non-empty-but-thin fragment (1–49 chars). The
+    // fragment MUST survive normalization (i.e. NOT be page-noise that strips to
+    // '' anyway) so this assertion genuinely pins the #1485 regression: pre-fix
+    // `text` would be 'Bando di concorso' (truthy → glued into a boilerplate-only
+    // description that hard-fails the guard), post-fix it is ''.
+    const extractTextImpl = vi.fn(async () => ({
+      totalPages: 4,
+      text: 'Bando di concorso',
+    }));
+
+    const result = await extractPdfJobContentFromUrl('https://example.com/scan-fragment.pdf', {
+      fetchImpl: fetchImpl as any,
+      extractTextImpl,
+    });
+
+    expect(result.totalPages).toBe(4);
+    expect(result.text).toBe('');
+    expect((result as any).thin).toBe(true);
+    expect((result as any).warning).toContain('image-only/scanned PDF');
+    // rawText is intentionally preserved (diagnostic + un-normalized source).
+    expect(result.rawText).toContain('Bando di concorso');
+    // Consumers that prefer `pdf.rawText || pdf.text` must honor the `thin` flag,
+    // otherwise the un-nulled rawText fragment bypasses the guard (the sibling
+    // class flagged on #1508). This is the idiom every PDF-backed crawler uses.
+    const siblingPdfText = (result as any).thin
+      ? ''
+      : (result.rawText || result.text || '');
+    expect(siblingPdfText).toBe('');
+    // The thin fragment, falsy `text`, makes `pdfText || fallbackText` fall back
+    // to the inline intro — exactly the empty-PDF path PR #1468 declared safe.
+    const description = buildPdfBackedDescription({
+      introLines: ['Infermiere/a 80-100% — inizio da concordare'],
+      pdfText: result.text,
+      fallbackText: 'Infermiere/a 80-100% — inizio da concordare',
+      footerLines: ['Dettagli (PDF): https://example.com/scan-fragment.pdf'],
+    });
+    expect(description).toContain('Infermiere/a 80-100%');
+  });
+
   it('returns no warning when extraction yields sufficient content', async () => {
     const fetchImpl = vi.fn(async () => ({
       ok: true,
