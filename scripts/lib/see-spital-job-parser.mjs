@@ -31,6 +31,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { fetchUmantisDetailContentResult } from './umantis-detail-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -268,7 +269,8 @@ async function fetchPage(url, cookieJar) {
         if (pairs.length) cookieJar.value = pairs.join('; ');
       }
     }
-    return await res.text();
+    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
+    return await rescueHtmlIfChallenged(await res.text(), url, {});
   } catch (err) {
     clearTimeout(timer);
     throw err;
