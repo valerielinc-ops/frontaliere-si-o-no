@@ -280,11 +280,11 @@
     },
     {
       "id": "clinique-generale-beaulieu-92b216e17f86",
-      "slug": "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu",
+      "slug": "infermiera-in-oncologia-ambulatoria-clinique-generale-beaulieu-geneve",
       "slugByLocale": {
-        "it": "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu",
-        "en": "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu",
-        "de": "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu",
+        "it": "infermiera-in-oncologia-ambulatoria-clinique-generale-beaulieu-geneve",
+        "en": "nurse-in-ambulatory-oncology-clinique-generale-beaulieu-geneve",
+        "de": "krankenschwester-in-der-ambulanten-onkologie-clinique-generale-beaulieu-geneve",
         "fr": "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu"
       },
       "company": "Clinique Générale-Beaulieu",
@@ -339,7 +339,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu"
+        ],
+        "en": [
+          "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu"
+        ],
+        "de": [
+          "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-oncologie-ambulatoire-clinique-generale-beaulieu"
+      ]
     }
   ]
 }

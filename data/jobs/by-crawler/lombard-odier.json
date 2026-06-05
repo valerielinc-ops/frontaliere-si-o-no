@@ -2405,12 +2405,12 @@
     },
     {
       "id": "lombard-odier-14748f4522d9",
-      "slug": "group-risk-assurance-controls-manager-80-100-lombard-odier-ch",
+      "slug": "gestione-dei-controlli-di-sicurezza-dei-rischi-di-gruppo-80-100-lombard-odier-geneva",
       "slugByLocale": {
-        "it": "group-risk-assurance-controls-manager-80-100-lombard-odier-ch",
+        "it": "gestione-dei-controlli-di-sicurezza-dei-rischi-di-gruppo-80-100-lombard-odier-geneva",
         "en": "group-risk-assurance-controls-manager-80-100-lombard-odier-ch",
         "de": "group-risk-assurance-controls-manager-80-100-lombard-odier-ch",
-        "fr": "group-risk-assurance-controls-manager-80-100-lombard-odier-ch"
+        "fr": "gestionnaire-des-controles-d-assurance-des-risques-de-groupe-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -2463,7 +2463,18 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-risk-assurance-controls-manager-80-100-lombard-odier-ch"
+        ],
+        "fr": [
+          "group-risk-assurance-controls-manager-80-100-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "group-risk-assurance-controls-manager-80-100-lombard-odier-ch"
+      ]
     }
   ]
 }

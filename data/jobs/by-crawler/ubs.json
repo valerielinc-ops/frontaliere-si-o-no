@@ -79,7 +79,7 @@
         "it": "client-advisor-global-wealth-management-taipei-taichung-kaohsiung-ubs",
         "en": "client-advisor-global-wealth-management-taipei-taichung-kaohsiung-ubs",
         "de": "client-advisor-global-wealth-management-taipei-taichung-kaohsiung-ubs",
-        "fr": "client-advisor-global-wealth-management-taipei-taichung-kaohsiung-ubs"
+        "fr": "conseiller-client-gestion-mondiale-de-patrimoine-taipei-taichung-kaohsiung-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2645,12 +2645,12 @@
     },
     {
       "id": "ubs-a75ecbc1aeca",
-      "slug": "global-markets-execution-sales-ubs",
+      "slug": "global-markets-esecuzione-delle-vendite-ubs-ticino",
       "slugByLocale": {
-        "it": "global-markets-execution-sales-ubs",
+        "it": "global-markets-esecuzione-delle-vendite-ubs-ticino",
         "en": "global-markets-execution-sales-ubs",
-        "de": "global-markets-execution-sales-ubs",
-        "fr": "global-markets-execution-sales-ubs"
+        "de": "global-markets-vertrieb-der-ausfuhrung-ubs-ticino",
+        "fr": "marches-mondiaux-ventes-d-execution-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2710,7 +2710,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-execution-sales-ubs"
+        ],
+        "de": [
+          "global-markets-execution-sales-ubs"
+        ],
+        "fr": [
+          "global-markets-execution-sales-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-execution-sales-ubs"
+      ]
     },
     {
       "id": "ubs-c63fdc67746e",
@@ -3008,12 +3022,12 @@
     },
     {
       "id": "ubs-30bae028e55e",
-      "slug": "investment-banking-fig-ecm-ubs",
+      "slug": "banca-d-investimento-fig-ecm-ubs-ticino",
       "slugByLocale": {
-        "it": "investment-banking-fig-ecm-ubs",
+        "it": "banca-d-investimento-fig-ecm-ubs-ticino",
         "en": "investment-banking-fig-ecm-ubs",
         "de": "investment-banking-fig-ecm-ubs",
-        "fr": "investment-banking-fig-ecm-ubs"
+        "fr": "banque-d-investissement-fig-ecm-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3073,13 +3087,24 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-banking-fig-ecm-ubs"
+        ],
+        "fr": [
+          "investment-banking-fig-ecm-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "investment-banking-fig-ecm-ubs"
+      ]
     },
     {
       "id": "ubs-17454b22a04a",
-      "slug": "global-markets-client-office-emea-ubs",
+      "slug": "global-markets-ufficio-clienti-emea-ubs-ticino",
       "slugByLocale": {
-        "it": "global-markets-client-office-emea-ubs",
+        "it": "global-markets-ufficio-clienti-emea-ubs-ticino",
         "en": "global-markets-client-office-emea-ubs",
         "de": "global-markets-client-office-emea-ubs",
         "fr": "global-markets-client-office-emea-ubs"
@@ -3142,7 +3167,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-client-office-emea-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-client-office-emea-ubs"
+      ]
     },
     {
       "id": "ubs-77c13580482b",
@@ -3576,12 +3609,12 @@
     },
     {
       "id": "ubs-1888fe7b74d6",
-      "slug": "global-markets-electronic-principal-trader-ubs",
+      "slug": "global-markets-elettronica-principale-trader-ubs-ticino",
       "slugByLocale": {
-        "it": "global-markets-electronic-principal-trader-ubs",
+        "it": "global-markets-elettronica-principale-trader-ubs-ticino",
         "en": "global-markets-electronic-principal-trader-ubs",
         "de": "global-markets-electronic-principal-trader-ubs",
-        "fr": "global-markets-electronic-principal-trader-ubs"
+        "fr": "marches-mondiaux-electronique-principal-commercant-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3641,7 +3674,18 @@
           "maxValue": 133000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-electronic-principal-trader-ubs"
+        ],
+        "fr": [
+          "global-markets-electronic-principal-trader-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-electronic-principal-trader-ubs"
+      ]
     }
   ]
 }

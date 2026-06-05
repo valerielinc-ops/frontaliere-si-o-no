@@ -847,12 +847,12 @@
     },
     {
       "id": "vista-87b7ebe6370c",
-      "slug": "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf",
+      "slug": "consulente-senior-m-w-vista-augenpraxen-kliniken-burgdorf",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf",
-        "en": "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf",
+        "it": "consulente-senior-m-w-vista-augenpraxen-kliniken-burgdorf",
+        "en": "senior-consultant-m-w-vista-augenpraxen-kliniken-burgdorf",
         "de": "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf",
-        "fr": "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf"
+        "fr": "consultant-principal-m-m-vista-augenpraxen-kliniken-burgdorf"
       },
       "company": "Vista Augenpraxen & Kliniken",
       "companyKey": "vista",
@@ -910,13 +910,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-fage-m-w-60-100-vista-burgdorf"
+      ]
     },
     {
       "id": "vista-e563e54f951a",
-      "slug": "senior-financial-controller-m-w-100-vista-basel",
+      "slug": "controllore-finanziario-senior-m-w-100-vista-augenpraxen-kliniken-basel",
       "slugByLocale": {
-        "it": "senior-financial-controller-m-w-100-vista-basel",
+        "it": "controllore-finanziario-senior-m-w-100-vista-augenpraxen-kliniken-basel",
         "en": "senior-financial-controller-m-w-100-vista-basel",
         "de": "senior-financial-controller-m-w-100-vista-basel",
         "fr": "senior-financial-controller-m-w-100-vista-basel"
@@ -977,7 +991,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-financial-controller-m-w-100-vista-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-financial-controller-m-w-100-vista-basel"
+      ]
     }
   ]
 }

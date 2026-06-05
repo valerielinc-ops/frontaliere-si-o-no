@@ -666,12 +666,12 @@
     },
     {
       "id": "tschuggen-f73aab9f5ab3",
-      "slug": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+      "slug": "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
       "slugByLocale": {
-        "it": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "it": "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa",
         "en": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
         "de": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "fr": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        "fr": "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -726,7 +726,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ],
+        "fr": [
+          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+      ]
     }
   ]
 }
