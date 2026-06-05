@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-05-18T07:09:02.450Z",
-    "label": "before",
-    "total": 4235,
-    "needsRetranslation": 953,
-    "incomplete": 730,
-    "complete": 3505,
-    "missingByLocale": {
-      "it": 247,
-      "en": 212,
-      "de": 97,
-      "fr": 233
-    },
-    "topPending": [
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 80
-      },
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 78
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 66
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "UBS",
-        "pending": 34
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 29
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 22
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 21
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-18T07:12:51.881Z",
-    "label": "after",
-    "total": 4235,
-    "needsRetranslation": 949,
-    "incomplete": 730,
-    "complete": 3505,
-    "missingByLocale": {
-      "it": 247,
-      "en": 212,
-      "de": 97,
-      "fr": 233
-    },
-    "topPending": [
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 80
-      },
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 78
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 66
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "UBS",
-        "pending": 34
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 29
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 22
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 21
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-18T10:42:06.166Z",
-    "label": "before",
-    "total": 4187,
-    "needsRetranslation": 940,
-    "incomplete": 724,
-    "complete": 3463,
-    "missingByLocale": {
-      "it": 246,
-      "en": 211,
-      "de": 97,
-      "fr": 232
-    },
-    "topPending": [
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 80
-      },
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 78
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 62
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "UBS",
-        "pending": 34
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 29
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 22
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 21
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-18T10:47:34.367Z",
-    "label": "after",
-    "total": 4187,
-    "needsRetranslation": 935,
-    "incomplete": 717,
-    "complete": 3470,
-    "missingByLocale": {
-      "it": 242,
-      "en": 205,
-      "de": 94,
-      "fr": 226
-    },
-    "topPending": [
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 78
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 73
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 62
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "UBS",
-        "pending": 34
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 29
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 22
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 21
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-18T13:34:11.859Z",
     "label": "before",
     "total": 4793,
@@ -11330,6 +11106,120 @@
       {
         "company": "The Swatch Group (UK) Limited",
         "pending": 28
+      },
+      {
+        "company": "UBS",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "Richemont",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Sulzer",
+        "pending": 16
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 16
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-05T11:00:59.708Z",
+    "label": "before",
+    "total": 10755,
+    "needsRetranslation": 2764,
+    "suppressed": 31,
+    "incomplete": 589,
+    "complete": 10166,
+    "missingByLocale": {
+      "it": 325,
+      "en": 245,
+      "de": 211,
+      "fr": 313
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 94
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 77
+      },
+      {
+        "company": "Roche",
+        "pending": 59
+      },
+      {
+        "company": "The Swatch Group (UK) Limited",
+        "pending": 27
+      },
+      {
+        "company": "UBS",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "Richemont",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Sulzer",
+        "pending": 16
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 16
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-05T12:24:13.641Z",
+    "label": "after",
+    "total": 10755,
+    "needsRetranslation": 2745,
+    "suppressed": 37,
+    "incomplete": 575,
+    "complete": 10180,
+    "missingByLocale": {
+      "it": 313,
+      "en": 238,
+      "de": 202,
+      "fr": 299
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 93
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 77
+      },
+      {
+        "company": "Roche",
+        "pending": 59
+      },
+      {
+        "company": "The Swatch Group (UK) Limited",
+        "pending": 27
       },
       {
         "company": "UBS",
