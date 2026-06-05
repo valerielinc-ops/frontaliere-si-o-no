@@ -7973,6 +7973,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.naspi-unemployment-benefits.title': 'NASPI et frontaliers: changements',
     'blog.article.naspi-unemployment-benefits.excerpt': 'La NASPI est une prestation de chômage pour les travailleurs italiens. Comment fonctionne-t-elle pour les frontaliers?',
     'blog.article.naspi-unemployment-benefits.imageAlt': 'Une personne avec un certificat et un téléphone à la main, avec la ville de Lugano en arrière-plan',
+    'blog.article.concierge-ticino-lonza-ch.title': 'Lonza cherche un concierge en Tessin',
+    'blog.article.concierge-ticino-lonza-ch.excerpt': 'Lonza SA recherche un concierge pour le Service des Installations (80-100%) en Tessin. Découvrez les détails de l\'offre d\'emploi.',
+    'blog.article.concierge-ticino-lonza-ch.imageAlt': 'Vue panoramique du front de lac de Lugano avec des bâtiments modernes.',
 };
 
 export default blogMetaFr;

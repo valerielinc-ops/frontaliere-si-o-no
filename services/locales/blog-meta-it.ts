@@ -7973,6 +7973,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.naspi-unemployment-benefits.title': 'NASPI e frontalieri: cosa cambia',
     'blog.article.naspi-unemployment-benefits.excerpt': 'La NASPI è una prestazione di disoccupazione per i lavoratori italiani. Come funziona per i frontalieri?',
     'blog.article.naspi-unemployment-benefits.imageAlt': 'Una persona con un certificato e il telefono in mano, sullo sfondo la città di Lugano',
+    'blog.article.concierge-ticino-lonza-ch.title': 'Lonza cerca Concierge in Ticino',
+    'blog.article.concierge-ticino-lonza-ch.excerpt': 'Lonza SA è alla ricerca di un Service des Installations Concierge (80-100%) in Ticino. Scopri i dettagli dell\'offerta di lavoro.',
+    'blog.article.concierge-ticino-lonza-ch.imageAlt': 'Vista panoramica del lungolago di Lugano con edifici moderni.',
 };
 
 export default blogMetaIt;

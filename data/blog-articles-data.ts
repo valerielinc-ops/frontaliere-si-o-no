@@ -25299,6 +25299,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'concierge-ticino-lonza-ch',
+ category: 'pratico',
+ date: '2026-06-05T03:20:12.683Z',
+ image: '/images/blog/concierge-ticino-lonza-ch.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
