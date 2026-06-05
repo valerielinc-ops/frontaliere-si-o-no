@@ -51,6 +51,71 @@ export async function fetchViaJina(targetUrl, { timeoutMs = 30000, fetchImpl = f
 }
 
 /**
+ * Fetch a URL through the Jina proxy, retrying on a fresh Jina egress IP when the
+ * response is a WAF challenge / non-target page (not the real page).
+ *
+ * Why this exists: the IP-reputation WAF (SiteGround sgcaptcha, cambiavalute.ch
+ * #1363) flags a *subset* of Jina Reader's IP pool. A SINGLE `fetchViaJina` call
+ * therefore succeeds ~80% of the time and lands on a blocked IP the other ~20%,
+ * getting an HTTP 200 with a challenge body → `detectJinaErrorBody` flags it but
+ * the single-shot callers could only log + skip → 0 jobs on an unlucky run even
+ * though the source is live. Jina rotates its egress IP per request, so simply
+ * retrying picks a fresh IP: 4 attempts at ~80%/try ≈ 99.8% success. Each retry
+ * is a brand-new request (no IP affinity to pin), which is the whole point.
+ *
+ * Returns a fresh, unconsumed `Response` (body already validated and re-wrapped,
+ * so callers can still `.text()` it). On exhaustion it returns the LAST response
+ * shape (status + body) unchanged, so every caller's existing
+ * `res.ok` / `detectJinaErrorBody` graceful-skip path runs as before — this never
+ * throws of its own accord and never converts a dead source into a hard failure.
+ */
+export async function fetchViaJinaWithRetry(
+  targetUrl,
+  { timeoutMs = 30000, attempts = 4, retryDelayMs = 800, fetchImpl = fetch } = {},
+) {
+  let lastBody = '';
+  let lastStatus = 0;
+  let lastReason = 'no attempt made';
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl });
+      lastStatus = res.status;
+      if (!res.ok) {
+        // Jina's own non-2xx (rate limit / upstream) — a fresh IP may fare better.
+        lastBody = '';
+        lastReason = `HTTP ${res.status}`;
+      } else {
+        const body = await res.text();
+        lastBody = body;
+        const reason = detectJinaErrorBody(body);
+        if (!reason) {
+          // Real target page from a non-blocked Jina IP.
+          return new Response(body, {
+            status: 200,
+            headers: { 'content-type': res.headers.get('content-type') || 'text/html' },
+          });
+        }
+        lastReason = reason;
+      }
+    } catch (err) {
+      lastReason = err?.message || String(err);
+    }
+    if (attempt < attempts) {
+      await new Promise((resolve) => setTimeout(resolve, retryDelayMs * attempt));
+    }
+  }
+  // Every attempt hit a blocked IP / error. Hand back the last response shape so
+  // the caller's unchanged graceful-skip path takes over (no false failure).
+  return new Response(lastBody, {
+    status: lastStatus || 502,
+    headers: {
+      'content-type': 'text/html',
+      'x-jina-retry-reason': String(lastReason).slice(0, 120),
+    },
+  });
+}
+
+/**
  * Jina answers HTTP 200 even when it could not actually serve the target page:
  * an upstream failure (target unreachable from Jina, a challenge/error page, or
  * a rate-limit notice) comes back as a 200 with a non-target body. `res.ok` is
@@ -88,6 +153,13 @@ export function detectJinaErrorBody(body, { minLength = 200 } = {}) {
     'attention required!',
     'checking your browser before accessing',
     'enable javascript and cookies to continue',
+    // SiteGround "sgcaptcha" IP-reputation challenge (cambiavalute.ch, #1363):
+    // a meta-refresh to /.well-known/sgcaptcha/?…&y=ipr:<ip> served to blocked
+    // egress IPs. Jina's IP pool is mostly clean but ~1-in-5 attempts land on a
+    // flagged IP and get this page on a 200. Explicit marker so a long variant
+    // (over the too-short floor) is still flagged → fetchViaJinaWithRetry rotates
+    // to a fresh Jina IP instead of silently parsing the challenge as 0 jobs.
+    'sgcaptcha',
   ];
   const hit = ERROR_MARKERS.find((m) => lower.includes(m));
   return hit ? `error/challenge marker: "${hit}"` : null;
