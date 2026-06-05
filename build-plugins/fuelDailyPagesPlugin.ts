@@ -92,7 +92,6 @@ import {
   LINK_ACCENT_STYLE,
   renderDiscoverMore,
   renderEntityCard,
-  resolveBrandLogoUrl,
   STAT_TILE_BASE,
   STAT_TILE_DANGER,
   STAT_TILE_SUCCESS,
@@ -100,6 +99,7 @@ import {
   clampSiteSuffix,
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
+import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F6 fuel-daily feature.
@@ -1612,13 +1612,7 @@ function renderPage(inp: PageInputs): string {
           const stationHref = stationZone && s.slug
             ? buildFuelStationPath(locale, fuel, stationZone, s.slug)
             : undefined;
-          const brandSlug = (s.brand || '')
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '');
-          const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, brandSlug) : null;
+          const logoUrl = resolveStationBrandLogoUrl(rootDir, s.brand);
           const card = renderEntityCard({
             href: stationHref,
             logoUrl: logoUrl ?? undefined,
@@ -2452,7 +2446,7 @@ function buildStationSignaturePargaraph(inp: StationSignatureInput): string {
 //
 // All styling binds to the OKLCH semantic tokens from `seoContentTokens.ts`
 // (no inline hex, per CLAUDE.md rule #17). Brand logos are resolved via
-// `resolveBrandLogoUrl` against `public/images/brands/{slug}.{png,svg}`;
+// `resolveStationBrandLogoUrl` against `public/images/brands/{slug}.{png,svg}`;
 // missing logos fall back to a neutral monogram chip. The mini-map embeds
 // an OpenStreetMap iframe lazy-loaded (no API key, no script). The history
 // chart reuses the existing zone-level `renderFuelHistoryCard` machinery —
@@ -2582,15 +2576,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
   },
 };
 
-/** Normalised slug for `resolveBrandLogoUrl` (matches its [a-z0-9-] filter). */
-function brandLogoSlug(brand: string): string {
-  return String(brand || '')
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9-]/g, '');
-}
-
 /** Compose the inline SVG monogram fallback when no brand logo is on disk. */
 function renderBrandMonogram(brand: string, size: number): string {
   const initials = String(brand || '?')
@@ -2604,8 +2589,7 @@ function renderBrandMonogram(brand: string, size: number): string {
 
 /** Render the brand visual: real logo if available, monogram fallback. */
 function renderBrandVisual(rootDir: string | undefined, brand: string, size: number): string {
-  const slug = brandLogoSlug(brand);
-  const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, slug) : null;
+  const logoUrl = resolveStationBrandLogoUrl(rootDir, brand);
   if (!logoUrl) return renderBrandMonogram(brand, size);
   return `<img src="${esc(logoUrl)}" alt="${esc(brand)}" width="${size}" height="${size}" loading="lazy" decoding="async" style="display:block;width:${size}px;height:${size}px;border-radius:14px;object-fit:contain;background:var(--color-surface-alt);padding:6px;border:1px solid var(--color-edge);flex-shrink:0">`;
 }
@@ -3598,8 +3582,10 @@ function renderItalianCityPage(opts: {
   alternates: Record<FuelDailyLocale, string>;
   today: Date;
   distDir?: string;
+  /** Project root, threaded through for build-time brand-logo resolution. */
+  rootDir?: string;
 }): string {
-  const { entry, locale, fuel, stations, history, crossBorder, canonicalPath, alternates, today, distDir } = opts;
+  const { entry, locale, fuel, stations, history, crossBorder, canonicalPath, alternates, today, distDir, rootDir } = opts;
   const copy = IT_CITY_COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -3710,9 +3696,12 @@ function renderItalianCityPage(opts: {
           .map((s) => {
             const matched = s.id ? ctxBySlug.get(s.id) : undefined;
             const href = matched ? buildFuelItalianStationPath(locale, fuel, entry.slug, matched.slug) : undefined;
+            const logoUrl = resolveStationBrandLogoUrl(rootDir, s.brand);
             const card = renderEntityCard({
               href,
-              iconSvg: ICON_FUEL_SVG,
+              logoUrl: logoUrl ?? undefined,
+              logoAlt: s.brand || s.stationName,
+              iconSvg: logoUrl ? undefined : ICON_FUEL_SVG,
               title: s.stationName || s.brand || '—',
               subtitle: s.address || '—',
               metric: `${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) : '—'} ${copy.currency}`,
@@ -4064,11 +4053,13 @@ export function generateFuelItalianCityPages(opts: {
   history?: HistorySnapshot[];
   today?: Date;
   distDir?: string;
+  rootDir?: string;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const rootDir = opts.rootDir;
   const pages: Record<string, string> = {};
 
   // Per-station contexts are fuel-specific now (diesel only covers stations
@@ -4110,6 +4101,7 @@ export function generateFuelItalianCityPages(opts: {
           alternates,
           today,
           distDir,
+          rootDir,
         });
         pages[canonicalPath] = html;
       }
@@ -4716,7 +4708,7 @@ function renderItalianStationPage(opts: {
   readonly canonicalPath: string;
   readonly alternates: Record<FuelDailyLocale, string>;
   readonly distDir?: string;
-  /** Project root for resolving brand logos via resolveBrandLogoUrl. */
+  /** Project root for resolving brand logos via resolveStationBrandLogoUrl. */
   readonly rootDir?: string;
 }): string {
   const { ctx, locale, fuel, cityAvg, cityStations, history, today, canonicalPath, alternates, distDir, rootDir } = opts;
@@ -5254,7 +5246,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         history,
         rootDir,
       });
-      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir });
+      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir, rootDir });
       const italianStationPages = generateFuelItalianStationPages({
         dataset,
         history,
