@@ -1,0 +1,85 @@
+name: PR auto-rebase (near-merge only, no-Claude)
+
+# Esegue davvero il rebase che stale-pr-rescuer si limita a SUGGERIRE: una PR a
+# un passo dal merge ma dietro main resta ferma perché nessuno fa
+# `git merge origin/main`. Qui lo facciamo, ma FRUGALMENTE — un push di rebase
+# ri-triggera pr-review-loop (= quota Claude Max condivisa), quindi tocchiamo
+# SOLO le PR "near-merge" (LGTM già dato, oppure label collision-risk/
+# stale-review). Tutto deterministico (scripts/ci/pr-autorebase.mjs + gh + git).
+# ZERO Claude.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # ogni 30min
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente merge/push/label/commenti'
+        type: boolean
+        default: false
+
+# Una rebase-run alla volta: evita push concorrenti sullo stesso branch.
+concurrency:
+  group: pr-autorebase
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  autorebase:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # serve l'intera storia per merge origin/main nei branch
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; autorebase inerte (push via GITHUB_TOKEN NON ri-triggererebbe review/vitest — anti-ricorsione)."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Rebase near-merge PRs (deterministic, no Claude)
+        env:
+          # PAT OBBLIGATORIO: il push del rebase deve ri-triggerare pr-review-loop
+          # + tests (GITHUB_TOKEN no, anti-ricorsione → review/vitest non
+          # ripartirebbero e la PR resterebbe comunque ferma).
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::warning::GITHUB_PAT assente → autorebase inerte (push non ri-triggererebbe review/vitest)."
+            exit 0
+          fi
+          if [ "${DRY_RUN:-false}" = "true" ]; then
+            node scripts/ci/pr-autorebase.mjs --dry-run
+          else
+            node scripts/ci/pr-autorebase.mjs
+          fi
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
