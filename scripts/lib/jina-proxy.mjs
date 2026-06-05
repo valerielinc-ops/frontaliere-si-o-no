@@ -154,9 +154,13 @@ export async function fetchViaJinaWithRetry(
       lastStatus = res.status;
       if (!res.ok) {
         // Jina's own non-2xx (rate limit / upstream) — a fresh IP may fare better.
-        // Drain the unused body so undici reclaims the connection before retrying;
-        // otherwise N abandoned streams pile up under concurrent proxied fetches.
-        try { await res.arrayBuffer(); } catch { /* already aborted/closed */ }
+        // Cancel (don't read) the unused body so undici releases the connection
+        // before retrying; otherwise N abandoned streams pile up under concurrent
+        // proxied fetches. cancel() (vs arrayBuffer()) avoids reading an error body
+        // unbounded — fetchViaJina already disarmed its timeout, so there is no
+        // AbortSignal left to cap a slow/large drain — and signals undici to reclaim
+        // the socket deterministically.
+        try { await res.body?.cancel(); } catch { /* already aborted/closed */ }
         lastBody = '';
         lastReason = `HTTP ${res.status}`;
       } else {
@@ -305,9 +309,11 @@ export async function fetchHtmlViaJinaWithRetry(
         }
         lastReason = reason;
       } else {
-        // Drain the unused non-2xx body so undici reclaims the connection before
-        // retrying (same leak fixed in fetchViaJinaWithRetry above).
-        try { await res.arrayBuffer(); } catch { /* already aborted/closed */ }
+        // Cancel (don't read) the unused non-2xx body so undici releases the
+        // connection before retrying (same leak fixed in fetchViaJinaWithRetry
+        // above; cancel() avoids reading a slow/large error body unbounded now
+        // that fetchViaJina's timeout is disarmed).
+        try { await res.body?.cancel(); } catch { /* already aborted/closed */ }
         lastReason = `HTTP ${res.status}`;
       }
     } catch (err) {

@@ -2329,8 +2329,10 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     try {
       const res = await Promise.race([fetchPromise, timeoutPromise]);
       if (attempt < maxAttempts && isRetryableFetchStatus(res.status)) {
-        // Drain and drop transient response body before retrying.
-        try { await res.arrayBuffer(); } catch {}
+        // Cancel and drop the transient response body before retrying — cancel()
+        // (vs arrayBuffer()) signals undici to reclaim the socket without reading
+        // the body, so a slow/large transient body can't stall the retry loop.
+        try { await res.body?.cancel(); } catch {}
         await sleep(fetchRetryDelayMs(attempt));
         continue;
       }

@@ -110,16 +110,20 @@ describe('fetchViaJinaWithRetry', () => {
     expect(detectJinaErrorBody(await res.text())).toMatch(/error\/challenge marker/);
   });
 
-  it('retries (and drains the body) on a Jina non-2xx, then returns the clean page', async () => {
+  it('retries (and cancels the body) on a Jina non-2xx, then returns the clean page', async () => {
     let calls = 0;
     let drained = 0;
     const fetchImpl = async () => {
       calls += 1;
       if (calls < 3) {
-        // 429 from Jina rate-limit — body must be drained before the next attempt.
+        // 429 from Jina rate-limit — body must be cancelled (socket reclaimed)
+        // before the next attempt, without reading it unbounded.
         const r = new Response('rate limited', { status: 429 });
-        const orig = r.arrayBuffer.bind(r);
-        r.arrayBuffer = async () => { drained += 1; return orig(); };
+        const stream = r.body;
+        if (stream) {
+          const origCancel = stream.cancel.bind(stream);
+          stream.cancel = async (reason?: unknown) => { drained += 1; return origCancel(reason); };
+        }
         return r;
       }
       return new Response(REAL_SITEMAP, { status: 200 });
@@ -130,7 +134,7 @@ describe('fetchViaJinaWithRetry', () => {
       fetchImpl,
     });
     expect(calls).toBe(3);
-    expect(drained).toBe(2); // both 429 bodies drained
+    expect(drained).toBe(2); // both 429 bodies cancelled
     expect(res.ok).toBe(true);
     expect(await res.text()).toContain('legal-compliance-officer');
   });
