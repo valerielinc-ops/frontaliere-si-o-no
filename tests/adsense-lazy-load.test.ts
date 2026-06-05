@@ -81,6 +81,15 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     // up). A bare `toContain('requestIdleCallback')` would stay green if a
     // refactor dropped only the 6000 site — the exact regression this guards.
     expect(ADSENSE_LOADER_CONTENT).toContain('timeout:6000');
+    // First-interaction trigger: the loader must also load adsbygoogle.js on the
+    // first real user engagement, not only on slot-scroll or idle. This closes
+    // the dominant Auto Ads leak — quick-bounce mobile sessions (75% of traffic)
+    // that tap/scroll but leave before the idle fallback fires never served the
+    // anchor/vignette overlays (the top RPM earners). Crawlers don't interact,
+    // so the no-synchronous-JS audit benefit is preserved. Guards against removal.
+    expect(ADSENSE_LOADER_CONTENT).toContain('touchstart');
+    expect(ADSENSE_LOADER_CONTENT).toContain('pointerdown');
+    expect(ADSENSE_LOADER_CONTENT).toMatch(/addEventListener\(EV\[e\],loadScript/);
   });
 
   it('exposes the correct client id + script URL', () => {

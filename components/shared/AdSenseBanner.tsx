@@ -218,9 +218,26 @@ export default function AdSenseBanner({
  return;
  }
 
+ // Shared one-shot guard: the ad commits to loading exactly once. Whichever
+ // path wins — IO fill, idle fallback, or first interaction — marks `triggered`
+ // and detaches the interaction listeners, so a later mousemove/scroll can't
+ // call setState('waiting_width') on an already-filled ad and hide it
+ // (viewability/CLS regression). Mirrors the idempotent `loadScript` guard in
+ // ADSENSE_LOADER_CONTENT (build-plugins/constants.ts).
+ const INTERACTION_EVENTS: Array<keyof DocumentEventMap> = ['scroll', 'touchstart', 'pointerdown', 'keydown', 'mousemove'];
+ let triggered = false;
+ const removeInteractionListeners = () => {
+ if (typeof document === 'undefined') return;
+ for (const ev of INTERACTION_EVENTS) {
+ document.removeEventListener(ev, onFirstInteraction, true);
+ }
+ };
+
  const io = new IntersectionObserver((entries) => {
  for (const entry of entries) {
  if (entry.isIntersecting) {
+ triggered = true;
+ removeInteractionListeners();
  io.disconnect();
  loadAdSenseScript();
  setState('waiting_width');
@@ -252,6 +269,26 @@ export default function AdSenseBanner({
  }
  }
 
+ // First-interaction trigger: load on the first real user engagement so a
+ // quick-bounce mobile session that taps/scrolls before the idle fallback
+ // fires still serves the anchor/in-page Auto Ads. Mirrors the interaction
+ // listeners in ADSENSE_LOADER_CONTENT (build-plugins/constants.ts). Guarded
+ // by `triggered` AND `pushed.current` so it never re-enters width-wait after
+ // the IO/idle path has already filled this slot.
+ function onFirstInteraction() {
+ if (triggered || pushed.current) return;
+ triggered = true;
+ removeInteractionListeners();
+ io.disconnect();
+ loadAdSenseScript();
+ setState('waiting_width');
+ }
+ if (!SKIP_FOR_BOT && typeof document !== 'undefined') {
+ for (const ev of INTERACTION_EVENTS) {
+ document.addEventListener(ev, onFirstInteraction, { once: true, passive: true, capture: true });
+ }
+ }
+
  return () => {
  io.disconnect();
  const cic = (window as unknown as {
@@ -259,6 +296,7 @@ export default function AdSenseBanner({
  }).cancelIdleCallback;
  if (idleHandle !== undefined && typeof cic === 'function') cic(idleHandle);
  if (idleTimer !== undefined) clearTimeout(idleTimer);
+ removeInteractionListeners();
  };
  }, [enabled, adSlot, loadAdSenseScript]);
 
