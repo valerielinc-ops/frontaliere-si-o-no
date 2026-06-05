@@ -1753,9 +1753,6 @@
         ],
         "fr": [
           "conseiller-broker-m-w-d-100-vaudoise-assurances-bern"
-        ],
-        "de": [
-          "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
@@ -2927,9 +2924,9 @@
     },
     {
       "id": "vaudoise-ed19b6ff1748",
-      "slug": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch",
+      "slug": "interno-dell-universita-hes-vita-actuarial-data-h-e-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch",
+        "it": "interno-dell-universita-hes-vita-actuarial-data-h-e-x-100-vaudoise-assurances-lausanne",
         "en": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch",
         "de": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch",
         "fr": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch"
@@ -2987,7 +2984,15 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch"
+      ]
     }
   ]
 }

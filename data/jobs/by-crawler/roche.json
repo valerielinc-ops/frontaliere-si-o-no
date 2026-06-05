@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "roche-5ac9f67c8526",
-      "slug": "system-development-troubleshooter-roche-ch",
+      "slug": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
       "slugByLocale": {
         "en": "system-development-troubleshooter-roche-ch",
-        "it": "system-development-troubleshooter-roche-ch",
+        "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "de": "system-development-troubleshooter-roche-ch",
         "fr": "system-development-troubleshooter-roche-ch"
       },
@@ -65,7 +65,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T23:15:53.703Z"
+      "firstSeenAt": "2026-06-04T23:15:53.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-development-troubleshooter-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "system-development-troubleshooter-roche-ch"
+      ]
     },
     {
       "id": "roche-d1545f9546ad",
@@ -11754,9 +11762,9 @@
     },
     {
       "id": "roche-06a4dbdedd39",
-      "slug": "roche-tokyo",
+      "slug": "traduzione-roche-tokyo-3072a5",
       "slugByLocale": {
-        "it": "roche-tokyo",
+        "it": "traduzione-roche-tokyo-3072a5",
         "en": "roche-ch",
         "de": "roche-tokyo",
         "fr": "roche-tokyo"
@@ -11801,13 +11809,13 @@
       "previousSlugs": [
         "roche-ch-29",
         "roche-ch-28",
-        "traduzione-roche-tokyo-3072a5"
+        "roche-tokyo"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-29",
           "roche-ch-28",
-          "traduzione-roche-tokyo-3072a5"
+          "roche-tokyo"
         ]
       },
       "needsRetranslation": true,
@@ -16540,9 +16548,9 @@
     },
     {
       "id": "roche-94e81cf75cde",
-      "slug": "roche-changsha",
+      "slug": "traduzione-roche-changsha-6ed8a3",
       "slugByLocale": {
-        "it": "roche-changsha",
+        "it": "traduzione-roche-changsha-6ed8a3",
         "en": "roche-ch",
         "de": "roche-changsha",
         "fr": "roche-changsha"
@@ -16585,11 +16593,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-40"
+        "roche-ch-40",
+        "roche-changsha"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-40"
+          "roche-ch-40",
+          "roche-changsha"
         ]
       },
       "needsRetranslation": true,
@@ -24716,9 +24726,9 @@
     },
     {
       "id": "roche-e321e7ebf361",
-      "slug": "regolazione-tecnica-roche-shanghai",
+      "slug": "regolamentazione-tecnica-roche-shanghai",
       "slugByLocale": {
-        "it": "regolazione-tecnica-roche-shanghai",
+        "it": "regolamentazione-tecnica-roche-shanghai",
         "en": "technical-regulatory-roche-ch",
         "de": "technical-regulatory-roche-ch",
         "fr": "technical-regulatory-roche-ch"
@@ -24762,12 +24772,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-regulatory-roche-ch",
-        "technical-regulatory-roche-shanghai"
+        "technical-regulatory-roche-shanghai",
+        "regolazione-tecnica-roche-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-regulatory-roche-ch",
-          "technical-regulatory-roche-shanghai"
+          "technical-regulatory-roche-shanghai",
+          "regolazione-tecnica-roche-shanghai"
         ]
       },
       "needsRetranslation": true,
@@ -36593,9 +36605,9 @@
     },
     {
       "id": "roche-1f11584a10d9",
-      "slug": "roche-nanchang",
+      "slug": "registrati-alcuni-locali-roche-nanchang",
       "slugByLocale": {
-        "it": "roche-nanchang",
+        "it": "registrati-alcuni-locali-roche-nanchang",
         "en": "roche-ch",
         "de": "roche-nanchang",
         "fr": "roche-nanchang"
@@ -36640,13 +36652,13 @@
       "previousSlugs": [
         "roche-ch-72",
         "roche-ch-69",
-        "registrati-alcuni-locali-roche-nanchang"
+        "roche-nanchang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-72",
           "roche-ch-69",
-          "registrati-alcuni-locali-roche-nanchang"
+          "roche-nanchang"
         ]
       },
       "needsRetranslation": true,
@@ -39348,9 +39360,9 @@
     },
     {
       "id": "roche-f34d58861120",
-      "slug": "roche-nanning",
+      "slug": "registrati-alcuni-ug-treno-locali-roche-nanning",
       "slugByLocale": {
-        "it": "roche-nanning",
+        "it": "registrati-alcuni-ug-treno-locali-roche-nanning",
         "en": "roche-ch",
         "de": "roche-nanning",
         "fr": "roche-nanning"
@@ -39395,13 +39407,13 @@
       "previousSlugs": [
         "roche-ch-82",
         "roche-ch-79",
-        "registrati-alcuni-ug-treno-locali-roche-nanning"
+        "roche-nanning"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-82",
           "roche-ch-79",
-          "registrati-alcuni-ug-treno-locali-roche-nanning"
+          "roche-nanning"
         ]
       },
       "needsRetranslation": true,
@@ -39994,9 +40006,9 @@
     },
     {
       "id": "roche-dfb2bc6dfb55",
-      "slug": "roche-shenyang",
+      "slug": "scegliere-roche-shenyang",
       "slugByLocale": {
-        "it": "roche-shenyang",
+        "it": "scegliere-roche-shenyang",
         "en": "roche-ch",
         "de": "roche-shenyang",
         "fr": "roche-shenyang"
@@ -40041,13 +40053,13 @@
       "previousSlugs": [
         "roche-ch-97",
         "roche-ch-94",
-        "scegliere-roche-shenyang"
+        "roche-shenyang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-97",
           "roche-ch-94",
-          "scegliere-roche-shenyang"
+          "roche-shenyang"
         ]
       },
       "needsRetranslation": true,
@@ -40369,9 +40381,9 @@
     },
     {
       "id": "roche-df17881c2c87",
-      "slug": "roche-kunming",
+      "slug": "registrazione-locali-alcuni-ug-tre-locali-roche-kunming",
       "slugByLocale": {
-        "it": "roche-kunming",
+        "it": "registrazione-locali-alcuni-ug-tre-locali-roche-kunming",
         "en": "roche-ch",
         "de": "roche-kunming",
         "fr": "roche-kunming"
@@ -40416,13 +40428,13 @@
       "previousSlugs": [
         "roche-ch-106",
         "roche-ch-103",
-        "registrazione-locali-alcuni-ug-tre-locali-roche-kunming"
+        "roche-kunming"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-106",
           "roche-ch-103",
-          "registrazione-locali-alcuni-ug-tre-locali-roche-kunming"
+          "roche-kunming"
         ]
       },
       "needsRetranslation": true,
@@ -40519,9 +40531,9 @@
     },
     {
       "id": "roche-0d014ca8a94c",
-      "slug": "roche-fuzhou",
+      "slug": "terreno-della-societa-us-regionali-roche-fuzhou",
       "slugByLocale": {
-        "it": "roche-fuzhou",
+        "it": "terreno-della-societa-us-regionali-roche-fuzhou",
         "en": "roche-ch",
         "de": "roche-fuzhou",
         "fr": "roche-fuzhou"
@@ -40564,11 +40576,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-105"
+        "roche-ch-105",
+        "roche-fuzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-105"
+          "roche-ch-105",
+          "roche-fuzhou"
         ]
       },
       "needsRetranslation": true,
@@ -40965,9 +40979,9 @@
     },
     {
       "id": "roche-5a2cee4602ab",
-      "slug": "roche-shenzhen",
+      "slug": "organizzazione-della-pesca-roche-shenzhen",
       "slugByLocale": {
-        "it": "roche-shenzhen",
+        "it": "organizzazione-della-pesca-roche-shenzhen",
         "en": "roche-ch",
         "de": "roche-shenzhen",
         "fr": "roche-shenzhen"
@@ -41012,13 +41026,13 @@
       "previousSlugs": [
         "roche-ch-126",
         "roche-ch-123",
-        "organizzazione-della-pesca-roche-shenzhen"
+        "roche-shenzhen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-126",
           "roche-ch-123",
-          "organizzazione-della-pesca-roche-shenzhen"
+          "roche-shenzhen"
         ]
       },
       "needsRetranslation": true,
@@ -41040,9 +41054,9 @@
     },
     {
       "id": "roche-65ae8be85c9f",
-      "slug": "roche-tianjin",
+      "slug": "organizzazione-della-pesca-roche-tianjin",
       "slugByLocale": {
-        "it": "roche-tianjin",
+        "it": "organizzazione-della-pesca-roche-tianjin",
         "en": "roche-ch",
         "de": "roche-tianjin",
         "fr": "roche-tianjin"
@@ -41087,13 +41101,13 @@
       "previousSlugs": [
         "roche-ch-128",
         "roche-ch-125",
-        "organizzazione-della-pesca-roche-tianjin"
+        "roche-tianjin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-128",
           "roche-ch-125",
-          "organizzazione-della-pesca-roche-tianjin"
+          "roche-tianjin"
         ]
       },
       "needsRetranslation": true,
@@ -41340,9 +41354,9 @@
     },
     {
       "id": "roche-9dd704db7a16",
-      "slug": "roche-changzhou",
+      "slug": "regiona-locali-alcuni-ug-treno-locale-roche-changzhou",
       "slugByLocale": {
-        "it": "roche-changzhou",
+        "it": "regiona-locali-alcuni-ug-treno-locale-roche-changzhou",
         "en": "roche-ch",
         "de": "roche-changzhou",
         "fr": "roche-changzhou"
@@ -41387,13 +41401,13 @@
       "previousSlugs": [
         "roche-ch-133",
         "roche-ch-130",
-        "regiona-locali-alcuni-ug-treno-locale-roche-changzhou"
+        "roche-changzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-133",
           "roche-ch-130",
-          "regiona-locali-alcuni-ug-treno-locale-roche-changzhou"
+          "roche-changzhou"
         ]
       },
       "needsRetranslation": true,
@@ -41415,9 +41429,9 @@
     },
     {
       "id": "roche-0f7940066aca",
-      "slug": "roche-suzhou",
+      "slug": "registrati-alcuni-ug-treno-minuti-locali-roche-suzhou",
       "slugByLocale": {
-        "it": "roche-suzhou",
+        "it": "registrati-alcuni-ug-treno-minuti-locali-roche-suzhou",
         "en": "roche-ch",
         "de": "roche-suzhou",
         "fr": "roche-suzhou"
@@ -41462,13 +41476,13 @@
       "previousSlugs": [
         "roche-ch-136",
         "roche-ch-133",
-        "registrati-alcuni-ug-treno-minuti-locali-roche-suzhou"
+        "roche-suzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-136",
           "roche-ch-133",
-          "registrati-alcuni-ug-treno-minuti-locali-roche-suzhou"
+          "roche-suzhou"
         ]
       },
       "needsRetranslation": true,
@@ -78959,9 +78973,9 @@
     },
     {
       "id": "roche-082efeeba779",
-      "slug": "temporal-contract-record-processor-roche-ch",
+      "slug": "processore-di-registrazione-del-contratto-temporaneo-roche-san-jose-costa-rica",
       "slugByLocale": {
-        "it": "temporal-contract-record-processor-roche-ch",
+        "it": "processore-di-registrazione-del-contratto-temporaneo-roche-san-jose-costa-rica",
         "en": "temporal-contract-record-processor-roche-ch",
         "de": "temporal-contract-record-processor-roche-ch",
         "fr": "temporal-contract-record-processor-roche-ch"
@@ -79004,11 +79018,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "processore-di-registrazione-del-contratto-temporaneo-roche-san-jose-costa-rica"
+        "temporal-contract-record-processor-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "processore-di-registrazione-del-contratto-temporaneo-roche-san-jose-costa-rica"
+          "temporal-contract-record-processor-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79606,9 +79620,9 @@
     },
     {
       "id": "roche-64cad0cf9e40",
-      "slug": "senior-medical-compliance-lead-roche-ch",
+      "slug": "piombo-di-conformita-medica-senior-roche-mississauga",
       "slugByLocale": {
-        "it": "senior-medical-compliance-lead-roche-ch",
+        "it": "piombo-di-conformita-medica-senior-roche-mississauga",
         "en": "senior-medical-compliance-lead-roche-ch",
         "de": "senior-medical-compliance-lead-roche-ch",
         "fr": "senior-medical-compliance-lead-roche-ch"
@@ -79651,11 +79665,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "piombo-di-conformita-medica-senior-roche-mississauga"
+        "senior-medical-compliance-lead-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "piombo-di-conformita-medica-senior-roche-mississauga"
+          "senior-medical-compliance-lead-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79890,10 +79904,10 @@
     },
     {
       "id": "roche-43d64cc997b4",
-      "slug": "policy-and-healthcare-system-shaping-manager-roche-ch",
+      "slug": "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm",
       "slugByLocale": {
         "en": "policy-and-healthcare-system-shaping-manager-roche-ch",
-        "it": "policy-and-healthcare-system-shaping-manager-roche-ch",
+        "it": "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm",
         "de": "policy-and-healthcare-system-shaping-manager-roche-ch",
         "fr": "policy-and-healthcare-system-shaping-manager-roche-ch"
       },
@@ -79951,7 +79965,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T22:58:37.877Z"
+      "firstSeenAt": "2026-06-04T22:58:37.877Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "policy-and-healthcare-system-shaping-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "policy-and-healthcare-system-shaping-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-e9d8d8ba84f6",
@@ -80018,9 +80040,9 @@
     },
     {
       "id": "roche-6a576b6e355a",
-      "slug": "business-operations-lead-associate-principal-roche-ch",
+      "slug": "operazioni-aziendali-piombo-associate-principal-roche-central-singapore",
       "slugByLocale": {
-        "it": "business-operations-lead-associate-principal-roche-ch",
+        "it": "operazioni-aziendali-piombo-associate-principal-roche-central-singapore",
         "en": "business-operations-lead-associate-principal-roche-ch",
         "de": "business-operations-lead-associate-principal-roche-ch",
         "fr": "business-operations-lead-associate-principal-roche-ch"
@@ -80077,7 +80099,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-operations-lead-associate-principal-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-operations-lead-associate-principal-roche-ch"
+      ]
     },
     {
       "id": "roche-aaa3eeab22bd",
@@ -80376,9 +80406,9 @@
     },
     {
       "id": "roche-a341fa6253f4",
-      "slug": "safety-health-environment-she-facility-officer-roche-ch",
+      "slug": "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city",
       "slugByLocale": {
-        "it": "safety-health-environment-she-facility-officer-roche-ch",
+        "it": "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city",
         "en": "safety-health-environment-she-facility-officer-roche-ch",
         "de": "safety-health-environment-she-facility-officer-roche-ch",
         "fr": "safety-health-environment-she-facility-officer-roche-ch"
@@ -80435,13 +80465,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "safety-health-environment-she-facility-officer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "safety-health-environment-she-facility-officer-roche-ch"
+      ]
     },
     {
       "id": "roche-338b7de0ef2b",
-      "slug": "healthcare-systems-partner-policy-access-roche-ch",
+      "slug": "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city",
       "slugByLocale": {
-        "it": "healthcare-systems-partner-policy-access-roche-ch",
+        "it": "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city",
         "en": "healthcare-systems-partner-policy-access-roche-ch",
         "de": "healthcare-systems-partner-policy-access-roche-ch",
         "fr": "healthcare-systems-partner-policy-access-roche-ch"
@@ -80498,7 +80536,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "healthcare-systems-partner-policy-access-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "healthcare-systems-partner-policy-access-roche-ch"
+      ]
     },
     {
       "id": "roche-03d6a33a4bdf",
@@ -80876,9 +80922,9 @@
     },
     {
       "id": "roche-3492bdedc3bb",
-      "slug": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
+      "slug": "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot",
       "slugByLocale": {
-        "it": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
+        "it": "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot",
         "en": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
         "de": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
         "fr": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch"
@@ -80935,13 +80981,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch"
+      ]
     },
     {
       "id": "roche-51673cfe321d",
-      "slug": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
+      "slug": "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris",
       "slugByLocale": {
-        "it": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
+        "it": "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris",
         "en": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
         "de": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
         "fr": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch"
@@ -80998,7 +81052,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch"
+      ]
     },
     {
       "id": "roche-ff898bef0a57",
@@ -81230,9 +81292,9 @@
     },
     {
       "id": "roche-b3cfa15c6ee1",
-      "slug": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
+      "slug": "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot",
       "slugByLocale": {
-        "it": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
+        "it": "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot",
         "en": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
         "de": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
         "fr": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch"
@@ -81289,13 +81351,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch"
+      ]
     },
     {
       "id": "roche-5037dbfab684",
-      "slug": "disease-area-expert-roche-ch",
+      "slug": "area-di-competenza-roche-kyiv",
       "slugByLocale": {
-        "it": "disease-area-expert-roche-ch",
+        "it": "area-di-competenza-roche-kyiv",
         "en": "disease-area-expert-roche-ch",
         "de": "disease-area-expert-roche-ch",
         "fr": "disease-area-expert-roche-ch"
@@ -81352,13 +81422,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "disease-area-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "disease-area-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-71688013a8e3",
-      "slug": "digital-campaign-delivery-expert-roche-ch",
+      "slug": "esperto-di-consegna-della-campagna-digitale-roche-riga",
       "slugByLocale": {
-        "it": "digital-campaign-delivery-expert-roche-ch",
+        "it": "esperto-di-consegna-della-campagna-digitale-roche-riga",
         "en": "digital-campaign-delivery-expert-roche-ch",
         "de": "digital-campaign-delivery-expert-roche-ch",
         "fr": "digital-campaign-delivery-expert-roche-ch"
@@ -81415,7 +81493,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-campaign-delivery-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-campaign-delivery-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-3f32f3ef573f",
@@ -81482,9 +81568,9 @@
     },
     {
       "id": "roche-f2609c3e0797",
-      "slug": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
+      "slug": "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris",
       "slugByLocale": {
-        "it": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
+        "it": "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris",
         "en": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
         "de": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
         "fr": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch"
@@ -81541,7 +81627,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-c51985e87254",
@@ -81695,9 +81789,9 @@
     },
     {
       "id": "roche-95048f40e271",
-      "slug": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
+      "slug": "ricerca-clinica-specialistica-csd-d-f-m-roche-paris",
       "slugByLocale": {
-        "it": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
+        "it": "ricerca-clinica-specialistica-csd-d-f-m-roche-paris",
         "en": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
         "de": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
         "fr": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch"
@@ -81754,7 +81848,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-recherche-clinique-cdd-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-recherche-clinique-cdd-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-1dd789c8c6b3",
@@ -81821,9 +81923,9 @@
     },
     {
       "id": "roche-4716cb8666e2",
-      "slug": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
+      "slug": "servizio-ingegnere-guadalupa-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
+        "it": "servizio-ingegnere-guadalupa-d-f-m-roche-france",
         "en": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
         "de": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
         "fr": "ingenieur-service-guadeloupe-d-f-m-roche-ch"
@@ -81880,7 +81982,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-service-guadeloupe-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-service-guadeloupe-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-29faf0fb460a",
@@ -82228,9 +82338,9 @@
     },
     {
       "id": "roche-440e9b573afb",
-      "slug": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
+      "slug": "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france",
       "slugByLocale": {
-        "it": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
+        "it": "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france",
         "en": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
         "de": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
         "fr": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch"
@@ -82287,14 +82397,22 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch"
+      ]
     },
     {
       "id": "roche-bcc47510abfc",
-      "slug": "estagiario-de-engenharia-roche-ch",
+      "slug": "stadio-di-ingegneria-roche-sao-paulo",
       "slugByLocale": {
         "en": "estagiario-de-engenharia-roche-ch",
-        "it": "estagiario-de-engenharia-roche-ch",
+        "it": "stadio-di-ingegneria-roche-sao-paulo",
         "de": "estagiario-de-engenharia-roche-ch",
         "fr": "estagiario-de-engenharia-roche-ch"
       },
@@ -82352,7 +82470,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T22:58:03.987Z"
+      "firstSeenAt": "2026-06-04T22:58:03.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-de-engenharia-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-de-engenharia-roche-ch"
+      ]
     },
     {
       "id": "roche-c4a56fbb516d",
@@ -82566,10 +82692,10 @@
     },
     {
       "id": "roche-124c027f8c38",
-      "slug": "warehouse-distribution-lead-roche-ch",
+      "slug": "piombo-di-magazzino-e-distribuzione-roche-quito",
       "slugByLocale": {
         "fr": "warehouse-distribution-lead-roche-ch",
-        "it": "warehouse-distribution-lead-roche-ch",
+        "it": "piombo-di-magazzino-e-distribuzione-roche-quito",
         "en": "warehouse-distribution-lead-roche-ch",
         "de": "warehouse-distribution-lead-roche-ch"
       },
@@ -82627,14 +82753,22 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T22:58:00.627Z"
+      "firstSeenAt": "2026-06-04T22:58:00.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "warehouse-distribution-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "warehouse-distribution-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-8a07bd90b148",
-      "slug": "regulatory-program-manager-pharma-technical-regulatory-roche-ch",
+      "slug": "gestione-del-programma-regolamentare-pharma-regolazione-tecnica-roche-mississauga",
       "slugByLocale": {
         "en": "regulatory-program-manager-pharma-technical-regulatory-roche-ch",
-        "it": "regulatory-program-manager-pharma-technical-regulatory-roche-ch",
+        "it": "gestione-del-programma-regolamentare-pharma-regolazione-tecnica-roche-mississauga",
         "de": "regulatory-program-manager-pharma-technical-regulatory-roche-ch",
         "fr": "regulatory-program-manager-pharma-technical-regulatory-roche-ch"
       },
@@ -82692,7 +82826,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T22:57:59.801Z"
+      "firstSeenAt": "2026-06-04T22:57:59.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-program-manager-pharma-technical-regulatory-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-program-manager-pharma-technical-regulatory-roche-ch"
+      ]
     },
     {
       "id": "roche-1d1986cb2803",
@@ -82965,10 +83107,10 @@
     },
     {
       "id": "roche-bae7749ac47e",
-      "slug": "coordinador-de-almacen-roche-ch",
+      "slug": "coordinator-de-almacen-roche-el-coyol",
       "slugByLocale": {
         "en": "coordinador-de-almacen-roche-ch",
-        "it": "coordinador-de-almacen-roche-ch",
+        "it": "coordinator-de-almacen-roche-el-coyol",
         "de": "coordinador-de-almacen-roche-ch",
         "fr": "coordinador-de-almacen-roche-el-coyol"
       },
@@ -83026,14 +83168,22 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T22:57:55.699Z"
+      "firstSeenAt": "2026-06-04T22:57:55.699Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinador-de-almacen-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "coordinador-de-almacen-roche-ch"
+      ]
     },
     {
       "id": "roche-f72ef61797eb",
-      "slug": "vice-president-customer-experience-and-commercial-operations-roche-ch",
+      "slug": "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga",
       "slugByLocale": {
         "en": "vice-president-customer-experience-and-commercial-operations-roche-ch",
-        "it": "vice-president-customer-experience-and-commercial-operations-roche-ch",
+        "it": "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga",
         "de": "vice-president-customer-experience-and-commercial-operations-roche-ch",
         "fr": "vice-president-customer-experience-and-commercial-operations-roche-ch"
       },
@@ -83091,7 +83241,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T22:57:54.867Z"
+      "firstSeenAt": "2026-06-04T22:57:54.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-president-customer-experience-and-commercial-operations-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vice-president-customer-experience-and-commercial-operations-roche-ch"
+      ]
     },
     {
       "id": "roche-46ebbde4e059",

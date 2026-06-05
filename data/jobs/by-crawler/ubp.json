@@ -2999,9 +2999,9 @@
     },
     {
       "id": "ubp-73576e44044c",
-      "slug": "wm-business-risk-manager-russian-speaking-ubp-ch",
+      "slug": "responsabile-del-rischio-aziendale-di-wm-russofono-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "wm-business-risk-manager-russian-speaking-ubp-ch",
+        "it": "responsabile-del-rischio-aziendale-di-wm-russofono-union-bancaire-privee-geneva-switzerland",
         "en": "wm-business-risk-manager-russian-speaking-ubp-ch",
         "de": "wm-business-risk-manager-russian-speaking-ubp-ch",
         "fr": "wm-business-risk-manager-russian-speaking-ubp-ch"
@@ -3058,7 +3058,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wm-business-risk-manager-russian-speaking-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wm-business-risk-manager-russian-speaking-ubp-ch"
+      ]
     }
   ]
 }

@@ -7894,10 +7894,10 @@
     },
     {
       "id": "kssg-f888353d6f0d",
-      "slug": "physiotherapeut-in-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "fisioterapista-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "physiotherapeut-in-80-kssg-ch",
-        "it": "physiotherapeut-in-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "fisioterapista-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "physiotherapeut-in-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "fr": "physiotherapeut-in-80-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
@@ -7945,11 +7945,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-80-kssg-ch"
+          "physiotherapeut-in-80-kssg-ch",
+          "physiotherapeut-in-80-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-80-kssg-ch"
+        "physiotherapeut-in-80-kssg-ch",
+        "physiotherapeut-in-80-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7967,10 +7969,10 @@
     },
     {
       "id": "kssg-68b47e2b6dd5",
-      "slug": "leitende-radiologiefachperson-80-100-kssg-ch",
+      "slug": "dirigente-radiologo-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "leitende-radiologiefachperson-80-100-kssg-ch",
-        "it": "leitende-radiologiefachperson-80-100-kssg-ch",
+        "it": "dirigente-radiologo-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "leitende-radiologiefachperson-80-100-kssg-ch",
         "fr": "leitende-radiologiefachperson-80-100-kssg-ch"
       },
@@ -8028,14 +8030,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:10:31.220Z"
+      "firstSeenAt": "2026-06-05T12:10:31.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-radiologiefachperson-80-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-radiologiefachperson-80-100-kssg-ch"
+      ]
     },
     {
       "id": "kssg-2a2308c6fdb1",
-      "slug": "dipl-pflegefachfrau-mann-50-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "infermiere-a-diplomato-a-50-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-50-70-kssg-ch",
-        "it": "dipl-pflegefachfrau-mann-50-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "infermiere-a-diplomato-a-50-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-pflegefachfrau-mann-50-70-kssg-ch",
         "fr": "dipl-pflegefachfrau-mann-50-70-kssg-ch"
       },
@@ -8083,11 +8093,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-50-70-kssg-ch"
+          "dipl-pflegefachfrau-mann-50-70-kssg-ch",
+          "dipl-pflegefachfrau-mann-50-70-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-50-70-kssg-ch"
+        "dipl-pflegefachfrau-mann-50-70-kssg-ch",
+        "dipl-pflegefachfrau-mann-50-70-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

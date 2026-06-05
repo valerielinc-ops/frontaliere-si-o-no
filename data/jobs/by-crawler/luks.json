@@ -7677,7 +7677,6 @@
         "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
         "betreiber-technik-80-luzerner-kantonsspital-luks-luzern",
-        "operatorin-operator-technik-80-luks-luzern-2",
         "technical-operator-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operatorin-operator-technik-80-luks-luzern"
@@ -18937,10 +18936,10 @@
     },
     {
       "id": "luks-976f54ac000e",
-      "slug": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee",
+      "slug": "specialista-specialista-sanitario-pronto-soccorso-100-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee",
-        "it": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee",
+        "it": "specialista-specialista-sanitario-pronto-soccorso-100-luzerner-kantonsspital-luks-sursee",
         "en": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee",
         "fr": "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee"
       },
@@ -18998,7 +18997,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:14:24.436Z"
+      "firstSeenAt": "2026-06-05T12:14:24.436Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-notfallstation-100-luks-sursee"
+      ]
     },
     {
       "id": "luks-bbd8d1aaa325",

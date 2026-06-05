@@ -624,10 +624,10 @@
     },
     {
       "id": "schulthess-klinik-553d1ac8a042",
-      "slug": "hilfskochin-hilfskoch-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "fornello-ausiliario-fornello-ausiliario-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-schulthess-klinik-lengghalde-2-zurich",
-        "it": "hilfskochin-hilfskoch-schulthess-klinik-lengghalde-2-zurich",
+        "it": "fornello-ausiliario-fornello-ausiliario-schulthess-klinik-lengghalde-2-zurich",
         "en": "hilfskochin-hilfskoch-schulthess-klinik-lengghalde-2-zurich",
         "fr": "hilfskochin-hilfskoch-schulthess-klinik-lengghalde-2-zurich"
       },
@@ -685,7 +685,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T22:58:43.191Z"
+      "firstSeenAt": "2026-06-04T22:58:43.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-schulthess-klinik-lengghalde-2-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-schulthess-klinik-lengghalde-2-zurich"
+      ]
     },
     {
       "id": "schulthess-klinik-0117ae1771d0",

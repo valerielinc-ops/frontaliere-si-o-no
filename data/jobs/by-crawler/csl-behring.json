@@ -4108,12 +4108,12 @@
     },
     {
       "id": "csl-behring-5e074f2eb2f3",
-      "slug": "business-analyst-csl-behring-ch",
+      "slug": "business-analista-csl-behring-bern",
       "slugByLocale": {
         "en": "business-analyst-csl-behring-ch",
-        "it": "business-analyst-csl-behring-ch",
+        "it": "business-analista-csl-behring-bern",
         "de": "business-analyst-csl-behring-ch",
-        "fr": "business-analyst-csl-behring-ch"
+        "fr": "business-analyste-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4170,7 +4170,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-05T11:42:59.864Z"
+      "firstSeenAt": "2026-06-05T11:42:59.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-csl-behring-ch"
+        ],
+        "fr": [
+          "business-analyst-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-csl-behring-ch"
+      ]
     }
   ]
 }

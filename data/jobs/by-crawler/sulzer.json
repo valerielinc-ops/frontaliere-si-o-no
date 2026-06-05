@@ -28434,9 +28434,9 @@
     },
     {
       "id": "sulzer-326fe8b137a3",
-      "slug": "sales-manager-sulzer-ch-4",
+      "slug": "responsabile-vendite-sulzer-dubai",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch-4",
+        "it": "responsabile-vendite-sulzer-dubai",
         "en": "sales-manager-sulzer-ch",
         "de": "sales-manager-sulzer-ch-4",
         "fr": "sales-manager-sulzer-ch-4"
@@ -28493,7 +28493,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-sulzer-ch-4"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-sulzer-ch-4"
+      ]
     },
     {
       "id": "sulzer-90ee11096b72",

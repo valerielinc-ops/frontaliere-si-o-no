@@ -508,12 +508,12 @@
     },
     {
       "id": "otis-afb91b895add",
-      "slug": "esperto-tecnico-m-w-d-otis-sa-belp",
+      "slug": "technical-expert-m-f-d-otis-sa-belp",
       "slugByLocale": {
-        "it": "esperto-tecnico-m-w-d-otis-sa-belp",
+        "it": "technical-expert-m-f-d-otis-sa-belp",
         "en": "technical-expert-m-w-d-otis-belp",
         "de": "technical-expert-m-w-d-otis-belp",
-        "fr": "expert-technique-m-w-d-otis-sa-belp-f2b78d"
+        "fr": "technical-expert-h-f-d-otis-sa-belp"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -550,26 +550,25 @@
       "crawledAt": "2026-06-05T12:21:43.364Z",
       "previousSlugs": [
         "esperto-tecnico-m-f-d-otis-sa-belp",
-        "technical-expert-m-f-d-otis-sa-belp",
         "technical-expert-m-w-d-otis-belp",
+        "esperto-tecnico-m-w-d-otis-sa-belp",
+        "technischer-sachverstandiger-m-w-d-otis-sa-belp",
         "expert-technique-h-f-otis-sa-belp",
-        "technical-expert-h-f-d-otis-sa-belp",
-        "technischer-sachverstandiger-m-w-d-otis-sa-belp"
+        "expert-technique-m-w-d-otis-sa-belp-f2b78d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "esperto-tecnico-m-f-d-otis-sa-belp",
-          "technical-expert-m-f-d-otis-sa-belp",
-          "technical-expert-m-w-d-otis-belp"
+          "technical-expert-m-w-d-otis-belp",
+          "esperto-tecnico-m-w-d-otis-sa-belp"
         ],
         "de": [
-          "technical-expert-m-w-d-otis-belp",
           "technischer-sachverstandiger-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "expert-technique-h-f-otis-sa-belp",
-          "technical-expert-h-f-d-otis-sa-belp",
-          "technical-expert-m-w-d-otis-belp"
+          "technical-expert-m-w-d-otis-belp",
+          "expert-technique-m-w-d-otis-sa-belp-f2b78d"
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:01.743Z",
@@ -777,7 +776,6 @@
         "technical-expert-m-f-d-otis-sa-belp",
         "expert-technique-h-f-otis-sa-belp",
         "technical-expert-h-f-d-otis-sa-belp",
-        "technical-expert-m-w-d-otis-belp",
         "technischer-sachverstandiger-m-w-d-otis-sa-belp",
         "esperto-tecnico-m-w-d-otis-sa-belp"
       ],

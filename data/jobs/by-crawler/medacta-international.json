@@ -39,7 +39,7 @@
       "crawledAt": "2026-06-05T12:18:49.657Z",
       "slugByLocale": {
         "it": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
-        "en": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
+        "en": "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
         "de": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
         "fr": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch"
       },
@@ -52,7 +52,6 @@
           "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate"
         ],
         "en": [
-          "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
           "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate"
         ]
       },
@@ -115,7 +114,7 @@
       "crawledAt": "2026-06-05T12:18:49.273Z",
       "slugByLocale": {
         "it": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
-        "en": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
+        "en": "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio",
         "de": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
         "fr": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk"
       },
@@ -126,9 +125,6 @@
       "previousSlugsByLocale": {
         "it": [
           "demand-planner-medacta-castel-san-pietro-mendrisio"
-        ],
-        "en": [
-          "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio"
         ],
         "de": [
           "anfrage-planer-medacta-international-sa-castel-san-pietro-mendrisio"
@@ -653,7 +649,7 @@
       "slugByLocale": {
         "it": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
         "en": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
-        "de": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
+        "de": "partner-designer-medacta-international-sa-castel-san-pietro",
         "fr": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5"
       },
       "sourceLang": "it",
@@ -664,15 +660,13 @@
         "it": [
           "associate-designer-medacta-castel-san-pietro"
         ],
-        "de": [
-          "partner-designer-medacta-international-sa-castel-san-pietro"
-        ],
         "fr": [
           "designer-associe-medacta-international-sa-castel-san-pietro"
         ]
       },
       "previousSlugs": [
         "associate-designer-medacta-castel-san-pietro",
+        "designer-associe-medacta-international-sa-castel-san-pietro",
         "designer-associato-medacta-international-sa-castel-san-pietro"
       ],
       "salaryMin": 58000,
@@ -832,7 +826,7 @@
         "it": "fresatore-medacta-international-sa-castel-san-pietro-rancate-6rc82g",
         "de": "fraser-medacta-international-sa-castel-san-pietro-rancate-6rc82g",
         "fr": "fraiseur-medacta-international-sa-castel-san-pietro-rancate-6rc82g",
-        "en": "fresatore-medacta-international-sa-castel-san-pietro-rancate-6rc82g"
+        "en": "milling-operator-medacta-international-sa-castel-san-pietro"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
@@ -844,7 +838,6 @@
           "fresatore-medacta-international-sa-castel-san-pietro"
         ],
         "en": [
-          "milling-operator-medacta-international-sa-castel-san-pietro",
           "milling-operator-medacta-international-sa-castel-san-pietro-rancate"
         ],
         "de": [

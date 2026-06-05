@@ -1627,10 +1627,10 @@
     },
     {
       "id": "klinik-lengg-cf96778fe407",
-      "slug": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
+      "slug": "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
-        "it": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
+        "it": "candidato-a-in-riqualificazione-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
         "en": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich",
         "fr": "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
       },
@@ -1688,7 +1688,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T12:05:44.589Z"
+      "firstSeenAt": "2026-06-05T12:05:44.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "quereinsteiger-in-neurophysiologie-im-tagdienst-klinik-lengg-zurich"
+      ]
     }
   ]
 }

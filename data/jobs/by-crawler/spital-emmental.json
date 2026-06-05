@@ -4962,9 +4962,9 @@
     },
     {
       "id": "spital-emmental-51aa101aeeab",
-      "slug": "arztsekretar-in-a-spital-emmental-langnau",
+      "slug": "segretario-del-dottore-in-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "arztsekretar-in-a-spital-emmental-langnau",
+        "it": "segretario-del-dottore-in-a-spital-emmental-langnau",
         "en": "arztsekretar-in-a-spital-emmental-langnau",
         "de": "arztsekretar-in-a-spital-emmental-langnau",
         "fr": "arztsekretar-in-a-spital-emmental-langnau"
@@ -5027,7 +5027,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-a-spital-emmental-langnau"
+      ]
     }
   ]
 }

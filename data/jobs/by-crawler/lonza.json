@@ -2441,9 +2441,9 @@
     },
     {
       "id": "lonza-66bc18b04378",
-      "slug": "senior-scientist-process-development-drug-product-12-months-fix-term-contract-80-100-lonza-ch",
+      "slug": "senior-scientist-process-development-drug-product-contratto-a-tempo-determinato-di-12-mesi-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "senior-scientist-process-development-drug-product-12-months-fix-term-contract-80-100-lonza-ch",
+        "it": "senior-scientist-process-development-drug-product-contratto-a-tempo-determinato-di-12-mesi-80-100-lonza-ch",
         "en": "senior-scientist-process-development-drug-product-12-months-fix-term-contract-80-100-lonza-ch",
         "de": "senior-scientist-process-development-drug-product-12-months-fix-term-contract-80-100-lonza-ch",
         "fr": "senior-scientist-process-development-drug-product-12-months-fix-term-contract-80-100-lonza-ch"
@@ -2499,7 +2499,15 @@
           "maxValue": 169000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-process-development-drug-product-12-months-fix-term-contract-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-process-development-drug-product-12-months-fix-term-contract-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-2c1bc19d2e54",
@@ -2565,9 +2573,9 @@
     },
     {
       "id": "lonza-ca26af8ada42",
-      "slug": "associate-principal-scientist-process-development-drug-product-80-100-lonza-ch",
+      "slug": "prodotto-farmaceutico-per-lo-sviluppo-del-processo-dello-scienziato-principale-associato-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "associate-principal-scientist-process-development-drug-product-80-100-lonza-ch",
+        "it": "prodotto-farmaceutico-per-lo-sviluppo-del-processo-dello-scienziato-principale-associato-80-100-lonza-ch",
         "en": "associate-principal-scientist-process-development-drug-product-80-100-lonza-ch",
         "de": "associate-principal-scientist-process-development-drug-product-80-100-lonza-ch",
         "fr": "associate-principal-scientist-process-development-drug-product-80-100-lonza-ch"
@@ -2623,13 +2631,21 @@
           "maxValue": 169000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-principal-scientist-process-development-drug-product-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-principal-scientist-process-development-drug-product-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-b3a819ea8671",
-      "slug": "internal-auditor-lonza-ch",
+      "slug": "auditore-interno-lonza-ch",
       "slugByLocale": {
-        "it": "internal-auditor-lonza-ch",
+        "it": "auditore-interno-lonza-ch",
         "en": "internal-auditor-lonza-ch",
         "de": "internal-auditor-lonza-ch",
         "fr": "internal-auditor-lonza-ch"
@@ -2685,7 +2701,15 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "internal-auditor-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internal-auditor-lonza-ch"
+      ]
     },
     {
       "id": "lonza-6580df7f8b86",

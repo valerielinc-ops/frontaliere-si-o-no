@@ -1941,7 +1941,6 @@
       "previousSlugs": [
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
-        "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
       "country": "CH",
@@ -2946,7 +2945,7 @@
     },
     {
       "id": "efg-4543",
-      "slug": "group-financial-controller-efg-geneve",
+      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Group Financial Controller",
       "location": "Geneve",
@@ -3111,9 +3110,9 @@
       },
       "crawledAt": "2026-06-05T11:45:52.150Z",
       "slugByLocale": {
-        "it": "group-financial-controller-efg-geneve",
+        "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "group-financial-controller-efg-geneve",
+        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -3138,17 +3137,14 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "previousSlugsByLocale": {
         "it": [
-          "gruppo-controllore-finanziario-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ],
         "de": [
-          "konzern-finanzverantwortlicher-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "gruppo-controllore-finanziario-efg-international-ag-geneve",
-        "konzern-finanzverantwortlicher-efg-international-ag-geneve"
+        "group-financial-controller-efg-geneve"
       ],
       "country": "CH",
       "needsRetranslation": true

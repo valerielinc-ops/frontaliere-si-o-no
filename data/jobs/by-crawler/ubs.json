@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "ubs-1cbb5732328b",
-      "slug": "hf-fx-sales-ubs",
+      "slug": "hf-fx-vendite-ubs-ticino",
       "slugByLocale": {
-        "it": "hf-fx-sales-ubs",
+        "it": "hf-fx-vendite-ubs-ticino",
         "en": "hf-fx-sales-ubs",
         "de": "hf-fx-sales-ubs",
         "fr": "hf-fx-sales-ubs"
@@ -70,7 +70,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-fx-sales-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "hf-fx-sales-ubs"
+      ]
     },
     {
       "id": "ubs-37a1f316be4a",
@@ -375,9 +383,9 @@
     },
     {
       "id": "ubs-061b6f46e0e5",
-      "slug": "client-associate-ubs",
+      "slug": "cliente-associato-ubs-ticino",
       "slugByLocale": {
-        "it": "client-associate-ubs",
+        "it": "cliente-associato-ubs-ticino",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs",
         "fr": "client-associate-ubs"
@@ -441,13 +449,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-5f370c298840",
-      "slug": "client-associate-ubs-2",
+      "slug": "cliente-associato-ubs-ticino-66e6a9",
       "slugByLocale": {
-        "it": "client-associate-ubs-2",
+        "it": "cliente-associato-ubs-ticino-66e6a9",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs-2",
         "fr": "client-associate-ubs-2"
@@ -511,7 +527,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-2"
+      ]
     },
     {
       "id": "ubs-8e724c68089e",
@@ -585,9 +609,9 @@
     },
     {
       "id": "ubs-460e2c51a3cb",
-      "slug": "wealth-strategy-associate-ubs",
+      "slug": "strategia-di-ricchezza-associate-ubs-ticino",
       "slugByLocale": {
-        "it": "wealth-strategy-associate-ubs",
+        "it": "strategia-di-ricchezza-associate-ubs-ticino",
         "en": "wealth-strategy-associate-ubs",
         "de": "wealth-strategy-associate-ubs",
         "fr": "wealth-strategy-associate-ubs"
@@ -651,7 +675,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wealth-strategy-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "wealth-strategy-associate-ubs"
+      ]
     },
     {
       "id": "ubs-dc26e6fe2cdd",
@@ -1018,9 +1050,9 @@
     },
     {
       "id": "ubs-c3623b0aebff",
-      "slug": "registered-client-service-associate-ubs",
+      "slug": "servizio-clienti-registrato-associato-ubs-ticino",
       "slugByLocale": {
-        "it": "registered-client-service-associate-ubs",
+        "it": "servizio-clienti-registrato-associato-ubs-ticino",
         "en": "registered-client-service-associate-ubs",
         "de": "registered-client-service-associate-ubs",
         "fr": "registered-client-service-associate-ubs"
@@ -1084,7 +1116,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-service-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-service-associate-ubs"
+      ]
     },
     {
       "id": "ubs-b132f66fe989",
@@ -1239,9 +1279,9 @@
     },
     {
       "id": "ubs-d3c2814ff02a",
-      "slug": "registered-client-associate-ubs",
+      "slug": "cliente-associato-registrato-ubs-ticino",
       "slugByLocale": {
-        "it": "registered-client-associate-ubs",
+        "it": "cliente-associato-registrato-ubs-ticino",
         "en": "registered-client-associate-ubs",
         "de": "registered-client-associate-ubs",
         "fr": "registered-client-associate-ubs"
@@ -1305,7 +1345,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-8203de85b7d9",
@@ -1470,9 +1518,9 @@
     },
     {
       "id": "ubs-905405ad88ce",
-      "slug": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
+      "slug": "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs-ticino",
       "slugByLocale": {
-        "it": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
+        "it": "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs-ticino",
         "en": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
         "de": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
         "fr": "business-strategist-ubs-chief-strategy-office-gwm-ubs"
@@ -1537,7 +1585,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-strategist-ubs-chief-strategy-office-gwm-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "business-strategist-ubs-chief-strategy-office-gwm-ubs"
+      ]
     },
     {
       "id": "ubs-3130f24e8fe1",
@@ -1711,9 +1767,9 @@
     },
     {
       "id": "ubs-56189c43792a",
-      "slug": "internship-external-risk-assessment-ubs",
+      "slug": "stage-valutazione-del-rischio-esterno-ubs-ticino",
       "slugByLocale": {
-        "it": "internship-external-risk-assessment-ubs",
+        "it": "stage-valutazione-del-rischio-esterno-ubs-ticino",
         "en": "internship-external-risk-assessment-ubs",
         "de": "internship-external-risk-assessment-ubs",
         "fr": "internship-external-risk-assessment-ubs"
@@ -1777,7 +1833,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-external-risk-assessment-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-external-risk-assessment-ubs"
+      ]
     },
     {
       "id": "ubs-5d2548b426ab",
@@ -2075,10 +2139,10 @@
     },
     {
       "id": "ubs-c946a285eafd",
-      "slug": "branch-ops-manager-ubs-wealth-advice-center-ubs",
+      "slug": "responsabile-delle-operazioni-di-filiale-centro-di-consulenza-patrimoniale-ubs-ubs-ticino",
       "slugByLocale": {
         "en": "branch-ops-manager-ubs-wealth-advice-center-ubs",
-        "it": "branch-ops-manager-ubs-wealth-advice-center-ubs",
+        "it": "responsabile-delle-operazioni-di-filiale-centro-di-consulenza-patrimoniale-ubs-ubs-ticino",
         "de": "branch-ops-manager-ubs-wealth-advice-center-ubs",
         "fr": "branch-ops-manager-ubs-wealth-advice-center-ubs"
       },
@@ -2143,7 +2207,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T23:16:56.709Z"
+      "firstSeenAt": "2026-06-04T23:16:56.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "branch-ops-manager-ubs-wealth-advice-center-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "branch-ops-manager-ubs-wealth-advice-center-ubs"
+      ]
     },
     {
       "id": "ubs-bf94272f3125",
@@ -2217,10 +2289,10 @@
     },
     {
       "id": "ubs-3138b52d60f5",
-      "slug": "client-associate-ubs-3",
+      "slug": "cliente-associato-ubs-ticino-f3769c",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-3",
+        "it": "cliente-associato-ubs-ticino-f3769c",
         "de": "client-associate-ubs-3",
         "fr": "client-associate-ubs-3"
       },
@@ -2285,14 +2357,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T23:16:56.707Z"
+      "firstSeenAt": "2026-06-04T23:16:56.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-3"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-3"
+      ]
     },
     {
       "id": "ubs-8884682e2df8",
-      "slug": "client-associate-ubs-4",
+      "slug": "cliente-associato-ubs-ticino-63a59b",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-4",
+        "it": "cliente-associato-ubs-ticino-63a59b",
         "de": "client-associate-ubs-4",
         "fr": "client-associate-ubs-4"
       },
@@ -2357,14 +2437,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T23:16:56.705Z"
+      "firstSeenAt": "2026-06-04T23:16:56.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-4"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-4"
+      ]
     },
     {
       "id": "ubs-93ae6b39d77b",
-      "slug": "registered-client-service-associate-ubs-3",
+      "slug": "servizio-clienti-registrato-associato-ubs-ticino-ecaafa",
       "slugByLocale": {
         "en": "registered-client-service-associate-ubs",
-        "it": "registered-client-service-associate-ubs-3",
+        "it": "servizio-clienti-registrato-associato-ubs-ticino-ecaafa",
         "de": "registered-client-service-associate-ubs-3",
         "fr": "registered-client-service-associate-ubs-3"
       },
@@ -2429,7 +2517,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T23:16:56.704Z"
+      "firstSeenAt": "2026-06-04T23:16:56.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-service-associate-ubs-3"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-service-associate-ubs-3"
+      ]
     },
     {
       "id": "ubs-cb7829b7f6a6",
@@ -2505,9 +2601,9 @@
     },
     {
       "id": "ubs-3b214c889919",
-      "slug": "compliance-officer-ubs",
+      "slug": "ufficiale-di-conformita-ubs-ticino",
       "slugByLocale": {
-        "it": "compliance-officer-ubs",
+        "it": "ufficiale-di-conformita-ubs-ticino",
         "en": "compliance-officer-ubs",
         "de": "compliance-officer-ubs",
         "fr": "compliance-officer-ubs"
@@ -2571,7 +2667,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-ubs"
+      ]
     },
     {
       "id": "ubs-bac59af2162f",
@@ -2882,9 +2986,9 @@
     },
     {
       "id": "ubs-eb379c5cdea7",
-      "slug": "global-markets-ugm-execution-sales-ubs",
+      "slug": "mercati-globali-vendite-di-esecuzione-ugm-ubs-ticino",
       "slugByLocale": {
-        "it": "global-markets-ugm-execution-sales-ubs",
+        "it": "mercati-globali-vendite-di-esecuzione-ugm-ubs-ticino",
         "en": "global-markets-ugm-execution-sales-ubs",
         "de": "global-markets-ugm-execution-sales-ubs",
         "fr": "global-markets-ugm-execution-sales-ubs"
@@ -2948,13 +3052,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-ugm-execution-sales-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-ugm-execution-sales-ubs"
+      ]
     },
     {
       "id": "ubs-2b701ef4ae54",
-      "slug": "investment-banking-fig-ubs",
+      "slug": "attivita-bancarie-d-investimento-fig-ubs-ticino",
       "slugByLocale": {
-        "it": "investment-banking-fig-ubs",
+        "it": "attivita-bancarie-d-investimento-fig-ubs-ticino",
         "en": "investment-banking-fig-ubs",
         "de": "investment-banking-fig-ubs",
         "fr": "investment-banking-fig-ubs"
@@ -3018,7 +3130,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-banking-fig-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "investment-banking-fig-ubs"
+      ]
     },
     {
       "id": "ubs-30bae028e55e",
