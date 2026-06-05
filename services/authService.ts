@@ -12,7 +12,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
-import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
+import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 
 // ─── Resilient Dynamic Import ────────────────────────────────
 // After a deploy, old chunk hashes no longer exist on the CDN.
@@ -94,11 +94,15 @@ function shouldStartAuthImmediately(): boolean {
  // appears logged in right away — no interaction required.
  if (hasPersistedAuthSession()) return true;
  const params = new URLSearchParams(window.location.search);
+ // Credential subset (ac/at/authToken) derives from the shared parser so the
+ // param names can't drift from the in-flight signal. The `ne`-only check and
+ // the broader newsletter/oobCode/confirm triggers stay local by design.
+ const autologin = parseNewsletterAutologin(params);
  return (
  window.location.pathname.includes('/gestione-contenuti-xk9mp2q')
  || (params.get('mode') === 'signIn' && Boolean(params.get('oobCode')))
  || params.get('newsletter_autologin') === '1'
- || Boolean(params.get('ac') || params.get('at') || params.get('authToken'))
+ || Boolean(autologin.code || autologin.legacyToken)
  || Boolean(params.get('ne'))
  || params.get('action') === 'confirm_newsletter'
  );

@@ -748,9 +748,10 @@ const App: React.FC = () => {
  return;
  }
 
- // Authenticate via autologin code or legacy custom token before processing
- const autologinCode = urlParams.get('ac');
- const legacyAuthToken = urlParams.get('at') || urlParams.get('authToken');
+ // Authenticate via autologin code or legacy custom token before processing.
+ // Same shared parser as the primary autologin effect — credential param names
+ // live only in services/newsletterAutologinSignal.ts (no drift).
+ const { code: autologinCode, legacyToken: legacyAuthToken } = parseNewsletterAutologin(urlParams);
  if (autologinCode) {
  // New flow: exchange HMAC code for fresh token
  const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
