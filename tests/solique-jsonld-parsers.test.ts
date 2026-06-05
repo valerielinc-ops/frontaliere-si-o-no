@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 // @ts-expect-error — plain .mjs crawler libs, no type declarations
-import { parseSoliqueListing, parseSoliqueApiListing, extractSoliqueDetailContent } from '../scripts/lib/solique-listing-common.mjs';
+import { parseSoliqueListing, parseSoliqueApiListing, extractSoliqueDetailContent } from '../scripts/lib/solique-common.mjs';
 // @ts-expect-error — plain .mjs
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from '../scripts/lib/jsonld-jobposting.mjs';
 
@@ -9,7 +9,7 @@ const SOLIQUE_SSR = `
   <a id="3994586" href="job/details/3994586" target="_blank">
     <div class="jobtitle_workload">
       <div class="jobtitle">Assistent/in Gesundheit und Soziales</div>
-      <span class="workload-group"><span class="min workload_from">70</span><span class="max workload_to">100</span><span class="percent">%</span></span>
+      <span class="min workload_from">70</span><span class="max workload_to">100</span>
     </div>
     <div class="job-info"><div class="location">Basel</div></div>
   </a>
@@ -22,8 +22,10 @@ const SOLIQUE_API = {
   ],
 };
 
-const SOLIQUE_DETAIL = `<div class="job-introduction">Gute Pflege lebt von Beziehung und Vertrauen zwischen Menschen.</div>
-<div class="content"><ul><li>Aufgabe eins</li><li>Aufgabe zwei</li></ul></div>
+// "job-introduction" + "content" template (adullam/ipw migrated boards). The
+// intro must NOT swallow the content block (would duplicate the prose).
+const SOLIQUE_DETAIL = `<div class="job-introduction">Gute Pflege lebt von Beziehung und Vertrauen zwischen Menschen jeden Alters.</div>
+<div class="content"><ul><li>Aufgabe eins im Team</li><li>Aufgabe zwei mit Verantwortung</li></ul></div>
 <div class="apply-button">Bewerben</div>`;
 
 const JSONLD_DETAIL = `<script type="application/ld+json">
@@ -33,35 +35,39 @@ const JSONLD_DETAIL = `<script type="application/ld+json">
 "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Zofingen","addressRegion":"Aargau","streetAddress":"Mühlethalstrasse 27","postalCode":"4800"}}}
 </script>`;
 
-describe('Solique listing parsers', () => {
+describe('Solique listing parsers (consolidated solique-common)', () => {
   it('parses the flat SSR board (adullam variant)', () => {
-    const rows = parseSoliqueListing(SOLIQUE_SSR, 'https://live.solique.ch/adullam');
+    const rows = parseSoliqueListing(SOLIQUE_SSR);
     expect(rows).toHaveLength(1);
     expect(rows[0]).toMatchObject({
       id: '3994586',
       title: 'Assistent/in Gesundheit und Soziales',
       location: 'Basel',
-      workload: '70-100%',
-      url: 'https://live.solique.ch/adullam/job/details/3994586',
+      minPct: 70,
+      maxPct: 100,
     });
   });
 
   it('parses the JSON API board (ipw variant) and skips empty-title placeholders', () => {
-    const rows = parseSoliqueApiListing(SOLIQUE_API, 'https://live.solique.ch/ipw', 'de');
+    const rows = parseSoliqueApiListing(SOLIQUE_API, 'ipw', 'de');
     expect(rows).toHaveLength(1);
     expect(rows[0]).toMatchObject({
       id: '4006969',
       title: 'Assistenzärztin / Assistenzarzt',
       location: 'Winterthur',
-      workload: '60-80%',
-      url: 'https://live.solique.ch/ipw/de/jobs/Assistenzaerztin---Assistenzarzt--4006969',
+      minPct: 60,
+      maxPct: 80,
+      detailUrl: 'https://live.solique.ch/ipw/de/jobs/Assistenzaerztin---Assistenzarzt--4006969',
     });
   });
 
-  it('extracts detail prose from job-introduction + content', () => {
+  it('extracts the job-introduction + content template without duplicating prose', () => {
     const text = extractSoliqueDetailContent(SOLIQUE_DETAIL);
     expect(text).toContain('Gute Pflege lebt von Beziehung');
-    expect(text).toContain('• Aufgabe eins');
+    expect(text).toContain('• Aufgabe eins im Team');
+    // intro sentence must appear exactly once (no swallow-and-re-extract)
+    const occurrences = text.split('Gute Pflege lebt von Beziehung').length - 1;
+    expect(occurrences).toBe(1);
   });
 });
 

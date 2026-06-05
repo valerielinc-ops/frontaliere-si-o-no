@@ -123,9 +123,51 @@ function parseSoliqueTileBody(id, body) {
 }
 
 /**
- * Pull a substantive description text from a Solique detail page. Covers
- * both the "intro+title-green" template (Spital Emmental) and the
- * "offer-section" template (SVAR), with bullet preservation.
+ * Parse the Solique JSON list endpoint (`/{tenant}/{lang}/api/v1/data/`) used by
+ * the AngularJS board variant (e.g. ipw). Returns the same tile shape as
+ * `parseSoliqueListing`, plus an explicit `detailUrl` (the SSR detail page under
+ * `/{lang}/{job.link}`) since these tenants don't use the flat `/job/details/{id}`
+ * path. Placeholder rows with an empty title are skipped.
+ *
+ * @param {object} data        parsed JSON (caller strips the UTF-8 BOM)
+ * @param {string} soliqueTenant  tenant slug, e.g. 'ipw'
+ * @param {string} [lang='de']  API lang segment
+ */
+export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
+  const base = `https://live.solique.ch/${soliqueTenant}`;
+  const jobs = Array.isArray(data?.jobs) ? data.jobs : [];
+  const out = [];
+  const seen = new Set();
+  for (const j of jobs) {
+    const id = String(j?.title?.id || j?.id || '').trim();
+    const title = normalizeSpace(decodeEntities(String(j?.title?.value || '')));
+    if (!id || !title || seen.has(id)) continue;
+    seen.add(id);
+    const location = normalizeSpace(decodeEntities(String(j?.location?.value || '')));
+    const minPct = j?.from?.value != null && j.from.value !== '' ? parseInt(j.from.value, 10) : null;
+    const maxPct = j?.to?.value != null && j.to.value !== '' ? parseInt(j.to.value, 10) : null;
+    const link = String(j?.link || '').replace(/^\/+/, '');
+    const detailUrl = link ? `${base}/${lang}/${link}` : `${base}/${lang}/jobs/--${id}`;
+    out.push({
+      id,
+      title,
+      location,
+      minPct: Number.isFinite(minPct) ? minPct : null,
+      maxPct: Number.isFinite(maxPct) ? maxPct : null,
+      area: '',
+      employment: '',
+      startDate: '',
+      detailUrl,
+    });
+  }
+  return out;
+}
+
+/**
+ * Pull a substantive description text from a Solique detail page. Covers the
+ * "intro+title-green" template (Spital Emmental), the "offer-section" template
+ * (SVAR), the job-panel template (Oberengadin), and the "job-introduction +
+ * content" template (migrated tenants adullam/ipw), with bullet preservation.
  */
 export function extractSoliqueDetailContent(html = '') {
   if (!html || typeof html !== 'string') return '';
@@ -239,6 +281,33 @@ export function extractSoliqueDetailContent(html = '') {
     if (text && text.length > 25) sections.unshift(text);
   }
 
+  // Template (iv): the migrated-tenant boards lay the description out as an intro
+  // div (`job-introduction` on adullam SSR, `introduction` on ipw JSON-API) plus a
+  // `<div class="content">` body (employer blurb + Aufgaben/Profil bullets, ipw
+  // wrapping them in `group`/`group-title` sub-sections). Gate on the `content`
+  // SIGNATURE — verified absent from every established Solique tenant
+  // (spital-emmental / oberengadin / svar), so it can never append stray text to
+  // them. When present, this template OWNS the description: it returns the clean
+  // intro+content, discarding whatever fragment templates i–iii grabbed from this
+  // board's chrome (e.g. ipw's `introduction` also matches Template iii-extra).
+  if (/<div\s+class="content"/i.test(cleaned)) {
+    const ivSections = [];
+    const TEMPLATE_IV_STOP = '<div\\s+class="(?:job-introduction|introduction|content|job-|infos-|apply|footer|sidebar|social|share)';
+    for (const cls of ['job-introduction', 'introduction', 'content']) {
+      const rx = new RegExp(`<div\\s+class="${cls}"[^>]*>([\\s\\S]*?)(?:${TEMPLATE_IV_STOP}|$)`, 'i');
+      const bm = cleaned.match(rx);
+      if (!bm) continue;
+      let body = bm[1]
+        .replace(/<li[^>]*>/gi, '\n• ')
+        .replace(/<\/li\s*>/gi, '')
+        .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+        .replace(/<[^>]+>/g, ' ');
+      body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+      if (body && body.length > 20) ivSections.push(body);
+    }
+    if (ivSections.length) return ivSections.join('\n\n');
+  }
+
   return sections.join('\n\n');
 }
 
@@ -274,6 +343,11 @@ export function createSoliqueParser(config) {
     sourceLabel,
     extraTrustedHosts = [],
     postalCodeForCity,
+    // `mode: 'api'` crawls the AngularJS board variant (e.g. ipw) whose listing
+    // is a JSON endpoint and whose detail pages live under `/{lang}/{job.link}`
+    // instead of the flat `/job/details/{id}` SSR path. Default 'ssr' (flat board).
+    mode = 'ssr',
+    apiLang = 'de',
   } = config;
 
   if (!soliqueTenant || !companyKey || !companyName || !defaultCanton) {
@@ -282,7 +356,9 @@ export function createSoliqueParser(config) {
 
   const corporateHost = String(companyDomain || '').replace(/^www\./, '').toLowerCase();
   const label = sourceLabel || `${companyName} Dedicated Parser (Solique careers portal)`;
-  const listingUrl = `https://live.solique.ch/${soliqueTenant}/`;
+  const listingUrl = mode === 'api'
+    ? `https://live.solique.ch/${soliqueTenant}/${apiLang}/api/v1/data/`
+    : `https://live.solique.ch/${soliqueTenant}/`;
   const detailUrlPrefix = `https://live.solique.ch/${soliqueTenant}/job/details/`;
   const trustedHostSet = new Set([
     'live.solique.ch',
@@ -319,19 +395,31 @@ export function createSoliqueParser(config) {
     console.log(`🏥 Fetching ${companyName} jobs`);
     console.log(`   Source: ${listingUrl} (Solique)\n`);
 
-    let listingHtml;
+    let listingRaw;
     try {
-      listingHtml = await fetchHtml(listingUrl);
+      listingRaw = await fetchHtml(listingUrl);
     } catch (err) {
       console.warn(`⚠️ Solique listing fetch failed: ${err?.message || err}`);
       return [];
     }
-    const tiles = parseSoliqueListing(listingHtml);
+    let tiles;
+    if (mode === 'api') {
+      let data;
+      try {
+        data = JSON.parse(String(listingRaw).replace(/^﻿/, ''));
+      } catch (err) {
+        console.warn(`⚠️ Solique JSON parse failed for ${soliqueTenant}: ${err?.message || err}`);
+        return [];
+      }
+      tiles = parseSoliqueApiListing(data, soliqueTenant, apiLang);
+    } else {
+      tiles = parseSoliqueListing(listingRaw);
+    }
     if (!tiles.length) {
       console.warn(`⚠️ No openings parsed from Solique listing for ${soliqueTenant}`);
       return [];
     }
-    console.log(`  ✓ ${tiles.length} jobs from Solique listing`);
+    console.log(`  ✓ ${tiles.length} jobs from Solique listing (${mode})`);
 
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
@@ -340,7 +428,7 @@ export function createSoliqueParser(config) {
 
     for (let i = 0; i < tiles.length; i += 1) {
       const tile = tiles[i];
-      const detailUrl = `${detailUrlPrefix}${tile.id}`;
+      const detailUrl = tile.detailUrl || `${detailUrlPrefix}${tile.id}`;
       let detailContent = '';
       try {
         const detailHtml = await fetchHtml(detailUrl);
