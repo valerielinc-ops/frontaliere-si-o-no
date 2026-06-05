@@ -119,6 +119,14 @@ const EMPTY_OK_CRAWLERS = new Set([
   // manufacturer simply has no current openings. Healthy, re-arms when a
   // vacancy is published.
   'linnea',
+  // Fusalp (French apparel brand, WelcomeKit portal https://fusalp.welcomekit.co):
+  // the crawler is scoped to Swiss roles only and skips France/EU listings.
+  // Fusalp posts mostly French jobs (Annecy HQ, Lyon/Paris/Nice boutiques) with
+  // only occasional Swiss boutique openings (history: Aubonne VD, Crans-Montana
+  // VS). The listing parser is healthy — it finds the 6 live listings and
+  // correctly filters them as non-Swiss; same legitimately-empty regional-filter
+  // case as manor and alten-switzerland. Re-arms when a CH listing appears.
+  'fusalp',
 ]);
 
 /** Read JSON file, return null on any error. */
