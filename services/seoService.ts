@@ -3929,6 +3929,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-concierge-ticino-lonza-ch': { name: 'Offerte Lavoro', path: '/articoli-frontaliere/concierge-ticino-lonza-ch', parent: 'blog' },
     'blog-permesso-g-vs-b-2026-oltre-20-km': { name: 'Permessi frontalieri', path: '/articoli-svizzera/permesso-g-vs-b-2026-oltre-20-km/', parent: 'blog' },
     'blog-chiasso-grenzubergang': { name: 'Chiasso', path: '/articoli-frontaliere/chiasso-grenzubergang', parent: 'blog' },
+    'blog-calcul-salaire-net-suiss-frontalier': { name: 'Come Calcolare il Salario Netto per Fron', path: '/articoli-svizzera/calcul-salaire-net-suiss-frontalier/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

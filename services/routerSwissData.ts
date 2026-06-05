@@ -43,6 +43,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'medico-medicina-interna-intensiva-eoc': { it: 'medico-medicina-interna-intensiva-eoc', en: 'doctor-internal-intensive-medicine-eoc', de: 'arzt-innere-intensivmedizin-eoc', fr: 'medecin-medecine-interne-intensive-eoc' },
  'frontalieri-svizzera': { it: 'frontalieri-svizzera', en: 'frontaliers-switzerland', de: 'grenzgaenger-schweiz', fr: 'frontaliers-suisse' },
  'permesso-g-vs-b-2026-oltre-20-km': { it: 'permesso-g-vs-b-2026-oltre-20-km', en: 'permesso-g-vs-b-2026-beyond-20-km', de: 'permesso-g-vs-b-2026-ueber-20-km', fr: 'permesso-g-vs-b-2026-au-dela-de-20-km' },
+ 'calcul-salaire-net-suiss-frontalier': { it: 'calcul-salaire-net-suiss-frontalier', en: 'swiss-border-worker-net-salary-calculation', de: 'schweizer-grenzarbeiter-nettolohnberechnung', fr: 'calcul-salaire-net-frontalier-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
