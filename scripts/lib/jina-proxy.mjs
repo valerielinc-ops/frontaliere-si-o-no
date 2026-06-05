@@ -21,6 +21,69 @@
 
 export const JINA_READER_BASE = 'https://r.jina.ai/';
 
+/* ── Per-run egress circuit breaker (#1461 item 2) ──────────────────────────
+ * Post-#1454 every connection-level fetch failure routes through a Jina retry
+ * helper that spends up to (retries+1) attempts × timeoutMs + exponential
+ * backoff (~tens of seconds/URL at defaults). Under a BROAD egress outage —
+ * when every host in a wave fails at once — that per-URL tax is paid serially
+ * on every failing URL, converting a fast-fail wave into a slow-timeout wave
+ * that can exhaust the GitHub Actions job timeout → incomplete data collection
+ * instead of a clean fast-fail with the prior dataset intact (the pre-#1454
+ * behaviour).
+ *
+ * The breaker tells "one flaky fetch" (rescue it — the #1454 value) apart from
+ * "the whole egress is down" (stop paying the tax): it counts CONSECUTIVE Jina
+ * exhaustions and trips once they reach the threshold, after which every later
+ * fallback call in the run fast-fails with NO attempt. A single successful
+ * rescue resets the counter, so sprinkled/non-consecutive flakiness never trips
+ * it. Run-scoped (each crawler is its own node process); reset between tests via
+ * __resetJinaBreaker(). Tunable / disable (0) via JOBS_JINA_BREAKER_THRESHOLD. */
+let jinaConsecutiveFailures = 0;
+let jinaBreakerTripped = false;
+
+function jinaBreakerThreshold() {
+  const v = Number(process.env.JOBS_JINA_BREAKER_THRESHOLD);
+  // Default 8: a normal wave's connection-level failures are rare (~1-3%) and
+  // non-consecutive, so 8 in a row with no success in between is an unambiguous
+  // broad-outage signal, not sprinkled flakiness.
+  return Number.isFinite(v) && v >= 0 ? v : 8;
+}
+
+/**
+ * Is the Jina egress breaker open (broad outage → fast-fail without attempting)?
+ * Trips and logs once when the consecutive-failure count reaches the threshold;
+ * stays open for the rest of the run. A threshold of 0 disables the breaker.
+ */
+export function jinaBreakerOpen() {
+  const threshold = jinaBreakerThreshold();
+  if (threshold === 0) return false;
+  if (jinaBreakerTripped) return true;
+  if (jinaConsecutiveFailures >= threshold) {
+    jinaBreakerTripped = true;
+    console.warn(
+      `⚠️ Jina egress circuit breaker tripped after ${jinaConsecutiveFailures} consecutive failures — broad egress outage detected; skipping the Jina fallback for the rest of this run to fail fast (prior data preserved).`,
+    );
+    return true;
+  }
+  return false;
+}
+
+/** A clean rescue: reset the consecutive-failure run (isolated flakiness). */
+function recordJinaSuccess() {
+  jinaConsecutiveFailures = 0;
+}
+
+/** An exhausted Jina attempt sequence: advance the breaker toward tripping. */
+function recordJinaFailure() {
+  jinaConsecutiveFailures += 1;
+}
+
+/** Test-only: reset breaker state between runs (module state persists per process). */
+export function __resetJinaBreaker() {
+  jinaConsecutiveFailures = 0;
+  jinaBreakerTripped = false;
+}
+
 /** Build the Jina-proxied request (URL + headers) for a target URL. */
 export function jinaProxiedRequest(targetUrl) {
   const headers = {
@@ -73,6 +136,15 @@ export async function fetchViaJinaWithRetry(
   targetUrl,
   { timeoutMs = 30000, attempts = 4, retryDelayMs = 800, fetchImpl = fetch } = {},
 ) {
+  // Broad egress outage already detected this run → fast-fail with the same
+  // exhausted-response shape (no attempt), so the caller's graceful-skip path
+  // runs without paying the retry tax. (#1461 item 2)
+  if (jinaBreakerOpen()) {
+    return new Response('', {
+      status: 502,
+      headers: { 'content-type': 'text/html', 'x-jina-retry-reason': 'circuit-breaker-open' },
+    });
+  }
   let lastBody = '';
   let lastStatus = 0;
   let lastReason = 'no attempt made';
@@ -93,6 +165,7 @@ export async function fetchViaJinaWithRetry(
         const reason = detectJinaErrorBody(body);
         if (!reason) {
           // Real target page from a non-blocked Jina IP.
+          recordJinaSuccess();
           return new Response(body, {
             status: 200,
             headers: { 'content-type': res.headers.get('content-type') || 'text/html' },
@@ -107,8 +180,10 @@ export async function fetchViaJinaWithRetry(
       await new Promise((resolve) => setTimeout(resolve, retryDelayMs * attempt));
     }
   }
-  // Every attempt hit a blocked IP / error. Hand back the last response shape so
-  // the caller's unchanged graceful-skip path takes over (no false failure).
+  // Every attempt hit a blocked IP / error. Count it toward the breaker, then
+  // hand back the last response shape so the caller's unchanged graceful-skip
+  // path takes over (no false failure).
+  recordJinaFailure();
   return new Response(lastBody, {
     status: lastStatus || 502,
     headers: {
@@ -205,6 +280,10 @@ export async function fetchHtmlViaJinaWithRetry(
   targetUrl,
   { timeoutMs = 30000, retries, retryBaseMs } = {},
 ) {
+  // Broad egress outage already detected this run → fast-fail (null) with no
+  // attempt, so the caller's safe-fail (re-throw / skip, prior data preserved)
+  // runs without paying the retry tax on every URL in the wave. (#1461 item 2)
+  if (jinaBreakerOpen()) return null;
   const maxRetries = Math.max(
     0,
     Number.isFinite(retries) ? retries : Number(process.env.JOBS_JINA_RETRIES) || 2,
@@ -220,7 +299,10 @@ export async function fetchHtmlViaJinaWithRetry(
       if (res.ok) {
         const html = await res.text();
         const reason = detectJinaErrorBody(html);
-        if (!reason) return html;
+        if (!reason) {
+          recordJinaSuccess();
+          return html;
+        }
         lastReason = reason;
       } else {
         // Drain the unused non-2xx body so undici reclaims the connection before
@@ -240,6 +322,7 @@ export async function fetchHtmlViaJinaWithRetry(
     }
   }
   console.warn(`⚠️ Jina egress exhausted ${maxRetries + 1} attempt(s) for ${targetUrl} (last: ${lastReason}).`);
+  recordJinaFailure();
   return null;
 }
 
