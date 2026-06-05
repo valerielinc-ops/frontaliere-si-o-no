@@ -157,7 +157,7 @@ import {
   isConnectionLevelFetchError,
   fetchWithRetry,
 } from './transient-fetch.mjs';
-import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
@@ -478,7 +478,7 @@ export async function fetchJson(url, options = {}) {
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    return await fetchWithRetry(async () => {
+    const html = await fetchWithRetry(async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
       try {
@@ -498,6 +498,12 @@ export async function fetchHtml(url, options = {}) {
         clearTimeout(timer);
       }
     }, options);
+    // 200-but-challenge: the IP-reputation WAF (SiteGround sgcaptcha / Cloudflare,
+    // the cambiavalute class #1363) served a challenge page on a 200 to the
+    // datacenter egress IP. The fetch "succeeded" HTTP-wise so the connection
+    // rescue below never fires — re-fetch the real page through Jina's clean IP.
+    // Genuine pages pass through unchanged (zero cost).
+    return await rescueHtmlIfChallenged(html, url, { timeoutMs });
   } catch (err) {
     // Connection-level failure after retries: the runner's datacenter egress
     // can't reach an otherwise-healthy site (~1-3% of fetches/wave; the sites

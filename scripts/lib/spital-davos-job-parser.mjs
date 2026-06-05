@@ -30,6 +30,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -350,7 +351,8 @@ async function fetchPage(url) {
     });
     clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
+    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
+    return await rescueHtmlIfChallenged(await res.text(), url, {});
   } catch (err) {
     clearTimeout(timer);
     throw err;

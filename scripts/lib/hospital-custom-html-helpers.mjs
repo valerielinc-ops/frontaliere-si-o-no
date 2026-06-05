@@ -10,7 +10,7 @@
  */
 
 import { fetchWithRetry, RETRYABLE_STATUS, isConnectionLevelFetchError } from './transient-fetch.mjs';
-import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
 export const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -89,7 +89,7 @@ export function stripInlineJsCode(text = '') {
 export async function fetchHtml(url, { timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    return await fetchWithRetry(async () => {
+    const html = await fetchWithRetry(async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), t);
       try {
@@ -108,6 +108,8 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
         clearTimeout(timer);
       }
     }, { label: `hospital-custom-html ${url}` });
+    // 200-but-challenge (IP-reputation WAF served a challenge on a 200) → Jina.
+    return await rescueHtmlIfChallenged(html, url, { timeoutMs: t });
   } catch (err) {
     // The plain retries above all hit a connection-level `fetch failed`: the
     // GitHub runner's datacenter egress intermittently can't reach an otherwise

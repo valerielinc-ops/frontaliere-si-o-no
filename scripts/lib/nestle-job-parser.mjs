@@ -12,6 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
@@ -168,7 +169,8 @@ async function fetchJobDescriptionText(listingUrl) {
       redirect: 'follow',
     });
     if (!res.ok) return '';
-    const html = await res.text();
+    // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
+    const html = await rescueHtmlIfChallenged(await res.text(), listingUrl, {});
     const match = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
     if (!match) return '';
     return stripHtml(match[1])
