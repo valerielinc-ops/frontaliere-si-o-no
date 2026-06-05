@@ -218,12 +218,15 @@ export default function AdSenseBanner({
  return;
  }
 
- // Shared one-shot guard: the ad commits to loading exactly once. Whichever
- // path wins — IO fill, idle fallback, or first interaction — marks `triggered`
- // and detaches the interaction listeners, so a later mousemove/scroll can't
- // call setState('waiting_width') on an already-filled ad and hide it
- // (viewability/CLS regression). Mirrors the idempotent `loadScript` guard in
- // ADSENSE_LOADER_CONTENT (build-plugins/constants.ts).
+ // Shared one-shot guard: this slot commits to width-wait exactly once. The
+ // two paths that set state — IO fill and first interaction — mark `triggered`
+ // and detach the interaction listeners, so a later mousemove/scroll can't call
+ // setState('waiting_width') on an already-filled ad and hide it (viewability/
+ // CLS regression). The idle fallback is NOT in this set: it only loads
+ // adsbygoogle.js globally for Auto Ads while this manual slot still fills via a
+ // later interaction/scroll — setting `triggered` there would wrongly freeze the
+ // slot. Mirrors the idempotent `loadScript` guard in ADSENSE_LOADER_CONTENT
+ // (build-plugins/constants.ts).
  const INTERACTION_EVENTS: Array<keyof DocumentEventMap> = ['scroll', 'touchstart', 'pointerdown', 'keydown', 'mousemove'];
  let triggered = false;
  const removeInteractionListeners = () => {
