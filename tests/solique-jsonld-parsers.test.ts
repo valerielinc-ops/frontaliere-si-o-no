@@ -61,13 +61,20 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
     });
   });
 
-  it('extracts the job-introduction + content template without duplicating prose', () => {
-    const text = extractSoliqueDetailContent(SOLIQUE_DETAIL);
+  it('extracts the job-introduction + content template (migratedBoard) without duplicating prose', () => {
+    const text = extractSoliqueDetailContent(SOLIQUE_DETAIL, { migratedBoard: true });
     expect(text).toContain('Gute Pflege lebt von Beziehung');
     expect(text).toContain('• Aufgabe eins im Team');
     // intro sentence must appear exactly once (no swallow-and-re-extract)
     const occurrences = text.split('Gute Pflege lebt von Beziehung').length - 1;
     expect(occurrences).toBe(1);
+  });
+
+  it('does NOT fire Template (iv) without migratedBoard — established tenants are untouched', () => {
+    // A generic `content` div on a non-migrated tenant must not hijack the
+    // description via Template (iv) (the established-tenant regression guard).
+    const text = extractSoliqueDetailContent(SOLIQUE_DETAIL);
+    expect(text).toBe('');
   });
 });
 

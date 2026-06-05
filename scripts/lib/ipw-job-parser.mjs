@@ -24,6 +24,7 @@ export const IPW_COMPANY_DOMAIN = 'ipw.ch';
 const parser = createSoliqueParser({
   soliqueTenant: 'ipw',
   mode: 'api',
+  migratedBoard: true,
   apiLang: 'de',
   companyKey: IPW_KEY,
   companyName: IPW_COMPANY_NAME,

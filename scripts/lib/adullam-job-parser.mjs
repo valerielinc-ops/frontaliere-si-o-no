@@ -24,6 +24,7 @@ export const ADULLAM_COMPANY_DOMAIN = 'adullam.ch';
 
 const parser = createSoliqueParser({
   soliqueTenant: 'adullam',
+  migratedBoard: true,
   companyKey: ADULLAM_KEY,
   companyName: ADULLAM_COMPANY_NAME,
   companyDomain: ADULLAM_COMPANY_DOMAIN,

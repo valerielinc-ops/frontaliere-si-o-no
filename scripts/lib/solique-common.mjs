@@ -169,7 +169,7 @@ export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
  * (SVAR), the job-panel template (Oberengadin), and the "job-introduction +
  * content" template (migrated tenants adullam/ipw), with bullet preservation.
  */
-export function extractSoliqueDetailContent(html = '') {
+export function extractSoliqueDetailContent(html = '', opts = {}) {
   if (!html || typeof html !== 'string') return '';
 
   // Strip <script>, <style>, and HTML comments BEFORE the regex extraction.
@@ -284,15 +284,19 @@ export function extractSoliqueDetailContent(html = '') {
   // Template (iv): the migrated-tenant boards lay the description out as an intro
   // div (`job-introduction` on adullam SSR, `introduction` on ipw JSON-API) plus a
   // `<div class="content">` body (employer blurb + Aufgaben/Profil bullets, ipw
-  // wrapping them in `group`/`group-title` sub-sections). Gate on the `content`
-  // SIGNATURE — verified absent from every established Solique tenant
-  // (spital-emmental / oberengadin / svar), so it can never append stray text to
-  // them. When present, this template OWNS the description: it returns the clean
-  // intro+content, discarding whatever fragment templates i–iii grabbed from this
-  // board's chrome (e.g. ipw's `introduction` also matches Template iii-extra).
-  if (/<div\s+class="content"/i.test(cleaned)) {
+  // wrapping them in `group`/`group-title` sub-sections). This template OWNS the
+  // description, so it must NEVER fire for the established tenants
+  // (spital-emmental / oberengadin / svar) — instead of sniffing the generic
+  // `content` class on the shared HTML, it is opt-in per tenant via
+  // `opts.migratedBoard` (set only by adullam + ipw configs). Default off → the
+  // established tenants' extraction is byte-identical to before.
+  if (opts.migratedBoard) {
     const ivSections = [];
-    const TEMPLATE_IV_STOP = '<div\\s+class="(?:job-introduction|introduction|content|job-|infos-|apply|footer|sidebar|social|share)';
+    // Stop at the NEXT intro/content block or page chrome. The intro/content
+    // tokens require a class-boundary (`"` or whitespace) so a nested
+    // `content-wrapper`/`introduction-note` can't prematurely truncate the
+    // capture; the chrome tokens stay prefix-matches (e.g. `apply-button`).
+    const TEMPLATE_IV_STOP = '<div\\s+class="(?:(?:job-introduction|introduction|content)["\\s]|apply|footer|sidebar|social|share|navigation|cookie)';
     for (const cls of ['job-introduction', 'introduction', 'content']) {
       const rx = new RegExp(`<div\\s+class="${cls}"[^>]*>([\\s\\S]*?)(?:${TEMPLATE_IV_STOP}|$)`, 'i');
       const bm = cleaned.match(rx);
@@ -348,6 +352,10 @@ export function createSoliqueParser(config) {
     // instead of the flat `/job/details/{id}` SSR path. Default 'ssr' (flat board).
     mode = 'ssr',
     apiLang = 'de',
+    // Opt-in for detail Template (iv) — the `job-introduction`/`introduction` +
+    // `content` layout used by the ex-Umantis migrated boards (adullam, ipw).
+    // Keep false for every established tenant so their extraction is untouched.
+    migratedBoard = false,
   } = config;
 
   if (!soliqueTenant || !companyKey || !companyName || !defaultCanton) {
@@ -432,7 +440,7 @@ export function createSoliqueParser(config) {
       let detailContent = '';
       try {
         const detailHtml = await fetchHtml(detailUrl);
-        detailContent = extractSoliqueDetailContent(detailHtml);
+        detailContent = extractSoliqueDetailContent(detailHtml, { migratedBoard });
         if (detailContent) detailHits += 1;
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${err?.message || err}`);
