@@ -257,11 +257,25 @@ export default function AdSenseBanner({
  // fires still serves the anchor/in-page Auto Ads. Mirrors the interaction
  // listeners in ADSENSE_LOADER_CONTENT (build-plugins/constants.ts).
  const INTERACTION_EVENTS: Array<keyof DocumentEventMap> = ['scroll', 'touchstart', 'pointerdown', 'keydown', 'mousemove'];
- const onFirstInteraction = () => {
+ const removeInteractionListeners = () => {
+ if (typeof document === 'undefined') return;
+ for (const ev of INTERACTION_EVENTS) {
+ document.removeEventListener(ev, onFirstInteraction, true);
+ }
+ };
+ // One-shot: `{once:true}` is per-event-type, so without this guard the handler
+ // could re-fire (e.g. mousemove → script loaded → scroll) and a second
+ // setState('waiting_width') would drag an already-`filled` ad back to invisible
+ // (viewability/CLS regression). Mirror the IO callback's single-fire semantics.
+ let interacted = false;
+ function onFirstInteraction() {
+ if (interacted) return;
+ interacted = true;
+ removeInteractionListeners();
  io.disconnect();
  loadAdSenseScript();
  setState('waiting_width');
- };
+ }
  if (!SKIP_FOR_BOT && typeof document !== 'undefined') {
  for (const ev of INTERACTION_EVENTS) {
  document.addEventListener(ev, onFirstInteraction, { once: true, passive: true, capture: true });
@@ -275,11 +289,7 @@ export default function AdSenseBanner({
  }).cancelIdleCallback;
  if (idleHandle !== undefined && typeof cic === 'function') cic(idleHandle);
  if (idleTimer !== undefined) clearTimeout(idleTimer);
- if (typeof document !== 'undefined') {
- for (const ev of INTERACTION_EVENTS) {
- document.removeEventListener(ev, onFirstInteraction, true);
- }
- }
+ removeInteractionListeners();
  };
  }, [enabled, adSlot, loadAdSenseScript]);
 
