@@ -105,7 +105,7 @@ import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
-import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, hubSlugFor as seoHubSlugFor, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
+import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, hubSlugFor as seoHubSlugFor, svizzeraArticlesArchiveBasePaths as seoSvizzeraArticlesArchiveBasePaths, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
 import { resolveCantonSection as resolveSeoCantonSection } from '@/build-plugins/shared/cantonSection';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/jobSectorLanding';
 import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath } from '@/services/router';
@@ -2803,6 +2803,11 @@ const App: React.FC = () => {
            <li>
              <a href={hubs.articlesAll} className="text-xs font-semibold text-accent hover:underline no-underline">
                {t('seoHubs.footer.allArticles') || 'Tutti gli articoli →'}
+             </a>
+           </li>
+           <li>
+             <a href={seoSvizzeraArticlesArchiveBasePaths()[hubLoc]} className="text-xs font-semibold text-accent hover:underline no-underline">
+               {t('seoHubs.footer.allSwissArticles') || 'Tutti gli articoli Svizzera →'}
              </a>
            </li>
          </ul>

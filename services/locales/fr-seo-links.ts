@@ -75,6 +75,7 @@ const frSeoLinks: Record<string, string> = {
   'seoHubs.footer.allCompanies': 'Toutes les entreprises →',
   'seoHubs.footer.articles': 'Derniers articles',
   'seoHubs.footer.allArticles': 'Tous les articles →',
+  'seoHubs.footer.allSwissArticles': 'Tous les articles Suisse →',
 
   // Phase 2-UI — SEO hub-page
   'seo.hub.jobs.title': 'Toutes les offres d’emploi',
