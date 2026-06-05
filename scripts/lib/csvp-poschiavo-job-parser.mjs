@@ -10,6 +10,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { extractPdfJobContentFromUrl, buildPdfBackedDescription } from './pdf-job-content.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -82,12 +83,36 @@ export async function fetchAllCsvpPoschiavoJobs() {
   const jobs = [];
   for (const it of items) {
     const title = it.title;
-    const description = [
-      it.intro,
-      it.pdfUrl ? `Dettagli (PDF): ${it.pdfUrl}` : '',
-      'Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).',
-    ].filter(Boolean).join('\n\n');
-    const sourceLang = detectLang(description || title, 'it');
+    // The listing's inline intro is just "80-100% (m/f) — start date": the real
+    // job content (Compiti / Profilo / Requisiti) lives in the linked PDF. Fetch
+    // and extract it so the description is real content, not boilerplate — older
+    // postings happened to carry a richer inline intro, but IT/admin roles put
+    // everything in the PDF and would otherwise trip the boilerplate guard
+    // (#1393-class: 1/1 jobs boilerplate-only). Falls back to the thin intro if
+    // the PDF is unreachable/image-only.
+    let pdfText = '';
+    if (it.pdfUrl) {
+      try {
+        const extracted = await extractPdfJobContentFromUrl(it.pdfUrl);
+        pdfText = extracted?.text || '';
+      } catch (err) {
+        console.warn(`   ⚠️ PDF extraction failed for ${it.pdfUrl}: ${err?.message || err}`);
+      }
+    }
+    const description = buildPdfBackedDescription({
+      introLines: [it.intro],
+      pdfText,
+      fallbackText: it.intro,
+      footerLines: [
+        it.pdfUrl ? `Dettagli (PDF): ${it.pdfUrl}` : '',
+        'Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo (GR).',
+      ].filter(Boolean),
+    });
+    // Detect the source locale from the stable Italian listing fields (title +
+    // intro), NOT the now-PDF-backed description: a German-leaning PDF could
+    // otherwise flip sourceLang to 'de' and route the text to descriptionByLocale.de
+    // while the boilerplate guard reads descriptionByLocale.it.
+    const sourceLang = detectLang(`${title} ${it.intro || ''}`.trim() || description, 'it');
     const jobSlug = slugify(`${title} ${CSVP_POSCHIAVO_KEY} poschiavo`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
     jobs.push({
