@@ -1,0 +1,50 @@
+name: Unstick Pages (reset errored state)
+# When GitHub Pages gets stuck in status="errored" (accumulated after bursts of
+# failed/cancelled deployments) it refuses to ACTIVATE even successful Actions
+# deployments → the site freezes on an old build (prod outage 2026-06-05).
+# This resets the Pages state so pending good deployments activate. Run it
+# BEFORE retrying a deploy when the site is stuck. Conditional: no-op unless
+# errored (or force=true). Tries the SAFE reset first, the build_type toggle
+# only if needed.
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Reset even if status is not errored'
+        type: boolean
+        default: false
+permissions:
+  pages: write
+  id-token: write
+jobs:
+  unstick:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Reset Pages errored state (conditional)
+        run: |
+          set -uo pipefail
+          R="${GITHUB_REPOSITORY}"
+          read_status(){ gh api "repos/$R/pages" --jq '.status // "?"' 2>/dev/null || echo "?"; }
+          bt=$(gh api "repos/$R/pages" --jq '.build_type // "?"' 2>/dev/null || echo "?")
+          st=$(read_status)
+          echo "current: build_type=$bt status=$st"
+          if [ "$st" != "errored" ] && [ "${{ inputs.force }}" != "true" ]; then
+            echo "Pages not errored — nothing to do (use force=true to override)."; exit 0
+          fi
+          # 1) SAFE: request a build (no serving/source change)
+          echo "→ safe reset: POST /pages/builds"
+          gh api -X POST "repos/$R/pages/builds" >/dev/null 2>&1 || echo "  (builds POST not applicable in workflow mode)"
+          sleep 15
+          st=$(read_status); echo "after safe reset: status=$st"
+          if [ "$st" != "errored" ]; then echo "✅ cleared via safe reset"; exit 0; fi
+          # 2) TOGGLE: build_type legacy (transient, via existing gh-pages branch) → back to workflow
+          echo "→ toggle reset: legacy(gh-pages) → workflow"
+          printf '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || echo "  warn: legacy PUT failed"
+          sleep 8
+          printf '{"build_type":"workflow"}' | gh api -X PUT "repos/$R/pages" --input - >/dev/null 2>&1 || echo "  warn: workflow PUT failed"
+          sleep 12
+          st=$(read_status); bt=$(gh api "repos/$R/pages" --jq '.build_type // "?"' 2>/dev/null || echo "?")
+          echo "after toggle: build_type=$bt status=$st"
+          if [ "$st" = "errored" ]; then echo "::warning::still errored after both resets — may need manual intervention"; fi
