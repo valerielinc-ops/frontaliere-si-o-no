@@ -12,6 +12,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
+import { isNewsletterAutologinInFlight } from '@/services/newsletterAutologinSignal';
 
 // ─── Resilient Dynamic Import ────────────────────────────────
 // After a deploy, old chunk hashes no longer exist on the CDN.
@@ -1441,6 +1442,9 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  * Call this when the user arrives at a sign-in page
  */
 export async function promptOneTap(): Promise<void> {
+ // Suppress while a newsletter autologin is exchanging — the user is about to
+ // be signed in, so prompting now is redundant and delays the linked content.
+ if (isNewsletterAutologinInFlight()) return;
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
  if (authInstance?.currentUser) return;
