@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-06-05T22:39:14.185Z",
+  "generatedAt": "2026-06-06T11:01:07.378Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 16591,
-  "avgDurationMs": 16591,
+  "unchangedCount": 3,
+  "durationMs": 12389,
+  "avgDurationMs": 12389,
   "durationHistory": [
-    16591
+    12389
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -54,49 +54,6 @@
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
-      "title": "Kundenbetreuer:in Customer Center",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zofingen",
-      "canton": "AG",
-      "country": "CH",
-      "slug": "responsabile-dell-assistenza-clienti-in-customer-center-postfinance-zofingen",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-29",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Zofingen"
-      },
-      "crawledAt": "",
-      "id": "postfinance-ab7984c0d7f2",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "5000",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "addressRegion": "AG",
-      "firstSeenAt": "2026-05-29T13:34:15.377Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
         "completeness": 17
       }
     },
@@ -189,6 +146,49 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
+      "title": "Kundenbetreuer:in Customer Center",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zofingen",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "responsabile-dell-assistenza-clienti-in-customer-center-postfinance-zofingen",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-29",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Zofingen"
+      },
+      "crawledAt": "",
+      "id": "postfinance-ab7984c0d7f2",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "5000",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "addressRegion": "AG",
+      "firstSeenAt": "2026-05-29T13:34:15.377Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 17
+      }
+    },
     {
       "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
