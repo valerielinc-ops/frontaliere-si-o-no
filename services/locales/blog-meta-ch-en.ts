@@ -71,6 +71,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lonza-concierge-ticino-job.title': 'Lonza seeks reception staff',
     'blog.article.lonza-concierge-ticino-job.excerpt': 'Job opportunities 80-100% for installation and reception staff at Lonza in Ticino.',
     'blog.article.lonza-concierge-ticino-job.imageAlt': 'Lonza building in Switzerland, a symbol of employment and innovation.',
+    'blog.article.naspi-disoccupazione-frontaliere.title': 'Unemployment Benefits for Cross-Border Workers: Rules and Procedures',
+    'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Discover how the unemployment benefit works for those returning to Italy after working in Switzerland.',
+    'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Modern view of a building in Lugano',
 };
 
 export default blogMetaChEn;

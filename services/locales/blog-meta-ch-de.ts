@@ -71,6 +71,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lonza-concierge-ticino-job.title': 'Lonza sucht Mitarbeiter für den Portierdienst im Tessin',
     'blog.article.lonza-concierge-ticino-job.excerpt': 'Stellenangebote (80-100%) für Mitarbeiter im Bereich Anlagen und Portierdienst bei Lonza im Tessin.',
     'blog.article.lonza-concierge-ticino-job.imageAlt': 'Lonza-Gebäude in der Schweiz, ein Symbol für Beschäftigung und Innovation.',
+    'blog.article.naspi-disoccupazione-frontaliere.title': 'NASpI für Grenzgänger: Regeln und Verfahren',
+    'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Erfahre, wie das Arbeitslosengeld für Grenzgänger funktioniert, die nach Italien zurückkehren nach einer Beschäftigung in der Schweiz.',
+    'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Moderne Ansicht eines Gebäudes in Lugano',
 };
 
 export default blogMetaChDe;
