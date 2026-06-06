@@ -1834,7 +1834,7 @@
       "slug": "collaboratore-trice-gasteservice-schifffahrt-bls-ag-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-gasteservice-schifffahrt-bls-ag-bern",
-        "en": "staff-in-guest-service-shipping-bls-ag-bern",
+        "en": "associate-gasteservice-schifffahrt-bls-ag-bern",
         "de": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
         "fr": "collaborateur-trice-gasteservice-schifffahrt-bls-ag-bern"
       },
@@ -1880,14 +1880,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
+        "staff-in-guest-service-shipping-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
         ],
         "en": [
-          "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+          "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
+          "staff-in-guest-service-shipping-bls-ag-bern"
         ],
         "fr": [
           "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
