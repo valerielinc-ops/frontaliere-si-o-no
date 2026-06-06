@@ -1103,12 +1103,12 @@
     },
     {
       "id": "ipw-4f014e61d982",
-      "slug": "segretario-del-dottore-ufficio-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "assistente-medico-rappresentante-di-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur",
-        "it": "segretario-del-dottore-ufficio-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "doctor-s-secretary-maternity-s-office-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "fr": "secretaire-du-medecin-bureau-de-la-maternite-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "it": "assistente-medico-rappresentante-di-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "medical-secretary-maternity-representative-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "secretaire-medical-representant-de-la-maternite-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1170,6 +1170,9 @@
       "firstSeenAt": "2026-06-05T22:15:27.071Z",
       "previousSlugs": [
         "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur",
+        "segretario-del-dottore-ufficio-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "doctor-s-secretary-maternity-s-office-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "secretaire-du-medecin-bureau-de-la-maternite-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "segretaria-medica-segretario-medico-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "medical-secretary-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "arztsekretarin-arztsekretar-50-80-ipw-winterthur",
@@ -1185,13 +1188,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur"
+          "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur",
+          "segretario-del-dottore-ufficio-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
-          "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur"
+          "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur",
+          "doctor-s-secretary-maternity-s-office-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
-          "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur"
+          "arztsekretarin-arztsekretar-mutterschaftsvertretung-ipw-winterthur",
+          "secretaire-du-medecin-bureau-de-la-maternite-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       }
     }

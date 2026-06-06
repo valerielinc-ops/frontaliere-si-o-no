@@ -3527,9 +3527,9 @@
     },
     {
       "id": "hopital-du-valais-c8e757d35e02",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
         "de": "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
@@ -3576,11 +3576,10 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion"
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ],
         "en": [
@@ -3608,9 +3607,9 @@
     },
     {
       "id": "hopital-du-valais-47cdde9e836d",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
         "de": "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
@@ -3657,11 +3656,10 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion"
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
         ],
         "en": [
@@ -3689,12 +3687,12 @@
     },
     {
       "id": "hopital-du-valais-e0ba7599d3b6",
-      "slug": "collaborateur-trice-finances-a-50-hopital-du-valais-sion",
+      "slug": "50-collaboratore-finanziario-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "collaborateur-trice-finances-a-50-hopital-du-valais-sion",
-        "it": "collaborateur-trice-finances-a-50-hopital-du-valais-sion",
-        "en": "collaborateur-trice-finances-a-50-hopital-du-valais-sion",
-        "de": "collaborateur-trice-finances-a-50-hopital-du-valais-sion"
+        "it": "50-collaboratore-finanziario-hopital-du-valais-sion",
+        "en": "50-financial-collaborator-hopital-du-valais-sion",
+        "de": "50-finanzkommissar-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3751,7 +3749,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-05T22:12:15.346Z"
+      "firstSeenAt": "2026-06-05T22:12:15.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-finances-a-50-hopital-du-valais-sion"
+        ],
+        "en": [
+          "collaborateur-trice-finances-a-50-hopital-du-valais-sion"
+        ],
+        "de": [
+          "collaborateur-trice-finances-a-50-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-finances-a-50-hopital-du-valais-sion"
+      ]
     }
   ]
 }

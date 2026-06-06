@@ -1170,8 +1170,7 @@
       "previousSlugs": [
         "dipl-pflegefachperson-schwerpunkt-angst-pzm-muensingen-munsingen",
         "infirmier-ere-diplome-e-specialisation-dans-l-anxiete-psychiatriezentrum-munsingen-munsingen",
-        "dipl-ing-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
-        "specialista-infermieristico-qualificato-specializzato-in-ansia-psychiatriezentrum-munsingen-munsingen"
+        "dipl-ing-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1882,8 +1881,7 @@
         "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-pzm-muensingen-biel",
         "infermiere-a-professionale-psychiatriezentrum-munsingen-biel",
         "infirmier-ere-professionnel-le-psychiatriezentrum-munsingen-biel",
-        "dipl-das-ist-eine-gute-idee-psychiatriezentrum-munsingen-biel",
-        "dipl-pflegefach-psychiatriezentrum-munsingen-biel"
+        "dipl-das-ist-eine-gute-idee-psychiatriezentrum-munsingen-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1917,12 +1915,12 @@
     },
     {
       "id": "pzm-muensingen-b60dce17f8e3",
-      "slug": "oberarztin-oberarzt-pzm-muensingen-biel",
+      "slug": "medico-senior-psychiatriezentrum-munsingen-biel",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-pzm-muensingen-biel",
-        "en": "oberarztin-oberarzt-pzm-muensingen-biel",
+        "it": "medico-senior-psychiatriezentrum-munsingen-biel",
+        "en": "senior-doctor-psychiatriezentrum-munsingen-biel",
         "de": "oberarztin-oberarzt-pzm-muensingen-biel",
-        "fr": "oberarztin-oberarzt-pzm-muensingen-biel"
+        "fr": "medecin-principal-psychiatriezentrum-munsingen-biel"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -1975,7 +1973,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pzm-muensingen-biel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pzm-muensingen-biel"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-pzm-muensingen-biel"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pzm-muensingen-biel"
+      ]
     },
     {
       "id": "pzm-muensingen-06bb5f53ed5c",
