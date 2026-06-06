@@ -233,6 +233,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima',
+    category: 'novita',
+    date: '2026-06-06T07:31:46.061Z',
+    image: '/images/blog/la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
