@@ -329,12 +329,12 @@
     },
     {
       "id": "vitrea-gesundheit-3380f54f6ec3",
-      "slug": "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang",
+      "slug": "risorse-umane-fachperson-a-50-60-vitrea-gesundheit-dussnang",
       "slugByLocale": {
         "de": "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang",
-        "it": "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang",
+        "it": "risorse-umane-fachperson-a-50-60-vitrea-gesundheit-dussnang",
         "en": "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang",
-        "fr": "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang"
+        "fr": "ressources-humaines-fachperson-a-50-60-vitrea-gesundheit-dussnang"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -390,7 +390,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T23:04:22.402Z"
+      "firstSeenAt": "2026-06-05T23:04:22.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang"
+        ],
+        "fr": [
+          "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang"
+        ]
+      },
+      "previousSlugs": [
+        "hr-fachperson-a-50-60-vitrea-gesundheit-dussnang"
+      ]
     },
     {
       "id": "vitrea-gesundheit-cf862ecfe107",

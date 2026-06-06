@@ -1187,12 +1187,12 @@
     },
     {
       "id": "ubs-312d7c5decec",
-      "slug": "desk-head-uhnw-wm-ostschweiz-ubs",
+      "slug": "testa-da-scrivania-uhnw-wm-ostschweiz-ubs-ticino",
       "slugByLocale": {
         "de": "desk-head-uhnw-wm-ostschweiz-ubs",
-        "it": "desk-head-uhnw-wm-ostschweiz-ubs",
+        "it": "testa-da-scrivania-uhnw-wm-ostschweiz-ubs-ticino",
         "en": "desk-head-uhnw-wm-ostschweiz-ubs",
-        "fr": "desk-head-uhnw-wm-ostschweiz-ubs"
+        "fr": "tete-de-bureau-uhnw-wm-ostschweiz-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1254,7 +1254,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T23:02:59.198Z"
+      "firstSeenAt": "2026-06-05T23:02:59.198Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "desk-head-uhnw-wm-ostschweiz-ubs"
+        ],
+        "fr": [
+          "desk-head-uhnw-wm-ostschweiz-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "desk-head-uhnw-wm-ostschweiz-ubs"
+      ]
     },
     {
       "id": "ubs-c22801816648",
@@ -1690,12 +1701,12 @@
     },
     {
       "id": "ubs-0ddda72cc0e0",
-      "slug": "data-scientist-ubs",
+      "slug": "ricerca-di-dati-ubs-ticino",
       "slugByLocale": {
         "en": "data-scientist-ubs",
-        "it": "data-scientist-ubs",
-        "de": "data-scientist-ubs",
-        "fr": "data-scientist-ubs"
+        "it": "ricerca-di-dati-ubs-ticino",
+        "de": "datenwissenschaftler-ubs-ticino",
+        "fr": "scientifique-des-donnees-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1759,8 +1770,20 @@
       },
       "firstSeenAt": "2026-06-05T23:02:59.188Z",
       "previousSlugs": [
+        "data-scientist-ubs",
         "ricerca-di-dati-ubs"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-ubs"
+        ],
+        "de": [
+          "data-scientist-ubs"
+        ],
+        "fr": [
+          "data-scientist-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-9640c010a79f",
@@ -2509,9 +2532,9 @@
     },
     {
       "id": "ubs-502d61402cea",
-      "slug": "infrastructure-engineer-cloud-developer-postgresql-ubs",
+      "slug": "infrastructure-ingegnere-cloud-sviluppatore-postgresql-ubs-ticino",
       "slugByLocale": {
-        "it": "infrastructure-engineer-cloud-developer-postgresql-ubs",
+        "it": "infrastructure-ingegnere-cloud-sviluppatore-postgresql-ubs-ticino",
         "en": "infrastructure-engineer-cloud-developer-postgresql-ubs",
         "de": "infrastructure-ingenieur-cloud-entwickler-postgresql-ubs-ticino",
         "fr": "ingenieur-infrastructure-developpeur-cloud-postgresql-ubs-ticino"
@@ -2574,7 +2597,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infrastructure-engineer-cloud-developer-postgresql-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "infrastructure-engineer-cloud-developer-postgresql-ubs"
+      ]
     },
     {
       "id": "ubs-19b76d9c15ed",
@@ -2666,7 +2697,7 @@
       "slugByLocale": {
         "it": "specialista-mandate-ubs-ticino",
         "en": "mandate-specialist-ubs",
-        "de": "mandat-spezialist-ubs-ticino",
+        "de": "mandate-spezialist-ubs-ticino",
         "fr": "specialiste-du-mandat-ubs-ticino"
       },
       "company": "UBS",
@@ -2716,14 +2747,16 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "mandate-specialist-ubs"
+        "mandate-specialist-ubs",
+        "mandat-spezialist-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mandate-specialist-ubs"
         ],
         "de": [
-          "mandate-specialist-ubs"
+          "mandate-specialist-ubs",
+          "mandat-spezialist-ubs-ticino"
         ],
         "fr": [
           "mandate-specialist-ubs"

@@ -3650,12 +3650,12 @@
     },
     {
       "id": "csl-behring-846ef5b9a7fb",
-      "slug": "senior-principal-engineer-human-factors-csl-behring-ch",
+      "slug": "ingegnere-principale-fattori-umani-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-principal-engineer-human-factors-csl-behring-ch",
-        "it": "senior-principal-engineer-human-factors-csl-behring-ch",
+        "it": "ingegnere-principale-fattori-umani-csl-behring-bern",
         "de": "senior-principal-engineer-human-factors-csl-behring-ch",
-        "fr": "senior-principal-engineer-human-factors-csl-behring-ch"
+        "fr": "ingenieur-principal-principal-facteurs-humains-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3711,16 +3711,27 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-05T21:53:33.574Z"
+      "firstSeenAt": "2026-06-05T21:53:33.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-principal-engineer-human-factors-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-principal-engineer-human-factors-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-principal-engineer-human-factors-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-aa462e79050c",
-      "slug": "senior-project-manager-tech-ops-csl-behring-ch",
+      "slug": "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-project-manager-tech-ops-csl-behring-ch",
-        "it": "senior-project-manager-tech-ops-csl-behring-ch",
-        "de": "senior-project-manager-tech-ops-csl-behring-ch",
-        "fr": "senior-project-manager-tech-ops-csl-behring-ch"
+        "it": "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern",
+        "de": "leitender-projektmanager-tech-ops-csl-behring-bern",
+        "fr": "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3778,7 +3789,11 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-05T21:53:32.874Z",
       "previousSlugs": [
+        "specialista-di-laboratorio-tech-ops-csl-behring-bern",
+        "senior-project-manager-tech-ops-csl-behring-ch",
         "laboratory-specialist-tech-ops-csl-behring-ch",
+        "laborspezialist-tech-ops-csl-behring-bern",
+        "specialiste-de-laboratoire-operations-techniques-csl-behring-bern-9a1168",
         "specialiste-de-laboratoire-operations-techniques-csl-behring-bern",
         "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
         "senior-laboratory-specialist-tech-ops-csl-behring-ch",
@@ -3792,25 +3807,23 @@
         "senior-scientist-tech-ops-csl-behring-ch",
         "senior-wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-principal-tech-ops-csl-behring-bern",
-        "scientifique-principal-operations-techniques-csl-behring-bern",
-        "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern",
-        "senior-project-manager-tech-ops-csl-behring-ch",
-        "leitender-projektmanager-tech-ops-csl-behring-bern",
-        "chef-de-projet-senior-tech-ops-csl-behring-bern",
-        "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+        "scientifique-principal-operations-techniques-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-laboratorio-tech-ops-csl-behring-bern"
+          "specialista-di-laboratorio-tech-ops-csl-behring-bern",
+          "senior-project-manager-tech-ops-csl-behring-ch"
         ],
         "en": [
           "laboratory-specialist-tech-ops-csl-behring-ch"
         ],
         "de": [
-          "laborspezialist-tech-ops-csl-behring-bern"
+          "laborspezialist-tech-ops-csl-behring-bern",
+          "senior-project-manager-tech-ops-csl-behring-ch"
         ],
         "fr": [
-          "specialiste-de-laboratoire-operations-techniques-csl-behring-bern-9a1168"
+          "specialiste-de-laboratoire-operations-techniques-csl-behring-bern-9a1168",
+          "senior-project-manager-tech-ops-csl-behring-ch"
         ]
       }
     },
@@ -3953,7 +3966,7 @@
         "en": "associate-director-project-management-tech-ops-csl-behring-ch",
         "it": "associate-director-project-management-tech-ops-csl-behring-ch",
         "de": "associate-director-project-management-tech-ops-csl-behring-ch",
-        "fr": "associate-director-project-management-tech-ops-csl-behring-ch"
+        "fr": "directeur-associe-gestion-de-projet-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",

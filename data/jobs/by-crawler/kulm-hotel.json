@@ -532,12 +532,12 @@
     },
     {
       "id": "kulm-hotel-e75d9f7eab09",
-      "slug": "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz",
+      "slug": "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
         "en": "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz",
-        "it": "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz",
-        "de": "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz",
-        "fr": "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
+        "it": "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "de": "housekeeping-vorgesetzter-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "fr": "superviseur-de-l-entretien-menager-m-m-j-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -595,7 +595,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:23:49.839Z"
+      "firstSeenAt": "2026-06-05T22:23:49.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "de": [
+          "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-3becfd422865",
@@ -675,9 +689,9 @@
     },
     {
       "id": "kulm-hotel-d0995712e416",
-      "slug": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+      "slug": "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
-        "it": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+        "it": "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
         "de": "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
         "fr": "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz"
@@ -726,7 +740,6 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
@@ -734,7 +747,7 @@
         ]
       },
       "previousSlugs": [
-        "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-05-27T23:33:49.949Z",
       "salaryMin": 68000,
@@ -1085,7 +1098,7 @@
         "it": "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fr": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
+        "fr": "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -1149,7 +1162,6 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina",
           "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
@@ -1162,7 +1174,6 @@
       },
       "previousSlugs": [
         "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
-        "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina",
         "responsabile-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
         "mitarbeiter-m-w-d-kulm-hotel-st-moritz-pontresina",
         "autista-m-w-d-kulm-hotel-st-moritz-pontresina",

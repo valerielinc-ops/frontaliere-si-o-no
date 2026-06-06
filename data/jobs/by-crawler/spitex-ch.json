@@ -165,8 +165,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch",
         "it": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg",
-        "en": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg",
-        "fr": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg"
+        "en": "dipl-career-hf-or-fh-60-80-with-interest-in-palliative-care-spitex-rothenburg-rothenburg",
+        "fr": "dipl-carriere-hf-ou-fh-60-80-avec-interet-pour-les-soins-palliatifs-spitex-rothenburg-rothenburg"
       },
       "company": "Spitex Rothenburg",
       "companyKey": "spitex-ch",
@@ -216,9 +216,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch",
-        "dipl-career-hf-or-fh-60-80-with-interest-in-palliative-care-spitex-rothenburg-rothenburg",
-        "dipl-carriere-hf-ou-fh-60-80-avec-interet-pour-les-soins-palliatifs-spitex-rothenburg-rothenburg"
+        "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -956,8 +954,6 @@
         "dipl-care-specialist-hf-fh-with-drop-guidance-80-100-spitex-stafa-stafa",
         "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
         "dipl-specialiste-des-soins-hf-fh-avec-guide-d-abandon-80-100-spitex-stafa-stafa",
-        "dipl-specialista-di-cura-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "infermiere-dipl-hf-specializzato-in-psichiatria-infantile-e-juvenile-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
         "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
@@ -1449,12 +1445,12 @@
     },
     {
       "id": "spitex-ch-eb3e6a3fc7e1",
-      "slug": "co-teamleitung-pflege-60-80-spitex-ch-horw",
+      "slug": "co-team-management-care-60-80-spitex-horw-horw",
       "slugByLocale": {
         "de": "co-teamleitung-pflege-60-80-spitex-ch-horw",
-        "it": "co-teamleitung-pflege-60-80-spitex-ch-horw",
+        "it": "co-team-management-care-60-80-spitex-horw-horw",
         "en": "co-teamleitung-pflege-60-80-spitex-ch-horw",
-        "fr": "co-teamleitung-pflege-60-80-spitex-ch-horw"
+        "fr": "soins-de-cogestion-60-80-spitex-horw-horw"
       },
       "company": "Spitex Horw",
       "companyKey": "spitex-ch",
@@ -1512,9 +1508,18 @@
       },
       "firstSeenAt": "2026-06-05T22:52:52.311Z",
       "previousSlugs": [
+        "co-teamleitung-pflege-60-80-spitex-ch-horw",
         "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
         "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleitung-pflege-60-80-spitex-ch-horw"
+        ],
+        "fr": [
+          "co-teamleitung-pflege-60-80-spitex-ch-horw"
+        ]
+      }
     },
     {
       "id": "spitex-ch-33c2437cd148",
@@ -1693,8 +1698,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
         "it": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "fr": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+        "en": "professional-health-efz-psychiatry-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "sante-professionnelle-efz-psychiatrie-m-p-j-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1745,8 +1750,6 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
-        "professional-health-efz-psychiatry-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "sante-professionnelle-efz-psychiatrie-m-p-j-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
         "salute-professionale-efz-psichiatria-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       ],
       "salaryMin": 51500,
@@ -1819,9 +1822,6 @@
         "dipl-nursing-professional-hf-with-case-management-50-100-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-mit-fallfuhrung-50-100-spitex-ch-reinach-bl",
         "diplome-e-en-soins-infirmiers-hf-avec-gestion-de-cas-50-100-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa",
-        "dipl-care-specialist-hf-fh-with-drop-guidance-80-100-spitex-stafa-stafa",
-        "dipl-specialiste-des-soins-hf-fh-avec-guide-d-abandon-80-100-spitex-stafa-stafa",
         "dipl-specialista-di-cura-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
         "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",

@@ -1835,8 +1835,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
         "it": "collaboratore-trice-gasteservice-schifffahrt-bls-ag-bern",
-        "en": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
-        "fr": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        "en": "staff-in-guest-service-shipping-bls-ag-bern",
+        "fr": "collaborateur-trice-gasteservice-schifffahrt-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1883,6 +1883,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
         ]
       },
