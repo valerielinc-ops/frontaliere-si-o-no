@@ -140,6 +140,16 @@ async function fetchMigrosJobDetailUrls() {
   const headless = process.env.JOBS_MIGROS_HEADLESS !== '0';
   const navTimeoutMs = Number(process.env.JOBS_MIGROS_NAV_TIMEOUT_MS) || 30000;
   const paginationTimeoutMs = Number(process.env.JOBS_MIGROS_PAGINATION_TIMEOUT_MS) || 2000;
+  // How many times to re-poll the DOM (waiting paginationTimeoutMs each time)
+  // before concluding a freshly-clicked page genuinely added no new URLs. On a
+  // slow CI render (>paginationTimeoutMs) the next page can still show the
+  // previous page's anchors after a single wait → a bare `added===0` break
+  // would terminate early and silently under-collect. Re-polling absorbs the
+  // render lag; only a page that stays empty across every poll is terminal.
+  const paginationStallPolls = Math.max(
+    1,
+    Number(process.env.JOBS_MIGROS_PAGINATION_STALL_POLLS) || 4,
+  );
   // Uncapped: the loop below already terminates naturally when a page adds no
   // new URLs or the "next" button disappears, so this only guards against a
   // runaway pagination control. Was 25 → silently dropped ~380 of 1180 jobs.
@@ -205,12 +215,21 @@ async function fetchMigrosJobDetailUrls() {
 
       await nextBtn.scrollIntoViewIfNeeded().catch(() => {});
       await nextBtn.click().catch(() => {});
-      await page.waitForTimeout(paginationTimeoutMs);
       pageIdx += 1;
 
+      // Re-poll the DOM until the clicked page actually renders new anchors.
+      // A single waitForTimeout races the SPA's async re-render: on a slow CI
+      // render the page still shows the previous anchors, so collecting once
+      // and breaking on added===0 under-collects. Only break once every poll
+      // (paginationStallPolls × paginationTimeoutMs) comes back empty.
       const before = allUrls.size;
-      for (const u of await collect()) allUrls.add(u);
-      const added = allUrls.size - before;
+      let added = 0;
+      for (let poll = 0; poll < paginationStallPolls; poll += 1) {
+        await page.waitForTimeout(paginationTimeoutMs);
+        for (const u of await collect()) allUrls.add(u);
+        added = allUrls.size - before;
+        if (added > 0) break;
+      }
       console.log(`  📄 Page ${pageIdx}: +${added} (${allUrls.size} total)`);
       if (added === 0) break;
     }
