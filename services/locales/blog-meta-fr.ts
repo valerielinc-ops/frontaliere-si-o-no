@@ -7988,6 +7988,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fine-scuole-ticino-2026.title': 'Vacances 2026: Impact sur les frontaliers',
     'blog.article.fine-scuole-ticino-2026.excerpt': 'Le calendrier officiel des vacances scolaires 2026 au canton du Tessin a été défini, avec des dates importantes pour les familles et les travailleurs frontaliers.',
     'blog.article.fine-scuole-ticino-2026.imageAlt': 'Une école à Mendrisio, Tessin, à la fin des vacances scolaires',
+    'blog.article.frontaliere.title': 'Nouvelles règles pour les travailleurs frontaliers au Tessin',
+    'blog.article.frontaliere.excerpt': 'Les nouvelles règles et normes pour les travailleurs frontaliers dans le canton du Tessin',
+    'blog.article.frontaliere.imageAlt': 'Une ville dans le Canton du Tessin avec un mélange d\'édifices historiques et modernes',
 };
 
 export default blogMetaFr;

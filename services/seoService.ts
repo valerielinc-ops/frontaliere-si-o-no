@@ -3936,6 +3936,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-naspi-disoccupazione-frontaliere': { name: 'NASpI Frontalieri', path: '/articoli-svizzera/naspi-disoccupazione-frontaliere/', parent: 'blog' },
     'blog-fine-scuole-ticino-2026': { name: 'Vacanze scolastiche 2026', path: '/articoli-frontaliere/fine-scuole-ticino-2026', parent: 'blog' },
     'blog-lavoro-produzione-farmaceutica-coira': { name: 'Lavoro Coira', path: '/articoli-svizzera/lavoro-produzione-farmaceutica-coira/', parent: 'blog' },
+    'blog-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];

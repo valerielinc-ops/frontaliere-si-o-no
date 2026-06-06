@@ -7986,6 +7986,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fine-scuole-ticino-2026.title': 'Urlaub 2026: Auswirkungen für Grenzgänger',
     'blog.article.fine-scuole-ticino-2026.excerpt': 'Der offizielle Schulfreiheitskalender 2026 im Kanton Tessin wurde festgelegt, mit wichtigen Daten für Familien und Grenzgänger.',
     'blog.article.fine-scuole-ticino-2026.imageAlt': 'Eine Schule in Mendrisio, Tessin, am Ende der Schulferien',
+    'blog.article.frontaliere.title': 'Neue Regeln für Grenzgänger im Kanton Tessin',
+    'blog.article.frontaliere.excerpt': 'Neue Normen und Regeln für Grenzgänger im Kanton Tessin',
+    'blog.article.frontaliere.imageAlt': 'Eine Stadt im Kanton Tessin mit einem Mix aus historischen und modernen Gebäuden',
 };
 
 export default blogMetaDe;
