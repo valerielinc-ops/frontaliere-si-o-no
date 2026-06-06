@@ -25,7 +25,7 @@
       "fr": "dipl-pflegefachfrau-mann-als-ausbildner-in-40-100-kssg-ch"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-06-05T22:22:58.092Z",
+    "expiredAt": "2026-06-06T10:46:31.703Z",
     "previousSlugs": [
       "dipl-pflegefachfrau-mann-als-ausbildner-in-40-100-kssg-ch",
       "dipl-pflegefachfrau-mann-come-ausbildner-in-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
@@ -5352,7 +5352,7 @@
       "fr": "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-06-05T22:22:58.092Z",
+    "expiredAt": "2026-06-06T10:46:31.703Z",
     "previousSlugs": [
       "dipl-pflegefachfrau-mann-60-100-kssg-ch",
       "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs"
@@ -5371,5 +5371,183 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true
+  },
+  {
+    "slug": "sostanza-nel-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-2abf67",
+    "title": "Unterassistent/in 2028",
+    "titleByLocale": {
+      "it": "Sostanza nel 2028",
+      "en": "Unterassistent/in 2028",
+      "de": "Unterassistent/in 2028",
+      "fr": "Unterassistent/in 2028"
+    },
+    "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+    "companyKey": "kssg",
+    "location": "Praktikum",
+    "addressLocality": "Praktikum",
+    "descriptionByLocale": {
+      "it": "Unterassistent/in 2028 Arbeitsort St. Gallen Deine\n• Aufgaben und Perspektiven Für die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Ein Teil unserer Kliniken bietet ausserdem Praktika vor dem Praktischen Jahr in Form von Famulaturen an: Fachbereich verfügbarer Zeitraum Departement Innere Medizin (Bieten keine Famulaturen an)",
+      "en": "Unterassistent/in 2028 Arbeitsort St. Gallen Deine\n• Aufgaben und Perspektiven Für die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Ein Teil unserer Kliniken bietet ausserdem Praktika vor dem Praktischen Jahr in Form von Famulaturen an: Fachbereich verfügbarer Zeitraum Departement Innere Medizin (Bieten keine Famulaturen an)",
+      "de": "Unterassistent/in 2028 Arbeitsort St. Gallen Deine \n• Aufgaben und Perspektiven Für die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Ein Teil unserer Kliniken bietet ausserdem Praktika vor dem Praktischen Jahr in Form von Famulaturen an: Fachbereich verfügbarer Zeitraum Departement Innere Medizin (Bieten keine Famulaturen an)",
+      "fr": "Unterassistent/in 2028 Arbeitsort St. Gallen Deine\n• Aufgaben und Perspektiven Für die Absolvierung des Praktischen Jahres bei HOCH Health Ostschweiz bieten wir dir als Unterassistentin und Unterassistent in den untenstehenden Fachbereichen Unterassistenzstellen an. Ein Teil unserer Kliniken bietet ausserdem Praktika vor dem Praktischen Jahr in Form von Famulaturen an: Fachbereich verfügbarer Zeitraum Departement Innere Medizin (Bieten keine Famulaturen an)"
+    },
+    "slugByLocale": {
+      "it": "sostanza-nel-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-2abf67",
+      "en": "unterassistent-in-2028-kssg-ch-2",
+      "de": "unterassistent-in-2028-kssg-ch",
+      "fr": "unterassistent-in-2028-kssg-ch-2"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-06-06T10:46:09.249Z",
+    "previousSlugs": [
+      "unterassistent-in-2028-kssg-ch-2",
+      "unterassistent-in-2028-kssg-ch-4",
+      "unterassistent-in-2028-kssg-ch-3",
+      "unterassistent-in-2028-kssg-ch",
+      "unterassistent-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "unterassistent-in-2028-kssg-ch-2",
+        "unterassistent-in-2028-kssg-ch-4",
+        "unterassistent-in-2028-kssg-ch-3",
+        "unterassistent-in-2028-kssg-ch"
+      ],
+      "de": [
+        "unterassistent-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum"
+      ]
+    },
+    "postalCode": "9000",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "tirocinio-breve-nel-settore-professionale-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum",
+    "title": "Kurzpraktikum im Berufsfeld Pflege",
+    "titleByLocale": {
+      "it": "Tirocinio breve nel settore professionale infermieristico",
+      "en": "Kurzpraktikum im Berufsfeld Pflege",
+      "de": "Kurzpraktikum im Berufsfeld Pflege",
+      "fr": "Kurzpraktikum im Berufsfeld Pflege"
+    },
+    "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+    "companyKey": "kssg",
+    "location": "Praktikum",
+    "addressLocality": "Praktikum",
+    "descriptionByLocale": {
+      "it": "Kurzpraktikum im Berufsfeld Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• 4-wöchiges Praktikum zur Erreichung der Voraussetzung für die Fortsetzung des Medizinstudiums\n• Einblick ins Berufsfeld Pflege, um die Berufswahl zu überprüfen\n• Unterstützen des Fachpersonals im Berufsalltag Vertiefung zwischenmenschlicher Beziehungen mit kranken Menschen\n• Körperliches, soziales und psychisches Wohlbefinden von Patientinnen und Patienten unterstützen Was du für diese Stelle mitbringst\n• Maturaabschluss oder baldiger Abschluss mit dem Ziel Bachelor in Medizin oder Immatrikulation an einer schweizerischen Universität\n• Empathisch im Umgang mit Patientinnen und Patienten\n• Bestehendes Interesse erste Arbeitserfahrungen in einem Akutspital zu sammeln\n• Teamfähigkeit\n• Gute Beobachtungs- und Wahrnehmungsfähigkeit Unser Angebot an dich\n• Ein Kurzpraktikum verschafft dir einen ersten Einblick in den Bereich Pflege in einem Akutspital\n• Du arbeitst in einem modernen Arbeitsumfeld mit einem gut ausgebildeten, qualifizierten und erfahrenen Team\n• Während des Kurzpraktikums bekommst du die Chance, dich mit Auszubildenden verschiedenster Bildungsgänge auszutauschen Deine Bewerbung\n• Eintritt nach Vereinbarung\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Sina Kollmann, Studierende im Nebenjob, Telefon +41 71 494 73 45\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "en": "Kurzpraktikum im Berufsfeld Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• 4-wöchiges Praktikum zur Erreichung der Voraussetzung für die Fortsetzung des Medizinstudiums\n• Einblick ins Berufsfeld Pflege, um die Berufswahl zu überprüfen\n• Unterstützen des Fachpersonals im Berufsalltag Vertiefung zwischenmenschlicher Beziehungen mit kranken Menschen\n• Körperliches, soziales und psychisches Wohlbefinden von Patientinnen und Patienten unterstützen Was du für diese Stelle mitbringst\n• Maturaabschluss oder baldiger Abschluss mit dem Ziel Bachelor in Medizin oder Immatrikulation an einer schweizerischen Universität\n• Empathisch im Umgang mit Patientinnen und Patienten\n• Bestehendes Interesse erste Arbeitserfahrungen in einem Akutspital zu sammeln\n• Teamfähigkeit\n• Gute Beobachtungs- und Wahrnehmungsfähigkeit Unser Angebot an dich\n• Ein Kurzpraktikum verschafft dir einen ersten Einblick in den Bereich Pflege in einem Akutspital\n• Du arbeitst in einem modernen Arbeitsumfeld mit einem gut ausgebildeten, qualifizierten und erfahrenen Team\n• Während des Kurzpraktikums bekommst du die Chance, dich mit Auszubildenden verschiedenster Bildungsgänge auszutauschen Deine Bewerbung\n• Eintritt nach Vereinbarung\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Sina Kollmann, Studierende im Nebenjob, Telefon +41 71 494 73 45\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "de": "Kurzpraktikum im Berufsfeld Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• 4-wöchiges Praktikum zur Erreichung der Voraussetzung für die Fortsetzung des Medizinstudiums\n• Einblick ins Berufsfeld Pflege, um die Berufswahl zu überprüfen\n• Unterstützen des Fachpersonals im Berufsalltag Vertiefung zwischenmenschlicher Beziehungen mit kranken Menschen\n• Körperliches, soziales und psychisches Wohlbefinden von Patientinnen und Patienten unterstützen Was du für diese Stelle mitbringst\n• Maturaabschluss oder baldiger Abschluss mit dem Ziel Bachelor in Medizin oder Immatrikulation an einer schweizerischen Universität\n• Empathisch im Umgang mit Patientinnen und Patienten\n• Bestehendes Interesse erste Arbeitserfahrungen in einem Akutspital zu sammeln\n• Teamfähigkeit\n• Gute Beobachtungs- und Wahrnehmungsfähigkeit Unser Angebot an dich\n• Ein Kurzpraktikum verschafft dir einen ersten Einblick in den Bereich Pflege in einem Akutspital\n• Du arbeitest in einem modernen Arbeitsumfeld mit einem gut ausgebildeten, qualifizierten und erfahrenen Team\n• Während des Kurzpraktikums bekommst du die Chance, dich mit Auszubildenden verschiedenster Bildungsgänge auszutauschen Deine Bewerbung\n• Eintritt nach Vereinbarung\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Sina Kollmann, Studierende im Nebenjob, Telefon +41 71 494 73 45\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "fr": "Kurzpraktikum im Berufsfeld Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• 4-wöchiges Praktikum zur Erreichung der Voraussetzung für die Fortsetzung des Medizinstudiums\n• Einblick ins Berufsfeld Pflege, um die Berufswahl zu überprüfen\n• Unterstützen des Fachpersonals im Berufsalltag Vertiefung zwischenmenschlicher Beziehungen mit kranken Menschen\n• Körperliches, soziales und psychisches Wohlbefinden von Patientinnen und Patienten unterstützen Was du für diese Stelle mitbringst\n• Maturaabschluss oder baldiger Abschluss mit dem Ziel Bachelor in Medizin oder Immatrikulation an einer schweizerischen Universität\n• Empathisch im Umgang mit Patientinnen und Patienten\n• Bestehendes Interesse erste Arbeitserfahrungen in einem Akutspital zu sammeln\n• Teamfähigkeit\n• Gute Beobachtungs- und Wahrnehmungsfähigkeit Unser Angebot an dich\n• Ein Kurzpraktikum verschafft dir einen ersten Einblick in den Bereich Pflege in einem Akutspital\n• Du arbeitst in einem modernen Arbeitsumfeld mit einem gut ausgebildeten, qualifizierten und erfahrenen Team\n• Während des Kurzpraktikums bekommst du die Chance, dich mit Auszubildenden verschiedenster Bildungsgänge auszutauschen Deine Bewerbung\n• Eintritt nach Vereinbarung\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Sina Kollmann, Studierende im Nebenjob, Telefon +41 71 494 73 45\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+    },
+    "slugByLocale": {
+      "it": "tirocinio-breve-nel-settore-professionale-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum",
+      "en": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch",
+      "de": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch",
+      "fr": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-06-06T10:46:09.249Z",
+    "previousSlugs": [
+      "kurzpraktikum-im-berufsfeld-pflege-kssg-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "kurzpraktikum-im-berufsfeld-pflege-kssg-ch"
+      ]
+    },
+    "postalCode": "9000",
+    "salaryMin": 41600,
+    "salaryMax": 63000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "tirocinio-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum-d88fec",
+    "title": "Praktikum in der Pflege",
+    "titleByLocale": {
+      "it": "Tirocinio infermieristico",
+      "en": "Praktikum in der Pflege",
+      "de": "Praktikum in der Pflege",
+      "fr": "Praktikum in der Pflege"
+    },
+    "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+    "companyKey": "kssg",
+    "location": "Praktikum",
+    "addressLocality": "Praktikum",
+    "descriptionByLocale": {
+      "it": "Praktikum in der Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• Sammeln von Erfahrungen im Berufsfeld Pflege\n• Mitwirkung im Betreuungsprozess von Patientinnen und Patienten\n• Unterstützung bei der Körperpflege, bei der Mobilisation oder beim Essen\n• Erledigung von logistischen, hauswirtschaftlichen und administrative Tätigkeiten Was du für diese Stelle mitbringst\n• Du bist bei Praktikumsbeginn mindestens 15 Jahre alt\n• Du planst ein Überbrückungsjahr nach Abschluss der obligatorischen Schulzeit und vor dem Start in eine Berufslehre\n• Du arbeitest verantwortungsbewusst und sorgfältig\n• Du bist physisch und psychisch belastbar\n• Unregelmässige Arbeitszeiten sind für dich kein Problem Unser Angebot an dich\n• Das Praktikum dauert zwischen 2 und 12 Monaten\n• Du absolvierst dein Praktikum in einem spannenden und anspruchsvollen Berufsfeld\n• Du arbeitest eng mit qualifizierten Fachpersonen aus verschiedenen Berufsgruppen zusammen\n• Du erhältst die Chance, deine Eignung für einen Beruf im Gesundheitswesen zu prüfen\n• Du kannst dein Praktikum mit einer Vorlehre kombinieren Deine Bewerbung\n• Eintritt nach Vereinbarung mit frühestmöglichem Startzeitpunkt ab März 2026\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Jasmin Steingruber, Fachspezialistin HR Bildung, Telefon +41 71 494 23 54\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "en": "Praktikum in der Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• Sammeln von Erfahrungen im Berufsfeld Pflege\n• Mitwirkung im Betreuungsprozess von Patientinnen und Patienten\n• Unterstützung bei der Körperpflege, bei der Mobilisation oder beim Essen\n• Erledigung von logistischen, hauswirtschaftlichen und administrative Tätigkeiten Was du für diese Stelle mitbringst\n• Du bist bei Praktikumsbeginn mindestens 15 Jahre alt\n• Du planst ein Überbrückungsjahr nach Abschluss der obligatorischen Schulzeit und vor dem Start in eine Berufslehre\n• Du arbeitest verantwortungsbewusst und sorgfältig\n• Du bist physisch und psychisch belastbar\n• Unregelmässige Arbeitszeiten sind für dich kein Problem Unser Angebot an dich\n• Das Praktikum dauert zwischen 2 und 12 Monaten\n• Du absolvierst dein Praktikum in einem spannenden und anspruchsvollen Berufsfeld\n• Du arbeitest eng mit qualifizierten Fachpersonen aus verschiedenen Berufsgruppen zusammen\n• Du erhältst die Chance, deine Eignung für einen Beruf im Gesundheitswesen zu prüfen\n• Du kannst dein Praktikum mit einer Vorlehre kombinieren Deine Bewerbung\n• Eintritt nach Vereinbarung mit frühestmöglichem Startzeitpunkt ab März 2026\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Jasmin Steingruber, Fachspezialistin HR Bildung, Telefon +41 71 494 23 54\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "de": "Praktikum in der Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• Sammeln von Erfahrungen im Berufsfeld Pflege\n• Mitwirkung im Betreuungsprozess von Patientinnen und Patienten\n• Unterstützung bei der Körperpflege, bei der Mobilisation oder beim Essen\n• Erledigung von logistischen, hauswirtschaftlichen und administrative Tätigkeiten Was du für diese Stelle mitbringst\n• Du bist bei Praktikumsbeginn mindestens 15 Jahre alt\n• Du planst ein Überbrückungsjahr nach Abschluss der obligatorischen Schulzeit und vor dem Start in eine Berufslehre\n• Du arbeitest verantwortungsbewusst und sorgfältig\n• Du bist physisch und psychisch belastbar\n• Unregelmässige Arbeitszeiten sind für dich kein Problem Unser Angebot an dich\n• Das Praktikum dauert zwischen 2 und 12 Monaten\n• Du absolvierst dein Praktikum in einem spannenden und anspruchsvollen Berufsfeld\n• Du arbeitest eng mit qualifizierten Fachpersonen aus verschiedenen Berufsgruppen zusammen\n• Du erhältst die Chance, deine Eignung für einen Beruf im Gesundheitswesen zu prüfen\n• Du kannst dein Praktikum mit einer Vorlehre kombinieren Deine Bewerbung\n• Eintritt nach Vereinbarung mit frühestmöglichem Startzeitpunkt ab Juni 2026\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Jasmin Steingruber, Fachspezialistin HR Bildung, Telefon +41 71 494 23 54\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "fr": "Praktikum in der Pflege Arbeitsort St. Gallen Stellenanzeige Deine Aufgaben und Perspektiven\n• Sammeln von Erfahrungen im Berufsfeld Pflege\n• Mitwirkung im Betreuungsprozess von Patientinnen und Patienten\n• Unterstützung bei der Körperpflege, bei der Mobilisation oder beim Essen\n• Erledigung von logistischen, hauswirtschaftlichen und administrative Tätigkeiten Was du für diese Stelle mitbringst\n• Du bist bei Praktikumsbeginn mindestens 15 Jahre alt\n• Du planst ein Überbrückungsjahr nach Abschluss der obligatorischen Schulzeit und vor dem Start in eine Berufslehre\n• Du arbeitest verantwortungsbewusst und sorgfältig\n• Du bist physisch und psychisch belastbar\n• Unregelmässige Arbeitszeiten sind für dich kein Problem Unser Angebot an dich\n• Das Praktikum dauert zwischen 2 und 12 Monaten\n• Du absolvierst dein Praktikum in einem spannenden und anspruchsvollen Berufsfeld\n• Du arbeitest eng mit qualifizierten Fachpersonen aus verschiedenen Berufsgruppen zusammen\n• Du erhältst die Chance, deine Eignung für einen Beruf im Gesundheitswesen zu prüfen\n• Du kannst dein Praktikum mit einer Vorlehre kombinieren Deine Bewerbung\n• Eintritt nach Vereinbarung mit frühestmöglichem Startzeitpunkt ab März 2026\n• Mehr zu diesem spannenden Praktikum erfährst du auf unserer Webseite oder von Jasmin Steingruber, Fachspezialistin HR Bildung, Telefon +41 71 494 23 54\n• Nutze deine Chance und absolviere dein Praktikum bei HOCH Health Ostschweiz Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+    },
+    "slugByLocale": {
+      "it": "tirocinio-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum-d88fec",
+      "en": "praktikum-in-der-pflege-kssg-ch",
+      "de": "praktikum-in-der-pflege-kssg-ch",
+      "fr": "praktikum-in-der-pflege-kssg-ch"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-06-06T10:46:09.249Z",
+    "previousSlugs": [
+      "praktikum-in-der-pflege-kssg-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "praktikum-in-der-pflege-kssg-ch"
+      ]
+    },
+    "postalCode": "9000",
+    "salaryMin": 41600,
+    "salaryMax": 63000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "medico-senior-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+    "title": "Oberärztin/-arzt 60%",
+    "titleByLocale": {
+      "it": "Medico senior 60%",
+      "en": "Oberärztin/-arzt 60%",
+      "de": "Oberärztin/-arzt 60%",
+      "fr": "Oberärztin/-arzt 60%"
+    },
+    "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+    "companyKey": "kssg",
+    "location": "Festanstellung",
+    "addressLocality": "Festanstellung",
+    "descriptionByLocale": {
+      "it": "Oberärztin/-arzt 60% Brustzentrum St. Gallen Arbeitsort St. Gallen Stellenanzeige Ihre Aufgaben und Perspektiven\n• Eigenverantwortliche Betreuung/Abklärung von senologischen Patientinnen (inkl. Mammasonographie, Biopsien)\n• Operieren eigener Patientinnen inkl. OP-Planung und Nachbetreuung\n• Supervision und senologische Aus- und Weiterbildung von Assistenzärztinnen/-ärzten der Gynäkologie\n• Senologischer Hintergrunddienst und Teilnahme am interdisziplinären Tumorboard\n• Betreuung von senologisch operativen Studien, wissenschaftliches Arbeiten/Forschungstätigkeit\n• Aktive Mitarbeit/Gestaltung interner und öffentlicher Fortbildungen/Veranstaltungen des Brustzentrums und Kooperation mit unseren Netzwerkpartnern Was Sie für diese Stelle mitbringen\n• Eidgenössischer Facharzttitel für Gynäkologie und Geburtshilfe (FMH) oder gleichwertiger anerkannter Titel aus dem Ausland\n• Oberärztliche Erfahrung auf dem Gebiet der diagnostischen und operativen Senologie\n• Teamfähigkeit, Verantwortungsbewusstsein und hohe Sozialkompetenz\n• Freude an interdisziplinärer Zusammenarbeit\n• Interesse und Motivation an der Aus- und Fortbildung sowie an Forschung und wissenschaftlicher Arbeit Unser Angebot an Sie\n• Arbeiten in einem interdisziplinären erfahrenen Team\n• Persönliche Weiterentwicklung auf dem Gebiet der Senologie\n• Kernteammitgliedschaft im Rahmen der Zertifizierung\n• Erwerb des Schwerpunkttitels gynäkologische Senologie Ihre Bewerbung\n• Eintritt per 1. April 2026 oder nach Vereinbarung\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Prof. Dr. Jens Huober, Chefarzt, Telefon +41 71 494 18 88 oder Frau PD Dr. Inga Bekes, Stv. Chefärztin, Telefon +41 71 494 18 70\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Brigitte Kappler, HR Business Partner, Telefon +41 71 494 68 65 Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "en": "Oberärztin/-arzt 60% Brustzentrum St. Gallen Arbeitsort St. Gallen Stellenanzeige Ihre Aufgaben und Perspektiven\n• Eigenverantwortliche Betreuung/Abklärung von senologischen Patientinnen (inkl. Mammasonographie, Biopsien)\n• Operieren eigener Patientinnen inkl. OP-Planung und Nachbetreuung\n• Supervision und senologische Aus- und Weiterbildung von Assistenzärztinnen/-ärzten der Gynäkologie\n• Senologischer Hintergrunddienst und Teilnahme am interdisziplinären Tumorboard\n• Betreuung von senologisch operativen Studien, wissenschaftliches Arbeiten/Forschungstätigkeit\n• Aktive Mitarbeit/Gestaltung interner und öffentlicher Fortbildungen/Veranstaltungen des Brustzentrums und Kooperation mit unseren Netzwerkpartnern Was Sie für diese Stelle mitbringen\n• Eidgenössischer Facharzttitel für Gynäkologie und Geburtshilfe (FMH) oder gleichwertiger anerkannter Titel aus dem Ausland\n• Oberärztliche Erfahrung auf dem Gebiet der diagnostischen und operativen Senologie\n• Teamfähigkeit, Verantwortungsbewusstsein und hohe Sozialkompetenz\n• Freude an interdisziplinärer Zusammenarbeit\n• Interesse und Motivation an der Aus- und Fortbildung sowie an Forschung und wissenschaftlicher Arbeit Unser Angebot an Sie\n• Arbeiten in einem interdisziplinären erfahrenen Team\n• Persönliche Weiterentwicklung auf dem Gebiet der Senologie\n• Kernteammitgliedschaft im Rahmen der Zertifizierung\n• Erwerb des Schwerpunkttitels gynäkologische Senologie Ihre Bewerbung\n• Eintritt per 1. April 2026 oder nach Vereinbarung\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Prof. Dr. Jens Huober, Chefarzt, Telefon +41 71 494 18 88 oder Frau PD Dr. Inga Bekes, Stv. Chefärztin, Telefon +41 71 494 18 70\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Brigitte Kappler, HR Business Partner, Telefon +41 71 494 68 65 Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "de": "Oberärztin/-arzt 60% Brustzentrum St. Gallen Arbeitsort St. Gallen Stellenanzeige Ihre Aufgaben und Perspektiven\n• Eigenverantwortliche Betreuung/Abklärung von senologischen Patientinnen (inkl. Mammasonographie, Biopsien)\n• Operieren eigener Patientinnen inkl. OP-Planung und Nachbetreuung\n• Supervision und senologische Aus- und Weiterbildung von Assistenzärztinnen/-ärzten der Gynäkologie\n• Senologischer Hintergrunddienst und Teilnahme am interdisziplinären Tumorboard\n• Betreuung von senologisch operativen Studien, wissenschaftliches Arbeiten/Forschungstätigkeit\n• Aktive Mitarbeit/Gestaltung interner und öffentlicher Fortbildungen/Veranstaltungen des Brustzentrums und Kooperation mit unseren Netzwerkpartnern Was Sie für diese Stelle mitbringen\n• Eidgenössischer Facharzttitel für Gynäkologie und Geburtshilfe (FMH) oder gleichwertiger anerkannter Titel aus dem Ausland\n• Oberärztliche Erfahrung auf dem Gebiet der diagnostischen und operativen Senologie\n• Teamfähigkeit, Verantwortungsbewusstsein und hohe Sozialkompetenz\n• Freude an interdisziplinärer Zusammenarbeit\n• Interesse und Motivation an der Aus- und Fortbildung sowie an Forschung und wissenschaftlicher Arbeit Unser Angebot an Sie\n• Arbeiten in einem interdisziplinären erfahrenen Team\n• Persönliche Weiterentwicklung auf dem Gebiet der Senologie\n• Kernteammitgliedschaft im Rahmen der Zertifizierung\n• Erwerb des Schwerpunkttitels gynäkologische Senologie Ihre Bewerbung\n• Eintritt per 1. April 2026 oder nach Vereinbarung\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Prof. Dr. Jens Huober, Chefarzt, Telefon +41 71 494 18 88 oder Frau PD Dr. Inga Bekes, Stv. Chefärztin, Telefon +41 71 494 18 70\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Brigitte Kappler, HR Business Partner, Telefon +41 71 494 68 65 Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
+      "fr": "Oberärztin/-arzt 60% Brustzentrum St. Gallen Arbeitsort St. Gallen Stellenanzeige Ihre Aufgaben und Perspektiven\n• Eigenverantwortliche Betreuung/Abklärung von senologischen Patientinnen (inkl. Mammasonographie, Biopsien)\n• Operieren eigener Patientinnen inkl. OP-Planung und Nachbetreuung\n• Supervision und senologische Aus- und Weiterbildung von Assistenzärztinnen/-ärzten der Gynäkologie\n• Senologischer Hintergrunddienst und Teilnahme am interdisziplinären Tumorboard\n• Betreuung von senologisch operativen Studien, wissenschaftliches Arbeiten/Forschungstätigkeit\n• Aktive Mitarbeit/Gestaltung interner und öffentlicher Fortbildungen/Veranstaltungen des Brustzentrums und Kooperation mit unseren Netzwerkpartnern Was Sie für diese Stelle mitbringen\n• Eidgenössischer Facharzttitel für Gynäkologie und Geburtshilfe (FMH) oder gleichwertiger anerkannter Titel aus dem Ausland\n• Oberärztliche Erfahrung auf dem Gebiet der diagnostischen und operativen Senologie\n• Teamfähigkeit, Verantwortungsbewusstsein und hohe Sozialkompetenz\n• Freude an interdisziplinärer Zusammenarbeit\n• Interesse und Motivation an der Aus- und Fortbildung sowie an Forschung und wissenschaftlicher Arbeit Unser Angebot an Sie\n• Arbeiten in einem interdisziplinären erfahrenen Team\n• Persönliche Weiterentwicklung auf dem Gebiet der Senologie\n• Kernteammitgliedschaft im Rahmen der Zertifizierung\n• Erwerb des Schwerpunkttitels gynäkologische Senologie Ihre Bewerbung\n• Eintritt per 1. April 2026 oder nach Vereinbarung\n• Mehr zu dieser spannenden Stelle erfahren Sie von Herrn Prof. Dr. Jens Huober, Chefarzt, Telefon +41 71 494 18 88 oder Frau PD Dr. Inga Bekes, Stv. Chefärztin, Telefon +41 71 494 18 70\n• Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Brigitte Kappler, HR Business Partner, Telefon +41 71 494 68 65 Über uns Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen. Vereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+    },
+    "slugByLocale": {
+      "it": "medico-senior-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "en": "oberarztin-arzt-60-kssg-ch",
+      "de": "oberarztin-arzt-60-kssg-ch",
+      "fr": "oberarztin-arzt-60-kssg-ch"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-06-06T10:46:09.249Z",
+    "previousSlugs": [
+      "oberarztin-arzt-60-kssg-ch",
+      "oberarztin-arzt-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "oberarztin-arzt-60-kssg-ch"
+      ],
+      "de": [
+        "oberarztin-arzt-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+      ]
+    },
+    "postalCode": "9000",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   }
 ]

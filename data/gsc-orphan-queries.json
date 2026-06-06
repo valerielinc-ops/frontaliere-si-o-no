@@ -2,23 +2,28 @@
   "case-anziani": [
     {
       "query": "case anziani ticino offerte di lavoro",
-      "clicks": 5,
-      "impressions": 136
+      "clicks": 8,
+      "impressions": 158
     },
     {
       "query": "offerte di lavoro casa di riposo svizzera",
-      "clicks": 5,
-      "impressions": 62
+      "clicks": 7,
+      "impressions": 69
     },
     {
       "query": "case anziani lugano posti di lavoro",
-      "clicks": 4,
-      "impressions": 53
+      "clicks": 5,
+      "impressions": 60
     },
     {
       "query": "offerte lavoro casa di riposo svizzera",
-      "clicks": 1,
-      "impressions": 50
+      "clicks": 2,
+      "impressions": 54
+    },
+    {
+      "query": "offerte di lavoro casa anziani ticino",
+      "clicks": 4,
+      "impressions": 27
     },
     {
       "query": "casa anziani paradiso offerta lavoro",
@@ -26,14 +31,14 @@
       "impressions": 20
     },
     {
-      "query": "offerte di lavoro casa anziani ticino",
-      "clicks": 2,
-      "impressions": 18
-    },
-    {
       "query": "casa anziani mendrisio lavoro",
       "clicks": 1,
-      "impressions": 14
+      "impressions": 15
+    },
+    {
+      "query": "offerte lavoro casa anziani ticino",
+      "clicks": 1,
+      "impressions": 11
     },
     {
       "query": "case di riposo ticino lavora con noi",
@@ -41,8 +46,8 @@
       "impressions": 9
     },
     {
-      "query": "offerte lavoro casa anziani ticino",
-      "clicks": 1,
+      "query": "casa anziani comunale bellinzona offerte di lavoro",
+      "clicks": 0,
       "impressions": 9
     },
     {
@@ -51,14 +56,9 @@
       "impressions": 8
     },
     {
-      "query": "casa anziani comunale bellinzona offerte di lavoro",
-      "clicks": 0,
-      "impressions": 8
-    },
-    {
       "query": "casa anziani chiasso lavoro",
       "clicks": 1,
-      "impressions": 6
+      "impressions": 7
     },
     {
       "query": "frontalieri",
@@ -74,6 +74,11 @@
       "query": "psicologo italiano online langenthal",
       "clicks": 0,
       "impressions": 2
+    },
+    {
+      "query": "casa anziani caslano offerte lavoro",
+      "clicks": 0,
+      "impressions": 1
     },
     {
       "query": "casa anziani giornico lavoro",
@@ -92,11 +97,6 @@
     },
     {
       "query": "case di riposo canton ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "f site:.ch",
       "clicks": 0,
       "impressions": 1
     }
@@ -169,7 +169,7 @@
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 41
+      "impressions": 42
     },
     {
       "query": "نعم ابحث",
@@ -268,11 +268,16 @@
     {
       "query": "offerte di lavoro ticino ristorazione",
       "clicks": 0,
-      "impressions": 9
+      "impressions": 10
     },
     {
       "query": "offerte lavoro ristorazione ticino",
       "clicks": 1,
+      "impressions": 5
+    },
+    {
+      "query": "offerte lavoro ticino ristorazione",
+      "clicks": 0,
       "impressions": 5
     },
     {
@@ -282,11 +287,6 @@
     },
     {
       "query": "offerte di lavoro ristorazione",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "offerte lavoro ticino ristorazione",
       "clicks": 0,
       "impressions": 4
     },
@@ -336,6 +336,11 @@
       "impressions": 1
     },
     {
+      "query": "ristorazione svizzera",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "tutti ch ristorazione ticino",
       "clicks": 0,
       "impressions": 1
@@ -378,6 +383,11 @@
       "impressions": 1
     },
     {
+      "query": "annunci 59",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "consulente software ticino",
       "clicks": 0,
       "impressions": 1
@@ -402,10 +412,17 @@
     {
       "query": "full time jobs near me",
       "clicks": 0,
-      "impressions": 6
+      "impressions": 7
     },
     {
       "query": "jobs near me",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "locarno": [
+    {
+      "query": "jobs locarno",
       "clicks": 0,
       "impressions": 1
     }
@@ -423,18 +440,6 @@
     },
     {
       "query": "datumstempel migros",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "locarno": [
-    {
-      "query": "job locarno",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "locarno",
       "clicks": 0,
       "impressions": 1
     }
@@ -956,11 +961,37 @@
       "impressions": 1
     }
   ],
+  "bachelor-in-education-master-mse-in-computer-science-or-data-science-supsi-dti-lugano": [
+    {
+      "query": "lavoro part time ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lugano lavoro part time",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "pflegeassistenten": [
     {
       "query": "pflegejobs spital schiers",
       "clicks": 0,
       "impressions": 2
+    }
+  ],
+  "bachelor-in-education-master-mse-in-data-science-supsi-dti-lugano": [
+    {
+      "query": "lavoro part time ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "mitarbeiter-in-telemarketing-axa-svizzera-ticino": [
+    {
+      "query": "telemarketing axa",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "chauffeurs": [
