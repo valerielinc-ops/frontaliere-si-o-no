@@ -632,8 +632,8 @@
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch",
         "it": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-notfallpraxis-kantonsspital-winterthur-ksw-winterthur",
-        "en": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch",
-        "fr": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
+        "en": "med-practice-assistant-practice-assistant-or-specialist-health-emergency-practice-kantonsspital-winterthur-ksw",
+        "fr": "medicament-assistant-de-pratique-assistant-de-pratique-ou-specialiste-de-la-sante-urgence-pratique-kantonsspital"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -679,6 +679,12 @@
       "department": "Notfallzentrum",
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
+        ],
+        "fr": [
           "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
         ]
       },
@@ -1160,12 +1166,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1208,16 +1214,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
@@ -1394,7 +1397,7 @@
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -1440,8 +1443,6 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
         "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -1449,7 +1450,7 @@
           "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
@@ -2401,7 +2402,6 @@
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-rad",
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle",
         "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur",
-        "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
         "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -2411,7 +2411,6 @@
           "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
           "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -3458,9 +3457,9 @@
       "slug": "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
-        "en": "disponentin-disponent-ksw-ch",
+        "en": "dispatcher-kantonsspital-winterthur-ksw-winterthur",
         "de": "disponentin-disponent-ksw-ch",
-        "fr": "disponentin-disponent-ksw-ch"
+        "fr": "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3503,20 +3502,16 @@
       "requirementsByLocale": {},
       "department": "Institut für Therapien und Rehabilitation",
       "previousSlugs": [
-        "disponentin-disponent-ksw-ch",
-        "dispatcher-kantonsspital-winterthur-ksw-winterthur",
-        "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
+        "disponentin-disponent-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-disponent-ksw-ch"
         ],
         "en": [
-          "dispatcher-kantonsspital-winterthur-ksw-winterthur",
           "disponentin-disponent-ksw-ch"
         ],
         "fr": [
-          "depontine-depont-kantonsspital-winterthur-ksw-winterthur",
           "disponentin-disponent-ksw-ch"
         ]
       },
@@ -4860,7 +4855,6 @@
       },
       "previousSlugs": [
         "arztsekretarin-arztsekretar-ksw-ch-3",
-        "arztsekretarin-arztsekretar-ksw-ch",
         "arztsekretarin-arztsekretar-ksw-ch-2"
       ],
       "firstSeenAt": "2026-06-01T15:16:02.878Z",

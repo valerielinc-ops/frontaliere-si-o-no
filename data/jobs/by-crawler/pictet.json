@@ -656,11 +656,11 @@
     },
     {
       "id": "pictet-7c75106c7ff5",
-      "slug": "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva",
+      "slug": "data-process-analyst-contropartie-finanziarie-18-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
       "slugByLocale": {
         "en": "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva",
-        "it": "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva",
-        "de": "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva",
+        "it": "data-process-analyst-contropartie-finanziarie-18-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
+        "de": "data-process-analyst-finanzabteilungen-18-monate-befristeter-vertrag-pictet-group-geneva",
         "fr": "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva"
       },
       "company": "Pictet Group",
@@ -717,7 +717,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-05T22:33:37.627Z"
+      "firstSeenAt": "2026-06-05T22:33:37.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva"
+        ],
+        "de": [
+          "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "data-process-analyst-financial-counterparties-18-months-fixed-term-contract-pictet-geneva"
+      ]
     }
   ]
 }

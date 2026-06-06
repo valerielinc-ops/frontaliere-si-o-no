@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital",
         "it": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital",
-        "en": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital",
+        "en": "training-for-dipl-care-specialist-hf-in-the-nursing-centre-and-in-the-acute-hospital-spital-zofingen-zofingen",
         "fr": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital"
       },
       "company": "Spital Zofingen",
@@ -69,12 +69,12 @@
     },
     {
       "id": "spital-zofingen-901386d8e446",
-      "slug": "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen",
+      "slug": "specialista-infermieristico-qualificato-hf-fh-dipartimento-132-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen",
-        "it": "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen",
+        "it": "specialista-infermieristico-qualificato-hf-fh-dipartimento-132-spital-zofingen-zofingen",
         "en": "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen",
-        "fr": "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen"
+        "fr": "infirmier-ere-diplome-e-es-hes-division-132-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -130,16 +130,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:47.506Z"
+      "firstSeenAt": "2026-06-05T22:50:47.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-abteilung-132-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-070014391a85",
-      "slug": "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen",
+      "slug": "dipl-programma-di-riavvio-della-carriera-acutespital-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen",
-        "it": "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen",
-        "en": "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen",
-        "fr": "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen"
+        "it": "dipl-programma-di-riavvio-della-carriera-acutespital-spital-zofingen-zofingen",
+        "en": "dipl-career-restart-program-acutespital-spital-zofingen-zofingen",
+        "fr": "dipl-programme-de-redemarrage-de-carriere-aiguespital-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -195,7 +206,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:46.871Z"
+      "firstSeenAt": "2026-06-05T22:50:46.871Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-wiedereinstiegsprogramm-akutspital-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-210a2a80666b",
@@ -203,8 +228,8 @@
       "slugByLocale": {
         "de": "praktikumsstelle-mit-chance-auf-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen",
         "it": "praktikumsstelle-con-chance-auf-apprendistato-2027-kita-zobra-spital-zofingen",
-        "en": "praktikumsstelle-mit-chance-auf-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen",
-        "fr": "praktikumsstelle-mit-chance-auf-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen"
+        "en": "internship-with-opportunity-at-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen",
+        "fr": "stage-avec-opportunite-a-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -251,6 +276,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikumsstelle-mit-chance-auf-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "praktikumsstelle-mit-chance-auf-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "praktikumsstelle-mit-chance-auf-lehrstelle-2027-kita-zobra-spital-zofingen-zofingen"
         ]
       },
       "previousSlugs": [
@@ -272,12 +303,12 @@
     },
     {
       "id": "spital-zofingen-dd39eafb4edd",
-      "slug": "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen",
+      "slug": "dipl-expert-expert-emergency-care-nds-hf-su-chiamata-nel-salario-orario-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen",
-        "it": "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen",
+        "it": "dipl-expert-expert-emergency-care-nds-hf-su-chiamata-nel-salario-orario-spital-zofingen-zofingen",
         "en": "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen",
-        "fr": "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen"
+        "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-sur-appel-en-salaire-horaire-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -333,7 +364,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:45.715Z"
+      "firstSeenAt": "2026-06-05T22:50:45.715Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen"
+        ],
+        "fr": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-auf-abruf-im-stundenlohn-spital-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-768c4c040563",
@@ -341,8 +383,8 @@
       "slugByLocale": {
         "de": "praktikantin-praktikant-fur-pflegezentrum-einsatz-6-12-monate-pflegezentrum-spital",
         "it": "praktikantin-praktikant-per-pflegezentrum-einsatz-6-12-monate-pflegezentrum-spital-zofingen",
-        "en": "praktikantin-praktikant-fur-pflegezentrum-einsatz-6-12-monate-pflegezentrum-spital",
-        "fr": "praktikantin-praktikant-fur-pflegezentrum-einsatz-6-12-monate-pflegezentrum-spital"
+        "en": "intern-practicant-for-nursing-center-use-6-12-months-care-center-spital-zofingen-zofingen",
+        "fr": "stagiaire-professeur-pour-centre-de-soins-infirmiers-utiliser-6-12-mois-centre-de-soins-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -389,6 +431,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-fur-pflegezentrum-einsatz-6-12-monate-pflegezentrum-spital"
+        ],
+        "en": [
+          "praktikantin-praktikant-fur-pflegezentrum-einsatz-6-12-monate-pflegezentrum-spital"
+        ],
+        "fr": [
+          "praktikantin-praktikant-fur-pflegezentrum-einsatz-6-12-monate-pflegezentrum-spital"
         ]
       },
       "previousSlugs": [
@@ -410,12 +458,12 @@
     },
     {
       "id": "spital-zofingen-685db29219f3",
-      "slug": "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen",
+      "slug": "sostanza-assistenza-medicina-interna-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen",
-        "it": "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen",
-        "en": "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen",
-        "fr": "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen"
+        "it": "sostanza-assistenza-medicina-interna-spital-zofingen-zofingen",
+        "en": "subassistance-underassistance-internal-medicine-spital-zofingen-zofingen",
+        "fr": "subassistance-sous-assistance-medecine-interne-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -471,7 +519,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:44.526Z"
+      "firstSeenAt": "2026-06-05T22:50:44.526Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistentin-unterassistent-innere-medizin-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-514bf1eee189",
@@ -479,8 +541,8 @@
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-innere-medizin-kompetenzzentrum-fur-ernahrung-essstorung-und",
         "it": "assistenzarztin-assistenzarzt-innere-medizin-kompetenzzentrum-per-ernahrung-essstorung-e-adipositas-keea-spital-zofingen",
-        "en": "assistenzarztin-assistenzarzt-innere-medizin-kompetenzzentrum-fur-ernahrung-essstorung-und",
-        "fr": "assistenzarztin-assistenzarzt-innere-medizin-kompetenzzentrum-fur-ernahrung-essstorung-und"
+        "en": "assistant-physician-internal-medicine-competence-center-for-nutrition-eating-disorder-and-obesity-keea-spital-zofingen",
+        "fr": "medecin-adjoint-centre-interne-de-medecine-competence-pour-la-nutrition-les-troubles-alimentaires-et-l-obesite-keea"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -527,6 +589,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-innere-medizin-kompetenzzentrum-fur-ernahrung-essstorung-und"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-innere-medizin-kompetenzzentrum-fur-ernahrung-essstorung-und"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-innere-medizin-kompetenzzentrum-fur-ernahrung-essstorung-und"
         ]
       },
       "previousSlugs": [
@@ -553,7 +621,7 @@
         "de": "physiotherapeut-in-akutgeriatrie-und-komplexneurologie-spital-zofingen-zofingen",
         "it": "physiotherapeut-in-akutgeriatrie-e-komplexneurologie-spital-zofingen",
         "en": "physiotherapeut-in-akutgeriatrie-und-komplexneurologie-spital-zofingen-zofingen",
-        "fr": "physiotherapeut-in-akutgeriatrie-und-komplexneurologie-spital-zofingen-zofingen"
+        "fr": "physiotherapeute-akutgeriatrie-et-complexeurologie-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -600,6 +668,9 @@
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-akutgeriatrie-und-komplexneurologie-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "physiotherapeut-in-akutgeriatrie-und-komplexneurologie-spital-zofingen-zofingen"
         ]
       },
       "previousSlugs": [
@@ -621,12 +692,12 @@
     },
     {
       "id": "spital-zofingen-bdcdbc566e6b",
-      "slug": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen",
+      "slug": "dipl-carriera-hf-fh-dipartimento-112-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen",
-        "it": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen",
+        "it": "dipl-carriera-hf-fh-dipartimento-112-spital-zofingen-zofingen",
         "en": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen",
-        "fr": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen"
+        "fr": "dipl-carriere-hf-fh-departement-112-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -682,16 +753,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:43.335Z"
+      "firstSeenAt": "2026-06-05T22:50:43.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-6c6bc9e71c89",
-      "slug": "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen",
+      "slug": "fisioterapista-versatile-dinamico-interdisciplinare-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen",
-        "it": "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen",
-        "en": "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen",
-        "fr": "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen"
+        "it": "fisioterapista-versatile-dinamico-interdisciplinare-spital-zofingen-zofingen",
+        "en": "physiotherapist-versatile-dynamic-interdisciplinary-spital-zofingen-zofingen",
+        "fr": "physiotherapeute-polyvalent-dynamique-interdisciplinaire-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -747,16 +829,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:42.772Z"
+      "firstSeenAt": "2026-06-05T22:50:42.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeut-in-vielseitig-dynamisch-interdisziplinar-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-1877f44c84cf",
-      "slug": "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen",
+      "slug": "co-dipartimento-linea-ergoterapia-zona-stazionaria-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen",
-        "it": "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen",
-        "en": "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen",
-        "fr": "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen"
+        "it": "co-dipartimento-linea-ergoterapia-zona-stazionaria-spital-zofingen-zofingen",
+        "en": "co-department-line-ergotherapy-stationary-area-spital-zofingen-zofingen",
+        "fr": "co-departement-ergotherapie-ligne-zone-stationnaire-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -812,15 +908,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:42.366Z"
+      "firstSeenAt": "2026-06-05T22:50:42.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "co-abteilungsleitung-ergotherapie-stationarer-bereich-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-f0eea3f1fd4c",
-      "slug": "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park",
+      "slug": "physiotherapist-diventa-parte-del-nostro-team-di-innovazione-presso-il-private-hospital-villa-im-park-spital-zofingen",
       "slugByLocale": {
         "de": "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park",
-        "it": "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park",
-        "en": "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park",
+        "it": "physiotherapist-diventa-parte-del-nostro-team-di-innovazione-presso-il-private-hospital-villa-im-park-spital-zofingen",
+        "en": "physiotherapist-become-part-of-our-innovation-team-at-the-private-hospital-villa-im-park-spital-zofingen-zofingen",
         "fr": "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park"
       },
       "company": "Spital Zofingen",
@@ -877,16 +987,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:41.862Z"
+      "firstSeenAt": "2026-06-05T22:50:41.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park"
+        ],
+        "en": [
+          "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeut-in-werde-teil-unseres-innovationsteam-in-der-privatklinik-villa-im-park"
+      ]
     },
     {
       "id": "spital-zofingen-1569d397949a",
-      "slug": "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen",
+      "slug": "professional-health-efz-squadra-di-orologi-notturni-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen",
-        "it": "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen",
-        "en": "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen",
-        "fr": "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen"
+        "it": "professional-health-efz-squadra-di-orologi-notturni-spital-zofingen-zofingen",
+        "en": "professional-health-efz-night-watch-team-spital-zofingen-zofingen",
+        "fr": "sante-professionnelle-efz-equipe-de-veille-nocturne-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -942,16 +1063,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:41.369Z"
+      "firstSeenAt": "2026-06-05T22:50:41.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-gesundheit-fachmann-gesundheit-efz-nachtwachenteam-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-cd3beaf43487",
-      "slug": "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen",
+      "slug": "salute-specialistica-salute-professionale-dipartimento-132-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen",
-        "it": "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen",
-        "en": "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen",
-        "fr": "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen"
+        "it": "salute-specialistica-salute-professionale-dipartimento-132-spital-zofingen-zofingen",
+        "en": "specialist-health-professional-health-department-132-spital-zofingen-zofingen",
+        "fr": "specialiste-en-sante-sante-professionnelle-ministere-132-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1007,16 +1142,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:40.965Z"
+      "firstSeenAt": "2026-06-05T22:50:40.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-gesundheit-fachmann-gesundheit-abteilung-132-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-e5b5443f86eb",
-      "slug": "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen",
+      "slug": "dipl-carriera-donna-mann-sveglia-hf-sveglia-stanza-zona-di-cura-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen",
-        "it": "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen",
-        "en": "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen",
-        "fr": "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen"
+        "it": "dipl-carriera-donna-mann-sveglia-hf-sveglia-stanza-zona-di-cura-spital-zofingen-zofingen",
+        "en": "dipl-career-woman-mann-wake-up-room-hf-wake-up-room-care-zone-spital-zofingen-zofingen",
+        "fr": "dipl-carriere-femme-homme-salle-de-reveil-hf-salle-de-reveil-zone-de-soins-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1072,16 +1221,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:40.573Z"
+      "firstSeenAt": "2026-06-05T22:50:40.573Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-aufwachraum-hf-aufwachraum-betreuungs-zone-spital-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-080aac090ff4",
-      "slug": "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen",
+      "slug": "assistente-medico-medicina-interna-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen",
-        "it": "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen",
-        "en": "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen",
-        "fr": "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen"
+        "it": "assistente-medico-medicina-interna-spital-zofingen-zofingen",
+        "en": "assistant-physician-internal-medicine-spital-zofingen-zofingen",
+        "fr": "medecin-adjoint-medecine-interne-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1137,16 +1300,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:40.146Z"
+      "firstSeenAt": "2026-06-05T22:50:40.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-innere-medizin-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-3760f3243857",
-      "slug": "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen",
+      "slug": "dipl-specialista-hf-fh-specialista-piscina-sanitaria-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen",
-        "it": "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen",
+        "it": "dipl-specialista-hf-fh-specialista-piscina-sanitaria-spital-zofingen-zofingen",
         "en": "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen",
-        "fr": "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen"
+        "fr": "dipl-specialiste-des-soins-hf-fh-specialiste-groupe-de-soins-de-sante-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1202,7 +1379,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:39.723Z"
+      "firstSeenAt": "2026-06-05T22:50:39.723Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-fachperson-gesundheit-pflegepool-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-b3eccfe1edff",
@@ -1271,12 +1459,12 @@
     },
     {
       "id": "spital-zofingen-32ab94e96ed5",
-      "slug": "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen",
+      "slug": "dottore-principale-medico-guida-anestesia-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen",
-        "it": "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen",
-        "en": "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen",
-        "fr": "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen"
+        "it": "dottore-principale-medico-guida-anestesia-spital-zofingen-zofingen",
+        "en": "leading-physician-guiding-physician-anesthesia-spital-zofingen-zofingen",
+        "fr": "medecin-guide-principal-anesthesie-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1332,7 +1520,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:38.871Z"
+      "firstSeenAt": "2026-06-05T22:50:38.871Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-anasthesie-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-32535c7643fa",
@@ -1341,7 +1543,7 @@
         "de": "unterassistentin-unterassistent-chirurgie-spital-zofingen-zofingen",
         "it": "unterassistentin-unterassistent-chirurgie-spital-zofingen-zofingen",
         "en": "unterassistentin-unterassistent-chirurgie-spital-zofingen-zofingen",
-        "fr": "unterassistentin-unterassistent-chirurgie-spital-zofingen-zofingen"
+        "fr": "insistance-insistance-chirurgie-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1401,12 +1603,12 @@
     },
     {
       "id": "spital-zofingen-631269a17dd6",
-      "slug": "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen",
+      "slug": "dipl-specialista-di-radiologia-hf-fh-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen",
-        "it": "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen",
+        "it": "dipl-specialista-di-radiologia-hf-fh-spital-zofingen-zofingen",
         "en": "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen",
-        "fr": "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen"
+        "fr": "dipl-specialiste-de-radiologie-hf-fh-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1462,16 +1664,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:37.938Z"
+      "firstSeenAt": "2026-06-05T22:50:37.938Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachperson-hf-fh-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-d70b46c96ae0",
-      "slug": "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen",
+      "slug": "dipl-esperto-in-pronto-soccorso-nds-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen",
-        "it": "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen",
+        "it": "dipl-esperto-in-pronto-soccorso-nds-spital-zofingen-zofingen",
         "en": "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen",
-        "fr": "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen"
+        "fr": "dipl-expert-en-soins-d-urgence-nds-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1527,7 +1740,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:37.543Z"
+      "firstSeenAt": "2026-06-05T22:50:37.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-notfallpflege-nds-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-178174b456c4",
@@ -1536,7 +1760,7 @@
         "de": "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen",
         "it": "dipl-pflegefachperson-hf-imc-o-dipl-expertin-experte-intensivpflege-nds-spital-zofingen",
         "en": "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen",
-        "fr": "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen"
+        "fr": "dipl-specialiste-des-soins-hf-imc-ou-dipl-sdn-expert-expert-en-soins-intensifs-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1583,6 +1807,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-imc-oder-dipl-expertin-experte-intensivpflege-nds-spital-zofingen"
         ]
       },
       "previousSlugs": [
@@ -1604,12 +1831,12 @@
     },
     {
       "id": "spital-zofingen-53a19fb5e321",
-      "slug": "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen",
+      "slug": "dipl-specialista-hf-centro-di-cura-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen",
-        "it": "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen",
+        "it": "dipl-specialista-hf-centro-di-cura-spital-zofingen-zofingen",
         "en": "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen",
-        "fr": "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        "fr": "dipl-specialiste-des-soins-hf-piscine-centre-de-soins-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1665,16 +1892,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:36.752Z"
+      "firstSeenAt": "2026-06-05T22:50:36.752Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-1b81b8e045cd",
-      "slug": "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen",
+      "slug": "professional-health-care-pool-centro-di-cura-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen",
-        "it": "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen",
-        "en": "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen",
-        "fr": "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        "it": "professional-health-care-pool-centro-di-cura-spital-zofingen-zofingen",
+        "en": "professional-health-care-pool-care-center-spital-zofingen-zofingen",
+        "fr": "pool-de-soins-de-sante-professionnels-centre-de-soins-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1730,16 +1968,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:36.335Z"
+      "firstSeenAt": "2026-06-05T22:50:36.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-gesundheit-fachmann-gesundheit-pflegepool-pflegezentrum-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-19f2c0c8f408",
-      "slug": "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
+      "slug": "medico-senior-akutgeriatrie-medicina-interna-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
-        "it": "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
-        "en": "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen",
-        "fr": "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        "it": "medico-senior-akutgeriatrie-medicina-interna-spital-zofingen-zofingen",
+        "en": "senior-physician-akutgeriatrie-internal-medicine-spital-zofingen-zofingen",
+        "fr": "medecin-aine-akutgeriatrie-medecine-interne-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1795,16 +2047,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:35.950Z"
+      "firstSeenAt": "2026-06-05T22:50:35.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-akutgeriatrie-innere-medizin-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-cd53024531be",
-      "slug": "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen",
+      "slug": "medicina-interna-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen",
-        "it": "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen",
-        "en": "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen",
-        "fr": "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen"
+        "it": "medicina-interna-spital-zofingen-zofingen",
+        "en": "senior-physician-internal-medicine-spital-zofingen-zofingen",
+        "fr": "medecin-principal-medecine-interne-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1860,7 +2126,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:35.529Z"
+      "firstSeenAt": "2026-06-05T22:50:35.529Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-innere-medizin-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-3bb46c7c7738",
@@ -1868,8 +2148,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-und-neurologische",
         "it": "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-e-neurologische-bewegungsstorungen-abteilung-142-spital-zofingen",
-        "en": "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-und-neurologische",
-        "fr": "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-und-neurologische"
+        "en": "dipl-care-specialist-hf-fh-complex-treatments-akutgeriatrie-and-neurological-disorders-department-142-spital-zofingen",
+        "fr": "dipl-specialiste-des-soins-hf-fh-traitements-complexes-akutgeriatrie-et-troubles-neurologiques-departement-142-spital"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1916,6 +2196,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-und-neurologische"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-und-neurologische"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-und-neurologische"
         ]
       },
       "previousSlugs": [
@@ -1937,12 +2223,12 @@
     },
     {
       "id": "spital-zofingen-7a5161ece74b",
-      "slug": "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen",
+      "slug": "emergenza-medico-senior-medicina-interna-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen",
-        "it": "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen",
-        "en": "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen",
-        "fr": "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen"
+        "it": "emergenza-medico-senior-medicina-interna-spital-zofingen-zofingen",
+        "en": "senior-physician-emergency-internal-medicine-spital-zofingen-zofingen",
+        "fr": "medecin-principal-urgence-medecine-interne-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -1998,16 +2284,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:34.550Z"
+      "firstSeenAt": "2026-06-05T22:50:34.550Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfall-innere-medizin-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-7afbc034af1b",
-      "slug": "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen",
+      "slug": "cura-di-chirurgia-con-esperienza-di-gesso-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen",
-        "it": "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen",
-        "en": "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen",
-        "fr": "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen"
+        "it": "cura-di-chirurgia-con-esperienza-di-gesso-spital-zofingen-zofingen",
+        "en": "surgery-care-with-plaster-experience-spital-zofingen-zofingen",
+        "fr": "soins-chirurgicaux-avec-experience-en-platre-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2063,16 +2363,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:34.004Z"
+      "firstSeenAt": "2026-06-05T22:50:34.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "op-lagerungspflege-mit-gipserfahrung-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-026b56a44420",
-      "slug": "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen",
+      "slug": "dipl-pflegefachperson-hf-fh-cura-pallitiva-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen",
-        "it": "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen",
+        "it": "dipl-pflegefachperson-hf-fh-cura-pallitiva-spital-zofingen-zofingen",
         "en": "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen",
-        "fr": "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen"
+        "fr": "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2128,16 +2442,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:33.442Z"
+      "firstSeenAt": "2026-06-05T22:50:33.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-d6b68327d11f",
-      "slug": "case-manager-in-spital-zofingen-zofingen",
+      "slug": "gestore-casi-in-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "case-manager-in-spital-zofingen-zofingen",
-        "it": "case-manager-in-spital-zofingen-zofingen",
+        "it": "gestore-casi-in-spital-zofingen-zofingen",
         "en": "case-manager-in-spital-zofingen-zofingen",
-        "fr": "case-manager-in-spital-zofingen-zofingen"
+        "fr": "gestionnaire-de-cas-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2193,16 +2518,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:32.873Z"
+      "firstSeenAt": "2026-06-05T22:50:32.873Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-in-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "case-manager-in-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-in-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-0c7db2cff07b",
-      "slug": "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen",
+      "slug": "cura-della-salute-professionale-cura-pallitiva-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen",
-        "it": "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen",
-        "en": "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen",
-        "fr": "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen"
+        "it": "cura-della-salute-professionale-cura-pallitiva-spital-zofingen-zofingen",
+        "en": "professional-health-care-palliative-care-spital-zofingen-zofingen",
+        "fr": "soins-de-sante-professionnels-soins-palliatifs-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2258,7 +2594,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-05T22:50:32.461Z"
+      "firstSeenAt": "2026-06-05T22:50:32.461Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-gesundheit-fachmann-gesundheit-palliative-care-spital-zofingen-zofingen"
+      ]
     }
   ]
 }
