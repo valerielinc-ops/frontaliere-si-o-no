@@ -7988,6 +7988,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fine-scuole-ticino-2026.title': 'Vacanze 2026: Impatti per i frontalieri',
     'blog.article.fine-scuole-ticino-2026.excerpt': 'Il calendario ufficiale delle vacanze scolastiche 2026 in Canton Ticino è stato definito, con date importanti per le famiglie e i frontalieri.',
     'blog.article.fine-scuole-ticino-2026.imageAlt': 'Una scuola a Mendrisio, Ticino, all\'uscita delle vacanze scolastiche',
+    'blog.article.frontaliere.title': 'Frontaliere Ticino: nuove norme e regole per i lavoratori frontalieri',
+    'blog.article.frontaliere.excerpt': 'Le nuove norme e regole per i lavoratori frontalieri nel Canton Ticino',
+    'blog.article.frontaliere.imageAlt': 'Una città del Canton Ticino con un mix di edifici storici e moderni',
 };
 
 export default blogMetaIt;

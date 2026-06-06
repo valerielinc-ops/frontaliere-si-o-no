@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2739,
+ "numberOfItems": 2740,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7379,7 +7379,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2736, "name": "Al via il processo a Luido Bernasconi - RSI Rad...", "url": `${BASE_URL}/articoli-frontaliere/al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera` },
           { "@type": "ListItem", "position": 2737, "name": "NASpI per frontalieri: regole e procedure", "url": `${BASE_URL}/articoli-frontaliere/naspi-disoccupazione-frontaliere` },
           { "@type": "ListItem", "position": 2738, "name": "Vacanze 2026: Impatti per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/fine-scuole-ticino-2026` },
-          { "@type": "ListItem", "position": 2739, "name": "Lavorare nella farmaceutica: posizioni a Coira", "url": `${BASE_URL}/articoli-frontaliere/lavoro-produzione-farmaceutica-coira` }
+          { "@type": "ListItem", "position": 2739, "name": "Lavorare nella farmaceutica: posizioni a Coira", "url": `${BASE_URL}/articoli-frontaliere/lavoro-produzione-farmaceutica-coira` },
+          { "@type": "ListItem", "position": 2740, "name": "Frontaliere Ticino: nuove norme e regole per i ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere` }
  ]
  },
  {
