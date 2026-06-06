@@ -3934,6 +3934,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lonza-concierge-ticino-job': { name: 'Lavoro Lonza Ticino', path: '/articoli-svizzera/lonza-concierge-ticino-job/', parent: 'blog' },
     'blog-al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera': { name: 'Processo a Luido Bernasconi', path: '/articoli-frontaliere/al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera', parent: 'blog' },
     'blog-naspi-disoccupazione-frontaliere': { name: 'NASpI Frontalieri', path: '/articoli-svizzera/naspi-disoccupazione-frontaliere/', parent: 'blog' },
+    'blog-fine-scuole-ticino-2026': { name: 'Vacanze scolastiche 2026', path: '/articoli-frontaliere/fine-scuole-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
