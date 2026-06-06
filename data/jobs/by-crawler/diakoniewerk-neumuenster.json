@@ -1,7 +1,82 @@
 {
   "crawlerKey": "diakoniewerk-neumuenster",
-  "assembledAt": "2026-06-06T10:19:29.087Z",
+  "assembledAt": "2026-06-06T21:35:38.940Z",
   "jobs": [
+    {
+      "id": "diakoniewerk-neumuenster-7f53d7190894",
+      "slug": "specialista-in-salute-reparto-privato-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "slugByLocale": {
+        "it": "specialista-in-salute-reparto-privato-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "en": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
+        "de": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
+        "fr": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
+      },
+      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
+      "companyKey": "diakoniewerk-neumuenster",
+      "companyDomain": "diakoniewerk-neumuenster.ch",
+      "title": "Fachfrau / Fachmann Gesundheit Privatstation 2",
+      "titleByLocale": {
+        "it": "Specialista in salute reparto privato 2",
+        "en": "Fachfrau / Fachmann Gesundheit Privatstation 2",
+        "de": "Fachfrau / Fachmann Gesundheit Privatstation 2",
+        "fr": "Fachfrau / Fachmann Gesundheit Privatstation 2"
+      },
+      "description": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+      "descriptionByLocale": {
+        "it": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "en": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "de": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "fr": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=663cbb24-8559-4ade-997b-4d097b458334,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-06T21:35:36.851Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=663cbb24-8559-4ade-997b-4d097b458334,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
+        "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "diakoniewerk-neumuenster-b3a97bc75de9",
       "slug": "esperto-certificato-in-assistenza-anestesiologica-nds-hf-in-regime-di-ricovero-diakoniewerk-neumunster-gesundheitswelt",
@@ -34,7 +109,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=415646a6-5d08-4b8a-a4e8-9ec40b6cf14c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:19:26.915Z",
+      "crawledAt": "2026-06-06T21:35:36.850Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +182,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=50be559c-df7c-42b5-8777-e2cdd522bb55,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:19:26.915Z",
+      "crawledAt": "2026-06-06T21:35:36.850Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,7 +261,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=ceceea24-85c3-4265-b536-bb51de29cddb,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:19:26.915Z",
+      "crawledAt": "2026-06-06T21:35:36.850Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -209,81 +284,6 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "diakoniewerk-neumuenster-7f53d7190894",
-      "slug": "specialista-in-salute-reparto-privato-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-      "slugByLocale": {
-        "it": "specialista-in-salute-reparto-privato-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
-        "de": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
-      },
-      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
-      "companyKey": "diakoniewerk-neumuenster",
-      "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Fachfrau / Fachmann Gesundheit Privatstation 2",
-      "titleByLocale": {
-        "it": "Specialista in salute reparto privato 2",
-        "en": "Fachfrau / Fachmann Gesundheit Privatstation 2",
-        "de": "Fachfrau / Fachmann Gesundheit Privatstation 2",
-        "fr": "Fachfrau / Fachmann Gesundheit Privatstation 2"
-      },
-      "description": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-      "descriptionByLocale": {
-        "it": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "en": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "de": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "fr": "Fachfrau / Fachmann Gesundheit Privatstation 2 bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster."
-      },
-      "needsRetranslation": true,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=663cbb24-8559-4ade-997b-4d097b458334,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:19:26.915Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=663cbb24-8559-4ade-997b-4d097b458334,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
-        "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
-        ],
-        "de": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
@@ -332,7 +332,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=efd06215-df61-40bd-8ae1-14814ff0407f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:19:26.914Z",
+      "crawledAt": "2026-06-06T21:35:36.849Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -405,7 +405,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d9b45dec-d669-4180-988d-4dcd0330fac0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:19:26.913Z",
+      "crawledAt": "2026-06-06T21:35:36.848Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
