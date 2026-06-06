@@ -74,6 +74,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naspi-disoccupazione-frontaliere.title': 'Unemployment Benefits for Cross-Border Workers: Rules and Procedures',
     'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Discover how the unemployment benefit works for those returning to Italy after working in Switzerland.',
     'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Modern view of a building in Lugano',
+    'blog.article.lavoro-produzione-farmaceutica-coira.title': 'Pharmacy Jobs: Coira',
+    'blog.article.lavoro-produzione-farmaceutica-coira.excerpt': 'Professional opportunities in the pharmaceutical sector at Kantonsspital Graubünden in Coira. Discover details on open positions and requirements.',
+    'blog.article.lavoro-produzione-farmaceutica-coira.imageAlt': 'Pharmaceutical manufacturing facility in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -74,6 +74,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naspi-disoccupazione-frontaliere.title': 'NASpI per frontalieri: regole e procedure',
     'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Scopri come funziona l\'indennità di disoccupazione per chi rientra in Italia dopo un rapporto di lavoro in Svizzera.',
     'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Vista moderna di un edificio a Lugano',
+    'blog.article.lavoro-produzione-farmaceutica-coira.title': 'Lavorare nella farmaceutica: posizioni a Coira',
+    'blog.article.lavoro-produzione-farmaceutica-coira.excerpt': 'Opportunità professionali nel settore farmaceutico presso il Kantonsspital Graubünden di Coira. Scopri i dettagli sulle posizioni aperte e i requisiti.',
+    'blog.article.lavoro-produzione-farmaceutica-coira.imageAlt': 'Impianto di produzione farmaceutica in Svizzera',
 };
 
 export default blogMetaChIt;
