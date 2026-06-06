@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-05T22:39:38.963Z",
+  "generatedAt": "2026-06-06T11:01:48.945Z",
   "total": 53,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 49,
-  "durationMs": 117888,
-  "avgDurationMs": 117888,
+  "durationMs": 123688,
+  "avgDurationMs": 123688,
   "durationHistory": [
-    117888
+    123688
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -163,45 +163,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Montatore di ponteggi",
-      "slug": "montatore-di-ponteggi-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/montatore-di-ponteggi-2675963/",
-      "applyUrl": "https://www.pemsa.ch/it/job/montatore-di-ponteggi-2675963/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-21",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-05",
-      "id": "pemsa-a948eb806b4d",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-21T23:28:23.961Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Autista C",
