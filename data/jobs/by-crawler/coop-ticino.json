@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-06-06T10:22:07.100Z",
+  "assembledAt": "2026-06-06T21:39:27.900Z",
   "jobs": [
     {
       "id": "company-kmlg9t",
@@ -42,9 +42,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufsberater-in-tessin-steinfels-swiss-bellinzona-ticino-kmlg9t",
-        "en": "sales-consultant-in-tessin-coop-genossenschaft-bellinzona",
+        "en": "sales-consultant-in-tessin-coop-genossenschaft-bellinzona-kmlg9t",
         "de": "verkaufsberater-in-tessin-coop-genossenschaft-bellinzona",
-        "fr": "consultant-en-ventes-a-tessin-coop-genossenschaft-bellinzona"
+        "fr": "consultant-en-ventes-a-tessin-coop-genossenschaft-bellinzona-kmlg9t"
       },
       "requirementsByLocale": {},
       "addressLocality": "Bellinzona",
@@ -68,18 +68,20 @@
           "verkaufsberater-in-tessin-steinfels-swiss-bellinzona-ticino-kmlg9t"
         ],
         "en": [
-          "sales-consultant-in-tessin-coop-genossenschaft-bellinzona-kmlg9t",
-          "verkaufsberater-in-tessin-steinfels-swiss-bellinzona-ticino-kmlg9t"
+          "sales-consultant-in-tessin-coop-genossenschaft-bellinzona",
+          "verkaufsberater-in-tessin-steinfels-swiss-bellinzona-ticino-kmlg9t",
+          "sales-consultant-in-tessin-coop-genossenschaft-bellinzona-kmlg9t"
         ],
         "fr": [
-          "consultant-en-ventes-a-tessin-coop-genossenschaft-bellinzona-kmlg9t",
-          "verkaufsberater-in-tessin-steinfels-swiss-bellinzona-ticino-kmlg9t"
+          "consultant-en-ventes-a-tessin-coop-genossenschaft-bellinzona",
+          "verkaufsberater-in-tessin-steinfels-swiss-bellinzona-ticino-kmlg9t",
+          "consultant-en-ventes-a-tessin-coop-genossenschaft-bellinzona-kmlg9t"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-tessin-steinfels-swiss-bellinzona-ticino-kmlg9t",
-        "sales-consultant-in-tessin-coop-genossenschaft-bellinzona-kmlg9t",
-        "consultant-en-ventes-a-tessin-coop-genossenschaft-bellinzona-kmlg9t"
+        "sales-consultant-in-tessin-coop-genossenschaft-bellinzona",
+        "consultant-en-ventes-a-tessin-coop-genossenschaft-bellinzona"
       ],
       "retranslationAttempts": 1
     },
@@ -112,9 +114,9 @@
       "firstSeenAt": "2026-06-05T11:42:01.338Z",
       "slugByLocale": {
         "it": "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
-        "en": "stv-managing-director-in-coop-genossenschaft-arosa",
-        "de": "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
-        "fr": "stv-directeur-general-in-coop-genossenschaft-arosa"
+        "en": "stv-managing-director-in-coop-genossenschaft-arosa-p6gv2y",
+        "de": "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-p6gv2y",
+        "fr": "stv-directeur-general-in-coop-genossenschaft-arosa-p6gv2y"
       },
       "titleByLocale": {
         "de": "Stv. Geschäftsführer:in",
@@ -155,22 +157,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "stv-managing-director-in-coop-genossenschaft-arosa-p6gv2y",
-          "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y"
+          "stv-managing-director-in-coop-genossenschaft-arosa",
+          "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
+          "stv-managing-director-in-coop-genossenschaft-arosa-p6gv2y"
         ],
         "fr": [
-          "stv-directeur-general-in-coop-genossenschaft-arosa-p6gv2y",
-          "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y"
+          "stv-directeur-general-in-coop-genossenschaft-arosa",
+          "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
+          "stv-directeur-general-in-coop-genossenschaft-arosa-p6gv2y"
         ],
         "de": [
+          "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
           "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-p6gv2y"
         ]
       },
       "previousSlugs": [
-        "stv-managing-director-in-coop-genossenschaft-arosa-p6gv2y",
+        "stv-managing-director-in-coop-genossenschaft-arosa",
         "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
-        "stv-directeur-general-in-coop-genossenschaft-arosa-p6gv2y",
-        "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-p6gv2y"
+        "stv-directeur-general-in-coop-genossenschaft-arosa"
       ]
     },
     {
@@ -202,9 +206,9 @@
       "firstSeenAt": "2026-06-05T11:42:01.338Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-chur-graubunden-0l919m",
-        "en": "seller-in-food-coop-genossenschaft-chur",
-        "de": "verkaufer-in-food-coop-chur-graubunden-0l919m",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur"
+        "en": "seller-in-food-coop-genossenschaft-chur-0l919m",
+        "de": "verkaufer-in-food-coop-genossenschaft-chur-0l919m",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -245,22 +249,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-food-coop-genossenschaft-chur-0l919m",
-          "verkaufer-in-food-coop-chur-graubunden-0l919m"
+          "seller-in-food-coop-genossenschaft-chur",
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
+          "seller-in-food-coop-genossenschaft-chur-0l919m"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
-          "verkaufer-in-food-coop-chur-graubunden-0l919m"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m"
         ],
         "de": [
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
           "verkaufer-in-food-coop-genossenschaft-chur-0l919m"
         ]
       },
       "previousSlugs": [
-        "seller-in-food-coop-genossenschaft-chur-0l919m",
+        "seller-in-food-coop-genossenschaft-chur",
         "verkaufer-in-food-coop-chur-graubunden-0l919m",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
-        "verkaufer-in-food-coop-genossenschaft-chur-0l919m"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-chur"
       ]
     },
     {
@@ -291,10 +297,10 @@
       "crawledAt": "2026-06-05T11:42:01.338Z",
       "firstSeenAt": "2026-06-05T11:42:01.338Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
-        "en": "seller-in-food-coop-genossenschaft-felsberg",
-        "de": "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
+        "it": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "en": "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
+        "de": "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -335,29 +341,32 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ],
         "en": [
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+          "seller-in-food-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-          "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
-          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+          "seller-in-food-coop-genossenschaft-felsberg-9fezrn"
         ],
         "de": [
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
           "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn"
         ],
         "fr": [
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn",
-          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-        "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
         "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
-        "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn",
+        "seller-in-food-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
         "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse",
         "verkaufer-in-food-coop-genossenschaft-felsberg-b0fgse",
@@ -401,10 +410,10 @@
       "crawledAt": "2026-06-05T11:42:01.338Z",
       "firstSeenAt": "2026-06-05T11:42:01.338Z",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
-        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
-        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
+        "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
+        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen",
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-cprmen"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -445,30 +454,34 @@
       },
       "previousSlugsByLocale": {
         "de": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen"
         ],
         "it": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
         ],
         "en": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+          "managing-director-in-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-          "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
+          "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen"
         ],
         "fr": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+          "directeur-general-christ-uhren-schmuck-ag-chur",
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-          "directeur-general-christ-uhren-schmuck-ag-chur-cprmen",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
+          "directeur-general-christ-uhren-schmuck-ag-chur-cprmen"
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-cprmen",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
-        "managing-director-in-christ-uhren-schmuck-ag-chur-cprmen",
-        "directeur-general-christ-uhren-schmuck-ag-chur-cprmen",
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+        "managing-director-in-christ-uhren-schmuck-ag-chur",
+        "directeur-general-christ-uhren-schmuck-ag-chur",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0b3645",
         "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
@@ -511,10 +524,10 @@
       "crawledAt": "2026-06-05T11:42:01.338Z",
       "firstSeenAt": "2026-06-05T11:42:01.338Z",
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
-        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
-        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+        "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
+        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -555,30 +568,34 @@
       },
       "previousSlugsByLocale": {
         "de": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm"
         ],
         "it": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
         ],
         "en": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm"
         ],
         "fr": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-w2vgxm",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur-w2vgxm",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-w2vgxm",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+        "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+        "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
@@ -634,9 +651,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
-        "en": "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
         "de": "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-        "fr": "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur"
+        "fr": "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0"
       },
       "requirementsByLocale": {
         "it": [],
@@ -669,13 +686,15 @@
         ],
         "en": [
           "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
-          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+          "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0"
         ],
         "fr": [
           "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
-          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+          "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0"
         ],
         "it": [
           "consulente-di-vendita-in-textil-jumbo-division-der-coop-genossenschaft-chur"
@@ -685,9 +704,9 @@
         "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
         "verkaufsberater-in-textil-coop-city-chur-graubunden-766z9v",
         "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
-        "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+        "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
         "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-96389b",
-        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur-4te3t0",
+        "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
         "consulente-di-vendita-in-textil-jumbo-division-der-coop-genossenschaft-chur",
         "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl",
         "consulente-vendite-tessile-coop-city-chur-graubunden",
@@ -746,9 +765,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv",
-        "en": "seller-in-cash-services-coop-genossenschaft-chur",
-        "de": "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv",
-        "fr": "vendeur-en-especes-services-coop-genossenschaft-chur"
+        "en": "seller-in-cash-services-coop-genossenschaft-chur-dfo3tv",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-chur-dfo3tv",
+        "fr": "vendeur-en-especes-services-coop-genossenschaft-chur-dfo3tv"
       },
       "requirementsByLocale": {
         "it": [],
@@ -777,22 +796,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-cash-services-coop-genossenschaft-chur-dfo3tv",
-          "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv"
+          "seller-in-cash-services-coop-genossenschaft-chur",
+          "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv",
+          "seller-in-cash-services-coop-genossenschaft-chur-dfo3tv"
         ],
         "fr": [
-          "vendeur-en-especes-services-coop-genossenschaft-chur-dfo3tv",
-          "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv"
+          "vendeur-en-especes-services-coop-genossenschaft-chur",
+          "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv",
+          "vendeur-en-especes-services-coop-genossenschaft-chur-dfo3tv"
         ],
         "de": [
+          "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv",
           "verkaufer-in-kassen-services-coop-genossenschaft-chur-dfo3tv"
         ]
       },
       "previousSlugs": [
-        "seller-in-cash-services-coop-genossenschaft-chur-dfo3tv",
+        "seller-in-cash-services-coop-genossenschaft-chur",
         "verkaufer-in-kassen-services-coop-chur-graubunden-dfo3tv",
-        "vendeur-en-especes-services-coop-genossenschaft-chur-dfo3tv",
-        "verkaufer-in-kassen-services-coop-genossenschaft-chur-dfo3tv"
+        "vendeur-en-especes-services-coop-genossenschaft-chur"
       ],
       "retranslationAttempts": 2
     },
@@ -837,9 +858,9 @@
       },
       "slugByLocale": {
         "it": "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
-        "en": "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
-        "de": "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
-        "fr": "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos"
+        "en": "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
+        "de": "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu",
+        "fr": "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu"
       },
       "requirementsByLocale": {
         "it": [],
@@ -869,16 +890,19 @@
       "previousSlugsByLocale": {
         "en": [
           "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-59b58c",
-          "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
-          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
+          "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
+          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
+          "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu"
         ],
         "fr": [
           "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-59b58c",
-          "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu",
-          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu"
+          "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos",
+          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
+          "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu"
         ],
         "de": [
           "rayonleiter-in-frischprodukte-coop-davos-platz-bqi6wr",
+          "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
           "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu"
         ],
         "it": [
@@ -887,12 +911,11 @@
       },
       "previousSlugs": [
         "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-59b58c",
-        "rayon-ladder-in-fresh-products-coop-genossenschaft-davos-vytlgu",
+        "rayon-ladder-in-fresh-products-coop-genossenschaft-davos",
         "rayonleiter-in-frischprodukte-coop-davos-platz-vytlgu",
         "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-59b58c",
-        "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos-vytlgu",
+        "echelle-de-rayon-en-produits-frais-coop-genossenschaft-davos",
         "rayonleiter-in-frischprodukte-coop-davos-platz-bqi6wr",
-        "rayonleiter-in-frischprodukte-coop-genossenschaft-davos-vytlgu",
         "scala-rayon-in-prodotti-freschi-coop-genossenschaft-davos",
         "rayonleiter-in-frischprodukte-coop-genossenschaft-davos"
       ],
@@ -941,9 +964,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
-        "en": "seller-in-food-coop-genossenschaft-felsberg-7c016d",
-        "de": "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-7c016d"
+        "en": "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
+        "de": "verkaufer-in-food-coop-genossenschaft-felsberg-b0fgse",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse"
       },
       "requirementsByLocale": {
         "it": [],
@@ -973,25 +996,27 @@
       "previousSlugsByLocale": {
         "en": [
           "seller-in-food-coop-genossenschaft-felsberg",
-          "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
-          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+          "seller-in-food-coop-genossenschaft-felsberg-7c016d",
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+          "seller-in-food-coop-genossenschaft-felsberg-b0fgse"
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse",
-          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-7c016d",
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse"
         ],
         "de": [
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
           "verkaufer-in-food-coop-genossenschaft-felsberg-b0fgse"
         ]
       },
       "previousSlugs": [
         "seller-in-food-coop-genossenschaft-felsberg",
-        "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
+        "seller-in-food-coop-genossenschaft-felsberg-7c016d",
         "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-b0fgse",
-        "verkaufer-in-food-coop-genossenschaft-felsberg-b0fgse",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-7c016d",
         "venditore-in-food-coop-genossenschaft-disentis-muster",
         "seller-in-food-coop-genossenschaft-disentis-muster-ae3aab",
         "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
@@ -1051,9 +1076,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-        "en": "seller-in-food-coop-genossenschaft-disentis-muster",
-        "de": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster"
+        "en": "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+        "de": "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1081,13 +1106,12 @@
       },
       "previousSlugs": [
         "seller-in-food-coop-genossenschaft-disentis-muster-ae3aab",
-        "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-        "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
         "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+        "seller-in-food-coop-genossenschaft-disentis-muster",
+        "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
         "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-ae3aab",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
         "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
-        "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
         "venditore-in-food-coop-genossenschaft-disentis-muster",
         "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
         "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
@@ -1102,20 +1126,23 @@
       "previousSlugsByLocale": {
         "en": [
           "seller-in-food-coop-genossenschaft-disentis-muster-ae3aab",
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+          "seller-in-food-coop-genossenschaft-disentis-muster",
           "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-          "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
-          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+          "seller-in-food-coop-genossenschaft-disentis-muster-i9zwq6"
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-ae3aab",
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
           "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6",
-          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-i9zwq6"
         ],
         "de": [
           "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97",
-          "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6",
-          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse"
+          "verkaufer-in-food-coop-felsberg-graubunden-b0fgse",
+          "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
+          "verkaufer-in-food-coop-genossenschaft-disentis-muster-i9zwq6"
         ],
         "it": [
           "venditore-in-food-coop-genossenschaft-disentis-muster",
@@ -1152,10 +1179,10 @@
       "crawledAt": "2026-06-04T11:44:22.953Z",
       "firstSeenAt": "2026-06-04T11:44:22.953Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-chur-graubunden-0l919m",
-        "en": "seller-in-food-coop-genossenschaft-chur-7ee3d2",
-        "de": "verkaufer-in-food-coop-chur-graubunden-0l919m",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-7ee3d2"
+        "it": "verkaufer-in-food-coop-chur-graubunden-vnskkx",
+        "en": "seller-in-food-coop-genossenschaft-chur-vnskkx",
+        "de": "verkaufer-in-food-coop-genossenschaft-chur-vnskkx",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -1195,33 +1222,36 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
           "verkaufer-in-food-coop-chur-graubunden-vnskkx"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-chur",
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
+          "seller-in-food-coop-genossenschaft-chur-7ee3d2",
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
-          "seller-in-food-coop-genossenschaft-chur-vnskkx",
-          "verkaufer-in-food-coop-chur-graubunden-0l919m"
+          "seller-in-food-coop-genossenschaft-chur-vnskkx"
         ],
         "de": [
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
           "verkaufer-in-food-coop-genossenschaft-chur-vnskkx"
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-7ee3d2",
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx",
-          "verkaufer-in-food-coop-chur-graubunden-0l919m"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-chur-graubunden-vnskkx",
-        "seller-in-food-coop-genossenschaft-chur",
-        "seller-in-food-coop-genossenschaft-chur-vnskkx",
         "verkaufer-in-food-coop-chur-graubunden-0l919m",
-        "verkaufer-in-food-coop-genossenschaft-chur-vnskkx",
+        "seller-in-food-coop-genossenschaft-chur",
+        "seller-in-food-coop-genossenschaft-chur-7ee3d2",
+        "verkaufer-in-food-coop-chur-graubunden-vnskkx",
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-7ee3d2",
         "seller-in-food-coop-genossenschaft-chur-0l919m",
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
         "verkaufer-in-food-coop-genossenschaft-chur-0l919m",
@@ -1259,9 +1289,9 @@
       "firstSeenAt": "2026-06-04T11:44:22.953Z",
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
-        "en": "managing-director-in-christ-uhren-schmuck-ag-chur-0b3645",
-        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0b3645",
-        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-0b3645"
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
+        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -1303,30 +1333,33 @@
       "previousSlugsByLocale": {
         "de": [
           "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0b3645",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb"
         ],
         "en": [
           "managing-director-in-christ-uhren-schmuck-ag-chur",
-          "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
+          "managing-director-in-christ-uhren-schmuck-ag-chur-0b3645",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+          "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb"
         ],
         "fr": [
           "directeur-general-in-christ-uhren-schmuck-ag-chur",
           "directeur-general-christ-uhren-schmuck-ag-chur",
-          "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
+          "directeur-general-christ-uhren-schmuck-ag-chur-0b3645",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+          "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
-        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0i1ujb",
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-0b3645",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
         "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "managing-director-in-christ-uhren-schmuck-ag-chur-0i1ujb",
+        "managing-director-in-christ-uhren-schmuck-ag-chur-0b3645",
         "directeur-general-in-christ-uhren-schmuck-ag-chur",
         "directeur-general-christ-uhren-schmuck-ag-chur",
-        "directeur-general-christ-uhren-schmuck-ag-chur-0i1ujb",
+        "directeur-general-christ-uhren-schmuck-ag-chur-0b3645",
         "store-manager-christ-orologi-gioielli-chur-graubunden",
         "direttore-direttrice-christ-orologi-gioielli-chur-graubunden",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f",
@@ -1368,9 +1401,9 @@
       "firstSeenAt": "2026-06-04T11:44:22.953Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
-        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e",
-        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e",
-        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur-110c5e"
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
+        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -1412,28 +1445,31 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g"
         ],
         "en": [
           "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g"
         ],
         "fr": [
           "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-110c5e",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-trpl7g",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-110c5e",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur-trpl7g",
+        "sales-consultant-in-christ-uhren-schmuck-ag-chur-110c5e",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-trpl7g",
+        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-110c5e",
         "sales-advisor-christ-orologi-gioielli-chur-graubunden",
         "consulente-di-vendita-christ-orologi-gioielli-chur-graubunden",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-ymbq5g",
@@ -1475,7 +1511,7 @@
       "crawledAt": "2026-06-04T11:44:22.953Z",
       "firstSeenAt": "2026-06-04T11:44:22.953Z",
       "slugByLocale": {
-        "it": "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
+        "it": "stv-geschaftsfuhrer-in-coop-arosa-graubunden-nn7tsc",
         "en": "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-nn7tsc",
         "de": "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-nn7tsc",
         "fr": "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-nn7tsc"
@@ -1518,6 +1554,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
           "stv-geschaftsfuhrer-in-coop-arosa-graubunden-nn7tsc"
         ],
         "en": [
@@ -1532,13 +1569,13 @@
       },
       "previousSlugs": [
         "stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y",
-        "stv-geschaftsfuhrer-in-coop-arosa-graubunden-nn7tsc",
         "stv-directeur-general-in-coop-genossenschaft-arosa-p6gv2y",
         "stv-directeur-general-in-coop-genossenschaft-arosa",
         "stv-managing-director-in-coop-genossenschaft-arosa-p6gv2y",
         "stv-managing-director-in-coop-genossenschaft-arosa",
         "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-p6gv2y"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2t1a5g",
@@ -1582,9 +1619,9 @@
       },
       "slugByLocale": {
         "it": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
-        "en": "butcher-butcher-charcuterie-butcher-f-m-d-coop-genossenschaft-castione",
-        "de": "metzger-metzger-charcuterie-metzger-w-m-d-coop-genossenschaft-castione",
-        "fr": "boucher-boucher-charcuterie-boucher-f-m-d-coop-genossenschaft-castione"
+        "en": "butcher-charcuterie-butcher-m-w-d-coop-genossenschaft-castione-2t1a5g",
+        "de": "metzger-charcuterie-metzger-m-w-d-coop-genossenschaft-castione-2t1a5g",
+        "fr": "boucher-charcuterie-boucher-m-w-d-coop-genossenschaft-castione-2t1a5g"
       },
       "requirementsByLocale": {
         "it": [
@@ -1612,10 +1649,10 @@
         }
       },
       "previousSlugs": [
+        "butcher-butcher-charcuterie-butcher-f-m-d-coop-genossenschaft-castione",
         "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
-        "butcher-charcuterie-butcher-m-w-d-coop-genossenschaft-castione-2t1a5g",
-        "metzger-charcuterie-metzger-m-w-d-coop-genossenschaft-castione-2t1a5g",
-        "boucher-charcuterie-boucher-m-w-d-coop-genossenschaft-castione-2t1a5g",
+        "metzger-metzger-charcuterie-metzger-w-m-d-coop-genossenschaft-castione",
+        "boucher-boucher-charcuterie-boucher-f-m-d-coop-genossenschaft-castione",
         "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-riazzino-ticino",
         "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-riazzino-ticino-0wdtls",
         "butcher-butcher-salumiera-salumiere-f-m-d-coop-genossenschaft-riazzino",
@@ -1632,18 +1669,22 @@
       ],
       "previousSlugsByLocale": {
         "en": [
+          "butcher-butcher-charcuterie-butcher-f-m-d-coop-genossenschaft-castione",
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
           "butcher-charcuterie-butcher-m-w-d-coop-genossenschaft-castione-2t1a5g"
         ],
         "de": [
+          "metzger-metzger-charcuterie-metzger-w-m-d-coop-genossenschaft-castione",
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
           "metzger-charcuterie-metzger-m-w-d-coop-genossenschaft-castione-2t1a5g"
         ],
         "fr": [
+          "boucher-boucher-charcuterie-boucher-f-m-d-coop-genossenschaft-castione",
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-castione-ticino-2t1a5g",
           "boucher-charcuterie-boucher-m-w-d-coop-genossenschaft-castione-2t1a5g"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4gs5we",
@@ -1684,9 +1725,9 @@
       },
       "slugByLocale": {
         "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus"
+        "en": "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we",
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we"
       },
       "requirementsByLocale": {},
       "addressLocality": "Klosters-Serneus",
@@ -1709,16 +1750,19 @@
       "previousSlugsByLocale": {
         "en": [
           "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
+          "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
           "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we"
         ],
         "fr": [
           "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
           "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we"
         ],
         "it": [
@@ -1728,12 +1772,11 @@
       },
       "previousSlugs": [
         "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-b54dfb",
+        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-4gs5we",
-        "butcher-meat-specialist-coop-genossenschaft-klosters-serneus-4gs5we",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-b54dfb",
-        "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-4gs5we",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-klosters-serneus-4gs5we",
         "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus",
         "macellaio-a-specialista-in-carne-coop-genossenschaft-klosters-serneus-b54dfb",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-scuol",
@@ -1783,9 +1826,9 @@
       },
       "slugByLocale": {
         "it": "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk",
-        "en": "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk",
-        "de": "teammitglied-restaurant-w-m-d-marche-restaurants-schweiz-ag-dietlikon",
-        "fr": "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk"
+        "en": "teammember-restaurant-m-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk",
+        "de": "teammitglied-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk",
+        "fr": "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk"
       },
       "requirementsByLocale": {},
       "addressLocality": "Dietlikon",
@@ -1807,21 +1850,22 @@
       "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "de": [
+          "teammitglied-restaurant-w-m-d-marche-restaurants-schweiz-ag-dietlikon",
           "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk",
           "teammitglied-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk"
         ],
         "en": [
+          "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk",
           "teammember-restaurant-m-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk"
         ],
         "fr": [
+          "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk",
           "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk"
         ]
       },
       "previousSlugs": [
-        "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk",
-        "teammitglied-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk",
-        "teammember-restaurant-m-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk",
-        "teammember-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-iz6bhk"
+        "teammitglied-restaurant-w-m-d-marche-restaurants-schweiz-ag-dietlikon",
+        "teammember-restaurant-m-w-d-marche-dietlikon-iz6bhk"
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1686
@@ -1947,9 +1991,9 @@
       },
       "slugByLocale": {
         "it": "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2",
-        "en": "head-of-department-in-food-coop-genossenschaft-chur",
-        "de": "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2",
-        "fr": "chef-de-departement-dans-l-alimentation-coop-genossenschaft-chur"
+        "en": "head-of-department-in-food-coop-genossenschaft-chur-7c2tz2",
+        "de": "abteilungsleiter-in-food-coop-genossenschaft-chur-7c2tz2",
+        "fr": "chef-de-departement-dans-l-alimentation-coop-genossenschaft-chur-7c2tz2"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1978,22 +2022,24 @@
       "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "en": [
-          "head-of-department-in-food-coop-genossenschaft-chur-7c2tz2",
-          "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2"
+          "head-of-department-in-food-coop-genossenschaft-chur",
+          "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2",
+          "head-of-department-in-food-coop-genossenschaft-chur-7c2tz2"
         ],
         "fr": [
-          "chef-de-departement-dans-l-alimentation-coop-genossenschaft-chur-7c2tz2",
-          "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2"
+          "chef-de-departement-dans-l-alimentation-coop-genossenschaft-chur",
+          "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2",
+          "chef-de-departement-dans-l-alimentation-coop-genossenschaft-chur-7c2tz2"
         ],
         "de": [
+          "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2",
           "abteilungsleiter-in-food-coop-genossenschaft-chur-7c2tz2"
         ]
       },
       "previousSlugs": [
-        "head-of-department-in-food-coop-genossenschaft-chur-7c2tz2",
+        "head-of-department-in-food-coop-genossenschaft-chur",
         "abteilungsleiter-in-food-coop-chur-graubunden-7c2tz2",
-        "chef-de-departement-dans-l-alimentation-coop-genossenschaft-chur-7c2tz2",
-        "abteilungsleiter-in-food-coop-genossenschaft-chur-7c2tz2"
+        "chef-de-departement-dans-l-alimentation-coop-genossenschaft-chur"
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1614,
@@ -2624,7 +2670,8 @@
         "systemgastronomiefachfrau-mann-praktiker-in-coop-ristorante-grigioni",
         "systemgastronomiefachfrau-mann-praktiker-in-coop-ristorante-gossau",
         "systemegastronomiefachfrau-mann-praktiker-in-marche-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-hm4hme",
@@ -3236,9 +3283,9 @@
       },
       "slugByLocale": {
         "it": "lagerist-in-jumbo-chur-graubunden-utbp1c",
-        "en": "lagerist-in-jumbo-chur-graubunden-utbp1c",
-        "de": "lagerist-in-jumbo-division-der-coop-genossenschaft-chur",
-        "fr": "stockiste-jumbo-division-der-coop-genossenschaft-chur"
+        "en": "stockist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
+        "de": "lagerist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
+        "fr": "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3266,26 +3313,28 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "lagerist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
-          "lagerist-in-jumbo-chur-graubunden-utbp1c"
+          "lagerist-in-jumbo-division-der-coop-genossenschaft-chur",
+          "lagerist-in-jumbo-chur-graubunden-utbp1c",
+          "lagerist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c"
         ],
         "fr": [
           "stockiste-en-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
           "stockiste-en-jumbo-division-der-coop-genossenschaft-chur",
-          "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
-          "lagerist-in-jumbo-chur-graubunden-utbp1c"
+          "stockiste-jumbo-division-der-coop-genossenschaft-chur",
+          "lagerist-in-jumbo-chur-graubunden-utbp1c",
+          "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c"
         ],
         "en": [
+          "lagerist-in-jumbo-chur-graubunden-utbp1c",
           "stockist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c"
         ]
       },
       "previousSlugs": [
-        "lagerist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
+        "lagerist-in-jumbo-division-der-coop-genossenschaft-chur",
         "lagerist-in-jumbo-chur-graubunden-utbp1c",
         "stockiste-en-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
         "stockiste-en-jumbo-division-der-coop-genossenschaft-chur",
-        "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
-        "stockist-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c"
+        "stockiste-jumbo-division-der-coop-genossenschaft-chur"
       ],
       "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
@@ -3333,9 +3382,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
-        "en": "seller-in-food-coop-genossenschaft-schiers",
-        "de": "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-schiers"
+        "en": "seller-in-food-coop-genossenschaft-schiers-qfd5dq",
+        "de": "verkaufer-in-food-coop-genossenschaft-schiers-qfd5dq",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-schiers-qfd5dq"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3362,10 +3411,9 @@
         }
       },
       "previousSlugs": [
-        "seller-in-food-coop-genossenschaft-schiers-qfd5dq",
+        "seller-in-food-coop-genossenschaft-schiers",
         "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-schiers-qfd5dq",
-        "verkaufer-in-food-coop-genossenschaft-schiers-qfd5dq",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-schiers",
         "verkaufer-in-food-coop-genossenschaft-schiers-bv1qsy",
         "verkaufer-in-food-coop-schiers-graubunden-bv1qsy",
         "verkaufer-in-food-coop-genossenschaft-schiers",
@@ -3383,14 +3431,17 @@
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-food-coop-genossenschaft-schiers-qfd5dq",
-          "verkaufer-in-food-coop-schiers-graubunden-qfd5dq"
+          "seller-in-food-coop-genossenschaft-schiers",
+          "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
+          "seller-in-food-coop-genossenschaft-schiers-qfd5dq"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-schiers-qfd5dq",
-          "verkaufer-in-food-coop-schiers-graubunden-qfd5dq"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-schiers",
+          "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-schiers-qfd5dq"
         ],
         "de": [
+          "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
           "verkaufer-in-food-coop-genossenschaft-schiers-qfd5dq"
         ]
       },
@@ -3527,9 +3578,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt",
-        "en": "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus",
-        "de": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt",
-        "fr": "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus"
+        "en": "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus-givekt",
+        "de": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus-givekt",
+        "fr": "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus-givekt"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3554,22 +3605,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus-givekt",
-          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt"
+          "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt",
+          "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus-givekt"
         ],
         "fr": [
-          "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus-givekt",
-          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt"
+          "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt",
+          "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus-givekt"
         ],
         "de": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt",
           "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus-givekt"
         ]
       },
       "previousSlugs": [
-        "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus-givekt",
+        "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus",
         "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden-givekt",
-        "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus-givekt",
-        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus-givekt",
+        "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus",
         "verkaufer-in-frischprodukte-fruchte-gemuse-coop-ilanz-glion-graubunden",
         "venditore-in-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-ilanz-glion",
         "seller-in-fresh-products-fruits-vegetables-coop-genossenschaft-ilanz-glion",
@@ -3625,9 +3678,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-        "en": "seller-in-nonfood-coop-genossenschaft-chur",
-        "de": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur"
+        "en": "seller-in-nonfood-coop-genossenschaft-chur-7u0021",
+        "de": "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021",
+        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-7u0021"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3653,13 +3706,15 @@
       "previousSlugsByLocale": {
         "en": [
           "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
-          "seller-in-nonfood-coop-genossenschaft-chur-7u0021",
-          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
+          "seller-in-nonfood-coop-genossenschaft-chur",
+          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
+          "seller-in-nonfood-coop-genossenschaft-chur-7u0021"
         ],
         "fr": [
           "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5",
-          "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-7u0021",
-          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
+          "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
+          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
+          "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-7u0021"
         ],
         "it": [
           "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
@@ -3667,19 +3722,19 @@
         ],
         "de": [
           "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
+          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
           "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021"
         ]
       },
       "previousSlugs": [
         "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
-        "seller-in-nonfood-coop-genossenschaft-chur-7u0021",
+        "seller-in-nonfood-coop-genossenschaft-chur",
         "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5",
-        "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-7u0021",
+        "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
         "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "venditore-in-nonfood-coop-genossenschaft-chur",
-        "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
-        "verkaufer-in-nonfood-coop-genossenschaft-chur-7u0021"
+        "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -3731,9 +3786,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd",
-        "en": "seller-in-cash-services-coop-genossenschaft-ilanz-glion",
-        "de": "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd",
-        "fr": "vendeur-en-especes-services-coop-genossenschaft-ilanz-glion"
+        "en": "seller-in-cash-services-coop-genossenschaft-ilanz-glion-ig7ncd",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-ilanz-glion-ig7ncd",
+        "fr": "vendeur-en-especes-services-coop-genossenschaft-ilanz-glion-ig7ncd"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3759,22 +3814,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-cash-services-coop-genossenschaft-ilanz-glion-ig7ncd",
-          "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd"
+          "seller-in-cash-services-coop-genossenschaft-ilanz-glion",
+          "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd",
+          "seller-in-cash-services-coop-genossenschaft-ilanz-glion-ig7ncd"
         ],
         "fr": [
-          "vendeur-en-especes-services-coop-genossenschaft-ilanz-glion-ig7ncd",
-          "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd"
+          "vendeur-en-especes-services-coop-genossenschaft-ilanz-glion",
+          "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd",
+          "vendeur-en-especes-services-coop-genossenschaft-ilanz-glion-ig7ncd"
         ],
         "de": [
+          "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd",
           "verkaufer-in-kassen-services-coop-genossenschaft-ilanz-glion-ig7ncd"
         ]
       },
       "previousSlugs": [
-        "seller-in-cash-services-coop-genossenschaft-ilanz-glion-ig7ncd",
+        "seller-in-cash-services-coop-genossenschaft-ilanz-glion",
         "verkaufer-in-kassen-services-coop-ilanz-glion-graubunden-ig7ncd",
-        "vendeur-en-especes-services-coop-genossenschaft-ilanz-glion-ig7ncd",
-        "verkaufer-in-kassen-services-coop-genossenschaft-ilanz-glion-ig7ncd"
+        "vendeur-en-especes-services-coop-genossenschaft-ilanz-glion"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -3825,9 +3882,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq",
-        "en": "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus",
-        "de": "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq",
-        "fr": "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus"
+        "en": "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-46rasq",
+        "de": "verkaufer-in-frischprodukte-brot-backwaren-coop-genossenschaft-klosters-serneus-46rasq",
+        "fr": "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3853,8 +3910,9 @@
       "previousSlugsByLocale": {
         "en": [
           "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-82026e",
-          "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-46rasq",
-          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq"
+          "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus",
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq",
+          "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-46rasq"
         ],
         "fr": [
           "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-82026e",
@@ -3863,8 +3921,9 @@
           "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus-46rasq",
           "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus",
           "vendeur-dans-les-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus",
-          "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
-          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq"
+          "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus",
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq",
+          "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq"
         ],
         "it": [
           "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus",
@@ -3874,12 +3933,13 @@
         "de": [
           "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
           "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq",
           "verkaufer-in-frischprodukte-brot-backwaren-coop-genossenschaft-klosters-serneus-46rasq"
         ]
       },
       "previousSlugs": [
         "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-82026e",
-        "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus-46rasq",
+        "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-46rasq",
         "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-82026e",
         "vendeur-dans-les-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
@@ -3887,13 +3947,12 @@
         "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus-46rasq",
         "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus",
         "vendeur-dans-les-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus",
-        "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus-46rasq",
+        "vendeur-dans-des-produits-frais-pain-cuirerie-coop-genossenschaft-klosters-serneus",
         "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus",
         "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus-82026e",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "verkaufer-in-frischprodukte-brot-backwaren-coop-genossenschaft-klosters-serneus-46rasq",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-genossenschaft-klosters-serneus",
         "collaboratore-trice-inventuren-coop-grigioni-4whh8x"
       ],
@@ -4019,9 +4078,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-import-parfumerie-chur-graubunden-ro4syg",
-        "en": "sales-consultant-in-coop-genossenschaft-chur",
-        "de": "verkaufsberater-in-coop-genossenschaft-chur",
-        "fr": "consultant-en-ventes-coop-genossenschaft-chur"
+        "en": "sales-consultant-in-coop-genossenschaft-chur-ro4syg",
+        "de": "verkaufsberater-in-coop-genossenschaft-chur-ro4syg",
+        "fr": "consultant-en-ventes-coop-genossenschaft-chur-ro4syg"
       },
       "requirementsByLocale": {
         "it": [],
@@ -4046,31 +4105,34 @@
       },
       "previousSlugsByLocale": {
         "en": [
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+          "sales-consultant-in-coop-genossenschaft-chur",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-ro4syg",
-          "sales-consultant-in-coop-genossenschaft-chur-ro4syg",
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+          "sales-consultant-in-coop-genossenschaft-chur-ro4syg"
         ],
         "de": [
+          "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+          "verkaufsberater-in-coop-genossenschaft-chur",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-ro4syg",
-          "verkaufsberater-in-coop-genossenschaft-chur-ro4syg",
-          "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur"
+          "verkaufsberater-in-coop-genossenschaft-chur-ro4syg"
         ],
         "fr": [
+          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
+          "consultant-en-ventes-coop-genossenschaft-chur",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-ro4syg",
-          "consultant-en-ventes-coop-genossenschaft-chur-ro4syg",
-          "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
+          "consultant-en-ventes-coop-genossenschaft-chur-ro4syg"
         ],
         "it": [
           "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-import-parfumerie-chur-graubunden-ro4syg",
-        "sales-consultant-in-coop-genossenschaft-chur-ro4syg",
         "verkaufsberater-in-textil-coop-city-chur-graubunden-4te3t0",
-        "verkaufsberater-in-coop-genossenschaft-chur-ro4syg",
+        "sales-consultant-in-coop-genossenschaft-chur",
+        "verkaufsberater-in-import-parfumerie-chur-graubunden-ro4syg",
         "verkaufsberater-in-textil-jumbo-division-der-coop-genossenschaft-chur",
-        "consultant-en-ventes-coop-genossenschaft-chur-ro4syg",
+        "verkaufsberater-in-coop-genossenschaft-chur",
+        "consultant-en-ventes-coop-genossenschaft-chur",
         "consulente-commerciale-in-coop-genossenschaft-chur",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
         "sales-consultant-import-parfumerie-chur-graubunden",
@@ -4132,9 +4194,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x",
-        "en": "sales-consultant-incl-deputy-director-in-christ-uhren-schmuck-ag-chur",
-        "de": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x",
-        "fr": "consultant-en-ventes-incl-directeur-adjoint-in-christ-uhren-schmuck-ag-chur"
+        "en": "sales-consultant-incl-deputy-director-in-christ-uhren-schmuck-ag-chur-09jw4x",
+        "de": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-09jw4x",
+        "fr": "consultant-en-ventes-incl-directeur-adjoint-in-christ-uhren-schmuck-ag-chur-09jw4x"
       },
       "requirementsByLocale": {
         "it": [],
@@ -4159,22 +4221,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "sales-consultant-incl-deputy-director-in-christ-uhren-schmuck-ag-chur-09jw4x",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x"
+          "sales-consultant-incl-deputy-director-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x",
+          "sales-consultant-incl-deputy-director-in-christ-uhren-schmuck-ag-chur-09jw4x"
         ],
         "fr": [
-          "consultant-en-ventes-incl-directeur-adjoint-in-christ-uhren-schmuck-ag-chur-09jw4x",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x"
+          "consultant-en-ventes-incl-directeur-adjoint-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x",
+          "consultant-en-ventes-incl-directeur-adjoint-in-christ-uhren-schmuck-ag-chur-09jw4x"
         ],
         "de": [
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x",
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-09jw4x"
         ]
       },
       "previousSlugs": [
-        "sales-consultant-incl-deputy-director-in-christ-uhren-schmuck-ag-chur-09jw4x",
+        "sales-consultant-incl-deputy-director-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-09jw4x",
-        "consultant-en-ventes-incl-directeur-adjoint-in-christ-uhren-schmuck-ag-chur-09jw4x",
-        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-09jw4x",
+        "consultant-en-ventes-incl-directeur-adjoint-in-christ-uhren-schmuck-ag-chur",
         "consulente-di-vendita-incl-direttore-aggiunto-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf",
@@ -4238,9 +4302,9 @@
       },
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s",
-        "en": "managing-director-in-coop-genossenschaft-sankt-moritz",
-        "de": "geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz",
-        "fr": "directeur-general-in-coop-genossenschaft-sankt-moritz"
+        "en": "managing-director-in-coop-genossenschaft-sankt-moritz-onj02s",
+        "de": "geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz-onj02s",
+        "fr": "directeur-general-in-coop-genossenschaft-sankt-moritz-onj02s"
       },
       "addressLocality": "Sankt Moritz",
       "salaryMin": 49500,
@@ -4257,27 +4321,30 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "managing-director-in-coop-genossenschaft-sankt-moritz-onj02s",
-          "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s"
+          "managing-director-in-coop-genossenschaft-sankt-moritz",
+          "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s",
+          "managing-director-in-coop-genossenschaft-sankt-moritz-onj02s"
         ],
         "de": [
-          "geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz-onj02s",
-          "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s"
+          "geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz",
+          "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s",
+          "geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz-onj02s"
         ],
         "fr": [
           "directeur-general-coop-genossenschaft-sankt-moritz-onj02s",
           "directeur-general-coop-genossenschaft-sankt-moritz",
-          "directeur-general-in-coop-genossenschaft-sankt-moritz-onj02s",
-          "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s"
+          "directeur-general-in-coop-genossenschaft-sankt-moritz",
+          "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s",
+          "directeur-general-in-coop-genossenschaft-sankt-moritz-onj02s"
         ]
       },
       "previousSlugs": [
-        "managing-director-in-coop-genossenschaft-sankt-moritz-onj02s",
+        "managing-director-in-coop-genossenschaft-sankt-moritz",
         "geschaftsfuhrer-in-coop-sankt-moritz-graubunden-onj02s",
-        "geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz-onj02s",
+        "geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz",
         "directeur-general-coop-genossenschaft-sankt-moritz-onj02s",
         "directeur-general-coop-genossenschaft-sankt-moritz",
-        "directeur-general-in-coop-genossenschaft-sankt-moritz-onj02s"
+        "directeur-general-in-coop-genossenschaft-sankt-moritz"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -4336,9 +4403,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-arosa-graubunden-8ij9x8",
-        "en": "seller-in-food-coop-genossenschaft-arosa",
-        "de": "verkaufer-in-food-coop-arosa-graubunden-8ij9x8",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-arosa"
+        "en": "seller-in-food-coop-genossenschaft-arosa-8ij9x8",
+        "de": "verkaufer-in-food-coop-genossenschaft-arosa-8ij9x8",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-arosa-8ij9x8"
       },
       "addressLocality": "Arosa",
       "salaryMin": 49500,
@@ -4355,14 +4422,17 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-food-coop-genossenschaft-arosa-8ij9x8",
-          "verkaufer-in-food-coop-arosa-graubunden-8ij9x8"
+          "seller-in-food-coop-genossenschaft-arosa",
+          "verkaufer-in-food-coop-arosa-graubunden-8ij9x8",
+          "seller-in-food-coop-genossenschaft-arosa-8ij9x8"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-arosa-8ij9x8",
-          "verkaufer-in-food-coop-arosa-graubunden-8ij9x8"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-arosa",
+          "verkaufer-in-food-coop-arosa-graubunden-8ij9x8",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-arosa-8ij9x8"
         ],
         "de": [
+          "verkaufer-in-food-coop-arosa-graubunden-8ij9x8",
           "verkaufer-in-food-coop-genossenschaft-arosa-8ij9x8"
         ],
         "it": [
@@ -4389,10 +4459,9 @@
         ]
       },
       "previousSlugs": [
-        "seller-in-food-coop-genossenschaft-arosa-8ij9x8",
+        "seller-in-food-coop-genossenschaft-arosa",
         "verkaufer-in-food-coop-arosa-graubunden-8ij9x8",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-arosa-8ij9x8",
-        "verkaufer-in-food-coop-genossenschaft-arosa-8ij9x8",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-arosa",
         "verkaufer-in-food-coop-chur-graubunden-0l919m",
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur-62c54a",
         "seller-in-food-coop-genossenschaft-chur",
@@ -4465,9 +4534,9 @@
       },
       "slugByLocale": {
         "it": "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd",
-        "en": "rayon-ladder-in-wine-drinks-coop-genossenschaft-landquart",
-        "de": "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd",
-        "fr": "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-landquart"
+        "en": "rayon-ladder-in-wine-drinks-coop-genossenschaft-landquart-spy7gd",
+        "de": "rayonleiter-in-wein-getranke-coop-genossenschaft-landquart-spy7gd",
+        "fr": "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-landquart-spy7gd"
       },
       "addressLocality": "Landquart",
       "salaryMin": 49500,
@@ -4484,22 +4553,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "rayon-ladder-in-wine-drinks-coop-genossenschaft-landquart-spy7gd",
-          "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd"
+          "rayon-ladder-in-wine-drinks-coop-genossenschaft-landquart",
+          "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd",
+          "rayon-ladder-in-wine-drinks-coop-genossenschaft-landquart-spy7gd"
         ],
         "fr": [
-          "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-landquart-spy7gd",
-          "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd"
+          "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-landquart",
+          "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd",
+          "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-landquart-spy7gd"
         ],
         "de": [
+          "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd",
           "rayonleiter-in-wein-getranke-coop-genossenschaft-landquart-spy7gd"
         ]
       },
       "previousSlugs": [
-        "rayon-ladder-in-wine-drinks-coop-genossenschaft-landquart-spy7gd",
+        "rayon-ladder-in-wine-drinks-coop-genossenschaft-landquart",
         "rayonleiter-in-wein-getranke-coop-landquart-graubunden-spy7gd",
-        "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-landquart-spy7gd",
-        "rayonleiter-in-wein-getranke-coop-genossenschaft-landquart-spy7gd"
+        "echelle-de-rayon-dans-le-vin-boissons-coop-genossenschaft-landquart"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -4653,9 +4724,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
-        "en": "butcher-meat-specialist-coop-genossenschaft-chur",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
-        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-chur"
+        "en": "butcher-meat-specialist-coop-genossenschaft-chur-xl6rrf",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-xl6rrf",
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-chur-xl6rrf"
       },
       "addressLocality": "Chur",
       "salaryMin": 49500,
@@ -4672,14 +4743,17 @@
       },
       "previousSlugsByLocale": {
         "en": [
+          "butcher-meat-specialist-coop-genossenschaft-chur",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
           "butcher-meat-specialist-coop-genossenschaft-chur-xl6rrf"
         ],
         "fr": [
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-chur",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
           "boucher-specialiste-de-la-viande-coop-genossenschaft-chur-xl6rrf"
         ],
         "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-xl6rrf"
         ],
         "it": [
@@ -4687,10 +4761,9 @@
         ]
       },
       "previousSlugs": [
+        "butcher-meat-specialist-coop-genossenschaft-chur",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
-        "butcher-meat-specialist-coop-genossenschaft-chur-xl6rrf",
-        "boucher-specialiste-de-la-viande-coop-genossenschaft-chur-xl6rrf",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-xl6rrf",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-chur",
         "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8",
@@ -4856,9 +4929,9 @@
       },
       "slugByLocale": {
         "it": "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt",
-        "en": "chef-cook-w-m-d-coop-genossenschaft-chur",
-        "de": "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt",
-        "fr": "chef-cuisinier-w-m-d-coop-genossenschaft-chur"
+        "en": "chef-cook-m-w-d-coop-genossenschaft-chur-4j1lnt",
+        "de": "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
+        "fr": "chef-cuisinier-m-w-d-coop-genossenschaft-chur-4j1lnt"
       },
       "addressLocality": "Chur",
       "salaryMin": 49500,
@@ -4875,22 +4948,24 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "chef-cook-m-w-d-coop-genossenschaft-chur-4j1lnt",
-          "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt"
+          "chef-cook-w-m-d-coop-genossenschaft-chur",
+          "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt",
+          "chef-cook-m-w-d-coop-genossenschaft-chur-4j1lnt"
         ],
         "fr": [
-          "chef-cuisinier-m-w-d-coop-genossenschaft-chur-4j1lnt",
-          "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt"
+          "chef-cuisinier-w-m-d-coop-genossenschaft-chur",
+          "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt",
+          "chef-cuisinier-m-w-d-coop-genossenschaft-chur-4j1lnt"
         ],
         "de": [
+          "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt"
         ]
       },
       "previousSlugs": [
-        "chef-cook-m-w-d-coop-genossenschaft-chur-4j1lnt",
+        "chef-cook-w-m-d-coop-genossenschaft-chur",
         "kochin-koch-m-w-d-coop-chur-graubunden-4j1lnt",
-        "chef-cuisinier-m-w-d-coop-genossenschaft-chur-4j1lnt",
-        "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt"
+        "chef-cuisinier-w-m-d-coop-genossenschaft-chur"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -4929,9 +5004,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
-        "en": "seller-in-food-coop-genossenschaft-chur-ddc182",
-        "de": "verkaufer-in-food-coop-genossenschaft-chur",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182"
+        "en": "seller-in-food-coop-genossenschaft-chur-e66ikm",
+        "de": "verkaufer-in-food-coop-genossenschaft-chur-e66ikm",
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-e66ikm"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -4968,27 +5043,29 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "seller-in-food-coop-genossenschaft-chur-e66ikm",
-          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+          "seller-in-food-coop-genossenschaft-chur-ddc182",
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+          "seller-in-food-coop-genossenschaft-chur-e66ikm"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-e66ikm",
-          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182",
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-e66ikm"
         ],
         "it": [
           "verkaufer-in-food-coop-genossenschaft-chur"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-chur-e66ikm",
-          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+          "verkaufer-in-food-coop-genossenschaft-chur",
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+          "verkaufer-in-food-coop-genossenschaft-chur-e66ikm"
         ]
       },
       "previousSlugs": [
-        "seller-in-food-coop-genossenschaft-chur-e66ikm",
+        "seller-in-food-coop-genossenschaft-chur-ddc182",
         "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-e66ikm",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182",
         "verkaufer-in-food-coop-genossenschaft-chur",
-        "verkaufer-in-food-coop-genossenschaft-chur-e66ikm",
         "venditore-in-food-coop-genossenschaft-felsberg",
         "seller-in-food-coop-genossenschaft-felsberg",
         "verkaufer-in-food-coop-genossenschaft-felsberg",
@@ -5121,9 +5198,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-2237c8",
-        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf",
-        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-2237c8"
+        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-oal0zl",
+        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-oal0zl",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-oal0zl"
       },
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -5154,8 +5231,9 @@
       "previousSlugs": [
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-jegensdorf",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-ticino",
-        "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-oal0zl",
-        "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-oal0zl",
+        "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-2237c8",
+        "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf",
+        "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-2237c8",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-2",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-3",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-4"
@@ -5166,12 +5244,15 @@
           "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-ticino"
         ],
         "en": [
+          "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-2237c8",
           "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-oal0zl"
         ],
         "de": [
+          "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf",
           "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-oal0zl"
         ],
         "fr": [
+          "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-2237c8",
           "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-oal0zl"
         ]
       },
@@ -5444,9 +5525,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-        "en": "standardized-gastronomy-standardized-gastronomy-add-on-marche-dietlikon-5665bf",
-        "de": "standardisierte-gastronomie-standardisierte-gastronomie-marche-dietlikon-5665bf",
-        "fr": "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon"
+        "en": "standardized-gastronomy-add-on-marche-dietlikon-z0zxuf",
+        "de": "standardisierte-gastronomie-marche-dietlikon-z0zxuf",
+        "fr": "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon-z0zxuf"
       },
       "titleByLocale": {
         "it": "Impiegata/o di gastronomia standardizzata / Addettao digastronomia standardizzata",
@@ -5486,6 +5567,7 @@
           "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon-5665bf",
           "utilisation-standard-de-la-gastronomie-complement-gastronomique-standard-marche-dietlikon-z0zxuf",
           "utilisation-standard-de-la-gastronomie-complement-gastronomique-standard-marche-dietlikon",
+          "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon",
           "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon-z0zxuf"
         ],
         "it": [
@@ -5497,9 +5579,11 @@
         "en": [
           "standardized-gastronomy-use-standardized-gastronomy-add-on-marche-dietlikon-z0zxuf",
           "standardized-gastronomy-use-standardized-gastronomy-add-on-marche-dietlikon",
+          "standardized-gastronomy-standardized-gastronomy-add-on-marche-dietlikon-5665bf",
           "standardized-gastronomy-add-on-marche-dietlikon-z0zxuf"
         ],
         "de": [
+          "standardisierte-gastronomie-standardisierte-gastronomie-marche-dietlikon-5665bf",
           "standardisierte-gastronomie-marche-dietlikon-z0zxuf"
         ]
       },
@@ -5507,19 +5591,20 @@
         "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon-5665bf",
         "utilisation-standard-de-la-gastronomie-complement-gastronomique-standard-marche-dietlikon-z0zxuf",
         "utilisation-standard-de-la-gastronomie-complement-gastronomique-standard-marche-dietlikon",
-        "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon-z0zxuf",
+        "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon",
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon",
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-2",
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-ticino",
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-mezzovico",
         "standardized-gastronomy-use-standardized-gastronomy-add-on-marche-dietlikon-z0zxuf",
         "standardized-gastronomy-use-standardized-gastronomy-add-on-marche-dietlikon",
-        "standardized-gastronomy-add-on-marche-dietlikon-z0zxuf",
-        "standardisierte-gastronomie-marche-dietlikon-z0zxuf"
+        "standardized-gastronomy-standardized-gastronomy-add-on-marche-dietlikon-5665bf",
+        "standardisierte-gastronomie-standardisierte-gastronomie-marche-dietlikon-5665bf"
       ],
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "company-j301yl",
@@ -5548,9 +5633,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-j301yl",
-        "en": "employee-a-interdiscount-jegensdorf",
-        "de": "mitarbeiter-a-interdiscount-jegensdorf-fe71db",
-        "fr": "employe-a-interdiscount-jegensdorf"
+        "en": "employee-a-interdiscount-jegensdorf-j301yl",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-j301yl",
+        "fr": "employe-a-interdiscount-jegensdorf-j301yl"
       },
       "titleByLocale": {
         "it": "Impiegato / a",
@@ -5581,20 +5666,23 @@
       "previousSlugsByLocale": {
         "de": [
           "angestellter-a-interdiscount-jegensdorf-j301yl",
+          "mitarbeiter-a-interdiscount-jegensdorf-fe71db",
           "mitarbeiter-a-interdiscount-jegensdorf-j301yl"
         ],
         "en": [
+          "employee-a-interdiscount-jegensdorf",
           "employee-a-interdiscount-jegensdorf-j301yl"
         ],
         "fr": [
+          "employe-a-interdiscount-jegensdorf",
           "employe-a-interdiscount-jegensdorf-j301yl"
         ]
       },
       "previousSlugs": [
         "angestellter-a-interdiscount-jegensdorf-j301yl",
-        "mitarbeiter-a-interdiscount-jegensdorf-j301yl",
-        "employee-a-interdiscount-jegensdorf-j301yl",
-        "employe-a-interdiscount-jegensdorf-j301yl",
+        "mitarbeiter-a-interdiscount-jegensdorf-fe71db",
+        "employee-a-interdiscount-jegensdorf",
+        "employe-a-interdiscount-jegensdorf",
         "impiegato-a-interdiscount-jegensdorf-2",
         "impiegato-a-interdiscount-jegensdorf-3",
         "impiegato-a-interdiscount-jegensdorf-4",
@@ -5633,9 +5721,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-04fn4u",
-        "en": "employee-a-interdiscount-jegensdorf-b65e6b",
-        "de": "mitarbeiter-a-interdiscount-jegensdorf-b65e6b",
-        "fr": "employe-a-interdiscount-jegensdorf-b65e6b"
+        "en": "employee-a-interdiscount-jegensdorf-04fn4u",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-04fn4u",
+        "fr": "employe-a-interdiscount-jegensdorf-04fn4u"
       },
       "titleByLocale": {
         "it": "Impiegato / a",
@@ -5666,20 +5754,23 @@
       "previousSlugsByLocale": {
         "de": [
           "angestellter-a-interdiscount-jegensdorf-04fn4u",
+          "mitarbeiter-a-interdiscount-jegensdorf-b65e6b",
           "mitarbeiter-a-interdiscount-jegensdorf-04fn4u"
         ],
         "en": [
+          "employee-a-interdiscount-jegensdorf-b65e6b",
           "employee-a-interdiscount-jegensdorf-04fn4u"
         ],
         "fr": [
+          "employe-a-interdiscount-jegensdorf-b65e6b",
           "employe-a-interdiscount-jegensdorf-04fn4u"
         ]
       },
       "previousSlugs": [
         "angestellter-a-interdiscount-jegensdorf-04fn4u",
-        "mitarbeiter-a-interdiscount-jegensdorf-04fn4u",
-        "employee-a-interdiscount-jegensdorf-04fn4u",
-        "employe-a-interdiscount-jegensdorf-04fn4u"
+        "mitarbeiter-a-interdiscount-jegensdorf-b65e6b",
+        "employee-a-interdiscount-jegensdorf-b65e6b",
+        "employe-a-interdiscount-jegensdorf-b65e6b"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -5712,9 +5803,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-        "en": "cfp-standardized-gastronomy-cuff-marche-dietlikon-a7c4ca",
-        "de": "cfp-standardisierte-gastronomiemanschette-marche-dietlikon-a7c4ca",
-        "fr": "manchette-gastronomique-normalisee-cfp-marche-dietlikon-a7c4ca"
+        "en": "cfp-standardized-gastronomy-cuff-marche-dietlikon-3og455",
+        "de": "cfp-standardisierte-gastronomiemanschette-marche-dietlikon-3og455",
+        "fr": "manchette-gastronomique-normalisee-cfp-marche-dietlikon-3og455"
       },
       "titleByLocale": {
         "it": "Addetta/o di gastronomia standardizzata CFP",
@@ -5745,9 +5836,9 @@
       "previousSlugs": [
         "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon",
         "addetta-o-di-gastronomia-standardizzata-cfp-marche-ticino",
-        "cfp-standardized-gastronomy-cuff-marche-dietlikon-3og455",
-        "cfp-standardisierte-gastronomiemanschette-marche-dietlikon-3og455",
-        "manchette-gastronomique-normalisee-cfp-marche-dietlikon-3og455",
+        "cfp-standardized-gastronomy-cuff-marche-dietlikon-a7c4ca",
+        "cfp-standardisierte-gastronomiemanschette-marche-dietlikon-a7c4ca",
+        "manchette-gastronomique-normalisee-cfp-marche-dietlikon-a7c4ca",
         "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-2"
       ],
       "previousSlugsByLocale": {
@@ -5756,12 +5847,15 @@
           "addetta-o-di-gastronomia-standardizzata-cfp-marche-ticino"
         ],
         "en": [
+          "cfp-standardized-gastronomy-cuff-marche-dietlikon-a7c4ca",
           "cfp-standardized-gastronomy-cuff-marche-dietlikon-3og455"
         ],
         "de": [
+          "cfp-standardisierte-gastronomiemanschette-marche-dietlikon-a7c4ca",
           "cfp-standardisierte-gastronomiemanschette-marche-dietlikon-3og455"
         ],
         "fr": [
+          "manchette-gastronomique-normalisee-cfp-marche-dietlikon-a7c4ca",
           "manchette-gastronomique-normalisee-cfp-marche-dietlikon-3og455"
         ]
       },
@@ -5796,9 +5890,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "en": "afc-standardized-gastronomy-use-marche-dietlikon-ab85d3",
-        "de": "afc-standardisierte-gastronomie-marche-dietlikon-ab85d3",
-        "fr": "afc-utilisation-normalisee-de-la-gastronomie-marche-dietlikon-ab85d3"
+        "en": "afc-standardized-gastronomy-use-marche-dietlikon-diq1rr",
+        "de": "afc-standardisierte-gastronomie-marche-dietlikon-diq1rr",
+        "fr": "afc-utilisation-normalisee-de-la-gastronomie-marche-dietlikon-diq1rr"
       },
       "titleByLocale": {
         "it": "Impiegata / Impiegato di gastronomia standardizzata AFC",
@@ -5829,14 +5923,17 @@
       "previousSlugsByLocale": {
         "en": [
           "impiegata-employee-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
+          "afc-standardized-gastronomy-use-marche-dietlikon-ab85d3",
           "afc-standardized-gastronomy-use-marche-dietlikon-diq1rr"
         ],
         "de": [
           "impiegata-angestellter-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
+          "afc-standardisierte-gastronomie-marche-dietlikon-ab85d3",
           "afc-standardisierte-gastronomie-marche-dietlikon-diq1rr"
         ],
         "fr": [
           "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
+          "afc-utilisation-normalisee-de-la-gastronomie-marche-dietlikon-ab85d3",
           "afc-utilisation-normalisee-de-la-gastronomie-marche-dietlikon-diq1rr"
         ],
         "it": [
@@ -5845,11 +5942,11 @@
       },
       "previousSlugs": [
         "impiegata-employee-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "afc-standardized-gastronomy-use-marche-dietlikon-diq1rr",
+        "afc-standardized-gastronomy-use-marche-dietlikon-ab85d3",
         "impiegata-angestellter-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "afc-standardisierte-gastronomie-marche-dietlikon-diq1rr",
+        "afc-standardisierte-gastronomie-marche-dietlikon-ab85d3",
         "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "afc-utilisation-normalisee-de-la-gastronomie-marche-dietlikon-diq1rr",
+        "afc-utilisation-normalisee-de-la-gastronomie-marche-dietlikon-ab85d3",
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon",
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-2"
       ],
@@ -5884,9 +5981,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-mijshv",
-        "en": "employee-a-interdiscount-jegensdorf-0c1666",
-        "de": "mitarbeiter-a-interdiscount-jegensdorf-0c1666",
-        "fr": "employe-a-interdiscount-jegensdorf-0c1666"
+        "en": "employee-a-interdiscount-jegensdorf-mijshv",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-mijshv",
+        "fr": "employe-a-interdiscount-jegensdorf-mijshv"
       },
       "titleByLocale": {
         "it": "Impiegato / a",
@@ -5917,20 +6014,23 @@
       "previousSlugsByLocale": {
         "de": [
           "angestellter-a-interdiscount-jegensdorf-mijshv",
+          "mitarbeiter-a-interdiscount-jegensdorf-0c1666",
           "mitarbeiter-a-interdiscount-jegensdorf-mijshv"
         ],
         "en": [
+          "employee-a-interdiscount-jegensdorf-0c1666",
           "employee-a-interdiscount-jegensdorf-mijshv"
         ],
         "fr": [
+          "employe-a-interdiscount-jegensdorf-0c1666",
           "employe-a-interdiscount-jegensdorf-mijshv"
         ]
       },
       "previousSlugs": [
         "angestellter-a-interdiscount-jegensdorf-mijshv",
-        "mitarbeiter-a-interdiscount-jegensdorf-mijshv",
-        "employee-a-interdiscount-jegensdorf-mijshv",
-        "employe-a-interdiscount-jegensdorf-mijshv"
+        "mitarbeiter-a-interdiscount-jegensdorf-0c1666",
+        "employee-a-interdiscount-jegensdorf-0c1666",
+        "employe-a-interdiscount-jegensdorf-0c1666"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -5963,9 +6063,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-        "en": "employee-a-interdiscount-jegensdorf-73f87f",
-        "de": "mitarbeiter-a-interdiscount-jegensdorf-73f87f",
-        "fr": "employe-a-interdiscount-jegensdorf-73f87f"
+        "en": "employee-a-interdiscount-jegensdorf-wtgucu",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-wtgucu",
+        "fr": "employe-a-interdiscount-jegensdorf-wtgucu"
       },
       "titleByLocale": {
         "it": "Impiegato / a",
@@ -5996,20 +6096,23 @@
       "previousSlugsByLocale": {
         "de": [
           "angestellter-a-interdiscount-jegensdorf-wtgucu",
+          "mitarbeiter-a-interdiscount-jegensdorf-73f87f",
           "mitarbeiter-a-interdiscount-jegensdorf-wtgucu"
         ],
         "en": [
+          "employee-a-interdiscount-jegensdorf-73f87f",
           "employee-a-interdiscount-jegensdorf-wtgucu"
         ],
         "fr": [
+          "employe-a-interdiscount-jegensdorf-73f87f",
           "employe-a-interdiscount-jegensdorf-wtgucu"
         ]
       },
       "previousSlugs": [
         "angestellter-a-interdiscount-jegensdorf-wtgucu",
-        "mitarbeiter-a-interdiscount-jegensdorf-wtgucu",
-        "employee-a-interdiscount-jegensdorf-wtgucu",
-        "employe-a-interdiscount-jegensdorf-wtgucu"
+        "mitarbeiter-a-interdiscount-jegensdorf-73f87f",
+        "employee-a-interdiscount-jegensdorf-73f87f",
+        "employe-a-interdiscount-jegensdorf-73f87f"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -6042,9 +6145,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-        "en": "employee-a-interdiscount-jegensdorf-eea1db",
-        "de": "mitarbeiter-a-interdiscount-jegensdorf-eea1db",
-        "fr": "employe-a-interdiscount-jegensdorf-eea1db"
+        "en": "employee-a-interdiscount-jegensdorf-yuay7y",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-yuay7y",
+        "fr": "employe-a-interdiscount-jegensdorf-yuay7y"
       },
       "titleByLocale": {
         "it": "Impiegato / a",
@@ -6075,20 +6178,23 @@
       "previousSlugsByLocale": {
         "de": [
           "angestellter-a-interdiscount-jegensdorf-yuay7y",
+          "mitarbeiter-a-interdiscount-jegensdorf-eea1db",
           "mitarbeiter-a-interdiscount-jegensdorf-yuay7y"
         ],
         "en": [
+          "employee-a-interdiscount-jegensdorf-eea1db",
           "employee-a-interdiscount-jegensdorf-yuay7y"
         ],
         "fr": [
+          "employe-a-interdiscount-jegensdorf-eea1db",
           "employe-a-interdiscount-jegensdorf-yuay7y"
         ]
       },
       "previousSlugs": [
         "angestellter-a-interdiscount-jegensdorf-yuay7y",
-        "mitarbeiter-a-interdiscount-jegensdorf-yuay7y",
-        "employee-a-interdiscount-jegensdorf-yuay7y",
-        "employe-a-interdiscount-jegensdorf-yuay7y"
+        "mitarbeiter-a-interdiscount-jegensdorf-eea1db",
+        "employee-a-interdiscount-jegensdorf-eea1db",
+        "employe-a-interdiscount-jegensdorf-eea1db"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -6121,9 +6227,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-fio33i",
-        "en": "employee-a-interdiscount-jegensdorf-6bc27a",
-        "de": "mitarbeiter-a-interdiscount-jegensdorf-6bc27a",
-        "fr": "employe-a-interdiscount-jegensdorf-6bc27a"
+        "en": "employee-a-interdiscount-jegensdorf-fio33i",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-fio33i",
+        "fr": "employe-a-interdiscount-jegensdorf-fio33i"
       },
       "titleByLocale": {
         "it": "Impiegato / a",
@@ -6154,20 +6260,23 @@
       "previousSlugsByLocale": {
         "de": [
           "angestellter-a-interdiscount-jegensdorf-fio33i",
+          "mitarbeiter-a-interdiscount-jegensdorf-6bc27a",
           "mitarbeiter-a-interdiscount-jegensdorf-fio33i"
         ],
         "en": [
+          "employee-a-interdiscount-jegensdorf-6bc27a",
           "employee-a-interdiscount-jegensdorf-fio33i"
         ],
         "fr": [
+          "employe-a-interdiscount-jegensdorf-6bc27a",
           "employe-a-interdiscount-jegensdorf-fio33i"
         ]
       },
       "previousSlugs": [
         "angestellter-a-interdiscount-jegensdorf-fio33i",
-        "mitarbeiter-a-interdiscount-jegensdorf-fio33i",
-        "employee-a-interdiscount-jegensdorf-fio33i",
-        "employe-a-interdiscount-jegensdorf-fio33i"
+        "mitarbeiter-a-interdiscount-jegensdorf-6bc27a",
+        "employee-a-interdiscount-jegensdorf-6bc27a",
+        "employe-a-interdiscount-jegensdorf-6bc27a"
       ],
       "addressCountry": "CH",
       "country": "CH",
@@ -6668,9 +6777,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-7ac0fb",
-        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-7ac0fb",
-        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-7ac0fb"
+        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-91gltk",
+        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-91gltk",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-91gltk"
       },
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -6699,18 +6808,21 @@
         }
       },
       "previousSlugs": [
-        "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-91gltk",
-        "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-91gltk",
+        "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-7ac0fb",
+        "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-7ac0fb",
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-7ac0fb",
           "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-91gltk"
         ],
         "de": [
+          "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-7ac0fb",
           "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-91gltk"
         ],
         "fr": [
+          "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-7ac0fb",
           "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-91gltk"
         ]
       },
@@ -6946,9 +7058,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-67707d",
-        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-67707d",
-        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-67707d"
+        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-nj9ppx",
+        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-nj9ppx",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-nj9ppx"
       },
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -6977,18 +7089,21 @@
         }
       },
       "previousSlugs": [
-        "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-nj9ppx",
-        "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-nj9ppx",
+        "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-67707d",
+        "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-67707d",
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-67707d",
           "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-nj9ppx"
         ],
         "de": [
+          "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-67707d",
           "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-nj9ppx"
         ],
         "fr": [
+          "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-67707d",
           "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-nj9ppx"
         ]
       },
@@ -8911,9 +9026,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811",
-        "en": "retailer-man-interdiscount-jegensdorf-fa9eec",
-        "de": "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811",
-        "fr": "detaillant-homme-interdiscount-jegensdorf-fa9eec"
+        "en": "retailer-man-interdiscount-jegensdorf-h9i811",
+        "de": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
+        "fr": "detaillant-homme-interdiscount-jegensdorf-h9i811"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann",
@@ -8946,6 +9061,7 @@
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
           "retailer-man-coop-gossau-2cf7c7",
           "detailhandelsassistent-in-eba-coop-grigioni-uglo11",
+          "retailer-man-interdiscount-jegensdorf-fa9eec",
           "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811",
           "retailer-man-interdiscount-jegensdorf-h9i811"
         ],
@@ -8953,6 +9069,7 @@
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
           "detaillant-homme-coop-gossau-2cf7c7",
           "detailhandelsassistent-in-eba-coop-grigioni-uglo11",
+          "detaillant-homme-interdiscount-jegensdorf-fa9eec",
           "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811",
           "detaillant-homme-interdiscount-jegensdorf-h9i811"
         ],
@@ -8962,6 +9079,7 @@
         "de": [
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf",
           "detailhandelsassistent-in-eba-coop-grigioni-uglo11",
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811",
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
         ]
       },
@@ -8969,10 +9087,10 @@
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
         "retailer-man-coop-gossau-2cf7c7",
         "detailhandelsassistent-in-eba-coop-grigioni-uglo11",
+        "retailer-man-interdiscount-jegensdorf-fa9eec",
         "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811",
-        "retailer-man-interdiscount-jegensdorf-h9i811",
         "detaillant-homme-coop-gossau-2cf7c7",
-        "detaillant-homme-interdiscount-jegensdorf-h9i811",
+        "detaillant-homme-interdiscount-jegensdorf-fa9eec",
         "detailhandelsassistent-in-afp-coop-grigioni-uglo11",
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-6",
@@ -9455,9 +9573,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-ataxgb",
-        "en": "retailer-man-coop-gossau",
-        "de": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-ataxgb",
-        "fr": "detaillant-homme-coop-gossau"
+        "en": "retailer-man-coop-gossau-ataxgb",
+        "de": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
+        "fr": "detaillant-homme-coop-gossau-ataxgb"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann / -assistent:in",
@@ -9488,10 +9606,10 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
         "retailer-man-coop-gossau-75ce9b",
+        "retailer-man-coop-gossau",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-ataxgb",
-        "retailer-man-coop-gossau-ataxgb",
         "detaillant-homme-coop-gossau-75ce9b",
-        "detaillant-homme-coop-gossau-ataxgb",
+        "detaillant-homme-coop-gossau",
         "detailhandelsassistent-in-eba-coop-grigioni-5",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-nsscih",
         "detailhandelsassistent-in-afp-coop-grigioni-y26sob",
@@ -9507,16 +9625,19 @@
         "en": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
           "retailer-man-coop-gossau-75ce9b",
+          "retailer-man-coop-gossau",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-ataxgb",
           "retailer-man-coop-gossau-ataxgb"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
           "detaillant-homme-coop-gossau-75ce9b",
+          "detaillant-homme-coop-gossau",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-ataxgb",
           "detaillant-homme-coop-gossau-ataxgb"
         ],
         "de": [
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-ataxgb",
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb"
         ]
       },
@@ -10350,9 +10471,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7",
-        "en": "retailer-man-interdiscount-jegensdorf-9f1921",
-        "de": "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7",
-        "fr": "detaillant-homme-interdiscount-jegensdorf-9f1921"
+        "en": "retailer-man-interdiscount-jegensdorf-fnpbu7",
+        "de": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7",
+        "fr": "detaillant-homme-interdiscount-jegensdorf-fnpbu7"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann",
@@ -10383,23 +10504,26 @@
       "previousSlugsByLocale": {
         "en": [
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7",
-          "retailer-man-interdiscount-jegensdorf-fnpbu7",
-          "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7"
+          "retailer-man-interdiscount-jegensdorf-9f1921",
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7",
+          "retailer-man-interdiscount-jegensdorf-fnpbu7"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7",
-          "detaillant-homme-interdiscount-jegensdorf-fnpbu7",
-          "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7"
+          "detaillant-homme-interdiscount-jegensdorf-9f1921",
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7",
+          "detaillant-homme-interdiscount-jegensdorf-fnpbu7"
         ],
         "de": [
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7",
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7"
         ]
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7",
-        "retailer-man-interdiscount-jegensdorf-fnpbu7",
+        "retailer-man-interdiscount-jegensdorf-9f1921",
         "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7",
-        "detaillant-homme-interdiscount-jegensdorf-fnpbu7",
+        "detaillant-homme-interdiscount-jegensdorf-9f1921",
         "commerciale-di-dettaglio-uomo-interdiscount-jegensdorf"
       ],
       "addressCountry": "CH",
@@ -10435,9 +10559,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
-        "en": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-        "de": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
-        "fr": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau"
+        "en": "retailer-mann-efz-creating-shopping-experiences-coop-gossau-k1bc5i",
+        "de": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
+        "fr": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau-k1bc5i"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann / -assistent:in",
@@ -10467,9 +10591,9 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
+        "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
-        "retailer-mann-efz-creating-shopping-experiences-coop-gossau-k1bc5i",
-        "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau-k1bc5i",
+        "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-11",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
@@ -10478,15 +10602,18 @@
       "previousSlugsByLocale": {
         "en": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
+          "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
           "retailer-mann-efz-creating-shopping-experiences-coop-gossau-k1bc5i"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
+          "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
           "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau-k1bc5i"
         ],
         "de": [
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i"
         ]
       },
@@ -10521,9 +10648,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
-        "en": "retailer-man-assistant-in-coop-gossau",
-        "de": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
-        "fr": "detaillant-homme-assistant-in-coop-gossau"
+        "en": "retailer-man-assistant-in-coop-gossau-bho34r",
+        "de": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r",
+        "fr": "detaillant-homme-assistant-in-coop-gossau-bho34r"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann / -assistent:in",
@@ -10556,12 +10683,12 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r",
         "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
         "retailer-man-assistant-in-coop-gossau-163588",
-        "retailer-man-assistant-in-coop-gossau-bho34r",
+        "retailer-man-assistant-in-coop-gossau",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
         "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
         "detaillant-homme-assistant-in-coop-gossau-163588",
-        "detaillant-homme-assistant-in-coop-gossau-bho34r",
+        "detaillant-homme-assistant-in-coop-gossau",
         "assistente-di-vendita-coop-grigioni",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
@@ -10574,19 +10701,22 @@
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r",
           "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
           "retailer-man-assistant-in-coop-gossau-163588",
-          "retailer-man-assistant-in-coop-gossau-bho34r",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r"
+          "retailer-man-assistant-in-coop-gossau",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
+          "retailer-man-assistant-in-coop-gossau-bho34r"
         ],
         "de": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r",
           "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
           "detaillant-homme-assistant-in-coop-gossau-163588",
-          "detaillant-homme-assistant-in-coop-gossau-bho34r",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r"
+          "detaillant-homme-assistant-in-coop-gossau",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
+          "detaillant-homme-assistant-in-coop-gossau-bho34r"
         ]
       },
       "addressCountry": "CH",
@@ -10725,9 +10855,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
-        "en": "retailer-man-interdiscount-jegensdorf-5e5998",
-        "de": "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
-        "fr": "detaillant-homme-interdiscount-jegensdorf-5e5998"
+        "en": "retailer-man-interdiscount-jegensdorf-96xkec",
+        "de": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec",
+        "fr": "detaillant-homme-interdiscount-jegensdorf-96xkec"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann",
@@ -10765,6 +10895,7 @@
           "detaillant-homme-assistant-in-coop-gossau",
           "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
           "eba-sales-assistant-coop-gossau",
+          "retailer-man-interdiscount-jegensdorf-5e5998",
           "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
           "retailer-man-interdiscount-jegensdorf-96xkec"
         ],
@@ -10774,6 +10905,7 @@
           "detaillant-homme-assistant-in-coop-gossau-611c2c",
           "assistante-de-vente-coop-grigioni",
           "assistant-e-de-vente-coop-coop-grigioni",
+          "detaillant-homme-interdiscount-jegensdorf-5e5998",
           "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
           "detaillant-homme-interdiscount-jegensdorf-96xkec"
         ],
@@ -10791,6 +10923,7 @@
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4iugqw",
           "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec"
         ]
       },
@@ -10803,13 +10936,13 @@
         "detaillant-homme-assistant-in-coop-gossau",
         "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
         "eba-sales-assistant-coop-gossau",
+        "retailer-man-interdiscount-jegensdorf-5e5998",
         "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
-        "retailer-man-interdiscount-jegensdorf-96xkec",
         "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
         "detaillant-homme-assistant-in-coop-gossau-611c2c",
         "assistante-de-vente-coop-grigioni",
         "assistant-e-de-vente-coop-coop-grigioni",
-        "detaillant-homme-interdiscount-jegensdorf-96xkec",
+        "detaillant-homme-interdiscount-jegensdorf-5e5998",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
         "assistente-di-vendita-coop-grigioni",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
@@ -11059,9 +11192,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
-        "en": "retailer-man-coop-gossau-2a7c2e",
-        "de": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
-        "fr": "detaillant-homme-coop-gossau-2a7c2e"
+        "en": "retailer-man-coop-gossau-1ceqqh",
+        "de": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
+        "fr": "detaillant-homme-coop-gossau-1ceqqh"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann / -assistent:in",
@@ -11091,9 +11224,9 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
+        "retailer-man-coop-gossau-2a7c2e",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
-        "retailer-man-coop-gossau-1ceqqh",
-        "detaillant-homme-coop-gossau-1ceqqh",
+        "detaillant-homme-coop-gossau-2a7c2e",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10",
         "retail-salesperson-interdiscount-grigioni",
         "vendeur-e-en-detail-interdiscount-grigioni"
@@ -11101,15 +11234,18 @@
       "previousSlugsByLocale": {
         "en": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
+          "retailer-man-coop-gossau-2a7c2e",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
           "retailer-man-coop-gossau-1ceqqh"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
+          "detaillant-homme-coop-gossau-2a7c2e",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
           "detaillant-homme-coop-gossau-1ceqqh"
         ],
         "de": [
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh"
         ]
       },
@@ -11144,9 +11280,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
-        "en": "retailer-man-assistant-in-coop-gossau-1b3812",
-        "de": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
-        "fr": "detaillant-homme-assistant-in-coop-gossau-1b3812"
+        "en": "retailer-man-assistant-in-coop-gossau-hwivop",
+        "de": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
+        "fr": "detaillant-homme-assistant-in-coop-gossau-hwivop"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann / -assistent:in",
@@ -11178,11 +11314,11 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
         "retailer-man-coop-gossau-2a7c2e",
+        "retailer-man-assistant-in-coop-gossau-1b3812",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
-        "retailer-man-assistant-in-coop-gossau-hwivop",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
         "detaillant-homme-coop-gossau-2a7c2e",
-        "detaillant-homme-assistant-in-coop-gossau-hwivop",
+        "detaillant-homme-assistant-in-coop-gossau-1b3812",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4",
         "retail-salesperson-interdiscount-grigioni",
         "vendeur-e-en-detail-interdiscount-grigioni",
@@ -11197,18 +11333,21 @@
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
           "retailer-man-coop-gossau-2a7c2e",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
+          "retailer-man-assistant-in-coop-gossau-1b3812",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
           "retailer-man-assistant-in-coop-gossau-hwivop"
         ],
         "de": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
           "detaillant-homme-coop-gossau-2a7c2e",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
+          "detaillant-homme-assistant-in-coop-gossau-1b3812",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
           "detaillant-homme-assistant-in-coop-gossau-hwivop"
         ]
@@ -11244,9 +11383,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
-        "en": "retailer-man-assistant-in-coop-gossau-09337e",
-        "de": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
-        "fr": "detaillant-homme-assistant-in-coop-gossau-09337e"
+        "en": "retailer-man-assistant-in-coop-gossau-6v37ek",
+        "de": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6v37ek",
+        "fr": "detaillant-homme-assistant-in-coop-gossau-6v37ek"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann / -assistent:in",
@@ -11277,7 +11416,6 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
         "retailer-man-coop-gossau-1ceqqh",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6v37ek",
         "retailer-man-coop-gossau-2a7c2e",
@@ -11285,10 +11423,11 @@
         "detaillant-homme-assistant-in-coop-gossau-1b3812",
         "retailer-man-assistant-in-coop-gossau-hwivop",
         "retailer-man-assistant-in-coop-gossau-1b3812",
-        "retailer-man-assistant-in-coop-gossau-6v37ek",
+        "retailer-man-assistant-in-coop-gossau-09337e",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
         "detaillant-homme-coop-gossau-2a7c2e",
-        "detaillant-homme-assistant-in-coop-gossau-6v37ek",
+        "detaillant-homme-assistant-in-coop-gossau-09337e",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
         "retail-salesperson-interdiscount-grigioni",
@@ -11307,21 +11446,24 @@
           "detaillant-homme-assistant-in-coop-gossau-1b3812",
           "retailer-man-assistant-in-coop-gossau-hwivop",
           "retailer-man-assistant-in-coop-gossau-1b3812",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
+          "retailer-man-assistant-in-coop-gossau-09337e",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
-          "retailer-man-assistant-in-coop-gossau-6v37ek",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop"
+          "retailer-man-assistant-in-coop-gossau-6v37ek"
         ],
         "de": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
-          "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6v37ek",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop"
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
+          "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6v37ek"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6v37ek",
           "detaillant-homme-coop-gossau-2a7c2e",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
+          "detaillant-homme-assistant-in-coop-gossau-09337e",
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
-          "detaillant-homme-assistant-in-coop-gossau-6v37ek",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop"
+          "detaillant-homme-assistant-in-coop-gossau-6v37ek"
         ]
       },
       "addressCountry": "CH",
@@ -11902,7 +12044,7 @@
     },
     {
       "id": "company-j9odwp",
-      "slug": "venditore-in-nonfood-coop-genossenschaft-chur",
+      "slug": "verkaufer-in-nonfood-coop-chur-graubunden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Nonfood",
       "location": "Chur",
@@ -11950,7 +12092,7 @@
       "slugByLocale": {
         "it": "venditore-in-nonfood-coop-genossenschaft-chur",
         "en": "seller-in-nonfood-coop-genossenschaft-chur-3e6be5",
-        "de": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
+        "de": "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
         "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur-3e6be5"
       },
       "addressLocality": "Chur",
@@ -11980,11 +12122,12 @@
         "it": [
           "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
           "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-          "verkaufer-in-nonfood-coop-chur-graubunden",
-          "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5"
+          "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
+          "verkaufer-in-nonfood-coop-chur-graubunden"
         ],
         "de": [
           "verkaufer-in-nonfood-coop-genossenschaft-chur-j9odwp",
+          "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
           "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
         ]
       },
@@ -11993,7 +12136,6 @@
         "seller-in-nonfood-coop-genossenschaft-chur",
         "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-chur",
-        "verkaufer-in-nonfood-coop-chur-graubunden",
         "venditore-in-nonfood-coop-genossenschaft-chur-3e6be5",
         "verkaufer-in-nonfood-coop-genossenschaft-chur-j9odwp",
         "venditore-a-coop-genossenschaft-chur",
@@ -12004,7 +12146,8 @@
       "sourceLang": "de",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "company-o367qu",
@@ -12102,7 +12245,8 @@
       "sourceLang": "de",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "company-3pl1h6",
@@ -12186,7 +12330,8 @@
       "sourceLang": "de",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "company-pa5qt0",
@@ -12279,7 +12424,8 @@
       "sourceLang": "de",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "company-i63w01",
@@ -12428,7 +12574,8 @@
       ],
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "company-8xgtc3",
@@ -12952,7 +13099,8 @@
       "sourceLang": "de",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "company-hsy2pf",
@@ -13043,7 +13191,8 @@
       ],
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "company-46qgy7",
@@ -13144,7 +13293,8 @@
       ],
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "company-xnczpj",
@@ -13401,7 +13551,8 @@
       ],
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     }
   ]
 }

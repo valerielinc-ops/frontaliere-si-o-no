@@ -1,7 +1,89 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-06-06T10:17:08.734Z",
+  "assembledAt": "2026-06-06T21:34:26.933Z",
   "jobs": [
+    {
+      "id": "csvm-mustair-2ca53ce6ff78",
+      "slug": "lehrstellen-2026-csvm-mustair-mustair",
+      "slugByLocale": {
+        "it": "lehrstellen-2026-csvm-mustair-mustair",
+        "en": "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+        "de": "lehrstellen-2026-csvm-mustair-mustair",
+        "fr": "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+      },
+      "company": "Center da Sanda Val Müstair (CSVM)",
+      "companyKey": "csvm-mustair",
+      "companyDomain": "csvm.ch",
+      "title": "Lehrstellen 2026",
+      "titleByLocale": {
+        "it": "Lehrstellen 2026",
+        "en": "Apprenticeships 2026",
+        "de": "Lehrstellen 2026",
+        "fr": "Apprentissages 2026"
+      },
+      "description": "Lehrstellen 2026 — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
+      "descriptionByLocale": {
+        "it": "Lehrstellen 2026 — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
+        "en": "Position - Learning the trade of carpentry - Teamwork and collaboration with colleagues - Realization of projects and custom-made work - Use of machinery and tools for woodworking\n• Requirements - Minimum age 18 - Good manual skills and interest in woodwork - Availability to work in a dynamic team environment - Good health and physical stamina What We Offer - Basic vocational training as a carpenter - Work in a modern and dynamic work environment - Opportunities for professional and personal growth - Network of contacts in the wood and craft sector Contact For more information and to apply, visit the CSVM website:",
+        "de": "Position - Erlernen des Berufs des Zimmermanns - Teamarbeit und Zusammenarbeit mit Kollegen - Realisierung von Projekten und Maßarbeiten - Einsatz von Maschinen und Werkzeugen für die Holzbearbeitung\n• Anforderungen - Mindestalter 18 - Gute manuelle Fähigkeiten und Interesse an der Holzbearbeitung - Verfügbarkeit, in einem dynamischen Team zu arbeiten - Gute Gesundheit und körperliche Ausdauer\n• Was wir bieten - Grundlegende berufliche Ausbildung als Zimmermann - Arbeit in einer modernen und dynamischen Arbeitsumgebung - Möglichkeiten für berufliche und persönliche Entwicklung - Netzwerk von Kontakten in der Holz- und Handwerksbranche Kontakt Für weitere Informationen und Bewerbungen besuchen Sie die CSVM-Website:",
+        "fr": "Poste - Apprentissage du métier de menuisier - Travail en équipe et collaboration avec les collègues - Réalisation de projets et de travaux sur mesure - Utilisation de machines et d'outils pour le travail du bois\n• Exigences - Âge minimum de 18 ans - Bonne capacité manuelle et intérêt pour le travail du bois - Disponibilité à travailler dans un environnement dynamique en équipe - Bonne santé et endurance physique Ce que nous offrons - Formation professionnelle de base en tant que menuisier - Travail dans un environnement de travail moderne et dynamique - Possibilités de croissance professionnelle et personnelle - Réseau de contacts dans le secteur du bois et de l'artisanat Contact Pour plus d'informations et pour postuler, visitez le site web du CSVM :"
+      },
+      "needsRetranslation": true,
+      "location": "Sta",
+      "canton": "GR",
+      "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
+      "source": "CSVM Dedicated Parser (Joomla HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-06-06T21:34:24.992Z",
+      "addressLocality": "Sta",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7536",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": [
+          "Minimum age 18",
+          "Good manual skills and interest in woodwork",
+          "Availability to work in a dynamic team environment",
+          "Good health and physical stamina"
+        ],
+        "de": [
+          "Mindestalter 18",
+          "Gute manuelle Fähigkeiten und Interesse an der Holzbearbeitung",
+          "Verfügbarkeit, in einem dynamischen Team zu arbeiten",
+          "Gute Gesundheit und körperliche Ausdauer"
+        ],
+        "fr": [
+          "Âge minimum de 18 ans",
+          "Bonne capacité manuelle et intérêt pour le travail du bois",
+          "Disponibilité à travailler dans un environnement dynamique en équipe",
+          "Bonne santé et endurance physique"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T10:23:25.014Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "csvm-mustair-5844bf5b9d0e",
       "slug": "esecutore-spitex-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
@@ -28,12 +110,13 @@
         "de": "Einsatzleitung Spitex — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
         "fr": "Missions - Coordonner et superviser l'équipe de soins à domicile - Garantir la qualité des services et la satisfaction des clients - Collaborer avec les médecins de famille et les autres professionnels de la santé - Gérer l'agenda et les ressources de l'équipe - Responsable de la formation et de l'intégration des nouveaux membres de l'équipe\n• Exigences - Diplôme d'infirmier ou titre équivalent - Expérience professionnelle dans le secteur socio-sanitaire - Connaissance des langues italienne et allemande - Capacité de leadership et de travail d'équipe - Disponibilité pour travailler en horaires décalés et les fins de semaine Ce que nous offrons - Contrat à durée indéterminée - Horaires de travail à temps partiel (60%) - Formation continue et développement professionnel - Environnement de travail dynamique et multiculturel Contact Pour plus d'informations et pour postuler, visitez le site web et téléchargez le PDF joint."
       },
+      "needsRetranslation": true,
       "location": "Sta",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:17:06.935Z",
+      "crawledAt": "2026-06-06T21:34:24.991Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -120,12 +203,13 @@
         "de": "Rettungssanitäter(in) auf Teilzeitbasis — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
         "fr": "Description Technicien(ne) en soins d'urgence à temps partiel - Centre da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Détails complets dans le PDF joint à la page https://www.csvm.ch/fr/actualites/technicien-ne-en-soins-d-urgence-a-temps-partiel.html"
       },
+      "needsRetranslation": true,
       "location": "Sta",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T10:17:06.935Z",
+      "crawledAt": "2026-06-06T21:34:24.991Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -165,87 +249,6 @@
       }
     },
     {
-      "id": "csvm-mustair-2ca53ce6ff78",
-      "slug": "lehrstellen-2026-csvm-mustair-mustair",
-      "slugByLocale": {
-        "it": "lehrstellen-2026-csvm-mustair-mustair",
-        "en": "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-        "de": "lehrstellen-2026-csvm-mustair-mustair",
-        "fr": "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
-      },
-      "company": "Center da Sanda Val Müstair (CSVM)",
-      "companyKey": "csvm-mustair",
-      "companyDomain": "csvm.ch",
-      "title": "Lehrstellen 2026",
-      "titleByLocale": {
-        "it": "Lehrstellen 2026",
-        "en": "Apprenticeships 2026",
-        "de": "Lehrstellen 2026",
-        "fr": "Apprentissages 2026"
-      },
-      "description": "Lehrstellen 2026 — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
-      "descriptionByLocale": {
-        "it": "Lehrstellen 2026 — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
-        "en": "Position - Learning the trade of carpentry - Teamwork and collaboration with colleagues - Realization of projects and custom-made work - Use of machinery and tools for woodworking\n• Requirements - Minimum age 18 - Good manual skills and interest in woodwork - Availability to work in a dynamic team environment - Good health and physical stamina What We Offer - Basic vocational training as a carpenter - Work in a modern and dynamic work environment - Opportunities for professional and personal growth - Network of contacts in the wood and craft sector Contact For more information and to apply, visit the CSVM website:",
-        "de": "Position - Erlernen des Berufs des Zimmermanns - Teamarbeit und Zusammenarbeit mit Kollegen - Realisierung von Projekten und Maßarbeiten - Einsatz von Maschinen und Werkzeugen für die Holzbearbeitung\n• Anforderungen - Mindestalter 18 - Gute manuelle Fähigkeiten und Interesse an der Holzbearbeitung - Verfügbarkeit, in einem dynamischen Team zu arbeiten - Gute Gesundheit und körperliche Ausdauer\n• Was wir bieten - Grundlegende berufliche Ausbildung als Zimmermann - Arbeit in einer modernen und dynamischen Arbeitsumgebung - Möglichkeiten für berufliche und persönliche Entwicklung - Netzwerk von Kontakten in der Holz- und Handwerksbranche Kontakt Für weitere Informationen und Bewerbungen besuchen Sie die CSVM-Website:",
-        "fr": "Poste - Apprentissage du métier de menuisier - Travail en équipe et collaboration avec les collègues - Réalisation de projets et de travaux sur mesure - Utilisation de machines et d'outils pour le travail du bois\n• Exigences - Âge minimum de 18 ans - Bonne capacité manuelle et intérêt pour le travail du bois - Disponibilité à travailler dans un environnement dynamique en équipe - Bonne santé et endurance physique Ce que nous offrons - Formation professionnelle de base en tant que menuisier - Travail dans un environnement de travail moderne et dynamique - Possibilités de croissance professionnelle et personnelle - Réseau de contacts dans le secteur du bois et de l'artisanat Contact Pour plus d'informations et pour postuler, visitez le site web du CSVM :"
-      },
-      "location": "Sta",
-      "canton": "GR",
-      "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
-      "source": "CSVM Dedicated Parser (Joomla HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-06T10:17:06.935Z",
-      "addressLocality": "Sta",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7536",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": [
-          "Minimum age 18",
-          "Good manual skills and interest in woodwork",
-          "Availability to work in a dynamic team environment",
-          "Good health and physical stamina"
-        ],
-        "de": [
-          "Mindestalter 18",
-          "Gute manuelle Fähigkeiten und Interesse an der Holzbearbeitung",
-          "Verfügbarkeit, in einem dynamischen Team zu arbeiten",
-          "Gute Gesundheit und körperliche Ausdauer"
-        ],
-        "fr": [
-          "Âge minimum de 18 ans",
-          "Bonne capacité manuelle et intérêt pour le travail du bois",
-          "Disponibilité à travailler dans un environnement dynamique en équipe",
-          "Bonne santé et endurance physique"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "csvm-mustair-d47dac55c65d",
       "slug": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
       "slugByLocale": {
@@ -277,7 +280,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-06T10:17:06.934Z",
+      "crawledAt": "2026-06-06T21:34:24.990Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -340,7 +343,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-06T10:17:06.933Z",
+      "crawledAt": "2026-06-06T21:34:24.989Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
