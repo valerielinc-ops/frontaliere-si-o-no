@@ -3937,6 +3937,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fine-scuole-ticino-2026': { name: 'Vacanze scolastiche 2026', path: '/articoli-frontaliere/fine-scuole-ticino-2026', parent: 'blog' },
     'blog-lavoro-produzione-farmaceutica-coira': { name: 'Lavoro Coira', path: '/articoli-svizzera/lavoro-produzione-farmaceutica-coira/', parent: 'blog' },
     'blog-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere', parent: 'blog' },
+    'blog-la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima': { name: 'La finanza svizzera sotto esame per il suo', path: '/articoli-svizzera/la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

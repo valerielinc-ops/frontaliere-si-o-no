@@ -77,6 +77,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-produzione-farmaceutica-coira.title': 'Lavorare nella farmaceutica: posizioni a Coira',
     'blog.article.lavoro-produzione-farmaceutica-coira.excerpt': 'Opportunità professionali nel settore farmaceutico presso il Kantonsspital Graubünden di Coira. Scopri i dettagli sulle posizioni aperte e i requisiti.',
     'blog.article.lavoro-produzione-farmaceutica-coira.imageAlt': 'Impianto di produzione farmaceutica in Svizzera',
+    'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.title': 'La finanza svizzera sotto esame per il suo impatto sul clima',
+    'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.excerpt': 'La Svizzera è una potenza finanziaria, ma il suo settore finanziario continua a investire miliardi in progetti legati ai combustibili fossili.',
+    'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.imageAlt': 'La piazza finanziaria di Lugano con un\'atmosfera di sostenibilità ambientale',
 };
 
 export default blogMetaChIt;
