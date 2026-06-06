@@ -3935,6 +3935,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera': { name: 'Processo a Luido Bernasconi', path: '/articoli-frontaliere/al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera', parent: 'blog' },
     'blog-naspi-disoccupazione-frontaliere': { name: 'NASpI Frontalieri', path: '/articoli-svizzera/naspi-disoccupazione-frontaliere/', parent: 'blog' },
     'blog-fine-scuole-ticino-2026': { name: 'Vacanze scolastiche 2026', path: '/articoli-frontaliere/fine-scuole-ticino-2026', parent: 'blog' },
+    'blog-lavoro-produzione-farmaceutica-coira': { name: 'Lavoro Coira', path: '/articoli-svizzera/lavoro-produzione-farmaceutica-coira/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

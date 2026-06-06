@@ -46,6 +46,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'calcul-salaire-net-suiss-frontalier': { it: 'calcul-salaire-net-suiss-frontalier', en: 'swiss-border-worker-net-salary-calculation', de: 'schweizer-grenzarbeiter-nettolohnberechnung', fr: 'calcul-salaire-net-frontalier-suisse' },
  'lonza-concierge-ticino-job': { it: 'lonza-concierge-ticino-job', en: 'lonza-concierge-ticino', de: 'lonza-concierge-ticino', fr: 'lonza-concierge-ticino' },
  'naspi-disoccupazione-frontaliere': { it: 'naspi-disoccupazione-frontaliere', en: 'naspi-unemployment-benefits-cross-border', de: 'naspi-arbeitslosengeld-grenzgaenger', fr: 'naspi-chomage-frontalier-regles' },
+ 'lavoro-produzione-farmaceutica-coira': { it: 'lavoro-produzione-farmaceutica-coira', en: 'pharmaceutical-production-jobs-chur', de: 'stellen-arzneimittelherstellung-chur', fr: 'emplois-production-pharmaceutique-coire' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
