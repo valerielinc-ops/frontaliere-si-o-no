@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "responsabile-del-servizio-f-b-msc-group-geneva",
         "en": "f-b-service-manager-msc-geneva",
-        "de": "f-b-service-manager-msc-geneva",
-        "fr": "f-b-service-manager-msc-geneva"
+        "de": "f-b-servicemanager-msc-group-geneva",
+        "fr": "gestionnaire-de-services-f-b-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -56,6 +56,12 @@
       "previousSlugsByLocale": {
         "it": [
           "f-b-service-manager-msc-geneva"
+        ],
+        "de": [
+          "f-b-service-manager-msc-geneva"
+        ],
+        "fr": [
+          "f-b-service-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-06-05T12:25:43.785Z",
@@ -75,12 +81,12 @@
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
-      "slug": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
+      "slug": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "it": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "de": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "fr": "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        "it": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
+        "de": "reise-fleet-supervisor-landausfluge-msc-group-geneva",
+        "fr": "superviseur-de-la-flotte-itinerante-excursions-a-terre-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -136,7 +142,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-05T22:36:24.374Z"
+      "firstSeenAt": "2026-06-05T22:36:24.374Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ],
+        "de": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ],
+        "fr": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-57f045d85699",
@@ -511,9 +531,9 @@
     },
     {
       "id": "msc-cargo-1b9354446e1f",
-      "slug": "marketing-full-funnell-analista-msc-group-geneva",
+      "slug": "analizzatore-completo-funnell-msc-group-geneva",
       "slugByLocale": {
-        "it": "marketing-full-funnell-analista-msc-group-geneva",
+        "it": "analizzatore-completo-funnell-msc-group-geneva",
         "en": "marketing-full-funnell-analyst-msc-geneva",
         "de": "marketing-full-funnell-analyst-msc-geneva",
         "fr": "marketing-full-funnell-analyste-msc-group-geneva"
@@ -560,14 +580,16 @@
       "firstSeenAt": "2026-06-05T12:25:50.437Z",
       "previousSlugsByLocale": {
         "it": [
-          "marketing-full-funnell-analyst-msc-geneva"
+          "marketing-full-funnell-analyst-msc-geneva",
+          "marketing-full-funnell-analista-msc-group-geneva"
         ],
         "fr": [
           "marketing-full-funnell-analyst-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "marketing-full-funnell-analyst-msc-geneva"
+        "marketing-full-funnell-analyst-msc-geneva",
+        "marketing-full-funnell-analista-msc-group-geneva"
       ],
       "salaryMin": 50500,
       "salaryMax": 89000,
