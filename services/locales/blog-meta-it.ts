@@ -7982,6 +7982,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio.title': 'Educatore infanzia in Ticino: stipendio e requisiti',
     'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Guida per lavorare come educatore: diploma SSS, stipendio CHF 73K–97K e processo per il Permesso G.',
     'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Educatore dell\'infanzia al lavoro in un asilo moderno in Ticino con panorama alpino.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Al via il processo a Luido Bernasconi - RSI Radiotelevisione svizzera',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'Il processo a Luido Bernasconi, ex direttore di RSI Radiotelevisione svizzera, è iniziato.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capoluogo del Canton Ticino',
 };
 
 export default blogMetaIt;

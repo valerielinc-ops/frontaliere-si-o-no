@@ -42623,6 +42623,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera': {
+    title: 'Al via il processo a Luido Bernasconi - RSI Radiotelevisione svizzera',
+    description: 'Il processo a Luido Bernasconi, ex direttore di RSI Radiotelevisione svizzera, è iniziato. Scopri di più sugli sviluppi del processo e sulle eventuali',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, luido, bernasconi, radiotelevisione',
+    ogTitle: 'Il processo a Luido Bernasconi - RSI Radiotelevisione svizzera',
+    ogDescription: 'Il processo a Luido Bernasconi, ex direttore di RSI Radiotelevisione svizzera, è iniziato. Scopri di più sugli sviluppi del processo e sulle eventuali',
+    canonicalPath: '/articoli-frontaliere/al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Al via il processo a Luido Bernasconi - RSI Radiotelevisione svizzera",
+      "description": "Il processo a Luido Bernasconi, ex direttore di RSI Radiotelevisione svizzera, è iniziato. Scopri di più sugli sviluppi del processo e sulle eventuali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano, capoluogo del Canton Ticino"
+      },
+      "datePublished": "2026-06-06T05:25:07+00:00",
+      "dateModified": "2026-06-06T05:25:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
