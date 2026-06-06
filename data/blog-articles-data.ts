@@ -25326,6 +25326,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera',
+ category: 'novita',
+ date: '2026-06-06T05:25:07.393Z',
+ image: '/images/blog/al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'fine-scuole-ticino-2026',
+ category: 'pratico',
+ date: '2026-06-06T05:45:54.770Z',
+ image: '/images/blog/fine-scuole-ticino-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontaliere',
+ category: 'fiscale',
+ date: '2026-06-06T06:56:31.109Z',
+ image: '/images/blog/frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

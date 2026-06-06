@@ -215,6 +215,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'naspi-disoccupazione-frontaliere',
+    category: 'pratico',
+    date: '2026-06-06T05:34:46.376Z',
+    image: '/images/blog/naspi-disoccupazione-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'lavoro-produzione-farmaceutica-coira',
+    category: 'pratico',
+    date: '2026-06-06T06:46:41.994Z',
+    image: '/images/blog/lavoro-produzione-farmaceutica-coira.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

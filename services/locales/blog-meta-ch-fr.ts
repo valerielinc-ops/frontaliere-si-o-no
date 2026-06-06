@@ -71,6 +71,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lonza-concierge-ticino-job.title': 'Lonza recrute du personnel de conciergerie',
     'blog.article.lonza-concierge-ticino-job.excerpt': 'Opportunités d\'emploi à 80-100% pour des agents d\'installations et de conciergerie chez Lonza au Tessin.',
     'blog.article.lonza-concierge-ticino-job.imageAlt': 'Bâtiment Lonza en Suisse, symbole d\'emploi et d\'innovation.',
+    'blog.article.naspi-disoccupazione-frontaliere.title': 'NASpI pour les frontaliers : règles et procédures',
+    'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Découvrez comment fonctionne l\'allocation de chômage pour ceux qui retournent en Italie après un emploi en Suisse.',
+    'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Vue moderne d\'un bâtiment à Lugano',
+    'blog.article.lavoro-produzione-farmaceutica-coira.title': 'Pharmacie: offres à Coira',
+    'blog.article.lavoro-produzione-farmaceutica-coira.excerpt': 'Opportunités professionnelles dans le secteur pharmaceutique au Kantonsspital Graubünden de Coira. Découvrez les détails des postes ouverts et les exigences.',
+    'blog.article.lavoro-produzione-farmaceutica-coira.imageAlt': 'Installation de production pharmaceutique en Suisse',
 };
 
 export default blogMetaChFr;

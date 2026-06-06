@@ -82,7 +82,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:43.687Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -177,7 +176,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:42.963Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -270,7 +268,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:42.203Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -365,7 +362,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:41.436Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -454,7 +450,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.769Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -549,7 +544,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.044Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -635,7 +629,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:39.303Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -715,7 +708,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -810,7 +802,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -904,7 +895,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.337Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -998,7 +988,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:36.666Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1092,7 +1081,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.993Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1187,7 +1175,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1283,7 +1270,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:34.611Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1375,7 +1361,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.941Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1469,7 +1454,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.211Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1554,7 +1538,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:32.553Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1641,7 +1624,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:31.813Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1738,7 +1720,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:30.891Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1834,7 +1815,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:30.223Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1855,8 +1835,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
         "it": "collaboratore-trice-gasteservice-schifffahrt-bls-ag-bern",
-        "en": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch",
-        "fr": "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        "en": "staff-in-guest-service-shipping-bls-ag-bern",
+        "fr": "collaborateur-trice-gasteservice-schifffahrt-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1865,15 +1845,15 @@
       "titleByLocale": {
         "de": "Mitarbeiter:in Gästeservice Schifffahrt",
         "it": "Collaboratore/trice Gästeservice Schifffahrt",
-        "en": "Associate Gästeservice Schifffahrt",
+        "en": "Staff:in guest service shipping",
         "fr": "Collaborateur/trice Gästeservice Schifffahrt"
       },
       "description": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
       "descriptionByLocale": {
-        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
-        "it": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
-        "en": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
-        "fr": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Bei uns kannst du im täglichen Kundenkontakt mit deinem Organisationstalent und deinen Sprachkenntnissen neue Horizonte entdecken und erhälst die Möglichkeit, Abläufe im Gästeservice aktiv mitzugestalten.\n\nDas wartet auf dich:\n\n• Beratung, Reservation und Verkauf aller Schifffahrtsprodukte (E-Mail und Telefon) inkl. professionellem Umgang mit Kundenreaktionen\n• Abwicklung von Gruppenreservationen sowie Anwendung verschiedener Vertriebssysteme im Tagesgeschäft\n• Mitarbeit bei administrativen Aufgaben\n• Enge Kommunikation mit Schiffen und Stationen\n\nDas bringst du mit:\n\n• Erfahrung im Kundenservice oder Verkauf, idealerweise im Tourismusumfeld\n• Hohe Affinität für digitale Tools und Systeme\n• Organisationstalent mit ausgeprägter Kunden- und Serviceorientierung\n• Sehr gutes Deutsch und Englisch in Wort und Schrift, weitere Sprachen von Vorteil\n• Bereitschaft für Wochenendeinsätze (Öffnungszeiten 365 Tage pro Jahr)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität."
+        "de": "## Descrizione\n\nWir mögen Seen, wir mögen la natura, noi vogliamo i nostri ospiti – e vogliamo le persone che vogliono contribuire con noi alla futura BLS Schifffahrt. Noi offriamo ai nostri dipendenti un ambiente unico, vario e stabile. Con noi, puoi scoprire nuove prospettive nel contatto quotidiano con i clienti, grazie al tuo talento organizzativo e alle tue conoscenze linguistiche, e puoi anche contribuire attivamente alla gestione dei processi nel servizio clienti.\n\n## Mansioni\n\n• Beratung, prenotazione e vendita di tutti i prodotti di navigazione (e-mail e telefono) inclusa la gestione professionale delle reazioni dei clienti\n• Gestione delle prenotazioni di gruppo e applicazione di diversi sistemi di vendita nel lavoro di ogni giorno\n• Collaborazione con le attività amministrative\n• Comunicazione stretta con le navi e le stazioni\n\n## Requisiti\n\n• Esperienza nel servizio clienti o nella vendita, preferibilmente nel settore del turismo\n• Alta affinità per gli strumenti e i sistemi digitali\n• Talento organizzativo con una forte orientamento al cliente e al servizio\n• Buon tedesco e inglese in parole e scrittura, altre lingue sono un vantaggio\n• Disponibilità per gli impegni di fine settimana (orari di apertura 365 giorni all'anno)\n\n## Cosa offriamo\n\n• Ricevi un biglietto GA 2. classe o un abbonamento Halbtax e attrattive agevolazioni di viaggio per la famiglia e biglietti gratuiti di viaggio internazionali.\n\n• Condividi il tuo tempo di lavoro in modo libero. Noi promuoviamo il lavoro a tempo parziale.\n\n• Esiste la possibilità di acquistare fino a 10 giorni di ferie in più all'anno oltre a quelli previsti.\n\n• Noi ci impegniamo a contribuire con il 60% ai contributi pensionistici.\n\n• Grossi regali di servizio già a partire dai 5 anni di servizio.\n\n• Ti aspetta un luogo di lavoro incantevole nel cuore del Berner Oberland.\n\n## Contatto\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "it": "Descrizione Ci piacciono i laghi, ci piace la natura, noi vogliamo i nostri ospiti – e vogliamo le persone che vogliono contribuire con noi alla futura crociera BLS. Noi offriamo ai nostri dipendenti un ambiente unico, vario e stable. Con noi, puoi scoprire nuove prospettive nel contatto quotidiano con i clienti, grazie al tuo talento organizzativo e tutte le do conoscenze linguistiche, e puoi anche contribuire attivamente alla gestione dei processi nel servizio clienti. Mansioni • Consulenza, prenotazione e vendita di tutti i prodotti di navigazione (e-mail e telefono) inclusa la gestione professionale delle frequenze dei clienti • Gestione delle prenotazioni di gruppo e applicazione di diversi sistemi di vendita nel lavoro di ogni giorno • Collaborazione con letivat Comunicazione stretta con le navi e le stazioni Requisiti • giorni nel servizio clienti o nella vendita, preferibilmente nel settore del turismo • Alta affinità per gli strumenti e i digitali • Talento organizzativo con una carriera tedesca Cosa offre • Ricevi un biglietto GA 2. classe o un abbonamento • Condividi il tuo tempo di lavoro in modo libero. Noi promuoviamo il lavoro a tempo parziale. • Esiste la possibilità di acquistare fino a 10 giorni di ferie in più all'anno oltre a quelli previsti. • Noi ci impegniamo a contribuire con il 60% ai contributi pensionistici. • Grossi regali di servizio già a partire dai 5 anni di servizio. • Ti aspetta un posto di lavoro incantevole nel cuore del Bernese Oberland. Contatto Informazioni sulla spedizione BLS Navi bianche. Acqua blu. Aria fresca. Il mondo montano delle Oberlands Bernesi. Quello che quasi suona come cliché non è altro che la crociera di fascino. Per circa 120 dipendenti sul lago Brienzer e Thuner, questo fa parte della realtà quotidiana.",
+        "en": "Descrizione\n\nWe like lakes, we like la natura, noi vogliamo i nostri ospiti – e vogliamo le persone che vogliono contribuire con noi alla futura BLS cruise. Noi offriamo ai nostri dipendenti un ambiente unico, vario e stable. Con noi, puoi scoprire nuove prospettive nel contatto quotidiano con i clienti, grazie al tuo talento organizzativo e all do conoscenze linguistiche, e puoi anche contribuire attivamente alla gestione dei processi nel servizio clienti.\n\nMansioni\n\n• Advice, prenotazione e vendita di tutti i prodotti di navigazione (e-mail e telefono) inclusa la gestione professionale delle reazioni dei clienti\n• Gestione delle prenotazioni di gruppo e applicazione di diversi sistemi di vendita nel lavoro di ogni giorno\n• Collaborazione con le attività amministrative\n• Comunicazione stretta con le navi e le stazioni\n\nRequisiti\n\n• Esperienza nel servizio clienti o nella vendita, preferibilmente nel settore del turismo\n• Alta affinità per gli strumenti e i sistemi digitali\n• Talento organizzativo con una forte orientamento al cliente e al servizio\n• Buon tedesco e inglese in parole e scrittura, altre lingue sono un vantaggio\n• Disponibilità per gli impegni di fine settimana (orari di apertura 365 giorni all'anno)\n\nCosa offriamo\n\n• Ricevi un biglietto GA 2. classe o un abbonamento Halftax e attrattive agevolazioni di viaggio per la famiglia e biglietti gratuiti di viaggio internazionali.\n\n• Condividi il tuo tempo di lavoro in modo libero. Noi promuoviamo il lavoro a tempo parziale.\n\n• Esiste la possibilità di acquistare fino a 10 giorni di ferie in più all'anno oltre a quelli previsti.\n\n• Noi ci impegniamo a contribuire con il 60% ai contributi pensionistici.\n\n• Grossi regali di servizio già a partire dai 5 anni di servizio.\n\n• Ti aspetta un luogo di lavoro incantevole nel cuore del Bernese Oberland.\n\nContatto\n\nAbout the BLS cruise\n\nWhite ships. Blue water. Fresh air. The mountain world of Bernese Oberlands. What almost sounds like clichés is nothing other than the fascination cruise. For around 120 employees on and on Lake Brienzer and Thuner, this is part of daily reality.",
+        "fr": "Descrizione Nous aimons les lacs, nous aimons la natura, noi vogliamo i nostri ospiti – e vogliamo le personne che vogliono contribuire con noi alla futura BLS cruise. Noi offriamo ai nostri dipendenti un ambiente unico, vario e stable. Con noi, puoi scoprire nuove prospetive nel contatto quotidiano con i clienti, grazie al tuo talento organizzativo e all do conoscenze linguistiche, e puoi anche contribuire attivamente alla gestione dei processi nel servizio clienti. Mansioni • Conseil, prenotazione e vendita di tutti i prodotti di navigazione (e-mail e telefono) inclusa la gestione professionale delle reazioni dei clienti • Gestione delle prenotazioni di gruppo e applicazione di diversi sistemi di vendita nel lavoro di ogni giorno • Collaborazione con letivat Comunicazione stretta con le navi e le stazioni Requisiti • Esperienza nel servizio clienti o nella vendita, preferibilite nel setore del turismo • Alta affinità per gli strumenti e i sistemi digitali • Talento organizzativo con una forti orientalamento al cliente e al servizio • Buon tedesco e inglese in parole e scritura, altre lingue sono un vantaggio • Disponibilità per gli impegni di fintimana (or) 365 giari di di di di di viva Cosa offriamo • Ricevi un biglietto GA 2. classe o un abbonamento • Condividi il tuo tempo di lavoro in modo libero. Noi promuoviamo il lavoro a tempo parziale. • Esiste la possibilità di acquistare fino a 10 giorni di ferie in più all'anno oltre a quelli previsti. • Noi ci impegniamo a contribuire con il 60% ai contributi pensionisti. • Grossi regali di servizio già a partire dai 5 anni di servizio. • Ti aspetta un luogo di lavoro incantevole nel cuore del Bernese Oberland. Contatto À propos du BLS shipping Des navires blancs. De l'eau bleue. L'air frais. Le monde montagneux des Oberlands bernois. Ce qui ressemble presque aux clichés n'est rien d'autre que la croisière de fascination. Pour environ 120 employés sur et sur le lac Brienzer et Thuner, cela fait partie de la réalité quotidienne."
       },
       "location": "Bern",
       "canton": "BE",
@@ -1901,9 +1881,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-gasteservice-schifffahrt-bls-ch"
         ]
       },
@@ -2007,7 +1992,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:29.457Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {

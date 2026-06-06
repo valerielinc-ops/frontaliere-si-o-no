@@ -7,7 +7,7 @@
       "slug": "reservations-agent-m-w-d-badrutts-palace-ch",
       "slugByLocale": {
         "it": "reservations-agent-m-w-d-badrutts-palace-ch",
-        "en": "reservations-agent-m-w-d-badrutts-palace-ch",
+        "en": "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "reservations-agent-m-w-d-badrutts-palace-ch",
         "fr": "reservations-agent-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
@@ -51,14 +51,6 @@
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T12:14:55.393Z",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "en": [
-          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ]
-      },
-      "previousSlugs": [
-        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -137,7 +129,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:07:05.997Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -159,7 +150,7 @@
         "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "reservations-manager-m-w-d-badrutts-palace-ch",
-        "fr": "reservations-manager-m-w-d-badrutts-palace-ch"
+        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -201,7 +192,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "reservations-manager-m-w-d-badrutts-palace-ch",
-        "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutts-palace-ch",
@@ -224,12 +214,10 @@
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T11:52:11.757Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -394,7 +382,6 @@
         ]
       },
       "firstSeenAt": "2026-05-23T21:12:26.249Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {

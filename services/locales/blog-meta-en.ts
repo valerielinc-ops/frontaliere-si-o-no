@@ -7981,6 +7981,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio.title': 'Early Childhood Educator in Ticino: Salary and Requirements',
     'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Guide to work as a preschool teacher: SSS diploma, salary CHF 73K–97K, and process for G permit.',
     'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Early childhood educator working in a modern kindergarten in Ticino with Alpine panorama.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Luido Bernasconi trial begins',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'The trial of Luido Bernasconi, former director of RSI Radiotelevisione svizzera, has started.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capital of the Canton of Ticino',
+    'blog.article.fine-scuole-ticino-2026.title': '2026 Holidays: Impact on Cross-Border Workers',
+    'blog.article.fine-scuole-ticino-2026.excerpt': 'The official 2026 school holidays calendar for Canton Ticino has been set, with key dates for families and cross-border workers.',
+    'blog.article.fine-scuole-ticino-2026.imageAlt': 'A school in Mendrisio, Ticino, during the end of school holidays',
+    'blog.article.frontaliere.title': 'New Rules for Cross-Border Workers in Ticino',
+    'blog.article.frontaliere.excerpt': 'New regulations and rules for cross-border workers in the Canton of Ticino',
+    'blog.article.frontaliere.imageAlt': 'A city in the Canton Ticino with a mix of historic and modern buildings',
 };
 
 export default blogMetaEn;

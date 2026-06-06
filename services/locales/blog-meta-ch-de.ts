@@ -71,6 +71,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lonza-concierge-ticino-job.title': 'Lonza sucht Mitarbeiter für den Portierdienst im Tessin',
     'blog.article.lonza-concierge-ticino-job.excerpt': 'Stellenangebote (80-100%) für Mitarbeiter im Bereich Anlagen und Portierdienst bei Lonza im Tessin.',
     'blog.article.lonza-concierge-ticino-job.imageAlt': 'Lonza-Gebäude in der Schweiz, ein Symbol für Beschäftigung und Innovation.',
+    'blog.article.naspi-disoccupazione-frontaliere.title': 'NASpI für Grenzgänger: Regeln und Verfahren',
+    'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Erfahre, wie das Arbeitslosengeld für Grenzgänger funktioniert, die nach Italien zurückkehren nach einer Beschäftigung in der Schweiz.',
+    'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Moderne Ansicht eines Gebäudes in Lugano',
+    'blog.article.lavoro-produzione-farmaceutica-coira.title': 'Pharmarobotik: Stellen in Coira',
+    'blog.article.lavoro-produzione-farmaceutica-coira.excerpt': 'Karrierechancen im Pharmasektor beim Kantonsspital Graubünden in Coira. Details zu offenen Stellen und Anforderungen finden Sie hier.',
+    'blog.article.lavoro-produzione-farmaceutica-coira.imageAlt': 'Pharmazeutische Produktionsanlage in der Schweiz',
 };
 
 export default blogMetaChDe;

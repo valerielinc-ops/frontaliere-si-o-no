@@ -7982,6 +7982,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio.title': 'Educatore infanzia in Ticino: stipendio e requisiti',
     'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Guida per lavorare come educatore: diploma SSS, stipendio CHF 73K–97K e processo per il Permesso G.',
     'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Educatore dell\'infanzia al lavoro in un asilo moderno in Ticino con panorama alpino.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Al via il processo a Luido Bernasconi - RSI Radiotelevisione svizzera',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'Il processo a Luido Bernasconi, ex direttore di RSI Radiotelevisione svizzera, è iniziato.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capoluogo del Canton Ticino',
+    'blog.article.fine-scuole-ticino-2026.title': 'Vacanze 2026: Impatti per i frontalieri',
+    'blog.article.fine-scuole-ticino-2026.excerpt': 'Il calendario ufficiale delle vacanze scolastiche 2026 in Canton Ticino è stato definito, con date importanti per le famiglie e i frontalieri.',
+    'blog.article.fine-scuole-ticino-2026.imageAlt': 'Una scuola a Mendrisio, Ticino, all\'uscita delle vacanze scolastiche',
+    'blog.article.frontaliere.title': 'Frontaliere Ticino: nuove norme e regole per i lavoratori frontalieri',
+    'blog.article.frontaliere.excerpt': 'Le nuove norme e regole per i lavoratori frontalieri nel Canton Ticino',
+    'blog.article.frontaliere.imageAlt': 'Una città del Canton Ticino con un mix di edifici storici e moderni',
 };
 
 export default blogMetaIt;

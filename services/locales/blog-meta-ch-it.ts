@@ -71,6 +71,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lonza-concierge-ticino-job.title': 'Lonza cerca personale di portineria',
     'blog.article.lonza-concierge-ticino-job.excerpt': 'Opportunità di impiego all\'80-100% per addetti alle installazioni e alla portineria presso Lonza in Ticino.',
     'blog.article.lonza-concierge-ticino-job.imageAlt': 'Edificio Lonza in Svizzera, simbolo di occupazione e innovazione.',
+    'blog.article.naspi-disoccupazione-frontaliere.title': 'NASpI per frontalieri: regole e procedure',
+    'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Scopri come funziona l\'indennità di disoccupazione per chi rientra in Italia dopo un rapporto di lavoro in Svizzera.',
+    'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Vista moderna di un edificio a Lugano',
+    'blog.article.lavoro-produzione-farmaceutica-coira.title': 'Lavorare nella farmaceutica: posizioni a Coira',
+    'blog.article.lavoro-produzione-farmaceutica-coira.excerpt': 'Opportunità professionali nel settore farmaceutico presso il Kantonsspital Graubünden di Coira. Scopri i dettagli sulle posizioni aperte e i requisiti.',
+    'blog.article.lavoro-produzione-farmaceutica-coira.imageAlt': 'Impianto di produzione farmaceutica in Svizzera',
 };
 
 export default blogMetaChIt;

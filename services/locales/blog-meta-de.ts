@@ -7980,6 +7980,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio.title': 'Kindererzieher im Tessin: Gehalt und Voraussetzungen',
     'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Anleitung, um als Kindererzieher zu arbeiten: Diplom SSS, Gehalt CHF 73K–97K und Verfahren für die G-Bewilligung.',
     'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Kinderbetreuer bei der Arbeit in einem modernen Kindergarten im Tessin mit Alpenpanorama.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Luido Bernasconi: Prozess begonnen',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'Der Prozess gegen Luido Bernasconi, ehemaligen Direktor von RSI Radiotelevisione svizzera, hat begonnen.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, Hauptstadt des Kantons Tessin',
+    'blog.article.fine-scuole-ticino-2026.title': 'Urlaub 2026: Auswirkungen für Grenzgänger',
+    'blog.article.fine-scuole-ticino-2026.excerpt': 'Der offizielle Schulfreiheitskalender 2026 im Kanton Tessin wurde festgelegt, mit wichtigen Daten für Familien und Grenzgänger.',
+    'blog.article.fine-scuole-ticino-2026.imageAlt': 'Eine Schule in Mendrisio, Tessin, am Ende der Schulferien',
+    'blog.article.frontaliere.title': 'Neue Regeln für Grenzgänger im Kanton Tessin',
+    'blog.article.frontaliere.excerpt': 'Neue Normen und Regeln für Grenzgänger im Kanton Tessin',
+    'blog.article.frontaliere.imageAlt': 'Eine Stadt im Kanton Tessin mit einem Mix aus historischen und modernen Gebäuden',
 };
 
 export default blogMetaDe;
