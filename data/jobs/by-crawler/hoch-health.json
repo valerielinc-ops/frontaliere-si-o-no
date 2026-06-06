@@ -1181,10 +1181,10 @@
       "id": "hoch-health-6ea9c257469a",
       "slug": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-        "en": "dipl-care-specialist-80-100-hoch-health-ostschweiz-uznach",
+        "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
+        "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-        "fr": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-uznach"
+        "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -1227,8 +1227,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
         "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
         "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach",
@@ -1246,19 +1246,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
         ],
         "de": [
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
         ]
       },
       "firstSeenAt": "2026-06-05T12:02:22.169Z",
@@ -2570,7 +2567,9 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3090,6 +3089,7 @@
         "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-uznach",
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-st-gallen",
         "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
         "salute-professionale-40-100-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
@@ -5499,7 +5499,7 @@
       "id": "hoch-health-da7daea976f6",
       "slug": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+        "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "dipl-care-specialist-80-100-hoch-health-ostschweiz-wil",
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
         "fr": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-wil"
@@ -5546,7 +5546,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach",
         "dipl-specialista-di-cura-40-100-hoch-health-ostschweiz-uznach",
@@ -5561,13 +5560,13 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
         "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
-        "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach"
+        "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
@@ -8133,9 +8132,9 @@
       "slug": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-hoch-health-ostschweiz-st-gallen",
-        "en": "institute-for-computer-science-efz-hoch-health-ostschweiz-st-gallen",
+        "en": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-hoch-health-st-gallen",
         "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-hoch-health-st-gallen",
-        "fr": "institut-d-informatique-efz-hoch-health-ostschweiz-st-gallen"
+        "fr": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-hoch-health-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -8149,10 +8148,10 @@
       },
       "description": "Lehrstelle als Informatiker/in EFZ (Plattformentwicklung)\n\nAusbildungsstellen\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nDeine \n• Aufgaben und Perspektiven\n\nDu installierst selbständig Computer, Server und Netzwerke und sorgst dafür, dass alles perfekt zusammen funktioniert\n\nDu entwickelst, realisierst und integrierst Informatiklösungen, testest diese und kümmerst dich um die Wartung, um eine optimale Leistung sicherzustellen\n\nBeim Aufbau und der Pflege von Informatiksystemen hilfst du mit und lernst dabei, Gerätekonfigurationen zu erweitern und Softwareinstallationen effizient vorzunehmen\n\nIm Spital ist es besonders wichtig, dass alle Systeme einwandfrei funktionieren, weshalb du als zuverlässige Ansprechperson die Anwenderinnen und Anwender bei Störungen unterstützt und eine schnelle Lösung bietest\n\nWas du für diese Stelle mitbringst\n\nDu hast deine obligatorische Schulzeit in der Sekundarschule Typ E bis zum Ausbildungsstart erfolgreich abgeschlossen\n\nDeine schnelle Auffassungsgabe und Konzentration ermöglichen es dir, neue \n• Aufgaben und komplexe Zusammenhänge im Handumdrehen zu erfassen\n\nLogisches und abstraktes Denken bereitet dir Freude\n\nDu schätzt die Zusammenarbeit im Team und bringst gute Englischkenntnisse mit\n\nUnser Angebot an dich\n\nWährend deiner Ausbildung arbeitest du in verschiedenen Abteilungen und Teams, lernst die neusten Informationstechnologien kennen und profitierst dabei von gut ausgebildeten, qualifizierten und erfahrenen Teams\n\nDu kannst deine Ideen in echte Projekte einbringen\n\nFür die Kosten deines Schulmaterials erhältst du eine finanzielle Unterstützung\n\nDu darfst interne Weiterbildungskurse und Informationsveranstaltungen besuchen\n\nDeine Bewerbung\n\nEintritt per 06. August 2027. Mehr zu dieser spannenden Lehrstelle erfährst du auf unserer Webseite oder von Erna Kesedzic, Telefon +41 71 494 67 34\n\nNutze deine Chance und absolviere deine Ausbildung bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumf",
       "descriptionByLocale": {
-        "it": "Mansioni\nSi installa indipendentemente computer, server e reti e assicurarsi che tutto funziona perfettamente insieme\n\nSi sviluppano, realizzano e integrierst soluzioni informatiche, li testa e si prendono cura di manutenzione per garantire prestazioni ottimali\n\nPer costruire e mantenere i sistemi informatici, aiuta e impara ad espandere le configurazioni dei dispositivi e ad eseguire in modo efficiente le installazioni software\n\nIn ospedale è particolarmente importante che tutti i sistemi funzionino correttamente, motivo per cui come persona di contatto affidabile supporta gli utenti in caso di malfunzionamenti e offrono una soluzione rapida\n\nRequisiti\nAvete completato con successo la vostra scuola obbligatoria nel tipo di scuola secondaria E fino all'inizio della vostra formazione\n\nLa rapida comprensione e la concentrazione consentono di catturare nuovi compiti e relazioni complesse in pochissimo tempo\n\nIl pensiero logico e astratto ti prepara la gioia\n\nApprezzi la collaborazione del team e porti una buona conoscenza dell'inglese\n\nCosa?\nDurante la vostra formazione, si lavora in vari dipartimenti e team, soddisfare le ultime tecnologie dell'informazione e beneficiare di team ben addestrati, qualificati e esperti.\n\nPuoi portare le tue idee in progetti reali\n\nPer il costo del materiale scolastico ricevi un supporto finanziario\n\nÈ possibile visitare corsi di formazione interna ed eventi di informazione\n\nContatto\nIngresso entro il 06. Agosto 2027. Maggiori informazioni su questo sito di insegnamento emozionante sul nostro sito web o da Erna Kesedzic, telefono +41 71 494 67 34\n\nUsa la tua occasione e completa la tua formazione a HOCH Health Ostschweiz\n\nDescrizione\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a un ambiente di lavoro versatile per i nostri dipendenti",
-        "en": "Mansioni\nYou independently install computers, servers and networks and make sure everything works perfectly together\n\nYou develop, realize and integrierst informatics solutions, test them and take care of maintenance to ensure optimal performance\n\nTo build and maintain computer science systems, you help and learn to expand device configurations and efficiently perform software installations\n\nIn the hospital it is particularly important that all systems work properly, which is why you as a reliable contact person support the users in case of malfunctions and offer a quick solution\n\nRequisiti\nYou have successfully completed your compulsory schooling in secondary school type E until the start of your training\n\nYour rapid understanding and concentration enable you to capture new tasks and complex relationships in no time\n\nLogical and abstract thinking prepares you joy\n\nYou value the team's collaboration and bring good knowledge of English\n\nCosa offriamo\nDuring your training, you work in various departments and teams, meet the latest information technologies and benefit from well-trained, qualified and experienced teams.\n\nYou can bring your ideas into real projects\n\nFor the cost of your school material you receive financial support\n\nYou can visit internal training courses and information events\n\nContatto\nEntry by 06. August 2027. Find out more about this exciting teaching site on our website or by Erna Kesedzic, phone +41 71 494 67 34\n\nUse your chance and complete your training at HOCH Health Ostschweiz\n\ndescrizione\nHealth care is our profession and our vocation. As the largest employer in eastern Switzerland, we commit ourselves to a versatile working environment for our employees",
-        "de": "## Mansioni\nDu installierst selbständig Computer, Server und Netzwerke und sorgst dafür, dass alles perfekt zusammen funktioniert\n\nDu entwickelst, realisierst und integrierst Informatiklösungen, testest diese und kümmerst dich um die Wartung, um eine optimale Leistung sicherzustellen\n\nBeim Aufbau und der Pflege von Informatiksystemen hilfst du mit und lernst dabei, Gerätekonfigurationen zu erweitern und Softwareinstallationen effizient vorzunehmen\n\nIm Spital ist es besonders wichtig, dass alle Systeme einwandfrei funktionieren, weshalb du als zuverlässige Ansprechperson die Anwenderinnen und Anwender bei Störungen unterstützt und eine schnelle Lösung bietest\n\n## Requisiti\nDu hast deine obligatorische Schulzeit in der Sekundarschule Typ E bis zum Ausbildungsstart erfolgreich abgeschlossen\n\nDeine schnelle Auffassungsgabe und Konzentration ermöglichen es dir, neue Aufgaben und komplexe Zusammenhänge im Handumdrehen zu erfassen\n\nLogisches und abstraktes Denken bereitet dir Freude\n\nDu schätzt die Zusammenarbeit im Team und bringst gute Englischkenntnisse mit\n\n## Cosa offriamo\nWährend deiner Ausbildung arbeitest du in verschiedenen Abteilungen und Teams, lernst die neusten Informationstechnologien kennen und profitierst dabei von gut ausgebildeten, qualifizierten und erfahrenen Teams\n\nDu kannst deine Ideen in echte Projekte einbringen\n\nFür die Kosten deines Schulmaterials erhältst du eine finanzielle Unterstützung\n\nDu darfst interne Weiterbildungskurse und Informationsveranstaltungen besuchen\n\n## Contatto\nEintritt per 06. August 2027. Mehr zu dieser spannenden Lehrstelle erfährst du auf unserer Webseite oder von Erna Kesedzic, Telefon +41 71 494 67 34\n\nNutze deine Chance und absolviere deine Ausbildung bei HOCH Health Ostschweiz\n\n## Descrizione\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumf",
-        "fr": "Mansioni\nVous installez indépendamment des ordinateurs, des serveurs et des réseaux et assurez-vous que tout fonctionne parfaitement ensemble\n\nVous développez, réalisez et intégrez des solutions informatiques, testez-les et prenez soin de la maintenance pour assurer une performance optimale\n\nPour construire et entretenir des systèmes informatiques, vous aidez et apprenez à étendre les configurations des appareils et à effectuer efficacement des installations logicielles.\n\nDans l'hôpital, il est particulièrement important que tous les systèmes fonctionnent correctement, c'est pourquoi vous en tant que personne de contact fiable soutenir les utilisateurs en cas de dysfonctionnement et offrir une solution rapide\n\nRequisiti\nVous avez réussi votre scolarité obligatoire dans l'enseignement secondaire de type E jusqu'au début de votre formation.\n\nVotre compréhension et votre concentration rapides vous permettent de saisir de nouvelles tâches et des relations complexes en un rien de temps\n\nLa pensée logique et abstraite vous prépare à la joie\n\nVous appréciez la collaboration de l'équipe et apportez une bonne connaissance de l'anglais\n\nCosa offriamo\nPendant votre formation, vous travaillez dans différents départements et équipes, rencontrez les dernières technologies de l'information et bénéficiez d'équipes bien formées, qualifiées et expérimentées.\n\nVous pouvez apporter vos idées dans de vrais projets\n\nPour le coût de votre matériel scolaire, vous recevez un soutien financier\n\nVous pouvez visiter des formations internes et des événements d'information\n\nContatto\nEntrée avant 06. Août 2027. En savoir plus sur ce site d'enseignement passionnant sur notre site ou par Erna Kesedzic, téléphone +41 71 494 67 34\n\nProfitez de votre chance et terminez votre formation chez HOCH Health Ostschweiz\n\ndescrizione\nLes soins de santé sont notre profession et notre vocation. En tant que plus grand employeur de l'est de la Suisse, nous nous engageons dans un environnement de travail polyvalent pour nos employés"
+        "it": "Mansioni\nSi installa indipendentemente computer, server e reti e assicurarsi che tutto funziona perfettamente insieme\n\nSi sviluppano, realizzano e integrierst soluzioni informatiche, li testa e si prendono cura di manutenzione per garantire prestazioni ottimali\n\nPer costruire e mantenere i sistemi informatici, aiuta e impara ad espandere le configurazioni dei dispositivi e ad eseguire in modo efficiente le installazioni software\n\nIn ospedale è particolarmente importante che tutti i sistemi funzionino correttamente, motivo per cui come persona di contatto affidabile supporta gli utenti in caso di malfunzionamenti e offrono una soluzione rapida\n\nRequisiti\nAvete completato con successo la vostra scuola obbligatoria nel tipo di scuola secondaria E fino all'inizio della vostra formazione\n\nLa rapida comprensione e la concentrazione consentono di catturare nuovi compiti e relazioni complesse in pochissimo tempo\n\nIl pensiero logico e astratto ti prepara la gioia\n\nApprezzi la collaborazione del team e porti una buona conoscenza dell'inglese\n\nCosa?\nDurante la vostra formazione, si lavora in vari dipartimenti e team, soddisfare le ultime tecnologie dell'informazione e beneficiare di team ben addestrati, qualificati e esperti.\n\nPuoi portare le tue idee in progetti reali\n\nPer il costo del materiale scolastico ricevi un supporto finanziario\n\nÈ possibile visitare corsi di formazione interna ed eventi di informazione\n\nContatto\nIngresso entro il 06. Agosto 2027. Maggiori informazioni su questo sito di insegnamento emozionante sul nostro sito web o da Erna Kesedzic, telefono +41 71 494 67 34\n\nUsa la tua occasione e completa la tua formazione a HOCH Health Ostschweiz\n\nInformazioni su di noi\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a fornire ai nostri dipendenti un ambiente di lavoro versatile",
+        "en": "Mansioni\nYou independently install computers, servers and networks and make sure everything works perfectly together\n\nYou develop, realize and integrierst informatics solutions, test them and take care of maintenance to ensure optimal performance\n\nTo build and maintain computer science systems, you help and learn to expand device configurations and efficiently perform software installations\n\nIn the hospital it is particularly important that all systems work properly, which is why you as a reliable contact person support the users in case of malfunctions and offer a quick solution\n\nRequisiti\nYou have successfully completed your compulsory schooling in secondary school type E until the start of your training\n\nYour rapid understanding and concentration enable you to capture new tasks and complex relationships in no time\n\nLogical and abstract thinking prepares you joy\n\nYou value the team's collaboration and bring good knowledge of English\n\nCosa offriamo\nDuring your training, you work in various departments and teams, meet the latest information technologies and benefit from well-trained, qualified and experienced teams.\n\nYou can bring your ideas into real projects\n\nFor the cost of your school material you receive financial support\n\nYou can visit internal training courses and information events\n\nContatto\nEntry by 06. August 2027. Find out more about this exciting teaching site on our website or by Erna Kesedzic, phone +41 71 494 67 34\n\nUse your chance and complete your training at HOCH Health Ostschweiz\n\nAbout us\nHealth care is our profession and our vocation. As the largest employer in eastern Switzerland, we commit ourselves to providing our employees with a versatile working environment",
+        "de": "## Mansioni\nDu installierst selbständig Computer, Server und Netzwerke und sorgst dafür, dass alles perfekt zusammen funktioniert\n\nDu entwickelst, realisierst und integrierst Informatiklösungen, testest diese und kümmerst dich um die Wartung, um eine optimale Leistung sicherzustellen\n\nBeim Aufbau und der Pflege von Informatiksystemen hilfst du mit und lernst dabei, Gerätekonfigurationen zu erweitern und Softwareinstallationen effizient vorzunehmen\n\nIm Spital ist es besonders wichtig, dass alle Systeme einwandfrei funktionieren, weshalb du als zuverlässige Ansprechperson die Anwenderinnen und Anwender bei Störungen unterstützt und eine schnelle Lösung bietest\n\n## Requisiti\nDu hast deine obligatorische Schulzeit in der Sekundarschule Typ E bis zum Ausbildungsstart erfolgreich abgeschlossen\n\nDeine schnelle Auffassungsgabe und Konzentration ermöglichen es dir, neue Aufgaben und komplexe Zusammenhänge im Handumdrehen zu erfassen\n\nLogisches und abstraktes Denken bereitet dir Freude\n\nDu schätzt die Zusammenarbeit im Team und bringst gute Englischkenntnisse mit\n\n## Cosa offriamo\nWährend deiner Ausbildung arbeitest du in verschiedenen Abteilungen und Teams, lernst die neusten Informationstechnologien kennen und profitierst dabei von gut ausgebildeten, qualifizierten und erfahrenen Teams\n\nDu kannst deine Ideen in echte Projekte einbringen\n\nFür die Kosten deines Schulmaterials erhältst du eine finanzielle Unterstützung\n\nDu darfst interne Weiterbildungskurse und Informationsveranstaltungen besuchen\n\n## Contatto\nEintritt per 06. August 2027. Mehr zu dieser spannenden Lehrstelle erfährst du auf unserer Webseite oder von Erna Kesedzic, Telefon +41 71 494 67 34\n\nNutze deine Chance und absolviere deine Ausbildung bei HOCH Health Ostschweiz\n\n## Über uns\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten",
+        "fr": "Mansioni\nVous installez indépendamment des ordinateurs, des serveurs et des réseaux et assurez-vous que tout fonctionne parfaitement ensemble\n\nVous développez, réalisez et intégrez des solutions informatiques, testez-les et prenez soin de la maintenance pour assurer une performance optimale\n\nPour construire et entretenir des systèmes informatiques, vous aidez et apprenez à étendre les configurations des appareils et à effectuer efficacement des installations logicielles.\n\nDans l'hôpital, il est particulièrement important que tous les systèmes fonctionnent correctement, c'est pourquoi vous en tant que personne de contact fiable soutenir les utilisateurs en cas de dysfonctionnement et offrir une solution rapide\n\nRequisiti\nVous avez réussi votre scolarité obligatoire dans l'enseignement secondaire de type E jusqu'au début de votre formation.\n\nVotre compréhension et votre concentration rapides vous permettent de saisir de nouvelles tâches et des relations complexes en un rien de temps\n\nLa pensée logique et abstraite vous prépare à la joie\n\nVous appréciez la collaboration de l'équipe et apportez une bonne connaissance de l'anglais\n\nCosa offriamo\nPendant votre formation, vous travaillez dans différents départements et équipes, rencontrez les dernières technologies de l'information et bénéficiez d'équipes bien formées, qualifiées et expérimentées.\n\nVous pouvez apporter vos idées dans de vrais projets\n\nPour le coût de votre matériel scolaire, vous recevez un soutien financier\n\nVous pouvez visiter des formations internes et des événements d'information\n\nContatto\nEntrée avant 06. Août 2027. En savoir plus sur ce site d'enseignement passionnant sur notre site ou par Erna Kesedzic, téléphone +41 71 494 67 34\n\nProfitez de votre chance et terminez votre formation chez HOCH Health Ostschweiz\n\nSur nous\nLes soins de santé sont notre profession et notre vocation. En tant que plus grand employeur de l'est de la Suisse, nous nous engageons à offrir à nos employés un environnement de travail polyvalent"
       },
       "location": "St. Gallen",
       "canton": "SG",
@@ -8182,12 +8181,6 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-hoch-health-st-gallen"
-        ],
-        "en": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-hoch-health-st-gallen"
-        ],
-        "fr": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-hoch-health-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-31T22:23:32.557Z",
@@ -8209,9 +8202,9 @@
       "slug": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "teaching-centre-as-cooker-efz-hoch-health-ostschweiz-st-gallen",
+        "en": "lehrstelle-als-kochin-koch-efz-hoch-health-st-gallen",
         "de": "lehrstelle-als-kochin-koch-efz-hoch-health-st-gallen",
-        "fr": "centre-d-enseignement-comme-cuisiniere-efz-hoch-health-ostschweiz-st-gallen"
+        "fr": "lehrstelle-als-kochin-koch-efz-hoch-health-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -8225,10 +8218,10 @@
       },
       "description": "Lehrstelle als Köchin/Koch EFZ\n\nAusbildungsstellen\n\nArbeitsort St. Gallen\n\nStellenanzeige\n\nDeine \n• Aufgaben und Perspektiven\n\nIm Zentrum deiner Arbeit steht das sorgfältige Zubereiten von warmen und kalten Gerichten und Süssspeisen\n\nDu nimmst Lebensmittel entgegen, kontrollierst diese und lagerst sie fachgerecht\n\nDu stellst die persönliche Hygiene, Sauberkeit und Ordnung sicher\n\nIn einem dynamischen Umfeld lernst du, wie wichtig gute Arbeitsplanung ist\n\nWas du für diese Stelle mitbringst\n\nDu hast die obligatorische Schulzeit bis zum Ausbildungsstart erfolgreich abgeschlossen\n\nDu hast Freude an der Arbeit mit Lebensmitteln\n\nDu arbeitest gerne im Team und bist kontaktfreudig\n\nHygienebewusstsein und Ordnungssinn gehören zu deinen Stärken\n\nDu bist in hektischen Situationen belastbar\n\nDie Koordination von Arbeitsabläufen ist für dich einfach zu realisieren\n\nZu unregelmässigen Zeiten zu arbeiten ist für dich kein Problem (Arbeitseinsätze sind teilweise auch an den Wochenenden und an den Abenden bei diversen Anlässen zu leisten)\n\nUnser Angebot an dich\n\nDich erwartet ein spannendes und abwechslungsreiches Tätigkeitsfeld\n\nDu kannst vorwiegend im Tagesbetrieb arbeiten\n\nIn deiner Ausbildung profitierst du von einem gut ausgebildeten, qualifizierten und erfahrenen Küchenteam\n\nFür die Kosten deines Schulmaterials erhältst du eine finanzielle Unterstützung\n\nDeine Bewerbung\n\nEintritt per 06. August 2027. Mehr zu dieser spannenden Lehrstelle erfährst du auf unserer Webseite oder von Jasmin Steingruber, Telefon +41 71 494 23 54\n\nNutze deine Chance und absolviere deine Ausbildung bei HOCH Health Ostschweiz\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.</",
       "descriptionByLocale": {
-        "it": "Mansioni\n- Al cuore del vostro lavoro è l'attenta preparazione di piatti caldi e freddi e dolci\n- Prendere cibo, controllarlo e memorizzarlo professionalmente\n- Assicurare igiene personale, pulizia e ordine\n- In un ambiente dinamico impari quanto sia importante la buona pianificazione del lavoro\n\nRequisiti\n- Hai completato con successo la scuola obbligatoria fino all'inizio della formazione\n- Ti piace lavorare con il cibo\n- Ti piace lavorare nella squadra e sono contact-friendly\n- La coscienza dell'igiene e il senso dell'ordine appartengono alle vostre forze\n- Sei stressante nelle situazioni frenetiche\n- Il coordinamento dei flussi di lavoro è facile da realizzare per voi\n- Lavorare in tempi irregolari non è un problema per voi (le assegnazioni di lavoro sono a volte da fare nei fine settimana e nelle serate in varie occasioni)\n\nCosa?\n- Un campo di attività emozionante e vario vi aspetta\n- Si può lavorare principalmente in giorno\n- Nella vostra formazione beneficiate di un team di cucina ben addestrato, qualificato e esperto\n- Per il costo del materiale scolastico ricevi un supporto finanziario\n\nContatto\n- Ingresso entro il 06. Agosto 2027. Maggiori informazioni su questo sito di insegnamento emozionante sul nostro sito web o da Jasmin Steingruber, telefono +41 71 494 23 54\n- Usa la tua occasione e completa la tua formazione a HOCH Health Ostschweiz\n\nDescrizione\n- L'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a fornire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci affidiamo allo spirito di squadra, alla cooperazione interdisciplinare e alle soluzioni innovative.",
-        "en": "Mansioni\n- At the heart of your work is the careful preparation of hot and cold dishes and sweets\n- You take food, control it and store it professionally\n- You ensure personal hygiene, cleanliness and order\n- In a dynamic environment you learn how important good work planning is\n\nRequisiti\n- You have successfully completed compulsory schooling until start of training\n- You enjoy working with food\n- You like to work in the team and are contact-friendly\n- Hygiene consciousness and sense of order belong to your strengths\n- You are stressful in hectic situations\n- Coordination of workflows is easy to realize for you\n- Working at irregular times is not a problem for you (work assignments are sometimes to be done on weekends and evenings at various occasions)\n\nCosa offriamo\n- An exciting and varied field of activity awaits you\n- You can work mainly in daytime\n- In your training you benefit from a well-trained, qualified and experienced kitchen team\n- For the cost of your school material you receive financial support\n\nContatto\n- Entry by 06. August 2027. Find out more about this exciting teaching site on our website or by Jasmin Steingruber, phone +41 71 494 23 54\n- Use your chance and complete your training at HOCH Health Ostschweiz\n\ndescrizione\n- Health care is our profession and our vocation. As the largest employer in eastern Switzerland, we are committed to providing our employees with a versatile working environment. We promote individual development and thus make an active contribution to the common future. We rely on team spirit, interdisciplinary cooperation and innovative solutions.",
-        "de": "## Mansioni\n- Im Zentrum deiner Arbeit steht das sorgfältige Zubereiten von warmen und kalten Gerichten und Süssspeisen\n- Du nimmst Lebensmittel entgegen, kontrollierst diese und lagerst sie fachgerecht\n- Du stellst die persönliche Hygiene, Sauberkeit und Ordnung sicher\n- In einem dynamischen Umfeld lernst du, wie wichtig gute Arbeitsplanung ist\n\n## Requisiti\n- Du hast die obligatorische Schulzeit bis zum Ausbildungsstart erfolgreich abgeschlossen\n- Du hast Freude an der Arbeit mit Lebensmitteln\n- Du arbeitest gerne im Team und bist kontaktfreudig\n- Hygienebewusstsein und Ordnungssinn gehören zu deinen Stärken\n- Du bist in hektischen Situationen belastbar\n- Die Koordination von Arbeitsabläufen ist für dich einfach zu realisieren\n- Zu unregelmässigen Zeiten zu arbeiten ist für dich kein Problem (Arbeitseinsätze sind teilweise auch an den Wochenenden und an den Abenden bei diversen Anlässen zu leisten)\n\n## Cosa offriamo\n- Dich erwartet ein spannendes und abwechslungsreiches Tätigkeitsfeld\n- Du kannst vorwiegend im Tagesbetrieb arbeiten\n- In deiner Ausbildung profitierst du von einem gut ausgebildeten, qualifizierten und erfahrenen Küchenteam\n- Für die Kosten deines Schulmaterials erhältst du eine finanzielle Unterstützung\n\n## Contatto\n- Eintritt per 06. August 2027. Mehr zu dieser spannenden Lehrstelle erfährst du auf unserer Webseite oder von Jasmin Steingruber, Telefon +41 71 494 23 54\n- Nutze deine Chance und absolviere deine Ausbildung bei HOCH Health Ostschweiz\n\n## Descrizione\n- Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.",
-        "fr": "Autres Dans le centre de votre travail est la préparation soigneuse des plats chauds et froids et des bonbons - vous prenez de la nourriture, contrôlez et stockez professionnellement - vous êtes sûr de faire l'hygiène personnelle, la propreté et l'ordre - dans un environnement dynamique, vous apprendrez combien importante bonne planification de travail est requisiti - vous avez terminé avec succès la scolarité obligatoire jusqu'à ce que vous commencez la formation La coordination des workflows est facile à réaliser pour vous - travailler à des moments irréguliers n'est pas un problème pour vous (les tâches sont parfois aussi à effectuer le week-end et le soir à diverses occasions) Cosa offriamo - vous attend un champ d'activité passionnant et varié - vous pouvez travailler principalement dans les opérations quotidiennes - Dans votre formation, vous bénéficiez d'une équipe de cuisine bien formée, qualifiée et expérimentée - pour le coût de votre matériel scolaire vous recevez un soutien financier Contatto - entrée par 06. Août 2027. Vous pouvez en savoir plus sur ce lieu d'enseignement passionnant sur notre site web ou par Jasmin Steingruber, téléphone +41 71 494 23 54 - Profitez de votre chance et terminez votre formation à HOCH Health Ostschweiz Descrizione - La santé est notre profession et notre vocation. En tant que plus grand employeur de l'est de la Suisse, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous comptons sur l'esprit d'équipe, la coopération interdisciplinaire et des solutions innovantes."
+        "it": "Mansioni\nAl cuore del vostro lavoro è l'attenta preparazione di piatti caldi e freddi e dolci\n\nSi prende il cibo, controllarlo e memorizzarlo professionalmente\n\nAssicurare igiene personale, pulizia e ordine\n\nIn un ambiente dinamico impari quanto sia importante la buona pianificazione del lavoro\n\nRequisiti\nHai completato con successo la scuola obbligatoria fino all'inizio della formazione\n\nTi piace lavorare con il cibo\n\nTi piace lavorare nella squadra e sono contact-friendly\n\nLa consapevolezza dell'igiene e il senso dell'ordine appartengono ai vostri punti di forza\n\nSei stressante nelle situazioni frenetiche\n\nIl coordinamento dei flussi di lavoro è facile da realizzare per voi\n\nLavorare in tempi irregolari non è un problema per voi (le assegnazioni di lavoro sono a volte da fare nei fine settimana e serate in varie occasioni)\n\nCosa?\nUn campo di attività emozionante e vario vi aspetta\n\nSi può lavorare principalmente in giorno\n\nNella vostra formazione si beneficia di un team di cucina ben addestrato, qualificato e esperto\n\nPer il costo del materiale scolastico ricevi un supporto finanziario\n\nContatto\nIngresso entro il 06. Agosto 2027. Maggiori informazioni su questo sito di insegnamento emozionante sul nostro sito web o da Jasmin Steingruber, telefono +41 71 494 23 54\n\nUsa la tua occasione e completa la tua formazione a HOCH Health Ostschweiz\n\nInformazioni su di noi\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a fornire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci affidiamo allo spirito di squadra, alla cooperazione interdisciplinare e alle soluzioni innovative.",
+        "en": "Mansioni\nAt the heart of your work is the careful preparation of hot and cold dishes and sweets\n\nYou take food, control it and store it professionally\n\nYou ensure personal hygiene, cleanliness and order\n\nIn a dynamic environment you learn how important good work planning is\n\nRequisiti\nYou have successfully completed compulsory schooling until start of training\n\nYou enjoy working with food\n\nYou like to work in the team and are contact-friendly\n\nHygiene awareness and sense of order belong to your strengths\n\nYou are stressful in hectic situations\n\nCoordination of workflows is easy to realize for you\n\nWorking at irregular times is not a problem for you (work assignments are sometimes to be done on weekends and evenings at various occasions)\n\nCosa offriamo\nAn exciting and varied field of activity awaits you\n\nYou can work mainly in daytime\n\nIn your training you benefit from a well-trained, qualified and experienced kitchen team\n\nFor the cost of your school material you receive financial support\n\nContatto\nEntry by 06. August 2027. Find out more about this exciting teaching site on our website or by Jasmin Steingruber, phone +41 71 494 23 54\n\nUse your chance and complete your training at HOCH Health Ostschweiz\n\nAbout us\nHealth care is our profession and our vocation. As the largest employer in eastern Switzerland, we are committed to providing our employees with a versatile working environment. We promote individual development and thus make an active contribution to the common future. We rely on team spirit, interdisciplinary cooperation and innovative solutions.",
+        "de": "## Mansioni\nIm Zentrum deiner Arbeit steht das sorgfältige Zubereiten von warmen und kalten Gerichten und Süssspeisen\n\nDu nimmst Lebensmittel entgegen, kontrollierst diese und lagerst sie fachgerecht\n\nDu stellst die persönliche Hygiene, Sauberkeit und Ordnung sicher\n\nIn einem dynamischen Umfeld lernst du, wie wichtig gute Arbeitsplanung ist\n\n## Requisiti\nDu hast die obligatorische Schulzeit bis zum Ausbildungsstart erfolgreich abgeschlossen\n\nDu hast Freude an der Arbeit mit Lebensmitteln\n\nDu arbeitest gerne im Team und bist kontaktfreudig\n\nHygienebewusstsein und Ordnungssinn gehören zu deinen Stärken\n\nDu bist in hektischen Situationen belastbar\n\nDie Koordination von Arbeitsabläufen ist für dich einfach zu realisieren\n\nZu unregelmässigen Zeiten zu arbeiten ist für dich kein Problem (Arbeitseinsätze sind teilweise auch an den Wochenenden und an den Abenden bei diversen Anlässen zu leisten)\n\n## Cosa offriamo\nDich erwartet ein spannendes und abwechslungsreiches Tätigkeitsfeld\n\nDu kannst vorwiegend im Tagesbetrieb arbeiten\n\nIn deiner Ausbildung profitierst du von einem gut ausgebildeten, qualifizierten und erfahrenen Küchenteam\n\nFür die Kosten deines Schulmaterials erhältst du eine finanzielle Unterstützung\n\n## Contatto\nEintritt per 06. August 2027. Mehr zu dieser spannenden Lehrstelle erfährst du auf unserer Webseite oder von Jasmin Steingruber, Telefon +41 71 494 23 54\n\nNutze deine Chance und absolviere deine Ausbildung bei HOCH Health Ostschweiz\n\n## Über uns\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.",
+        "fr": "Mansioni\nAu cœur de votre travail se trouve la préparation soignée de plats chauds et froids et de bonbons\n\nVous prenez de la nourriture, le contrôlez et le stockez professionnellement\n\nVous assurez l'hygiène personnelle, la propreté et la commande\n\nDans un environnement dynamique, vous apprenez à quel point la bonne planification du travail est importante\n\nRequisiti\nVous avez réussi la scolarité obligatoire jusqu'au début de la formation\n\nVous aimez travailler avec la nourriture\n\nVous aimez travailler dans l'équipe et êtes contact-friendly\n\nLa conscience de l'hygiène et le sens de l'ordre appartiennent à vos forces\n\nVous êtes stressant dans des situations agitées\n\nLa coordination des flux de travail est facile à réaliser pour vous\n\nTravailler à des heures irrégulières n'est pas un problème pour vous (des tâches sont parfois effectuées le week-end et le soir à diverses occasions)\n\nCosa offriamo\nUn champ d'activité passionnant et varié vous attend\n\nVous pouvez travailler principalement en journée\n\nDans votre formation, vous bénéficiez d'une équipe de cuisine bien formée, qualifiée et expérimentée\n\nPour le coût de votre matériel scolaire, vous recevez un soutien financier\n\nContatto\nEntrée avant 06. Août 2027. Pour en savoir plus sur ce site d'enseignement passionnant sur notre site ou par Jasmin Steingruber, téléphone +41 71 494 23 54\n\nProfitez de votre chance et terminez votre formation chez HOCH Health Ostschweiz\n\nSur nous\nLes soins de santé sont notre profession et notre vocation. En tant que plus grand employeur de l'est de la Suisse, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous comptons sur l'esprit d'équipe, la coopération interdisciplinaire et des solutions innovantes."
       },
       "location": "St. Gallen",
       "canton": "SG",
@@ -8257,12 +8250,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kochin-koch-efz-hoch-health-st-gallen"
-        ],
-        "en": [
-          "lehrstelle-als-kochin-koch-efz-hoch-health-st-gallen"
-        ],
-        "fr": [
           "lehrstelle-als-kochin-koch-efz-hoch-health-st-gallen"
         ]
       },
@@ -8303,7 +8290,7 @@
       "descriptionByLocale": {
         "it": "Mansioni\n- Scarico di medicinali prescritti per i pazienti stazionari e ambulatoriale emergenti\n- Illuminazione di pazienti e istruzioni per il corretto utilizzo\n- Utilizzo di un software farmacia comune (ProPharma X) e di una soluzione di magazzino automatizzata per la logistica, l'approvvigionamento e la composizione dei farmaci prescritti\n- Lavoro su quattro o cinque giorni settimanali, un'operazione il sabato mattina viene effettuata regolarmente da accordo\n\nRequisiti\n- Formazione completata con successo come assistente farmaceutico in EFZ o farmacia specializzata EFZ\n- Conoscenza ProPharmaX del vantaggio\n- Enthusiasm e iniziativa per modellare e sviluppare il processo di farmaco focalizzato sui nostri pazienti in questa importante interfaccia\n- Una personalità flessibile e resiliente con un funzionamento indipendente ed esatto\n- È richiesta una buona conoscenza del tedesco in parola e scrittura\n\nCosa?\n- Interessante e versatile attività farmaceutica spital in cui è possibile applicare e ampliare la vostra competenza\n- Ambiente di lavoro collaborativo in un team dedicato, motivato e gestibile\n- Con la progettazione in adattamenti e ottimizzazioni di processo nell'area di lavoro\n- Opportunità di formazione\n- Varie prestazioni dei dipendenti in materia di salute, professione e famiglia – compresi i benefici interessanti e altro ancora\n\nContatto\n- Ingresso su appuntamento\n- Per saperne di più su questo luogo emozionante da Ms. Manon Moser, Responsabile della Farmacia Campus, Telefono +41 71 494 27 41\n- Per domande sul processo di applicazione contattare la signora Sara Reisenhofer-Weber, HR Business Partner, telefono +41 71 494 38 61\n\nInformazioni su di noi\n- L'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a fornire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e diamo un contributo importante all'assistenza sanitaria nella regione.",
         "en": "Mansioni\n- Discharge of prescribed medicines for the emerging stationary and outpatient patients\n- Enlightenment of patients and instructions for correct use\n- Use of a common pharmacy software (ProPharma X) as well as an automated warehouse solution for logistics, procurement and settlement of prescribed medicines\n- Work on four to five weekdays, an operation on Saturday morning is carried out regularly by agreement\n\nRequisiti\n- Successfully completed training as a pharma assistant in EFZ or specialist pharmacy EFZ\n- ProPharmaX knowledge of advantage\n- Enthusiasm and initiative to shape and develop the medication process focused on our patients at this important interface\n- A flexible and resilient personality with an independent and exact functioning\n- Very good knowledge of German in word and writing are required\n\nCosa offriamo\n- Interesting and versatile spital pharmaceutical activity in which you can apply and expand your expertise\n- Collaborative working environment in a dedicated, motivated and manageable team\n- With design in process adaptations and optimizations in the work area\n- Attractive further and further training opportunities\n- Various employee benefits around health, profession and family – including attractive benefits and more\n\nContatto\n- Entrance by appointment\n- Find out more about this exciting place by Ms. Manon Moser, Head of Campus Pharmacy, Phone +41 71 494 27 41\n- For questions about the application process Please contact Mrs Sara Reisenhofer-Weber, HR Business Partner, phone +41 71 494 38 61\n\nAbout us\n- Health care is our profession and our vocation. As the largest employer in eastern Switzerland, we are committed to providing our employees with a versatile working environment. We promote individual development and make an important contribution to health care in the region.",
-        "de": "## Mansioni\n- Abgabe der verordneten Arzneimittel für die austretenden stationären und ambulanten Patientinnen und Patienten\n- Aufklärung von Patientinnen und Patienten und Anleitung zur korrekten Einnahme\n- Nutzung einer gängigen Apotheken-Software (ProPharma X) sowie einer automatisierten Lagerlösung für Logistik, Beschaffung und Abrechnung der verordneten Arzneimittel\n- Arbeitseinsatz an vier bis fünf Wochentagen, ein Einsatz am Samstagvormittag erfolgt regelmässig nach Absprache\n\n## Requisiti\n- Erfolgreich abgeschlossene Ausbildung als Pharma-Assistent/in EFZ oder Fachfrau/-mann Apotheke EFZ\n- ProPharmaX Kenntnisse von Vorteil\n- Begeisterung und Initiative, den Medikationsprozess fokussiert auf unsere Patientinnen und Patienten an dieser wichtigen Schnittstelle mitzugestalten und weiterzuentwickeln\n- Eine flexible und belastbare Persönlichkeit mit einer selbstständigen und exakten Arbeitsweise\n- Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung\n\n## Cosa offriamo\n- Interessante und vielseitige spitalpharmazeutische Tätigkeit, in dem Sie Ihre Fachkompetenz anwenden und erweitern können\n- Kollegiales Arbeitsklima in einem engagierten, motivierten und überschaubaren Team\n- Mitgestaltung bei Prozessanpassungen und -optimierungen im Arbeitsbereich\n- Attraktive Fort- und Weiterbildungsmöglichkeiten\n- Vielfältige Mitarbeitervorteile rund um Gesundheit, Beruf und Familie – inklusive attraktiver Vergünstigungen und mehr\n\n## Contatto\n- Eintritt per sofort oder nach Vereinbarung\n- Mehr zu dieser spannenden Stelle erfahren Sie von Frau Manon Moser, Leiterin Campus-Apotheke, Telefon  +41 71 494 27 41\n- Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Sara Reisenhofer-Weber, HR Business Partner, Telefon +41 71 494 38 61\n\n## Über uns\n- Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten einen wichtigen Beitrag zur Gesundheitsversorgung in der Region.",
+        "de": "## Mansioni\n- Abgabe der verordneten Arzneimittel für die austretenden stationären und ambulanten Patientinnen und Patienten\n- Aufklärung von Patientinnen und Patienten und Anleitung zur korrekten Einnahme\n- Nutzung einer gängigen Apotheken-Software (ProPharma X) sowie einer automatisierten Lagerlösung für Logistik, Beschaffung und Abrechnung der verordneten Arzneimittel\n- Arbeitseinsatz an vier bis fünf Wochentagen, ein Einsatz am Samstagvormittag erfolgt regelmässig nach Absprache\n\n## Requisiti\n- Erfolgreich abgeschlossene Ausbildung als Pharma-Assistent/in EFZ oder Fachfrau/-mann Apotheke EFZ\n- ProPharmaX Kenntnisse von Vorteil\n- Begeisterung und Initiative, den Medikationsprozess fokussiert auf unsere Patientinnen und Patienten an dieser wichtigen Schnittstelle mitzugestalten und weiterzuentwickeln\n- Eine flexible und belastbare Persönlichkeit mit einer selbstständigen und exakten Arbeitsweise\n- Sehr gute Deutschkenntnisse in Wort und Schrift sind Voraussetzung\n\n## Cosa offriamo\n- Interessante und vielseitige spitalpharmazeutische Tätigkeit, in dem Sie Ihre Fachkompetenz anwenden und erweitern können\n- Kollegiales Arbeitsklima in einem engagierten, motivierten und überschaubaren Team\n- Mitgestaltung bei Prozessanpassungen und -optimierungen im Arbeitsbereich\n- Attraktive Fort- und Weiterbildungsmöglichkeiten\n- Vielfältige Mitarbeitervorteile rund um Gesundheit, Beruf und Familie – inklusive attraktiver Vergünstigungen und mehr\n\n## Contatto\n- Eintritt per sofort oder nach Vereinbarung\n- Mehr zu dieser spannenden Stelle erfahren Sie von Frau Manon Moser, Leiterin Campus-Apotheke, Telefon +41 71 494 27 41\n- Bei Fragen zum Bewerbungsprozess wenden Sie sich bitte an Frau Sara Reisenhofer-Weber, HR Business Partner, Telefon +41 71 494 38 61\n\n## Über uns\n- Gesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten einen wichtigen Beitrag zur Gesundheitsversorgung in der Region.",
         "fr": "Mansioni\n- Décharge des médicaments prescrits pour les patients en phase stationnaire et externe émergents\n- Lumière des patients et instructions pour une utilisation correcte\n- Utilisation d'un logiciel de pharmacie commun (ProPharma X) ainsi qu'une solution d'entrepôt automatique pour la logistique, l'approvisionnement et le règlement des médicaments prescrits\n- Travail de quatre à cinq jours en semaine, une opération le samedi matin est effectuée régulièrement par accord\n\nRequisiti\n- Formation réussie en tant qu'assistant pharmaceutique dans EFZ ou pharmacie spécialisée EFZ\n- ProPharmaX connaissance de l'avantage\n- Enthousiasme et initiative pour façonner et développer le processus médicamenteux axé sur nos patients à cette importante interface\n- Une personnalité flexible et résistante avec un fonctionnement indépendant et précis\n- Très bonne connaissance de l'allemand en paroles et en écriture sont nécessaires\n\nCosa offriamo\n- Intéressant et polyvalent activité pharmaceutique de craquage dans lequel vous pouvez appliquer et développer votre expertise\n- Un environnement de travail collaboratif dans une équipe dévouée, motivée et gérable\n- Avec la conception dans les adaptations de processus et les optimisations dans le domaine de travail\n- Possibilités de formation continue et de perfectionnement\n- Divers avantages pour les employés en matière de santé, de profession et de famille – y compris des avantages intéressants et plus\n\nContatto\n- Entrée sur rendez-vous\n- En savoir plus sur cet endroit passionnant par Mme Manon Moser, Chef de la Pharmacie Campus, Téléphone +41 71 494 27 41\n- Pour toute question concernant le processus de candidature Veuillez contacter Mme Sara Reisenhofer-Weber, HR Business Partner, téléphone +41 71 494 38 61\n\nSur nous\n- La santé est notre profession et notre vocation. En tant que plus grand employeur de l'est de la Suisse, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et apportons une contribution importante aux soins de santé dans la région."
       },
       "location": "St. Gallen",
@@ -10058,7 +10045,7 @@
       "id": "hoch-health-a31808a97453",
       "slug": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
+        "it": "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
         "en": "professional-health-40-100-hoch-health-ostschweiz-uznach",
         "de": "unterassistent-in-2026-hoch-health-uznach",
         "fr": "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach"
@@ -10105,7 +10092,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "unterassistent-in-2026-hoch-health-uznach",
-        "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3",
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
@@ -10118,12 +10104,14 @@
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-uznach",
         "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-uznach",
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-st-gallen",
-        "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen"
+        "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen",
+        "professional-health-40-100-hoch-health-ostschweiz-uznach",
+        "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
+        "sub-assistente-2026-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-2026-hoch-health-uznach",
-          "salute-professionale-40-100-hoch-health-ostschweiz-uznach"
+          "unterassistent-in-2026-hoch-health-uznach"
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3"
@@ -10153,7 +10141,7 @@
       "id": "hoch-health-9e5650f9e7c8",
       "slug": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
+        "it": "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-st-gallen",
         "en": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
         "de": "unterassistent-in-2027-hoch-health-uznach",
         "fr": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen"
@@ -10200,7 +10188,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "unterassistent-in-2027-hoch-health-uznach",
-        "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-st-gallen",
         "healthcare-assistant-40-100-hoch-health-ostschweiz-st-gallen",
         "pflegehelfer-in-40-100-hoch-health-uznach",
         "assistant-e-en-soins-de-sante-40-100-hoch-health-ostschweiz-st-gallen",
@@ -10214,12 +10201,14 @@
         "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
         "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
         "unterassistent-in-2028-hoch-health-st-gallen-2",
-        "assistente-junior-2028-hoch-health-ostschweiz-st-gallen"
+        "assistente-junior-2028-hoch-health-ostschweiz-st-gallen",
+        "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
+        "assistant-junior-2027-hoch-health-ostschweiz-st-gallen",
+        "sottocapo-2027-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-2027-hoch-health-uznach",
-          "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-st-gallen"
+          "unterassistent-in-2027-hoch-health-uznach"
         ],
         "en": [
           "healthcare-assistant-40-100-hoch-health-ostschweiz-st-gallen"
@@ -11705,7 +11694,7 @@
       "id": "hoch-health-e3521b46e711",
       "slug": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs",
+        "it": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
         "en": "diploma-in-nursing-50-100-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
         "fr": "infirmier-e-diplome-e-50-100-hoch-health-ostschweiz-st-gallen"
@@ -11774,17 +11763,16 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
         "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
-        "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
         "capo-team-operations-infermieristica-100-hoch-health-ostschweiz-st-gallen",
         "operations-nursing-team-lead-100-hoch-health-ostschweiz-st-gallen",
         "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen",
-        "chef-d-equipe-en-soins-operatoires-100-hoch-health-ostschweiz-st-gallen"
+        "chef-d-equipe-en-soins-operatoires-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
-          "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
-          "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen"
+          "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs"
         ],
         "de": [
           "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen"
@@ -16185,8 +16173,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
         "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen-e2c8b0",
-        "fr": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-st-gallen"
+        "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4",
+        "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16234,15 +16222,13 @@
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ],
         "de": [
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-4"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -16258,6 +16244,7 @@
         "dipl-pflegefachfrau-mann-60-100-hoch-health-st-gallen",
         "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
