@@ -7981,6 +7981,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio.title': 'Early Childhood Educator in Ticino: Salary and Requirements',
     'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Guide to work as a preschool teacher: SSS diploma, salary CHF 73K–97K, and process for G permit.',
     'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Early childhood educator working in a modern kindergarten in Ticino with Alpine panorama.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Luido Bernasconi trial begins',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'The trial of Luido Bernasconi, former director of RSI Radiotelevisione svizzera, has started.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capital of the Canton of Ticino',
 };
 
 export default blogMetaEn;

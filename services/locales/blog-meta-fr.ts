@@ -7982,6 +7982,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio.title': 'Éducateur en enfance au Tessin : salaire et exigences',
     'blog.article.educatore-infanzia-ticino-stipendio.excerpt': 'Guide pour travailler comme éducateur : diplôme SSS, salaire CHF 73K–97K et processus pour le permis G',
     'blog.article.educatore-infanzia-ticino-stipendio.imageAlt': 'Éducateur de la petite enfance au travail dans un jardin d\'enfants moderne au Tessin avec panorama alpin.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Début du procès de Luido Bernasconi',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'Le procès de Luido Bernasconi, ex directeur de la RTS Radiotélévision suisse, a débuté.',
+    'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capitale du canton du Tessin',
 };
 
 export default blogMetaFr;
