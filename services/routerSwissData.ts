@@ -45,6 +45,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'permesso-g-vs-b-2026-oltre-20-km': { it: 'permesso-g-vs-b-2026-oltre-20-km', en: 'permesso-g-vs-b-2026-beyond-20-km', de: 'permesso-g-vs-b-2026-ueber-20-km', fr: 'permesso-g-vs-b-2026-au-dela-de-20-km' },
  'calcul-salaire-net-suiss-frontalier': { it: 'calcul-salaire-net-suiss-frontalier', en: 'swiss-border-worker-net-salary-calculation', de: 'schweizer-grenzarbeiter-nettolohnberechnung', fr: 'calcul-salaire-net-frontalier-suisse' },
  'lonza-concierge-ticino-job': { it: 'lonza-concierge-ticino-job', en: 'lonza-concierge-ticino', de: 'lonza-concierge-ticino', fr: 'lonza-concierge-ticino' },
+ 'naspi-disoccupazione-frontaliere': { it: 'naspi-disoccupazione-frontaliere', en: 'naspi-unemployment-benefits-cross-border', de: 'naspi-arbeitslosengeld-grenzgaenger', fr: 'naspi-chomage-frontalier-regles' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

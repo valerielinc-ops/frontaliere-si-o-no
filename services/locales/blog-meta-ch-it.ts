@@ -71,6 +71,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lonza-concierge-ticino-job.title': 'Lonza cerca personale di portineria',
     'blog.article.lonza-concierge-ticino-job.excerpt': 'Opportunità di impiego all\'80-100% per addetti alle installazioni e alla portineria presso Lonza in Ticino.',
     'blog.article.lonza-concierge-ticino-job.imageAlt': 'Edificio Lonza in Svizzera, simbolo di occupazione e innovazione.',
+    'blog.article.naspi-disoccupazione-frontaliere.title': 'NASpI per frontalieri: regole e procedure',
+    'blog.article.naspi-disoccupazione-frontaliere.excerpt': 'Scopri come funziona l\'indennità di disoccupazione per chi rientra in Italia dopo un rapporto di lavoro in Svizzera.',
+    'blog.article.naspi-disoccupazione-frontaliere.imageAlt': 'Vista moderna di un edificio a Lugano',
 };
 
 export default blogMetaChIt;
