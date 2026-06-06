@@ -1,22 +1,23 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-06-06T09:52:10.911Z",
-  "total": 2,
+  "generatedAt": "2026-06-06T21:08:18.092Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2516,
-  "avgDurationMs": 2516,
+  "updatedCount": 0,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 2250,
+  "avgDurationMs": 2250,
   "durationHistory": [
-    2516
+    2250
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "BIM Manager",
-      "slug": "bim-manager-a-plus-plus-group-massagno",
+      "slug": "gestore-bim-a-group-massagno",
       "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/bim-manager-704071/en/",
       "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/bim-manager-704071/en/",
       "company": "A++ Group",
@@ -50,7 +51,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "HR Coordinator",
       "slug": "hr-coordinator-a-plus-plus-group-massagno",
@@ -88,7 +91,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
