@@ -7985,6 +7985,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Al via il processo a Luido Bernasconi - RSI Radiotelevisione svizzera',
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'Il processo a Luido Bernasconi, ex direttore di RSI Radiotelevisione svizzera, è iniziato.',
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capoluogo del Canton Ticino',
+    'blog.article.fine-scuole-ticino-2026.title': 'Vacanze 2026: Impatti per i frontalieri',
+    'blog.article.fine-scuole-ticino-2026.excerpt': 'Il calendario ufficiale delle vacanze scolastiche 2026 in Canton Ticino è stato definito, con date importanti per le famiglie e i frontalieri.',
+    'blog.article.fine-scuole-ticino-2026.imageAlt': 'Una scuola a Mendrisio, Ticino, all\'uscita delle vacanze scolastiche',
 };
 
 export default blogMetaIt;

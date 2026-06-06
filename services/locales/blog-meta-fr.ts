@@ -7985,6 +7985,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Début du procès de Luido Bernasconi',
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'Le procès de Luido Bernasconi, ex directeur de la RTS Radiotélévision suisse, a débuté.',
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capitale du canton du Tessin',
+    'blog.article.fine-scuole-ticino-2026.title': 'Vacances 2026: Impact sur les frontaliers',
+    'blog.article.fine-scuole-ticino-2026.excerpt': 'Le calendrier officiel des vacances scolaires 2026 au canton du Tessin a été défini, avec des dates importantes pour les familles et les travailleurs frontaliers.',
+    'blog.article.fine-scuole-ticino-2026.imageAlt': 'Une école à Mendrisio, Tessin, à la fin des vacances scolaires',
 };
 
 export default blogMetaFr;

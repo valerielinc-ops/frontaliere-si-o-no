@@ -7984,6 +7984,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.title': 'Luido Bernasconi trial begins',
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.excerpt': 'The trial of Luido Bernasconi, former director of RSI Radiotelevisione svizzera, has started.',
     'blog.article.al-via-il-processo-a-luido-bernasconi-rsi-radiotelevisione-svizzera.imageAlt': 'Lugano, capital of the Canton of Ticino',
+    'blog.article.fine-scuole-ticino-2026.title': '2026 Holidays: Impact on Cross-Border Workers',
+    'blog.article.fine-scuole-ticino-2026.excerpt': 'The official 2026 school holidays calendar for Canton Ticino has been set, with key dates for families and cross-border workers.',
+    'blog.article.fine-scuole-ticino-2026.imageAlt': 'A school in Mendrisio, Ticino, during the end of school holidays',
 };
 
 export default blogMetaEn;
