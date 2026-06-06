@@ -1,4 +1,5 @@
 import { test, expect, type APIRequestContext } from 'playwright/test';
+import { resolveActiveJobDetailPath } from './lib/live-jobs';
 
 /**
  * Live post-deploy rendering smoke (regression guard for the 2026-04-30 incident).
@@ -32,6 +33,12 @@ import { test, expect, type APIRequestContext } from 'playwright/test';
  * expired-jobs.json) — when it 404s the test skips with a clear message
  * instead of failing, since 404 is a separate concern from the rendering
  * regression we guard here.
+ *
+ * The "active job page (must hydrate)" target is NOT in TARGETS: pinning a
+ * specific slug times out when the listing expires (200 soft-landing with SPA
+ * bundle but no <main> — guard stays green while validating a non-hydrating
+ * page). It is handled by the standalone describe block below that uses
+ * resolveActiveJobDetailPath() to discover an active URL at runtime.
  */
 
 const LIVE_BASE_URL = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
@@ -57,11 +64,6 @@ const TARGETS: readonly TargetUrl[] = [
   {
     label: 'expired job soft-landing',
     path: '/cerca-lavoro-ticino/stagista-delle-risorse-umane-al-dettaglio-guess-europe-sagl-bioggio/',
-    tolerate404: true,
-  },
-  {
-    label: 'active job page (must hydrate)',
-    path: '/cerca-lavoro-ticino/meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona/',
     tolerate404: true,
   },
   {
@@ -167,3 +169,68 @@ for (const target of TARGETS) {
     });
   });
 }
+
+// The "active job page (must hydrate)" target discovers the URL at runtime so it
+// can never pass green on an expired soft-landing. A pinned slug serves 200 with
+// the SPA bundle present (soft-landing passes both old checks) but wraps content
+// in <article class="ft-static-article"> with no <main> — the guard was leaky.
+// resolveActiveJobDetailPath() probes the live sitemap and returns only URLs that
+// respond 200 AND carry <main> in their static HTML.
+test.describe('live: active job page (must hydrate)', () => {
+  test('renders without redirect loop, includes SPA bundle and <main> element', async ({ page }) => {
+    const path = await resolveActiveJobDetailPath(page);
+    const url = `${LIVE_BASE_URL}${path}`;
+    const response = await page.request.get(url, { maxRedirects: 5, timeout: 20_000 });
+
+    expect(response.status(), `${url} should return 200`).toBe(200);
+    const body = await response.text();
+
+    expect(
+      SPA_BUNDLE_RX.test(body),
+      `${url} is missing the SPA bundle <script type="module" src="/assets/index-*.js"> — page is stuck on static pre-hydration content (Bug 2 regression)`,
+    ).toBe(true);
+
+    const bouncer = selfBouncingScript(path);
+    expect(
+      body.includes(bouncer),
+      `${url} contains the self-bouncing script "${bouncer}" — would loop with the no-slash flat-html-redirect bridge (Bug 1 regression)`,
+    ).toBe(false);
+
+    expect(
+      /<main[\s>]/i.test(body),
+      `${url} is missing <main> in static HTML — soft-landing served instead of active listing (hydration guard leaky: validates a non-hydrating page)`,
+    ).toBe(true);
+  });
+
+  test('browser navigation completes within 25 s and hydrates main element', async ({ page }) => {
+    const path = await resolveActiveJobDetailPath(page);
+    const url = `${LIVE_BASE_URL}${path}`;
+
+    const navStart = Date.now();
+    const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25_000 });
+    const navDuration = Date.now() - navStart;
+
+    expect(response, `goto(${url}) should not return null`).not.toBeNull();
+    expect(response!.status(), `goto(${url}) should reach 200`).toBe(200);
+
+    // Actual hydration assertion: <main> must be attached. Soft-landings wrap
+    // content in <article class="ft-static-article"> with no <main>, so this
+    // fails correctly when an expired listing is mistakenly targeted.
+    await page.locator('main').first().waitFor({ state: 'attached', timeout: 15_000 });
+
+    const mainFrameUrl = page.url();
+    expect(
+      mainFrameUrl,
+      `final URL ${mainFrameUrl} should equal the requested ${url} (or one trailing-slash canonicalization)`,
+    ).toMatch(
+      new RegExp(
+        `^${LIVE_BASE_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}${path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?$`,
+      ),
+    );
+
+    expect(
+      navDuration,
+      `navigation to ${url} took ${navDuration} ms — investigate`,
+    ).toBeLessThan(20_000);
+  });
+});
