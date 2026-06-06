@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "offizier-in-rustung-e-weiterentwicklung-confederazione-svizzera-rivera",
-        "en": "officer-in-armor-and-development-confederazione-svizzera-rivera",
+        "en": "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
         "de": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-        "fr": "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
+        "fr": "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-6d52f47f3206",
       "previousSlugsByLocale": {
@@ -51,19 +51,23 @@
         "en": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern"
+          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
+          "officer-in-armor-and-development-confederazione-svizzera-rivera"
         ],
         "fr": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
+          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
+          "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
         ]
       },
       "previousSlugs": [
         "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
         "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
         "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
-        "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
+        "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
+        "officer-in-armor-and-development-confederazione-svizzera-rivera",
+        "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -621,9 +625,9 @@
       },
       "slugByLocale": {
         "it": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "en": "specialist-in-electrical-engineering-confederazione-svizzera-rivera",
+        "en": "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
         "de": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "fr": "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
+        "fr": "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-69f337cb7ffa",
       "salaryMin": 58000,
@@ -651,14 +655,16 @@
         ],
         "en": [
           "spezialist-in-elektrotechnik-confederazione-rivera",
-          "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern"
+          "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
+          "specialist-in-electrical-engineering-confederazione-svizzera-rivera"
         ],
         "de": [
           "spezialist-in-elektrotechnik-confederazione-rivera"
         ],
         "fr": [
           "spezialist-in-elektrotechnik-confederazione-rivera",
-          "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
+          "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
+          "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
         ]
       },
       "previousSlugs": [
@@ -667,7 +673,9 @@
         "spezialist-in-elektrotechnik-confederazione-svizzera-rivera",
         "specialista-in-ingegneria-elettrica-confederazione-svizzera-rivera",
         "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
-        "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
+        "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
+        "specialist-in-electrical-engineering-confederazione-svizzera-rivera",
+        "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
       ]
     },
     {
@@ -707,9 +715,9 @@
       },
       "slugByLocale": {
         "it": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "en": "specialist-in-technology-hlks-confederazione-svizzera-rivera",
+        "en": "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
         "de": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "fr": "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
+        "fr": "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-5a40af1081fb",
       "salaryMin": 58000,
@@ -738,14 +746,16 @@
         ],
         "en": [
           "spezialist-in-technik-hlks-confederazione-rivera",
-          "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern"
+          "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
+          "specialist-in-technology-hlks-confederazione-svizzera-rivera"
         ],
         "de": [
           "spezialist-in-technik-hlks-confederazione-rivera"
         ],
         "fr": [
           "spezialist-in-technik-hlks-confederazione-rivera",
-          "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
+          "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern",
+          "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
         ]
       },
       "previousSlugs": [
@@ -755,7 +765,9 @@
         "spezialist-in-technik-hlks-confederazione-svizzera-rivera",
         "tecnologia-specialistica-hvac-confederazione-svizzera-rivera",
         "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
-        "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
+        "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern",
+        "specialist-in-technology-hlks-confederazione-svizzera-rivera",
+        "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
       ]
     },
     {
@@ -945,7 +957,7 @@
       "slugByLocale": {
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "fr": "sortir-de-la-routine-devenir-administrateur-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und",
+        "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern",
         "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
       },
       "id": "confederazione-ticino-4659fa29ce1c",
@@ -960,7 +972,8 @@
         ],
         "fr": [
           "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-          "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
+          "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern",
+          "sortir-de-la-routine-devenir-administrateur-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und"
         ]
       },
       "previousSlugs": [
@@ -969,7 +982,8 @@
         "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern",
         "esci-dalla-routine-diventa-un-ufficiale-professionista-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "uscire-dalla-routine-diventa-ufficiale-a-di-professione-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "uscire-dalla-routine-diventa-ufficiale-a-di-professione-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "sortir-de-la-routine-devenir-administrateur-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
