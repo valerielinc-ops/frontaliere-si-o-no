@@ -86,6 +86,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Disoccupazione stabile al 3%: il quadro svizzero a maggio 2026',
     'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'La SECO conferma il tasso nazionale al 3%. In Ticino si ferma al 2,8%, Grigioni all\'1,4%. Crescono del 34% i disoccupati di lunga durata.',
     'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Vista aerea di centro urbano svizzero con uffici di collocamento, luce primaverile',
+    'blog.article.pensione-iva-parlamento.title': 'Parlamento svizzero approva aumento IVA per finanziare pensione aggiuntiva',
+    'blog.article.pensione-iva-parlamento.excerpt': 'Il Consiglio nazionale ha votato per un aumento dell\'IVA temporaneo per sostenere la 13esima pensione. Il dibattito evidenzia le tensioni tra partiti su sistema pensionistico invecchiante.',
+    'blog.article.pensione-iva-parlamento.imageAlt': 'Edificio del Parlamento Svizzero a Berna con bandiere svizzere e tedesche',
 };
 
 export default blogMetaChIt;

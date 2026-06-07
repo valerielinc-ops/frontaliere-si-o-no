@@ -86,6 +86,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Unemployment stable at 3%: Swiss job market in May 2026',
     'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'SECO confirms the national rate at 3%. Ticino stands at 2.8%, Grisons at 1.4%. Long-term unemployment rises by 34%.',
     'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Aerial view of Swiss urban center with employment offices, spring light',
+    'blog.article.pensione-iva-parlamento.title': 'Swiss Parliament Approves VAT Hike for Pension',
+    'blog.article.pensione-iva-parlamento.excerpt': 'The National Council has voted in favor of a temporary VAT increase to fund the 13th pension payment. The debate highlights tensions between parties regarding Switzerland’s aging pension system.',
+    'blog.article.pensione-iva-parlamento.imageAlt': 'Swiss Parliament building in Bern with Swiss and German flags',
 };
 
 export default blogMetaChEn;
