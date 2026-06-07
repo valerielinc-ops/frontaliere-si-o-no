@@ -7997,6 +7997,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.imposte-fonte-ticino-calcolatore-2026.title': 'Impôt à la source au Tessin : taux et simulateur 2026',
     'blog.article.imposte-fonte-ticino-calcolatore-2026.excerpt': 'Guide pratique pour le calcul de l\'impôt à la source dans le canton du Tessin pour 2026, avec taux, tranches et simulateur pour les frontaliers.',
     'blog.article.imposte-fonte-ticino-calcolatore-2026.imageAlt': 'Bureau financier avec vue sur la ville de Lugano dans le canton du Tessin',
+    'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Tessin et chemins de fer: pression sur l\'emploi et les investissements',
+    'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'La délégation tessinoise rencontre les CFF à Berne: pas de licenciement pour les frontaliers, mais le secteur cargo réduit dans le Mendrisiotto.',
+    'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Gare de Bellinzone avec trains modernes et infrastructure ferroviaire tessinoise',
 };
 
 export default blogMetaFr;

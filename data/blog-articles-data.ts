@@ -25371,6 +25371,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tpressing-lavoro-investimenti-ffs',
+ category: 'novita',
+ date: '2026-06-07T06:40:04.459Z',
+ image: '/images/blog/tpressing-lavoro-investimenti-ffs.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

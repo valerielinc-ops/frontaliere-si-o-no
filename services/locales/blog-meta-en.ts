@@ -7996,6 +7996,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imposte-fonte-ticino-calcolatore-2026.title': 'How to Calculate Withholding Tax in Ticino: Rates & 2026 Simulator',
     'blog.article.imposte-fonte-ticino-calcolatore-2026.excerpt': 'Practical guide to calculating withholding tax in Canton Ticino for 2026, including rates, brackets, and a simulator for cross-border workers.',
     'blog.article.imposte-fonte-ticino-calcolatore-2026.imageAlt': 'Financial office with a view of Lugano city in Canton Ticino',
+    'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Ticino and Railways: Pressure on Jobs and Investments',
+    'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'The Ticino delegation meets SBB in Bern: no layoffs for cross-border workers, but cargo sector downsized in Mendrisiotto.',
+    'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Bellinzona train station with modern trains and Ticino railway infrastructure',
 };
 
 export default blogMetaEn;
