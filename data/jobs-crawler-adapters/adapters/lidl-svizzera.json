@@ -10,39 +10,12 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-biasca-588233",
-    "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-gravesano-588243",
-    "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-697523",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630",
-    "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-minusio-606859",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.",
-  "updatedAt": "2026-06-06T22:02:18.191Z",
+  "updatedAt": "2026-06-07T11:14:49.876Z",
   "seedMetaByUrl": {
-    "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490": {
-      "location": "Minusio",
-      "addressLocality": "Minusio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-697523": {
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "canton": "GR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630": {
       "location": "St. Moritz",
       "addressLocality": "St. Moritz",
@@ -52,73 +25,10 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-minusio-606859": {
-      "location": "Minusio",
-      "addressLocality": "Minusio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777": {
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231": {
-      "location": "Sant'Antonino",
-      "addressLocality": "Sant'Antonino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228": {
-      "location": "Arbedo-Castione",
-      "addressLocality": "Arbedo-Castione",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267": {
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255": {
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-gravesano-588243": {
-      "location": "Gravesano",
-      "addressLocality": "Gravesano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-biasca-588233": {
-      "location": "Biasca",
-      "addressLocality": "Biasca",
-      "canton": "TI",
+    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-697523": {
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "canton": "GR",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
