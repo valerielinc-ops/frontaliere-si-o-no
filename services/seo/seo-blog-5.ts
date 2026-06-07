@@ -42740,6 +42740,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-richiesta-permesso-g-step-by-step': {
+    title: 'G step by step: permesso, documenti e dove andare',
+    description: 'Scopri come richiedere il permesso G in Ticino: documenti necessari, uffici competenti, tempi e costi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, step, permesso, documenti, dove',
+    ogTitle: 'Richiesta permesso G step by step',
+    ogDescription: 'Scopri come richiedere il permesso G in Ticino: documenti necessari, uffici competenti, tempi e costi',
+    canonicalPath: '/articoli-frontaliere/richiesta-permesso-g-step-by-step',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "G step by step: permesso, documenti e dove andare",
+      "description": "Scopri come richiedere il permesso G in Ticino: documenti necessari, uffici competenti, tempi e costi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiesta-permesso-g-step-by-step.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in coda all'ufficio cantonale di Bellinzona"
+      },
+      "datePublished": "2026-06-07T04:12:22+00:00",
+      "dateModified": "2026-06-07T04:12:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/richiesta-permesso-g-step-by-step`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7989,6 +7989,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere.title': 'Neue Regeln für Grenzgänger im Kanton Tessin',
     'blog.article.frontaliere.excerpt': 'Neue Normen und Regeln für Grenzgänger im Kanton Tessin',
     'blog.article.frontaliere.imageAlt': 'Eine Stadt im Kanton Tessin mit einem Mix aus historischen und modernen Gebäuden',
+    'blog.article.richiesta-permesso-g-step-by-step.title': 'G-Bewilligung Schritt für Schritt: Antrag, Dokumente und Zielort',
+    'blog.article.richiesta-permesso-g-step-by-step.excerpt': 'Entdecke, wie du in der Schweiz eine G-Bewilligung beantragen kannst: erforderliche Dokumente, zuständige Behörden, Fristen und Kosten. Erfahre mehr über die Grenzgängerbewilligung und die notwendigen Schritte für deine Reise. Besuche die Swissminiatur, ein beliebtes Ziel für Grenzgänger, und entdecke die Vielfalt der Einrichtungen und Attraktionen in der Region. 📊💡⚠️',
+    'blog.article.richiesta-permesso-g-step-by-step.imageAlt': 'Frontalier in der Schlange vor dem kantonalen Amt in Bellinzona',
 };
 
 export default blogMetaDe;
