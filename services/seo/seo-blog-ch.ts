@@ -1073,6 +1073,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migros-24h-herisau': {
+    title: 'Migros aprirà il suo primo supermercato 24 ore su 24 in Svizzera',
+    description: 'Migros inaugura il suo primo supermercato 24 ore a Herisau il 2 luglio con 7\'000 articoli e servizio self-service notturno. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, aprirà, primo, supermercato',
+    ogTitle: 'Migros apre il primo supermercato 24 ore in Svizzera',
+    ogDescription: 'Scopri le novità sul primo supermercato 24 ore di Migros a Herisau, con orari di apertura prolungati e servizio self-service notturno',
+    canonicalPath: '/articoli-svizzera/migros-24h-herisau/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros aprirà il suo primo supermercato 24 ore su 24 in Svizzera",
+      "description": "Migros inaugura il suo primo supermercato 24 ore a Herisau il 2 luglio con 7'000 articoli e servizio self-service notturno. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-24h-herisau.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato Migros aperto 24 ore con casse self-service e videosorveglianza"
+      },
+      "datePublished": "2026-06-07T07:44:31+00:00",
+      "dateModified": "2026-06-07T07:44:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-24h-herisau/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

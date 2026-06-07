@@ -89,6 +89,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pensione-iva-parlamento.title': 'Augmentation de la TVA pour financer la 13e rente',
     'blog.article.pensione-iva-parlamento.excerpt': 'Le Conseil national a voté en faveur d\'une augmentation temporaire de la TVA pour soutenir la 13e rente. Le débat a mis en lumière les tensions entre les partis concernant le système de retraite vieillissant. Il s\'agit d\'une mesure controversée visant à assurer la pérennité des **prestations** sociales, alors que la population suisse vieillit et que le système de retraite est confronté à des défis financiers croissants. L\'augmentation de la TVA, bien que temporaire, suscite des inquiétudes quant à son impact sur le pouvoir d\'achat des ménages et la compétitivité des entreprises. Les discussions parlementaires ont révélé des divergences profondes sur la manière de réformer le système de retraite, avec des propositions allant de l\'augmentation de l\'âge de la retraite à la modification des taux de cotisation. L\'adoption de cette mesure marque une étape importante dans le débat sur l\'avenir du système de retraite suisse, mais elle ne résout pas fondamentalement les problèmes structurels qui le confrontent. Les partis politiques continuent de s\'affronter sur les solutions à adopter pour garantir un système de retraite solidaire et financièrement viable pour les générations futures.',
     'blog.article.pensione-iva-parlamento.imageAlt': 'Palais fédéral de Berne avec drapeaux suisses et allemands',
+    'blog.article.migros-24h-herisau.title': 'Migros ouvre son 1er supermarché 24h/24 en Suisse',
+    'blog.article.migros-24h-herisau.excerpt': 'Le magasin d\'Herisau sera ouvert 24h/7j avec du personnel jusqu\'à 19h00 et du libre-service pendant la nuit.',
+    'blog.article.migros-24h-herisau.imageAlt': 'Supermarché Migros ouvert 24 heures avec caisse automatique et vidéosurveillance',
 };
 
 export default blogMetaChFr;
