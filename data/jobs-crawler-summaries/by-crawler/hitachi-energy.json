@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-06-06T21:54:01.351Z",
+  "generatedAt": "2026-06-07T11:06:32.640Z",
   "total": 106,
   "newCount": 1,
   "updatedCount": 99,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 401962,
-  "avgDurationMs": 401962,
+  "durationMs": 419546,
+  "avgDurationMs": 419546,
   "durationHistory": [
-    401962
+    419546
   ],
   "newJobs": [
     {
@@ -109,8 +109,6 @@
       "currency": "CHF",
       "postalCode": "5600",
       "firstSeenAt": "2026-06-05T12:02:58.446Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1299,8 +1297,6 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-01T23:59:29.017Z",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

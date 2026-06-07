@@ -1343,8 +1343,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
-          "rettungssanitater-in-sommersaison-2026-50-100-spital-davos-ch"
+          "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg"
         ],
         "it": [
           "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
@@ -1608,9 +1607,9 @@
     },
     {
       "id": "sanatorium-kilchberg-6fa32c1a4326",
-      "slug": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
+      "slug": "primario-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
+        "it": "primario-sanatorium-kilchberg-kilchberg",
         "en": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
         "de": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
         "fr": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
@@ -1620,7 +1619,7 @@
       "companyDomain": "sanatorium-kilchberg.ch",
       "title": "Oberärztin / Oberarzt",
       "titleByLocale": {
-        "it": "Oberärztin / Oberarzt",
+        "it": "Primario",
         "en": "Oberärztin / Oberarzt",
         "de": "Oberärztin / Oberarzt",
         "fr": "Oberärztin / Oberarzt"
@@ -1667,7 +1666,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
+      ]
     }
   ]
 }

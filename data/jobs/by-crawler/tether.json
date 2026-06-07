@@ -4910,9 +4910,9 @@
     },
     {
       "id": "tether-50084d3bd79f",
-      "slug": "portfolio-manager-real-estate-tether-ch",
+      "slug": "portfolio-manager-immobiliare-tether-operations-roma-lazio",
       "slugByLocale": {
-        "it": "portfolio-manager-real-estate-tether-ch",
+        "it": "portfolio-manager-immobiliare-tether-operations-roma-lazio",
         "en": "portfolio-manager-real-estate-tether-ch",
         "de": "portfolio-manager-real-estate-tether-ch",
         "fr": "portfolio-manager-real-estate-tether-ch"
@@ -4922,7 +4922,7 @@
       "companyDomain": "tether.io",
       "title": "Portfolio Manager - Real Estate",
       "titleByLocale": {
-        "it": "Portfolio Manager - Real Estate",
+        "it": "Portfolio Manager - Immobiliare",
         "en": "Portfolio Manager - Real Estate",
         "de": "Portfolio Manager - Real Estate",
         "fr": "Portfolio Manager - Real Estate"
@@ -4972,7 +4972,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "portfolio-manager-real-estate-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "portfolio-manager-real-estate-tether-ch"
+      ]
     },
     {
       "id": "tether-914c3d83193c",
@@ -5050,9 +5058,9 @@
     },
     {
       "id": "tether-c2ed7a23fd14",
-      "slug": "program-manager-mining-100-remote-tether-ch",
+      "slug": "gestione-del-programma-mining-100-remoto-tether-operations-barcelona-catalunya-cataluna",
       "slugByLocale": {
-        "it": "program-manager-mining-100-remote-tether-ch",
+        "it": "gestione-del-programma-mining-100-remoto-tether-operations-barcelona-catalunya-cataluna",
         "en": "program-manager-mining-100-remote-tether-ch",
         "de": "program-manager-mining-100-remote-tether-ch",
         "fr": "program-manager-mining-100-remote-tether-ch"
@@ -5062,7 +5070,7 @@
       "companyDomain": "tether.io",
       "title": "Program Manager Mining (100% remote)",
       "titleByLocale": {
-        "it": "Program Manager Mining (100% remote)",
+        "it": "Gestione del programma Mining (100% remoto)",
         "en": "Program Manager Mining (100% remote)",
         "de": "Program Manager Mining (100% remote)",
         "fr": "Program Manager Mining (100% remote)"
@@ -5112,7 +5120,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "program-manager-mining-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "program-manager-mining-100-remote-tether-ch"
+      ]
     },
     {
       "id": "tether-920b2ce9b780",

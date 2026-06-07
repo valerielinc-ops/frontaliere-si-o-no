@@ -1007,9 +1007,9 @@
     },
     {
       "id": "vista-6394a75bedae",
-      "slug": "augenoptiker-in-80-100-vista-pfaffikon-sz",
+      "slug": "ottici-in-80-100-vista-augenpraxen-kliniken-pfaffikon-sz",
       "slugByLocale": {
-        "it": "augenoptiker-in-80-100-vista-pfaffikon-sz",
+        "it": "ottici-in-80-100-vista-augenpraxen-kliniken-pfaffikon-sz",
         "en": "augenoptiker-in-80-100-vista-pfaffikon-sz",
         "de": "augenoptiker-in-80-100-vista-pfaffikon-sz",
         "fr": "augenoptiker-in-80-100-vista-pfaffikon-sz"
@@ -1019,7 +1019,7 @@
       "companyDomain": "vista.ch",
       "title": "Augenoptiker/in 80-100%",
       "titleByLocale": {
-        "it": "Augenoptiker/in 80-100%",
+        "it": "Ottici in 80-100 %",
         "en": "Augenoptiker/in 80-100%",
         "de": "Augenoptiker/in 80-100%",
         "fr": "Augenoptiker/in 80-100%"
@@ -1071,7 +1071,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "augenoptiker-in-80-100-vista-pfaffikon-sz"
+        ]
+      },
+      "previousSlugs": [
+        "augenoptiker-in-80-100-vista-pfaffikon-sz"
+      ]
     }
   ]
 }

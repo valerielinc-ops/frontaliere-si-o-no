@@ -2341,7 +2341,6 @@
         "assistente-nella-cura-lindenhofgruppe-bern",
         "assistent-in-pflege-lindenhofgruppe-bern",
         "assistent-in-pflege-lindenhofgruppe-ch",
-        "pflegeassistent-in-lindenhofgruppe-bern",
         "assistente-infermieristico-lindenhofgruppe-bern",
         "nursing-assistant-lindenhofgruppe-bern",
         "assistant-infirmier-lindenhofgruppe-bern"
@@ -2449,9 +2448,9 @@
     },
     {
       "id": "lindenhofgruppe-c3d7b7d15d12",
-      "slug": "chief-financial-officer-cfo-lindenhofgruppe-ch",
+      "slug": "direttore-finanziario-cfo-lindenhofgruppe-lindenhofgruppe",
       "slugByLocale": {
-        "it": "chief-financial-officer-cfo-lindenhofgruppe-ch",
+        "it": "direttore-finanziario-cfo-lindenhofgruppe-lindenhofgruppe",
         "en": "chief-financial-officer-cfo-lindenhofgruppe-ch",
         "de": "chief-financial-officer-cfo-lindenhofgruppe-ch",
         "fr": "chief-financial-officer-cfo-lindenhofgruppe-ch"
@@ -2461,7 +2460,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Chief Financial Officer (CFO)",
       "titleByLocale": {
-        "it": "Chief Financial Officer (CFO)",
+        "it": "Direttore finanziario (CFO)",
         "en": "Chief Financial Officer (CFO)",
         "de": "Chief Financial Officer (CFO)",
         "fr": "Chief Financial Officer (CFO)"
@@ -2508,7 +2507,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-financial-officer-cfo-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chief-financial-officer-cfo-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-40ee496c7bd8",
@@ -2585,9 +2592,9 @@
     },
     {
       "id": "lindenhofgruppe-44e0a0449e73",
-      "slug": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
+      "slug": "encoder-trice-medico-a-lindenhofgruppe-muristalden",
       "slugByLocale": {
-        "it": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
+        "it": "encoder-trice-medico-a-lindenhofgruppe-muristalden",
         "en": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
         "de": "medizinische-r-codierer-in-lindenhofgruppe-ch",
         "fr": "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
@@ -2597,7 +2604,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Medizinische/r Codierer/in",
       "titleByLocale": {
-        "it": "Medizinische/r Codierer/in",
+        "it": "Encoder/trice medico/a",
         "en": "Medizinische/r Codierer/in",
         "de": "Medizinische/r Codierer/in",
         "fr": "Medizinische/r Codierer/in"
@@ -2632,11 +2639,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-codierer-in-lindenhofgruppe-ch"
+        "medizinische-r-codierer-in-lindenhofgruppe-ch",
+        "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-codierer-in-lindenhofgruppe-ch"
+          "medizinische-r-codierer-in-lindenhofgruppe-ch",
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
         ]
       },
       "needsRetranslation": true,

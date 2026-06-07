@@ -9851,9 +9851,9 @@
     },
     {
       "id": "tertianum-8c530cd436be",
-      "slug": "specialista-della-cura-tertianum-unterterzen",
+      "slug": "infermieristica-professionale-tertianum-unterterzen",
       "slugByLocale": {
-        "it": "specialista-della-cura-tertianum-unterterzen",
+        "it": "infermieristica-professionale-tertianum-unterterzen",
         "en": "pflegefachfrau-mann-tertianum-unterterzen",
         "de": "pflegefachfrau-mann-tertianum-unterterzen",
         "fr": "pflegefachfrau-mann-tertianum-unterterzen"
@@ -9863,7 +9863,7 @@
       "companyDomain": "tertianum.ch",
       "title": "Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Pflegefachfrau/-mann",
+        "it": "Infermieristica professionale",
         "en": "Pflegefachfrau/-mann",
         "de": "Pflegefachfrau/-mann",
         "fr": "Pflegefachfrau/-mann"
@@ -9902,14 +9902,16 @@
         "infermiere-a-tertianum-unterterzen",
         "pflegefachfrau-mann-tertianum-unterterzen",
         "infermiera-tertianum-unterterzen",
-        "carriera-tertianum-unterterzen"
+        "carriera-tertianum-unterterzen",
+        "specialista-della-cura-tertianum-unterterzen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiere-a-tertianum-unterterzen",
           "pflegefachfrau-mann-tertianum-unterterzen",
           "infermiera-tertianum-unterterzen",
-          "carriera-tertianum-unterterzen"
+          "carriera-tertianum-unterterzen",
+          "specialista-della-cura-tertianum-unterterzen"
         ]
       },
       "firstSeenAt": "2026-05-19T23:48:30.250Z",
@@ -15542,8 +15544,6 @@
         "capo-team-assistenza-e-cura-tertianum-zurich-o5il7m",
         "team-lead-care-and-support-tertianum-zurich",
         "gestione-del-team-cura-e-cura-tertianum-zurich",
-        "responsable-d-equipe-soins-et-assistance-tertianum-zurich",
-        "capo-team-assistenza-e-cura-tertianum-zurich",
         "teamleitung-pflege-e-betreuung-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
@@ -19660,7 +19660,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2"
       ],
       "firstSeenAt": "2026-05-19T12:23:09.661Z",
