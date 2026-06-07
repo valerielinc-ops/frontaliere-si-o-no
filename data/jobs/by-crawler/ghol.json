@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-06-07T10:55:26.516Z",
+  "assembledAt": "2026-06-07T21:51:42.490Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.640Z",
+      "crawledAt": "2026-06-07T21:51:40.642Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -145,7 +146,8 @@
       "applyUrl": "https://app.beehire.com/invite/bpjuF3PTM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.640Z",
+      "crawledAt": "2026-06-07T21:51:40.642Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza positiva in un ambiente ospedaliero",
@@ -255,7 +257,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.639Z",
+      "crawledAt": "2026-06-07T21:51:40.641Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -281,97 +283,6 @@
           "@type": "QuantitativeValue",
           "minValue": 70500,
           "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-831741c4a19f",
-      "slug": "apprendista-cuoco-a-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-      "slugByLocale": {
-        "it": "apprendista-cuoco-a-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "en": "cfc-apprentice-chef-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "de": "cfc-auszubildender-koch-kochin-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "fr": "apprenti-e-cuisinier-ere-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Apprenti·e cuisinier·ère CFC – Rolle",
-      "titleByLocale": {
-        "it": "Apprendista Cuoco/a CFC - Rolle",
-        "en": "CFC Apprentice Chef - Rolle",
-        "de": "CFC-Auszubildender Koch/Köchin - Rolle",
-        "fr": "Apprenti·e cuisinier·ère CFC – Rolle"
-      },
-      "description": "Descriptif du service :\n Dans le cadre de ton apprentissage, tu intégreras les cuisines de notre site de Rolle et tu réaliseras les plats pour les patient·e·s de l’EMS Les Jardins du Léman et du service de pneumologie, ainsi que ceux de notre personnel. Tu participeras également à l’élaboration des mets lors d’évènements spéciaux.\n Descriptif du poste :\n • Dans ton nouveau rôle, tu t’investiras à travers un large éventail de tâches, parmi lesquelles\n • o Les postes principaux (ex : entremétier·ère, saucier·ère)\n • o Le dressage et la présentation les différents mets\n • o L’élaboration des plats en fonction des saisons\n • o La collaboration à la chaîne de distribution des repas\n • o L’application du processus HACCP (hygiène, congélation, qualité)\n • Profil requis :\n • Nous sommes convaincus que ton apprentissage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et d’autre part grâce à ta soif de réussite. Il te faudra également :\n • o Habiter notre région\n • o Etre capable de faire face aux horaires irréguliers\n • o Avoir un grand intérêt pour la restauration en milieu hospitalier\n • o Apprécier le travail en équipe\n • Niveau de formation :\n • Certificat de fin de scolarité VG obligatoire (de préférence avec de bonnes moyennes)\n • Avantages :\n Tu collaboreras avec des équipes passionnées qui te soutiendront et t’encourageront durant ces 3 prochaines années. A l’issue de ton apprentissage, nous te conseillerons afin d’envisager avec toi ton avenir professionnel. Postuler à cette offre, c’est t’offrir un premier challenge professionnel dans le quel tu pourras exprimer tes talents culinaires.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Integrare le cucine del nostro sito di Rolle - Preparare i pasti per i pazienti dell'EMS Les Jardins du Léman e del servizio di pneumologia, nonché per il personale - Partecipare alla preparazione dei piatti durante gli eventi speciali Descrizione del lavoro - Svolge un'ampia gamma di compiti, tra cui: - Posti principali (ad esempio entremétier, saucier) - Allestimento e presentazione dei diversi piatti - Elaborazione dei piatti in base alle stagioni - Collaborazione alla catena di distribuzione dei pasti - Applicazione del processo HACCP (igiene, congelamento, qualità)\n• Requisiti del profilo - Residenza nella nostra regione - Capacità di gestire orari irregolari - Grande interesse per la ristorazione in ambiente ospedaliero - Apprezzamento del lavoro di squadra Livello di formazione - Certificato di fine scuola obbligatoria (preferibilmente con buone medie)\n• Cosa offriamo - Collaborazione con squadre appassionate che ti supporteranno e incoraggeranno durante i prossimi 3 anni - Consigli per pianificare il tuo futuro professionale alla fine dell'apprendistato - Una sfida prima professionale in cui esprimere il tuo talento culinario Contatto - Candidati a questa offerta per ottenere il primo challenge nella ristorazione ospedaliera",
-        "en": "Mansioni - Integrare le cucine del nostro sito di Rolle - Preparare i pasti per i pazienti dell 'EMS Les Jardins du Léman e del servizio di pneumologia, nonché per il personale - Partecipare alla preparazione dei piatti durante gli eventi speciali Descrizione del lavoro - Svolge un'ampia gamma di compiti, tra cui: - Posti principali (ad esempio entremétier, saucier) - Allestimento e presentazione dei diversi piatti - Elaborazione dei piatti in base alle stagioni - Collaborazione alla catena di distribuzione dei pasti - Applicazione del processo HACCP (igiene, congelamento, qualità)\n• Requisiti del profilo - Residenza nella nostra regione - Capacità di gestire orari irregolari - Grande interesse per la ristorazione in ambiente ospedaliero - Apprezzamento del lavoro di squadra Livello di formazione - Certificato di fine scuola obbligatorio (preferibilmente con buone medie)\n• Cosa offriamo - Collaborazione con squadre appassionate che ti supporteranno e incoraggeranno durante i prossimi 3 anni - Consigli per pianificare il tuo futuro professionale alla fine dell 'apprendato - Una prima sfida professionale in cui esprimere il tuo talento culinario Contatto - Candidati a questa offerta per ottenere il primo challenge professionale nella ristorazione ospedaliera",
-        "de": "Mansioni - Integrare le cucine del nostro sito di Rolle - Preparare i pasti per i pazienti dell 'EMS Les Jardins du Léman e del servizio di pneumologia, nonché per il personale - Partecipare alla preparazione dei piatti durante gli eventi speciali Descrizione del lavoro - Svolge un'ampia gamma di compiti, tra cui: - Posti principali (ad esempio entremétier, saucier) - Allestimento e presentazione dei diversi piatti - Elaborazione dei piatti in base alle stagioni - Collaborazione alla catena di distribuzione dei pasti - Applicazione del processo HACCP (igiene, congelamento, qualità)\n• Requisiti del profilo - Residenza nella nostra regione - Capacità di gestire orari irregolari - Grande interesse per la ristorazione in ambiente ospedaliero - Apprezzamento del lavoro di squadra Livello di formazione - Certificato di fine scuola obbligatorio (preferibilmente con buone medie)\n• Cosa offriamo - Collaborazione con squadre appassionate che ti supporteanno e incoraggeranno durante i prossimi 3 anni - Consigli per pianificare il tuo futuro professionale alla fine dell 'apprenistato - Una prima sfida professionale in cui esprimere il tuo talento culinario Contatto - Candidati a questa offerta per ottenere il primo challenge professionale nella ristorazione ospedaliera",
-        "fr": "Descriptif du service : Dans le cadre de ton apprentissage, tu intégreras les cuisines de notre site de Rolle et tu réaliseras les plats pour les patient·e·s de l’EMS Les Jardins du Léman et du service de pneumologie, ainsi que ceux de notre personnel. Tu participeras également à l’élaboration des mets lors d’évènements spéciaux. Descriptif du poste : Dans ton nouveau rôle, tu t’investiras à travers un large éventail de tâches, parmi lesquelles o Les postes principaux (ex : entremétier·ère, saucier·ère) o Le dressage et la présentation les différents mets o L’élaboration des plats en fonction des saisons o La collaboration à la chaîne de distribution des repas o L’application du processus HACCP (hygiène, congélation, qualité) Profil requis : Nous sommes convaincus que ton apprentissage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et d’autre part grâce à ta soif de réussite. Il te faudra également : o Habiter notre région o Etre capable de faire face aux horaires irréguliers o Avoir un grand intérêt pour la restauration en milieu hospitalier o Apprécier le travail en équipe Niveau de formation : Certificat de fin de scolarité VG obligatoire (de préférence avec de bonnes moyennes) Avantages : Tu collaboreras avec des équipes passionnées qui te soutiendront et t’encourageront durant ces 3 prochaines années. A l’issue de ton apprentissage, nous te conseillerons afin d’envisager avec toi ton avenir professionnel. Postuler à cette offre, c’est t’offrir un premier challenge professionnel dans le quel tu pourras exprimer tes talents culinaires."
-      },
-      "location": "Rolle",
-      "canton": "VD",
-      "addressLocality": "Rolle",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1180",
-      "category": "hospitality",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "url": "https://app.beehire.com/invite/Fe5hHKmbu",
-      "applyUrl": "https://app.beehire.com/invite/Fe5hHKmbu",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.639Z",
-      "requirementsByLocale": {
-        "it": [
-          "Residenza nella nostra regione",
-          "Capacità di gestire orari irregolari",
-          "Grande interesse per la ristorazione in ambiente ospedaliero",
-          "Apprezzamento del lavoro di squadra",
-          "Certificato di fine scuola obbligatorio (preferibilmente con buone medie)"
-        ],
-        "en": [
-          "Residence in our region",
-          "Ability to handle irregular hours",
-          "Great interest in hospital catering",
-          "Appreciation of teamwork",
-          "Compulsory school-leaving certificate (preferably with good grades)"
-        ],
-        "de": [
-          "Wohnsitz in unserer Region",
-          "Fähigkeit, unregelmäßige Arbeitszeiten zu bewältigen",
-          "Großes Interesse an der Krankenhausgastronomie",
-          "Wertschätzung der Teamarbeit",
-          "Obligatorischer Schulabschluss (vorzugsweise mit guten Noten)"
-        ]
-      },
-      "previousSlugs": [
-        "apprenti-e-cuisinier-ere-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-cuisinier-ere-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-        ]
-      },
-      "firstSeenAt": "2026-05-20T05:15:42.710Z",
-      "salaryMin": 47658,
-      "salaryMax": 57200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 47658,
-          "maxValue": 57200,
           "unitText": "YEAR"
         }
       }
@@ -421,7 +332,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.639Z",
+      "crawledAt": "2026-06-07T21:51:40.641Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -479,6 +391,98 @@
       }
     },
     {
+      "id": "ghol-831741c4a19f",
+      "slug": "apprendista-cuoco-a-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+      "slugByLocale": {
+        "it": "apprendista-cuoco-a-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "en": "cfc-apprentice-chef-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "de": "cfc-auszubildender-koch-kochin-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "fr": "apprenti-e-cuisinier-ere-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Apprenti·e cuisinier·ère CFC – Rolle",
+      "titleByLocale": {
+        "it": "Apprendista Cuoco/a CFC - Rolle",
+        "en": "CFC Apprentice Chef - Rolle",
+        "de": "CFC-Auszubildender Koch/Köchin - Rolle",
+        "fr": "Apprenti·e cuisinier·ère CFC – Rolle"
+      },
+      "description": "Descriptif du service :\n Dans le cadre de ton apprentissage, tu intégreras les cuisines de notre site de Rolle et tu réaliseras les plats pour les patient·e·s de l’EMS Les Jardins du Léman et du service de pneumologie, ainsi que ceux de notre personnel. Tu participeras également à l’élaboration des mets lors d’évènements spéciaux.\n Descriptif du poste :\n • Dans ton nouveau rôle, tu t’investiras à travers un large éventail de tâches, parmi lesquelles\n • o Les postes principaux (ex : entremétier·ère, saucier·ère)\n • o Le dressage et la présentation les différents mets\n • o L’élaboration des plats en fonction des saisons\n • o La collaboration à la chaîne de distribution des repas\n • o L’application du processus HACCP (hygiène, congélation, qualité)\n • Profil requis :\n • Nous sommes convaincus que ton apprentissage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et d’autre part grâce à ta soif de réussite. Il te faudra également :\n • o Habiter notre région\n • o Etre capable de faire face aux horaires irréguliers\n • o Avoir un grand intérêt pour la restauration en milieu hospitalier\n • o Apprécier le travail en équipe\n • Niveau de formation :\n • Certificat de fin de scolarité VG obligatoire (de préférence avec de bonnes moyennes)\n • Avantages :\n Tu collaboreras avec des équipes passionnées qui te soutiendront et t’encourageront durant ces 3 prochaines années. A l’issue de ton apprentissage, nous te conseillerons afin d’envisager avec toi ton avenir professionnel. Postuler à cette offre, c’est t’offrir un premier challenge professionnel dans le quel tu pourras exprimer tes talents culinaires.",
+      "descriptionByLocale": {
+        "it": "Mansioni - Integrare le cucine del nostro sito di Rolle - Preparare i pasti per i pazienti dell'EMS Les Jardins du Léman e del servizio di pneumologia, nonché per il personale - Partecipare alla preparazione dei piatti durante gli eventi speciali Descrizione del lavoro - Svolge un'ampia gamma di compiti, tra cui: - Posti principali (ad esempio entremétier, saucier) - Allestimento e presentazione dei diversi piatti - Elaborazione dei piatti in base alle stagioni - Collaborazione alla catena di distribuzione dei pasti - Applicazione del processo HACCP (igiene, congelamento, qualità)\n• Requisiti del profilo - Residenza nella nostra regione - Capacità di gestire orari irregolari - Grande interesse per la ristorazione in ambiente ospedaliero - Apprezzamento del lavoro di squadra Livello di formazione - Certificato di fine scuola obbligatoria (preferibilmente con buone medie)\n• Cosa offriamo - Collaborazione con squadre appassionate che ti supporteranno e incoraggeranno durante i prossimi 3 anni - Consigli per pianificare il tuo futuro professionale alla fine dell'apprendistato - Una sfida prima professionale in cui esprimere il tuo talento culinario Contatto - Candidati a questa offerta per ottenere il primo challenge nella ristorazione ospedaliera",
+        "en": "Mansioni - Integrare le cucine del nostro sito di Rolle - Preparare i pasti per i pazienti dell 'EMS Les Jardins du Léman e del servizio di pneumologia, nonché per il personale - Partecipare alla preparazione dei piatti durante gli eventi speciali Descrizione del lavoro - Svolge un'ampia gamma di compiti, tra cui: - Posti principali (ad esempio entremétier, saucier) - Allestimento e presentazione dei diversi piatti - Elaborazione dei piatti in base alle stagioni - Collaborazione alla catena di distribuzione dei pasti - Applicazione del processo HACCP (igiene, congelamento, qualità)\n• Requisiti del profilo - Residenza nella nostra regione - Capacità di gestire orari irregolari - Grande interesse per la ristorazione in ambiente ospedaliero - Apprezzamento del lavoro di squadra Livello di formazione - Certificato di fine scuola obbligatorio (preferibilmente con buone medie)\n• Cosa offriamo - Collaborazione con squadre appassionate che ti supporteranno e incoraggeranno durante i prossimi 3 anni - Consigli per pianificare il tuo futuro professionale alla fine dell 'apprendato - Una prima sfida professionale in cui esprimere il tuo talento culinario Contatto - Candidati a questa offerta per ottenere il primo challenge professionale nella ristorazione ospedaliera",
+        "de": "Mansioni - Integrare le cucine del nostro sito di Rolle - Preparare i pasti per i pazienti dell 'EMS Les Jardins du Léman e del servizio di pneumologia, nonché per il personale - Partecipare alla preparazione dei piatti durante gli eventi speciali Descrizione del lavoro - Svolge un'ampia gamma di compiti, tra cui: - Posti principali (ad esempio entremétier, saucier) - Allestimento e presentazione dei diversi piatti - Elaborazione dei piatti in base alle stagioni - Collaborazione alla catena di distribuzione dei pasti - Applicazione del processo HACCP (igiene, congelamento, qualità)\n• Requisiti del profilo - Residenza nella nostra regione - Capacità di gestire orari irregolari - Grande interesse per la ristorazione in ambiente ospedaliero - Apprezzamento del lavoro di squadra Livello di formazione - Certificato di fine scuola obbligatorio (preferibilmente con buone medie)\n• Cosa offriamo - Collaborazione con squadre appassionate che ti supporteanno e incoraggeranno durante i prossimi 3 anni - Consigli per pianificare il tuo futuro professionale alla fine dell 'apprenistato - Una prima sfida professionale in cui esprimere il tuo talento culinario Contatto - Candidati a questa offerta per ottenere il primo challenge professionale nella ristorazione ospedaliera",
+        "fr": "Descriptif du service : Dans le cadre de ton apprentissage, tu intégreras les cuisines de notre site de Rolle et tu réaliseras les plats pour les patient·e·s de l’EMS Les Jardins du Léman et du service de pneumologie, ainsi que ceux de notre personnel. Tu participeras également à l’élaboration des mets lors d’évènements spéciaux. Descriptif du poste : Dans ton nouveau rôle, tu t’investiras à travers un large éventail de tâches, parmi lesquelles o Les postes principaux (ex : entremétier·ère, saucier·ère) o Le dressage et la présentation les différents mets o L’élaboration des plats en fonction des saisons o La collaboration à la chaîne de distribution des repas o L’application du processus HACCP (hygiène, congélation, qualité) Profil requis : Nous sommes convaincus que ton apprentissage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et d’autre part grâce à ta soif de réussite. Il te faudra également : o Habiter notre région o Etre capable de faire face aux horaires irréguliers o Avoir un grand intérêt pour la restauration en milieu hospitalier o Apprécier le travail en équipe Niveau de formation : Certificat de fin de scolarité VG obligatoire (de préférence avec de bonnes moyennes) Avantages : Tu collaboreras avec des équipes passionnées qui te soutiendront et t’encourageront durant ces 3 prochaines années. A l’issue de ton apprentissage, nous te conseillerons afin d’envisager avec toi ton avenir professionnel. Postuler à cette offre, c’est t’offrir un premier challenge professionnel dans le quel tu pourras exprimer tes talents culinaires."
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "addressLocality": "Rolle",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1180",
+      "category": "hospitality",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "url": "https://app.beehire.com/invite/Fe5hHKmbu",
+      "applyUrl": "https://app.beehire.com/invite/Fe5hHKmbu",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-07T21:51:40.640Z",
+      "needsRetranslation": true,
+      "requirementsByLocale": {
+        "it": [
+          "Residenza nella nostra regione",
+          "Capacità di gestire orari irregolari",
+          "Grande interesse per la ristorazione in ambiente ospedaliero",
+          "Apprezzamento del lavoro di squadra",
+          "Certificato di fine scuola obbligatorio (preferibilmente con buone medie)"
+        ],
+        "en": [
+          "Residence in our region",
+          "Ability to handle irregular hours",
+          "Great interest in hospital catering",
+          "Appreciation of teamwork",
+          "Compulsory school-leaving certificate (preferably with good grades)"
+        ],
+        "de": [
+          "Wohnsitz in unserer Region",
+          "Fähigkeit, unregelmäßige Arbeitszeiten zu bewältigen",
+          "Großes Interesse an der Krankenhausgastronomie",
+          "Wertschätzung der Teamarbeit",
+          "Obligatorischer Schulabschluss (vorzugsweise mit guten Noten)"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-cuisinier-ere-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-cuisinier-ere-cfc-rolle-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        ]
+      },
+      "firstSeenAt": "2026-05-20T05:15:42.710Z",
+      "salaryMin": 47658,
+      "salaryMax": 57200,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 47658,
+          "maxValue": 57200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ghol-c0180cff0ed5",
       "slug": "codificatore-medico-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
@@ -523,7 +527,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.638Z",
+      "crawledAt": "2026-06-07T21:51:40.639Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -609,7 +614,7 @@
       "applyUrl": "https://app.beehire.com/invite/9HnYY9NDt",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.637Z",
+      "crawledAt": "2026-06-07T21:51:40.638Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
@@ -684,7 +689,7 @@
       "applyUrl": "https://app.beehire.com/invite/YqmyVVR7t",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.636Z",
+      "crawledAt": "2026-06-07T21:51:40.637Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -710,81 +715,6 @@
           "@type": "QuantitativeValue",
           "minValue": 70500,
           "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-092e113befd5",
-      "slug": "specialista-hr-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "specialista-hr-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "hr-specialist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "personalspezialist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Spécialiste RH",
-      "titleByLocale": {
-        "it": "Specialista HR",
-        "en": "HR Specialist",
-        "de": "Personalspezialist",
-        "fr": "Spécialiste RH"
-      },
-      "description": "À propos de nous :\n Notre équipe RH, à taille humaine, est au cœur de l’accompagnement de nos collaborateurs·trices, engagé·es dans une mission de soins et de soutien aux patients. Nous valorisons la collaboration, l’innovation et l’optimisation des pratiques RH. Rejoindre notre équipe, c’est intégrer un environnement stimulant, bienveillant et en constante évolution.\n Dans le cadre d’une redéfinition stratégique de nos rôles et responsabilités, ce poste s’inscrit dans une dynamique d’évolution te permettant de te concentrer sur l’expertise RH opérationnelle, tout en collaborant étroitement avec des collègues dédiés au partenariat RH ainsi qu’à la gestion et à l’optimisation du SIRH.\n Description du poste :\n En tant que spécialiste RH, tu joues un rôle clé dans la gestion du cycle de vie des collaborateurs·trices. Ton périmètre d’action couvre quatre conventions collectives de travail, offrant une grande variété de situations.\n Tes responsabilités incluent notamment :\n Administration du personnel :\n\n• Gestion complète des entrées et sorties (contrats, permis, autorisations de pratiquer, onboarding etc.) pour le personnel rémunéré ou non (environ 1'300 personnes)\n\n• Suivi rigoureux des absences et des dossiers d’assurances sociales avec les partenaires internes et externes\n\n• Coordination des entretiens de départ et proposition d’un processus d’ offboarding\n\n• Administration des tournus bi-annuels des médecins en formation\n\n• Mise à jour et contrôle des dossiers des collaborateurs·trices\n Gestion des salaires :\n\n• Contrôle des plannings et saisie des variables pour 1'100 paies\n\n• Gestion des salaires en lien avec notre ERP OPALE\n\n• Réalisation du DTA\n\n• Suivi et réalisation des activités mensuelles post-paie et des décomptes annuels\n Optimisation des processus RH :\n\n• Participation active à la digitalisation et à l’automatisation des processus\n\n• Utilisation avancée d’un SIRH (RogerHR) dans une démarche d’amélioration continue\n\n• Répondant d’au moins un de nos outils (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n\n• Rédaction, actualisation et communication des procédures et processus RH\n Conformité et conseil :\n\n• Veiller à l’application rigoureuse du droit du travail et des conventions collectives de travail\n\n• Contribuer à des projets RH transverses selon profil\n Profil requis :\n Ton succès est garanti grâce à un/une:\n\n• Expérience confirmée (min. 5 ans) en gestion RH opérationnelle en Suisse\n\n• Autonomie fonctionnelle avérée\n\n• Maîtrise approfondie des assurances sociales suisses\n\n• Excellentes connaissances des outils bureautiques (Word, Excel – TCD, formules)\n\n• Aisance avec les outils numériques et les SIRH modernes\n\n• Maîtrise de la langue française, à l’écrit comme à l’oral\n\n• Sens de la rigueur, de la confidentialité et de l’organisation\n Reconnu·e pour ton efficacité, tu es apprécié.e pour ta faculté à développer des relations de confiance avec tes collègues et tes clients internes.\n Véritable force de proposition, ton expérience témoigne de ta résilience et de ta capacité à convaincre.\n Formation :\n Le brevet fédéral de spécialiste en assurances sociales ou de spécialiste en ressources humaines serait un atout\n Ce que nous offrons :\n Un environnement RH en pleine transformation, où les outils digitaux ne sont pas de simples promesses, mais des leviers concrets d’efficacité (OPALE, RogerHR, automatisations ciblées).\n Une organisation avec des rôles différenciés (partenariat RH, SIRH, administration RH), qui te permet de te concentrer sur des missions à forte valeur ajoutée.\n Une intégration méthodique, avec une référente identifiée pour chaque domaine, afin de garantir ton autonomie rapide.\n Un cadre de travail flexible.",
-      "descriptionByLocale": {
-        "it": "Informazioni su di noi Il nostro team HR di dimensioni umane è al centro del supporto del nostro staff, impegnato in una missione di assistenza e supporto paziente. Apprezziamo la collaborazione, l'innovazione e l'ottimizzazione delle pratiche HR. Unire il nostro team sta integrando un ambiente stimolante, attento e in continua evoluzione. Descrizione del post Come specialista HR, si gioca un ruolo chiave nella gestione del ciclo di vita dei dipendenti. La vostra azione riguarda quattro contratti collettivi di lavoro, offrendo una vasta gamma di situazioni. Le tue responsabilità Amministrazione del personale\n• Gestione completa degli ingressi e delle uscite (contratti, permessi, autorizzazioni alla pratica, a bordo ecc.) per il personale pagato o non pagato (circa 1.300 persone)\n• Controllo attento delle assenze e dei casi di assicurazione sociale con partner interni ed esterni\n• Coordinamento delle interviste all'uscita e proposta di un processo di fuoribordo\n• Amministrazione delle rotazioni semestrali dei medici in formazione\n• Aggiornamento e controllo dei file dei dipendenti Gestione delle risorse\n• Controllo degli orari e dell'ingresso delle variabili per 1'100 giorni lavorativi\n• Gestione della salatura in relazione al nostro ERP OPALE\n• Attuazione del DTA\n• Monitoraggio e attuazione delle attività mensili di pagamento e dei conti annuali Ottimizzazione del processo HR\n• Partecipazione attiva alla digitalizzazione e all'automazione dei processi\n• Uso avanzato di un HRIS (RogerHR) in miglioramento continuo\n• Risposta di almeno uno dei nostri strumenti (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Redazione, aggiornamento e comunicazione di procedure e processi HR Compliance e consulenza\n• Assicurare la rigorosa applicazione del diritto del lavoro e degli accordi collettivi di lavoro\n• Contribuire a progetti HR cross-cuting secondo il profilo Profilo richiesto Il vostro successo è garantito da uno/uno:\n• Esperienza confermata (min. 5 anni) nella gestione operativa delle risorse umane in Svizzera\n• comprovata autonomia funzionale\n• Conoscenza approfondita dell'assicurazione sociale svizzera\n• Ottima conoscenza degli strumenti di ufficio (Word, Excel – TCD, formule)\n• Esperienza con strumenti digitali e moderno HRIS\n• Masterizzazione della lingua francese, sia scritta che orale\n• Senso di rigore, riservatezza e organizzazione Riconosciuto per la vostra efficienza, siete apprezzati per la vostra capacità di sviluppare relazioni di fiducia con i vostri colleghi e clienti interni. La vostra esperienza, una vera forza di proposta, testimonia la vostra resilienza e la vostra capacità di convincere. Formazione Il certificato federale di specialista delle assicurazioni sociali o specialista delle risorse umane sarebbe un bene Cosa offriamo Un ambiente HR in evoluzione, dove gli strumenti digitali non sono solo promesse, ma leve concrete di efficienza (OPALE, RogerHR, automazione mirata). Un'organizzazione con ruoli differenziati (partner HR, HRSI, amministrazione HR), che consente di concentrarsi sulle missioni con alto valore aggiunto. Integrazione metodica, con un riferimento identificato per ogni dominio, per garantire la vostra rapida autonomia. Un quadro flessibile.",
-        "en": "About us Our human-sized HR team is at the heart of the support of our staff, engaged in a patient care and support mission. We value collaboration, innovation and optimization of HR practices. Joining our team is integrating a stimulating, caring and constantly evolving environment. Description of post As a HR specialist, you play a key role in managing the life cycle of employees. Your scope of action covers four collective labour agreements, offering a wide variety of situations. Your responsibilities Personnel administration\n• Complete management of entrances and exits (contracts, permits, authorizations to practice, onboarding etc.) for paid or unpaid staff (approximately 1,300 persons)\n• Careful monitoring of absences and social insurance cases with internal and external partners\n• Coordination of exit interviews and proposal for an offboarding process\n• Administration of biannual rotations of doctors in training\n• Updating and checking employees' files Wage management\n• Control of schedules and input of variables for 1'100 paydays\n• Salary management in connection with our ERP OPALE\n• Implementation of DTA\n• Monitoring and implementation of monthly post-payment activities and annual accounts HR Process Optimization\n• Active participation in digitisation and process automation\n• Advanced use of a HRIS (RogerHR) in continuous improvement\n• Response of at least one of our tools (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Drafting, updating and communicating HR procedures and processes Compliance and advice\n• Ensure the strict application of labour law and collective labour agreements\n• Contribute to cross-cutting HR projects according to profile Profile required Your success is guaranteed by one/one:\n• Experience confirmed (min. 5 years) in operational HR management in Switzerland\n• Proven functional autonomy\n• In-depth knowledge of Swiss social insurance\n• Excellent knowledge of office tools (Word, Excel – TCD, formulas)\n• Experience with digital tools and modern HRIS\n• Mastery of the French language, both written and oral\n• Sense of rigour, confidentiality and organization Recognized for your efficiency, you are appreciated for your ability to develop relationships of trust with your colleagues and internal clients. Your experience, a real strength of proposal, testifies to your resilience and your ability to convince. Training The Federal Certificate of Social Insurance Specialist or Human Resources Specialist would be an asset What We Offer A changing HR environment, where digital tools are not mere promises, but concrete levers of efficiency (OPALE, RogerHR, targeted automation). An organization with differentiated roles (HR partner, HRSI, HR administration), which allows you to focus on missions with high added value. Methodical integration, with a reference identified for each domain, to ensure your fast autonomy. A flexible framework.",
-        "de": "Über uns Unser Personal im Personalbereich steht im Mittelpunkt der Unterstützung unserer Mitarbeiter, die sich mit einer Patienten- und Unterstützungsmission beschäftigt. Wir schätzen die Zusammenarbeit, Innovation und Optimierung von HR-Praktiken. Unser Team vereint eine anregende, pflegende und sich ständig weiterentwickelnde Umgebung. Beschreibung des Beitrags Als HR-Spezialist spielen Sie eine Schlüsselrolle bei der Verwaltung des Lebenszyklus von Mitarbeitern. Ihr Handlungsspielraum umfasst vier Tarifverträge, die eine Vielzahl von Situationen bieten. Ihre Verantwortung Personalverwaltung\n• Vollständige Verwaltung der Ein- und Ausstiege (Kontrakte, Genehmigungen, Zulassungen für die Praxis, Onboarding usw.) für bezahlte oder unbezahlte Mitarbeiter (etwa 1.300 Personen)\n• sorgfältige Überwachung von Abwesenheiten und Sozialversicherungsfällen mit internen und externen Partnern\n• Koordination von Ausstiegsinterviews und Vorschlag für einen Ausstiegsprozess\n• Verwaltung von zweijährigen Rotationen von Ärzten in der Ausbildung\n• Akten der Mitarbeiter aktualisieren und überprüfen Verwaltung von Steuern\n• Kontrolle der Termine und Eingabe der Variablen für 1'100 Zahltage\n• Salary Management im Zusammenhang mit unserem ERP OPALE\n• Implementierung von DTA\n• Überwachung und Durchführung von monatlichen Post-Zahlungsaktivitäten und Jahresabschlüssen HR Prozessoptimierung\n• Aktive Teilnahme an Digitalisierung und Prozessautomatisierung\n• Fortgeschrittene Nutzung einer HRIS (RogerHR) in kontinuierlicher Verbesserung\n• Antwort von mindestens einem unserer Tools (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Erstellung, Aktualisierung und Übermittlung von HR-Verfahren und -Prozessen Compliance und Beratung\n• Gewährleistung der strikten Anwendung von Arbeitsrecht und Tarifverträgen\n• Mithilfe von profilübergreifenden HR-Projekten Profil erforderlich Ihr Erfolg wird von einem/eins garantiert:\n• Erfahrung bestätigt (min. 5 Jahre) im operativen Personalmanagement in der Schweiz\n• bewährte funktionale Autonomie\n• Kenntnisse der Schweizer Sozialversicherung\n• Ausgezeichnete Kenntnisse der Bürowerkzeuge (Word, Excel – TCD, Formeln)\n• Erfahrung mit digitalen Werkzeugen und modernen HRIS\n• Meisterschaft der französischen Sprache, sowohl schriftlich als auch mündlich\n• Rigour, Vertraulichkeit und Organisation Erkennt für Ihre Effizienz, sind Sie für Ihre Fähigkeit, Beziehungen des Vertrauens mit Ihren Kollegen und internen Kunden zu entwickeln geschätzt. Ihre Erfahrung, eine wirkliche Stärke des Vorschlags, bezeugt Ihre Widerstandsfähigkeit und Ihre Fähigkeit zu überzeugen. Ausbildung Das Bundeszertifikat für Sozialversicherungsspezialist oder Personalspezialist wäre ein Vermögenswert Was wir anbieten Eine sich ändernde HR-Umgebung, in der digitale Werkzeuge nicht nur Versprechungen sind, sondern konkrete Hebel der Effizienz (OPALE, RogerHR, gezielte Automatisierung). Eine Organisation mit differenzierten Rollen (HR-Partner, HRSI, HR Administration), die es Ihnen ermöglicht, sich auf Missionen mit hohem Mehrwert zu konzentrieren. Methodische Integration, mit einer Referenz für jede Domain identifiziert, um Ihre schnelle Autonomie zu gewährleisten. Ein flexibler Rahmen.",
-        "fr": "À propos de nous : Notre équipe RH, à taille humaine, est au cœur de l’accompagnement de nos collaborateurs·trices, engagé·es dans une mission de soins et de soutien aux patients. Nous valorisons la collaboration, l’innovation et l’optimisation des pratiques RH. Rejoindre notre équipe, c’est intégrer un environnement stimulant, bienveillant et en constante évolution. Dans le cadre d’une redéfinition stratégique de nos rôles et responsabilités, ce poste s’inscrit dans une dynamique d’évolution te permettant de te concentrer sur l’expertise RH opérationnelle, tout en collaborant étroitement avec des collègues dédiés au partenariat RH ainsi qu’à la gestion et à l’optimisation du SIRH. Description du poste : En tant que spécialiste RH, tu joues un rôle clé dans la gestion du cycle de vie des collaborateurs·trices. Ton périmètre d’action couvre quatre conventions collectives de travail, offrant une grande variété de situations. Tes responsabilités incluent notamment : Administration du personnel :\n• Gestion complète des entrées et sorties (contrats, permis, autorisations de pratiquer, onboarding etc.) pour le personnel rémunéré ou non (environ 1'300 personnes)\n• Suivi rigoureux des absences et des dossiers d’assurances sociales avec les partenaires internes et externes\n• Coordination des entretiens de départ et proposition d’un processus d’ offboarding\n• Administration des tournus bi-annuels des médecins en formation\n• Mise à jour et contrôle des dossiers des collaborateurs·trices Gestion des salaires :\n• Contrôle des plannings et saisie des variables pour 1'100 paies\n• Gestion des salaires en lien avec notre ERP OPALE\n• Réalisation du DTA\n• Suivi et réalisation des activités mensuelles post-paie et des décomptes annuels Optimisation des processus RH :\n• Participation active à la digitalisation et à l’automatisation des processus\n• Utilisation avancée d’un SIRH (RogerHR) dans une démarche d’amélioration continue\n• Répondant d’au moins un de nos outils (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Rédaction, actualisation et communication des procédures et processus RH Conformité et conseil :\n• Veiller à l’application rigoureuse du droit du travail et des conventions collectives de travail\n• Contribuer à des projets RH transverses selon profil Profil requis : Ton succès est garanti grâce à un/une:\n• Expérience confirmée (min. 5 ans) en gestion RH opérationnelle en Suisse\n• Autonomie fonctionnelle avérée\n• Maîtrise approfondie des assurances sociales suisses\n• Excellentes connaissances des outils bureautiques (Word, Excel – TCD, formules)\n• Aisance avec les outils numériques et les SIRH modernes\n• Maîtrise de la langue française, à l’écrit comme à l’oral\n• Sens de la rigueur, de la confidentialité et de l’organisation Reconnu·e pour ton efficacité, tu es apprécié.e pour ta faculté à développer des relations de confiance avec tes collègues et tes clients internes. Véritable force de proposition, ton expérience témoigne de ta résilience et de ta capacité à convaincre. Formation : Le brevet fédéral de spécialiste en assurances sociales ou de spécialiste en ressources humaines serait un atout Ce que nous offrons : Un environnement RH en pleine transformation, où les outils digitaux ne sont pas de simples promesses, mais des leviers concrets d’efficacité (OPALE, RogerHR, automatisations ciblées). Une organisation avec des rôles différenciés (partenariat RH, SIRH, administration RH), qui te permet de te concentrer sur des missions à forte valeur ajoutée. Une intégration méthodique, avec une référente identifiée pour chaque domaine, afin de garantir ton autonomie rapide. Un cadre de travail flexible."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "human-resources",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "url": "https://app.beehire.com/invite/GgPc1sOFl",
-      "applyUrl": "https://app.beehire.com/invite/GgPc1sOFl",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.635Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-06-05T22:04:25.846Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -834,7 +764,8 @@
       "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-07T10:55:24.635Z",
+      "crawledAt": "2026-06-07T21:51:40.636Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -850,6 +781,81 @@
         ]
       },
       "firstSeenAt": "2026-05-29T12:28:12.409Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-092e113befd5",
+      "slug": "specialista-hr-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "specialista-hr-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "hr-specialist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "personalspezialist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Spécialiste RH",
+      "titleByLocale": {
+        "it": "Specialista HR",
+        "en": "HR Specialist",
+        "de": "Personalspezialist",
+        "fr": "Spécialiste RH"
+      },
+      "description": "À propos de nous :\n Notre équipe RH, à taille humaine, est au cœur de l’accompagnement de nos collaborateurs·trices, engagé·es dans une mission de soins et de soutien aux patients. Nous valorisons la collaboration, l’innovation et l’optimisation des pratiques RH. Rejoindre notre équipe, c’est intégrer un environnement stimulant, bienveillant et en constante évolution.\n Dans le cadre d’une redéfinition stratégique de nos rôles et responsabilités, ce poste s’inscrit dans une dynamique d’évolution te permettant de te concentrer sur l’expertise RH opérationnelle, tout en collaborant étroitement avec des collègues dédiés au partenariat RH ainsi qu’à la gestion et à l’optimisation du SIRH.\n Description du poste :\n En tant que spécialiste RH, tu joues un rôle clé dans la gestion du cycle de vie des collaborateurs·trices. Ton périmètre d’action couvre quatre conventions collectives de travail, offrant une grande variété de situations.\n Tes responsabilités incluent notamment :\n Administration du personnel :\n\n• Gestion complète des entrées et sorties (contrats, permis, autorisations de pratiquer, onboarding etc.) pour le personnel rémunéré ou non (environ 1'300 personnes)\n\n• Suivi rigoureux des absences et des dossiers d’assurances sociales avec les partenaires internes et externes\n\n• Coordination des entretiens de départ et proposition d’un processus d’ offboarding\n\n• Administration des tournus bi-annuels des médecins en formation\n\n• Mise à jour et contrôle des dossiers des collaborateurs·trices\n Gestion des salaires :\n\n• Contrôle des plannings et saisie des variables pour 1'100 paies\n\n• Gestion des salaires en lien avec notre ERP OPALE\n\n• Réalisation du DTA\n\n• Suivi et réalisation des activités mensuelles post-paie et des décomptes annuels\n Optimisation des processus RH :\n\n• Participation active à la digitalisation et à l’automatisation des processus\n\n• Utilisation avancée d’un SIRH (RogerHR) dans une démarche d’amélioration continue\n\n• Répondant d’au moins un de nos outils (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n\n• Rédaction, actualisation et communication des procédures et processus RH\n Conformité et conseil :\n\n• Veiller à l’application rigoureuse du droit du travail et des conventions collectives de travail\n\n• Contribuer à des projets RH transverses selon profil\n Profil requis :\n Ton succès est garanti grâce à un/une:\n\n• Expérience confirmée (min. 5 ans) en gestion RH opérationnelle en Suisse\n\n• Autonomie fonctionnelle avérée\n\n• Maîtrise approfondie des assurances sociales suisses\n\n• Excellentes connaissances des outils bureautiques (Word, Excel – TCD, formules)\n\n• Aisance avec les outils numériques et les SIRH modernes\n\n• Maîtrise de la langue française, à l’écrit comme à l’oral\n\n• Sens de la rigueur, de la confidentialité et de l’organisation\n Reconnu·e pour ton efficacité, tu es apprécié.e pour ta faculté à développer des relations de confiance avec tes collègues et tes clients internes.\n Véritable force de proposition, ton expérience témoigne de ta résilience et de ta capacité à convaincre.\n Formation :\n Le brevet fédéral de spécialiste en assurances sociales ou de spécialiste en ressources humaines serait un atout\n Ce que nous offrons :\n Un environnement RH en pleine transformation, où les outils digitaux ne sont pas de simples promesses, mais des leviers concrets d’efficacité (OPALE, RogerHR, automatisations ciblées).\n Une organisation avec des rôles différenciés (partenariat RH, SIRH, administration RH), qui te permet de te concentrer sur des missions à forte valeur ajoutée.\n Une intégration méthodique, avec une référente identifiée pour chaque domaine, afin de garantir ton autonomie rapide.\n Un cadre de travail flexible.",
+      "descriptionByLocale": {
+        "it": "Informazioni su di noi Il nostro team HR di dimensioni umane è al centro del supporto del nostro staff, impegnato in una missione di assistenza e supporto paziente. Apprezziamo la collaborazione, l'innovazione e l'ottimizzazione delle pratiche HR. Unire il nostro team sta integrando un ambiente stimolante, attento e in continua evoluzione. Descrizione del post Come specialista HR, si gioca un ruolo chiave nella gestione del ciclo di vita dei dipendenti. La vostra azione riguarda quattro contratti collettivi di lavoro, offrendo una vasta gamma di situazioni. Le tue responsabilità Amministrazione del personale\n• Gestione completa degli ingressi e delle uscite (contratti, permessi, autorizzazioni alla pratica, a bordo ecc.) per il personale pagato o non pagato (circa 1.300 persone)\n• Controllo attento delle assenze e dei casi di assicurazione sociale con partner interni ed esterni\n• Coordinamento delle interviste all'uscita e proposta di un processo di fuoribordo\n• Amministrazione delle rotazioni semestrali dei medici in formazione\n• Aggiornamento e controllo dei file dei dipendenti Gestione delle risorse\n• Controllo degli orari e dell'ingresso delle variabili per 1'100 giorni lavorativi\n• Gestione della salatura in relazione al nostro ERP OPALE\n• Attuazione del DTA\n• Monitoraggio e attuazione delle attività mensili di pagamento e dei conti annuali Ottimizzazione del processo HR\n• Partecipazione attiva alla digitalizzazione e all'automazione dei processi\n• Uso avanzato di un HRIS (RogerHR) in miglioramento continuo\n• Risposta di almeno uno dei nostri strumenti (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Redazione, aggiornamento e comunicazione di procedure e processi HR Compliance e consulenza\n• Assicurare la rigorosa applicazione del diritto del lavoro e degli accordi collettivi di lavoro\n• Contribuire a progetti HR cross-cuting secondo il profilo Profilo richiesto Il vostro successo è garantito da uno/uno:\n• Esperienza confermata (min. 5 anni) nella gestione operativa delle risorse umane in Svizzera\n• comprovata autonomia funzionale\n• Conoscenza approfondita dell'assicurazione sociale svizzera\n• Ottima conoscenza degli strumenti di ufficio (Word, Excel – TCD, formule)\n• Esperienza con strumenti digitali e moderno HRIS\n• Masterizzazione della lingua francese, sia scritta che orale\n• Senso di rigore, riservatezza e organizzazione Riconosciuto per la vostra efficienza, siete apprezzati per la vostra capacità di sviluppare relazioni di fiducia con i vostri colleghi e clienti interni. La vostra esperienza, una vera forza di proposta, testimonia la vostra resilienza e la vostra capacità di convincere. Formazione Il certificato federale di specialista delle assicurazioni sociali o specialista delle risorse umane sarebbe un bene Cosa offriamo Un ambiente HR in evoluzione, dove gli strumenti digitali non sono solo promesse, ma leve concrete di efficienza (OPALE, RogerHR, automazione mirata). Un'organizzazione con ruoli differenziati (partner HR, HRSI, amministrazione HR), che consente di concentrarsi sulle missioni con alto valore aggiunto. Integrazione metodica, con un riferimento identificato per ogni dominio, per garantire la vostra rapida autonomia. Un quadro flessibile.",
+        "en": "About us Our human-sized HR team is at the heart of the support of our staff, engaged in a patient care and support mission. We value collaboration, innovation and optimization of HR practices. Joining our team is integrating a stimulating, caring and constantly evolving environment. Description of post As a HR specialist, you play a key role in managing the life cycle of employees. Your scope of action covers four collective labour agreements, offering a wide variety of situations. Your responsibilities Personnel administration\n• Complete management of entrances and exits (contracts, permits, authorizations to practice, onboarding etc.) for paid or unpaid staff (approximately 1,300 persons)\n• Careful monitoring of absences and social insurance cases with internal and external partners\n• Coordination of exit interviews and proposal for an offboarding process\n• Administration of biannual rotations of doctors in training\n• Updating and checking employees' files Wage management\n• Control of schedules and input of variables for 1'100 paydays\n• Salary management in connection with our ERP OPALE\n• Implementation of DTA\n• Monitoring and implementation of monthly post-payment activities and annual accounts HR Process Optimization\n• Active participation in digitisation and process automation\n• Advanced use of a HRIS (RogerHR) in continuous improvement\n• Response of at least one of our tools (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Drafting, updating and communicating HR procedures and processes Compliance and advice\n• Ensure the strict application of labour law and collective labour agreements\n• Contribute to cross-cutting HR projects according to profile Profile required Your success is guaranteed by one/one:\n• Experience confirmed (min. 5 years) in operational HR management in Switzerland\n• Proven functional autonomy\n• In-depth knowledge of Swiss social insurance\n• Excellent knowledge of office tools (Word, Excel – TCD, formulas)\n• Experience with digital tools and modern HRIS\n• Mastery of the French language, both written and oral\n• Sense of rigour, confidentiality and organization Recognized for your efficiency, you are appreciated for your ability to develop relationships of trust with your colleagues and internal clients. Your experience, a real strength of proposal, testifies to your resilience and your ability to convince. Training The Federal Certificate of Social Insurance Specialist or Human Resources Specialist would be an asset What We Offer A changing HR environment, where digital tools are not mere promises, but concrete levers of efficiency (OPALE, RogerHR, targeted automation). An organization with differentiated roles (HR partner, HRSI, HR administration), which allows you to focus on missions with high added value. Methodical integration, with a reference identified for each domain, to ensure your fast autonomy. A flexible framework.",
+        "de": "Über uns Unser Personal im Personalbereich steht im Mittelpunkt der Unterstützung unserer Mitarbeiter, die sich mit einer Patienten- und Unterstützungsmission beschäftigt. Wir schätzen die Zusammenarbeit, Innovation und Optimierung von HR-Praktiken. Unser Team vereint eine anregende, pflegende und sich ständig weiterentwickelnde Umgebung. Beschreibung des Beitrags Als HR-Spezialist spielen Sie eine Schlüsselrolle bei der Verwaltung des Lebenszyklus von Mitarbeitern. Ihr Handlungsspielraum umfasst vier Tarifverträge, die eine Vielzahl von Situationen bieten. Ihre Verantwortung Personalverwaltung\n• Vollständige Verwaltung der Ein- und Ausstiege (Kontrakte, Genehmigungen, Zulassungen für die Praxis, Onboarding usw.) für bezahlte oder unbezahlte Mitarbeiter (etwa 1.300 Personen)\n• sorgfältige Überwachung von Abwesenheiten und Sozialversicherungsfällen mit internen und externen Partnern\n• Koordination von Ausstiegsinterviews und Vorschlag für einen Ausstiegsprozess\n• Verwaltung von zweijährigen Rotationen von Ärzten in der Ausbildung\n• Akten der Mitarbeiter aktualisieren und überprüfen Verwaltung von Steuern\n• Kontrolle der Termine und Eingabe der Variablen für 1'100 Zahltage\n• Salary Management im Zusammenhang mit unserem ERP OPALE\n• Implementierung von DTA\n• Überwachung und Durchführung von monatlichen Post-Zahlungsaktivitäten und Jahresabschlüssen HR Prozessoptimierung\n• Aktive Teilnahme an Digitalisierung und Prozessautomatisierung\n• Fortgeschrittene Nutzung einer HRIS (RogerHR) in kontinuierlicher Verbesserung\n• Antwort von mindestens einem unserer Tools (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Erstellung, Aktualisierung und Übermittlung von HR-Verfahren und -Prozessen Compliance und Beratung\n• Gewährleistung der strikten Anwendung von Arbeitsrecht und Tarifverträgen\n• Mithilfe von profilübergreifenden HR-Projekten Profil erforderlich Ihr Erfolg wird von einem/eins garantiert:\n• Erfahrung bestätigt (min. 5 Jahre) im operativen Personalmanagement in der Schweiz\n• bewährte funktionale Autonomie\n• Kenntnisse der Schweizer Sozialversicherung\n• Ausgezeichnete Kenntnisse der Bürowerkzeuge (Word, Excel – TCD, Formeln)\n• Erfahrung mit digitalen Werkzeugen und modernen HRIS\n• Meisterschaft der französischen Sprache, sowohl schriftlich als auch mündlich\n• Rigour, Vertraulichkeit und Organisation Erkennt für Ihre Effizienz, sind Sie für Ihre Fähigkeit, Beziehungen des Vertrauens mit Ihren Kollegen und internen Kunden zu entwickeln geschätzt. Ihre Erfahrung, eine wirkliche Stärke des Vorschlags, bezeugt Ihre Widerstandsfähigkeit und Ihre Fähigkeit zu überzeugen. Ausbildung Das Bundeszertifikat für Sozialversicherungsspezialist oder Personalspezialist wäre ein Vermögenswert Was wir anbieten Eine sich ändernde HR-Umgebung, in der digitale Werkzeuge nicht nur Versprechungen sind, sondern konkrete Hebel der Effizienz (OPALE, RogerHR, gezielte Automatisierung). Eine Organisation mit differenzierten Rollen (HR-Partner, HRSI, HR Administration), die es Ihnen ermöglicht, sich auf Missionen mit hohem Mehrwert zu konzentrieren. Methodische Integration, mit einer Referenz für jede Domain identifiziert, um Ihre schnelle Autonomie zu gewährleisten. Ein flexibler Rahmen.",
+        "fr": "À propos de nous : Notre équipe RH, à taille humaine, est au cœur de l’accompagnement de nos collaborateurs·trices, engagé·es dans une mission de soins et de soutien aux patients. Nous valorisons la collaboration, l’innovation et l’optimisation des pratiques RH. Rejoindre notre équipe, c’est intégrer un environnement stimulant, bienveillant et en constante évolution. Dans le cadre d’une redéfinition stratégique de nos rôles et responsabilités, ce poste s’inscrit dans une dynamique d’évolution te permettant de te concentrer sur l’expertise RH opérationnelle, tout en collaborant étroitement avec des collègues dédiés au partenariat RH ainsi qu’à la gestion et à l’optimisation du SIRH. Description du poste : En tant que spécialiste RH, tu joues un rôle clé dans la gestion du cycle de vie des collaborateurs·trices. Ton périmètre d’action couvre quatre conventions collectives de travail, offrant une grande variété de situations. Tes responsabilités incluent notamment : Administration du personnel :\n• Gestion complète des entrées et sorties (contrats, permis, autorisations de pratiquer, onboarding etc.) pour le personnel rémunéré ou non (environ 1'300 personnes)\n• Suivi rigoureux des absences et des dossiers d’assurances sociales avec les partenaires internes et externes\n• Coordination des entretiens de départ et proposition d’un processus d’ offboarding\n• Administration des tournus bi-annuels des médecins en formation\n• Mise à jour et contrôle des dossiers des collaborateurs·trices Gestion des salaires :\n• Contrôle des plannings et saisie des variables pour 1'100 paies\n• Gestion des salaires en lien avec notre ERP OPALE\n• Réalisation du DTA\n• Suivi et réalisation des activités mensuelles post-paie et des décomptes annuels Optimisation des processus RH :\n• Participation active à la digitalisation et à l’automatisation des processus\n• Utilisation avancée d’un SIRH (RogerHR) dans une démarche d’amélioration continue\n• Répondant d’au moins un de nos outils (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Rédaction, actualisation et communication des procédures et processus RH Conformité et conseil :\n• Veiller à l’application rigoureuse du droit du travail et des conventions collectives de travail\n• Contribuer à des projets RH transverses selon profil Profil requis : Ton succès est garanti grâce à un/une:\n• Expérience confirmée (min. 5 ans) en gestion RH opérationnelle en Suisse\n• Autonomie fonctionnelle avérée\n• Maîtrise approfondie des assurances sociales suisses\n• Excellentes connaissances des outils bureautiques (Word, Excel – TCD, formules)\n• Aisance avec les outils numériques et les SIRH modernes\n• Maîtrise de la langue française, à l’écrit comme à l’oral\n• Sens de la rigueur, de la confidentialité et de l’organisation Reconnu·e pour ton efficacité, tu es apprécié.e pour ta faculté à développer des relations de confiance avec tes collègues et tes clients internes. Véritable force de proposition, ton expérience témoigne de ta résilience et de ta capacité à convaincre. Formation : Le brevet fédéral de spécialiste en assurances sociales ou de spécialiste en ressources humaines serait un atout Ce que nous offrons : Un environnement RH en pleine transformation, où les outils digitaux ne sont pas de simples promesses, mais des leviers concrets d’efficacité (OPALE, RogerHR, automatisations ciblées). Une organisation avec des rôles différenciés (partenariat RH, SIRH, administration RH), qui te permet de te concentrer sur des missions à forte valeur ajoutée. Une intégration méthodique, avec une référente identifiée pour chaque domaine, afin de garantir ton autonomie rapide. Un cadre de travail flexible."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "human-resources",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-05",
+      "url": "https://app.beehire.com/invite/GgPc1sOFl",
+      "applyUrl": "https://app.beehire.com/invite/GgPc1sOFl",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-07T21:51:40.635Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-06-05T22:04:25.846Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
