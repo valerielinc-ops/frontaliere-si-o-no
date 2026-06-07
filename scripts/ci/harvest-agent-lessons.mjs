@@ -161,6 +161,11 @@ for (const { number } of fixIssues.slice(0, MAX_ISSUES)) {
     if (!m) continue;
     const code = m[1].toLowerCase();
     if (code === 'pr-created') continue; // healthy
+    // Backstop-emitted fallbacks (issue-fix.yml "post-step deterministico") tag
+    // crashed/max_turns runs — expected catch-all, not a doc-rule violation.
+    // Counting them inflates no-pr-unspecified → feedback loop: escalation keeps
+    // re-firing even after the backstop fix (PR #1067) landed.
+    if (String(c.body || '').includes('post-step deterministico')) continue;
     const k = `fix-outcome:${code}`;
     outcomeCounts[k] = (outcomeCounts[k] || 0) + 1;
     (outcomeExamples[k] ||= []).push({ issue: number });
