@@ -3945,6 +3945,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tpressing-lavoro-investimenti-ffs': { name: 'Lavoro e Ferrovie Ticino', path: '/articoli-frontaliere/tpressing-lavoro-investimenti-ffs', parent: 'blog' },
     'blog-pensione-iva-parlamento': { name: 'Pensione e IVA', path: '/articoli-svizzera/pensione-iva-parlamento/', parent: 'blog' },
     'blog-calcola-stipendio-netto-ticinonline': { name: 'Calcolo stipendio netto', path: '/articoli-frontaliere/calcola-stipendio-netto-ticinonline', parent: 'blog' },
+    'blog-migros-24h-herisau': { name: 'Novità commerciali', path: '/articoli-svizzera/migros-24h-herisau/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

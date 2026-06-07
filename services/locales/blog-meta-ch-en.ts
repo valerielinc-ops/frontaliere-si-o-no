@@ -89,6 +89,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pensione-iva-parlamento.title': 'Swiss Parliament Approves VAT Hike for Pension',
     'blog.article.pensione-iva-parlamento.excerpt': 'The National Council has voted in favor of a temporary VAT increase to fund the 13th pension payment. The debate highlights tensions between parties regarding Switzerland’s aging pension system.',
     'blog.article.pensione-iva-parlamento.imageAlt': 'Swiss Parliament building in Bern with Swiss and German flags',
+    'blog.article.migros-24h-herisau.title': 'Migros to Open First 24/7 Store in Switzerland',
+    'blog.article.migros-24h-herisau.excerpt': 'The Herisau store will be open 24/7, staffed until 7:00 PM, with self-service options overnight.',
+    'blog.article.migros-24h-herisau.imageAlt': '24-hour Migros supermarket with self-service checkout and video surveillance',
 };
 
 export default blogMetaChEn;
