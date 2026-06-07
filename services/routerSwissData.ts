@@ -48,6 +48,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'naspi-disoccupazione-frontaliere': { it: 'naspi-disoccupazione-frontaliere', en: 'naspi-unemployment-benefits-cross-border', de: 'naspi-arbeitslosengeld-grenzgaenger', fr: 'naspi-chomage-frontalier-regles' },
  'lavoro-produzione-farmaceutica-coira': { it: 'lavoro-produzione-farmaceutica-coira', en: 'pharmaceutical-production-jobs-chur', de: 'stellen-arzneimittelherstellung-chur', fr: 'emplois-production-pharmaceutique-coire' },
  'la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima': { it: 'la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima', en: 'swiss-finance-under-scrutiny-for-its-climate-impact', de: 'die-schweizerische-finanzbranche-untersucht-auf-ihren-klimaeinfluss', fr: 'la-finance-suisse-sous-examen-pour-son-impact-sur-le-climat' },
+ 'cassa-malati-estero-scelta-assicurazione': { it: 'cassa-malati-estero-scelta-assicurazione', en: 'swiss-health-insurance-abroad-choice', de: 'krankenversicherung-schweizer-ausland-wahl', fr: 'assurance-maladie-suisse-etranger-choix' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
