@@ -16651,6 +16651,7 @@
       "previousSlugs": [
         "roche-ch",
         "roche-ch-6",
+        "roche-basel",
         "locale-registrati-locali-roche-basel",
         "klassisch-eingehalten-roche-basel",
         "c-est-pas-vrai-roche-basel"
@@ -43231,7 +43232,9 @@
         "it-business-analyst-pharma-r-d-roche-ch-2-ek66fc",
         "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel-a11357",
         "it-business-analyste-pharma-r-d-roche-basel",
-        "analista-it-business-r-s-farmaceutico-roche-basel-vne1td"
+        "analista-it-business-r-s-farmaceutico-roche-basel-vne1td",
+        "analista-it-business-r-s-farmaceutico-roche-basel",
+        "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -43697,6 +43700,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "field-engineering-specialist-cincinnati-oh-roche-ch",
         "field-engineering-specialista-cincinnati-oh-roche-cincinnati",
         "field-engineering-spezialist-cincinnati-oh-roche-cincinnati",
         "field-engineering-specialiste-cincinnati-oh-roche-cincinnati",
@@ -43714,17 +43718,13 @@
         "field-engineering-specialist-scranton-pennsylvania-roche-ch",
         "field-engineering-spezialist-scranton-pennsylvania-roche-basel",
         "field-engineering-specialiste-scranton-pennsylvania-roche-basel",
-        "field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
-        "fachbereich-au-entechnik-los-angeles-ca-roche-basel-01c2a9",
-        "specialiste-en-genie-de-terrain-los-angeles-ca-roche-basel-01c2a9"
+        "field-engineering-specialist-roche-ch",
+        "field-engineering-specialist-roche-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-engineering-specialist-cincinnati-oh-roche-ch",
-          "field-engineering-specialista-cincinnati-oh-roche-cincinnati",
-          "field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
-          "fachbereich-au-entechnik-los-angeles-ca-roche-basel-01c2a9",
-          "specialiste-en-genie-de-terrain-los-angeles-ca-roche-basel-01c2a9"
+          "field-engineering-specialista-cincinnati-oh-roche-cincinnati"
         ],
         "en": [
           "field-engineering-specialist-cincinnati-oh-roche-ch"
@@ -47925,7 +47925,7 @@
       "id": "roche-61c948c56d8a",
       "slug": "key-account-manager-conti-pubblici-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "key-account-manager-conti-pubblici-d-f-m-roche-france",
+        "it": "gestione-account-chiave-m-w-d-roche-basel",
         "en": "key-account-manager-m-w-d-roche-ch",
         "de": "sachbearbeiter-m-w-d-roche-france",
         "fr": "key-account-manager-m-w-d-roche-ch"
@@ -47970,19 +47970,18 @@
       "previousSlugs": [
         "key-account-manager-comptes-publics-d-f-m-roche-ch",
         "key-account-manager-m-w-d-roche-ch",
-        "gestione-account-chiave-m-w-d-roche-basel",
         "key-account-manager-istologia-e-sequenziamento-roche-basel",
         "key-account-manager-histology-sequencing-roche-ch",
         "key-account-manager-histologie-und-sequenzierung-roche-basel",
         "gestionnaire-de-comptes-cles-histologie-et-sequencage-roche-basel",
         "gestione-account-roche-hohhot",
-        "account-manager-roche-ch"
+        "account-manager-roche-ch",
+        "key-account-manager-conti-pubblici-d-f-m-roche-france"
       ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch",
-          "key-account-manager-m-w-d-roche-ch",
-          "gestione-account-chiave-m-w-d-roche-basel"
+          "key-account-manager-m-w-d-roche-ch"
         ],
         "en": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch"
@@ -57458,6 +57457,7 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
+        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -59946,6 +59946,7 @@
         "analytics-intelligence-analista-senior-analisi-medica-roche-basel",
         "analytics-intelligence-senior-analyst-medical-analytics-roche-ch",
         "analytics-intelligence-senior-analyste-medical-analytics-roche-basel",
+        "analytics-intelligence-senior-analista-roche-basel",
         "analisi-e-intelligenza-senior-analyst-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -73747,6 +73748,9 @@
         "global-study-lead-molecular-lab-roche-ch",
         "global-study-lead-molekularlabor-roche-basel",
         "etude-mondiale-de-plomb-lab-moleculaire-roche-basel",
+        "piombo-di-studio-globale-roche-basel",
+        "globaler-studienleiter-roche-basel",
+        "etude-mondiale-chef-de-file-roche-basel",
         "piombo-di-studio-globale-laboratorio-molecolare-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -84442,7 +84446,7 @@
       "slugByLocale": {
         "it": "principali-metodi-statistici-data-scientist-roche-basel",
         "en": "principal-statistical-methodology-data-scientist-roche-ch",
-        "de": "hauptstatistische-methodologie-data-scientist-roche-basel",
+        "de": "datenwissenschaftler-fur-statistische-methoden-roche-basel",
         "fr": "methodologie-statistique-principale-roche-basel"
       },
       "company": "Roche",
@@ -84483,16 +84487,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "principal-statistical-methodology-data-scientist-roche-ch",
-        "datenwissenschaftler-fur-statistische-methoden-roche-basel"
+        "principal-statistical-methodology-data-scientist-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "principal-statistical-methodology-data-scientist-roche-ch"
         ],
         "de": [
-          "principal-statistical-methodology-data-scientist-roche-ch",
-          "datenwissenschaftler-fur-statistische-methoden-roche-basel"
+          "principal-statistical-methodology-data-scientist-roche-ch"
         ],
         "fr": [
           "principal-statistical-methodology-data-scientist-roche-ch"
