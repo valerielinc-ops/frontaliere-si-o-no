@@ -251,6 +251,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'disoccupazione-svizzera-maggio-2026',
+    category: 'novita',
+    date: '2026-06-07T06:04:10.854Z',
+    image: '/images/blog/disoccupazione-svizzera-maggio-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

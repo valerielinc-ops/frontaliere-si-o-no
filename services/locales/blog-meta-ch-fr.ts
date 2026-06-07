@@ -83,6 +83,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Assurance maladie pour les Suisses à l\'étranger : obligations',
     'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Découvrez les règles de l’assurance maladie des retraités et des travailleurs suisses à l\'étranger : obligations, échéances et franchise fixe de 300 CHF.',
     'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Assurance maladie suisse à l\'étranger, personnes avec documents devant un bâtiment administratif',
+    'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Chômage stable à 3% : le bilan suisse de mai 2026',
+    'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'La SECO confirme le taux national à 3%. Au Tessin il s\'arrête à 2,8%, aux Grisons à 1,4%. Les chômeurs de longue durée augmentent de 34%.',
+    'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Vue aérienne d\'un centre urbain suisse avec bureaux de placement, lumière printanière',
 };
 
 export default blogMetaChFr;
