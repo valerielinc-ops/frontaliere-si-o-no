@@ -6,28 +6,28 @@
     "queries": [
       {
         "query": "case anziani ticino offerte di lavoro",
-        "clicks": 8,
-        "impressions": 158
+        "clicks": 9,
+        "impressions": 172
       },
       {
         "query": "offerte di lavoro casa di riposo svizzera",
         "clicks": 7,
-        "impressions": 69
+        "impressions": 75
+      },
+      {
+        "query": "offerte lavoro casa di riposo svizzera",
+        "clicks": 5,
+        "impressions": 71
       },
       {
         "query": "case anziani lugano posti di lavoro",
         "clicks": 5,
-        "impressions": 60
-      },
-      {
-        "query": "offerte lavoro casa di riposo svizzera",
-        "clicks": 2,
-        "impressions": 54
+        "impressions": 62
       },
       {
         "query": "offerte di lavoro casa anziani ticino",
         "clicks": 4,
-        "impressions": 27
+        "impressions": 30
       },
       {
         "query": "casa anziani paradiso offerta lavoro",
@@ -37,17 +37,22 @@
       {
         "query": "casa anziani mendrisio lavoro",
         "clicks": 1,
-        "impressions": 15
+        "impressions": 18
+      },
+      {
+        "query": "case di riposo ticino lavora con noi",
+        "clicks": 2,
+        "impressions": 13
       },
       {
         "query": "offerte lavoro casa anziani ticino",
         "clicks": 1,
-        "impressions": 11
+        "impressions": 12
       },
       {
-        "query": "case di riposo ticino lavora con noi",
+        "query": "casa anziani chiasso lavoro",
         "clicks": 1,
-        "impressions": 9
+        "impressions": 10
       },
       {
         "query": "casa anziani comunale bellinzona offerte di lavoro",
@@ -58,11 +63,6 @@
         "query": "offerte di lavoro casa di riposo per anziani",
         "clicks": 1,
         "impressions": 8
-      },
-      {
-        "query": "casa anziani chiasso lavoro",
-        "clicks": 1,
-        "impressions": 7
       },
       {
         "query": "frontalieri",
@@ -78,6 +78,11 @@
         "query": "psicologo italiano online langenthal",
         "clicks": 0,
         "impressions": 2
+      },
+      {
+        "query": "a mendrisio",
+        "clicks": 0,
+        "impressions": 1
       },
       {
         "query": "casa anziani caslano offerte lavoro",
@@ -98,15 +103,10 @@
         "query": "casa anziani ticino lavoro",
         "clicks": 0,
         "impressions": 1
-      },
-      {
-        "query": "case di riposo canton ticino",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 465,
-    "totalClicks": 31,
+    "totalImpressions": 521,
+    "totalClicks": 36,
     "topQuery": "case anziani ticino offerte di lavoro",
     "title": "Case anziani",
     "titleByLocale": {
@@ -145,12 +145,12 @@
       {
         "query": "lavoro a chiasso",
         "clicks": 0,
-        "impressions": 68
+        "impressions": 69
       },
       {
         "query": "lavoro chiasso",
         "clicks": 0,
-        "impressions": 6
+        "impressions": 7
       },
       {
         "query": "offerte di lavoro chiasso",
@@ -223,6 +223,11 @@
         "impressions": 1
       },
       {
+        "query": "chiasso cerco lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "chiasso lavoro offerte",
         "clicks": 0,
         "impressions": 1
@@ -236,14 +241,9 @@
         "query": "chiasso svizzera lavoro",
         "clicks": 0,
         "impressions": 1
-      },
-      {
-        "query": "lavoro chiasso offerte",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 129,
+    "totalImpressions": 132,
     "totalClicks": 2,
     "topQuery": "lavoro a chiasso",
     "title": "chiasso",
@@ -428,7 +428,7 @@
       {
         "query": "i am searching for caregiver jobs in ticino for elderly support.",
         "clicks": 0,
-        "impressions": 42
+        "impressions": 44
       },
       {
         "query": "نعم ابحث",
@@ -446,7 +446,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 93,
+    "totalImpressions": 95,
     "totalClicks": 1,
     "topQuery": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
     "title": "Elderly care",
@@ -529,6 +529,11 @@
         "impressions": 1
       },
       {
+        "query": "job nurse",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "nurse jobs",
         "clicks": 0,
         "impressions": 1
@@ -559,7 +564,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 80,
+    "totalImpressions": 81,
     "totalClicks": 0,
     "topQuery": "nursing jobs",
     "title": "Nurses",
@@ -599,12 +604,12 @@
       {
         "query": "jobs lugano",
         "clicks": 0,
-        "impressions": 13
+        "impressions": 14
       },
       {
         "query": "stellen lugano",
         "clicks": 0,
-        "impressions": 10
+        "impressions": 11
       },
       {
         "query": "full time jobs near me",
@@ -619,6 +624,11 @@
       {
         "query": "jobs in lugano",
         "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "lugano jobs",
+        "clicks": 0,
         "impressions": 5
       },
       {
@@ -627,12 +637,12 @@
         "impressions": 2
       },
       {
-        "query": "lugano job offers",
+        "query": "lugano job",
         "clicks": 0,
         "impressions": 2
       },
       {
-        "query": "lugano jobs",
+        "query": "lugano job offers",
         "clicks": 0,
         "impressions": 2
       },
@@ -687,17 +697,12 @@
         "impressions": 1
       },
       {
-        "query": "jobs lugano switzerland",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "jobs ticino",
+        "query": "jobs in ticino",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 72,
+    "totalImpressions": 80,
     "totalClicks": 0,
     "topQuery": "jobs lugano",
     "title": "lugano",
@@ -811,12 +816,27 @@
         "impressions": 1
       },
       {
+        "query": "settore ristorazione",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "tutti ch lavoro ristorazione",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "tutti ch ristorazione ticino",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 45,
+    "totalImpressions": 48,
     "totalClicks": 1,
     "topQuery": "offerte di lavoro ticino ristorazione",
     "title": "Ristorazione",
@@ -849,6 +869,100 @@
     ]
   },
   {
+    "slug": "bellinzona",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/bellinzona/",
+    "queries": [
+      {
+        "query": "lavoro bellinzona",
+        "clicks": 0,
+        "impressions": 10
+      },
+      {
+        "query": "offerte di lavoro bellinzona",
+        "clicks": 0,
+        "impressions": 10
+      },
+      {
+        "query": "offerte lavoro bellinzona",
+        "clicks": 1,
+        "impressions": 9
+      },
+      {
+        "query": "bellinzona lavoro",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "bellinzona offerte di lavoro",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "offerte di lavoro a bellinzona",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "cerco lavoro a bellinzona",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lavorare a bellinzona",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lavori bellinzona",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "posti vacanti bellinzona",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ristorni frontalieri",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 47,
+    "totalClicks": 1,
+    "topQuery": "lavoro bellinzona",
+    "title": "bellinzona",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Bellinzona",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "lugano",
     "locale": "fr",
     "path": "/fr/trouver-emploi-tessin/lugano/",
@@ -856,7 +970,7 @@
       {
         "query": "je vise un emploi à lugano",
         "clicks": 0,
-        "impressions": 28
+        "impressions": 29
       },
       {
         "query": "je cherche des offres au tessin",
@@ -894,7 +1008,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 42,
+    "totalImpressions": 43,
     "totalClicks": 0,
     "topQuery": "je vise un emploi à lugano",
     "title": "lugano",
@@ -1023,95 +1137,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "bellinzona",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/bellinzona/",
-    "queries": [
-      {
-        "query": "offerte di lavoro bellinzona",
-        "clicks": 0,
-        "impressions": 9
-      },
-      {
-        "query": "offerte lavoro bellinzona",
-        "clicks": 1,
-        "impressions": 7
-      },
-      {
-        "query": "lavoro bellinzona",
-        "clicks": 0,
-        "impressions": 7
-      },
-      {
-        "query": "bellinzona offerte di lavoro",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "bellinzona lavoro",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "offerte di lavoro a bellinzona",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "cerco lavoro a bellinzona",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "lavorare a bellinzona",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "posti vacanti bellinzona",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "ristorni frontalieri",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 36,
-    "totalClicks": 1,
-    "topQuery": "offerte di lavoro bellinzona",
-    "title": "bellinzona",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Bellinzona",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
     ]
   },
   {
@@ -1346,6 +1371,139 @@
     ]
   },
   {
+    "slug": "operatori-socio-sanitari",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/operatori-socio-sanitari/",
+    "queries": [
+      {
+        "query": "oss svizzera offerte lavoro",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "oss ticino offerte lavoro",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "lavorare in svizzera come oss",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "offerte di lavoro come oss in svizzera",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "offerte di lavoro oss svizzera",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "siti migliori",
+        "clicks": 1,
+        "impressions": 1
+      },
+      {
+        "query": "cliniche private ticino offerte lavoro oss",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lavoro oss svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro casa di riposo svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro centri diurni ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro collaboratore sanitario svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro oss svizzera italiana",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro sistema sanitario svizzero",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte lavoro oss svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "operatore socio sanitario",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "oss in svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "oss lavoro svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "tutti ch lavoro sanitario",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "tutti.ch lavoro sanitario",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 26,
+    "totalClicks": 1,
+    "topQuery": "oss svizzera offerte lavoro",
+    "title": "Operatori socio sanitari",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
     "slug": "altenpflege",
     "locale": "de",
     "path": "/de/jobs-im-tessin/altenpflege/",
@@ -1480,119 +1638,6 @@
     "source": [
       "gsc",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "operatori-socio-sanitari",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/operatori-socio-sanitari/",
-    "queries": [
-      {
-        "query": "oss ticino offerte lavoro",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "lavorare in svizzera come oss",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "offerte di lavoro come oss in svizzera",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "oss svizzera offerte lavoro",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "siti migliori",
-        "clicks": 1,
-        "impressions": 1
-      },
-      {
-        "query": "cliniche private ticino offerte lavoro oss",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro casa di riposo svizzera",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro centri diurni ticino",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro oss svizzera italiana",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro sistema sanitario svizzero",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte lavoro oss svizzera",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "operatore socio sanitario",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "oss in svizzera",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "tutti ch lavoro sanitario",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "tutti.ch lavoro sanitario",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 20,
-    "totalClicks": 1,
-    "topQuery": "oss ticino offerte lavoro",
-    "title": "Operatori socio sanitari",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -1757,30 +1802,45 @@
     ]
   },
   {
-    "slug": "entwickler",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/entwickler/",
+    "slug": "restaurants",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/restaurants/",
     "queries": [
       {
-        "query": "softwareentwicklung jobs lugano",
+        "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
         "clicks": 0,
-        "impressions": 9
+        "impressions": 11
       },
       {
-        "query": "softwareentwickler jobs lugano",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "graubündner kantonalbank",
+        "query": "\"debiopharm\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
         "clicks": 0,
         "impressions": 2
+      },
+      {
+        "query": "debiopharm",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "en hosteleria",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "fine dining hiring",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ticino",
+        "clicks": 0,
+        "impressions": 1
       }
     ],
     "totalImpressions": 17,
     "totalClicks": 0,
-    "topQuery": "softwareentwicklung jobs lugano",
-    "title": "Entwickler",
+    "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
+    "title": "Restaurants",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -1810,45 +1870,30 @@
     ]
   },
   {
-    "slug": "restaurants",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/restaurants/",
+    "slug": "entwickler",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/entwickler/",
     "queries": [
       {
-        "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
+        "query": "softwareentwicklung jobs lugano",
         "clicks": 0,
-        "impressions": 10
+        "impressions": 9
       },
       {
-        "query": "\"debiopharm\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "query": "softwareentwickler jobs lugano",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "graubündner kantonalbank",
         "clicks": 0,
         "impressions": 2
-      },
-      {
-        "query": "debiopharm",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "en hosteleria",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "fine dining hiring",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "ticino",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 16,
+    "totalImpressions": 17,
     "totalClicks": 0,
-    "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
-    "title": "Restaurants",
+    "topQuery": "softwareentwicklung jobs lugano",
+    "title": "Entwickler",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2240,6 +2285,65 @@
     ]
   },
   {
+    "slug": "locarno",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/locarno/",
+    "queries": [
+      {
+        "query": "offerte di lavoro locarno negli ultimi 3 giorni",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "lavoro locarno",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "offerte di lavoro locarno",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro per frontalieri svizzera",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 9,
+    "totalClicks": 0,
+    "topQuery": "offerte di lavoro locarno negli ultimi 3 giorni",
+    "title": "locarno",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Locarno",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "erzieher",
     "locale": "de",
     "path": "/de/jobs-im-tessin/erzieher/",
@@ -2338,60 +2442,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "locarno",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/locarno/",
-    "queries": [
-      {
-        "query": "offerte di lavoro locarno negli ultimi 3 giorni",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "lavoro locarno",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "offerte di lavoro per frontalieri svizzera",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 8,
-    "totalClicks": 0,
-    "topQuery": "offerte di lavoro locarno negli ultimi 3 giorni",
-    "title": "locarno",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Locarno",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
     ]
   },
   {
@@ -2768,6 +2818,59 @@
     ]
   },
   {
+    "slug": "engineers",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/engineers/",
+    "queries": [
+      {
+        "query": "offerte di lavoro",
+        "clicks": 1,
+        "impressions": 1
+      },
+      {
+        "query": "\"medacta\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "swissnet group",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 3,
+    "totalClicks": 1,
+    "topQuery": "offerte di lavoro",
+    "title": "Engineers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
     "slug": "logistics",
     "locale": "en",
     "path": "/en/find-jobs-ticino/logistics/",
@@ -2917,25 +3020,20 @@
     ]
   },
   {
-    "slug": "engineers",
+    "slug": "mendrisio",
     "locale": "en",
-    "path": "/en/find-jobs-ticino/engineers/",
+    "path": "/en/find-jobs-ticino/mendrisio/",
     "queries": [
       {
-        "query": "offerte di lavoro",
-        "clicks": 1,
-        "impressions": 1
-      },
-      {
-        "query": "\"medacta\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "query": "full time jobs near me",
         "clicks": 0,
-        "impressions": 1
+        "impressions": 2
       }
     ],
     "totalImpressions": 2,
-    "totalClicks": 1,
-    "topQuery": "offerte di lavoro",
-    "title": "Engineers",
+    "totalClicks": 0,
+    "topQuery": "full time jobs near me",
+    "title": "mendrisio",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2950,7 +3048,7 @@
     },
     "company": "",
     "companyKey": "",
-    "location": "",
+    "location": "Mendrisio",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
@@ -2961,7 +3059,8 @@
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
-      "gsc"
+      "gsc",
+      "slug-parsing"
     ]
   },
   {
@@ -3147,6 +3246,60 @@
     "source": [
       "gsc",
       "slug-parsing"
+    ]
+  },
+  {
+    "slug": "seit-gestern",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/seit-gestern/",
+    "queries": [
+      {
+        "query": "ibsa",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "ibsa",
+    "title": "Seit gestern",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "seit-gestern",
+      "en": "seit-gestern",
+      "de": "seit-gestern",
+      "fr": "seit-gestern"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/seit-gestern",
+      "en": "/en/find-jobs-ticino/seit-gestern",
+      "de": "/de/jobs-im-tessin/seit-gestern",
+      "fr": "/fr/trouver-emploi-tessin/seit-gestern"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -5818,44 +5971,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "mendrisio",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/mendrisio",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "mendrisio",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Mendrisio",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
     ]
   },
   {
