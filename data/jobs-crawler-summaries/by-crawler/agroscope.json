@@ -1,48 +1,18 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-06-07T10:22:01.002Z",
+  "generatedAt": "2026-06-07T21:18:06.215Z",
   "total": 21,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 19,
-  "durationMs": 1192,
-  "avgDurationMs": 1192,
+  "durationMs": 1255,
+  "avgDurationMs": 1255,
   "durationHistory": [
-    1192
+    1255
   ],
   "newJobs": [
-    {
-      "title": "Collaboratore/trice in agronomia/biologia - Selezione delle albicocche",
-      "slug": "collaboratore-trice-in-agronomia-biologia-selezione-delle-albicocche-agroscope-conthey",
-      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-in-agronomia-biologia-selezione-delle-albicocche/d98f7331-bf14-4812-afb5-510fd746deb6",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19201",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "1964 Conthey",
-      "addressLocality": "Conthey",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-06",
-      "validThrough": "2026-07-06",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
     {
       "title": "Collaboratore/trice tecnico-agricolo/a in frutticoltura",
       "slug": "collaboratore-trice-tecnico-agricolo-a-in-frutticoltura-agroscope-wadenswil",
@@ -74,7 +44,44 @@
       }
     }
   ],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Collaboratore/trice in agronomia/biologia - Selezione delle albicocche",
+      "slug": "collaboratore-trice-in-agronomia-biologia-selezione-delle-albicocche-agroscope-conthey",
+      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-in-agronomia-biologia-selezione-delle-albicocche/d98f7331-bf14-4812-afb5-510fd746deb6",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19201",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "1964 Conthey",
+      "addressLocality": "Conthey",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-06",
+      "validThrough": "2026-07-06",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-6f7317331f29",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1204",
+      "firstSeenAt": "2026-06-07T10:22:01.001Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -252,11 +259,11 @@
       "streetAddress": "",
       "postalCode": "",
       "firstSeenAt": "2026-06-02T12:00:03.023Z",
-      "_qualityScore": 78,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 19
       }
     },
