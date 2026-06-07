@@ -8000,6 +8000,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Ticino e ferrovie: pressing su lavoro e investimenti',
     'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'La deputazione ticinese incontra FFS a Berna: nessun licenziamento per i frontalieri, ma settore cargo ridimensionato nel Mendrisiotto.',
     'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Stazione ferroviaria di Bellinzona con treni moderni e infrastrutture ticinesi',
+    'blog.article.calcola-stipendio-netto-ticinonline.title': 'Calcola il tuo stipendio netto: guida per i frontalieri',
+    'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Come determinare lo stipendio netto in Canton Ticino partendo dal salario lordo, tra contributi AVS, LPP e imposta alla fonte.',
+    'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Calcolo dello stipendio netto in Canton Ticino con vista su Lugano',
 };
 
 export default blogMetaIt;

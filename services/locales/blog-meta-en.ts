@@ -7999,6 +7999,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Ticino and Railways: Pressure on Jobs and Investments',
     'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'The Ticino delegation meets SBB in Bern: no layoffs for cross-border workers, but cargo sector downsized in Mendrisiotto.',
     'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Bellinzona train station with modern trains and Ticino railway infrastructure',
+    'blog.article.calcola-stipendio-netto-ticinonline.title': 'Calculate Your Net Salary: A Guide for Cross-Border Workers',
+    'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'How to determine your net salary in Canton Ticino starting from your gross salary, including contributions for AHV, LPP and withholding tax.',
+    'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Calculation of net salary in Canton Ticino with a view of Lugano',
 };
 
 export default blogMetaEn;

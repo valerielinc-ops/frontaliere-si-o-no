@@ -7998,6 +7998,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Tessin und Eisenbahnen: Druck auf Arbeit und Investitionen',
     'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'Die Tessiner Delegation trifft sich mit den SBB in Bern: keine Entlassungen für Grenzgänger, aber der Güterverkehrssektor wird im Mendrisiotto reduziert.',
     'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Bahnhof Bellinzona mit modernen Zügen und Tessiner Bahninfrastruktur',
+    'blog.article.calcola-stipendio-netto-ticinonline.title': 'Netto-Gehalt berechnen: Leitfaden für Grenzgänger',
+    'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Wie man das Netto-Gehalt im Kanton Tessin aus dem Bruttogehalt ermittelt, unter Berücksichtigung der Beiträge zu AVS, LPP und der Quellensteuer.',
+    'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Berechnung des Nettogehalts im Kanton Tessin mit Blick auf Lugano',
 };
 
 export default blogMetaDe;

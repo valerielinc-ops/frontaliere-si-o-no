@@ -25380,6 +25380,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'calcola-stipendio-netto-ticinonline',
+ category: 'fiscale',
+ date: '2026-06-07T07:13:15.109Z',
+ image: '/images/blog/calcola-stipendio-netto-ticinonline.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
