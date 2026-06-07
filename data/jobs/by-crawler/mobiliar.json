@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mobiliar",
-  "assembledAt": "2026-06-06T22:09:59.556Z",
+  "assembledAt": "2026-06-07T11:21:55.079Z",
   "jobs": [
     {
       "id": "mobiliar-f48c812bfd17",
@@ -33,7 +33,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Lausanne-Nord-vaudois-%28fhd%29/1164511555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:56.240Z",
+      "crawledAt": "2026-06-07T11:21:52.065Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -70,6 +70,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:48.954Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -116,7 +117,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Generalagentur-Bern-Stadt/1164704655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:55.471Z",
+      "crawledAt": "2026-06-07T11:21:51.275Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -188,7 +189,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sarnen-Schadenspezialist-%28wmd%29-Generalagentur-Obwalden-und-Nidwalden/1164700455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:54.720Z",
+      "crawledAt": "2026-06-07T11:21:50.494Z",
       "addressLocality": "Sarnen",
       "addressCountry": "CH",
       "country": "CH",
@@ -240,6 +241,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:52.353Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -256,12 +258,12 @@
     },
     {
       "id": "mobiliar-3d41d8256c07",
-      "slug": "quality-architetto-w-m-d-die-mobiliar-bern",
+      "slug": "quality-architect-w-m-d-mobiliar-ch",
       "slugByLocale": {
-        "it": "quality-architetto-w-m-d-die-mobiliar-bern",
+        "it": "quality-architect-w-m-d-mobiliar-ch",
         "en": "quality-architect-w-m-d-die-mobiliar-bern",
         "de": "quality-architect-w-m-d-mobiliar-ch",
-        "fr": "qualite-architecte-w-m-d-die-mobiliar-bern"
+        "fr": "quality-architect-w-m-d-mobiliar-ch"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -285,7 +287,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Quality-Architect-%28wmd%29/1164803555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:53.974Z",
+      "crawledAt": "2026-06-07T11:21:49.711Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -318,18 +320,22 @@
       "sfJobId": "1164803555",
       "previousSlugs": [
         "architetto-di-qualita-m-d-die-mobiliar-bern",
-        "quality-architect-w-m-d-mobiliar-ch"
+        "quality-architetto-w-m-d-die-mobiliar-bern",
+        "qualite-architecte-w-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "architetto-di-qualita-m-d-die-mobiliar-bern",
+          "quality-architetto-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ],
         "fr": [
+          "qualite-architecte-w-m-d-die-mobiliar-bern",
           "quality-architect-w-m-d-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T00:29:08.026Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -376,7 +382,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-%28Senior%29-Brokerbetreuer-und-Underwriter-Sachversicherung-Unternehmensgesch%C3%A4ft-%28wmd%29/1164253555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:53.224Z",
+      "crawledAt": "2026-06-07T11:21:48.925Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -408,6 +414,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:40.510Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -454,7 +461,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/1164849455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:52.478Z",
+      "crawledAt": "2026-06-07T11:21:48.023Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -472,6 +479,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1164849455",
       "firstSeenAt": "2026-06-05T12:19:23.540Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -517,7 +525,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Produktmanagement-Mobilit%C3%A4tsversicherung-%28wmd%29/1164768155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:51.726Z",
+      "crawledAt": "2026-06-07T11:21:47.122Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -563,6 +571,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:08.098Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -609,7 +618,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Stv_-Leiter-Schadendienst-im-innen-und-Aussendienst-%28wm%29-Generalagentur-Burgdorf/1164843655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:50.965Z",
+      "crawledAt": "2026-06-07T11:21:46.330Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -660,6 +669,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T15:26:58.827Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -706,7 +716,7 @@
       "url": "https://jobs.mobiliar.ch/job/Frauenfeld-Schadenmitarbeiter-%28wm%29-Generalagentur-Frauenfeld/1164831655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:50.223Z",
+      "crawledAt": "2026-06-07T11:21:45.555Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -738,6 +748,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T14:39:32.044Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -784,7 +795,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Kundendienst-Mobiliar-Fonds-%28wmd%29/1164803155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:49.474Z",
+      "crawledAt": "2026-06-07T11:21:44.762Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -848,6 +859,7 @@
         "employe-fonds-client-mobiliar-h-f-d-die-mobiliar-bern"
       ],
       "firstSeenAt": "2026-05-29T13:23:26.379Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -894,7 +906,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Senior-Scrum-Master-%28wmd%29/1164689855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:48.649Z",
+      "crawledAt": "2026-06-07T11:21:43.969Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -926,6 +938,7 @@
       },
       "sfJobId": "1164689855",
       "firstSeenAt": "2026-05-10T22:09:46.655Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -972,7 +985,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Jurist-Strafrecht-und-Strassenverkehr-%28wmd%29/1164636355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:47.532Z",
+      "crawledAt": "2026-06-07T11:21:42.701Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1014,6 +1027,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T22:44:48.395Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1060,7 +1074,7 @@
       "url": "https://jobs.mobiliar.ch/job/Solothurn-KV-Lehrstelle-EFZ-2027-Generalagentur-Solothurn/940915574/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:46.660Z",
+      "crawledAt": "2026-06-07T11:21:41.804Z",
       "addressLocality": "Generalagentur Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -1147,7 +1161,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-IT-Nachwuchsprogramm-Fullstack-Java-Engineer-%28wmd%29/1164835355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:45.906Z",
+      "crawledAt": "2026-06-07T11:21:41.031Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1196,6 +1210,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T13:01:55.076Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1242,7 +1257,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schaffhausen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Schaffhausen/1164681355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:45.153Z",
+      "crawledAt": "2026-06-07T11:21:40.240Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1285,6 +1300,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1331,7 +1347,7 @@
       "url": "https://jobs.mobiliar.ch/job/Buchs-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Buchs-Sargans/1164682855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:44.400Z",
+      "crawledAt": "2026-06-07T11:21:39.462Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -1381,6 +1397,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:42.793Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1427,7 +1444,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thun-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Thun/1164683755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:43.646Z",
+      "crawledAt": "2026-06-07T11:21:38.685Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1468,6 +1485,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:45.893Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1514,7 +1532,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Horgen/1164683655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:42.889Z",
+      "crawledAt": "2026-06-07T11:21:37.916Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1555,6 +1573,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:43.579Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1600,7 +1619,7 @@
       "url": "https://jobs.mobiliar.ch/job/Arbon-Mitarbeiter-Schadendienst-%28wmd%29-Generalagentur-Arbon-Rorschach/1164833355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:42.129Z",
+      "crawledAt": "2026-06-07T11:21:37.056Z",
       "addressLocality": "oder nach Vereinbarung",
       "addressCountry": "CH",
       "country": "CH",
@@ -1672,7 +1691,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Wetterversicherung-f%C3%BCr-den-Ackerbau-%28wmd%29/1164251355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:41.298Z",
+      "crawledAt": "2026-06-07T11:21:36.188Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1728,6 +1747,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:45.642Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1774,7 +1794,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-JuristRechtsanwalt-Arbeitsrecht-%28wmd%29/1164791855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:40.156Z",
+      "crawledAt": "2026-06-07T11:21:34.982Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1824,6 +1844,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T23:43:36.532Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1870,7 +1891,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Fachspezialist-Marktbearbeitung-KMU-%28wmd%29/1164674755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:39.284Z",
+      "crawledAt": "2026-06-07T11:21:34.077Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1918,6 +1939,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:39.750Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1964,7 +1986,7 @@
       "url": "https://jobs.mobiliar.ch/job/Herisau-Verkaufssupportmitarbeiter-%28wm%29-Generalagentur-AusserRhoden/1164822255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:38.533Z",
+      "crawledAt": "2026-06-07T11:21:33.204Z",
       "addressLocality": "Herisau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1998,6 +2020,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:06:05.067Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2043,7 +2066,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-D%C3%A9veloppeuse-IT-%28fhd%29-Travailler-en-parall%C3%A8le-de-ses-%C3%A9tudes/1164774455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:37.705Z",
+      "crawledAt": "2026-06-07T11:21:32.330Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2081,6 +2104,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:44.901Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2127,7 +2151,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Berater-Assistance-Soforthilfe-%28wmd%29/1164806555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:36.581Z",
+      "crawledAt": "2026-06-07T11:21:31.048Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2177,6 +2201,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:35:29.961Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2223,7 +2248,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Contact-Center-%28wmd%29/1164640755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:35.246Z",
+      "crawledAt": "2026-06-07T11:21:29.794Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2271,6 +2296,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:35:26.388Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2317,7 +2343,7 @@
       "url": "https://jobs.mobiliar.ch/job/Yverdon-les-Bains-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-courtiers-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois-%28fhd%29/1164176155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:34.367Z",
+      "crawledAt": "2026-06-07T11:21:28.864Z",
       "addressLocality": "Yverdon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2362,6 +2388,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:32.866Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2408,7 +2435,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Geoanalyse-&-Naturrisiken-%28wmd%29/1164812755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:33.596Z",
+      "crawledAt": "2026-06-07T11:21:28.081Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2456,6 +2483,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:39:42.729Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2502,7 +2530,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Verantwortlicher-Immobilien-Transaktionen-Markt-Ost-%28wmd%29/1164752455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:32.758Z",
+      "crawledAt": "2026-06-07T11:21:27.210Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2551,6 +2579,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:39:41.969Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2597,7 +2626,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Kundendialog-und-Triage-%28wmd%29/1164806655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:31.606Z",
+      "crawledAt": "2026-06-07T11:21:25.864Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2645,6 +2674,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:35:25.063Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2689,7 +2719,7 @@
       "url": "https://jobs.mobiliar.ch/job/Hochdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Seetal-Rontal/1164010655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:30.727Z",
+      "crawledAt": "2026-06-07T11:21:24.955Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2730,6 +2760,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:31.342Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2775,7 +2806,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-Mitarbeiter-Schaden-%28wmd%29-Generalagentur-Langenthal/1164805155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:29.973Z",
+      "crawledAt": "2026-06-07T11:21:24.183Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -2825,6 +2856,7 @@
         ]
       },
       "firstSeenAt": "2026-05-29T13:23:28.136Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2871,7 +2903,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-Mitarbeiterin-Innendienst-%28wmd%29-Generalagentur-Luzern/1164803855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:29.204Z",
+      "crawledAt": "2026-06-07T11:21:23.410Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2921,6 +2953,7 @@
         ]
       },
       "firstSeenAt": "2026-05-29T13:23:27.178Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2967,7 +3000,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Horgen/1164802255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:28.431Z",
+      "crawledAt": "2026-06-07T11:21:22.637Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3041,6 +3074,7 @@
         ]
       },
       "firstSeenAt": "2026-05-29T13:23:25.575Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3087,7 +3121,7 @@
       "url": "https://jobs.mobiliar.ch/job/Spiez-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Spiez/1164657055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:27.672Z",
+      "crawledAt": "2026-06-07T11:21:21.849Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -3132,6 +3166,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:33.626Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3177,7 +3212,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thurgau-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164155255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:26.918Z",
+      "crawledAt": "2026-06-07T11:21:21.082Z",
       "addressLocality": "Thurgau",
       "addressCountry": "CH",
       "country": "CH",
@@ -3224,6 +3259,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:29.807Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3270,7 +3306,7 @@
       "url": "https://jobs.mobiliar.ch/job/Uster-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Uster/1163443155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:26.159Z",
+      "crawledAt": "2026-06-07T11:21:20.311Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -3303,6 +3339,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:28.286Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3348,7 +3385,7 @@
       "url": "https://jobs.mobiliar.ch/job/Spiez-Schadenspezialist-%28wmd%29-Generalagentur-Spiez/1164657255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:25.404Z",
+      "crawledAt": "2026-06-07T11:21:19.537Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -3426,7 +3463,7 @@
       "url": "https://jobs.mobiliar.ch/job/Conseiller-%C3%A8re-en-assurances%2C-pr%C3%A9voyance-et-hypoth%C3%A8ques-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois/1163725955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:24.648Z",
+      "crawledAt": "2026-06-07T11:21:18.760Z",
       "addressLocality": "Conseiller",
       "addressCountry": "CH",
       "country": "CH",
@@ -3452,6 +3489,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:47:49.813Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3496,7 +3534,7 @@
       "url": "https://jobs.mobiliar.ch/job/Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rheintal/1163417355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:23.884Z",
+      "crawledAt": "2026-06-07T11:21:17.982Z",
       "addressLocality": "Versicherungs",
       "addressCountry": "CH",
       "country": "CH",
@@ -3579,7 +3617,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Z%C3%BCrich/1164643255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:23.097Z",
+      "crawledAt": "2026-06-07T11:21:17.215Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3622,6 +3660,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:26.764Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3668,7 +3707,7 @@
       "url": "https://jobs.mobiliar.ch/job/Winterthur-KV-Lehrstelle-EFZ-2027-Generalagentur-Winterthur/1164471155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:22.258Z",
+      "crawledAt": "2026-06-07T11:21:16.345Z",
       "addressLocality": "Generalagentur Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -3729,9 +3768,9 @@
       "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "projektmanagement-m-d-die-mobiliar-bern-489f62",
+        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
+        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3755,7 +3794,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Jurist-Wohnen-%28wmd%29/1164779155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:21.073Z",
+      "crawledAt": "2026-06-07T11:21:15.118Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3790,7 +3829,9 @@
       "sfJobId": "1164779155",
       "previousSlugs": [
         "jurist-wohnen-w-m-d-mobiliar-ch",
-        "projektmanagement-m-d-die-mobiliar-bern"
+        "projektmanagement-m-d-die-mobiliar-bern",
+        "projektmanagement-m-d-die-mobiliar-bern-489f62",
+        "juriste-wohnen-m-j-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3798,13 +3839,16 @@
         ],
         "en": [
           "projektmanagement-m-d-die-mobiliar-bern",
+          "projektmanagement-m-d-die-mobiliar-bern-489f62",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "fr": [
+          "juriste-wohnen-m-j-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-05-21T23:18:22.962Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3851,7 +3895,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Responsable-team-Sinistres-de-personnes-%28fhd%29/1164778855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:20.210Z",
+      "crawledAt": "2026-06-07T11:21:14.217Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -3883,6 +3927,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T23:18:22.106Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3929,7 +3974,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Responsable-des-sinistres-%28fhd%29-Agence-g%C3%A9n%C3%A9rale-Moutier-Saint-Imier/1164297555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:19.442Z",
+      "crawledAt": "2026-06-07T11:21:13.439Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -3961,6 +4006,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:22.847Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3996,17 +4042,17 @@
       },
       "description": "Ce qui vous attend:\nEn votre qualité de conseiller en assurances et en prévoyance, vous proposez à nos clients des solutions d’assurance et de prévoyance adaptées à leurs besoins. Ce faisant, vous contribuez activement au développement du portefeuille clients de l’agence générale de Moutier - Saint-Imier.\n\nCe que vous pouvez réaliser chez nous:\nVotre principale mission consiste à gérer et à développer activement votre portefeuille de clients particuliers et entreprises, dans la vallée de Tavannes .\n\nDe nature prévenante, vous êtes toujours à l’écoute de vos clients. Vous leur fournissez notamment un conseil personnalisé et leur proposez des solutions sur mesure dans le domaine des assurances et de la prévoyance.\n\nEn tant que personne sociable et communicative, il vous est naturel de vous constituer un réseau de clients et de l’entretenir. Vous appréciez également l’échange ouvert d’idées au sein d’une équipe.\n\nCe que vous apportez:\n• Formation en tant qu’employé de commerce ou équivalente\n\n• Plusieurs années d’expérience professionnelle, de préférence dans le domaine du conseil en assurances et en prévoyance\n\n• Aimant acquérir de nouveaux clients grâce à un réseautage actif\n\n• Capable de travailler de manière autonome et responsable, selon une approche orientée clientèle\n\n• De nature authentique, empathique et doté d’une grande force de persuasion\n\n• Maîtrise courante du français. Toute autre langue est un atout\n\nTravailler chez nous:\nÀ l’agence générale de Moutier - Saint-Imier, une équipe diversifiée vous attend. Ensemble, les membres de l’agence générale s’appliquent à consolider l’ancrage régional de l’entreprise et à entretenir un échange ouvert et collégial. Votre taux d’occupation est négociable entre 80% et 100%. Vous avez en outre accès à des modèles de temps de travail flexibles. Vous en apprendrez davantage sur notre engagement en tant qu’employeur ci-dessous.\n\nCe que nous offrons:\nParticipation au résultat\n\nNotre succès profite aussi à nos collaboratrices et collaborateurs. Chaque année, nous décidons du versement d’une participation au résultat et de son montant.\n\nFormation continue et développement\n\nNous proposons une vaste offre de cours internes ainsi que des certifications Cicero attestant d’une excellente qualité de conseil et d’un haut niveau de compétence.\n\nAvantages\n\nNous offrons notamment jusqu’à 25% de rabais sur les primes, des rabais sur des téléphones portables, des abonnements mobiles forfaitaires gratuits et diverses réductions sur des événements culturelles.\n\nIntéressé-e?:\nPostulez rapidement et simplement par e-mail à l'adresse ci-dessous.\n\nNous nous réjouissons de vous rencontrer. Si vous avez des questions, n'hésitez pas é prendere contact avec nous.\n\nAgence générale de Moutier - Saint-Imier\nJulien Choffat\nResponsable vente\n\nTél. 032 494 53 20\nE-mail: julien.choffat@mobilière.ch\n\nSavoir plus:\nProfessions\n\nVous recherchez un environnement de travail passionnant où faire valoir vos connaissances et votre personnalité? Nous recherchons des collaboratrices et collaborateurs ainsi que des cadres dirigeants qui partagent nos valeurs et sont prêts à s’investir.\n\nTravailler dans une agence générale\n\nLes quelque 80 agences générales de la Mobilière présentes sur plus de 160 sites offrent des emplois variés et des possibilités de carrière attrayantes..\n\nLa Mobilière en tant qu’employeur\n\nDécouvrez ce qui caractérise notre culture et notre façon de travailler, et apprenez-en davantage sur nos conditions d’engagement.\n\nbody, p, h1, h2, h3, h4, h5, h6, span, a, li, blockquote, input, button, textarea { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */}body { overflow-x: hidden;}p { font-family: custom0027f4ab23214a14b002f !important; font-size: 18px !important; line-height: 28px !important;}#innershell { position: relative; z-index: 0;}h1,ul,ol,p,dl { margin-top: 0; margin-bottom: 0;}h1 { word-break: break-word; hyphens: auto; display: block; font-family: custom8732d50969a8456f8f2dd; font-weight: 400 !important; font-style: normal; padding-top: 64px !important; padding-bottom: 4px !important; font-size: 36px !important; line-height: 52px !important; color: #da2323 !important;}h1 * { font-size: 36px !important; line-height: 52px !important; font-weight: 400 !important;}@media (min-width: 1244px) { h1 { padding-bottom: 4px !important; padding-top: 64px !important; font-size: 48px !important; line-height: 68px !important; } h1 * { font-size: 48px !important; line-height: 68px !important; }}h2 { word-break: break-word; hyphens: auto; display: block; font-family: custom8732d50969a8456f8f2dd; font-weight: 400 !important; font-style: normal !important; padding-top: 8px; padding-bottom: 8px; margin: 0 !important; font-size: 28px !important; line-height: 40px !important; color: #da2323 !important;}h2 * { font-size: 28px !important; line-height: 40px !important;}body.coreCSB .fontcolorb6a533a1 h2 { color: #da2323 !important;}@media (min-width: 1244px) { h2 { font-size: 48px !important; line-height: 70px !important; } h2 * { font-size: 48px !important; line-height: 70px !important; }}body.coreCSB .fontcolorb6a533a1 h1 { color: #da2323 !important;}.unify-apply-now.btn-primary { border-radius: 1000px; text-decoration: none;}.unify-apply-now.btn-primary:hover { box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 2px; text-decoration: none;}.btn.keywordsearchbutton { height: 48px; font-weight: bold !important\n\nGestionnaire de consentements pour les cookies:\nLorsque vous visitez un site Web, il peut stocker ou récupérer des informations sur votre navigateur, principalement sous forme de cookies. Respectueux de votre droit à la confidentialité, nous vous permettons de refuser certains types de cookies. Cependant, le fait de bloquer certains types de cookies peut impacter votre expérience du site et les services que nous sommes en mesure de proposer.\n\nCookies obligatoires\n\nCes cookies sont obligatoires pour pouvoir utiliser ce site Web et ne peuvent pas être désactivés.\n\nAfficher plus de détails\n\nFournisseur\n Description\n Activé\n\nSAP as service provider\n\nNous utilisons les cookies de session suivants, qui sont tous nécessaires au fonctionnement du site Web :\n\n• « route » est utilisé pour l’adhérence de session.\n\n• « careerSiteCompanyId » permet d’envoyer la demande vers le centre de données correct.\n\n• « JSESSIONID » est placé sur le terminal du visiteur au cours de la session pour permettre au serveur d’identifier le visiteur.\n\n• « Load balancer cookie » (le nom du cookie proprement dit peut varier) empêche le visiteur d’être renvoyé d’une instance à une autre.",
       "descriptionByLocale": {
-        "it": "Cosa vi aspetta: In qualità di consulente di assicurazione e contingenza, offriamo ai nostri clienti soluzioni di assicurazione e contingenza su misura per le loro esigenze. In questo modo, si sta attivamente contribuendo allo sviluppo del portafoglio clienti di Moutier - Saint-Imier General Agency. Ciò che potete raggiungere con noi: la vostra missione principale è quella di gestire e sviluppare attivamente il vostro portafoglio di clienti privati e aziendali nella Tavannes Valley. Di natura premurosa, stai sempre ascoltando i tuoi clienti. Fornisci loro consigli personalizzati e soluzioni su misura nel settore dell'assicurazione e della previsione. Come persona socievole e comunicativa, è naturale per voi costruire e mantenere una rete di clienti. Vi piace anche lo scambio aperto di idee all'interno di una squadra. Che cosa si porta: • Formazione come dipendente aziendale o equivalente • Diversi anni di esperienza professionale, preferibilmente nel campo dell'assicurazione e consulenza di previsione • L'amore per acquisire nuovi clienti attraverso la rete attiva • Capace di lavorare in modo indipendente e responsabile, utilizzando un approccio orientato al cliente • Autentico, empatico e dotato di una grande forza di persuasione • La padronanza di routine del francese. Qualsiasi altra lingua è un bene Lavorare con noi: All'Agenzia Generale di Moutier - Saint-Imier, una squadra diversificata vi aspetta. Insieme, i membri dell'Agenzia Generale lavorano per consolidare l'ancoraggio regionale dell'azienda e per mantenere uno scambio aperto e collegiale. Il tasso di occupazione è negoziabile tra l'80% e il 100%. Hai anche accesso a modelli di tempo di lavoro flessibili. Imparerai di più sul nostro impegno come datore di lavoro qui sotto. Cosa offriamo: Partecipazione al risultato Il nostro successo beneficia anche dei nostri dipendenti. Ogni anno decidiamo il pagamento di un contributo al risultato e al suo importo. Offriamo una vasta gamma di corsi interni e certificazioni Cicero che attestano un'eccellente qualità di consulenza e un alto livello di competenza. Vantaggi Offriamo fino al 25% di sconto sui premi, sconti sui telefoni cellulari, abbonamenti mobili a tasso piatto gratuito e vari sconti sugli eventi culturali. Interessato?: Applicare rapidamente e semplicemente via e-mail all'indirizzo qui sotto. Non vediamo l'ora di incontrarti. Se avete domande, vi preghiamo di contattarci. Agenzia Generale di Moutier - Saint-Imier Julien Choffat Sales Manager Tel. 032 494 53 20 E-mail: julien.choffat@mobilière.ch Per saperne di più: Professioni Alla ricerca di un ambiente di lavoro emozionante dove mostrare la vostra conoscenza e personalità? Stiamo cercando collaboratori e leader che condividono i nostri valori e sono pronti a investire. Lavorare in un'agenzia generale Le circa 80 Agenzie Generali di La Mobilière presenti su oltre 160 siti offrono vari posti di lavoro e interessanti opportunità di carriera. La Mobilière come datore di lavoro Scopri cosa caratterizza la nostra cultura e come lavoriamo, e saperne di più sulle nostre condizioni di impegno. *================================================================================================================================================= Quando si visita un sito web, può memorizzare o recuperare le informazioni sul browser, principalmente come cookie. Rispetto del diritto alla privacy, ti permettiamo di rifiutare alcuni tipi di cookie. Tuttavia, il blocco di alcuni tipi di cookie può influenzare la vostra esperienza del sito web e i servizi che siamo in grado di offrire. Cookie obbligatori Questi cookie sono obbligatori ad utilizzare questo sito e non possono essere disabilitati. Descrizione del fornitore Abilitato SAP come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per il funzionamento del sito: • \"road\" viene utilizzato per l'adesione di sessione. • \"careerSiteCompany Id\" consente di inviare la richiesta al data center corretto. • \"JSESSIONID\" è posizionato sul terminale del visitatore durante la sessione per consentire al server di identificare il visitatore. • \"Scarica cookie swing\" (il nome del cookie stesso può variare) impedisce al visitatore di essere restituito da un'istanza all'altra.",
-        "en": "What awaits you:\nAs an insurance and contingency advisor, you offer our customers insurance and contingency solutions tailored to their needs. In doing so, you are actively contributing to the development of the client portfolio of Moutier - Saint-Imier General Agency.\n\nWhat you can achieve with us:\nYour main mission is to actively manage and develop your portfolio of private and corporate clients in the Tavannes Valley.\n\nOf a thoughtful nature, you are always listening to your customers. You provide them with personalized advice and tailor-made solutions in the area of insurance and foresight.\n\nAs a sociable and communicative person, it is natural for you to build and maintain a network of customers. You also enjoy the open exchange of ideas within a team.\n\nWhat you bring:\n• Training as a business employee or equivalent\n\n• Several years of professional experience, preferably in the field of insurance and pension counselling\n\n• Love to acquire new customers through active networking\n\n• Capable of working independently and responsibly, using a customer-oriented approach\n\n• Of an authentic, empathic nature and endowed with great persuasion\n\n• Current mastery of French. Any other language is an asset\n\nWorking with us:\nTo the General Agency of Moutier - Saint-Imier, a diverse team is waiting for you. Together, the members of the General Agency work to consolidate the company's regional anchor and to maintain an open and collegial exchange. Your occupancy rate is negotiable between 80% and 100%. You also have access to flexible working time models. You will learn more about our commitment as an employer below.\n\nWhat we offer:\nParticipation in the outcome\n\nOur success also benefits our employees. Every year we decide on the payment of a contribution to the result and its amount.\n\nContinuing training and development\n\nWe offer a wide range of internal courses as well as Cicero certifications attesting to an excellent quality of advice and a high level of competence.\n\nBenefits\n\nWe offer up to 25% discount on premiums, discounts on mobile phones, free flat-rate mobile subscriptions and various discounts on cultural events.\n\nInterested?:\nApply quickly and simply by e-mail to the address below.\n\nWe look forward to meeting you. If you have any questions, please contact us.\n\nMoutier General Agency - Saint-Imier\nJulien Choffat\nSales Manager\n\nTel. 032 494 53 20\nE-mail: julien.choffat@mobilière.ch\n\nFurther information:\nOccupations\n\nLooking for an exciting work environment where to showcase your knowledge and personality? We are looking for collaborators and leaders who share our values and are ready to invest.\n\nWorking in a General Agency\n\nThe 80 or so General Agencies of La Mobilière on more than 160 sites offer varied jobs and attractive career opportunities.\n\nLa Mobilière as an employer\n\nDiscover what characterizes our culture and how we work, and learn more about our conditions of engagement.\n\nbody, p, h1, h2, h3, h4, h5, h6, span, a, li, blockquote, input, button, textarea { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */}body { overflow-x: hidden;}p { font-family: custom0027f4ab23214a14b002f !important; font-size: 18px!important; line-eight: 28px !important;}#innershell { position: relative; z-index: 0;}h1,ul,ol,p,dl { margin-top: 0; margin-bottom: 0;}h1 { word-break: break-word; hyphens: auto; display: block; fat-family: customer8732d50969a8456f8f2dd; weight: 400 !important; font style: normal; padding-top: 64px !important; padding-bottom: 4px !important; font-size: 36px !important; line-height: 52px!important; color: #da2323 !important;}h1 * { font-size: 36px !important; line-height: 52px!important; font-weight: 400 !important;}@media (min-width: 1244px) { h1 { padding-bottom: 4px !important; padding-top: 64px !important; font-size: 48px!important; line-height: 68px! important; } h1 * { font-size: 48px !important; line-height: 68px !important; }}h2 { word-break: break-word; hyphens: auto; display: block; fat-family: customer8732d50969a8456f8f2dd; weight: 400 !important; font-style: normal !important; padding-top: 8px; padding-bottom: 8px; Margin: 0 !important; font-size: 28px!important; line-height: 40px!important; color: #da2323 !important;}h2 * { font-size: 28px !important; line-height: 40px!important; Body.coreCSB .fontcolorb6a533a1 h2 { color: #da2323 !important;}@media (min-width: 1244px) { h2 { font-size: 48px !important; line-height: 70px! important; } h2 * { font-size: 48px !important; line-height: 70px! important; }body.coreCSB .fontcolorb6a533a1 h1 { color: #da2323 !important;}.unify-apply-now.btn-primary { border-radius: 1000px; text-decoration: none;}.unify-apply-now.btn-primary:hover { box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 10px 2px; text-decoration: none;}.btn.keywordsearchbutton { height: 48px; do-weight: bold!important\n\nCookie Consent Manager:\nWhen you visit a website, it can store or retrieve information from your browser, mainly as cookies. Respecting your right to privacy, we allow you to refuse certain types of cookies. However, blocking certain types of cookies can impact your website experience and the services we are able to provide.\n\nMandatory cookies\n\nThese cookies are mandatory to use this website and cannot be disabled.\n\nShow more details\n\nSupplier\nDescription\nEnabled\n\nSAP as service provider\n\nWe use the following session cookies, all of which are necessary to operate the website:\n\n• \"road\" is used for session adhesion.\n\n• \"careerSiteCompanyId\" allows to send the request to the correct data center.\n\n• \"JSESSIONID\" is placed on the visitor's terminal during the session to allow the server to identify the visitor.\n\n• \"Load swing cookie\" (the name of the cookie itself may vary) prevents the visitor from being returned from one instance to another.",
-        "de": "Was Sie erwartet: Als Versicherungs- und Notfallberater bieten Sie unseren Kunden Versicherungs- und Notfalllösungen an, die auf ihre Bedürfnisse zugeschnitten sind. Damit tragen Sie aktiv zur Entwicklung des Kundenportfolios von Moutier - Saint-Imier General Agency bei. Was Sie mit uns erreichen können: Ihre Hauptaufgabe ist es, Ihr Portfolio von Privat- und Firmenkunden im Tavannes Valley aktiv zu verwalten und zu entwickeln. Von rücksichtsvoller Natur, hören Sie immer auf Ihre Kunden. Sie bieten Ihnen eine personalisierte Beratung und maßgeschneiderte Lösungen im Bereich Versicherung und Vorausschau. Als gesellige und kommunikative Person ist es für Sie selbstverständlich, ein Netzwerk von Kunden aufzubauen und zu pflegen. Sie genießen auch den offenen Austausch von Ideen innerhalb eines Teams. Was Sie mitbringen: • Ausbildung als Geschäftsangestellter oder gleichwertig • Mehrjährige Berufserfahrung, vorzugsweise im Bereich der Versicherungs- und Zukunftsberatung • Liebe, neue Kunden durch aktives Networking zu gewinnen • In der Lage, unabhängig und verantwortungsvoll zu arbeiten, mit einem kundenorientierten Ansatz • Authentisch, empathisch und mit großer Überzeugungskraft ausgestattet • Routinebeherrschung von Französisch. Jede andere Sprache ist ein Gewinn Mit uns arbeiten: Zur Generalagentur von Moutier - Saint-Imier wartet ein vielfältiges Team auf Sie. Gemeinsam arbeiten die Mitglieder der Generalagentur daran, die regionale Verankerung des Unternehmens zu festigen und einen offenen und kollegialen Austausch aufrechtzuerhalten. Ihre Belegungsrate ist zwischen 80% und 100% verhandelbar. Sie haben auch Zugang zu flexiblen Arbeitszeitmodellen. Im Folgenden erfahren Sie mehr über unser Engagement als Arbeitgeber. Was wir anbieten: Teilnahme am Ergebnis Unser Erfolg kommt auch unseren Mitarbeitern zugute. Jedes Jahr entscheiden wir über die Zahlung eines Beitrags zum Ergebnis und dessen Höhe. Weiterbildung und Weiterentwicklung Wir bieten eine breite Palette von internen Kursen sowie Cicero-Zertifizierungen an, die eine ausgezeichnete Beratungsqualität und ein hohes Maß an Kompetenz belegen. Vorteile Wir bieten bis zu 25% Rabatt auf Prämien, Rabatte auf Mobiltelefone, kostenlose mobile Flatrate-Abonnements und verschiedene Rabatte auf kulturelle Veranstaltungen. Interessiert? Bewerben Sie sich schnell und einfach per E-Mail an die unten stehende Adresse. Wir freuen uns auf Sie. Wenn Sie Fragen haben, kontaktieren Sie uns bitte. Generalagentur von Moutier - Saint-Imier Julien Choffat Sales Manager Tel. 032 494 53 20 E-Mail: julien.choffat@mobilière.ch Weiterlesen: Berufe Auf der Suche nach einem aufregenden Arbeitsumfeld, in dem Sie Ihr Wissen und Ihre Persönlichkeit präsentieren können? Wir suchen Mitarbeiter und Führungskräfte, die unsere Werte teilen und bereit sind zu investieren. Arbeiten in einer allgemeinen Agentur Die rund 80 Generalagenturen von La Mobilière, die an mehr als 160 Standorten vertreten sind, bieten vielfältige Arbeitsplätze und attraktive Karrieremöglichkeiten. La Mobilière als Arbeitgeber Entdecken Sie, was unsere Kultur auszeichnet und wie wir arbeiten, und erfahren Sie mehr über unsere Einsatzbedingungen. Body, p, h1, h2, h3, h4, h5, h6, span, a, blockquote, input, button, textarea {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: hidden;}p {font-size: 18px!important; line-eight: 28px!important; line-eight: z-index: 0;}h1,ul,ol,p,dl {page-top: 28px!important;}h1 {font-size: 64px!important; line-height: 52px!important; line-height: 64px!important; line-height: 68px!important; line-height: 8px!important; line-height: 40px!important; line-height: 40px!important; body.coreCSB .fontcolorb6a533a1 h2 {font-size: 48px!important; line-height: Wenn Sie eine Website besuchen, kann sie Informationen in Ihrem Browser speichern oder abrufen, hauptsächlich als Cookies. Um Ihr Recht auf Privatsphäre zu respektieren, erlauben wir Ihnen, bestimmte Arten von Cookies abzulehnen. Das Blockieren bestimmter Arten von Cookies kann sich jedoch auf Ihre Website-Erfahrung und die Dienste auswirken, die wir anbieten können. Obligatorische Cookies Diese Cookies sind für die Nutzung dieser Website obligatorisch und können nicht deaktiviert werden. Weitere Details ansehen Lieferantenbeschreibung SAP als Dienstleister aktiviert Wir verwenden die folgenden Sitzungscookies, die alle für den Betrieb der Website erforderlich sind: • \"Straße\" wird für die Sitzungsadhäsion verwendet. • „careerSiteCompany Id ermöglicht es, die Anfrage an das richtige Rechenzentrum zu senden. • \"JSESSIONID\" wird während der Sitzung auf dem Besucherterminal platziert, damit der Server den Besucher identifizieren kann. • \"Load swing cookie\" (der Name des Cookies selbst kann variieren) verhindert, dass der Besucher von einer Instanz zur anderen zurückgegeben wird.",
-        "fr": "Ce qui vous attend:\nEn votre qualité de conseiller en assurances et en prévoyance, vous proposez à nos clients des solutions d’assurance et de prévoyance adaptées à leurs besoins. Ce faisant, vous contribuez activement au développement du portefeuille clients de l’agence générale de Moutier - Saint-Imier.\n\nCe que vous pouvez réaliser chez nous:\nVotre principale mission consiste à gérer et à développer activement votre portefeuille de clients particuliers et entreprises, dans la vallée de Tavannes .\n\nDe nature prévenante, vous êtes toujours à l’écoute de vos clients. Vous leur fournissez notamment un conseil personnalisé et leur proposez des solutions sur mesure dans le domaine des assurances et de la prévoyance.\n\nEn tant que personne sociable et communicative, il vous est naturel de vous constituer un réseau de clients et de l’entretenir. Vous appréciez également l’échange ouvert d’idées au sein d’une équipe.\n\nCe que vous apportez:\n• Formation en tant qu’employé de commerce ou équivalente\n\n• Plusieurs années d’expérience professionnelle, de préférence dans le domaine du conseil en assurances et en prévoyance\n\n• Aimant acquérir de nouveaux clients grâce à un réseautage actif\n\n• Capable de travailler de manière autonome et responsable, selon une approche orientée clientèle\n\n• De nature authentique, empathique et doté d’une grande force de persuasion\n\n• Maîtrise courante du français. Toute autre langue est un atout\n\nTravailler chez nous:\nÀ l’agence générale de Moutier - Saint-Imier, une équipe diversifiée vous attend. Ensemble, les membres de l’agence générale s’appliquent à consolider l’ancrage régional de l’entreprise et à entretenir un échange ouvert et collégial. Votre taux d’occupation est négociable entre 80% et 100%. Vous avez en outre accès à des modèles de temps de travail flexibles. Vous en apprendrez davantage sur notre engagement en tant qu’employeur ci-dessous.\n\nCe que nous offrons:\nParticipation au résultat\n\nNotre succès profite aussi à nos collaboratrices et collaborateurs. Chaque année, nous décidons du versement d’une participation au résultat et de son montant.\n\nFormation continue et développement\n\nNous proposons une vaste offre de cours internes ainsi que des certifications Cicero attestant d’une excellente qualité de conseil et d’un haut niveau de compétence.\n\nAvantages\n\nNous offrons notamment jusqu’à 25% de rabais sur les primes, des rabais sur des téléphones portables, des abonnements mobiles forfaitaires gratuits et diverses réductions sur des événements culturelles.\n\nIntéressé-e?:\nPostulez rapidement et simplement par e-mail à l'adresse ci-dessous.\n\nNous nous réjouissons de vous rencontrer. Si vous avez des questions, n'hésitez pas é prendere contact avec nous.\n\nAgence générale de Moutier - Saint-Imier\nJulien Choffat\nResponsable vente\n\nTél. 032 494 53 20\nE-mail: julien.choffat@mobilière.ch\n\nSavoir plus:\nProfessions\n\nVous recherchez un environnement de travail passionnant où faire valoir vos connaissances et votre personnalité? Nous recherchons des collaboratrices et collaborateurs ainsi que des cadres dirigeants qui partagent nos valeurs et sont prêts à s’investir.\n\nTravailler dans une agence générale\n\nLes quelque 80 agences générales de la Mobilière présentes sur plus de 160 sites offrent des emplois variés et des possibilités de carrière attrayantes..\n\nLa Mobilière en tant qu’employeur\n\nDécouvrez ce qui caractérise notre culture et notre façon de travailler, et apprenez-en davantage sur nos conditions d’engagement.\n\nbody, p, h1, h2, h3, h4, h5, h6, span, a, li, blockquote, input, button, textarea { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */}body { overflow-x: hidden;}p { font-family: custom0027f4ab23214a14b002f !important; font-size: 18px !important; line-height: 28px !important;}#innershell { position: relative; z-index: 0;}h1,ul,ol,p,dl { margin-top: 0; margin-bottom: 0;}h1 { word-break: break-word; hyphens: auto; display: block; font-family: custom8732d50969a8456f8f2dd; font-weight: 400 !important; font-style: normal; padding-top: 64px !important; padding-bottom: 4px !important; font-size: 36px !important; line-height: 52px !important; color: #da2323 !important;}h1 * { font-size: 36px !important; line-height: 52px !important; font-weight: 400 !important;}@media (min-width: 1244px) { h1 { padding-bottom: 4px !important; padding-top: 64px !important; font-size: 48px !important; line-height: 68px !important; } h1 * { font-size: 48px !important; line-height: 68px !important; }}h2 { word-break: break-word; hyphens: auto; display: block; font-family: custom8732d50969a8456f8f2dd; font-weight: 400 !important; font-style: normal !important; padding-top: 8px; padding-bottom: 8px; margin: 0 !important; font-size: 28px !important; line-height: 40px !important; color: #da2323 !important;}h2 * { font-size: 28px !important; line-height: 40px !important;}body.coreCSB .fontcolorb6a533a1 h2 { color: #da2323 !important;}@media (min-width: 1244px) { h2 { font-size: 48px !important; line-height: 70px !important; } h2 * { font-size: 48px !important; line-height: 70px !important; }}body.coreCSB .fontcolorb6a533a1 h1 { color: #da2323 !important;}.unify-apply-now.btn-primary { border-radius: 1000px; text-decoration: none;}.unify-apply-now.btn-primary:hover { box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 2px; text-decoration: none;}.btn.keywordsearchbutton { height: 48px; font-weight: bold !important\n\nGestionnaire de consentements pour les cookies:\nLorsque vous visitez un site Web, il peut stocker ou récupérer des informations sur votre navigateur, principalement sous forme de cookies. Respectueux de votre droit à la confidentialité, nous vous permettons de refuser certains types de cookies. Cependant, le fait de bloquer certains types de cookies peut impacter votre expérience du site et les services que nous sommes en mesure de proposer.\n\nCookies obligatoires\n\nCes cookies sont obligatoires pour pouvoir utiliser ce site Web et ne peuvent pas être désactivés.\n\nAfficher plus de détails\n\nFournisseur\n Description\n Activé\n\nSAP as service provider\n\nNous utilisons les cookies de session suivants, qui sont tous nécessaires au fonctionnement du site Web :\n\n• « route » est utilisé pour l’adhérence de session.\n\n• « careerSiteCompanyId » permet d’envoyer la demande vers le centre de données correct.\n\n• « JSESSIONID » est placé sur le terminal du visiteur au cours de la session pour permettre au serveur d’identifier le visiteur.\n\n• « Load balancer cookie » (le nom du cookie proprement dit peut varier) empêche le visiteur d’être renvoyé d’une instance à une autre."
+        "it": "Cosa vi aspetta: In qualità di consulente di assicurazione e contingenza, offriamo ai nostri clienti soluzioni di assicurazione e contingenza su misura per le loro esigenze. In questo modo, si sta attivamente contribuendo allo sviluppo del portafoglio clienti di Moutier - Saint-Imier General Agency. Ciò che potete raggiungere con noi: la vostra missione principale è quella di gestire e sviluppare attivamente il vostro portafoglio di clienti privati e aziendali nella Tavannes Valley. Di natura premurosa, stai sempre ascoltando i tuoi clienti. Fornisci loro consigli personalizzati e soluzioni su misura nel settore dell'assicurazione e della previsione. Come persona socievole e comunicativa, è naturale per voi costruire e mantenere una rete di clienti. Vi piace anche lo scambio aperto di idee all'interno di una squadra. Che cosa si porta:\n• Formazione come dipendente aziendale o equivalente\n• Diversi anni di esperienza professionale, preferibilmente nel campo dell'assicurazione e consulenza di previsione\n• L'amore per acquisire nuovi clienti attraverso la rete attiva\n• Capace di lavorare in modo indipendente e responsabile, utilizzando un approccio orientato al cliente\n• Autentico, empatico e dotato di una grande forza di persuasione\n• La padronanza di routine del francese. Qualsiasi altra lingua è un bene Lavorare con noi: All'Agenzia Generale di Moutier - Saint-Imier, una squadra diversificata vi aspetta. Insieme, i membri dell'Agenzia Generale lavorano per consolidare l'ancoraggio regionale dell'azienda e per mantenere uno scambio aperto e collegiale. Il tasso di occupazione è negoziabile tra l'80% e il 100%. Hai anche accesso a modelli di tempo di lavoro flessibili. Imparerai di più sul nostro impegno come datore di lavoro qui sotto. Cosa offriamo: Partecipazione al risultato Il nostro successo beneficia anche dei nostri dipendenti. Ogni anno decidiamo il pagamento di un contributo al risultato e al suo importo. Offriamo una vasta gamma di corsi interni e certificazioni Cicero che attestano un'eccellente qualità di consulenza e un alto livello di competenza. Vantaggi Offriamo fino al 25% di sconto sui premi, sconti sui telefoni cellulari, abbonamenti mobili a tasso piatto gratuito e vari sconti sugli eventi culturali. Interessato?: Applicare rapidamente e semplicemente via e-mail all'indirizzo qui sotto. Non vediamo l'ora di incontrarti. Se avete domande, vi preghiamo di contattarci. Agenzia Generale di Moutier - Saint-Imier Julien Choffat Sales Manager Tel. 032 494 53 20 E-mail: julien.choffat@mobilière.ch Per saperne di più: Professioni Alla ricerca di un ambiente di lavoro emozionante dove mostrare la vostra conoscenza e personalità? Stiamo cercando collaboratori e leader che condividono i nostri valori e sono pronti a investire. Lavorare in un'agenzia generale Le circa 80 Agenzie Generali di La Mobilière presenti su oltre 160 siti offrono vari posti di lavoro e interessanti opportunità di carriera. La Mobilière come datore di lavoro Scopri cosa caratterizza la nostra cultura e come lavoriamo, e saperne di più sulle nostre condizioni di impegno. *\n\nQuando si visita un sito web, può memorizzare o recuperare le informazioni sul browser, principalmente come cookie. Rispetto del diritto alla privacy, ti permettiamo di rifiutare alcuni tipi di cookie. Tuttavia, il blocco di alcuni tipi di cookie può influenzare la vostra esperienza del sito web e i servizi che siamo in grado di offrire. Cookie obbligatori Questi cookie sono obbligatori ad utilizzare questo sito e non possono essere disabilitati. Descrizione del fornitore Abilitato SAP come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per il funzionamento del sito:\n• \"road\" viene utilizzato per l'adesione di sessione.\n• \"careerSiteCompany Id\" consente di inviare la richiesta al data center corretto.\n• \"JSESSIONID\" è posizionato sul terminale del visitatore durante la sessione per consentire al server di identificare il visitatore.\n• \"Scarica cookie swing\" (il nome del cookie stesso può variare) impedisce al visitatore di essere restituito da un'istanza all'altra.",
+        "en": "What awaits you: As an insurance and contingency advisor, you offer our customers insurance and contingency solutions tailored to their needs. In doing so, you are actively contributing to the development of the client portfolio of Moutier - Saint-Imier General Agency. What you can achieve with us: Your main mission is to actively manage and develop your portfolio of private and corporate clients in the Tavannes Valley. Of a thoughtful nature, you are always listening to your customers. You provide them with personalized advice and tailor-made solutions in the area of insurance and foresight. As a sociable and communicative person, it is natural for you to build and maintain a network of customers. You also enjoy the open exchange of ideas within a team. What you bring:\n• Training as a business employee or equivalent\n• Several years of professional experience, preferably in the field of insurance and pension counselling\n• Love to acquire new customers through active networking\n• Capable of working independently and responsibly, using a customer-oriented approach\n• Of an authentic, empathic nature and endowed with great persuasion\n• Current mastery of French. Any other language is an asset Working with us: To the General Agency of Moutier - Saint-Imier, a diverse team is waiting for you. Together, the members of the General Agency work to consolidate the company's regional anchor and to maintain an open and collegial exchange. Your occupancy rate is negotiable between 80% and 100%. You also have access to flexible working time models. You will learn more about our commitment as an employer below. What we offer: Participation in the outcome Our success also benefits our employees. Every year we decide on the payment of a contribution to the result and its amount. Continuing training and development We offer a wide range of internal courses as well as Cicero certifications attesting to an excellent quality of advice and a high level of competence. Benefits We offer up to 25% discount on premiums, discounts on mobile phones, free flat-rate mobile subscriptions and various discounts on cultural events. Interested?: Apply quickly and simply by e-mail to the address below. We look forward to meeting you. If you have any questions, please contact us. Moutier General Agency - Saint-Imier Julien Choffat Sales Manager Tel. 032 494 53 20 E-mail: julien.choffat@mobilière.ch Further information: Occupations Looking for an exciting work environment where to showcase your knowledge and personality? We are looking for collaborators and leaders who share our values and are ready to invest. Working in a General Agency The 80 or so General Agencies of La Mobilière on more than 160 sites offer varied jobs and attractive career opportunities. La Mobilière as an employer Discover what characterizes our culture and how we work, and learn more about our conditions of engagement. body, p, h1, h2, h3, h4, h5, h6, span, a, li, blockquote, input, button, textarea { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */}body { overflow-x: hidden;}p { font-family: custom0027f4ab23214a14b002f !important; font-size: 18px!important; line-eight: 28px !important;}#innershell { position: relative; z-index: 0;}h1,ul,ol,p,dl { margin-top: 0; margin-bottom: 0;}h1 { word-break: break-word; hyphens: auto; display: block; fat-family: customer8732d50969a8456f8f2dd; weight: 400 !important; font style: normal; padding-top: 64px !important; padding-bottom: 4px !important; font-size: 36px !important; line-height: 52px!important; color: #da2323 !important;}h1 * { font-size: 36px !important; line-height: 52px!important; font-weight: 400 !important;}@media (min-width: 1244px) { h1 { padding-bottom: 4px !important; padding-top: 64px !important; font-size: 48px!important; line-height: 68px! important; } h1 * { font-size: 48px !important; line-height: 68px !important; }}h2 { word-break: break-word; hyphens: auto; display: block; fat-family: customer8732d50969a8456f8f2dd; weight: 400 !important; font-style: normal !important; padding-top: 8px; padding-bottom: 8px; Margin: 0 !important; font-size: 28px!important; line-height: 40px!important; color: #da2323 !important;}h2 * { font-size: 28px !important; line-height: 40px!important; Body.coreCSB .fontcolorb6a533a1 h2 { color: #da2323 !important;}@media (min-width: 1244px) { h2 { font-size: 48px !important; line-height: 70px! important; } h2 * { font-size: 48px !important; line-height: 70px! important; }body.coreCSB .fontcolorb6a533a1 h1 { color: #da2323 !important;}.unify-apply-now.btn-primary { border-radius: 1000px; text-decoration: none;}.unify-apply-now.btn-primary:hover { box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 10px 2px; text-decoration: none;}.btn.keywordsearchbutton { height: 48px; do-weight: bold!important Cookie Consent Manager: When you visit a website, it can store or retrieve information from your browser, mainly as cookies. Respecting your right to privacy, we allow you to refuse certain types of cookies. However, blocking certain types of cookies can impact your website experience and the services we are able to provide. Mandatory cookies These cookies are mandatory to use this website and cannot be disabled. Show more details Supplier Description Enabled SAP as service provider We use the following session cookies, all of which are necessary to operate the website:\n• \"road\" is used for session adhesion.\n• \"careerSiteCompanyId\" allows to send the request to the correct data center.\n• \"JSESSIONID\" is placed on the visitor's terminal during the session to allow the server to identify the visitor.\n• \"Load swing cookie\" (the name of the cookie itself may vary) prevents the visitor from being returned from one instance to another.",
+        "de": "Was Sie erwartet: Als Versicherungs- und Notfallberater bieten Sie unseren Kunden Versicherungs- und Notfalllösungen an, die auf ihre Bedürfnisse zugeschnitten sind. Damit tragen Sie aktiv zur Entwicklung des Kundenportfolios von Moutier - Saint-Imier General Agency bei. Was Sie mit uns erreichen können: Ihre Hauptaufgabe ist es, Ihr Portfolio von Privat- und Firmenkunden im Tavannes Valley aktiv zu verwalten und zu entwickeln. Von rücksichtsvoller Natur, hören Sie immer auf Ihre Kunden. Sie bieten Ihnen eine personalisierte Beratung und maßgeschneiderte Lösungen im Bereich Versicherung und Vorausschau. Als gesellige und kommunikative Person ist es für Sie selbstverständlich, ein Netzwerk von Kunden aufzubauen und zu pflegen. Sie genießen auch den offenen Austausch von Ideen innerhalb eines Teams. Was Sie mitbringen:\n• Ausbildung als Geschäftsangestellter oder gleichwertig\n• Mehrjährige Berufserfahrung, vorzugsweise im Bereich der Versicherungs- und Zukunftsberatung\n• Liebe, neue Kunden durch aktives Networking zu gewinnen\n• In der Lage, unabhängig und verantwortungsvoll zu arbeiten, mit einem kundenorientierten Ansatz\n• Authentisch, empathisch und mit großer Überzeugungskraft ausgestattet\n• Routinebeherrschung von Französisch. Jede andere Sprache ist ein Gewinn Mit uns arbeiten: Zur Generalagentur von Moutier - Saint-Imier wartet ein vielfältiges Team auf Sie. Gemeinsam arbeiten die Mitglieder der Generalagentur daran, die regionale Verankerung des Unternehmens zu festigen und einen offenen und kollegialen Austausch aufrechtzuerhalten. Ihre Belegungsrate ist zwischen 80% und 100% verhandelbar. Sie haben auch Zugang zu flexiblen Arbeitszeitmodellen. Im Folgenden erfahren Sie mehr über unser Engagement als Arbeitgeber. Was wir anbieten: Teilnahme am Ergebnis Unser Erfolg kommt auch unseren Mitarbeitern zugute. Jedes Jahr entscheiden wir über die Zahlung eines Beitrags zum Ergebnis und dessen Höhe. Weiterbildung und Weiterentwicklung Wir bieten eine breite Palette von internen Kursen sowie Cicero-Zertifizierungen an, die eine ausgezeichnete Beratungsqualität und ein hohes Maß an Kompetenz belegen. Vorteile Wir bieten bis zu 25% Rabatt auf Prämien, Rabatte auf Mobiltelefone, kostenlose mobile Flatrate-Abonnements und verschiedene Rabatte auf kulturelle Veranstaltungen. Interessiert? Bewerben Sie sich schnell und einfach per E-Mail an die unten stehende Adresse. Wir freuen uns auf Sie. Wenn Sie Fragen haben, kontaktieren Sie uns bitte. Generalagentur von Moutier - Saint-Imier Julien Choffat Sales Manager Tel. 032 494 53 20 E-Mail: julien.choffat@mobilière.ch Weiterlesen: Berufe Auf der Suche nach einem aufregenden Arbeitsumfeld, in dem Sie Ihr Wissen und Ihre Persönlichkeit präsentieren können? Wir suchen Mitarbeiter und Führungskräfte, die unsere Werte teilen und bereit sind zu investieren. Arbeiten in einer allgemeinen Agentur Die rund 80 Generalagenturen von La Mobilière, die an mehr als 160 Standorten vertreten sind, bieten vielfältige Arbeitsplätze und attraktive Karrieremöglichkeiten. La Mobilière als Arbeitgeber Entdecken Sie, was unsere Kultur auszeichnet und wie wir arbeiten, und erfahren Sie mehr über unsere Einsatzbedingungen. Body, p, h1, h2, h3, h4, h5, h6, span, a, blockquote, input, button, textarea {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: hidden;}p {font-size: 18px!important; line-eight: 28px!important; line-eight: z-index: 0;}h1,ul,ol,p,dl {page-top: 28px!important;}h1 {font-size: 64px!important; line-height: 52px!important; line-height: 64px!important; line-height: 68px!important; line-height: 8px!important; line-height: 40px!important; line-height: 40px!important; body.coreCSB .fontcolorb6a533a1 h2 {font-size: 48px!important; line-height: Wenn Sie eine Website besuchen, kann sie Informationen in Ihrem Browser speichern oder abrufen, hauptsächlich als Cookies. Um Ihr Recht auf Privatsphäre zu respektieren, erlauben wir Ihnen, bestimmte Arten von Cookies abzulehnen. Das Blockieren bestimmter Arten von Cookies kann sich jedoch auf Ihre Website-Erfahrung und die Dienste auswirken, die wir anbieten können. Obligatorische Cookies Diese Cookies sind für die Nutzung dieser Website obligatorisch und können nicht deaktiviert werden. Weitere Details ansehen Lieferantenbeschreibung SAP als Dienstleister aktiviert Wir verwenden die folgenden Sitzungscookies, die alle für den Betrieb der Website erforderlich sind:\n• \"Straße\" wird für die Sitzungsadhäsion verwendet.\n• „careerSiteCompany Id ermöglicht es, die Anfrage an das richtige Rechenzentrum zu senden.\n• \"JSESSIONID\" wird während der Sitzung auf dem Besucherterminal platziert, damit der Server den Besucher identifizieren kann.\n• \"Load swing cookie\" (der Name des Cookies selbst kann variieren) verhindert, dass der Besucher von einer Instanz zur anderen zurückgegeben wird.",
+        "fr": "Ce qui vous attend: En votre qualité de conseiller en assurances et en prévoyance, vous proposez à nos clients des solutions d’assurance et de prévoyance adaptées à leurs besoins. Ce faisant, vous contribuez activement au développement du portefeuille clients de l’agence générale de Moutier - Saint-Imier. Ce que vous pouvez réaliser chez nous: Votre principale mission consiste à gérer et à développer activement votre portefeuille de clients particuliers et entreprises, dans la vallée de Tavannes . De nature prévenante, vous êtes toujours à l’écoute de vos clients. Vous leur fournissez notamment un conseil personnalisé et leur proposez des solutions sur mesure dans le domaine des assurances et de la prévoyance. En tant que personne sociable et communicative, il vous est naturel de vous constituer un réseau de clients et de l’entretenir. Vous appréciez également l’échange ouvert d’idées au sein d’une équipe. Ce que vous apportez:\n• Formation en tant qu’employé de commerce ou équivalente\n• Plusieurs années d’expérience professionnelle, de préférence dans le domaine du conseil en assurances et en prévoyance\n• Aimant acquérir de nouveaux clients grâce à un réseautage actif\n• Capable de travailler de manière autonome et responsable, selon une approche orientée clientèle\n• De nature authentique, empathique et doté d’une grande force de persuasion\n• Maîtrise courante du français. Toute autre langue est un atout Travailler chez nous: À l’agence générale de Moutier - Saint-Imier, une équipe diversifiée vous attend. Ensemble, les membres de l’agence générale s’appliquent à consolider l’ancrage régional de l’entreprise et à entretenir un échange ouvert et collégial. Votre taux d’occupation est négociable entre 80% et 100%. Vous avez en outre accès à des modèles de temps de travail flexibles. Vous en apprendrez davantage sur notre engagement en tant qu’employeur ci-dessous. Ce que nous offrons: Participation au résultat Notre succès profite aussi à nos collaboratrices et collaborateurs. Chaque année, nous décidons du versement d’une participation au résultat et de son montant. Formation continue et développement Nous proposons une vaste offre de cours internes ainsi que des certifications Cicero attestant d’une excellente qualité de conseil et d’un haut niveau de compétence. Avantages Nous offrons notamment jusqu’à 25% de rabais sur les primes, des rabais sur des téléphones portables, des abonnements mobiles forfaitaires gratuits et diverses réductions sur des événements culturelles. Intéressé-e?: Postulez rapidement et simplement par e-mail à l'adresse ci-dessous. Nous nous réjouissons de vous rencontrer. Si vous avez des questions, n'hésitez pas é prendere contact avec nous. Agence générale de Moutier - Saint-Imier Julien Choffat Responsable vente Tél. 032 494 53 20 E-mail: julien.choffat@mobilière.ch Savoir plus: Professions Vous recherchez un environnement de travail passionnant où faire valoir vos connaissances et votre personnalité? Nous recherchons des collaboratrices et collaborateurs ainsi que des cadres dirigeants qui partagent nos valeurs et sont prêts à s’investir. Travailler dans une agence générale Les quelque 80 agences générales de la Mobilière présentes sur plus de 160 sites offrent des emplois variés et des possibilités de carrière attrayantes.. La Mobilière en tant qu’employeur Découvrez ce qui caractérise notre culture et notre façon de travailler, et apprenez-en davantage sur nos conditions d’engagement. body, p, h1, h2, h3, h4, h5, h6, span, a, li, blockquote, input, button, textarea { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */}body { overflow-x: hidden;}p { font-family: custom0027f4ab23214a14b002f !important; font-size: 18px !important; line-height: 28px !important;}#innershell { position: relative; z-index: 0;}h1,ul,ol,p,dl { margin-top: 0; margin-bottom: 0;}h1 { word-break: break-word; hyphens: auto; display: block; font-family: custom8732d50969a8456f8f2dd; font-weight: 400 !important; font-style: normal; padding-top: 64px !important; padding-bottom: 4px !important; font-size: 36px !important; line-height: 52px !important; color: #da2323 !important;}h1 * { font-size: 36px !important; line-height: 52px !important; font-weight: 400 !important;}@media (min-width: 1244px) { h1 { padding-bottom: 4px !important; padding-top: 64px !important; font-size: 48px !important; line-height: 68px !important; } h1 * { font-size: 48px !important; line-height: 68px !important; }}h2 { word-break: break-word; hyphens: auto; display: block; font-family: custom8732d50969a8456f8f2dd; font-weight: 400 !important; font-style: normal !important; padding-top: 8px; padding-bottom: 8px; margin: 0 !important; font-size: 28px !important; line-height: 40px !important; color: #da2323 !important;}h2 * { font-size: 28px !important; line-height: 40px !important;}body.coreCSB .fontcolorb6a533a1 h2 { color: #da2323 !important;}@media (min-width: 1244px) { h2 { font-size: 48px !important; line-height: 70px !important; } h2 * { font-size: 48px !important; line-height: 70px !important; }}body.coreCSB .fontcolorb6a533a1 h1 { color: #da2323 !important;}.unify-apply-now.btn-primary { border-radius: 1000px; text-decoration: none;}.unify-apply-now.btn-primary:hover { box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 2px; text-decoration: none;}.btn.keywordsearchbutton { height: 48px; font-weight: bold !important Gestionnaire de consentements pour les cookies: Lorsque vous visitez un site Web, il peut stocker ou récupérer des informations sur votre navigateur, principalement sous forme de cookies. Respectueux de votre droit à la confidentialité, nous vous permettons de refuser certains types de cookies. Cependant, le fait de bloquer certains types de cookies peut impacter votre expérience du site et les services que nous sommes en mesure de proposer. Cookies obligatoires Ces cookies sont obligatoires pour pouvoir utiliser ce site Web et ne peuvent pas être désactivés. Cookies obligatoires Afficher plus de détails Cookies obligatoires Fournisseur Description Activé SAP as service provider Nous utilisons les cookies de session suivants, qui sont tous nécessaires au fonctionnement du site Web :\n• « route » est utilisé pour l’adhérence de session.\n• « careerSiteCompanyId » permet d’envoyer la demande vers le centre de données correct.\n• « JSESSIONID » est placé sur le terminal du visiteur au cours de la session pour permettre au serveur d’identifier le visiteur.\n• « Load balancer cookie » (le nom du cookie proprement dit peut varier) empêche le visiteur d’être renvoyé d’une instance à une autre."
       },
       "location": "Moutier",
       "canton": "JU",
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/940912074/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:18.688Z",
+      "crawledAt": "2026-06-07T11:21:12.673Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -4038,6 +4084,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:21.325Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4083,7 +4130,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Biel/1164623355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:17.943Z",
+      "crawledAt": "2026-06-07T11:21:11.899Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4126,6 +4173,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:13.543Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4172,7 +4220,7 @@
       "url": "https://jobs.mobiliar.ch/job/Neuch%C3%A2tel-Collaborateur-du-support-vente-%28fhd%29-agence-g%C3%A9n%C3%A9rale-de-Neuch%C3%A2tel/1164454055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:09:17.194Z",
+      "crawledAt": "2026-06-07T11:21:11.129Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4203,6 +4251,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:10.518Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4249,7 +4298,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Schadenspezialist-%28wm%29-Personensch%C3%A4den-UVGKrankentaggeld-Generalagentur-Burgdorf/1163707355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:16.435Z",
+      "crawledAt": "2026-06-07T11:21:10.353Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -4300,6 +4349,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:36.542Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4346,7 +4396,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BCtschwil-Leiter-Vorsorge-Generalagentur-Wil-%28wmd%29/1164253255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:15.677Z",
+      "crawledAt": "2026-06-07T11:21:09.590Z",
       "addressLocality": "Bütschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -4433,7 +4483,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Langenthal/1164609655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:14.923Z",
+      "crawledAt": "2026-06-07T11:21:08.826Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -4511,7 +4561,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vaduz-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Vaduz/940913874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:14.173Z",
+      "crawledAt": "2026-06-07T11:21:07.948Z",
       "addressLocality": "237 65 51",
       "addressCountry": "CH",
       "country": "CH",
@@ -4595,7 +4645,7 @@
       "url": "https://jobs.mobiliar.ch/job/St_-Gallen-Schadenmitarbeiter-in-Personenschaden-%28mw%29-Generalagentur-St_-Gallen/1164288655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:13.427Z",
+      "crawledAt": "2026-06-07T11:21:07.166Z",
       "addressLocality": "St_",
       "addressCountry": "CH",
       "country": "CH",
@@ -4680,7 +4730,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Personenversicherungen-%28KTGUVGUVGZ%29-mit-Branchenverantwortung-%28wmd%29/1163846755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:12.673Z",
+      "crawledAt": "2026-06-07T11:21:06.399Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4727,6 +4777,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:41.273Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4773,7 +4824,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Versicherungs-und-Vorsorgeberater-%28wm%29-Generalagentur-Glattal-%28Z%C3%BCrich-Nord%29/1164271355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:11.927Z",
+      "crawledAt": "2026-06-07T11:21:05.625Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4851,7 +4902,7 @@
       "url": "https://jobs.mobiliar.ch/job/Affoltern-am-Albis-KV-Lehrstelle-EFZ-2027-Generalagentur-Affoltern-am-Albis/940912874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:11.184Z",
+      "crawledAt": "2026-06-07T11:21:04.644Z",
       "addressLocality": "Affoltern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4897,6 +4948,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:47.640Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4943,7 +4995,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Data-Scientist-im-Bereich-Conversational-AI-%28wmd%29/1164754655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:10.436Z",
+      "crawledAt": "2026-06-07T11:21:03.708Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4996,6 +5048,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:05.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5042,7 +5095,7 @@
       "url": "https://jobs.mobiliar.ch/job/Zug-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Zug/1163527455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:09.678Z",
+      "crawledAt": "2026-06-07T11:21:02.939Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -5074,6 +5127,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:32.107Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5120,7 +5174,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-KV-Lehrstelle-EFZ-2027-Generalagentur-Luzern/1164429655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:08.927Z",
+      "crawledAt": "2026-06-07T11:21:02.160Z",
       "addressLocality": "Generalagentur Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5207,7 +5261,7 @@
       "url": "https://jobs.mobiliar.ch/job/Uster-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Uster/1164775855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:08.177Z",
+      "crawledAt": "2026-06-07T11:21:01.387Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -5247,6 +5301,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:48.388Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -5293,7 +5348,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schwyz-KV-Lehrstelle-EFZ-2027-Generalagentur-Schwyz/1164585855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:07.426Z",
+      "crawledAt": "2026-06-07T11:21:00.605Z",
       "addressLocality": "Generalagentur Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -5378,7 +5433,7 @@
       "url": "https://jobs.mobiliar.ch/job/Affoltern-am-Albis-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Affoltern-am-Albis/1163881455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:06.675Z",
+      "crawledAt": "2026-06-07T11:20:59.835Z",
       "addressLocality": "Affoltern am Albis",
       "addressCountry": "CH",
       "country": "CH",
@@ -5466,7 +5521,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wetzikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wetzikon-Pf%C3%A4ffikon/1163375655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:05.916Z",
+      "crawledAt": "2026-06-07T11:20:58.936Z",
       "addressLocality": "Wetzikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -5498,6 +5553,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:03.271Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5544,7 +5600,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Wil/1164757455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:05.154Z",
+      "crawledAt": "2026-06-07T11:20:58.155Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -5598,6 +5654,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:07.335Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -5620,7 +5677,7 @@
         "it": "devsecops-ingegnere-w-m-d-die-mobiliar-bern",
         "en": "devsecops-engineer-w-m-d-die-mobiliar-bern",
         "de": "devsecops-engineer-w-m-d-mobiliar-ch",
-        "fr": "devsecops-ingenieur-w-m-d-die-mobiliar-bern"
+        "fr": "devsecops-engineer-w-m-d-mobiliar-ch"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5644,7 +5701,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Microsoft-Power-Platform-DevSecOps-Engineer-%28wmd%29/1164561055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:04.396Z",
+      "crawledAt": "2026-06-07T11:20:57.371Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5689,14 +5746,17 @@
           "microsoft-power-platform-devsecops-engineer-w-m-d-mobiliar-ch"
         ],
         "fr": [
+          "devsecops-ingenieur-w-m-d-die-mobiliar-bern",
           "devsecops-engineer-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
         "microsoft-power-platform-devsecops-engineer-w-m-d-mobiliar-ch",
-        "devsecops-engineer-w-m-d-mobiliar-ch"
+        "devsecops-engineer-w-m-d-mobiliar-ch",
+        "devsecops-ingenieur-w-m-d-die-mobiliar-bern"
       ],
       "firstSeenAt": "2026-05-10T22:09:37.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5743,7 +5803,7 @@
       "url": "https://jobs.mobiliar.ch/job/Worb-Mitarbeiter-Verkaufssupport-%28wm%29-Generalagentur-Emmental/1164762455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:03.630Z",
+      "crawledAt": "2026-06-07T11:20:56.596Z",
       "addressLocality": "Worb",
       "addressCountry": "CH",
       "country": "CH",
@@ -5793,6 +5853,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:36.527Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5839,7 +5900,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lenzburg-Schadenmitarbeiter-%28wmd%29-Generalagentur-Lenzburg/1164762355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:02.875Z",
+      "crawledAt": "2026-06-07T11:20:55.823Z",
       "addressLocality": "Lenzburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -5890,6 +5951,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5935,7 +5997,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Generalagentur-Bern-West/940918874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:02.045Z",
+      "crawledAt": "2026-06-07T11:20:55.042Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6013,7 +6075,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Beratung-und-Schaden-%28wmd%29/1164481355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:09:00.901Z",
+      "crawledAt": "2026-06-07T11:20:53.819Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6065,6 +6127,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:56:26.117Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6111,7 +6174,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:59.934Z",
+      "crawledAt": "2026-06-07T11:20:52.816Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -6196,7 +6259,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dielsdorf-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Dielsdorf/1164751955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:59.140Z",
+      "crawledAt": "2026-06-07T11:20:52.025Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -6254,12 +6317,12 @@
     },
     {
       "id": "mobiliar-3889acc4e655",
-      "slug": "master-di-qualita-w-m-d-die-mobiliar-bern",
+      "slug": "quality-master-w-m-d-mobiliar-ch",
       "slugByLocale": {
-        "it": "master-di-qualita-w-m-d-die-mobiliar-bern",
+        "it": "quality-master-w-m-d-mobiliar-ch",
         "en": "quality-master-w-m-d-die-mobiliar-bern",
         "de": "quality-master-w-m-d-mobiliar-ch",
-        "fr": "qualite-master-w-m-d-die-mobiliar-bern"
+        "fr": "quality-master-w-m-d-mobiliar-ch"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6283,7 +6346,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Quality-Master-%28wmd%29/1164709855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:58.346Z",
+      "crawledAt": "2026-06-07T11:20:51.222Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6319,17 +6382,21 @@
       },
       "sfJobId": "1164709855",
       "previousSlugs": [
-        "quality-master-w-m-d-mobiliar-ch"
+        "master-di-qualita-w-m-d-die-mobiliar-bern",
+        "qualite-master-w-m-d-die-mobiliar-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "master-di-qualita-w-m-d-die-mobiliar-bern",
           "quality-master-w-m-d-mobiliar-ch"
         ],
         "fr": [
+          "qualite-master-w-m-d-die-mobiliar-bern",
           "quality-master-w-m-d-mobiliar-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:15:54.065Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6376,7 +6443,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wil%2C-Region-Wil-und-Toggenburg/940908174/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:57.568Z",
+      "crawledAt": "2026-06-07T11:20:50.424Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -6423,6 +6490,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:00.008Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6469,7 +6537,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Schadenspezialist-%28wmd%29-Generalagentur-Wil-SG/1164087255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:56.803Z",
+      "crawledAt": "2026-06-07T11:20:49.633Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -6520,6 +6588,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6565,7 +6634,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rorschach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Arbon-Rorschach/1164744055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:56.030Z",
+      "crawledAt": "2026-06-07T11:20:48.858Z",
       "addressLocality": "oder nach Vereinbarung",
       "addressCountry": "CH",
       "country": "CH",
@@ -6637,7 +6706,7 @@
       "url": "https://jobs.mobiliar.ch/job/Ebikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Seetal-Rontal/1164548055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:55.265Z",
+      "crawledAt": "2026-06-07T11:20:48.069Z",
       "addressLocality": "Ebikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -6671,6 +6740,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.228Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6717,7 +6787,7 @@
       "url": "https://jobs.mobiliar.ch/job/D%C3%BCdingen-Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-%28Profil-EM%29-Generalagentur-D%C3%BCdingen/1162909055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:54.501Z",
+      "crawledAt": "2026-06-07T11:20:47.289Z",
       "addressLocality": "Düdingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6750,6 +6820,7 @@
         ]
       },
       "firstSeenAt": "2026-05-14T22:31:28.120Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -6795,7 +6866,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Verkaufssupportmitarbeiter-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164539255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:53.740Z",
+      "crawledAt": "2026-06-07T11:20:46.512Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -6842,6 +6913,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.981Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6887,7 +6959,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lugano-Key-Account-Manager-Previdenza-Privata-%28fmd%29/940907274/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-06T22:08:52.980Z",
+      "crawledAt": "2026-06-07T11:20:45.643Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -6905,6 +6977,7 @@
       "requirementsByLocale": {},
       "sfJobId": "940907274",
       "firstSeenAt": "2026-05-10T22:08:53.935Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -6951,7 +7024,7 @@
       "url": "https://jobs.mobiliar.ch/job/Muotathal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz%2C-Standort-Muotathal/1163186555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:52.216Z",
+      "crawledAt": "2026-06-07T11:20:44.759Z",
       "addressLocality": "Muotathal",
       "addressCountry": "CH",
       "country": "CH",
@@ -6985,6 +7058,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:54.704Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7030,7 +7104,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164537855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:51.456Z",
+      "crawledAt": "2026-06-07T11:20:43.247Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -7081,6 +7155,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:50.868Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7127,7 +7202,7 @@
       "url": "https://jobs.mobiliar.ch/job/Eschenbach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rapperswil-Glarus/1163794755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:50.685Z",
+      "crawledAt": "2026-06-07T11:20:42.473Z",
       "addressLocality": "Eschenbach",
       "addressCountry": "CH",
       "country": "CH",
@@ -7214,7 +7289,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lugano-Key-Account-Manager-Private-Vorsorge-%28wmd%29/940907174/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:49.912Z",
+      "crawledAt": "2026-06-07T11:20:41.533Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -7243,6 +7318,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:51.629Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -7289,7 +7365,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-Schadeninspektor-%28wmd%29-Generalagentur-Langenthal/1164737355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:49.138Z",
+      "crawledAt": "2026-06-07T11:20:40.734Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -7340,6 +7416,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:46:00.039Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7386,7 +7463,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Bienne/1164040055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-06T22:08:48.382Z",
+      "crawledAt": "2026-06-07T11:20:39.747Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7404,6 +7481,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1164040055",
       "firstSeenAt": "2026-05-10T22:09:55.414Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7450,7 +7528,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Burgdorf-%28wmd%29/1164040155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:47.620Z",
+      "crawledAt": "2026-06-07T11:20:38.969Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -7497,6 +7575,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:54.660Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -7542,7 +7621,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Biel/1164039955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:46.861Z",
+      "crawledAt": "2026-06-07T11:20:38.191Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7601,6 +7680,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.897Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7647,7 +7727,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schwyz-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz/1164207255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-06T22:08:45.995Z",
+      "crawledAt": "2026-06-07T11:20:37.317Z",
       "addressLocality": "Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7697,6 +7777,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.137Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
