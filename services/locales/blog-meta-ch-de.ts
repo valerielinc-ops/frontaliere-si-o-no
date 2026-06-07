@@ -83,6 +83,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Krankenversicherung für Schweizer im Ausland: Pflichten',
     'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Erfahren Sie die Regeln zur Krankenversicherung für pensionierte und berufstätige Schweizer im Ausland: Pflichten, Fristen und feste Franchise von 300 CHF.',
     'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Schweizer Krankenkasse im Ausland, Menschen mit Dokumenten vor einem Bürogebäude',
+    'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Arbeitslosigkeit stabil',
+    'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'Die SECO bestätigt den nationalen Satz bei 3%. Im Tessin bleibt er bei 2,8%, Graubünden bei 1,4%. Langzeitarbeitslose steigen um 34%.',
+    'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Luftansicht einer Schweizer Stadt mit Arbeitsvermittlungsbüros, Frühlingslicht',
+    'blog.article.pensione-iva-parlamento.title': 'Parlament genehmigt IVA-Erhöhung für Zusatzrente',
+    'blog.article.pensione-iva-parlamento.excerpt': 'Das Nationalrat hat eine vorübergehende Erhöhung der IVA (Mehrwertsteuer) zur Finanzierung der 13. AHV-Rente bewilligt. Die Debatte verdeutlicht die Spannungen zwischen den Parteien bezüglich des alternden Rentensystems. ## Hintergrund und Details \n- Die Erhöhung der IVA soll vorübergehend erfolgen, um die zusätzliche Rentenzahlung zu unterstützen. \n- Der Entscheid spiegelt die Herausforderungen wider, denen sich die Schweiz bei der Finanzierung des Alters- und Hinterlassenenversicherung (AHV) gegenübersieht. \n- Die Diskussionen im Parlament zeigen unterschiedliche Ansichten über die bestehenden Probleme und mögliche Lösungen. \n## Reaktionen der Parteien \nDie Befürworter der Massnahme argumentieren, dass sie notwendig ist, um die langfristige Stabilität der AHV zu gewährleisten. Kritiker bemängeln die Belastung für die Bevölkerung und fordern alternative Finanzierungsmodelle. Die Debatte unterstreicht die Notwendigkeit eines breiten Konsenses über die Reform des Rentensystems. \n## Ausblick \nEs bleibt abzuwarten, wie sich die Situation entwickelt und welche weiteren Massnahmen ergriffen werden müssen, um die AHV zukunftsfähig zu machen. Die Frage der Finanzierung der Renten bleibt ein zentrales Thema in der Schweizer Politik.',
+    'blog.article.pensione-iva-parlamento.imageAlt': 'Schweizer Parlamentsgebäude in Bern mit Schweizer und deutschen Fahnen',
+    'blog.article.migros-24h-herisau.title': 'Migros eröffnet ersten 24-Stunden-Supermarkt',
+    'blog.article.migros-24h-herisau.excerpt': 'Der neue Supermarkt in Herisau hat rund um die Uhr geöffnet. Bis 19.00 Uhr ist Personal vor Ort, danach erfolgt der Betrieb im Self-Service-Modus.',
+    'blog.article.migros-24h-herisau.imageAlt': '24-Stunden-Migros-Supermarkt mit Selbstbedienungskasse und Videoüberwachung',
 };
 
 export default blogMetaChDe;

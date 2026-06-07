@@ -7992,6 +7992,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step-by-step.title': 'G-Bewilligung Schritt für Schritt: Antrag, Dokumente und Zielort',
     'blog.article.richiesta-permesso-g-step-by-step.excerpt': 'Entdecke, wie du in der Schweiz eine G-Bewilligung beantragen kannst: erforderliche Dokumente, zuständige Behörden, Fristen und Kosten. Erfahre mehr über die Grenzgängerbewilligung und die notwendigen Schritte für deine Reise. Besuche die Swissminiatur, ein beliebtes Ziel für Grenzgänger, und entdecke die Vielfalt der Einrichtungen und Attraktionen in der Region. 📊💡⚠️',
     'blog.article.richiesta-permesso-g-step-by-step.imageAlt': 'Frontalier in der Schlange vor dem kantonalen Amt in Bellinzona',
+    'blog.article.imposte-fonte-ticino-calcolatore-2026.title': 'Quellensteuer in Ticino berechnen: Sätze & Simulator 2026',
+    'blog.article.imposte-fonte-ticino-calcolatore-2026.excerpt': 'Praktische Anleitung zur Berechnung der Quellensteuer im Kanton Ticino für 2026 mit Sätzen, Stufen und Simulator für Grenzgänger.',
+    'blog.article.imposte-fonte-ticino-calcolatore-2026.imageAlt': 'Finanzbüro mit Blick auf die Stadt Lugano im Kanton Tessin',
+    'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Tessin und Eisenbahnen: Druck auf Arbeit und Investitionen',
+    'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'Die Tessiner Delegation trifft sich mit den SBB in Bern: keine Entlassungen für Grenzgänger, aber der Güterverkehrssektor wird im Mendrisiotto reduziert.',
+    'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Bahnhof Bellinzona mit modernen Zügen und Tessiner Bahninfrastruktur',
+    'blog.article.calcola-stipendio-netto-ticinonline.title': 'Netto-Gehalt berechnen: Leitfaden für Grenzgänger',
+    'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Wie man das Netto-Gehalt im Kanton Tessin aus dem Bruttogehalt ermittelt, unter Berücksichtigung der Beiträge zu AVS, LPP und der Quellensteuer.',
+    'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Berechnung des Nettogehalts im Kanton Tessin mit Blick auf Lugano',
 };
 
 export default blogMetaDe;

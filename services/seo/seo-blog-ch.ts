@@ -995,6 +995,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-svizzera-maggio-2026': {
+    title: 'Disoccupazione stabile al 3%: il quadro svizzero a maggio 2026',
+    description: 'Dati SECO: disoccupazione stabile al 3% in Svizzera a maggio 2026. Ticino al 2,8%, Grigioni all\'1,4%. +34% disoccupati di lunga durata, prevalentemente',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, stabile, quadro, svizzero',
+    ogTitle: 'Disoccupazione Svizzera maggio 2026: dati SECO e tassi cantonali',
+    ogDescription: 'Dati SECO: disoccupazione stabile al 3% in Svizzera a maggio 2026. Ticino al 2,8%, Grigioni all\'1,4%. +34% disoccupati di lunga durata.',
+    canonicalPath: '/articoli-svizzera/disoccupazione-svizzera-maggio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione stabile al 3%: il quadro svizzero a maggio 2026",
+      "description": "Dati SECO: disoccupazione stabile al 3% in Svizzera a maggio 2026. Ticino al 2,8%, Grigioni all'1,4%. +34% disoccupati di lunga durata, prevalentemente",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-maggio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di centro urbano svizzero con uffici di collocamento, luce primaverile"
+      },
+      "datePublished": "2026-06-07T06:04:10+00:00",
+      "dateModified": "2026-06-07T06:04:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-svizzera-maggio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensione-iva-parlamento': {
+    title: 'Parlamento svizzero approva aumento IVA per finanziare pensione aggiuntiva',
+    description: 'Il Consiglio nazionale ha votato per un aumento IVA temporaneo per finanziare la 13esima pensione. Dibattito su sostenibilità del sistema pensionistico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, svizzero, approva, aumento',
+    ogTitle: 'Parlamento svizzero approva aumento IVA per pensione aggiuntiva',
+    ogDescription: 'Il Consiglio nazionale ha votato per un aumento IVA temporaneo per finanziare la 13esima pensione. Dibattito su sostenibilità del sistema pensionistico.',
+    canonicalPath: '/articoli-svizzera/pensione-iva-parlamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento svizzero approva aumento IVA per finanziare pensione aggiuntiva",
+      "description": "Il Consiglio nazionale ha votato per un aumento IVA temporaneo per finanziare la 13esima pensione. Dibattito su sostenibilità del sistema pensionistico.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-iva-parlamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del Parlamento Svizzero a Berna con bandiere svizzere e tedesche"
+      },
+      "datePublished": "2026-06-07T06:52:53+00:00",
+      "dateModified": "2026-06-07T06:52:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensione-iva-parlamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-migros-24h-herisau': {
+    title: 'Migros aprirà il suo primo supermercato 24 ore su 24 in Svizzera',
+    description: 'Migros inaugura il suo primo supermercato 24 ore a Herisau il 2 luglio con 7\'000 articoli e servizio self-service notturno. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, aprirà, primo, supermercato',
+    ogTitle: 'Migros apre il primo supermercato 24 ore in Svizzera',
+    ogDescription: 'Scopri le novità sul primo supermercato 24 ore di Migros a Herisau, con orari di apertura prolungati e servizio self-service notturno',
+    canonicalPath: '/articoli-svizzera/migros-24h-herisau/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros aprirà il suo primo supermercato 24 ore su 24 in Svizzera",
+      "description": "Migros inaugura il suo primo supermercato 24 ore a Herisau il 2 luglio con 7'000 articoli e servizio self-service notturno. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-24h-herisau.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato Migros aperto 24 ore con casse self-service e videosorveglianza"
+      },
+      "datePublished": "2026-06-07T07:44:31+00:00",
+      "dateModified": "2026-06-07T07:44:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-24h-herisau/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

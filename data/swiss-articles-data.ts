@@ -251,6 +251,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'disoccupazione-svizzera-maggio-2026',
+    category: 'novita',
+    date: '2026-06-07T06:04:10.854Z',
+    image: '/images/blog/disoccupazione-svizzera-maggio-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'pensione-iva-parlamento',
+    category: 'pensione',
+    date: '2026-06-07T06:52:53.508Z',
+    image: '/images/blog/pensione-iva-parlamento.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'migros-24h-herisau',
+    category: 'novita',
+    date: '2026-06-07T07:44:31.532Z',
+    image: '/images/blog/migros-24h-herisau.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

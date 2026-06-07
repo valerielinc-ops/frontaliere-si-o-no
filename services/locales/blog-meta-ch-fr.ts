@@ -83,6 +83,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Assurance maladie pour les Suisses à l\'étranger : obligations',
     'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Découvrez les règles de l’assurance maladie des retraités et des travailleurs suisses à l\'étranger : obligations, échéances et franchise fixe de 300 CHF.',
     'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Assurance maladie suisse à l\'étranger, personnes avec documents devant un bâtiment administratif',
+    'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Chômage stable à 3% : le bilan suisse de mai 2026',
+    'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'La SECO confirme le taux national à 3%. Au Tessin il s\'arrête à 2,8%, aux Grisons à 1,4%. Les chômeurs de longue durée augmentent de 34%.',
+    'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Vue aérienne d\'un centre urbain suisse avec bureaux de placement, lumière printanière',
+    'blog.article.pensione-iva-parlamento.title': 'Augmentation de la TVA pour financer la 13e rente',
+    'blog.article.pensione-iva-parlamento.excerpt': 'Le Conseil national a voté en faveur d\'une augmentation temporaire de la TVA pour soutenir la 13e rente. Le débat a mis en lumière les tensions entre les partis concernant le système de retraite vieillissant. Il s\'agit d\'une mesure controversée visant à assurer la pérennité des **prestations** sociales, alors que la population suisse vieillit et que le système de retraite est confronté à des défis financiers croissants. L\'augmentation de la TVA, bien que temporaire, suscite des inquiétudes quant à son impact sur le pouvoir d\'achat des ménages et la compétitivité des entreprises. Les discussions parlementaires ont révélé des divergences profondes sur la manière de réformer le système de retraite, avec des propositions allant de l\'augmentation de l\'âge de la retraite à la modification des taux de cotisation. L\'adoption de cette mesure marque une étape importante dans le débat sur l\'avenir du système de retraite suisse, mais elle ne résout pas fondamentalement les problèmes structurels qui le confrontent. Les partis politiques continuent de s\'affronter sur les solutions à adopter pour garantir un système de retraite solidaire et financièrement viable pour les générations futures.',
+    'blog.article.pensione-iva-parlamento.imageAlt': 'Palais fédéral de Berne avec drapeaux suisses et allemands',
+    'blog.article.migros-24h-herisau.title': 'Migros ouvre son 1er supermarché 24h/24 en Suisse',
+    'blog.article.migros-24h-herisau.excerpt': 'Le magasin d\'Herisau sera ouvert 24h/7j avec du personnel jusqu\'à 19h00 et du libre-service pendant la nuit.',
+    'blog.article.migros-24h-herisau.imageAlt': 'Supermarché Migros ouvert 24 heures avec caisse automatique et vidéosurveillance',
 };
 
 export default blogMetaChFr;

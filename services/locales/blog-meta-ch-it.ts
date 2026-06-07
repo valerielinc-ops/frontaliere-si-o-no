@@ -83,6 +83,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Assicurazione malattie per svizzeri all’estero: obblighi',
     'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Scopri le regole per l’assicurazione malattie dei pensionati e dei lavoratori svizzeri all’estero: obblighi, scadenze e franchigia fissa di 300 CHF.',
     'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Assicurazione malattie svizzera all\'estero, persone con documenti davanti a un edificio',
+    'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Disoccupazione stabile al 3%: il quadro svizzero a maggio 2026',
+    'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'La SECO conferma il tasso nazionale al 3%. In Ticino si ferma al 2,8%, Grigioni all\'1,4%. Crescono del 34% i disoccupati di lunga durata.',
+    'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Vista aerea di centro urbano svizzero con uffici di collocamento, luce primaverile',
+    'blog.article.pensione-iva-parlamento.title': 'Parlamento svizzero approva aumento IVA per finanziare pensione aggiuntiva',
+    'blog.article.pensione-iva-parlamento.excerpt': 'Il Consiglio nazionale ha votato per un aumento dell\'IVA temporaneo per sostenere la 13esima pensione. Il dibattito evidenzia le tensioni tra partiti su sistema pensionistico invecchiante.',
+    'blog.article.pensione-iva-parlamento.imageAlt': 'Edificio del Parlamento Svizzero a Berna con bandiere svizzere e tedesche',
+    'blog.article.migros-24h-herisau.title': 'Migros aprirà il suo primo supermercato 24 ore su 24 in Svizzera',
+    'blog.article.migros-24h-herisau.excerpt': 'Il negozio di Herisau sarà aperto 24/7 con personale fino alle 19.00 e self-service la notte',
+    'blog.article.migros-24h-herisau.imageAlt': 'Supermercato Migros aperto 24 ore con casse self-service e videosorveglianza',
 };
 
 export default blogMetaChIt;

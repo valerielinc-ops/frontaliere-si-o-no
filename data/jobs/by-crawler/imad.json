@@ -102,7 +102,7 @@
       "descriptionByLocale": {
         "it": "• Si prega di allegare al file: un curriculum aggiornato, una lettera di presentazione, una copia dei diplomi e dei certificati di lavoro.",
         "en": "• Please attach to your file: an up-to-date resume, a cover letter, a copy of your diplomas and your work certificates.",
-        "de": "• Bitte fügen Sie Ihre Datei an: ein aktueller Lebenslauf, ein Belegbrief, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse.",
+        "de": "• Bitte fügen Sie Ihrer Datei bei: einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen.",
         "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
       },
       "needsRetranslation": true,
@@ -149,7 +149,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "retranslationAttempts": 1
     },
     {
       "id": "imad-8f0c16216a99",

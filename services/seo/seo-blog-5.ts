@@ -42779,6 +42779,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-fonte-ticino-calcolatore-2026': {
+    title: 'Come calcolare l\'imposta alla fonte in Ticino: aliquote e simulatore 2026',
+    description: 'Scopri come calcolare l\'imposta alla fonte in Ticino nel 2026 con aliquote aggiornate, scaglioni e simulatore per i frontalieri con permesso G. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolare, imposta, alla, fonte',
+    ogTitle: 'Calcolo imposta alla fonte in Ticino 2026 con simulatore',
+    ogDescription: 'Guida pratica per il calcolo dell\'imposta alla fonte in Ticino nel 2026, con aliquote aggiornate e simulatore per lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/imposte-fonte-ticino-calcolatore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come calcolare l'imposta alla fonte in Ticino: aliquote e simulatore 2026",
+      "description": "Scopri come calcolare l'imposta alla fonte in Ticino nel 2026 con aliquote aggiornate, scaglioni e simulatore per i frontalieri con permesso G. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-fonte-ticino-calcolatore-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio finanziario con vista sulla città di Lugano in Canton Ticino"
+      },
+      "datePublished": "2026-06-07T05:51:20+00:00",
+      "dateModified": "2026-06-07T05:51:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposte-fonte-ticino-calcolatore-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tpressing-lavoro-investimenti-ffs': {
+    title: 'Ticino e ferrovie: pressing su lavoro e investimenti',
+    description: 'Dopo il ridimensionamento di FFS Cargo, nessun licenziamento in Ticino. Investimenti da 500 milioni CHF nel programma Ferrovia 2045. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ferrovie, pressing, lavoro, investimenti',
+    ogTitle: 'Ticino e FFS: lavoro e investimenti ferroviari confermati',
+    ogDescription: 'FFS assicura nessun licenziamento in Ticino dopo ridimensionamento Cargo. Ticino punta su 500 mln CHF per Ferrovia 2045.',
+    canonicalPath: '/articoli-frontaliere/tpressing-lavoro-investimenti-ffs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino e ferrovie: pressing su lavoro e investimenti",
+      "description": "Dopo il ridimensionamento di FFS Cargo, nessun licenziamento in Ticino. Investimenti da 500 milioni CHF nel programma Ferrovia 2045. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tpressing-lavoro-investimenti-ffs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Bellinzona con treni moderni e infrastrutture ticinesi"
+      },
+      "datePublished": "2026-06-07T06:40:04+00:00",
+      "dateModified": "2026-06-07T06:40:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tpressing-lavoro-investimenti-ffs`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calcola-stipendio-netto-ticinonline': {
+    title: 'Calcola il tuo stipendio netto: guida per i frontalieri',
+    description: 'Come calcolare lo stipendio netto in Canton Ticino per i frontalieri. Scopri i contributi AVS, LPP, imposta alla fonte e le regole del nuovo accordo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcola, stipendio, netto, determinare',
+    ogTitle: 'Calcola lo stipendio netto in Canton Ticino',
+    ogDescription: 'Scopri come calcolare lo stipendio netto in Canton Ticino. Guida completa su contributi AVS, LPP, imposta alla fonte e tassazione per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/calcola-stipendio-netto-ticinonline',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcola il tuo stipendio netto: guida per i frontalieri",
+      "description": "Come calcolare lo stipendio netto in Canton Ticino per i frontalieri. Scopri i contributi AVS, LPP, imposta alla fonte e le regole del nuovo accordo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcola-stipendio-netto-ticinonline.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Calcolo dello stipendio netto in Canton Ticino con vista su Lugano"
+      },
+      "datePublished": "2026-06-07T07:13:15+00:00",
+      "dateModified": "2026-06-07T07:13:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcola-stipendio-netto-ticinonline`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
