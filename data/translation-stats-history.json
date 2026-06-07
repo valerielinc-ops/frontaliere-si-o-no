@@ -11270,5 +11270,119 @@
         "pending": 14
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-07T14:57:50.275Z",
+    "label": "before",
+    "total": 10841,
+    "needsRetranslation": 7115,
+    "suppressed": 34,
+    "incomplete": 630,
+    "complete": 10211,
+    "missingByLocale": {
+      "it": 373,
+      "en": 304,
+      "de": 248,
+      "fr": 380
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 101
+      },
+      {
+        "company": "Richemont",
+        "pending": 100
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 31
+      },
+      {
+        "company": "Roche",
+        "pending": 29
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 21
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-07T17:49:44.237Z",
+    "label": "after",
+    "total": 10841,
+    "needsRetranslation": 2816,
+    "suppressed": 36,
+    "incomplete": 490,
+    "complete": 10351,
+    "missingByLocale": {
+      "it": 322,
+      "en": 242,
+      "de": 209,
+      "fr": 305
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 100
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 29
+      },
+      {
+        "company": "Roche",
+        "pending": 25
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "Richemont",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 15
+      },
+      {
+        "company": "Sulzer",
+        "pending": 14
+      }
+    ]
   }
 ]
