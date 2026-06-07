@@ -146,7 +146,7 @@ for (const c of CASES) {
     // Structural net: no above-the-fold loading skeleton may remain, on ANY
     // page, before we capture — prevents freezing a partial-hydration baseline
     // even if a future case's readySelector under-specifies readiness.
-    await waitForNoAboveFoldSkeletons(page, VIEWPORT.height);
+    await waitForNoAboveFoldSkeletons(page, page.viewportSize()?.height ?? 800);
     // Brief settle: wait for layout shift to stabilize after font load.
     await page.waitForTimeout(500);
     // Viewport-only screenshot (1280x800). Full-page / element screenshots
