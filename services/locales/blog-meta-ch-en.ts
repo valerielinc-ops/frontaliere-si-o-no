@@ -80,6 +80,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.title': 'La finanza svizzera sotto esame per il clima',
     'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.excerpt': 'La Svizzera è una potenza finanziaria, ma il suo settore finanziario continua a investire miliardi in progetti legati ai combustibili fossili.',
     'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.imageAlt': 'Lugano financial district with a sustainable atmosphere',
+    'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Health insurance for Swiss abroad: obligations',
+    'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Learn the rules for health insurance of Swiss retirees and workers abroad: obligations, deadlines and a fixed deductible of 300 CHF.',
+    'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Swiss health insurance abroad, people with documents in front of an office building',
 };
 
 export default blogMetaChEn;
