@@ -7991,6 +7991,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere.title': 'Frontaliere Ticino: nuove norme e regole per i lavoratori frontalieri',
     'blog.article.frontaliere.excerpt': 'Le nuove norme e regole per i lavoratori frontalieri nel Canton Ticino',
     'blog.article.frontaliere.imageAlt': 'Una città del Canton Ticino con un mix di edifici storici e moderni',
+    'blog.article.richiesta-permesso-g-step-by-step.title': 'G step by step: permesso, documenti e dove andare',
+    'blog.article.richiesta-permesso-g-step-by-step.excerpt': 'Scopri come richiedere il permesso G in Ticino: documenti necessari, uffici competenti, tempi e costi',
+    'blog.article.richiesta-permesso-g-step-by-step.imageAlt': 'Frontaliere in coda all\'ufficio cantonale di Bellinzona',
 };
 
 export default blogMetaIt;

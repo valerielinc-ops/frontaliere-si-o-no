@@ -7991,6 +7991,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere.title': 'Nouvelles règles pour les travailleurs frontaliers au Tessin',
     'blog.article.frontaliere.excerpt': 'Les nouvelles règles et normes pour les travailleurs frontaliers dans le canton du Tessin',
     'blog.article.frontaliere.imageAlt': 'Une ville dans le Canton du Tessin avec un mélange d\'édifices historiques et modernes',
+    'blog.article.richiesta-permesso-g-step-by-step.title': 'Étape par étape : permis, documents et où aller',
+    'blog.article.richiesta-permesso-g-step-by-step.excerpt': 'Découvrez comment demander le permis G en Suisse : documents nécessaires, bureaux compétents, délais et coûts. 💡📊⚠️\n\nScopri come richiedere il permis G in Ticino: documenti necessari, uffici competenti, tempi e costi.\n\n### Documents nécessaires\n\n- Pièces d\'identité\n- Justificatif de domicile\n- Justificatif de revenus\n\n### Bureaux compétents\n\n- [Ufficio di immigrazione di Bellinzona](nav:azione)\n- [Ufficio di immigrazione di Lugano](nav:azione)\n\n### Délais et coûts\n\n- Le délai de délivrance du permis G est de environ 1-2 mois.\n- Le coût du permis G est de environ 100-200 francs.\n\n### Conseils\n\n- Il est recommandé de demander le permis G avant les ponts ou les jours fériés.\n- Il est recommandé de vérifier les conditions d\'obtention du permis G avant de demander le permis.\n\n### Liens utiles\n\n- [Informations sur le permis G](nav:azione)\n- [Demande de permis G](nav:azione)',
+    'blog.article.richiesta-permesso-g-step-by-step.imageAlt': 'Frontalier en file d\'attente devant l\'office cantonal de Bellinzona',
 };
 
 export default blogMetaFr;
