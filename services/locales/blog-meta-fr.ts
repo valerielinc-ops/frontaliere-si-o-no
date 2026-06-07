@@ -8000,6 +8000,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Tessin et chemins de fer: pression sur l\'emploi et les investissements',
     'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'La délégation tessinoise rencontre les CFF à Berne: pas de licenciement pour les frontaliers, mais le secteur cargo réduit dans le Mendrisiotto.',
     'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Gare de Bellinzone avec trains modernes et infrastructure ferroviaire tessinoise',
+    'blog.article.calcola-stipendio-netto-ticinonline.title': 'Calculer votre salaire net : guide pour frontalier(s)',
+    'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Comment déterminer votre salaire net dans le canton du Tessin à partir de votre salaire brut, entre contributions AVS, LPP et impôt à la source.',
+    'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Calcul du salaire net dans le canton du Tessin avec vue sur Lugano',
 };
 
 export default blogMetaFr;

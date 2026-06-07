@@ -3944,6 +3944,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-svizzera-maggio-2026': { name: 'Disoccupazione Svizzera 2026', path: '/articoli-svizzera/disoccupazione-svizzera-maggio-2026/', parent: 'blog' },
     'blog-tpressing-lavoro-investimenti-ffs': { name: 'Lavoro e Ferrovie Ticino', path: '/articoli-frontaliere/tpressing-lavoro-investimenti-ffs', parent: 'blog' },
     'blog-pensione-iva-parlamento': { name: 'Pensione e IVA', path: '/articoli-svizzera/pensione-iva-parlamento/', parent: 'blog' },
+    'blog-calcola-stipendio-netto-ticinonline': { name: 'Calcolo stipendio netto', path: '/articoli-frontaliere/calcola-stipendio-netto-ticinonline', parent: 'blog' },
  };
 
  const info = sectionNames[section];
