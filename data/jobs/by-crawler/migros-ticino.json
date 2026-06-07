@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-q8ywks",
-      "slug": "vendeur-vendeuse-migrolino-sierre",
+      "slug": "venditore-migrolino-sierre",
       "company": "migrolino",
       "title": "Vendeur / Vendeuse",
       "location": "Sierre",
@@ -41,7 +41,7 @@
       "crawledAt": "2026-06-07T11:36:37.331Z",
       "firstSeenAt": "2026-06-07T11:36:37.331Z",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-migrolino-sierre",
+        "it": "venditore-migrolino-sierre",
         "en": "vendeur-vendeuse-denner",
         "de": "vendeur-vendeuse-denner",
         "fr": "vendeur-vendeuse-denner-geneve"
@@ -78,12 +78,14 @@
           "vendeur-vendeuse-migrolino-sierre-q8ywks"
         ],
         "it": [
-          "vendeur-vendeuse-denner-geneve"
+          "vendeur-vendeuse-denner-geneve",
+          "vendeur-vendeuse-migrolino-sierre"
         ]
       },
       "previousSlugs": [
+        "vendeur-vendeuse-migrolino-sierre-q8ywks",
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-migrolino-sierre-q8ywks"
+        "vendeur-vendeuse-migrolino-sierre"
       ],
       "sourceLang": "fr",
       "salaryMin": 49500,
@@ -496,7 +498,7 @@
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-r7be30",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-r7be30",
         "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-st-moritz-r7be30",
-        "fr": "club-de-remise-en-forme-du-gestionnaire-adjoint-m-j-activ-fitness-st-moritz-r7be30"
+        "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-r7be30"
       },
       "requirementsByLocale": {
         "it": [],
@@ -517,13 +519,11 @@
           "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz"
         ],
         "fr": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-r7be30"
+          "club-de-remise-en-forme-du-gestionnaire-adjoint-m-j-activ-fitness-st-moritz-r7be30"
         ]
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-r7be30",
-        "assistente-al-fitness-club-m-p-d-activ-fitness-st-moritz",
         "club-de-remise-en-forme-du-gestionnaire-adjoint-m-j-activ-fitness-st-moritz-r7be30"
       ],
       "salaryMin": 68000,
@@ -925,7 +925,7 @@
         "it": "senior-network-ingegnere-m-w-d-migros-genossenschafts-bund-zurich-9xf0mh",
         "en": "senior-network-engineer-m-w-d-migros-genossenschafts-bund-zurich-9xf0mh",
         "de": "senior-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-9xf0mh",
-        "fr": "senior-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-9xf0mh"
+        "fr": "ingenieur-principal-du-reseau-f-m-d-migros-genossenschafts-bund-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -944,10 +944,14 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-network-engineer-m-w-d-migros-genossenschafts-bund-zurich"
+        ],
+        "fr": [
+          "senior-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-9xf0mh"
         ]
       },
       "previousSlugs": [
-        "senior-network-engineer-m-w-d-migros-genossenschafts-bund-zurich"
+        "senior-network-engineer-m-w-d-migros-genossenschafts-bund-zurich",
+        "senior-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-9xf0mh"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -1029,7 +1033,7 @@
         "it": "wlan-network-ingegnere-m-w-d-migros-genossenschafts-bund-zurich-ifbe63",
         "en": "wlan-network-engineer-m-w-d-migros-genossenschafts-bund-zurich-ifbe63",
         "de": "wlan-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-ifbe63",
-        "fr": "wlan-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-ifbe63"
+        "fr": "ingenieur-reseau-wlan-migros-genossenschafts-bund-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1051,14 +1055,13 @@
         ],
         "fr": [
           "ingenieur-reseau-m-d-migros-genossenschafts-bund-zurich",
-          "ingenieur-reseau-wlan-migros-genossenschafts-bund-zurich",
           "wlan-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-ifbe63"
         ]
       },
       "previousSlugs": [
         "wlan-network-engineer-m-w-d-migros-genossenschafts-bund-zurich",
         "ingenieur-reseau-m-d-migros-genossenschafts-bund-zurich",
-        "ingenieur-reseau-wlan-migros-genossenschafts-bund-zurich"
+        "wlan-network-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-ifbe63"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -8433,13 +8436,11 @@
           "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich"
         ],
         "fr": [
-          "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich-5aafbm",
           "gestionnaire-des-applications-erp-odoo-migros-genossenschafts-bund-zurich"
         ]
       },
       "previousSlugs": [
         "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich",
-        "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich-5aafbm",
         "gestionnaire-des-applications-erp-odoo-migros-genossenschafts-bund-zurich"
       ],
       "salaryMin": 68000,
@@ -56962,7 +56963,7 @@
     },
     {
       "id": "company-773mr0",
-      "slug": "cook-migros-golf-ag-davos-platz",
+      "slug": "cook-migros-golf-ag-otelfingen",
       "company": "Migros Golf AG",
       "title": "Koch*Köchin",
       "location": "Otelfingen",
@@ -57060,7 +57061,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "cook-migros-golf-ag-davos-platz",
+        "it": "cook-migros-golf-ag-otelfingen",
         "en": "cook-kochin-migros-restaurant-davos-platz-773mr0",
         "de": "koch-kochin-migros-restaurant-davos-platz-773mr0",
         "fr": "cuisiniere-kochin-migros-restaurant-davos-platz-773mr0"
@@ -57073,7 +57074,6 @@
           "cucina-kochin-migros-restaurant-bellinzona",
           "cucina-kochin-migros-restaurant-davos-platz",
           "cook-migros-restaurant-davos-platz",
-          "cook-migros-golf-ag-otelfingen",
           "cook-migros-golf-ag-davos-platz"
         ],
         "de": [
@@ -57087,7 +57087,7 @@
         "cucina-kochin-migros-restaurant-bellinzona",
         "cucina-kochin-migros-restaurant-davos-platz",
         "cook-migros-restaurant-davos-platz",
-        "cook-migros-golf-ag-otelfingen",
+        "cook-migros-golf-ag-davos-platz",
         "koch-kochin-migros-restaurant-bellinzona"
       ],
       "baseSalary": {
