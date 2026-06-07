@@ -7,7 +7,7 @@
       "slug": "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "it": "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln",
-        "en": "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
+        "en": "paramedic-training-station-m-f-d-ameos-schweiz-einsiedeln",
         "de": "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
         "fr": "projektleiter-m-m-j-ameos-schweiz-einsiedeln"
       },
@@ -61,7 +61,8 @@
           "projektleiter-m-w-d-ameos-schweiz-einsiedeln"
         ],
         "en": [
-          "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
+          "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
+          "projektleiter-m-w-d-ameos-schweiz-einsiedeln"
         ],
         "fr": [
           "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
@@ -358,7 +359,6 @@
         "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
         "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
         "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-        "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
         "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
@@ -588,8 +588,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln",
-        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln"
+        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -615,12 +614,12 @@
     },
     {
       "id": "ameos-ch-f92a8261b787",
-      "slug": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+      "slug": "professionale-m-f-d-terapia-professionale-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-        "it": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+        "it": "professionale-m-f-d-terapia-professionale-ameos-schweiz-einsiedeln",
         "en": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-        "fr": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        "fr": "professionnel-m-f-d-ergotherapie-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -675,7 +674,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-06T21:12:39.880Z"
+      "firstSeenAt": "2026-06-06T21:12:39.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        ],
+        "fr": [
+          "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-ffe685bdb1d7",
@@ -752,12 +762,12 @@
     },
     {
       "id": "ameos-ch-2cf745257508",
-      "slug": "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
+      "slug": "aiuto-da-cucina-m-f-d-50-100-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "it": "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
-        "en": "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
+        "it": "aiuto-da-cucina-m-f-d-50-100-ameos-schweiz-einsiedeln",
+        "en": "kitchen-aid-m-f-d-50-100-ameos-schweiz-einsiedeln",
         "de": "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
-        "fr": "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+        "fr": "aide-a-la-cuisine-m-f-j-50-100-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -810,16 +820,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+        ],
+        "en": [
+          "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+        ],
+        "fr": [
+          "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-0a02f183f5d6",
-      "slug": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
+      "slug": "stv-linea-della-stazione-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "it": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "en": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "fr": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        "it": "stv-linea-della-stazione-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "stv-station-line-m-f-d-interdisciplinary-bed-station-ameos-schweiz-einsiedeln",
+        "fr": "ligne-de-la-station-stv-m-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -874,7 +898,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-06T21:12:37.311Z"
+      "firstSeenAt": "2026-06-06T21:12:37.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "en": [
+          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "fr": [
+          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-c94581b220c7",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "msc-cargo-af6a054141fb",
-      "slug": "direct-to-consumer-channels-analyst-msc-geneva",
+      "slug": "analista-dei-canali-diretti-al-consumo-msc-group-geneva",
       "slugByLocale": {
         "en": "direct-to-consumer-channels-analyst-msc-geneva",
-        "it": "direct-to-consumer-channels-analyst-msc-geneva",
-        "de": "direct-to-consumer-channels-analyst-msc-geneva",
-        "fr": "direct-to-consumer-channels-analyst-msc-geneva"
+        "it": "analista-dei-canali-diretti-al-consumo-msc-group-geneva",
+        "de": "direkt-zu-verbraucher-kanale-analyst-msc-group-geneva",
+        "fr": "analyste-des-canaux-directs-a-consommateurs-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -65,7 +65,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-06T22:15:03.357Z"
+      "firstSeenAt": "2026-06-06T22:15:03.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direct-to-consumer-channels-analyst-msc-geneva"
+        ],
+        "de": [
+          "direct-to-consumer-channels-analyst-msc-geneva"
+        ],
+        "fr": [
+          "direct-to-consumer-channels-analyst-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "direct-to-consumer-channels-analyst-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -138,8 +152,8 @@
       "slugByLocale": {
         "it": "spa-product-manager-msc-geneva",
         "en": "spa-product-manager-msc-geneva",
-        "de": "spa-product-manager-msc-geneva",
-        "fr": "spa-product-manager-msc-geneva"
+        "de": "spa-produktmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-produits-spa-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -347,7 +361,7 @@
         "it": "gestione-multimediale-e-av-msc-group-geneva",
         "en": "multimedia-and-av-manager-msc-geneva",
         "de": "gestione-multimediale-e-av-msc-group-geneva",
-        "fr": "gestione-multimediale-e-av-msc-group-geneva"
+        "fr": "gestionnaire-multimedia-et-av-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -418,7 +432,7 @@
         "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "en": "junior-architect-port-development-intern-msc-geneva",
         "de": "junior-architect-port-development-praktikant-msc-group-geneva",
-        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
+        "fr": "stagiaire-en-developpement-portuaire-junior-architecte-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -460,14 +474,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-architect-port-development-intern-msc-geneva"
+        "junior-architect-port-development-intern-msc-geneva",
+        "junior-architecte-port-development-stagiaire-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "fr": [
-          "junior-architect-port-development-intern-msc-geneva"
+          "junior-architect-port-development-intern-msc-geneva",
+          "junior-architecte-port-development-stagiaire-msc-group-geneva"
         ],
         "de": [
           "junior-architect-port-development-intern-msc-geneva"
@@ -490,12 +506,12 @@
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "gestore-dei-servizi-f-b-msc-group-geneva",
       "slugByLocale": {
         "en": "f-b-service-manager-msc-geneva",
-        "it": "f-b-service-manager-msc-geneva",
-        "de": "f-b-service-manager-msc-geneva",
-        "fr": "f-b-service-manager-msc-geneva"
+        "it": "gestore-dei-servizi-f-b-msc-group-geneva",
+        "de": "f-b-servicemanager-msc-group-geneva",
+        "fr": "gestionnaire-de-services-f-b-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -551,7 +567,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-06T22:14:56.215Z"
+      "firstSeenAt": "2026-06-06T22:14:56.215Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ],
+        "de": [
+          "f-b-service-manager-msc-geneva"
+        ],
+        "fr": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
@@ -636,8 +666,8 @@
       "slugByLocale": {
         "en": "culinary-operations-manager-msc-geneva",
         "it": "gestione-delle-operazioni-culinarie-msc-group-geneva",
-        "de": "gestione-delle-operazioni-culinarie-msc-group-geneva",
-        "fr": "gestione-delle-operazioni-culinarie-msc-group-geneva"
+        "de": "kulinarischer-betriebsleiter-msc-group-geneva",
+        "fr": "gestionnaire-des-operations-culinaires-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
