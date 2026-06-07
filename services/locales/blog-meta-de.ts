@@ -7992,6 +7992,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step-by-step.title': 'G-Bewilligung Schritt für Schritt: Antrag, Dokumente und Zielort',
     'blog.article.richiesta-permesso-g-step-by-step.excerpt': 'Entdecke, wie du in der Schweiz eine G-Bewilligung beantragen kannst: erforderliche Dokumente, zuständige Behörden, Fristen und Kosten. Erfahre mehr über die Grenzgängerbewilligung und die notwendigen Schritte für deine Reise. Besuche die Swissminiatur, ein beliebtes Ziel für Grenzgänger, und entdecke die Vielfalt der Einrichtungen und Attraktionen in der Region. 📊💡⚠️',
     'blog.article.richiesta-permesso-g-step-by-step.imageAlt': 'Frontalier in der Schlange vor dem kantonalen Amt in Bellinzona',
+    'blog.article.imposte-fonte-ticino-calcolatore-2026.title': 'Quellensteuer in Ticino berechnen: Sätze & Simulator 2026',
+    'blog.article.imposte-fonte-ticino-calcolatore-2026.excerpt': 'Praktische Anleitung zur Berechnung der Quellensteuer im Kanton Ticino für 2026 mit Sätzen, Stufen und Simulator für Grenzgänger.',
+    'blog.article.imposte-fonte-ticino-calcolatore-2026.imageAlt': 'Finanzbüro mit Blick auf die Stadt Lugano im Kanton Tessin',
 };
 
 export default blogMetaDe;
