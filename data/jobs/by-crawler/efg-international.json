@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-06-07T10:48:47.666Z",
+  "assembledAt": "2026-06-07T21:44:36.057Z",
   "jobs": [
     {
       "id": "efg-6280",
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.366Z",
+      "crawledAt": "2026-06-07T21:44:33.547Z",
       "slugByLocale": {
         "it": "analista-di-reporting-regolamentare-efg-international-ag-geneve",
         "en": "regulatory-reporting-analyst-efg-geneve",
@@ -92,7 +92,8 @@
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -175,7 +176,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.364Z",
+      "crawledAt": "2026-06-07T21:44:33.545Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -218,7 +219,8 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -307,7 +309,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.363Z",
+      "crawledAt": "2026-06-07T21:44:33.544Z",
       "slugByLocale": {
         "it": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -395,7 +397,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.362Z",
+      "crawledAt": "2026-06-07T21:44:33.543Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -438,7 +440,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -588,7 +591,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.361Z",
+      "crawledAt": "2026-06-07T21:44:33.543Z",
       "slugByLocale": {
         "it": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
@@ -628,7 +631,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6190",
@@ -756,7 +760,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.360Z",
+      "crawledAt": "2026-06-07T21:44:33.541Z",
       "slugByLocale": {
         "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -799,7 +803,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -850,7 +855,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.359Z",
+      "crawledAt": "2026-06-07T21:44:33.540Z",
       "slugByLocale": {
         "it": "client-support-officer-efg-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -888,7 +893,8 @@
           "funzionario-dell-assistenza-clienti-efg-international-ag-st"
         ]
       },
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1014,7 +1020,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.357Z",
+      "crawledAt": "2026-06-07T21:44:33.537Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1059,144 +1065,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6150",
-      "slug": "bi-solution-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "BI Solution Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "University degree in Business, Data Science, Computer Science or Engineering",
-        "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-        "Advanced knowledge of SQL and Python for database querying and data extraction",
-        "Analytical and structured mindset with strong communication skills",
-        "Practical, hands‑on and problem‑solving aptitude",
-        "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-      ],
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "BI Solution Specialist",
-        "it": "BI Solution Specialista",
-        "de": "BI Solution Spezialist",
-        "fr": "BI Solution Spécialiste"
-      },
-      "descriptionByLocale": {
-        "en": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Principali responsabilità\n- Progettazione, costruzione e mantenimento dell'infrastruttura dei dati aziendali e gestionali\n- Sviluppare soluzioni di reporting e analisi per trasformare i dati in insight aziendali attuabili\n\n- giocare un ruolo chiave nel migliorare le capacità di data mining del team e agire come esperto di dati, fornendo indicazioni sul trattamento e l'analisi dei dati\n- Rimanere al passo con i principali sviluppi tecnici e tendenze (ad esempio AI, tecnologie cloud) e valutare la loro rilevanza per il panorama dei dati e delle analisi del Gruppo\n\nCompetenze ed esperienza\n- Laurea in Business, Data Science, Informatica o Ingegneria\n- Livello avanzato negli strumenti di visualizzazione dei dati come Power Query, Power BI, Tableau o simili\n- Conoscenza avanzata di SQL e Python per l'interrogazione di database e l'estrazione dei dati\n\n- mentalità analitica e strutturata con forti capacità di comunicazione\n- Aptitude pratica, pratica e problem solving\n\n- mentalità orientata al futuro e approccio proattivo agli sviluppi tecnici e alle tendenze in un ambiente dinamico\nI nostri valori\n\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\nPassionato: Impegnarsi e lottare per l'eccellenza\n\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Hauptaufgaben\n- Planung, Bau und Aufrechterhaltung der Dateninfrastruktur für Geschäfts- und Managementdaten\n- Entwicklung von Reporting- und Analyselösungen, um Daten zu handlungsfähigen Unternehmenseinsichten zu machen\n- Eine wichtige Rolle bei der Verbesserung der Datengewinnungsfähigkeit des Teams spielen und als Datenexperte fungieren, um die Datenverarbeitung und -analyse zu beraten\n- Bleiben Sie am Besten der wichtigsten technischen Entwicklungen und Trends (z.B. KI, Cloud-Technologien) und bewerten Sie ihre Relevanz für die Daten- und Analyselandschaft der Gruppe\n\nFähigkeiten und Erfahrung\n- Hochschulabschluss in Wirtschaft, Informatik, Informatik oder Ingenieurwesen\n- Erweiterte Ebene in Datenvisualisierungstools wie Power Query, Power BI, Tableau oder dergleichen\n- Erweiterte Kenntnisse von SQL und Python zur Datenbankabfrage und Datenextraktion\n- Analytische und strukturierte Denkweise mit starken Kommunikationsfähigkeiten\n- Praktische, praktische und problematische Eignung\n\n- zukunftsorientierter Denkansatz und proaktiver Ansatz für technische Entwicklungen und Trends in einem dynamischen Umfeld\nUnsere Werte\n\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Principales responsabilités\n- Conception, construction et entretien d'une infrastructure de données sur les entreprises et la gestion\n- Développer des solutions de reporting et d'analyse pour transformer les données en informations opérationnelles exploitables\n- Jouer un rôle clé dans le renforcement des capacités de l'équipe en matière d'extraction de données et agir en tant qu'expert en données, en fournissant des conseils sur le traitement et l'analyse des données\n- Se tenir au courant des principaux développements et tendances techniques (par exemple l'IA, les technologies du cloud) et évaluer leur pertinence pour le paysage de données et d'analyses du Groupe\n\nCompétences et expérience\n- Diplôme universitaire en commerce, informatique, informatique ou ingénierie\n- Niveau avancé dans les outils de visualisation des données tels que Power Query, Power BI, Tableau ou similaire\n- Connaissance avancée de SQL et Python pour la recherche de bases de données et l'extraction de données\n- Un état d'esprit analytique et structuré avec de solides compétences en communication\n- Aptitude pratique, pratique et résolution de problèmes\n- Un état d'esprit orienté vers l'avenir et une approche proactive des développements techniques et des tendances dans un environnement dynamique\nNos valeurs\n\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionné : Être engagé et chercher l'excellence\n\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "University degree in Business, Data Science, Computer Science or Engineering",
-          "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-          "Advanced knowledge of SQL and Python for database querying and data extraction",
-          "Analytical and structured mindset with strong communication skills",
-          "Practical, hands‑on and problem‑solving aptitude",
-          "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
-            ],
-            "requirements": [
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical, hands‑on and problem‑solving aptitude",
-              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction"
-            ],
-            "keywords": [
-              "University degree in Business",
-              "Advanced level in data visualisation tools such as Power Query",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical",
-              "Designing",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
-              "Staying abreast of key technical developments and trends (e.g. AI"
-            ],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-06-07T10:48:45.355Z",
-      "slugByLocale": {
-        "it": "bi-solution-specialist-efg-geneve",
-        "en": "bi-solution-specialist-efg-international-ag-geneve",
-        "de": "bi-solution-specialist-efg-geneve",
-        "fr": "bi-solution-specialist-efg-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.898Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "bi-solution-spezialist-efg-international-ag-geneve"
-        ],
-        "fr": [
-          "bi-solution-specialiste-efg-international-ag-geneve"
-        ],
-        "it": [
-          "bi-solution-specialista-efg-international-ag-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "bi-solution-spezialist-efg-international-ag-geneve",
-        "bi-solution-specialiste-efg-international-ag-geneve",
-        "bi-solution-specialista-efg-international-ag-geneve"
-      ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1349,7 +1219,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.355Z",
+      "crawledAt": "2026-06-07T21:44:33.536Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1424,6 +1294,144 @@
       },
       "firstSeenAt": "2026-04-13T10:28:21.959Z",
       "country": "CH"
+    },
+    {
+      "id": "efg-6150",
+      "slug": "bi-solution-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "BI Solution Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [
+        "University degree in Business, Data Science, Computer Science or Engineering",
+        "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+        "Advanced knowledge of SQL and Python for database querying and data extraction",
+        "Analytical and structured mindset with strong communication skills",
+        "Practical, hands‑on and problem‑solving aptitude",
+        "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+      ],
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "BI Solution Specialist",
+        "it": "BI Solution Specialista",
+        "de": "BI Solution Spezialist",
+        "fr": "BI Solution Spécialiste"
+      },
+      "descriptionByLocale": {
+        "en": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Principali responsabilità\n- Progettazione, costruzione e mantenimento dell'infrastruttura dei dati aziendali e gestionali\n- Sviluppare soluzioni di reporting e analisi per trasformare i dati in insight aziendali attuabili\n\n- giocare un ruolo chiave nel migliorare le capacità di data mining del team e agire come esperto di dati, fornendo indicazioni sul trattamento e l'analisi dei dati\n- Rimanere al passo con i principali sviluppi tecnici e tendenze (ad esempio AI, tecnologie cloud) e valutare la loro rilevanza per il panorama dei dati e delle analisi del Gruppo\n\nCompetenze ed esperienza\n- Laurea in Business, Data Science, Informatica o Ingegneria\n- Livello avanzato negli strumenti di visualizzazione dei dati come Power Query, Power BI, Tableau o simili\n- Conoscenza avanzata di SQL e Python per l'interrogazione di database e l'estrazione dei dati\n\n- mentalità analitica e strutturata con forti capacità di comunicazione\n- Aptitude pratica, pratica e problem solving\n\n- mentalità orientata al futuro e approccio proattivo agli sviluppi tecnici e alle tendenze in un ambiente dinamico\nI nostri valori\n\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\nPassionato: Impegnarsi e lottare per l'eccellenza\n\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Hauptaufgaben\n- Planung, Bau und Aufrechterhaltung der Dateninfrastruktur für Geschäfts- und Managementdaten\n- Entwicklung von Reporting- und Analyselösungen, um Daten zu handlungsfähigen Unternehmenseinsichten zu machen\n- Eine wichtige Rolle bei der Verbesserung der Datengewinnungsfähigkeit des Teams spielen und als Datenexperte fungieren, um die Datenverarbeitung und -analyse zu beraten\n- Bleiben Sie am Besten der wichtigsten technischen Entwicklungen und Trends (z.B. KI, Cloud-Technologien) und bewerten Sie ihre Relevanz für die Daten- und Analyselandschaft der Gruppe\n\nFähigkeiten und Erfahrung\n- Hochschulabschluss in Wirtschaft, Informatik, Informatik oder Ingenieurwesen\n- Erweiterte Ebene in Datenvisualisierungstools wie Power Query, Power BI, Tableau oder dergleichen\n- Erweiterte Kenntnisse von SQL und Python zur Datenbankabfrage und Datenextraktion\n- Analytische und strukturierte Denkweise mit starken Kommunikationsfähigkeiten\n- Praktische, praktische und problematische Eignung\n\n- zukunftsorientierter Denkansatz und proaktiver Ansatz für technische Entwicklungen und Trends in einem dynamischen Umfeld\nUnsere Werte\n\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
+        "fr": "Principales responsabilités\n- Conception, construction et entretien d'une infrastructure de données sur les entreprises et la gestion\n- Développer des solutions de reporting et d'analyse pour transformer les données en informations opérationnelles exploitables\n- Jouer un rôle clé dans le renforcement des capacités de l'équipe en matière d'extraction de données et agir en tant qu'expert en données, en fournissant des conseils sur le traitement et l'analyse des données\n- Se tenir au courant des principaux développements et tendances techniques (par exemple l'IA, les technologies du cloud) et évaluer leur pertinence pour le paysage de données et d'analyses du Groupe\n\nCompétences et expérience\n- Diplôme universitaire en commerce, informatique, informatique ou ingénierie\n- Niveau avancé dans les outils de visualisation des données tels que Power Query, Power BI, Tableau ou similaire\n- Connaissance avancée de SQL et Python pour la recherche de bases de données et l'extraction de données\n- Un état d'esprit analytique et structuré avec de solides compétences en communication\n- Aptitude pratique, pratique et résolution de problèmes\n- Un état d'esprit orienté vers l'avenir et une approche proactive des développements techniques et des tendances dans un environnement dynamique\nNos valeurs\n\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionné : Être engagé et chercher l'excellence\n\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "University degree in Business, Data Science, Computer Science or Engineering",
+          "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+          "Advanced knowledge of SQL and Python for database querying and data extraction",
+          "Analytical and structured mindset with strong communication skills",
+          "Practical, hands‑on and problem‑solving aptitude",
+          "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
+            ],
+            "requirements": [
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical, hands‑on and problem‑solving aptitude",
+              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction"
+            ],
+            "keywords": [
+              "University degree in Business",
+              "Advanced level in data visualisation tools such as Power Query",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical",
+              "Designing",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
+              "Staying abreast of key technical developments and trends (e.g. AI"
+            ],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-06-07T21:44:33.535Z",
+      "slugByLocale": {
+        "it": "bi-solution-specialist-efg-geneve",
+        "en": "bi-solution-specialist-efg-international-ag-geneve",
+        "de": "bi-solution-specialist-efg-geneve",
+        "fr": "bi-solution-specialist-efg-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.898Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "bi-solution-spezialist-efg-international-ag-geneve"
+        ],
+        "fr": [
+          "bi-solution-specialiste-efg-international-ag-geneve"
+        ],
+        "it": [
+          "bi-solution-specialista-efg-international-ag-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "bi-solution-spezialist-efg-international-ag-geneve",
+        "bi-solution-specialiste-efg-international-ag-geneve",
+        "bi-solution-specialista-efg-international-ag-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1577,7 +1585,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.354Z",
+      "crawledAt": "2026-06-07T21:44:33.535Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1802,7 +1810,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.353Z",
+      "crawledAt": "2026-06-07T21:44:33.534Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1840,7 +1848,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -1891,7 +1900,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.352Z",
+      "crawledAt": "2026-06-07T21:44:33.533Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1935,7 +1944,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1986,7 +1996,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.351Z",
+      "crawledAt": "2026-06-07T21:44:33.532Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2029,7 +2039,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -2080,7 +2091,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.350Z",
+      "crawledAt": "2026-06-07T21:44:33.531Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2169,7 +2180,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.349Z",
+      "crawledAt": "2026-06-07T21:44:33.530Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2212,7 +2223,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2375,7 +2387,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.348Z",
+      "crawledAt": "2026-06-07T21:44:33.529Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2445,7 +2457,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2592,7 +2605,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.346Z",
+      "crawledAt": "2026-06-07T21:44:33.528Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2652,7 +2665,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -2703,7 +2717,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.345Z",
+      "crawledAt": "2026-06-07T21:44:33.527Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -2886,7 +2900,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.344Z",
+      "crawledAt": "2026-06-07T21:44:33.526Z",
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
@@ -2927,11 +2941,12 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-4543",
-      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
+      "slug": "group-financial-controller-efg-geneve",
       "company": "EFG International AG",
       "title": "Group Financial Controller",
       "location": "Geneve",
@@ -3094,11 +3109,11 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.343Z",
+      "crawledAt": "2026-06-07T21:44:33.525Z",
       "slugByLocale": {
-        "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
+        "it": "group-financial-controller-efg-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
+        "de": "group-financial-controller-efg-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -3123,16 +3138,20 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "previousSlugsByLocale": {
         "it": [
+          "gruppo-controllore-finanziario-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ],
         "de": [
+          "konzern-finanzverantwortlicher-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "group-financial-controller-efg-geneve"
+        "gruppo-controllore-finanziario-efg-international-ag-geneve",
+        "konzern-finanzverantwortlicher-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6071",
@@ -3183,7 +3202,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.339Z",
+      "crawledAt": "2026-06-07T21:44:33.521Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -3275,7 +3294,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.338Z",
+      "crawledAt": "2026-06-07T21:44:33.519Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
@@ -3314,7 +3333,8 @@
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -3364,7 +3384,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-07T10:48:45.336Z",
+      "crawledAt": "2026-06-07T21:44:33.518Z",
       "slugByLocale": {
         "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -3421,7 +3441,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -3622,7 +3643,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -3832,7 +3854,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -4457,7 +4480,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6101",
