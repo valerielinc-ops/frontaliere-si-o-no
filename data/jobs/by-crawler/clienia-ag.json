@@ -457,8 +457,7 @@
         "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
         "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
         "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
-        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon",
-        "infermiera-laureata-80-90-clienia-ag-pfaffikon"
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7674,8 +7673,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich",
-        "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon",
-        "psicotherapeutin-psychotherapeutin-m-w-d-60-80-clienia-ag-pfaffikon"
+        "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8037,8 +8035,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-zurich",
-        "responsable-de-station-dipl-professionnel-de-soins-hf-fh-80-100-clienia-ag-pfaffikon",
-        "responsabile-di-stazione-dipl-personale-infermieristico-hf-fh-80-100-clienia-ag-pfaffikon"
+        "responsable-de-station-dipl-professionnel-de-soins-hf-fh-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8278,8 +8275,8 @@
       "slugByLocale": {
         "de": "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich",
         "it": "primario-m-f-d-80-100-clienia-ag-pfaffikon-zh",
-        "en": "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich",
-        "fr": "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich"
+        "en": "senior-physician-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+        "fr": "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8337,6 +8334,12 @@
       "firstSeenAt": "2026-06-07T10:37:49.943Z",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "fr": [
           "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich"
         ]
       },
