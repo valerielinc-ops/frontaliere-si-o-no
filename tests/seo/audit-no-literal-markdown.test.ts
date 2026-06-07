@@ -38,4 +38,38 @@ describe('audit-no-literal-markdown', () => {
     expect(report.passed).toBe(true);
     expect(report.offendersTotal).toBe(0);
   });
+
+  it('does not flag [_=~]{3,} inside inline tag attributes as literal markdown', () => {
+    // Attribute markup (data-* JSON, logo src URLs, onerror handlers) is not
+    // visible body text. The element-level <script>/<style> strip leaves it
+    // behind, so a `===` / `___` / `~~~` run inside an attribute must not trip
+    // the separator gate (follow-up #1425: strip all tags, not just code blocks).
+    const html = minifyHtml(`<!doctype html><html><body>
+      <main class="seo-static-content"><h1>Offerta</h1>
+      <img class="jc-logoimg" src="https://logo.clearbit.com/x.io?a===b" data-props='{"eq":"==="}' onerror="jcLF(this)">
+      <p>Testo regolare senza markdown</p></main>
+    </body></html>`);
+
+    const audit = createAuditor();
+    audit.collect(JOB_PATH, html);
+    const report = audit.report();
+
+    expect(report.passed).toBe(true);
+    expect(report.offendersTotal).toBe(0);
+  });
+
+  it('does not merge text across a tag boundary into a false ** token', () => {
+    // Tags are replaced with a space (not stripped to empty) so `*` at the end
+    // of one element and `*` at the start of the next can't fuse into `**`.
+    const html = minifyHtml(`<!doctype html><html><body>
+      <main class="seo-static-content"><p>prezzo*</p><p>*offerta</p></main>
+    </body></html>`);
+
+    const audit = createAuditor();
+    audit.collect(JOB_PATH, html);
+    const report = audit.report();
+
+    expect(report.passed).toBe(true);
+    expect(report.offendersTotal).toBe(0);
+  });
 });
