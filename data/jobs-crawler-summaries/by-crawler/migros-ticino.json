@@ -1,18 +1,56 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-06-06T22:19:18.361Z",
-  "total": 500,
-  "newCount": 0,
+  "generatedAt": "2026-06-07T11:36:47.717Z",
+  "total": 495,
+  "newCount": 1,
   "updatedCount": 42,
   "removedCount": 0,
-  "unchangedCount": 458,
-  "durationMs": 571837,
-  "avgDurationMs": 571837,
+  "unchangedCount": 452,
+  "durationMs": 880976,
+  "avgDurationMs": 880976,
   "durationHistory": [
-    571837
+    880976
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-q8ywks",
+      "slug": "vendeur-vendeuse-denner-geneve",
+      "company": "migrolino",
+      "title": "Vendeur / Vendeuse",
+      "location": "Sierre",
+      "canton": "VS",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-22",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/migrolino/vendeur-vendeuse/2f170592-6de5-4057-996f-e142b085bb17",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Collecte des achats en magasin et vente des offres de la zone de caisse (y compris produits de boulangerie, cigarettes, billets de loterie, cartes de lessive, etc.)",
+        "Conseil et vente sur l'ensemble de la gamme de produits, notamment la vente de produits et services complémentaires, ainsi que la participation à des campagnes de fidélisation et autres promotions",
+        "Responsabilité de la bonne gestion et du rapprochement de trésorerie",
+        "Suivi des ventes du magasin et de tout autre secteur pertinent",
+        "Vérification des bons de livraison, traitement des commandes, entretien et présentation des marchandises, y compris le contrôle des prix"
+      ],
+      "_migrosBenefits": [],
+      "_migrosWorkPercentage": "17%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-07T11:36:37.331Z",
+      "firstSeenAt": "2026-06-07T11:36:37.331Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-klhojl",
@@ -168,7 +206,7 @@
     },
     {
       "id": "company-hcju4s",
-      "slug": "teamverantwortliche-r-non-food-genossenschaft-migros-zurich-mm-stafa-hcju4s",
+      "slug": "responsabilidel-team-non-food-genossenschaft-migros-zurich-mm-stafa",
       "company": "Genossenschaft Migros Zürich",
       "title": "Teamverantwortliche*r Non Food",
       "location": "MM Stäfa",
@@ -217,11 +255,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "country": "CH",
-      "_qualityScore": 82,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 10,
+        "translation": 15,
         "completeness": 22
       }
     },
@@ -2254,7 +2292,7 @@
     },
     {
       "id": "company-2t8vrp",
-      "slug": "cuisinier-ere-elsa-group-estavayer-le-lac-2t8vrp",
+      "slug": "cuoco-a-elsa-group-estavayer-le-lac",
       "company": "Elsa Group",
       "title": "Cuisinier/-ère",
       "location": "Estavayer-le-Lac",
@@ -2304,11 +2342,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "country": "CH",
-      "_qualityScore": 88,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
