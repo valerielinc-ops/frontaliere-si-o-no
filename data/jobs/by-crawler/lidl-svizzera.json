@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-06-06T22:02:35.890Z",
+  "assembledAt": "2026-06-07T11:14:59.116Z",
   "jobs": [
     {
       "id": "company-xsgkhv",
@@ -83,7 +83,8 @@
         "venditore-venditrice-m-f-d-40-60-lidl-svizzera-minusio"
       ],
       "salaryMin": 59000,
-      "salaryMax": 90500
+      "salaryMax": 90500,
+      "needsRetranslation": true
     },
     {
       "id": "company-j9y9s6",
@@ -166,6 +167,7 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -571,7 +573,8 @@
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-3t5gz5",
@@ -698,7 +701,8 @@
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-zdpsyo",
@@ -814,7 +818,8 @@
         ]
       },
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ethzl9",
@@ -936,7 +941,8 @@
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-kp8dxh",
@@ -1067,7 +1073,8 @@
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     }
   ]
 }
