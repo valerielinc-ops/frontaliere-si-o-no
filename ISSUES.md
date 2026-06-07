@@ -68,7 +68,7 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
    - Categoria `revenue`/`tracker` → abort con commento.
 2. Branch `fix/issue-<N>`.
 3. Diagnosi **root cause** (non sintomo). `crawler` → rigenera parser / edit mirato selector+config.
-4. Fix **chirurgico** (AGENTS.md #6). Mai abbassare gate (#1). Mai disabilitare Auto Ads (#7).
+4. Fix **chirurgico** (AGENTS.md #6) sulla **classe** del bug, non sul singolo file. Per fix di pattern: **prima di pushare esegui `node scripts/ci/check-sibling-patterns.mjs`** (zero-Claude) — automatizza la grep dei sibling, estrae i costrutti distintivi che il tuo diff ha toccato e lista i file di codice non toccati che li condividono → includili nel fix o giustificali in `## Non implementato`. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (bucket `sibling-class-fix`, #1348). Mai abbassare gate (#1). Mai disabilitare Auto Ads (#7).
 5. Commit identity canonica `Valerie Linc <valerielinc@gmail.com>`. No path home assoluti, no email personali (Privacy).
 6. Push branch + `gh pr create`.
 7. PR body OBBLIGATORIO `## Implementato` (con `Closes #N`) + `## Non implementato (ancora)` (REVIEW.md completeness contract). Per chiudere PIÙ issue: una keyword per issue, una per riga (`Closes #a` / `Closes #b`) — MAI `Closes #a #b #c` su una riga (GitHub chiude solo `#a`; `pr-body-contract.yml` lo flagga).
