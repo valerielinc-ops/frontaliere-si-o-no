@@ -29,9 +29,9 @@
         "de": "Solution Sales B2B",
         "fr": "Solution Sales B2B"
       },
-      "slug": "solution-sales-b2b-swisscom-zurich-7ixo0n",
+      "slug": "soluzione-vendite-b2b-swisscom-sede-ticino-zurich",
       "slugByLocale": {
-        "it": "solution-sales-b2b-swisscom-zurich-7ixo0n",
+        "it": "soluzione-vendite-b2b-swisscom-sede-ticino-zurich",
         "en": "solution-sales-b2b-swisscom-zurich-7ixo0n",
         "de": "solution-sales-b2b-swisscom-zurich-7ixo0n",
         "fr": "solution-sales-b2b-swisscom-zurich-7ixo0n"
@@ -67,7 +67,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-05T22:58:54.516Z"
+      "firstSeenAt": "2026-06-05T22:58:54.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-sales-b2b-swisscom-zurich-7ixo0n"
+        ]
+      },
+      "previousSlugs": [
+        "solution-sales-b2b-swisscom-zurich-7ixo0n"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant-Finance_R-0001100",

@@ -5449,9 +5449,9 @@
     },
     {
       "id": "sulzer-0b004bfa577f",
-      "slug": "leader-del-progetto-sulzer-buchelay",
+      "slug": "responsabile-del-progetto-sulzer-buchelay",
       "slugByLocale": {
-        "it": "leader-del-progetto-sulzer-buchelay",
+        "it": "responsabile-del-progetto-sulzer-buchelay",
         "en": "chef-de-projets-sulzer-ch",
         "de": "chef-de-projets-sulzer-ch",
         "fr": "chef-de-projets-sulzer-ch"
@@ -5496,12 +5496,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-projets-sulzer-ch",
-        "chef-de-projets-sulzer-buchelay"
+        "chef-de-projets-sulzer-buchelay",
+        "leader-del-progetto-sulzer-buchelay"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projets-sulzer-ch",
-          "chef-de-projets-sulzer-buchelay"
+          "chef-de-projets-sulzer-buchelay",
+          "leader-del-progetto-sulzer-buchelay"
         ]
       },
       "firstSeenAt": "2026-06-04T01:28:34.936Z",
@@ -28563,9 +28565,9 @@
     },
     {
       "id": "sulzer-658150f34601",
-      "slug": "mechanic-sulzer-ch-9",
+      "slug": "meccanica-sulzer-phoenix",
       "slugByLocale": {
-        "it": "mechanic-sulzer-ch-9",
+        "it": "meccanica-sulzer-phoenix",
         "en": "mechanic-sulzer-ch",
         "de": "mechanic-sulzer-ch-9",
         "fr": "mechanic-sulzer-ch-9"
@@ -28622,7 +28624,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanic-sulzer-ch-9"
+        ]
+      },
+      "previousSlugs": [
+        "mechanic-sulzer-ch-9"
+      ]
     }
   ]
 }

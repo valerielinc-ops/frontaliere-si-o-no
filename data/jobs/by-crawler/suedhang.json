@@ -138,9 +138,6 @@
         ],
         "fr": [
           "sante-professionnelle-efz-au-service-de-nuit-klinik-sudhang-kirchlindach"
-        ],
-        "de": [
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
         ]
       },
       "previousSlugs": [
@@ -248,9 +245,9 @@
     },
     {
       "id": "suedhang-3ab3108c4f00",
-      "slug": "klinische-n-psycholog-in-suedhang-ch",
+      "slug": "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf",
       "slugByLocale": {
-        "it": "klinische-n-psycholog-in-suedhang-ch",
+        "it": "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-burgdorf",
         "en": "klinische-n-psycholog-in-suedhang-ch",
         "de": "klinische-n-psycholog-in-suedhang-ch",
         "fr": "klinische-n-psycholog-in-suedhang-ch"
@@ -310,7 +307,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "klinische-n-psycholog-in-suedhang-ch"
+        ]
+      },
+      "previousSlugs": [
+        "klinische-n-psycholog-in-suedhang-ch"
+      ]
     },
     {
       "id": "suedhang-61d86e449015",
@@ -386,8 +391,7 @@
           "assistenzarztin-assistenzarzt-suedhang-ch"
         ],
         "de": [
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf",
-          "assistenzarztin-assistenzarzt-suedhang-ch"
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:14.145Z",
@@ -494,8 +498,7 @@
           "assistenzarztin-assistenzarzt-suedhang-ch-2"
         ],
         "de": [
-          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-          "assistenzarztin-assistenzarzt-suedhang-ch"
+          "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:15.199Z",
@@ -515,9 +518,9 @@
     },
     {
       "id": "suedhang-dd4025e2b77f",
-      "slug": "klinische-n-psycholog-in-suedhang-ch-2",
+      "slug": "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne",
       "slugByLocale": {
-        "it": "klinische-n-psycholog-in-suedhang-ch-2",
+        "it": "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne",
         "en": "klinische-n-psycholog-in-suedhang-ch-2",
         "de": "klinische-n-psycholog-in-suedhang-ch",
         "fr": "klinische-n-psycholog-in-suedhang-ch-2"
@@ -577,13 +580,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "klinische-n-psycholog-in-suedhang-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "klinische-n-psycholog-in-suedhang-ch-2"
+      ]
     },
     {
       "id": "suedhang-e5f79c05e3c1",
-      "slug": "oberarztin-oberarzt-suedhang-ch",
+      "slug": "primario-klinik-sudhang-ambulatorium-bern",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-suedhang-ch",
+        "it": "primario-klinik-sudhang-ambulatorium-bern",
         "en": "oberarztin-oberarzt-suedhang-ch",
         "de": "oberarztin-oberarzt-suedhang-ch",
         "fr": "oberarztin-oberarzt-suedhang-ch"
@@ -643,7 +654,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-suedhang-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-suedhang-ch"
+      ]
     },
     {
       "id": "suedhang-b7a3019b66ad",

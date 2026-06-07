@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "roche-5ac9f67c8526",
-      "slug": "system-development-troubleshooter-roche-ch",
+      "slug": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
       "slugByLocale": {
-        "it": "system-development-troubleshooter-roche-ch",
+        "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "system-development-troubleshooter-roche-ch",
         "fr": "system-development-troubleshooter-roche-ch"
@@ -49,11 +49,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz"
+        "system-development-troubleshooter-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz"
+          "system-development-troubleshooter-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -5744,9 +5744,9 @@
     },
     {
       "id": "roche-d377f4975e67",
-      "slug": "roche-shanghai",
+      "slug": "terreno-della-societa-roche-shanghai",
       "slugByLocale": {
-        "it": "roche-shanghai",
+        "it": "terreno-della-societa-roche-shanghai",
         "en": "roche-ch",
         "de": "roche-shanghai",
         "fr": "roche-shanghai"
@@ -5789,11 +5789,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-12"
+        "roche-ch-12",
+        "roche-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-12"
+          "roche-ch-12",
+          "roche-shanghai"
         ]
       },
       "needsRetranslation": true,
@@ -16230,9 +16232,9 @@
     },
     {
       "id": "roche-94e81cf75cde",
-      "slug": "roche-changsha",
+      "slug": "traduzione-roche-changsha-6ed8a3",
       "slugByLocale": {
-        "it": "roche-changsha",
+        "it": "traduzione-roche-changsha-6ed8a3",
         "en": "roche-ch",
         "de": "roche-changsha",
         "fr": "roche-changsha"
@@ -16276,16 +16278,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-40",
-        "traduzione-roche-changsha-6ed8a3",
         "roche-ch-36",
-        "roche-ch-34"
+        "roche-ch-34",
+        "roche-changsha"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-40",
-          "traduzione-roche-changsha-6ed8a3",
           "roche-ch-36",
-          "roche-ch-34"
+          "roche-ch-34",
+          "roche-changsha"
         ]
       },
       "needsRetranslation": true,
@@ -24120,9 +24122,9 @@
     },
     {
       "id": "roche-e321e7ebf361",
-      "slug": "regolazione-tecnica-roche-shanghai",
+      "slug": "regolamentazione-tecnica-roche-shanghai",
       "slugByLocale": {
-        "it": "regolazione-tecnica-roche-shanghai",
+        "it": "regolamentazione-tecnica-roche-shanghai",
         "en": "technical-regulatory-roche-ch",
         "de": "technical-regulatory-roche-ch",
         "fr": "technical-regulatory-roche-ch"
@@ -24167,13 +24169,13 @@
       "previousSlugs": [
         "technical-regulatory-roche-ch",
         "technical-regulatory-roche-shanghai",
-        "regolamentazione-tecnica-roche-shanghai"
+        "regolazione-tecnica-roche-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-regulatory-roche-ch",
           "technical-regulatory-roche-shanghai",
-          "regolamentazione-tecnica-roche-shanghai"
+          "regolazione-tecnica-roche-shanghai"
         ]
       },
       "needsRetranslation": true,
@@ -29773,9 +29775,9 @@
     },
     {
       "id": "roche-049168b15388",
-      "slug": "roche-jinan",
+      "slug": "traduzione-roche-jinan-8f8955",
       "slugByLocale": {
-        "it": "roche-jinan",
+        "it": "traduzione-roche-jinan-8f8955",
         "en": "roche-ch",
         "de": "roche-jinan",
         "fr": "roche-jinan"
@@ -29820,13 +29822,15 @@
       "previousSlugs": [
         "roche-ch-60",
         "roche-ch-56",
-        "roche-ch-54"
+        "roche-ch-54",
+        "roche-jinan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-60",
           "roche-ch-56",
-          "roche-ch-54"
+          "roche-ch-54",
+          "roche-jinan"
         ]
       },
       "needsRetranslation": true,
@@ -32069,9 +32073,9 @@
     },
     {
       "id": "roche-59331ac509ac",
-      "slug": "roche-guangzhou",
+      "slug": "traduzione-roche-guangzhou-7f14ec",
       "slugByLocale": {
-        "it": "roche-guangzhou",
+        "it": "traduzione-roche-guangzhou-7f14ec",
         "en": "roche-ch",
         "de": "roche-guangzhou",
         "fr": "roche-guangzhou"
@@ -32116,13 +32120,15 @@
       "previousSlugs": [
         "roche-ch-66",
         "roche-ch-62",
-        "roche-ch-60"
+        "roche-ch-60",
+        "roche-guangzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-66",
           "roche-ch-62",
-          "roche-ch-60"
+          "roche-ch-60",
+          "roche-guangzhou"
         ]
       },
       "needsRetranslation": true,
@@ -35792,9 +35798,9 @@
     },
     {
       "id": "roche-1f11584a10d9",
-      "slug": "roche-nanchang",
+      "slug": "registrati-alcuni-locali-roche-nanchang",
       "slugByLocale": {
-        "it": "roche-nanchang",
+        "it": "registrati-alcuni-locali-roche-nanchang",
         "en": "roche-ch",
         "de": "roche-nanchang",
         "fr": "roche-nanchang"
@@ -35839,17 +35845,17 @@
       "previousSlugs": [
         "roche-ch-72",
         "roche-ch-69",
-        "registrati-alcuni-locali-roche-nanchang",
         "roche-ch-65",
-        "roche-ch-63"
+        "roche-ch-63",
+        "roche-nanchang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-72",
           "roche-ch-69",
-          "registrati-alcuni-locali-roche-nanchang",
           "roche-ch-65",
-          "roche-ch-63"
+          "roche-ch-63",
+          "roche-nanchang"
         ]
       },
       "needsRetranslation": true,
@@ -37523,9 +37529,9 @@
     },
     {
       "id": "roche-f31114e7ba00",
-      "slug": "roche-changchun",
+      "slug": "traduzione-roche-changchun-0937c6",
       "slugByLocale": {
-        "it": "roche-changchun",
+        "it": "traduzione-roche-changchun-0937c6",
         "en": "roche-ch",
         "de": "roche-changchun",
         "fr": "roche-changchun"
@@ -37570,13 +37576,15 @@
       "previousSlugs": [
         "roche-ch-71",
         "roche-ch-67",
-        "roche-ch-65"
+        "roche-ch-65",
+        "roche-changchun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-71",
           "roche-ch-67",
-          "roche-ch-65"
+          "roche-ch-65",
+          "roche-changchun"
         ]
       },
       "needsRetranslation": true,
@@ -39504,9 +39512,9 @@
     },
     {
       "id": "roche-dfb2bc6dfb55",
-      "slug": "roche-shenyang",
+      "slug": "scegliere-roche-shenyang",
       "slugByLocale": {
-        "it": "roche-shenyang",
+        "it": "scegliere-roche-shenyang",
         "en": "roche-ch",
         "de": "roche-shenyang",
         "fr": "roche-shenyang"
@@ -39551,17 +39559,17 @@
       "previousSlugs": [
         "roche-ch-97",
         "roche-ch-94",
-        "scegliere-roche-shenyang",
         "roche-ch-90",
-        "roche-ch-88"
+        "roche-ch-88",
+        "roche-shenyang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-97",
           "roche-ch-94",
-          "scegliere-roche-shenyang",
           "roche-ch-90",
-          "roche-ch-88"
+          "roche-ch-88",
+          "roche-shenyang"
         ]
       },
       "needsRetranslation": true,
@@ -40350,9 +40358,9 @@
     },
     {
       "id": "roche-0d014ca8a94c",
-      "slug": "roche-fuzhou",
+      "slug": "terreno-della-societa-us-regionali-roche-fuzhou",
       "slugByLocale": {
-        "it": "roche-fuzhou",
+        "it": "terreno-della-societa-us-regionali-roche-fuzhou",
         "en": "roche-ch",
         "de": "roche-fuzhou",
         "fr": "roche-fuzhou"
@@ -40396,16 +40404,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "roche-ch-105",
-        "terreno-della-societa-us-regionali-roche-fuzhou",
         "roche-ch-101",
-        "roche-ch-99"
+        "roche-ch-99",
+        "roche-fuzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-105",
-          "terreno-della-societa-us-regionali-roche-fuzhou",
           "roche-ch-101",
-          "roche-ch-99"
+          "roche-ch-99",
+          "roche-fuzhou"
         ]
       },
       "needsRetranslation": true,
@@ -40822,9 +40830,9 @@
     },
     {
       "id": "roche-5a2cee4602ab",
-      "slug": "roche-shenzhen",
+      "slug": "organizzazione-della-pesca-roche-shenzhen",
       "slugByLocale": {
-        "it": "roche-shenzhen",
+        "it": "organizzazione-della-pesca-roche-shenzhen",
         "en": "roche-ch",
         "de": "roche-shenzhen",
         "fr": "roche-shenzhen"
@@ -40869,17 +40877,17 @@
       "previousSlugs": [
         "roche-ch-126",
         "roche-ch-123",
-        "organizzazione-della-pesca-roche-shenzhen",
         "roche-ch-119",
-        "roche-ch-117"
+        "roche-ch-117",
+        "roche-shenzhen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-126",
           "roche-ch-123",
-          "organizzazione-della-pesca-roche-shenzhen",
           "roche-ch-119",
-          "roche-ch-117"
+          "roche-ch-117",
+          "roche-shenzhen"
         ]
       },
       "needsRetranslation": true,
@@ -45110,9 +45118,9 @@
     },
     {
       "id": "roche-3942bd4de79f",
-      "slug": "roche-zhengzhou",
+      "slug": "traduzione-roche-zhengzhou-d09701",
       "slugByLocale": {
-        "it": "roche-zhengzhou",
+        "it": "traduzione-roche-zhengzhou-d09701",
         "en": "roche-ch",
         "de": "roche-zhengzhou",
         "fr": "roche-zhengzhou"
@@ -45155,11 +45163,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-133"
+        "roche-ch-133",
+        "roche-zhengzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-133"
+          "roche-ch-133",
+          "roche-zhengzhou"
         ]
       },
       "needsRetranslation": true,
@@ -48007,9 +48017,9 @@
     },
     {
       "id": "roche-85dc64320163",
-      "slug": "esperto-di-campagna-globale-digitale-talent-pool-roche-budapest",
+      "slug": "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
       "slugByLocale": {
-        "it": "esperto-di-campagna-globale-digitale-talent-pool-roche-budapest",
+        "it": "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
         "en": "global-digital-campaign-expert-talent-pool-roche-ch",
         "de": "global-digital-campaign-expert-talent-pool-roche-ch",
         "fr": "global-digital-campaign-expert-talent-pool-roche-ch"
@@ -48052,11 +48062,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-digital-campaign-expert-talent-pool-roche-ch"
+        "global-digital-campaign-expert-talent-pool-roche-ch",
+        "esperto-di-campagna-globale-digitale-talent-pool-roche-budapest"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-digital-campaign-expert-talent-pool-roche-ch"
+          "global-digital-campaign-expert-talent-pool-roche-ch",
+          "esperto-di-campagna-globale-digitale-talent-pool-roche-budapest"
         ]
       },
       "needsRetranslation": true,
@@ -65192,9 +65204,9 @@
     },
     {
       "id": "roche-56f1198c2942",
-      "slug": "dual-studies-2027-bachelor-of-science-ingegneria-chimica-ubicazione-mannheim-roche-mannheim",
+      "slug": "studio-duale-2027-bachelor-of-science-ingegneria-chimica-sede-di-mannheim-roche-mannheim",
       "slugByLocale": {
-        "it": "dual-studies-2027-bachelor-of-science-ingegneria-chimica-ubicazione-mannheim-roche-mannheim",
+        "it": "studio-duale-2027-bachelor-of-science-ingegneria-chimica-sede-di-mannheim-roche-mannheim",
         "en": "duales-studium-2027-bachelor-of-science-chemische-technik-standort-mannheim-roche-ch",
         "de": "duales-studium-2027-bachelor-of-science-chemische-technik-standort-mannheim-roche-ch",
         "fr": "duales-studium-2027-bachelor-of-science-chemische-technik-standort-mannheim-roche-ch"
@@ -65238,16 +65250,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "duales-studium-2027-bachelor-of-science-chemische-technik-standort-mannheim-roche-ch",
-        "studio-duale-2027-bachelor-of-science-ingegneria-chimica-sede-di-mannheim-roche-mannheim",
         "duales-studium-2027-bachelor-of-science-chemische-technik-standort-mannheim-roche-mannheim",
-        "programma-di-studio-doppio-2027-laurea-in-scienze-ingegneria-chimica-sito-di-mannheim-roche-mannheim"
+        "programma-di-studio-doppio-2027-laurea-in-scienze-ingegneria-chimica-sito-di-mannheim-roche-mannheim",
+        "dual-studies-2027-bachelor-of-science-ingegneria-chimica-ubicazione-mannheim-roche-mannheim"
       ],
       "previousSlugsByLocale": {
         "it": [
           "duales-studium-2027-bachelor-of-science-chemische-technik-standort-mannheim-roche-ch",
-          "studio-duale-2027-bachelor-of-science-ingegneria-chimica-sede-di-mannheim-roche-mannheim",
           "duales-studium-2027-bachelor-of-science-chemische-technik-standort-mannheim-roche-mannheim",
-          "programma-di-studio-doppio-2027-laurea-in-scienze-ingegneria-chimica-sito-di-mannheim-roche-mannheim"
+          "programma-di-studio-doppio-2027-laurea-in-scienze-ingegneria-chimica-sito-di-mannheim-roche-mannheim",
+          "dual-studies-2027-bachelor-of-science-ingegneria-chimica-ubicazione-mannheim-roche-mannheim"
         ]
       },
       "needsRetranslation": true,
@@ -65340,9 +65352,9 @@
     },
     {
       "id": "roche-db35947e2d45",
-      "slug": "dual-studies-2027-laurea-in-ingegneria-tecnologia-medica-ubicazione-mannheim-roche-mannheim",
+      "slug": "studio-duale-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim",
       "slugByLocale": {
-        "it": "dual-studies-2027-laurea-in-ingegneria-tecnologia-medica-ubicazione-mannheim-roche-mannheim",
+        "it": "studio-duale-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim",
         "en": "duales-studium-2027-bachelor-of-engineering-medizintechnik-standort-mannheim-roche-ch",
         "de": "duales-studium-2027-bachelor-of-engineering-medizintechnik-standort-mannheim-roche-ch",
         "fr": "duales-studium-2027-bachelor-of-engineering-medizintechnik-standort-mannheim-roche-ch"
@@ -65386,16 +65398,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "duales-studium-2027-bachelor-of-engineering-medizintechnik-standort-mannheim-roche-ch",
-        "studio-duale-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim",
         "duales-studium-2027-bachelor-of-engineering-medizintechnik-standort-mannheim-roche-mannheim",
-        "programma-di-studio-doppio-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim"
+        "programma-di-studio-doppio-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim",
+        "dual-studies-2027-laurea-in-ingegneria-tecnologia-medica-ubicazione-mannheim-roche-mannheim"
       ],
       "previousSlugsByLocale": {
         "it": [
           "duales-studium-2027-bachelor-of-engineering-medizintechnik-standort-mannheim-roche-ch",
-          "studio-duale-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim",
           "duales-studium-2027-bachelor-of-engineering-medizintechnik-standort-mannheim-roche-mannheim",
-          "programma-di-studio-doppio-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim"
+          "programma-di-studio-doppio-2027-laurea-in-ingegneria-tecnologia-medica-sede-di-mannheim-roche-mannheim",
+          "dual-studies-2027-laurea-in-ingegneria-tecnologia-medica-ubicazione-mannheim-roche-mannheim"
         ]
       },
       "needsRetranslation": true,
@@ -65559,9 +65571,9 @@
     },
     {
       "id": "roche-15ebad386730",
-      "slug": "dual-studies-2027-bachelor-of-arts-bwl-industria-orientamento-internazionale-posizione-mannheim-roche-mannheim",
+      "slug": "studio-duale-2027-bachelor-of-arts-amministrazione-aziendale-industria-orientamento-internazionale-sede-di-mannheim",
       "slugByLocale": {
-        "it": "dual-studies-2027-bachelor-of-arts-bwl-industria-orientamento-internazionale-posizione-mannheim-roche-mannheim",
+        "it": "studio-duale-2027-bachelor-of-arts-amministrazione-aziendale-industria-orientamento-internazionale-sede-di-mannheim",
         "en": "duales-studium-2027-bachelor-of-arts-bwl-industrie-internationale-ausrichtung-standort",
         "de": "duales-studium-2027-bachelor-of-arts-bwl-industrie-internationale-ausrichtung-standort",
         "fr": "duales-studium-2027-bachelor-of-arts-bwl-industrie-internationale-ausrichtung-standort"
@@ -65605,18 +65617,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "duales-studium-2027-bachelor-of-arts-bwl-industrie-internationale-ausrichtung-standort",
-        "studio-duale-2027-bachelor-of-arts-amministrazione-aziendale-industria-orientamento-internazionale-sede-di-mannheim",
         "duales-studium-2027-bachelor-of-arts-bwl-industrie-internationale-ausrichtung-standort-mannheim-roche-mannheim",
         "programma-di-studi-doppio-2027-laurea-in-lettere-amministrazione-aziendale-industria-orientamento-internazionale-sede-di",
-        "programma-di-studio-duale-2027-bachelor-of-arts-business-administration-industry-international-orientation-sede-di"
+        "programma-di-studio-duale-2027-bachelor-of-arts-business-administration-industry-international-orientation-sede-di",
+        "dual-studies-2027-bachelor-of-arts-bwl-industria-orientamento-internazionale-posizione-mannheim-roche-mannheim"
       ],
       "previousSlugsByLocale": {
         "it": [
           "duales-studium-2027-bachelor-of-arts-bwl-industrie-internationale-ausrichtung-standort",
-          "studio-duale-2027-bachelor-of-arts-amministrazione-aziendale-industria-orientamento-internazionale-sede-di-mannheim",
           "duales-studium-2027-bachelor-of-arts-bwl-industrie-internationale-ausrichtung-standort-mannheim-roche-mannheim",
           "programma-di-studi-doppio-2027-laurea-in-lettere-amministrazione-aziendale-industria-orientamento-internazionale-sede-di",
-          "programma-di-studio-duale-2027-bachelor-of-arts-business-administration-industry-international-orientation-sede-di"
+          "programma-di-studio-duale-2027-bachelor-of-arts-business-administration-industry-international-orientation-sede-di",
+          "dual-studies-2027-bachelor-of-arts-bwl-industria-orientamento-internazionale-posizione-mannheim-roche-mannheim"
         ]
       },
       "needsRetranslation": true,
@@ -67883,9 +67895,9 @@
     },
     {
       "id": "roche-ac026d43179e",
-      "slug": "praktikantenstelle-m-w-d-roche-penzberg",
+      "slug": "business-strategy-tirocinante-m-f-d-roche-penzberg",
       "slugByLocale": {
-        "it": "praktikantenstelle-m-w-d-roche-penzberg",
+        "it": "business-strategy-tirocinante-m-f-d-roche-penzberg",
         "en": "business-strategy-praktikantenstelle-m-w-d-roche-ch",
         "de": "business-strategy-praktikantenstelle-m-w-d-roche-ch",
         "fr": "business-strategy-praktikantenstelle-m-w-d-roche-ch"
@@ -67929,12 +67941,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-strategy-praktikantenstelle-m-w-d-roche-ch",
-        "stage-di-strategia-aziendale-m-f-d-roche-penzberg"
+        "stage-di-strategia-aziendale-m-f-d-roche-penzberg",
+        "praktikantenstelle-m-w-d-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-strategy-praktikantenstelle-m-w-d-roche-ch",
-          "stage-di-strategia-aziendale-m-f-d-roche-penzberg"
+          "stage-di-strategia-aziendale-m-f-d-roche-penzberg",
+          "praktikantenstelle-m-w-d-roche-penzberg"
         ]
       },
       "needsRetranslation": true,
@@ -77338,9 +77352,9 @@
     },
     {
       "id": "roche-64cad0cf9e40",
-      "slug": "senior-medical-compliance-lead-roche-ch",
+      "slug": "responsabile-senior-della-conformita-medica-roche-mississauga",
       "slugByLocale": {
-        "it": "senior-medical-compliance-lead-roche-ch",
+        "it": "responsabile-senior-della-conformita-medica-roche-mississauga",
         "en": "senior-medical-compliance-lead-roche-ch",
         "de": "senior-medical-compliance-lead-roche-ch",
         "fr": "senior-medical-compliance-lead-roche-ch"
@@ -77383,11 +77397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "piombo-di-conformita-medica-senior-roche-mississauga"
+        "piombo-di-conformita-medica-senior-roche-mississauga",
+        "senior-medical-compliance-lead-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "piombo-di-conformita-medica-senior-roche-mississauga"
+          "piombo-di-conformita-medica-senior-roche-mississauga",
+          "senior-medical-compliance-lead-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -77546,9 +77562,9 @@
     },
     {
       "id": "roche-43d64cc997b4",
-      "slug": "policy-and-healthcare-system-shaping-manager-roche-ch",
+      "slug": "gestione-delle-politiche-e-del-sistema-sanitario-roche-rm",
       "slugByLocale": {
-        "it": "policy-and-healthcare-system-shaping-manager-roche-ch",
+        "it": "gestione-delle-politiche-e-del-sistema-sanitario-roche-rm",
         "en": "policy-and-healthcare-system-shaping-manager-roche-ch",
         "de": "policy-and-healthcare-system-shaping-manager-roche-ch",
         "fr": "policy-and-healthcare-system-shaping-manager-roche-ch"
@@ -77591,11 +77607,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm"
+        "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm",
+        "policy-and-healthcare-system-shaping-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm"
+          "responsabile-della-formazione-delle-politiche-e-del-sistema-sanitario-roche-rm",
+          "policy-and-healthcare-system-shaping-manager-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -77680,9 +77698,9 @@
     },
     {
       "id": "roche-6a576b6e355a",
-      "slug": "business-operations-lead-associate-principal-roche-ch",
+      "slug": "responsabile-delle-operazioni-aziendali-associate-principal-roche-central-singapore",
       "slugByLocale": {
-        "it": "business-operations-lead-associate-principal-roche-ch",
+        "it": "responsabile-delle-operazioni-aziendali-associate-principal-roche-central-singapore",
         "en": "business-operations-lead-associate-principal-roche-ch",
         "de": "business-operations-lead-associate-principal-roche-ch",
         "fr": "business-operations-lead-associate-principal-roche-ch"
@@ -77725,11 +77743,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operazioni-aziendali-piombo-associate-principal-roche-central-singapore"
+        "operazioni-aziendali-piombo-associate-principal-roche-central-singapore",
+        "business-operations-lead-associate-principal-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operazioni-aziendali-piombo-associate-principal-roche-central-singapore"
+          "operazioni-aziendali-piombo-associate-principal-roche-central-singapore",
+          "business-operations-lead-associate-principal-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -77983,9 +78003,9 @@
     },
     {
       "id": "roche-7a3a418e236e",
-      "slug": "roche-chengdu",
+      "slug": "traduzione-roche-chengdu-8ba662",
       "slugByLocale": {
-        "it": "roche-chengdu",
+        "it": "traduzione-roche-chengdu-8ba662",
         "en": "roche-ch",
         "de": "roche-chengdu",
         "fr": "roche-chengdu"
@@ -78028,11 +78048,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-163"
+        "roche-ch-163",
+        "roche-chengdu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-163"
+          "roche-ch-163",
+          "roche-chengdu"
         ]
       },
       "needsRetranslation": true,
@@ -78117,9 +78139,9 @@
     },
     {
       "id": "roche-a341fa6253f4",
-      "slug": "safety-health-environment-she-facility-officer-roche-ch",
+      "slug": "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city",
       "slugByLocale": {
-        "it": "safety-health-environment-she-facility-officer-roche-ch",
+        "it": "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city",
         "en": "safety-health-environment-she-facility-officer-roche-ch",
         "de": "safety-health-environment-she-facility-officer-roche-ch",
         "fr": "safety-health-environment-she-facility-officer-roche-ch"
@@ -78162,11 +78184,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city"
+        "safety-health-environment-she-facility-officer-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sicurezza-salute-ambiente-she-facility-officer-roche-taguig-city"
+          "safety-health-environment-she-facility-officer-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -78188,9 +78210,9 @@
     },
     {
       "id": "roche-338b7de0ef2b",
-      "slug": "healthcare-systems-partner-policy-access-roche-ch",
+      "slug": "partner-sistemi-sanitari-policy-access-roche-taguig-city",
       "slugByLocale": {
-        "it": "healthcare-systems-partner-policy-access-roche-ch",
+        "it": "partner-sistemi-sanitari-policy-access-roche-taguig-city",
         "en": "healthcare-systems-partner-policy-access-roche-ch",
         "de": "healthcare-systems-partner-policy-access-roche-ch",
         "fr": "healthcare-systems-partner-policy-access-roche-ch"
@@ -78233,11 +78255,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city"
+        "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city",
+        "healthcare-systems-partner-policy-access-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city"
+          "partner-dei-sistemi-sanitari-policy-access-roche-taguig-city",
+          "healthcare-systems-partner-policy-access-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -78633,9 +78657,9 @@
     },
     {
       "id": "roche-3492bdedc3bb",
-      "slug": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
+      "slug": "alternante-tirocinante-responsabile-trasformazione-digitale-f-m-d-roche-montbonnot",
       "slugByLocale": {
-        "it": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
+        "it": "alternante-tirocinante-responsabile-trasformazione-digitale-f-m-d-roche-montbonnot",
         "en": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
         "de": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch",
         "fr": "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch"
@@ -78678,11 +78702,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot"
+        "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot",
+        "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot"
+          "alternate-intern-digital-transformation-officer-f-m-d-roche-montbonnot",
+          "alternant-stagiaire-charge-e-de-la-transformation-numerique-f-m-d-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -78932,9 +78958,9 @@
     },
     {
       "id": "roche-b3cfa15c6ee1",
-      "slug": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
+      "slug": "infermiere-esperto-timkl-settore-paca-f-m-d-roche-montbonnot",
       "slugByLocale": {
-        "it": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
+        "it": "infermiere-esperto-timkl-settore-paca-f-m-d-roche-montbonnot",
         "en": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
         "de": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch",
         "fr": "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch"
@@ -78977,11 +79003,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot"
+        "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot",
+        "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot"
+          "infermiere-esperto-timkl-settore-paca-e-m-d-roche-montbonnot",
+          "infirmier-expert-timkl-secteur-paca-f-m-d-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79003,9 +79031,9 @@
     },
     {
       "id": "roche-5037dbfab684",
-      "slug": "disease-area-expert-roche-ch",
+      "slug": "esperto-area-malattie-roche-kyiv",
       "slugByLocale": {
-        "it": "disease-area-expert-roche-ch",
+        "it": "esperto-area-malattie-roche-kyiv",
         "en": "disease-area-expert-roche-ch",
         "de": "disease-area-expert-roche-ch",
         "fr": "disease-area-expert-roche-ch"
@@ -79048,11 +79076,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "area-di-competenza-roche-kyiv"
+        "area-di-competenza-roche-kyiv",
+        "disease-area-expert-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-di-competenza-roche-kyiv"
+          "area-di-competenza-roche-kyiv",
+          "disease-area-expert-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79074,9 +79104,9 @@
     },
     {
       "id": "roche-71688013a8e3",
-      "slug": "digital-campaign-delivery-expert-roche-ch",
+      "slug": "esperto-di-consegna-di-campagne-digitali-roche-riga",
       "slugByLocale": {
-        "it": "digital-campaign-delivery-expert-roche-ch",
+        "it": "esperto-di-consegna-di-campagne-digitali-roche-riga",
         "en": "digital-campaign-delivery-expert-roche-ch",
         "de": "digital-campaign-delivery-expert-roche-ch",
         "fr": "digital-campaign-delivery-expert-roche-ch"
@@ -79119,11 +79149,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "esperto-di-consegna-della-campagna-digitale-roche-riga"
+        "esperto-di-consegna-della-campagna-digitale-roche-riga",
+        "digital-campaign-delivery-expert-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-di-consegna-della-campagna-digitale-roche-riga"
+          "esperto-di-consegna-della-campagna-digitale-roche-riga",
+          "digital-campaign-delivery-expert-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79208,9 +79240,9 @@
     },
     {
       "id": "roche-f2609c3e0797",
-      "slug": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
+      "slug": "lead-buone-pratiche-professionali-d-f-m-roche-paris",
       "slugByLocale": {
-        "it": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
+        "it": "lead-buone-pratiche-professionali-d-f-m-roche-paris",
         "en": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
         "de": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch",
         "fr": "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch"
@@ -79253,11 +79285,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris"
+        "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris",
+        "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris"
+          "buone-pratiche-professionali-di-piombo-d-f-m-roche-paris",
+          "lead-bonnes-pratiques-professionnelles-d-f-m-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79429,9 +79463,9 @@
     },
     {
       "id": "roche-95048f40e271",
-      "slug": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
+      "slug": "specialista-ricerca-clinica-cdd-d-f-m-roche-paris",
       "slugByLocale": {
-        "it": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
+        "it": "specialista-ricerca-clinica-cdd-d-f-m-roche-paris",
         "en": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
         "de": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch",
         "fr": "specialiste-recherche-clinique-cdd-d-f-m-roche-ch"
@@ -79474,11 +79508,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ricerca-clinica-specialistica-csd-d-f-m-roche-paris"
+        "ricerca-clinica-specialistica-csd-d-f-m-roche-paris",
+        "specialiste-recherche-clinique-cdd-d-f-m-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ricerca-clinica-specialistica-csd-d-f-m-roche-paris"
+          "ricerca-clinica-specialistica-csd-d-f-m-roche-paris",
+          "specialiste-recherche-clinique-cdd-d-f-m-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79500,9 +79536,9 @@
     },
     {
       "id": "roche-1dd789c8c6b3",
-      "slug": "marketing-lead-lung-fixed-term-roche-ch",
+      "slug": "marketing-lead-lung-a-tempo-determinato-roche-istanbul",
       "slugByLocale": {
-        "it": "marketing-lead-lung-fixed-term-roche-ch",
+        "it": "marketing-lead-lung-a-tempo-determinato-roche-istanbul",
         "en": "marketing-lead-lung-fixed-term-roche-ch",
         "de": "marketing-lead-lung-fixed-term-roche-ch",
         "fr": "marketing-lead-lung-fixed-term-roche-ch"
@@ -79559,13 +79595,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-lead-lung-fixed-term-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-lead-lung-fixed-term-roche-ch"
+      ]
     },
     {
       "id": "roche-4716cb8666e2",
-      "slug": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
+      "slug": "service-engineer-guadalupa-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
+        "it": "service-engineer-guadalupa-d-f-m-roche-france",
         "en": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
         "de": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
         "fr": "ingenieur-service-guadeloupe-d-f-m-roche-ch"
@@ -79608,11 +79652,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servizio-ingegnere-guadalupa-d-f-m-roche-france"
+        "servizio-ingegnere-guadalupa-d-f-m-roche-france",
+        "ingenieur-service-guadeloupe-d-f-m-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servizio-ingegnere-guadalupa-d-f-m-roche-france"
+          "servizio-ingegnere-guadalupa-d-f-m-roche-france",
+          "ingenieur-service-guadeloupe-d-f-m-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79844,9 +79890,9 @@
     },
     {
       "id": "roche-7892a752cb19",
-      "slug": "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-penzberg",
+      "slug": "r-d-laborant-assay-development-m-f-d-limitato-a-2-anni-roche-penzberg",
       "slugByLocale": {
-        "it": "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-penzberg",
+        "it": "r-d-laborant-assay-development-m-f-d-limitato-a-2-anni-roche-penzberg",
         "en": "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-ch",
         "de": "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-ch",
         "fr": "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-ch"
@@ -79889,11 +79935,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-ch"
+        "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-ch",
+        "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-ch"
+          "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-ch",
+          "r-d-laborant-assay-development-m-w-d-befristet-auf-2-jahre-roche-penzberg"
         ]
       },
       "needsRetranslation": true,
@@ -79915,9 +79963,9 @@
     },
     {
       "id": "roche-440e9b573afb",
-      "slug": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
+      "slug": "direttore-a-regionale-a-delle-vendite-gamma-core-lab-regione-ovest-roche-france",
       "slugByLocale": {
-        "it": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
+        "it": "direttore-a-regionale-a-delle-vendite-gamma-core-lab-regione-ovest-roche-france",
         "en": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
         "de": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch",
         "fr": "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch"
@@ -79960,11 +80008,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france"
+        "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france",
+        "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france"
+          "direttore-regional-sales-director-core-lab-gamma-western-region-roche-france",
+          "directeur-directrice-regional-e-des-ventes-gamme-core-lab-region-ouest-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -79986,9 +80036,9 @@
     },
     {
       "id": "roche-bcc47510abfc",
-      "slug": "estagiario-de-engenharia-roche-ch",
+      "slug": "stadio-di-ingegneria-roche-sao-paulo",
       "slugByLocale": {
-        "it": "estagiario-de-engenharia-roche-ch",
+        "it": "stadio-di-ingegneria-roche-sao-paulo",
         "en": "estagiario-de-engenharia-roche-ch",
         "de": "estagiario-de-engenharia-roche-ch",
         "fr": "estagiario-de-engenharia-roche-ch"
@@ -80031,11 +80081,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stadio-di-ingegneria-roche-sao-paulo"
+        "estagiario-de-engenharia-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stadio-di-ingegneria-roche-sao-paulo"
+          "estagiario-de-engenharia-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -80279,9 +80329,9 @@
     },
     {
       "id": "roche-124c027f8c38",
-      "slug": "warehouse-distribution-lead-roche-ch",
+      "slug": "piombo-di-magazzino-e-distribuzione-roche-quito",
       "slugByLocale": {
-        "it": "warehouse-distribution-lead-roche-ch",
+        "it": "piombo-di-magazzino-e-distribuzione-roche-quito",
         "en": "warehouse-distribution-lead-roche-ch",
         "de": "warehouse-distribution-lead-roche-ch",
         "fr": "warehouse-distribution-lead-roche-ch"
@@ -80324,11 +80374,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "piombo-di-magazzino-e-distribuzione-roche-quito"
+        "warehouse-distribution-lead-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "piombo-di-magazzino-e-distribuzione-roche-quito"
+          "warehouse-distribution-lead-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -80558,9 +80608,9 @@
     },
     {
       "id": "roche-bae7749ac47e",
-      "slug": "coordinador-de-almacen-roche-ch",
+      "slug": "coordinatore-di-almacen-roche-el-coyol",
       "slugByLocale": {
-        "it": "coordinador-de-almacen-roche-ch",
+        "it": "coordinatore-di-almacen-roche-el-coyol",
         "en": "coordinador-de-almacen-roche-ch",
         "de": "coordinador-de-almacen-roche-ch",
         "fr": "coordinador-de-almacen-roche-el-coyol"
@@ -80603,11 +80653,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinator-de-almacen-roche-el-coyol"
+        "coordinator-de-almacen-roche-el-coyol",
+        "coordinador-de-almacen-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinator-de-almacen-roche-el-coyol"
+          "coordinator-de-almacen-roche-el-coyol",
+          "coordinador-de-almacen-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -80629,9 +80681,9 @@
     },
     {
       "id": "roche-f72ef61797eb",
-      "slug": "vice-president-customer-experience-and-commercial-operations-roche-ch",
+      "slug": "vicepresidente-customer-experience-e-operazioni-commerciali-roche-mississauga",
       "slugByLocale": {
-        "it": "vice-president-customer-experience-and-commercial-operations-roche-ch",
+        "it": "vicepresidente-customer-experience-e-operazioni-commerciali-roche-mississauga",
         "en": "vice-president-customer-experience-and-commercial-operations-roche-ch",
         "de": "vice-president-customer-experience-and-commercial-operations-roche-ch",
         "fr": "vice-president-customer-experience-and-commercial-operations-roche-ch"
@@ -80674,11 +80726,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga"
+        "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga",
+        "vice-president-customer-experience-and-commercial-operations-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga"
+          "vice-presidente-customer-experience-e-operazioni-commerciali-roche-mississauga",
+          "vice-president-customer-experience-and-commercial-operations-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -80913,9 +80967,9 @@
     },
     {
       "id": "roche-37dd92d690cf",
-      "slug": "senior-medical-science-manager-immunology-roche-ch-4",
+      "slug": "senior-responsabile-scienze-mediche-immunologia-roche-beijing",
       "slugByLocale": {
-        "it": "senior-medical-science-manager-immunology-roche-ch-4",
+        "it": "senior-responsabile-scienze-mediche-immunologia-roche-beijing",
         "en": "senior-medical-science-manager-immunology-roche-ch",
         "de": "senior-medical-science-manager-immunology-roche-ch-4",
         "fr": "senior-medical-science-manager-immunology-roche-ch-4"
@@ -80972,7 +81026,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-medical-science-manager-immunology-roche-ch-4"
+        ]
+      },
+      "previousSlugs": [
+        "senior-medical-science-manager-immunology-roche-ch-4"
+      ]
     },
     {
       "id": "roche-bb9efd72fe30",
@@ -81060,9 +81122,9 @@
     },
     {
       "id": "roche-71e870caae57",
-      "slug": "environmental-product-implementation-lead-roche-ch",
+      "slug": "responsabile-dell-implementazione-del-prodotto-ambientale-roche-suzhou",
       "slugByLocale": {
-        "it": "environmental-product-implementation-lead-roche-ch",
+        "it": "responsabile-dell-implementazione-del-prodotto-ambientale-roche-suzhou",
         "en": "environmental-product-implementation-lead-roche-ch",
         "de": "environmental-product-implementation-lead-roche-ch",
         "fr": "environmental-product-implementation-lead-roche-ch"
@@ -81119,13 +81181,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "environmental-product-implementation-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "environmental-product-implementation-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-39c208443c1d",
-      "slug": "study-start-up-lead-roche-ch",
+      "slug": "iniziare-lo-studio-piombo-roche-beijing",
       "slugByLocale": {
-        "it": "study-start-up-lead-roche-ch",
+        "it": "iniziare-lo-studio-piombo-roche-beijing",
         "en": "study-start-up-lead-roche-ch",
         "de": "study-start-up-lead-roche-ch",
         "fr": "study-start-up-lead-roche-ch"
@@ -81182,7 +81252,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-start-up-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "study-start-up-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-d13f12da2015",
@@ -81623,9 +81701,9 @@
     },
     {
       "id": "roche-51673cfe321d",
-      "slug": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
+      "slug": "tirocinante-strategia-di-generazione-dati-f-m-d-roche-paris",
       "slugByLocale": {
-        "it": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
+        "it": "tirocinante-strategia-di-generazione-dati-f-m-d-roche-paris",
         "en": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
         "de": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch",
         "fr": "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch"
@@ -81668,11 +81746,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris"
+        "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris",
+        "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris"
+          "trainee-strategia-di-generazione-dei-dati-e-m-d-roche-paris",
+          "stagiaire-strategie-de-generation-de-donnee-f-m-d-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -81770,9 +81850,9 @@
     },
     {
       "id": "roche-e3fb4e540848",
-      "slug": "technical-product-owner-web-experience-roche-ch",
+      "slug": "proprietario-del-prodotto-tecnico-esperienza-web-roche-warsaw",
       "slugByLocale": {
-        "it": "technical-product-owner-web-experience-roche-ch",
+        "it": "proprietario-del-prodotto-tecnico-esperienza-web-roche-warsaw",
         "en": "technical-product-owner-web-experience-roche-ch",
         "de": "technical-product-owner-web-experience-roche-ch",
         "fr": "technical-product-owner-web-experience-roche-ch"
@@ -81829,13 +81909,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-web-experience-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-web-experience-roche-ch"
+      ]
     },
     {
       "id": "roche-1bbe2a63a80e",
-      "slug": "sr-product-manager-roche-ch-3",
+      "slug": "sr-responsabile-del-prodotto-roche-shanghai",
       "slugByLocale": {
-        "it": "sr-product-manager-roche-ch-3",
+        "it": "sr-responsabile-del-prodotto-roche-shanghai",
         "en": "sr-product-manager-roche-ch",
         "de": "sr-product-manager-roche-ch-3",
         "fr": "sr-product-manager-roche-ch-3"
@@ -81892,7 +81980,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-product-manager-roche-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "sr-product-manager-roche-ch-3"
+      ]
     },
     {
       "id": "roche-612582304742",
@@ -82360,9 +82456,9 @@
     },
     {
       "id": "roche-b605a3712362",
-      "slug": "patient-journey-partner-roche-ch-5",
+      "slug": "partner-del-viaggio-paziente-roche-copenhagen",
       "slugByLocale": {
-        "it": "patient-journey-partner-roche-ch-5",
+        "it": "partner-del-viaggio-paziente-roche-copenhagen",
         "en": "patient-journey-partner-roche-ch",
         "de": "patient-journey-partner-roche-ch-5",
         "fr": "patient-journey-partner-roche-ch-5"
@@ -82419,7 +82515,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-roche-ch-5"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-roche-ch-5"
+      ]
     },
     {
       "id": "roche-a8f08ae323f2",
@@ -82494,9 +82598,9 @@
     },
     {
       "id": "roche-8dab4fe3a321",
-      "slug": "p-c-business-partner-country-connector-canada-roche-ch",
+      "slug": "partner-commerciale-p-c-connettore-paese-canada-roche-mississauga",
       "slugByLocale": {
-        "it": "p-c-business-partner-country-connector-canada-roche-ch",
+        "it": "partner-commerciale-p-c-connettore-paese-canada-roche-mississauga",
         "en": "p-c-business-partner-country-connector-canada-roche-ch",
         "de": "p-c-business-partner-country-connector-canada-roche-ch",
         "fr": "p-c-business-partner-country-connector-canada-roche-ch"
@@ -82553,13 +82657,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "p-c-business-partner-country-connector-canada-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "p-c-business-partner-country-connector-canada-roche-ch"
+      ]
     },
     {
       "id": "roche-cf204732ae8a",
-      "slug": "national-sales-lead-roche-ch",
+      "slug": "piombo-di-vendita-nazionale-roche-johannesburg",
       "slugByLocale": {
-        "it": "national-sales-lead-roche-ch",
+        "it": "piombo-di-vendita-nazionale-roche-johannesburg",
         "en": "national-sales-lead-roche-ch",
         "de": "national-sales-lead-roche-ch",
         "fr": "national-sales-lead-roche-ch"
@@ -82616,7 +82728,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "national-sales-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "national-sales-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-152d7a01c526",
@@ -83220,9 +83340,9 @@
     },
     {
       "id": "roche-d631b9d5f0ad",
-      "slug": "histology-associate-2nd-shift-roche-ch",
+      "slug": "istologia-associata-2-turno-roche-tucson",
       "slugByLocale": {
-        "it": "histology-associate-2nd-shift-roche-ch",
+        "it": "istologia-associata-2-turno-roche-tucson",
         "en": "histology-associate-2nd-shift-roche-ch",
         "de": "histology-associate-2nd-shift-roche-ch",
         "fr": "histology-associate-2nd-shift-roche-ch"
@@ -83279,7 +83399,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "histology-associate-2nd-shift-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "histology-associate-2nd-shift-roche-ch"
+      ]
     },
     {
       "id": "roche-9c59eaa59e49",
@@ -83956,9 +84084,9 @@
     },
     {
       "id": "roche-d0e409a30ca6",
-      "slug": "manager-reagent-health-performance-roche-ch",
+      "slug": "manager-salute-e-prestazioni-dei-reagenti-roche-tucson",
       "slugByLocale": {
-        "it": "manager-reagent-health-performance-roche-ch",
+        "it": "manager-salute-e-prestazioni-dei-reagenti-roche-tucson",
         "en": "manager-reagent-health-performance-roche-ch",
         "de": "manager-reagent-health-performance-roche-ch",
         "fr": "manager-reagent-health-performance-roche-ch"
@@ -84015,7 +84143,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-reagent-health-performance-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-reagent-health-performance-roche-ch"
+      ]
     },
     {
       "id": "roche-65aaae320504",
@@ -84096,9 +84232,9 @@
     },
     {
       "id": "roche-43e7ff537b80",
-      "slug": "learning-management-systems-technology-product-owner-roche-ch",
+      "slug": "sistemi-di-gestione-dell-apprendimento-proprietario-del-prodotto-tecnologico-roche-mississauga",
       "slugByLocale": {
-        "it": "learning-management-systems-technology-product-owner-roche-ch",
+        "it": "sistemi-di-gestione-dell-apprendimento-proprietario-del-prodotto-tecnologico-roche-mississauga",
         "en": "learning-management-systems-technology-product-owner-roche-ch",
         "de": "learning-management-systems-technology-product-owner-roche-ch",
         "fr": "learning-management-systems-technology-product-owner-roche-ch"
@@ -84155,7 +84291,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-management-systems-technology-product-owner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "learning-management-systems-technology-product-owner-roche-ch"
+      ]
     },
     {
       "id": "roche-d313ac22b2ad",
@@ -84233,9 +84377,9 @@
     },
     {
       "id": "roche-78f0d0237b7e",
-      "slug": "senior-product-manager-roche-ch",
+      "slug": "responsabile-del-prodotto-senior-roche-indianapolis",
       "slugByLocale": {
-        "it": "senior-product-manager-roche-ch",
+        "it": "responsabile-del-prodotto-senior-roche-indianapolis",
         "en": "senior-product-manager-roche-ch",
         "de": "senior-product-manager-roche-ch",
         "fr": "senior-product-manager-roche-ch"
@@ -84292,13 +84436,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-0d5b869a1a1a",
-      "slug": "histology-process-lead-2nd-shift-roche-ch",
+      "slug": "responsabile-del-processo-istologico-2-turno-roche-tucson",
       "slugByLocale": {
-        "it": "histology-process-lead-2nd-shift-roche-ch",
+        "it": "responsabile-del-processo-istologico-2-turno-roche-tucson",
         "en": "histology-process-lead-2nd-shift-roche-ch",
         "de": "histology-process-lead-2nd-shift-roche-ch",
         "fr": "histology-process-lead-2nd-shift-roche-ch"
@@ -84355,7 +84507,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "histology-process-lead-2nd-shift-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "histology-process-lead-2nd-shift-roche-ch"
+      ]
     },
     {
       "id": "roche-8bbad504460e",
@@ -84511,9 +84671,9 @@
     },
     {
       "id": "roche-53e873ee7c04",
-      "slug": "senior-statistician-roche-ch",
+      "slug": "statistico-senior-roche-mississauga",
       "slugByLocale": {
-        "it": "senior-statistician-roche-ch",
+        "it": "statistico-senior-roche-mississauga",
         "en": "senior-statistician-roche-ch",
         "de": "senior-statistician-roche-ch",
         "fr": "senior-statistician-roche-ch"
@@ -84570,7 +84730,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-statistician-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-statistician-roche-ch"
+      ]
     },
     {
       "id": "roche-65f844160aab",
@@ -84868,10 +85036,10 @@
     },
     {
       "id": "roche-caa297d34c82",
-      "slug": "channel-data-mgmt-expert-roche-ch",
+      "slug": "esperto-di-gestione-dei-dati-di-canale-roche-shanghai",
       "slugByLocale": {
         "en": "channel-data-mgmt-expert-roche-ch",
-        "it": "channel-data-mgmt-expert-roche-ch",
+        "it": "esperto-di-gestione-dei-dati-di-canale-roche-shanghai",
         "de": "channel-data-mgmt-expert-roche-ch",
         "fr": "channel-data-mgmt-expert-roche-ch"
       },
@@ -84929,7 +85097,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-06T22:23:23.878Z"
+      "firstSeenAt": "2026-06-06T22:23:23.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "channel-data-mgmt-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "channel-data-mgmt-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-8a6aa05e2238",
