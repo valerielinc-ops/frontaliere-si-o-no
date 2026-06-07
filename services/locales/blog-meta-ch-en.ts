@@ -83,6 +83,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Health insurance for Swiss abroad: obligations',
     'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Learn the rules for health insurance of Swiss retirees and workers abroad: obligations, deadlines and a fixed deductible of 300 CHF.',
     'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Swiss health insurance abroad, people with documents in front of an office building',
+    'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Unemployment stable at 3%: Swiss job market in May 2026',
+    'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'SECO confirms the national rate at 3%. Ticino stands at 2.8%, Grisons at 1.4%. Long-term unemployment rises by 34%.',
+    'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Aerial view of Swiss urban center with employment offices, spring light',
 };
 
 export default blogMetaChEn;

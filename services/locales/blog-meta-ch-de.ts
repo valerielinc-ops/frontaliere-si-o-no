@@ -83,6 +83,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Krankenversicherung für Schweizer im Ausland: Pflichten',
     'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Erfahren Sie die Regeln zur Krankenversicherung für pensionierte und berufstätige Schweizer im Ausland: Pflichten, Fristen und feste Franchise von 300 CHF.',
     'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Schweizer Krankenkasse im Ausland, Menschen mit Dokumenten vor einem Bürogebäude',
+    'blog.article.disoccupazione-svizzera-maggio-2026.title': 'Arbeitslosigkeit stabil',
+    'blog.article.disoccupazione-svizzera-maggio-2026.excerpt': 'Die SECO bestätigt den nationalen Satz bei 3%. Im Tessin bleibt er bei 2,8%, Graubünden bei 1,4%. Langzeitarbeitslose steigen um 34%.',
+    'blog.article.disoccupazione-svizzera-maggio-2026.imageAlt': 'Luftansicht einer Schweizer Stadt mit Arbeitsvermittlungsbüros, Frühlingslicht',
 };
 
 export default blogMetaChDe;

@@ -995,6 +995,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-svizzera-maggio-2026': {
+    title: 'Disoccupazione stabile al 3%: il quadro svizzero a maggio 2026',
+    description: 'Dati SECO: disoccupazione stabile al 3% in Svizzera a maggio 2026. Ticino al 2,8%, Grigioni all\'1,4%. +34% disoccupati di lunga durata, prevalentemente',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, stabile, quadro, svizzero',
+    ogTitle: 'Disoccupazione Svizzera maggio 2026: dati SECO e tassi cantonali',
+    ogDescription: 'Dati SECO: disoccupazione stabile al 3% in Svizzera a maggio 2026. Ticino al 2,8%, Grigioni all\'1,4%. +34% disoccupati di lunga durata.',
+    canonicalPath: '/articoli-svizzera/disoccupazione-svizzera-maggio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione stabile al 3%: il quadro svizzero a maggio 2026",
+      "description": "Dati SECO: disoccupazione stabile al 3% in Svizzera a maggio 2026. Ticino al 2,8%, Grigioni all'1,4%. +34% disoccupati di lunga durata, prevalentemente",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-maggio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di centro urbano svizzero con uffici di collocamento, luce primaverile"
+      },
+      "datePublished": "2026-06-07T06:04:10+00:00",
+      "dateModified": "2026-06-07T06:04:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-svizzera-maggio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
