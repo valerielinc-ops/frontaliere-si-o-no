@@ -1325,7 +1325,7 @@
       "description": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
       "descriptionByLocale": {
         "it": "Ingénieur en génie civile - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
-        "en": "Ingénieur en genie civil - Chef de project 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
+        "en": "Civil Engineering Engineer - Project Manager 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
         "de": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
         "fr": "Ingénieur en génie civil - Chef de projet 80-100 % (f/m/d) — CSD ENGINEERS, Bulle"
       },
@@ -1362,7 +1362,6 @@
           "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T23:14:13.006Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1377,7 +1376,9 @@
         }
       },
       "addressRegion": "FR",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 80
     },
     {
       "id": "csd-engineers-4d21f9217016",
