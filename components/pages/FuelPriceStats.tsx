@@ -5,6 +5,7 @@ import { Analytics } from '@/services/analytics';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { FUEL_DAILY_LOCALES, buildFuelItalianStationPath, buildStationSlug, slugify, type FuelDailyLocale } from '@/build-plugins/fuelDailyData';
+import { brandLogoSlug } from '@/build-plugins/shared/brandSlug';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
@@ -120,15 +121,6 @@ function buildItalianStationSlugMap(row: MunicipalityFuelRow): Map<string, strin
  out.set(s.id, slug);
  }
  return out;
-}
-
-/** Normalised brand slug matching the build-time `brandLogoSlug`. */
-function brandLogoSlug(brand: string): string {
- return String(brand || '')
- .normalize('NFD')
- .replace(/[̀-ͯ]/g, '')
- .toLowerCase()
- .replace(/[^a-z0-9-]/g, '');
 }
 
 /**
