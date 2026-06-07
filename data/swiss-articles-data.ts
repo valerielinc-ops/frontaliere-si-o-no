@@ -260,6 +260,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pensione-iva-parlamento',
+    category: 'pensione',
+    date: '2026-06-07T06:52:53.508Z',
+    image: '/images/blog/pensione-iva-parlamento.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

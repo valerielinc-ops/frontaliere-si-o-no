@@ -1,0 +1,18 @@
+{
+  "id": "pensione-iva-parlamento",
+  "slug": "pensione-iva-parlamento",
+  "publishedAt": "2026-06-07T06:52:54.751Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "lenews.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3,
+    "confidence": 0.3,
+    "finalScore": 0.8999999999999999,
+    "cluster": "fiscale",
+    "score": 0.8999999999999999,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

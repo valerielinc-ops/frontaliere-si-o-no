@@ -50,6 +50,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima': { it: 'la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima', en: 'swiss-finance-under-scrutiny-for-its-climate-impact', de: 'die-schweizerische-finanzbranche-untersucht-auf-ihren-klimaeinfluss', fr: 'la-finance-suisse-sous-examen-pour-son-impact-sur-le-climat' },
  'cassa-malati-estero-scelta-assicurazione': { it: 'cassa-malati-estero-scelta-assicurazione', en: 'swiss-health-insurance-abroad-choice', de: 'krankenversicherung-schweizer-ausland-wahl', fr: 'assurance-maladie-suisse-etranger-choix' },
  'disoccupazione-svizzera-maggio-2026': { it: 'disoccupazione-svizzera-maggio-2026', en: 'unemployment-switzerland-may-2026', de: 'arbeitslosigkeit-schweiz-mai-2026', fr: 'chomage-suisse-mai-2026' },
+ 'pensione-iva-parlamento': { it: 'pensione-iva-parlamento', en: 'swiss-parliament-pension-vat-debate', de: 'schweizer-parlament-pension-uebernahme', fr: 'parlement-suisse-pension-tva' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
