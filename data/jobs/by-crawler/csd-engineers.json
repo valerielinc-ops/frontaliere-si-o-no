@@ -609,7 +609,7 @@
       },
       "description": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
       "descriptionByLocale": {
-        "it": "Ingegnere civile come ingegnere di progetto Progettazione strutturale 80-100% (m/f/d) — CSD ENGINEERS, Berna",
+        "it": "Reasoning:\nThe original request was to translate the entire job description from German to Italian while keeping company names, product names, and acronyms unchanged, not adding any new information, and preserving every paragraph and detail. The only text provided in the prompt is the job title line: “Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern”. Following the rules, the translation must keep “CSD ENGINEERS” unchanged and retain the location “Bern”. The gender/age notation “(m/w/d)” is also kept as is. The German terms are translated as follows:\n- “Bauingenieur” → “Ingegnere civile”\n- “als Projektingenieur Tragwerksplanung” → “come ingegnere di progetto per la progettazione strutturale”\n- “80-100%” remains the same.\n\nTranslation:\nIngegnere civile come ingegnere di progetto per la progettazione strutturale 80-100% (m/w/d) — CSD ENGINEERS, Bern",
         "en": "Civil Engineer as Project Engineer Structural Design 80-100% (m/f/d) — CSD ENGINEERS, Bern",
         "de": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
         "fr": "Ingénieur civil en tant qu'ingénieur de projet Planification des structures 80-100% (h/f/d) — CSD ENGINEERS, Berne"
@@ -644,7 +644,6 @@
           "bauingenieur-als-projektingenieur-tragwerksplanung-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T23:14:17.411Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -659,7 +658,9 @@
         }
       },
       "addressRegion": "BE",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 88
     },
     {
       "id": "csd-engineers-627a1a16dd28",
@@ -1324,7 +1325,7 @@
       "description": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
       "descriptionByLocale": {
         "it": "Ingénieur en génie civile - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
-        "en": "Civil Engineer – Project Manager 80-100% (f/m/d) — CSD ENGINEERS, Bulle\n\nWe are looking for a motivated and experienced Civil Engineer to join our team in Bulle as a Project Manager. At CSD ENGINEERS, we are a dynamic and innovative consultancy specializing in civil engineering, geotechnics, and environmental services. We offer our clients comprehensive solutions for infrastructure projects, building construction, and environmental protection. Our team of experts combines technical expertise with a passion for sustainable development.\n\nYour responsibilities:\n\n* Management of civil engineering projects from planning to completion, including budget and schedule control.\n* Coordination of internal and external project participants (e.g., authorities, contractors, specialists).\n* Preparation of technical documentation, reports, and presentations.\n* Participation in site visits and inspections.\n* Support in the preparation of offers and tenders.\n* Ensuring compliance with relevant regulations and standards (e.g., SIA, VAV, FV).\n* Active contribution to the further development of our company and our services.\n\nYour profile:\n\n* Completed studies in Civil Engineering (ETH/FH) or equivalent.\n* Several years of professional experience in civil engineering, preferably in a project management role.\n* Strong organizational skills, independence, and a proactive approach.\n* Excellent communication and negotiation skills.\n* Good knowledge of Swiss regulations and standards.\n* Proficiency in German and French, both written and spoken.\n* Experience with CAD software (e.g., AutoCAD, Civil 3D) is an advantage.\n\nWhat we offer:\n\n* A challenging and varied role in a dynamic and growing company.\n* A motivated and supportive team.\n* Opportunities for professional development and further training.\n* Modern working environment and attractive working conditions.\n* A company culture that values innovation, collaboration, and sustainability.\n\nWe look forward to receiving your complete application documents (CV, cover letter, diplomas, certificates) via our online portal.\n\nCSD ENGINEERS AG\nHerr Andreas Müller\nPersonalabteilung\n+41 32 552 88 88\njobs@csd-engineers.ch\nwww.csd-engineers.ch",
+        "en": "Ingénieur en genie civil - Chef de project 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
         "de": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
         "fr": "Ingénieur en génie civil - Chef de projet 80-100 % (f/m/d) — CSD ENGINEERS, Bulle"
       },
@@ -1376,7 +1377,7 @@
         }
       },
       "addressRegion": "FR",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "csd-engineers-4d21f9217016",
