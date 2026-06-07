@@ -3938,6 +3938,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-produzione-farmaceutica-coira': { name: 'Lavoro Coira', path: '/articoli-svizzera/lavoro-produzione-farmaceutica-coira/', parent: 'blog' },
     'blog-frontaliere': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere', parent: 'blog' },
     'blog-la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima': { name: 'La finanza svizzera sotto esame per il suo', path: '/articoli-svizzera/la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima/', parent: 'blog' },
+    'blog-richiesta-permesso-g-step-by-step': { name: 'Richiesta permesso G', path: '/articoli-frontaliere/richiesta-permesso-g-step-by-step', parent: 'blog' },
+    'blog-cassa-malati-estero-scelta-assicurazione': { name: 'Assicurazione malattie', path: '/articoli-svizzera/cassa-malati-estero-scelta-assicurazione/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

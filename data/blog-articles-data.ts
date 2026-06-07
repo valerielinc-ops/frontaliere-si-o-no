@@ -25353,6 +25353,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'richiesta-permesso-g-step-by-step',
+ category: 'pratico',
+ date: '2026-06-07T04:12:22.493Z',
+ image: '/images/blog/richiesta-permesso-g-step-by-step.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

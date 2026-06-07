@@ -80,6 +80,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.title': 'Die Schweizer Finanzen im Fokus: Klimawirkung',
     'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.excerpt': 'Die Schweiz ist eine finanzstarke Nation, doch ihr Finanzsektor investiert weiterhin Milliarden in fossile Brennstoffe.',
     'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.imageAlt': 'Lugano Finanzplatz mit einer nachhaltigen Atmosphäre',
+    'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Krankenversicherung für Schweizer im Ausland: Pflichten',
+    'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Erfahren Sie die Regeln zur Krankenversicherung für pensionierte und berufstätige Schweizer im Ausland: Pflichten, Fristen und feste Franchise von 300 CHF.',
+    'blog.article.cassa-malati-estero-scelta-assicurazione.imageAlt': 'Schweizer Krankenkasse im Ausland, Menschen mit Dokumenten vor einem Bürogebäude',
 };
 
 export default blogMetaChDe;

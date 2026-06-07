@@ -956,6 +956,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassa-malati-estero-scelta-assicurazione': {
+    title: 'Assicurazione malattie per svizzeri all’estero: obblighi',
+    description: 'Scopri obblighi, scadenze e franchigia fissa di 300 CHF per i pensionati e lavoratori svizzeri all\'estero. Guida pratica e passaggi concreti. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, malattie, svizzeri, estero',
+    ogTitle: 'Assicurazione malattie per svizzeri all’estero: obblighi e scelte',
+    ogDescription: 'Scopri le regole per l\'assicurazione malattie dei pensionati e dei lavoratori svizzeri all\'estero: obblighi, scadenze e franchigia fissa di 300 CHF.',
+    canonicalPath: '/articoli-svizzera/cassa-malati-estero-scelta-assicurazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione malattie per svizzeri all’estero: obblighi",
+      "description": "Scopri obblighi, scadenze e franchigia fissa di 300 CHF per i pensionati e lavoratori svizzeri all'estero. Guida pratica e passaggi concreti. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-malati-estero-scelta-assicurazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Assicurazione malattie svizzera all'estero, persone con documenti davanti a un edificio"
+      },
+      "datePublished": "2026-06-07T04:30:32+00:00",
+      "dateModified": "2026-06-07T04:30:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cassa-malati-estero-scelta-assicurazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
