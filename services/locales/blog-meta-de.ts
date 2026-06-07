@@ -7995,6 +7995,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.imposte-fonte-ticino-calcolatore-2026.title': 'Quellensteuer in Ticino berechnen: Sätze & Simulator 2026',
     'blog.article.imposte-fonte-ticino-calcolatore-2026.excerpt': 'Praktische Anleitung zur Berechnung der Quellensteuer im Kanton Ticino für 2026 mit Sätzen, Stufen und Simulator für Grenzgänger.',
     'blog.article.imposte-fonte-ticino-calcolatore-2026.imageAlt': 'Finanzbüro mit Blick auf die Stadt Lugano im Kanton Tessin',
+    'blog.article.tpressing-lavoro-investimenti-ffs.title': 'Tessin und Eisenbahnen: Druck auf Arbeit und Investitionen',
+    'blog.article.tpressing-lavoro-investimenti-ffs.excerpt': 'Die Tessiner Delegation trifft sich mit den SBB in Bern: keine Entlassungen für Grenzgänger, aber der Güterverkehrssektor wird im Mendrisiotto reduziert.',
+    'blog.article.tpressing-lavoro-investimenti-ffs.imageAlt': 'Bahnhof Bellinzona mit modernen Zügen und Tessiner Bahninfrastruktur',
 };
 
 export default blogMetaDe;

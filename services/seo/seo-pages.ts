@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2745,
+ "numberOfItems": 2746,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7385,7 +7385,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2742, "name": "G step by step: permesso, documenti e dove andare", "url": `${BASE_URL}/articoli-frontaliere/richiesta-permesso-g-step-by-step` },
           { "@type": "ListItem", "position": 2743, "name": "Assicurazione malattie per svizzeri all’estero:...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-estero-scelta-assicurazione` },
           { "@type": "ListItem", "position": 2744, "name": "Come calcolare l'imposta alla fonte in Ticino: ...", "url": `${BASE_URL}/articoli-frontaliere/imposte-fonte-ticino-calcolatore-2026` },
-          { "@type": "ListItem", "position": 2745, "name": "Disoccupazione stabile al 3%: il quadro svizzer...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-svizzera-maggio-2026` }
+          { "@type": "ListItem", "position": 2745, "name": "Disoccupazione stabile al 3%: il quadro svizzer...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-svizzera-maggio-2026` },
+          { "@type": "ListItem", "position": 2746, "name": "Ticino e ferrovie: pressing su lavoro e investi...", "url": `${BASE_URL}/articoli-frontaliere/tpressing-lavoro-investimenti-ffs` }
  ]
  },
  {
