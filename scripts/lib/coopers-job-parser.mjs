@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml as fetchHtmlShared } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -124,29 +124,21 @@ const COOPERS_BASE = 'https://www.coopers.ch';
 const JOBS_URL = `${COOPERS_BASE}/en/jobs/index.php`;
 
 /**
- * Fetch HTML with timeout handling.
+ * Fetch HTML via the shared `fetchHtml` (crawler-template.mjs) so the
+ * 200-but-challenge → Jina rescue (#1469) and the connection-level Jina
+ * fallback apply by-construction — this bespoke fetcher was outside that
+ * shared chokepoint (#1473). Coopers' own Accept/User-Agent are passed through
+ * `options.headers`; the shared helper merges them over its DEFAULT_UA so the
+ * bespoke UA still wins, and it already wraps the GET in bounded-backoff retry.
  */
 async function fetchHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchHtmlShared(url, {
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
 }
 
 /**
