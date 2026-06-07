@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-05-20T00:09:29.975Z",
-    "label": "before",
-    "total": 8316,
-    "needsRetranslation": 6122,
-    "incomplete": 692,
-    "complete": 7624,
-    "missingByLocale": {
-      "it": 473,
-      "en": 364,
-      "de": 206,
-      "fr": 446
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 113
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 80
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 69
-      },
-      {
-        "company": "Roche",
-        "pending": 47
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 20
-      },
-      {
-        "company": "Schindler",
-        "pending": 19
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-20T04:01:20.020Z",
-    "label": "after",
-    "total": 8316,
-    "needsRetranslation": 1740,
-    "incomplete": 544,
-    "complete": 7772,
-    "missingByLocale": {
-      "it": 393,
-      "en": 299,
-      "de": 181,
-      "fr": 370
-    },
-    "topPending": [
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 68
-      },
-      {
-        "company": "Roche",
-        "pending": 47
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 28
-      },
-      {
-        "company": "IWC",
-        "pending": 22
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 20
-      },
-      {
-        "company": "Schindler",
-        "pending": 19
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-20T04:08:10.283Z",
-    "label": "before",
-    "total": 8359,
-    "needsRetranslation": 3106,
-    "incomplete": 603,
-    "complete": 7756,
-    "missingByLocale": {
-      "it": 454,
-      "en": 359,
-      "de": 199,
-      "fr": 433
-    },
-    "topPending": [
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 80
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 69
-      },
-      {
-        "company": "Roche",
-        "pending": 47
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 28
-      },
-      {
-        "company": "Schindler",
-        "pending": 26
-      },
-      {
-        "company": "IWC",
-        "pending": 23
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 15
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-20T07:08:19.690Z",
-    "label": "after",
-    "total": 8359,
-    "needsRetranslation": 1677,
-    "incomplete": 513,
-    "complete": 7846,
-    "missingByLocale": {
-      "it": 385,
-      "en": 305,
-      "de": 165,
-      "fr": 363
-    },
-    "topPending": [
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 68
-      },
-      {
-        "company": "Roche",
-        "pending": 38
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 28
-      },
-      {
-        "company": "Schindler",
-        "pending": 26
-      },
-      {
-        "company": "IWC",
-        "pending": 22
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Lonza",
-        "pending": 10
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-21T04:39:21.552Z",
     "label": "before",
     "total": 8484,
@@ -11340,6 +11116,120 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 96
+      },
+      {
+        "company": "Roche",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 29
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 21
+      },
+      {
+        "company": "Richemont",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-07T09:35:27.624Z",
+    "label": "before",
+    "total": 10824,
+    "needsRetranslation": 2752,
+    "suppressed": 33,
+    "incomplete": 584,
+    "complete": 10240,
+    "missingByLocale": {
+      "it": 292,
+      "en": 231,
+      "de": 185,
+      "fr": 278
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 96
+      },
+      {
+        "company": "Roche",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 29
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 22
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 21
+      },
+      {
+        "company": "Richemont",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-07T10:38:04.002Z",
+    "label": "after",
+    "total": 10824,
+    "needsRetranslation": 2741,
+    "suppressed": 34,
+    "incomplete": 580,
+    "complete": 10244,
+    "missingByLocale": {
+      "it": 292,
+      "en": 230,
+      "de": 181,
+      "fr": 278
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 92
       },
       {
         "company": "Roche",
