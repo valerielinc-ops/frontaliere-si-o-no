@@ -41,6 +41,17 @@ const SEPARATOR_RUN_RE = /[_=~]{3,}/g;
 // fallback script `w.length===0`) or `~`/`_` runs that are NOT literal
 // markdown. Strip them before detection so code can't false-flag the gate.
 const CODE_BLOCK_RE = /<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi;
+// Tag markup and attribute values (e.g. `onerror="jcLF(this)"`,
+// `data-props='{"eq":"==="}'`, a logo `src` URL with `?a===b`) are NOT visible
+// body text either — `[_=~]{3,}` or `**…**` inside an attribute must not flag
+// the gate. The element-level CODE_BLOCK_RE strip only removes script/style
+// *blocks*; remaining attributes survive. Strip all tags so only the rendered
+// text nodes are scanned, matching the canonical sibling auditors
+// (audit-content-duplicates.mjs, audit-text-html-ratio.mjs). Order matters:
+// script/style block *contents* must go first (TAG_RE removes only the tags,
+// not the JS body between them); replace tags with a space so text either side
+// of a tag boundary can't merge into a false `**`.
+const TAG_RE = /<[^>]+>/g;
 
 function extractMainBody(html) {
   const openMatch = html.match(SEO_STATIC_OPEN);
@@ -48,7 +59,7 @@ function extractMainBody(html) {
   const startIdx = openMatch.index + openMatch[0].length;
   const closeIdx = html.slice(startIdx).search(MAIN_CLOSE);
   const raw = closeIdx < 0 ? html.slice(startIdx) : html.slice(startIdx, startIdx + closeIdx);
-  return raw.replace(CODE_BLOCK_RE, '');
+  return raw.replace(CODE_BLOCK_RE, ' ').replace(TAG_RE, ' ');
 }
 
 function isJobDetailPage(absPath) {
