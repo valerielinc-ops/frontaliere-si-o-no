@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "badrutts-palace-1b28acf029cb",
-      "slug": "reservations-agent-m-w-d-badrutts-palace-ch",
+      "slug": "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "reservations-agent-m-w-d-badrutts-palace-ch",
-        "en": "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "it": "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "de": "reservations-agent-m-w-d-badrutts-palace-ch",
         "fr": "reservations-agent-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
@@ -62,7 +62,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "reservations-agent-m-w-d-badrutts-palace-ch"
+        ],
+        "en": [
+          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "reservations-agent-m-w-d-badrutts-palace-ch",
+        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ]
     },
     {
       "id": "badrutts-palace-b285db822441",

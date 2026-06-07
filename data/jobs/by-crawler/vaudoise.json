@@ -2555,8 +2555,8 @@
       "slug": "interno-dell-universita-hes-vita-actuarial-data-h-e-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "it": "interno-dell-universita-hes-vita-actuarial-data-h-e-x-100-vaudoise-assurances-lausanne",
-        "en": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch",
-        "de": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch",
+        "en": "university-intern-hes-actuarial-life-data-h-e-x-100-vaudoise-assurances-lausanne",
+        "de": "universitatspraktikant-hes-actuarial-life-data-h-e-x-100-vaudoise-assurances-lausanne",
         "fr": "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -2603,6 +2603,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
+          "stagiaire-universitaire-hes-actuariat-vie-data-h-f-x-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:40.308Z",
@@ -2623,11 +2629,11 @@
     },
     {
       "id": "vaudoise-002ece210d3a",
-      "slug": "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
+      "slug": "ingegnere-workplace-engineer-it-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
-        "en": "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
-        "de": "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
+        "it": "ingegnere-workplace-engineer-it-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "engineer-workplace-engineer-it-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "ingenieur-arbeitsplatzingenieur-it-h-w-x-80-100-vaudoise-assurances-lausanne",
         "fr": "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -2682,14 +2688,28 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-c3b401fb2aad",
-      "slug": "ingenieur-e-devops-entre-80-et-100-vaudoise-ch",
+      "slug": "ingegnere-devops-tra-80-e-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "ingenieur-e-devops-entre-80-et-100-vaudoise-ch",
-        "en": "ingenieur-e-devops-entre-80-et-100-vaudoise-ch",
+        "it": "ingegnere-devops-tra-80-e-100-vaudoise-assurances-lausanne",
+        "en": "engineer-devops-between-80-and-100-vaudoise-assurances-lausanne",
         "de": "ingenieur-e-devops-entre-80-et-100-vaudoise-ch",
         "fr": "ingenieur-e-devops-entre-80-et-100-vaudoise-ch"
       },
@@ -2745,7 +2765,18 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-devops-entre-80-et-100-vaudoise-ch"
+        ],
+        "en": [
+          "ingenieur-e-devops-entre-80-et-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-devops-entre-80-et-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-a40415c3cf73",
