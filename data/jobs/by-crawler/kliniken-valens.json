@@ -8731,9 +8731,9 @@
     },
     {
       "id": "kliniken-valens-d00b71da619a",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-80-100-kliniken-valens-walenstadtberg",
+      "slug": "infermiere-dipl-sss-sup-m-f-a-80-100-kliniken-valens-walenstadtberg",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-80-100-kliniken-valens-walenstadtberg",
+        "it": "infermiere-dipl-sss-sup-m-f-a-80-100-kliniken-valens-walenstadtberg",
         "en": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-80-100-kliniken-valens-walenstadtberg",
         "de": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-80-100-kliniken-valens-walenstadtberg",
         "fr": "dipl-pflegefachfrau-mann-hf-fh-m-w-a-80-100-kliniken-valens-walenstadtberg"
@@ -8790,7 +8790,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-m-w-a-80-100-kliniken-valens-walenstadtberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-m-w-a-80-100-kliniken-valens-walenstadtberg"
+      ]
     }
   ]
 }

@@ -168,7 +168,7 @@
     },
     {
       "id": "company-26vpfx",
-      "slug": "specialista-in-hlks-swiss-armed-forces-vtg-schwabis",
+      "slug": "specialista-in-hvac-swiss-armed-forces-vtg-schwabis",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Spezialist/-in HLKS",
       "location": "Schwäbis",
@@ -200,7 +200,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "specialista-in-hlks-swiss-armed-forces-vtg-schwabis",
+        "it": "specialista-in-hvac-swiss-armed-forces-vtg-schwabis",
         "en": "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis-26vpfx",
         "de": "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis-26vpfx",
         "fr": "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis-26vpfx"
@@ -210,12 +210,14 @@
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis",
-          "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis-26vpfx"
+          "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis-26vpfx",
+          "specialista-in-hlks-swiss-armed-forces-vtg-schwabis"
         ]
       },
       "previousSlugs": [
         "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis",
-        "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis-26vpfx"
+        "spezialist-in-hlks-swiss-armed-forces-vtg-schwabis-26vpfx",
+        "specialista-in-hlks-swiss-armed-forces-vtg-schwabis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1749,9 +1751,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
-        "en": "team-und-kader-im-bereich-infrastructure-m-w-swiss-armed-forces-vtg-bern",
+        "en": "infrastructure-crew-and-cadre-m-f-swiss-armed-forces-vtg-bern",
         "de": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
-        "fr": "equipe-und-kader-im-bereich-infrastructure-m-p-swiss-armed-forces-vtg-bern"
+        "fr": "equipe-et-cadre-de-l-infrastructure-m-f-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -1766,10 +1768,12 @@
           "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bern"
         ],
         "en": [
-          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+          "team-und-kader-im-bereich-infrastructure-m-w-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
-          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+          "equipe-und-kader-im-bereich-infrastructure-m-p-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -1779,7 +1783,9 @@
         "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
         "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona",
         "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bern",
-        "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
+        "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+        "team-und-kader-im-bereich-infrastructure-m-w-swiss-armed-forces-vtg-bern",
+        "equipe-und-kader-im-bereich-infrastructure-m-p-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

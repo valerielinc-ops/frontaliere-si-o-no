@@ -2713,9 +2713,9 @@
     },
     {
       "id": "lonza-4a6781c68358",
-      "slug": "shift-teamlead-downstream-production-lonza-ch",
+      "slug": "shift-teamlead-produzione-a-valle-lonza-ch",
       "slugByLocale": {
-        "it": "shift-teamlead-downstream-production-lonza-ch",
+        "it": "shift-teamlead-produzione-a-valle-lonza-ch",
         "en": "shift-teamlead-downstream-production-lonza-ch",
         "de": "shift-teamlead-downstream-production-lonza-ch",
         "fr": "shift-teamlead-downstream-production-lonza-ch"
@@ -2771,7 +2771,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "shift-teamlead-downstream-production-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "shift-teamlead-downstream-production-lonza-ch"
+      ]
     }
   ]
 }
