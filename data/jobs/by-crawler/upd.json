@@ -168,10 +168,10 @@
       },
       "description": "Wir suchen eine Nachtärztin / Nachtarzt\n\n• Bereich: Ärztinnen | Ärzte\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Befristet",
       "descriptionByLocale": {
-        "it": "Mansioni\nMedico notturno\n\nSettore\nMedici | Medici\n\nTipo di impiego\nTempo pieno, tempo parziale possibile\n\nDurata\nScadenza",
-        "en": "Mansioni\nNight doctor\n\nArea\nDoctors | Doctors\n\nTipo di impiego\nFull time, part time possible\n\nDurata\nDeadline",
+        "it": "Mansioni\nmedico notturno / medico notturno\n\nSettore\nMedici | Medici\n\nTipo di impiego\nA tempo pieno, tempo parziale possibile\n\nDurata\nTemporaneo",
+        "en": "Mansioni\nNight doctor / Night doctor\n\nArea\nDoctors | Doctors\n\nTipo di impiego\nFull-time, part-time possible\n\nDurata\nTemporary",
         "de": "## Mansioni\nNachtärztin / Nachtarzt\n\n## Area\nÄrztinnen | Ärzte\n\n## Tipo di impiego\nVollzeit, Teilzeit möglich\n\n## Durata\nBefristet",
-        "fr": "Mansioni\nDocteur de nuit\n\nDomaine\nMédecins\n\nTipo di impiego\nTemps plein, temps partiel possible\n\nDurata\nDélai"
+        "fr": "Mansioni\nDocteur de nuit / Docteur de nuit\n\nDomaine\nMédecins\n\nTipo di impiego\nTemps plein, temps partiel possible\n\nDurata\ntemporaire"
       },
       "location": "Bern",
       "canton": "BE",
@@ -229,9 +229,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "upd-2617f609680b",
