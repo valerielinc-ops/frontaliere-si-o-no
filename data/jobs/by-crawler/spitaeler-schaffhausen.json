@@ -3367,9 +3367,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-care-specialist-hf-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-specialiste-des-soins-hf-spitaler-schaffhausen-schaffhausen"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3412,6 +3412,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "dipl-care-specialist-hf-spitaler-schaffhausen-schaffhausen",
+        "dipl-specialiste-des-soins-hf-spitaler-schaffhausen-schaffhausen",
         "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen-igdope",
         "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen",
         "diploma-in-nursing-hf-fh-spitaler-schaffhausen-schaffhausen",
@@ -3424,9 +3426,11 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
+          "dipl-care-specialist-hf-spitaler-schaffhausen-schaffhausen",
           "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
+          "dipl-specialiste-des-soins-hf-spitaler-schaffhausen-schaffhausen",
           "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
         ]
       },
@@ -4495,7 +4499,7 @@
         "it": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
         "en": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
         "de": "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-        "fr": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
+        "fr": "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4538,6 +4542,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
+        "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
+        "studente-universitario-datori-di-lavoro-branding-social-media-spitaler-schaffhausen-schaffhausen",
         "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
@@ -4545,7 +4551,7 @@
           "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
+          "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-05T12:37:12.582Z",
@@ -4641,12 +4647,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-2a341759238d",
-      "slug": "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
+      "slug": "security-engineer-spitaeler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "security-engineer-spitaeler-schaffhausen-schaffhausen",
-        "it": "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
+        "it": "security-engineer-spitaeler-schaffhausen-schaffhausen",
         "en": "security-engineer-spitaler-schaffhausen-schaffhausen",
-        "fr": "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen"
+        "fr": "security-engineer-spitaeler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4703,18 +4709,10 @@
       },
       "firstSeenAt": "2026-06-07T11:39:29.033Z",
       "previousSlugs": [
-        "security-engineer-spitaeler-schaffhausen-schaffhausen",
         "security-ingegnere-spitaler-schaffhausen-schaffhausen",
+        "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen",
         "security-ingenieur-spitaler-schaffhausen-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "security-engineer-spitaeler-schaffhausen-schaffhausen"
-        ],
-        "fr": [
-          "security-engineer-spitaeler-schaffhausen-schaffhausen"
-        ]
-      }
+      ]
     }
   ]
 }

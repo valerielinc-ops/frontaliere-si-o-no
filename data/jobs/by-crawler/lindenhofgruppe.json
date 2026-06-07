@@ -310,9 +310,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
+        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
+        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -356,6 +356,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
+        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
+        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -368,9 +370,11 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
+          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
+          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
@@ -2341,6 +2345,7 @@
         "assistente-nella-cura-lindenhofgruppe-bern",
         "assistent-in-pflege-lindenhofgruppe-bern",
         "assistent-in-pflege-lindenhofgruppe-ch",
+        "pflegeassistent-in-lindenhofgruppe-bern",
         "assistente-infermieristico-lindenhofgruppe-bern",
         "nursing-assistant-lindenhofgruppe-bern",
         "assistant-infirmier-lindenhofgruppe-bern"
