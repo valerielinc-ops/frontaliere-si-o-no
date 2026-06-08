@@ -3,22 +3,22 @@
     {
       "query": "case anziani ticino offerte di lavoro",
       "clicks": 10,
-      "impressions": 206
+      "impressions": 215
     },
     {
       "query": "offerte di lavoro casa di riposo svizzera",
       "clicks": 8,
-      "impressions": 92
+      "impressions": 95
     },
     {
       "query": "offerte lavoro casa di riposo svizzera",
       "clicks": 6,
-      "impressions": 92
+      "impressions": 95
     },
     {
       "query": "case anziani lugano posti di lavoro",
       "clicks": 5,
-      "impressions": 65
+      "impressions": 69
     },
     {
       "query": "offerte di lavoro casa anziani ticino",
@@ -27,7 +27,12 @@
     },
     {
       "query": "casa anziani paradiso offerta lavoro",
-      "clicks": 0,
+      "clicks": 1,
+      "impressions": 24
+    },
+    {
+      "query": "casa anziani mendrisio lavoro",
+      "clicks": 1,
       "impressions": 23
     },
     {
@@ -36,24 +41,19 @@
       "impressions": 21
     },
     {
-      "query": "casa anziani mendrisio lavoro",
-      "clicks": 1,
-      "impressions": 20
-    },
-    {
       "query": "casa anziani chiasso lavoro",
       "clicks": 2,
-      "impressions": 16
+      "impressions": 17
     },
     {
       "query": "offerte lavoro casa anziani ticino",
       "clicks": 2,
-      "impressions": 16
+      "impressions": 17
     },
     {
       "query": "casa anziani comunale bellinzona offerte di lavoro",
       "clicks": 0,
-      "impressions": 13
+      "impressions": 14
     },
     {
       "query": "offerte di lavoro casa di riposo per anziani",
@@ -164,12 +164,12 @@
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "clicks": 0,
-      "impressions": 49
+      "impressions": 50
     },
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 48
+      "impressions": 50
     },
     {
       "query": "نعم ابحث",
@@ -191,7 +191,7 @@
     {
       "query": "nursing jobs",
       "clicks": 0,
-      "impressions": 66
+      "impressions": 69
     },
     {
       "query": "4 site:.ch",
@@ -278,7 +278,12 @@
     {
       "query": "full time jobs near me",
       "clicks": 0,
-      "impressions": 13
+      "impressions": 15
+    },
+    {
+      "query": "dietician jobs near me",
+      "clicks": 0,
+      "impressions": 1
     },
     {
       "query": "jobs near me",
@@ -287,6 +292,11 @@
     },
     {
       "query": "lavoro bellinzona svizzera",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "part time jobs near me",
       "clicks": 0,
       "impressions": 1
     }
@@ -300,7 +310,7 @@
     {
       "query": "offerte lavoro ristorazione ticino",
       "clicks": 1,
-      "impressions": 6
+      "impressions": 7
     },
     {
       "query": "offerte lavoro ticino ristorazione",
@@ -467,23 +477,6 @@
       "impressions": 1
     }
   ],
-  "fahrer": [
-    {
-      "query": "fahrer locarno",
-      "clicks": 0,
-      "impressions": 30
-    },
-    {
-      "query": "fahrer jobs lugano",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "datumstempel migros",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "operatori-socio-sanitari": [
     {
       "query": "oss ticino offerte lavoro",
@@ -494,6 +487,11 @@
       "query": "oss svizzera offerte lavoro",
       "clicks": 0,
       "impressions": 3
+    },
+    {
+      "query": "cliniche private ticino offerte lavoro oss",
+      "clicks": 0,
+      "impressions": 2
     },
     {
       "query": "lavorare in svizzera come oss",
@@ -527,11 +525,6 @@
     },
     {
       "query": "cerco lavoro come oss in svizzera",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "cliniche private ticino offerte lavoro oss",
       "clicks": 0,
       "impressions": 1
     },
@@ -586,6 +579,23 @@
       "impressions": 1
     }
   ],
+  "fahrer": [
+    {
+      "query": "fahrer locarno",
+      "clicks": 0,
+      "impressions": 30
+    },
+    {
+      "query": "fahrer jobs lugano",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "datumstempel migros",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "altenpflege": [
     {
       "query": "altenpfleger jobs lugano",
@@ -609,6 +619,11 @@
     },
     {
       "query": "altenpflegerin stellenangebote",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "altersheim oberburg offene stellen",
       "clicks": 0,
       "impressions": 1
     },
@@ -944,7 +959,29 @@
     {
       "query": "ich suche jobs in der italienischen schweiz im service oder an der bar",
       "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "client-consulente-wealth-management-w-m-d-hamburg-ubs-ticino": [
+    {
+      "query": "offerte lavoro",
+      "clicks": 0,
       "impressions": 2
+    },
+    {
+      "query": "ubs offerte di lavoro",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "lavoro ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "ubs jobs",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "logistik": [
@@ -994,6 +1031,18 @@
     },
     {
       "query": "rpg developer jobs switzerland",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "channel-marketing-spezialist-ubs-ticino": [
+    {
+      "query": "ubs offerte di lavoro",
+      "clicks": 1,
+      "impressions": 3
+    },
+    {
+      "query": "jobs ticino",
       "clicks": 0,
       "impressions": 1
     }
@@ -1066,18 +1115,6 @@
       "impressions": 1
     }
   ],
-  "cuoco-a-cpa-im-alteren-sektor-sede-residenza-pedemonte-citta-di-bellinzona-bellinzona": [
-    {
-      "query": "bellinzona jobs",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "jobs bellinzona",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "pflegeassistenten": [
     {
       "query": "pflegejobs spital schiers",
@@ -1116,6 +1153,18 @@
   "restauration": [
     {
       "query": "oui",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "cuoco-a-cpa-im-alteren-sektor-sede-residenza-pedemonte-citta-di-bellinzona-bellinzona": [
+    {
+      "query": "bellinzona jobs",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "jobs bellinzona",
       "clicks": 0,
       "impressions": 1
     }
