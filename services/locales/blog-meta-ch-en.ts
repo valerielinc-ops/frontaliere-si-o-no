@@ -92,6 +92,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.migros-24h-herisau.title': 'Migros to Open First 24/7 Store in Switzerland',
     'blog.article.migros-24h-herisau.excerpt': 'The Herisau store will be open 24/7, staffed until 7:00 PM, with self-service options overnight.',
     'blog.article.migros-24h-herisau.imageAlt': '24-hour Migros supermarket with self-service checkout and video surveillance',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.title': 'SEM: 108 jobs cut from 2027',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'The State Secretariat for Migration is reducing its workforce as asylum backlogs are cleared and savings are imposed by the Federal Council and Parliament.',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Federal offices in Bern, headquarters of the State Secretariat for Migration SEM',
 };
 
 export default blogMetaChEn;
