@@ -19,6 +19,7 @@ Usage:
 import sys
 import tarfile
 import hashlib
+import difflib
 
 
 def manifest(path):
@@ -57,8 +58,60 @@ def topdir(name, depth=2):
     return "/".join(parts[:depth])
 
 
+def extract_members(path, names):
+    """One streaming pass: return {name: bytes} for the requested members."""
+    want = set(names)
+    out = {}
+    with tarfile.open(path, "r:*") as tf:
+        for m in tf:
+            if not m.isfile():
+                continue
+            nm = m.name[2:] if m.name.startswith("./") else m.name
+            if nm in want:
+                f = tf.extractfile(m)
+                if f is not None:
+                    out[nm] = f.read()
+                if len(out) == len(want):
+                    break
+    return out
+
+
+def fragment_diffs(a_text, b_text, max_frags=6, ctx=45):
+    """Return the differing fragments (old -> new) with a little context.
+    HTML pages are usually one long line, so a line diff is useless — we diff
+    the raw character stream and report each changed span."""
+    sm = difflib.SequenceMatcher(None, a_text, b_text, autojunk=False)
+    frags = []
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            continue
+        old = a_text[max(0, i1 - ctx):i2 + ctx]
+        new = b_text[max(0, j1 - ctx):j2 + ctx]
+        frags.append((old.replace("\n", "⏎"), new.replace("\n", "⏎")))
+        if len(frags) >= max_frags:
+            break
+    return frags
+
+
+def pick_samples(changed, B, per_dir=2, max_total=12):
+    """Spread sample changed files across the top churn directories."""
+    by_dir = {}
+    for k in changed:
+        by_dir.setdefault(topdir(k), []).append(k)
+    ranked = sorted(by_dir.items(),
+                    key=lambda kv: sum(B[x][1] for x in kv[1]), reverse=True)
+    out = []
+    for _, files in ranked:
+        for k in sorted(files)[:per_dir]:
+            out.append(k)
+            if len(out) >= max_total:
+                return out
+    return out
+
+
 def main():
     a_path, b_path, report_path = sys.argv[1], sys.argv[2], sys.argv[3]
+    n_samples = int(sys.argv[4]) if len(sys.argv) > 4 else 0
     print(f"[delta] hashing OLDER: {a_path}", flush=True)
     A = manifest(a_path)
     print(f"[delta] hashing NEWER: {b_path}", flush=True)
@@ -108,6 +161,26 @@ def main():
     lines.append("| dir | files | bytes |\n|---|--:|--:|\n")
     for d, (c, by) in top:
         lines.append(f"| `{d}` | {c:,} | {human(by)} |\n")
+
+    if n_samples > 0 and changed:
+        samples = pick_samples(changed, B, max_total=n_samples)
+        print(f"[delta] extracting {len(samples)} sample changed files for diff...", flush=True)
+        a_bytes = extract_members(a_path, samples)
+        b_bytes = extract_members(b_path, samples)
+        lines.append("\n## Sample diffs of changed files (what actually churns)\n")
+        for nm in samples:
+            if nm not in a_bytes or nm not in b_bytes:
+                continue
+            at = a_bytes[nm].decode("utf-8", "replace")
+            bt = b_bytes[nm].decode("utf-8", "replace")
+            frags = fragment_diffs(at, bt)
+            lines.append(f"\n### `{nm}`\n")
+            lines.append(f"_{len(at):,}B → {len(bt):,}B, {len(frags)}+ changed fragment(s)_\n\n")
+            for old, new in frags:
+                lines.append("```diff\n")
+                lines.append(f"- {old}\n")
+                lines.append(f"+ {new}\n")
+                lines.append("```\n")
 
     report = "".join(lines)
     with open(report_path, "w") as f:

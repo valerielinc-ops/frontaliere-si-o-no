@@ -17,6 +17,10 @@ on:
         description: "NEWER deploy run id (blank = auto-pick)"
         required: false
         default: ""
+      samples:
+        description: "How many changed files to sample-diff (0 = none)"
+        required: false
+        default: "10"
 
 permissions:
   actions: read
@@ -83,7 +87,7 @@ jobs:
         run: |
           set -euo pipefail
           ls -la A B
-          python3 scripts/measure-dist-delta.py A/artifact.tar B/artifact.tar report.md
+          python3 scripts/measure-dist-delta.py A/artifact.tar B/artifact.tar report.md "${{ inputs.samples }}"
           {
             echo "_Older run [${{ steps.pick.outputs.run_a }}], newer run [${{ steps.pick.outputs.run_b }}]_"
             echo
