@@ -29,7 +29,7 @@
       "firstSeenAt": "2026-06-05T12:56:27.382Z",
       "titleByLocale": {
         "de": "Rechenzentrum-Spezialist/-in IKT",
-        "it": "Rechenzentrum-Spezialist/-in IKT",
+        "it": "Specialista del centro dati ICT",
         "en": "ICT data centre specialist",
         "fr": "Spécialiste des centres informatiques"
       },
@@ -1633,7 +1633,9 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-4hynmv",
@@ -2280,7 +2282,7 @@
       "slugByLocale": {
         "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "en": "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
-        "de": "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+        "de": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "fr": "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -2291,12 +2293,16 @@
         ],
         "fr": [
           "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona"
+        ],
+        "de": [
+          "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
         ]
       },
       "previousSlugs": [
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
-        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona"
+        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona",
+        "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
