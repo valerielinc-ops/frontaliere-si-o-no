@@ -1,4 +1,40 @@
 {
-  "updatedAt": null,
-  "entries": []
+  "updatedAt": "2026-06-08T11:54:00.917Z",
+  "entries": [
+    {
+      "date": "2026-06-08",
+      "generatedAt": "2026-06-08T11:54:00.858Z",
+      "cls": {
+        "p75Mobile": 0.413,
+        "p75Desktop": null,
+        "window": {
+          "start": "2026-05-31",
+          "end": "2026-06-06"
+        }
+      },
+      "gsc": {
+        "avgPosition": 8.58,
+        "clicksPerDay": 1488.4,
+        "ctrByBucket": {
+          "/job-board/": null,
+          "/calcola-stipendio/": 2.23,
+          "/articoli-frontaliere/": 2.11,
+          "/fisco/": null,
+          "/guida-frontaliere/": 2.5
+        }
+      },
+      "adsense": {
+        "rpmCHF": 4.46,
+        "desktopRpmCHF": 2.13,
+        "revenuePerDayCHF": 8.63
+      },
+      "sourcesOk": {
+        "cls": true,
+        "gsc": true,
+        "adsense": true
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
 }
