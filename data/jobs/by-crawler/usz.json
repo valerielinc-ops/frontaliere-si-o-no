@@ -3170,9 +3170,9 @@
     },
     {
       "id": "usz-73056cfbea0c",
-      "slug": "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus",
+      "slug": "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus",
+        "it": "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "de": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "fr": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch"
@@ -3218,16 +3218,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-        "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
-        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus"
+        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
+        "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-          "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
-          "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus"
+          "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
+          "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -9259,9 +9259,9 @@
     },
     {
       "id": "usz-6b72a1e1a477",
-      "slug": "cura-speciale-specialista-esperto-f-m-d-recupero-sala-di-cura-60-100-universitatsspital-zurich-usz-campus",
+      "slug": "cure-specialistiche-esperto-esperta-in-materia-f-m-d-cura-della-camera-di-risveglio-60-100-universitatsspital-zurich-usz",
       "slugByLocale": {
-        "it": "cura-speciale-specialista-esperto-f-m-d-recupero-sala-di-cura-60-100-universitatsspital-zurich-usz-campus",
+        "it": "cure-specialistiche-esperto-esperta-in-materia-f-m-d-cura-della-camera-di-risveglio-60-100-universitatsspital-zurich-usz",
         "en": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
         "de": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
         "fr": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch"
@@ -9308,13 +9308,15 @@
       "previousSlugs": [
         "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
         "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-universitatsspital-zurich-usz-campus",
-        "specialist-career-specialista-w-m-d-universitatsspital-zurich-usz-campus"
+        "specialist-career-specialista-w-m-d-universitatsspital-zurich-usz-campus",
+        "cura-speciale-specialista-esperto-f-m-d-recupero-sala-di-cura-60-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
           "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-universitatsspital-zurich-usz-campus",
-          "specialist-career-specialista-w-m-d-universitatsspital-zurich-usz-campus"
+          "specialist-career-specialista-w-m-d-universitatsspital-zurich-usz-campus",
+          "cura-speciale-specialista-esperto-f-m-d-recupero-sala-di-cura-60-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -9476,9 +9478,9 @@
     },
     {
       "id": "usz-84158fe88f4c",
-      "slug": "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+      "slug": "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "it": "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
         "en": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "de": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "fr": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch"
@@ -9523,11 +9525,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch"
+        "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
+        "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch"
+          "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
+          "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,

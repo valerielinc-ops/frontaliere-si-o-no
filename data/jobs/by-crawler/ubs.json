@@ -1021,10 +1021,10 @@
     },
     {
       "id": "ubs-c22801816648",
-      "slug": "electronic-agency-algorithmic-trader-ubs",
+      "slug": "commerciante-algoritmico-agenzia-elettronica-ubs-ticino",
       "slugByLocale": {
         "en": "electronic-agency-algorithmic-trader-ubs",
-        "it": "electronic-agency-algorithmic-trader-ubs",
+        "it": "commerciante-algoritmico-agenzia-elettronica-ubs-ticino",
         "de": "electronic-agency-algorithmic-trader-ubs",
         "fr": "electronic-agency-algorithmic-trader-ubs"
       },
@@ -1089,7 +1089,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-07T22:49:44.884Z"
+      "firstSeenAt": "2026-06-07T22:49:44.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electronic-agency-algorithmic-trader-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "electronic-agency-algorithmic-trader-ubs"
+      ]
     },
     {
       "id": "ubs-bf94272f3125",
@@ -3637,9 +3645,9 @@
     },
     {
       "id": "ubs-f6bd414cb58d",
-      "slug": "client-account-manager-global-family-and-institutional-wealth-ubs-5",
+      "slug": "client-account-manager-famiglia-globale-e-ricchezza-istituzionale-ubs-ticino",
       "slugByLocale": {
-        "it": "client-account-manager-global-family-and-institutional-wealth-ubs-5",
+        "it": "client-account-manager-famiglia-globale-e-ricchezza-istituzionale-ubs-ticino",
         "en": "client-account-manager-global-family-and-institutional-wealth-ubs",
         "de": "client-account-manager-global-family-and-institutional-wealth-ubs-5",
         "fr": "client-account-manager-global-family-and-institutional-wealth-ubs-5"
@@ -3703,13 +3711,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-global-family-and-institutional-wealth-ubs-5"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-global-family-and-institutional-wealth-ubs-5"
+      ]
     },
     {
       "id": "ubs-0fea734ae151",
-      "slug": "client-account-manager-global-family-and-institutional-wealth-ubs-6",
+      "slug": "client-account-manager-famiglia-globale-e-ricchezza-istituzionale-ubs-ticino-f95d98",
       "slugByLocale": {
-        "it": "client-account-manager-global-family-and-institutional-wealth-ubs-6",
+        "it": "client-account-manager-famiglia-globale-e-ricchezza-istituzionale-ubs-ticino-f95d98",
         "en": "client-account-manager-global-family-and-institutional-wealth-ubs",
         "de": "client-account-manager-global-family-and-institutional-wealth-ubs-6",
         "fr": "client-account-manager-global-family-and-institutional-wealth-ubs-6"
@@ -3773,7 +3789,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-global-family-and-institutional-wealth-ubs-6"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-global-family-and-institutional-wealth-ubs-6"
+      ]
     },
     {
       "id": "ubs-dd60d095917b",
