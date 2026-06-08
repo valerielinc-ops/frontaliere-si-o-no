@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-06-08T13:57:18.828Z",
+  "assembledAt": "2026-06-08T23:25:30.298Z",
   "jobs": [
     {
       "id": "tschuggen-01d1354d56c4",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:16.635Z",
+      "crawledAt": "2026-06-08T23:25:28.062Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:15.721Z",
+      "crawledAt": "2026-06-08T23:25:27.147Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -147,6 +147,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:30.049Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -192,7 +193,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:14.812Z",
+      "crawledAt": "2026-06-08T23:25:26.237Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -281,7 +282,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1256/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:13.913Z",
+      "crawledAt": "2026-06-08T23:25:25.303Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -317,6 +318,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:49:09.335Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -362,7 +364,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1347/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:13.018Z",
+      "crawledAt": "2026-06-08T23:25:24.380Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -392,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:01.753Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -437,7 +440,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:12.142Z",
+      "crawledAt": "2026-06-08T23:25:23.458Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -464,6 +467,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -509,7 +513,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1345/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:11.247Z",
+      "crawledAt": "2026-06-08T23:25:22.476Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -539,6 +543,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:43:20.731Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -584,7 +589,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:10.337Z",
+      "crawledAt": "2026-06-08T23:25:21.783Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -614,6 +619,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T15:58:20.628Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -632,9 +638,9 @@
       "id": "tschuggen-c306c78add68",
       "slug": "chef-de-rang-bar-m-w-d-tschuggen-ch",
       "slugByLocale": {
-        "de": "chef-de-rang-bar-m-w-d-tschuggen-ch",
         "it": "chef-de-rang-bar-m-w-d-tschuggen-ch",
         "en": "chef-de-rang-bar-m-w-d-tschuggen-ch",
+        "de": "chef-de-rang-bar-m-w-d-tschuggen-ch",
         "fr": "chef-de-rang-bar-m-w-d-tschuggen-ch"
       },
       "company": "Tschuggen Collection",
@@ -642,16 +648,16 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Chef de Rang Bar (m/w/d)",
       "titleByLocale": {
-        "de": "Chef de Rang Bar (m/w/d)",
         "it": "Chef de Rang Bar (m/w/d)",
         "en": "Chef de Rang Bar (m/w/d)",
+        "de": "Chef de Rang Bar (m/w/d)",
         "fr": "Chef de Rang Bar (m/w/d)"
       },
       "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück . Wir suchen Sie ab sofort oder nach Vereinbarung Mit Ihrer Begeisterung für den Service am Gast und der Zubereitung von Cocktailkreationen sind Sie bei uns genau richtig! | Berufserfahrung (in der 5*-Hotellerie) von Vorteil D/E Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken Bar –und Cocktailkenntnisse Freundliches auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit Flexibilität | Aufnahme der Bestellung und Herstellung von Cocktails / Getränken Gewährleistung eines gästeorientierten Service an der Bar und im Loungebereich Begrüssung und aktive Betreuung der Gäste Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | Fühlen Sie sich angesprochen? Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
       "descriptionByLocale": {
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück . Wir suchen Sie ab sofort oder nach Vereinbarung Mit Ihrer Begeisterung für den Service am Gast und der Zubereitung von Cocktailkreationen sind Sie bei uns genau richtig! | Berufserfahrung (in der 5*-Hotellerie) von Vorteil D/E Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken Bar –und Cocktailkenntnisse Freundliches auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit Flexibilität | Aufnahme der Bestellung und Herstellung von Cocktails / Getränken Gewährleistung eines gästeorientierten Service an der Bar und im Loungebereich Begrüssung und aktive Betreuung der Gäste Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | Fühlen Sie sich angesprochen? Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
         "it": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück . Wir suchen Sie ab sofort oder nach Vereinbarung Mit Ihrer Begeisterung für den Service am Gast und der Zubereitung von Cocktailkreationen sind Sie bei uns genau richtig! | Berufserfahrung (in der 5*-Hotellerie) von Vorteil D/E Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken Bar –und Cocktailkenntnisse Freundliches auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit Flexibilität | Aufnahme der Bestellung und Herstellung von Cocktails / Getränken Gewährleistung eines gästeorientierten Service an der Bar und im Loungebereich Begrüssung und aktive Betreuung der Gäste Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | Fühlen Sie sich angesprochen? Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
         "en": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück . Wir suchen Sie ab sofort oder nach Vereinbarung Mit Ihrer Begeisterung für den Service am Gast und der Zubereitung von Cocktailkreationen sind Sie bei uns genau richtig! | Berufserfahrung (in der 5*-Hotellerie) von Vorteil D/E Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken Bar –und Cocktailkenntnisse Freundliches auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit Flexibilität | Aufnahme der Bestellung und Herstellung von Cocktails / Getränken Gewährleistung eines gästeorientierten Service an der Bar und im Loungebereich Begrüssung und aktive Betreuung der Gäste Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | Fühlen Sie sich angesprochen? Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
+        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück . Wir suchen Sie ab sofort oder nach Vereinbarung Mit Ihrer Begeisterung für den Service am Gast und der Zubereitung von Cocktailkreationen sind Sie bei uns genau richtig! | Berufserfahrung (in der 5*-Hotellerie) von Vorteil D/E Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken Bar –und Cocktailkenntnisse Freundliches auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit Flexibilität | Aufnahme der Bestellung und Herstellung von Cocktails / Getränken Gewährleistung eines gästeorientierten Service an der Bar und im Loungebereich Begrüssung und aktive Betreuung der Gäste Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | Fühlen Sie sich angesprochen? Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
         "fr": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück . Wir suchen Sie ab sofort oder nach Vereinbarung Mit Ihrer Begeisterung für den Service am Gast und der Zubereitung von Cocktailkreationen sind Sie bei uns genau richtig! | Berufserfahrung (in der 5*-Hotellerie) von Vorteil D/E Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken Bar –und Cocktailkenntnisse Freundliches auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit Flexibilität | Aufnahme der Bestellung und Herstellung von Cocktails / Getränken Gewährleistung eines gästeorientierten Service an der Bar und im Loungebereich Begrüssung und aktive Betreuung der Gäste Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | Fühlen Sie sich angesprochen? Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome"
       },
       "location": "Arosa",
@@ -659,7 +665,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1362/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:09.428Z",
+      "crawledAt": "2026-06-08T23:25:20.851Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -674,11 +680,10 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1362/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "hotelName": "Hotel Eden Roc",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-08T13:57:09.428Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -691,16 +696,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-08T13:57:09.428Z"
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-56b39c35baaf",
       "slug": "digital-revenue-development-manager-100-corporate-office-ascona-m-w-d-tschuggen-ch",
       "slugByLocale": {
-        "de": "digital-revenue-development-manager-100-corporate-office-ascona-m-w-d-tschuggen-ch",
         "it": "digital-revenue-development-manager-100-corporate-office-ascona-m-w-d-tschuggen-ch",
         "en": "digital-revenue-development-manager-100-corporate-office-ascona-m-w-d-tschuggen-ch",
+        "de": "digital-revenue-development-manager-100-corporate-office-ascona-m-w-d-tschuggen-ch",
         "fr": "digital-revenue-development-manager-100-corporate-office-ascona-m-w-d-tschuggen-ch"
       },
       "company": "Tschuggen Collection",
@@ -708,16 +712,16 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Digital & Revenue Development Manager 100% - Corporate Office Ascona (m/w/d)",
       "titleByLocale": {
-        "de": "Digital & Revenue Development Manager 100% - Corporate Office Ascona (m/w/d)",
-        "en": "Digital & Revenue Development Manager 100% - Corporate Office Ascona (m/w/d)",
         "it": "Digital & Revenue Development Manager 100% - Corporate Office Ascona (m/w/d)",
+        "en": "Digital & Revenue Development Manager 100% - Corporate Office Ascona (m/w/d)",
+        "de": "Digital & Revenue Development Manager 100% - Corporate Office Ascona (m/w/d)",
         "fr": "Digital & Revenue Development Manager 100% - Corporate Office Ascona (m/w/d)"
       },
       "description": "Die Tschuggen Collection steht mit ihren vier Häusern für einzigartige Ferienerlebnisse an den schönsten Orten der Schweiz. Alle Hotels befinden sich inmitten von beeindruckenden Naturkulissen, welche wir heutzutage nicht mehr als selbstverständlich erachten dürfen. Und so teilen wir die Überzeugung, dass der Klimawandel und der Schutz unserer Natur zu den wichtigsten Herausforderungen unserer Zeit zählen. Wir möchten in Zukunft mit Ihnen unsere Abteilung für Digital & Revenue Development erweitern und suchen eine fachlich kompetente Person mit dem Arbeitsort in Ascona : |\n• Fach-/Hochschulausbildung mit entsprechender Weiterbildung (CAS) im eCommerce, Digitalisierung, Revenue Management\n• Berufserfahrung in einer vergleichbaren Position und in der Hotel Operative von Vorteil\n• Empathische und resiliente Persönlichkeit\n• Engagierte Arbeitsweise mit einem hohen Mass an Selbstständigkeit und hoher Dienstleistungsorientierung\n• Sehr gutes Zahlenverständnis und ausgeprägte analytische Fähigkeiten\n• Erfahrung mit Corporate Office-Strukturen und Matrix-Organisationen\n• Problemloser Umgang mit verschiedenen Interessensgruppen\n• Deutsch als Muttersprache und gute Englischkenntnisse (I, F von Vorteil) |\n• Wartung von Content und Bildern aller eCommerce und Sales Plattformen zur Optimierung des Online Auftrittes\n• Operative Unterstützung der Reservierungs- abteilungen betreffend Schnittstellen-Funktionalitäten oder Rate Parity\n• Unterstützendes als auch selbstständiges Umsetzen von Projekten, wie Website Weiterentwicklungen, Online Shop Optimierung oder System Erneuerungen\n• Hotel Support und Monitoring Aufgaben für alle relevanten Gäste-Feedback Plattformen\n• Erstellung von Statistiken, Analysen sowie Revenue Monitoring anhand von Erfolgskennzahlen\n• Unterstützung der Sales Abteilung bei der jährlichen Partnervertragsaufbereitung sowie beim Ausfüllen von Affiliation RFPs aller Hotels\n• Unterstützung des Digital & Revenue Development Directors bei laufenden Arbeiten und Einnahme von Stellvertretungsaufgaben | Klare Visionen und gelebte Werte. Die Tschuggen Collection bietet Ihnen ein äusserst attraktives Umfeld und zahlreiche Benefits in den schönsten Regionen der Schweiz.\n• Ein inspirierendes und wertschätzendes Arbeitsklima in einem verantwortungsbewussten und kompromisslos engagierten Team\n• Raum zur persönlichen Entwicklung innerhalb der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen, F&B Konsumationen sowie Spa-Anwendungen in den Häusern der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen und F&B Konsumationen in den Häusern der Swiss Deluxe Hotels\n• Regelmässige Mitarbeitende-Events und Jubiläumsprämien\n• Zusätzliche Friends & Family Raten sowie Attraktive Vergünstigungen bei Partnern wie dem Landquart Fashion Outlet, Sunrise, Brands for Employees und weitere | Interessiert? Dann freuen wir uns auf Ihre vollständige Bewerbung (PDF).",
       "descriptionByLocale": {
-        "de": "Die Tschuggen Collection steht mit ihren vier Häusern für einzigartige Ferienerlebnisse an den schönsten Orten der Schweiz. Alle Hotels befinden sich inmitten von beeindruckenden Naturkulissen, welche wir heutzutage nicht mehr als selbstverständlich erachten dürfen. Und so teilen wir die Überzeugung, dass der Klimawandel und der Schutz unserer Natur zu den wichtigsten Herausforderungen unserer Zeit zählen. Wir möchten in Zukunft mit Ihnen unsere Abteilung für Digital & Revenue Development erweitern und suchen eine fachlich kompetente Person mit dem Arbeitsort in Ascona : |\n• Fach-/Hochschulausbildung mit entsprechender Weiterbildung (CAS) im eCommerce, Digitalisierung, Revenue Management\n• Berufserfahrung in einer vergleichbaren Position und in der Hotel Operative von Vorteil\n• Empathische und resiliente Persönlichkeit\n• Engagierte Arbeitsweise mit einem hohen Mass an Selbstständigkeit und hoher Dienstleistungsorientierung\n• Sehr gutes Zahlenverständnis und ausgeprägte analytische Fähigkeiten\n• Erfahrung mit Corporate Office-Strukturen und Matrix-Organisationen\n• Problemloser Umgang mit verschiedenen Interessensgruppen\n• Deutsch als Muttersprache und gute Englischkenntnisse (I, F von Vorteil) |\n• Wartung von Content und Bildern aller eCommerce und Sales Plattformen zur Optimierung des Online Auftrittes\n• Operative Unterstützung der Reservierungs- abteilungen betreffend Schnittstellen-Funktionalitäten oder Rate Parity\n• Unterstützendes als auch selbstständiges Umsetzen von Projekten, wie Website Weiterentwicklungen, Online Shop Optimierung oder System Erneuerungen\n• Hotel Support und Monitoring Aufgaben für alle relevanten Gäste-Feedback Plattformen\n• Erstellung von Statistiken, Analysen sowie Revenue Monitoring anhand von Erfolgskennzahlen\n• Unterstützung der Sales Abteilung bei der jährlichen Partnervertragsaufbereitung sowie beim Ausfüllen von Affiliation RFPs aller Hotels\n• Unterstützung des Digital & Revenue Development Directors bei laufenden Arbeiten und Einnahme von Stellvertretungsaufgaben | Klare Visionen und gelebte Werte. Die Tschuggen Collection bietet Ihnen ein äusserst attraktives Umfeld und zahlreiche Benefits in den schönsten Regionen der Schweiz.\n• Ein inspirierendes und wertschätzendes Arbeitsklima in einem verantwortungsbewussten und kompromisslos engagierten Team\n• Raum zur persönlichen Entwicklung innerhalb der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen, F&B Konsumationen sowie Spa-Anwendungen in den Häusern der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen und F&B Konsumationen in den Häusern der Swiss Deluxe Hotels\n• Regelmässige Mitarbeitende-Events und Jubiläumsprämien\n• Zusätzliche Friends & Family Raten sowie Attraktive Vergünstigungen bei Partnern wie dem Landquart Fashion Outlet, Sunrise, Brands for Employees und weitere | Interessiert? Dann freuen wir uns auf Ihre vollständige Bewerbung (PDF).",
         "it": "Die Tschuggen Collection steht mit ihren vier Häusern für einzigartige Ferienerlebnisse an den schönsten Orten der Schweiz. Alle Hotels befinden sich inmitten von beeindruckenden Naturkulissen, welche wir heutzutage nicht mehr als selbstverständlich erachten dürfen. Und so teilen wir die Überzeugung, dass der Klimawandel und der Schutz unserer Natur zu den wichtigsten Herausforderungen unserer Zeit zählen. Wir möchten in Zukunft mit Ihnen unsere Abteilung für Digital & Revenue Development erweitern und suchen eine fachlich kompetente Person mit dem Arbeitsort in Ascona : |\n• Fach-/Hochschulausbildung mit entsprechender Weiterbildung (CAS) im eCommerce, Digitalisierung, Revenue Management\n• Berufserfahrung in einer vergleichbaren Position und in der Hotel Operative von Vorteil\n• Empathische und resiliente Persönlichkeit\n• Engagierte Arbeitsweise mit einem hohen Mass an Selbstständigkeit und hoher Dienstleistungsorientierung\n• Sehr gutes Zahlenverständnis und ausgeprägte analytische Fähigkeiten\n• Erfahrung mit Corporate Office-Strukturen und Matrix-Organisationen\n• Problemloser Umgang mit verschiedenen Interessensgruppen\n• Deutsch als Muttersprache und gute Englischkenntnisse (I, F von Vorteil) |\n• Wartung von Content und Bildern aller eCommerce und Sales Plattformen zur Optimierung des Online Auftrittes\n• Operative Unterstützung der Reservierungs- abteilungen betreffend Schnittstellen-Funktionalitäten oder Rate Parity\n• Unterstützendes als auch selbstständiges Umsetzen von Projekten, wie Website Weiterentwicklungen, Online Shop Optimierung oder System Erneuerungen\n• Hotel Support und Monitoring Aufgaben für alle relevanten Gäste-Feedback Plattformen\n• Erstellung von Statistiken, Analysen sowie Revenue Monitoring anhand von Erfolgskennzahlen\n• Unterstützung der Sales Abteilung bei der jährlichen Partnervertragsaufbereitung sowie beim Ausfüllen von Affiliation RFPs aller Hotels\n• Unterstützung des Digital & Revenue Development Directors bei laufenden Arbeiten und Einnahme von Stellvertretungsaufgaben | Klare Visionen und gelebte Werte. Die Tschuggen Collection bietet Ihnen ein äusserst attraktives Umfeld und zahlreiche Benefits in den schönsten Regionen der Schweiz.\n• Ein inspirierendes und wertschätzendes Arbeitsklima in einem verantwortungsbewussten und kompromisslos engagierten Team\n• Raum zur persönlichen Entwicklung innerhalb der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen, F&B Konsumationen sowie Spa-Anwendungen in den Häusern der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen und F&B Konsumationen in den Häusern der Swiss Deluxe Hotels\n• Regelmässige Mitarbeitende-Events und Jubiläumsprämien\n• Zusätzliche Friends & Family Raten sowie Attraktive Vergünstigungen bei Partnern wie dem Landquart Fashion Outlet, Sunrise, Brands for Employees und weitere | Interessiert? Dann freuen wir uns auf Ihre vollständige Bewerbung (PDF).",
         "en": "Die Tschuggen Collection steht mit ihren vier Häusern für einzigartige Ferienerlebnisse an den schönsten Orten der Schweiz. Alle Hotels befinden sich inmitten von beeindruckenden Naturkulissen, welche wir heutzutage nicht mehr als selbstverständlich erachten dürfen. Und so teilen wir die Überzeugung, dass der Klimawandel und der Schutz unserer Natur zu den wichtigsten Herausforderungen unserer Zeit zählen. Wir möchten in Zukunft mit Ihnen unsere Abteilung für Digital & Revenue Development erweitern und suchen eine fachlich kompetente Person mit dem Arbeitsort in Ascona : |\n• Fach-/Hochschulausbildung mit entsprechender Weiterbildung (CAS) im eCommerce, Digitalisierung, Revenue Management\n• Berufserfahrung in einer vergleichbaren Position und in der Hotel Operative von Vorteil\n• Empathische und resiliente Persönlichkeit\n• Engagierte Arbeitsweise mit einem hohen Mass an Selbstständigkeit und hoher Dienstleistungsorientierung\n• Sehr gutes Zahlenverständnis und ausgeprägte analytische Fähigkeiten\n• Erfahrung mit Corporate Office-Strukturen und Matrix-Organisationen\n• Problemloser Umgang mit verschiedenen Interessensgruppen\n• Deutsch als Muttersprache und gute Englischkenntnisse (I, F von Vorteil) |\n• Wartung von Content und Bildern aller eCommerce und Sales Plattformen zur Optimierung des Online Auftrittes\n• Operative Unterstützung der Reservierungs- abteilungen betreffend Schnittstellen-Funktionalitäten oder Rate Parity\n• Unterstützendes als auch selbstständiges Umsetzen von Projekten, wie Website Weiterentwicklungen, Online Shop Optimierung oder System Erneuerungen\n• Hotel Support und Monitoring Aufgaben für alle relevanten Gäste-Feedback Plattformen\n• Erstellung von Statistiken, Analysen sowie Revenue Monitoring anhand von Erfolgskennzahlen\n• Unterstützung der Sales Abteilung bei der jährlichen Partnervertragsaufbereitung sowie beim Ausfüllen von Affiliation RFPs aller Hotels\n• Unterstützung des Digital & Revenue Development Directors bei laufenden Arbeiten und Einnahme von Stellvertretungsaufgaben | Klare Visionen und gelebte Werte. Die Tschuggen Collection bietet Ihnen ein äusserst attraktives Umfeld und zahlreiche Benefits in den schönsten Regionen der Schweiz.\n• Ein inspirierendes und wertschätzendes Arbeitsklima in einem verantwortungsbewussten und kompromisslos engagierten Team\n• Raum zur persönlichen Entwicklung innerhalb der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen, F&B Konsumationen sowie Spa-Anwendungen in den Häusern der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen und F&B Konsumationen in den Häusern der Swiss Deluxe Hotels\n• Regelmässige Mitarbeitende-Events und Jubiläumsprämien\n• Zusätzliche Friends & Family Raten sowie Attraktive Vergünstigungen bei Partnern wie dem Landquart Fashion Outlet, Sunrise, Brands for Employees und weitere | Interessiert? Dann freuen wir uns auf Ihre vollständige Bewerbung (PDF).",
+        "de": "Die Tschuggen Collection steht mit ihren vier Häusern für einzigartige Ferienerlebnisse an den schönsten Orten der Schweiz. Alle Hotels befinden sich inmitten von beeindruckenden Naturkulissen, welche wir heutzutage nicht mehr als selbstverständlich erachten dürfen. Und so teilen wir die Überzeugung, dass der Klimawandel und der Schutz unserer Natur zu den wichtigsten Herausforderungen unserer Zeit zählen. Wir möchten in Zukunft mit Ihnen unsere Abteilung für Digital & Revenue Development erweitern und suchen eine fachlich kompetente Person mit dem Arbeitsort in Ascona : |\n• Fach-/Hochschulausbildung mit entsprechender Weiterbildung (CAS) im eCommerce, Digitalisierung, Revenue Management\n• Berufserfahrung in einer vergleichbaren Position und in der Hotel Operative von Vorteil\n• Empathische und resiliente Persönlichkeit\n• Engagierte Arbeitsweise mit einem hohen Mass an Selbstständigkeit und hoher Dienstleistungsorientierung\n• Sehr gutes Zahlenverständnis und ausgeprägte analytische Fähigkeiten\n• Erfahrung mit Corporate Office-Strukturen und Matrix-Organisationen\n• Problemloser Umgang mit verschiedenen Interessensgruppen\n• Deutsch als Muttersprache und gute Englischkenntnisse (I, F von Vorteil) |\n• Wartung von Content und Bildern aller eCommerce und Sales Plattformen zur Optimierung des Online Auftrittes\n• Operative Unterstützung der Reservierungs- abteilungen betreffend Schnittstellen-Funktionalitäten oder Rate Parity\n• Unterstützendes als auch selbstständiges Umsetzen von Projekten, wie Website Weiterentwicklungen, Online Shop Optimierung oder System Erneuerungen\n• Hotel Support und Monitoring Aufgaben für alle relevanten Gäste-Feedback Plattformen\n• Erstellung von Statistiken, Analysen sowie Revenue Monitoring anhand von Erfolgskennzahlen\n• Unterstützung der Sales Abteilung bei der jährlichen Partnervertragsaufbereitung sowie beim Ausfüllen von Affiliation RFPs aller Hotels\n• Unterstützung des Digital & Revenue Development Directors bei laufenden Arbeiten und Einnahme von Stellvertretungsaufgaben | Klare Visionen und gelebte Werte. Die Tschuggen Collection bietet Ihnen ein äusserst attraktives Umfeld und zahlreiche Benefits in den schönsten Regionen der Schweiz.\n• Ein inspirierendes und wertschätzendes Arbeitsklima in einem verantwortungsbewussten und kompromisslos engagierten Team\n• Raum zur persönlichen Entwicklung innerhalb der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen, F&B Konsumationen sowie Spa-Anwendungen in den Häusern der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen und F&B Konsumationen in den Häusern der Swiss Deluxe Hotels\n• Regelmässige Mitarbeitende-Events und Jubiläumsprämien\n• Zusätzliche Friends & Family Raten sowie Attraktive Vergünstigungen bei Partnern wie dem Landquart Fashion Outlet, Sunrise, Brands for Employees und weitere | Interessiert? Dann freuen wir uns auf Ihre vollständige Bewerbung (PDF).",
         "fr": "Die Tschuggen Collection steht mit ihren vier Häusern für einzigartige Ferienerlebnisse an den schönsten Orten der Schweiz. Alle Hotels befinden sich inmitten von beeindruckenden Naturkulissen, welche wir heutzutage nicht mehr als selbstverständlich erachten dürfen. Und so teilen wir die Überzeugung, dass der Klimawandel und der Schutz unserer Natur zu den wichtigsten Herausforderungen unserer Zeit zählen. Wir möchten in Zukunft mit Ihnen unsere Abteilung für Digital & Revenue Development erweitern und suchen eine fachlich kompetente Person mit dem Arbeitsort in Ascona : |\n• Fach-/Hochschulausbildung mit entsprechender Weiterbildung (CAS) im eCommerce, Digitalisierung, Revenue Management\n• Berufserfahrung in einer vergleichbaren Position und in der Hotel Operative von Vorteil\n• Empathische und resiliente Persönlichkeit\n• Engagierte Arbeitsweise mit einem hohen Mass an Selbstständigkeit und hoher Dienstleistungsorientierung\n• Sehr gutes Zahlenverständnis und ausgeprägte analytische Fähigkeiten\n• Erfahrung mit Corporate Office-Strukturen und Matrix-Organisationen\n• Problemloser Umgang mit verschiedenen Interessensgruppen\n• Deutsch als Muttersprache und gute Englischkenntnisse (I, F von Vorteil) |\n• Wartung von Content und Bildern aller eCommerce und Sales Plattformen zur Optimierung des Online Auftrittes\n• Operative Unterstützung der Reservierungs- abteilungen betreffend Schnittstellen-Funktionalitäten oder Rate Parity\n• Unterstützendes als auch selbstständiges Umsetzen von Projekten, wie Website Weiterentwicklungen, Online Shop Optimierung oder System Erneuerungen\n• Hotel Support und Monitoring Aufgaben für alle relevanten Gäste-Feedback Plattformen\n• Erstellung von Statistiken, Analysen sowie Revenue Monitoring anhand von Erfolgskennzahlen\n• Unterstützung der Sales Abteilung bei der jährlichen Partnervertragsaufbereitung sowie beim Ausfüllen von Affiliation RFPs aller Hotels\n• Unterstützung des Digital & Revenue Development Directors bei laufenden Arbeiten und Einnahme von Stellvertretungsaufgaben | Klare Visionen und gelebte Werte. Die Tschuggen Collection bietet Ihnen ein äusserst attraktives Umfeld und zahlreiche Benefits in den schönsten Regionen der Schweiz.\n• Ein inspirierendes und wertschätzendes Arbeitsklima in einem verantwortungsbewussten und kompromisslos engagierten Team\n• Raum zur persönlichen Entwicklung innerhalb der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen, F&B Konsumationen sowie Spa-Anwendungen in den Häusern der Tschuggen Collection AG\n• Spezialpreise für Übernachtungen und F&B Konsumationen in den Häusern der Swiss Deluxe Hotels\n• Regelmässige Mitarbeitende-Events und Jubiläumsprämien\n• Zusätzliche Friends & Family Raten sowie Attraktive Vergünstigungen bei Partnern wie dem Landquart Fashion Outlet, Sunrise, Brands for Employees und weitere | Interessiert? Dann freuen wir uns auf Ihre vollständige Bewerbung (PDF)."
       },
       "location": "Arosa",
@@ -725,7 +729,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1363/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:57:08.540Z",
+      "crawledAt": "2026-06-08T23:25:19.907Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -740,15 +744,14 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1363/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Finanz-/Rechnungswesen",
       "hotelName": "Hotel Eden Roc",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-08T13:57:08.540Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -761,8 +764,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-08T13:57:08.540Z"
+      "addressRegion": "GR"
     }
   ]
 }
