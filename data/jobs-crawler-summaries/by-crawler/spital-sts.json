@@ -1,18 +1,55 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-06-08T13:45:30.363Z",
+  "generatedAt": "2026-06-08T23:14:33.550Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 10820,
-  "avgDurationMs": 10820,
+  "durationMs": 11792,
+  "avgDurationMs": 11792,
   "durationHistory": [
-    10820
+    11792
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "spital-sts-1d63c7ed914d",
+      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
+      "needsRetranslation": true,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/bc26f779-c496-40b7-a82a-f408b43caf49/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-08T23:14:23.499Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/bc26f779-c496-40b7-a82a-f408b43caf49",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "spital-sts-09d033d49379",
@@ -27,7 +64,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9ebf5831-65b5-4230-a3da-722730d57695/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:21.366Z",
+      "crawledAt": "2026-06-08T23:14:24.341Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/985404f9-e545-424f-a78d-991bffb30901/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:22.157Z",
+      "crawledAt": "2026-06-08T23:14:25.458Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c7c6e9a9-d32f-490c-9e6e-d36e7d25cf02/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:22.911Z",
+      "crawledAt": "2026-06-08T23:14:26.510Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c87ea77d-c64c-41c7-93e0-0efcee4b5938/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:23.673Z",
+      "crawledAt": "2026-06-08T23:14:27.440Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c4819bf1-2f97-4808-9c34-5a33a85a15e2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:24.416Z",
+      "crawledAt": "2026-06-08T23:14:28.197Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1c830d99-211a-4f9f-a9f1-719bf13974a2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:25.298Z",
+      "crawledAt": "2026-06-08T23:14:28.970Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/90dc793b-c682-4a4d-a5e8-a915f27821a0/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:26.067Z",
+      "crawledAt": "2026-06-08T23:14:29.813Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ad59e41-999f-45d9-a191-4dde6f2f1381/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:26.863Z",
+      "crawledAt": "2026-06-08T23:14:30.760Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/02327322-a7a6-4f8d-90cd-828d5b071f28/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:45:27.601Z",
+      "crawledAt": "2026-06-08T23:14:31.634Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -346,7 +383,9 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "spital-sts-0dbf3c443f2f",
       "slug": "medizinische-r-praxisassistent-in-medizinische-r-sekretar-in-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez",
@@ -354,7 +393,7 @@
       "companyKey": "spital-sts",
       "companyDomain": "spitalstsag.ch",
       "title": "Medizinische:r Praxisassistent:in / Medizinische:r Sekretär:in Onkologie- und Hämatologiezentrum",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Thun und Spiez",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/ee82e3ab-1e9b-4b54-8570-ea47f44c3c56/ats/",
@@ -376,15 +415,16 @@
       "postedDate": "2026-05-29",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/ee82e3ab-1e9b-4b54-8570-ea47f44c3c56",
       "firstSeenAt": "2026-05-29T00:39:55.975Z",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
