@@ -1,56 +1,19 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-06-08T13:13:04.066Z",
-  "total": 3,
+  "generatedAt": "2026-06-08T22:43:28.767Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 489,
-  "avgDurationMs": 489,
+  "updatedCount": 1,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 345,
+  "avgDurationMs": 345,
   "durationHistory": [
-    489
+    345
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Senior Avaloq Consultant (80-100%)",
-      "slug": "senior-avaloq-consultant-80-100-knowledge-lab-mendrisio",
-      "url": "https://klab.freshteam.com/jobs/fxnTyaqU2D-1/senior-avaloq-consultant-80-100",
-      "applyUrl": "https://klab.freshteam.com/jobs/fxnTyaqU2D-1/senior-avaloq-consultant-80-100",
-      "company": "Knowledge Lab",
-      "companyKey": "knowledge-lab",
-      "companyDomain": "knowledge-lab.ch",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "IT & Consulenza Bancaria",
-      "source": "knowledge-lab-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2024-02-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 100500,
-      "salaryMax": 136500,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "id": "knowledge-lab-c72147252e19",
-      "firstSeenAt": "2026-04-13T21:58:14.585Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "title": "Initiative Application",
       "slug": "initiative-application-knowledge-lab-zurich",
@@ -89,8 +52,44 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
+    {
+      "title": "Senior Avaloq Consultant (80-100%)",
+      "slug": "senior-avaloq-consulente-80-100-knowledge-lab-mendrisio",
+      "url": "https://klab.freshteam.com/jobs/fxnTyaqU2D-1/senior-avaloq-consultant-80-100",
+      "applyUrl": "https://klab.freshteam.com/jobs/fxnTyaqU2D-1/senior-avaloq-consultant-80-100",
+      "company": "Knowledge Lab",
+      "companyKey": "knowledge-lab",
+      "companyDomain": "knowledge-lab.ch",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "IT & Consulenza Bancaria",
+      "source": "knowledge-lab-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2024-02-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 100500,
+      "salaryMax": 136500,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "id": "knowledge-lab-c72147252e19",
+      "firstSeenAt": "2026-04-13T21:58:14.585Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "title": "(Senior) Avaloq Consultant (80-100%)",
       "slug": "senior-avaloq-consultant-80-100-knowledge-lab-zurich",
@@ -128,5 +127,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
