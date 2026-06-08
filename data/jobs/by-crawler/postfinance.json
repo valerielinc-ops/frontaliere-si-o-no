@@ -24,9 +24,9 @@
         "de": "Lösung Architektur Owner Kundeninteraktion (w/m/d)",
         "fr": "Solution Architecture Owner Kundeninteraktion (w/m/d)"
       },
-      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
+      "slug": "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
+        "it": "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
         "en": "solution-architecture-owner-customer-interaction-w-m-d-postfinance-bern",
         "de": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
         "fr": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance"
@@ -65,12 +65,14 @@
       "previousSlugs": [
         "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
         "interazione-del-cliente-w-m-d-postfinance-bern",
+        "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
         "kundeninteraktion-w-m-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
-          "interazione-del-cliente-w-m-d-postfinance-bern"
+          "interazione-del-cliente-w-m-d-postfinance-bern",
+          "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern"
         ],
         "de": [
           "kundeninteraktion-w-m-d-postfinance-bern"
@@ -107,7 +109,7 @@
         "it": "responsabile-dell-assistenza-clienti-in-customer-center-postfinance-zofingen",
         "en": "kundenbetreuer-in-customer-center-postfinance",
         "de": "kundenbetreuer-in-customer-center-postfinance",
-        "fr": "kundenbetreuer-in-customer-center-postfinance"
+        "fr": "gestionnaire-client-centre-client-postfinance-zofingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -148,6 +150,9 @@
           "kundenbetreuer-in-customer-center-postfinance",
           "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
           "responsabile-del-centro-clienti-postfinance-zofingen"
+        ],
+        "fr": [
+          "kundenbetreuer-in-customer-center-postfinance"
         ]
       },
       "previousSlugs": [
@@ -182,7 +187,7 @@
       "slugByLocale": {
         "it": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
         "en": "advisor-ere-clients-en-placement-lausanne-postfinance-lausanne",
-        "de": "advisor-ere-clients-en-place-lausanne-postfinance-lausanne",
+        "de": "berater-ere-clients-en-placement-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-en-placement-lausanne-postfinance"
       },
       "sourceLang": "fr",
@@ -217,11 +222,15 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
       "previousSlugs": [
-        "conseiller-ere-clientele-en-placement-lausanne-postfinance"
+        "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+        "advisor-ere-clients-en-place-lausanne-postfinance-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-clientele-en-placement-lausanne-postfinance"
+        ],
+        "de": [
+          "advisor-ere-clients-en-place-lausanne-postfinance-lausanne"
         ]
       },
       "addressLocality": "Lausanne",
@@ -334,7 +343,7 @@
         "it": "titolare-del-prodotto-voce-chatbot-w-m-d-postfinance-bern",
         "en": "technical-product-owner-voice-chatbot-w-m-d-postfinance-bern",
         "de": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance",
-        "fr": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
+        "fr": "proprietaire-du-produit-technique-voice-chatbot-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -372,6 +381,9 @@
       "firstSeenAt": "2026-06-03T00:39:50.515Z",
       "previousSlugsByLocale": {
         "it": [
+          "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
+        ],
+        "fr": [
           "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
         ]
       },

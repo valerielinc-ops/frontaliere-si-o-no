@@ -3040,10 +3040,10 @@
     },
     {
       "id": "novartis-2ba5af74ad84",
-      "slug": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational",
+      "slug": "leader-di-prova-di-scienze-cliniche-leader-di-prova-di-scienze-cliniche-medicina-traduttiva-multiple-listings-80-100",
       "slugByLocale": {
         "en": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational",
-        "it": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational",
+        "it": "leader-di-prova-di-scienze-cliniche-leader-di-prova-di-scienze-cliniche-medicina-traduttiva-multiple-listings-80-100",
         "de": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational",
         "fr": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational"
       },
@@ -3101,7 +3101,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-07T22:21:37.189Z"
+      "firstSeenAt": "2026-06-07T22:21:37.189Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational"
+      ]
     }
   ]
 }
