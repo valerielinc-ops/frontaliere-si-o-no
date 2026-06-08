@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-06-08T13:59:05.902Z",
+  "generatedAt": "2026-06-08T23:27:23.279Z",
   "total": 20,
   "newCount": 0,
   "updatedCount": 16,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 16532,
-  "avgDurationMs": 16532,
+  "durationMs": 23765,
+  "avgDurationMs": 23765,
   "durationHistory": [
-    16532
+    23765
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -655,48 +655,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
-      "title": "Collaboratrice/tore",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "collaboratrice-tore-usi-lugano",
-      "department": "Servizio carriere e alumni",
-      "category": "staff",
-      "datePosted": "2026-05-11",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-aa97fead2a1c",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-11T12:46:05.641Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
