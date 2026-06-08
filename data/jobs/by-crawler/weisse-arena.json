@@ -282,12 +282,12 @@
     },
     {
       "id": "weisse-arena-5c5b05a18eeb",
-      "slug": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+      "slug": "personale-di-servizio-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
-        "it": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
-        "en": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
-        "fr": "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        "it": "personale-di-servizio-in-weisse-arena-gruppe-laax",
+        "en": "service-staff-in-weisse-arena-gruppe-laax",
+        "fr": "personnel-des-services-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -335,11 +335,19 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "it": [
-          "servicemitarbeiter-in-weisse-arena-ch"
+          "servicemitarbeiter-in-weisse-arena-ch",
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
-        "servicemitarbeiter-in-weisse-arena-ch"
+        "servicemitarbeiter-in-weisse-arena-ch",
+        "servicemitarbeiter-in-weisse-arena-gruppe-laax"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
