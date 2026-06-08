@@ -634,7 +634,7 @@ export function generateArticleHtml(
       </section>`;
   })();
 
-  const pageBody = `<article class="salary-hub-page">
+  const pageBody = `<article class="salary-hub-article">
     <div class="hub-grid">
       <div class="content">
         <h1>${h1Display}</h1>
@@ -670,35 +670,8 @@ export function generateArticleHtml(
     canonicalUrl,
     hreflangHtml,
     ogType: 'article',
-    extraHeadHtml: SALARY_HUB_ARTICLE_STYLE,
     jsonLdScripts: [faqSchema, breadcrumbSchema],
     bodyHtml: pageBody,
     distDir,
   });
 }
-
-/** Salary-hub article-scoped CSS (mirrors generatePageHtml's scoped style). */
-const SALARY_HUB_ARTICLE_STYLE = `<style>
-.salary-hub-page{max-width:1200px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.7}
-.salary-hub-page .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
-.salary-hub-page .rail{display:none}
-@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px minmax(0,1fr) 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}.salary-hub-page .content{grid-column:2}}
-.salary-hub-page .content{min-width:0}
-.salary-hub-page h1{font-size:28px;font-weight:800;color:#1e293b;margin:0 0 16px;line-height:1.3}
-.salary-hub-page h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
-.salary-hub-page p{margin:0 0 16px;font-size:15px}
-.salary-hub-page ul{margin:0 0 16px 24px;font-size:15px}
-.salary-hub-page li{margin-bottom:8px}
-.salary-hub-page a{color:#533afd}
-.salary-hub-page .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
-.salary-hub-page .related-card{display:block;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#334155;font-size:14px;transition:box-shadow .15s}
-.salary-hub-page .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.salary-hub-page .faq-section{margin-top:32px}
-.salary-hub-page .faq-item{border-bottom:1px solid #e2e8f0;padding:16px 0}
-.salary-hub-page .faq-q{font-weight:700;font-size:15px;color:#1e293b}
-.salary-hub-page .faq-a{font-size:14px;color:#475569;margin-top:8px}
-.salary-hub-page .ad-unit{margin:24px 0;min-height:220px}
-.salary-hub-page .cta-box{background:linear-gradient(135deg,#533afd 0%,#7c3aed 100%);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:32px 0}
-.salary-hub-page .cta-box p{margin:0;color:#fff}
-.salary-hub-page .cta-box a{display:inline-block;background:#fff;color:#533afd;padding:12px 32px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:12px}
-</style>`;
