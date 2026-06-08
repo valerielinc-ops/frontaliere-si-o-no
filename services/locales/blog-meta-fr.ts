@@ -8003,6 +8003,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcola-stipendio-netto-ticinonline.title': 'Calculer votre salaire net : guide pour frontalier(s)',
     'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Comment déterminer votre salaire net dans le canton du Tessin à partir de votre salaire brut, entre contributions AVS, LPP et impôt à la source.',
     'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Calcul du salaire net dans le canton du Tessin avec vue sur Lugano',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'Non au démantèlement de Ffs Cargo dans le Tessin',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'Le comité Non au démantèlement de Ffs Cargo présente ses propositions pour le Tessin 📊💡⚠️\n\n## Présentation du comité\n\nLe comité No allo smantellamento de Ffs Cargo est une coalition de citoyens et d\'organisations qui se sont mobilisés pour sauver la filiale de Ffs Cargo dans le Tessin. Notre objectif est de préserver les emplois et les activités économiques dans la région.\n\n## Propositions du comité\n\n- Développer des activités de transport ferroviaire et routier pour maintenir l\'emploi et la croissance économique dans le Tessin.\n- Renforcer la coopération entre les autorités locales, régionales et fédérales pour trouver des solutions durables pour le secteur du transport.\n- Promouvoir la sensibilisation et l\'éducation des citoyens sur l\'importance de la préservation de l\'emploi et de l\'économie dans la région.\n\n## Appel à l\'action\n\nNous invitons les citoyens, les entreprises et les institutions à se joindre à nous pour sauver la filiale de Ffs Cargo dans le Tessin. Ensemble, nous pouvons préserver l\'emploi et la croissance économique dans la région.\n\n[Apprenez-en plus sur les actions à prendre](nav:azione)',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'Vue de Lugano depuis le lac',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati fermo à cause de travaux',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Chiusura notturna programmata à Giubiasco en raison de travaux de pavimentage: voici les horaires et la section concernée.',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Travaux routiers nocturnes sur la Viale Olgiati à Giubiasco',
+    'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralisation valeurs stima: pas de hausse brutale',
+    'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Face à face avant le 14 juin sur l\'initiative de centre-droit visant à neutraliser les valeurs de estimation et à bloquer les automatismes fiscaux dans la Constitution',
+    'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Palais du gouvernement cantonal à Bellinzona, siège du Grand Conseil',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Suisse: ratification des conventions ILO contre la violence au travail',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Le Conseil fédéral propose la ratification de deux conventions ILO contre la violence et le harcèlement au travail, sans modification de la législation suisse.',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Panorama de Bellinzona à l\'aube, ville suisse proche de la frontière italienne.',
 };
 
 export default blogMetaFr;

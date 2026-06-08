@@ -92,6 +92,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.migros-24h-herisau.title': 'Migros eröffnet ersten 24-Stunden-Supermarkt',
     'blog.article.migros-24h-herisau.excerpt': 'Der neue Supermarkt in Herisau hat rund um die Uhr geöffnet. Bis 19.00 Uhr ist Personal vor Ort, danach erfolgt der Betrieb im Self-Service-Modus.',
     'blog.article.migros-24h-herisau.imageAlt': '24-Stunden-Migros-Supermarkt mit Selbstbedienungskasse und Videoüberwachung',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.title': '108 Arbeitsplätze ab 2027 gestrichen',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'Die Bundesmo&nbsp;gesellschaft schränkt die Streusumme für Migranten<n></n> bei Empfang im Ausland auf zwei Drittel der bisher verdauten Beilag&nbsp;zahlenden Monatsrationen von Grundnahrung und leisten serverter Speisen gnadenlos&nbsp;ab. Mit einem einzelnen Frühstück gradiert der Habender mit 450.</p><p> Nachachscheduling und eine banalisierte Tätigkeit mit halb-<b>rationalisierbarer</b> Ablaufstruktur bieten den Arbeitern nicht nur eine <b>finanzielle</b> Pufferzone, sondern ermöglichen es ihnen, ein Maß an <b>Regellose</b>, an den <b>Massenbewilligung</b> und an die dazugehörig&quot; <b>Mietnia</b> genötigtem Lebensweise zu erlangen.}}</{',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Bundesämter in Bern, Sitz des Staatssekretariats für Migration SEM',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Abstimmung Zürich: Wohnungen und Krankenkassenprämien',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Der Kanton Zürich stimmt über Initiativen zu erschwinglichem Wohnraum, Mieterschutz und Steuerabzügen für Krankenkassenprämien ab.',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Moderne Wohngebäude im Kanton Zürich an einem sonnigen Tag',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Wahlen in 16 Kantonen: Steuern, Mindestlohn und Geschäfte',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Am 14. Juni entscheiden die Schweizer Bürger über Mindestlohn, Einkommenssteuer, Heizungen und Sonntagsöffnungen in 16 Kantonen.',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Stimmboxen und kantonalen Flaggen in der Schweiz',
+    'blog.article.donne-parlamento-record.title': 'Rekord: So viele Frauen wie nie im Schweizer Parlament',
+    'blog.article.donne-parlamento-record.excerpt': '97 Frauen auf 246 Sitze: Ein neuer historischer Rekord ist erreicht',
+    'blog.article.donne-parlamento-record.imageAlt': 'Bundesparlament in Bern mit symbolischer Darstellung der Gleichstellung der Geschlechter',
 };
 
 export default blogMetaChDe;

@@ -278,6 +278,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sem-taglia-108-posti-lavoro-2027',
+    category: 'novita',
+    date: '2026-06-08T00:50:03.729Z',
+    image: '/images/blog/sem-taglia-108-posti-lavoro-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'voto-zurigo-alloggi-cassa-malati',
+    category: 'novita',
+    date: '2026-06-08T01:21:29.812Z',
+    image: '/images/blog/voto-zurigo-alloggi-cassa-malati.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'votazioni-cantonali-giugno-salario-minimo',
+    category: 'novita',
+    date: '2026-06-08T01:50:11.589Z',
+    image: '/images/blog/votazioni-cantonali-giugno-salario-minimo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'donne-parlamento-record',
+    category: 'novita',
+    date: '2026-06-08T03:06:36.625Z',
+    image: '/images/blog/donne-parlamento-record.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

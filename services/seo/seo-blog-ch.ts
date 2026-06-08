@@ -1112,6 +1112,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sem-taglia-108-posti-lavoro-2027': {
+    title: 'SEM: 108 posti di lavoro tagliati dal 2027 | Frontaliere Ticino',
+    description: 'La Segreteria di Stato della migrazione riduce l\'organico per arretrati asilo smaltiti e risparmi imposti dal Consiglio federale e dal Parlamento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, posti, lavoro, tagliati, 2027',
+    ogTitle: 'SEM: 108 posti di lavoro tagliati dal 2027',
+    ogDescription: 'La Segreteria di Stato della migrazione riduce l\'organico per arretrati asilo smaltiti e risparmi imposti dal Consiglio federale e dal Parlamento.',
+    canonicalPath: '/articoli-svizzera/sem-taglia-108-posti-lavoro-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SEM: 108 posti di lavoro tagliati dal 2027",
+      "description": "La Segreteria di Stato della migrazione riduce l'organico per arretrati asilo smaltiti e risparmi imposti dal Consiglio federale e dal Parlamento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sem-taglia-108-posti-lavoro-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici federali a Berna, sede della Segreteria di Stato della migrazione SEM"
+      },
+      "datePublished": "2026-06-08T00:50:03+00:00",
+      "dateModified": "2026-06-08T00:50:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sem-taglia-108-posti-lavoro-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-voto-zurigo-alloggi-cassa-malati': {
+    title: 'Voto Zurigo: alloggi e premi cassa malati | Frontaliere Ticino',
+    description: 'Domenica di voto nel Canton Zurigo: iniziative su alloggi accessibili, protezione inquilini e deduzioni per i premi di cassa malati. Analisi e dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, zurigo, alloggi, premi',
+    ogTitle: 'Votazioni Zurigo: alloggi e premi cassa malati al voto',
+    ogDescription: 'Scopri i dettagli delle votazioni cantonali a Zurigo: dalla crisi abitativa alle deduzioni fiscali per l\'assicurazione sanitaria.',
+    canonicalPath: '/articoli-svizzera/voto-zurigo-alloggi-cassa-malati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto Zurigo: alloggi e premi cassa malati",
+      "description": "Domenica di voto nel Canton Zurigo: iniziative su alloggi accessibili, protezione inquilini e deduzioni per i premi di cassa malati. Analisi e dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-zurigo-alloggi-cassa-malati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici residenziali moderni nel Canton Zurigo durante una giornata di sole"
+      },
+      "datePublished": "2026-06-08T01:21:29+00:00",
+      "dateModified": "2026-06-08T01:21:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-zurigo-alloggi-cassa-malati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-votazioni-cantonali-giugno-salario-minimo': {
+    title: 'Votazioni in 16 Cantoni: tasse, salario minimo e negozi',
+    description: 'Domenica 14 giugno sedici Cantoni svizzeri votano su temi cruciali: salario minimo, imposte alla fonte, aperture domenicali e grandi crediti stradali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, cantoni, tasse, salario',
+    ogTitle: 'Votazioni in 16 Cantoni: tasse, salario minimo e negozi',
+    ogDescription: 'Domenica 14 giugno sedici Cantoni svizzeri votano su temi cruciali: salario minimo, imposte alla fonte, aperture domenicali e grandi crediti stradali.',
+    canonicalPath: '/articoli-svizzera/votazioni-cantonali-giugno-salario-minimo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni in 16 Cantoni: tasse, salario minimo e negozi",
+      "description": "Domenica 14 giugno sedici Cantoni svizzeri votano su temi cruciali: salario minimo, imposte alla fonte, aperture domenicali e grandi crediti stradali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-cantonali-giugno-salario-minimo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Urne elettorali e bandiere cantonali in Svizzera"
+      },
+      "datePublished": "2026-06-08T01:50:11+00:00",
+      "dateModified": "2026-06-08T01:50:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-cantonali-giugno-salario-minimo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-donne-parlamento-record': {
+    title: 'Mai così tante donne nel Parlamento svizzero | Frontaliere Ticino',
+    description: '97 donne su 246 seggi: raggiunto un nuovo record storico nella rappresentanza femminile del Parlamento svizzero. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, così, tante, donne, parlamento',
+    ogTitle: 'Record storico di donne nel Parlamento svizzero',
+    ogDescription: '97 donne su 246 seggi: raggiunto un nuovo record storico nella rappresentanza femminile del Parlamento svizzero',
+    canonicalPath: '/articoli-svizzera/donne-parlamento-record/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mai così tante donne nel Parlamento svizzero",
+      "description": "97 donne su 246 seggi: raggiunto un nuovo record storico nella rappresentanza femminile del Parlamento svizzero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/donne-parlamento-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del Parlamento svizzero a Berna con rappresentazione simbolica dell'uguaglianza di genere"
+      },
+      "datePublished": "2026-06-08T03:06:36+00:00",
+      "dateModified": "2026-06-08T03:06:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/donne-parlamento-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

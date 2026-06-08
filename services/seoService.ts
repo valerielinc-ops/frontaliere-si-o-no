@@ -3946,6 +3946,14 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensione-iva-parlamento': { name: 'Pensione e IVA', path: '/articoli-svizzera/pensione-iva-parlamento/', parent: 'blog' },
     'blog-calcola-stipendio-netto-ticinonline': { name: 'Calcolo stipendio netto', path: '/articoli-frontaliere/calcola-stipendio-netto-ticinonline', parent: 'blog' },
     'blog-migros-24h-herisau': { name: 'Novità commerciali', path: '/articoli-svizzera/migros-24h-herisau/', parent: 'blog' },
+    'blog-comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino': { name: 'Comitato No allo smantellamento di Ffs', path: '/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino', parent: 'blog' },
+    'blog-sem-taglia-108-posti-lavoro-2027': { name: 'SEM', path: '/articoli-svizzera/sem-taglia-108-posti-lavoro-2027/', parent: 'blog' },
+    'blog-giubiasco-viale-olgiati-lavori-notte': { name: 'Giubiasco lavori stradali', path: '/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte', parent: 'blog' },
+    'blog-voto-zurigo-alloggi-cassa-malati': { name: 'Voto Zurigo Alloggi', path: '/articoli-svizzera/voto-zurigo-alloggi-cassa-malati/', parent: 'blog' },
+    'blog-neutralizzazione-valori-stima-ticino': { name: 'Valori stima Ticino', path: '/articoli-frontaliere/neutralizzazione-valori-stima-ticino', parent: 'blog' },
+    'blog-votazioni-cantonali-giugno-salario-minimo': { name: 'Votazioni Cantonali', path: '/articoli-svizzera/votazioni-cantonali-giugno-salario-minimo/', parent: 'blog' },
+    'blog-ratifica-convenzioni-ilo-svizzera-lavoro': { name: 'Ratifica convenzioni ILO', path: '/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro', parent: 'blog' },
+    'blog-donne-parlamento-record': { name: 'Politica Svizzera', path: '/articoli-svizzera/donne-parlamento-record/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

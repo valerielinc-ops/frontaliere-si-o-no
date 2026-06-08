@@ -8003,6 +8003,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcola-stipendio-netto-ticinonline.title': 'Calcola il tuo stipendio netto: guida per i frontalieri',
     'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Come determinare lo stipendio netto in Canton Ticino partendo dal salario lordo, tra contributi AVS, LPP e imposta alla fonte.',
     'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Calcolo dello stipendio netto in Canton Ticino con vista su Lugano',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'No allo smantellamento di Ffs Cargo nel Ticino',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'Il comitato No allo smantellamento di Ffs Cargo presenta le sue proposte per il Ticino',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'Vista di Lugano dal lago',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati chiude di notte per lavori',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Chiusura notturna programmata per viale Olgiati a Giubiasco a causa di lavori di pavimentazione: ecco gli orari e il tratto interessato.',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Lavori notturni su viale Olgiati a Giubiasco',
+    'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralizzazione valori stima Ticino: no stangata, parlamento può agire',
+    'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Faccia a faccia prima del 14 giugno sull\'iniziativa centrodestra per neutralizzare i valori di stima e bloccare automatismi fiscali in Costituzione',
+    'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Palazzo del Governo Cantonale a Bellinzona, sede del Gran Consiglio ticinese',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Svizzera verso ratifica convenzioni ILO su violenza sul lavoro',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Il Consiglio federale propone la ratifica di due convenzioni ILO contro violenza e molestie sul lavoro, senza modifiche alla legge svizzera.',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Panorama di Bellinzona all\'alba, città svizzera vicino al confine italiano.',
 };
 
 export default blogMetaIt;

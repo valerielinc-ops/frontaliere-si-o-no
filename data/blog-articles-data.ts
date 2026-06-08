@@ -25389,6 +25389,42 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino',
+ category: 'novita',
+ date: '2026-06-08T00:33:34.920Z',
+ image: '/images/blog/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'giubiasco-viale-olgiati-lavori-notte',
+ category: 'pratico',
+ date: '2026-06-08T01:02:24.075Z',
+ image: '/images/blog/giubiasco-viale-olgiati-lavori-notte.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'neutralizzazione-valori-stima-ticino',
+ category: 'fiscale',
+ date: '2026-06-08T01:35:37.769Z',
+ image: '/images/blog/neutralizzazione-valori-stima-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'ratifica-convenzioni-ilo-svizzera-lavoro',
+ category: 'novita',
+ date: '2026-06-08T02:29:31.870Z',
+ image: '/images/blog/ratifica-convenzioni-ilo-svizzera-lavoro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

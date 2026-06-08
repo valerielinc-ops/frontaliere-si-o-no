@@ -92,6 +92,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-24h-herisau.title': 'Migros ouvre son 1er supermarché 24h/24 en Suisse',
     'blog.article.migros-24h-herisau.excerpt': 'Le magasin d\'Herisau sera ouvert 24h/7j avec du personnel jusqu\'à 19h00 et du libre-service pendant la nuit.',
     'blog.article.migros-24h-herisau.imageAlt': 'Supermarché Migros ouvert 24 heures avec caisse automatique et vidéosurveillance',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.title': 'SEM: 108 emplois supprimés dès 2027',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'La Secrétariat d\'État aux migrations réduit ses effectifs suite à l\'élimination des arriérés d\'asile et aux économies imposées par le Conseil fédéral et le Parlement.',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Bureaux fédéraux à Berne, siège du Secrétariat d\'État aux migrations SEM',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Vote à Zurich : logements et primes d\'assurance maladie',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Le canton de Zurich vote sur des initiatives pour des logements abordables, la protection des locataires et des déductions fiscales pour les primes d\'assurance maladie.',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Immeubles résidentiels modernes dans le canton de Zurich par une journée ensoleillée',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Votations dans 16 cantons: taxes, salaire minimum et commerces',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Le 14 juin, les citoyens suisses se prononcent sur le salaire minimum, l\'imposition à la source, les chauffages et les ouvertures dominicales dans seize cantons.',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Urnes de vote et drapeaux cantonaux en Suisse',
+    'blog.article.donne-parlamento-record.title': 'Jamais autant de femmes au Parlement suisse',
+    'blog.article.donne-parlamento-record.excerpt': '97 femmes sur 246 sièges au total : un nouveau record historique est atteint',
+    'blog.article.donne-parlamento-record.imageAlt': 'Bâtiment du Parlement fédéral suisse à Berne avec représentation symbolique de l\'égalité des sexes',
 };
 
 export default blogMetaChFr;

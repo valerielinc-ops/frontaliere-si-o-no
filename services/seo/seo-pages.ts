@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2749,
+ "numberOfItems": 2757,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7389,7 +7389,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2746, "name": "Ticino e ferrovie: pressing su lavoro e investi...", "url": `${BASE_URL}/articoli-frontaliere/tpressing-lavoro-investimenti-ffs` },
           { "@type": "ListItem", "position": 2747, "name": "Parlamento svizzero approva aumento IVA per fin...", "url": `${BASE_URL}/articoli-frontaliere/pensione-iva-parlamento` },
           { "@type": "ListItem", "position": 2748, "name": "Calcola il tuo stipendio netto: guida per i fro...", "url": `${BASE_URL}/articoli-frontaliere/calcola-stipendio-netto-ticinonline` },
-          { "@type": "ListItem", "position": 2749, "name": "Migros aprirà il suo primo supermercato 24 ore ...", "url": `${BASE_URL}/articoli-frontaliere/migros-24h-herisau` }
+          { "@type": "ListItem", "position": 2749, "name": "Migros aprirà il suo primo supermercato 24 ore ...", "url": `${BASE_URL}/articoli-frontaliere/migros-24h-herisau` },
+          { "@type": "ListItem", "position": 2750, "name": "No allo smantellamento di Ffs Cargo nel Ticino", "url": `${BASE_URL}/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino` },
+          { "@type": "ListItem", "position": 2751, "name": "SEM: 108 posti di lavoro tagliati dal 2027", "url": `${BASE_URL}/articoli-frontaliere/sem-taglia-108-posti-lavoro-2027` },
+          { "@type": "ListItem", "position": 2752, "name": "Giubiasco, viale Olgiati chiude di notte per la...", "url": `${BASE_URL}/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte` },
+          { "@type": "ListItem", "position": 2753, "name": "Voto Zurigo: alloggi e premi cassa malati", "url": `${BASE_URL}/articoli-frontaliere/voto-zurigo-alloggi-cassa-malati` },
+          { "@type": "ListItem", "position": 2754, "name": "Neutralizzazione valori stima Ticino: no stanga...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-valori-stima-ticino` },
+          { "@type": "ListItem", "position": 2755, "name": "Votazioni in 16 Cantoni: tasse, salario minimo ...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-cantonali-giugno-salario-minimo` },
+          { "@type": "ListItem", "position": 2756, "name": "Svizzera verso ratifica convenzioni ILO su viol...", "url": `${BASE_URL}/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro` },
+          { "@type": "ListItem", "position": 2757, "name": "Mai così tante donne nel Parlamento svizzero", "url": `${BASE_URL}/articoli-frontaliere/donne-parlamento-record` }
  ]
  },
  {

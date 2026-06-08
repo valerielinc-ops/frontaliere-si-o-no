@@ -42896,6 +42896,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino': {
+    title: 'No allo smantellamento di Ffs Cargo nel Ticino',
+    description: 'Il comitato No allo smantellamento di Ffs Cargo ha presentato le sue proposte per il Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, allo, smantellamento, cargo, comitato',
+    ogTitle: 'Comitato No allo smantellamento di Ffs Cargo presenta le sue rivendicazioni per il Ticino',
+    ogDescription: 'Il comitato No allo smantellamento di Ffs Cargo ha presentato le sue proposte per il Ticino',
+    canonicalPath: '/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "No allo smantellamento di Ffs Cargo nel Ticino",
+      "description": "Il comitato No allo smantellamento di Ffs Cargo ha presentato le sue proposte per il Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano dal lago"
+      },
+      "datePublished": "2026-06-08T00:33:34+00:00",
+      "dateModified": "2026-06-08T00:33:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giubiasco-viale-olgiati-lavori-notte': {
+    title: 'Giubiasco, viale Olgiati chiude di notte per lavori',
+    description: 'Chiusura notturna per viale Olgiati a Giubiasco: lavori di pavimentazione in programma la prossima settimana. Scopri orari e dettagli. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, giubiasco, viale, olgiati, chiude',
+    ogTitle: 'Giubiasco, viale Olgiati chiude di notte per lavori',
+    ogDescription: 'Chiusura notturna per viale Olgiati a Giubiasco: lavori di pavimentazione in programma la prossima settimana. Scopri orari e dettagli.',
+    canonicalPath: '/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giubiasco, viale Olgiati chiude di notte per lavori",
+      "description": "Chiusura notturna per viale Olgiati a Giubiasco: lavori di pavimentazione in programma la prossima settimana. Scopri orari e dettagli. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giubiasco-viale-olgiati-lavori-notte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori notturni su viale Olgiati a Giubiasco"
+      },
+      "datePublished": "2026-06-08T01:02:24+00:00",
+      "dateModified": "2026-06-08T01:02:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-neutralizzazione-valori-stima-ticino': {
+    title: 'Neutralizzazione valori stima Ticino: no stangata, parlamento può agire',
+    description: 'Faccia a faccia prima del 14 giugno sull\'iniziativa per neutralizzare i valori di stima in Canton Ticino. Centrodestra ed economia chiedono modifica',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralizzazione, valori, stima, stangata',
+    ogTitle: 'Neutralizzazione valori stima Ticino: no stangata fiscale',
+    ogDescription: 'Faccia a faccia prima del 14 giugno sull\'iniziativa centrodestra per neutralizzare i valori di stima e bloccare automatismi fiscali in Costituzione',
+    canonicalPath: '/articoli-frontaliere/neutralizzazione-valori-stima-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralizzazione valori stima Ticino: no stangata, parlamento può agire",
+      "description": "Faccia a faccia prima del 14 giugno sull'iniziativa per neutralizzare i valori di stima in Canton Ticino. Centrodestra ed economia chiedono modifica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralizzazione-valori-stima-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo Cantonale a Bellinzona, sede del Gran Consiglio ticinese"
+      },
+      "datePublished": "2026-06-08T01:35:37+00:00",
+      "dateModified": "2026-06-08T01:35:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/neutralizzazione-valori-stima-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ratifica-convenzioni-ilo-svizzera-lavoro': {
+    title: 'Svizzera verso ratifica convenzioni ILO su violenza sul lavoro',
+    description: 'Il Consiglio federale propone la ratifica di due convenzioni ILO contro violenza e molestie sul lavoro. Nessuna modifica legale prevista. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, verso, ratifica, convenzioni, violenza',
+    ogTitle: 'Svizzera ratifica convenzioni ILO su lavoro e tutela',
+    ogDescription: 'Il Consiglio federale annuncia la ratifica di due convenzioni ILO. Nessuna modifica alla legge svizzera.',
+    canonicalPath: '/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera verso ratifica convenzioni ILO su violenza sul lavoro",
+      "description": "Il Consiglio federale propone la ratifica di due convenzioni ILO contro violenza e molestie sul lavoro. Nessuna modifica legale prevista. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ratifica-convenzioni-ilo-svizzera-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona all'alba, città svizzera vicino al confine italiano."
+      },
+      "datePublished": "2026-06-08T02:29:31+00:00",
+      "dateModified": "2026-06-08T02:29:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

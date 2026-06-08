@@ -1,13 +1,13 @@
 {
-  "date": "2026-06-07",
+  "date": "2026-06-08",
   "picksByCluster": {
-    "fiscale": 1,
-    "salute": 1,
+    "fiscale": 3,
+    "salute": 0,
     "pensioni": 0,
-    "mobilita": 0,
+    "mobilita": 1,
     "pratico": 1,
-    "lavoro": 1,
-    "novita": 0,
-    "generic": 1
+    "lavoro": 0,
+    "novita": 1,
+    "generic": 2
   }
 }

@@ -92,6 +92,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.migros-24h-herisau.title': 'Migros aprirà il suo primo supermercato 24 ore su 24 in Svizzera',
     'blog.article.migros-24h-herisau.excerpt': 'Il negozio di Herisau sarà aperto 24/7 con personale fino alle 19.00 e self-service la notte',
     'blog.article.migros-24h-herisau.imageAlt': 'Supermercato Migros aperto 24 ore con casse self-service e videosorveglianza',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.title': 'SEM: 108 posti di lavoro tagliati dal 2027',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'La Segreteria di Stato della migrazione riduce l\'organico per arretrati asilo smaltiti e risparmi imposti dal Consiglio federale e dal Parlamento.',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Uffici federali a Berna, sede della Segreteria di Stato della migrazione SEM',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Voto Zurigo: alloggi e premi cassa malati',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Il Canton Zurigo al voto su iniziative per alloggi a prezzi accessibili, protezione degli inquilini e deduzioni fiscali per i premi di cassa malati.',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Edifici residenziali moderni nel Canton Zurigo durante una giornata di sole',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Votazioni in 16 Cantoni: tasse, salario minimo e negozi',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Il 14 giugno i cittadini svizzeri decidono su salario minimo, imposizione alla fonte, riscaldamenti e aperture domenicali in sedici Cantoni.',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Urne elettorali e bandiere cantonali in Svizzera',
+    'blog.article.donne-parlamento-record.title': 'Mai così tante donne nel Parlamento svizzero',
+    'blog.article.donne-parlamento-record.excerpt': '97 donne su 246 seggi totali: raggiunto un nuovo record storico',
+    'blog.article.donne-parlamento-record.imageAlt': 'Edificio del Parlamento svizzero a Berna con rappresentazione simbolica dell\'uguaglianza di genere',
 };
 
 export default blogMetaChIt;

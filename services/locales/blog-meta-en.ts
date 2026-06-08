@@ -8002,6 +8002,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calcola-stipendio-netto-ticinonline.title': 'Calculate Your Net Salary: A Guide for Cross-Border Workers',
     'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'How to determine your net salary in Canton Ticino starting from your gross salary, including contributions for AHV, LPP and withholding tax.',
     'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Calculation of net salary in Canton Ticino with a view of Lugano',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'Oppose Ffs Cargo Disassembly in Ticino',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'The No Ffs Cargo Disassembly Committee presents its proposals for Ticino.\n\nThe committee, which has been actively campaigning against the disassembly of Ffs Cargo in Ticino, has now presented its proposals for the region. The committee\'s main goal is to preserve the rail freight transport network in Ticino and maintain its economic importance.\n\nSome of the key proposals include:\n\n- Enhancing the efficiency of rail freight transport in Ticino\n- Increasing the use of environmentally friendly modes of transport\n- Developing new infrastructure to support rail freight transport\n\nThe committee believes that these proposals will help to preserve the rail freight transport network in Ticino and maintain its economic importance. The committee is calling on the authorities to take these proposals into consideration and work towards a solution that benefits the region.',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'View of Lugano from the lake',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati closes at night for paving works',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Scheduled nighttime closure of viale Olgiati, Giubiasco due to paving works: here are the hours and affected stretch.',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Night road works on Viale Olgiati in Giubiasco',
+    'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralize Ticino fiscal estimation – Parliament can act',
+    'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Meeting before 14th June discusses centre-right initiative to neutralize estimation values and block tax automatisms in the Constitution',
+    'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Canton Government Palace in Bellinzona, seat of the Ticino Grand Council',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Switzerland moves to ratify ILO conventions on workplace violence',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'The Federal Council recommends ratifying two ILO conventions against violence and harassment in the workplace, without changes to Swiss law.',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Bellinzona panorama at dawn, Swiss city near the Italian border.',
 };
 
 export default blogMetaEn;
