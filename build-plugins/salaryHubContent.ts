@@ -676,44 +676,8 @@ export function generatePageHtml(
     canonicalUrl,
     hreflangHtml,
     ogType: 'article',
-    extraHeadHtml: SALARY_HUB_PAGE_STYLE,
     jsonLdScripts: [faqSchema, breadcrumbSchema],
     bodyHtml,
     distDir,
   });
 }
-
-/**
- * Salary-hub page-scoped CSS. Selectors are namespaced under
- * `.salary-hub-page` so they don't override the SPA's Tailwind globals.
- *
- * After the PR #215 refactor only TWO `<section class="salary-hub-page">`
- * blocks remain in the DOM: the data-area override (results table +
- * savings badge + inline AdSense) and the editorial prose (5 H2 + related
- * grid + tail AdSense). H1, breadcrumb, lede, stat tiles, advice banner,
- * CTA and FAQ are rendered by `renderSalaryLandingShell` and bind to
- * `var(--color-*)` tokens already — no per-page CSS needed.
- *
- * All colors bind to OKLCH semantic tokens (light/dark adaptive) — no
- * inline hex, matching CLAUDE.md SEO-landing template rule 17.
- */
-const SALARY_HUB_PAGE_STYLE = `<style>
-.salary-hub-page{color:var(--color-body);line-height:1.7}
-.salary-hub-page h2{font-size:20px;font-weight:700;color:var(--color-heading);margin:32px 0 12px}
-.salary-hub-page p{margin:0 0 16px;font-size:15px}
-.salary-hub-page a{color:var(--color-link)}
-.salary-hub-page .results-table-wrap{overflow-x:auto;margin:24px 0}
-.salary-hub-page .results-table{width:100%;border-collapse:collapse;font-size:14px}
-.salary-hub-page .results-table th,.salary-hub-page .results-table td{padding:10px 12px;border-bottom:1px solid var(--color-edge);text-align:left}
-.salary-hub-page .results-table th{background:var(--color-surface-alt);font-weight:600;color:var(--color-subtle)}
-.salary-hub-page .results-table .num{text-align:right;font-variant-numeric:tabular-nums}
-.salary-hub-page .results-table .net-row td{background:var(--color-success-subtle);font-weight:700}
-.salary-hub-page .results-table .highlight{color:var(--color-success)}
-.salary-hub-page .savings-badge{text-align:center;padding:12px;border-radius:8px;margin-top:12px;font-size:14px}
-.salary-hub-page .savings-badge.positive{background:var(--color-success-subtle);color:var(--color-success)}
-.salary-hub-page .savings-badge.negative{background:var(--color-danger-subtle);color:var(--color-danger)}
-.salary-hub-page .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
-.salary-hub-page .related-card{display:block;padding:16px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:8px;text-decoration:none;color:var(--color-body);font-size:14px;transition:box-shadow .15s}
-.salary-hub-page .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--color-accent-border)}
-.salary-hub-page .ad-unit{margin:24px 0;min-height:220px}
-</style>`;
