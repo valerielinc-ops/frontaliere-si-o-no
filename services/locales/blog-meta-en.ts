@@ -8008,6 +8008,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati closes at night for paving works',
     'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Scheduled nighttime closure of viale Olgiati, Giubiasco due to paving works: here are the hours and affected stretch.',
     'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Night road works on Viale Olgiati in Giubiasco',
+    'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralize Ticino fiscal estimation – Parliament can act',
+    'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Meeting before 14th June discusses centre-right initiative to neutralize estimation values and block tax automatisms in the Constitution',
+    'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Canton Government Palace in Bellinzona, seat of the Ticino Grand Council',
 };
 
 export default blogMetaEn;

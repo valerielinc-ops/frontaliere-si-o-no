@@ -3950,6 +3950,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sem-taglia-108-posti-lavoro-2027': { name: 'SEM', path: '/articoli-svizzera/sem-taglia-108-posti-lavoro-2027/', parent: 'blog' },
     'blog-giubiasco-viale-olgiati-lavori-notte': { name: 'Giubiasco lavori stradali', path: '/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte', parent: 'blog' },
     'blog-voto-zurigo-alloggi-cassa-malati': { name: 'Voto Zurigo Alloggi', path: '/articoli-svizzera/voto-zurigo-alloggi-cassa-malati/', parent: 'blog' },
+    'blog-neutralizzazione-valori-stima-ticino': { name: 'Valori stima Ticino', path: '/articoli-frontaliere/neutralizzazione-valori-stima-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

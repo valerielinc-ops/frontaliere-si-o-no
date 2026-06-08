@@ -1,0 +1,19 @@
+{
+  "id": "neutralizzazione-valori-stima-ticino",
+  "slug": "neutralizzazione-valori-stima-ticino",
+  "publishedAt": "2026-06-08T01:35:39.451Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 96.23427814000001,
+    "confidence": 1,
+    "finalScore": 96.23427814000001,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 48.11713907000001,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}
