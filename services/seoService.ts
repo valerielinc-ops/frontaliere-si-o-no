@@ -3948,6 +3948,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-migros-24h-herisau': { name: 'Novità commerciali', path: '/articoli-svizzera/migros-24h-herisau/', parent: 'blog' },
     'blog-comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino': { name: 'Comitato No allo smantellamento di Ffs', path: '/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino', parent: 'blog' },
     'blog-sem-taglia-108-posti-lavoro-2027': { name: 'SEM', path: '/articoli-svizzera/sem-taglia-108-posti-lavoro-2027/', parent: 'blog' },
+    'blog-giubiasco-viale-olgiati-lavori-notte': { name: 'Giubiasco lavori stradali', path: '/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte', parent: 'blog' },
  };
 
  const info = sectionNames[section];

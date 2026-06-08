@@ -8005,6 +8005,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'Oppose Ffs Cargo Disassembly in Ticino',
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'The No Ffs Cargo Disassembly Committee presents its proposals for Ticino.\n\nThe committee, which has been actively campaigning against the disassembly of Ffs Cargo in Ticino, has now presented its proposals for the region. The committee\'s main goal is to preserve the rail freight transport network in Ticino and maintain its economic importance.\n\nSome of the key proposals include:\n\n- Enhancing the efficiency of rail freight transport in Ticino\n- Increasing the use of environmentally friendly modes of transport\n- Developing new infrastructure to support rail freight transport\n\nThe committee believes that these proposals will help to preserve the rail freight transport network in Ticino and maintain its economic importance. The committee is calling on the authorities to take these proposals into consideration and work towards a solution that benefits the region.',
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'View of Lugano from the lake',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati closes at night for paving works',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Scheduled nighttime closure of viale Olgiati, Giubiasco due to paving works: here are the hours and affected stretch.',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Night road works on Viale Olgiati in Giubiasco',
 };
 
 export default blogMetaEn;

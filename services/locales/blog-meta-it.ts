@@ -8006,6 +8006,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'No allo smantellamento di Ffs Cargo nel Ticino',
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'Il comitato No allo smantellamento di Ffs Cargo presenta le sue proposte per il Ticino',
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'Vista di Lugano dal lago',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati chiude di notte per lavori',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Chiusura notturna programmata per viale Olgiati a Giubiasco a causa di lavori di pavimentazione: ecco gli orari e il tratto interessato.',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Lavori notturni su viale Olgiati a Giubiasco',
 };
 
 export default blogMetaIt;

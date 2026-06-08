@@ -25398,6 +25398,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giubiasco-viale-olgiati-lavori-notte',
+ category: 'pratico',
+ date: '2026-06-08T01:02:24.075Z',
+ image: '/images/blog/giubiasco-viale-olgiati-lavori-notte.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
