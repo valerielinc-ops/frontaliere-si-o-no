@@ -1,6 +1,6 @@
 {
   "crawlerKey": "solothurner-spitaeler",
-  "assembledAt": "2026-06-07T22:37:13.133Z",
+  "assembledAt": "2026-06-08T10:53:51.283Z",
   "jobs": [
     {
       "id": "solothurner-spitaeler-3def344432d9",
@@ -3978,89 +3978,6 @@
         "fr": [
           "pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-verkurzt-2-3-4-jahre-w-m-d-soh-",
           "specialiste-des-soins-infirmiers-hf-en-psychiatrie-de-formation-raccourcit-2-3-4-ans-m-j-solothurner-spitaler-soh-soloth"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T22:25:06.395Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "solothurner-spitaeler-4a6a56b6a379",
-      "slug": "stage-in-ergoterapia-m-f-d-solothurner-spitaler-soh-olten",
-      "slugByLocale": {
-        "it": "stage-in-ergoterapia-m-f-d-solothurner-spitaler-soh-olten",
-        "en": "ergotherapy-intern-m-f-d-solothurner-spitaler-soh-olten",
-        "de": "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
-        "fr": "stagiaire-en-ergotherapie-h-f-solothurner-spitaler-soh-olten"
-      },
-      "company": "Solothurner Spitäler (soH)",
-      "companyKey": "solothurner-spitaeler",
-      "companyDomain": "solothurnerspitaeler.ch",
-      "title": "Praktikantin / Praktikant Ergotherapie (w/m/d)",
-      "titleByLocale": {
-        "it": "Stage in Ergoterapia (m/f/d)",
-        "en": "Ergotherapy Intern (m/f/d)",
-        "de": "Praktikantin / Praktikant Ergotherapie (w/m/d)",
-        "fr": "Stagiaire en ergothérapie (H/F)"
-      },
-      "description": "Aufgaben\n• Schwerpunkt: administrative Aufgaben\n• Mithilfe im Sekretariat\n• Erste Anlaufstelle für Patientinnen und Patienten\n• Mitschauen bei Patientenbehandlungen ambulant und stationär\n\nProfil\n• Abgeschlossene obligatorische Schule\n• Kommunikative Persönlichkeit\n• Belastbar und flexibel\n• Interesse am Spitalalltag\n• Freude am Umgang mit Menschen\n\n• Bereich: Medizinisch-therapeutische Berufe\n• Standort: Kantonsspital Olten\n• Abteilung: Ergotherapie\n• Pensum: 50%",
-      "descriptionByLocale": {
-        "it": "Compiti\n• Concentrazione: compiti amministrativi\n• Assistenza nella segreteria\n• Primo punto di contatto per i pazienti\n• Osservazione dei trattamenti pazienti sia in regime ambulatoriale che residenziale Profilo\n• Completamento della scuola obbligatoria\n• Personalità comunicativa\n• Resiliente e flessibile\n• Interesse per la vita ospedaliera quotidiana\n• Piacere di interagire con le persone\n• Campo: Professioni medico-terapeutiche\n• Sede: Ospedale Cantonale Olten\n• Dipartimento: Terapia occupazionale\n• Carico di lavoro: 50%",
-        "en": "Tasks\n• Focus: administrative tasks\n• Assistance in the secretariat\n• First point of contact for patients\n• Observation of patient treatments on an outpatient and inpatient basis Profile\n• Completed compulsory school\n• Communicative personality\n• Resilient and flexible\n• Interest in everyday hospital life\n• Enjoyment of dealing with people\n• Field: Medical-therapeutic professions\n• Location: Cantonal Hospital Olten\n• Department: Occupational therapy\n• Workload: 50%",
-        "de": "Aufgaben\n• Schwerpunkt: administrative Aufgaben\n• Mithilfe im Sekretariat\n• Erste Anlaufstelle für Patientinnen und Patienten\n• Mitschauen bei Patientenbehandlungen ambulant und stationär Profil\n• Abgeschlossene obligatorische Schule\n• Kommunikative Persönlichkeit\n• Belastbar und flexibel\n• Interesse am Spitalalltag\n• Freude am Umgang mit Menschen\n• Bereich: Medizinisch-therapeutische Berufe\n• Standort: Kantonsspital Olten\n• Abteilung: Ergotherapie\n• Pensum: 50%",
-        "fr": "Tâches\n• Concentration : tâches administratives\n• Assistance au secrétariat\n• Premier point de contact pour les patients\n• Observation des traitements des patients en ambulatoire et hospitalisation Profil\n• Scolarité obligatoire\n• Personnalité communicative\n• Résiliente et flexible\n• Intérêt pour la vie hospitalière quotidienne\n• Plaisir de traiter avec les personnes\n• Domaine : Professions médico-thérapeutiques\n• Localisation : Hôpital cantonal d'Olten\n• Département : Ergothérapie\n• Charge de travail : 50 %"
-      },
-      "needsRetranslation": false,
-      "location": "Olten",
-      "canton": "SO",
-      "url": "https://jobs.so-h.ch/offene-stellen/praktikantin-praktikant-ergotherapie-w-m-d/6b4f26ae-a6dd-498b-82ab-d1f38c3dc2cd",
-      "source": "soH Dedicated Parser (HTML scrape @ solothurnerspitaeler.ch/jobangebote)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-07T22:37:10.543Z",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "postalCode": "4600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://jobs.so-h.ch/offene-stellen/praktikantin-praktikant-ergotherapie-w-m-d/6b4f26ae-a6dd-498b-82ab-d1f38c3dc2cd",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ergotherapie",
-      "workplace": "Kantonsspital Olten",
-      "previousSlugs": [
-        "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
-        "praktikant-w-m-d-solothurner-spitaler-soh-olten",
-        "praktikan-m-j-solothurner-spitaler-soh-olten"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
-          "praktikant-w-m-d-solothurner-spitaler-soh-olten"
-        ],
-        "en": [
-          "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch"
-        ],
-        "fr": [
-          "praktikantin-praktikant-ergotherapie-w-m-d-soh-ch",
-          "praktikan-m-j-solothurner-spitaler-soh-olten"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.395Z",
