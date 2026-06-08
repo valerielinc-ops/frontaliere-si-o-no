@@ -101,6 +101,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Wahlen in 16 Kantonen: Steuern, Mindestlohn und Geschäfte',
     'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Am 14. Juni entscheiden die Schweizer Bürger über Mindestlohn, Einkommenssteuer, Heizungen und Sonntagsöffnungen in 16 Kantonen.',
     'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Stimmboxen und kantonalen Flaggen in der Schweiz',
+    'blog.article.donne-parlamento-record.title': 'Rekord: So viele Frauen wie nie im Schweizer Parlament',
+    'blog.article.donne-parlamento-record.excerpt': '97 Frauen auf 246 Sitze: Ein neuer historischer Rekord ist erreicht',
+    'blog.article.donne-parlamento-record.imageAlt': 'Bundesparlament in Bern mit symbolischer Darstellung der Gleichstellung der Geschlechter',
 };
 
 export default blogMetaChDe;
