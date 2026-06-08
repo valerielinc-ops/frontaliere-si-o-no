@@ -1,16 +1,16 @@
 {
   "key": "csvm-mustair",
   "label": "Center da Sanda Val Müstair (CSVM)",
-  "generatedAt": "2026-06-07T21:41:46.668Z",
+  "generatedAt": "2026-06-08T12:45:31.144Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2840,
-  "avgDurationMs": 2840,
+  "durationMs": 5912,
+  "avgDurationMs": 5912,
   "durationHistory": [
-    2840
+    5912
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,8 +26,8 @@
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-07T21:41:44.856Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-08T12:45:26.899Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -43,11 +43,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "firstSeenAt": "2026-05-21T22:13:17.730Z",
-      "_qualityScore": 67,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
-        "translation": 19,
+        "richness": 18,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -63,8 +63,8 @@
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-07T21:41:44.857Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-08T12:45:28.066Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -80,11 +80,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "firstSeenAt": "2026-05-21T22:13:17.732Z",
-      "_qualityScore": 64,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
-        "translation": 19,
+        "richness": 18,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -101,7 +101,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:41:44.858Z",
+      "crawledAt": "2026-06-08T12:45:28.545Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -117,10 +117,10 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
       "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "_qualityScore": 70,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
@@ -138,7 +138,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:41:44.858Z",
+      "crawledAt": "2026-06-08T12:45:28.902Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -154,10 +154,10 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "_qualityScore": 73,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
@@ -174,8 +174,8 @@
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-07T21:41:44.858Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-08T12:45:29.256Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -191,10 +191,10 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
       "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "_qualityScore": 70,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
