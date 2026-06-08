@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-06-07T22:53:35.996Z",
+  "assembledAt": "2026-06-08T14:00:50.636Z",
   "jobs": [
     {
       "id": "company-1ljtjh",
@@ -29,7 +29,7 @@
       "firstSeenAt": "2026-06-05T12:56:27.382Z",
       "titleByLocale": {
         "de": "Rechenzentrum-Spezialist/-in IKT",
-        "it": "Specialista del centro dati ICT",
+        "it": "Rechenzentrum-Spezialist/-in IKT",
         "en": "ICT data centre specialist",
         "fr": "Spécialiste des centres informatiques"
       },
@@ -84,7 +84,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-vvystb",
@@ -187,7 +188,7 @@
       "crawledAt": "2026-06-04T16:03:54.208Z",
       "firstSeenAt": "2026-06-04T16:03:54.208Z",
       "titleByLocale": {
-        "it": "Specialista HVAC",
+        "it": "Spezialist/-in HLKS",
         "de": "Spezialist/-in HLKS",
         "en": "Spezialist/-in HLKS",
         "fr": "Spezialist/-in HLKS"
@@ -1391,7 +1392,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
       },
@@ -1427,7 +1428,6 @@
       },
       "previousSlugs": [
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
-        "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona",
         "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
       ],
@@ -1473,7 +1473,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern",
         "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
         "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk"
       },
@@ -1511,7 +1511,6 @@
       },
       "previousSlugs": [
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
-        "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern",
         "your-profession-should-offer-more-become-a-professional-assistant-swiss-armed-forces-vtg-bern",
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bellinzona",
         "votre-profession-devrait-offrir-plus-devenez-assistant-professionnel-swiss-armed-forces-vtg-bern"
@@ -1558,14 +1557,14 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "titleByLocale": {
         "de": "Mannschaft und Kader im gastgewerblichen Bereich (m/w)",
-        "it": "Personale e squadra in ospitalità (m/f)",
+        "it": "Mannschaft e Kader im gastgewerblichen Bereich (m/w)",
         "en": "Staff and squad in hospitality (m/f)",
         "fr": "Personnel et équipe de représentation (m/f)"
       },
       "descriptionByLocale": {
         "de": "Ihre Aufgaben\n\n- Zubereitung von Schweizer Spezialitäten für eine internationale Kundschaft\n\n- Sicherstellung der Hygiene- und Lagervorschriften\n\n- Tätigung von geplanten Einkäufen\n\n- Zusammenarbeit mit lokal angestelltem Personal in deutscher und englischer Sprache\n\n- Mitverantwortung bei der Organisation von Anlässen\n\nWeitere Aufgaben als Kader\n- Führung des Teams und des Restaurants SWISS House\n\n- Führung der Buchhaltung und Kantinenkasse\n\n- Verantwortung für das Bestellwesen und aller Inventuren\n\n- Vertretung des Quartiermeisters während dessen Abwesenheit\n\n- Personelle Verantwortung für das lokalangestellte Reinigungs- und Unterhaltspersonal (Supervisor-Funktion)\n\nDas macht Sie einzigartig\n\n- Sie haben eine abgeschlossene gastgewerbliche Berufslehre oder kaufmännische Ausbildung mit Berufserfahrung im Gastgewerbe\n\n- Zur eigenen Sicherheit und zur Sicherheit der Kameradinnen und Kameraden sowie einer reibungslosen Zusammenarbeit mit österreichischen Kollegen/innen und lokal angestellten Personen, sind für diese Funktion Kenntnisse der deutschen Sprache erwünscht (Niveau je nach Funktion)\n\n- Sie haben Kenntnisse der englischen Sprache (Niveau je nach Funktion)\n\n- Sie besitzen den zivilen Führerausweis der Kat. B\n\n- Sie sind im Alter zwischen 18 und 65 Jahren\n\n- Sie haben eine abgeschlossene Rekruten- / Kaderschule der Schweizer Armee, Frauen mit Schweizer Staatsbürgerschaft ohne militärische Grundausbildung werden der Funktion entsprechend militärisch ausgebildet\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDas Kompetenzzentrum SWISSINT ist das nationale Einsatzführungskommando für die militärische Friedensförderung der Schweizer Armee und ist verantwortlich für die Planung, Bereitstellung und die nationale Führung aller schweizerischen militärischen Kontingente und Einzelpersonen im Armeeauftrag Friedensförderung.",
         "it": "I loro compiti\n\n- Preparazione delle specialità svizzere per una clientela internazionale\n\n- Assicurare i regolamenti di igiene e stoccaggio\n\n- effettuare acquisti pianificati\n\n- Collaborazione con il personale locale in tedesco e inglese\n\n- Co-responsabilità nell'organizzazione degli eventi\n\nAltri compiti come un cadre\n- Leadership del team e del ristorante SWISS House\n\n- Gestione dei registri contabili e mensa\n\nResponsabilità per l'ordinazione e tutti gli inventari\n\nRappresentanza del quartermaster durante la sua assenza\n\nResponsabilità del personale per il personale locale di pulizia e manutenzione (funzione di supervisione)\n\nQuesto li rende unici.\n\n- Hai completato un apprendistato professionale di ospitalità o una formazione commerciale con esperienza professionale nel settore dell'ospitalità\n\nPer la vostra sicurezza e per la sicurezza dei vostri compagni e per una collaborazione regolare con colleghi austriaci e dipendenti locali, la conoscenza della lingua tedesca è desiderata per questa funzione (livello a seconda della funzione).\n\n- Hai conoscenza della lingua inglese (livello a seconda della funzione)\n\n- Hanno la patente di guida civile del Cat. B.\n\n- Sono tra i 18 e i 65 anni\n\n- Hanno una scuola completa di reclutamento/cadre dell'esercito svizzero, le donne con cittadinanza svizzera senza formazione militare di base sono addestrate militarmente secondo la loro funzione\n\nOffriamo questo\n\nSiamo impegnati nel modello di successo svizzero e lavoriamo a beneficio della popolazione.\n\nAttraverso pari opportunità, sviluppiamo le nostre competenze e portiamo diverse prospettive.\n\n- Salute al lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl SWISSINT Competence Center è il comando operativo nazionale dell'esercito svizzero per la costruzione di pace militare ed è responsabile della pianificazione, della distribuzione e del controllo nazionale di tutti i contingenti militari e individui svizzeri nella missione di costruzione della pace dell'esercito.",
-        "en": "Their tasks\n\n- Preparation of Swiss specialties for an international clientele\n\n- Ensuring hygiene and storage regulations\n\n- making planned purchases\n\n- Collaboration with local staff in German and English\n\n- Co-responsibility in the organization of events\n\nFurther tasks as a cadre\n- Leadership of the team and restaurant SWISS House\n\n- Accounting and canteen cash register management\n\nResponsibility for ordering and all inventories\n\nRepresentation of the quartermaster during his absence\n\nPersonnel responsibility for the local cleaning and maintenance staff (supervisor function)\n\nThis makes them unique.\n\n- You have completed a hospitality vocational apprenticeship or commercial training with professional experience in the hospitality sector\n\nFor your own safety and the safety of your comrades as well as a smooth cooperation with Austrian colleagues and local employees, knowledge of the German language is desired for this function (level depending on the function).\n\n- You have knowledge of the English language (level depending on the function)\n\n- They have the civil driving license of the Cat. B\n\n- They are between 18 and 65 years old\n\n- They have a completed recruiting/cadre school of the Swiss army, women with Swiss citizenship without basic military training are trained militarily according to their function\n\nWe offer this\n\nWe are committed to the Swiss success model and work for the benefit of the population.\n\nThrough equal opportunities, we develop our skills and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nThe SWISSINT Competence Center is the Swiss Army’s national operational command for military peacebuilding and is responsible for planning, deploying and nationally commanding all Swiss military contingents and individuals in the army’s peacebuilding mission.",
+        "en": "Their tasks\n\n- Preparation of Swiss specialties for an international clientele\n\n- Ensuring hygiene and storage regulations\n\n- making planned purchases\n\n- Collaboration with local staff in German and English\n\n- Co-responsibility in the organization of events\n\nFurther tasks as a cadre\n- Leadership of the team and restaurant SWISS House\n\n- Accounting and canteen cash register management\n\nResponsibility for ordering and all inventories\n\nRepresentation of the quartermaster during his absence\n\nPersonnel responsibility for the local cleaning and maintenance staff (supervisor function)\n\nThis makes them unique.\n\n- You have completed a hospitality vocational apprenticeship or commercial training with professional experience in the hospitality sector\n\nFor your own safety and the safety of your comrades as well as a smooth cooperation with Austrian colleagues and local employees, knowledge of the German language is desired for this",
         "fr": "Leurs tâches\n\n- Préparation de spécialités suisses pour une clientèle internationale\n\n- Assurer des règles d'hygiène et de stockage\n\n- faire des achats planifiés\n\n- Collaboration avec le personnel local en allemand et en anglais\n\n- Coresponsabilité dans l'organisation des événements\n\nAutres tâches de cadre\n- Leadership de l'équipe et restaurant SWISS House\n\n- Comptabilité et gestion de la caisse de cantine\n\nResponsabilité de la commande et de tous les stocks\n\nReprésentation du quartier-maître pendant son absence\n\nResponsabilité du personnel du personnel local de nettoyage et d'entretien (fonction de superviseur)\n\nCela les rend uniques.\n\n- Vous avez complété un apprentissage professionnel de l'hôtellerie ou une formation commerciale avec une expérience professionnelle dans le secteur de l'hôtellerie\n\nPour votre propre sécurité et la sécurité de vos camarades ainsi qu'une coopération en douceur avec des collègues autrichiens et des employés locaux, la connaissance de la langue allemande est souhaitée pour cette fonction (niveau selon la fonction).\n\n- Vous connaissez la langue anglaise (niveau selon la fonction)\n\n- Ils ont le permis de conduire civil du Cat. B\n\n- Ils ont entre 18 et 65 ans\n\n- Ils ont une école de recrutement/cadre complète de l'armée suisse, les femmes de nationalité suisse sans formation militaire de base sont formées militairement selon leur fonction\n\nNous offrons ceci\n\nNous sommes attachés au modèle suisse de réussite et travaillons au profit de la population.\n\nGrâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nLe SWISSINT Competence Center est le commandement opérationnel national de l'armée suisse pour la consolidation de la paix militaire et est chargé de planifier, déployer et commander au niveau national tous les contingents et individus militaires suisses dans la mission de consolidation de la paix de l'armée."
       },
       "requirementsByLocale": {},
@@ -2067,7 +2066,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2280,7 +2280,7 @@
       "slugByLocale": {
         "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "en": "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
-        "de": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+        "de": "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "fr": "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -2299,8 +2299,7 @@
       "previousSlugs": [
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
-        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona",
-        "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
+        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
