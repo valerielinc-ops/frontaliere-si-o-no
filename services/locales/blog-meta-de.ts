@@ -8001,6 +8001,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calcola-stipendio-netto-ticinonline.title': 'Netto-Gehalt berechnen: Leitfaden für Grenzgänger',
     'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Wie man das Netto-Gehalt im Kanton Tessin aus dem Bruttogehalt ermittelt, unter Berücksichtigung der Beiträge zu AVS, LPP und der Quellensteuer.',
     'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Berechnung des Nettogehalts im Kanton Tessin mit Blick auf Lugano',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'Nein zum Abbau von FFS Cargo im Tessin',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'Der Komitee Nein zum Abbau von FFS Cargo präsentiert seine Vorschläge für den Tessin. \n\n> Wir müssen die Einrichtungen für die Grenzgänger schützen. \n\n- Wir fordern die Wiederherstellung der G-Bewilligung für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Franken für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Brückentage für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Einrichtungen für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Swissminiatur für die Grenzgänger. \n\n[Weitere Informationen](nav:aktion)',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'Lugano vom See aus gesehen',
 };
 
 export default blogMetaDe;

@@ -8003,6 +8003,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcola-stipendio-netto-ticinonline.title': 'Calcola il tuo stipendio netto: guida per i frontalieri',
     'blog.article.calcola-stipendio-netto-ticinonline.excerpt': 'Come determinare lo stipendio netto in Canton Ticino partendo dal salario lordo, tra contributi AVS, LPP e imposta alla fonte.',
     'blog.article.calcola-stipendio-netto-ticinonline.imageAlt': 'Calcolo dello stipendio netto in Canton Ticino con vista su Lugano',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'No allo smantellamento di Ffs Cargo nel Ticino',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'Il comitato No allo smantellamento di Ffs Cargo presenta le sue proposte per il Ticino',
+    'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'Vista di Lugano dal lago',
 };
 
 export default blogMetaIt;
