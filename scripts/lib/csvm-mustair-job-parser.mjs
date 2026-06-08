@@ -4,13 +4,21 @@
  *
  * Public career site: https://www.csvm.ch/de/jobs.html
  *
- * Joomla template: jobs are linked from /de/aktuelles/{slug}.html, mixed with
- * other news items (e.g. archive page). We filter out non-job links via slug
- * heuristics (must contain pflege/arzt/teilzeit/befristet/etc.).
+ * Joomla/EasyBlog template: jobs are linked from /de/aktuelles/{slug}.html,
+ * mixed with other news items (e.g. archive page). We filter out non-job links
+ * via slug heuristics (must contain pflege/arzt/teilzeit/befristet/etc.).
+ *
+ * The detail page body is a placeholder ("Gib deinen Text hier ein …"); the
+ * real job content lives in a PDF attached to the same EasyBlog post
+ * (/images/easyblog_articles/{id}/*.pdf), exposed right in the listing. We
+ * extract that PDF into the description so it is real content, not boilerplate
+ * — same mechanism as CSVP (#1468). Falls back to the thin listing boilerplate
+ * if the PDF is missing/unreachable/image-only.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { extractPdfJobContentFromUrl, buildPdfBackedDescription } from './pdf-job-content.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -48,9 +56,16 @@ export function isTrustedDomain(rawUrl = '') {
 export function parseCsvmListing(html) {
   const out = [];
   const seen = new Set();
-  const rx = /<a[^>]+href="(\/de\/aktuelles\/([a-z0-9-]+)\.html)"[^>]*>([^<]+)<\/a>/g;
-  let m;
-  while ((m = rx.exec(html))) {
+  // Split the listing into per-post blocks at the EasyBlog BlogPosting marker so
+  // each job's title link and its attached PDF stay in the same chunk (a single
+  // global regex would otherwise pair a job with the next post's PDF). The first
+  // chunk is the page header (no /de/aktuelles link) and is skipped naturally.
+  const blocks = String(html || '').split(/itemprop="blogPosts"/i);
+  for (const block of blocks) {
+    // First detail-page link in the block is the post title (similar-posts and
+    // "Weiterlesen" links come later and reference their own blocks → deduped).
+    const m = block.match(/<a[^>]+href="(\/de\/aktuelles\/([a-z0-9-]+)\.html)"[^>]*>([^<]+)<\/a>/);
+    if (!m) continue;
     const path = m[1];
     const slug = m[2];
     const anchorText = normalizeSpace(decodeEntities(m[3]));
@@ -58,11 +73,14 @@ export function parseCsvmListing(html) {
     if (!JOB_SLUG_RX.test(slug) && !JOB_SLUG_RX.test(anchorText)) continue;
     if (seen.has(slug)) continue;
     seen.add(slug);
+    // Job PDF attached to this EasyBlog post (object[data]/iframe[src]/a[href]).
+    const pdfMatch = block.match(/(?:href|data|src)="(\/images\/easyblog_articles\/[^"]+\.pdf)"/i);
+    const pdfUrl = pdfMatch ? `${BASE_URL}${pdfMatch[1]}` : '';
     // Derive title from anchor text OR from slug (de-kebab)
     const title = anchorText.length >= 6
       ? anchorText
       : slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    out.push({ url: `${BASE_URL}${path}`, slug, title });
+    out.push({ url: `${BASE_URL}${path}`, slug, title, pdfUrl });
   }
   return out;
 }
@@ -79,8 +97,31 @@ export async function fetchAllCsvmMustairJobs() {
   const jobs = [];
   for (const it of items) {
     const title = it.title;
-    const description = `${title} — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina ${it.url}`;
-    const sourceLang = detectLang(description || title, 'de');
+    // The detail page body is a placeholder; the real Stellenbeschrieb (tasks /
+    // profile / requirements) lives in the attached PDF. Fetch and extract it so
+    // the description is real content, not boilerplate that trips the guard
+    // (#1480-class, mirror of CSVP #1468). Falls back to the thin listing
+    // boilerplate when the PDF is missing/unreachable/image-only.
+    let pdfText = '';
+    if (it.pdfUrl) {
+      try {
+        const extracted = await extractPdfJobContentFromUrl(it.pdfUrl);
+        pdfText = extracted?.text || '';
+      } catch (err) {
+        console.warn(`   ⚠️ PDF extraction failed for ${it.pdfUrl}: ${err?.message || err}`);
+      }
+    }
+    const description = buildPdfBackedDescription({
+      introLines: [`${title} — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).`],
+      pdfText,
+      // Preserve the historical boilerplate tail when the PDF yields nothing so a
+      // PDF-less posting keeps its prior (thin) description rather than regressing.
+      fallbackText: `Dettagli completi sul PDF allegato alla pagina ${it.url}`,
+      footerLines: [it.pdfUrl ? `Stellenbeschrieb (PDF): ${it.pdfUrl}` : ''].filter(Boolean),
+    });
+    // Detect the source locale from the stable German listing title, NOT the
+    // now-PDF-backed description, so the locale routing stays put.
+    const sourceLang = detectLang(title || description, 'de');
     const jobSlug = slugify(`${title} ${CSVM_MUSTAIR_KEY} mustair`);
     const urlHash = createHash('sha1').update(it.url).digest('hex').slice(0, 12);
     jobs.push({
