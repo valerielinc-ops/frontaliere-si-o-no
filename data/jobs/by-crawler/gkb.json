@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-06-08T12:57:22.888Z",
+  "assembledAt": "2026-06-08T22:28:48.635Z",
   "jobs": [
     {
       "id": "gkb-a3dcbf58c401",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:20.255Z",
+      "crawledAt": "2026-06-08T22:28:46.022Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:19.194Z",
+      "crawledAt": "2026-06-08T22:28:45.132Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:18.129Z",
+      "crawledAt": "2026-06-08T22:28:44.252Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -258,7 +258,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1907/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:17.057Z",
+      "crawledAt": "2026-06-08T22:28:43.204Z",
       "addressLocality": "Davos, Klosters",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -333,7 +333,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1903/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:15.978Z",
+      "crawledAt": "2026-06-08T22:28:42.164Z",
       "addressLocality": "Ilanz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -405,7 +405,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:14.886Z",
+      "crawledAt": "2026-06-08T22:28:41.057Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -484,7 +484,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:13.821Z",
+      "crawledAt": "2026-06-08T22:28:40.126Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -516,6 +516,7 @@
         "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-01T23:46:30.584Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -561,7 +562,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:12.725Z",
+      "crawledAt": "2026-06-08T22:28:39.208Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -604,7 +605,7 @@
         "it": "befristet-legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "en": "befristet-legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "de": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "fr": "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
+        "fr": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -628,7 +629,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1938/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:11.645Z",
+      "crawledAt": "2026-06-08T22:28:38.295Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -649,17 +650,20 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
+        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
+        "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ],
         "fr": [
+          "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur",
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T13:43:28.315Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -678,9 +682,9 @@
       "id": "gkb-9e2b39176c23",
       "slug": "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "de": "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
         "it": "medico-specialista-in-medicina-interna-geriatria-100-m-w-d-spital-mannedorf-mannedorf",
         "en": "senior-physician-for-internal-medicine-acute-geriatrics-100-m-w-d-spital-mannedorf-mannedorf",
+        "de": "oberarzt-fur-innere-medizin-akutgeriatrie-100-m-w-d-spital-mannedorf-mannedorf",
         "fr": "medecin-specialiste-en-medecine-interne-geriatrie-100-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Graubündner Kantonalbank",
@@ -688,16 +692,16 @@
       "companyDomain": "gkb.ch",
       "title": "IT-Controlling und Governance Manager (100%)",
       "titleByLocale": {
-        "de": "IT-Controlling und Governance Manager (100%)",
-        "en": "IT-Controlling und Governance Manager (100%)",
         "it": "IT-Controlling e Governance Manager (100%)",
+        "en": "IT-Controlling und Governance Manager (100%)",
+        "de": "IT-Controlling und Governance Manager (100%)",
         "fr": "IT-Controlling und Governance Manager (100%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 08.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst es, komplexe IT-Kostenstrukturen zu durchleuchten, Budgets zu steuern und Risiken zu minimieren? Dann bist du bei uns genau richtig! In enger Zusammenarbeit mit unserem CIO und weiteren Stakeholdern gestaltest du die IT-Landschaft aktiv mit. Von der Weiterentwicklung unserer IT-Finanzcontrolling-Methoden bis hin zur Sicherstellung regulatorischer Compliance – bei uns erwartet dich eine spannende und verantwortungsvolle Aufgabe. | ab sofort oder nach Vereinbarung |\n• Analyse, Steuerung und Optimierung der IT-Kosten sowie Erstellung und Überwachung des IT-Budgets in Zusammenarbeit mit dem CIO und relevanten Stakeholdern\n• Kontinuierliche Weiterentwicklung der IT-Finanzcontrolling-Prozesse, -Tools und -Methoden\n• Identifikation, Bewertung und Steuerung von IT-Risiken, Entwicklung von Massnahmen zur Risikominderung und Sicherstellung der regulatorischen Compliance\n• Definition, Optimierung und Dokumentation von IT-Governance-Prozessen (z.B. nach ITIL) sowie Unterstützung bei internen und externen Audits\n• Entwicklung und Umsetzung von Richtlinien für das Management von (IT-)Partnern und -Lieferanten, inklusive Organisation und Durchführung der jährlichen Partnererhebung\n• Erstellung von Berichten zu strategischen Partnern für die Geschäftsleitung und die FINMA sowie Sicherstellung der Einhaltung vertraglicher und regulatorischer Anforderungen |\n• Abgeschlossenes Studium im Bereich Wirtschaftsinformatik, Betriebswirtschaftslehre mit Schwerpunkt Controlling/Finanzen oder vergleichbare Qualifikationen\n• Berufserfahrung im Finanzcontrolling, idealerweise mit Fokus auf IT-Kostenstrukturen und IT Governance\n• Analytisches Denkvermögen, hohe Zahlenaffinität und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations- und Teamfähigkeit zur Zusammenarbeit mit verschiedenen Stakeholdern | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
-        "de": "Graubündner Kantonalbank | online seit: 08.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst es, komplexe IT-Kostenstrukturen zu durchleuchten, Budgets zu steuern und Risiken zu minimieren? Dann bist du bei uns genau richtig! In enger Zusammenarbeit mit unserem CIO und weiteren Stakeholdern gestaltest du die IT-Landschaft aktiv mit. Von der Weiterentwicklung unserer IT-Finanzcontrolling-Methoden bis hin zur Sicherstellung regulatorischer Compliance – bei uns erwartet dich eine spannende und verantwortungsvolle Aufgabe. | ab sofort oder nach Vereinbarung |\n• Analyse, Steuerung und Optimierung der IT-Kosten sowie Erstellung und Überwachung des IT-Budgets in Zusammenarbeit mit dem CIO und relevanten Stakeholdern\n• Kontinuierliche Weiterentwicklung der IT-Finanzcontrolling-Prozesse, -Tools und -Methoden\n• Identifikation, Bewertung und Steuerung von IT-Risiken, Entwicklung von Massnahmen zur Risikominderung und Sicherstellung der regulatorischen Compliance\n• Definition, Optimierung und Dokumentation von IT-Governance-Prozessen (z.B. nach ITIL) sowie Unterstützung bei internen und externen Audits\n• Entwicklung und Umsetzung von Richtlinien für das Management von (IT-)Partnern und -Lieferanten, inklusive Organisation und Durchführung der jährlichen Partnererhebung\n• Erstellung von Berichten zu strategischen Partnern für die Geschäftsleitung und die FINMA sowie Sicherstellung der Einhaltung vertraglicher und regulatorischer Anforderungen |\n• Abgeschlossenes Studium im Bereich Wirtschaftsinformatik, Betriebswirtschaftslehre mit Schwerpunkt Controlling/Finanzen oder vergleichbare Qualifikationen\n• Berufserfahrung im Finanzcontrolling, idealerweise mit Fokus auf IT-Kostenstrukturen und IT Governance\n• Analytisches Denkvermögen, hohe Zahlenaffinität und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations- und Teamfähigkeit zur Zusammenarbeit mit verschiedenen Stakeholdern | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
         "it": "Graubündner Kantonalbank | online seit: 08.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst es, komplexe IT-Kostenstrukturen zu durchleuchten, Budgets zu steuern und Risiken zu minimieren? Dann bist du bei uns genau richtig! In enger Zusammenarbeit mit unserem CIO und weiteren Stakeholdern gestaltest du die IT-Landschaft aktiv mit. Von der Weiterentwicklung unserer IT-Finanzcontrolling-Methoden bis hin zur Sicherstellung regulatorischer Compliance – bei uns erwartet dich eine spannende und verantwortungsvolle Aufgabe. | ab sofort oder nach Vereinbarung |\n• Analyse, Steuerung und Optimierung der IT-Kosten sowie Erstellung und Überwachung des IT-Budgets in Zusammenarbeit mit dem CIO und relevanten Stakeholdern\n• Kontinuierliche Weiterentwicklung der IT-Finanzcontrolling-Prozesse, -Tools und -Methoden\n• Identifikation, Bewertung und Steuerung von IT-Risiken, Entwicklung von Massnahmen zur Risikominderung und Sicherstellung der regulatorischen Compliance\n• Definition, Optimierung und Dokumentation von IT-Governance-Prozessen (z.B. nach ITIL) sowie Unterstützung bei internen und externen Audits\n• Entwicklung und Umsetzung von Richtlinien für das Management von (IT-)Partnern und -Lieferanten, inklusive Organisation und Durchführung der jährlichen Partnererhebung\n• Erstellung von Berichten zu strategischen Partnern für die Geschäftsleitung und die FINMA sowie Sicherstellung der Einhaltung vertraglicher und regulatorischer Anforderungen |\n• Abgeschlossenes Studium im Bereich Wirtschaftsinformatik, Betriebswirtschaftslehre mit Schwerpunkt Controlling/Finanzen oder vergleichbare Qualifikationen\n• Berufserfahrung im Finanzcontrolling, idealerweise mit Fokus auf IT-Kostenstrukturen und IT Governance\n• Analytisches Denkvermögen, hohe Zahlenaffinität und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations- und Teamfähigkeit zur Zusammenarbeit mit verschiedenen Stakeholdern | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
         "en": "Graubündner Kantonalbank | online seit: 08.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst es, komplexe IT-Kostenstrukturen zu durchleuchten, Budgets zu steuern und Risiken zu minimieren? Dann bist du bei uns genau richtig! In enger Zusammenarbeit mit unserem CIO und weiteren Stakeholdern gestaltest du die IT-Landschaft aktiv mit. Von der Weiterentwicklung unserer IT-Finanzcontrolling-Methoden bis hin zur Sicherstellung regulatorischer Compliance – bei uns erwartet dich eine spannende und verantwortungsvolle Aufgabe. | ab sofort oder nach Vereinbarung |\n• Analyse, Steuerung und Optimierung der IT-Kosten sowie Erstellung und Überwachung des IT-Budgets in Zusammenarbeit mit dem CIO und relevanten Stakeholdern\n• Kontinuierliche Weiterentwicklung der IT-Finanzcontrolling-Prozesse, -Tools und -Methoden\n• Identifikation, Bewertung und Steuerung von IT-Risiken, Entwicklung von Massnahmen zur Risikominderung und Sicherstellung der regulatorischen Compliance\n• Definition, Optimierung und Dokumentation von IT-Governance-Prozessen (z.B. nach ITIL) sowie Unterstützung bei internen und externen Audits\n• Entwicklung und Umsetzung von Richtlinien für das Management von (IT-)Partnern und -Lieferanten, inklusive Organisation und Durchführung der jährlichen Partnererhebung\n• Erstellung von Berichten zu strategischen Partnern für die Geschäftsleitung und die FINMA sowie Sicherstellung der Einhaltung vertraglicher und regulatorischer Anforderungen |\n• Abgeschlossenes Studium im Bereich Wirtschaftsinformatik, Betriebswirtschaftslehre mit Schwerpunkt Controlling/Finanzen oder vergleichbare Qualifikationen\n• Berufserfahrung im Finanzcontrolling, idealerweise mit Fokus auf IT-Kostenstrukturen und IT Governance\n• Analytisches Denkvermögen, hohe Zahlenaffinität und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations- und Teamfähigkeit zur Zusammenarbeit mit verschiedenen Stakeholdern | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
+        "de": "Graubündner Kantonalbank | online seit: 08.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst es, komplexe IT-Kostenstrukturen zu durchleuchten, Budgets zu steuern und Risiken zu minimieren? Dann bist du bei uns genau richtig! In enger Zusammenarbeit mit unserem CIO und weiteren Stakeholdern gestaltest du die IT-Landschaft aktiv mit. Von der Weiterentwicklung unserer IT-Finanzcontrolling-Methoden bis hin zur Sicherstellung regulatorischer Compliance – bei uns erwartet dich eine spannende und verantwortungsvolle Aufgabe. | ab sofort oder nach Vereinbarung |\n• Analyse, Steuerung und Optimierung der IT-Kosten sowie Erstellung und Überwachung des IT-Budgets in Zusammenarbeit mit dem CIO und relevanten Stakeholdern\n• Kontinuierliche Weiterentwicklung der IT-Finanzcontrolling-Prozesse, -Tools und -Methoden\n• Identifikation, Bewertung und Steuerung von IT-Risiken, Entwicklung von Massnahmen zur Risikominderung und Sicherstellung der regulatorischen Compliance\n• Definition, Optimierung und Dokumentation von IT-Governance-Prozessen (z.B. nach ITIL) sowie Unterstützung bei internen und externen Audits\n• Entwicklung und Umsetzung von Richtlinien für das Management von (IT-)Partnern und -Lieferanten, inklusive Organisation und Durchführung der jährlichen Partnererhebung\n• Erstellung von Berichten zu strategischen Partnern für die Geschäftsleitung und die FINMA sowie Sicherstellung der Einhaltung vertraglicher und regulatorischer Anforderungen |\n• Abgeschlossenes Studium im Bereich Wirtschaftsinformatik, Betriebswirtschaftslehre mit Schwerpunkt Controlling/Finanzen oder vergleichbare Qualifikationen\n• Berufserfahrung im Finanzcontrolling, idealerweise mit Fokus auf IT-Kostenstrukturen und IT Governance\n• Analytisches Denkvermögen, hohe Zahlenaffinität und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations- und Teamfähigkeit zur Zusammenarbeit mit verschiedenen Stakeholdern | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank | online seit: 08.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst es, komplexe IT-Kostenstrukturen zu durchleuchten, Budgets zu steuern und Risiken zu minimieren? Dann bist du bei uns genau richtig! In enger Zusammenarbeit mit unserem CIO und weiteren Stakeholdern gestaltest du die IT-Landschaft aktiv mit. Von der Weiterentwicklung unserer IT-Finanzcontrolling-Methoden bis hin zur Sicherstellung regulatorischer Compliance – bei uns erwartet dich eine spannende und verantwortungsvolle Aufgabe. | ab sofort oder nach Vereinbarung |\n• Analyse, Steuerung und Optimierung der IT-Kosten sowie Erstellung und Überwachung des IT-Budgets in Zusammenarbeit mit dem CIO und relevanten Stakeholdern\n• Kontinuierliche Weiterentwicklung der IT-Finanzcontrolling-Prozesse, -Tools und -Methoden\n• Identifikation, Bewertung und Steuerung von IT-Risiken, Entwicklung von Massnahmen zur Risikominderung und Sicherstellung der regulatorischen Compliance\n• Definition, Optimierung und Dokumentation von IT-Governance-Prozessen (z.B. nach ITIL) sowie Unterstützung bei internen und externen Audits\n• Entwicklung und Umsetzung von Richtlinien für das Management von (IT-)Partnern und -Lieferanten, inklusive Organisation und Durchführung der jährlichen Partnererhebung\n• Erstellung von Berichten zu strategischen Partnern für die Geschäftsleitung und die FINMA sowie Sicherstellung der Einhaltung vertraglicher und regulatorischer Anforderungen |\n• Abgeschlossenes Studium im Bereich Wirtschaftsinformatik, Betriebswirtschaftslehre mit Schwerpunkt Controlling/Finanzen oder vergleichbare Qualifikationen\n• Berufserfahrung im Finanzcontrolling, idealerweise mit Fokus auf IT-Kostenstrukturen und IT Governance\n• Analytisches Denkvermögen, hohe Zahlenaffinität und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations- und Teamfähigkeit zur Zusammenarbeit mit verschiedenen Stakeholdern | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben"
       },
       "location": "Chur",
@@ -705,7 +709,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T12:57:10.558Z",
+      "crawledAt": "2026-06-08T22:28:37.225Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -720,18 +724,16 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "IT-Management / LDIO",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "it-controlling-und-governance-manager-100-gkb-ch"
         ],
-        "de": [
+        "it": [
           "it-controlling-und-governance-manager-100-gkb-ch"
         ]
       },
@@ -739,6 +741,7 @@
         "it-controlling-und-governance-manager-100-gkb-ch"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-08T12:57:10.558Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -751,8 +754,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-08T12:57:10.558Z"
+      "addressRegion": "GR"
     }
   ]
 }
