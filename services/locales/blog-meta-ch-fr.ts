@@ -92,6 +92,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-24h-herisau.title': 'Migros ouvre son 1er supermarché 24h/24 en Suisse',
     'blog.article.migros-24h-herisau.excerpt': 'Le magasin d\'Herisau sera ouvert 24h/7j avec du personnel jusqu\'à 19h00 et du libre-service pendant la nuit.',
     'blog.article.migros-24h-herisau.imageAlt': 'Supermarché Migros ouvert 24 heures avec caisse automatique et vidéosurveillance',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.title': 'SEM: 108 emplois supprimés dès 2027',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'La Secrétariat d\'État aux migrations réduit ses effectifs suite à l\'élimination des arriérés d\'asile et aux économies imposées par le Conseil fédéral et le Parlement.',
+    'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Bureaux fédéraux à Berne, siège du Secrétariat d\'État aux migrations SEM',
 };
 
 export default blogMetaChFr;

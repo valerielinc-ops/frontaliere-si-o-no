@@ -52,6 +52,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'disoccupazione-svizzera-maggio-2026': { it: 'disoccupazione-svizzera-maggio-2026', en: 'unemployment-switzerland-may-2026', de: 'arbeitslosigkeit-schweiz-mai-2026', fr: 'chomage-suisse-mai-2026' },
  'pensione-iva-parlamento': { it: 'pensione-iva-parlamento', en: 'swiss-parliament-pension-vat-debate', de: 'schweizer-parlament-pension-uebernahme', fr: 'parlement-suisse-pension-tva' },
  'migros-24h-herisau': { it: 'migros-24h-herisau', en: 'migros-24-hour-supermarket-herisau', de: 'migros-24-stunden-supermarkt-herisau', fr: 'migros-supermarche-24-heures-herisau' },
+ 'sem-taglia-108-posti-lavoro-2027': { it: 'sem-taglia-108-posti-lavoro-2027', en: 'sem-cuts-108-jobs-2027', de: 'sem-streicht-108-stellen-2027', fr: 'sem-supprime-108-emplois-2027' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

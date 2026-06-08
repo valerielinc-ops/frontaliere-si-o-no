@@ -278,6 +278,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sem-taglia-108-posti-lavoro-2027',
+    category: 'novita',
+    date: '2026-06-08T00:50:03.729Z',
+    image: '/images/blog/sem-taglia-108-posti-lavoro-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
