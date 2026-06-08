@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-06-07T22:45:17.567Z",
-  "total": 5,
+  "generatedAt": "2026-06-08T13:54:28.263Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7028,
-  "avgDurationMs": 7028,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5116,
+  "avgDurationMs": 5116,
   "durationHistory": [
-    7028
+    5116
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-07",
+      "postedDate": "2026-06-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +69,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-07",
+      "postedDate": "2026-06-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +106,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-07",
+      "postedDate": "2026-06-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -143,7 +143,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-07",
+      "postedDate": "2026-06-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -163,8 +163,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Responsabile investimenti e partecipazioni",
       "slug": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno",
@@ -202,5 +201,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
