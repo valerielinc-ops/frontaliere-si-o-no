@@ -430,27 +430,6 @@ function esc(s: string): string {
     .replace(/"/g, '&quot;');
 }
 
-const INDEX_PAGE_STYLE = `<style>
-.salary-index-page{max-width:1100px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.65}
-.salary-index-page .breadcrumb{font-size:13px;color:#64748b;margin-bottom:16px}
-.salary-index-page .breadcrumb a{color:#533afd;text-decoration:none}
-.salary-index-page h1{font-size:32px;font-weight:800;color:#1e293b;margin:0 0 12px;line-height:1.2}
-.salary-index-page .lede{font-size:16px;color:#475569;margin:0 0 28px;max-width:80ch}
-.salary-index-page h2{font-size:22px;font-weight:700;color:#1e293b;margin:36px 0 8px;border-bottom:2px solid #e2e8f0;padding-bottom:6px}
-.salary-index-page .tier-meta{font-size:13px;color:#64748b;margin:0 0 6px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.salary-index-page .tier-method{font-size:14px;color:#475569;margin:0 0 16px;max-width:78ch}
-.salary-index-page h3{font-size:15px;font-weight:700;color:#334155;margin:18px 0 6px}
-.salary-index-page ul.scenarios{list-style:none;margin:0 0 4px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 16px}
-.salary-index-page ul.scenarios li{margin:0;padding:0}
-.salary-index-page ul.scenarios a{color:#533afd;text-decoration:none;font-size:14px;display:block;padding:6px 0;border-bottom:1px dotted #e2e8f0}
-.salary-index-page ul.scenarios a:hover{text-decoration:underline}
-.salary-index-page .faq{margin-top:48px;padding-top:24px;border-top:2px solid #e2e8f0}
-.salary-index-page .faq-q{font-weight:700;color:#1e293b;margin:18px 0 4px;font-size:16px}
-.salary-index-page .faq-a{font-size:14px;color:#475569;margin:0 0 12px;max-width:78ch}
-.salary-index-page .pagination{margin:32px 0 8px;font-size:14px;color:#64748b}
-.salary-index-page .pagination a{color:#533afd;text-decoration:none;margin:0 12px}
-</style>`;
-
 export interface RelatedArticle {
   /** Title to display for this locale. */
   readonly title: string;
@@ -633,7 +612,6 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
     canonicalUrl,
     hreflangHtml,
     ogType: 'website',
-    extraHeadHtml: INDEX_PAGE_STYLE,
     jsonLdScripts: [breadcrumbLd, itemListLd, faqLd],
     bodyHtml,
     distDir: opts.distDir,
