@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-06-08T12:26:24.821Z",
-  "total": 24,
-  "newCount": 0,
+  "generatedAt": "2026-06-08T21:58:58.489Z",
+  "total": 25,
+  "newCount": 1,
   "updatedCount": 21,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 11629,
-  "avgDurationMs": 11629,
+  "durationMs": 16903,
+  "avgDurationMs": 16903,
   "durationHistory": [
-    11629
+    16903
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "SALES SUPPPORT",
+      "slug": "sales-suppport-ariston-group-providence-us-02903",
+      "url": "https://careers.aristongroup.com/job/SALES-SUPPPORT-Prov-02903/1397984333/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1397984333/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Providence, US, 02903",
+      "addressLocality": "Providence, US, 02903",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-07-12",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "TEAMLEITER SERVICE WÄRMEPUMPEN (M/W)",
@@ -780,44 +811,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "AI/DATA SCIENTIST - CONNECTED SERVICES (Early Career Opportunity)",
-      "slug": "ai-data-scientist-servizi-connessi-early-career-opportunity-ariston-group-osimo-it-60027",
-      "url": "https://careers.aristongroup.com/job/Osimo-AIDATA-SCIENTIST-CONNECTED-SERVICES-%28Early-Career-Opportunity%29-Osim-60027/1396039733/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1396039733/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Osimo, IT, 60027",
-      "addressLocality": "Osimo, IT, 60027",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "canton": "",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-07-07",
-      "id": "ariston-group-778ec445a437",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-04T14:29:55.562Z",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "SERVICE TECHNICIAN",
