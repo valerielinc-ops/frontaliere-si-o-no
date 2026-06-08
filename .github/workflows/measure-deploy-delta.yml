@@ -1,0 +1,98 @@
+name: Measure Deploy Delta
+
+# Measures the REAL per-deploy delta by diffing two GitHub Pages artifacts
+# (the whole site tar) by content hash — answers "how much would an incremental
+# sync actually push per deploy". Read-only, no checkout of the site, no commit.
+# Manual trigger; pick two deploy runs or let it auto-pick the last two with a
+# non-expired github-pages artifact.
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_a:
+        description: "OLDER deploy run id (blank = auto-pick)"
+        required: false
+        default: ""
+      run_b:
+        description: "NEWER deploy run id (blank = auto-pick)"
+        required: false
+        default: ""
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: measure-deploy-delta
+  cancel-in-progress: false
+
+jobs:
+  delta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Checkout (script only)
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: scripts/measure-dist-delta.py
+          sparse-checkout-cone-mode: false
+
+      - name: Resolve run ids (auto-pick last two with github-pages artifact)
+        id: pick
+        run: |
+          set -euo pipefail
+          A="${{ inputs.run_a }}"
+          B="${{ inputs.run_b }}"
+          if [ -n "$A" ] && [ -z "$B" ] || [ -z "$A" ] && [ -n "$B" ]; then
+            echo "::error::Provide BOTH run_a and run_b, or leave BOTH blank for auto-pick."
+            exit 1
+          fi
+          if [ -z "$A" ] && [ -z "$B" ]; then
+            echo "Auto-picking last two deploy.yml runs with a non-expired github-pages artifact..."
+            picked=()
+            for r in $(gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?per_page=40" --jq '.workflow_runs[].id'); do
+              has=$(gh api "repos/$GH_REPO/actions/runs/$r/artifacts" \
+                --jq '[.artifacts[]|select(.name=="github-pages" and .expired==false)]|length' 2>/dev/null || echo 0)
+              if [ "${has:-0}" -gt 0 ]; then
+                picked+=("$r")
+              fi
+              [ "${#picked[@]}" -ge 2 ] && break
+            done
+            if [ "${#picked[@]}" -lt 2 ]; then
+              echo "::error::Could not find two deploy runs with a non-expired github-pages artifact."
+              exit 1
+            fi
+            B="${picked[0]}"   # newest
+            A="${picked[1]}"   # older
+          fi
+          echo "Older (A) = $A"
+          echo "Newer (B) = $B"
+          echo "run_a=$A" >> "$GITHUB_OUTPUT"
+          echo "run_b=$B" >> "$GITHUB_OUTPUT"
+
+      - name: Download OLDER artifact
+        run: gh run download "${{ steps.pick.outputs.run_a }}" -n github-pages -D A
+
+      - name: Download NEWER artifact
+        run: gh run download "${{ steps.pick.outputs.run_b }}" -n github-pages -D B
+
+      - name: Measure delta (stream-hash, no extract)
+        run: |
+          set -euo pipefail
+          ls -la A B
+          python3 scripts/measure-dist-delta.py A/artifact.tar B/artifact.tar report.md
+          {
+            echo "_Older run [${{ steps.pick.outputs.run_a }}], newer run [${{ steps.pick.outputs.run_b }}]_"
+            echo
+            cat report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report
+        uses: actions/upload-artifact@v7
+        with:
+          name: deploy-delta-report
+          path: report.md
+          retention-days: 30
