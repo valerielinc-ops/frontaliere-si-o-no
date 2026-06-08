@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "msc-cargo-1b9354446e1f",
-      "slug": "marketing-full-funnell-analyst-msc-geneva",
+      "slug": "analizzatore-completo-funnell-msc-group-geneva",
       "slugByLocale": {
         "en": "marketing-full-funnell-analyst-msc-geneva",
-        "it": "marketing-full-funnell-analyst-msc-geneva",
+        "it": "analizzatore-completo-funnell-msc-group-geneva",
         "de": "marketing-full-funnell-analyst-msc-geneva",
         "fr": "marketing-full-funnell-analyst-msc-geneva"
       },
@@ -65,7 +65,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-07T22:23:32.278Z"
+      "firstSeenAt": "2026-06-07T22:23:32.278Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-full-funnell-analyst-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-full-funnell-analyst-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -342,12 +350,12 @@
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
-      "slug": "brand-manager-brand-product-msc-geneva",
+      "slug": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
       "slugByLocale": {
-        "it": "brand-manager-brand-product-msc-geneva",
+        "it": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
         "en": "brand-manager-brand-product-msc-geneva",
-        "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "de": "markenmanager-marke-produkt-msc-group-geneva",
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -401,16 +409,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-manager-brand-product-msc-geneva"
+        ],
+        "de": [
+          "brand-manager-brand-product-msc-geneva"
+        ],
+        "fr": [
+          "brand-manager-brand-product-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "brand-manager-brand-product-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "gestore-dei-servizi-f-b-msc-group-geneva",
       "slugByLocale": {
         "en": "f-b-service-manager-msc-geneva",
-        "it": "f-b-service-manager-msc-geneva",
-        "de": "f-b-service-manager-msc-geneva",
-        "fr": "f-b-service-manager-msc-geneva"
+        "it": "gestore-dei-servizi-f-b-msc-group-geneva",
+        "de": "f-b-servicemanager-msc-group-geneva",
+        "fr": "gestionnaire-de-services-f-b-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -466,7 +488,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-07T22:23:26.625Z"
+      "firstSeenAt": "2026-06-07T22:23:26.625Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ],
+        "de": [
+          "f-b-service-manager-msc-geneva"
+        ],
+        "fr": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-6a5b336e6a54",
@@ -764,8 +800,8 @@
       "slugByLocale": {
         "en": "culinary-operations-manager-msc-geneva",
         "it": "gestione-delle-operazioni-culinarie-msc-group-geneva",
-        "de": "gestione-delle-operazioni-culinarie-msc-group-geneva",
-        "fr": "gestione-delle-operazioni-culinarie-msc-group-geneva"
+        "de": "kulinarischer-betriebsleiter-msc-group-geneva",
+        "fr": "gestionnaire-des-operations-culinaires-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",

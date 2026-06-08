@@ -938,12 +938,12 @@
     },
     {
       "id": "ubs-312d7c5decec",
-      "slug": "desk-head-uhnw-wm-ostschweiz-ubs",
+      "slug": "coppa-del-mondo-uhnw-svizzera-orientale-ubs-ticino",
       "slugByLocale": {
         "de": "desk-head-uhnw-wm-ostschweiz-ubs",
-        "it": "desk-head-uhnw-wm-ostschweiz-ubs",
+        "it": "coppa-del-mondo-uhnw-svizzera-orientale-ubs-ticino",
         "en": "desk-head-uhnw-wm-ostschweiz-ubs",
-        "fr": "desk-head-uhnw-wm-ostschweiz-ubs"
+        "fr": "tete-de-bureau-uhnw-wm-ostschweiz-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1007,9 +1007,17 @@
       },
       "firstSeenAt": "2026-06-07T22:49:44.885Z",
       "previousSlugs": [
-        "testa-da-scrivania-uhnw-wm-ostschweiz-ubs-ticino",
-        "tete-de-bureau-uhnw-wm-ostschweiz-ubs-ticino"
-      ]
+        "desk-head-uhnw-wm-ostschweiz-ubs",
+        "testa-da-scrivania-uhnw-wm-ostschweiz-ubs-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "desk-head-uhnw-wm-ostschweiz-ubs"
+        ],
+        "fr": [
+          "desk-head-uhnw-wm-ostschweiz-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-c22801816648",

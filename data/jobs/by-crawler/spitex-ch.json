@@ -336,8 +336,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
         "it": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "fr": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+        "en": "professional-health-efz-psychiatry-m-f-d-pensum-between-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "sante-professionnelle-efz-psychiatrie-m-f-j-pensum-entre-30-et-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -630,9 +630,7 @@
         "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-infermiere-a-hf-specializzazione-kinder-e-jugendpsychiatria-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-nursing-professional-hf-specialization-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "diplome-e-en-soins-infirmiers-hf-specialise-e-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs",
-        "dipl-specialista-di-cura-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
+        "diplome-e-en-soins-infirmiers-hf-specialise-e-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1347,12 +1345,12 @@
     },
     {
       "id": "spitex-ch-f3a93ba50a10",
-      "slug": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+      "slug": "team-management-servizio-notturno-stazionario-e-ambulatorio-spitex-der-seegemeinden-weggis",
       "slugByLocale": {
         "de": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "it": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "en": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "fr": "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        "it": "team-management-servizio-notturno-stazionario-e-ambulatorio-spitex-der-seegemeinden-weggis",
+        "en": "team-management-night-service-stationary-ambulatory-spitex-der-seegemeinden-weggis",
+        "fr": "gestion-d-equipe-service-de-nuit-stationnaire-ambulatoire-spitex-der-seegemeinden-weggis"
       },
       "company": "Spitex der Seegemeinden",
       "companyKey": "spitex-ch",
@@ -1410,19 +1408,31 @@
       },
       "firstSeenAt": "2026-06-07T22:39:51.411Z",
       "previousSlugs": [
+        "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis",
         "team-management-servizio-notturno-stazionario-ambulant-spitex-der-seegemeinden-weggis",
         "team-management-night-service-stationary-ambulant-spitex-der-seegemeinden-weggis",
         "gestion-d-equipe-service-de-nuit-stationnaire-ambulant-spitex-der-seegemeinden-weggis"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "en": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "fr": [
+          "teamleitung-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ]
+      }
     },
     {
       "id": "spitex-ch-743759829338",
-      "slug": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
+      "slug": "dipl-infermieristica-professionale-hf-servizio-notturno-fisso-e-ambulante-spitex-der-seegemeinden-weggis",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "it": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "en": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
-        "fr": "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        "it": "dipl-infermieristica-professionale-hf-servizio-notturno-fisso-e-ambulante-spitex-der-seegemeinden-weggis",
+        "en": "dipl-nursing-professional-hf-stationary-night-service-outpatient-spitex-der-seegemeinden-weggis",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-service-de-nuit-stationnaire-et-ambulatoire-spitex-der-seegemeinden-weggis"
       },
       "company": "Spitex der Seegemeinden",
       "companyKey": "spitex-ch",
@@ -1480,19 +1490,31 @@
       },
       "firstSeenAt": "2026-06-07T22:39:50.546Z",
       "previousSlugs": [
+        "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis",
         "dipl-specialista-di-cura-hf-servizio-notturno-stazionario-ambulant-spitex-der-seegemeinden-weggis",
         "dipl-care-specialist-hf-night-service-stationary-ambulant-spitex-der-seegemeinden-weggis",
         "dipl-specialiste-des-soins-hf-service-de-nuit-stationnaire-ambulant-spitex-der-seegemeinden-weggis"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-nachtdienst-stationar-ambulant-spitex-ch-weggis"
+        ]
+      }
     },
     {
       "id": "spitex-ch-4982d608b9a5",
-      "slug": "fachperson-gesundheit-efz-spitex-ch-frick",
+      "slug": "professionista-della-salute-efz-spitex-regio-frick-frick",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-spitex-ch-frick",
-        "it": "fachperson-gesundheit-efz-spitex-ch-frick",
-        "en": "fachperson-gesundheit-efz-spitex-ch-frick",
-        "fr": "fachperson-gesundheit-efz-spitex-ch-frick"
+        "it": "professionista-della-salute-efz-spitex-regio-frick-frick",
+        "en": "health-professional-efz-spitex-regio-frick-frick",
+        "fr": "professionnels-de-la-sante-efz-spitex-regio-frick-frick"
       },
       "company": "Spitex Regio Frick",
       "companyKey": "spitex-ch",
@@ -1548,7 +1570,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-07T22:39:49.712Z"
+      "firstSeenAt": "2026-06-07T22:39:49.712Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-spitex-ch-frick"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-spitex-ch-frick"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-spitex-ch-frick"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-spitex-ch-frick"
+      ]
     },
     {
       "id": "spitex-ch-df4e4b9f765f",
@@ -1556,8 +1592,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-ch-wetzikon-zh",
         "it": "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-bachtel-ag-wetzikon-zh",
-        "en": "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-ch-wetzikon-zh",
-        "fr": "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-ch-wetzikon-zh"
+        "en": "nursing-professional-hf-on-night-duty-22-00-to-7-00-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "soins-infirmiers-professionnels-en-service-de-nuit-22-00-a-7-00-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1603,6 +1639,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-ch-wetzikon-zh"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-ch-wetzikon-zh"
+        ],
+        "fr": [
           "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-ch-wetzikon-zh"
         ]
       },
@@ -1842,12 +1884,12 @@
     },
     {
       "id": "spitex-ch-0600c7564978",
-      "slug": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+      "slug": "infermiera-hf-fh-con-gestione-dei-casi-80-100-spitex-stafa-stafa",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "it": "infermiera-hf-fh-con-gestione-dei-casi-80-100-spitex-stafa-stafa",
+        "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-stafa-stafa",
+        "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -1905,6 +1947,10 @@
       },
       "firstSeenAt": "2026-06-07T22:39:45.469Z",
       "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
+        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+        "dipl-career-hf-fh-with-drop-guidance-80-100-spitex-rechtes-limmattal-weiningen-zh",
+        "dipl-carriere-hf-fh-avec-guide-d-abandon-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "dipl-specialista-di-cura-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "dipl-infermiere-a-hf-con-gestione-casi-50-100-spitex-region-birs-gmbh-reinach-bl",
         "dipl-nursing-professional-hf-with-case-management-50-100-spitex-region-birs-gmbh-reinach-bl",
@@ -1912,7 +1958,6 @@
         "diplome-e-en-soins-infirmiers-hf-avec-gestion-de-cas-50-100-spitex-region-birs-gmbh-reinach-bl",
         "dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa",
         "dipl-care-specialist-hf-fh-with-drop-guidance-80-100-spitex-stafa-stafa",
-        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
         "dipl-specialiste-des-soins-hf-fh-avec-guide-d-abandon-80-100-spitex-stafa-stafa",
         "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
         "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
@@ -1921,23 +1966,23 @@
         "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
         "infirmier-dipl-hf-specialise-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-infermiere-a-hf-specializzazione-kinder-e-jugendpsychiatria-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-nursing-professional-hf-specialization-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "diplome-e-en-soins-infirmiers-hf-specialise-e-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs",
-        "dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
+        "dipl-infermiere-a-hf-specializzazione-kinder-e-jugendpsychiatria-60-80-spitex-region-birs-gmbh-reinach-bl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh"
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
         ],
         "en": [
-          "dipl-career-hf-fh-with-drop-guidance-80-100-spitex-rechtes-limmattal-weiningen-zh"
+          "dipl-career-hf-fh-with-drop-guidance-80-100-spitex-rechtes-limmattal-weiningen-zh",
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh"
         ],
         "fr": [
-          "dipl-carriere-hf-fh-avec-guide-d-abandon-80-100-spitex-rechtes-limmattal-weiningen-zh"
+          "dipl-carriere-hf-fh-avec-guide-d-abandon-80-100-spitex-rechtes-limmattal-weiningen-zh",
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
         ]
       }
     },
