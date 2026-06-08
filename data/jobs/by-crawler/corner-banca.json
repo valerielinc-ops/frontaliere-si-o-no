@@ -864,12 +864,12 @@
     },
     {
       "id": "corner-banca-acebb12b2bb7",
-      "slug": "customer-advisor-60-team-zurich-corner-banca-wallisellen",
+      "slug": "consulente-clienti-60-team-zurigo-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-60-team-zurich-corner-banca-wallisellen",
+        "it": "consulente-clienti-60-team-zurigo-corner-banca-wallisellen",
         "en": "customer-advisor-60-team-zurich-corner-banca-wallisellen",
-        "de": "customer-advisor-60-team-zurich-corner-banca-wallisellen",
-        "fr": "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+        "de": "kundenberater-60-team-zurich-corner-banca-wallisellen",
+        "fr": "conseiller-client-60-team-zurich-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -945,7 +945,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "country": "CH",
-      "firstSeenAt": "2026-06-08T12:44:36.978Z"
+      "firstSeenAt": "2026-06-08T12:44:36.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+        ],
+        "de": [
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "customer-advisor-60-team-zurich-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-365d1802d2a9",
