@@ -3953,6 +3953,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-neutralizzazione-valori-stima-ticino': { name: 'Valori stima Ticino', path: '/articoli-frontaliere/neutralizzazione-valori-stima-ticino', parent: 'blog' },
     'blog-votazioni-cantonali-giugno-salario-minimo': { name: 'Votazioni Cantonali', path: '/articoli-svizzera/votazioni-cantonali-giugno-salario-minimo/', parent: 'blog' },
     'blog-ratifica-convenzioni-ilo-svizzera-lavoro': { name: 'Ratifica convenzioni ILO', path: '/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro', parent: 'blog' },
+    'blog-donne-parlamento-record': { name: 'Politica Svizzera', path: '/articoli-svizzera/donne-parlamento-record/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

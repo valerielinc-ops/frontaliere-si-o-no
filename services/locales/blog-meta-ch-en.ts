@@ -101,6 +101,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Voting in 16 Cantons: Taxes, Minimum Wage and Shops',
     'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'On June 14, Swiss citizens will decide on minimum wage, taxation, heating and Sunday openings in 16 Cantons.',
     'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Voting ballot boxes and cantonal flags in Switzerland',
+    'blog.article.donne-parlamento-record.title': 'Record-Breaking Number of Women in Swiss Parliament',
+    'blog.article.donne-parlamento-record.excerpt': '97 women out of 246 seats: a new historic record is achieved',
+    'blog.article.donne-parlamento-record.imageAlt': 'Swiss Federal Parliament building in Bern with symbolic gender equality representation',
 };
 
 export default blogMetaChEn;

@@ -101,6 +101,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Votations dans 16 cantons: taxes, salaire minimum et commerces',
     'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Le 14 juin, les citoyens suisses se prononcent sur le salaire minimum, l\'imposition à la source, les chauffages et les ouvertures dominicales dans seize cantons.',
     'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Urnes de vote et drapeaux cantonaux en Suisse',
+    'blog.article.donne-parlamento-record.title': 'Jamais autant de femmes au Parlement suisse',
+    'blog.article.donne-parlamento-record.excerpt': '97 femmes sur 246 sièges au total : un nouveau record historique est atteint',
+    'blog.article.donne-parlamento-record.imageAlt': 'Bâtiment du Parlement fédéral suisse à Berne avec représentation symbolique de l\'égalité des sexes',
 };
 
 export default blogMetaChFr;
