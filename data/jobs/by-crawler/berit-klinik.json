@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berit-klinik",
-  "assembledAt": "2026-06-07T21:27:11.483Z",
+  "assembledAt": "2026-06-08T12:30:54.566Z",
   "jobs": [
     {
       "title": "Logistiker:in, 100%",
@@ -299,7 +299,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter:In Restaurant 60–80%",
@@ -437,83 +438,6 @@
         ]
       },
       "firstSeenAt": "2026-05-20T11:03:38.006Z",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "title": "Mitarbeiter Technischer Dienst, 100%",
-      "slug": "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__0ef96ce9f9.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-26",
-      "validThrough": "",
-      "description": "Berit Klinik sucht für den Standort Speicher eine engagierte Persönlichkeit.\n\nPosition: Mitarbeiter Technischer Dienst, 100%.\n\nBerit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch Über die Berit Klinik Die Berit Klinik Gruppe betreibt sieben Standorte in der Ostschweiz und ist in Speicher und Niederteufen führend in Or- thopädie, Wirbelsäulenchirurgie und Re- habilitation. In Wattwil stehen eine 24/7- Notfallstation, eine Tagesklinik, diverse Sprechstunden, Radiologie, ein Labor und die PSA, eine Kurzzeittherapie für Alko- holkranke, zur Verfügung. In Goldach bietet die Klinik Hand- und periphere Nervenchirurgie, Sprechstunden in Augen- heilkunde und Orthopädie sowie ein Ma- gen-Darm-Zentrum an. Die Berit Sportcli- nic ist in Speicher, Arbon und Heerbrugg vertreten. Seit 2025 ergänzt das Berit Sportslab in St. Gallen das Angebot im Bereich Athletiktraining. Kontakt bei Fragen Herr Nick Müller Leiter Zentrale Dienste T +41 71 343 70 97 nick.mueller@klinik.ch Bewerbung an Frau Vanessa Grimaldi Leiterin Personaldienst hr@klinik.ch Mitarbeiter Technischer Dienst, 100% für unseren Standort in Speicher AR | per 01.07.2026 oder nach Vereinbarung Ihre Aufgaben\n• Durchführen von Unterhalts-, Wartungs- und Reparaturarbeiten am Ge- bäude sowie an unseren Anlagen und Geräten\n• Überwachung und Betreuung der technischen Anlagen der Klinik, inklusive OP – Trakt sowie Überwachung und Begleitung von externen Wartungsfir- men\n• Umgebungsarbeiten und Winterdienst\n• Übernahme von Transportfahrten\n• Leisten von Pikettdiensten, nach entsprechender Einführung Ihr Profil\n• Technische Grundausbildung mit handwerklichem Geschick, vorzugsweise im Sanitär- oder Elektrobereich\n• Teamfähigkeit, Flexibilität und Belastbarkeit\n• Optimistische Grundhaltung und ausgeprägte Dienstleistungsorientierung\n• Versierte MS-Office und IT – Kenntnisse\n• Interesse und Verständnis für technischen Anlagen, Gebäudetechnik und be- triebliche Prozesse\n• Betriebswirtschaftliche Denkweise mit hohem Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Führerausweis Kat. B Wir bieten Ihnen\n• Interessante, abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten Team\n• Moderne Arbeitgeberin mit neuen Infrastrukturen\n• Mind. 5 Wochen Ferien\n• Weitere interessante Benefits\n\nQuelle (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__0ef96ce9f9.pdf\n\nKarriereportal: https://www.beritklinik.ch/de/karriere-offene-stellen\n\nSektor: Gesundheitswesen / Klinik",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Technischer Dienst, 100%",
-        "en": "Staff Technical Service, 100%",
-        "de": "Mitarbeiter Technischer Dienst, 100%",
-        "fr": "Service technique du personnel, 100%"
-      },
-      "descriptionByLocale": {
-        "it": "Berit Klinik è alla ricerca di una personalità dedicata per la posizione di stoccaggio. Posizione: Staff Technical Service, 100%. Berit Klinik AG | Vögelinsegg 5 | 9042 Memoria | +41 71 335 06 06 06 | info@beritklinik.ch Il Gruppo Clinica Berit gestisce sette sedi nella Svizzera orientale ed è leader nella memoria e nelle basse temperature in ortopedia, chirurgia spinale e riabilitazione. A Wattwil c'è una stazione di emergenza 24/7, una clinica quotidiana, diverse ore di conversazione, radiologia, un laboratorio e la PSA, una terapia a breve termine per alco-holkranke. In Goldach, la clinica offre la chirurgia del nervo della mano e della periferica, parlando ore in medicina oculare e ortopedia, così come un centro Ma-gen-Darm. Berit Sportcli- nic è rappresentato in Memoria, Arbon e Heerbrugg. Dal 2025, Berit Sportslab a St. Gallen ha aggiunto l'offerta nel campo della formazione atletica. Contatto con le domande Mr. Nick Müller Capo dei Servizi Centrali T +41 71 343 70 97 nick.mueller@klinik.ch Richiesta alla signora Vanessa Grimaldi Capo delle Risorse Umane Servizio hr@klinik.ch Staff Servizio Tecnico, 100% per la nostra sede in Storage AR | per 01.07.2026 o secondo accordo I vostri doveri\n• Condurre lavori di manutenzione, manutenzione e riparazione Ti offriamo\n• Attività interessanti, varie e responsabili in un team motivato\n• Datore di lavoro moderno con nuove infrastrutture\n• Mente. 5 settimane\n• Altre interessanti Benefits Fonte (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat mitarbeiter in dienst tecnico 100 0ef96ce9f9.pdf Settore: Salute / Clinica",
-        "en": "Berit Klinik is looking for a dedicated personality for the storage location. Position: Staff Technical Service, 100%. Berit Klinik AG | Vögelinsegg 5 | 9042 Memory | +41 71 335 06 06 06 | info@beritklinik.ch About the Berit Clinic The Berit Clinic Group operates seven locations in eastern Switzerland and is leading in memory and low temperatures in orthopaedics, spinal surgery and re habilitation. In Wattwil there is a 24/7 emergency station, a daily clinic, various speaking hours, radiology, a laboratory and the PSA, a short-term therapy for alco- holkranke. In Goldach, the clinic offers hand and peripheral nerve surgery, speaking hours in eye medicine and orthopaedics as well as a Ma-gen-Darm center. Berit Sportcli- nic is represented in Memory, Arbon and Heerbrugg. Since 2025, Berit Sportslab in St. Gallen has added the offer in the field of athletics training. Contact with questions Mr. Nick Müller Head of Central Services T +41 71 343 70 97 nick.mueller@klinik.ch Application to Mrs. Vanessa Grimaldi Head of Human Resources Service hr@klinik.ch Staff Technical Service, 100% for our location in Storage AR | per 01.07.2026 or according to agreement Your duties\n• Conducting maintenance, maintenance and repair work Very good knowledge of German in word and writing\n• Guide card Kat. B We offer you\n• Interesting, varied and responsible activity in a motivated team\n• Modern employer with new infrastructures\n• Mind. 5 weeks Holidays\n• Other interesting Benefits Source (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat mitarbeiter in technical dienst 100 0ef96ce9f9.pdf Career portal: https://www.beritklinik.ch/de/karriere-offene-stellen Sector: Health / Clinic",
-        "de": "Berit Klinik sucht für den Standort Speicher eine engagierte Persönlichkeit. Position: Mitarbeiter Technischer Dienst, 100%. Berit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch Über die Berit Klinik Die Berit Klinik Gruppe betreibt sieben Standorte in der Ostschweiz und ist in Speicher und Niederteufen führend in Or- thopädie, Wirbelsäulenchirurgie und Re- habilitation. In Wattwil stehen eine 24/7- Notfallstation, eine Tagesklinik, diverse Sprechstunden, Radiologie, ein Labor und die PSA, eine Kurzzeittherapie für Alko- holkranke, zur Verfügung. In Goldach bietet die Klinik Hand- und periphere Nervenchirurgie, Sprechstunden in Augen- heilkunde und Orthopädie sowie ein Ma- gen-Darm-Zentrum an. Die Berit Sportcli- nic ist in Speicher, Arbon und Heerbrugg vertreten. Seit 2025 ergänzt das Berit Sportslab in St. Gallen das Angebot im Bereich Athletiktraining. Kontakt bei Fragen Herr Nick Müller Leiter Zentrale Dienste T +41 71 343 70 97 nick.mueller@klinik.ch Bewerbung an Frau Vanessa Grimaldi Leiterin Personaldienst hr@klinik.ch Mitarbeiter Technischer Dienst, 100% für unseren Standort in Speicher AR | per 01.07.2026 oder nach Vereinbarung Ihre Aufgaben\n• Durchführen von Unterhalts-, Wartungs- und Reparaturarbeiten am Ge- bäude sowie an unseren Anlagen und Geräten\n• Überwachung und Betreuung der technischen Anlagen der Klinik, inklusive OP – Trakt sowie Überwachung und Begleitung von externen Wartungsfir- men\n• Umgebungsarbeiten und Winterdienst\n• Übernahme von Transportfahrten\n• Leisten von Pikettdiensten, nach entsprechender Einführung Ihr Profil\n• Technische Grundausbildung mit handwerklichem Geschick, vorzugsweise im Sanitär- oder Elektrobereich\n• Teamfähigkeit, Flexibilität und Belastbarkeit\n• Optimistische Grundhaltung und ausgeprägte Dienstleistungsorientierung\n• Versierte MS-Office und IT – Kenntnisse\n• Interesse und Verständnis für technischen Anlagen, Gebäudetechnik und be- triebliche Prozesse\n• Betriebswirtschaftliche Denkweise mit hohem Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Führerausweis Kat. B Wir bieten Ihnen\n• Interessante, abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten Team\n• Moderne Arbeitgeberin mit neuen Infrastrukturen\n• Mind. 5 Wochen Ferien\n• Weitere interessante Benefits Quelle (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__0ef96ce9f9.pdf Karriereportal: https://www.beritklinik.ch/de/karriere-offene-stellen Sektor: Gesundheitswesen / Klinik",
-        "fr": "Berit Klinik cherche une personnalité dédiée à l'emplacement de stockage. Fonction: Service technique du personnel, 100%. Berit Klinik AG-Vögelinsegg 5-9042 Mémoire +41 71 335 06 06 06-00 info@beritklinik.ch À propos de la clinique Berit Le groupe Berit Clinic exploite sept sites dans l'est de la Suisse et dirige la mémoire et les basses températures en orthopédie, chirurgie spinale et réhabilitation. A Wattwil il y a une station d'urgence 24/7, une clinique quotidienne, diverses heures de parole, radiologie, un laboratoire et le PSA, une thérapie à court terme pour l'alco-holkranke. À Goldach, la clinique offre des chirurgies nerveuses manuelles et périphériques, des heures de parole en médecine oculaire et orthopédique ainsi qu'un centre Ma-gen-Darm. Berit Sportcli- nic est représenté en Mémoire, Arbon et Heerbrugg. Depuis 2025, Berit Sportslab à St. Gallen a ajouté l'offre dans le domaine de l'entraînement sportif. Contact avec les questions M. Nick Müller Chef des services centraux T +41 71 343 70 97 nick.mueller@klinik.ch Demande adressée à Mme Vanessa Grimaldi Chef des ressources humaines hr@klinik.ch Service technique du personnel, 100% pour notre emplacement en mémoire AR par 01.07.2026 ou par accord\n• Réalisation de travaux d'entretien, d'entretien et de réparation des bâtiments et de nos équipements\n• Surveillance et supervision des installations techniques de la clinique, y compris la chirurgie, la surveillance et la surveillance de l'entretien externe\n• Travaux environnementaux et service hivernal\n• Prise en charge des transports\n• Baring des services de piquet, après une introduction appropriée votre profil\n• Formation technique de base avec artisanat, de préférence dans les domaines sanitaires ou électriques\n• Equipabilité, flexibilité et charge\n• Une attitude de base optimale et une orientation de service prononcée\n• Bureau MS et IT desservis – Connaissances\n• Intérêt et compréhension des systèmes techniques, de la technologie du bâtiment et des processus opérationnels\n• La pensée commerciale avec un haut sens des responsabilités\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Carte guidée Kat. B Nous vous offrons\n• Activité intéressante, variée et responsable dans une équipe motivée\n• Un employeur moderne doté de nouvelles infrastructures\n• Esprit. 5 semaines de vacances\n• Autres avantages intéressants Source (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat mitarbeiter in technische dienst 100 0ef96ce9f9.pdf Portail de carrière: https://www.beritklinik.ch/fr/karriere-offene-stellen Secteur: Santé / Clinique"
-      },
-      "slugByLocale": {
-        "it": "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher",
-        "en": "staff-technical-service-100-berit-klinik-speicher",
-        "de": "mitarbeiter-technischer-dienst-100-berit-klinik",
-        "fr": "service-technique-du-personnel-100-berit-klinik-speicher"
-      },
-      "_meta": {
-        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__0ef96ce9f9.pdf"
-      },
-      "id": "berit-klinik-7ce90398d9e2",
-      "previousSlugs": [
-        "mitarbeiter-technischer-dienst-100-berit-klinik",
-        "collaboratore-trice-technischer-dienst-100-fachbereich-sanit-r-berit-klinik-speicher",
-        "mitarbeiter-in-technischer-dienst-100-fachbereich-sanit-r-berit-klinik"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-technischer-dienst-100-berit-klinik"
-        ],
-        "en": [
-          "mitarbeiter-technischer-dienst-100-berit-klinik"
-        ],
-        "fr": [
-          "mitarbeiter-technischer-dienst-100-berit-klinik"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T22:09:18.278Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -815,7 +739,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Op Dispo Wattwil 50–70%",
@@ -876,7 +801,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Mpa Arztsekret Rin Wattwil 40%",
@@ -937,7 +863,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psy- chotherapeut:in, 60%",
