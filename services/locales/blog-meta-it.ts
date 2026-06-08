@@ -8012,6 +8012,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralizzazione valori stima Ticino: no stangata, parlamento può agire',
     'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Faccia a faccia prima del 14 giugno sull\'iniziativa centrodestra per neutralizzare i valori di stima e bloccare automatismi fiscali in Costituzione',
     'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Palazzo del Governo Cantonale a Bellinzona, sede del Gran Consiglio ticinese',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Svizzera verso ratifica convenzioni ILO su violenza sul lavoro',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Il Consiglio federale propone la ratifica di due convenzioni ILO contro violenza e molestie sul lavoro, senza modifiche alla legge svizzera.',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Panorama di Bellinzona all\'alba, città svizzera vicino al confine italiano.',
 };
 
 export default blogMetaIt;

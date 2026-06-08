@@ -8012,6 +8012,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralisation valeurs stima: pas de hausse brutale',
     'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Face à face avant le 14 juin sur l\'initiative de centre-droit visant à neutraliser les valeurs de estimation et à bloquer les automatismes fiscaux dans la Constitution',
     'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Palais du gouvernement cantonal à Bellinzona, siège du Grand Conseil',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Suisse: ratification des conventions ILO contre la violence au travail',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Le Conseil fédéral propose la ratification de deux conventions ILO contre la violence et le harcèlement au travail, sans modification de la législation suisse.',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Panorama de Bellinzona à l\'aube, ville suisse proche de la frontière italienne.',
 };
 
 export default blogMetaFr;

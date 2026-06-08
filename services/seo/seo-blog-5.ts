@@ -43013,6 +43013,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ratifica-convenzioni-ilo-svizzera-lavoro': {
+    title: 'Svizzera verso ratifica convenzioni ILO su violenza sul lavoro',
+    description: 'Il Consiglio federale propone la ratifica di due convenzioni ILO contro violenza e molestie sul lavoro. Nessuna modifica legale prevista. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, verso, ratifica, convenzioni, violenza',
+    ogTitle: 'Svizzera ratifica convenzioni ILO su lavoro e tutela',
+    ogDescription: 'Il Consiglio federale annuncia la ratifica di due convenzioni ILO. Nessuna modifica alla legge svizzera.',
+    canonicalPath: '/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera verso ratifica convenzioni ILO su violenza sul lavoro",
+      "description": "Il Consiglio federale propone la ratifica di due convenzioni ILO contro violenza e molestie sul lavoro. Nessuna modifica legale prevista. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ratifica-convenzioni-ilo-svizzera-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona all'alba, città svizzera vicino al confine italiano."
+      },
+      "datePublished": "2026-06-08T02:29:31+00:00",
+      "dateModified": "2026-06-08T02:29:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

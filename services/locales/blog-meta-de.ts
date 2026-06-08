@@ -8010,6 +8010,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.neutralizzazione-valori-stima-ticino.title': 'Tessin: no stangata, parlamento può agire su valori stima',
     'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Gesicht zum Gesicht vor dem 14. Juni über die Initiative der bürgerlichen Mitte, um die Schätzungswerte zu neutralisieren und die automatischen fiskalischen Mechanismen in der Verfassung zu blockieren',
     'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Kantonales Regierungsgebäude in Bellinzona, Sitz des Grossen Rates',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Schweiz plant ILO-Konventionen gegen Gewalt am Arbeitsplatz',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Der Bundesrat schlägt die Ratifizierung von zwei ILO-Konventionen gegen Gewalt und Belästigung am Arbeitsplatz vor, ohne Änderungen am Schweizer Gesetz.',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Bellinzona-Panorama bei Sonnenaufgang, Schweizer Stadt nahe der italienischen Grenze.',
 };
 
 export default blogMetaDe;
