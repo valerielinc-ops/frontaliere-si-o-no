@@ -8011,6 +8011,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralize Ticino fiscal estimation – Parliament can act',
     'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Meeting before 14th June discusses centre-right initiative to neutralize estimation values and block tax automatisms in the Constitution',
     'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Canton Government Palace in Bellinzona, seat of the Ticino Grand Council',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Switzerland moves to ratify ILO conventions on workplace violence',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'The Federal Council recommends ratifying two ILO conventions against violence and harassment in the workplace, without changes to Swiss law.',
+    'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Bellinzona panorama at dawn, Swiss city near the Italian border.',
 };
 
 export default blogMetaEn;
