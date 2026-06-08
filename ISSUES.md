@@ -72,7 +72,8 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 5. Commit identity canonica `Valerie Linc <valerielinc@gmail.com>`. No path home assoluti, no email personali (Privacy).
 6. Push branch + `gh pr create`.
 7. PR body OBBLIGATORIO `## Implementato` (con `Closes #N`) + `## Non implementato (ancora)` (REVIEW.md completeness contract). Per chiudere PIÙ issue: una keyword per issue, una per riga (`Closes #a` / `Closes #b`) — MAI `Closes #a #b #c` su una riga (GitHub chiude solo `#a`; `pr-body-contract.yml` lo flagga).
-8. La PR fluisce in `pr-review-loop` → `## LGTM` → `auto-merge-on-lgtm`. **L'agent NON mergia a mano.**
+8. **Telemetria OBBLIGATORIA — ULTIMA azione del run:** posta sulla issue un commento con `<!-- FIX_OUTCOME: pr-created -->` (anche se non hai altri contenuti da aggiungere). Questo step vale sia per il path happy (PR aperta) sia per ogni abort: usa il codice appropriato tra `pr-created` · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Senza marker → harvester classifica il run come `no-pr-unspecified`, indistinguibile da un crash silenzioso.
+9. La PR fluisce in `pr-review-loop` → `## LGTM` → `auto-merge-on-lgtm`. **L'agent NON mergia a mano.**
 
 ### Tier (mirror di pr-review-loop)
 
