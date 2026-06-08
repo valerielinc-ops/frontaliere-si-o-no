@@ -9,18 +9,27 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
     "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/",
     "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
     "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/"
   ],
   "notes": "Dedicated CambiaValute.ch crawler — discovers job listings from cambiavalute.ch/annunci-di-lavoro/ and extracts detail page URLs under /annuncio-di-lavoro/{slug}/.",
-  "updatedAt": "2026-06-07T21:30:25.275Z",
+  "updatedAt": "2026-06-08T12:34:03.973Z",
   "seedDetailUrls": [
+    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
     "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/",
     "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
     "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/"
   ],
   "seedMetaByUrl": {
+    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "CambiaValute.ch",
+      "companyDomain": "cambiavalute.ch"
+    },
     "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/": {
       "location": "Chiasso",
       "canton": "TI",

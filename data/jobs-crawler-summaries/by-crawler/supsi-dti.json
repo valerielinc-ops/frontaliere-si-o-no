@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-07T22:45:53.921Z",
-  "total": 16,
-  "newCount": 16,
+  "generatedAt": "2026-06-08T13:51:32.443Z",
+  "total": 15,
+  "newCount": 15,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 112765,
-  "avgDurationMs": 112765,
+  "durationMs": 50001,
+  "avgDurationMs": 50001,
   "durationHistory": [
-    112765
+    50001
   ],
   "newJobs": [
     {
@@ -262,48 +262,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-i998ww",
-      "slug": "dottorando-a-in-esperienze-interattive-adattive-in-contesti-multimodali-supsi-dti-lugano-grado-d",
-      "company": "SUPSI / DTI",
-      "title": "Dottorando/a in Esperienze Interattive Adattive in Contesti Multimodali",
-      "location": "Lugano. Grado d",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.supsi.ch/dottorando/a-in-esperienze-interattive-adattive-in-contesti-multimodali-supsi-26_5024-",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-05-30T00:49:50.919Z",
-      "firstSeenAt": "2026-05-30T00:49:50.919Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 23,
         "completeness": 25
       }
     },

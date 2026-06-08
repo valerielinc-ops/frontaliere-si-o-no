@@ -38,6 +38,55 @@ const LBL_QUEUED = 'agent:fix-queued';
 const LBL_FIX = 'agent:fix';
 const LBL_PARKED = 'fu-parked';
 
+// Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
+// `<!-- FIX_OUTCOME: <code> -->`) DETERMINISTICI: rieseguire il fixer sullo
+// stesso body riprodurrebbe identico verdetto → re-queue = solo quota Claude
+// bruciata a vuoto. Root cause #1478 (no-root-cause ×6/14gg): il rescue qui
+// sotto vedeva «agent:fix vecchio senza PR» e ri-accodava, ma un'ABORT pulita
+// (root cause assente, capability/scope mancante, giudizio umano, già risolto)
+// NON è una run morta da ri-tentare — è un verdetto fermo. Park subito invece
+// di consumare i tentativi residui (3 run identiche → 1). Esclusi di proposito:
+// `overlap-skip`/`pr-already-open` (transienti: la PR bloccante può mergiare →
+// ri-tentabile) e l'ASSENZA di marker (run crashata/max_turns davvero orfana →
+// rescue normale). `pr-created` non arriva qui: `hasFixPR` lo intercetta prima.
+export const NON_RETRYABLE = new Set([
+  'no-root-cause',
+  'blocked-workflows-scope',
+  'blocked-secrets',
+  'blocked-admin-settings',
+  'revenue-tracker-manual',
+  'already-fixed',
+]);
+
+const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
+// I fallback deterministici del backstop (issue-fix.yml "post-step
+// deterministico") taggano run crashate/max_turns con un marker generico: NON
+// sono il verdetto diagnostico del fixer → vanno ignorati, così una run morta
+// resta ri-tentabile (mirror della stessa guardia in harvest-agent-lessons.mjs).
+const BACKSTOP_MARKER = 'post-step deterministico';
+
+/**
+ * Codice dell'ULTIMO marker FIX_OUTCOME (commento più recente) di una lista di
+ * commenti, o null. Pura (niente gh) → testabile. Ignora i fallback del
+ * backstop così solo i verdetti autentici del fixer contano.
+ * @param {Array<{body?: string, createdAt?: string}>} comments
+ */
+export function latestFixOutcomeFromComments(comments) {
+  let latest = null;
+  let latestAt = -Infinity;
+  for (const c of comments || []) {
+    const body = String(c?.body || '');
+    if (body.includes(BACKSTOP_MARKER)) continue;
+    const m = FIX_OUTCOME_RE.exec(body);
+    if (!m) continue;
+    const at = Date.parse(c?.createdAt);
+    // `>=` così, a parità (o data illeggibile → NaN ignorato), vince l'ultimo
+    // in ordine di lista (i commenti gh sono cronologici).
+    if (!Number.isNaN(at) && at >= latestAt) { latestAt = at; latest = m[1].toLowerCase(); }
+  }
+  return latest;
+}
+
 function gh(args, { json = true } = {}) {
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return json ? JSON.parse(out) : out;
@@ -106,6 +155,17 @@ function minutesSince(iso) {
   return (Date.now() - then) / 60000;
 }
 
+/** Ultimo verdetto FIX_OUTCOME sulla issue, o null. Best-effort: null su errore
+ * gh/parse → fail-open al rescue normale (mai park per un glitch API). */
+function latestFixOutcome(num) {
+  try {
+    const data = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'comments']);
+    return latestFixOutcomeFromComments(Array.isArray(data?.comments) ? data.comments : []);
+  } catch {
+    return null;
+  }
+}
+
 function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`followup-drainer${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
@@ -138,7 +198,20 @@ function main() {
     if (young && !hasPR) { settlingPromotions++; continue; } // run viva o in registrazione
     if (young) continue;   // giovane + PR → run completata, non orfano
     if (hasPR) continue;   // vecchio + PR → non orfano
-    // vecchio + nessuna PR → orfano: rescue/park
+    // vecchio + nessuna PR → orfano. Ma «nessuna PR» ha due cause diverse:
+    // (a) run morta/crashata (nessun verdetto) → ri-tentabile; (b) ABORT pulita
+    // del fixer con verdetto deterministico-non-ri-tentabile (no-root-cause,
+    // blocked-*, …) → re-queue inutile, riprodurrebbe lo stesso esito bruciando
+    // quota (root cause #1478). Distingui via l'ultimo marker FIX_OUTCOME: se è
+    // NON_RETRYABLE → park SUBITO senza consumare i tentativi residui (nessuna
+    // perdita: resta aperto, ri-triabile a mano se il contesto cambia).
+    const outcome = latestFixOutcome(iss.number);
+    if (outcome && NON_RETRYABLE.has(outcome)) {
+      console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
+      edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
+      continue;
+    }
+    // rescue/park per età-tentativi (run davvero morta, nessun verdetto)
     const attempt = attemptOf(iss) + 1;
     const prevAttemptLabel = attemptOf(iss) ? `fu-attempt:${attemptOf(iss)}` : null;
     if (attempt >= MAX_ATTEMPTS) {
@@ -180,4 +253,7 @@ function main() {
   edit(pick.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
 }
 
-main();
+// Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
+if (process.argv[1]?.endsWith('followup-drainer.mjs')) {
+  main();
+}

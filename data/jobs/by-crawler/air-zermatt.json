@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-06-07T21:19:06.082Z",
+  "assembledAt": "2026-06-08T12:22:33.942Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:19:04.706Z",
+      "crawledAt": "2026-06-08T12:22:32.505Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale comprovata nel settore del soccorso",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -148,7 +149,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:19:04.502Z",
+      "crawledAt": "2026-06-08T12:22:32.010Z",
       "requirementsByLocale": {
         "it": [
           "Licenza EASA Part-66 valida di categoria B1.3 e/o B2",
@@ -204,6 +205,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.399Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -262,7 +264,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/fachmannfrau-betriebsunterhalt--facility-managerin-100-555",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:19:04.281Z",
+      "crawledAt": "2026-06-08T12:22:31.502Z",
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
