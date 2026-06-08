@@ -156,6 +156,15 @@ const fixIssues = ghJson(['issue', 'list', '--search', `label:agent:triaged upda
 for (const { number } of fixIssues.slice(0, MAX_ISSUES)) {
   const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
   const comments = data?.comments || [];
+  // Dedup PER-ISSUE: una stessa issue ri-accodata dal followup-drainer (rescue
+  // a 3 tentativi) può postare lo STESSO marker N volte. Contarli tutti gonfia
+  // il bucket (3 run di UNA issue → conta 3) e fa scattare l'escalation su una
+  // soglia di issue-distinte falsata — è esattamente ciò che ha prodotto #1478.
+  // La lezione cercata è «N issue DISTINTE bloccate da questo esito», non «N
+  // commenti» → conta ogni codice al più una volta per issue. (Il re-queue è
+  // ora fermato alla sorgente in followup-drainer.mjs, ma il dedup rende il
+  // conteggio robusto anche allo storico e a ri-tentativi manuali.)
+  const seenThisIssue = new Set();
   for (const c of comments) {
     const m = String(c.body || '').match(/<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i);
     if (!m) continue;
@@ -167,6 +176,8 @@ for (const { number } of fixIssues.slice(0, MAX_ISSUES)) {
     // re-firing even after the backstop fix (PR #1067) landed.
     if (String(c.body || '').includes('post-step deterministico')) continue;
     const k = `fix-outcome:${code}`;
+    if (seenThisIssue.has(k)) continue;
+    seenThisIssue.add(k);
     outcomeCounts[k] = (outcomeCounts[k] || 0) + 1;
     (outcomeExamples[k] ||= []).push({ issue: number });
   }
