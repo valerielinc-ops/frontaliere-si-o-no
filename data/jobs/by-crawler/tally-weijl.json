@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-06-08T13:52:51.233Z",
+  "assembledAt": "2026-06-08T23:21:52.530Z",
   "jobs": [
     {
       "id": "tally-weijl-acd4bfc45a27",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:48.933Z",
+      "crawledAt": "2026-06-08T23:21:50.103Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,6 +96,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:51.502Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -142,7 +143,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:48.273Z",
+      "crawledAt": "2026-06-08T23:21:49.432Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,6 +206,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.870Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -251,7 +253,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:47.667Z",
+      "crawledAt": "2026-06-08T23:21:48.815Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,6 +314,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.216Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -358,7 +361,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvnd/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:47.002Z",
+      "crawledAt": "2026-06-08T23:21:48.149Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -440,7 +443,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvso/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:46.412Z",
+      "crawledAt": "2026-06-08T23:21:47.562Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -516,7 +519,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:45.778Z",
+      "crawledAt": "2026-06-08T23:21:46.874Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -570,6 +573,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:48.369Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -616,7 +620,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:45.116Z",
+      "crawledAt": "2026-06-08T23:21:46.204Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -670,6 +674,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.809Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -716,7 +721,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:44.509Z",
+      "crawledAt": "2026-06-08T23:21:45.604Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -756,6 +761,11 @@
           "Vous parlez allemand couramment et toute autre langue est un avantage"
         ]
       },
+      "previousSlugs": [
+        "aushilfe-flessibile-m-p-g-tally-weijl-biel",
+        "flexible-aushilfe-m-w-d-tally-weijl-thun",
+        "flexible-aushilfe-m-w-d-tally-weijl-biel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-flessibile-m-p-g-tally-weijl-biel",
@@ -766,12 +776,8 @@
           "flexible-aushilfe-m-w-d-tally-weijl-biel"
         ]
       },
-      "previousSlugs": [
-        "aushilfe-flessibile-m-p-g-tally-weijl-biel",
-        "flexible-aushilfe-m-w-d-tally-weijl-thun",
-        "flexible-aushilfe-m-w-d-tally-weijl-biel"
-      ],
       "firstSeenAt": "2026-04-13T11:23:47.230Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -818,7 +824,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:43.909Z",
+      "crawledAt": "2026-06-08T23:21:45.003Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -873,6 +879,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:46.588Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -919,7 +926,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:43.262Z",
+      "crawledAt": "2026-06-08T23:21:44.352Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -946,6 +953,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T22:44:04.893Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -992,7 +1000,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:42.632Z",
+      "crawledAt": "2026-06-08T23:21:43.760Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1019,6 +1027,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T22:21:29.384Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1065,7 +1074,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:42.061Z",
+      "crawledAt": "2026-06-08T23:21:43.188Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1129,6 +1138,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:45.359Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1175,7 +1185,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2qx/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:41.488Z",
+      "crawledAt": "2026-06-08T23:21:42.543Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1236,6 +1246,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:44.122Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1250,6 +1261,79 @@
       },
       "postalCode": "6003",
       "addressRegion": "LU"
+    },
+    {
+      "id": "tally-weijl-5010e3f8aec3",
+      "slug": "auxiliaire-m-w-d-tw-sion-tally-weijl-sion",
+      "slugByLocale": {
+        "fr": "auxiliaire-h-f-tw-sion-tally-weijl-sion",
+        "en": "auxiliaire-h-f-tw-sion-tally-weijl-sion",
+        "it": "auxiliaire-m-w-d-tw-sion-tally-weijl-sion",
+        "de": "auxiliaire-h-f-tw-sion-tally-weijl-sion"
+      },
+      "company": "TALLY WEiJL",
+      "companyKey": "tally-weijl",
+      "companyDomain": "tally-weijl.com",
+      "title": "Auxiliaire (h/f) TW Sion",
+      "titleByLocale": {
+        "fr": "Auxiliaire (h/f) TW Sion",
+        "it": "Auxiliaire (h/f) TW Sion",
+        "en": "Auxiliaire (h/f) TW Sion",
+        "de": "Auxiliaire (h/f) TW Sion"
+      },
+      "description": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+      "descriptionByLocale": {
+        "fr": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+        "it": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+        "en": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+        "de": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr2w/",
+      "source": "TALLY WEiJL Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-08T23:21:41.956Z",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr2w/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-h-f-tw-sion-tally-weijl-sion"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-h-f-tw-sion-tally-weijl-sion"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-06-08T23:21:41.956Z"
     },
     {
       "id": "tally-weijl-f2c2a36618fb",
@@ -1282,7 +1366,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr26/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T13:52:40.905Z",
+      "crawledAt": "2026-06-08T23:21:41.293Z",
       "addressLocality": "Sierre",
       "addressCountry": "CH",
       "country": "CH",
@@ -1360,7 +1444,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T13:52:40.260Z",
+      "crawledAt": "2026-06-08T23:21:40.684Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1423,6 +1507,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:42.270Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1469,7 +1554,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29q/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:39.599Z",
+      "crawledAt": "2026-06-08T23:21:40.023Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1531,7 +1616,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z297/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:39.027Z",
+      "crawledAt": "2026-06-08T23:21:39.383Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1611,7 +1696,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zx56/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:38.406Z",
+      "crawledAt": "2026-06-08T23:21:38.805Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1673,7 +1758,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zx5h/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:37.822Z",
+      "crawledAt": "2026-06-08T23:21:38.152Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1700,6 +1785,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:42:18.822Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1746,7 +1832,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxrc/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:37.179Z",
+      "crawledAt": "2026-06-08T23:21:37.501Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1762,6 +1848,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-04-28T11:43:35.259Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1808,7 +1895,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:36.587Z",
+      "crawledAt": "2026-06-08T23:21:36.866Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1865,6 +1952,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.789Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1911,7 +1999,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:35.951Z",
+      "crawledAt": "2026-06-08T23:21:36.239Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1970,6 +2058,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1986,52 +2075,52 @@
       "addressRegion": "BS"
     },
     {
-      "id": "tally-weijl-93d037552dd5",
-      "slug": "area-sales-visual-leader-switzerland-tally-weijl-basel",
+      "id": "tally-weijl-679cbac43159",
+      "slug": "conseillere-de-vente-50-tally-weijl-sierre",
       "slugByLocale": {
-        "de": "area-sales-visual-leader-switzerland-tally-weijl-basel",
-        "it": "area-sales-visual-leader-switzerland-tally-weijl-basel",
-        "en": "area-sales-visual-leader-switzerland-tally-weijl-basel",
-        "fr": "area-sales-visual-leader-switzerland-tally-weijl-basel"
+        "fr": "conseillere-de-vente-50-tally-weijl-sierre",
+        "it": "conseillere-de-vente-50-tally-weijl-sierre",
+        "en": "conseillere-de-vente-50-tally-weijl-sierre",
+        "de": "conseillere-de-vente-50-tally-weijl-sierre"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
       "companyDomain": "tally-weijl.com",
-      "title": "Area Sales Visual Leader - Switzerland",
+      "title": "conseillère de vente 50%",
       "titleByLocale": {
-        "de": "Area Sales Visual Leader - Switzerland",
-        "en": "Area Sales Visual Leader - Switzerland",
-        "it": "Area Sales Visual Leader - Switzerland",
-        "fr": "Area Sales Visual Leader - Switzerland"
+        "fr": "conseillère de vente 50%",
+        "it": "conseillère de vente 50%",
+        "en": "conseillère de vente 50%",
+        "de": "conseillère de vente 50%"
       },
-      "description": "Area Sales Visual Leader Switzerland (w/m/d)\n\nWir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst.\n\nTALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern.\n\nHeute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist!\n\nDEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden\n\nDAS ZEICHNET DICH AUS\n\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis\n\nDEINE VORTEILE BEI UNS\n\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team\n\nBist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden?\n\nDann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an:\n\nc.barone@tally-weijl.com",
+      "description": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
       "descriptionByLocale": {
-        "de": "Area Sales Visual Leader Switzerland (w/m/d)\n\nWir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst.\n\nTALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern.\n\nHeute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist!\n\nDEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden\n\nDAS ZEICHNET DICH AUS\n\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis\n\nDEINE VORTEILE BEI UNS\n\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team\n\nBist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden?\n\nDann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an:\n\nc.barone@tally-weijl.com",
-        "it": "Area Sales Visual Leader Switzerland (w/m/d)\n\nWir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst.\n\nTALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern.\n\nHeute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist!\n\nDEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden\n\nDAS ZEICHNET DICH AUS\n\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis\n\nDEINE VORTEILE BEI UNS\n\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team\n\nBist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden?\n\nDann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an:\n\nc.barone@tally-weijl.com",
-        "en": "Area Sales Visual Leader Switzerland (w/m/d)\n\nWir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst.\n\nTALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern.\n\nHeute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist!\n\nDEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden\n\nDAS ZEICHNET DICH AUS\n\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis\n\nDEINE VORTEILE BEI UNS\n\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team\n\nBist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden?\n\nDann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an:\n\nc.barone@tally-weijl.com",
-        "fr": "Area Sales Visual Leader Switzerland (w/m/d)\n\nWir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst.\n\nTALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern.\n\nHeute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist!\n\nDEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden\n\nDAS ZEICHNET DICH AUS\n\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis\n\nDEINE VORTEILE BEI UNS\n\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team\n\nBist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden?\n\nDann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an:\n\nc.barone@tally-weijl.com"
+        "fr": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
+        "it": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
+        "en": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
+        "de": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines"
       },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz36/",
+      "location": "Sierre",
+      "canton": "VS",
+      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz3g/",
       "source": "TALLY WEiJL Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:52:35.310Z",
-      "addressLocality": "Basel",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-08T23:21:35.605Z",
+      "addressLocality": "Sierre",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz36/",
+      "postedDate": "2026-10-28",
+      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz3g/",
       "requirements": [],
       "requirementsByLocale": {
-        "de": []
+        "fr": []
       },
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -2046,9 +2135,72 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "3960",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-06-08T23:21:35.605Z"
+    },
+    {
+      "id": "tally-weijl-93d037552dd5",
+      "slug": "area-sales-visual-leader-switzerland-tally-weijl-basel",
+      "slugByLocale": {
+        "it": "area-sales-visual-leader-switzerland-tally-weijl-basel",
+        "en": "area-sales-visual-leader-switzerland-tally-weijl-basel",
+        "de": "area-sales-visual-leader-switzerland-tally-weijl-basel",
+        "fr": "area-sales-visual-leader-switzerland-tally-weijl-basel"
+      },
+      "company": "TALLY WEiJL",
+      "companyKey": "tally-weijl",
+      "companyDomain": "tally-weijl.com",
+      "title": "Area Sales Visual Leader - Switzerland",
+      "titleByLocale": {
+        "it": "Area Sales Visual Leader - Switzerland",
+        "en": "Area Sales Visual Leader - Switzerland",
+        "de": "Area Sales Visual Leader - Switzerland",
+        "fr": "Area Sales Visual Leader - Switzerland"
+      },
+      "description": "Area Sales Visual Leader Switzerland (w/m/d)\n\nWir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst.\n\nTALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern.\n\nHeute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist!\n\nDEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden\n\nDAS ZEICHNET DICH AUS\n\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis\n\nDEINE VORTEILE BEI UNS\n\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team\n\nBist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden?\n\nDann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an:\n\nc.barone@tally-weijl.com",
+      "descriptionByLocale": {
+        "it": "Area Sales Visual Leader Switzerland (w/m/d) Wir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst. TALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern. Heute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist! DEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden DAS ZEICHNET DICH AUS\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis DEINE VORTEILE BEI UNS\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team Bist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden? Dann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an: c.barone@tally-weijl.com",
+        "en": "Area Sales Visual Leader Switzerland (w/m/d) Wir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst. TALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern. Heute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist! DEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden DAS ZEICHNET DICH AUS\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis DEINE VORTEILE BEI UNS\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team Bist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden? Dann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an: c.barone@tally-weijl.com",
+        "de": "Area Sales Visual Leader Switzerland (w/m/d) Wir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst. TALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern. Heute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist! DEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden DAS ZEICHNET DICH AUS\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis DEINE VORTEILE BEI UNS\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team Bist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden? Dann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an: c.barone@tally-weijl.com",
+        "fr": "Area Sales Visual Leader Switzerland (w/m/d) Wir sind hier, damit du dich sexy, selbstbewusst und UNSTOPPABLE fühlst. TALLY WEiJL wurde 1984 gegründet und befindet sich seit fast 40 Jahren auf einer aufregenden Reise, um Fashion, Leidenschaft, Selbständigkeit, Spass, Liebe und Gemeinschaft zu feiern. Heute sind wir in 7 Märkten mit rund 400 Stores, einer starken Online-Präsenz und einer engagierten Community vertreten. Zeig uns, wie #UNSTOPPABLE du bist! DEIN BEITRAG FÜR UNSEREN GEMEINSAMEN ERFOLG\n• Du führst und entwickelst die Store Manager und Visual Merchandising Teams deiner Region\n• Du stellst sicher, dass die TALLY WEiJL Visual-Merchandising-Strategie in allen Stores konsequent umgesetzt wird\n• Du analysierst KPIs und Verkaufsergebnisse und leitest die entsprechenden Massnahmen zur Performance-Steigerung ab\n• Du coachst die Teams regelmässig in den Bereichen Sales, Customer Experience und Visual Merchandising\n• Du sorgst für ein inspirierendes Einkaufserlebnis und höchste VM-Standards in allen Stores\n• Du arbeitest eng mit Operations, Marketing, Omnichannel und dem VM-Team zusammen\n• Du unterstützt Store Openings, Umbauten und weitere Retail-Projekte\n• Du stellst sicher, dass alle Prozesse, Richtlinien und Standards eingehalten werden DAS ZEICHNET DICH AUS\n• Mehrjährige Erfahrung im Fashion Retail, idealerweise im Bereich Visual Merchandising oder Retail Management\n• Erfahrung in der Führung mehrerer Stores oder Teams\n• Starke analytische und kommerzielle Fähigkeiten\n• Hohe Reisebereitschaft innerhalb der gesamten Schweiz\n• Sehr gute Deutsch-, Englisch- und Französischkenntnisse\n• Jede weitere Landessprache ist von Vorteil\n• Ausgeprägte Kommunikations- und Coachingfähigkeiten\n• Hohe Eigeninitiative und Hands-on Mentalität\n• Leidenschaft für Fashion, Trends und Kundenerlebnis DEINE VORTEILE BEI UNS\n• Attraktive Mitarbeiterrabatte\n• Internationale Karriereperspektiven\n• Dynamisches und inspirierendes Arbeitsumfeld\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Arbeit in einem leidenschaftlichen und ambitionierten Team Bist du ebenfalls UNSTOPPABLE und möchtest Teil unserer beispiellosen Fashion Story in unserer unstoppable TALLY Familie werden? Dann teile dein individuelles Talent mit uns und bewirb dich jetzt über unsere Karriereseite oder sende deine Bewerbung direkt an: c.barone@tally-weijl.com"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz36/",
+      "source": "TALLY WEiJL Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-08T23:21:34.946Z",
+      "addressLocality": "Basel",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Moda / Abbigliamento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz36/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-08T13:52:35.310Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
       "postalCode": "4001",
-      "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T13:52:35.310Z"
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-b17137a0512d",
@@ -2081,7 +2233,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:34.747Z",
+      "crawledAt": "2026-06-08T23:21:34.367Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2157,7 +2309,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zzf2/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:52:34.112Z",
+      "crawledAt": "2026-06-08T23:21:33.719Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2173,6 +2325,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-05T12:48:23.842Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
