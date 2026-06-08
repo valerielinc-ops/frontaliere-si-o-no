@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epfl",
-  "assembledAt": "2026-06-08T12:51:03.777Z",
+  "assembledAt": "2026-06-08T22:22:34.528Z",
   "jobs": [
     {
       "id": "epfl-7a9f908a519a",
@@ -33,7 +33,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-in-experimental-biophysics/1164715455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:59.106Z",
+      "crawledAt": "2026-06-08T22:22:30.397Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,23 +51,23 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164715455",
+      "previousSlugs": [
+        "postdoc-in-experimental-biophysics-epfl-lausanne",
+        "postdoc-en-biophysique-experimentale-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "postdoc-en-biophysique-experimentale-epfl-lausanne"
-        ],
         "it": [
           "postdoc-in-experimental-biophysics-epfl-lausanne"
         ],
         "de": [
           "postdoc-in-experimental-biophysics-epfl-lausanne"
+        ],
+        "fr": [
+          "postdoc-en-biophysique-experimentale-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "postdoc-in-experimental-biophysics-epfl-lausanne",
-        "postdoc-en-biophysique-experimentale-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-05-11T22:00:31.569Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-11T22:00:31.569Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -114,7 +114,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-in-an-aeronautics-related-field-%28CVLAB%29/1164725755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:58.533Z",
+      "crawledAt": "2026-06-08T22:22:29.858Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -148,8 +148,8 @@
           "postdoc-in-einem-luftfahrtbereich-cvlab-epfl-lausanne"
         ]
       },
-      "firstSeenAt": "2026-05-12T22:03:42.886Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T22:03:42.886Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -196,7 +196,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-in-photoelectrochemistry/940677374/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:57.949Z",
+      "crawledAt": "2026-06-08T22:22:29.322Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,8 +221,8 @@
         "postdoctorat-epfl-lausanne",
         "post-doctorant-epfl-lausanne"
       ],
-      "firstSeenAt": "2026-05-21T11:51:06.711Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:51:06.711Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -269,7 +269,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-on-AI-alignment-and-safe-AI-available-at-EPFL-DLAB/1164220755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:57.378Z",
+      "crawledAt": "2026-06-08T22:22:28.790Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,25 +287,25 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164220755",
-      "previousSlugsByLocale": {
-        "fr": [
-          "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne"
-        ],
-        "it": [
-          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
-        ],
-        "de": [
-          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
-        ]
-      },
       "previousSlugs": [
         "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
         "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
         "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a",
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a"
       ],
-      "firstSeenAt": "2026-05-21T11:51:06.172Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+        ],
+        "de": [
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+        ],
+        "fr": [
+          "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:51:06.172Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -320,6 +320,82 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD"
+    },
+    {
+      "id": "epfl-ad8241ec0d43",
+      "slug": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
+      "slugByLocale": {
+        "fr": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+        "it": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
+        "en": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
+        "de": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2"
+      },
+      "company": "EPFL",
+      "companyKey": "epfl",
+      "companyDomain": "epfl.ch",
+      "title": "Postdoc position on AI alignment and safe AI available at EPFL DLAB",
+      "titleByLocale": {
+        "fr": "Postdoc position on AI alignment and safe AI available at EPFL DLAB",
+        "en": "Postdoc position on AI alignment and safe AI available at EPFL DLAB",
+        "it": "Postdoc position on AI alignment and safe AI available at EPFL DLAB",
+        "de": "Postdoc position on AI alignment and safe AI available at EPFL DLAB"
+      },
+      "description": "Mission\n\nResearch topics:\n\n• Alignment\n\n• Large language models\n\n• Natural language processing\n\n• Mechanistic interpretability\n\nApplications are invited for a postdoctoral position at EPFL, to be hosted by the Data Science & AI Lab , headed by Prof. Robert West.\n\nWe seek a candidate who will lead ground-breaking research projects with the goal of building safe AI that truly cares about human interests.\n\nInstead of viewing alignment as mere postprocessing of pretrained models (“lipstick-on-a-pig alignment”), you will contribute to our agenda of “raising” models that will be continuously aligned throughout the training process, starting from token 1 in pretraining (see here for a high-level vision). To this end, you will combine synthetic data generation, mechanistic interpretability, LLM pre- and posttraining, and model evaluation in novel ways.\n\nPrincipales tâches et responsabilités\n\n•\nYou will contribute to the Swiss AI Initiative , in particular by incorporating your research results into Apertus , SwissAI’s open, transparent, multilingual language model.\n\nYou will work in a stimulating, open, and international research environment consisting of many highly talented and motivated students, embedded in a strong network of academic and industrial collaborators.\n\nOther benefits include a competitive salary (starting at around CHF 88,000 p.a.), an extremely well funded national research system, an office next to a stunning lake and even more stunning mountains, and generous travel support.\n\nInvolvement in teaching is possible but not required. Project work with MS and PhD students is expected.\n\nProfil\n\n• Candidates should have completed, or be near completion of, a PhD with a strong international publication record in AI or NLP. Strong programming skills and experience with machine learning frameworks are required.\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nEPFL ranks among the world’s top universities in the field of computer science. It is located in Lausanne, Switzerland, a beautiful and vibrant city in an Alpine setting on the shores of scenic Lake Geneva, in the very heart of Europe. English is the main language spoken at EPFL, and Lausanne is highly international, such that no French language skills are required.\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: candice.norhadian@epfl.ch\n\nContract Start Date : 01/04/2026\n\nActivity Rate Min : 100.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 1 year\n\nReference: 2077",
+      "descriptionByLocale": {
+        "fr": "Mission\n\nResearch topics:\n\n• Alignment\n\n• Large language models\n\n• Natural language processing\n\n• Mechanistic interpretability\n\nApplications are invited for a postdoctoral position at EPFL, to be hosted by the Data Science & AI Lab , headed by Prof. Robert West.\n\nWe seek a candidate who will lead ground-breaking research projects with the goal of building safe AI that truly cares about human interests.\n\nInstead of viewing alignment as mere postprocessing of pretrained models (“lipstick-on-a-pig alignment”), you will contribute to our agenda of “raising” models that will be continuously aligned throughout the training process, starting from token 1 in pretraining (see here for a high-level vision). To this end, you will combine synthetic data generation, mechanistic interpretability, LLM pre- and posttraining, and model evaluation in novel ways.\n\nPrincipales tâches et responsabilités\n\n•\nYou will contribute to the Swiss AI Initiative , in particular by incorporating your research results into Apertus , SwissAI’s open, transparent, multilingual language model.\n\nYou will work in a stimulating, open, and international research environment consisting of many highly talented and motivated students, embedded in a strong network of academic and industrial collaborators.\n\nOther benefits include a competitive salary (starting at around CHF 88,000 p.a.), an extremely well funded national research system, an office next to a stunning lake and even more stunning mountains, and generous travel support.\n\nInvolvement in teaching is possible but not required. Project work with MS and PhD students is expected.\n\nProfil\n\n• Candidates should have completed, or be near completion of, a PhD with a strong international publication record in AI or NLP. Strong programming skills and experience with machine learning frameworks are required.\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nEPFL ranks among the world’s top universities in the field of computer science. It is located in Lausanne, Switzerland, a beautiful and vibrant city in an Alpine setting on the shores of scenic Lake Geneva, in the very heart of Europe. English is the main language spoken at EPFL, and Lausanne is highly international, such that no French language skills are required.\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: candice.norhadian@epfl.ch\n\nContract Start Date : 01/04/2026\n\nActivity Rate Min : 100.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 1 year\n\nReference: 2077",
+        "en": "Mission\n\nResearch topics:\n\n• Alignment\n\n• Large language models\n\n• Natural language processing\n\n• Mechanistic interpretability\n\nApplications are invited for a postdoctoral position at EPFL, to be hosted by the Data Science & AI Lab , headed by Prof. Robert West.\n\nWe seek a candidate who will lead ground-breaking research projects with the goal of building safe AI that truly cares about human interests.\n\nInstead of viewing alignment as mere postprocessing of pretrained models (“lipstick-on-a-pig alignment”), you will contribute to our agenda of “raising” models that will be continuously aligned throughout the training process, starting from token 1 in pretraining (see here for a high-level vision). To this end, you will combine synthetic data generation, mechanistic interpretability, LLM pre- and posttraining, and model evaluation in novel ways.\n\nPrincipales tâches et responsabilités\n\n•\nYou will contribute to the Swiss AI Initiative , in particular by incorporating your research results into Apertus , SwissAI’s open, transparent, multilingual language model.\n\nYou will work in a stimulating, open, and international research environment consisting of many highly talented and motivated students, embedded in a strong network of academic and industrial collaborators.\n\nOther benefits include a competitive salary (starting at around CHF 88,000 p.a.), an extremely well funded national research system, an office next to a stunning lake and even more stunning mountains, and generous travel support.\n\nInvolvement in teaching is possible but not required. Project work with MS and PhD students is expected.\n\nProfil\n\n• Candidates should have completed, or be near completion of, a PhD with a strong international publication record in AI or NLP. Strong programming skills and experience with machine learning frameworks are required.\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nEPFL ranks among the world’s top universities in the field of computer science. It is located in Lausanne, Switzerland, a beautiful and vibrant city in an Alpine setting on the shores of scenic Lake Geneva, in the very heart of Europe. English is the main language spoken at EPFL, and Lausanne is highly international, such that no French language skills are required.\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: candice.norhadian@epfl.ch\n\nContract Start Date : 01/04/2026\n\nActivity Rate Min : 100.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 1 year\n\nReference: 2077",
+        "it": "Mission\n\nResearch topics:\n\n• Alignment\n\n• Large language models\n\n• Natural language processing\n\n• Mechanistic interpretability\n\nApplications are invited for a postdoctoral position at EPFL, to be hosted by the Data Science & AI Lab , headed by Prof. Robert West.\n\nWe seek a candidate who will lead ground-breaking research projects with the goal of building safe AI that truly cares about human interests.\n\nInstead of viewing alignment as mere postprocessing of pretrained models (“lipstick-on-a-pig alignment”), you will contribute to our agenda of “raising” models that will be continuously aligned throughout the training process, starting from token 1 in pretraining (see here for a high-level vision). To this end, you will combine synthetic data generation, mechanistic interpretability, LLM pre- and posttraining, and model evaluation in novel ways.\n\nPrincipales tâches et responsabilités\n\n•\nYou will contribute to the Swiss AI Initiative , in particular by incorporating your research results into Apertus , SwissAI’s open, transparent, multilingual language model.\n\nYou will work in a stimulating, open, and international research environment consisting of many highly talented and motivated students, embedded in a strong network of academic and industrial collaborators.\n\nOther benefits include a competitive salary (starting at around CHF 88,000 p.a.), an extremely well funded national research system, an office next to a stunning lake and even more stunning mountains, and generous travel support.\n\nInvolvement in teaching is possible but not required. Project work with MS and PhD students is expected.\n\nProfil\n\n• Candidates should have completed, or be near completion of, a PhD with a strong international publication record in AI or NLP. Strong programming skills and experience with machine learning frameworks are required.\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nEPFL ranks among the world’s top universities in the field of computer science. It is located in Lausanne, Switzerland, a beautiful and vibrant city in an Alpine setting on the shores of scenic Lake Geneva, in the very heart of Europe. English is the main language spoken at EPFL, and Lausanne is highly international, such that no French language skills are required.\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: candice.norhadian@epfl.ch\n\nContract Start Date : 01/04/2026\n\nActivity Rate Min : 100.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 1 year\n\nReference: 2077",
+        "de": "Mission\n\nResearch topics:\n\n• Alignment\n\n• Large language models\n\n• Natural language processing\n\n• Mechanistic interpretability\n\nApplications are invited for a postdoctoral position at EPFL, to be hosted by the Data Science & AI Lab , headed by Prof. Robert West.\n\nWe seek a candidate who will lead ground-breaking research projects with the goal of building safe AI that truly cares about human interests.\n\nInstead of viewing alignment as mere postprocessing of pretrained models (“lipstick-on-a-pig alignment”), you will contribute to our agenda of “raising” models that will be continuously aligned throughout the training process, starting from token 1 in pretraining (see here for a high-level vision). To this end, you will combine synthetic data generation, mechanistic interpretability, LLM pre- and posttraining, and model evaluation in novel ways.\n\nPrincipales tâches et responsabilités\n\n•\nYou will contribute to the Swiss AI Initiative , in particular by incorporating your research results into Apertus , SwissAI’s open, transparent, multilingual language model.\n\nYou will work in a stimulating, open, and international research environment consisting of many highly talented and motivated students, embedded in a strong network of academic and industrial collaborators.\n\nOther benefits include a competitive salary (starting at around CHF 88,000 p.a.), an extremely well funded national research system, an office next to a stunning lake and even more stunning mountains, and generous travel support.\n\nInvolvement in teaching is possible but not required. Project work with MS and PhD students is expected.\n\nProfil\n\n• Candidates should have completed, or be near completion of, a PhD with a strong international publication record in AI or NLP. Strong programming skills and experience with machine learning frameworks are required.\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nEPFL ranks among the world’s top universities in the field of computer science. It is located in Lausanne, Switzerland, a beautiful and vibrant city in an Alpine setting on the shores of scenic Lake Geneva, in the very heart of Europe. English is the main language spoken at EPFL, and Lausanne is highly international, such that no French language skills are required.\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: candice.norhadian@epfl.ch\n\nContract Start Date : 01/04/2026\n\nActivity Rate Min : 100.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 1 year\n\nReference: 2077"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-on-AI-alignment-and-safe-AI-available-at-EPFL-DLAB/1164220655/",
+      "source": "EPFL Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-08T22:22:28.258Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "education",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-on-AI-alignment-and-safe-AI-available-at-EPFL-DLAB/1164220655/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Post-doc / Collab. scientifique",
+      "contractType": "Post-doc / Collab. scientifique",
+      "externalId": "1164220655",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-06-08T22:22:28.258Z"
     },
     {
       "id": "epfl-c3e496b8702a",
@@ -352,7 +428,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Sp%C3%A9cialiste-syst%C3%A8me-BI/1163172155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:56.241Z",
+      "crawledAt": "2026-06-08T22:22:27.719Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -425,7 +501,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Post-doc-on-topology-optimization/1164402055/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:55.676Z",
+      "crawledAt": "2026-06-08T22:22:27.181Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -443,25 +519,25 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164402055",
+      "previousSlugs": [
+        "post-doc-on-topology-optimization-epfl-lausanne",
+        "postdoc-zur-topologieoptimierung-epfl-lausanne",
+        "post-doc-sur-l-optimisation-topologique-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "post-doc-sur-l-optimisation-topologique-epfl-lausanne"
-        ],
         "it": [
           "post-doc-on-topology-optimization-epfl-lausanne"
         ],
         "de": [
           "post-doc-on-topology-optimization-epfl-lausanne",
           "postdoc-zur-topologieoptimierung-epfl-lausanne"
+        ],
+        "fr": [
+          "post-doc-sur-l-optimisation-topologique-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "post-doc-on-topology-optimization-epfl-lausanne",
-        "post-doc-sur-l-optimisation-topologique-epfl-lausanne",
-        "postdoc-zur-topologieoptimierung-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-05-21T11:51:03.953Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:51:03.953Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -508,7 +584,7 @@
       "url": "https://careers.epfl.ch/job/Gen%C3%A8ve-Postdoc-in-vivo-optoelectronics-application-and-verification/1164242355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:55.103Z",
+      "crawledAt": "2026-06-08T22:22:26.638Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -537,8 +613,8 @@
           "postdoc-in-vivo-optoelectronics-application-and-verification-epfl-geneve"
         ]
       },
-      "firstSeenAt": "2026-05-21T11:51:02.876Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:51:02.876Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -585,7 +661,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Head-of-Library-Services-and-Archives/1164566955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:54.536Z",
+      "crawledAt": "2026-06-08T22:22:26.102Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -661,7 +737,7 @@
       "url": "https://careers.epfl.ch/job/Villigen-PhD-Position-in-Computational-X-ray-Imaging-and-Semiconductor-Metrology/1164768255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:53.969Z",
+      "crawledAt": "2026-06-08T22:22:25.563Z",
       "addressLocality": "Villigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -740,7 +816,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Student-in-%28multi-agent%29-reinforcement-learning-for-health-aware-control/1164419055/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:53.403Z",
+      "crawledAt": "2026-06-08T22:22:25.026Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -771,6 +847,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:10.749Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -817,7 +894,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Directeur_trice-du-domaine-des-syst%C3%A8mes-d&apos;information-de-l&apos;EPFL/1164779055/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:52.822Z",
+      "crawledAt": "2026-06-08T22:22:24.488Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -896,7 +973,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-Position-in-Quantitative-Finance-at-EPFL/1164777855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:52.252Z",
+      "crawledAt": "2026-06-08T22:22:23.947Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -925,8 +1002,8 @@
           "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
         ]
       },
-      "firstSeenAt": "2026-05-21T22:21:55.407Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T22:21:55.407Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -973,7 +1050,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Researcher-in-Multimodal-Human-Sensing-and-Advanced-Behavioral-Data-Analysis/1164774355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:51.680Z",
+      "crawledAt": "2026-06-08T22:22:23.412Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1022,161 +1099,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "epfl-0425a5c33b51",
-      "slug": "junior-project-manager-programmi-di-apprendimento-avanzati-80-epfl-lausanne",
-      "slugByLocale": {
-        "it": "junior-project-manager-programmi-di-apprendimento-avanzati-80-epfl-lausanne",
-        "en": "junior-project-manager-enhanced-learning-programs-80-epfl-lausanne",
-        "de": "junior-project-manager-enhanced-learning-programs-80-epfl-lausanne",
-        "fr": "gestionnaire-de-projet-junior-programmes-d-apprentissage-ameliores-80-epfl-lausanne"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Junior Project Manager - Enhanced Learning Programs (80%)",
-      "titleByLocale": {
-        "it": "Junior Project Manager - Programmi di apprendimento avanzati (80%)",
-        "en": "Junior Project Manager - Enhanced Learning Programs (80%)",
-        "de": "Junior Project Manager - Enhanced Learning Programme (80%)",
-        "fr": "Gestionnaire de projet junior - Programmes d'apprentissage améliorés (80 %)"
-      },
-      "description": "Mission\n\nWe are seeking a Junior Project Manager to support the development and delivery of our EPFL Enhanced Learning Programs, with a particular focus on the MacCall McBain Leadership Development Program.\n\nThis role combines project management, program coordination, and community-building. The successful candidate will play a key role in structuring program activities, supporting scholars, and fostering a vibrant and engaged learning community.\n\nMain duties and responsibilities\n\n• Manage and coordinate program activities for the MacCall McBain Leadership Development Program, ensuring smooth execution and alignment with objectives\n\n• Support and engage scholars throughout the program lifecycle, fostering a strong sense of community and ensuring timely completion of outputs\n\n• Design and implement initiatives to grow and strengthen the program community, including alumni engagement and peer interaction\n\n• Coordinate the application and selection process, ensuring a high-quality and efficient candidate experience\n\n• Plan and oversee program events and workshops, from concept to delivery, including logistics and stakeholder coordination\n\n• Monitor budgets and reporting\n\n• Develop and manage program documentation, including reports, certificates, and course materials\n\n• Collect, analyze, and report on program feedback and performance metrics, supporting continuous improvement\n\n• Contribute to communication and outreach efforts, helping promote the program and increase its visibility\n\nProfile\n\n• A minimum of 3-4 years of experience in project management, program coordination, or a related field (ideally in education, leadership programs, or non-profit environments)\n\n• Strong organizational and project management skills, with the ability to manage multiple workstreams simultaneously\n\n• Excellent communication and interpersonal abilities; a background in communication and marketing is an asset\n\n• Flexible, adaptable, and comfortable working in a fast-paced and evolving environment\n\n• Interest in community building, leadership development, and student engagement\n\n• Proactive, structured, and solution-oriented mindset\n\n• Ability to work both independently and collaboratively, with the ability to work with diverse stakeholders\n\n• Availability and flexibility to work on certain weekends and evenings\n\n• Proficiency in standard office tools (e.g., Microsoft Office, Google Workspace)\n\n• Fluency in English and French (C1 level at least for both)\n\nWe offer\n\n• Multicultural and stimulating working environment\n\n• Pleasant working atmosphere\n\n• Attractive hiring conditions\n\n• Continuing education opportunities\n\nInformations\n\nContract Start Date : 01/09/2026\n\nActivity Rate : 80.00\n\nContract Type: CDD\n\nDuration: 1 an renouvelable\n\nReference: 2253",
-      "descriptionByLocale": {
-        "it": "Missione Stiamo cercando un Junior Project Manager per supportare lo sviluppo e la consegna dei nostri programmi di apprendimento avanzati EPFL, con una particolare attenzione al MacCall McBain Leadership Development Program. Questo ruolo combina la gestione del progetto, il coordinamento del programma e la costruzione della comunità. Il candidato di successo svolgerà un ruolo chiave nella strutturazione delle attività del programma, sostenendo gli studiosi, e promuovere una comunità di apprendimento vibrante e impegnato. Principali doveri e responsabilità\n• Gestire e coordinare le attività del programma per il MacCall McBain Leadership Development Program, assicurando una corretta esecuzione e allineamento con gli obiettivi\n• Supporto e coinvolgere gli studiosi durante il ciclo di vita del programma, favorendo un forte senso di comunità e garantendo il completamento tempestivo delle uscite\n• Progettare e implementare iniziative per crescere e rafforzare la comunità dei programmi, tra cui il coinvolgimento degli alunni e l'interazione tra pari\n• Coordinare l'applicazione e il processo di selezione, garantendo un'esperienza di candidati di alta qualità ed efficiente\n• Pianificare e supervisionare eventi e workshop di programma, dal concetto alla consegna, tra cui la logistica e il coordinamento degli stakeholder\n• Monitorare i bilanci e le relazioni\n• Sviluppare e gestire la documentazione del programma, inclusi i report, i certificati e i materiali dei corsi\n• Raccogliere, analizzare e segnalare le metriche di feedback e performance del programma, supportando il miglioramento continuo\n• Contribuire agli sforzi di comunicazione e divulgazione, aiutando a promuovere il programma e aumentare la sua visibilità Profilo\n• Un minimo di 3-4 anni di esperienza nella gestione dei progetti, nel coordinamento dei programmi o in un campo correlato (idealmente nell'istruzione, nei programmi di leadership o negli ambienti non profit)\n• Forte capacità organizzative e di gestione del progetto, con la capacità di gestire più flussi di lavoro contemporaneamente\n• Ottima comunicazione e capacità interpersonali; uno sfondo nella comunicazione e nel marketing è un bene\n• Lavoro flessibile, adattabile e confortevole in un ambiente veloce ed in evoluzione\n• Interessi nella costruzione della comunità, sviluppo della leadership e impegno degli studenti\n• Set mentale proattivo, strutturato e orientato alla soluzione\n• Capacità di lavorare in modo indipendente e collaborativo, con la capacità di lavorare con diversi stakeholder\n• Disponibilità e flessibilità per lavorare in determinati fine settimana e serate\n• Proficienza negli strumenti di ufficio standard (ad esempio, Microsoft Office, Google Workspace)\n• Fluenza in inglese e francese (livello C1 almeno per entrambi) Offriamo\n• Ambiente di lavoro multiculturale e stimolante\n• Piacevole atmosfera di lavoro\n• Condizioni di assunzione attraenti\n• Opportunità di formazione continua Informazioni Data di inizio del contratto: 01/09/2026 Tasso di attività: 80.00 Tipo di contratto: CDD Durata: 1 nouvelabile Riferimento: 2253",
-        "en": "Mission We are seeking a Junior Project Manager to support the development and delivery of our EPFL Enhanced Learning Programs, with a particular focus on the MacCall McBain Leadership Development Program. This role combines project management, program coordination, and community-building. The successful candidate will play a key role in structuring program activities, supporting scholars, and fostering a vibrant and engaged learning community. Main duties and responsibilities\n• Manage and coordinate program activities for the MacCall McBain Leadership Development Program, ensuring smooth execution and alignment with objectives\n• Support and engage scholars throughout the program lifecycle, fostering a strong sense of community and ensuring timely completion of outputs\n• Design and implement initiatives to grow and strengthen the program community, including alumni engagement and peer interaction\n• Coordinate the application and selection process, ensuring a high-quality and efficient candidate experience\n• Plan and oversee program events and workshops, from concept to delivery, including logistics and stakeholder coordination\n• Monitor budgets and reporting\n• Develop and manage program documentation, including reports, certificates, and course materials\n• Collect, analyze, and report on program feedback and performance metrics, supporting continuous improvement\n• Contribute to communication and outreach efforts, helping promote the program and increase its visibility Profile\n• A minimum of 3-4 years of experience in project management, program coordination, or a related field (ideally in education, leadership programs, or non-profit environments)\n• Strong organizational and project management skills, with the ability to manage multiple workstreams simultaneously\n• Excellent communication and interpersonal abilities; a background in communication and marketing is an asset\n• Flexible, adaptable, and comfortable working in a fast-paced and evolving environment\n• Interest in community building, leadership development, and student engagement\n• Proactive, structured, and solution-oriented mindset\n• Ability to work both independently and collaboratively, with the ability to work with diverse stakeholders\n• Availability and flexibility to work on certain weekends and evenings\n• Proficiency in standard office tools (e.g., Microsoft Office, Google Workspace)\n• Fluency in English and French (C1 level at least for both) We offer\n• Multicultural and stimulating working environment\n• Pleasant working atmosphere\n• Attractive hiring conditions\n• Continuing education opportunities Informations Contract Start Date : 01/09/2026 Activity Rate : 80.00 Contract Type: CDD Duration: 1 an renouvelable Reference: 2253",
-        "de": "Mission Wir suchen einen Junior Project Manager, der die Entwicklung und Lieferung unserer EPFL Enhanced Learning Programme unterstützt, mit einem besonderen Schwerpunkt auf dem MacCall McBain Leadership Development Program. Diese Rolle verbindet Projektmanagement, Programmkoordination und Gemeinschaftsaufbau. Der erfolgreiche Kandidat wird eine Schlüsselrolle bei der Gestaltung von Programmaktivitäten spielen, Wissenschaftler unterstützen und eine lebendige und engagierte Lerngemeinschaft fördern. Hauptaufgaben und Zuständigkeiten\n• Verwalten und koordinieren Sie Programmaktivitäten für das MacCall McBain Leadership Development Program, um eine reibungslose Ausführung und Ausrichtung der Ziele sicherzustellen\n• Unterstützung und Engagement von Wissenschaftlern während des gesamten Programmlebenszyklus, Förderung eines starken Gefühls der Gemeinschaft und Sicherstellung der rechtzeitigen Fertigstellung von Outputs\n• Entwicklung und Umsetzung von Initiativen zur Förderung und Stärkung der Programmgemeinschaft, einschließlich Alumni Engagement und Peer Interaktion\n• Koordinieren Sie den Bewerbungs- und Auswahlprozess, um ein hochwertiges und effizientes Kandidaterlebnis zu gewährleisten\n• Planen und Beaufsichtigen von Programmveranstaltungen und Workshops, vom Konzept bis zur Lieferung, einschließlich Logistik und Stakeholder-Koordination\n• Überwachen Sie Budgets und Berichterstattung\n• Erstellung und Verwaltung von Programmdokumenten, einschließlich Berichte, Zertifikate und Kursmaterialien\n• Sammeln, Analysieren und Bericht über Programm-Feedback und Performance Metriken, die kontinuierliche Verbesserung unterstützen\n• Beitrag zu Kommunikations- und Outreach-Bemühungen, zur Förderung des Programms und zur Erhöhung seiner Sichtbarkeit Profil\n• Mindestens 3-4 Jahre Erfahrung in Projektmanagement, Programmkoordinierung oder einem verwandten Bereich (ideal in Bildung, Leadership-Programmen oder gemeinnützigen Umgebungen)\n• Starke organisatorische und Projektmanagementfähigkeiten, mit der Fähigkeit, mehrere Arbeitsabläufe gleichzeitig zu verwalten\n• Ausgezeichnete Kommunikation und zwischenmenschliche Fähigkeiten; ein Hintergrund in Kommunikation und Marketing ist ein Vermögen\n• Flexibles, anpassungsfähiges und komfortables Arbeiten in einer schnelllebigen und sich entwickelnden Umgebung\n• Interesse an Gemeindebau, Führungsentwicklung und studentischem Engagement\n• Proaktive, strukturierte und lösungsorientierte Denkweise\n• Fähigkeit, unabhängig und kollaborativ zu arbeiten, mit der Fähigkeit, mit verschiedenen Stakeholdern zu arbeiten\n• Verfügbarkeit und Flexibilität bei der Arbeit an bestimmten Wochenenden und Abenden\n• Effizienz in Standard-Büro-Tools (z.B. Microsoft Office, Google Workspace)\n• Fluency in Englisch und Französisch (C1-Level mindestens für beide) Wir bieten\n• Multikulturelle und stimulierende Arbeitsumgebung\n• angenehme Arbeitsatmosphäre\n• Attraktive Einstellungsbedingungen\n• Weiterbildungsmöglichkeiten Informationen Ã1⁄4ber Vertragsbeginn: 01/09/2026 Aktivitätsrate : 80.00 Vertragstyp: CDD Dauer: 1 ein wiederverwendbar Bezug: 2253",
-        "fr": "Mission Nous recherchons un gestionnaire de projet junior pour soutenir le développement et la prestation de nos programmes d'apprentissage améliorés de l'EPFL, en mettant l'accent sur le programme de développement du leadership MacCall McBain. Ce rôle combine la gestion de projet, la coordination des programmes et l'édification de la collectivité. Le candidat retenu jouera un rôle clé dans la structuration des activités du programme, l'appui aux chercheurs et la promotion d'une communauté d'apprentissage dynamique et engagée. Principales fonctions et responsabilités\n• Gérer et coordonner les activités du programme de développement du leadership MacCall McBain, en assurant une exécution et une harmonisation sans heurts avec les objectifs\n• Appuyer et mobiliser les chercheurs tout au long du cycle de vie du programme, favoriser un fort sentiment de communauté et assurer l'achèvement en temps opportun des extrants\n• Concevoir et mettre en oeuvre des initiatives visant à développer et à renforcer la communauté du programme, y compris l'engagement des diplômés et l'interaction entre les pairs\n• Coordonner le processus de candidature et de sélection, en assurant une expérience candidate de qualité et efficace\n• Planifier et superviser les activités et les ateliers du programme, du concept à la prestation, y compris la logistique et la coordination des intervenants;\n• Surveiller les budgets et les rapports\n• Élaborer et gérer la documentation du programme, y compris les rapports, les certificats et le matériel didactique\n• Recueillir, analyser et rendre compte de la rétroaction du programme et des mesures du rendement, en appuyant l'amélioration continue\n• Contribuer aux efforts de communication et de sensibilisation, aider à promouvoir le programme et accroître sa visibilité Profil\n• Un minimum de 3-4 ans d'expérience dans la gestion de projet, la coordination de programme ou un domaine connexe (idéalement dans l'éducation, les programmes de leadership ou les environnements sans but lucratif)\n• Fortes compétences en gestion d'organisation et de projet, avec la capacité de gérer simultanément plusieurs flux de travail\n• Excellentes capacités de communication et de relations interpersonnelles; une formation en communication et marketing est un atout\n• Travail flexible, adaptable et confortable dans un environnement en évolution rapide\n• Intérêt pour le développement communautaire, le développement du leadership et l'engagement des étudiants\n• Une mentalité proactive, structurée et orientée vers la solution\n• Capacité de travailler de façon indépendante et en collaboration, en collaboration avec divers intervenants\n• Disponibilité et flexibilité pour travailler certains week-ends et soirs\n• Compétence en outils de bureau standard (par exemple, Microsoft Office, Google Workspace)\n• Connaissance de l'anglais et du français (niveau C1 au moins pour les deux) Nous offrons\n• Un environnement de travail multiculturel et stimulant\n• Ambiance de travail agréable\n• Conditions d'embauche attrayantes\n• Possibilités de formation continue Informations Date de début du contrat : 01/09/2026 Taux d'activité : 80.00 Type de contrat: CDD Durée: 1 an renouvelable Référence: 2253"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Junior-Project-Manager-Enhanced-Learning-Programs-%2880%29/1164789755/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:51.114Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Junior-Project-Manager-Enhanced-Learning-Programs-%2880%29/1164789755/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Administratif",
-      "contractType": "Administratif",
-      "externalId": "1164789755",
-      "previousSlugs": [
-        "junior-project-manager-enhanced-learning-programs-80-epfl-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-project-manager-enhanced-learning-programs-80-epfl-lausanne"
-        ],
-        "fr": [
-          "junior-project-manager-enhanced-learning-programs-80-epfl-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-05-22T22:06:34.370Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
-      "id": "epfl-efefaaa5f527",
-      "slug": "coordinatore-del-programma-programmi-di-apprendimento-potenziati-50-epfl-lausanne",
-      "slugByLocale": {
-        "it": "coordinatore-del-programma-programmi-di-apprendimento-potenziati-50-epfl-lausanne",
-        "en": "program-coordinator-enhanced-learning-programs-50-epfl-lausanne",
-        "de": "programmkoordinator-enhanced-learning-programme-50-epfl-lausanne",
-        "fr": "coordonnateur-du-programme-programmes-d-apprentissage-ameliores-50-epfl-lausanne"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Program Coordinator - Enhanced Learning Programs (50%)",
-      "titleByLocale": {
-        "it": "Coordinatore del programma - Programmi di apprendimento potenziati (50%)",
-        "en": "Program Coordinator - Enhanced Learning Programs (50%)",
-        "de": "Program Koordinator - Enhanced Learning Programs (50%)",
-        "fr": "Coordonnateur du programme - Programmes d'apprentissage améliorés (50 %)"
-      },
-      "description": "Mission\n\nWe are seeking a motivated and organised Program Coordinator to support the development and delivery of EPFL Enhanced Learning Programs.\n\nThis role is ideal for someone who enjoys working in an academic environment, coordinating activities, and supporting students throughout their learning journey.\n\nMain duties and responsibilities\n\n• Support and mentor scholars throughout their journey, ensuring timely progress and successful completion of program outputs\n\n• Organize and assist in the coordination of the program application and selection processes\n\n• Plan and support engaging program events, overseeing logistics and ensuring seamless execution\n\n• Organize and support student workshops, contributing to a dynamic and interactive learning environment\n\n• Monitor the program budget and oversee scholarship payments, ensuring accuracy and compliance\n\n• Prepare, review, and manage official program documentation, including certificates and course materials\n\n• Design, administer, and analyze feedback surveys, using insights to continuously improve program quality\n\n• Contribute to communication and promotion efforts, helping increase program visibility through outreach, content, and updates\n\nProfile\n\n• A minimum of 3 years of experience in program coordination, education, or administration\n\n• Excellent communication and interpersonal abilities; a background in communication and marketing is an asset\n\n• Strong organizational and multitasking skills, with the ability to manage multiple projects simultaneously\n\n• Flexible, adaptable, and comfortable working in a dynamic environment with evolving priorities\n\n• Proactive mindset with a solution-oriented approach\n\n• Ability to work both independently and collaboratively within a team\n\n• Availability and flexibility to work on certain weekends and evenings\n\n• Proficiency in standard office tools (e.g., Microsoft Office, Google Workspace)\n\n• Fluency in English and French (min. of C1 level for both)\n\nWe offer\n\n• Multicultural and stimulating working environment\n\n• Pleasant working atmosphere\n\n• Attractive hiring conditions\n\n• Continuing education opportunities\n\nInformations\n\nContract Start Date : 01/07/2026\n\nActivity Rate : 50.00\n\nContract Type: CDD\n\nDuration: 1 an renouvelable\n\nReference: 2252",
-      "descriptionByLocale": {
-        "it": "Missione Stiamo cercando un coordinatore del programma motivato e organizzato per sostenere lo sviluppo e la consegna dei programmi di apprendimento avanzati EPFL. Questo ruolo è ideale per chi ama lavorare in un ambiente accademico, coordinare le attività e sostenere gli studenti durante il loro viaggio di apprendimento. Principali doveri e responsabilità\n• Sostegno e studiosi di mentore durante il loro viaggio, assicurando il progresso tempestivo e il completamento di uscite di programma\n• Organizzare e assistere nel coordinamento delle applicazioni e dei processi di selezione del programma\n• Pianificare e supportare eventi di programma coinvolgenti, supervisionare la logistica e garantire l'esecuzione senza soluzione di continuità\n• Organizzare e sostenere workshop per studenti, contribuendo a un ambiente di apprendimento dinamico e interattivo\n• Monitorare il budget del programma e supervisionare i pagamenti delle borse di studio, garantendo precisione e conformità\n• Preparare, rivedere e gestire la documentazione ufficiale del programma, compresi i certificati e i materiali del corso\n• Progettare, amministrare e analizzare i sondaggi di feedback, utilizzando intuizioni per migliorare continuamente la qualità del programma\n• Contribuisci agli sforzi di comunicazione e promozione, aiutando ad aumentare la visibilità del programma attraverso la divulgazione, il contenuto e gli aggiornamenti Profilo\n• Un minimo di 3 anni di esperienza nel coordinamento del programma, istruzione, o amministrazione\n• Ottima comunicazione e capacità interpersonali; uno sfondo nella comunicazione e nel marketing è un bene\n• Forte capacità organizzative e multitasking, con la capacità di gestire più progetti contemporaneamente\n• Lavoro flessibile, adattabile e confortevole in un ambiente dinamico con priorità in evoluzione\n• Mindset attivo con un approccio orientato alla soluzione\n• Capacità di lavorare in modo indipendente e collaborativo in un team\n• Disponibilità e flessibilità per lavorare in determinati fine settimana e serate\n• Proficienza negli strumenti di ufficio standard (ad esempio, Microsoft Office, Google Workspace)\n• Fluenza in inglese e francese (min. di livello C1 per entrambi) Offriamo\n• Ambiente di lavoro multiculturale e stimolante\n• Piacevole atmosfera di lavoro\n• Condizioni di assunzione attraenti\n• Opportunità di formazione continua Informazioni Data di inizio del contratto: 01/07/2026 Tasso di attività: 50.00 Tipo di contratto: CDD Durata: 1 nouvelabile Riferimento: 2252",
-        "en": "Mission We are seeking a motivated and organised Program Coordinator to support the development and delivery of EPFL Enhanced Learning Programs. This role is ideal for someone who enjoys working in an academic environment, coordinating activities, and supporting students throughout their learning journey. Main duties and responsibilities\n• Support and mentor scholars throughout their journey, ensuring timely progress and successful completion of program outputs\n• Organize and assist in the coordination of the program application and selection processes\n• Plan and support engaging program events, overseeing logistics and ensuring seamless execution\n• Organize and support student workshops, contributing to a dynamic and interactive learning environment\n• Monitor the program budget and oversee scholarship payments, ensuring accuracy and compliance\n• Prepare, review, and manage official program documentation, including certificates and course materials\n• Design, administer, and analyze feedback surveys, using insights to continuously improve program quality\n• Contribute to communication and promotion efforts, helping increase program visibility through outreach, content, and updates Profile\n• A minimum of 3 years of experience in program coordination, education, or administration\n• Excellent communication and interpersonal abilities; a background in communication and marketing is an asset\n• Strong organizational and multitasking skills, with the ability to manage multiple projects simultaneously\n• Flexible, adaptable, and comfortable working in a dynamic environment with evolving priorities\n• Proactive mindset with a solution-oriented approach\n• Ability to work both independently and collaboratively within a team\n• Availability and flexibility to work on certain weekends and evenings\n• Proficiency in standard office tools (e.g., Microsoft Office, Google Workspace)\n• Fluency in English and French (min. of C1 level for both) We offer\n• Multicultural and stimulating working environment\n• Pleasant working atmosphere\n• Attractive hiring conditions\n• Continuing education opportunities Informations Contract Start Date : 01/07/2026 Activity Rate : 50.00 Contract Type: CDD Duration: 1 an renouvelable Reference: 2252",
-        "de": "Mission Wir suchen einen motivierten und organisierten Programmkoordinator, der die Entwicklung und Lieferung von EPFL Enhanced Learning Programs unterstützt. Diese Rolle ist ideal für jemanden, der in einem akademischen Umfeld arbeitet, Aktivitäten koordiniert und Studenten während ihrer Lernreise unterstützt. Hauptaufgaben und Zuständigkeiten\n• Unterstützung und Mentor-Wissenschaftler auf ihrer ganzen Reise, um rechtzeitige Fortschritte und erfolgreiche Fertigstellung von Programmausgängen zu gewährleisten\n• Organisieren und unterstützen Sie bei der Koordination der Programmanwendung und Auswahlprozesse\n• Planen und unterstützen spannende Programmereignisse, Überwachung der Logistik und Sicherstellung einer nahtlosen Ausführung\n• Organisieren und unterstützen Sie studentische Workshops und tragen zu einer dynamischen und interaktiven Lernumgebung bei\n• Überwachen Sie den Programmbudget und beaufsichtigen Sie Stipendienzahlungen, Sicherstellung der Genauigkeit und Compliance\n• Vorbereitung, Überprüfung und Verwaltung der offiziellen Programmdokumentation, einschließlich Zertifikate und Kursmaterialien\n• Konzipieren, verwalten und analysieren Sie Feedback-Erhebungen mit Erkenntnissen, um die Programmqualität kontinuierlich zu verbessern\n• Beteiligen Sie sich an Kommunikations- und Aktionsbemühungen und helfen, die Sichtbarkeit der Programme durch Outreach, Inhalte und Updates zu erhöhen Profil\n• Mindestens 3 Jahre Erfahrung in der Programmkoordinierung, Ausbildung oder Verwaltung\n• Ausgezeichnete Kommunikation und zwischenmenschliche Fähigkeiten; ein Hintergrund in Kommunikation und Marketing ist ein Vermögen\n• Starke organisatorische und multitasking Fähigkeiten, mit der Fähigkeit, mehrere Projekte gleichzeitig zu verwalten\n• Flexibel, anpassungsfähig und komfortabel in einem dynamischen Umfeld mit sich entwickelnden Prioritäten\n• Proaktive Denkweise mit einem lösungsorientierten Ansatz\n• Fähigkeit, sowohl unabhängig als auch kollaborativ in einem Team zu arbeiten\n• Verfügbarkeit und Flexibilität bei der Arbeit an bestimmten Wochenenden und Abenden\n• Effizienz in Standard-Büro-Tools (z.B. Microsoft Office, Google Workspace)\n• Häufigkeit in Englisch und Französisch (mindestens C1-Ebene für beide) Wir bieten\n• Multikulturelle und stimulierende Arbeitsumgebung\n• angenehme Arbeitsatmosphäre\n• Attraktive Einstellungsbedingungen\n• Weiterbildungsmöglichkeiten Informationen Ã1⁄4ber Startdatum: 01/07/2026 Aktivitätsrate : 50.00 Vertragstyp: CDD Dauer: 1 ein wiederverwendbar Bezug: 2252",
-        "fr": "Mission Nous recherchons un coordonnateur de programme motivé et organisé pour soutenir le développement et l'exécution des programmes d'apprentissage améliorés de l'EPFL. Ce rôle est idéal pour quelqu'un qui aime travailler dans un environnement universitaire, coordonner des activités et soutenir les étudiants tout au long de leur parcours d'apprentissage. Principales fonctions et responsabilités\n• Appuyer et encadrer les chercheurs tout au long de leur parcours, en veillant à ce que les résultats du programme soient atteints en temps opportun et qu'ils soient couronnés de succès.\n• Organiser et aider à la coordination des processus de demande et de sélection du programme\n• Planifier et soutenir des activités de programme, superviser la logistique et assurer une exécution transparente\n• Organiser et soutenir des ateliers d'étudiants, contribuant ainsi à un environnement d'apprentissage dynamique et interactif\n• Surveiller le budget du programme et superviser les paiements de bourses, en assurant l'exactitude et la conformité\n• Préparer, examiner et gérer la documentation officielle du programme, y compris les certificats et le matériel didactique\n• Concevoir, administrer et analyser des sondages de rétroaction, en utilisant des idées pour améliorer continuellement la qualité du programme\n• Contribuer aux efforts de communication et de promotion, contribuant ainsi à accroître la visibilité du programme par la sensibilisation, le contenu et les mises à jour Profil\n• Un minimum de 3 ans d'expérience en coordination des programmes, en éducation ou en administration\n• Excellentes capacités de communication et de relations interpersonnelles; une formation en communication et marketing est un atout\n• Fortes aptitudes organisationnelles et multitâches, avec la capacité de gérer simultanément plusieurs projets\n• Un travail flexible, adaptable et confortable dans un environnement dynamique avec des priorités en évolution\n• Un état d'esprit proactif axé sur la solution\n• Capacité de travailler de manière indépendante et en collaboration au sein d'une équipe\n• Disponibilité et flexibilité pour travailler certains week-ends et soirs\n• Compétence en outils de bureau standard (par exemple, Microsoft Office, Google Workspace)\n• Connaissance de l'anglais et du français (minimum de niveau C1 pour les deux) Nous offrons\n• Un environnement de travail multiculturel et stimulant\n• Ambiance de travail agréable\n• Conditions d'embauche attrayantes\n• Possibilités de formation continue Informations Date de début du contrat : 01/07/2026 Taux d'activité : 50.00 Type de contrat: CDD Durée: 1 an renouvelable Référence: 2252"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Program-Coordinator-Enhanced-Learning-Programs-%2850%29/1164789655/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:50.543Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Program-Coordinator-Enhanced-Learning-Programs-%2850%29/1164789655/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Administratif",
-      "contractType": "Administratif",
-      "externalId": "1164789655",
-      "previousSlugs": [
-        "program-coordinator-enhanced-learning-programs-50-epfl-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "program-coordinator-enhanced-learning-programs-50-epfl-lausanne"
-        ],
-        "de": [
-          "program-coordinator-enhanced-learning-programs-50-epfl-lausanne"
-        ],
-        "fr": [
-          "program-coordinator-enhanced-learning-programs-50-epfl-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-05-22T22:06:34.945Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
       "id": "epfl-ce0aac23cfca",
       "slug": "ingegnere-di-sistemi-epfl-lausanne",
       "slugByLocale": {
@@ -1207,7 +1129,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Systems-Engineer/1164787255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:49.909Z",
+      "crawledAt": "2026-06-08T22:22:22.859Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1288,7 +1210,7 @@
       "url": "https://careers.epfl.ch/job/Gen%C3%A8ve-Software-Engineer-Position-for-Scientific-AI/1164430155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:49.332Z",
+      "crawledAt": "2026-06-08T22:22:22.306Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -1361,7 +1283,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-in-Photoelectrochemsitry-and-Corrosion/940728674/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:48.765Z",
+      "crawledAt": "2026-06-08T22:22:21.773Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1379,16 +1301,16 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "940728674",
+      "previousSlugs": [
+        "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-05-10T21:32:10.748Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.748Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1411,7 +1333,7 @@
         "it": "ricercatore-post-dottorato-ingegnere-di-ricerca-epfl-lausanne",
         "en": "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "de": "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne",
-        "fr": "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
+        "fr": "postdoctoral-researcher-research-engineer-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1435,7 +1357,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Researcher-Research-Engineer/1164122855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:48.202Z",
+      "crawledAt": "2026-06-08T22:22:21.239Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1456,6 +1378,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne",
+          "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne",
           "postdoctoral-researcher-research-engineer-epfl-lausanne"
         ],
         "it": [
@@ -1470,11 +1393,12 @@
       "previousSlugs": [
         "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne",
         "postdoctoral-researcher-research-engineer-epfl-lausanne",
+        "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne",
         "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
         "postdoktorand-forschungsingenieur-epfl-lausanne"
       ],
-      "firstSeenAt": "2026-05-10T21:32:10.746Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.746Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1521,7 +1445,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-G%C3%A9n%C3%A9raliste-Exp%C3%A9rience-Employ%C3%A9%C2%B7es/1164445355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:47.623Z",
+      "crawledAt": "2026-06-08T22:22:20.700Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1548,6 +1472,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:10.746Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1594,7 +1519,7 @@
       "url": "https://careers.epfl.ch/job/Fribourg-Postdoctoral-researcher-in-building-technology/1164294755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:47.042Z",
+      "crawledAt": "2026-06-08T22:22:20.165Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1612,6 +1537,10 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164294755",
+      "previousSlugs": [
+        "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
+        "postdoktorandin-fur-bautechnik-epfl-fribourg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg"
@@ -1620,12 +1549,8 @@
           "postdoktorandin-fur-bautechnik-epfl-fribourg"
         ]
       },
-      "previousSlugs": [
-        "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
-        "postdoktorandin-fur-bautechnik-epfl-fribourg"
-      ],
-      "firstSeenAt": "2026-05-10T21:32:10.744Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.744Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1672,7 +1597,7 @@
       "url": "https://careers.epfl.ch/job/Sion-Technicien_ne-CVCS/1164791755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:46.478Z",
+      "crawledAt": "2026-06-08T22:22:19.623Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1705,6 +1630,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:45:58.521Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1719,85 +1645,6 @@
       },
       "postalCode": "1950",
       "addressRegion": "VS"
-    },
-    {
-      "id": "epfl-5999fe62d8a9",
-      "slug": "deputato-em-pp-responsabile-assicurazione-qualita-80-100-epfl-lausanne",
-      "slugByLocale": {
-        "it": "deputato-em-pp-responsabile-assicurazione-qualita-80-100-epfl-lausanne",
-        "en": "deputy-em-pp-head-of-quality-assurance-80-100-epfl-lausanne",
-        "de": "stellvertretender-em-pp-leiter-qualitatssicherung-80-100-epfl-lausanne",
-        "fr": "adjoint-e-em-pp-responsable-de-l-assurance-qualite-80-100-epfl-lausanne"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Adjoint·e EM-PP / Responsable de l'assurance qualité (80-100%)",
-      "titleByLocale": {
-        "it": "Deputato EM-PP / Responsabile Assicurazione Qualità (80-100%)",
-        "en": "Deputy EM-PP / Head of Quality Assurance (80-100%)",
-        "de": "Stellvertretender EM-PP / Leiter Qualitätssicherung (80-100%)",
-        "fr": "Adjoint·e EM-PP / Responsable de l'assurance qualité (80-100%)"
-      },
-      "description": "Mission\n\nEn tant qu’Adjoint.e EM-PP / Responsable de l’assurance qualité, vous pilotez le système qualité de l’EPFL et assurez la préparation ainsi que le suivi de l’accréditation institutionnelle. À ce titre, vous conseillez la Direction dans la définition, la mise en œuvre et le suivi de sa politique d’assurance qualité. Vous soutenez les équipes de la Présidence pour le contrôle qualité et la rédaction de divers documents stratégiques et thématiques. Par votre approche transversale et votre capacité d’influence, vous assurez un lien étroit entre stratégie, exigences d’accréditation et mise en œuvre opérationnelle, contribuant ainsi à renforcer la culture qualité de l’institution.\n\nPrincipales tâches et responsabilités\n\n• Assurer le pilotage du système d’assurance qualité de l’EPFL et coordonner les démarches liées à l’accréditation institutionnelle\n\n• Mener la Commission Qualité pour le compte de la Direction et coordonner ses travaux, ainsi que les plans d’actions qualité et leur déploiement en collaboration et en soutien aux différentes instances de gouvernance et la communauté EPFL\n\n• Promouvoir une culture qualité au sein de l’institution, en étroite collaboration avec les parties prenantes internes, et entretenir des liens avec les homologues d’autres institutions académiques en Suisse et à l’international\n\n• Collaboration étroite avec le service de la gestion des risques et compliance\n\n• Rédiger et assurer le contrôle qualité de documents de la Direction, en particulier en lien avec les dossiers de la Vice-présidence en charge de l’éducation et de la recherche ainsi que les dossiers de la Présidence\n\n• Contribuer à la rédaction de textes réglementaires, en lien avec les dossiers de la Direction et veiller à leur bonne application en collaboration avec les Affaires juridiques\n\n• Mener, coordonner ou contribuer à des projets de gouvernance en lien avec l’état-major de la Présidence\n\nProfil\n\n• MSc ou PhD\n\n• Gestion de projets avec orientation amélioration continue\n\n• Bonne connaissance des standards d’accréditation suisses\n\n• 5 ans minimum d’expérience professionnelle dans l’évaluation ou la révision des curricula bachelor / master ou fonction d’auditeur interne dans une université ou participation aux travaux d’une agence d’évaluation ou d’accréditation de l’enseignement supérieur ou expérience équivalente en gestion de la qualité, audit ou amélioration continue dans un environnement académique ou complexe.\n\n• Aptitude pour le travail en équipe avec un excellent sens de l’organisation\n\n• Indépendance dans la réalisation des tâches\n\n• Maîtrise du français et de l’anglais, l'allemand étant fortement souhaité\n\nNous offrons\n\n• Un environnement multiculturel d'excellence, dynamique et de renommée mondiale\n\n• Des conditions de travail attractives\n\n• Des possibilités de formation continue\n\nInformations\n\nDate d'entrée en fonction : 01.01.2027 ou date à convenir pour commencer avant\n\nTaux d'occupation min : 80%\n\nTaux d'occupation max : 100%\n\nType de contrat : CDI\n\nDurée : Déterminée",
-      "descriptionByLocale": {
-        "it": "Missione In qualità di Vice EM-PP / Capo di assicurazione della qualità, si sta pilotando il sistema di qualità EPFL e garantire la preparazione e il follow-up di accreditamento istituzionale. In tal modo, si consiglia alla Direzione di definire, attuare e monitorare la sua politica di garanzia della qualità. Sostenete le squadre della Presidenza nel controllo della qualità e nella stesura di vari documenti strategici e tematici. Attraverso l'approccio e l'influenza trasversali, si garantisce un stretto legame tra strategia, requisiti di accreditamento e implementazione operativa, contribuendo così a rafforzare la cultura di qualità dell'istituzione. Principali compiti e responsabilità\n• Gestire il sistema di garanzia della qualità di EPFL e coordinare i processi di accreditamento istituzionale\n• Condurre la Commissione Qualità a nome della Direzione e coordinare i propri lavori, nonché i piani d'azione di qualità e la loro distribuzione in collaborazione e a sostegno dei vari organi di governance e della comunità EPFL\n• Promuovere una cultura di qualità all'interno dell'istituzione, in stretta collaborazione con gli stakeholder interni, e mantenere i legami con le controparti di altre istituzioni accademiche in Svizzera e a livello internazionale\n• Chiudi la collaborazione con il dipartimento di gestione del rischio e la conformità\n• Preparare e garantire il controllo della qualità dei documenti della Direzione, in particolare in relazione ai fascicoli del Vicepresidente incaricato dell'istruzione e della ricerca e ai fascicoli della Presidenza\n• Contribuire alla redazione di regolamenti relativi ai fascicoli della Direzione e garantire la loro effettiva attuazione in collaborazione con gli Affari Legali\n• Guidare, coordinare o contribuire a progetti di governance relativi allo Staff della Presidenza Profilo\n• MSc o PhD\n• Gestione del progetto con miglioramento continuo\n• Buona conoscenza degli standard di accreditamento svizzeri\n• Minimo 5 anni di esperienza professionale nella valutazione o revisione del diploma di laurea / master o di revisione interna presso un'università o partecipazione al lavoro di una valutazione dell'istruzione superiore o di un'agenzia di accreditamento o di esperienza equivalente nella gestione della qualità, audit o miglioramento continuo in un ambiente accademico o complesso.\n• Capacità per il lavoro di squadra con un eccellente senso di organizzazione\n• Indipendenza nello svolgimento delle attività\n• Mastery di francese e inglese, il tedesco è fortemente desiderato Offriamo\n• Un ambiente multiculturale di eccellenza, dinamico e di fama mondiale\n• Condizioni di lavoro interessanti\n• Opportunità di formazione continua Informazioni Data di inizio: 01.01.2027 o data di inizio prima Tasso di occupazione minimo: 80% Tasso massimo di occupazione: 100% Tipo di contratto: CDI Durata: Determinato",
-        "en": "Mission As Deputy EM-PP / Head of Quality Assurance, you are piloting the EPFL quality system and ensuring the preparation and follow-up of institutional accreditation. As such, you advise the Directorate in defining, implementing and monitoring its quality assurance policy. You support the Presidency teams in the quality control and drafting of various strategic and thematic documents. Through your cross-cutting approach and influence, you ensure a close link between strategy, accreditation requirements and operational implementation, thus contributing to strengthening the institution's quality culture. Main tasks and responsibilities\n• Manage EPFL's quality assurance system and coordinate institutional accreditation processes\n• Conduct the Quality Commission on behalf of the Directorate and coordinate its work, as well as the quality action plans and their deployment in collaboration and in support of the various governance bodies and the EPFL community\n• Promote a quality culture within the institution, in close collaboration with internal stakeholders, and maintain links with counterparts of other academic institutions in Switzerland and internationally\n• Close collaboration with the risk management department and compliance\n• Prepare and ensure quality control of the Directorate's documents, in particular in relation to the files of the Vice-President in charge of education and research and the files of the Presidency\n• Contribute to the drafting of regulations related to the Directorate's files and ensure their effective implementation in collaboration with Legal Affairs\n• Lead, coordinate or contribute to governance projects related to the Presidency Staff Profile\n• MSc or PhD\n• Project management with continuous improvement\n• Good knowledge of Swiss accreditation standards\n• Minimum 5 years of professional experience in the evaluation or revision of bachelor's/master's degree or internal auditorship at a university or participation in the work of a higher education assessment or accreditation agency or equivalent experience in quality management, audit or continuous improvement in an academic or complex environment.\n• Ability for teamwork with an excellent sense of organization\n• Independence in carrying out tasks\n• Mastery of French and English, German being strongly desired We offer\n• A multicultural environment of excellence, dynamic and world-renowned\n• Attractive working conditions\n• Opportunities for continuing training Information Start date: 01.01.2027 or date to start before Min occupancy rate: 80% Max occupancy rate: 100% Type of contract: CDI Duration: Determined",
-        "de": "Mission Als Stellvertretender EM-PP / Leiter der Qualitätssicherung pilotieren Sie das EPFL-Qualitätssystem und gewährleisten die Vorbereitung und Nachbereitung der institutionellen Akkreditierung. Als solche beraten Sie die Direktion bei der Festlegung, Umsetzung und Überwachung ihrer Qualitätssicherungspolitik. Sie unterstützen die Teams des Vorsitzes bei der Qualitätskontrolle und Ausarbeitung verschiedener strategischer und thematischer Dokumente. Durch Ihren Cross-Cutting-Ansatz und Einfluss sorgen Sie für eine enge Verbindung zwischen Strategie, Akkreditierungsanforderungen und operativer Umsetzung und tragen so zur Stärkung der Qualitätskultur der Institution bei. Hauptaufgaben und Zuständigkeiten\n• Das Qualitätssicherungssystem der EPFL verwalten und institutionelle Akkreditierungsverfahren koordinieren\n• Durchführung der Qualitätskommission im Auftrag der Direktion und Koordinierung ihrer Arbeit sowie der Qualitätsaktionspläne und deren Einsatz in Zusammenarbeit und Unterstützung der verschiedenen Regierungsstellen und der EPFL-Gemeinschaft\n• Förderung einer Qualitätskultur innerhalb der Institution, in enger Zusammenarbeit mit internen Interessenvertretern und Pflege von Verbindungen zu anderen akademischen Institutionen in der Schweiz und international\n• enge Zusammenarbeit mit der Risikomanagementabteilung und Compliance\n• Vorbereitung und Sicherstellung der Qualitätskontrolle der Dokumente der Direktion, insbesondere in Bezug auf die Akten des Vizepräsidenten, der für Bildung und Forschung zuständig ist, und die Akten des Vorsitzes\n• Beitrag zur Ausarbeitung von Verordnungen im Zusammenhang mit den Akten der Direktion und zur wirksamen Umsetzung in Zusammenarbeit mit Rechtsfragen\n• Führen, koordinieren oder zu Governance-Projekten im Zusammenhang mit dem Personal des Vorsitzes beitragen Profil\n• MSc oder PhD\n• Projektmanagement mit kontinuierlicher Verbesserung\n• Gute Kenntnisse der Schweizer Akkreditierungsstandards\n• Mindestens 5 Jahre Berufserfahrung in der Bewertung oder Revision des Bachelor/Master-Abschlusses oder der internen Abschlussprüfung an einer Universität oder Teilnahme an der Arbeit einer Hochschulbeurteilung oder Akkreditierungsagentur oder gleichwertige Erfahrung im Qualitätsmanagement, Audit oder kontinuierliche Verbesserung in einem akademischen oder komplexen Umfeld.\n• Fähigkeit zur Teamarbeit mit einem exzellenten Organisationsgefühl\n• Unabhängigkeit bei der Durchführung von Aufgaben\n• Meisterschaft Französisch und Englisch, Deutsch stark erwünscht Wir bieten\n• Eine multikulturelle Umgebung von Exzellenz, dynamisch und weltberühmt\n• Attraktive Arbeitsbedingungen\n• Möglichkeiten der Weiterbildung Informationen Startdatum: 01.01.2027 oder Datum vor Beginn Mindestbelegungsrate: 80% Maximale Belegungsrate: 100% Vertragsart: CDI Dauer: Bestimmt",
-        "fr": "Mission En tant qu’Adjoint.e EM-PP / Responsable de l’assurance qualité, vous pilotez le système qualité de l’EPFL et assurez la préparation ainsi que le suivi de l’accréditation institutionnelle. À ce titre, vous conseillez la Direction dans la définition, la mise en œuvre et le suivi de sa politique d’assurance qualité. Vous soutenez les équipes de la Présidence pour le contrôle qualité et la rédaction de divers documents stratégiques et thématiques. Par votre approche transversale et votre capacité d’influence, vous assurez un lien étroit entre stratégie, exigences d’accréditation et mise en œuvre opérationnelle, contribuant ainsi à renforcer la culture qualité de l’institution. Principales tâches et responsabilités\n• Assurer le pilotage du système d’assurance qualité de l’EPFL et coordonner les démarches liées à l’accréditation institutionnelle\n• Mener la Commission Qualité pour le compte de la Direction et coordonner ses travaux, ainsi que les plans d’actions qualité et leur déploiement en collaboration et en soutien aux différentes instances de gouvernance et la communauté EPFL\n• Promouvoir une culture qualité au sein de l’institution, en étroite collaboration avec les parties prenantes internes, et entretenir des liens avec les homologues d’autres institutions académiques en Suisse et à l’international\n• Collaboration étroite avec le service de la gestion des risques et compliance\n• Rédiger et assurer le contrôle qualité de documents de la Direction, en particulier en lien avec les dossiers de la Vice-présidence en charge de l’éducation et de la recherche ainsi que les dossiers de la Présidence\n• Contribuer à la rédaction de textes réglementaires, en lien avec les dossiers de la Direction et veiller à leur bonne application en collaboration avec les Affaires juridiques\n• Mener, coordonner ou contribuer à des projets de gouvernance en lien avec l’état-major de la Présidence Profil\n• MSc ou PhD\n• Gestion de projets avec orientation amélioration continue\n• Bonne connaissance des standards d’accréditation suisses\n• 5 ans minimum d’expérience professionnelle dans l’évaluation ou la révision des curricula bachelor / master ou fonction d’auditeur interne dans une université ou participation aux travaux d’une agence d’évaluation ou d’accréditation de l’enseignement supérieur ou expérience équivalente en gestion de la qualité, audit ou amélioration continue dans un environnement académique ou complexe.\n• Aptitude pour le travail en équipe avec un excellent sens de l’organisation\n• Indépendance dans la réalisation des tâches\n• Maîtrise du français et de l’anglais, l'allemand étant fortement souhaité Nous offrons\n• Un environnement multiculturel d'excellence, dynamique et de renommée mondiale\n• Des conditions de travail attractives\n• Des possibilités de formation continue Informations Date d'entrée en fonction : 01.01.2027 ou date à convenir pour commencer avant Taux d'occupation min : 80% Taux d'occupation max : 100% Type de contrat : CDI Durée : Déterminée"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Adjoint%C2%B7e-EM-PP-Responsable-de-l&apos;assurance-qualit%C3%A9-%2880-100%29/1164794255/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:45.903Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Adjoint%C2%B7e-EM-PP-Responsable-de-l&apos;assurance-qualit%C3%A9-%2880-100%29/1164794255/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Administratif",
-      "contractType": "Administratif",
-      "externalId": "1164794255",
-      "previousSlugs": [
-        "adjoint-e-em-pp-responsable-de-l-assurance-qualite-80-100-epfl-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "adjoint-e-em-pp-responsable-de-l-assurance-qualite-80-100-epfl-lausanne"
-        ],
-        "en": [
-          "adjoint-e-em-pp-responsable-de-l-assurance-qualite-80-100-epfl-lausanne"
-        ],
-        "de": [
-          "adjoint-e-em-pp-responsable-de-l-assurance-qualite-80-100-epfl-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T22:45:57.918Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
     },
     {
       "id": "epfl-0c24c821a2f8",
@@ -1830,7 +1677,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Green-Labs-Project-Manager/1164794555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:45.333Z",
+      "crawledAt": "2026-06-08T22:22:19.083Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1848,23 +1695,23 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164794555",
+      "previousSlugs": [
+        "green-labs-project-manager-epfl-lausanne",
+        "gestionnaire-de-projet-green-labs-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-de-projet-green-labs-epfl-lausanne"
-        ],
         "it": [
           "green-labs-project-manager-epfl-lausanne"
         ],
         "de": [
           "green-labs-project-manager-epfl-lausanne"
+        ],
+        "fr": [
+          "gestionnaire-de-projet-green-labs-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "green-labs-project-manager-epfl-lausanne",
-        "gestionnaire-de-projet-green-labs-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-05-26T22:45:57.315Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-26T22:45:57.315Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1911,7 +1758,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Chef_fe-de-projet-Green-Labs/1164794455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:44.755Z",
+      "crawledAt": "2026-06-08T22:22:18.545Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1937,8 +1784,8 @@
           "chef-fe-des-projekts-green-labs-epfl-lausanne"
         ]
       },
-      "firstSeenAt": "2026-05-26T22:45:56.717Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-26T22:45:56.717Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1985,7 +1832,7 @@
       "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-PhD-in-developing-new-crosslinking-strategies-in-3D-printing/1164792855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:44.183Z",
+      "crawledAt": "2026-06-08T22:22:18.005Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2069,7 +1916,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Post-Training-Engineer-Apertus/1164610655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:43.594Z",
+      "crawledAt": "2026-06-08T22:22:17.456Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2088,6 +1935,7 @@
       "contractType": "Information Technology",
       "externalId": "1164610655",
       "firstSeenAt": "2026-05-10T21:32:10.744Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "post-training-engineer-apertus-epfl-lausanne"
@@ -2145,7 +1993,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Student-in-Physics-Informed-Graph-Neural-Networks-for-Wind-Turbine-Health-Monitoring/1164624755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:41.882Z",
+      "crawledAt": "2026-06-08T22:22:15.829Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2220,7 +2068,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Technician-Mouse-Surgery-&-Neuroscience/1164628655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:41.290Z",
+      "crawledAt": "2026-06-08T22:22:15.291Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2238,20 +2086,20 @@
       "department": "Technique",
       "contractType": "Technique",
       "externalId": "1164628655",
-      "previousSlugsByLocale": {
-        "fr": [
-          "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne"
-        ],
-        "it": [
-          "technician-mouse-surgery-neuroscience-epfl-lausanne"
-        ]
-      },
       "previousSlugs": [
         "technician-mouse-surgery-neuroscience-epfl-lausanne",
         "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne"
       ],
-      "firstSeenAt": "2026-05-10T21:32:10.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-mouse-surgery-neuroscience-epfl-lausanne"
+        ],
+        "fr": [
+          "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.740Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2298,7 +2146,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-in-3D-Computer-Vision%2C-remote-sensing-_/1164622455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:40.721Z",
+      "crawledAt": "2026-06-08T22:22:14.749Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2327,8 +2175,8 @@
           "postdoc-position-in-3d-computer-vision-remote-sensing-epfl-lausanne"
         ]
       },
-      "firstSeenAt": "2026-05-10T21:32:10.738Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.738Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2375,7 +2223,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-in-Gen-AI/1164622355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:40.134Z",
+      "crawledAt": "2026-06-08T22:22:14.215Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2401,8 +2249,8 @@
           "postdoc-position-in-gen-ai-epfl-lausanne"
         ]
       },
-      "firstSeenAt": "2026-05-10T21:32:10.739Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.739Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2449,7 +2297,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-IT-Support-Technician/1164628955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:39.572Z",
+      "crawledAt": "2026-06-08T22:22:13.674Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2525,7 +2373,7 @@
       "url": "https://careers.epfl.ch/job/Sion-Research-Engineer-in-atmospheric-measurements-in-extreme-environments/1164632355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:39.003Z",
+      "crawledAt": "2026-06-08T22:22:13.133Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -2543,20 +2391,20 @@
       "department": "Technique",
       "contractType": "Technique",
       "externalId": "1164632355",
-      "previousSlugsByLocale": {
-        "fr": [
-          "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion"
-        ],
-        "it": [
-          "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion"
-        ]
-      },
       "previousSlugs": [
         "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
         "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion"
       ],
-      "firstSeenAt": "2026-05-10T21:32:10.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion"
+        ],
+        "fr": [
+          "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.737Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2603,7 +2451,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Chef_fe-de-service-Restauration-et-Commerces/1164529155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:38.413Z",
+      "crawledAt": "2026-06-08T22:22:12.587Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2682,7 +2530,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-in-Iontronic-materials/1164147955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:37.833Z",
+      "crawledAt": "2026-06-08T22:22:12.031Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2700,16 +2548,16 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1164147955",
+      "previousSlugs": [
+        "doctorat-en-materiaux-iontroniques-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "doctorat-en-materiaux-iontroniques-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "doctorat-en-materiaux-iontroniques-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-05-10T21:32:10.733Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.733Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2731,7 +2579,7 @@
       "slugByLocale": {
         "it": "ingegnere-meccanico-epfl-sion",
         "en": "mechanical-engineer-epfl-sion",
-        "de": "mechanical-ingenieur-epfl-sion",
+        "de": "mechanical-engineer-epfl-sion",
         "fr": "ingenieur-mecanique-epfl-sion"
       },
       "company": "EPFL",
@@ -2756,7 +2604,7 @@
       "url": "https://careers.epfl.ch/job/Sion-Mechanical-Engineer/1164312555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:37.253Z",
+      "crawledAt": "2026-06-08T22:22:11.477Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -2777,6 +2625,7 @@
       "previousSlugsByLocale": {
         "de": [
           "maschinenbauingenieur-epfl-sion",
+          "mechanical-ingenieur-epfl-sion",
           "mechanical-engineer-epfl-sion"
         ],
         "it": [
@@ -2789,13 +2638,14 @@
       "previousSlugs": [
         "maschinenbauingenieur-epfl-sion",
         "mechanical-engineer-epfl-sion",
+        "mechanical-ingenieur-epfl-sion",
         "ingegnere-di-progetto-epfl-sion",
         "project-engineer-epfl-sion",
         "project-ingenieur-epfl-sion",
         "project-ingegnere-epfl-sion"
       ],
-      "firstSeenAt": "2026-05-21T11:51:22.548Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:51:22.548Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2810,6 +2660,93 @@
       },
       "postalCode": "1950",
       "addressRegion": "VS"
+    },
+    {
+      "id": "epfl-324f3e4123f4",
+      "slug": "tecnico-epfl-lausanne",
+      "slugByLocale": {
+        "it": "tecnico-epfl-lausanne",
+        "en": "technician-epfl-lausanne",
+        "de": "techniker-epfl-lausanne",
+        "fr": "technician-epfl-lausanne"
+      },
+      "company": "EPFL",
+      "companyKey": "epfl",
+      "companyDomain": "epfl.ch",
+      "title": "Technician",
+      "titleByLocale": {
+        "it": "Tecnico",
+        "en": "Technician",
+        "de": "Techniker",
+        "fr": "Technicien"
+      },
+      "description": "Mission\n\nOur research focuses on the study and treatment of metabolic diseases. Obesity, gut microbiome, hepatic steatosis, and liver cancer are our main areas of research. Your mission will be to contribute to overall lab maintenance and to provide a technical support in these different research projects.\n\nMain duties and responsibilities\n\n• You will order common lab material\n\n• You will participate in the setting and maintenance of laboratory equipment.\n\n• You will participate to the genotype organization and maintenance of our different mouse lines\n\n• You will perform experiments on rodents (mice and rats)\n\n• You will assist the researchers on diverse tasks related to molecular and cellular biology as well as pharmacology\n\nProfile\n\n• CFC biology laboratory technician, biology technician or medical laboratory technician diploma\n\n• Sense of responsibility, motivation and good adaptability within an international team\n\n• Good knowledge of English\n\n• Good knowledge of current computer software (MS-Office)\n\n• Experience in molecular biology, cell biology, animal physiology would be a plus\n\nWe offer\n\n• Excellent working conditions in a multidisciplinary team at the cutting edge of technology\n\n• Continuing education\n\n• Attractive remuneration\n\nInformations\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: 1 year, renewable\n\nReference: 2262",
+      "descriptionByLocale": {
+        "it": "Missione La nostra ricerca si concentra sullo studio e il trattamento delle malattie metaboliche. L'obesità, il microbioma intestinale, la steatosi epatica e il cancro al fegato sono le nostre principali aree di ricerca. La vostra missione sarà di contribuire alla manutenzione generale del laboratorio e di fornire un supporto tecnico in questi diversi progetti di ricerca. Principali doveri e responsabilità\n• Ordinerai materiale di laboratorio comune\n• Parteciperete alla regolazione e alla manutenzione delle attrezzature da laboratorio.\n• Parteciperai all'organizzazione genotipo e alla manutenzione delle nostre diverse linee del mouse\n• Eserciterai esperimenti sui roditori (mice e ratti)\n• Aiuterai i ricercatori su diversi compiti legati alla biologia molecolare e cellulare e alla farmacologia Profilo\n• Tecnico di laboratorio di biologia CFC, tecnico di biologia o tecnico di laboratorio medico diploma\n• Senso di responsabilità, motivazione e buona adattabilità in un team internazionale\n• Buona conoscenza dell'inglese\n• Buona conoscenza del software informatico corrente (MS-Office)\n• Esperienza in biologia molecolare, biologia cellulare, fisiologia animale sarebbe un plus Offriamo\n• eccellenti condizioni di lavoro in un team multidisciplinare all'avanguardia della tecnologia\n• Formazione continua\n• Retribuzione attraente Informazioni Data di inizio del contratto: appena possibile Tasso di attività: 100.00 Tipo di contratto: CDD Durata: 1 anno, rinnovabile Riferimento: 2262",
+        "en": "Mission Our research focuses on the study and treatment of metabolic diseases. Obesity, gut microbiome, hepatic steatosis, and liver cancer are our main areas of research. Your mission will be to contribute to overall lab maintenance and to provide a technical support in these different research projects. Main duties and responsibilities\n• You will order common lab material\n• You will participate in the setting and maintenance of laboratory equipment.\n• You will participate to the genotype organization and maintenance of our different mouse lines\n• You will perform experiments on rodents (mice and rats)\n• You will assist the researchers on diverse tasks related to molecular and cellular biology as well as pharmacology Profile\n• CFC biology laboratory technician, biology technician or medical laboratory technician diploma\n• Sense of responsibility, motivation and good adaptability within an international team\n• Good knowledge of English\n• Good knowledge of current computer software (MS-Office)\n• Experience in molecular biology, cell biology, animal physiology would be a plus We offer\n• Excellent working conditions in a multidisciplinary team at the cutting edge of technology\n• Continuing education\n• Attractive remuneration Informations Contract Start Date : As soon as possible Activity Rate : 100.00 Contract Type: CDD Duration: 1 year, renewable Reference: 2262",
+        "de": "Mission Unsere Forschung konzentriert sich auf die Untersuchung und Behandlung von Stoffwechselerkrankungen. Fettleibigkeit, Darmmikrobiom, Lebersteatose und Leberkrebs sind unsere Hauptforschungsgebiete. Ihre Mission wird es sein, zur allgemeinen Wartung des Labors beizutragen und eine technische Unterstützung in diesen verschiedenen Forschungsprojekten zu bieten. Hauptaufgaben und Zuständigkeiten\n• Sie bestellen gemeinsames Labormaterial\n• Sie werden an der Einrichtung und Wartung von Laborgeräten teilnehmen.\n• Sie werden an der Genotyporganisation und Wartung unserer verschiedenen Mauslinien teilnehmen\n• Sie werden Experimente an Nagetieren (Mäusen und Ratten) durchführen\n• Sie unterstützen die Forscher bei verschiedenen Aufgaben im Zusammenhang mit Molekular- und Zellbiologie sowie Pharmakologie Profil\n• CFC-Biologie-Labortechniker, Biologietechniker oder medizinisches Labortechniker-Diplom\n• Verantwortungsbewusstsein, Motivation und gute Anpassungsfähigkeit innerhalb eines internationalen Teams\n• Gute Englischkenntnisse\n• Gute Kenntnisse der aktuellen Computersoftware (MS-Office)\n• Erfahrung in Molekularbiologie, Zellbiologie, Tierphysiologie wäre ein Plus Wir bieten\n• Ausgezeichnete Arbeitsbedingungen in einem multidisziplinären Team an der Spitze der Technologie\n• Weiterbildung\n• Attraktive Vergütung Informationen Vertragsbeginndatum: So schnell wie möglich Aktivitätsrate: 100,00 Vertragsart: CDD Dauer: 1 Jahr, erneuerbar Bezug: 2262",
+        "fr": "Mission Our research focuses on the study and treatment of metabolic diseases. Obesity, gut microbiome, hepatic steatosis, and liver cancer are our main areas of research. Your mission will be to contribute to overall lab maintenance and to provide a technical support in these different research projects. Main duties and responsibilities\n• You will order common lab material\n• You will participate in the setting and maintenance of laboratory equipment.\n• You will participate to the genotype organization and maintenance of our different mouse lines\n• You will perform experiments on rodents (mice and rats)\n• You will assist the researchers on diverse tasks related to molecular and cellular biology as well as pharmacology Profile\n• CFC biology laboratory technician, biology technician or medical laboratory technician diploma\n• Sense of responsibility, motivation and good adaptability within an international team\n• Good knowledge of English\n• Good knowledge of current computer software (MS-Office)\n• Experience in molecular biology, cell biology, animal physiology would be a plus We offer\n• Excellent working conditions in a multidisciplinary team at the cutting edge of technology\n• Continuing education\n• Attractive remuneration Informations Contract Start Date : As soon as possible Activity Rate : 100.00 Contract Type: CDD Duration: 1 year, renewable Reference: 2262"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://careers.epfl.ch/job/Lausanne-Technician/1164825755/",
+      "source": "EPFL Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-08T22:22:10.937Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "education",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Technician/1164825755/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Technique",
+      "contractType": "Technique",
+      "externalId": "1164825755",
+      "previousSlugsByLocale": {
+        "fr": [
+          "technicien-epfl-lausanne",
+          "technician-epfl-lausanne"
+        ],
+        "it": [
+          "technician-epfl-lausanne"
+        ],
+        "de": [
+          "technician-epfl-lausanne",
+          "technik-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technician-epfl-lausanne",
+        "technicien-epfl-lausanne",
+        "technik-epfl-lausanne",
+        "tecnico-del-laboratorio-junior-epfl-lausanne",
+        "junior-lab-technician-epfl-lausanne",
+        "junior-lab-techniker-epfl-lausanne"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:24:55.501Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
     },
     {
       "id": "epfl-79092d817a0d",
@@ -2842,7 +2779,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Research-Software-Engineer/1164820255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:36.667Z",
+      "crawledAt": "2026-06-08T22:22:10.392Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2891,91 +2828,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "epfl-324f3e4123f4",
-      "slug": "tecnico-epfl-lausanne",
-      "slugByLocale": {
-        "it": "tecnico-epfl-lausanne",
-        "en": "technician-epfl-lausanne",
-        "de": "techniker-epfl-lausanne",
-        "fr": "technicien-epfl-lausanne"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Technician",
-      "titleByLocale": {
-        "it": "Tecnico",
-        "en": "Technician",
-        "de": "Techniker",
-        "fr": "Technicien"
-      },
-      "description": "Mission\n\nOur research focuses on the study and treatment of metabolic diseases. Obesity, gut microbiome, hepatic steatosis, and liver cancer are our main areas of research. Your mission will be to contribute to overall lab maintenance and to provide a technical support in these different research projects.\n\nMain duties and responsibilities\n\n• You will order common lab material\n\n• You will participate in the setting and maintenance of laboratory equipment.\n\n• You will participate to the genotype organization and maintenance of our different mouse lines\n\n• You will perform experiments on rodents (mice and rats)\n\n• You will assist the researchers on diverse tasks related to molecular and cellular biology as well as pharmacology\n\nProfile\n\n• CFC biology laboratory technician, biology technician or medical laboratory technician diploma\n\n• Sense of responsibility, motivation and good adaptability within an international team\n\n• Good knowledge of English\n\n• Good knowledge of current computer software (MS-Office)\n\n• Experience in molecular biology, cell biology, animal physiology would be a plus\n\nWe offer\n\n• Excellent working conditions in a multidisciplinary team at the cutting edge of technology\n\n• Continuing education\n\n• Attractive remuneration\n\nInformations\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: 1 year, renewable\n\nReference: 2262",
-      "descriptionByLocale": {
-        "it": "Missione La nostra ricerca si concentra sullo studio e il trattamento delle malattie metaboliche. L'obesità, il microbioma intestinale, la steatosi epatica e il cancro al fegato sono le nostre principali aree di ricerca. La vostra missione sarà di contribuire alla manutenzione generale del laboratorio e di fornire un supporto tecnico in questi diversi progetti di ricerca. Principali doveri e responsabilità\n• Ordinerai materiale di laboratorio comune\n• Parteciperete alla regolazione e alla manutenzione delle attrezzature da laboratorio.\n• Parteciperai all'organizzazione genotipo e alla manutenzione delle nostre diverse linee del mouse\n• Eserciterai esperimenti sui roditori (mice e ratti)\n• Aiuterai i ricercatori su diversi compiti legati alla biologia molecolare e cellulare e alla farmacologia Profilo\n• Tecnico di laboratorio di biologia CFC, tecnico di biologia o tecnico di laboratorio medico diploma\n• Senso di responsabilità, motivazione e buona adattabilità in un team internazionale\n• Buona conoscenza dell'inglese\n• Buona conoscenza del software informatico corrente (MS-Office)\n• Esperienza in biologia molecolare, biologia cellulare, fisiologia animale sarebbe un plus Offriamo\n• eccellenti condizioni di lavoro in un team multidisciplinare all'avanguardia della tecnologia\n• Formazione continua\n• Retribuzione attraente Informazioni Data di inizio del contratto: appena possibile Tasso di attività: 100.00 Tipo di contratto: CDD Durata: 1 anno, rinnovabile Riferimento: 2262",
-        "en": "Mission Our research focuses on the study and treatment of metabolic diseases. Obesity, gut microbiome, hepatic steatosis, and liver cancer are our main areas of research. Your mission will be to contribute to overall lab maintenance and to provide a technical support in these different research projects. Main duties and responsibilities\n• You will order common lab material\n• You will participate in the setting and maintenance of laboratory equipment.\n• You will participate to the genotype organization and maintenance of our different mouse lines\n• You will perform experiments on rodents (mice and rats)\n• You will assist the researchers on diverse tasks related to molecular and cellular biology as well as pharmacology Profile\n• CFC biology laboratory technician, biology technician or medical laboratory technician diploma\n• Sense of responsibility, motivation and good adaptability within an international team\n• Good knowledge of English\n• Good knowledge of current computer software (MS-Office)\n• Experience in molecular biology, cell biology, animal physiology would be a plus We offer\n• Excellent working conditions in a multidisciplinary team at the cutting edge of technology\n• Continuing education\n• Attractive remuneration Informations Contract Start Date : As soon as possible Activity Rate : 100.00 Contract Type: CDD Duration: 1 year, renewable Reference: 2262",
-        "de": "Mission Unsere Forschung konzentriert sich auf die Untersuchung und Behandlung von Stoffwechselerkrankungen. Fettleibigkeit, Darmmikrobiom, Lebersteatose und Leberkrebs sind unsere Hauptforschungsgebiete. Ihre Mission wird es sein, zur allgemeinen Wartung des Labors beizutragen und eine technische Unterstützung in diesen verschiedenen Forschungsprojekten zu bieten. Hauptaufgaben und Zuständigkeiten\n• Sie bestellen gemeinsames Labormaterial\n• Sie werden an der Einrichtung und Wartung von Laborgeräten teilnehmen.\n• Sie werden an der Genotyporganisation und Wartung unserer verschiedenen Mauslinien teilnehmen\n• Sie werden Experimente an Nagetieren (Mäusen und Ratten) durchführen\n• Sie unterstützen die Forscher bei verschiedenen Aufgaben im Zusammenhang mit Molekular- und Zellbiologie sowie Pharmakologie Profil\n• CFC-Biologie-Labortechniker, Biologietechniker oder medizinisches Labortechniker-Diplom\n• Verantwortungsbewusstsein, Motivation und gute Anpassungsfähigkeit innerhalb eines internationalen Teams\n• Gute Englischkenntnisse\n• Gute Kenntnisse der aktuellen Computersoftware (MS-Office)\n• Erfahrung in Molekularbiologie, Zellbiologie, Tierphysiologie wäre ein Plus Wir bieten\n• Ausgezeichnete Arbeitsbedingungen in einem multidisziplinären Team an der Spitze der Technologie\n• Weiterbildung\n• Attraktive Vergütung Informationen Vertragsbeginndatum: So schnell wie möglich Aktivitätsrate: 100,00 Vertragsart: CDD Dauer: 1 Jahr, erneuerbar Bezug: 2262",
-        "fr": "Mission Our research focuses on the study and treatment of metabolic diseases. Obesity, gut microbiome, hepatic steatosis, and liver cancer are our main areas of research. Your mission will be to contribute to overall lab maintenance and to provide a technical support in these different research projects. Main duties and responsibilities\n• You will order common lab material\n• You will participate in the setting and maintenance of laboratory equipment.\n• You will participate to the genotype organization and maintenance of our different mouse lines\n• You will perform experiments on rodents (mice and rats)\n• You will assist the researchers on diverse tasks related to molecular and cellular biology as well as pharmacology Profile\n• CFC biology laboratory technician, biology technician or medical laboratory technician diploma\n• Sense of responsibility, motivation and good adaptability within an international team\n• Good knowledge of English\n• Good knowledge of current computer software (MS-Office)\n• Experience in molecular biology, cell biology, animal physiology would be a plus We offer\n• Excellent working conditions in a multidisciplinary team at the cutting edge of technology\n• Continuing education\n• Attractive remuneration Informations Contract Start Date : As soon as possible Activity Rate : 100.00 Contract Type: CDD Duration: 1 year, renewable Reference: 2262"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Technician/1164825755/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:36.099Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Technician/1164825755/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Technique",
-      "contractType": "Technique",
-      "externalId": "1164825755",
-      "previousSlugsByLocale": {
-        "fr": [
-          "technician-epfl-lausanne"
-        ],
-        "it": [
-          "technician-epfl-lausanne"
-        ],
-        "de": [
-          "technician-epfl-lausanne",
-          "technik-epfl-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "technician-epfl-lausanne",
-        "technik-epfl-lausanne",
-        "tecnico-del-laboratorio-junior-epfl-lausanne",
-        "junior-lab-technician-epfl-lausanne",
-        "junior-lab-techniker-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-06-02T23:24:55.501Z",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
       "id": "epfl-39fed030fbe5",
       "slug": "administrative-assistant-30-50-epfl-geneve",
       "slugByLocale": {
@@ -3006,7 +2858,7 @@
       "url": "https://careers.epfl.ch/job/Gen%C3%A8ve-Administrative-&-Financial-assistant-%2830-50%29/1164814555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:35.525Z",
+      "crawledAt": "2026-06-08T22:22:09.851Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -3024,6 +2876,12 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164814555",
+      "previousSlugs": [
+        "assistente-amministrativo-30-50-epfl-geneve",
+        "assistente-amministrativo-e-finanziario-30-50-epfl-geneve",
+        "administrative-financial-assistant-30-50-epfl-geneve",
+        "verwaltungsassistent-30-50-epfl-geneve"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-amministrativo-30-50-epfl-geneve",
@@ -3034,14 +2892,8 @@
           "verwaltungsassistent-30-50-epfl-geneve"
         ]
       },
-      "previousSlugs": [
-        "assistente-amministrativo-30-50-epfl-geneve",
-        "assistente-amministrativo-e-finanziario-30-50-epfl-geneve",
-        "administrative-financial-assistant-30-50-epfl-geneve",
-        "verwaltungsassistent-30-50-epfl-geneve"
-      ],
-      "firstSeenAt": "2026-06-02T12:58:51.001Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T12:58:51.001Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3088,7 +2940,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-D%C3%A9veloppeur%C2%B7euse-SAP/1164120555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:34.947Z",
+      "crawledAt": "2026-06-08T22:22:09.310Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3123,6 +2975,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:29:11.275Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3169,7 +3022,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Partenaire-Exp%C3%A9rience-Employ%C3%A9_es/1164667355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T12:50:34.362Z",
+      "crawledAt": "2026-06-08T22:22:08.773Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3202,6 +3055,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:10.729Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3248,7 +3102,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Philanthropy-Manager-%2880-100%29/1164658855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:33.789Z",
+      "crawledAt": "2026-06-08T22:22:08.232Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3266,29 +3120,29 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164658855",
-      "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-de-philanthropie-80-100-epfl-lausanne",
-          "gestionnaire-de-la-philanthropie-80-100-epfl-lausanne"
-        ],
-        "it": [
-          "philanthropy-manager-80-100-epfl-lausanne"
-        ],
-        "de": [
-          "philanthropy-manager-80-100-epfl-lausanne"
-        ]
-      },
       "previousSlugs": [
-        "gestionnaire-de-philanthropie-80-100-epfl-lausanne",
         "philanthropy-manager-80-100-epfl-lausanne",
+        "gestionnaire-de-philanthropie-80-100-epfl-lausanne",
         "gestionnaire-de-la-philanthropie-80-100-epfl-lausanne",
         "responsabile-del-programma-epfl-lausanne",
         "programme-manager-epfl-lausanne",
         "programmleiter-epfl-lausanne",
         "gestionnaire-de-programme-epfl-lausanne"
       ],
-      "firstSeenAt": "2026-05-21T11:51:21.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "philanthropy-manager-80-100-epfl-lausanne"
+        ],
+        "de": [
+          "philanthropy-manager-80-100-epfl-lausanne"
+        ],
+        "fr": [
+          "gestionnaire-de-philanthropie-80-100-epfl-lausanne",
+          "gestionnaire-de-la-philanthropie-80-100-epfl-lausanne"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:51:21.463Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3311,7 +3165,7 @@
         "it": "ingegnere-di-ricerca-epfl-lausanne",
         "en": "research-engineer-epfl-lausanne",
         "de": "forschungsingenieur-epfl-lausanne",
-        "fr": "recherche-ingenieur-epfl-lausanne"
+        "fr": "research-engineer-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3335,7 +3189,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Research-Engineer/1164830255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:33.212Z",
+      "crawledAt": "2026-06-08T22:22:07.688Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3356,6 +3210,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "ingenieur-de-recherche-epfl-lausanne",
+          "recherche-ingenieur-epfl-lausanne",
           "research-engineer-epfl-lausanne"
         ],
         "it": [
@@ -3370,10 +3225,12 @@
       "previousSlugs": [
         "ingenieur-de-recherche-epfl-lausanne",
         "research-engineer-epfl-lausanne",
+        "recherche-ingenieur-epfl-lausanne",
         "ricerca-ingegnere-epfl-lausanne",
         "forschung-ingenieur-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-03T13:31:07.306Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3420,7 +3277,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Position-in-Interpretable-AI-for-Coupled-Multiphysics-of-Geomaterials/1164829555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:32.627Z",
+      "crawledAt": "2026-06-08T22:22:07.136Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3501,7 +3358,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Researcher/1163582855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:32.047Z",
+      "crawledAt": "2026-06-08T22:22:06.597Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3519,17 +3376,17 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1163582855",
+      "previousSlugs": [
+        "ricercatore-post-dottorato-epfl-lausanne",
+        "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "ricercatore-post-dottorato-epfl-lausanne",
-        "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-05-10T21:32:10.723Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.723Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3576,7 +3433,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Student-Position-in-Operations%2C-Economics-and-Strategy/1164674255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:31.472Z",
+      "crawledAt": "2026-06-08T22:22:06.040Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3649,7 +3506,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Data-Scientist-%28WM%29/1164837255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:30.895Z",
+      "crawledAt": "2026-06-08T22:22:05.494Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3667,23 +3524,23 @@
       "department": "Information Technology",
       "contractType": "Information Technology",
       "externalId": "1164837255",
+      "previousSlugs": [
+        "data-scientist-w-m-epfl-lausanne",
+        "scientifique-des-donnees-w-m-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "scientifique-des-donnees-w-m-epfl-lausanne"
-        ],
         "it": [
           "data-scientist-w-m-epfl-lausanne"
         ],
         "de": [
           "data-scientist-w-m-epfl-lausanne"
+        ],
+        "fr": [
+          "scientifique-des-donnees-w-m-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "data-scientist-w-m-epfl-lausanne",
-        "scientifique-des-donnees-w-m-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-06-04T11:55:52.916Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-04T11:55:52.916Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -3730,7 +3587,7 @@
       "url": "https://careers.epfl.ch/job/Sion-PhD-position-Forest-treeline-management-in-the-Swiss-Alps/1164685955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:30.307Z",
+      "crawledAt": "2026-06-08T22:22:04.939Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -3748,23 +3605,23 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1164685955",
+      "previousSlugs": [
+        "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
+        "poste-de-doctorat-gestion-forestiere-dans-les-alpes-suisses-epfl-sion"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "poste-de-doctorat-gestion-forestiere-dans-les-alpes-suisses-epfl-sion"
-        ],
         "it": [
           "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion"
         ],
         "de": [
           "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion"
+        ],
+        "fr": [
+          "poste-de-doctorat-gestion-forestiere-dans-les-alpes-suisses-epfl-sion"
         ]
       },
-      "previousSlugs": [
-        "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
-        "poste-de-doctorat-gestion-forestiere-dans-les-alpes-suisses-epfl-sion"
-      ],
-      "firstSeenAt": "2026-05-21T11:51:18.217Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:51:18.217Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3811,7 +3668,7 @@
       "url": "https://careers.epfl.ch/job/Fribourg-PhD-in-Reversible-Assemblies-for-Sustainable-Construction/1164488155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:29.732Z",
+      "crawledAt": "2026-06-08T22:22:04.382Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -3884,7 +3741,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Engineering-a-Microfluidic-Platform-for-Next-Generation-Live-seq/1163918655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:29.153Z",
+      "crawledAt": "2026-06-08T22:22:03.831Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3960,7 +3817,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-student-position-Long-and-short-range-structure-in-electrolyte-solutions/1164348155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:28.585Z",
+      "crawledAt": "2026-06-08T22:22:03.277Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4033,7 +3890,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Researcher-in-Human-Stress%2C-Motivation-and-Translational-Biomarkers/1164693855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:28.009Z",
+      "crawledAt": "2026-06-08T22:22:02.727Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4072,8 +3929,8 @@
           "chercheur-postdoctoral-sur-le-stress-humain-la-motivation-et-les-biomarqueurs-translationnels-epfl-lausanne"
         ]
       },
-      "firstSeenAt": "2026-05-10T21:32:10.714Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.714Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4120,7 +3977,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Operational-Director-EPFL-Hydraulic-Machinery-Platform-EPFL/1164691555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:27.431Z",
+      "crawledAt": "2026-06-08T22:22:02.184Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4196,7 +4053,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-student-position-Interfacial-Imaging-of-Membrane-Water/1164348255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:26.861Z",
+      "crawledAt": "2026-06-08T22:22:01.638Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4272,7 +4129,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Multimodal-Generative-AI-for-Materials-Design/1164180355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:26.293Z",
+      "crawledAt": "2026-06-08T22:22:01.071Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4348,7 +4205,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Administrative-assistant-50/1164354255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:25.716Z",
+      "crawledAt": "2026-06-08T22:22:00.519Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4380,8 +4237,8 @@
           "administrative-assistant-50-epfl-lausanne"
         ]
       },
-      "firstSeenAt": "2026-05-10T21:32:10.710Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.710Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4428,7 +4285,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Position-in-Technology-&-Operations-Management/1164034955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:25.136Z",
+      "crawledAt": "2026-06-08T22:21:59.981Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4446,20 +4303,20 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1164034955",
-      "previousSlugsByLocale": {
-        "fr": [
-          "poste-de-doctorat-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne"
-        ],
-        "it": [
-          "phd-position-in-technology-operations-management-epfl-lausanne"
-        ]
-      },
       "previousSlugs": [
         "phd-position-in-technology-operations-management-epfl-lausanne",
         "poste-de-doctorat-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne"
       ],
-      "firstSeenAt": "2026-05-10T21:32:10.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-technology-operations-management-epfl-lausanne"
+        ],
+        "fr": [
+          "poste-de-doctorat-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:32:10.708Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4474,6 +4331,74 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD"
+    },
+    {
+      "id": "epfl-e557517bcba6",
+      "slug": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
+      "slugByLocale": {
+        "it": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
+        "en": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
+        "de": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
+        "fr": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction"
+      },
+      "company": "EPFL",
+      "companyKey": "epfl",
+      "companyDomain": "epfl.ch",
+      "title": "Postdoctoral Research Fellow in Adaptive optics for ultrafast laser-matter interaction",
+      "titleByLocale": {
+        "it": "Postdoctoral Ricerca Fellow in Adaptive optics for ultrafast laser-matter interaction",
+        "en": "Postdoctoral Research Fellow in Adaptive optics for ultrafast laser-matter interaction",
+        "de": "Postdoctoral Forschung Fellow in Adaptive optics for ultrafast laser-matter interaction",
+        "fr": "Postdoctoral Recherche Fellow in Adaptive optics for ultrafast laser-matter interaction"
+      },
+      "description": "Mission\n\nWithin the faculty of engineering (STI), the Galatea Laboratory explores novel paradigms to tailor material properties locally using lasers. Our research involves three main clusters: understanding and exploring laser-matter interaction phenomena, investigating new manufacturing processes based on 3D direct-write laser methods, and finally, exploring novel concepts of multi-scale systems based on single monolith. The lab features state-of-the-art laser facilities and infrastructure for pioneer research.\n\nThe Galatea Lab is located in the vibrant Neuchâtel’s campus of EPFL, part of Microcity, a ecosystem with a focused on micro-technologies.\n\nTo strengthen our research program on laser-based methods to tailor material properties, we are looking for a post-doc to investigate advanced wavefront shaping methods based on adaptive optics applied to the context of nonlinear laser-matter interaction.\n\nMain duties and responsibilities\n\n• Define relevant research and experimental plans, sustained with theoretical considerations and knowledge of the relevant literature.\n\n• Conduct experiments and analyze data.\n\n• Report and disseminate the research outcome in journal publications and at international conferences.\n\n• Interact and collaborate with other lab members as well as with industrial partners.\n\n• Occasionally supervise undergraduate students (bachelor or master levels).\n\n• Contribute to the laboratory operations through shared duties.\n\nProfile\n\n• You recently obtained a PhD in optics, applied physics or related fields with a strong knowledge of optics.\n\n• You have experience in adaptive optics as well as hands-on experience with optical setups involving lasers.\n\n• You have a keen interest in research in the field of nonlinear optics, ultrafast lasers and/or laser-matter interaction.\n\n• You are independent, creative, solution-oriented, flexible and a team-player.\n\nWe offer\n\n• Opportunity to contribute to cutting-edge emerging research topics.\n\n• Opportunity to work in an established multidisciplinary lab in ultrafast laser-matter interaction and advanced manufacturing processes, as well as optomechanical designs.\n\n• Opportunity to access state-of-the-art research facilities and laboratory resources.\n\n• Opportunity to collaborate with world-leading research groups through international collaborations.\n\n• Opportunity to interact with multidisciplinary projects with strong links to industry and spin-offs.\n\n• EPFL is an international and top-ranking university. It offers a young, stimulating, dynamic, interdisciplinary, and international working environment, a broad range of scientific training and networking events and hosts a vibrant entrepreneurial community.\n\n• EPFL is an equal-opportunity employer. Candidates will be recruited solely based on merit.\n\nInformations\n\nOnly applications submitted through the online platform are considered.\n\nA brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\nA CV with a publication list.\nA research statement (pdf, up to 3 pages).\nContact details for 3 referees.\n\nFor any further information, please contact: prof. Yves Bellouard - yves.bellouard@epfl.ch\n\nKeywords: Adaptive optics, beam shaping, nonlinear optics, laser-matter interaction, ultrafast lasers.\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: one year, renewable\n\nReference: 2277",
+      "descriptionByLocale": {
+        "it": "Mission\n\nWithin the faculty of engineering (STI), the Galatea Laboratory explores novel paradigms to tailor material properties locally using lasers. Our research involves three main clusters: understanding and exploring laser-matter interaction phenomena, investigating new manufacturing processes based on 3D direct-write laser methods, and finally, exploring novel concepts of multi-scale systems based on single monolith. The lab features state-of-the-art laser facilities and infrastructure for pioneer research.\n\nThe Galatea Lab is located in the vibrant Neuchâtel’s campus of EPFL, part of Microcity, a ecosystem with a focused on micro-technologies.\n\nTo strengthen our research program on laser-based methods to tailor material properties, we are looking for a post-doc to investigate advanced wavefront shaping methods based on adaptive optics applied to the context of nonlinear laser-matter interaction.\n\nMain duties and responsibilities\n\n• Define relevant research and experimental plans, sustained with theoretical considerations and knowledge of the relevant literature.\n\n• Conduct experiments and analyze data.\n\n• Report and disseminate the research outcome in journal publications and at international conferences.\n\n• Interact and collaborate with other lab members as well as with industrial partners.\n\n• Occasionally supervise undergraduate students (bachelor or master levels).\n\n• Contribute to the laboratory operations through shared duties.\n\nProfile\n\n• You recently obtained a PhD in optics, applied physics or related fields with a strong knowledge of optics.\n\n• You have experience in adaptive optics as well as hands-on experience with optical setups involving lasers.\n\n• You have a keen interest in research in the field of nonlinear optics, ultrafast lasers and/or laser-matter interaction.\n\n• You are independent, creative, solution-oriented, flexible and a team-player.\n\nWe offer\n\n• Opportunity to contribute to cutting-edge emerging research topics.\n\n• Opportunity to work in an established multidisciplinary lab in ultrafast laser-matter interaction and advanced manufacturing processes, as well as optomechanical designs.\n\n• Opportunity to access state-of-the-art research facilities and laboratory resources.\n\n• Opportunity to collaborate with world-leading research groups through international collaborations.\n\n• Opportunity to interact with multidisciplinary projects with strong links to industry and spin-offs.\n\n• EPFL is an international and top-ranking university. It offers a young, stimulating, dynamic, interdisciplinary, and international working environment, a broad range of scientific training and networking events and hosts a vibrant entrepreneurial community.\n\n• EPFL is an equal-opportunity employer. Candidates will be recruited solely based on merit.\n\nInformations\n\nOnly applications submitted through the online platform are considered.\n\nA brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\nA CV with a publication list.\nA research statement (pdf, up to 3 pages).\nContact details for 3 referees.\n\nFor any further information, please contact: prof. Yves Bellouard - yves.bellouard@epfl.ch\n\nKeywords: Adaptive optics, beam shaping, nonlinear optics, laser-matter interaction, ultrafast lasers.\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: one year, renewable\n\nReference: 2277",
+        "en": "Mission\n\nWithin the faculty of engineering (STI), the Galatea Laboratory explores novel paradigms to tailor material properties locally using lasers. Our research involves three main clusters: understanding and exploring laser-matter interaction phenomena, investigating new manufacturing processes based on 3D direct-write laser methods, and finally, exploring novel concepts of multi-scale systems based on single monolith. The lab features state-of-the-art laser facilities and infrastructure for pioneer research.\n\nThe Galatea Lab is located in the vibrant Neuchâtel’s campus of EPFL, part of Microcity, a ecosystem with a focused on micro-technologies.\n\nTo strengthen our research program on laser-based methods to tailor material properties, we are looking for a post-doc to investigate advanced wavefront shaping methods based on adaptive optics applied to the context of nonlinear laser-matter interaction.\n\nMain duties and responsibilities\n\n• Define relevant research and experimental plans, sustained with theoretical considerations and knowledge of the relevant literature.\n\n• Conduct experiments and analyze data.\n\n• Report and disseminate the research outcome in journal publications and at international conferences.\n\n• Interact and collaborate with other lab members as well as with industrial partners.\n\n• Occasionally supervise undergraduate students (bachelor or master levels).\n\n• Contribute to the laboratory operations through shared duties.\n\nProfile\n\n• You recently obtained a PhD in optics, applied physics or related fields with a strong knowledge of optics.\n\n• You have experience in adaptive optics as well as hands-on experience with optical setups involving lasers.\n\n• You have a keen interest in research in the field of nonlinear optics, ultrafast lasers and/or laser-matter interaction.\n\n• You are independent, creative, solution-oriented, flexible and a team-player.\n\nWe offer\n\n• Opportunity to contribute to cutting-edge emerging research topics.\n\n• Opportunity to work in an established multidisciplinary lab in ultrafast laser-matter interaction and advanced manufacturing processes, as well as optomechanical designs.\n\n• Opportunity to access state-of-the-art research facilities and laboratory resources.\n\n• Opportunity to collaborate with world-leading research groups through international collaborations.\n\n• Opportunity to interact with multidisciplinary projects with strong links to industry and spin-offs.\n\n• EPFL is an international and top-ranking university. It offers a young, stimulating, dynamic, interdisciplinary, and international working environment, a broad range of scientific training and networking events and hosts a vibrant entrepreneurial community.\n\n• EPFL is an equal-opportunity employer. Candidates will be recruited solely based on merit.\n\nInformations\n\nOnly applications submitted through the online platform are considered.\n\nA brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\nA CV with a publication list.\nA research statement (pdf, up to 3 pages).\nContact details for 3 referees.\n\nFor any further information, please contact: prof. Yves Bellouard - yves.bellouard@epfl.ch\n\nKeywords: Adaptive optics, beam shaping, nonlinear optics, laser-matter interaction, ultrafast lasers.\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: one year, renewable\n\nReference: 2277",
+        "de": "Mission\n\nWithin the faculty of engineering (STI), the Galatea Laboratory explores novel paradigms to tailor material properties locally using lasers. Our research involves three main clusters: understanding and exploring laser-matter interaction phenomena, investigating new manufacturing processes based on 3D direct-write laser methods, and finally, exploring novel concepts of multi-scale systems based on single monolith. The lab features state-of-the-art laser facilities and infrastructure for pioneer research.\n\nThe Galatea Lab is located in the vibrant Neuchâtel’s campus of EPFL, part of Microcity, a ecosystem with a focused on micro-technologies.\n\nTo strengthen our research program on laser-based methods to tailor material properties, we are looking for a post-doc to investigate advanced wavefront shaping methods based on adaptive optics applied to the context of nonlinear laser-matter interaction.\n\nMain duties and responsibilities\n\n• Define relevant research and experimental plans, sustained with theoretical considerations and knowledge of the relevant literature.\n\n• Conduct experiments and analyze data.\n\n• Report and disseminate the research outcome in journal publications and at international conferences.\n\n• Interact and collaborate with other lab members as well as with industrial partners.\n\n• Occasionally supervise undergraduate students (bachelor or master levels).\n\n• Contribute to the laboratory operations through shared duties.\n\nProfile\n\n• You recently obtained a PhD in optics, applied physics or related fields with a strong knowledge of optics.\n\n• You have experience in adaptive optics as well as hands-on experience with optical setups involving lasers.\n\n• You have a keen interest in research in the field of nonlinear optics, ultrafast lasers and/or laser-matter interaction.\n\n• You are independent, creative, solution-oriented, flexible and a team-player.\n\nWe offer\n\n• Opportunity to contribute to cutting-edge emerging research topics.\n\n• Opportunity to work in an established multidisciplinary lab in ultrafast laser-matter interaction and advanced manufacturing processes, as well as optomechanical designs.\n\n• Opportunity to access state-of-the-art research facilities and laboratory resources.\n\n• Opportunity to collaborate with world-leading research groups through international collaborations.\n\n• Opportunity to interact with multidisciplinary projects with strong links to industry and spin-offs.\n\n• EPFL is an international and top-ranking university. It offers a young, stimulating, dynamic, interdisciplinary, and international working environment, a broad range of scientific training and networking events and hosts a vibrant entrepreneurial community.\n\n• EPFL is an equal-opportunity employer. Candidates will be recruited solely based on merit.\n\nInformations\n\nOnly applications submitted through the online platform are considered.\n\nA brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\nA CV with a publication list.\nA research statement (pdf, up to 3 pages).\nContact details for 3 referees.\n\nFor any further information, please contact: prof. Yves Bellouard - yves.bellouard@epfl.ch\n\nKeywords: Adaptive optics, beam shaping, nonlinear optics, laser-matter interaction, ultrafast lasers.\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: one year, renewable\n\nReference: 2277",
+        "fr": "Mission\n\nWithin the faculty of engineering (STI), the Galatea Laboratory explores novel paradigms to tailor material properties locally using lasers. Our research involves three main clusters: understanding and exploring laser-matter interaction phenomena, investigating new manufacturing processes based on 3D direct-write laser methods, and finally, exploring novel concepts of multi-scale systems based on single monolith. The lab features state-of-the-art laser facilities and infrastructure for pioneer research.\n\nThe Galatea Lab is located in the vibrant Neuchâtel’s campus of EPFL, part of Microcity, a ecosystem with a focused on micro-technologies.\n\nTo strengthen our research program on laser-based methods to tailor material properties, we are looking for a post-doc to investigate advanced wavefront shaping methods based on adaptive optics applied to the context of nonlinear laser-matter interaction.\n\nMain duties and responsibilities\n\n• Define relevant research and experimental plans, sustained with theoretical considerations and knowledge of the relevant literature.\n\n• Conduct experiments and analyze data.\n\n• Report and disseminate the research outcome in journal publications and at international conferences.\n\n• Interact and collaborate with other lab members as well as with industrial partners.\n\n• Occasionally supervise undergraduate students (bachelor or master levels).\n\n• Contribute to the laboratory operations through shared duties.\n\nProfile\n\n• You recently obtained a PhD in optics, applied physics or related fields with a strong knowledge of optics.\n\n• You have experience in adaptive optics as well as hands-on experience with optical setups involving lasers.\n\n• You have a keen interest in research in the field of nonlinear optics, ultrafast lasers and/or laser-matter interaction.\n\n• You are independent, creative, solution-oriented, flexible and a team-player.\n\nWe offer\n\n• Opportunity to contribute to cutting-edge emerging research topics.\n\n• Opportunity to work in an established multidisciplinary lab in ultrafast laser-matter interaction and advanced manufacturing processes, as well as optomechanical designs.\n\n• Opportunity to access state-of-the-art research facilities and laboratory resources.\n\n• Opportunity to collaborate with world-leading research groups through international collaborations.\n\n• Opportunity to interact with multidisciplinary projects with strong links to industry and spin-offs.\n\n• EPFL is an international and top-ranking university. It offers a young, stimulating, dynamic, interdisciplinary, and international working environment, a broad range of scientific training and networking events and hosts a vibrant entrepreneurial community.\n\n• EPFL is an equal-opportunity employer. Candidates will be recruited solely based on merit.\n\nInformations\n\nOnly applications submitted through the online platform are considered.\n\nA brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\nA CV with a publication list.\nA research statement (pdf, up to 3 pages).\nContact details for 3 referees.\n\nFor any further information, please contact: prof. Yves Bellouard - yves.bellouard@epfl.ch\n\nKeywords: Adaptive optics, beam shaping, nonlinear optics, laser-matter interaction, ultrafast lasers.\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: one year, renewable\n\nReference: 2277"
+      },
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-Postdoctoral-Research-Fellow-in-Adaptive-optics-for-ultrafast-laser-matter-interaction/1164864855/",
+      "source": "EPFL Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-08T22:21:59.430Z",
+      "addressLocality": "Neuchâtel",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "education",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://careers.epfl.ch/job/Neuch%C3%A2tel-Postdoctoral-Research-Fellow-in-Adaptive-optics-for-ultrafast-laser-matter-interaction/1164864855/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "department": "Post-doc / Collab. scientifique",
+      "contractType": "Post-doc / Collab. scientifique",
+      "externalId": "1164864855",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2000",
+      "addressRegion": "NE",
+      "firstSeenAt": "2026-06-08T22:21:59.430Z"
     },
     {
       "id": "epfl-c9e9d3bd366e",
@@ -4506,7 +4431,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-at-the-Digital-and-Cognitive-Musicology-Lab%2C-EPFL-Lausanne/1164200555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:24.555Z",
+      "crawledAt": "2026-06-08T22:21:58.889Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4571,7 +4496,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-at-the-Digital-and-Cognitive-Musicology-Lab%2C-EPFL-Lausanne/1164200455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:23.974Z",
+      "crawledAt": "2026-06-08T22:21:58.342Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4646,7 +4571,7 @@
       "url": "https://careers.epfl.ch/job/Gen%C3%A8ve-Postdoctoral-Position-in-Computational-Genomics%2C-Machine-Learning-&-Single-Cell-Biology/1164206755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T12:50:23.377Z",
+      "crawledAt": "2026-06-08T22:21:57.783Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
