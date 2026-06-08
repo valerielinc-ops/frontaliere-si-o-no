@@ -3049,8 +3049,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
         "it": "dipl-pflegefachfrau-mann-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
+        "en": "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3096,6 +3096,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
         ]
       },
       "previousSlugs": [
@@ -3117,12 +3123,12 @@
     },
     {
       "id": "spz-9d340dcac94f",
-      "slug": "flex-pool-pflege-spz-nottwil",
+      "slug": "cura-della-bobina-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "de": "flex-pool-pflege-spz-nottwil",
-        "it": "flex-pool-pflege-spz-nottwil",
+        "it": "cura-della-bobina-schweizer-paraplegiker-zentrum-spz-nottwil",
         "en": "flex-pool-pflege-spz-nottwil",
-        "fr": "flex-pool-pflege-spz-nottwil"
+        "fr": "soins-pour-piscines-flexibles-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3177,7 +3183,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T13:46:45.476Z"
+      "firstSeenAt": "2026-06-08T13:46:45.476Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flex-pool-pflege-spz-nottwil"
+        ],
+        "fr": [
+          "flex-pool-pflege-spz-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "flex-pool-pflege-spz-nottwil"
+      ]
     },
     {
       "id": "spz-6bd35b14a7c3",
@@ -3185,8 +3202,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter-spz-nottwil",
         "it": "dipl-pflegefachfrau-mann-hf-fh-come-nachtfalter-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter-spz-nottwil",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter-spz-nottwil"
+        "en": "dipl-nursing-specialist-hf-fh-as-a-moth-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-en-tant-que-papillon-de-nuit-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3232,6 +3249,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter-spz-nottwil"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter-spz-nottwil"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter-spz-nottwil"
         ]
       },
       "previousSlugs": [
@@ -3253,12 +3276,12 @@
     },
     {
       "id": "spz-2ad482895216",
-      "slug": "coach-in-beruf-berufsbildung-spz-nottwil",
+      "slug": "coach-in-occupazione-formazione-professionale-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "de": "coach-in-beruf-berufsbildung-spz-nottwil",
-        "it": "coach-in-beruf-berufsbildung-spz-nottwil",
+        "it": "coach-in-occupazione-formazione-professionale-schweizer-paraplegiker-zentrum-spz-nottwil",
         "en": "coach-in-beruf-berufsbildung-spz-nottwil",
-        "fr": "coach-in-beruf-berufsbildung-spz-nottwil"
+        "fr": "entrainement-professionnel-formation-professionnelle-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3313,14 +3336,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T13:46:44.097Z"
+      "firstSeenAt": "2026-06-08T13:46:44.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coach-in-beruf-berufsbildung-spz-nottwil"
+        ],
+        "fr": [
+          "coach-in-beruf-berufsbildung-spz-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "coach-in-beruf-berufsbildung-spz-nottwil"
+      ]
     },
     {
       "id": "spz-bca154ff98b6",
-      "slug": "performance-experte-in-sportmedizin-spz-nottwil",
+      "slug": "esperto-di-prestazioni-in-medicina-sportiva-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "de": "performance-experte-in-sportmedizin-spz-nottwil",
-        "it": "performance-experte-in-sportmedizin-spz-nottwil",
+        "it": "esperto-di-prestazioni-in-medicina-sportiva-schweizer-paraplegiker-zentrum-spz-nottwil",
         "en": "performance-experte-in-sportmedizin-spz-nottwil",
         "fr": "performance-experte-in-sportmedizin-spz-nottwil"
       },
@@ -3377,7 +3411,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T13:46:43.442Z"
+      "firstSeenAt": "2026-06-08T13:46:43.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "performance-experte-in-sportmedizin-spz-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "performance-experte-in-sportmedizin-spz-nottwil"
+      ]
     }
   ]
 }
