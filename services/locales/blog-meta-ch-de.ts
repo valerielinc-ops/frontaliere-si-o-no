@@ -98,6 +98,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Abstimmung Zürich: Wohnungen und Krankenkassenprämien',
     'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Der Kanton Zürich stimmt über Initiativen zu erschwinglichem Wohnraum, Mieterschutz und Steuerabzügen für Krankenkassenprämien ab.',
     'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Moderne Wohngebäude im Kanton Zürich an einem sonnigen Tag',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Wahlen in 16 Kantonen: Steuern, Mindestlohn und Geschäfte',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Am 14. Juni entscheiden die Schweizer Bürger über Mindestlohn, Einkommenssteuer, Heizungen und Sonntagsöffnungen in 16 Kantonen.',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Stimmboxen und kantonalen Flaggen in der Schweiz',
 };
 
 export default blogMetaChDe;

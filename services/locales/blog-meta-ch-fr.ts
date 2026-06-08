@@ -98,6 +98,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Vote à Zurich : logements et primes d\'assurance maladie',
     'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Le canton de Zurich vote sur des initiatives pour des logements abordables, la protection des locataires et des déductions fiscales pour les primes d\'assurance maladie.',
     'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Immeubles résidentiels modernes dans le canton de Zurich par une journée ensoleillée',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Votations dans 16 cantons: taxes, salaire minimum et commerces',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Le 14 juin, les citoyens suisses se prononcent sur le salaire minimum, l\'imposition à la source, les chauffages et les ouvertures dominicales dans seize cantons.',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Urnes de vote et drapeaux cantonaux en Suisse',
 };
 
 export default blogMetaChFr;
