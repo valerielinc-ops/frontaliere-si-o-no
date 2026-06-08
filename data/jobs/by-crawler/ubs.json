@@ -1140,7 +1140,7 @@
       "slugByLocale": {
         "en": "municipal-credit-strategist-ubs",
         "it": "municipal-credit-strategist-ubs",
-        "de": "kommunaler-kreditstratege-ubs-ticino",
+        "de": "municipal-credit-strategist-ubs",
         "fr": "municipal-credit-strategist-ubs"
       },
       "company": "UBS",
@@ -1205,6 +1205,7 @@
       },
       "firstSeenAt": "2026-06-08T13:56:47.728Z",
       "previousSlugs": [
+        "kommunaler-kreditstratege-ubs-ticino",
         "strategischer-kredit-ubs-ticino"
       ]
     },
@@ -2450,7 +2451,7 @@
         "en": "tech-graduate-program-software-engineer-react-ubs",
         "it": "tech-graduate-program-software-engineer-react-ubs",
         "de": "tech-graduate-program-software-engineer-react-ubs",
-        "fr": "programme-d-etudes-superieures-en-technologie-ingenieur-logiciel-reaction-ubs-ticino"
+        "fr": "tech-graduate-program-software-engineer-react-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2665,12 +2666,12 @@
     },
     {
       "id": "ubs-ea0ba22a5f4f",
-      "slug": "evento-in-attesa-in-tempo-ubs-ticino",
+      "slug": "event-attendant-a-l-heure-ubs",
       "slugByLocale": {
         "fr": "event-attendant-a-l-heure-ubs",
-        "it": "evento-in-attesa-in-tempo-ubs-ticino",
-        "en": "event-waiting-on-time-ubs-ticino",
-        "de": "warten-auf-ereignisse-punktlich-ubs-ticino"
+        "it": "event-attendant-a-l-heure-ubs",
+        "en": "event-attendant-a-l-heure-ubs",
+        "de": "event-attendant-a-l-heure-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2734,30 +2735,18 @@
       },
       "firstSeenAt": "2026-06-08T13:56:47.701Z",
       "previousSlugs": [
-        "event-attendant-a-l-heure-ubs",
         "evento-partecipante-in-salario-orario-ubs",
         "event-attendant-im-stundenlohn-ubs"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "event-attendant-a-l-heure-ubs"
-        ],
-        "en": [
-          "event-attendant-a-l-heure-ubs"
-        ],
-        "de": [
-          "event-attendant-a-l-heure-ubs"
-        ]
-      }
+      ]
     },
     {
       "id": "ubs-2959199ebbd6",
-      "slug": "specialista-di-vendita-del-canale-ubs-ticino",
+      "slug": "channel-marketing-specialist-ubs",
       "slugByLocale": {
         "en": "channel-marketing-specialist-ubs",
-        "it": "specialista-di-vendita-del-canale-ubs-ticino",
+        "it": "channel-marketing-specialist-ubs",
         "de": "channel-marketing-specialist-ubs",
-        "fr": "specialiste-de-la-commercialisation-des-canaux-ubs-ticino"
+        "fr": "channel-marketing-specialist-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2821,17 +2810,10 @@
       },
       "firstSeenAt": "2026-06-08T13:56:47.700Z",
       "previousSlugs": [
-        "channel-marketing-specialist-ubs",
+        "specialista-di-vendita-del-canale-ubs-ticino",
+        "specialiste-de-la-commercialisation-des-canaux-ubs-ticino",
         "channel-marketing-spezialist-ubs-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "channel-marketing-specialist-ubs"
-        ],
-        "fr": [
-          "channel-marketing-specialist-ubs"
-        ]
-      }
+      ]
     },
     {
       "id": "ubs-e3d52b40c79a",
@@ -3411,12 +3393,12 @@
     },
     {
       "id": "ubs-fd2582c8dc85",
-      "slug": "mercati-globali-ugm-execution-sales-ubs-ticino",
+      "slug": "global-markets-ugm-execution-sales-ubs",
       "slugByLocale": {
         "en": "global-markets-ugm-execution-sales-ubs",
-        "it": "mercati-globali-ugm-execution-sales-ubs-ticino",
-        "de": "globale-markte-ugm-execution-sales-ubs-ticino",
-        "fr": "marches-mondiaux-ventes-d-execution-ugm-ubs-ticino"
+        "it": "global-markets-ugm-execution-sales-ubs",
+        "de": "global-markets-ugm-execution-sales-ubs",
+        "fr": "global-markets-ugm-execution-sales-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3480,23 +3462,11 @@
       },
       "firstSeenAt": "2026-06-08T13:56:47.688Z",
       "previousSlugs": [
-        "global-markets-ugm-execution-sales-ubs",
         "global-markets-esecuzione-delle-vendite-ubs-ticino",
         "global-markets-execution-sales-ubs",
         "global-markets-vertrieb-der-ausfuhrung-ubs-ticino",
         "marches-mondiaux-ventes-d-execution-ubs-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-markets-ugm-execution-sales-ubs"
-        ],
-        "de": [
-          "global-markets-ugm-execution-sales-ubs"
-        ],
-        "fr": [
-          "global-markets-ugm-execution-sales-ubs"
-        ]
-      }
+      ]
     },
     {
       "id": "ubs-dda40ba29143",
@@ -3583,12 +3553,12 @@
     },
     {
       "id": "ubs-92ce3d049de0",
-      "slug": "responsabile-del-progetto-sap-ubs-ticino",
+      "slug": "sap-project-manager-ubs",
       "slugByLocale": {
         "en": "sap-project-manager-ubs",
-        "it": "responsabile-del-progetto-sap-ubs-ticino",
-        "de": "sap-projektmanager-ubs-ticino",
-        "fr": "gestionnaire-de-projet-sap-ubs-ticino"
+        "it": "sap-project-manager-ubs",
+        "de": "sap-project-manager-ubs",
+        "fr": "sap-project-manager-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3596,7 +3566,7 @@
       "title": "SAP Project Manager",
       "titleByLocale": {
         "en": "SAP Project Manager",
-        "it": "Responsabile del Progetto SAP",
+        "it": "Project Manager",
         "de": "SAP Projektmanager",
         "fr": "Gestionnaire de projet SAP"
       },
@@ -3650,21 +3620,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T13:56:47.684Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sap-project-manager-ubs"
-        ],
-        "de": [
-          "sap-project-manager-ubs"
-        ],
-        "fr": [
-          "sap-project-manager-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "sap-project-manager-ubs"
-      ]
+      "firstSeenAt": "2026-06-08T13:56:47.684Z"
     },
     {
       "id": "ubs-77c13580482b",
