@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-06-07T22:49:36.342Z",
-  "total": 21,
+  "generatedAt": "2026-06-08T13:59:05.902Z",
+  "total": 20,
   "newCount": 0,
   "updatedCount": 16,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 17795,
-  "avgDurationMs": 17795,
+  "removedCount": 1,
+  "unchangedCount": 4,
+  "durationMs": 16532,
+  "avgDurationMs": 16532,
   "durationHistory": [
-    17795
+    16532
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -375,6 +375,46 @@
       }
     },
     {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/imeg/imeg-phd-digital-journalism-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/imeg/imeg-phd-digital-journalism-2026.pdf",
+      "title": "Posizione di dottorando in giornalismo digitale",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-di-dottorando-in-giornalismo-digitale-usi-lugano",
+      "department": "Facoltà di comunicazione, cultura e società – Institute of Media and Journalism (IMeG)",
+      "category": "phd",
+      "datePosted": "2026-06-04",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-2811accf371d",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-06-04T16:00:50.144Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
       "title": "Posizione di dottorato nell'ambito del progetto del FNS",
@@ -490,46 +530,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
-      "title": "Collaboratrice/tore",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "collaboratrice-tore-usi-lugano",
-      "department": "Servizio carriere e alumni",
-      "category": "staff",
-      "datePosted": "2026-05-11",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-aa97fead2a1c",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-11T12:46:05.641Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -655,7 +655,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
+      "title": "Collaboratrice/tore",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "collaboratrice-tore-usi-lugano",
+      "department": "Servizio carriere e alumni",
+      "category": "staff",
+      "datePosted": "2026-05-11",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-aa97fead2a1c",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-11T12:46:05.641Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
@@ -734,47 +775,6 @@
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/imeg/imeg-phd-digital-journalism-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/imeg/imeg-phd-digital-journalism-2026.pdf",
-      "title": "Posizione di dottorando in giornalismo digitale",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-di-dottorando-in-giornalismo-digitale-usi-lugano",
-      "department": "Facoltà di comunicazione, cultura e società – Institute of Media and Journalism (IMeG)",
-      "category": "phd",
-      "datePosted": "2026-06-04",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-2811accf371d",
-      "sourceLang": "en",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-06-04T16:00:50.144Z",
-      "retranslationAttempts": 0,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
         "completeness": 20
       }
     },
