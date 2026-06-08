@@ -8009,6 +8009,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati fermo à cause de travaux',
     'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Chiusura notturna programmata à Giubiasco en raison de travaux de pavimentage: voici les horaires et la section concernée.',
     'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Travaux routiers nocturnes sur la Viale Olgiati à Giubiasco',
+    'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralisation valeurs stima: pas de hausse brutale',
+    'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Face à face avant le 14 juin sur l\'initiative de centre-droit visant à neutraliser les valeurs de estimation et à bloquer les automatismes fiscaux dans la Constitution',
+    'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Palais du gouvernement cantonal à Bellinzona, siège du Grand Conseil',
 };
 
 export default blogMetaFr;

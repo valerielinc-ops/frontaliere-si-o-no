@@ -8009,6 +8009,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati chiude di notte per lavori',
     'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Chiusura notturna programmata per viale Olgiati a Giubiasco a causa di lavori di pavimentazione: ecco gli orari e il tratto interessato.',
     'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Lavori notturni su viale Olgiati a Giubiasco',
+    'blog.article.neutralizzazione-valori-stima-ticino.title': 'Neutralizzazione valori stima Ticino: no stangata, parlamento può agire',
+    'blog.article.neutralizzazione-valori-stima-ticino.excerpt': 'Faccia a faccia prima del 14 giugno sull\'iniziativa centrodestra per neutralizzare i valori di stima e bloccare automatismi fiscali in Costituzione',
+    'blog.article.neutralizzazione-valori-stima-ticino.imageAlt': 'Palazzo del Governo Cantonale a Bellinzona, sede del Gran Consiglio ticinese',
 };
 
 export default blogMetaIt;

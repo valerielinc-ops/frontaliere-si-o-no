@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2753,
+ "numberOfItems": 2754,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7393,7 +7393,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2750, "name": "No allo smantellamento di Ffs Cargo nel Ticino", "url": `${BASE_URL}/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino` },
           { "@type": "ListItem", "position": 2751, "name": "SEM: 108 posti di lavoro tagliati dal 2027", "url": `${BASE_URL}/articoli-frontaliere/sem-taglia-108-posti-lavoro-2027` },
           { "@type": "ListItem", "position": 2752, "name": "Giubiasco, viale Olgiati chiude di notte per la...", "url": `${BASE_URL}/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte` },
-          { "@type": "ListItem", "position": 2753, "name": "Voto Zurigo: alloggi e premi cassa malati", "url": `${BASE_URL}/articoli-frontaliere/voto-zurigo-alloggi-cassa-malati` }
+          { "@type": "ListItem", "position": 2753, "name": "Voto Zurigo: alloggi e premi cassa malati", "url": `${BASE_URL}/articoli-frontaliere/voto-zurigo-alloggi-cassa-malati` },
+          { "@type": "ListItem", "position": 2754, "name": "Neutralizzazione valori stima Ticino: no stanga...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-valori-stima-ticino` }
  ]
  },
  {
