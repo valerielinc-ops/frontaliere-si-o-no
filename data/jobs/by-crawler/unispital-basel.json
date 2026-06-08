@@ -69,7 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -318,7 +317,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -337,7 +335,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -383,18 +381,21 @@
       "previousSlugs": [
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
+        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-radiologie-unispital-basel-ch",
           "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
+          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "en": [
           "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
@@ -402,7 +403,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -487,7 +487,6 @@
         "soins-clinic-ambulatoire-gynecologique-et-oncologique-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -506,9 +505,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "fr": "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -551,7 +550,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
+        "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -566,7 +567,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -585,9 +585,9 @@
       "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
-        "en": "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fr": "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
+        "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -630,7 +630,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel"
+        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
+        "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -645,7 +647,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -966,7 +967,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1030,10 +1030,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1041,12 +1043,10 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "fr": [
-          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-          "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1208,7 +1208,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.335Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1471,7 +1470,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1514,7 +1513,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1527,7 +1527,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1886,17 +1885,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "de": "Pflegefachfrau / Pflegefachmann HF/FH",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH"
+        "en": "Dipl. Nurse / Nurse specialist HF/FH",
+        "fr": "Pflegefachfrau / Pflegefachmann HF/FH"
       },
       "description": "Aufgaben:\n• Betreuung der Patientinnen und Patienten des Kopf-Hals-Tumorzentrums nach Operationen und mit Radio-/Chemotherapien im interprofessionellen Team\n\n• Pflege von Patientinnen und Patienten mit nicht-onkologischen Behandlungen aus der HNO- und Mund-, Kiefer-, Gesichtschirurgie\n\n• Verantwortung für eine hohe Arbeitsqualität sowie Sicherstellung des Pflegeprozesses und den notwendigen Schulungsmassnahmen am Patienten\n\n• Mitgestaltung bei pflegerischen Entwicklungsthemen\n\n• Selbständige Organisation des eigenen Arbeitsbereichs im 3-Schichtbetrieb\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau / Pflegefachmann (HF/FH/DN II)\n\n• Berufserfahrung im Akutbereich von Vorteil\n\n• Stilsicheres Deutsch in Wort und Schrift, Fremdsprachenkenntnisse, insbesondere Französisch, von Vorteil\n\n• Schnelle Auffassungsgabe und versierter Umgang mit MS-Office\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Betreuung der Patientinnen und Patienten des Kopf-Hals-Tumorzentrums nach Operationen und mit Radio-/Chemotherapien im interprofessionellen Team\n\n• Pflege von Patientinnen und Patienten mit nicht-onkologischen Behandlungen aus der HNO- und Mund-, Kiefer-, Gesichtschirurgie\n\n• Verantwortung für eine hohe Arbeitsqualität sowie Sicherstellung des Pflegeprozesses und den notwendigen Schulungsmassnahmen am Patienten\n\n• Mitgestaltung bei pflegerischen Entwicklungsthemen\n\n• Selbständige Organisation des eigenen Arbeitsbereichs im 3-Schichtbetrieb\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau / Pflegefachmann (HF/FH/DN II)\n\n• Berufserfahrung im Akutbereich von Vorteil\n\n• Stilsicheres Deutsch in Wort und Schrift, Fremdsprachenkenntnisse, insbesondere Französisch, von Vorteil\n\n• Schnelle Auffassungsgabe und versierter Umgang mit MS-Office\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Betreuung der Patientinnen und Patienten des Kopf-Hals-Tumorzentrums nach Operationen und mit Radio-/Chemotherapien im interprofessionellen Team\n\n• Pflege von Patientinnen und Patienten mit nicht-onkologischen Behandlungen aus der HNO- und Mund-, Kiefer-, Gesichtschirurgie\n\n• Verantwortung für eine hohe Arbeitsqualität sowie Sicherstellung des Pflegeprozesses und den notwendigen Schulungsmassnahmen am Patienten\n\n• Mitgestaltung bei pflegerischen Entwicklungsthemen\n\n• Selbständige Organisation des eigenen Arbeitsbereichs im 3-Schichtbetrieb\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau / Pflegefachmann (HF/FH/DN II)\n\n• Berufserfahrung im Akutbereich von Vorteil\n\n• Stilsicheres Deutsch in Wort und Schrift, Fremdsprachenkenntnisse, insbesondere Französisch, von Vorteil\n\n• Schnelle Auffassungsgabe und versierter Umgang mit MS-Office\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Betreuung der Patientinnen und Patienten des Kopf-Hals-Tumorzentrums nach Operationen und mit Radio-/Chemotherapien im interprofessionellen Team\n\n• Pflege von Patientinnen und Patienten mit nicht-onkologischen Behandlungen aus der HNO- und Mund-, Kiefer-, Gesichtschirurgie\n\n• Verantwortung für eine hohe Arbeitsqualität sowie Sicherstellung des Pflegeprozesses und den notwendigen Schulungsmassnahmen am Patienten\n\n• Mitgestaltung bei pflegerischen Entwicklungsthemen\n\n• Selbständige Organisation des eigenen Arbeitsbereichs im 3-Schichtbetrieb\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau / Pflegefachmann (HF/FH/DN II)\n\n• Berufserfahrung im Akutbereich von Vorteil\n\n• Stilsicheres Deutsch in Wort und Schrift, Fremdsprachenkenntnisse, insbesondere Französisch, von Vorteil\n\n• Schnelle Auffassungsgabe und versierter Umgang mit MS-Office\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Betreuung der Patientinnen und Patienten des Kopf-Hals-Tumorzentrums nach Operationen und mit Radio-/Chemotherapien im interprofessionellen Team\n\n• Pflege von Patientinnen und Patienten mit nicht-onkologischen Behandlungen aus der HNO- und Mund-, Kiefer-, Gesichtschirurgie\n\n• Verantwortung für eine hohe Arbeitsqualität sowie Sicherstellung des Pflegeprozesses und den notwendigen Schulungsmassnahmen am Patienten\n\n• Mitgestaltung bei pflegerischen Entwicklungsthemen\n\n• Selbständige Organisation des eigenen Arbeitsbereichs im 3-Schichtbetrieb\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau / Pflegefachmann (HF/FH/DN II)\n\n• Berufserfahrung im Akutbereich von Vorteil\n\n• Stilsicheres Deutsch in Wort und Schrift, Fremdsprachenkenntnisse, insbesondere Französisch, von Vorteil\n\n• Schnelle Auffassungsgabe und versierter Umgang mit MS-Office\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## ## Mansioni\n- Betreuung der Patientinnen und Patienten des Kopf-Hals-Tumorzentrums nach Operationen und mit Radio-/Chemotherapien im interprofessionellen Team\n- Pflege von Patientinnen und Patienten mit nicht-onkologischen Behandlungen aus der HNO- und Mund-, Kiefer-, Gesichtschirurgie\n- Verantwortung für eine hohe Arbeitsqualität sowie Sicherstellung des Pflegeprozesses und den notwendigen Schulungsmassnahmen am Patienten\n- Mitgestaltung bei pflegerischen Entwicklungsthemen\n- Selbständige Organisation des eigenen Arbeitsbereichs im 3-Schichtbetrieb\n\n## ## Requisiti\n- Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau / Pflegefachmann (HF/FH/DN II)\n- Berufserfahrung im Akutbereich von Vorteil\n- Stilsicheres Deutsch in Wort und Schrift, Fremdsprachenkenntnisse, insbesondere Französisch, von Vorteil\n- Schnelle Auffassungsgabe und versierter Umgang mit MS-Office\n- Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n## ## Cosa offriamo\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm\n\n## ## Contatto",
+        "it": "## Mansioni\nCura dei pazienti del centro tumorale della testa e del collo dopo le operazioni e con radio/chemoterapie nel team interprofessionale\n- Cura di pazienti con trattamenti non oncologici da ENT e chirurgia orale, maxillofacciale e maxillo-facciale\nResponsabilità per un'alta qualità del lavoro, nonché garantire il processo di cura e le misure di formazione necessarie per il paziente\n- Partecipazione a temi di sviluppo dell'allattamento\n- Organizzazione indipendente della propria area di lavoro in 3 turni\n\n## Requisiti\nFormazione professionale completa come Dipl. Infermieristica professionale (HF/FH/DN II)\n- L'esperienza professionale nel settore acuto è vantaggiosa\n- Tedesco stilistico nella parola e nella scrittura, la conoscenza delle lingue straniere, soprattutto francese, è vantaggioso\nRapida comprensione e migliore gestione di MS-Office\n- Forte orientamento e lavoro di squadra\n\n# Cosa #\n- Politica salariale attraente e benefici sociali eccellenti\n- Vantaggi nelle aree di shopping, sport e tempo libero\nAssistenza nel trasferimento e nella ricerca di alloggi\n- 25 giorni di vacanza più 5 anche free flexitage\n- Sostegno all'istruzione e alla pianificazione della carriera\n- Campus nel cuore di Basilea e nella zona tri-frontaliera\nOpzioni complete per l'infanzia\n- Programma di sport e di esercizio gratuito\n\n## Contatto",
+        "en": "## Mansioni\nCare of patients of the head and neck tumor center after operations and with radio/chemotherapies in the interprofessional team\n- Care of patients with non-oncological treatments from ENT and oral, maxillofacial and maxillofacial surgery\nResponsibility for a high quality of work as well as ensuring the care process and the necessary training measures for the patient\n- Participation in nursing development topics\n- Independent organization of your own work area in 3-shift operation\n\n## Requirements\nCompleted vocational training as a Dipl. Nursing professional (HF/FH/DN II)\n- Professional experience in the acute sector is advantageous\n- Stylistic German in word and writing, knowledge of foreign languages, especially French, is advantageous\nQuick comprehension and better handling of MS-Office\n- Strong service orientation and teamwork\n\n## Cosa offriamo\n- Attractive wage policy and excellent social benefits\n- Advantages in the areas of shopping, sports and leisure\nAssistance in moving and finding accommodation\n- 25 holiday days plus 5 also free flexitage\n- Support for further education and career planning\n- Campus in the heart of Basel and the Tri-border area\nComprehensive childcare options\n- Free sports and exercise program\n\n## Contatto",
+        "fr": "## Mansioni - Prise en charge des patientes et patients du centre de tumeurs de la tête et du cou après une opération et avec des radiothérapies/chimiothérapies dans l'équipe interprofessionnelle - Soins des patientes et patients avec des traitements non oncologiques issus de la chirurgie ORL et de la chirurgie buccale, maxillo-faciale - Responsabilité de la qualité du travail ainsi que de la garantie du processus de soins et des mesures de formation nécessaires sur le patient - Co-conception de thèmes de développement infirmier - Organisation indépendante de son propre domaine de travail en 3 équipes ## Requisiti - Formation professionnelle achevée en tant que diplôme. Infirmière / infirmier (HF/FH/DN II) - Une expérience professionnelle dans le domaine des soins aigus est un atout - Un allemand parlé et écrit sûr de son style, des connaissances en langues étrangères, en particulier le français, sont un atout - Une compréhension rapide et une utilisation experte du MS-Office - Une orientation vers les services et une capacité d'équipe prononcées ## Cosa offriamo - Une politique salariale attrayante et d'excellentes prestations sociales - Des avantages dans les domaines du shopping, du sport et des loisirs - Aide au déménagement et à la recherche d'un logement - 25 jours de vacances plus 5 journées flexibles également gratuites - Aide à la formation continue et à la planification de carrière - Campus au cœur de Bâle et dans la région des trois pays - Des possibilités complètes de garde d'enfants - Programme de sport et d'activité physique gratuit ## Contatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -1922,14 +1921,17 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-y80ezo",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-cje476",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-3"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2033,9 +2035,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "fr": "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2078,7 +2080,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
+        "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2093,7 +2097,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2276,9 +2279,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2321,7 +2324,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
+        "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2336,7 +2341,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2418,7 +2422,6 @@
         "administrative-r-collaboratore-trice-in-case-management-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2517,7 +2520,6 @@
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2815,7 +2817,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2858,7 +2860,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2871,7 +2874,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3028,7 +3030,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3193,7 +3194,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3360,7 +3360,6 @@
         "fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.285Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3378,7 +3377,7 @@
       "id": "unispital-basel-f16341854433",
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
@@ -3434,22 +3433,21 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-          "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3616,7 +3614,6 @@
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
@@ -3625,10 +3622,11 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3958,7 +3956,6 @@
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4355,8 +4352,8 @@
           "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ],
         "en": [
           "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
@@ -4372,7 +4369,6 @@
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
@@ -4386,10 +4382,11 @@
         "assistentin-assistent-gesundheit-und-soziales-dialyse-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-18T13:25:45.876Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4550,7 +4547,6 @@
         "apprenti-klinikleitung-augenklinik-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T12:50:29.629Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4869,7 +4865,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:42:28.490Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5191,7 +5186,6 @@
         ]
       },
       "firstSeenAt": "2026-05-22T13:24:58.838Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5677,7 +5671,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.917Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5971,7 +5964,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.913Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6052,7 +6044,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6203,7 +6194,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6680,7 +6670,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6723,7 +6713,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6735,7 +6726,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6978,7 +6968,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7271,7 +7260,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -7300,16 +7288,16 @@
       "title": "Administrative*r Mitarbeiter*in Empfang",
       "titleByLocale": {
         "de": "Administrative*r Mitarbeiter*in Empfang",
-        "it": "Administrative*r Collaboratore/trice*in Empfang",
-        "en": "Administrative*r Mitarbeiter*in Empfang",
-        "fr": "Administrative*r Mitarbeiter*in Empfang"
+        "it": "Personale amministrativo* Reception",
+        "en": "Administrative staff* Reception",
+        "fr": "Personnel administratif*"
       },
       "description": "Aufgaben:\n• Empfang und Aufnahme von Patientinnen und Patienten\n\n• Koordination von Erst- und Folgeterminen\n\n• Entgegennahme und Vermitteln von Anrufen sowie Erteilen von Auskünften\n\n• Vorbereitung und Organisation der Sprechstunden einschliesslich Stammdatenpflege\n\n• Prüfen der Leistungserfassung sowie Korrespondenz mit diversen Versicherungsträgern\n\n• Allgemeine administrative Tätigkeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung (kaufmännisch oder pflegerisch) mit administrativer Erfahrung im Gesundheitswesen; Weiterbildung als Arztsekretär*in von Vorteil\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Souveräne Umgangsformen und Diskretion\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Französischkenntnisse werden vorausgesetzt; weitere Fremdsprachenkenntnisse von Vorteil\n\n• Sehr gute EDV-Anwenderkenntnisse in MS Office (SAP von Vorteil)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Empfang und Aufnahme von Patientinnen und Patienten\n\n• Koordination von Erst- und Folgeterminen\n\n• Entgegennahme und Vermitteln von Anrufen sowie Erteilen von Auskünften\n\n• Vorbereitung und Organisation der Sprechstunden einschliesslich Stammdatenpflege\n\n• Prüfen der Leistungserfassung sowie Korrespondenz mit diversen Versicherungsträgern\n\n• Allgemeine administrative Tätigkeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung (kaufmännisch oder pflegerisch) mit administrativer Erfahrung im Gesundheitswesen; Weiterbildung als Arztsekretär*in von Vorteil\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Souveräne Umgangsformen und Diskretion\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Französischkenntnisse werden vorausgesetzt; weitere Fremdsprachenkenntnisse von Vorteil\n\n• Sehr gute EDV-Anwenderkenntnisse in MS Office (SAP von Vorteil)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Empfang und Aufnahme von Patientinnen und Patienten\n\n• Koordination von Erst- und Folgeterminen\n\n• Entgegennahme und Vermitteln von Anrufen sowie Erteilen von Auskünften\n\n• Vorbereitung und Organisation der Sprechstunden einschliesslich Stammdatenpflege\n\n• Prüfen der Leistungserfassung sowie Korrespondenz mit diversen Versicherungsträgern\n\n• Allgemeine administrative Tätigkeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung (kaufmännisch oder pflegerisch) mit administrativer Erfahrung im Gesundheitswesen; Weiterbildung als Arztsekretär*in von Vorteil\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Souveräne Umgangsformen und Diskretion\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Französischkenntnisse werden vorausgesetzt; weitere Fremdsprachenkenntnisse von Vorteil\n\n• Sehr gute EDV-Anwenderkenntnisse in MS Office (SAP von Vorteil)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Empfang und Aufnahme von Patientinnen und Patienten\n\n• Koordination von Erst- und Folgeterminen\n\n• Entgegennahme und Vermitteln von Anrufen sowie Erteilen von Auskünften\n\n• Vorbereitung und Organisation der Sprechstunden einschliesslich Stammdatenpflege\n\n• Prüfen der Leistungserfassung sowie Korrespondenz mit diversen Versicherungsträgern\n\n• Allgemeine administrative Tätigkeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung (kaufmännisch oder pflegerisch) mit administrativer Erfahrung im Gesundheitswesen; Weiterbildung als Arztsekretär*in von Vorteil\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Souveräne Umgangsformen und Diskretion\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Französischkenntnisse werden vorausgesetzt; weitere Fremdsprachenkenntnisse von Vorteil\n\n• Sehr gute EDV-Anwenderkenntnisse in MS Office (SAP von Vorteil)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Empfang und Aufnahme von Patientinnen und Patienten\n\n• Koordination von Erst- und Folgeterminen\n\n• Entgegennahme und Vermitteln von Anrufen sowie Erteilen von Auskünften\n\n• Vorbereitung und Organisation der Sprechstunden einschliesslich Stammdatenpflege\n\n• Prüfen der Leistungserfassung sowie Korrespondenz mit diversen Versicherungsträgern\n\n• Allgemeine administrative Tätigkeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung (kaufmännisch oder pflegerisch) mit administrativer Erfahrung im Gesundheitswesen; Weiterbildung als Arztsekretär*in von Vorteil\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Souveräne Umgangsformen und Diskretion\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Französischkenntnisse werden vorausgesetzt; weitere Fremdsprachenkenntnisse von Vorteil\n\n• Sehr gute EDV-Anwenderkenntnisse in MS Office (SAP von Vorteil)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## Descrizione\n- Empfang und Aufnahme von Patientinnen und Patienten\n- Koordination von Erst- und Folgeterminen\n- Entgegennahme und Vermitteln von Anrufen sowie Erteilen von Auskünften\n- Vorbereitung und Organisation der Sprechstunden einschliesslich Stammdatenpflege\n- Prüfen der Leistungserfassung sowie Korrespondenz mit diversen Versicherungsträgern\n- Allgemeine administrative Tätigkeiten\n\n## Requisiti\n- Abgeschlossene Ausbildung (kaufmännisch oder pflegerisch) mit administrativer Erfahrung im Gesundheitswesen; Weiterbildung als Arztsekretär*in von Vorteil\n- Gute Kenntnisse der medizinischen Terminologie\n- Souveräne Umgangsformen und Diskretion\n- Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Französischkenntnisse werden vorausgesetzt; weitere Fremdsprachenkenntnisse von Vorteil\n- Sehr gute EDV-Anwenderkenntnisse in MS Office (SAP von Vorteil)\n\n## Cosa offriamo\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm\n\n## Contatto",
+        "it": "Descrizione\nRicezione e ricezione dei pazienti\n- Coordinamento delle nomine prima e successive\nRicevere e comunicare chiamate e fornire informazioni\n- Preparazione e organizzazione delle ore di ufficio, compresa la manutenzione dei dati master\n- Controllare il record di prestazioni e la corrispondenza con vari vettori assicurativi\nAttività amministrative generali\n\nRequisiti\n- Formazione completa (commerciale o infermieristica) con esperienza amministrativa nell'assistenza sanitaria;\nBuona conoscenza della terminologia medica\n- Sovrane maniere e discrezione\n- La conoscenza elegante-confidente del tedesco nelle parole e nella scrittura e la conoscenza molto buona del francese sono necessari; Ulteriori conoscenze delle lingue straniere sono vantaggiose\n- Conoscenza dell'utente IT molto buona in MS Office (SAP benefico)\n\nCosa di Friamo\n- Politica salariale attraente e benefici sociali eccellenti\n- Vantaggi nelle aree di shopping, sport e tempo libero\nAssistenza nel trasferimento e nella ricerca di alloggi\n- 25 giorni di vacanza più 5 anche free flexitage\n- Sostegno all'istruzione e alla pianificazione della carriera\n- Campus nel cuore di Basilea e nella zona tri-frontaliera\nOpzioni complete per l'infanzia\n- Programma di sport e di esercizio gratuito\n\nContatto",
+        "en": "Descrizione\nReception and reception of patients\n- Coordination of first and subsequent appointments\nReceiving and communicating calls and providing information\n- Preparation and organisation of office hours including master data maintenance\n- Checking the performance record and correspondence with various insurance carriers\nGeneral administrative activities\n\nRequirements\n- Completed training (commercial or nursing) with administrative experience in health care; Further training as medical secretary* is an advantage\nGood knowledge of medical terminology\n- Sovereign manners and discretion\n- Stylish-confident knowledge of German in words and writing as well as very good knowledge of French are required; Further knowledge of foreign languages is advantageous\n- Very good IT user knowledge in MS Office (SAP beneficial)\n\nCosa of Friamo\n- Attractive wage policy and excellent social benefits\n- Advantages in the areas of shopping, sports and leisure\nAssistance in moving and finding accommodation\n- 25 holiday days plus 5 also free flexitage\n- Support for further education and career planning\n- Campus in the heart of Basel and the Tri-border area\nComprehensive childcare options\n- Free sports and exercise program\n\nContatto",
+        "fr": "Descrizione\nRéception et accueil des patients\n- Coordination de la première nomination et des nominations ultérieures\nRéception et communication des appels et information\n- Préparation et organisation des heures de bureau, y compris la maintenance des données maîtresses\n- Vérification du dossier de performance et de la correspondance avec divers transporteurs d'assurance\nActivités administratives générales\n\nExigences\n- Formation complète (commerciale ou infirmière) avec une expérience administrative dans les soins de santé;\nBonne connaissance de la terminologie médicale\n- Les manières souveraines et la discrétion\n- La connaissance de l'allemand par les mots et l'écriture ainsi que la très bonne connaissance du français sont nécessaires; Une connaissance accrue des langues étrangères est avantageuse\n- Très bonne connaissance de l'utilisateur informatique dans MS Office (SAP bénéfique)\n\nCosa de Friamo\n- Une politique salariale attrayante et d'excellentes prestations sociales\n- Avantages dans les domaines du shopping, des sports et des loisirs\nAide au déménagement et à la recherche de logements\n- 25 jours de vacances plus 5 flexitage gratuit\n- Appui à la formation continue et à la planification des carrières\n- Campus au cœur de Bâle et de la zone Tri-frontière\nOptions globales en matière de garde d'enfants\n- Programme de sports et d'exercices gratuits\n\nContatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7335,7 +7323,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "administrative-r-mitarbeiter-in-empfang-unispital-basel-ch"
@@ -7373,16 +7360,16 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH - Hämatologie",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH - Hämatologie",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH - Hämatologie",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH - Hämatologie",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH - Hämatologie"
+        "it": "Dipl. Infermieristica HF/FH - Ematologia",
+        "en": "Dipl. Nursing specialist HF/FH - Hematology",
+        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH - Hématologie"
       },
       "description": "Aufgaben:\n• Sie pflegen, begleiten und unterstützen unsere hämatologisch-onkologischen Patientinnen und Patienten sowie deren Angehörigen\n\n• Sie bereiten die Patientinnen und Patienten gezielt auf das Selbstmanagement nach dem Spitalaufenthalt vor\n\n• Sie arbeiten mit Passion in interdisziplinären und -professionellen Behandlungsteams\n\n• Sie haben Umgang mit Zytostatika, Antikörper- und Immuntherapien\n\n• Zusammen mit dem Team setzen Sie die kontinuierliche Weiterentwicklung der klinischen Pflegepraxis zur Best-Practice/Best Care und einer evidenzbasierten, resultat- und patientenorientierten Pflege um\n\n• Sie tragen aktiv zur positiven Kultur in unseren Teams bei und unterstützen die Einarbeitung neuer Kolleginnen und Kollegen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachfrau/ Pflegefachmann (HF/FH)\n\n• Sie haben grosses Interesse an der komplexen Akutmedizin. Erfahrung und Kenntnisse in der Hämatologie/Onkologie sind von Vorteil aber keine Voraussetzung.\n\n• Sie überzeugen durch ihre offene und wertschätzende Kommunikation und ihre konsequente Dienstleistungsorientierung\n\n• Sie bringen Begeisterung und den Willen mit, sich in multiprofessionellen Teams souverän und erfolgreich einzubringen\n\n• Sie kommunizieren sicher und souverän in deutscher Sprache (mind. Niveau B2)\n\n• Bereitschaft im 3 Schichtsystem zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Sie pflegen, begleiten und unterstützen unsere hämatologisch-onkologischen Patientinnen und Patienten sowie deren Angehörigen\n\n• Sie bereiten die Patientinnen und Patienten gezielt auf das Selbstmanagement nach dem Spitalaufenthalt vor\n\n• Sie arbeiten mit Passion in interdisziplinären und -professionellen Behandlungsteams\n\n• Sie haben Umgang mit Zytostatika, Antikörper- und Immuntherapien\n\n• Zusammen mit dem Team setzen Sie die kontinuierliche Weiterentwicklung der klinischen Pflegepraxis zur Best-Practice/Best Care und einer evidenzbasierten, resultat- und patientenorientierten Pflege um\n\n• Sie tragen aktiv zur positiven Kultur in unseren Teams bei und unterstützen die Einarbeitung neuer Kolleginnen und Kollegen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachfrau/ Pflegefachmann (HF/FH)\n\n• Sie haben grosses Interesse an der komplexen Akutmedizin. Erfahrung und Kenntnisse in der Hämatologie/Onkologie sind von Vorteil aber keine Voraussetzung.\n\n• Sie überzeugen durch ihre offene und wertschätzende Kommunikation und ihre konsequente Dienstleistungsorientierung\n\n• Sie bringen Begeisterung und den Willen mit, sich in multiprofessionellen Teams souverän und erfolgreich einzubringen\n\n• Sie kommunizieren sicher und souverän in deutscher Sprache (mind. Niveau B2)\n\n• Bereitschaft im 3 Schichtsystem zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Sie pflegen, begleiten und unterstützen unsere hämatologisch-onkologischen Patientinnen und Patienten sowie deren Angehörigen\n\n• Sie bereiten die Patientinnen und Patienten gezielt auf das Selbstmanagement nach dem Spitalaufenthalt vor\n\n• Sie arbeiten mit Passion in interdisziplinären und -professionellen Behandlungsteams\n\n• Sie haben Umgang mit Zytostatika, Antikörper- und Immuntherapien\n\n• Zusammen mit dem Team setzen Sie die kontinuierliche Weiterentwicklung der klinischen Pflegepraxis zur Best-Practice/Best Care und einer evidenzbasierten, resultat- und patientenorientierten Pflege um\n\n• Sie tragen aktiv zur positiven Kultur in unseren Teams bei und unterstützen die Einarbeitung neuer Kolleginnen und Kollegen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachfrau/ Pflegefachmann (HF/FH)\n\n• Sie haben grosses Interesse an der komplexen Akutmedizin. Erfahrung und Kenntnisse in der Hämatologie/Onkologie sind von Vorteil aber keine Voraussetzung.\n\n• Sie überzeugen durch ihre offene und wertschätzende Kommunikation und ihre konsequente Dienstleistungsorientierung\n\n• Sie bringen Begeisterung und den Willen mit, sich in multiprofessionellen Teams souverän und erfolgreich einzubringen\n\n• Sie kommunizieren sicher und souverän in deutscher Sprache (mind. Niveau B2)\n\n• Bereitschaft im 3 Schichtsystem zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Sie pflegen, begleiten und unterstützen unsere hämatologisch-onkologischen Patientinnen und Patienten sowie deren Angehörigen\n\n• Sie bereiten die Patientinnen und Patienten gezielt auf das Selbstmanagement nach dem Spitalaufenthalt vor\n\n• Sie arbeiten mit Passion in interdisziplinären und -professionellen Behandlungsteams\n\n• Sie haben Umgang mit Zytostatika, Antikörper- und Immuntherapien\n\n• Zusammen mit dem Team setzen Sie die kontinuierliche Weiterentwicklung der klinischen Pflegepraxis zur Best-Practice/Best Care und einer evidenzbasierten, resultat- und patientenorientierten Pflege um\n\n• Sie tragen aktiv zur positiven Kultur in unseren Teams bei und unterstützen die Einarbeitung neuer Kolleginnen und Kollegen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachfrau/ Pflegefachmann (HF/FH)\n\n• Sie haben grosses Interesse an der komplexen Akutmedizin. Erfahrung und Kenntnisse in der Hämatologie/Onkologie sind von Vorteil aber keine Voraussetzung.\n\n• Sie überzeugen durch ihre offene und wertschätzende Kommunikation und ihre konsequente Dienstleistungsorientierung\n\n• Sie bringen Begeisterung und den Willen mit, sich in multiprofessionellen Teams souverän und erfolgreich einzubringen\n\n• Sie kommunizieren sicher und souverän in deutscher Sprache (mind. Niveau B2)\n\n• Bereitschaft im 3 Schichtsystem zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Sie pflegen, begleiten und unterstützen unsere hämatologisch-onkologischen Patientinnen und Patienten sowie deren Angehörigen\n\n• Sie bereiten die Patientinnen und Patienten gezielt auf das Selbstmanagement nach dem Spitalaufenthalt vor\n\n• Sie arbeiten mit Passion in interdisziplinären und -professionellen Behandlungsteams\n\n• Sie haben Umgang mit Zytostatika, Antikörper- und Immuntherapien\n\n• Zusammen mit dem Team setzen Sie die kontinuierliche Weiterentwicklung der klinischen Pflegepraxis zur Best-Practice/Best Care und einer evidenzbasierten, resultat- und patientenorientierten Pflege um\n\n• Sie tragen aktiv zur positiven Kultur in unseren Teams bei und unterstützen die Einarbeitung neuer Kolleginnen und Kollegen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachfrau/ Pflegefachmann (HF/FH)\n\n• Sie haben grosses Interesse an der komplexen Akutmedizin. Erfahrung und Kenntnisse in der Hämatologie/Onkologie sind von Vorteil aber keine Voraussetzung.\n\n• Sie überzeugen durch ihre offene und wertschätzende Kommunikation und ihre konsequente Dienstleistungsorientierung\n\n• Sie bringen Begeisterung und den Willen mit, sich in multiprofessionellen Teams souverän und erfolgreich einzubringen\n\n• Sie kommunizieren sicher und souverän in deutscher Sprache (mind. Niveau B2)\n\n• Bereitschaft im 3 Schichtsystem zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## Descrizione\n- Sie pflegen, begleiten und unterstützen unsere hämatologisch-onkologischen Patientinnen und Patienten sowie deren Angehörigen\n- Sie bereiten die Patientinnen und Patienten gezielt auf das Selbstmanagement nach dem Spitalaufenthalt vor\n- Sie arbeiten mit Passion in interdisziplinären und -professionellen Behandlungsteams\n- Sie haben Umgang mit Zytostatika, Antikörper- und Immuntherapien\n- Zusammen mit dem Team setzen Sie die kontinuierliche Weiterentwicklung der klinischen Pflegepraxis zur Best-Practice/Best Care und einer evidenzbasierten, resultat- und patientenorientierten Pflege um\n- Sie tragen aktiv zur positiven Kultur in unseren Teams bei und unterstützen die Einarbeitung neuer Kolleginnen und Kollegen\n\n## Requisiti\n- Sie verfügen über eine abgeschlossene Ausbildung als Pflegefachfrau/ Pflegefachmann (HF/FH)\n- Sie haben grosses Interesse an der komplexen Akutmedizin. Erfahrung und Kenntnisse in der Hämatologie/Onkologie sind von Vorteil aber keine Voraussetzung.\n- Sie überzeugen durch ihre offene und wertschätzende Kommunikation und ihre konsequente Dienstleistungsorientierung\n- Sie bringen Begeisterung und den Willen mit, sich in multiprofessionellen Teams souverän und erfolgreich einzubringen\n- Sie kommunizieren sicher und souverän in deutscher Sprache (mind. Niveau B2)\n- Bereitschaft im 3 Schichtsystem zu arbeiten\n\n## Cosa offriamo\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm\n\n## Contatto",
+        "it": "Descrizione\nSi preoccupano, accompagnano e sostengono i nostri pazienti ematologici-oncologici e i loro parenti\n- Preparano i pazienti specificamente per l'autogestione dopo il soggiorno in ospedale\n- Lavori con passione in team di trattamento interdisciplinari e professionali\n- Hai a che fare con citostatici, anticorpo e immunoterapie\nInsieme al team, implementerai lo sviluppo continuo della pratica clinica di allattamento nella migliore pratica/migliore cura e la cura basata sulle prove, sui risultati e sui pazienti.\n- Essi contribuiscono attivamente alla cultura positiva nei nostri team e sostengono l'induzione di nuovi colleghi\n\nRequisiti\n- Hai completato l'addestramento come infermiera (HF/FH)\n- Ha un grande interesse per la medicina acuta complessa. Esperienza e conoscenza in ematologia/oncologia sono vantaggiose ma non prerequisiti.\n- Convincono attraverso la loro comunicazione aperta e apprezzata e il loro orientamento di servizio coerente\n- Portate entusiasmo e la volontà di contribuire a team multi-professionali con fiducia e successo\n- Comunichi in modo sicuro e sicuro in tedesco (livello minimo B2)\n- Volontà di lavorare nel sistema a 3 turni\n\nCosa di Friamo\n- Politica salariale attraente e benefici sociali eccellenti\n- Vantaggi nelle aree di shopping, sport e tempo libero\nAssistenza nel trasferimento e nella ricerca di alloggi\n- 25 giorni di vacanza più 5 anche free flexitage\n- Sostegno all'istruzione e alla pianificazione della carriera\n- Campus nel cuore di Basilea e nella zona tri-frontaliera\nOpzioni complete per l'infanzia\n- Programma di sport e di esercizio gratuito\n\nContatto",
+        "en": "Descrizione\nThey care for, accompany and support our hematological-oncological patients and their relatives\n- They prepare patients specifically for self-management after the hospital stay\n- You work with passion in interdisciplinary and professional treatment teams\n- You are dealing with cytostatics, antibody and immunotherapies\nTogether with the team, you will implement the continuous development of clinical nursing practice into best practice/best care and evidence-based, results- and patient-oriented care.\n- They actively contribute to the positive culture in our teams and support the induction of new colleagues\n\nRequirements\n- You have completed training as a nurse (HF/FH)\n- You have a great interest in complex acute medicine. Experience and knowledge in hematology/oncology are advantageous but not a prerequisite.\n- They convince through their open and appreciative communication and their consistent service orientation\n- You bring enthusiasm and the will to contribute to multi-professional teams confidently and successfully\n- You communicate safely and confidently in German (minor level B2)\n- Willingness to work in the 3 shift system\n\nCosa of Friamo\n- Attractive wage policy and excellent social benefits\n- Advantages in the areas of shopping, sports and leisure\nAssistance in moving and finding accommodation\n- 25 holiday days plus 5 also free flexitage\n- Support for further education and career planning\n- Campus in the heart of Basel and the Tri-border area\nComprehensive childcare options\n- Free sports and exercise program\n\nContatto",
+        "fr": "Descrizione\nIls s'occupent, accompagnent et soutiennent nos patients hématologiques-oncologiques et leurs proches\n- Ils préparent les patients spécifiquement pour l'autogestion après le séjour à l'hôpital\n- Vous travaillez avec passion dans des équipes de traitement interdisciplinaires et professionnelles\n- Vous avez affaire à des cytostatiques, anticorps et immunothérapies\nEn collaboration avec l'équipe, vous mettrez en oeuvre le développement continu de la pratique infirmière clinique dans les meilleures pratiques, les meilleurs soins et les soins fondés sur des données probantes, axés sur les résultats et le patient.\n- Ils contribuent activement à la culture positive de nos équipes et soutiennent l'induction de nouveaux collègues\n\nExigences\n- Vous avez suivi une formation d'infirmière (HF/FH)\n- Vous avez un grand intérêt pour la médecine aiguë complexe. L'expérience et les connaissances en hématologie/oncologie sont avantageuses, mais pas une condition préalable.\n- Ils convainquent par leur communication ouverte et reconnaissante et leur orientation de service cohérente\n- Vous apportez l'enthousiasme et la volonté de contribuer aux équipes multiprofessionnelles avec confiance et succès\n- Vous communiquez en toute sécurité et en toute confiance en allemand (niveau B2)\n- Volonté de travailler dans le système des 3 postes\n\nCosa de Friamo\n- Une politique salariale attrayante et d'excellentes prestations sociales\n- Avantages dans les domaines du shopping, des sports et des loisirs\nAide au déménagement et à la recherche de logements\n- 25 jours de vacances plus 5 flexitage gratuit\n- Appui à la formation continue et à la planification des carrières\n- Campus au cœur de Bâle et de la zone Tri-frontière\nOptions globales en matière de garde d'enfants\n- Programme de sports et d'exercices gratuits\n\nContatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7408,7 +7395,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7438,16 +7424,16 @@
       "title": "(MD-)PhD Position (Interface of Clinical and Experimental Neurology)",
       "titleByLocale": {
         "en": "(MD-)PhD Position (Interface of Clinical and Experimental Neurology)",
-        "it": "(MD-)PhD Position (Interface of Clinical and Experimental Neurology)",
-        "de": "(MD-)PhD Position (Interface of Clinical and Experimental Neurology)",
-        "fr": "(MD-)PhD Position (Interface of Clinical and Experimental Neurology)"
+        "it": "(MD-)PhD Position (Interfaccia di neurologia clinica e sperimentale)",
+        "de": "(MD-)PhD-Position (Schnittstelle der klinischen und experimentellen Neurologie)",
+        "fr": "(MD-)PhD Position (Interface de neurologie clinique et expérimentale)"
       },
       "description": "Aufgaben:\n• Actively contribute to the development and implementation of translational research projects in neuroimmunology with a focus on stroke\n\n• Combine clinical research with experimental laboratory work to investigate immunological mechanisms following cerebral ischemia\n\n• Plan, conduct, and analyze experiments (including FACS analyses and epigenetic methods)\n\n• Analyze clinical and experimental data in close collaboration with interdisciplinary teams\n\n• Contribute to scientific publications and presentations at international conferences\n\n• Participate in teaching activities in neurology and/or biomedical sciences\n\nAnforderungen:\n• Master's degree, preferably in human medicine, neuroscience, biomedicine, or a related field\n\n• Strong interest in translational research in neuroimmunology and stroke\n\n• Experience in laboratory work, particularly FACS (flow cytometry) and/or epigenetic methods, is an advantage\n\n• Basic knowledge of data analysis and statistics\n\n• Excellent written and spoken English; German is an asset\n\n• Ability to work both independently and as part of an interdisciplinary team\n\nWir bieten:\n• Attractive salary policy and exceptional social benefits\n\n• Discounts for shopping, sport and recreation\n\n• Support during relocation and apartment hunting\n\n• 25 vacation days, plus 5 flexible free days\n\n• Support in further training and education, plus career planning\n\n• Campus in the heart of Basel and the tri-border region\n\n• Comprehensive childcare options\n\n• Free-of-charge sport and fitness program",
       "descriptionByLocale": {
-        "en": "Aufgaben:\n• Actively contribute to the development and implementation of translational research projects in neuroimmunology with a focus on stroke\n\n• Combine clinical research with experimental laboratory work to investigate immunological mechanisms following cerebral ischemia\n\n• Plan, conduct, and analyze experiments (including FACS analyses and epigenetic methods)\n\n• Analyze clinical and experimental data in close collaboration with interdisciplinary teams\n\n• Contribute to scientific publications and presentations at international conferences\n\n• Participate in teaching activities in neurology and/or biomedical sciences\n\nAnforderungen:\n• Master's degree, preferably in human medicine, neuroscience, biomedicine, or a related field\n\n• Strong interest in translational research in neuroimmunology and stroke\n\n• Experience in laboratory work, particularly FACS (flow cytometry) and/or epigenetic methods, is an advantage\n\n• Basic knowledge of data analysis and statistics\n\n• Excellent written and spoken English; German is an asset\n\n• Ability to work both independently and as part of an interdisciplinary team\n\nWir bieten:\n• Attractive salary policy and exceptional social benefits\n\n• Discounts for shopping, sport and recreation\n\n• Support during relocation and apartment hunting\n\n• 25 vacation days, plus 5 flexible free days\n\n• Support in further training and education, plus career planning\n\n• Campus in the heart of Basel and the tri-border region\n\n• Comprehensive childcare options\n\n• Free-of-charge sport and fitness program",
-        "it": "Aufgaben:\n• Actively contribute to the development and implementation of translational research projects in neuroimmunology with a focus on stroke\n\n• Combine clinical research with experimental laboratory work to investigate immunological mechanisms following cerebral ischemia\n\n• Plan, conduct, and analyze experiments (including FACS analyses and epigenetic methods)\n\n• Analyze clinical and experimental data in close collaboration with interdisciplinary teams\n\n• Contribute to scientific publications and presentations at international conferences\n\n• Participate in teaching activities in neurology and/or biomedical sciences\n\nAnforderungen:\n• Master's degree, preferably in human medicine, neuroscience, biomedicine, or a related field\n\n• Strong interest in translational research in neuroimmunology and stroke\n\n• Experience in laboratory work, particularly FACS (flow cytometry) and/or epigenetic methods, is an advantage\n\n• Basic knowledge of data analysis and statistics\n\n• Excellent written and spoken English; German is an asset\n\n• Ability to work both independently and as part of an interdisciplinary team\n\nWir bieten:\n• Attractive salary policy and exceptional social benefits\n\n• Discounts for shopping, sport and recreation\n\n• Support during relocation and apartment hunting\n\n• 25 vacation days, plus 5 flexible free days\n\n• Support in further training and education, plus career planning\n\n• Campus in the heart of Basel and the tri-border region\n\n• Comprehensive childcare options\n\n• Free-of-charge sport and fitness program",
-        "de": "Aufgaben:\n• Actively contribute to the development and implementation of translational research projects in neuroimmunology with a focus on stroke\n\n• Combine clinical research with experimental laboratory work to investigate immunological mechanisms following cerebral ischemia\n\n• Plan, conduct, and analyze experiments (including FACS analyses and epigenetic methods)\n\n• Analyze clinical and experimental data in close collaboration with interdisciplinary teams\n\n• Contribute to scientific publications and presentations at international conferences\n\n• Participate in teaching activities in neurology and/or biomedical sciences\n\nAnforderungen:\n• Master's degree, preferably in human medicine, neuroscience, biomedicine, or a related field\n\n• Strong interest in translational research in neuroimmunology and stroke\n\n• Experience in laboratory work, particularly FACS (flow cytometry) and/or epigenetic methods, is an advantage\n\n• Basic knowledge of data analysis and statistics\n\n• Excellent written and spoken English; German is an asset\n\n• Ability to work both independently and as part of an interdisciplinary team\n\nWir bieten:\n• Attractive salary policy and exceptional social benefits\n\n• Discounts for shopping, sport and recreation\n\n• Support during relocation and apartment hunting\n\n• 25 vacation days, plus 5 flexible free days\n\n• Support in further training and education, plus career planning\n\n• Campus in the heart of Basel and the tri-border region\n\n• Comprehensive childcare options\n\n• Free-of-charge sport and fitness program",
-        "fr": "Aufgaben:\n• Actively contribute to the development and implementation of translational research projects in neuroimmunology with a focus on stroke\n\n• Combine clinical research with experimental laboratory work to investigate immunological mechanisms following cerebral ischemia\n\n• Plan, conduct, and analyze experiments (including FACS analyses and epigenetic methods)\n\n• Analyze clinical and experimental data in close collaboration with interdisciplinary teams\n\n• Contribute to scientific publications and presentations at international conferences\n\n• Participate in teaching activities in neurology and/or biomedical sciences\n\nAnforderungen:\n• Master's degree, preferably in human medicine, neuroscience, biomedicine, or a related field\n\n• Strong interest in translational research in neuroimmunology and stroke\n\n• Experience in laboratory work, particularly FACS (flow cytometry) and/or epigenetic methods, is an advantage\n\n• Basic knowledge of data analysis and statistics\n\n• Excellent written and spoken English; German is an asset\n\n• Ability to work both independently and as part of an interdisciplinary team\n\nWir bieten:\n• Attractive salary policy and exceptional social benefits\n\n• Discounts for shopping, sport and recreation\n\n• Support during relocation and apartment hunting\n\n• 25 vacation days, plus 5 flexible free days\n\n• Support in further training and education, plus career planning\n\n• Campus in the heart of Basel and the tri-border region\n\n• Comprehensive childcare options\n\n• Free-of-charge sport and fitness program"
+        "en": "## Descrizione\n- Actively contribute to the development and implementation of translational research projects in neuroimmunology with a focus on stroke\n- Combine clinical research with experimental laboratory work to investigate immunological mechanisms following cerebral ischemia\n- Plan, conduct, and analyze experiments (including FACS analyses and epigenetic methods)\n- Analyze clinical and experimental data in close collaboration with interdisciplinary teams\n- Contribute to scientific publications and presentations at international conferences\n- Participate in teaching activities in neurology and/or biomedical sciences\n\n## Requisiti\n- Master's degree, preferably in human medicine, neuroscience, biomedicine, or a related field\n- Strong interest in translational research in neuroimmunology and stroke\n- Experience in laboratory work, particularly FACS (flow cytometry) and/or epigenetic methods, is an advantage\n- Basic knowledge of data analysis and statistics\n- Excellent written and spoken English; German is an asset\n- Ability to work both independently and as part of an interdisciplinary team\n\n## Cosa offriamo\n- Attractive salary policy and exceptional social benefits\n- Discounts for shopping, sport and recreation\n- Support during relocation and apartment hunting\n- 25 vacation days, plus 5 flexible free days\n- Support in further training and education, plus career planning\n- Campus in the heart of Basel and the tri-border region\n- Comprehensive childcare options\n- Free-of-charge sport and fitness program\n\n## Contatto",
+        "it": "Descrizione\n- Contribuire attivamente allo sviluppo e all'attuazione di progetti di ricerca traduttiva in neuroimmunologia con un focus sul colpo\n- Combinare la ricerca clinica con il lavoro di laboratorio sperimentale per indagare i meccanismi immunologici a seguito di ischemia cerebrale\n- Pianificare, condurre e analizzare gli esperimenti (comprese le analisi FACS e i metodi epigenetici)\n- Analizzare dati clinici e sperimentali in stretta collaborazione con team interdisciplinari\n- Contribuire a pubblicazioni scientifiche e presentazioni a conferenze internazionali\n- Partecipazione alle attività didattiche in neurologia e/o scienze biomediche\n\nRequisiti\n- Laurea magistrale, preferibilmente in medicina umana, neuroscienze, biomedicina, o un campo correlato\n- Forte interesse per la ricerca traduttiva in neuroimmunologia e ictus\n- L'esperienza nel lavoro di laboratorio, in particolare FACS (citometria di flusso) e/o metodi epigenetici, è un vantaggio\n- Conoscenza di base dell'analisi dei dati e delle statistiche\n- Eccellente inglese scritto e parlato; il tedesco è un bene\n- Capacità di lavorare sia indipendentemente che come parte di un team interdisciplinare\n\nCosa?\n- Politica salariale attraente e benefici sociali eccezionali\n- Sconti per lo shopping, lo sport e la ricreazione\n- Supporto durante il trasferimento e la caccia di appartamenti\n- 25 giorni di vacanza, più 5 giorni liberi flessibili\n- Sostegno alla formazione e all'istruzione, oltre alla pianificazione della carriera\n- Campus nel cuore di Basilea e regione tri-frontaliera\n- Opzioni complete di assistenza all'infanzia\n- Programma sportivo e fitness gratuito\n\nContatto",
+        "de": "Descrizion\n- Aktiv zur Entwicklung und Umsetzung translationaler Forschungsprojekte in der Neuroimmunologie mit Schwerpunkt Schlaganfall beitragen\n- Kombinieren Sie klinische Forschung mit experimentellen Laborarbeiten zur Untersuchung immunologischer Mechanismen nach zerebraler Ischämie\n- Planung, Durchführung und Analyse von Experimenten (einschließlich FACS-Analysen und epigenetischen Methoden)\n- Analyse klinischer und experimenteller Daten in enger Zusammenarbeit mit interdisziplinären Teams\n- Beitrag zu wissenschaftlichen Publikationen und Präsentationen auf internationalen Konferenzen\n- Teilnahme an Lehraktivitäten in Neurologie und/oder Biomedizin\n\nRequisiti\nMaster-Abschluss, vorzugsweise in Humanmedizin, Neurowissenschaften, Biomedizin oder einem verwandten Bereich\nStarkes Interesse an translationaler Forschung in Neuroimmunologie und Schlaganfall\n- Erfahrung in der Laborarbeit, insbesondere FACS (Durchflusszytometrie) und / oder epigenetische Methoden, ist von Vorteil\nGrundkenntnisse in Datenanalyse und Statistik\n- Ausgezeichnetes geschriebenes und gesprochenes Englisch; Deutsch ist eine Bereicherung\n- Fähigkeit, sowohl selbstständig als auch als Teil eines interdisziplinären Teams zu arbeiten\n\nCosa offriamo\n- Attraktive Lohnpolitik und außergewöhnliche Sozialleistungen\n- Rabatte für Shopping, Sport und Erholung\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Urlaubstage, plus 5 flexible freie Tage\n- Unterstützung bei Weiterbildung und Ausbildung sowie Karriereplanung\n- Campus im Herzen von Basel und der Tri-Grenzregion\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Fitnessprogramm\n\nContatto",
+        "fr": "Descrizione\n- Contribuer activement à l'élaboration et à la mise en oeuvre de projets de recherche translationnelle en neuroimmunologie, en mettant l'accent sur l'AVC\n- Combiner la recherche clinique et les travaux de laboratoire expérimentaux pour étudier les mécanismes immunologiques suivant l'ischémie cérébrale\n- Planifier, mener et analyser des expériences (y compris des analyses du FACS et des méthodes épigénétiques)\n- Analyser les données cliniques et expérimentales en étroite collaboration avec les équipes interdisciplinaires\n- Contribuer aux publications scientifiques et aux présentations lors de conférences internationales\n- Participer aux activités d'enseignement en neurologie et/ou en sciences biomédicales\n\nRequisiti\n- Maîtrise, de préférence en médecine humaine, neuroscience, biomédecine ou domaine connexe\n- Un vif intérêt pour la recherche translationnelle en neuroimmunologie et accident vasculaire cérébral\n- L'expérience du travail en laboratoire, en particulier la FACS ( cytométrie de flux) et/ou les méthodes épigénétiques, est un avantage\n- Connaissance de base de l ' analyse des données et des statistiques\n- Excellent anglais écrit et parlé; l'allemand est un atout\n- Capacité de travailler indépendamment et dans le cadre d'une équipe interdisciplinaire\n\nCosa offriamo\n- Politique salariale attractive et prestations sociales exceptionnelles\n- Réductions pour le shopping, le sport et les loisirs\n- Soutien pendant la réinstallation et la chasse à l'appartement\n- 25 jours de vacances, plus 5 jours libres flexibles\n- Appui à la formation continue et à l ' éducation, ainsi qu ' à la planification des carrières\n- Campus au cœur de Bâle et de la région tri-frontière\n- Possibilités globales de garde d ' enfants\n- Programme de sport et de fitness gratuit\n\nContatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7473,7 +7459,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7584,16 +7569,16 @@
       "title": "Fachfrau / Fachmann Gesundheit (FaGe)",
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Gesundheit (FaGe)",
-        "it": "Fachfrau / Fachmann Gesundheit (FaGe)",
-        "en": "Fachfrau / Fachmann Gesundheit (FaGe)",
-        "fr": "Fachfrau / Fachmann Gesundheit (FaGe)"
+        "it": "Salute professionale (FaGe)",
+        "en": "Professional Health (FaGe)",
+        "fr": "Santé professionnelle (FaGe)"
       },
       "description": "Aufgaben:\n• Mitverantwortung für die Sicherstellung einer personenzentrierten Behandlung, Betreuung und Pflege unserer Patientinnen und Patienten\n\n• Übernahme von Verantwortung für Handlungen innerhalb des eigenen Kompetenzbereichs\n\n• Sicherstellung hauswirtschaftlicher Aufgaben sowie Unterstützung bei administrativen und logistischen Tätigkeiten auf einer Bettenstation\n\n• Mitarbeit im Schichtbetrieb\n\n• Übernahme von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n\n• Freude an Teamarbeit und an einem dynamischen Arbeitsumfeld\n\n• Erfahrung im Akutspital von Vorteil\n\n• Hohe Selbstkompetenz, Kundenorientierung sowie gute Kommunikationsfähigkeit\n\n• Zuverlässige und belastbare Persönlichkeit, die qualitative und quantitative Vorgaben sowie Rahmenbedingungen berücksichtigt\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Mitverantwortung für die Sicherstellung einer personenzentrierten Behandlung, Betreuung und Pflege unserer Patientinnen und Patienten\n\n• Übernahme von Verantwortung für Handlungen innerhalb des eigenen Kompetenzbereichs\n\n• Sicherstellung hauswirtschaftlicher Aufgaben sowie Unterstützung bei administrativen und logistischen Tätigkeiten auf einer Bettenstation\n\n• Mitarbeit im Schichtbetrieb\n\n• Übernahme von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n\n• Freude an Teamarbeit und an einem dynamischen Arbeitsumfeld\n\n• Erfahrung im Akutspital von Vorteil\n\n• Hohe Selbstkompetenz, Kundenorientierung sowie gute Kommunikationsfähigkeit\n\n• Zuverlässige und belastbare Persönlichkeit, die qualitative und quantitative Vorgaben sowie Rahmenbedingungen berücksichtigt\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Mitverantwortung für die Sicherstellung einer personenzentrierten Behandlung, Betreuung und Pflege unserer Patientinnen und Patienten\n\n• Übernahme von Verantwortung für Handlungen innerhalb des eigenen Kompetenzbereichs\n\n• Sicherstellung hauswirtschaftlicher Aufgaben sowie Unterstützung bei administrativen und logistischen Tätigkeiten auf einer Bettenstation\n\n• Mitarbeit im Schichtbetrieb\n\n• Übernahme von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n\n• Freude an Teamarbeit und an einem dynamischen Arbeitsumfeld\n\n• Erfahrung im Akutspital von Vorteil\n\n• Hohe Selbstkompetenz, Kundenorientierung sowie gute Kommunikationsfähigkeit\n\n• Zuverlässige und belastbare Persönlichkeit, die qualitative und quantitative Vorgaben sowie Rahmenbedingungen berücksichtigt\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Mitverantwortung für die Sicherstellung einer personenzentrierten Behandlung, Betreuung und Pflege unserer Patientinnen und Patienten\n\n• Übernahme von Verantwortung für Handlungen innerhalb des eigenen Kompetenzbereichs\n\n• Sicherstellung hauswirtschaftlicher Aufgaben sowie Unterstützung bei administrativen und logistischen Tätigkeiten auf einer Bettenstation\n\n• Mitarbeit im Schichtbetrieb\n\n• Übernahme von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n\n• Freude an Teamarbeit und an einem dynamischen Arbeitsumfeld\n\n• Erfahrung im Akutspital von Vorteil\n\n• Hohe Selbstkompetenz, Kundenorientierung sowie gute Kommunikationsfähigkeit\n\n• Zuverlässige und belastbare Persönlichkeit, die qualitative und quantitative Vorgaben sowie Rahmenbedingungen berücksichtigt\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Mitverantwortung für die Sicherstellung einer personenzentrierten Behandlung, Betreuung und Pflege unserer Patientinnen und Patienten\n\n• Übernahme von Verantwortung für Handlungen innerhalb des eigenen Kompetenzbereichs\n\n• Sicherstellung hauswirtschaftlicher Aufgaben sowie Unterstützung bei administrativen und logistischen Tätigkeiten auf einer Bettenstation\n\n• Mitarbeit im Schichtbetrieb\n\n• Übernahme von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n\n• Freude an Teamarbeit und an einem dynamischen Arbeitsumfeld\n\n• Erfahrung im Akutspital von Vorteil\n\n• Hohe Selbstkompetenz, Kundenorientierung sowie gute Kommunikationsfähigkeit\n\n• Zuverlässige und belastbare Persönlichkeit, die qualitative und quantitative Vorgaben sowie Rahmenbedingungen berücksichtigt\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## Descrizione\n- Mitverantwortung per la sicurezza di una cura centrata sulla persona, assistenza e cura delle nostre pazienti e pazienti\n- Assunzione di responsabilità per le azioni all'interno del proprio ambito di competenza\n- Assicurazione delle mansioni di tipo domestico e supporto per le attività amministrative e logistiche su una stanza di degenza\n- Partecipazione al lavoro in turni\n- Assunzione di turni di guardia per una o due pazienti\n\n## Requisiti\n- Laurea in campo sanitario (FaGe)\n- Gioia nel lavorare in team e in un ambiente di lavoro dinamico\n- Esperienza in ospedale di emergenza di vantaggio\n- Alta autocompetenza, orientamento al cliente e buone capacità di comunicazione\n- Personalità affidabile e solida, che tiene conto delle prescrizioni qualitative e quantitative e delle condizioni di riferimento\n- Attenta e responsabile, che tiene conto delle prescrizioni qualitative e quantitative e delle condizioni di riferimento\n\n## Cosa offriamo\n- Politica salariale attraente e eccellenti prestazioni sociali\n- Sconti nei settori shopping, sport e tempo libero\n- Supporto per il trasloco e la ricerca di un appartamento\n- 25 giorni di ferie\n- Supporto per la formazione e la pianificazione della carriera\n- Campus nel cuore di Basilea e nel triangolo di confine\n- Possibilità di cura dei bambini\n- Programma di sport e movimento gratuito\n\n## Contatto",
+        "it": "Descrizione\n- Co-responsabilità per la sicurezza di una cura c entrata sulla persona, assistenza e cura delle nostre pazienti e pazienti\nAssunzione di responsabilità per le azioni all'interno del proprio ambito di competenza\n- Assicurazione delle mansioni di tipo domestico e supporto per le attività amministrative e logistiche su unastanza di degenza\n- Partecipazione al lavoro a turni\nAssunzione di turni di guardia per una o due pazienti\n\nRequisiti\n- Laurea in campo sanitario (FaGe)\nGioia nel lavoro in team e in un ambiente di lavoro temporaneo\n- Esperienza in ospedale di emergenza di vantaggio\n- Alta autocompetenza, orientamento al cliente e buone capacità di comunicazione\n- Personalità attendibile e solida, che tiene conto delle perdite qualitative e quantitative e delle condizioni di riferimento\n- Attenta e responsabile, che tiene conto delle perdite qualitative e quantitative e delle condizioni di riferimento\n\nCosa di Friamo\nPolitica salariale e prestazioni sociali\n- Sconti nei settori shopping, sport e tempo libero\n- Supporto per il trasloco e la ricerca di un appartamento\n- 25 giorni di ferie\nSupporto per la formazione e la pianificazione della carriera\n- Campus nel cuore di Basilea e nel triangolo di confina\n— Possibilità di cura dei bambini\n- Programma di sport e movimento gratuito\n\nContatto",
+        "en": "Descrizione\n- Co-responsibility per la sicurezza di una cura centrata sulla persona, assistenza e cura delle nostre pazienti e pazienti\nAssunzione di responsabilità per le azioni all'interno del proprio ambito di competenza\n- Assicurazione delle mansioni di tipo domestico e supporto per le attività amministrative e logistiche su unastanza di degenza\n- Partecipazione al lavoro in turni\nAssunzione di turni di guardia per una o due pazienti\n\nRequirements\n- Laurea in campo sanitario (FaGe)\nGioia nel lavorare in team e in un ambiente di lavoro dinamico\n- Esperienza in ospedale di emergenza di vantaggio\n- Alta autocompetenza, orientamento al cliente e buone capacità di comunicazione\n- Personalità affidabile e solida, che tiene conto delle prescrizioni qualitative e quantitative e delle condizioni di riferimento\n- Attenta e responsabile, che tiene conto delle prescrizioni qualitative e quantitative e delle condizioni di riferimento\n\nCosa of Friamo\nPolitica salariale attraente e eccellenti prestazioni sociali\n- Sconti nei settori shopping, sport e tempo libero\n- Supporto per il trasloco e la ricerca di un appartamento\n- 25 giorni di ferie\nSupporto per la formazione e la pianificazione della carriera\n- Campus nel cuore di Basilea e nel triangolo di confine\n— Possibilità di cura dei bambini\n- Programma di sport e movimento gratuito\n\nContatto",
+        "fr": "Descrizione - Co-responsabilité pour la sicurezza di una cura centrata sulla persona, assistenza e cura delle nostre pazienti e pazienti - Assunzione di responsabilità per le azioni all' interno del proprio ambito di competenza - Assicurazione delle mansioni di tipo domestico e supporto per le attività amministrative e logistiche su una stanza di degenza - Partecipazione al lavoro in turni - Assunzione di turni di guardia per una o due pazienti Requisiti - Laurea in campo sanitario (FaGe) - Gioia nel lavorare in team e in un ambiente di lavoro dinamico - Esperienza in ospedale di emergenza di vantaggio - Alta autocompetenza, orientamento al cliente e buone capacità di comunicazione - Personalità affidabile e solida, che tiene conto delle prescrizioni qualitative e quantitative e delle condizioni di riferimento - Attenta e responsabile, che tiene conto delle prescrizioni qualitative e quantitative e delle condizioni di riferimento Cosa offriamo - Politica salariale attraente e eccellenti prestazioni sociali - Sconti nei settori shopping, sport e tempo libero - Supporto per il trasloco e la ricerca di un appartamento - 25 giorni di ferie - Supporto per la formazione e la pianificazione della carriera - Campus nel cuore di Basilea e nel triangolo di confine - Possibilità di cura dei bambini - Programma di sport e movimento gratuito Contatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7619,7 +7604,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7649,16 +7633,16 @@
       "title": "Pharma-Assistent*in",
       "titleByLocale": {
         "de": "Pharma-Assistent*in",
-        "it": "Pharma-Assistent*in",
-        "en": "Pharma-Assistent*in",
-        "fr": "Pharma-Assistent*in"
+        "it": "Assistente medico",
+        "en": "Pharmaceutical Assistant",
+        "fr": "Assistant pharmaceutique"
       },
       "description": "Aufgaben:\n• Auftragsbearbeitung, Kommissionierung und Auslieferung der Arzneimittelbestellungen für unsere interne und externe Kundschaft\n\n• Sortimentspflege, logistische Unterstützung sowie Durchführung der Bestellungen für die Stationsapotheken der betreuten Pflegestationen\n\n• Richten von Arzneimitteln für Patientinnen und Patienten auf ausgewählten Stationen\n\n• Beantwortung logistischer und pharmazeutischer Fragen der Stationen\n\n• Pflege und Kontrolle des Warenlagers (Inventur, Verfalldaten etc.) sowie Abwicklung des Wareneingangs\n\n• Unterstützung der Apothekerinnen und Apotheker bei der Erstellung von Dispensarien für die betreuten Pflegestationen sowie bei Stationsbegehungen der Stationen des USB und der externen Spitäler\n\n• Übernahme von Sonderaufgaben oder Projekten im Bereich der Stationsbetreuung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Pharma-Assistent*in\n\n• Berufserfahrung in einer Spitalapotheke oder in einer öffentlichen Apotheke mit intensivierter Betreuung von Patientinnen und Patienten, Betreuung eines Pflegeheims (Richten von Medikamentendosetts etc.)\n\n• Gute MS Office-Kenntnisse (Word, Excel)\n\n• SAP-Kenntnisse von Vorteil\n\n• Selbständige, speditive, exakte, umsichtige und flexible Arbeitsweise mit souveränem Handeln in einem dynamischen Umfeld\n\n• Ausgeprägte Teamfähigkeit und Dienstleistungsorientierung\n\n• Fähigkeit, innerhalb verschiedener Berufsgruppen teamorientiert zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Auftragsbearbeitung, Kommissionierung und Auslieferung der Arzneimittelbestellungen für unsere interne und externe Kundschaft\n\n• Sortimentspflege, logistische Unterstützung sowie Durchführung der Bestellungen für die Stationsapotheken der betreuten Pflegestationen\n\n• Richten von Arzneimitteln für Patientinnen und Patienten auf ausgewählten Stationen\n\n• Beantwortung logistischer und pharmazeutischer Fragen der Stationen\n\n• Pflege und Kontrolle des Warenlagers (Inventur, Verfalldaten etc.) sowie Abwicklung des Wareneingangs\n\n• Unterstützung der Apothekerinnen und Apotheker bei der Erstellung von Dispensarien für die betreuten Pflegestationen sowie bei Stationsbegehungen der Stationen des USB und der externen Spitäler\n\n• Übernahme von Sonderaufgaben oder Projekten im Bereich der Stationsbetreuung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Pharma-Assistent*in\n\n• Berufserfahrung in einer Spitalapotheke oder in einer öffentlichen Apotheke mit intensivierter Betreuung von Patientinnen und Patienten, Betreuung eines Pflegeheims (Richten von Medikamentendosetts etc.)\n\n• Gute MS Office-Kenntnisse (Word, Excel)\n\n• SAP-Kenntnisse von Vorteil\n\n• Selbständige, speditive, exakte, umsichtige und flexible Arbeitsweise mit souveränem Handeln in einem dynamischen Umfeld\n\n• Ausgeprägte Teamfähigkeit und Dienstleistungsorientierung\n\n• Fähigkeit, innerhalb verschiedener Berufsgruppen teamorientiert zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Auftragsbearbeitung, Kommissionierung und Auslieferung der Arzneimittelbestellungen für unsere interne und externe Kundschaft\n\n• Sortimentspflege, logistische Unterstützung sowie Durchführung der Bestellungen für die Stationsapotheken der betreuten Pflegestationen\n\n• Richten von Arzneimitteln für Patientinnen und Patienten auf ausgewählten Stationen\n\n• Beantwortung logistischer und pharmazeutischer Fragen der Stationen\n\n• Pflege und Kontrolle des Warenlagers (Inventur, Verfalldaten etc.) sowie Abwicklung des Wareneingangs\n\n• Unterstützung der Apothekerinnen und Apotheker bei der Erstellung von Dispensarien für die betreuten Pflegestationen sowie bei Stationsbegehungen der Stationen des USB und der externen Spitäler\n\n• Übernahme von Sonderaufgaben oder Projekten im Bereich der Stationsbetreuung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Pharma-Assistent*in\n\n• Berufserfahrung in einer Spitalapotheke oder in einer öffentlichen Apotheke mit intensivierter Betreuung von Patientinnen und Patienten, Betreuung eines Pflegeheims (Richten von Medikamentendosetts etc.)\n\n• Gute MS Office-Kenntnisse (Word, Excel)\n\n• SAP-Kenntnisse von Vorteil\n\n• Selbständige, speditive, exakte, umsichtige und flexible Arbeitsweise mit souveränem Handeln in einem dynamischen Umfeld\n\n• Ausgeprägte Teamfähigkeit und Dienstleistungsorientierung\n\n• Fähigkeit, innerhalb verschiedener Berufsgruppen teamorientiert zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Auftragsbearbeitung, Kommissionierung und Auslieferung der Arzneimittelbestellungen für unsere interne und externe Kundschaft\n\n• Sortimentspflege, logistische Unterstützung sowie Durchführung der Bestellungen für die Stationsapotheken der betreuten Pflegestationen\n\n• Richten von Arzneimitteln für Patientinnen und Patienten auf ausgewählten Stationen\n\n• Beantwortung logistischer und pharmazeutischer Fragen der Stationen\n\n• Pflege und Kontrolle des Warenlagers (Inventur, Verfalldaten etc.) sowie Abwicklung des Wareneingangs\n\n• Unterstützung der Apothekerinnen und Apotheker bei der Erstellung von Dispensarien für die betreuten Pflegestationen sowie bei Stationsbegehungen der Stationen des USB und der externen Spitäler\n\n• Übernahme von Sonderaufgaben oder Projekten im Bereich der Stationsbetreuung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Pharma-Assistent*in\n\n• Berufserfahrung in einer Spitalapotheke oder in einer öffentlichen Apotheke mit intensivierter Betreuung von Patientinnen und Patienten, Betreuung eines Pflegeheims (Richten von Medikamentendosetts etc.)\n\n• Gute MS Office-Kenntnisse (Word, Excel)\n\n• SAP-Kenntnisse von Vorteil\n\n• Selbständige, speditive, exakte, umsichtige und flexible Arbeitsweise mit souveränem Handeln in einem dynamischen Umfeld\n\n• Ausgeprägte Teamfähigkeit und Dienstleistungsorientierung\n\n• Fähigkeit, innerhalb verschiedener Berufsgruppen teamorientiert zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Auftragsbearbeitung, Kommissionierung und Auslieferung der Arzneimittelbestellungen für unsere interne und externe Kundschaft\n\n• Sortimentspflege, logistische Unterstützung sowie Durchführung der Bestellungen für die Stationsapotheken der betreuten Pflegestationen\n\n• Richten von Arzneimitteln für Patientinnen und Patienten auf ausgewählten Stationen\n\n• Beantwortung logistischer und pharmazeutischer Fragen der Stationen\n\n• Pflege und Kontrolle des Warenlagers (Inventur, Verfalldaten etc.) sowie Abwicklung des Wareneingangs\n\n• Unterstützung der Apothekerinnen und Apotheker bei der Erstellung von Dispensarien für die betreuten Pflegestationen sowie bei Stationsbegehungen der Stationen des USB und der externen Spitäler\n\n• Übernahme von Sonderaufgaben oder Projekten im Bereich der Stationsbetreuung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Pharma-Assistent*in\n\n• Berufserfahrung in einer Spitalapotheke oder in einer öffentlichen Apotheke mit intensivierter Betreuung von Patientinnen und Patienten, Betreuung eines Pflegeheims (Richten von Medikamentendosetts etc.)\n\n• Gute MS Office-Kenntnisse (Word, Excel)\n\n• SAP-Kenntnisse von Vorteil\n\n• Selbständige, speditive, exakte, umsichtige und flexible Arbeitsweise mit souveränem Handeln in einem dynamischen Umfeld\n\n• Ausgeprägte Teamfähigkeit und Dienstleistungsorientierung\n\n• Fähigkeit, innerhalb verschiedener Berufsgruppen teamorientiert zu arbeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## ## Descrizione\n\n- Auftragsbearbeitung, Kommissionierung und Auslieferung der Arzneimittelbestellungen für unsere interne und externe Kundschaft\n- Sortimentspflege, logistische Unterstützung sowie Durchführung der Bestellungen für die Stationsapotheken der betreuten Pflegestationen\n- Richten von Arzneimitteln für Patientinnen und Patienten auf ausgewählten Stationen\n- Beantwortung logistischer und pharmazeutischer Fragen der Stationen\n- Pflege und Kontrolle des Warenlagers (Inventur, Verfalldaten etc.) sowie Abwicklung des Wareneingangs\n- Unterstützung der Apothekerinnen und Apotheker bei der Erstellung von Dispensarien für die betreuten Pflegestationen sowie bei Stationsbegehungen der Stationen des USB und der externen Spitäler\n- Übernahme von Sonderaufgaben oder Projekten im Bereich der Stationsbetreuung\n\n## ## Requisiti\n\n- Abgeschlossene Ausbildung als Pharma-Assistent*in\n- Berufserfahrung in einer Spitalapotheke oder in einer öffentlichen Apotheke mit intensivierter Betreuung von Patientinnen und Patienten, Betreuung eines Pflegeheims (Richten von Medikamentendosetts etc.)\n- Gute MS Office-Kenntnisse (Word, Excel)\n- SAP-Kenntnisse von Vorteil\n- Selbständige, speditive, exakte, umsichtige und flexible Arbeitsweise mit souveränem Handeln in einem dynamischen Umfeld\n- Ausgeprägte Teamfähigkeit und Dienstleistungsorientierung\n- Fähigkeit, innerhalb verschiedener Berufsgruppen teamorientiert zu arbeiten\n\n## ## Cosa offriamo\n\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm\n\n## ## Contatto",
+        "it": "Descrizione\n\nElaborazione, raccolta ordini e consegna di ordini di droga per i nostri clienti interni ed esterni\n- Manutenzione dell'assortimento, supporto logistico e esecuzione degli ordini per le farmacie della stazione delle stazioni di cura sorvegliate\n- Regia dei farmaci per i pazienti in stazioni selezionate\nRispondere a domande logistiche e farmaceutiche delle stazioni\n- Manutenzione e controllo del magazzino (inventario, date di scadenza, ecc.) nonché gestione del ricevimento delle merci\n- Supporto dei farmacisti nella preparazione di dispensari per le stazioni di assistenza sorvegliate e nelle visite di stazione delle stazioni USB e degli ospedali esterni\n- Assunzione di compiti speciali o progetti nell'ambito del sostegno della stazione\n\n## Requisiti\n\nFormazione completa come assistente farmaceutico\n- Esperienza professionale in una farmacia ospedaliera o in una farmacia pubblica con cura intensificata dei pazienti, cura di una casa di cura (rating di farmaci erogatori, ecc.)\nBuona conoscenza dell'ufficio di MS (Word, Excel)\n- La conoscenza SAP è un vantaggio\n- Metodi di lavoro indipendenti, previsionali, precisi, prudenti e flessibili con azione sovrana in un ambiente dinamico\n- Forte lavoro di squadra e orientamento di servizio\n- Capacità di lavorare in gruppi professionali diversi\n\n# Cosa #\n\n- Politica salariale attraente e benefici sociali eccellenti\n- Vantaggi nelle aree di shopping, sport e tempo libero\nAssistenza nel trasferimento e nella ricerca di alloggi\n- 25 giorni di vacanza più 5 anche free flexitage\n- Sostegno all'istruzione e alla pianificazione della carriera\n- Campus nel cuore di Basilea e nella zona tri-frontaliera\nOpzioni complete per l'infanzia\n- Programma di sport e di esercizio gratuito\n\n## Contatto",
+        "en": "Descrizione\n\nOrder processing, order picking and delivery of drug orders for our internal and external customers\n- Assortment maintenance, logistical support and execution of orders for the station pharmacies of the supervised care stations\n- Directing medicines for patients at selected stations\nAnswering logistical and pharmaceutical questions of the stations\n- Maintenance and control of the warehouse (inventory, expiration dates, etc.) as well as handling of the receipt of goods\n- Support of pharmacists in the preparation of dispensaries for the supervised care stations as well as in station visits of the stations of the USB and the external hospitals\n- Assumption of special tasks or projects in the area of station support\n\n## Requirements\n\nCompleted training as a pharmaceutical assistant\n- Professional experience in a hospital pharmacy or in a public pharmacy with intensified care of patients, care of a nursing home (rating of medication dispensers, etc.)\nGood MS Office knowledge (Word, Excel)\n- SAP knowledge is an advantage\n- Independent, forward-looking, precise, prudent and flexible working methods with sovereign action in a dynamic environment\n- Strong teamwork and service orientation\n- Ability to work team-oriented within different professional groups\n\n## Cosa offriamo\n\n- Attractive wage policy and excellent social benefits\n- Advantages in the areas of shopping, sports and leisure\nAssistance in moving and finding accommodation\n- 25 holiday days plus 5 also free flexitage\n- Support for further education and career planning\n- Campus in the heart of Basel and the Tri-border area\nComprehensive childcare options\n- Free sports and exercise program\n\n## Contatto",
+        "fr": "## Descrizione - Traitement, cueillette et livraison des commandes de médicaments pour nos clients internes et externes - Entretien de l'assortiment, soutien logistique ainsi que l'exécution des commandes pour les pharmacies des postes de soins infirmiers supervisés - Direction des médicaments pour les patients des postes sélectionnés - Soins et contrôle de l'entrepôt (inventaire, dates d'expiration, etc.) ainsi que la manutention de la réception des marchandises - Soutien des pharmaciens dans la préparation des dispensaires pour les postes de soins infirmiers supervisés ainsi que pour les visites des postes - Requisiti - Formation complète en tant qu'assistant pharmaceutique - Soins à domicile dans une pharmacie hospitalière ou dans une pharmacie publique avec soins intensifs des patients, soins à domicile (mot, Excel) - Connaissance SAP d'avantage - Indépendants, tournés vers l'avenir, exacts, prudents et flexibles avec une action souveraine dans un environnement dynamique - Forte capacité d'équipe et orientation des services - Capacité de travailler au sein de différents groupes professionnels - Cosa offriamo - Attractive sal policy and excellent social benefits - Soutien dans le cadre"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7684,7 +7668,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7753,7 +7736,8 @@
         ],
         "it": [
           "arztsekretar-in-unispital-basel-ch",
-          "assistente-di-medico-universitatsspital-basel-basel"
+          "assistente-di-medico-universitatsspital-basel-basel",
+          "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1"
         ],
         "en": [
           "medical-secretary-universitatsspital-basel-basel"
@@ -7768,13 +7752,18 @@
         "medical-secretary-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-a8oetd",
-        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
         "arztsekretar-in-unispital-basel-ch-2",
         "assistente-medico-in-oncologia-universitatsspital-basel-basel",
         "medical-assistant-in-oncology-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "arztsekretar-in-universitatsspital-basel-basel",
+        "assistente-di-medico-universitatsspital-basel-basel-1122f1",
+        "segretario-del-dottore-in-universitatsspital-basel-basel",
+        "doctor-s-secretary-in-universitatsspital-basel-basel",
+        "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.320Z",
       "salaryMin": 49500,
@@ -7805,16 +7794,16 @@
       "title": "Radiologiefachfrau/Radiologiefachmann HF/FH (Strahlentherapie und Radioonkologie)",
       "titleByLocale": {
         "de": "Radiologiefachfrau/Radiologiefachmann HF/FH (Strahlentherapie und Radioonkologie)",
-        "it": "Radiologiefachfrau/Radiologiefachmann HF/FH (Strahlentherapie e Radioonkologie)",
-        "en": "Radiologiefachfrau/Radiologiefachmann HF/FH (Strahlentherapie und Radioonkologie)",
-        "fr": "Radiologiefachfrau/Radiologiefachmann HF/FH (Strahlentherapie und Radioonkologie)"
+        "it": "Specialista di radiologia HF/FH (Radioterapia e Radiooncologia)",
+        "en": "Radiology specialist HF/FH (Radiotherapy and Radiooncology)",
+        "fr": "Spécialiste en radiologie HF/FH (radiothérapie et radiooncologie)"
       },
       "description": "Aufgaben:\n• Fachkundige und einfühlsame Betreuung der Patientinnen und Patienten während des gesamten Untersuchungsablaufs sowie Einleiten von Massnahmen in Notfallsituationen\n\n• Selbstständiges Durchführen von Radiotherapien (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) an modernen Linearbeschleunigern in einer technisch hoch ausgestatteten Abteilung\n\n• Im Rahmen einer Rotation wird selbstständig an einem Planungs-CT gearbeitet\n\n• Zu einem späteren Zeitpunkt gibt es die Möglichkeit in der Bestrahlungsplanung eingearbeitet zu werden\n\n• Leisten von aktiver, konstruktiver Mitarbeit in der Forschung und Wissenschaft\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachperson HF/FH, idealerweise mit erster Berufserfahrung\n\n• Verantwortungsbewusste, exakte und selbständige Arbeitsweise\n\n• Ausgeprägte Dienstleistungsorientierung, hohe Sozialkompetenz und Teamfähigkeit\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Fachkundige und einfühlsame Betreuung der Patientinnen und Patienten während des gesamten Untersuchungsablaufs sowie Einleiten von Massnahmen in Notfallsituationen\n\n• Selbstständiges Durchführen von Radiotherapien (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) an modernen Linearbeschleunigern in einer technisch hoch ausgestatteten Abteilung\n\n• Im Rahmen einer Rotation wird selbstständig an einem Planungs-CT gearbeitet\n\n• Zu einem späteren Zeitpunkt gibt es die Möglichkeit in der Bestrahlungsplanung eingearbeitet zu werden\n\n• Leisten von aktiver, konstruktiver Mitarbeit in der Forschung und Wissenschaft\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachperson HF/FH, idealerweise mit erster Berufserfahrung\n\n• Verantwortungsbewusste, exakte und selbständige Arbeitsweise\n\n• Ausgeprägte Dienstleistungsorientierung, hohe Sozialkompetenz und Teamfähigkeit\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Fachkundige und einfühlsame Betreuung der Patientinnen und Patienten während des gesamten Untersuchungsablaufs sowie Einleiten von Massnahmen in Notfallsituationen\n\n• Selbstständiges Durchführen von Radiotherapien (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) an modernen Linearbeschleunigern in einer technisch hoch ausgestatteten Abteilung\n\n• Im Rahmen einer Rotation wird selbstständig an einem Planungs-CT gearbeitet\n\n• Zu einem späteren Zeitpunkt gibt es die Möglichkeit in der Bestrahlungsplanung eingearbeitet zu werden\n\n• Leisten von aktiver, konstruktiver Mitarbeit in der Forschung und Wissenschaft\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachperson HF/FH, idealerweise mit erster Berufserfahrung\n\n• Verantwortungsbewusste, exakte und selbständige Arbeitsweise\n\n• Ausgeprägte Dienstleistungsorientierung, hohe Sozialkompetenz und Teamfähigkeit\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Fachkundige und einfühlsame Betreuung der Patientinnen und Patienten während des gesamten Untersuchungsablaufs sowie Einleiten von Massnahmen in Notfallsituationen\n\n• Selbstständiges Durchführen von Radiotherapien (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) an modernen Linearbeschleunigern in einer technisch hoch ausgestatteten Abteilung\n\n• Im Rahmen einer Rotation wird selbstständig an einem Planungs-CT gearbeitet\n\n• Zu einem späteren Zeitpunkt gibt es die Möglichkeit in der Bestrahlungsplanung eingearbeitet zu werden\n\n• Leisten von aktiver, konstruktiver Mitarbeit in der Forschung und Wissenschaft\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachperson HF/FH, idealerweise mit erster Berufserfahrung\n\n• Verantwortungsbewusste, exakte und selbständige Arbeitsweise\n\n• Ausgeprägte Dienstleistungsorientierung, hohe Sozialkompetenz und Teamfähigkeit\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Fachkundige und einfühlsame Betreuung der Patientinnen und Patienten während des gesamten Untersuchungsablaufs sowie Einleiten von Massnahmen in Notfallsituationen\n\n• Selbstständiges Durchführen von Radiotherapien (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) an modernen Linearbeschleunigern in einer technisch hoch ausgestatteten Abteilung\n\n• Im Rahmen einer Rotation wird selbstständig an einem Planungs-CT gearbeitet\n\n• Zu einem späteren Zeitpunkt gibt es die Möglichkeit in der Bestrahlungsplanung eingearbeitet zu werden\n\n• Leisten von aktiver, konstruktiver Mitarbeit in der Forschung und Wissenschaft\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachperson HF/FH, idealerweise mit erster Berufserfahrung\n\n• Verantwortungsbewusste, exakte und selbständige Arbeitsweise\n\n• Ausgeprägte Dienstleistungsorientierung, hohe Sozialkompetenz und Teamfähigkeit\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## ## Mansioni\n- Fachkundige und einfühlsame Betreuung der Patientinnen und Patienten während des gesamten Untersuchungsablaufs sowie Einleiten von Massnahmen in Notfallsituationen\n- Selbstständiges Durchführen von Radiotherapien (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) an modernen Linearbeschleunigern in einer technisch hoch ausgestatteten Abteilung\n- Im Rahmen einer Rotation wird selbstständig an einem Planungs-CT gearbeitet\n- Zu einem späteren Zeitpunkt gibt es die Möglichkeit in der Bestrahlungsplanung eingearbeitet zu werden\n- Leisten von aktiver, konstruktiver Mitarbeit in der Forschung und Wissenschaft\n\n## ## Requisiti\n- Abgeschlossene Ausbildung als Dipl. Radiologiefachperson HF/FH, idealerweise mit erster Berufserfahrung\n- Verantwortungsbewusste, exakte und selbständige Arbeitsweise\n- Ausgeprägte Dienstleistungsorientierung, hohe Sozialkompetenz und Teamfähigkeit\n- Freude am Arbeiten in einem dynamischen universitären Umfeld\n\n## ## Cosa offriamo\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm\n\n## ## Contatto",
+        "it": "## Mansioni\nCura esperta e sensibile dei pazienti durante l'intero processo di esame e l'avvio di misure in situazioni di emergenza\n- Radioterapia autoconduttore (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) su acceleratori lineari moderni in un reparto tecnico altamente attrezzato\n- Come parte di una rotazione, il lavoro è fatto indipendentemente da una CT di pianificazione\n- In un secondo momento esiste la possibilità di essere incorporata nella programmazione dell'irradiazione\n- Fornire una partecipazione attiva e costruttiva alla ricerca e alla scienza\n\n## Requisiti\n- Allenamento completo come Dipl. Specialista di radiologia HF/FH, ideale per la prima esperienza professionale\n- Metodo di lavoro responsabile, preciso e indipendente\n- orientamento di servizio pronunciato, alte competenze sociali e lavoro di squadra\n- Gioia di lavoro in un ambiente universitario dinamico\n\n# Cosa #\n- Politica salariale attraente e benefici sociali eccellenti\n- Vantaggi nelle aree di shopping, sport e tempo libero\nAssistenza nel trasferimento e nella ricerca di alloggi\n- 25 giorni di vacanza più 5 anche free flexitage\n- Sostegno all'istruzione e alla pianificazione della carriera\n- Campus nel cuore di Basilea e nella zona tri-frontaliera\nOpzioni complete per l'infanzia\n- Programma di sport e di esercizio gratuito\n\n## Contatto",
+        "en": "## Mansioni\nExpert and sensitive care of patients during the entire examination process and initiation of measures in emergency situations\n- Self-conducting radiotherapy (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) on modern linear accelerators in a technically highly equipped department\n- As part of a rotation, work is done independently on a planning CT\n- At a later time there is the possibility to be incorporated into the irradiation planning\n- Providing active, constructive participation in research and science\n\n## Requirements\n- Completed training as a Dipl. Radiology specialist HF/FH, ideally with first professional experience\n- Responsible, exact and independent working method\n- Pronounced service orientation, high social skills and teamwork\n- Joy of working in a dynamic university environment\n\n## Cosa offriamo\n- Attractive wage policy and excellent social benefits\n- Advantages in the areas of shopping, sports and leisure\nAssistance in moving and finding accommodation\n- 25 holiday days plus 5 also free flexitage\n- Support for further education and career planning\n- Campus in the heart of Basel and the Tri-border area\nComprehensive childcare options\n- Free sports and exercise program\n\n## Contatto",
+        "fr": "## Mansioni - Soins spécialisés et sensibles des patients pendant tout le processus d'examen ainsi que le lancement de mesures dans les situations d'urgence - Auto-conduite des radiothérapies (3D, IMRT, VMAT, DIBH, SBRT, SRS, SRT) sur les accélérateurs linéaires modernes dans un département techniquement hautement équipé - Dans le cadre d'une rotation, des travaux sont effectués de façon indépendante sur un CT de planification - À une date ultérieure, il est possible d'intégrer la planification de l'irradiation - Fournir une coopération active et constructive en recherche et en science ## Requisiti - Formation terminée en tant que Diplo. Spécialiste de radiologie HF/FH, idéalement avec une première expérience professionnelle - Travail responsable, exact et indépendant - Orientation professionnelle, haut niveau de compétence sociale et de travail d'équipe - Joy de travailler dans un environnement universitaire dynamique ## Cosa offriamo - Politique salariale attractive et avantages sociaux exceptionnels - Réductions dans les domaines du shopping, du sport et des loisirs - Soutien à la réinstallation et à la recherche d'un logement - 25 jours de vacances plus 5 flexitage gratuit - Soutien à la formation continue et à la planification de carrière - Campus au cœur de Bâle et dans le triangle frontalier - Options complètes de garde d'enfants - Programme de sports et d'exercices gratuits ## Contatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7840,7 +7829,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-hf-fh-strahlentherapie-und-radioonkologie-unispital"
@@ -7878,16 +7866,16 @@
       "title": "Mitarbeiter*in Koordinationsteam mit Schwerpunkt Empfang",
       "titleByLocale": {
         "de": "Mitarbeiter*in Koordinationsteam mit Schwerpunkt Empfang",
-        "it": "Collaboratore/trice*in Koordinationsteam con Schwerpunkt Empfang",
-        "en": "Mitarbeiter*in Koordinationsteam mit Schwerpunkt Empfang",
-        "fr": "Mitarbeiter*in Koordinationsteam mit Schwerpunkt Empfang"
+        "it": "Il team di coordinamento dei dipendenti con un focus sulla reception",
+        "en": "Employee coordination team with a focus on reception",
+        "fr": "Équipe de coordination des employés axée sur la réception"
       },
       "description": "Aufgaben:\n• Sicherstellung eines reibungslosen Anmeldeprozesses für Aufenthalte und Interventionen sowie Empfang und Anmeldung von Patientinnen und Patienten\n\n• Gewährleistung der telefonischen Erreichbarkeit durch Erteilen von Auskünften, Beantworten allgemeiner Anfragen und Vermitteln von Gesprächen an zuständige Stellen\n\n• Koordination der hausinternen Schnittstellen sowie organisatorische Unterstützung im Tagesgeschäft\n\n• Erstellen von Routinekorrespondenz, einfachen Berichten und Protokollen (teilweise nach Diktat) sowie Vorbereitung von Sitzungen\n\n• Erfassen, Verwalten und Archivieren von Daten (physisch und elektronisch) sowie Aufbereiten einfacher Statistiken und Tabellen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation\n\n• Berufserfahrung in einer administrativen oder organisatorischen Funktion, idealerweise im Gesundheitswesen oder Hotellerie\n\n• Sicherer Umgang mit MS Office sowie gängigen Büroanwendungen\n\n• Strukturierte, selbstständige Arbeitsweise mit hoher Eigenverantwortung\n\n• Freundliches Auftreten sowie ausgeprägte Team- und Kommunikationsfähigkeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Sicherstellung eines reibungslosen Anmeldeprozesses für Aufenthalte und Interventionen sowie Empfang und Anmeldung von Patientinnen und Patienten\n\n• Gewährleistung der telefonischen Erreichbarkeit durch Erteilen von Auskünften, Beantworten allgemeiner Anfragen und Vermitteln von Gesprächen an zuständige Stellen\n\n• Koordination der hausinternen Schnittstellen sowie organisatorische Unterstützung im Tagesgeschäft\n\n• Erstellen von Routinekorrespondenz, einfachen Berichten und Protokollen (teilweise nach Diktat) sowie Vorbereitung von Sitzungen\n\n• Erfassen, Verwalten und Archivieren von Daten (physisch und elektronisch) sowie Aufbereiten einfacher Statistiken und Tabellen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation\n\n• Berufserfahrung in einer administrativen oder organisatorischen Funktion, idealerweise im Gesundheitswesen oder Hotellerie\n\n• Sicherer Umgang mit MS Office sowie gängigen Büroanwendungen\n\n• Strukturierte, selbstständige Arbeitsweise mit hoher Eigenverantwortung\n\n• Freundliches Auftreten sowie ausgeprägte Team- und Kommunikationsfähigkeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Sicherstellung eines reibungslosen Anmeldeprozesses für Aufenthalte und Interventionen sowie Empfang und Anmeldung von Patientinnen und Patienten\n\n• Gewährleistung der telefonischen Erreichbarkeit durch Erteilen von Auskünften, Beantworten allgemeiner Anfragen und Vermitteln von Gesprächen an zuständige Stellen\n\n• Koordination der hausinternen Schnittstellen sowie organisatorische Unterstützung im Tagesgeschäft\n\n• Erstellen von Routinekorrespondenz, einfachen Berichten und Protokollen (teilweise nach Diktat) sowie Vorbereitung von Sitzungen\n\n• Erfassen, Verwalten und Archivieren von Daten (physisch und elektronisch) sowie Aufbereiten einfacher Statistiken und Tabellen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation\n\n• Berufserfahrung in einer administrativen oder organisatorischen Funktion, idealerweise im Gesundheitswesen oder Hotellerie\n\n• Sicherer Umgang mit MS Office sowie gängigen Büroanwendungen\n\n• Strukturierte, selbstständige Arbeitsweise mit hoher Eigenverantwortung\n\n• Freundliches Auftreten sowie ausgeprägte Team- und Kommunikationsfähigkeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Sicherstellung eines reibungslosen Anmeldeprozesses für Aufenthalte und Interventionen sowie Empfang und Anmeldung von Patientinnen und Patienten\n\n• Gewährleistung der telefonischen Erreichbarkeit durch Erteilen von Auskünften, Beantworten allgemeiner Anfragen und Vermitteln von Gesprächen an zuständige Stellen\n\n• Koordination der hausinternen Schnittstellen sowie organisatorische Unterstützung im Tagesgeschäft\n\n• Erstellen von Routinekorrespondenz, einfachen Berichten und Protokollen (teilweise nach Diktat) sowie Vorbereitung von Sitzungen\n\n• Erfassen, Verwalten und Archivieren von Daten (physisch und elektronisch) sowie Aufbereiten einfacher Statistiken und Tabellen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation\n\n• Berufserfahrung in einer administrativen oder organisatorischen Funktion, idealerweise im Gesundheitswesen oder Hotellerie\n\n• Sicherer Umgang mit MS Office sowie gängigen Büroanwendungen\n\n• Strukturierte, selbstständige Arbeitsweise mit hoher Eigenverantwortung\n\n• Freundliches Auftreten sowie ausgeprägte Team- und Kommunikationsfähigkeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Sicherstellung eines reibungslosen Anmeldeprozesses für Aufenthalte und Interventionen sowie Empfang und Anmeldung von Patientinnen und Patienten\n\n• Gewährleistung der telefonischen Erreichbarkeit durch Erteilen von Auskünften, Beantworten allgemeiner Anfragen und Vermitteln von Gesprächen an zuständige Stellen\n\n• Koordination der hausinternen Schnittstellen sowie organisatorische Unterstützung im Tagesgeschäft\n\n• Erstellen von Routinekorrespondenz, einfachen Berichten und Protokollen (teilweise nach Diktat) sowie Vorbereitung von Sitzungen\n\n• Erfassen, Verwalten und Archivieren von Daten (physisch und elektronisch) sowie Aufbereiten einfacher Statistiken und Tabellen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation\n\n• Berufserfahrung in einer administrativen oder organisatorischen Funktion, idealerweise im Gesundheitswesen oder Hotellerie\n\n• Sicherer Umgang mit MS Office sowie gängigen Büroanwendungen\n\n• Strukturierte, selbstständige Arbeitsweise mit hoher Eigenverantwortung\n\n• Freundliches Auftreten sowie ausgeprägte Team- und Kommunikationsfähigkeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Assicurare un processo di registrazione regolare per soggiorni e interventi, nonché la ricezione e la registrazione dei pazienti\n\n• Garantire l'accessibilità del telefono fornendo informazioni, rispondendo alle richieste generali e comunicando le conversazioni alle autorità competenti\n\n• Coordinamento delle interfacce interne e del supporto organizzativo nel business quotidiano\n\n• Preparazione della corrispondenza di routine, semplici rapporti e minuti (in parte dettati) e preparazione delle riunioni\n\n• Raccolta, gestione e archiviazione dei dati (fisica ed elettronica) e preparazione di semplici statistiche e tabelle\n\nRequisiti\n• Formazione commerciale o qualifica equivalente completata\n\n• Esperienza professionale in funzione amministrativa o organizzativa, idealmente nel settore sanitario o dell'ospitalità\n\n• Gestione sicura di MS Office e applicazioni di ufficio comuni\n\n• Metodo di lavoro strutturato e indipendente con un alto livello di responsabilità personale\n\n• Amichevole aspetto così come forte team e capacità di comunicazione\n\nOffriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n\n• Vantaggi nelle aree di shopping, sport e tempo libero\n\n• Assistenza nello spostamento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e nella zona tri-frontaliera\n\n• Servizi per l'infanzia completi\n\n• Programma di sport e di esercizio gratuito",
+        "en": "Tasks:\n• Ensuring a smooth registration process for stays and interventions as well as reception and registration of patients\n\n• Ensuring telephone accessibility by providing information, answering general inquiries and communicating conversations to competent authorities\n\n• Coordination of in-house interfaces and organisational support in day-to-day business\n\n• Preparation of routine correspondence, simple reports and minutes (partly by dictate) and preparation of meetings\n\n• Collection, management and archiving of data (physical and electronic) and preparation of simple statistics and tables\n\nRequirements\n• Commercial education or equivalent qualification completed\n\n• Professional experience in an administrative or organizational function, ideally in the healthcare or hospitality industry\n\n• Secure handling of MS Office as well as common office applications\n\n• Structured, independent working method with a high level of personal responsibility\n\n• Friendly appearance as well as strong team and communication skills\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages in the areas of shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Tri-border area\n\n• Comprehensive childcare facilities\n\n• Free sports and exercise program",
+        "fr": "Tâches :\n• Assurer un processus d'enregistrement en douceur pour les séjours et les interventions ainsi que l'accueil et l'enregistrement des patients\n\n• Assurer l'accessibilité du téléphone en fournissant des informations, en répondant aux demandes générales et en communiquant les conversations aux autorités compétentes\n\n• Coordination des interfaces internes et du soutien organisationnel dans les activités quotidiennes\n\n• Préparation de la correspondance de routine, des rapports simples et des procès-verbaux (en partie par ordre) et des réunions\n\n• Collecte, gestion et archivage des données (physiques et électroniques) et élaboration de statistiques et de tableaux simples\n\nExigences\n• Enseignement commercial ou diplôme équivalent complété\n\n• Expérience professionnelle dans une fonction administrative ou organisationnelle, idéalement dans l'industrie de la santé ou de l'hôtellerie\n\n• Traitement sécurisé des demandes de MS Office ainsi que des demandes communes\n\n• Méthode de travail structurée et indépendante avec un haut niveau de responsabilité personnelle\n\n• Aspect amical ainsi que des compétences solides en équipe et en communication\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages dans les domaines du shopping, du sport et des loisirs\n\n• Aide au déménagement et à la recherche d'un logement\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et de la zone Tri-frontière\n\n• Établissements de garde d'enfants complets\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7913,7 +7901,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-koordinationsteam-mit-schwerpunkt-empfang-unispital-basel-ch"
@@ -7951,16 +7938,16 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann (Neurochirurgische Überwachungseinheit)",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Pflegefachmann (Neurochirurgische Überwachungseinheit)",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann (Neurochirurgische Überwachungseinheit)",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann (Neurochirurgische Überwachungseinheit)",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann (Neurochirurgische Überwachungseinheit)"
+        "it": "Dipl. Specialista infermieristico (unità di monitoraggio neurochirurgico)",
+        "en": "Dipl. Nursing specialist (neurosurgical monitoring unit)",
+        "fr": "Dipl. Spécialiste des soins infirmiers (unité de surveillance neurochirurgicale)"
       },
       "description": "Aufgaben:\n• Umfassende Pflege, Begleitung und Überwachung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbständige Organisation des eigenen Arbeitsbereiches sowie Sicherstellung der Pflegequalität und des Pflegeprozesses\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Stärkung der Kommunikation und Information in der interdisziplinären Zusammenarbeit\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau/Pflegefachmann (HF/FH)\n\n• Berufserfahrung in der Akutmedizin, vorzugsweise Neurochirurgie\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten und deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n\n• Gute Sprachkenntnisse in Deutsch; mündliche Fremdsprachenkenntnisse sind erwünscht\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Umfassende Pflege, Begleitung und Überwachung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbständige Organisation des eigenen Arbeitsbereiches sowie Sicherstellung der Pflegequalität und des Pflegeprozesses\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Stärkung der Kommunikation und Information in der interdisziplinären Zusammenarbeit\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau/Pflegefachmann (HF/FH)\n\n• Berufserfahrung in der Akutmedizin, vorzugsweise Neurochirurgie\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten und deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n\n• Gute Sprachkenntnisse in Deutsch; mündliche Fremdsprachenkenntnisse sind erwünscht\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Umfassende Pflege, Begleitung und Überwachung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbständige Organisation des eigenen Arbeitsbereiches sowie Sicherstellung der Pflegequalität und des Pflegeprozesses\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Stärkung der Kommunikation und Information in der interdisziplinären Zusammenarbeit\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau/Pflegefachmann (HF/FH)\n\n• Berufserfahrung in der Akutmedizin, vorzugsweise Neurochirurgie\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten und deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n\n• Gute Sprachkenntnisse in Deutsch; mündliche Fremdsprachenkenntnisse sind erwünscht\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Umfassende Pflege, Begleitung und Überwachung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbständige Organisation des eigenen Arbeitsbereiches sowie Sicherstellung der Pflegequalität und des Pflegeprozesses\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Stärkung der Kommunikation und Information in der interdisziplinären Zusammenarbeit\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau/Pflegefachmann (HF/FH)\n\n• Berufserfahrung in der Akutmedizin, vorzugsweise Neurochirurgie\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten und deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n\n• Gute Sprachkenntnisse in Deutsch; mündliche Fremdsprachenkenntnisse sind erwünscht\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Umfassende Pflege, Begleitung und Überwachung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbständige Organisation des eigenen Arbeitsbereiches sowie Sicherstellung der Pflegequalität und des Pflegeprozesses\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Stärkung der Kommunikation und Information in der interdisziplinären Zusammenarbeit\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Dipl. Pflegefachfrau/Pflegefachmann (HF/FH)\n\n• Berufserfahrung in der Akutmedizin, vorzugsweise Neurochirurgie\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten und deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n\n• Gute Sprachkenntnisse in Deutsch; mündliche Fremdsprachenkenntnisse sind erwünscht\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Assistenza completa, supporto e monitoraggio dei nostri pazienti e dei loro parenti\n\n• Organizzazione indipendente della propria area di lavoro e garanzia della qualità della cura e del processo di cura\n\n• Cooperazione orientata alla soluzione e al gol nel team interdisciplinare del trattamento\n\n• Rafforzare la comunicazione e l'informazione nella cooperazione interdisciplinare\n\nRequisiti\n• Formazione professionale completa come specialista in allattamento (HF/FH)\n\n• Esperienza professionale in medicina acuta, preferibilmente neurochirurgia\n\n• Trattamento apprezzativo e sensibile dei pazienti e dei loro parenti\n\n• Forte orientamento al servizio e alto senso di responsabilità\n\n• Buone competenze linguistiche in tedesco;\n\nOffriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n\n• Vantaggi nelle aree di shopping, sport e tempo libero\n\n• Assistenza nello spostamento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e nella zona tri-frontaliera\n\n• Servizi per l'infanzia completi\n\n• Programma di sport e di esercizio gratuito",
+        "en": "Tasks:\n• Comprehensive care, support and monitoring of our patients and their relatives\n\n• Independent organization of the own work area as well as ensuring the quality of care and the care process\n\n• Goal- and solution-oriented cooperation in the interdisciplinary treatment team\n\n• Strengthening communication and information in interdisciplinary cooperation\n\nRequirements\n• Completed vocational training as a nursing specialist (HF/FH)\n\n• Professional experience in acute medicine, preferably neurosurgery\n\n• Appreciative and sensitive treatment of patients and their relatives\n\n• Strong service orientation and a high sense of responsibility\n\n• Good language skills in German; Oral foreign language skills are desired\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages in the areas of shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Tri-border area\n\n• Comprehensive childcare facilities\n\n• Free sports and exercise program",
+        "fr": "Tâches :\n• Soins complets, soutien et suivi de nos patients et de leurs proches\n\n• Organisation indépendante de la zone de travail et garantie de la qualité des soins et du processus de prise en charge\n\n• Coopération axée sur les objectifs et les solutions dans l'équipe interdisciplinaire de traitement\n\n• Renforcement de la communication et de l'information dans la coopération interdisciplinaire\n\nExigences\n• Formation professionnelle complète en tant que spécialiste des soins infirmiers (HF/FH)\n\n• Expérience professionnelle en médecine aiguë, de préférence neurochirurgie\n\n• Traitement sensible et sensible des patients et de leurs proches\n\n• Une forte orientation vers le service et un sens élevé des responsabilités\n\n• Bonnes compétences linguistiques en allemand; les compétences orales en langue étrangère sont souhaitées\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages dans les domaines du shopping, du sport et des loisirs\n\n• Aide au déménagement et à la recherche d'un logement\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et de la zone Tri-frontière\n\n• Établissements de garde d'enfants complets\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7986,7 +7973,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8016,16 +8002,16 @@
       "title": "Pflegeassistentin / Pflegeassistent (PA) oder Assistentin / Assistent Gesundheit und Soziales (AGS) im Stundenlohn",
       "titleByLocale": {
         "de": "Pflegeassistentin / Pflegeassistent (PA) oder Assistentin / Assistent Gesundheit und Soziales (AGS) im Stundenlohn",
-        "it": "Pflegeassistentin / Pflegeassistent (PA) o Assistentin / Assistent Gesundheit e Soziales (AGS) im Stundenlohn",
-        "en": "Pflegeassistentin / Pflegeassistent (PA) oder Assistentin / Assistent Gesundheit und Soziales (AGS) im Stundenlohn",
-        "fr": "Pflegeassistentin / Pflegeassistent (PA) oder Assistentin / Assistent Gesundheit und Soziales (AGS) im Stundenlohn"
+        "it": "Assistente infermieristico (PA) o assistente sanitario e sociale (AGS) nei salari orali",
+        "en": "Nursing assistant (PA) or assistant health and social care (AGS) in hourly wages",
+        "fr": "Assistant infirmier (AP) ou assistant de santé et de soins sociaux (AGS) en salaire horaire"
       },
       "description": "Aufgaben:\n• Selbstständige Übernahme hauswirtschaftlicher Aufgaben auf der Bettenstation\n\n• Materialbeschaffung sowie Aufbereitung von Geräten und Sicherstellung von Ordnung auf der Station\n\n• Mithilfe bei der Pflege, Mobilisation und beim Transport von Patientinnen und Patienten\n\n• Unterstützung bei administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Einsätze auf unterschiedlichen Bettenstationen\n\n• Durchführung von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Erfolgreich abgeschlossene Ausbildung als Assistentin/Assistent Gesundheit und Soziales (AGS) oder als Pflegeassistentin/Pflegeassistent\n\n• Freude am Beruf sowie hohe Kunden- und Serviceorientierung\n\n• Erfahrung im Akutbereich von Vorteil\n\n• Flexible, belastbare Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft, Neues zu lernen und sich weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Selbstständige Übernahme hauswirtschaftlicher Aufgaben auf der Bettenstation\n\n• Materialbeschaffung sowie Aufbereitung von Geräten und Sicherstellung von Ordnung auf der Station\n\n• Mithilfe bei der Pflege, Mobilisation und beim Transport von Patientinnen und Patienten\n\n• Unterstützung bei administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Einsätze auf unterschiedlichen Bettenstationen\n\n• Durchführung von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Erfolgreich abgeschlossene Ausbildung als Assistentin/Assistent Gesundheit und Soziales (AGS) oder als Pflegeassistentin/Pflegeassistent\n\n• Freude am Beruf sowie hohe Kunden- und Serviceorientierung\n\n• Erfahrung im Akutbereich von Vorteil\n\n• Flexible, belastbare Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft, Neues zu lernen und sich weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Selbstständige Übernahme hauswirtschaftlicher Aufgaben auf der Bettenstation\n\n• Materialbeschaffung sowie Aufbereitung von Geräten und Sicherstellung von Ordnung auf der Station\n\n• Mithilfe bei der Pflege, Mobilisation und beim Transport von Patientinnen und Patienten\n\n• Unterstützung bei administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Einsätze auf unterschiedlichen Bettenstationen\n\n• Durchführung von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Erfolgreich abgeschlossene Ausbildung als Assistentin/Assistent Gesundheit und Soziales (AGS) oder als Pflegeassistentin/Pflegeassistent\n\n• Freude am Beruf sowie hohe Kunden- und Serviceorientierung\n\n• Erfahrung im Akutbereich von Vorteil\n\n• Flexible, belastbare Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft, Neues zu lernen und sich weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Selbstständige Übernahme hauswirtschaftlicher Aufgaben auf der Bettenstation\n\n• Materialbeschaffung sowie Aufbereitung von Geräten und Sicherstellung von Ordnung auf der Station\n\n• Mithilfe bei der Pflege, Mobilisation und beim Transport von Patientinnen und Patienten\n\n• Unterstützung bei administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Einsätze auf unterschiedlichen Bettenstationen\n\n• Durchführung von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Erfolgreich abgeschlossene Ausbildung als Assistentin/Assistent Gesundheit und Soziales (AGS) oder als Pflegeassistentin/Pflegeassistent\n\n• Freude am Beruf sowie hohe Kunden- und Serviceorientierung\n\n• Erfahrung im Akutbereich von Vorteil\n\n• Flexible, belastbare Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft, Neues zu lernen und sich weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Selbstständige Übernahme hauswirtschaftlicher Aufgaben auf der Bettenstation\n\n• Materialbeschaffung sowie Aufbereitung von Geräten und Sicherstellung von Ordnung auf der Station\n\n• Mithilfe bei der Pflege, Mobilisation und beim Transport von Patientinnen und Patienten\n\n• Unterstützung bei administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Einsätze auf unterschiedlichen Bettenstationen\n\n• Durchführung von Sitzwachen bei ein bis zwei Patientinnen oder Patienten\n\nAnforderungen:\n• Erfolgreich abgeschlossene Ausbildung als Assistentin/Assistent Gesundheit und Soziales (AGS) oder als Pflegeassistentin/Pflegeassistent\n\n• Freude am Beruf sowie hohe Kunden- und Serviceorientierung\n\n• Erfahrung im Akutbereich von Vorteil\n\n• Flexible, belastbare Persönlichkeit\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Bereitschaft, Neues zu lernen und sich weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Assunzione autonoma di compiti domestici sulla stazione di letto\n\n• Acquisto di materiali e preparazione di attrezzature e garantire l'ordine sulla stazione\n\n• Assistenza nella cura, mobilitazione e trasporto dei pazienti\n\n• Sostegno ai compiti amministrativi\n\n• Cooperazione interdisciplinare con vari gruppi professionali\n\n• Assegnazioni su diverse stazioni letto\n\n• Attuazione delle guardie di sicurezza per uno o due pazienti\n\nRequisiti\n• Formazione completata con successo come assistente sanitaria e assistenza sociale (AGS) o come assistente di cura\n\n• Gioia nella professione così come alto orientamento al cliente e al servizio\n\n• L'esperienza nella zona acuta è vantaggiosa\n\n• Personalità flessibile e resiliente\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\n• Volontà per imparare e sviluppare\n\nOffriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n\n• Vantaggi nelle aree di shopping, sport e tempo libero\n\n• Assistenza nello spostamento e nella ricerca di alloggi\n\n• 25 giorni di vacanza\n\n• Sostegno all'istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e nella zona tri-frontaliera\n\n• Servizi per l'infanzia completi\n\n• Programma di sport e di esercizio gratuito",
+        "en": "Tasks:\n• Self-employed assumption of domestic tasks on the bed station\n\n• Procurement of materials and preparation of equipment and ensure order on the station\n\n• Assistance in the care, mobilisation and transport of patients\n\n• Support for administrative tasks\n\n• Interdisciplinary cooperation with various professional groups\n\n• Assignments on different bed stations\n\n• Implementation of seat guards for one to two patients\n\nRequirements\n• Successfully completed training as an assistant health and social care (AGS) or as a nursing assistant\n\n• Joy in the profession as well as high customer and service orientation\n\n• Experience in the acute area is advantageous\n\n• Flexible, resilient personality\n\n• Good knowledge of German in words and writing\n\n• Willingness to learn and develop\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages in the areas of shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Tri-border area\n\n• Comprehensive childcare facilities\n\n• Free sports and exercise program",
+        "fr": "Tâches :\n• Indépendants assumant des tâches domestiques à la station de lit\n\n• Achat de matériel et préparation du matériel et commande de la station\n\n• Assistance aux soins, mobilisation et transport des patients\n\n• Soutien aux tâches administratives\n\n• Coopération interdisciplinaire avec différents groupes professionnels\n\n• Attributions sur différentes stations de lit\n\n• Mise en place de gardes de siège pour un à deux patients\n\nExigences\n• Une formation réussie en tant qu'assistant de santé et de soins sociaux (AGS) ou en tant qu'assistant infirmier\n\n• Joy dans la profession ainsi qu'une orientation client et service élevée\n\n• L'expérience dans la zone aiguë est avantageuse\n\n• Personnalité flexible et résistante\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\n• Volonté d'apprendre et de développer\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages dans les domaines du shopping, du sport et des loisirs\n\n• Aide au déménagement et à la recherche d'un logement\n\n• 25 jours fériés\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et de la zone Tri-frontière\n\n• Établissements de garde d'enfants complets\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8051,14 +8037,35 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales"
+          "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
+          "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
+          "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
+          "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
+          "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
+        "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
+        "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
+        "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
+        "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
+        "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
