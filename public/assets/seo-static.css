@@ -1852,3 +1852,85 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .salary-index-page .faq-a{font-size:14px;color:#475569;margin:0 0 12px;max-width:78ch}
 .salary-index-page .pagination{margin:32px 0 8px;font-size:14px;color:#64748b}
 .salary-index-page .pagination a{color:#533afd;text-decoration:none;margin:0 12px}
+
+/* ── Scoped per-page blocks moved verbatim from build-plugin inline <style> ──
+ * Each was injected per-page via a `<style>` block; these pages already link
+ * this shared sheet, so the inline copy was pure dist bloat. Selectors are
+ * namespaced (no global tag/reset rules) → safe to globalize here. NOT moved:
+ * staticPages/ogPages criticalCSS (intentional first-paint critical CSS with
+ * global `*`/`body` selectors), pdfWhitepapers + currency-widget (standalone
+ * docs that don't link this sheet), costOfLiving (CSS built from interpolated
+ * seoContentTokens constants → keep generated to avoid drift). */
+
+/* seoHubsPlugin: flat pagination chips */
+.hp,.hc{display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;font-size:13px}
+.hp{background:var(--color-surface);color:var(--color-link);text-decoration:none;border:1px solid var(--color-edge)}
+.hc{background:var(--color-accent);color:var(--color-on-accent);font-weight:700}
+
+/* jobsSeoPagesPlugin: job-page FAQ accordion */
+.jf{padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)}
+.js{cursor:pointer;font-weight:700;color:var(--color-heading)}
+.ja{margin:12px 0 0;color:var(--color-subtle);line-height:1.7}
+
+/* staticPagesPlugin: article-listing grid */
+.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}
+@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}
+.ssg-art-card{display:block;text-decoration:none;color:inherit;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;overflow:hidden}
+.ssg-art-img{width:100%;height:10rem;object-fit:cover}
+.ssg-art-body{padding:.75rem}
+.ssg-art-cat{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700}
+.ssg-art-date{font-size:.625rem;color:#94a3b8;margin-left:.5rem}
+.ssg-art-title{font-size:.875rem;font-weight:700;color:var(--color-body);margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ssg-art-desc{font-size:.75rem;color:var(--color-subtle);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* weatherCityPagesPlugin: display-font scope (font <link> stays inline) */
+[data-weather-page]{--font-display:'Faustina',Georgia,'Iowan Old Style',serif;}
+[data-weather-page] [data-temp-display]{font-family:var(--font-display);font-feature-settings:'tnum','lnum';}
+
+/* borderWaitMapPlugin: live border-wait cards */
+.bw-head-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px}
+.bw-live{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-strong);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.bw-live-dot{width:8px;height:8px;border-radius:50%;background:var(--color-success-strong);display:inline-block}
+.bw-legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 28px}
+.bw-legend-lbl{font-size:13px;font-weight:700;color:var(--color-subtle)}
+.bw-leg{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:700;color:var(--color-heading);background:var(--color-surface);border:1px solid var(--color-edge)}
+.bw-leg-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.bw-times{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0 0}
+.bw-time{padding:16px 18px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge);border-left:4px solid var(--color-accent)}
+.bw-time-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0 0 7px}
+.bw-time-emoji{font-size:20px;line-height:1}
+.bw-time-name{font-weight:800;color:var(--color-heading);font-size:15px}
+.bw-time-win{font-variant-numeric:tabular-nums;color:var(--color-accent);font-weight:800;font-size:14px}
+.bw-time-p{margin:0;color:var(--color-body);font-size:14px;line-height:1.6}
+.bw-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.bw-chip-co{background:var(--color-accent-subtle);color:var(--color-accent)}
+.bw-chip-va{background:var(--color-warning-subtle);color:var(--color-warning)}
+@media (prefers-reduced-motion:no-preference){.bw-live-dot{animation:bw-pulse 1.8s ease-in-out infinite}@keyframes bw-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}}
+
+/* faqHubPlugin: FAQ hub layout (uses --token,#hex fallbacks verbatim) */
+.fh-main{min-width:0;max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)}
+.fh-bc{margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)}
+.fh-lnk{color:var(--link,#1d4ed8);text-decoration:none}
+.fh-hd{margin-bottom:24px}
+.fh-eyebrow{margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.fh-h1{margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;font-weight:800}
+.fh-tldr{margin:0 0 24px}
+.fh-tldh{margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)}
+.fh-tldp{margin:0 0 14px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px}
+.fh-toc{margin:0 0 28px;padding:16px 20px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface-alt,#f8fafc)}
+.fh-toch{margin:0 0 12px;font-size:18px;color:var(--text-base,#0f172a)}
+.fh-tocl{margin:0;padding:0 0 0 18px;color:var(--text-base,#0f172a);line-height:1.65}
+.fh-toci{margin:0 0 6px}
+.fh-tocc{color:var(--text-muted,#475569);font-size:13px}
+.fh-cat{margin:0 0 36px;scroll-margin-top:96px}
+.fh-cath{margin:0 0 14px;font-size:22px;color:var(--text-base,#0f172a);border-bottom:2px solid var(--surface-border,#e2e8f0);padding-bottom:8px}
+.fh-q{margin:0 0 14px;padding:16px 18px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface,#ffffff);scroll-margin-top:96px}
+.fh-qt{margin:0 0 10px;font-size:17px;line-height:1.4;color:var(--text-base,#0f172a)}
+.fh-qa{margin:0;color:var(--text-base,#0f172a);line-height:1.65}
+.fh-rel{margin:10px 0 0;padding:0 0 0 18px;color:var(--text-base,#0f172a);font-size:13px;line-height:1.55}
+.fh-disc{margin:0 0 20px;color:var(--text-muted,#475569);font-size:13px;line-height:1.55;max-width:860px}
+.fh-rls{margin:0 0 28px}
+.fh-rlh{margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)}
+.fh-rll{margin:0;padding:0 0 0 20px;color:var(--text-base,#0f172a);line-height:1.6;max-width:860px}
+.fh-rli{margin:0 0 8px}
