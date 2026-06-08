@@ -1,18 +1,57 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-06-08T13:36:35.707Z",
-  "total": 2,
+  "generatedAt": "2026-06-08T23:06:21.792Z",
+  "total": 3,
   "newCount": 1,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3323,
-  "avgDurationMs": 3323,
+  "durationMs": 3109,
+  "avgDurationMs": 3109,
   "durationHistory": [
-    3323
+    3109
   ],
   "newJobs": [
+    {
+      "id": "rhne-reseau-hospitalier-neuchatelois-2014751924ed",
+      "slug": "assistant-e-medicale-specialise-e-a-70-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "company": "Réseau hospitalier neuchâtelois (RHNE)",
+      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
+      "companyDomain": "rhne.ch",
+      "title": "Assistant·e médicale spécialisé·e à 70%",
+      "needsRetranslation": true,
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557980&cat=all",
+      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-08T23:06:19.896Z",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2000",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557980&cat=all",
+      "externalId": "2557980",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-d3d55c1a811d",
       "slug": "collaborateur-trice-medico-administratif-ve-a-70-rhne-reseau-hospitalier-neuchatelois",
@@ -20,13 +59,13 @@
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
       "title": "Collaborateur·trice médico-administratif·ve à 70%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557742&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T13:36:33.554Z",
+      "crawledAt": "2026-06-08T23:06:19.898Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -42,16 +81,15 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557742&cat=all",
       "externalId": "2557742",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-06-08T13:36:33.554Z",
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-7d970aefdcf8",
       "slug": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
@@ -65,7 +103,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T13:36:33.555Z",
+      "crawledAt": "2026-06-08T23:06:19.898Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
