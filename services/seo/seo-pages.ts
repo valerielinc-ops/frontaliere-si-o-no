@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2749,
+ "numberOfItems": 2750,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7389,7 +7389,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2746, "name": "Ticino e ferrovie: pressing su lavoro e investi...", "url": `${BASE_URL}/articoli-frontaliere/tpressing-lavoro-investimenti-ffs` },
           { "@type": "ListItem", "position": 2747, "name": "Parlamento svizzero approva aumento IVA per fin...", "url": `${BASE_URL}/articoli-frontaliere/pensione-iva-parlamento` },
           { "@type": "ListItem", "position": 2748, "name": "Calcola il tuo stipendio netto: guida per i fro...", "url": `${BASE_URL}/articoli-frontaliere/calcola-stipendio-netto-ticinonline` },
-          { "@type": "ListItem", "position": 2749, "name": "Migros aprirà il suo primo supermercato 24 ore ...", "url": `${BASE_URL}/articoli-frontaliere/migros-24h-herisau` }
+          { "@type": "ListItem", "position": 2749, "name": "Migros aprirà il suo primo supermercato 24 ore ...", "url": `${BASE_URL}/articoli-frontaliere/migros-24h-herisau` },
+          { "@type": "ListItem", "position": 2750, "name": "No allo smantellamento di Ffs Cargo nel Ticino", "url": `${BASE_URL}/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino` }
  ]
  },
  {

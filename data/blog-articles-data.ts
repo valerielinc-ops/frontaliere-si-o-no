@@ -25389,6 +25389,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino',
+ category: 'novita',
+ date: '2026-06-08T00:33:34.920Z',
+ image: '/images/blog/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
