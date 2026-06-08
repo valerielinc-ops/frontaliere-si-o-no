@@ -608,7 +608,7 @@
       },
       "description": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
       "descriptionByLocale": {
-        "it": "Reasoning: The original request was to translate the entire job description from German to Italian while keeping company names, product names, and acronyms unchanged, not adding any new information, and preserving every paragraph and detail. The only text provided in the prompt is the job title line: “Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern”. Following the rules, the translation must keep “CSD ENGINEERS” unchanged and retain the location “Bern”. The gender/age notation “(m/w/d)” is also kept as is. The German terms are translated as follows: - “Bauingenieur” → “Ingegnere civile” - “als Projektingenieur Tragwerksplanung” → “come ingegnere di progetto per la progettazione strutturale” - “80-100%” remains the same. Translation: Ingegnere civile come ingegnere di progetto per la progettazione strutturale 80-100% (m/w/d) — CSD ENGINEERS, Bern",
+        "it": "Ingegnere civile come ingegnere di progetto Progettazione strutturale 80-100% (m/f/d) — CSD ENGINEERS, Berna",
         "en": "Civil Engineer as Project Engineer Structural Design 80-100% (m/f/d) — CSD ENGINEERS, Bern",
         "de": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
         "fr": "Ingénieur civil en tant qu'ingénieur de projet Planification des structures 80-100% (h/f/d) — CSD ENGINEERS, Berne"
@@ -643,10 +643,9 @@
           "bauingenieur-als-projektingenieur-tragwerksplanung-80-100-m-w-d-csd-engineers-ch"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 88,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "firstSeenAt": "2026-06-02T23:14:17.411Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
