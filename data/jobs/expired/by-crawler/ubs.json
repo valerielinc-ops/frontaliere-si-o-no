@@ -1,5 +1,414 @@
 [
   {
+    "slug": "cliente-associato-ubs-ticino",
+    "title": "Client Associate",
+    "titleByLocale": {
+      "it": "Cliente associato",
+      "en": "Client Associate",
+      "de": "Client Associate",
+      "fr": "Client Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities We're looking for [Role Name] to:\n• [List up to 5 Tasks]",
+      "en": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities We're looking for [Role Name] to:\n• [List up to 5 Tasks]",
+      "de": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities We're looking for [Role Name] to:\n• [List up to 5 Tasks]",
+      "fr": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Service Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities We're looking for [Role Name] to:\n• [List up to 5 Tasks]"
+    },
+    "slugByLocale": {
+      "it": "cliente-associato-ubs-ticino",
+      "en": "client-associate-ubs",
+      "de": "client-associate-ubs",
+      "fr": "client-associate-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "previousSlugs": [
+      "client-associate-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "client-associate-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
+    "title": "Senior Electronic Algorithmic Trading Quantitative Analyst",
+    "titleByLocale": {
+      "it": "Senior Electronic Algorithmic Trading Quantitative Analista",
+      "en": "Senior Electronic Algorithmic Trading Quantitative Analyst",
+      "de": "Senior Electronic Algorithmic Trading Quantitative Analyst",
+      "fr": "Senior Electronic Algorithmic Trading Quantitative Analyste"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients",
+      "en": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients",
+      "de": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients",
+      "fr": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients"
+    },
+    "slugByLocale": {
+      "it": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
+      "en": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
+      "de": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
+      "fr": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-account-manager-global-family-and-institutional-wealth-ubs",
+    "title": "Client Account Manager - Global Family and Institutional Wealth",
+    "titleByLocale": {
+      "en": "Client Account Manager - Global Family and Institutional Wealth",
+      "it": "Client Account Manager - Global Family and Institutional Wealth",
+      "de": "Client Account Manager - Global Family and Institutional Wealth",
+      "fr": "Client Account Manager - Global Family and Institutional Wealth"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you a people person? Do you know how to stay calm under pressure? We are looking for someone who can:\n\n• support our private bankers known as Client Advisors who manage comprehensive and complex GFO client books\n• assist in credit / structured lending matters, credit analysis to support our clients' lending book\n• assist in corporate action matters\n• comfortable with complex excel worksheets\n• comply with all regulations, policies and standards, contributing to an effective risk culture\n• keep accurate, up-to-date client documentation to meet regulatory requirements\n• carry out daily transaction processing and complex troubleshooting\n• keep in contact with internal and external clients",
+      "it": "Are you a people person? Do you know how to stay calm under pressure? We are looking for someone who can:\n\n• support our private bankers known as Client Advisors who manage comprehensive and complex GFO client books\n• assist in credit / structured lending matters, credit analysis to support our clients' lending book\n• assist in corporate action matters\n• comfortable with complex excel worksheets\n• comply with all regulations, policies and standards, contributing to an effective risk culture\n• keep accurate, up-to-date client documentation to meet regulatory requirements\n• carry out daily transaction processing and complex troubleshooting\n• keep in contact with internal and external clients",
+      "de": "Are you a people person? Do you know how to stay calm under pressure? We are looking for someone who can:\n\n• support our private bankers known as Client Advisors who manage comprehensive and complex GFO client books\n• assist in credit / structured lending matters, credit analysis to support our clients' lending book\n• assist in corporate action matters\n• comfortable with complex excel worksheets\n• comply with all regulations, policies and standards, contributing to an effective risk culture\n• keep accurate, up-to-date client documentation to meet regulatory requirements\n• carry out daily transaction processing and complex troubleshooting\n• keep in contact with internal and external clients",
+      "fr": "Are you a people person? Do you know how to stay calm under pressure? We are looking for someone who can:\n\n• support our private bankers known as Client Advisors who manage comprehensive and complex GFO client books\n• assist in credit / structured lending matters, credit analysis to support our clients' lending book\n• assist in corporate action matters\n• comfortable with complex excel worksheets\n• comply with all regulations, policies and standards, contributing to an effective risk culture\n• keep accurate, up-to-date client documentation to meet regulatory requirements\n• carry out daily transaction processing and complex troubleshooting\n• keep in contact with internal and external clients"
+    },
+    "slugByLocale": {
+      "en": "client-account-manager-global-family-and-institutional-wealth-ubs",
+      "it": "client-account-manager-global-family-and-institutional-wealth-ubs",
+      "de": "client-account-manager-global-family-and-institutional-wealth-ubs",
+      "fr": "client-account-manager-global-family-and-institutional-wealth-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "as-client-relationship-manager-ubs",
+    "title": "AS Client Relationship Manager",
+    "titleByLocale": {
+      "en": "AS Client Relationship Manager",
+      "it": "AS Client Relationship Manager",
+      "de": "AS Client Relationship Manager",
+      "fr": "AS Client Relationship Manager"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you a people person? Are you at your best when serving clients and building long term relationship?\nDo you have a “can do” attitude and want to be part of our growth story and create impact?\n\nWe are looking for an Asset Servicing Client Relationship Manager to:\n- establish and maintain trustworthy long term client partnerships\n- understand and deal with sophisticated client needs, support and set up professional solutions and banking services, from fund set-ups including KYC, and accounts openings to fund management company services, including fund administration and transfer agency capabilities\n- ensure daily execution and smooth running of client accounts with competitive response times and customer satisfaction\n- provide value to clients through solution adaptation, anticipation and addressing of needs\nComply with all regulations, policies and standards, documentation requirements contribution to an effective risk culture",
+      "it": "Are you a people person? Are you at your best when serving clients and building long term relationship?\nDo you have a “can do” attitude and want to be part of our growth story and create impact?\n\nWe are looking for an Asset Servicing Client Relationship Manager to:\n- establish and maintain trustworthy long term client partnerships\n- understand and deal with sophisticated client needs, support and set up professional solutions and banking services, from fund set-ups including KYC, and accounts openings to fund management company services, including fund administration and transfer agency capabilities\n- ensure daily execution and smooth running of client accounts with competitive response times and customer satisfaction\n- provide value to clients through solution adaptation, anticipation and addressing of needs\nComply with all regulations, policies and standards, documentation requirements contribution to an effective risk culture",
+      "de": "Are you a people person? Are you at your best when serving clients and building long term relationship?\nDo you have a “can do” attitude and want to be part of our growth story and create impact?\n\nWe are looking for an Asset Servicing Client Relationship Manager to:\n- establish and maintain trustworthy long term client partnerships\n- understand and deal with sophisticated client needs, support and set up professional solutions and banking services, from fund set-ups including KYC, and accounts openings to fund management company services, including fund administration and transfer agency capabilities\n- ensure daily execution and smooth running of client accounts with competitive response times and customer satisfaction\n- provide value to clients through solution adaptation, anticipation and addressing of needs\nComply with all regulations, policies and standards, documentation requirements contribution to an effective risk culture",
+      "fr": "Are you a people person? Are you at your best when serving clients and building long term relationship?\nDo you have a “can do” attitude and want to be part of our growth story and create impact?\n\nWe are looking for an Asset Servicing Client Relationship Manager to:\n- establish and maintain trustworthy long term client partnerships\n- understand and deal with sophisticated client needs, support and set up professional solutions and banking services, from fund set-ups including KYC, and accounts openings to fund management company services, including fund administration and transfer agency capabilities\n- ensure daily execution and smooth running of client accounts with competitive response times and customer satisfaction\n- provide value to clients through solution adaptation, anticipation and addressing of needs\nComply with all regulations, policies and standards, documentation requirements contribution to an effective risk culture"
+    },
+    "slugByLocale": {
+      "en": "as-client-relationship-manager-ubs",
+      "it": "as-client-relationship-manager-ubs",
+      "de": "as-client-relationship-manager-ubs",
+      "fr": "as-client-relationship-manager-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-account-manager-greater-china-singapore-ubs-2",
+    "title": "Client Account Manager - Greater China Singapore",
+    "titleByLocale": {
+      "it": "Client Account Manager - Grande Cina Singapore",
+      "en": "Client Account Manager - Greater China Singapore",
+      "de": "Client Account Manager - Greater China Singapore",
+      "fr": "Client Account Manager - Greater China Singapore"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Do you want to proactively go the extra mile with us to help clients? Are you focused on the details, even when under pressure? We’re looking for a Client Account Manager (CAM) to:\n• support our private bankers known as Client Advisors in our Greater China desk in Singapore to deliver exceptional client service and experience\n• be point-of-entry contact for clients with account queries or orders, stock orders, payments, etc.\n• assist with account opening, onboarding, due diligence and monitoring activities\n• support with documentation for client meetings, investment proposals and the like\n• collaborate with colleagues to ensure that all client accounts comply with legal, compliance and regulatory requirements",
+      "en": "Do you want to proactively go the extra mile with us to help clients? Are you focused on the details, even when under pressure? We’re looking for a Client Account Manager (CAM) to:\n• support our private bankers known as Client Advisors in our Greater China desk in Singapore to deliver exceptional client service and experience\n• be point-of-entry contact for clients with account queries or orders, stock orders, payments, etc.\n• assist with account opening, onboarding, due diligence and monitoring activities\n• support with documentation for client meetings, investment proposals and the like\n• collaborate with colleagues to ensure that all client accounts comply with legal, compliance and regulatory requirements",
+      "de": "Do you want to proactively go the extra mile with us to help clients? Are you focused on the details, even when under pressure? We’re looking for a Client Account Manager (CAM) to:\n• support our private bankers known as Client Advisors in our Greater China desk in Singapore to deliver exceptional client service and experience\n• be point-of-entry contact for clients with account queries or orders, stock orders, payments, etc.\n• assist with account opening, onboarding, due diligence and monitoring activities\n• support with documentation for client meetings, investment proposals and the like\n• collaborate with colleagues to ensure that all client accounts comply with legal, compliance and regulatory requirements",
+      "fr": "Do you want to proactively go the extra mile with us to help clients? Are you focused on the details, even when under pressure? We’re looking for a Client Account Manager (CAM) to:\n• support our private bankers known as Client Advisors in our Greater China desk in Singapore to deliver exceptional client service and experience\n• be point-of-entry contact for clients with account queries or orders, stock orders, payments, etc.\n• assist with account opening, onboarding, due diligence and monitoring activities\n• support with documentation for client meetings, investment proposals and the like\n• collaborate with colleagues to ensure that all client accounts comply with legal, compliance and regulatory requirements"
+    },
+    "slugByLocale": {
+      "it": "client-account-manager-greater-china-singapore-ubs-2",
+      "en": "client-account-manager-greater-china-singapore-ubs",
+      "de": "client-account-manager-greater-china-singapore-ubs-2",
+      "fr": "client-account-manager-greater-china-singapore-ubs-2"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "stage-in-business-acceptance-6-mesi-ubs-ticino",
+    "title": "Internship in Business Acceptance - 6 months",
+    "titleByLocale": {
+      "it": "Stage in Business Acceptance - 6 mesi",
+      "en": "Internship in Business Acceptance - 6 months",
+      "de": "Internship in Business Acceptance - 6 months",
+      "fr": "Internship in Business Acceptance - 6 months"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you a motivated self-starter? Are you at your best when supporting others? We’re looking for someone like that to:\n• Support the team by dealing on a daily basis with clients’ inquiries\n• Provide support to the team for new fund projects\n• Perform and support compliance and due diligence reviews\n• Assist in review and document existing clients to best in class level",
+      "en": "Are you a motivated self-starter? Are you at your best when supporting others? We’re looking for someone like that to:\n• Support the team by dealing on a daily basis with clients’ inquiries\n• Provide support to the team for new fund projects\n• Perform and support compliance and due diligence reviews\n• Assist in review and document existing clients to best in class level",
+      "de": "Are you a motivated self-starter? Are you at your best when supporting others? We’re looking for someone like that to:\n• Support the team by dealing on a daily basis with clients’ inquiries\n• Provide support to the team for new fund projects\n• Perform and support compliance and due diligence reviews\n• Assist in review and document existing clients to best in class level",
+      "fr": "Are you a motivated self-starter? Are you at your best when supporting others? We’re looking for someone like that to:\n• Support the team by dealing on a daily basis with clients’ inquiries\n• Provide support to the team for new fund projects\n• Perform and support compliance and due diligence reviews\n• Assist in review and document existing clients to best in class level"
+    },
+    "slugByLocale": {
+      "it": "stage-in-business-acceptance-6-mesi-ubs-ticino",
+      "en": "internship-in-business-acceptance-6-months-ubs",
+      "de": "internship-in-business-acceptance-6-months-ubs",
+      "fr": "internship-in-business-acceptance-6-months-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "previousSlugs": [
+      "internship-in-business-acceptance-6-months-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "internship-in-business-acceptance-6-months-ubs"
+      ]
+    },
+    "salaryMin": 41600,
+    "salaryMax": 63000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "cliente-associato-ubs-ticino-21a7bb",
+    "title": "Client Associate",
+    "titleByLocale": {
+      "it": "Cliente associato",
+      "en": "Client Associate",
+      "de": "Client Associate",
+      "fr": "Client Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "en": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "de": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "fr": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
+    },
+    "slugByLocale": {
+      "it": "cliente-associato-ubs-ticino-21a7bb",
+      "en": "client-associate-ubs",
+      "de": "client-associate-ubs-2",
+      "fr": "client-associate-ubs-2"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "previousSlugs": [
+      "client-associate-ubs-2"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "client-associate-ubs-2"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "servizio-associato-ubs-ticino",
+    "title": "Service Associate",
+    "titleByLocale": {
+      "it": "Servizio associato",
+      "en": "Service Associate",
+      "de": "Service Associate",
+      "fr": "Service Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker? We’re looking for a Service Associate to:\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
+      "en": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker? We’re looking for a Service Associate to:\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
+      "de": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker? We’re looking for a Service Associate to:\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge",
+      "fr": "Are you incredibly organized with an eye for detail? Are you a skilled multitasker? We’re looking for a Service Associate to:\n• carry out cash management functions, process securities and correspondence, keep records and perform margin activities as a member of the Field Operations team aligned to the Market\n• greet and assist clients and visitors to the branch, providing exceptional service\n• create strong partnerships, cultivating relationships with assigned financial advisors and coordinating with the operations function\n• maintain risk awareness and regulatory knowledge"
+    },
+    "slugByLocale": {
+      "it": "servizio-associato-ubs-ticino",
+      "en": "service-associate-ubs",
+      "de": "service-associate-ubs",
+      "fr": "service-associate-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "previousSlugs": [
+      "service-associate-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "service-associate-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "electronic-trading-quantitative-analista-ubs",
+    "title": "Electronic Trading Quantitative Analyst",
+    "titleByLocale": {
+      "it": "Electronic Trading Quantitative Analista",
+      "en": "Electronic Trading Quantitative Analyst",
+      "de": "Electronic Trading Quantitative Analyst",
+      "fr": "Electronic Trading Quantitative Analyste"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients\n• New York: the salary range for this role is $145000 to $172500 The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits .",
+      "en": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients\n• New York: the salary range for this role is $145000 to $172500 The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits .",
+      "de": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients\n• New York: the salary range for this role is $145000 to $172500 The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits .",
+      "fr": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients\n• New York: the salary range for this role is $145000 to $172500 The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits ."
+    },
+    "slugByLocale": {
+      "it": "electronic-trading-quantitative-analista-ubs",
+      "en": "electronic-trading-quantitative-analyst-ubs",
+      "de": "electronic-trading-quantitative-analyst-ubs",
+      "fr": "electronic-trading-quantitative-analyste-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "previousSlugs": [
+      "electronic-trading-quantitative-analyst-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "electronic-trading-quantitative-analyst-ubs"
+      ],
+      "fr": [
+        "electronic-trading-quantitative-analyst-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "specialista-di-ufficio-centrale-integrato-ubs-ticino",
+    "title": "Integrated Middle Office Specialist",
+    "titleByLocale": {
+      "it": "Specialista di ufficio centrale integrato",
+      "en": "Integrated Middle Office Specialist",
+      "de": "Integrated Middle Office Spezialist",
+      "fr": "Spécialiste intégré des bureaux moyens"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Descrizione Assicurare la completezza, l'accuratezza e la tempestività (\"CAT\") requisiti di cattura commerciale controlli e controlli del ciclo di vita commerciale per i nostri scambi di derivati di investimento attraverso il business del credito. Ciò include la gestione quotidiana delle eccezioni di riconciliazione intersistema a livello di transazione/posizione/cash, anche le attività di reportistica associate, e garantire un'adeguata escalation degli elementi lavorare con altri stakeholder TLCS (Trade & Lifecycle Controlling Services).\n• Requisiti - Sei inquisitivo con un mindset analitico e rischio-aware? - Hai uno sfondo controlli F2B? Mansioni - Sii responsabile per un insieme di controlli, facilitando il supporto mirato a mitigare il rischio e lavorare con altre funzioni MO per risolvere le questioni elevate - Monitorare e eseguire i CSAs per SPEs perché non sono probabili attraverso la piscina di garanzia del banco - E controlli sul collaterale e sul denaro che si trova in un SPE – Controllo quotidiano in relazione a qualsiasi cambiamento verificatoto al collaterale tenuto in UBS’s SPVs - Fornire attivamente e continuamente idee e finali di processo nell'eccezioni di gestione e nella qualità dei dati di sottoscrizione ai clienti - Essere l'esperto di materia in tutte le attività del team e supportare i team e i stakeholder periferici - Attività di Project Management – assistere con il supporto end-to-end intorno alle iniziative IMO, compiendo l'analisi di impatto iniziale, tracciando i deliverables e seguendo con la gestione e lo staff IMO - Prendere la responsabilità del tracciamento, dell'aggiornamento dei registri delle questioni e delle azioni - Collaborare con vendita e trading per gestire e favorire le iniziative di nuovo business - Partecipare alle iniziative di pianificazione invecchiando come esperto di materia",
+      "en": "Ensure Completeness, Accuracy and Timeliness (\"CAT\") requirements Trade capture controls and Trade Lifecycle controls for our investment banking derivatives trades across credit business. This includes daily exceptions management of intersystem reconciliations at transaction/position/cash level, also the associated reporting activities, and ensuring appropriate escalation of items work with other TLCS (Trade & Lifecycle Controlling Services) stakeholders.. Are you inquisitive with analytical and risk-aware mindset? Do you have a F2B controls background? We’re looking for a Middle Office Specialist to: •Be responsible for a suite of controls, facilitating support aimed at mitigating risk and working with other MO functions to resolve escalated issues •monitor and run the CSAs for SPEs as these are not managed through the bank’s collateral pool •Run controls on collateral and cash sitting in an SPE – Daily check in respect of any changes made to the collateral held in UBS’s SPVs •Actively and continually provide ideas and execute on process improvements in the exception management and data quality of submission to clients. •Be the subject matter expert in all team activities and support teams and peripheral stakeholders. •Project Management activities – assisting with end-to-end support around IMO initiatives including conducting initial impact analysis, tracking for deliverables and following up with management and IMO staff. •Take ownership of tracking, updating issue and action logs •Partner with sales and trading to manage and facilitate new business initiatives •Participate in strategic change initiatives by acting as subject matter expert",
+      "de": "Beschreibung Gewährleistung der Vollständigkeit, Genauigkeit und Aktualität (\"CAT\")\n• Anforderungen an die Erfassung von Wertpapieren und die Kontrolle des Handels mit Lifecycle für unsere Investmentbank-Derivate-Geschäfte im Kreditgeschäft. Dazu gehören das tägliche Management von Intersystem-Abgleichungen auf Transaktions-/Positions-/Cash-Ebene, auch die damit verbundenen Berichterstattungsaktivitäten und die Sicherstellung einer angemessenen Eskalation von Posten, die mit anderen TLCS (Trade & Lifecycle Controlling Services) Stakeholdern zusammenarbeiten. Voraussetzungen - Sind Sie inquisitive con un mindset analitico e rischio-aware? - Hai un Hintergrund F2B Kontrollen? Mansion - Sii responsabile per un insieme di controlli, facilitando il supporto mirato a mitigare il rischio e lavorare con altre funzioni MO per risolvere le Questioni elevate - Monitorare e eseguire i CSAs per SPEs poiché non sono gestiti attraverso la pool di garanzia del banco - Eseguire controlli sullaterale e sul denaro che si trova in un SPE – Controllo quotidiano in relazione a qualsiasi cambiamento apportato allaterale tenuto in UBS SPVs - Fornire attivamente e continuamente idee e eseguire miglioramenti di processo nell'eccezioni di gestione e nella qualità dei dati di sottoscrizione ai clienti - Essere l'esperto di materia in tutte le attività del team e supportare i team e i Stakeholder periferici - Attività di Project Management – assistere con il supporto end-to-end intorno alle iniziative IMO, compiendo l'analisi di impatto iniziale, tracciando i deliveryables e seguendo con la gestione e lo staff IMO - Prendere la responsabilità del tracciamento, dell'aggiornamento dei registri delle Questioni e delle azioni - Collaborare con vendita e trading per gestire e facilitare le iniziative di nuovo business - Partecipare alle iniziative di cambiamento strategisch kommen esperto di materia",
+      "fr": "Descrizione Veiller à l'exhaustivité, à l'exactitude et à l'actualité des exigences en matière de contrôle de la capture commerciale et de contrôle du cycle de vie des opérations de produits dérivés des banques d'investissement dans l'ensemble des activités de crédit. Cela comprend la gestion quotidienne des exceptions des rapprochements intersystèmes au niveau des transactions, des positions et de la trésorerie, ainsi que les activités de déclaration connexes, et la garantie d'une escalade appropriée des éléments avec d'autres intervenants du SLT (Services de contrôle du cycle de vie et du commerce).\n• Requisiti - Êtes-vous curieux d'avoir des idées ? - Des commandes F2B ? Mansioni - Sii responsabile per un insieme di controlli, facilitando il supporto mirato a mitigare il rischio e lavorare con altre funzioni MO per risolvere le questioni elevate - Monitorare e eseguire i CSAs per SPEs poiché non sono gestiti attraverso la pool di garanzia del banco - Eseguire controlli sul collatérale e sul denaro che si tova in un SPE – Controllo quotidiano in relazione a qualsiasi cambiamento apportato al collatérale tenuto in UBS , SPVs - Fornire attivamente e continuamente idee e eseguire miglioragenti di processo nell'eccezioni di gestione e nella qualità dei dati di sottoscrizione ai clienti - Essai l'esperto di materia in tutte le attività del team e supportare i team e i partnership periferici - Attività di Project Management – aide à l'intégration de bout en bout à l'OMI, compiendo l'analisi di impatto iniziale, tracciando i livrables e seguendo con la gestione e lo staff IMO - Prendere la responsabilità del tracciamento, dell'aggiornamento dei registri delle questioni e delle azioni - Collaborare con vendita e trading per gestire e facilitare le iniziative di nuovo business - Participare alle iniziative di cambiamento strategico agendo come esperto di materia"
+    },
+    "slugByLocale": {
+      "it": "specialista-di-ufficio-centrale-integrato-ubs-ticino",
+      "en": "integrated-middle-office-specialist-ubs",
+      "de": "integrated-middle-office-spezialist-ubs",
+      "fr": "specialiste-integre-des-bureaux-moyens-ubs-ticino"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "previousSlugs": [
+      "integrated-middle-office-specialist-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "integrated-middle-office-specialist-ubs"
+      ],
+      "de": [
+        "integrated-middle-office-specialist-ubs"
+      ],
+      "fr": [
+        "integrated-middle-office-specialist-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "product-manager-for-investment-funds-with-german-ubs",
+    "title": "Product Manager for Investment Funds with German",
+    "titleByLocale": {
+      "en": "Product Manager for Investment Funds with German",
+      "it": "Product Manager for Investment Funds with German",
+      "de": "Product Manager for Investment Funds with German",
+      "fr": "Product Manager for Investment Funds with German"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+      "it": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+      "de": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+      "fr": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data."
+    },
+    "slugByLocale": {
+      "en": "product-manager-for-investment-funds-with-german-ubs",
+      "it": "product-manager-for-investment-funds-with-german-ubs",
+      "de": "product-manager-for-investment-funds-with-german-ubs",
+      "fr": "product-manager-for-investment-funds-with-german-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-08T23:25:36.362Z",
+    "salaryMin": 79500,
+    "salaryMax": 135000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "senior-wealth-strategy-associate-ubs",
     "title": "Senior Wealth Strategy Associate",
     "titleByLocale": {
@@ -2116,46 +2525,6 @@
     },
     "salaryMin": 75500,
     "salaryMax": 133000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "cliente-associato-ubs-ticino",
-    "title": "Client Associate",
-    "titleByLocale": {
-      "it": "Cliente associato",
-      "en": "Client Associate",
-      "de": "Client Associate",
-      "fr": "Client Associate"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "en": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "de": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "fr": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
-    },
-    "slugByLocale": {
-      "it": "cliente-associato-ubs-ticino",
-      "en": "client-associate-ubs",
-      "de": "client-associate-ubs",
-      "fr": "client-associate-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-05T12:52:38.813Z",
-    "previousSlugs": [
-      "client-associate-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "client-associate-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -10036,38 +10405,6 @@
     "expiredAt": "2026-05-14T11:59:02.412Z",
     "salaryMin": 49500,
     "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
-    "title": "Senior Electronic Algorithmic Trading Quantitative Analyst",
-    "titleByLocale": {
-      "it": "Senior Electronic Algorithmic Trading Quantitative Analista",
-      "en": "Senior Electronic Algorithmic Trading Quantitative Analyst",
-      "de": "Senior Electronic Algorithmic Trading Quantitative Analyst",
-      "fr": "Senior Electronic Algorithmic Trading Quantitative Analyste"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "",
-    "addressLocality": "",
-    "descriptionByLocale": {
-      "it": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients",
-      "en": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients",
-      "de": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients",
-      "fr": "Are you passionate about performing research, analyzing data and coding up improvements to complex algorithmic trading strategies? We're looking for someone to analyze, adapt and improve the quantitative performance of UBS’s suite of agency algorithmic trading and smart order routing strategies. The successful candidate will primarily:\n• perform thorough research on areas such as market microstructure and market impact analysis.\n• perform Transaction Costs Analysis (TCA) to minimize executions costs.\n• improve consistency of algo performance and reduce outliers and risk, particularly during significant unscheduled as well as scheduled events e.g. index rebalance events.\n• design and spec new trading strategies with a particular focus on low latency trading strategies.\n• analyze trading patterns and trends within market data (L2 or L3 format).\n• employ modern data analytical tools such as machine learning but in a controlled and practical way.\n• adapt algorithms to adjust to new markets, venues, order types, asset classes and regulation.\n• generate intraday trading signals and volume forecasts from microseconds to minutes.\n• communicate with internal stakeholders and external clients and vendors to understand business requirements and market trends.\n• produce analytics and reports to monitor and benchmark trading performance both internally and for clients"
-    },
-    "slugByLocale": {
-      "it": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
-      "en": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
-      "de": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs",
-      "fr": "senior-electronic-algorithmic-trading-quantitative-analyst-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-05-14T11:59:02.411Z",
-    "salaryMin": 68000,
-    "salaryMax": 103000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
