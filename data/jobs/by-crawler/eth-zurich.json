@@ -6843,12 +6843,12 @@
     },
     {
       "id": "eth-zurich-de7fc088e519",
-      "slug": "storage-engineer-storage-specialist-eth-zurich-ch",
+      "slug": "ingegnere-di-stoccaggio-specialista-di-stoccaggio-eth-zurich-zurich",
       "slugByLocale": {
         "en": "storage-engineer-storage-specialist-eth-zurich-ch",
-        "it": "storage-engineer-storage-specialist-eth-zurich-ch",
-        "de": "storage-engineer-storage-specialist-eth-zurich-ch",
-        "fr": "storage-engineer-storage-specialist-eth-zurich-ch"
+        "it": "ingegnere-di-stoccaggio-specialista-di-stoccaggio-eth-zurich-zurich",
+        "de": "storage-ingenieur-storage-spezialist-eth-zurich-zurich",
+        "fr": "ingenieur-de-stockage-specialiste-de-stockage-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6903,7 +6903,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-08T12:51:34.859Z"
+      "firstSeenAt": "2026-06-08T12:51:34.859Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "storage-engineer-storage-specialist-eth-zurich-ch"
+        ],
+        "de": [
+          "storage-engineer-storage-specialist-eth-zurich-ch"
+        ],
+        "fr": [
+          "storage-engineer-storage-specialist-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "storage-engineer-storage-specialist-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-1fa56e6ce8f4",
@@ -6911,7 +6925,7 @@
       "slugByLocale": {
         "de": "techniker-in-d-phys-gasverflussigung-m-w-d-eth-zurich-ch",
         "it": "techniker-in-d-phys-gasverflussigung-m-w-d-eth-zurich-ch",
-        "en": "techniker-in-d-phys-gasverflussigung-m-w-d-eth-zurich-ch",
+        "en": "technician-in-d-phys-gas-liquefaction-m-f-d-eth-zurich-zurich",
         "fr": "techniker-in-d-phys-gasverflussigung-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
@@ -6971,12 +6985,12 @@
     },
     {
       "id": "eth-zurich-a0c52f1a7438",
-      "slug": "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
+      "slug": "caretaker-in-m-f-d-honggerberg-zona-edificio-hi-eth-zurich-zurich",
       "slugByLocale": {
         "de": "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
-        "it": "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
-        "en": "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
-        "fr": "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
+        "it": "caretaker-in-m-f-d-honggerberg-zona-edificio-hi-eth-zurich-zurich",
+        "en": "caretaker-in-m-f-d-honggerberg-building-area-hi-eth-zurich-zurich",
+        "fr": "gardien-a-m-f-d-honggerberg-batiment-hi-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7033,7 +7047,10 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-08T12:51:33.782Z",
       "previousSlugs": [
+        "projektmanager-m-w-d-eth-zurich-zurich",
+        "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
         "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch",
+        "projektmanager-m-m-j-eth-zurich-zurich",
         "projektmanager-m-p-d-eth-zurich-zurich",
         "projektmanager-m-w-d-isolatori-eth-zurich-zurich",
         "projektmanager-m-w-d-isolators-eth-zurich-zurich",
@@ -7042,24 +7059,24 @@
         "labortierpfleger-in-m-w-d-specializzazione-isolatoren-eth-zurich",
         "hausmeister-in-m-w-d-sede-honggerberg-area-edifici-hi-eth-zurich-zurich",
         "projektmanager-in-m-w-d-standort-honggerberg-eth-zurich-zurich",
-        "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
         "hausmeister-in-m-w-d-site-honggerberg-zone-de-batiments-hi-eth-zurich-zurich",
-        "hausmeister-in-m-w-d-honggerberg-campus-building-area-hi-eth-zurich-zurich",
-        "projektmanager-m-w-d-eth-zurich-zurich",
-        "projektmanager-m-m-j-eth-zurich-zurich"
+        "hausmeister-in-m-w-d-honggerberg-campus-building-area-hi-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektmanager-m-w-d-eth-zurich-zurich"
+          "projektmanager-m-w-d-eth-zurich-zurich",
+          "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
         ],
         "en": [
-          "projektmanager-m-w-d-eth-zurich-zurich"
+          "projektmanager-m-w-d-eth-zurich-zurich",
+          "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
         ],
         "de": [
           "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch"
         ],
         "fr": [
-          "projektmanager-m-m-j-eth-zurich-zurich"
+          "projektmanager-m-m-j-eth-zurich-zurich",
+          "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
         ]
       }
     }

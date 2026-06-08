@@ -3490,12 +3490,12 @@
     },
     {
       "id": "hug-f5cea6ba785c",
-      "slug": "psychologue-80-hug-geneve",
+      "slug": "psicologo-80-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-80-hug-geneve",
-        "it": "psychologue-80-hug-geneve",
-        "en": "psychologue-80-hug-geneve",
-        "de": "psychologue-80-hug-geneve"
+        "it": "psicologo-80-hug-geneve",
+        "en": "psychologist-80-hug-geneve",
+        "de": "psychologe-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3551,7 +3551,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-08T13:04:42.546Z"
+      "firstSeenAt": "2026-06-08T13:04:42.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-80-hug-geneve"
+        ],
+        "en": [
+          "psychologue-80-hug-geneve"
+        ],
+        "de": [
+          "psychologue-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-cdb889f8c8c5",
@@ -3954,12 +3968,12 @@
     },
     {
       "id": "hug-ca7e0ca9af9f",
-      "slug": "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier",
+      "slug": "medico-interno-in-psichiatria-infantile-alla-clairiere-100-hug-vernier",
       "slugByLocale": {
         "fr": "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier",
-        "it": "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier",
-        "en": "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier",
-        "de": "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier"
+        "it": "medico-interno-in-psichiatria-infantile-alla-clairiere-100-hug-vernier",
+        "en": "internal-physician-in-child-psychiatry-at-the-clairiere-100-hug-vernier",
+        "de": "interner-arzt-in-kinderpsychiatrie-bei-der-clairiere-100-hug-vernier"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4015,7 +4029,21 @@
         }
       },
       "postalCode": "1214",
-      "firstSeenAt": "2026-06-08T13:04:42.538Z"
+      "firstSeenAt": "2026-06-08T13:04:42.538Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier"
+        ],
+        "en": [
+          "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier"
+        ],
+        "de": [
+          "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-en-pedopsychiatrie-a-la-clairiere-100-hug-vernier"
+      ]
     },
     {
       "id": "hug-38b27ae19145",
@@ -4254,8 +4282,8 @@
       "slugByLocale": {
         "fr": "medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100",
         "it": "medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100-hug-geneve",
-        "en": "medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100",
-        "de": "medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100"
+        "en": "assistant-physician-or-physician-in-the-gastroenterology-and-hepatology-department-100-hug-geneve",
+        "de": "assistenzarzt-oder-arzt-in-der-abteilung-gastroenterologie-und-hepatologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4300,6 +4328,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100"
+        ],
+        "en": [
+          "medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100"
+        ],
+        "de": [
           "medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100"
         ]
       },

@@ -3579,8 +3579,7 @@
         "senior-scientist-tech-ops-csl-behring-ch",
         "senior-wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-principal-tech-ops-csl-behring-bern",
-        "scientifique-principal-operations-techniques-csl-behring-bern",
-        "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern"
+        "scientifique-principal-operations-techniques-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3766,10 +3765,10 @@
     },
     {
       "id": "csl-behring-a4f015b22972",
-      "slug": "director-talent-partner-operations-csl-behring-ch",
+      "slug": "direttore-talent-partner-operazioni-csl-behring-bern",
       "slugByLocale": {
         "en": "director-talent-partner-operations-csl-behring-ch",
-        "it": "director-talent-partner-operations-csl-behring-ch",
+        "it": "direttore-talent-partner-operazioni-csl-behring-bern",
         "de": "director-talent-partner-operations-csl-behring-ch",
         "fr": "director-talent-partner-operations-csl-behring-ch"
       },
@@ -3827,16 +3826,24 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-08T12:46:06.369Z"
+      "firstSeenAt": "2026-06-08T12:46:06.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-talent-partner-operations-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-talent-partner-operations-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-1427638e95f0",
-      "slug": "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch",
+      "slug": "scienziato-m-f-x-cpv-comparabilita-e-statistica-csl-behring-bern",
       "slugByLocale": {
         "en": "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch",
-        "it": "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch",
-        "de": "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch",
-        "fr": "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch"
+        "it": "scienziato-m-f-x-cpv-comparabilita-e-statistica-csl-behring-bern",
+        "de": "wissenschaftler-m-w-x-cpv-vergleichbarkeit-und-statistik-csl-behring-bern",
+        "fr": "scientifique-m-f-x-cpv-comparabilite-et-statistiques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3892,7 +3899,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-08T12:46:05.590Z"
+      "firstSeenAt": "2026-06-08T12:46:05.590Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch"
+        ],
+        "de": [
+          "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch"
+        ],
+        "fr": [
+          "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-m-f-x-cpv-comparability-and-statistics-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-cecbebf42cfd",
@@ -3901,7 +3922,7 @@
         "de": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch",
         "it": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch",
         "en": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch",
-        "fr": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch"
+        "fr": "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-st-gallen"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4080,23 +4101,18 @@
           "direttore-associato-biostatistica-csl-behring-bern-847139"
         ],
         "en": [
-          "director-biostatistics-csl-behring-ch",
           "associate-director-biostatistics-csl-behring-ch"
         ],
         "de": [
-          "leiter-biostatistik-csl-behring-bern",
           "associate-direktor-biostatistics-csl-behring-bern"
         ],
         "fr": [
-          "director-biostatistics-csl-behring-ch",
           "directeur-associe-biostatistique-csl-behring-bern"
         ]
       },
       "previousSlugs": [
         "director-biostatistics-csl-behring-ch",
-        "leiter-biostatistik-csl-behring-bern",
         "associate-director-biostatistics-csl-behring-ch",
-        "direttore-biostatistica-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern"
