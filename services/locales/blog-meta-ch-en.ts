@@ -95,6 +95,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sem-taglia-108-posti-lavoro-2027.title': 'SEM: 108 jobs cut from 2027',
     'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'The State Secretariat for Migration is reducing its workforce as asylum backlogs are cleared and savings are imposed by the Federal Council and Parliament.',
     'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Federal offices in Bern, headquarters of the State Secretariat for Migration SEM',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Zurich Vote: Affordable Housing and Health Premiums',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'The Canton of Zurich votes on initiatives for affordable housing, tenant protection, and tax deductions for health insurance premiums.',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Modern residential buildings in Canton Zurich during a sunny day',
 };
 
 export default blogMetaChEn;

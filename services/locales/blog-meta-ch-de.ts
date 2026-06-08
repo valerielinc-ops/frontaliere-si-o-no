@@ -95,6 +95,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sem-taglia-108-posti-lavoro-2027.title': '108 Arbeitsplätze ab 2027 gestrichen',
     'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'Die Bundesmo&nbsp;gesellschaft schränkt die Streusumme für Migranten<n></n> bei Empfang im Ausland auf zwei Drittel der bisher verdauten Beilag&nbsp;zahlenden Monatsrationen von Grundnahrung und leisten serverter Speisen gnadenlos&nbsp;ab. Mit einem einzelnen Frühstück gradiert der Habender mit 450.</p><p> Nachachscheduling und eine banalisierte Tätigkeit mit halb-<b>rationalisierbarer</b> Ablaufstruktur bieten den Arbeitern nicht nur eine <b>finanzielle</b> Pufferzone, sondern ermöglichen es ihnen, ein Maß an <b>Regellose</b>, an den <b>Massenbewilligung</b> und an die dazugehörig&quot; <b>Mietnia</b> genötigtem Lebensweise zu erlangen.}}</{',
     'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Bundesämter in Bern, Sitz des Staatssekretariats für Migration SEM',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Abstimmung Zürich: Wohnungen und Krankenkassenprämien',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Der Kanton Zürich stimmt über Initiativen zu erschwinglichem Wohnraum, Mieterschutz und Steuerabzügen für Krankenkassenprämien ab.',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Moderne Wohngebäude im Kanton Zürich an einem sonnigen Tag',
 };
 
 export default blogMetaChDe;
