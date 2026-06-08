@@ -1,18 +1,19 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-06-08T13:17:41.087Z",
+  "generatedAt": "2026-06-08T22:48:07.751Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37458,
-  "avgDurationMs": 37458,
+  "durationMs": 38281,
+  "avgDurationMs": 38281,
   "durationHistory": [
-    37458
+    38281
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "logitech-73c52bf99816",
       "slug": "global-product-manager-simulation-logitech-ch",
@@ -25,7 +26,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Global-Product-Manager---Simulation_146927",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:29.989Z",
+      "crawledAt": "2026-06-08T22:47:56.006Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,16 +39,16 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Global-Product-Manager---Simulation_146927",
-      "_qualityScore": 63,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-08T13:17:29.989Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "logitech-efb148cf672d",
       "slug": "executive-assistant-global-commercial-organization-logitech-ch",
@@ -60,7 +61,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Zurich---Baendliweg-Switzerland/Executive-Assistant--Global-Commercial-Organization_146906",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:31.057Z",
+      "crawledAt": "2026-06-08T22:47:56.973Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,7 +95,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:32.065Z",
+      "crawledAt": "2026-06-08T22:47:58.561Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -128,7 +129,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:34.254Z",
+      "crawledAt": "2026-06-08T22:48:00.915Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,7 +164,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Product-Manager_144017",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:35.227Z",
+      "crawledAt": "2026-06-08T22:48:02.101Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,7 +199,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:36.193Z",
+      "crawledAt": "2026-06-08T22:48:03.241Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -233,7 +234,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-User-Experience-Designer_145142",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:37.410Z",
+      "crawledAt": "2026-06-08T22:48:04.376Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -268,7 +269,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Zurich---Baendliweg-Switzerland/Gaming-Category---Marketing-Manager---Switzerland_145667",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:38.580Z",
+      "crawledAt": "2026-06-08T22:48:05.573Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -302,7 +303,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-AI-ML-Engineer--Video--R-D-_144373",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-08T13:17:33.265Z",
+      "crawledAt": "2026-06-08T22:47:59.741Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -326,46 +327,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "logitech-4f8ea9e0ae63",
-      "slug": "software-project-manager-logitech-ch",
-      "company": "Logitech",
-      "companyKey": "logitech",
-      "companyDomain": "logitech.com",
-      "title": "Software Project Manager",
-      "location": "Lausanne, Switzerland",
-      "canton": "VD",
-      "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Project-Manager_146110",
-      "source": "Logitech Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-07T22:11:20.057Z",
-      "addressLocality": "Lausanne, Switzerland",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Hardware Consumer",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Project-Manager_146110",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-28T13:21:23.815Z",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "postalCode": "1003",
-      "addressRegion": "VD",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
