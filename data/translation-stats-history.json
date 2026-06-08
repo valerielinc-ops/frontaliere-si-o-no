@@ -11284,5 +11284,119 @@
         "pending": 18
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-08T17:38:48.442Z",
+    "label": "before",
+    "total": 10884,
+    "needsRetranslation": 7407,
+    "suppressed": 38,
+    "incomplete": 914,
+    "complete": 9970,
+    "missingByLocale": {
+      "it": 634,
+      "en": 488,
+      "de": 352,
+      "fr": 621
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 105
+      },
+      {
+        "company": "Richemont",
+        "pending": 95
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 64
+      },
+      {
+        "company": "The Swatch Group Trading (Thailand) Limited",
+        "pending": 30
+      },
+      {
+        "company": "Société coopérative Migros Genève",
+        "pending": 29
+      },
+      {
+        "company": "UBS",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 24
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 21
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 18
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-08T21:13:01.713Z",
+    "label": "after",
+    "total": 10884,
+    "needsRetranslation": 2993,
+    "suppressed": 38,
+    "incomplete": 731,
+    "complete": 10153,
+    "missingByLocale": {
+      "it": 511,
+      "en": 379,
+      "de": 311,
+      "fr": 506
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 102
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 64
+      },
+      {
+        "company": "The Swatch Group Trading (Thailand) Limited",
+        "pending": 30
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 24
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 21
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 18
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 18
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 18
+      }
+    ]
   }
 ]
