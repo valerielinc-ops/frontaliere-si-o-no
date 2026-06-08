@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """Measure the real per-deploy delta between two GitHub Pages artifacts.
 
-Each artifact is the whole site as a single gzip'd tar (`artifact.tar`, ~1.4GB).
+Each artifact is the whole site as a single uncompressed tar (`artifact.tar`,
+~1.4GB — deploy.yml builds it with `tar -cf`, as upload-pages-artifact expects).
 We stream-hash every member WITHOUT extracting to disk, build a per-file
 manifest (path -> sha1,size) for each build, then diff them to answer:
 
   - how many files / bytes would an incremental sync actually PUSH per deploy
   - which top-level directories churn the most
 
-CI-only measurement tool. Uses python3 stdlib only (tarfile) — zero deps, and
-tarfile streams gzip members natively, which node lacks built-in.
+CI-only measurement tool. Uses python3 stdlib only (tarfile) — zero deps. The
+real win is streaming each member's bytes without extracting the whole tree to
+disk (~14GB/build); `r:*` transparently handles gzip too if that ever changes.
 
 Usage:
   measure-dist-delta.py <olderArtifact.tar> <newerArtifact.tar> <report.md>
@@ -75,8 +77,10 @@ def main():
     push_bytes = sum(B[k][1] for k in push_files)
     delete_count = len(removed)
 
-    pct_count = (len(push_files) / len(b_keys) * 100) if b_keys else 0
-    pct_bytes = (push_bytes / total_b_bytes * 100) if total_b_bytes else 0
+    nb = len(b_keys)
+    pct = lambda n: (n / nb * 100) if nb else 0.0
+    pct_count = pct(len(push_files))
+    pct_bytes = (push_bytes / total_b_bytes * 100) if total_b_bytes else 0.0
 
     # churn breakdown by top dir (added+changed)
     bucket = {}
@@ -92,11 +96,11 @@ def main():
     lines.append(f"- **Newer build:** `{b_path}` — {len(B):,} files, {human(total_b_bytes)} total (uncompressed)\n")
     lines.append("\n## What an incremental sync would push this deploy\n")
     lines.append("| metric | count | % of site |\n|---|--:|--:|\n")
-    lines.append(f"| changed files | {len(changed):,} | {len(changed)/len(b_keys)*100:.2f}% |\n")
-    lines.append(f"| added files | {len(added):,} | {len(added)/len(b_keys)*100:.2f}% |\n")
+    lines.append(f"| changed files | {len(changed):,} | {pct(len(changed)):.2f}% |\n")
+    lines.append(f"| added files | {len(added):,} | {pct(len(added)):.2f}% |\n")
     lines.append(f"| **push (changed+added)** | **{len(push_files):,}** | **{pct_count:.2f}%** |\n")
     lines.append(f"| deleted files | {delete_count:,} | — |\n")
-    lines.append(f"| unchanged (skipped) | {len(unchanged):,} | {len(unchanged)/len(b_keys)*100:.2f}% |\n")
+    lines.append(f"| unchanged (skipped) | {len(unchanged):,} | {pct(len(unchanged)):.2f}% |\n")
     lines.append("\n")
     lines.append(f"- **Upload bytes (delta):** {human(push_bytes)} of {human(total_b_bytes)} = **{pct_bytes:.2f}%**\n")
     lines.append(f"- vs GitHub Pages today: re-uploads/re-publishes **100%** every deploy.\n")
