@@ -8004,6 +8004,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.title': 'Nein zum Abbau von FFS Cargo im Tessin',
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.excerpt': 'Der Komitee Nein zum Abbau von FFS Cargo präsentiert seine Vorschläge für den Tessin. \n\n> Wir müssen die Einrichtungen für die Grenzgänger schützen. \n\n- Wir fordern die Wiederherstellung der G-Bewilligung für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Franken für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Brückentage für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Einrichtungen für die Grenzgänger. \n\n- Wir fordern die Wiederherstellung der Swissminiatur für die Grenzgänger. \n\n[Weitere Informationen](nav:aktion)',
     'blog.article.comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino.imageAlt': 'Lugano vom See aus gesehen',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.title': 'Giubiasco, viale Olgiati chiude di notte per lavori',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.excerpt': 'Chiusura notturna programmata per viale Olgiati a Giubiasco a causa di lavori di pavimentazione: ecco gli orari e il tratto interessato.',
+    'blog.article.giubiasco-viale-olgiati-lavori-notte.imageAlt': 'Nächtliche Straßenbauarbeiten in der Viale Olgiati in Giubiasco',
 };
 
 export default blogMetaDe;
