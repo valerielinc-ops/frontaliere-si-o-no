@@ -204,7 +204,6 @@
         "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
         "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
         "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-        "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
         "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
@@ -402,7 +401,7 @@
         "it": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "fr": "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
+        "fr": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -445,8 +444,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
         "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
@@ -454,7 +451,7 @@
           "physiotherapeut-m-w-d-ameos-einsiedeln"
         ],
         "fr": [
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+          "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
         ]
       },
       "firstSeenAt": "2026-06-04T11:04:38.511Z",
@@ -779,8 +776,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachperson-gesundheit-m-w-d-efz-ameos-einsiedeln",
         "it": "apprendistato-come-fachperson-gesundheit-m-w-d-cfc-ameos-schweiz-einsiedeln",
-        "en": "lehrstelle-als-fachperson-gesundheit-m-w-d-efz-ameos-einsiedeln",
-        "fr": "lehrstelle-als-fachperson-gesundheit-m-w-d-efz-ameos-einsiedeln"
+        "en": "apprenticeship-as-a-specialist-health-m-f-d-efz-ameos-schweiz-einsiedeln",
+        "fr": "apprentissage-comme-specialiste-de-la-sante-m-f-d-efz-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -826,6 +823,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachperson-gesundheit-m-w-d-efz-ameos-einsiedeln"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-gesundheit-m-w-d-efz-ameos-einsiedeln"
+        ],
+        "fr": [
+          "lehrstelle-als-fachperson-gesundheit-m-w-d-efz-ameos-einsiedeln"
         ]
       },
       "previousSlugs": [
@@ -851,8 +854,8 @@
       "slugByLocale": {
         "de": "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln",
         "it": "apprendistato-im-bereich-kv-m-w-d-ameos-schweiz-einsiedeln",
-        "en": "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln",
-        "fr": "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln"
+        "en": "cv-apprenticeship-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "apprentissage-par-cv-m-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -897,6 +900,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln"
+        ],
+        "en": [
+          "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln"
+        ],
+        "fr": [
           "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln"
         ]
       },

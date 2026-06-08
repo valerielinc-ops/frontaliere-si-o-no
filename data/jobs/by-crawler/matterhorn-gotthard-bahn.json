@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig",
-        "en": "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig",
+        "en": "additional-doctrine-automatic-engineer-or-automatic-installer-m-f-d-matterhorn-gotthard-bahn-brig",
         "fr": "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
       },
       "company": "Matterhorn Gotthard Bahn",
@@ -73,10 +73,14 @@
       "previousSlugsByLocale": {
         "it": [
           "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "previousSlugs": [
-        "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
+        "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
+        "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -95,12 +99,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-59f1e0eeb231",
-      "slug": "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "team-leader-manutenzione-polywerkstatt-zermatt-m-f-d-matterhorn-gotthard-bahn-zermatt",
       "slugByLocale": {
         "de": "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "team-leader-manutenzione-polywerkstatt-zermatt-m-f-d-matterhorn-gotthard-bahn-zermatt",
+        "en": "team-leader-maintenance-polywerkstatt-zermatt-m-f-d-matterhorn-gotthard-bahn-zermatt",
+        "fr": "entretien-du-chef-d-equipe-polywerkstatt-zermatt-m-f-d-matterhorn-gotthard-bahn-zermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -174,7 +178,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-08T13:19:31.166Z"
+      "firstSeenAt": "2026-06-08T13:19:31.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-instandhaltung-polywerkstatt-zermatt-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-9428927fd6a7",

@@ -732,10 +732,10 @@
     },
     {
       "id": "sobi-5eb87f934ce2",
-      "slug": "global-director-medical-affairs-sobi-basel",
+      "slug": "direttore-generale-affari-medici-sobi-basel",
       "slugByLocale": {
         "en": "global-director-medical-affairs-sobi-basel",
-        "it": "global-director-medical-affairs-sobi-basel",
+        "it": "direttore-generale-affari-medici-sobi-basel",
         "de": "global-director-medical-affairs-sobi-basel",
         "fr": "global-director-medical-affairs-sobi-basel"
       },
@@ -793,7 +793,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-08T13:41:25.176Z"
+      "firstSeenAt": "2026-06-08T13:41:25.176Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-director-medical-affairs-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "global-director-medical-affairs-sobi-basel"
+      ]
     }
   ]
 }

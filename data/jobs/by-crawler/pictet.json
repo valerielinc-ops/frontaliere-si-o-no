@@ -593,12 +593,12 @@
     },
     {
       "id": "pictet-e9c6168e1460",
-      "slug": "product-specialist-pictet-tokyo",
+      "slug": "product-specialista-pictet-group-tokyo",
       "slugByLocale": {
         "en": "product-specialist-pictet-tokyo",
-        "it": "product-specialist-pictet-tokyo",
-        "de": "product-specialist-pictet-tokyo",
-        "fr": "product-specialist-pictet-tokyo"
+        "it": "product-specialista-pictet-group-tokyo",
+        "de": "product-spezialist-pictet-group-tokyo",
+        "fr": "product-specialiste-pictet-group-tokyo"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -655,7 +655,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-08T13:28:12.308Z"
+      "firstSeenAt": "2026-06-08T13:28:12.308Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-specialist-pictet-tokyo"
+        ],
+        "de": [
+          "product-specialist-pictet-tokyo"
+        ],
+        "fr": [
+          "product-specialist-pictet-tokyo"
+        ]
+      },
+      "previousSlugs": [
+        "product-specialist-pictet-tokyo"
+      ]
     },
     {
       "id": "pictet-466412ced1d4",

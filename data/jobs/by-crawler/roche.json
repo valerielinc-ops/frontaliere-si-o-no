@@ -15431,8 +15431,8 @@
       "slugByLocale": {
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
-        "de": "strategic-account-executive-pathology-lab-roche-ch",
-        "fr": "strategic-account-executive-pathology-lab-roche-ch"
+        "de": "strategischer-account-executive-pathologielabor-roche-basel",
+        "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -15472,20 +15472,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+        "strategic-account-executive-pathology-lab-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "de": [
-          "strategischer-account-executive-pathologielabor-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "fr": [
-          "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ]
       },
@@ -65578,12 +65574,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65623,16 +65619,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -82005,12 +81998,12 @@
     },
     {
       "id": "roche-cafb26cb241b",
-      "slug": "regulatory-intern-roche-ch",
+      "slug": "regulatory-tirocinante-roche-basel",
       "slugByLocale": {
         "en": "regulatory-intern-roche-ch",
-        "it": "regulatory-intern-roche-ch",
-        "de": "regulatory-intern-roche-ch",
-        "fr": "regulatory-intern-roche-ch"
+        "it": "regulatory-tirocinante-roche-basel",
+        "de": "regulatory-praktikant-roche-basel",
+        "fr": "regulatory-stagiaire-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -82066,7 +82059,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T13:39:09.464Z"
+      "firstSeenAt": "2026-06-08T13:39:09.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-intern-roche-ch"
+        ],
+        "de": [
+          "regulatory-intern-roche-ch"
+        ],
+        "fr": [
+          "regulatory-intern-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-intern-roche-ch"
+      ]
     },
     {
       "id": "roche-152d7a01c526",
@@ -82293,12 +82300,12 @@
     },
     {
       "id": "roche-275036a8413b",
-      "slug": "marketing-intern-roche-ch-2",
+      "slug": "marketing-tirocinante-roche-shanghai",
       "slugByLocale": {
         "en": "marketing-intern-roche-ch",
-        "it": "marketing-intern-roche-ch-2",
-        "de": "marketing-intern-roche-ch-2",
-        "fr": "marketing-intern-roche-ch-2"
+        "it": "marketing-tirocinante-roche-shanghai",
+        "de": "marketing-praktikant-roche-shanghai",
+        "fr": "marketing-stagiaire-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -82354,7 +82361,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T13:39:04.450Z"
+      "firstSeenAt": "2026-06-08T13:39:04.450Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-intern-roche-ch-2"
+        ],
+        "de": [
+          "marketing-intern-roche-ch-2"
+        ],
+        "fr": [
+          "marketing-intern-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-intern-roche-ch-2"
+      ]
     },
     {
       "id": "roche-0afec4af1031",
@@ -82431,12 +82452,12 @@
     },
     {
       "id": "roche-497cb437acd3",
-      "slug": "hr-intern-early-in-career-intern-apac-roche-ch",
+      "slug": "risorse-umane-tirocinante-early-in-career-tirocinante-apac-roche-petaling-jaya",
       "slugByLocale": {
         "en": "hr-intern-early-in-career-intern-apac-roche-ch",
-        "it": "hr-intern-early-in-career-intern-apac-roche-ch",
+        "it": "risorse-umane-tirocinante-early-in-career-tirocinante-apac-roche-petaling-jaya",
         "de": "hr-intern-early-in-career-intern-apac-roche-ch",
-        "fr": "hr-intern-early-in-career-intern-apac-roche-ch"
+        "fr": "ressources-humaines-stagiaire-early-in-career-stagiaire-apac-roche-petaling-jaya"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -82492,7 +82513,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T13:38:59.632Z"
+      "firstSeenAt": "2026-06-08T13:38:59.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-intern-early-in-career-intern-apac-roche-ch"
+        ],
+        "fr": [
+          "hr-intern-early-in-career-intern-apac-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-intern-early-in-career-intern-apac-roche-ch"
+      ]
     },
     {
       "id": "roche-826cb6d89086",
@@ -82897,12 +82929,12 @@
     },
     {
       "id": "roche-7de67fc80b38",
-      "slug": "marketing-intern-roche-ch-3",
+      "slug": "marketing-tirocinante-roche-shanghai-bd7749",
       "slugByLocale": {
         "en": "marketing-intern-roche-ch",
-        "it": "marketing-intern-roche-ch-3",
-        "de": "marketing-intern-roche-ch-3",
-        "fr": "marketing-intern-roche-ch-3"
+        "it": "marketing-tirocinante-roche-shanghai-bd7749",
+        "de": "marketing-praktikant-roche-shanghai-bd7749",
+        "fr": "marketing-stagiaire-roche-shanghai-bd7749"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -82958,7 +82990,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T13:38:52.651Z"
+      "firstSeenAt": "2026-06-08T13:38:52.651Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-intern-roche-ch-3"
+        ],
+        "de": [
+          "marketing-intern-roche-ch-3"
+        ],
+        "fr": [
+          "marketing-intern-roche-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-intern-roche-ch-3"
+      ]
     },
     {
       "id": "roche-08f6f034237d",
@@ -83035,11 +83081,11 @@
     },
     {
       "id": "roche-c263f291af7e",
-      "slug": "sr-ai-engineering-consultant-roche-ch",
+      "slug": "sr-ai-engineering-consulente-roche-shanghai",
       "slugByLocale": {
         "en": "sr-ai-engineering-consultant-roche-ch",
-        "it": "sr-ai-engineering-consultant-roche-ch",
-        "de": "sr-ai-engineering-consultant-roche-ch",
+        "it": "sr-ai-engineering-consulente-roche-shanghai",
+        "de": "sr-ai-engineering-berater-roche-shanghai",
         "fr": "sr-ai-engineering-consultant-roche-ch"
       },
       "company": "Roche",
@@ -83096,7 +83142,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T13:38:50.822Z"
+      "firstSeenAt": "2026-06-08T13:38:50.822Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-ai-engineering-consultant-roche-ch"
+        ],
+        "de": [
+          "sr-ai-engineering-consultant-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-ai-engineering-consultant-roche-ch"
+      ]
     },
     {
       "id": "roche-3fd36a4e0e10",
@@ -83246,12 +83303,12 @@
     },
     {
       "id": "roche-e1bdb85b9028",
-      "slug": "senior-manager-progetto-di-strategia-roche-shanghai",
+      "slug": "responsabile-strategy-project-roche-shanghai",
       "slugByLocale": {
-        "it": "senior-manager-progetto-di-strategia-roche-shanghai",
+        "it": "responsabile-strategy-project-roche-shanghai",
         "en": "head-of-strategy-project-roche-ch",
-        "de": "senior-manager-strategy-project-roche-ch",
-        "fr": "senior-manager-strategy-project-roche-ch"
+        "de": "leiter-strategy-project-roche-shanghai",
+        "fr": "responsable-strategy-project-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83296,12 +83353,20 @@
         ],
         "it": [
           "senior-manager-strategy-project-roche-ch",
-          "head-of-strategy-project-roche-ch"
+          "head-of-strategy-project-roche-ch",
+          "senior-manager-progetto-di-strategia-roche-shanghai"
+        ],
+        "de": [
+          "senior-manager-strategy-project-roche-ch"
+        ],
+        "fr": [
+          "senior-manager-strategy-project-roche-ch"
         ]
       },
       "previousSlugs": [
         "senior-manager-strategy-project-roche-ch",
-        "head-of-strategy-project-roche-ch"
+        "head-of-strategy-project-roche-ch",
+        "senior-manager-progetto-di-strategia-roche-shanghai"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-03T15:17:51.178Z",
@@ -84528,12 +84593,12 @@
     },
     {
       "id": "roche-97f2b27b18f6",
-      "slug": "facilities-specialist-roche-ch-2",
+      "slug": "facilities-specialista-roche-petaling-jaya",
       "slugByLocale": {
         "en": "facilities-specialist-roche-ch",
-        "it": "facilities-specialist-roche-ch-2",
-        "de": "facilities-specialist-roche-ch-2",
-        "fr": "facilities-specialist-roche-ch-2"
+        "it": "facilities-specialista-roche-petaling-jaya",
+        "de": "facilities-spezialist-roche-petaling-jaya",
+        "fr": "facilities-specialiste-roche-petaling-jaya"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84589,7 +84654,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T13:38:28.497Z"
+      "firstSeenAt": "2026-06-08T13:38:28.497Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facilities-specialist-roche-ch-2"
+        ],
+        "de": [
+          "facilities-specialist-roche-ch-2"
+        ],
+        "fr": [
+          "facilities-specialist-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "facilities-specialist-roche-ch-2"
+      ]
     },
     {
       "id": "roche-f42c73cc518b",
