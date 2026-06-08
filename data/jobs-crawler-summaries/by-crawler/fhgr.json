@@ -1,16 +1,16 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-06-07T21:48:07.376Z",
+  "generatedAt": "2026-06-08T12:52:29.883Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8055,
-  "avgDurationMs": 8055,
+  "durationMs": 9569,
+  "avgDurationMs": 9569,
   "durationHistory": [
-    8055
+    9569
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/791/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:48:01.978Z",
+      "crawledAt": "2026-06-08T12:52:23.854Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/784/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:48:03.153Z",
+      "crawledAt": "2026-06-08T12:52:25.000Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:48:04.372Z",
+      "crawledAt": "2026-06-08T12:52:26.146Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-07T21:48:04.796Z",
+      "crawledAt": "2026-06-08T12:52:27.308Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -154,10 +154,10 @@
       "department": "Zentrale Dienste",
       "contractDuration": "temporary",
       "firstSeenAt": "2026-04-13T10:32:28.055Z",
-      "_qualityScore": 67,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
