@@ -197,7 +197,7 @@
         "it": "leitung-facility-management-psgn-wil-sg",
         "en": "leitung-facility-management-psgn-wil-sg",
         "de": "leitung-facility-management-psychiatrie-st-gallen-wil-sg",
-        "fr": "chef-de-la-gestion-des-installations-psychiatrie-st-gallen-wil-sg"
+        "fr": "leitung-facility-management-psgn-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -249,20 +249,18 @@
           "head-of-facility-management-psychiatrie-st-gallen-wil-sg"
         ],
         "fr": [
-          "leitung-facility-management-psgn-wil-sg"
+          "chef-de-la-gestion-des-installations-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
         "facility-managerin-facility-manager-psgn-wil-sg",
-        "leitung-facility-management-psgn-wil-sg",
         "head-of-facility-management-psychiatrie-st-gallen-wil-sg",
+        "chef-de-la-gestion-des-installations-psychiatrie-st-gallen-wil-sg",
         "responsabile-psichiatria-forense-psychiatrie-st-gallen-wil-sg",
         "forensic-psychiatry-chief-psychiatrie-st-gallen-wil-sg",
         "chefarztin-chefarzt-psychiatrie-st-gallen-wil-sg",
         "medecin-chef-en-psychiatrie-forensique-psychiatrie-st-gallen-wil-sg",
-        "chefarztin-chefarzt-psgn-wil-sg",
-        "responsabile-della-gestione-delle-strutture-psychiatrie-st-gallen-wil-sg",
-        "chef-de-la-gestion-des-installations-psychiatrie-st-gallen-wil-sg"
+        "chefarztin-chefarzt-psgn-wil-sg"
       ],
       "firstSeenAt": "2026-05-27T13:34:28.358Z",
       "salaryMin": 68000,
@@ -369,7 +367,7 @@
         "it": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "en": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "de": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "fr": "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
+        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -413,10 +411,10 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-57f50c",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-care-specialist-hf-fh-night-service-psychiatrie-st-gallen-wil-sg-57f50c",
         "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
         "dipl-specialiste-des-soins-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg-57f50c",
+        "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg",
         "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
         "dipl-care-specialist-hf-fh-night-service-psychiatrie-st-gallen-wil-sg",
@@ -424,9 +422,7 @@
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-ur8b94",
         "dipl-ing-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-professionista-della-salute-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "dipl-specialista-di-cura-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
+        "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -441,7 +437,7 @@
         ],
         "fr": [
           "dipl-specialiste-des-soins-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg-57f50c",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-02T14:21:01.360Z",
@@ -774,7 +770,6 @@
         "medecin-principal-psychiatrie-st-gallen-wil-sg",
         "medecin-senior-psychiatrie-st-gallen-wil-sg",
         "senior-physician-psychiatrie-st-gallen-wil-sg",
-        "medico-specialista-psychiatrie-st-gallen-wil-sg",
         "medico-senior-m-b-f-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {

@@ -16579,8 +16579,8 @@
       "slugByLocale": {
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
-        "de": "strategic-account-executive-pathology-lab-roche-ch",
-        "fr": "strategic-account-executive-pathology-lab-roche-ch"
+        "de": "strategischer-account-executive-pathologielabor-roche-basel",
+        "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -16620,20 +16620,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+        "strategic-account-executive-pathology-lab-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "de": [
-          "strategischer-account-executive-pathologielabor-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "fr": [
-          "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ]
       },
@@ -16773,7 +16769,6 @@
       "previousSlugs": [
         "roche-ch",
         "roche-ch-6",
-        "roche-basel",
         "locale-registrati-locali-roche-basel",
         "klassisch-eingehalten-roche-basel",
         "c-est-pas-vrai-roche-basel"
@@ -41280,11 +41275,11 @@
     },
     {
       "id": "roche-493a1666ed9a",
-      "slug": "roche-beijing",
+      "slug": "traduzione-roche-beijing-b2cbf0",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-basel",
-        "de": "roche-basel",
+        "it": "traduzione-roche-beijing-b2cbf0",
+        "de": "eine-neue-technologie-roche-beijing-b2cbf0",
         "fr": "roche-basel"
       },
       "company": "Roche",
@@ -41328,19 +41323,24 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-106"
+          "roche-ch-106",
+          "roche-basel",
+          "roche-beijing"
+        ],
+        "de": [
+          "roche-basel"
         ]
       },
       "previousSlugs": [
         "roche-ch-106",
-        "roche-ch",
+        "roche-basel",
+        "roche-beijing",
         "locale-registrati-locali-roche-basel",
         "klassisch-eingehalten-roche-basel",
         "c-est-pas-vrai-roche-basel",
         "roche-ch-6",
         "roche-beijing-xgknfl",
-        "roche-ch-156",
-        "roche-beijing"
+        "roche-ch-156"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -43998,9 +43998,7 @@
         "it-business-analyst-pharma-r-d-roche-ch-2-ek66fc",
         "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel-a11357",
         "it-business-analyste-pharma-r-d-roche-basel",
-        "analista-it-business-r-s-farmaceutico-roche-basel-vne1td",
-        "it-business-analyst-pharma-r-d-roche-ch",
-        "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel"
+        "analista-it-business-r-s-farmaceutico-roche-basel-vne1td"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -48622,7 +48620,7 @@
       "id": "roche-61c948c56d8a",
       "slug": "key-account-manager-conti-pubblici-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "gestione-account-chiave-m-w-d-roche-basel",
+        "it": "key-account-manager-conti-pubblici-d-f-m-roche-france",
         "en": "key-account-manager-m-w-d-roche-ch",
         "de": "sachbearbeiter-m-w-d-roche-france",
         "fr": "key-account-manager-m-w-d-roche-ch"
@@ -48667,6 +48665,7 @@
       "previousSlugs": [
         "key-account-manager-comptes-publics-d-f-m-roche-ch",
         "key-account-manager-m-w-d-roche-ch",
+        "gestione-account-chiave-m-w-d-roche-basel",
         "key-account-manager-istologia-e-sequenziamento-roche-basel",
         "key-account-manager-histology-sequencing-roche-ch",
         "key-account-manager-histologie-und-sequenzierung-roche-basel",
@@ -48675,13 +48674,13 @@
         "account-manager-roche-ch",
         "gestione-account-chiave-roche-sao-paulo",
         "key-account-manager-roche-ch",
-        "key-account-manager-roche-ch-2",
-        "key-account-manager-conti-pubblici-d-f-m-roche-france"
+        "key-account-manager-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch",
-          "key-account-manager-m-w-d-roche-ch"
+          "key-account-manager-m-w-d-roche-ch",
+          "gestione-account-chiave-m-w-d-roche-basel"
         ],
         "en": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch"
@@ -58100,7 +58099,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -60589,7 +60587,6 @@
         "analytics-intelligence-analista-senior-analisi-medica-roche-basel",
         "analytics-intelligence-senior-analyst-medical-analytics-roche-ch",
         "analytics-intelligence-senior-analyste-medical-analytics-roche-basel",
-        "analytics-intelligence-senior-analista-roche-basel",
         "analisi-e-intelligenza-senior-analyst-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -68374,12 +68371,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -68419,16 +68416,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -71116,7 +71110,6 @@
         "it-business-analyste-pharma-medicines-techops-roche-pune",
         "it-business-analista-pharma-r-d-roche-basel",
         "analista-it-business-r-s-farmaceutico-roche-basel-vne1td",
-        "it-business-analyst-pharma-r-d-roche-ch-2",
         "analista-it-business-r-s-farmaceutico-roche-basel",
         "analyste-des-affaires-en-ti-r-d-en-pharmacie-roche-basel-a11357"
       ],
@@ -74106,9 +74099,6 @@
         "global-study-lead-molecular-lab-roche-ch",
         "global-study-lead-molekularlabor-roche-basel",
         "etude-mondiale-de-plomb-lab-moleculaire-roche-basel",
-        "piombo-di-studio-globale-roche-basel",
-        "globaler-studienleiter-roche-basel",
-        "etude-mondiale-chef-de-file-roche-basel",
         "piombo-di-studio-globale-laboratorio-molecolare-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -77511,7 +77501,7 @@
         "en": "field-engineering-specialist-los-angeles-ca-roche-ch",
         "it": "field-engineering-specialist-los-angeles-ca-roche-ch",
         "de": "field-engineering-specialist-los-angeles-ca-roche-ch",
-        "fr": "field-engineering-specialist-los-angeles-ca-roche-ch"
+        "fr": "specialiste-en-genie-de-terrain-los-angeles-ca-roche-basel-01c2a9"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85480,12 +85470,12 @@
     },
     {
       "id": "roche-e2cc32831169",
-      "slug": "genomics-data-scientist-2-year-contract-roche-ch",
+      "slug": "genomics-data-scientist-2-anno-contratto-roche-basel",
       "slugByLocale": {
         "en": "genomics-data-scientist-2-year-contract-roche-ch",
-        "it": "genomics-data-scientist-2-year-contract-roche-ch",
-        "de": "genomics-data-scientist-2-year-contract-roche-ch",
-        "fr": "genomics-data-scientist-2-year-contract-roche-ch"
+        "it": "genomics-data-scientist-2-anno-contratto-roche-basel",
+        "de": "genomics-data-scientist-2-jahre-vertrag-roche-basel",
+        "fr": "specialiste-des-donnees-genomiques-contrat-de-2-ans-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85540,16 +85530,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-07T22:30:05.038Z"
+      "firstSeenAt": "2026-06-07T22:30:05.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "genomics-data-scientist-2-year-contract-roche-ch"
+        ],
+        "de": [
+          "genomics-data-scientist-2-year-contract-roche-ch"
+        ],
+        "fr": [
+          "genomics-data-scientist-2-year-contract-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "genomics-data-scientist-2-year-contract-roche-ch"
+      ]
     },
     {
       "id": "roche-6048596d00f9",
-      "slug": "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch",
+      "slug": "scienziato-sr-scienziato-analisi-immagine-2-anno-contratto-roche-basel",
       "slugByLocale": {
         "en": "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch",
-        "it": "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch",
-        "de": "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch",
-        "fr": "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch"
+        "it": "scienziato-sr-scienziato-analisi-immagine-2-anno-contratto-roche-basel",
+        "de": "scientist-sr-scientist-bildanalyse-2-jahre-vertrag-roche-basel",
+        "fr": "scientifique-sr-scientifique-analyse-d-image-contrat-de-2-ans-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85604,16 +85608,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-07T22:30:04.225Z"
+      "firstSeenAt": "2026-06-07T22:30:04.225Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch"
+        ],
+        "de": [
+          "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch"
+        ],
+        "fr": [
+          "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-sr-scientist-image-analysis-2-year-contract-roche-ch"
+      ]
     },
     {
       "id": "roche-e0ef06d50327",
-      "slug": "clinical-study-manager-roche-ch",
+      "slug": "responsabile-studi-clinici-roche-basel",
       "slugByLocale": {
         "en": "clinical-study-manager-roche-ch",
-        "it": "clinical-study-manager-roche-ch",
-        "de": "clinical-study-manager-roche-ch",
-        "fr": "clinical-study-manager-roche-ch"
+        "it": "responsabile-studi-clinici-roche-basel",
+        "de": "klinische-studie-manager-roche-basel",
+        "fr": "gestionnaire-d-etudes-cliniques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85668,7 +85686,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-07T22:30:03.499Z"
+      "firstSeenAt": "2026-06-07T22:30:03.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-study-manager-roche-ch"
+        ],
+        "de": [
+          "clinical-study-manager-roche-ch"
+        ],
+        "fr": [
+          "clinical-study-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-study-manager-roche-ch"
+      ]
     }
   ]
 }
