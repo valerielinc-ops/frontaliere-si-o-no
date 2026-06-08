@@ -3951,6 +3951,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giubiasco-viale-olgiati-lavori-notte': { name: 'Giubiasco lavori stradali', path: '/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte', parent: 'blog' },
     'blog-voto-zurigo-alloggi-cassa-malati': { name: 'Voto Zurigo Alloggi', path: '/articoli-svizzera/voto-zurigo-alloggi-cassa-malati/', parent: 'blog' },
     'blog-neutralizzazione-valori-stima-ticino': { name: 'Valori stima Ticino', path: '/articoli-frontaliere/neutralizzazione-valori-stima-ticino', parent: 'blog' },
+    'blog-votazioni-cantonali-giugno-salario-minimo': { name: 'Votazioni Cantonali', path: '/articoli-svizzera/votazioni-cantonali-giugno-salario-minimo/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

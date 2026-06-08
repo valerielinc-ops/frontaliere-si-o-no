@@ -98,6 +98,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Voto Zurigo: alloggi e premi cassa malati',
     'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Il Canton Zurigo al voto su iniziative per alloggi a prezzi accessibili, protezione degli inquilini e deduzioni fiscali per i premi di cassa malati.',
     'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Edifici residenziali moderni nel Canton Zurigo durante una giornata di sole',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Votazioni in 16 Cantoni: tasse, salario minimo e negozi',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'Il 14 giugno i cittadini svizzeri decidono su salario minimo, imposizione alla fonte, riscaldamenti e aperture domenicali in sedici Cantoni.',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Urne elettorali e bandiere cantonali in Svizzera',
 };
 
 export default blogMetaChIt;

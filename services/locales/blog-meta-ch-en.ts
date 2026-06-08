@@ -98,6 +98,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Zurich Vote: Affordable Housing and Health Premiums',
     'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'The Canton of Zurich votes on initiatives for affordable housing, tenant protection, and tax deductions for health insurance premiums.',
     'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Modern residential buildings in Canton Zurich during a sunny day',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.title': 'Voting in 16 Cantons: Taxes, Minimum Wage and Shops',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.excerpt': 'On June 14, Swiss citizens will decide on minimum wage, taxation, heating and Sunday openings in 16 Cantons.',
+    'blog.article.votazioni-cantonali-giugno-salario-minimo.imageAlt': 'Voting ballot boxes and cantonal flags in Switzerland',
 };
 
 export default blogMetaChEn;
