@@ -95,6 +95,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sem-taglia-108-posti-lavoro-2027.title': 'SEM: 108 emplois supprimés dès 2027',
     'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'La Secrétariat d\'État aux migrations réduit ses effectifs suite à l\'élimination des arriérés d\'asile et aux économies imposées par le Conseil fédéral et le Parlement.',
     'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Bureaux fédéraux à Berne, siège du Secrétariat d\'État aux migrations SEM',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Vote à Zurich : logements et primes d\'assurance maladie',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Le canton de Zurich vote sur des initiatives pour des logements abordables, la protection des locataires et des déductions fiscales pour les primes d\'assurance maladie.',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Immeubles résidentiels modernes dans le canton de Zurich par une journée ensoleillée',
 };
 
 export default blogMetaChFr;

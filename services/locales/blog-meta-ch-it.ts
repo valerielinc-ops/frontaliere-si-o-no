@@ -95,6 +95,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sem-taglia-108-posti-lavoro-2027.title': 'SEM: 108 posti di lavoro tagliati dal 2027',
     'blog.article.sem-taglia-108-posti-lavoro-2027.excerpt': 'La Segreteria di Stato della migrazione riduce l\'organico per arretrati asilo smaltiti e risparmi imposti dal Consiglio federale e dal Parlamento.',
     'blog.article.sem-taglia-108-posti-lavoro-2027.imageAlt': 'Uffici federali a Berna, sede della Segreteria di Stato della migrazione SEM',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.title': 'Voto Zurigo: alloggi e premi cassa malati',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.excerpt': 'Il Canton Zurigo al voto su iniziative per alloggi a prezzi accessibili, protezione degli inquilini e deduzioni fiscali per i premi di cassa malati.',
+    'blog.article.voto-zurigo-alloggi-cassa-malati.imageAlt': 'Edifici residenziali moderni nel Canton Zurigo durante una giornata di sole',
 };
 
 export default blogMetaChIt;

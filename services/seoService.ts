@@ -3949,6 +3949,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino': { name: 'Comitato No allo smantellamento di Ffs', path: '/articoli-frontaliere/comitato-no-smantellamento-ffs-cargo-presenta-rivendicazioni-ticino', parent: 'blog' },
     'blog-sem-taglia-108-posti-lavoro-2027': { name: 'SEM', path: '/articoli-svizzera/sem-taglia-108-posti-lavoro-2027/', parent: 'blog' },
     'blog-giubiasco-viale-olgiati-lavori-notte': { name: 'Giubiasco lavori stradali', path: '/articoli-frontaliere/giubiasco-viale-olgiati-lavori-notte', parent: 'blog' },
+    'blog-voto-zurigo-alloggi-cassa-malati': { name: 'Voto Zurigo Alloggi', path: '/articoli-svizzera/voto-zurigo-alloggi-cassa-malati/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
