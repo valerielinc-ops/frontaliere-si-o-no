@@ -104,10 +104,14 @@ jobs:
 
             # Gate 2: nessun commit nuovo da >MAXAGE (lavoro davvero abbandonato).
             LASTCOMMIT=$(gh pr view "$N" --repo "$REPO" --json commits --jq '.commits[-1].committedDate // empty' 2>/dev/null || true)
-            if [ -n "$LASTCOMMIT" ]; then
-              LCS=$(date -u -d "$LASTCOMMIT" +%s 2>/dev/null || echo 0)
-              if [ $((NOW - LCS)) -lt "$MAXAGE" ]; then echo "PR #$N ha commit recenti — skip (lavoro attivo)"; continue; fi
-            fi
+            # LASTCOMMIT vuoto = PR senza commit o head fork inaccessibile: NON
+            # ricicliamo (il close --delete-branch su un head fork può fallire
+            # silenziosamente lasciando il ref, e "0 commit" non è il lavoro
+            # abbandonato che R3-B mira a riciclare). Skip difensivo. Cfr. #1201
+            # item 3.
+            if [ -z "$LASTCOMMIT" ]; then echo "PR #$N: nessun commit/head fork inaccessibile — skip recycle"; continue; fi
+            LCS=$(date -u -d "$LASTCOMMIT" +%s 2>/dev/null || echo 0)
+            if [ $((NOW - LCS)) -lt "$MAXAGE" ]; then echo "PR #$N ha commit recenti — skip (lavoro attivo)"; continue; fi
 
             # Source issue: "(#N)" nel titolo o "Closes #N" nel body.
             ISSUE=$(printf '%s' "$TITLE" | grep -oE '\(#[0-9]+\)' | tail -1 | grep -oE '[0-9]+' || true)
