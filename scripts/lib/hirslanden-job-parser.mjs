@@ -201,8 +201,12 @@ function parseSearchResultsTiles(html) {
   const jobs = [];
   const seen = new Set();
 
+  // `class` and `href` can appear in either attribute order in the SF skin, so
+  // assert the jobTitle-link class via a zero-width lookahead rather than a
+  // fixed left-to-right sequence — a future skin reordering attributes would
+  // otherwise zero-match → 0 jobs until the health gate fires + a fix cycle.
   const linkRe =
-    /<a[^>]+class="[^"]*jobTitle-link[^"]*"[^>]*href="(\/Hirslanden\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
+    /<a(?=[^>]*class="[^"]*jobTitle-link[^"]*")[^>]*href="(\/Hirslanden\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = linkRe.exec(html)) !== null) {
     const relUrl = m[1].replace(/&amp;/g, '&');
