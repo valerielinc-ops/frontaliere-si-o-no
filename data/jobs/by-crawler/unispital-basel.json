@@ -69,7 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -235,7 +234,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -337,7 +335,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -384,11 +382,13 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -403,7 +403,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -422,9 +421,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "fr": "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -467,7 +466,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
+        "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -482,7 +483,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -567,7 +567,6 @@
         "soins-clinic-ambulatoire-gynecologique-et-oncologique-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -667,9 +666,9 @@
       "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
-        "en": "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fr": "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
+        "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -712,7 +711,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel"
+        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
+        "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -727,7 +728,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -886,7 +886,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1031,11 +1030,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1043,12 +1043,10 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "fr": [
-          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-          "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1210,7 +1208,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.335Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1863,7 +1860,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.685Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2048,9 +2044,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "fr": "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2093,7 +2089,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
+        "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2108,7 +2106,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2208,9 +2205,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2253,7 +2250,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
+        "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2268,7 +2267,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2350,7 +2348,6 @@
         "administrative-r-collaboratore-trice-in-case-management-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2449,7 +2446,6 @@
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2649,7 +2645,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2692,7 +2688,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2705,7 +2702,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2862,7 +2858,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2940,7 +2935,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3194,7 +3188,6 @@
         "fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.285Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3212,7 +3205,7 @@
       "id": "unispital-basel-f16341854433",
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
@@ -3268,22 +3261,21 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-          "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3450,7 +3442,6 @@
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
@@ -3459,10 +3450,11 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3792,7 +3784,6 @@
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4207,7 +4198,6 @@
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
@@ -4220,10 +4210,11 @@
         "assistentin-assistent-gesundheit-und-soziales-dialyse-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-18T13:25:45.876Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4384,7 +4375,6 @@
         "apprenti-klinikleitung-augenklinik-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T12:50:29.629Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4620,7 +4610,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:42:28.490Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5025,7 +5014,6 @@
         ]
       },
       "firstSeenAt": "2026-05-22T13:24:58.838Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5189,7 +5177,9 @@
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
-        "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch"
+        "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch",
+        "assistenzarzt-assistenzarztin-pneumologie-universitatsspital-basel-basel",
+        "assistenzarzt-assistenzarztin-pneumologie-unispital-basel-ch"
       ],
       "firstSeenAt": "2026-05-27T00:38:44.886Z",
       "salaryMin": 49500,
@@ -5511,7 +5501,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.917Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5805,7 +5794,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.913Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5956,7 +5944,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6037,7 +6024,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6600,7 +6586,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6643,7 +6629,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6655,7 +6642,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6736,7 +6722,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7035,7 +7020,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -7557,7 +7541,6 @@
       "previousSlugs": [
         "arztsekretar-in-unispital-basel-ch",
         "assistente-di-medico-universitatsspital-basel-basel",
-        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
         "medical-secretary-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-a8oetd",
@@ -7569,7 +7552,10 @@
         "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
-        "secretaire-medical-e-universitatsspital-basel-basel-1122f1"
+        "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-universitatsspital-basel-basel",
+        "segretario-del-dottore-in-universitatsspital-basel-basel",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.320Z",
       "salaryMin": 49500,
@@ -7851,14 +7837,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7906,16 +7893,16 @@
       "title": "Administrative*r Mitarbeiter*in (Diagnostische Plattform)",
       "titleByLocale": {
         "de": "Administrative*r Mitarbeiter*in (Diagnostische Plattform)",
-        "it": "Administrative*r Collaboratore/trice*in (Diagnostische Plattform)",
-        "en": "Administrative*r Mitarbeiter*in (Diagnostische Plattform)",
-        "fr": "Administrative*r Mitarbeiter*in (Diagnostische Plattform)"
+        "it": "Dipendente amministrativo (piattaforma diagnostica)",
+        "en": "Administrative employee (Diagnostic Platform)",
+        "fr": "Employé administratif (plate-forme diagnostique)"
       },
       "description": "Aufgaben:\n• Empfang und Betreuung der Patientinnen und Patienten\n\n• Organisation des Praxisalltags sowie Terminplanung\n\n• Administrative Tätigkeiten wie Telefon, E-Mails und Korrespondenz\n\n• Führung und Pflege der elektronischen Patientendossiers\n\n• Unterstützung der Ärztinnen und Ärzte im Praxisbetrieb\n\n• Allgemeine organisatorische und administrative Arbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA)\n\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n\n• Gute organisatorische Fähigkeiten und Teamgeist\n\n• Sehr gute Deutschkenntnisse, gute Englischkenntnisse; Französisch von Vorteil\n\n• Erfahrung im Praxisalltag (Empfang, Administration, Patientenbetreuung)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Empfang und Betreuung der Patientinnen und Patienten\n\n• Organisation des Praxisalltags sowie Terminplanung\n\n• Administrative Tätigkeiten wie Telefon, E-Mails und Korrespondenz\n\n• Führung und Pflege der elektronischen Patientendossiers\n\n• Unterstützung der Ärztinnen und Ärzte im Praxisbetrieb\n\n• Allgemeine organisatorische und administrative Arbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA)\n\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n\n• Gute organisatorische Fähigkeiten und Teamgeist\n\n• Sehr gute Deutschkenntnisse, gute Englischkenntnisse; Französisch von Vorteil\n\n• Erfahrung im Praxisalltag (Empfang, Administration, Patientenbetreuung)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Empfang und Betreuung der Patientinnen und Patienten\n\n• Organisation des Praxisalltags sowie Terminplanung\n\n• Administrative Tätigkeiten wie Telefon, E-Mails und Korrespondenz\n\n• Führung und Pflege der elektronischen Patientendossiers\n\n• Unterstützung der Ärztinnen und Ärzte im Praxisbetrieb\n\n• Allgemeine organisatorische und administrative Arbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA)\n\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n\n• Gute organisatorische Fähigkeiten und Teamgeist\n\n• Sehr gute Deutschkenntnisse, gute Englischkenntnisse; Französisch von Vorteil\n\n• Erfahrung im Praxisalltag (Empfang, Administration, Patientenbetreuung)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Empfang und Betreuung der Patientinnen und Patienten\n\n• Organisation des Praxisalltags sowie Terminplanung\n\n• Administrative Tätigkeiten wie Telefon, E-Mails und Korrespondenz\n\n• Führung und Pflege der elektronischen Patientendossiers\n\n• Unterstützung der Ärztinnen und Ärzte im Praxisbetrieb\n\n• Allgemeine organisatorische und administrative Arbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA)\n\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n\n• Gute organisatorische Fähigkeiten und Teamgeist\n\n• Sehr gute Deutschkenntnisse, gute Englischkenntnisse; Französisch von Vorteil\n\n• Erfahrung im Praxisalltag (Empfang, Administration, Patientenbetreuung)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Empfang und Betreuung der Patientinnen und Patienten\n\n• Organisation des Praxisalltags sowie Terminplanung\n\n• Administrative Tätigkeiten wie Telefon, E-Mails und Korrespondenz\n\n• Führung und Pflege der elektronischen Patientendossiers\n\n• Unterstützung der Ärztinnen und Ärzte im Praxisbetrieb\n\n• Allgemeine organisatorische und administrative Arbeiten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA)\n\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n\n• Gute organisatorische Fähigkeiten und Teamgeist\n\n• Sehr gute Deutschkenntnisse, gute Englischkenntnisse; Französisch von Vorteil\n\n• Erfahrung im Praxisalltag (Empfang, Administration, Patientenbetreuung)\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## Mansioni\n- Empfang und Betreuung der Patientinnen und Patienten\n- Organisation des Praxisalltags sowie Terminplanung\n- Administrative Tätigkeiten wie Telefon, E-Mails und Korrespondenz\n- Führung und Pflege der elektronischen Patientendossiers\n- Unterstützung der Ärztinnen und Ärzte im Praxisbetrieb\n- Allgemeine organisatorische und administrative Arbeiten\n\n## Requisiti\n- Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA)\n- Selbstständige, zuverlässige und strukturierte Arbeitsweise\n- Gute organisatorische Fähigkeiten und Teamgeist\n- Sehr gute Deutschkenntnisse, gute Englischkenntnisse; Französisch von Vorteil\n- Erfahrung im Praxisalltag (Empfang, Administration, Patientenbetreuung)\n\n## Cosa offriamo\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm",
+        "it": "Mansioni\nRicezione e cura dei pazienti\n- Organizzazione della pratica quotidiana e pianificazione\n- Attività amministrative quali telefono, e-mail e corrispondenza\n- Gestione e manutenzione dei registri dei pazienti elettronici\n- Supporto dei medici in pratica\nLavoro organizzativo e amministrativo generale\n\nRequisiti\n- Formazione completa come assistente di pratica medica / assistente di pratica medica (MPA)\n- Metodo di lavoro indipendente, affidabile e strutturato\nBuone capacità organizzative e spirito di squadra\nConoscenza molto buona del tedesco, buona conoscenza dell'inglese; vantaggio francese\nEsperienza nella pratica quotidiana (ricezione, amministrazione, cura del paziente)\n\nCosa di Friamo\n- Politica salariale attraente e benefici sociali eccellenti\n- Vantaggi nelle aree di shopping, sport e tempo libero\nAssistenza nel trasferimento e nella ricerca di alloggi\n- 25 giorni di vacanza più 5 anche free flexitage\n- Sostegno all'istruzione e alla pianificazione della carriera\n- Campus nel cuore di Basilea e nella zona tri-frontaliera\nOpzioni complete per l'infanzia\n- Programma di sport e di esercizio gratuito",
+        "en": "Mansioni\nReception and care of patients\n- Organization of everyday practice as well as scheduling\n- Administrative activities such as telephone, email and correspondence\n- Management and maintenance of electronic patient records\n- Support of doctors in practice\nGeneral organizational and administrative work\n\nRequirements\n- Completed training as medical practice assistant / medical practice assistant (MPA)\n- Independent, reliable and structured working method\nGood organizational skills and team spirit\nVery good knowledge of German, good knowledge of English; French advantage\nExperience in everyday practice (reception, administration, patient care)\n\nCosa of Friamo\n- Attractive wage policy and excellent social benefits\n- Advantages in the areas of shopping, sports and leisure\nAssistance in moving and finding accommodation\n- 25 holiday days plus 5 also free flexitage\n- Support for further education and career planning\n- Campus in the heart of Basel and the Tri-border area\nComprehensive childcare options\n- Free sports and exercise program",
+        "fr": "Mansioni\nRéception et soins des patients\n- Organisation de la pratique quotidienne ainsi que de la programmation\n- Activités administratives telles que téléphone, courrier électronique et correspondance\n- Gestion et tenue à jour des dossiers électroniques des patients\n- Soutien des médecins en pratique\nActivités générales d ' organisation et d ' administration\n\nExigences\n- Formation complète en tant qu'assistant de pratique médicale / assistant de pratique médicale (MPA)\n- Méthode de travail indépendante, fiable et structurée\nBonnes compétences organisationnelles et esprit d'équipe\nTrès bonne connaissance de l'allemand, bonne connaissance de l'anglais; avantage français\nExpérience de la pratique quotidienne (réception, administration, soins aux patients)\n\nCosa de Friamo\n- Une politique salariale attrayante et d'excellentes prestations sociales\n- Avantages dans les domaines du shopping, des sports et des loisirs\nAide au déménagement et à la recherche de logements\n- 25 jours de vacances plus 5 flexitage gratuit\n- Appui à la formation continue et à la planification des carrières\n- Campus au cœur de Bâle et de la zone Tri-frontière\nOptions globales en matière de garde d'enfants\n- Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7941,7 +7928,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch"
@@ -7979,16 +7965,16 @@
       "title": "SAP HCM Applikationsspezialist*in",
       "titleByLocale": {
         "de": "SAP HCM Applikationsspezialist*in",
-        "it": "SAP HCM Applikationsspezialist*in",
-        "en": "SAP HCM Applikationsspezialist*in",
-        "fr": "SAP HCM Applikationsspezialist*in"
+        "it": "Specialista di applicazioni SAP HCM",
+        "en": "SAP HCM Application Specialist",
+        "fr": "Spécialiste des applications SAP HCM"
       },
       "description": "Aufgaben:\n• Analyse der Anforderungen der HR-Fachbereiche und Entwicklung praxisnaher Lösungen zur Optimierung von HR-Prozessen\n\n• Mitwirkung an HR-Systemprojekten und digitalen Transformationsvorhaben – von der Konzeption bis zum Go-live – inklusive Testmanagement und Qualitätssicherung\n\n• Betreuung, Konfiguration und Weiterentwicklung von SAP HCM (PA, OM, PY) sowie SuccessFactors innerhalb der HR-Systemlandschaft\n\n• Sicherstellung eines stabilen und effizienten HR-Systembetriebs in enger Zusammenarbeit mit HR, IT und externen Partnern sowie kontinuierliche Optimierung der Prozesse\n\n• Fachliche Begleitung ausgewählter Payroll-Prozesse sowie punktuelle technische Unterstützung beim Lohnlauf\n\nAnforderungen:\n• Abgeschlossenes Studium in Wirtschaftsinformatik, Betriebswirtschaft, HR, Informatik oder eine vergleichbare Qualifikation\n\n• Mehrjährige Erfahrung im SAP-HCM-Umfeld sowie ein fundiertes Verständnis von HR-Prozessen, insbesondere im Bereich Payroll\n\n• Erfahrung mit SuccessFactors sowie Interesse an der HR-Digitalisierung und der Weiterentwicklung von HR-Systemen\n\n• Gute Deutschkenntnisse (mindestens Niveau B2) in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Analyse der Anforderungen der HR-Fachbereiche und Entwicklung praxisnaher Lösungen zur Optimierung von HR-Prozessen\n\n• Mitwirkung an HR-Systemprojekten und digitalen Transformationsvorhaben – von der Konzeption bis zum Go-live – inklusive Testmanagement und Qualitätssicherung\n\n• Betreuung, Konfiguration und Weiterentwicklung von SAP HCM (PA, OM, PY) sowie SuccessFactors innerhalb der HR-Systemlandschaft\n\n• Sicherstellung eines stabilen und effizienten HR-Systembetriebs in enger Zusammenarbeit mit HR, IT und externen Partnern sowie kontinuierliche Optimierung der Prozesse\n\n• Fachliche Begleitung ausgewählter Payroll-Prozesse sowie punktuelle technische Unterstützung beim Lohnlauf\n\nAnforderungen:\n• Abgeschlossenes Studium in Wirtschaftsinformatik, Betriebswirtschaft, HR, Informatik oder eine vergleichbare Qualifikation\n\n• Mehrjährige Erfahrung im SAP-HCM-Umfeld sowie ein fundiertes Verständnis von HR-Prozessen, insbesondere im Bereich Payroll\n\n• Erfahrung mit SuccessFactors sowie Interesse an der HR-Digitalisierung und der Weiterentwicklung von HR-Systemen\n\n• Gute Deutschkenntnisse (mindestens Niveau B2) in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Analyse der Anforderungen der HR-Fachbereiche und Entwicklung praxisnaher Lösungen zur Optimierung von HR-Prozessen\n\n• Mitwirkung an HR-Systemprojekten und digitalen Transformationsvorhaben – von der Konzeption bis zum Go-live – inklusive Testmanagement und Qualitätssicherung\n\n• Betreuung, Konfiguration und Weiterentwicklung von SAP HCM (PA, OM, PY) sowie SuccessFactors innerhalb der HR-Systemlandschaft\n\n• Sicherstellung eines stabilen und effizienten HR-Systembetriebs in enger Zusammenarbeit mit HR, IT und externen Partnern sowie kontinuierliche Optimierung der Prozesse\n\n• Fachliche Begleitung ausgewählter Payroll-Prozesse sowie punktuelle technische Unterstützung beim Lohnlauf\n\nAnforderungen:\n• Abgeschlossenes Studium in Wirtschaftsinformatik, Betriebswirtschaft, HR, Informatik oder eine vergleichbare Qualifikation\n\n• Mehrjährige Erfahrung im SAP-HCM-Umfeld sowie ein fundiertes Verständnis von HR-Prozessen, insbesondere im Bereich Payroll\n\n• Erfahrung mit SuccessFactors sowie Interesse an der HR-Digitalisierung und der Weiterentwicklung von HR-Systemen\n\n• Gute Deutschkenntnisse (mindestens Niveau B2) in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Analyse der Anforderungen der HR-Fachbereiche und Entwicklung praxisnaher Lösungen zur Optimierung von HR-Prozessen\n\n• Mitwirkung an HR-Systemprojekten und digitalen Transformationsvorhaben – von der Konzeption bis zum Go-live – inklusive Testmanagement und Qualitätssicherung\n\n• Betreuung, Konfiguration und Weiterentwicklung von SAP HCM (PA, OM, PY) sowie SuccessFactors innerhalb der HR-Systemlandschaft\n\n• Sicherstellung eines stabilen und effizienten HR-Systembetriebs in enger Zusammenarbeit mit HR, IT und externen Partnern sowie kontinuierliche Optimierung der Prozesse\n\n• Fachliche Begleitung ausgewählter Payroll-Prozesse sowie punktuelle technische Unterstützung beim Lohnlauf\n\nAnforderungen:\n• Abgeschlossenes Studium in Wirtschaftsinformatik, Betriebswirtschaft, HR, Informatik oder eine vergleichbare Qualifikation\n\n• Mehrjährige Erfahrung im SAP-HCM-Umfeld sowie ein fundiertes Verständnis von HR-Prozessen, insbesondere im Bereich Payroll\n\n• Erfahrung mit SuccessFactors sowie Interesse an der HR-Digitalisierung und der Weiterentwicklung von HR-Systemen\n\n• Gute Deutschkenntnisse (mindestens Niveau B2) in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Analyse der Anforderungen der HR-Fachbereiche und Entwicklung praxisnaher Lösungen zur Optimierung von HR-Prozessen\n\n• Mitwirkung an HR-Systemprojekten und digitalen Transformationsvorhaben – von der Konzeption bis zum Go-live – inklusive Testmanagement und Qualitätssicherung\n\n• Betreuung, Konfiguration und Weiterentwicklung von SAP HCM (PA, OM, PY) sowie SuccessFactors innerhalb der HR-Systemlandschaft\n\n• Sicherstellung eines stabilen und effizienten HR-Systembetriebs in enger Zusammenarbeit mit HR, IT und externen Partnern sowie kontinuierliche Optimierung der Prozesse\n\n• Fachliche Begleitung ausgewählter Payroll-Prozesse sowie punktuelle technische Unterstützung beim Lohnlauf\n\nAnforderungen:\n• Abgeschlossenes Studium in Wirtschaftsinformatik, Betriebswirtschaft, HR, Informatik oder eine vergleichbare Qualifikation\n\n• Mehrjährige Erfahrung im SAP-HCM-Umfeld sowie ein fundiertes Verständnis von HR-Prozessen, insbesondere im Bereich Payroll\n\n• Erfahrung mit SuccessFactors sowie Interesse an der HR-Digitalisierung und der Weiterentwicklung von HR-Systemen\n\n• Gute Deutschkenntnisse (mindestens Niveau B2) in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "## Aufgaben\n- Analyse der Anforderungen der HR-Fachbereiche und Entwicklung praxisnaher Lösungen zur Optimierung von HR-Prozessen\n- Mitwirkung an HR-Systemprojekten und digitalen Transformationsvorhaben – von der Konzeption bis zum Go-live – inklusive Testmanagement und Qualitätssicherung\n- Betreuung, Konfiguration und Weiterentwicklung von SAP HCM (PA, OM, PY) sowie SuccessFactors innerhalb der HR-Systemlandschaft\n- Sicherstellung eines stabilen und effizienten HR-Systembetriebs in enger Zusammenarbeit mit HR, IT und externen Partnern sowie kontinuierliche Optimierung der Prozesse\n- Fachliche Begleitung ausgewählter Payroll-Prozesse sowie punktuelle technische Unterstützung beim Lohnlauf\n\n## Anforderungen\n- Abgeschlossenes Studium in Wirtschaftsinformatik, Betriebswirtschaft, HR, Informatik oder eine vergleichbare Qualifikation\n- Mehrjährige Erfahrung im SAP-HCM-Umfeld sowie ein fundiertes Verständnis von HR-Prozessen, insbesondere im Bereich Payroll\n- Erfahrung mit SuccessFactors sowie Interesse an der HR-Digitalisierung und der Weiterentwicklung von HR-Systemen\n- Gute Deutschkenntnisse (mindestens Niveau B2) in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\n\n## Wir bieten\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm",
+        "it": "Compiti\nAnalisi dei requisiti dei dipartimenti HR e sviluppo di soluzioni pratiche per ottimizzare i processi HR\nPartecipazione a progetti di sistema HR e progetti di trasformazione digitale – dal concepimento al go-live – compresa la gestione dei test e l'assicurazione qualità\nSupporto, configurazione e ulteriore sviluppo di SAP HCM (PA, OM, PY) e SuccessFactors all'interno del paesaggio del sistema HR\nGarantire un funzionamento stabile ed efficiente del sistema HR in stretta collaborazione con HR, IT e partner esterni, nonché l'ottimizzazione continua dei processi\n- Supporto professionale dei processi di payroll selezionati e supporto tecnico specifico durante la corsa salariale\n\nRequisiti\n- Studi completi in informatica aziendale, amministrazione aziendale, HR, informatica o una qualifica comparabile\nDiversi anni di esperienza nell'ambiente SAP HCM e una solida comprensione dei processi HR, soprattutto nell'area di payroll\nEsperienza con SuccessFactors e interesse per la digitalizzazione delle risorse umane e l'ulteriore sviluppo dei sistemi HR\n- Buona conoscenza del tedesco (almeno il livello B2) nella parola e nella scrittura; Ulteriori competenze linguistiche sono vantaggiose\n\nOffriamo\n- Politica salariale attraente e benefici sociali eccellenti\n- Vantaggi nelle aree di shopping, sport e tempo libero\nAssistenza nel trasferimento e nella ricerca di alloggi\n- 25 giorni di vacanza più 5 anche free flexitage\n- Sostegno all'istruzione e alla pianificazione della carriera\n- Campus nel cuore di Basilea e nella zona tri-frontaliera\nOpzioni complete per l'infanzia\n- Programma di sport e di esercizio gratuito",
+        "en": "Tasks\nAnalysis of the requirements of HR departments and development of practical solutions for optimizing HR processes\nParticipation in HR system projects and digital transformation projects – from conception to go-live – including test management and quality assurance\nSupport, configuration and further development of SAP HCM (PA, OM, PY) and SuccessFactors within the HR system landscape\nEnsuring stable and efficient HR system operation in close cooperation with HR, IT and external partners as well as continuous optimization of processes\n- Professional support of selected payroll processes as well as specific technical support during the wage run\n\nRequirements\n- Completed studies in business informatics, business administration, HR, computer science or a comparable qualification\nSeveral years of experience in the SAP HCM environment as well as a sound understanding of HR processes, especially in the area of payroll\nExperience with SuccessFactors as well as interest in HR digitization and the further development of HR systems\n- Good knowledge of German (at least level B2) in word and writing; Further language skills are advantageous\n\nWe offer\n- Attractive wage policy and excellent social benefits\n- Advantages in the areas of shopping, sports and leisure\nAssistance in moving and finding accommodation\n- 25 holiday days plus 5 also free flexitage\n- Support for further education and career planning\n- Campus in the heart of Basel and the Tri-border area\nComprehensive childcare options\n- Free sports and exercise program",
+        "fr": "Tâche\nAnalyse des besoins des départements RH et élaboration de solutions pratiques pour optimiser les processus RH\nParticipation à des projets de systèmes de RH et de transformation numérique – de la conception à la mise en œuvre – y compris gestion des tests et assurance qualité\nSoutien, configuration et développement de SAP HCM (PA, OM, PY) et SuccessFactors dans le paysage du système RH\nAssurer un fonctionnement stable et efficace des systèmes de RH en étroite collaboration avec les RH, les TI et les partenaires externes ainsi qu'une optimisation continue des processus\n- Appui professionnel à certains processus de paie ainsi qu'un soutien technique spécifique pendant la période salariale\n\nExigences\n- Études terminées en informatique des affaires, administration des affaires, RH, informatique ou une qualification comparable\nPlusieurs années d'expérience dans l'environnement SAP HCM ainsi qu'une bonne compréhension des processus RH, en particulier dans le domaine de la paie\nExpérience avec SuccessFactors ainsi que l'intérêt pour la numérisation des RH et la poursuite du développement des systèmes de RH\n- Bonne connaissance de l'allemand (au moins niveau B2) en paroles et en écriture; D'autres compétences linguistiques sont avantageuses\n\nNous offrons\n- Une politique salariale attrayante et d'excellentes prestations sociales\n- Avantages dans les domaines du shopping, des sports et des loisirs\nAide au déménagement et à la recherche de logements\n- 25 jours de vacances plus 5 flexitage gratuit\n- Appui à la formation continue et à la planification des carrières\n- Campus au cœur de Bâle et de la zone Tri-frontière\nOptions globales en matière de garde d'enfants\n- Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8014,14 +8000,17 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sap-hcm-applikationsspezialist-in-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "sap-hcm-applikationsspezialist-in-unispital-basel-ch"
+        "sap-hcm-applikationsspezialist-in-unispital-basel-ch",
+        "sap-hcm-application-manager-in-universitatsspital-basel-basel",
+        "sap-hcm-applikationsbetreuer-in-universitatsspital-basel-basel",
+        "gestionnaire-d-applications-sap-hcm-dans-universitatsspital-basel-basel",
+        "sap-hcm-applikationsbetreuer-in-unispital-basel-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -8044,7 +8033,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8087,7 +8076,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8100,7 +8090,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
