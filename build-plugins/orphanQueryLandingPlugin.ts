@@ -73,6 +73,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { buildDayStampIso } from './shared/buildDayStamp';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -595,7 +596,7 @@ function renderPage(opts: {
 
   const h1ForLd = buildEditorialH1(cluster.canonicalQuery, locale);
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -604,7 +605,7 @@ function renderPage(opts: {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1ForLd,
@@ -954,7 +955,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           .map((it) => `<li class="s-q3nqK4"><a href="${esc(it.path)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(cap(it.query))}</a></li>`)
           .join('');
 
-        const breadcrumbLd = JSON.stringify({
+        const breadcrumbLd = inlineScriptJson({
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
@@ -962,7 +963,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
             { '@type': 'ListItem', position: 2, name: copy.sectionLabel, item: canonicalUrl },
           ],
         });
-        const collectionLd = JSON.stringify({
+        const collectionLd = inlineScriptJson({
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
           name: copy.title,

@@ -2,6 +2,7 @@ import path from 'path';
 import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 /**
  * Cache directory for the PDF content-hash manifest. Mirrors the convention
@@ -444,7 +445,7 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
  const hreflangLinks = '';
  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
- const jsonLd = JSON.stringify({
+ const jsonLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'DigitalDocument',
  name: guide.title,
@@ -461,7 +462,7 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
  });
 
  // BreadcrumbList — Home → Guide → this guide (D.2 coverage baseline).
- const breadcrumbLd = JSON.stringify({
+ const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [

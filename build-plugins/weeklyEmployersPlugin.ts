@@ -107,6 +107,7 @@ import {
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   startTimer as __weProfStart,
   recordEmit as __weProfRecord,
@@ -2320,7 +2321,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     { q: copy.faqDeltaQ, a: copy.faqDeltaA },
     { q: copy.faqApplyQ, a: copy.faqApplyA },
   ];
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqEntries.map((qa) => ({
@@ -2338,7 +2339,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     )
     .join('\n');
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2346,7 +2347,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
       { '@type': 'ListItem', position: 2, name: t.topHubTitle, item: canonicalUrl },
     ],
   });
-  const itemListLd = JSON.stringify({
+  const itemListLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: t.topHubTitle,
@@ -2358,7 +2359,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
       name: WEEKLY_EMPLOYERS_CITY_DISPLAY[c],
     })),
   });
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: t.topHubTitle,
@@ -2858,7 +2859,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     .join('')}</ul>`;
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2876,7 +2877,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     ],
   });
 
-  const itemListLd = JSON.stringify({
+  const itemListLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: h1,
@@ -2894,7 +2895,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     })),
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2905,7 +2906,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     datePublished: buildDayStampIso(),
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -3309,7 +3310,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   const siblingsPlaceholder = '<!--SIBLING_LINKS_PLACEHOLDER-->';
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -3330,7 +3331,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -3341,7 +3342,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     datePublished: buildDayStampIso(),
   });
 
-  const itemListLd = JSON.stringify({
+  const itemListLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: h1,
@@ -3353,7 +3354,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     })),
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,

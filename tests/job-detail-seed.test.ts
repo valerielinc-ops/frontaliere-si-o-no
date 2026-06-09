@@ -147,6 +147,41 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       const tpl = fs.readFileSync(path.resolve(root, 'build-plugins/htmlTemplate.ts'), 'utf-8');
       expect(tpl).toMatch(/jsonLdScripts\.map\(ld =>[\s\S]{0,80}escapeInlineScript\(ld\)/);
     });
+
+    it('NO build-plugin emits raw JSON-LD into a <script> tag (whole-class scan, #1515)', () => {
+      // Class fix for #1515: any `<script type="application/ld+json">${X}</script>`
+      // where X is data-controlled (job title/company/desc, GSC queries, article
+      // prose) can break out of the script context if the JSON contains a literal
+      // `</script`. JSON.stringify does NOT escape `<`; inlineScriptJson /
+      // escapeInlineScript (`<`→`<`, valid JSON, Google-parsed) do.
+      //
+      // Two banned shapes, scanned across EVERY build-plugin (not one file — the
+      // previous guard read only jobsSeoPagesPlugin, so ~8 sibling plugins stayed
+      // raw while it passed):
+      //   1. inline  `application/ld+json">${JSON.stringify(...)}`
+      //   2. a var   `const *Ld = JSON.stringify(...)` / `*JsonLd = JSON.stringify(...)`
+      //      (these are emitted into a direct ld+json tag in the hand-rolled
+      //      templates; vars passed to `jsonLdScripts:[...]` go through the
+      //      escaped htmlTemplate choke point and are fine — they don't match
+      //      the `const *Ld =` shape after this fix either way).
+      const walk = (dir: string): string[] => {
+        const out: string[] = [];
+        for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+          const full = path.join(dir, e.name);
+          if (e.isDirectory()) out.push(...walk(full));
+          else if (/\.ts$/.test(e.name)) out.push(full);
+        }
+        return out;
+      };
+      const INLINE_RAW = /application\/ld\+json">\$\{JSON\.stringify/;
+      const VAR_RAW = /const\s+[A-Za-z]*(?:Ld|JsonLd) = JSON\.stringify\(/;
+      const files = walk(path.resolve(root, 'build-plugins'));
+      const offenders = files.filter((f) => {
+        const src = fs.readFileSync(f, 'utf-8');
+        return INLINE_RAW.test(src) || VAR_RAW.test(src);
+      }).map((f) => path.relative(root, f));
+      expect(offenders).toEqual([]);
+    });
   });
 
   describe('jobsSeoPagesPlugin emit', () => {

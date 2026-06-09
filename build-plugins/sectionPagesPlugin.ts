@@ -54,6 +54,7 @@ import { ARTICLES } from '../data/blog-articles-data';
 import { BLOG_SLUGS } from '../services/routerBlogData';
 import type { BlogArticleId } from '../services/router';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -1024,7 +1025,7 @@ function renderSectionPage(opts: {
   );
   const alternates = hreflangLines.join('\n');
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -1033,7 +1034,7 @@ function renderSectionPage(opts: {
     ],
   });
 
-  const collectionLd = JSON.stringify({
+  const collectionLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: copy.h1,

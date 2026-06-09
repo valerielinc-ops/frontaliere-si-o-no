@@ -103,6 +103,7 @@ import {
 } from './shared/seoContentTokens';
 import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
 import { getCantonCities } from './shared/cantonCities';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Canton-aware section helpers (P2.S1) ──────────────────────────
 //
@@ -1584,7 +1585,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const alternatesHtml = renderHreflangAlternates(alternates);
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -1599,7 +1600,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ],
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: h1,
@@ -1623,7 +1624,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     inLanguage: locale,
   });
 
-  const datasetLd = JSON.stringify({
+  const datasetLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     inLanguage: locale,
@@ -1686,7 +1687,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -1887,7 +1888,7 @@ function renderHubPage(inp: HubPageInputs): string {
   const relatedHtml = renderRelatedLinks(copy);
   const alternatesHtml = renderHreflangAlternates(alternates);
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -1896,7 +1897,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ],
   });
 
-  const collectionLd = JSON.stringify({
+  const collectionLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: h1,
@@ -1911,7 +1912,7 @@ function renderHubPage(inp: HubPageInputs): string {
     },
   });
 
-  const hubDatasetLd = JSON.stringify({
+  const hubDatasetLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     inLanguage: locale,
@@ -1970,7 +1971,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -2846,7 +2847,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
 
   const alternatesHtml = renderHreflangAlternates(alternates);
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2861,7 +2862,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2876,7 +2877,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     },
   });
 
-  const datasetLd = JSON.stringify({
+  const datasetLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     inLanguage: locale,
@@ -2936,7 +2937,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
