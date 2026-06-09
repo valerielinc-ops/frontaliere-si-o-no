@@ -345,11 +345,11 @@
     },
     {
       "id": "hrc-d1c9201d70b7",
-      "slug": "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz",
+      "slug": "capo-unita-immobiliare-h-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz",
-        "en": "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz",
-        "de": "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz",
+        "it": "capo-unita-immobiliare-h-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "head-of-real-estate-unit-h-f-at-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "leiter-der-real-estate-unit-h-f-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
         "fr": "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -403,7 +403,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz"
+        ],
+        "en": [
+          "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz"
+        ],
+        "de": [
+          "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "chef-d-unite-immobilier-h-f-a-80-100-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-99bc8f7f95a6",

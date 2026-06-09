@@ -790,12 +790,12 @@
     },
     {
       "id": "bachtelen-17a359af2af6",
-      "slug": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf",
+      "slug": "pedagoga-sociale-pedagoga-sociale-fh-hf-70-80-stiftung-bachtelen-hagendorf",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf",
-        "en": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf",
+        "it": "pedagoga-sociale-pedagoga-sociale-fh-hf-70-80-stiftung-bachtelen-hagendorf",
+        "en": "social-pedagogue-social-pedagogue-fh-hf-70-80-stiftung-bachtelen-hagendorf",
         "de": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf",
-        "fr": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf"
+        "fr": "pedagogue-sociale-pedagogue-sociale-fh-hf-70-80-stiftung-bachtelen-hagendorf"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -848,16 +848,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-hagendorf"
+      ]
     },
     {
       "id": "bachtelen-1bf71e9826c8",
-      "slug": "sozialpadagog-in-80-bachtelen-dornach",
+      "slug": "istruzione-sociale-in-80-stiftung-bachtelen-dornach",
       "slugByLocale": {
-        "it": "sozialpadagog-in-80-bachtelen-dornach",
-        "en": "sozialpadagog-in-80-bachtelen-dornach",
+        "it": "istruzione-sociale-in-80-stiftung-bachtelen-dornach",
+        "en": "social-education-in-80-stiftung-bachtelen-dornach",
         "de": "sozialpadagog-in-80-bachtelen-dornach",
-        "fr": "sozialpadagog-in-80-bachtelen-dornach"
+        "fr": "education-sociale-en-80-stiftung-bachtelen-dornach"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -910,7 +924,21 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-80-bachtelen-dornach"
+        ],
+        "en": [
+          "sozialpadagog-in-80-bachtelen-dornach"
+        ],
+        "fr": [
+          "sozialpadagog-in-80-bachtelen-dornach"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-80-bachtelen-dornach"
+      ]
     },
     {
       "id": "bachtelen-4ae2f635cb64",
