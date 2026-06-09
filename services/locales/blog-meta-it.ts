@@ -8024,6 +8024,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.finanze-ticino-consuntivo.title': 'Consuntivo finanze cantonali Ticino 2025: critiche e sfide',
     'blog.article.finanze-ticino-consuntivo.excerpt': 'Il Parlamento ticinese discute il Consuntivo 2025: disavanzo di 32,5 milioni nonostante utili BNS di 80 milioni. Critiche a sgravi fiscali e gestione del personale.',
     'blog.article.finanze-ticino-consuntivo.imageAlt': 'Parlamento cantonale ticinese in sessione a Bellinzona',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Lavoretti estivi, ecco le regole da conoscere',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Salari, assicurazioni e limiti d\'età per i giovani frontalieri in Ticino.',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Lavori estivi per frontalieri in Ticino',
 };
 
 export default blogMetaIt;

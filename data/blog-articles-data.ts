@@ -25452,6 +25452,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lavoretti-estivi-2026-regole-frontaliere',
+ category: 'pratico',
+ date: '2026-06-09T02:53:16.973Z',
+ image: '/images/blog/lavoretti-estivi-2026-regole-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8024,6 +8024,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.finanze-ticino-consuntivo.title': 'Compte cantonal Tessin 2025: critiques et défis',
     'blog.article.finanze-ticino-consuntivo.excerpt': 'Le Parlement tessinois discute le Compte 2025 : déficit de 32,5 millions malgré des bénéfices de la BNS de 80 millions. Critiques concernant les allégements fiscaux et la gestion du personnel.',
     'blog.article.finanze-ticino-consuntivo.imageAlt': 'Parlement cantonal tessinois en séance à Bellinzona',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Petits boulots d\'été, voici les règles à connaître',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Salaire, assurances et limites d\'âge pour les jeunes frontaliers en Suisse.',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Emplois d\'été pour travailleurs frontaliers au Tessin',
 };
 
 export default blogMetaFr;
