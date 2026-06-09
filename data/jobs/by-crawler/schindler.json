@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "schindler-7b3240fb4263",
-      "slug": "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates",
+      "slug": "servizio-tecnico-ginevra-h-f-d-80-100-schindler-plan-les-ouates",
       "slugByLocale": {
         "fr": "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates",
-        "it": "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates",
-        "en": "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates",
-        "de": "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates"
+        "it": "servizio-tecnico-ginevra-h-f-d-80-100-schindler-plan-les-ouates",
+        "en": "service-technician-geneva-h-f-d-80-100-schindler-plan-les-ouates",
+        "de": "servicetechniker-genf-h-w-d-80-100-schindler-plan-les-ouates"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -65,7 +65,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-08T13:40:06.412Z"
+      "firstSeenAt": "2026-06-08T13:40:06.412Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates"
+        ],
+        "en": [
+          "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates"
+        ],
+        "de": [
+          "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-de-service-geneve-h-f-d-80-100-schindler-plan-les-ouates"
+      ]
     },
     {
       "id": "schindler-65144c70dea6",
@@ -357,7 +371,6 @@
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
       ],
       "previousSlugsByLocale": {
@@ -3618,7 +3631,7 @@
       "id": "schindler-604676bbf76f",
       "slug": "manager-per-cookie-einwilligungen-schindler-bern",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "it": "manager-per-cookie-einwilligungen-schindler-bern",
         "en": "manager-for-cookie-permissions-schindler-bern",
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
@@ -3679,12 +3692,10 @@
         "responsabile-consent-cookie-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen",
-        "manager-per-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7"
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3703,7 +3714,8 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "responsabile-consent-cookie-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "en": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -4018,7 +4030,6 @@
         "verkaufsprofi-liftmodernisierung-in-bern-m-w-d-80-100-schindler-bern",
         "marketing-manager-m-w-d-80-100-schindler-bern-1cb988",
         "directeur-marketing-m-w-d-80-100-schindler-bern",
-        "marketing-manager-m-w-d-80-100-schindler-bern",
         "ammodernamento-degli-impianti-di-risalita-professionali-di-berna-m-f-d-80-100-schindler-bern",
         "sales-professional-lift-modernization-in-bern-m-f-d-80-100-schindler-bern"
       ],
