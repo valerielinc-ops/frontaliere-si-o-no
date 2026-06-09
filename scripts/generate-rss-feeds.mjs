@@ -20,6 +20,12 @@
  * national articles (`create-article.mjs --section=svizzera`) are syndicated to
  * RSS readers / aggregators instead of being silently excluded (Refs #1226).
  *
+ * The generated feeds are committed seeds maintained by the article-gen
+ * workflow: `create-article.mjs` runs this script after every successful
+ * generation and `generate-article.yml` commits the result. The svizzera feeds
+ * are NOT seeded in the introducing PR (they are derived artifacts, ~1.5MB);
+ * the first scheduled article-gen run after merge materializes + commits them.
+ *
  * Usage:
  *   node scripts/generate-rss-feeds.mjs          # Generate all feeds
  *   node scripts/generate-rss-feeds.mjs --check   # Verify feeds exist and are valid
