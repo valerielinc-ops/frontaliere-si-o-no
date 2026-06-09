@@ -1,13 +1,22 @@
 {
-  "version": 1,
+  "version": 2,
+  "mode": "rate",
   "generatedAt": "2026-04-28T12:03:12.644Z",
-  "mode": "html",
+  "convertedAt": "2026-06-09",
+  "scanMode": "html",
   "totalSitemapUrls": 7533,
   "totalOrphans": 1982,
+  "tolerance": {
+    "relPct": 15,
+    "absPp": 5,
+    "minAbsDelta": 20,
+    "maxDeltaPp": 8
+  },
   "perSitemap": {
     "sitemap-annual-report.xml": {
       "total": 4,
       "orphans": 2,
+      "ratePct": 50,
       "examples": [
         "https://frontaliereticino.ch/de/report/grenzgaenger-2026/",
         "https://frontaliereticino.ch/fr/report/frontaliers-2026/"
@@ -16,6 +25,7 @@
     "sitemap-blog.xml": {
       "total": 1084,
       "orphans": 1,
+      "ratePct": 0.0923,
       "examples": [
         "https://frontaliereticino.ch/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontalieri-ticino-2026/"
       ]
@@ -23,6 +33,7 @@
     "sitemap-border-wait-map.xml": {
       "total": 4,
       "orphans": 4,
+      "ratePct": 100,
       "examples": [
         "https://frontaliereticino.ch/guida-frontaliere/mappa-live-valichi/",
         "https://frontaliereticino.ch/en/cross-border-guide/live-border-crossings-map/",
@@ -33,6 +44,7 @@
     "sitemap-border-wait.xml": {
       "total": 108,
       "orphans": 54,
+      "ratePct": 50,
       "examples": [
         "https://frontaliereticino.ch/de/wartezeit-grenze/",
         "https://frontaliereticino.ch/de/wartezeit-grenze/ticino-como/",
@@ -59,6 +71,7 @@
     "sitemap-career-landings.xml": {
       "total": 4,
       "orphans": 4,
+      "ratePct": 100,
       "examples": [
         "https://frontaliereticino.ch/agenzie-del-lavoro-lugano/",
         "https://frontaliereticino.ch/concorsi-pubblici-lugano/",
@@ -69,11 +82,13 @@
     "sitemap-comparisons.xml": {
       "total": 1,
       "orphans": 0,
+      "ratePct": 0,
       "examples": []
     },
     "sitemap-cost-of-living.xml": {
       "total": 6,
       "orphans": 4,
+      "ratePct": 66.6667,
       "examples": [
         "https://frontaliereticino.ch/costo-vita-lugano-ticino/",
         "https://frontaliereticino.ch/costo-vita-mendrisio-ticino/",
@@ -84,11 +99,13 @@
     "sitemap-faq-hub.xml": {
       "total": 1,
       "orphans": 0,
+      "ratePct": 0,
       "examples": []
     },
     "sitemap-fr-salaire-net.xml": {
       "total": 1,
       "orphans": 1,
+      "ratePct": 100,
       "examples": [
         "https://frontaliereticino.ch/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/"
       ]
@@ -96,6 +113,7 @@
     "sitemap-fuel-daily.xml": {
       "total": 48,
       "orphans": 4,
+      "ratePct": 8.3333,
       "examples": [
         "https://frontaliereticino.ch/de/dieselpreis-schweiz/heute/",
         "https://frontaliereticino.ch/de/dieselpreis-schweiz/chiasso/heute/",
@@ -122,6 +140,7 @@
     "sitemap-fuel-italian-cities.xml": {
       "total": 88,
       "orphans": 8,
+      "ratePct": 9.0909,
       "examples": [
         "https://frontaliereticino.ch/prezzi-diesel/italia/como/oggi/",
         "https://frontaliereticino.ch/en/diesel-price-switzerland/italy/como/today/",
@@ -148,6 +167,7 @@
     "sitemap-fuel-italian-stations.xml": {
       "total": 424,
       "orphans": 40,
+      "ratePct": 9.434,
       "examples": [
         "https://frontaliereticino.ch/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/",
         "https://frontaliereticino.ch/prezzi-benzina/italia/como/stazioni/q8-via-pasquale-paoli-s-n/",
@@ -174,6 +194,7 @@
     "sitemap-fuel-stations.xml": {
       "total": 488,
       "orphans": 40,
+      "ratePct": 8.1967,
       "examples": [
         "https://frontaliereticino.ch/prezzi-diesel/chiasso/stazioni/socar-via-maestri-comacini/",
         "https://frontaliereticino.ch/prezzi-diesel/lugano/stazioni/eni-strada-per-gandria/",
@@ -200,6 +221,7 @@
     "sitemap-glossario.xml": {
       "total": 42,
       "orphans": 30,
+      "ratePct": 71.4286,
       "examples": [
         "https://frontaliereticino.ch/glossario-frontaliere/permesso-b/",
         "https://frontaliereticino.ch/glossario-frontaliere/doppiaimposizione/",
@@ -226,6 +248,7 @@
     "sitemap-guides.xml": {
       "total": 8,
       "orphans": 8,
+      "ratePct": 100,
       "examples": [
         "https://frontaliereticino.ch/guides/guida-completa-frontaliere-2026/",
         "https://frontaliereticino.ch/guides/guida-completa-frontaliere-2026.pdf",
@@ -240,11 +263,13 @@
     "sitemap-health-premiums.xml": {
       "total": 183,
       "orphans": 0,
+      "ratePct": 0,
       "examples": []
     },
     "sitemap-job-market.xml": {
       "total": 21,
       "orphans": 15,
+      "ratePct": 71.4286,
       "examples": [
         "https://frontaliereticino.ch/mercato-lavoro-ticino/settimana-13-2026/",
         "https://frontaliereticino.ch/mercato-lavoro-ticino/settore/infermieri/",
@@ -266,6 +291,7 @@
     "sitemap-jobs.xml": {
       "total": 2409,
       "orphans": 1039,
+      "ratePct": 43.1299,
       "examples": [
         "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hilcona-feinkost-gmbh/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eisberg-ag/",
@@ -292,6 +318,7 @@
     "sitemap-market-report.xml": {
       "total": 4,
       "orphans": 2,
+      "ratePct": 50,
       "examples": [
         "https://frontaliereticino.ch/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/",
         "https://frontaliereticino.ch/fr/reports/marche-emploi-frontaliers-tessin-2026/"
@@ -300,6 +327,7 @@
     "sitemap-news.xml": {
       "total": 512,
       "orphans": 5,
+      "ratePct": 0.9766,
       "examples": [
         "https://frontaliereticino.ch/articoli-frontaliere/iniziativa-democrazia-respinta-2026/",
         "https://frontaliereticino.ch/articoli-frontaliere/guardia-medica-como-ponte-maggio-2026/",
@@ -309,6 +337,7 @@
     "sitemap-nursing.xml": {
       "total": 3,
       "orphans": 3,
+      "ratePct": 100,
       "examples": [
         "https://frontaliereticino.ch/lavoro-infermieri-svizzera/",
         "https://frontaliereticino.ch/lavoro-oss-svizzera/",
@@ -318,6 +347,7 @@
     "sitemap-orphan-landings.xml": {
       "total": 18,
       "orphans": 18,
+      "ratePct": 100,
       "examples": [
         "https://frontaliereticino.ch/ricerca/offerte-di-lavoro-svizzera/",
         "https://frontaliereticino.ch/ricerca/lavoro-in-svizzera/",
@@ -342,6 +372,7 @@
     "sitemap-pages.xml": {
       "total": 141,
       "orphans": 67,
+      "ratePct": 47.5177,
       "examples": [
         "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-40000-chf/",
         "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere/",
@@ -368,26 +399,31 @@
     "sitemap-professions.xml": {
       "total": 10,
       "orphans": 0,
+      "ratePct": 0,
       "examples": []
     },
     "sitemap-recency.xml": {
       "total": 2,
       "orphans": 0,
+      "ratePct": 0,
       "examples": []
     },
     "sitemap-salary-hub.xml": {
       "total": 1732,
       "orphans": 0,
+      "ratePct": 0,
       "examples": []
     },
     "sitemap-sector.xml": {
       "total": 10,
       "orphans": 0,
+      "ratePct": 0,
       "examples": []
     },
     "sitemap-seo-hubs.xml": {
       "total": 303,
       "orphans": 291,
+      "ratePct": 96.0396,
       "examples": [
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-2/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-3/",
@@ -414,6 +450,7 @@
     "sitemap-weekly-employers.xml": {
       "total": 188,
       "orphans": 174,
+      "ratePct": 92.5532,
       "examples": [
         "https://frontaliereticino.ch/de/unternehmen-einstellen/ticino/aktuelle-woche/",
         "https://frontaliereticino.ch/de/unternehmen-einstellen/lugano/aktuelle-woche/",
@@ -437,5 +474,6 @@
         "https://frontaliereticino.ch/en/companies-hiring/bellinzona/genossenschaft-migros-ostschweiz/current-week/"
       ]
     }
-  }
+  },
+  "_comment": "Rate-based baseline for audit-orphan-pages-in-sitemaps.mjs. The gate tracks each sitemap's orphan SHARE (orphans/total), not the absolute count, so organic URL growth at a flat orphan rate does NOT fail the build. A sitemap fails only when its rate exceeds baseRate*(1+relPct/100)+absPp (capped by maxDeltaPp) AND its orphan count grows by more than minAbsDelta — a real internal-link regression burying previously-linked URLs. A brand-new sitemap shipped >=90% orphaned over >=minAbsDelta URLs hard-fails. Fix orphans via internal links from a hub, never noindex. Rates must only DECREASE going forward (modulo tolerance). This file was mechanically converted from the v1 absolute-count baseline (2026-04-28 snapshot, total/orphans preserved) on 2026-06-09 to migrate the gate off the absolute-count ratchet that false-failed on organic corpus growth (sitemap-jobs 1039/2409=43% -> 1046/8721=12%: +7 orphans tripped the count gate while the share dropped 31pp). Numbers are stale-high vs current dist; a fresh rebaseline via seed-orphan-pages-baseline.yml tightens the caps."
 }
