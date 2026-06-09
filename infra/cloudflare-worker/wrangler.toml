@@ -1,0 +1,24 @@
+# Cloudflare Worker config for the frontaliereticino.ch locale router.
+# Deploy: `npx wrangler deploy` (or paste locale-router.js in the dashboard).
+# Requires the zone frontaliereticino.ch to be on Cloudflare (NS moved) first.
+
+name = "frontaliere-locale-router"
+main = "locale-router.js"
+compatibility_date = "2026-01-01"
+
+# Scope the Worker to ONLY the locale paths so the IT bulk (~95% of traffic) is
+# pure Cloudflare passthrough with no Worker subrequest. Three patterns per
+# locale cover the subtree, the bare homepage path, and the .html homepage file
+# without ever matching look-alikes like /enterprise (exact-match routes have no
+# trailing wildcard). The in-code LOCALE_RE is the matching guard.
+routes = [
+  { pattern = "frontaliereticino.ch/en/*",    zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en",      zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en.html", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/*",    zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de",      zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de.html", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
+]
