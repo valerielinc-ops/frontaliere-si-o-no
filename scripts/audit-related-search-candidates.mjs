@@ -32,6 +32,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
@@ -39,6 +40,10 @@ const GSC_CLUSTERS_PATH = path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.j
 const OUT_PATH = path.join(ROOT, 'data', 'related-search-candidates.json');
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// serializeCandidatesFile is imported from ./lib/related-search-serialize.mjs so
+// the audit writer and the gsc-orphan ingest augmenter share one bounded format
+// (the file's 100 MB push ceiling cannot drift between two writers — #1576).
 
 // ── Editorial-landing constants (mirror build-plugins/jobEditorialLanding.ts) ──
 
@@ -538,7 +543,15 @@ function main() {
     topNonEditorialCandidates: ranked.slice(0, 50),
     candidates: ranked,
   };
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
+  // Serialize compact, one candidate per line. This is an append-only coverage
+  // accumulator: every (locale, slug) maps to a live emitted cluster page
+  // (MIN_JOB_COUNT=1 in relatedSearchClustersPlugin), so entries CANNOT be
+  // pruned by frequency without orphaning indexed URLs. The 2-space pretty
+  // print added ~31% pure whitespace overhead (66 MB → 46 MB) and was pushing
+  // the file toward GitHub's 100 MB hard push limit (#1576). Writing the bulk
+  // `candidates` array one-object-per-line keeps git diffs line-granular while
+  // dropping the indentation overhead by construction.
+  fs.writeFileSync(OUT_PATH, serializeCandidatesFile(output));
 
   // Stdout summary
   console.log('');

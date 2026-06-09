@@ -230,8 +230,13 @@ interface StatDelta {
   name: string;
   url?: string;
   addedKeys: string[];
+  // updatedKeys/removedKeys are slimmed to empty arrays for all but the
+  // current day in data/jobs-stats-history.json (file-size ceiling, see
+  // scripts/lib/job-board-stats.mjs). The magnitude survives as these counts.
   updatedKeys: string[];
   removedKeys: string[];
+  updatedCount?: number;
+  removedCount?: number;
 }
 
 interface HistoryEntry {
@@ -720,7 +725,9 @@ function aggregateStatsForEntries(
   const activeEmployers = new Set<string>();
   for (const entry of entries) {
     for (const c of entry.companyStats ?? []) {
-      if ((c.addedKeys?.length ?? 0) + (c.updatedKeys?.length ?? 0) + (c.removedKeys?.length ?? 0) > 0) {
+      const updated = c.updatedKeys?.length || (c.updatedCount ?? 0);
+      const removed = c.removedKeys?.length || (c.removedCount ?? 0);
+      if ((c.addedKeys?.length ?? 0) + updated + removed > 0) {
         activeEmployers.add(c.key);
       }
     }

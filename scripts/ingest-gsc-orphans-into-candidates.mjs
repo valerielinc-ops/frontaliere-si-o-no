@@ -37,6 +37,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -215,7 +216,10 @@ function main() {
     if (!data.sources.includes(tag)) data.sources.push(tag);
   }
 
-  fs.writeFileSync(CANDIDATES_PATH, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+  // Same compact bounded serializer as the audit writer — a plain
+  // JSON.stringify(data, null, 2) here would silently revert the file to the
+  // un-bounded pretty format and re-inflate it toward the 100 MB push limit (#1576).
+  fs.writeFileSync(CANDIDATES_PATH, serializeCandidatesFile(data), 'utf-8');
   console.log(`\nWrote ${synthetic.length} synthetic candidates to ${path.relative(ROOT, CANDIDATES_PATH)}`);
   console.log('Next deploy will emit these as cluster pages (MIN_MATCHING_JOBS=0 floor; pages with zero AND/OR matches still render as alert-CTA landings).');
 }

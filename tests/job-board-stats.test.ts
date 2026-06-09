@@ -328,4 +328,66 @@ describe('job-board-stats', () => {
       avgMid: 110000,
     });
   });
+
+  it('slims updatedKeys/removedKeys to counts on past days but keeps them on the current day (file-size ceiling, #1358)', () => {
+    // A prior day with many updates whose raw key arrays must be dropped.
+    const pastDate = '2026-06-01';
+    const updatedKeys = Array.from({ length: 50 }, (_, i) => `url:https://example.com/past-${i}`);
+    const removedKeys = Array.from({ length: 10 }, (_, i) => `url:https://example.com/gone-${i}`);
+    const existingHistory = {
+      version: 1,
+      generatedAt: `${pastDate}T08:00:00.000Z`,
+      entries: [
+        {
+          date: pastDate,
+          totalJobs: 100,
+          added: 5,
+          updated: updatedKeys.length,
+          removed: removedKeys.length,
+          addedKeys: ['url:https://example.com/added-0'],
+          updatedKeys,
+          removedKeys,
+          companyStats: [
+            {
+              key: 'swisscom-sede-ticino',
+              name: 'Swisscom (sede Ticino)',
+              url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
+              addedKeys: ['url:https://example.com/added-0'],
+              updatedKeys,
+              removedKeys,
+            },
+          ],
+          locationStats: [],
+          titleStats: [],
+        },
+      ],
+    };
+
+    const { history } = buildJobsStatsArtifacts({
+      previousJobs: [],
+      currentJobs: [job({ id: 'job-a', slug: 'job-a' })],
+      existingHistory,
+      now: '2026-06-09T10:00:00.000+02:00',
+    });
+
+    const past = history.entries.find((e) => e.date === pastDate)!;
+    const today = history.entries.find((e) => e.date === '2026-06-09')!;
+
+    // Past day: raw updated/removed key arrays dropped, scalar counts preserved.
+    expect(past.updatedKeys).toHaveLength(0);
+    expect(past.removedKeys).toHaveLength(0);
+    expect(past.updated).toBe(50);
+    expect(past.removed).toBe(10);
+    // addedKeys are kept (needed for added-leader dedup across the window).
+    expect(past.addedKeys.length).toBeGreaterThan(0);
+    // Bucket-level: arrays slimmed, counts carried.
+    const pastCompany = past.companyStats[0];
+    expect(pastCompany.updatedKeys).toHaveLength(0);
+    expect(pastCompany.removedKeys).toHaveLength(0);
+    expect(pastCompany.updatedCount).toBe(50);
+    expect(pastCompany.removedCount).toBe(10);
+
+    // Current day: full arrays retained (concurrent same-day pushes dedupe on them).
+    expect(Array.isArray(today.addedKeys)).toBe(true);
+  });
 });
