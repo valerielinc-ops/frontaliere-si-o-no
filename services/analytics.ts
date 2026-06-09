@@ -1859,6 +1859,29 @@ export const Analytics = {
  cta_keyword: (keyword || '').slice(0, 80),
  });
  },
+
+ /**
+  * Diagnostic: the job-detail alert prompt was eligible to evaluate but was
+  * suppressed before becoming visible, with the reason. Lets us see in GA4
+  * exactly which guard drops the prompt (e.g. `no_auth` from a failed
+  * newsletter autologin, `get_alerts_failed` from a degraded Firestore read)
+  * instead of inferring it from a zero impression count.
+  */
+ trackJobAlertCtaSkipped: (
+ surface: 'job_detail_prompt',
+ reason:
+ | 'no_auth'
+ | 'no_category'
+ | 'gating_capped'
+ | 'get_alerts_failed'
+ | 'already_subscribed'
+ | 'quota_full',
+ ) => {
+ log('job_alert_cta_skipped', {
+ cta_surface: surface,
+ skip_reason: reason,
+ });
+ },
 };
 
 // ─── Protect Analytics methods from external modification ──────
