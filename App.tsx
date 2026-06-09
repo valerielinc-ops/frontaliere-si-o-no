@@ -207,6 +207,19 @@ const App: React.FC = () => {
  // failing <img> to its raw.githubusercontent fallback (same SHA).
  useEffect(() => { installBlogImageCdnFallback(); }, []);
 
+ // Version badge commit hash — fetched at runtime from /commit-hash.txt
+ // (emitted by buildIdPlugin) instead of a Vite `define`. Baking it into the
+ // bundle put a fresh value in the entry every build → ~100% deploy churn.
+ const [commitHash, setCommitHash] = useState('');
+ useEffect(() => {
+ let alive = true;
+ fetch('/commit-hash.txt')
+ .then((r) => (r.ok ? r.text() : ''))
+ .then((t) => { if (alive && t.trim()) setCommitHash(t.trim()); })
+ .catch(() => {});
+ return () => { alive = false; };
+ }, []);
+
  useEffect(() => {
  if (typeof window === 'undefined') return;
  const w = window as unknown as { __THIN_SHELL__?: number; __THIN_SHELL_REPORTED__?: number };
@@ -2556,14 +2569,14 @@ const App: React.FC = () => {
  {/* Version badge with GitHub link */}
  <div className="flex items-center justify-center mt-2 mb-2">
  <a
- href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
+ href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash || 'unknown'}`}
  target="_blank"
  rel="noopener noreferrer"
  className="text-sm font-mono text-muted hover:text-accent px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
  title="Versione del sito: commit GitHub deploy"
  >
  <span>v</span>
- <span>{typeof __SHORT_COMMIT_HASH__ !== 'undefined' ? __SHORT_COMMIT_HASH__ : 'unknown'}</span>
+ <span>{commitHash ? commitHash.slice(0, 7) : 'unknown'}</span>
  </a>
  </div>
 

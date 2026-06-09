@@ -1268,6 +1268,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diaspora-svizzera-parlamento': {
+    title: 'La rappresentanza della diaspora svizzera in Parlamento',
+    description: 'Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rappresentanza, diaspora, parlamento, irène',
+    ogTitle: 'La rappresentanza della diaspora svizzera in Parlamento',
+    ogDescription: 'Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica.',
+    canonicalPath: '/articoli-svizzera/diaspora-svizzera-parlamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La rappresentanza della diaspora svizzera in Parlamento",
+      "description": "Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diaspora-svizzera-parlamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-06-09T00:49:36+00:00",
+      "dateModified": "2026-06-09T00:49:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diaspora-svizzera-parlamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ritmi-insostenibili-logistica-dpd': {
+    title: 'Ritmi insostenibili e pressione sui lavoratori della logistica',
+    description: 'Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro insostenibili e l\'aumento di burnout e infortuni. Critica alla narrativa dei "furbetti dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritmi, insostenibili, pressione, lavoratori',
+    ogTitle: 'Ritmi insostenibili e pressione sui lavoratori della logistica',
+    ogDescription: 'Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro insostenibili e l\'aumento di burnout e infortuni. Critica alla narrativa dei "furbetti".',
+    canonicalPath: '/articoli-svizzera/ritmi-insostenibili-logistica-dpd/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ritmi insostenibili e pressione sui lavoratori della logistica",
+      "description": "Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro insostenibili e l'aumento di burnout e infortuni. Critica alla narrativa dei \"furbetti dei",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ritmi-insostenibili-logistica-dpd.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un magazzino logistico svizzero con lavoratori e nastri trasportatori"
+      },
+      "datePublished": "2026-06-09T01:15:48+00:00",
+      "dateModified": "2026-06-09T01:15:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ritmi-insostenibili-logistica-dpd/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hotel-flaz-pontresina-2028': {
+    title: 'Inizio lavori Hotel Flaz, Pontresina: 25 milioni CHF e nuovi spazi',
+    description: 'Approfondimenti sull’inizio lavori per il nuovo hotel Flaz a Pontresina, con 176 camere, investimenti superiori ai 25 milioni CHF e nuovi spazi comunitari. Voto',
+    keywords: 'frontalieri, ticino, svizzera, italia, inizio, lavori, hotel, flaz',
+    ogTitle: 'Inizio lavori Hotel Flaz, Pontresina: i fatti e le implicazioni',
+    ogDescription: 'Novità e fatti chiave sul nuovo hotel Flaz a Pontresina, con 176 posti letto e investimento da oltre 25 milioni CHF. Tutte le informazioni e le implicazioni',
+    canonicalPath: '/articoli-svizzera/hotel-flaz-pontresina-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inizio lavori Hotel Flaz, Pontresina: 25 milioni CHF e nuovi spazi",
+      "description": "Approfondimenti sull’inizio lavori per il nuovo hotel Flaz a Pontresina, con 176 camere, investimenti superiori ai 25 milioni CHF e nuovi spazi comunitari. Voto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hotel-flaz-pontresina-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Hotel Flaz a Pontresina in Engadina mostra facciata nuova con dettagli architettonici ed elementi stilistici moderni in contesto sciolto."
+      },
+      "datePublished": "2026-06-09T02:25:04+00:00",
+      "dateModified": "2026-06-09T02:25:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hotel-flaz-pontresina-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carenza-manodopera-gr-2024': {
+    title: 'Carenza di manodopera in Graubünden: impatto sulle imprese',
+    description: 'Scopri come il 44% delle aziende grigionesi segnala difficoltà nella ricerca di personale qualificato e quali sono le sfide territoriali e burocratiche per il',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenza, manodopera, graubünden, impatto',
+    ogTitle: 'Carenza di manodopera in Graubünden: impatto sulle imprese',
+    ogDescription: 'Il 44% delle aziende grigionesi segnala difficoltà nella ricerca di personale qualificato; analisi delle cause e delle possibili soluzioni.',
+    canonicalPath: '/articoli-svizzera/carenza-manodopera-gr-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenza di manodopera in Graubünden: impatto sulle imprese",
+      "description": "Scopri come il 44% delle aziende grigionesi segnala difficoltà nella ricerca di personale qualificato e quali sono le sfide territoriali e burocratiche per il",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carenza-manodopera-gr-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta alpina dei Grigioni con villaggi tradizionali e aree industriali"
+      },
+      "datePublished": "2026-06-09T03:11:29+00:00",
+      "dateModified": "2026-06-09T03:11:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carenza-manodopera-gr-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

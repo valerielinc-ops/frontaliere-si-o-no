@@ -104,6 +104,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Rekord: So viele Frauen wie nie im Schweizer Parlament',
     'blog.article.donne-parlamento-record.excerpt': '97 Frauen auf 246 Sitze: Ein neuer historischer Rekord ist erreicht',
     'blog.article.donne-parlamento-record.imageAlt': 'Bundesparlament in Bern mit symbolischer Darstellung der Gleichstellung der Geschlechter',
+    'blog.article.diaspora-svizzera-parlamento.title': 'Die Vertretung der Schweizer Diaspora im Parlament',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin kritisiert die mangelnde Beachtung der Fünften Schweiz im Bundeshaus und fordert E-Voting als demokratisches Hebelinstrument.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Unhaltbare Arbeitsrhythmen und Druck auf Logistikarbeiter',
+    'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'Der Arbeitnehmerverband DPD Giubiasco meldet Arbeitsbelastungen, die die physischen und psychischen Grenzen überschreiten, sowie einen Anstieg von Unfällen und Burnout im Logistiksektor.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Innenansicht eines Schweizer Logistiklagers mit Arbeitern und Förderbändern',
+    'blog.article.hotel-flaz-pontresina-2028.title': 'Beginn der Arbeiten am Hotel Flaz in Pontresina: 25 Millionen CHF und neue Räume',
+    'blog.article.hotel-flaz-pontresina-2028.excerpt': 'Das neue 3-Stellen-Hotel in Pontresina wird in der Wintersaison 2028/2029 mit 176 Betten öffnen.',
+    'blog.article.hotel-flaz-pontresina-2028.imageAlt': 'Neuer Flaz Hotel in Pontresina, Engadina, mit moderner Fassade und eleganten Details im verschneiten Alpenpanorama.',
+    'blog.article.carenza-manodopera-gr-2024.title': 'Fachkräftemangel in Graubünden: Auswirkungen auf Unternehmen',
+    'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % der Unternehmen in Graubünden melden schwere Schwierigkeiten, qualifiziertes Personal zu finden, während 75 % ihre wirtschaftliche Lage als gut oder sehr gut einschätzen.',
+    'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Alpenblick auf Graubünden mit traditionellen Dörfern und Industriegebieten',
 };
 
 export default blogMetaChDe;

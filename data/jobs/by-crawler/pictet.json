@@ -283,7 +283,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:23:52.558Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -358,7 +357,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:23:51.288Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -505,7 +503,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:33:37.627Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -664,12 +661,12 @@
     },
     {
       "id": "pictet-77d50baf53af",
-      "slug": "reporting-analyst-pictet-london",
+      "slug": "reporting-analista-pictet-group-london",
       "slugByLocale": {
         "en": "reporting-analyst-pictet-london",
-        "it": "reporting-analyst-pictet-london",
+        "it": "reporting-analista-pictet-group-london",
         "de": "reporting-analyst-pictet-london",
-        "fr": "reporting-analyst-pictet-london"
+        "fr": "reporting-analyste-pictet-group-london"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -726,7 +723,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-08T22:58:09.337Z"
+      "firstSeenAt": "2026-06-08T22:58:09.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reporting-analyst-pictet-london"
+        ],
+        "fr": [
+          "reporting-analyst-pictet-london"
+        ]
+      },
+      "previousSlugs": [
+        "reporting-analyst-pictet-london"
+      ]
     }
   ]
 }

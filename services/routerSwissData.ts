@@ -56,6 +56,10 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'voto-zurigo-alloggi-cassa-malati': { it: 'voto-zurigo-alloggi-cassa-malati', en: 'zurich-vote-affordable-housing-health-insurance', de: 'abstimmung-zuerich-wohnraum-krankenkassenpraemien', fr: 'vote-zurich-logement-abordable-assurance-maladie' },
  'votazioni-cantonali-giugno-salario-minimo': { it: 'votazioni-cantonali-giugno-salario-minimo', en: 'cantonal-votes-june-minimum-wage', de: 'kantonale-abstimmungen-juni-mindestlohn', fr: 'votations-cantonales-juin-salaire-minimum' },
  'donne-parlamento-record': { it: 'donne-parlamento-record', en: 'swiss-parliament-women-record', de: 'rekord-frauen-parlament-schweiz', fr: 'record-femmes-parlement-suisse' },
+ 'diaspora-svizzera-parlamento': { it: 'diaspora-svizzera-parlamento', en: 'swiss-diaspora-parliament', de: 'schweizer-diaspora-parlament', fr: 'diaspora-suisse-parlement' },
+ 'ritmi-insostenibili-logistica-dpd': { it: 'ritmi-insostenibili-logistica-dpd', en: 'unsustainable-pace-pressure-logistics-workers', de: 'untragbare-tempo-druck-logistikarbeiter', fr: 'rythmes-intenables-pression-travailleurs-logistique' },
+ 'hotel-flaz-pontresina-2028': { it: 'hotel-flaz-pontresina-2028', en: 'hotel-flaz-pontresina-2028', de: 'hotel-flaz-pontresina-2028', fr: 'hotel-flaz-pontresina-2028' },
+ 'carenza-manodopera-gr-2024': { it: 'carenza-manodopera-gr-2024', en: 'labour-shortage-graubuenden', de: 'arbeitskraeftemangel-graubuenden', fr: 'penurie-main-d-oeuvre-grisons' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

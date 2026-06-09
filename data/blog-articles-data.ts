@@ -25425,6 +25425,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'divorzio-cassa-pensioni',
+ category: 'novita',
+ date: '2026-06-09T00:24:38.432Z',
+ image: '/images/blog/divorzio-cassa-pensioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'licenziamento-postino-ticino',
+ category: 'pratico',
+ date: '2026-06-09T00:59:36.254Z',
+ image: '/images/blog/licenziamento-postino-ticino.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'finanze-ticino-consuntivo',
+ category: 'fiscale',
+ date: '2026-06-09T02:12:46.209Z',
+ image: '/images/blog/finanze-ticino-consuntivo.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'lavoretti-estivi-2026-regole-frontaliere',
+ category: 'pratico',
+ date: '2026-06-09T02:53:16.973Z',
+ image: '/images/blog/lavoretti-estivi-2026-regole-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

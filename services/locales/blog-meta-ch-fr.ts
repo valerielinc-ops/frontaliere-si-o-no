@@ -104,6 +104,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Jamais autant de femmes au Parlement suisse',
     'blog.article.donne-parlamento-record.excerpt': '97 femmes sur 246 sièges au total : un nouveau record historique est atteint',
     'blog.article.donne-parlamento-record.imageAlt': 'Bâtiment du Parlement fédéral suisse à Berne avec représentation symbolique de l\'égalité des sexes',
+    'blog.article.diaspora-svizzera-parlamento.title': 'La représentation de la diaspora suisse au Parlement',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin critique le manque d\'intérêt pour la Cinquième Suisse au Palais fédéral, plaidant pour le vote électronique comme levier démocratique.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Palais fédéral à Berne, siège du Parlement suisse.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Rythmes insoutenables et pression sur les logisticiens',
+    'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'Le Collectif Ouvrier DPD Giubiasco dénonce des charges de travail dépassant les limites physiques et psychologiques ainsi que l\'augmentation des accidents et du burnout dans le secteur logistique.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Intérieur d\'un entrepôt logistique suisse avec des travailleurs et des tapis roulants',
+    'blog.article.hotel-flaz-pontresina-2028.title': 'Hôtel Flaz',
+    'blog.article.hotel-flaz-pontresina-2028.excerpt': 'Le nouvel hôtel trois étoiles supérieur à Pontresina ouvrira lors de la saison hivernale 2028/2029 avec 176 places. Il investit 25 millions de francs et créé de nouveaux espaces.',
+    'blog.article.hotel-flaz-pontresina-2028.imageAlt': 'Neuf hôtel Flaz à Pontresina, Engadina, avec façade moderne et détails élégants face à un paysage enneigé.',
+    'blog.article.carenza-manodopera-gr-2024.title': 'Pénurie de main-d\'œuvre dans le Grisons : impact sur les entreprises',
+    'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % des entreprises grisonnes signalent de graves difficultés à trouver du personnel qualifié, tandis que 75 % évaluent leur situation économique bonne ou très bonne.',
+    'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Vue alpine des Grisons avec villages traditionnels et zones industrielles',
 };
 
 export default blogMetaChFr;

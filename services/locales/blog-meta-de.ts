@@ -8013,6 +8013,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Schweiz plant ILO-Konventionen gegen Gewalt am Arbeitsplatz',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Der Bundesrat schlägt die Ratifizierung von zwei ILO-Konventionen gegen Gewalt und Belästigung am Arbeitsplatz vor, ohne Änderungen am Schweizer Gesetz.',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Bellinzona-Panorama bei Sonnenaufgang, Schweizer Stadt nahe der italienischen Grenze.',
+    'blog.article.divorzio-cassa-pensioni.title': 'Scheidung: Was passiert mit der Pensionskasse? - UBS',
+    'blog.article.divorzio-cassa-pensioni.excerpt': 'Die UBS kündigt eine neue Regelung für die Pensionskasse bei Scheidung an.',
+    'blog.article.divorzio-cassa-pensioni.imageAlt': 'Ein Grenzgänger mit seiner Frau und Kindern in einem Landschaftsbild von Locarno',
+    'blog.article.licenziamento-postino-ticino.title': 'Entlassen nach 42 Jahren: Die Geschichte des Veveyser Postboten',
+    'blog.article.licenziamento-postino-ticino.excerpt': 'Ein Postbote aus Vevey wurde nach 42 Jahren im Dienst entlassen, weil er versuchte, Diebstähle zu verhindern, indem er Pakete direkt an die Etagen zustellte.',
+    'blog.article.licenziamento-postino-ticino.imageAlt': 'Postbote liefert Brief in Lugano',
+    'blog.article.finanze-ticino-consuntivo.title': 'Kantonsrechnung Tessin 2025: Kritik und Herausforderungen',
+    'blog.article.finanze-ticino-consuntivo.excerpt': 'Der Tessiner Grossrat diskutiert den Rechnungsabschluss 2025: Defizit von 32,5 Millionen trotz BNS-Gewinn von 80 Millionen. Kritik an Steuererleichterungen und Personalverwaltung.',
+    'blog.article.finanze-ticino-consuntivo.imageAlt': 'Kantonsparlament Tessin in Sitzung in Bellinzona',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Sommerjobs: die Regeln, die man kennen muss',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Löhne, Versicherungen und Altersbeschränkungen für junge Grenzgänger im Tessin.',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Sommerjobs für Grenzgänger in Tessin',
 };
 
 export default blogMetaDe;

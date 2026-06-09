@@ -3954,6 +3954,14 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-votazioni-cantonali-giugno-salario-minimo': { name: 'Votazioni Cantonali', path: '/articoli-svizzera/votazioni-cantonali-giugno-salario-minimo/', parent: 'blog' },
     'blog-ratifica-convenzioni-ilo-svizzera-lavoro': { name: 'Ratifica convenzioni ILO', path: '/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro', parent: 'blog' },
     'blog-donne-parlamento-record': { name: 'Politica Svizzera', path: '/articoli-svizzera/donne-parlamento-record/', parent: 'blog' },
+    'blog-divorzio-cassa-pensioni': { name: 'Divorzio e cassa pensioni', path: '/articoli-frontaliere/divorzio-cassa-pensioni', parent: 'blog' },
+    'blog-diaspora-svizzera-parlamento': { name: 'Politica Svizzera', path: '/articoli-svizzera/diaspora-svizzera-parlamento/', parent: 'blog' },
+    'blog-licenziamento-postino-ticino': { name: 'Lavoro', path: '/articoli-frontaliere/licenziamento-postino-ticino', parent: 'blog' },
+    'blog-ritmi-insostenibili-logistica-dpd': { name: 'Lavoro e salute', path: '/articoli-svizzera/ritmi-insostenibili-logistica-dpd/', parent: 'blog' },
+    'blog-finanze-ticino-consuntivo': { name: 'Finanze cantonali', path: '/articoli-frontaliere/finanze-ticino-consuntivo', parent: 'blog' },
+    'blog-hotel-flaz-pontresina-2028': { name: 'Hotel | Novità | Socioeconomico', path: '/articoli-svizzera/hotel-flaz-pontresina-2028/', parent: 'blog' },
+    'blog-lavoretti-estivi-2026-regole-frontaliere': { name: 'Lavoretti estivi in Ticino', path: '/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere', parent: 'blog' },
+    'blog-carenza-manodopera-gr-2024': { name: 'Carenza manodopera', path: '/articoli-svizzera/carenza-manodopera-gr-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

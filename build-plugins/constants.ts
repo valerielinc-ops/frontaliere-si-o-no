@@ -1,10 +1,12 @@
 /**
  * Shared constants for Vite build plugins.
  *
- * BUILD_ID: timestamp injected as __BUILD_ID__ — used by BlogArticles
- * to detect stale caches.
- * COMMIT_HASH / SHORT_COMMIT_HASH: injected as __COMMIT_HASH__ /
- * __SHORT_COMMIT_HASH__ for the version badge and GitHub link.
+ * BUILD_ID: per-build timestamp. Emitted to dist/build-id.txt by buildIdPlugin
+ * and read at runtime (staleness checks). NOT injected as a Vite `define` —
+ * baking it into the bundle changed the entry hash every build → ~100% page
+ * churn (see vite.config define removal).
+ * COMMIT_HASH / SHORT_COMMIT_HASH: build commit. Emitted to dist/commit-hash.txt
+ * and read at runtime (version badge fetches it). Also NOT a `define`, same reason.
  * BASE_URL: canonical site origin used across all static-page generators.
  */
 
@@ -25,7 +27,7 @@ export const BUILD_ID = String(Date.now());
  * query repeated across ~822k static pages (~62 MB dist for scripts +
  * ~17 MB for stylesheets).
  */
-function shortContentHash(content: string): string {
+export function shortContentHash(content: string): string {
   return crypto.createHash('sha256').update(content).digest('base64url').slice(0, 8);
 }
 
@@ -39,6 +41,13 @@ function shortContentHash(content: string): string {
  * filename, no race against the rename that happens in
  * `staticScriptsPlugin.closeBundle`. The repo root is resolved by
  * walking up from this file's directory until we find package.json.
+ *
+ * Stale-hash safety: the hash is derived from the *current on-disk* file
+ * content (`fs.readFileSync` + sha256), NOT from a committed manifest or
+ * cache. So editing `public/assets/{seo-static,bridge}.css` automatically
+ * re-hashes → the `<link>` filename changes → browsers fetch the new sheet
+ * (no risk of salary/SEO pages loading a stale, CSS-less file). This
+ * invariant is pinned by `tests/css-asset-hash.test.ts`.
  */
 function readPublicAssetHash(relPath: string): { content: string; hash: string } {
   // Walk up from `build-plugins/constants.ts` to the repo root.

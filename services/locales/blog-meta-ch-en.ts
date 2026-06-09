@@ -104,6 +104,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Record-Breaking Number of Women in Swiss Parliament',
     'blog.article.donne-parlamento-record.excerpt': '97 women out of 246 seats: a new historic record is achieved',
     'blog.article.donne-parlamento-record.imageAlt': 'Swiss Federal Parliament building in Bern with symbolic gender equality representation',
+    'blog.article.diaspora-svizzera-parlamento.title': 'Swiss diaspora representation in Parliament',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin criticizes the lack of attention given to the Fifth Switzerland at the Federal Palace, calling for e-voting as a democratic lever.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Unsustainable pace and pressure on logistics workers',
+    'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'The DPD Giubiasco Workers\' Collective denounces workloads that exceed physical and psychological limits and the rise of injuries and burnout in the logistics sector.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Inside a Swiss logistics warehouse with workers and conveyor belts',
+    'blog.article.hotel-flaz-pontresina-2028.title': 'Hotel Flaz, Pontresina: 25 Million CHF, New Spaces',
+    'blog.article.hotel-flaz-pontresina-2028.excerpt': 'The new three-star hotel in Pontresina will open during the winter season 2028/2029 with 176 rooms.',
+    'blog.article.hotel-flaz-pontresina-2028.imageAlt': 'New Hotel Flaz in Pontresina, Engadina, with modern facade and elegant details set against a snowy Alpine landscape.',
+    'blog.article.carenza-manodopera-gr-2024.title': 'Labour shortage in Graubünden: impact on businesses',
+    'blog.article.carenza-manodopera-gr-2024.excerpt': '44% of Graubünden companies report serious difficulty finding qualified staff, while 75% rate their economic situation as good or very good.',
+    'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Alpine view of Graubünden with traditional villages and industrial zones',
 };
 
 export default blogMetaChEn;

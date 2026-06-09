@@ -26,14 +26,15 @@
 
 const REPO = 'valerielinc-ops/frontaliere-si-o-no';
 
-// raw fallback is pinned to the build commit. __COMMIT_HASH__ is injected by
-// Vite (vite.config.ts define, declared in vite-env.d.ts); falls back to `main`
-// when unavailable (e.g. dev server). The primary CDN base has no SHA — it's a
+// raw fallback ref. Previously pinned to the build commit via the __COMMIT_HASH__
+// Vite define, but that baked a per-build value into the SPA entry chunk → new
+// entry content hash every deploy → ~100% page churn (the entry filename is
+// referenced by every prerendered page). The raw fallback only fires when the
+// CDN image is briefly unreachable (rare), and the blog hero images are
+// git-tracked on `main`, so a stable `main` ref recovers them just fine without
+// making the bundle non-deterministic. The primary CDN base has no SHA — it's a
 // stable domain whose Fastly cache is purged on each CDN-repo deploy.
-const SHA =
-  typeof __COMMIT_HASH__ !== 'undefined' && __COMMIT_HASH__ && __COMMIT_HASH__ !== 'unknown'
-    ? __COMMIT_HASH__
-    : 'main';
+const SHA = 'main';
 
 export const CDN_BLOG_BASE = `https://cdn.frontaliereticino.ch/images/blog`;
 export const RAW_BLOG_BASE = `https://raw.githubusercontent.com/${REPO}/${SHA}/public/images/blog`;

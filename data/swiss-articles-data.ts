@@ -314,6 +314,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'diaspora-svizzera-parlamento',
+    category: 'novita',
+    date: '2026-06-09T00:49:36.394Z',
+    image: '/images/blog/diaspora-svizzera-parlamento.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ritmi-insostenibili-logistica-dpd',
+    category: 'novita',
+    date: '2026-06-09T01:15:48.291Z',
+    image: '/images/blog/ritmi-insostenibili-logistica-dpd.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'hotel-flaz-pontresina-2028',
+    category: 'novita',
+    date: '2026-06-09T02:25:04.512Z',
+    image: '/images/blog/hotel-flaz-pontresina-2028.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'carenza-manodopera-gr-2024',
+    category: 'pratico',
+    date: '2026-06-09T03:11:29.315Z',
+    image: '/images/blog/carenza-manodopera-gr-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

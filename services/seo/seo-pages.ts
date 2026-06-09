@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2757,
+ "numberOfItems": 2765,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7397,7 +7397,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2754, "name": "Neutralizzazione valori stima Ticino: no stanga...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-valori-stima-ticino` },
           { "@type": "ListItem", "position": 2755, "name": "Votazioni in 16 Cantoni: tasse, salario minimo ...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-cantonali-giugno-salario-minimo` },
           { "@type": "ListItem", "position": 2756, "name": "Svizzera verso ratifica convenzioni ILO su viol...", "url": `${BASE_URL}/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro` },
-          { "@type": "ListItem", "position": 2757, "name": "Mai così tante donne nel Parlamento svizzero", "url": `${BASE_URL}/articoli-frontaliere/donne-parlamento-record` }
+          { "@type": "ListItem", "position": 2757, "name": "Mai così tante donne nel Parlamento svizzero", "url": `${BASE_URL}/articoli-frontaliere/donne-parlamento-record` },
+          { "@type": "ListItem", "position": 2758, "name": "Divorzio: che ne sarà della cassa pensioni? - UBS", "url": `${BASE_URL}/articoli-frontaliere/divorzio-cassa-pensioni` },
+          { "@type": "ListItem", "position": 2759, "name": "La rappresentanza della diaspora svizzera in Pa...", "url": `${BASE_URL}/articoli-frontaliere/diaspora-svizzera-parlamento` },
+          { "@type": "ListItem", "position": 2760, "name": "Licenziato dopo 42 anni di lavoro: la storia de...", "url": `${BASE_URL}/articoli-frontaliere/licenziamento-postino-ticino` },
+          { "@type": "ListItem", "position": 2761, "name": "Ritmi insostenibili e pressione sui lavoratori ...", "url": `${BASE_URL}/articoli-frontaliere/ritmi-insostenibili-logistica-dpd` },
+          { "@type": "ListItem", "position": 2762, "name": "Consuntivo finanze cantonali Ticino 2025: criti...", "url": `${BASE_URL}/articoli-frontaliere/finanze-ticino-consuntivo` },
+          { "@type": "ListItem", "position": 2763, "name": "Inizio lavori Hotel Flaz, Pontresina: 25 milion...", "url": `${BASE_URL}/articoli-frontaliere/hotel-flaz-pontresina-2028` },
+          { "@type": "ListItem", "position": 2764, "name": "Lavoretti estivi, ecco le regole da conoscere", "url": `${BASE_URL}/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere` },
+          { "@type": "ListItem", "position": 2765, "name": "Carenza di manodopera in Graubünden: impatto su...", "url": `${BASE_URL}/articoli-frontaliere/carenza-manodopera-gr-2024` }
  ]
  },
  {

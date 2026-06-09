@@ -4393,9 +4393,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }).join('');
  // Extracted per-card inline styles into CSS classes to keep the
  // articles-hub HTML under the 200 KB page-weight gate (100 cards × ~750
- // bytes of repeated inline styles ≈ 75 KB savings). Visual output is
- // byte-identical — same rules, just defined once in the <style> block.
- return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}.ssg-art-card{display:block;text-decoration:none;color:inherit;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;overflow:hidden}.ssg-art-img{width:100%;height:10rem;object-fit:cover}.ssg-art-body{padding:.75rem}.ssg-art-cat{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700}.ssg-art-date{font-size:.625rem;color:#94a3b8;margin-left:.5rem}.ssg-art-title{font-size:.875rem;font-weight:700;color:var(--color-body);margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ssg-art-desc{font-size:.75rem;color:var(--color-subtle);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}</style><div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
+ // bytes of repeated inline styles ≈ 75 KB savings). The .ssg-* rules now
+ // live in public/assets/seo-static.css (already linked on these pages)
+ // instead of a per-page inline <style> block. Visual output unchanged.
+ return `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  })();
  } else if (statsSlugs.includes(firstSeg)) {
  rootHtml = `<div class="s-rO4k66"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;

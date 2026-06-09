@@ -318,9 +318,11 @@ ${attributionHtml}
  * the SPA bundle untouched. Body stays system to avoid double FOUT.
  * `data-weather-page` scopes the override; var(--font-display) lets us
  * apply it surgically to h1/h2/temp via inline `style="font-family:var(...)"`.
+ * The `[data-weather-page]` CSS rules live in public/assets/seo-static.css
+ * (already linked on these pages); only the font <link>s stay inline here.
  */
 function weatherFontsAndStyle(): string {
-  return `<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Faustina:wght@400;500;600&display=swap"><style>[data-weather-page]{--font-display:'Faustina',Georgia,'Iowan Old Style',serif;}[data-weather-page] [data-temp-display]{font-family:var(--font-display);font-feature-settings:'tnum','lnum';}</style>`;
+  return `<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Faustina:wght@400;500;600&display=swap">`;
 }
 
 function attributionBlock(locale: Locale, generatedAt?: string): string {

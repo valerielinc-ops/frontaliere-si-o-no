@@ -104,6 +104,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Mai così tante donne nel Parlamento svizzero',
     'blog.article.donne-parlamento-record.excerpt': '97 donne su 246 seggi totali: raggiunto un nuovo record storico',
     'blog.article.donne-parlamento-record.imageAlt': 'Edificio del Parlamento svizzero a Berna con rappresentazione simbolica dell\'uguaglianza di genere',
+    'blog.article.diaspora-svizzera-parlamento.title': 'La rappresentanza della diaspora svizzera in Parlamento',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Ritmi insostenibili e pressione sui lavoratori della logistica',
+    'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro oltre i limiti fisici e psicologici e l\'aumento di infortuni e burnout nel settore logistico.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Interno di un magazzino logistico svizzero con lavoratori e nastri trasportatori',
+    'blog.article.hotel-flaz-pontresina-2028.title': 'Inizio lavori Hotel Flaz, Pontresina: 25 milioni CHF e nuovi spazi',
+    'blog.article.hotel-flaz-pontresina-2028.excerpt': 'Il nuovo hotel tre stelle superior a Pontresina aprirà nella stagione invernale 2028/2029 con 176 posti letto.',
+    'blog.article.hotel-flaz-pontresina-2028.imageAlt': 'Hotel Flaz a Pontresina in Engadina mostra facciata nuova con dettagli architettonici ed elementi stilistici moderni in contesto sciolto.',
+    'blog.article.carenza-manodopera-gr-2024.title': 'Carenza di manodopera in Graubünden: impatto sulle imprese',
+    'blog.article.carenza-manodopera-gr-2024.excerpt': 'Il 44% delle aziende grigionesi segnala grave difficoltà a trovare personale qualificato, mentre il 75% valuta la propria situazione economica buona o molto buona.',
+    'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Veduta alpina dei Grigioni con villaggi tradizionali e aree industriali',
 };
 
 export default blogMetaChIt;

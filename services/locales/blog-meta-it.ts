@@ -8015,6 +8015,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Svizzera verso ratifica convenzioni ILO su violenza sul lavoro',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Il Consiglio federale propone la ratifica di due convenzioni ILO contro violenza e molestie sul lavoro, senza modifiche alla legge svizzera.',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Panorama di Bellinzona all\'alba, città svizzera vicino al confine italiano.',
+    'blog.article.divorzio-cassa-pensioni.title': 'Divorzio: che ne sarà della cassa pensioni? - UBS',
+    'blog.article.divorzio-cassa-pensioni.excerpt': 'La UBS annuncia una nuova regola per la cassa pensioni in caso di divorzio',
+    'blog.article.divorzio-cassa-pensioni.imageAlt': 'Un frontaliere con la moglie e i figli in un panorama di Locarno',
+    'blog.article.licenziamento-postino-ticino.title': 'Licenziato dopo 42 anni di lavoro: la storia del postino di Vevey',
+    'blog.article.licenziamento-postino-ticino.excerpt': 'Un postino di Vevey licenziato dopo 42 anni di lavoro per aver cercato di evitare furti consegnando i pacchi ai piani.',
+    'blog.article.licenziamento-postino-ticino.imageAlt': 'Postino consegna lettera a Lugano',
+    'blog.article.finanze-ticino-consuntivo.title': 'Consuntivo finanze cantonali Ticino 2025: critiche e sfide',
+    'blog.article.finanze-ticino-consuntivo.excerpt': 'Il Parlamento ticinese discute il Consuntivo 2025: disavanzo di 32,5 milioni nonostante utili BNS di 80 milioni. Critiche a sgravi fiscali e gestione del personale.',
+    'blog.article.finanze-ticino-consuntivo.imageAlt': 'Parlamento cantonale ticinese in sessione a Bellinzona',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Lavoretti estivi, ecco le regole da conoscere',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Salari, assicurazioni e limiti d\'età per i giovani frontalieri in Ticino.',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Lavori estivi per frontalieri in Ticino',
 };
 
 export default blogMetaIt;

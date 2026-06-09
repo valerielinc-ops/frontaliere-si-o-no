@@ -4733,7 +4733,7 @@ ${staticAnalyticsHtml}
  // (just under the Semrush 10% gate enforced by audit:text-html-ratio).
  // Class-based variant costs ~250 B once + ~100 B per FAQ — saves 6-12 KB
  // per page. No editorial / visual change (same OKLCH tokens).
- const faqHtml = `<style>.jf{padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)}.js{cursor:pointer;font-weight:700;color:var(--color-heading)}.ja{margin:12px 0 0;color:var(--color-subtle);line-height:1.7}</style>` + model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
+ const faqHtml = model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -4900,7 +4900,7 @@ ${staticAnalyticsHtml}
  // (just under the Semrush 10% gate enforced by audit:text-html-ratio).
  // Class-based variant costs ~250 B once + ~100 B per FAQ — saves 6-12 KB
  // per page. No editorial / visual change (same OKLCH tokens).
- const faqHtml = `<style>.jf{padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)}.js{cursor:pointer;font-weight:700;color:var(--color-heading)}.ja{margin:12px 0 0;color:var(--color-subtle);line-height:1.7}</style>` + model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
+ const faqHtml = model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -5079,7 +5079,7 @@ ${staticAnalyticsHtml}
  // (just under the Semrush 10% gate enforced by audit:text-html-ratio).
  // Class-based variant costs ~250 B once + ~100 B per FAQ — saves 6-12 KB
  // per page. No editorial / visual change (same OKLCH tokens).
- const faqHtml = `<style>.jf{padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)}.js{cursor:pointer;font-weight:700;color:var(--color-heading)}.ja{margin:12px 0 0;color:var(--color-subtle);line-height:1.7}</style>` + model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
+ const faqHtml = model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>

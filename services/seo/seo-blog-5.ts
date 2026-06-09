@@ -43052,6 +43052,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divorzio-cassa-pensioni': {
+    title: 'Divorzio: che ne sarà della cassa pensioni? - UBS',
+    description: 'La UBS annuncia una nuova regola per la cassa pensioni in caso di divorzio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, divorzio, sarà, cassa, pensioni',
+    ogTitle: 'Divorzio: che ne sarà della cassa pensioni? - UBS',
+    ogDescription: 'La UBS annuncia una nuova regola per la cassa pensioni in caso di divorzio',
+    canonicalPath: '/articoli-frontaliere/divorzio-cassa-pensioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divorzio: che ne sarà della cassa pensioni? - UBS",
+      "description": "La UBS annuncia una nuova regola per la cassa pensioni in caso di divorzio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divorzio-cassa-pensioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la moglie e i figli in un panorama di Locarno"
+      },
+      "datePublished": "2026-06-09T00:24:38+00:00",
+      "dateModified": "2026-06-09T00:24:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divorzio-cassa-pensioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-licenziamento-postino-ticino': {
+    title: 'Licenziato dopo 42 anni di lavoro: la storia del postino di Vevey',
+    description: 'Licenziamento di un postino di Vevey dopo 42 anni di lavoro per aver cercato di evitare furti consegnando i pacchi ai piani. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziato, dopo, anni, lavoro',
+    ogTitle: 'Postino licenziato dopo 42 anni di lavoro',
+    ogDescription: 'La storia di un postino licenziato per aver cercato di proteggere i destinatari dei pacchi.',
+    canonicalPath: '/articoli-frontaliere/licenziamento-postino-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenziato dopo 42 anni di lavoro: la storia del postino di Vevey",
+      "description": "Licenziamento di un postino di Vevey dopo 42 anni di lavoro per aver cercato di evitare furti consegnando i pacchi ai piani. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/licenziamento-postino-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Postino consegna lettera a Lugano"
+      },
+      "datePublished": "2026-06-09T00:59:36+00:00",
+      "dateModified": "2026-06-09T00:59:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/licenziamento-postino-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finanze-ticino-consuntivo': {
+    title: 'Consuntivo finanze cantonali Ticino 2025: critiche e sfide',
+    description: 'Dibattito sul Consuntivo 2025 in Ticino: disavanzo di 32,5 milioni, critiche a sgravi fiscali e gestione del personale. Impatto sui frontalieri e prospettive',
+    keywords: 'frontalieri, ticino, svizzera, italia, consuntivo, finanze, cantonali, 2025',
+    ogTitle: 'Consuntivo finanze cantonali Ticino 2025: analisi dettagliata',
+    ogDescription: 'Analisi del Consuntivo 2025 del Canton Ticino: disavanzo, critiche e implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/finanze-ticino-consuntivo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consuntivo finanze cantonali Ticino 2025: critiche e sfide",
+      "description": "Dibattito sul Consuntivo 2025 in Ticino: disavanzo di 32,5 milioni, critiche a sgravi fiscali e gestione del personale. Impatto sui frontalieri e prospettive",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanze-ticino-consuntivo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento cantonale ticinese in sessione a Bellinzona"
+      },
+      "datePublished": "2026-06-09T02:12:46+00:00",
+      "dateModified": "2026-06-09T02:12:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/finanze-ticino-consuntivo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavoretti-estivi-2026-regole-frontaliere': {
+    title: 'Lavoretti estivi, ecco le regole da conoscere | Frontaliere Ticino',
+    description: 'Scopri le regole e i salari minimi per i giovani frontalieri che lavorano in Ticino durante l\'estate 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoretti, estivi, ecco, regole',
+    ogTitle: 'Lavoretti estivi in Ticino: regole e salari minimi',
+    ogDescription: 'Scopri le regole e i salari minimi per i giovani frontalieri che lavorano in Ticino durante l\'estate 2026.',
+    canonicalPath: '/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoretti estivi, ecco le regole da conoscere",
+      "description": "Scopri le regole e i salari minimi per i giovani frontalieri che lavorano in Ticino durante l'estate 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoretti-estivi-2026-regole-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori estivi per frontalieri in Ticino"
+      },
+      "datePublished": "2026-06-09T02:53:17+00:00",
+      "dateModified": "2026-06-09T02:53:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
