@@ -104,6 +104,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Mai così tante donne nel Parlamento svizzero',
     'blog.article.donne-parlamento-record.excerpt': '97 donne su 246 seggi totali: raggiunto un nuovo record storico',
     'blog.article.donne-parlamento-record.imageAlt': 'Edificio del Parlamento svizzero a Berna con rappresentazione simbolica dell\'uguaglianza di genere',
+    'blog.article.diaspora-svizzera-parlamento.title': 'La rappresentanza della diaspora svizzera in Parlamento',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
 };
 
 export default blogMetaChIt;

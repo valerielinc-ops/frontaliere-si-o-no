@@ -1268,6 +1268,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diaspora-svizzera-parlamento': {
+    title: 'La rappresentanza della diaspora svizzera in Parlamento',
+    description: 'Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rappresentanza, diaspora, parlamento, irène',
+    ogTitle: 'La rappresentanza della diaspora svizzera in Parlamento',
+    ogDescription: 'Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica.',
+    canonicalPath: '/articoli-svizzera/diaspora-svizzera-parlamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La rappresentanza della diaspora svizzera in Parlamento",
+      "description": "Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diaspora-svizzera-parlamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-06-09T00:49:36+00:00",
+      "dateModified": "2026-06-09T00:49:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diaspora-svizzera-parlamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

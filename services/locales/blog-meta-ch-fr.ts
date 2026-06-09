@@ -104,6 +104,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Jamais autant de femmes au Parlement suisse',
     'blog.article.donne-parlamento-record.excerpt': '97 femmes sur 246 sièges au total : un nouveau record historique est atteint',
     'blog.article.donne-parlamento-record.imageAlt': 'Bâtiment du Parlement fédéral suisse à Berne avec représentation symbolique de l\'égalité des sexes',
+    'blog.article.diaspora-svizzera-parlamento.title': 'La représentation de la diaspora suisse au Parlement',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin critique le manque d\'intérêt pour la Cinquième Suisse au Palais fédéral, plaidant pour le vote électronique comme levier démocratique.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Palais fédéral à Berne, siège du Parlement suisse.',
 };
 
 export default blogMetaChFr;

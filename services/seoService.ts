@@ -3955,6 +3955,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ratifica-convenzioni-ilo-svizzera-lavoro': { name: 'Ratifica convenzioni ILO', path: '/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro', parent: 'blog' },
     'blog-donne-parlamento-record': { name: 'Politica Svizzera', path: '/articoli-svizzera/donne-parlamento-record/', parent: 'blog' },
     'blog-divorzio-cassa-pensioni': { name: 'Divorzio e cassa pensioni', path: '/articoli-frontaliere/divorzio-cassa-pensioni', parent: 'blog' },
+    'blog-diaspora-svizzera-parlamento': { name: 'Politica Svizzera', path: '/articoli-svizzera/diaspora-svizzera-parlamento/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
