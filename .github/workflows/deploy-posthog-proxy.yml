@@ -1,0 +1,29 @@
+name: Deploy PostHog proxy worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'infra/cloudflare/posthog-proxy/**'
+      - '.github/workflows/deploy-posthog-proxy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-posthog-proxy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Deploy worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: infra/cloudflare/posthog-proxy
+          command: deploy
