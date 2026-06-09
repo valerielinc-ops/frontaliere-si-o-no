@@ -2369,21 +2369,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const state = loadGatingState();
  const normalized = normalizeKeyword(localizedCategory);
- if (!shouldShowPrompt(state, new Date(), normalized)) return;
+ if (!shouldShowPrompt(state, new Date(), normalized)) {
+ Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'gating_capped');
+ return;
+ }
 
  let existing: Awaited<ReturnType<typeof getUserAlerts>>;
  try {
  existing = await getUserAlerts(userId);
  } catch {
- // Fail closed — never badger users on a degraded network.
+ // Fail closed — never badger users on a degraded network. Emit a skip
+ // signal so this silent drop shows up in GA4 (was an invisible 0-impression).
+ Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'get_alerts_failed');
  return;
  }
  if (cancelled) return;
- if (findMatchingAlertForCategory(existing, localizedCategory)) return;
+ if (findMatchingAlertForCategory(existing, localizedCategory)) {
+ Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'already_subscribed');
+ return;
+ }
  // P2: don't prompt when the user is already at their alert quota — the
  // one-tap subscribe path would throw inside createAlert and surface as
  // a silent `error` event (3 such events on 2026-05-13 traced to this).
- if (existing.length >= MAX_ALERTS_PER_USER) return;
+ if (existing.length >= MAX_ALERTS_PER_USER) {
+ Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'quota_full');
+ return;
+ }
 
  // Leva B: a user who just authed via Google/FB to unlock THIS job is at
  // peak intent — show the one-tap alert offer immediately rather than

@@ -202,9 +202,15 @@ function main() {
   }
   if (conclusion !== 'success') {
     // Pending/missing (NON failure): l'## LGTM è già passato, manca solo vitest →
-    // notifica osservabile (deduped). Su 'failure' non notifichiamo "attendo" (è
-    // rosso, non in attesa).
-    if (conclusion !== 'failure') notifyAwaitingVitest(PR);
+    // notifica osservabile. Su 'failure' non notifichiamo "attendo" (è rosso).
+    // SOLO sul trigger `pull_request_review`: l'eval gira su DUE eventi (review +
+    // workflow_run) a ~1s di distanza; il dedup-by-listing è racy (TOCTOU →
+    // entrambi leggono "no marker" e postano → commento doppio, osservato su
+    // #1634). Il momento "## LGTM appena arrivato" è l'evento review: lì notifica
+    // una volta; l'evento workflow_run non posta (mergia se verde, o tace).
+    if (conclusion !== 'failure' && process.env.EVENT_NAME === 'pull_request_review') {
+      notifyAwaitingVitest(PR);
+    }
     return fail(`vitest gate conclusion='${conclusion || '<none/pending>'}' ≠ success — skip; il completamento di 'tests' ri-valuterà (no merge su pending/missing).`);
   }
   console.log('Gate vitest: success ✔');

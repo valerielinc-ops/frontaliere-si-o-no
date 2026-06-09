@@ -449,6 +449,14 @@ const App: React.FC = () => {
  // Auto-login via HMAC autologin code or legacy custom token in newsletter URL
  useEffect(() => {
  let cancelled = false;
+ // Newsletter credential params (`ac`/`ne`/…) are stripped from the URL only
+ // AFTER the autologin exchange resolves (see `finally`) — never before the
+ // await — so a mid-flight reload (e.g. authService's lazyRetry chunk-reload)
+ // preserves them and the autologin retries on the next load instead of
+ // dropping the user as anonymous, which silently kills the job-alert toast
+ // (a logged-out visitor fails the prompt's `userId`/`userEmail` guard).
+ const NEWSLETTER_PARAMS = ['ac', 'at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
+ let shouldStripNewsletterParams = false;
  (async () => {
  try {
  const url = new URL(window.location.href);
@@ -458,23 +466,15 @@ const App: React.FC = () => {
  const { code: autologinCode, legacyToken: legacyAuthToken, email: rawEmail, action } =
  parseNewsletterAutologin(url.searchParams);
 
- // Always strip newsletter-specific query params from the URL immediately so
- // they don't persist during SPA navigation (privacy + cosmetics).
- const NEWSLETTER_PARAMS = ['ac', 'at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
- const hadNewsletterParams = NEWSLETTER_PARAMS.some(p => url.searchParams.has(p));
-
- // Skip if there's a newsletter action — the action handler owns auth in that case
+ // Skip if there's a newsletter action — the action handler owns auth + URL.
  if (action === 'unsubscribe' || action === 'resubscribe' || action === 'confirm_newsletter') return;
+
+ // From here this effect owns the URL cleanup; defer the strip to `finally`
+ // so it never races the async exchange below.
+ shouldStripNewsletterParams = NEWSLETTER_PARAMS.some(p => url.searchParams.has(p));
 
  // Normalize the recipient email read by the shared parser.
  const email = normalizeNewsletterEmail(rawEmail);
-
- // Strip newsletter params from URL right away
- if (hadNewsletterParams) {
- for (const p of NEWSLETTER_PARAMS) url.searchParams.delete(p);
- const cleanUrl = url.pathname + (url.search || '') + url.hash;
- window.history.replaceState(null, '', cleanUrl);
- }
 
  if (!autologinCode && !legacyAuthToken) return;
  if (!email || !email.includes('@')) return;
@@ -498,6 +498,17 @@ const App: React.FC = () => {
  reportCaughtError(error, 'app.newsletterAutologin');
  Analytics.trackUIInteraction('newsletter', 'autologin', 'error');
  } finally {
+ // Strip newsletter credential params now that the exchange has resolved
+ // (success or failure) — deferred from before the await so an interrupted
+ // load keeps `ac`/`ne` for a retry. No-op for excluded actions (flag stays
+ // false) and when the URL never carried them.
+ if (shouldStripNewsletterParams) {
+ try {
+ const u = new URL(window.location.href);
+ for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
+ window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+ } catch { /* replaceState unavailable */ }
+ }
  // Re-enable sign-in affordances (One Tap, auth gates) once the exchange
  // resolves — success or failure. Idempotent + no-op when never in flight.
  settleNewsletterAutologin();
