@@ -26,9 +26,9 @@
       "firstSeenAt": "2026-06-08T13:55:55.547Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-can-213j0l",
-        "en": "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l",
-        "de": "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l",
-        "fr": "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l"
+        "en": "general-competition-2026-personnel-to-general-services-at-the-cantonal-sociopsychiatric-organization-osc-mendrisio",
+        "de": "generalwettbewerb-2026-personal-fur-allgemeine-dienste-bei-der-kantonalen-soziopsychiatrischen-organisation-osc",
+        "fr": "concours-general-2026-personnel-des-services-generaux-de-l-organisation-sociopsychiatrique-cantonale-osc-mendrisio"
       },
       "titleByLocale": {
         "it": "Concorso generale 2026 Personale ai servizi generali presso l'Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
@@ -60,7 +60,21 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l"
+        ],
+        "de": [
+          "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l"
+        ],
+        "fr": [
+          "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l"
+        ]
+      },
+      "previousSlugs": [
+        "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-canto-213j0l"
+      ]
     },
     {
       "id": "company-213i9v",
@@ -192,8 +206,7 @@
         ],
         "en": [
           "stage-per-l-anno-2027-per-psicoterapeuti-in-formazione-presso-l-organizzazione",
-          "stage-for-the-year-2027-for-psychotherapists-in-formation-at-the-cantonal-sociopsychiatric-organization-osc-abbc02",
-          "stage-for-the-year-2027-for-psychotherapists-in-formation-at-the-cantonal-sociopsychiatric-organization-osc-service-of"
+          "stage-for-the-year-2027-for-psychotherapists-in-formation-at-the-cantonal-sociopsychiatric-organization-osc-abbc02"
         ],
         "de": [
           "stage-per-l-anno-2027-per-psicoterapeuti-in-formazione-presso-l-organizzazione",

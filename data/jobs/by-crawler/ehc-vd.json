@@ -4034,11 +4034,11 @@
     },
     {
       "id": "ehc-vd-08ce50454a45",
-      "slug": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+      "slug": "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
-        "en": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
-        "de": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+        "it": "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "sports-psychologist-in-psychotherapy-training-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "sportpsychologe-im-psychotherapietraining-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4092,7 +4092,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+        ],
+        "en": [
+          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+        ],
+        "de": [
+          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+      ]
     }
   ]
 }

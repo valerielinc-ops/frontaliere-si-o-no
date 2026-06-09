@@ -4225,8 +4225,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-        "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen",
-        "studente-universitario-datori-di-lavoro-branding-social-media-spitaler-schaffhausen-schaffhausen"
+        "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4684,12 +4683,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-7674bac516bb",
-      "slug": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
+      "slug": "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
-        "en": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
+        "it": "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen",
         "de": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
-        "fr": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        "fr": "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4744,20 +4743,23 @@
         }
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
         "medico-assistente-medicina-interna-spitaler-schaffhausen-schaffhausen",
+        "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
         "internal-medicine-resident-physician-spitaler-schaffhausen-schaffhausen",
         "medecin-resident-en-medecine-interne-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-assistente-medicina-interna-spitaler-schaffhausen-schaffhausen"
+          "medico-assistente-medicina-interna-spitaler-schaffhausen-schaffhausen",
+          "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
-          "internal-medicine-resident-physician-spitaler-schaffhausen-schaffhausen"
+          "internal-medicine-resident-physician-spitaler-schaffhausen-schaffhausen",
+          "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "medecin-resident-en-medecine-interne-spitaler-schaffhausen-schaffhausen"
+          "medecin-resident-en-medecine-interne-spitaler-schaffhausen-schaffhausen",
+          "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
         ]
       }
     },
@@ -4812,7 +4814,6 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
         "medico-assistente-chirurgia-spitaler-schaffhausen-schaffhausen",
-        "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen",
         "assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen",
         "medecin-assistant-chirurgie-spitaler-schaffhausen-schaffhausen"
       ],
@@ -4820,10 +4821,6 @@
         "it": [
           "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
           "medico-assistente-chirurgia-spitaler-schaffhausen-schaffhausen"
-        ],
-        "de": [
-          "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
-          "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
         ],
         "en": [
           "assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen"
@@ -4848,12 +4845,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-5879b0087dfd",
-      "slug": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
+      "slug": "assistente-assistente-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "en": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
+        "it": "assistente-assistente-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-assistant-psychiatric-clinic-spitaler-schaffhausen-schaffhausen",
         "de": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
-        "fr": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        "fr": "assistant-assistant-de-la-clinique-psychiatrique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4908,20 +4905,23 @@
         }
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
         "assistente-medico-unterassistent-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen",
+        "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
         "medical-student-intern-unterassistent-psychiatric-clinic-spitaler-schaffhausen-schaffhausen",
         "etudiant-en-medecine-unterassistent-clinique-psychiatrique-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-medico-unterassistent-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen"
+          "assistente-medico-unterassistent-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen",
+          "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
-          "medical-student-intern-unterassistent-psychiatric-clinic-spitaler-schaffhausen-schaffhausen"
+          "medical-student-intern-unterassistent-psychiatric-clinic-spitaler-schaffhausen-schaffhausen",
+          "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "etudiant-en-medecine-unterassistent-clinique-psychiatrique-spitaler-schaffhausen-schaffhausen"
+          "etudiant-en-medecine-unterassistent-clinique-psychiatrique-spitaler-schaffhausen-schaffhausen",
+          "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
         ]
       }
     }
