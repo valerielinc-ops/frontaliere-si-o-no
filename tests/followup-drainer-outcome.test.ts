@@ -9,7 +9,7 @@
 
 import { describe, it, expect } from 'vitest';
 // @ts-expect-error — modulo .mjs senza tipi
-import { latestFixOutcomeFromComments, NON_RETRYABLE } from '../scripts/ci/followup-drainer.mjs';
+import { latestFixOutcomeFromComments, NON_RETRYABLE, isAgeOutEligible } from '../scripts/ci/followup-drainer.mjs';
 
 type Comment = { body?: string; createdAt?: string };
 const at = (n: number) => new Date(2026, 0, n).toISOString();
@@ -63,5 +63,37 @@ describe('NON_RETRYABLE (quali esiti → park immediato)', () => {
     for (const code of ['overlap-skip', 'pr-already-open', 'pr-created']) {
       expect(NON_RETRYABLE.has(code)).toBe(false);
     }
+  });
+});
+
+describe('isAgeOutEligible (drain del ratchet follow-up)', () => {
+  const DAY = 86_400_000;
+  const now = Date.parse('2026-06-09T12:00:00Z');
+  const opts = { now, ageOutDays: 21, inactiveDays: 14 };
+  const iss = (labels: string[], createdDaysAgo: number, updatedDaysAgo: number) => ({
+    labels: labels.map((name) => ({ name })),
+    createdAt: new Date(now - createdDaysAgo * DAY).toISOString(),
+    updatedAt: new Date(now - updatedDaysAgo * DAY).toISOString(),
+  });
+
+  it('chiude un follow-up vecchio + inattivo non in lavorazione (incl. fu-parked)', () => {
+    expect(isAgeOutEligible(iss(['follow-up'], 30, 20), opts)).toBe(true);
+    expect(isAgeOutEligible(iss(['follow-up', 'fu-parked'], 40, 30), opts)).toBe(true);
+  });
+
+  it('NON chiude se in lavorazione o in coda', () => {
+    expect(isAgeOutEligible(iss(['follow-up', 'agent:fix'], 60, 60), opts)).toBe(false);
+    expect(isAgeOutEligible(iss(['follow-up', 'agent:fix-queued'], 60, 60), opts)).toBe(false);
+  });
+
+  it('NON chiude se troppo giovane o con attività recente', () => {
+    expect(isAgeOutEligible(iss(['follow-up'], 10, 9), opts)).toBe(false); // troppo giovane
+    expect(isAgeOutEligible(iss(['follow-up'], 30, 3), opts)).toBe(false); // attività recente
+  });
+
+  it('NON chiude non-follow-up, date illeggibili, o ageOutDays=0 (disabilitato)', () => {
+    expect(isAgeOutEligible(iss(['bug'], 60, 60), opts)).toBe(false);
+    expect(isAgeOutEligible({ labels: [{ name: 'follow-up' }], createdAt: 'x', updatedAt: 'y' }, opts)).toBe(false);
+    expect(isAgeOutEligible(iss(['follow-up'], 60, 60), { ...opts, ageOutDays: 0 })).toBe(false);
   });
 });

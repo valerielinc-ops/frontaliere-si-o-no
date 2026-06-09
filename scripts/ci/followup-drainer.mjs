@@ -38,6 +38,16 @@ const LBL_QUEUED = 'agent:fix-queued';
 const LBL_FIX = 'agent:fix';
 const LBL_PARKED = 'fu-parked';
 
+// Age-out close: il post-merge-followup apre 1 follow-up per PR mergiata e
+// NESSUN workflow le chiude mai → ratchet monotòno (osservate 41 aperte). Un
+// follow-up vecchio, inattivo e NON in lavorazione (né agent:fix né
+// agent:fix-queued) non verrà mai drenato: chiudilo (riapribile se ricorre). I
+// `fu-parked` (tentativi esauriti) sono i candidati principali. Drain, non
+// perdita: commento esplicito + reversibile. 0 disabilita.
+const AGEOUT_DAYS = Number(process.env.FOLLOWUP_AGEOUT_DAYS || 21);
+const AGEOUT_INACTIVE_DAYS = Number(process.env.FOLLOWUP_AGEOUT_INACTIVE_DAYS || 14);
+const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20);
+
 // Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
 // `<!-- FIX_OUTCOME: <code> -->`) DETERMINISTICI: rieseguire il fixer sullo
 // stesso body riprodurrebbe identico verdetto → re-queue = solo quota Claude
@@ -85,6 +95,28 @@ export function latestFixOutcomeFromComments(comments) {
     if (!Number.isNaN(at) && at >= latestAt) { latestAt = at; latest = m[1].toLowerCase(); }
   }
   return latest;
+}
+
+/**
+ * Un follow-up è eleggibile all'age-out close? Puro (niente gh) → testabile.
+ * Vero se: è un `follow-up`, NON in lavorazione (né `agent:fix` né
+ * `agent:fix-queued`), creato da ≥ageOutDays E inattivo da ≥inactiveDays. I
+ * `fu-parked` ricadono qui (sono follow-up non in coda). Il chiamante aggiunge
+ * la guardia "nessuna PR aperta" (impura).
+ * @param {{labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
+ * @param {{now:number, ageOutDays:number, inactiveDays:number}} opts
+ */
+export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
+  if (!ageOutDays || ageOutDays <= 0) return false;
+  const ls = (iss?.labels || []).map((l) => l.name);
+  if (!ls.includes('follow-up')) return false;
+  if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda
+  const created = Date.parse(iss?.createdAt);
+  const updated = Date.parse(iss?.updatedAt);
+  if (Number.isNaN(created) || Number.isNaN(updated)) return false; // date illeggibili → non chiudere
+  const ageDays = (now - created) / 86_400_000;
+  const idleDays = (now - updated) / 86_400_000;
+  return ageDays >= ageOutDays && idleDays >= inactiveDays;
 }
 
 function gh(args, { json = true } = {}) {
@@ -169,6 +201,31 @@ function latestFixOutcome(num) {
 function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`followup-drainer${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
+
+  // --- AGE-OUT CLOSE: drena il ratchet dei follow-up mai chiusi --------------
+  // Ortogonale allo slot issue-fix (chiudere non tocca il fixer) → gira sempre.
+  if (AGEOUT_DAYS > 0) {
+    const now = Date.now();
+    const candidates = listIssues('follow-up')
+      .filter((iss) => isAgeOutEligible(iss, { now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS }))
+      .filter((iss) => !hasFixPR(iss.number)) // mai chiudere una issue con PR aperta
+      .sort((a, b) => Date.parse(a.updatedAt) - Date.parse(b.updatedAt)); // più stantii prima
+    const toClose = candidates.slice(0, AGEOUT_MAX_PER_RUN);
+    if (candidates.length > toClose.length) {
+      console.log(`age-out: ${candidates.length} eleggibili, cap ${AGEOUT_MAX_PER_RUN}/run → ${candidates.length - toClose.length} rinviate al prossimo tick (no silent cap).`);
+    }
+    for (const iss of toClose) {
+      const note = `🗑️ Auto-chiusa dal followup-drainer: follow-up inattivo da ≥${AGEOUT_INACTIVE_DAYS}gg e vecchio ≥${AGEOUT_DAYS}gg, mai entrato in lavorazione → non funnel-blocking. **Riapri** se il problema ricorre (o riloggalo: il lessons-harvester lo ricatturerà se è un pattern reale).`;
+      if (DRY) { console.log(`[dry] close #${iss.number} (age-out) — "${iss.title}"`); continue; }
+      try {
+        gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false });
+        gh(['issue', 'close', String(iss.number), '--repo', REPO, '--reason', 'not planned'], { json: false });
+        console.log(`AGE-OUT close #${iss.number} — "${iss.title}"`);
+      } catch (e) {
+        console.log(`age-out: close #${iss.number} fallita (${e.message}) — continuo col batch.`);
+      }
+    }
+  }
 
   // Tutto (rescue + drain) gira SOLO a slot issue-fix libero: così il rescue non
   // può mai toccare la issue di una run viva (evita di togliere agent:fix mentre
