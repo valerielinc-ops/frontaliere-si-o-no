@@ -1057,6 +1057,13 @@ interface ArticleSectionOverride {
 
 function buildHtml(args: BuildHtmlArgs): string {
   const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss, sectionOverride } = args;
+  // Global total (`totalItems`) only on page 1; on page ≥2 use this page's own
+  // slice size (stable per page, JOBS_PAGE_SIZE for full pages). The global
+  // count changes by ±1 on nearly every crawl, so embedding it on every
+  // paginated page made a single job add/remove rewrite ALL ~860 pages of the
+  // `tutti` archive (measured top byte churner, ~110 MB/deploy). Page-1 keeps
+  // the headline total; deep pages report their own slice → no count churn.
+  const displayCount = page === 1 ? totalItems : pageItems.length;
   const title = sectionOverride ? sectionOverride.title : HUB_TITLES[locale][hubKey];
   const description = sectionOverride ? sectionOverride.description : HUB_DESCRIPTIONS[locale][hubKey];
   // Title ≤60 char (Semrush W2): drop "| Frontaliere Ticino" suffix when adding it
@@ -1131,7 +1138,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     dateModified: buildDayStampIso(),
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: totalItems,
+      numberOfItems: displayCount,
       itemListElement: pageItems.slice(0, 25).map((it, idx) => ({
         '@type': 'ListItem',
         position: (page - 1) * 100 + idx + 1,
@@ -1191,7 +1198,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite', aggiornato: 'Aktualisiert' },
     fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page', aggiornato: 'Mis à jour' },
   }[locale];
-  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(totalItems.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div><div class="s-tbase"><div class="s-tlbl">${esc(tileLabelsGlobal.aggiornato)}</div><div class="s-tval" style="font-size:18px">${esc(dateStamp)}</div></div></section>`;
+  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div><div class="s-tbase"><div class="s-tlbl">${esc(tileLabelsGlobal.aggiornato)}</div><div class="s-tval" style="font-size:18px">${esc(dateStamp)}</div></div></section>`;
 
   const ctaPathGlobal = locale === 'it' ? '/calcola-stipendio/'
     : locale === 'de' ? '/de/gehalt-berechnen/'
@@ -1251,9 +1258,9 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
         <span>${esc(sectionLabel)}</span>
       </nav>
       <header class="s-S1RSUf">
-        <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, totalItems, page))}</h1>
+        <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, displayCount, page))}</h1>
         <p class="s-OPPwy-">${esc(description)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
       </header>
       ${statTilesHtml}
       ${ctaHtmlGlobal}
