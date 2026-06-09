@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-06-09T12:14:32.903Z",
+  "assembledAt": "2026-06-09T23:08:53.697Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:14:30.529Z",
+      "crawledAt": "2026-06-09T23:08:51.126Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -129,7 +129,7 @@
       "url": "https://jobs.somedia.ch/Grafikerin-80-100-mit-Lernendenbetreuung-de-j387.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:14:29.708Z",
+      "crawledAt": "2026-06-09T23:08:50.299Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -217,7 +217,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-de-j391.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:14:28.759Z",
+      "crawledAt": "2026-06-09T23:08:49.188Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -255,6 +255,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T22:44:48.417Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -268,6 +269,96 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "somedia-345d69d9296c",
+      "slug": "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz",
+      "slugByLocale": {
+        "de": "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
+        "it": "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz",
+        "en": "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
+        "fr": "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
+      },
+      "company": "Somedia AG",
+      "companyKey": "somedia",
+      "companyDomain": "somedia.ch",
+      "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
+      "titleByLocale": {
+        "de": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
+        "en": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
+        "it": "Apprendistato come Kaufmann/-frau CFC Marketing & Kommunikation 2027",
+        "fr": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027"
+      },
+      "description": "communicaziun.ch ag\nPerfekte Mischung aus kreativen Köpfen, vorausdenkenden Profis und vor allem Macherinnen und Machern. Wir finden, Kommunikation wirkt erst dann richtig, wenn sämtliche Disziplinen zusammenspielen und ineinandergreifen. Deshalb vereinen wir Marketing, Grafik, Digital, Druck und Werbetechnik unter einem Dach.\nPer 1. August 2027 bieten wir an unserem Standort in Ilanz eine Lehrstelle an als Kaufmann/-frau EFZ Marketing & Kommunikation . Bei uns lernst du\n\n• Den facettenreichen Arbeitsalltag in der Medienbranche kennen\n\n• Das Koordinieren von Projekten als Bindeglied zwischen unseren Kund*innen und der Kreation\n\n• Den Umgang mit Kund*innen und das Bearbeiten ihrer Anliegen\n\n• Das Erledigen von administrativen Tätigkeiten in der Bearbeitung von Kundenaufträgen\n Dein Profil\n\n• Aufgestellte, zuverlässige und engagierte Persönlichkeit\n\n• Mündlich und schriftlich sprachgewandt\n\n• Rasche Auffassungsgabe und Selbstständigkeit\n\n• Geduldig, kommunikativ und aufgeschlossen\n Das bieten wir dir\n\n• Eine dreijährige, vielseitige, fundierte und interessante kaufmännische Ausbildung, welche dich zu einer gefragten Fachkraft werden lässt\n\n• Ein Ausbildungsalltag in einem jungen und aufgeschlossenen Team\n\n• Ein familiäres Arbeitsumfeld in einem der grössten Kommunikationsunternehmen Graubündens\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:\nRowina Tönz, Kundenbetreuung & Betreuung KV-Lernenderowina@communicaziun.ch / 081 515 05 33",
+      "descriptionByLocale": {
+        "de": "communicaziun.ch ag\nPerfekte Mischung aus kreativen Köpfen, vorausdenkenden Profis und vor allem Macherinnen und Machern. Wir finden, Kommunikation wirkt erst dann richtig, wenn sämtliche Disziplinen zusammenspielen und ineinandergreifen. Deshalb vereinen wir Marketing, Grafik, Digital, Druck und Werbetechnik unter einem Dach.\nPer 1. August 2027 bieten wir an unserem Standort in Ilanz eine Lehrstelle an als Kaufmann/-frau EFZ Marketing & Kommunikation . Bei uns lernst du\n\n• Den facettenreichen Arbeitsalltag in der Medienbranche kennen\n\n• Das Koordinieren von Projekten als Bindeglied zwischen unseren Kund*innen und der Kreation\n\n• Den Umgang mit Kund*innen und das Bearbeiten ihrer Anliegen\n\n• Das Erledigen von administrativen Tätigkeiten in der Bearbeitung von Kundenaufträgen\n Dein Profil\n\n• Aufgestellte, zuverlässige und engagierte Persönlichkeit\n\n• Mündlich und schriftlich sprachgewandt\n\n• Rasche Auffassungsgabe und Selbstständigkeit\n\n• Geduldig, kommunikativ und aufgeschlossen\n Das bieten wir dir\n\n• Eine dreijährige, vielseitige, fundierte und interessante kaufmännische Ausbildung, welche dich zu einer gefragten Fachkraft werden lässt\n\n• Ein Ausbildungsalltag in einem jungen und aufgeschlossenen Team\n\n• Ein familiäres Arbeitsumfeld in einem der grössten Kommunikationsunternehmen Graubündens\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:\nRowina Tönz, Kundenbetreuung & Betreuung KV-Lernenderowina@communicaziun.ch / 081 515 05 33",
+        "it": "communicaziun.ch ag\nPerfekte Mischung aus kreativen Köpfen, vorausdenkenden Profis und vor allem Macherinnen und Machern. Wir finden, Kommunikation wirkt erst dann richtig, wenn sämtliche Disziplinen zusammenspielen und ineinandergreifen. Deshalb vereinen wir Marketing, Grafik, Digital, Druck und Werbetechnik unter einem Dach.\nPer 1. August 2027 bieten wir an unserem Standort in Ilanz eine Lehrstelle an als Kaufmann/-frau EFZ Marketing & Kommunikation . Bei uns lernst du\n\n• Den facettenreichen Arbeitsalltag in der Medienbranche kennen\n\n• Das Koordinieren von Projekten als Bindeglied zwischen unseren Kund*innen und der Kreation\n\n• Den Umgang mit Kund*innen und das Bearbeiten ihrer Anliegen\n\n• Das Erledigen von administrativen Tätigkeiten in der Bearbeitung von Kundenaufträgen\n Dein Profil\n\n• Aufgestellte, zuverlässige und engagierte Persönlichkeit\n\n• Mündlich und schriftlich sprachgewandt\n\n• Rasche Auffassungsgabe und Selbstständigkeit\n\n• Geduldig, kommunikativ und aufgeschlossen\n Das bieten wir dir\n\n• Eine dreijährige, vielseitige, fundierte und interessante kaufmännische Ausbildung, welche dich zu einer gefragten Fachkraft werden lässt\n\n• Ein Ausbildungsalltag in einem jungen und aufgeschlossenen Team\n\n• Ein familiäres Arbeitsumfeld in einem der grössten Kommunikationsunternehmen Graubündens\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:\nRowina Tönz, Kundenbetreuung & Betreuung KV-Lernenderowina@communicaziun.ch / 081 515 05 33",
+        "en": "communicaziun.ch ag\nPerfekte Mischung aus kreativen Köpfen, vorausdenkenden Profis und vor allem Macherinnen und Machern. Wir finden, Kommunikation wirkt erst dann richtig, wenn sämtliche Disziplinen zusammenspielen und ineinandergreifen. Deshalb vereinen wir Marketing, Grafik, Digital, Druck und Werbetechnik unter einem Dach.\nPer 1. August 2027 bieten wir an unserem Standort in Ilanz eine Lehrstelle an als Kaufmann/-frau EFZ Marketing & Kommunikation . Bei uns lernst du\n\n• Den facettenreichen Arbeitsalltag in der Medienbranche kennen\n\n• Das Koordinieren von Projekten als Bindeglied zwischen unseren Kund*innen und der Kreation\n\n• Den Umgang mit Kund*innen und das Bearbeiten ihrer Anliegen\n\n• Das Erledigen von administrativen Tätigkeiten in der Bearbeitung von Kundenaufträgen\n Dein Profil\n\n• Aufgestellte, zuverlässige und engagierte Persönlichkeit\n\n• Mündlich und schriftlich sprachgewandt\n\n• Rasche Auffassungsgabe und Selbstständigkeit\n\n• Geduldig, kommunikativ und aufgeschlossen\n Das bieten wir dir\n\n• Eine dreijährige, vielseitige, fundierte und interessante kaufmännische Ausbildung, welche dich zu einer gefragten Fachkraft werden lässt\n\n• Ein Ausbildungsalltag in einem jungen und aufgeschlossenen Team\n\n• Ein familiäres Arbeitsumfeld in einem der grössten Kommunikationsunternehmen Graubündens\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:\nRowina Tönz, Kundenbetreuung & Betreuung KV-Lernenderowina@communicaziun.ch / 081 515 05 33",
+        "fr": "communicaziun.ch ag\nPerfekte Mischung aus kreativen Köpfen, vorausdenkenden Profis und vor allem Macherinnen und Machern. Wir finden, Kommunikation wirkt erst dann richtig, wenn sämtliche Disziplinen zusammenspielen und ineinandergreifen. Deshalb vereinen wir Marketing, Grafik, Digital, Druck und Werbetechnik unter einem Dach.\nPer 1. August 2027 bieten wir an unserem Standort in Ilanz eine Lehrstelle an als Kaufmann/-frau EFZ Marketing & Kommunikation . Bei uns lernst du\n\n• Den facettenreichen Arbeitsalltag in der Medienbranche kennen\n\n• Das Koordinieren von Projekten als Bindeglied zwischen unseren Kund*innen und der Kreation\n\n• Den Umgang mit Kund*innen und das Bearbeiten ihrer Anliegen\n\n• Das Erledigen von administrativen Tätigkeiten in der Bearbeitung von Kundenaufträgen\n Dein Profil\n\n• Aufgestellte, zuverlässige und engagierte Persönlichkeit\n\n• Mündlich und schriftlich sprachgewandt\n\n• Rasche Auffassungsgabe und Selbstständigkeit\n\n• Geduldig, kommunikativ und aufgeschlossen\n Das bieten wir dir\n\n• Eine dreijährige, vielseitige, fundierte und interessante kaufmännische Ausbildung, welche dich zu einer gefragten Fachkraft werden lässt\n\n• Ein Ausbildungsalltag in einem jungen und aufgeschlossenen Team\n\n• Ein familiäres Arbeitsumfeld in einem der grössten Kommunikationsunternehmen Graubündens\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:\nRowina Tönz, Kundenbetreuung & Betreuung KV-Lernenderowina@communicaziun.ch / 081 515 05 33"
+      },
+      "location": "Ilanz",
+      "canton": "GR",
+      "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
+      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-09T23:08:48.087Z",
+      "addressLocality": "Ilanz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7130",
+      "streetAddress": "Glennerstrasse 17",
+      "category": "Tecnica",
+      "sector": "Media / Editoria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "validThrough": "2026-12-01",
+      "applyUrl": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-f398.html",
+      "requirements": [
+        "Aufgestellte, zuverlässige und engagierte Persönlichkeit",
+        "Mündlich und schriftlich sprachgewandt",
+        "Rasche Auffassungsgabe und Selbstständigkeit",
+        "Geduldig, kommunikativ und aufgeschlossen"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Aufgestellte, zuverlässige und engagierte Persönlichkeit",
+          "Mündlich und schriftlich sprachgewandt",
+          "Rasche Auffassungsgabe und Selbstständigkeit",
+          "Geduldig, kommunikativ und aufgeschlossen"
+        ]
+      },
+      "_somediaMeta": {
+        "rexxId": "398",
+        "identifier": "",
+        "hiringOrganization": "communicaziun.ch ag"
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
+      ],
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-09T23:08:48.087Z"
     },
     {
       "id": "somedia-6ab9c6ed4a49",
@@ -300,7 +391,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Audio-Video-100-de-j396.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:14:27.723Z",
+      "crawledAt": "2026-06-09T23:08:47.256Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -346,6 +437,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:13:56.684Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -391,7 +483,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-80-100-mit-Lernendenbetreuung-de-j397.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:14:26.799Z",
+      "crawledAt": "2026-06-09T23:08:46.286Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -441,6 +533,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:40:47.208Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -486,7 +579,7 @@
       "url": "https://jobs.somedia.ch/Sachbearbeiterin-Fruehschicht-25-de-j395.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:14:25.866Z",
+      "crawledAt": "2026-06-09T23:08:45.310Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -546,6 +639,7 @@
         "sachbearbeiter-in-fruhschicht-25-somedia-ch"
       ],
       "firstSeenAt": "2026-05-28T14:07:41.063Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
