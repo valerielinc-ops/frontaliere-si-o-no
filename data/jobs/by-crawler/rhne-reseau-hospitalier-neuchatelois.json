@@ -1,85 +1,7 @@
 {
   "crawlerKey": "rhne-reseau-hospitalier-neuchatelois",
-  "assembledAt": "2026-06-09T12:09:25.522Z",
+  "assembledAt": "2026-06-09T23:04:26.817Z",
   "jobs": [
-    {
-      "id": "rhne-reseau-hospitalier-neuchatelois-7d970aefdcf8",
-      "slug": "fisioterapia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-      "slugByLocale": {
-        "it": "fisioterapia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "physiotherapy-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "de": "physiotherapie-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "fr": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      },
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Physiothérapeute à 80%",
-      "titleByLocale": {
-        "it": "Fisioterapia 80%",
-        "en": "Physiotherapy 80%",
-        "de": "Physiotherapie 80%",
-        "fr": "Physiothérapeute à 80%"
-      },
-      "description": "Physiothérapeute à 80% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-      "descriptionByLocale": {
-        "it": "80% fisioterapista presso il Neuchâtel Hospital Network (RHNE) a Neuchâtel. La rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
-        "en": "80% physiotherapist at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. The Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
-        "de": "80% Physiotherapeut am Neuchâtel Hospital Network (RHNE) in Neuchâtel. Das Krankenhausnetz Neuchâtel (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für akute Pflege, Rehabilitation und Palliative Betreuung der Neuchâtel-Bevölkerung.",
-        "fr": "Physiothérapeute à 80% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
-      },
-      "needsRetranslation": false,
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-09T12:09:23.636Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2556528",
-      "previousSlugs": [
-        "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "en": [
-          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "de": [
-          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T14:27:39.363Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-d3d55c1a811d",
       "slug": "70-lavoratore-medico-e-amministrativo-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -112,7 +34,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557742&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T12:09:23.635Z",
+      "crawledAt": "2026-06-09T23:04:24.919Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -159,6 +81,84 @@
       }
     },
     {
+      "id": "rhne-reseau-hospitalier-neuchatelois-7d970aefdcf8",
+      "slug": "fisioterapia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slugByLocale": {
+        "it": "fisioterapia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "physiotherapy-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "physiotherapie-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "fr": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      },
+      "company": "Réseau hospitalier neuchâtelois (RHNE)",
+      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
+      "companyDomain": "rhne.ch",
+      "title": "Physiothérapeute à 80%",
+      "titleByLocale": {
+        "it": "Fisioterapia 80%",
+        "en": "Physiotherapy 80%",
+        "de": "Physiotherapie 80%",
+        "fr": "Physiothérapeute à 80%"
+      },
+      "description": "Physiothérapeute à 80% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
+      "descriptionByLocale": {
+        "it": "80% fisioterapista presso il Neuchâtel Hospital Network (RHNE) a Neuchâtel. La rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
+        "en": "80% physiotherapist at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. The Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
+        "de": "80% Physiotherapeut am Neuchâtel Hospital Network (RHNE) in Neuchâtel. Das Krankenhausnetz Neuchâtel (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für akute Pflege, Rehabilitation und Palliative Betreuung der Neuchâtel-Bevölkerung.",
+        "fr": "Physiothérapeute à 80% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+      },
+      "needsRetranslation": false,
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
+      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-09T23:04:24.919Z",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2000",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2556528",
+      "previousSlugs": [
+        "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "firstSeenAt": "2026-06-02T14:27:39.363Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "rhne-reseau-hospitalier-neuchatelois-2014751924ed",
       "slug": "70-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
@@ -190,7 +190,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557980&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T12:09:23.634Z",
+      "crawledAt": "2026-06-09T23:04:24.917Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
