@@ -12,7 +12,6 @@ import type { FirebaseApp } from "firebase/app";
 import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
 import type { FirebasePerformance, PerformanceTrace } from "firebase/performance";
 import type { AppCheck } from "firebase/app-check";
-import type { RemoteConfig } from "firebase/remote-config";
 import { reportCaughtError } from '@/services/errorReporter';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
 
@@ -449,13 +448,19 @@ async function initAppCheck(): Promise<void> {
 }
 
 // Inizializza Remote Config
-let remoteConfig: RemoteConfig | null = null;
+// Browser-safe Remote Config: the client fetches only an allowlisted subset of
+// params from the `getPublicConfig` Cloud Function (functions/src/publicConfig.js)
+// instead of Firebase Remote Config's `fetchAndActivate`, which downloaded the
+// ENTIRE template — every server secret included — into the browser.
+const PUBLIC_CONFIG_ENDPOINT =
+ 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig';
+
+let publicConfig: Record<string, string> | null = null;
 let rcInitPromise: Promise<void> | null = null;
 
 /**
- * Inizializza Remote Config con valori di default (fallback)
- * Uses a singleton promise to prevent concurrent callers from triggering
- * multiple initializations (race condition that caused 4× log messages).
+ * Carica la configurazione pubblica (allowlist) dalla Cloud Function.
+ * Singleton promise: callers concorrenti condividono un solo fetch.
  */
 function initRemoteConfig(): Promise<void> {
  if (rcInitPromise) return rcInitPromise;
@@ -466,53 +471,30 @@ function initRemoteConfig(): Promise<void> {
 
 async function doInitRemoteConfig(): Promise<void> {
  try {
- const rcMod = await import("firebase/remote-config");
- const supported = await rcMod.isSupported();
- if (!supported) {
- firebaseWarn('⚠️ Remote Config non supportato in questo ambiente');
- return;
+ const res = await fetch(PUBLIC_CONFIG_ENDPOINT, { credentials: 'omit' });
+ if (res.ok) {
+ publicConfig = (await res.json()) as Record<string, string>;
+ console.log('✅ Public config (allowlist) caricata');
+ } else {
+ firebaseWarn(`⚠️ getPublicConfig HTTP ${res.status} — uso default locali`);
  }
-
- remoteConfig = rcMod.getRemoteConfig(await getAppInstance());
- 
- // Valori di default (fallback se Remote Config non disponibile)
- // NO hardcoded secrets here — they must come from Firebase Remote Config
- remoteConfig.defaultConfig = REMOTE_CONFIG_DEFAULTS;
-
- // Impostazioni cache: fetch ogni ora in produzione, ogni 5 minuti in dev
- remoteConfig.settings = {
- minimumFetchIntervalMillis: import.meta.env.MODE === 'production' ? 3600000 : 300000,
- fetchTimeoutMillis: 60000
- };
-
- // Fetch e attiva le configurazioni remote
- await rcMod.fetchAndActivate(remoteConfig);
- console.log('✅ Firebase Remote Config inizializzato e attivato');
  } catch (error) {
- firebaseWarn('⚠️ Errore inizializzazione Remote Config:', error);
+ firebaseWarn('⚠️ Errore caricamento public config:', error);
  reportCaughtError(error, 'firebase.initRemoteConfig');
  console.log('📌 Utilizzo valori di default locali');
  }
 }
 
 /**
- * Ottiene un valore da Remote Config
+ * Ottiene un valore di configurazione dall'allowlist pubblica (o dai default).
  * @param key Nome del parametro da recuperare
  * @returns Valore string del parametro
  */
 export async function getConfigValue(key: string): Promise<string> {
- // Inizializza Remote Config se non ancora fatto
  await initRemoteConfig();
 
- try {
- if (remoteConfig) {
- const { getValue } = await import("firebase/remote-config");
- const value = getValue(remoteConfig, key);
- return value.asString();
- }
- } catch (error) {
- firebaseWarn(`⚠️ Errore recupero config "${key}":`, error);
- reportCaughtError(error, 'firebase.getConfigValue');
+ if (publicConfig && Object.prototype.hasOwnProperty.call(publicConfig, key)) {
+ return publicConfig[key];
  }
 
  if (Object.prototype.hasOwnProperty.call(REMOTE_CONFIG_DEFAULTS, key)) {
@@ -520,7 +502,7 @@ export async function getConfigValue(key: string): Promise<string> {
  if (fallback !== '') {
  return fallback;
  }
- firebaseWarn(`⚠️ Config key "${key}" not available from Remote Config (using empty fallback)`);
+ firebaseWarn(`⚠️ Config key "${key}" not available from public config (using empty fallback)`);
  return '';
  }
 
@@ -529,28 +511,26 @@ export async function getConfigValue(key: string): Promise<string> {
 }
 
 /**
- * Forza il refresh delle configurazioni remote
- * Utile per testing o dopo aggiornamenti critici
+ * Forza il refresh della configurazione pubblica (bypassa la cache edge).
  */
 export async function refreshRemoteConfig(): Promise<boolean> {
  try {
- if (!remoteConfig) {
- await initRemoteConfig();
- }
- if (remoteConfig) {
- const { fetchAndActivate } = await import("firebase/remote-config");
- await fetchAndActivate(remoteConfig);
- console.log('✅ Remote Config aggiornato');
+ const res = await fetch(`${PUBLIC_CONFIG_ENDPOINT}?t=${Date.now()}`, {
+ credentials: 'omit',
+ cache: 'no-store',
+ });
+ if (res.ok) {
+ publicConfig = (await res.json()) as Record<string, string>;
+ console.log('✅ Public config aggiornata');
  return true;
  }
  return false;
  } catch (error) {
- firebaseError('❌ Errore refresh Remote Config:', error);
+ firebaseError('❌ Errore refresh public config:', error);
  reportCaughtError(error, 'firebase.refreshRemoteConfig');
  return false;
  }
 }
-
 /**
  * Verifica se App Check è attivo e funzionante
  */
@@ -568,7 +548,7 @@ export async function ensureAppCheck(): Promise<void> {
 }
 
 // Esporta istanze Firebase
-export { app, analytics, appCheck, remoteConfig };
+export { app, analytics, appCheck };
 
 // Auto-inizializza Remote Config al caricamento del modulo
 // Defer to avoid blocking main thread during page load
