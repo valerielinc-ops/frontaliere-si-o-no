@@ -3,8 +3,15 @@
  * entry-bundle filenames out of the built `dist/index.html`.
  *
  * Vite emits the root shell with quoted attributes:
- *   <script ... src="/assets/index-{hash}.js">                         (same-origin)
- *   <script ... src="https://cdn.frontaliereticino.ch/assets/index-…js"> (ASSET_CDN)
+ *   <script ... src="/assets/index-entry.js">                          (same-origin)
+ *   <script ... src="https://cdn.frontaliereticino.ch/assets/index-entry.js"> (ASSET_CDN)
+ *
+ * NB: the JS entry filename is now STABLE — `assets/index-entry.js`, NOT
+ * content-hashed (vite.config.ts `entryFileNames`), so the prerendered pages
+ * don't churn on every bundle rehash. The regex still matches it unchanged
+ * because `entry` ∈ the hash charset (`index-<hashchars>+.js`). The entry CSS
+ * stays content-hashed (`index-{hash}.css`) — its bytes change only on real
+ * style changes, so it doesn't drive the per-deploy churn.
  *
  * The `[^"]*` before `/assets/` tolerates an optional origin prefix so the
  * match works whether Vite emitted a same-origin path or an absolute CDN URL
