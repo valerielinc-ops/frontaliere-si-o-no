@@ -116,10 +116,18 @@ const mistralLatestAttempted = mistralLatest.filter(r => !SKIP_STATUSES.has(r.st
 // not the code regression this gate exists to detect. Firing on pure auth
 // failures opens a "Workflow Failure" issue implying a code bug and burns triage
 // quota chasing a secret rotation (issue #1276). So: only trip the regression
-// gate when ALL ATTEMPTED `-latest` failures are real (non-auth) request errors.
+// gate when ALL ATTEMPTED `-latest` failures are real (non-auth, non-transient)
+// request errors. Transient infrastructure errors (5xx, timeout, net) are not
+// evidence of an alias regression — a single 500/timeout on the one model that
+// passed the pre-flight would otherwise reproduce the false-positive CI cycle
+// the gate was meant to prevent (issue #1645).
 const mistralAuthFailures = mistralLatestAttempted.filter(r => r.status === 'http_401' || r.status === 'http_403');
+const mistralTransientFailures = mistralLatestAttempted.filter(
+  r => r.status === 'timeout' || r.status === 'net' || /^http_5\d\d$/.test(r.status),
+);
 const allAttemptedFailed = mistralLatestAttempted.length > 0 && mistralLatestAttempted.every(r => r.status !== 'pass');
 const allFailuresAreAuth = mistralLatestAttempted.length > 0 && mistralAuthFailures.length === mistralLatestAttempted.length;
+const allFailuresAreTransient = mistralLatestAttempted.length > 0 && mistralTransientFailures.length === mistralLatestAttempted.length;
 if (hasMistralKey && mistralLatest.length > 0 && mistralLatestAttempted.length === 0) {
   // Every `-latest` model was pre-flight skipped (shared daily quota exhausted by
   // earlier production runs, provider cooldown, etc.). The alias chain was never
@@ -138,10 +146,20 @@ if (hasMistralKey && mistralLatest.length > 0 && mistralLatestAttempted.length =
       `rotate it in Firebase Remote Config. NOT an alias regression (see #892/#1276); ` +
       `not failing the smoke run.`,
   );
+} else if (hasMistralKey && allAttemptedFailed && allFailuresAreTransient) {
+  // Transient infrastructure failure (5xx, timeout, network). Not an alias-regression
+  // signal — the discovery alias pass cannot be evaluated when the provider is
+  // temporarily unreachable. Surface as a warning but do NOT fail (#1645).
+  console.error(
+    `\n⚠️  Mistral -latest: all ${mistralLatestAttempted.length} attempted ` +
+      `-latest model(s) failed with transient infrastructure errors (5xx/timeout/net). ` +
+      `Not an alias-regression signal (see #892/#1645); not failing the smoke run. ` +
+      `If this recurs, check the Mistral API status.`,
+  );
 } else if (hasMistralKey && allAttemptedFailed) {
   console.error(
     `\n❌ Mistral -latest regression: all ${mistralLatestAttempted.length} attempted ` +
-      `-latest model(s) failed (non-auth). Likely the discovery alias pass ` +
+      `-latest model(s) failed (non-auth, non-transient). Likely the discovery alias pass ` +
       `(aliases[] field in lib/ai-models.mjs) is a no-op — see issue #892.`,
   );
   process.exitCode = 1;
