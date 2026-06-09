@@ -12232,9 +12232,9 @@
     },
     {
       "id": "soh-solothurner-spitaeler-4198c45373b2",
-      "slug": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "segretaria-medica-segretario-medico-kppp-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "segretaria-medica-segretario-medico-kppp-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn",
         "de": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-ch",
         "fr": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn"
@@ -12244,7 +12244,7 @@
       "companyDomain": "solothurnerspitaeler.ch",
       "title": "Arztsekretärin / Arztsekretär KPPP (w/m/d)",
       "titleByLocale": {
-        "it": "Arztsekretärin / Arztsekretär KPPP (w/m/d)",
+        "it": "Segretaria medica/Segretario medico KPPP (f/m/d)",
         "en": "Arztsekretärin / Arztsekretär KPPP (w/m/d)",
         "de": "Arztsekretärin / Arztsekretär KPPP (w/m/d)",
         "fr": "Arztsekretärin / Arztsekretär KPPP (w/m/d)"
@@ -12291,7 +12291,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     }
   ]
 }

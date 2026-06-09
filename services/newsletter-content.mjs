@@ -372,11 +372,32 @@ const JOB_BOARD_PATH = {
   fr: 'fr/trouver-emploi-tessin',
 };
 
-/** Build the locale-aware company page URL. Mirror build plugin canonicalCompanySlug. */
+// Company-hub URL prefix per locale — MUST mirror build-plugins/
+// jobsSeoPagesPlugin.ts `companyRoutePrefix`. The build emits each hub at
+// `{board}/{prefix}-{companySlug}/`, so a newsletter that hardcodes the IT
+// `azienda-` for a DE/EN/FR board path links to a page that was never built
+// (e.g. /de/jobs-im-tessin/azienda-eoc-… 404s; the real page is
+// /de/jobs-im-tessin/unternehmen-eoc-…).
+const COMPANY_ROUTE_PREFIX = {
+  it: 'azienda',
+  en: 'company',
+  de: 'unternehmen',
+  fr: 'entreprise',
+};
+
+/** True if a job-board slug is a company-hub slug in ANY locale. */
+export function isCompanyHubSlug(slug) {
+  if (!slug) return false;
+  return Object.values(COMPANY_ROUTE_PREFIX).some((p) => slug.startsWith(`${p}-`));
+}
+
+/** Build the locale-aware company page URL. Mirrors the build plugin's
+ *  per-locale `companyRoutePrefix` + section path (trailing slash = canonical). */
 export function companyPageUrl(companySlug, locale = 'it') {
   if (!companySlug) return '';
   const boardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
-  return `${BASE_URL}/${boardPath}/azienda-${companySlug}`;
+  const prefix = COMPANY_ROUTE_PREFIX[locale] || COMPANY_ROUTE_PREFIX.it;
+  return `${BASE_URL}/${boardPath}/${prefix}-${companySlug}/`;
 }
 
 export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it', recentlyFeaturedSlugs = []) {

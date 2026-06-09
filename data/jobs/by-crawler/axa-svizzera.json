@@ -40,7 +40,7 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo-per-il-luganese",
-        "en": "insurance-consultant-for-lugano-axa-svizzera-svizzera",
+        "en": "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
         "de": "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
         "fr": "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb"
       },
@@ -63,7 +63,8 @@
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "previousSlugs": [
         "consulente-assicurativo-per-il-luganese-axa-svizzera-axa",
-        "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb"
+        "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
+        "insurance-consultant-for-lugano-axa-svizzera-svizzera"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -71,7 +72,6 @@
           "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb"
         ],
         "en": [
-          "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
           "insurance-consultant-for-lugano-axa-svizzera-svizzera"
         ]
       },
@@ -715,7 +715,7 @@
         "de": "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-svizzera-arbeitsort-weinfelden",
         "it": "collaboratore-trice-servizio-interno-per-la-hauptagentur-weinfelden-axa-svizzera-arbeitsort-weinfelden",
         "en": "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-svizzera-arbeitsort-weinfelden",
-        "fr": "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-svizzera-arbeitsort-weinfelden"
+        "fr": "collaborateur-trice-innendienst-fur-die-hauptagentur-weinfelden-axa-svizzera-arbeitsort-weinfelden"
       },
       "id": "axa-svizzera-689dc67d45fa",
       "previousSlugsByLocale": {
@@ -724,10 +724,14 @@
         ],
         "de": [
           "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-arbeitsort-weinfelde-k9s2i5"
+        ],
+        "fr": [
+          "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-svizzera-arbeitsort-weinfelden"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-arbeitsort-weinfelde-k9s2i5"
+        "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-arbeitsort-weinfelde-k9s2i5",
+        "mitarbeiter-in-innendienst-fur-die-hauptagentur-weinfelden-axa-svizzera-arbeitsort-weinfelden"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

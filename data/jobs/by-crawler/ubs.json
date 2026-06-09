@@ -866,7 +866,7 @@
       "title": "Client Account Manager - Greater China Singapore",
       "titleByLocale": {
         "en": "Client Account Manager - Greater China Singapore",
-        "it": "Client Account Manager - Greater China Singapore",
+        "it": "Client Account Manager - Grande Cina Singapore",
         "de": "Client Account Manager - Greater China Singapore",
         "fr": "Client Account Manager - Greater China Singapore"
       },
@@ -925,10 +925,10 @@
     },
     {
       "id": "ubs-9bfb730ee045",
-      "slug": "client-account-manager-global-family-and-institutional-wealth-ubs",
+      "slug": "gestione-account-cliente-famiglia-globale-e-ricchezza-istituzionale-ubs-ticino",
       "slugByLocale": {
         "en": "client-account-manager-global-family-and-institutional-wealth-ubs",
-        "it": "client-account-manager-global-family-and-institutional-wealth-ubs",
+        "it": "gestione-account-cliente-famiglia-globale-e-ricchezza-istituzionale-ubs-ticino",
         "de": "client-account-manager-global-family-and-institutional-wealth-ubs",
         "fr": "client-account-manager-global-family-and-institutional-wealth-ubs"
       },
@@ -938,7 +938,7 @@
       "title": "Client Account Manager - Global Family and Institutional Wealth",
       "titleByLocale": {
         "en": "Client Account Manager - Global Family and Institutional Wealth",
-        "it": "Client Account Manager - Global Family and Institutional Wealth",
+        "it": "Gestione account cliente - Famiglia globale e ricchezza istituzionale",
         "de": "Client Account Manager - Global Family and Institutional Wealth",
         "fr": "Client Account Manager - Global Family and Institutional Wealth"
       },
@@ -993,14 +993,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:36.234Z"
+      "firstSeenAt": "2026-06-08T23:25:36.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-global-family-and-institutional-wealth-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-global-family-and-institutional-wealth-ubs"
+      ]
     },
     {
       "id": "ubs-2b44410ed4bd",
-      "slug": "client-account-manager-ubs",
+      "slug": "gestione-account-cliente-ubs-ticino",
       "slugByLocale": {
         "en": "client-account-manager-ubs",
-        "it": "client-account-manager-ubs",
+        "it": "gestione-account-cliente-ubs-ticino",
         "de": "client-account-manager-ubs",
         "fr": "client-account-manager-ubs"
       },
@@ -1010,7 +1018,7 @@
       "title": "Client Account Manager",
       "titleByLocale": {
         "en": "Client Account Manager",
-        "it": "Client Account Manager",
+        "it": "Gestione account cliente",
         "de": "Client Account Manager",
         "fr": "Client Account Manager"
       },
@@ -1065,7 +1073,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:36.233Z"
+      "firstSeenAt": "2026-06-08T23:25:36.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-ubs"
+      ]
     },
     {
       "id": "ubs-9b29160497e6",
@@ -1387,10 +1403,10 @@
     },
     {
       "id": "ubs-13ebbda88def",
-      "slug": "wealth-management-operations-fund-processing-internship-ubs",
+      "slug": "operazioni-di-gestione-della-ricchezza-stage-di-elaborazione-fondi-ubs-ticino",
       "slugByLocale": {
         "en": "wealth-management-operations-fund-processing-internship-ubs",
-        "it": "wealth-management-operations-fund-processing-internship-ubs",
+        "it": "operazioni-di-gestione-della-ricchezza-stage-di-elaborazione-fondi-ubs-ticino",
         "de": "wealth-management-operations-fund-processing-internship-ubs",
         "fr": "wealth-management-operations-fund-processing-internship-ubs"
       },
@@ -1400,7 +1416,7 @@
       "title": "Wealth Management Operations - Fund Processing Internship",
       "titleByLocale": {
         "en": "Wealth Management Operations - Fund Processing Internship",
-        "it": "Wealth Management Operations - Fund Processing Internship",
+        "it": "Operazioni di gestione della ricchezza - Stage di elaborazione fondi",
         "de": "Wealth Management Operations - Fund Processing Internship",
         "fr": "Wealth Management Operations - Fund Processing Internship"
       },
@@ -1455,7 +1471,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:36.226Z"
+      "firstSeenAt": "2026-06-08T23:25:36.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wealth-management-operations-fund-processing-internship-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "wealth-management-operations-fund-processing-internship-ubs"
+      ]
     },
     {
       "id": "ubs-b18231342cd5",
@@ -1770,9 +1794,9 @@
     },
     {
       "id": "ubs-e9ecb8de574b",
-      "slug": "junior-initiative-manager-in-the-investment-bank-change-team-ubs",
+      "slug": "junior-initiative-manager-del-team-per-i-cambiamenti-bancari-ubs-ticino",
       "slugByLocale": {
-        "it": "junior-initiative-manager-in-the-investment-bank-change-team-ubs",
+        "it": "junior-initiative-manager-del-team-per-i-cambiamenti-bancari-ubs-ticino",
         "en": "junior-initiative-manager-in-the-investment-bank-change-team-ubs",
         "de": "junior-initiative-manager-in-the-investment-bank-change-team-ubs",
         "fr": "junior-initiative-manager-in-the-investment-bank-change-team-ubs"
@@ -1782,7 +1806,7 @@
       "companyDomain": "ubs.com",
       "title": "Junior Initiative Manager in the Investment Bank Change Team",
       "titleByLocale": {
-        "it": "Junior Initiative Manager in the Investment Bank Change Team",
+        "it": "Junior Initiative Manager del Team per i Cambiamenti Bancari",
         "en": "Junior Initiative Manager in the Investment Bank Change Team",
         "de": "Junior Initiative Manager in the Investment Bank Change Team",
         "fr": "Junior Initiative Manager in the Investment Bank Change Team"
@@ -1836,7 +1860,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-initiative-manager-in-the-investment-bank-change-team-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "junior-initiative-manager-in-the-investment-bank-change-team-ubs"
+      ]
     },
     {
       "id": "ubs-2e54425c0a9d",
@@ -1914,9 +1946,9 @@
     },
     {
       "id": "ubs-a261e8ba1b1a",
-      "slug": "lead-institutional-tokenization-origination-structuring-ubs",
+      "slug": "piombo-tokenizzazione-istituzionale-origine-structuring-ubs-ticino",
       "slugByLocale": {
-        "it": "lead-institutional-tokenization-origination-structuring-ubs",
+        "it": "piombo-tokenizzazione-istituzionale-origine-structuring-ubs-ticino",
         "en": "lead-institutional-tokenization-origination-structuring-ubs",
         "de": "lead-institutional-tokenization-origination-structuring-ubs",
         "fr": "lead-institutional-tokenization-origination-structuring-ubs"
@@ -1926,7 +1958,7 @@
       "companyDomain": "ubs.com",
       "title": "Lead, Institutional Tokenization Origination & Structuring",
       "titleByLocale": {
-        "it": "Lead, Institutional Tokenization Origination & Structuring",
+        "it": "Piombo, Tokenizzazione Istituzionale Origine & Structuring",
         "en": "Lead, Institutional Tokenization Origination & Structuring",
         "de": "Lead, Institutional Tokenization Origination & Structuring",
         "fr": "Lead, Institutional Tokenization Origination & Structuring"
@@ -1980,14 +2012,22 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-institutional-tokenization-origination-structuring-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "lead-institutional-tokenization-origination-structuring-ubs"
+      ]
     },
     {
       "id": "ubs-b174b1de759c",
-      "slug": "service-associate-ubs",
+      "slug": "servizio-associato-ubs-ticino",
       "slugByLocale": {
         "en": "service-associate-ubs",
-        "it": "service-associate-ubs",
+        "it": "servizio-associato-ubs-ticino",
         "de": "service-associate-ubs",
         "fr": "service-associate-ubs"
       },
@@ -1997,7 +2037,7 @@
       "title": "Service Associate",
       "titleByLocale": {
         "en": "Service Associate",
-        "it": "Service Associate",
+        "it": "Servizio associato",
         "de": "Service Associate",
         "fr": "Service Associate"
       },
@@ -2052,7 +2092,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:36.215Z"
+      "firstSeenAt": "2026-06-08T23:25:36.215Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "service-associate-ubs"
+      ]
     },
     {
       "id": "ubs-f40916db5929",
@@ -2141,7 +2189,7 @@
       "title": "Branch Ops Manager, UBS Wealth Advice Center",
       "titleByLocale": {
         "en": "Branch Ops Manager, UBS Wealth Advice Center",
-        "it": "Branch Ops Manager, UBS Wealth Advice Center",
+        "it": "Branch Ops Manager, UBS Wealth Consulenza Center",
         "de": "Branch Ops Manager, UBS Wealth Advice Center",
         "fr": "Branch Ops Manager, UBS Wealth Advice Center"
       },
@@ -2527,7 +2575,7 @@
       "title": "(German speaker) Client Relationship Manager Asset Servicing FIM",
       "titleByLocale": {
         "en": "(German speaker) Client Relationship Manager Asset Servicing FIM",
-        "it": "(German speaker) Client Relationship Manager Asset Servicing FIM",
+        "it": "(altoparlante tedesco) Client Relationship Manager Asset Servicing FIM",
         "de": "(German speaker) Client Relationship Manager Asset Servicing FIM",
         "fr": "(German speaker) Client Relationship Manager Asset Servicing FIM"
       },
@@ -2668,7 +2716,7 @@
       "companyDomain": "ubs.com",
       "title": "CRO GWM Credit Risk Officer - Structured Credit",
       "titleByLocale": {
-        "it": "CRO GWM Credit Risk Officer - Structured Credit",
+        "it": "CRO GWM Credit Risk Officer - Credito strutturato",
         "en": "CRO GWM Credit Risk Officer - Structured Credit",
         "de": "CRO GWM Credit Risk Officer - Structured Credit",
         "fr": "CRO GWM Credit Risk Officer - Structured Credit"
@@ -2954,9 +3002,9 @@
     },
     {
       "id": "ubs-3b214c889919",
-      "slug": "compliance-officer-ubs",
+      "slug": "ufficiale-di-conformita-ubs-ticino",
       "slugByLocale": {
-        "it": "compliance-officer-ubs",
+        "it": "ufficiale-di-conformita-ubs-ticino",
         "en": "compliance-officer-ubs",
         "de": "compliance-officer-ubs",
         "fr": "compliance-officer-ubs"
@@ -2966,7 +3014,7 @@
       "companyDomain": "ubs.com",
       "title": "Compliance Officer",
       "titleByLocale": {
-        "it": "Compliance Officer",
+        "it": "Ufficiale di conformità",
         "en": "Compliance Officer",
         "de": "Compliance Officer",
         "fr": "Compliance Officer"
@@ -3020,7 +3068,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-ubs"
+      ]
     },
     {
       "id": "ubs-9342c583db37",
@@ -3348,7 +3404,7 @@
       "companyDomain": "ubs.com",
       "title": "Investment Banking Associate - EMEA Power Utilities & Infrastructure",
       "titleByLocale": {
-        "it": "Investment Banking Associate - EMEA Power Utilities & Infrastructure",
+        "it": "Associato Investment Banking - EMEA Power Utilities & Infrastructure",
         "en": "Investment Banking Associate - EMEA Power Utilities & Infrastructure",
         "de": "Investment Banking Associate - EMEA Power Utilities & Infrastructure",
         "fr": "Investment Banking Associate - EMEA Power Utilities & Infrastructure"
@@ -3645,9 +3701,9 @@
     },
     {
       "id": "ubs-e3d52b40c79a",
-      "slug": "event-attendant-hourly-paid-ubs",
+      "slug": "partecipante-all-evento-a-pagamento-orario-ubs-ticino",
       "slugByLocale": {
-        "it": "event-attendant-hourly-paid-ubs",
+        "it": "partecipante-all-evento-a-pagamento-orario-ubs-ticino",
         "en": "event-attendant-hourly-paid-ubs",
         "de": "event-attendant-hourly-paid-ubs",
         "fr": "event-attendant-hourly-paid-ubs"
@@ -3657,7 +3713,7 @@
       "companyDomain": "ubs.com",
       "title": "Event Attendant (hourly paid)",
       "titleByLocale": {
-        "it": "Event Attendant (hourly paid)",
+        "it": "Partecipante all'evento (a pagamento orario)",
         "en": "Event Attendant (hourly paid)",
         "de": "Event Attendant (hourly paid)",
         "fr": "Event Attendant (hourly paid)"
@@ -3711,7 +3767,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "event-attendant-hourly-paid-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "event-attendant-hourly-paid-ubs"
+      ]
     },
     {
       "id": "ubs-c795f1cbc573",
@@ -4738,10 +4802,10 @@
     },
     {
       "id": "ubs-2120155b3172",
-      "slug": "registered-client-associate-ubs",
+      "slug": "cliente-associato-registrato-ubs-ticino",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "registered-client-associate-ubs",
+        "it": "cliente-associato-registrato-ubs-ticino",
         "de": "registered-client-associate-ubs",
         "fr": "registered-client-associate-ubs"
       },
@@ -4751,7 +4815,7 @@
       "title": "Registered Client Associate",
       "titleByLocale": {
         "en": "Registered Client Associate",
-        "it": "Registered Client Associate",
+        "it": "Cliente associato registrato",
         "de": "Registered Client Associate",
         "fr": "Registered Client Associate"
       },
@@ -4806,7 +4870,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:35.658Z"
+      "firstSeenAt": "2026-06-08T23:25:35.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-9bd801dda7e1",
