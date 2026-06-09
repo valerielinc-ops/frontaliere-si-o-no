@@ -1,5 +1,5 @@
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
-import { getApp, getConfigValue } from '@/services/firebase';
+import { getApp } from '@/services/firebase';
 import { buildNewsletter, FEATURED_TOOLS } from '@/services/newsletter-template.mjs';
 import {
  matchJobsForSubscriber,
@@ -12,8 +12,6 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const GEMINI_MODEL = 'gemini-2.0-flash-lite';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 export type NewsletterPreviewPayload = {
  subject: string;
@@ -94,23 +92,16 @@ async function callGeminiForPreview(
  temperature: number,
 ): Promise<string | null> {
  try {
- const apiKey = await getConfigValue('GEMINI_API_KEY');
- if (!apiKey) return null;
-
- const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+ // Gemini runs server-side (geminiGenerate Cloud Function); no key in the browser.
+ const res = await fetch('https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate', {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify({
- systemInstruction: { parts: [{ text: systemPrompt }] },
- contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
- generationConfig: { maxOutputTokens: maxTokens, temperature },
- }),
+ body: JSON.stringify({ systemPrompt, userPrompt, maxTokens, temperature }),
  });
  if (!res.ok) return null;
 
  const data = await res.json();
- const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
- return text || null;
+ return (data?.ok && data.text) ? data.text : null;
  } catch {
  return null;
  }

@@ -6,12 +6,14 @@ import { PUBLIC_CONFIG_KEYS } from '../functions/src/publicConfigKeys.js';
  * only returns `PUBLIC_CONFIG_KEYS`, so if a refactor adds one of these to the
  * allowlist this test fails before the secret ships to every visitor.
  *
- * (GEMINI_API_KEY / TWELVEDATA_API_KEY are intentionally still in the allowlist
- * — PHASE-2 client usage — so they are NOT listed here yet. GITHUB_PAT has been
- * removed from the allowlist and is now enforced server-only below.)
+ * (GITHUB_PAT, GEMINI_API_KEY and TWELVEDATA_API_KEY have all been proxied
+ * server-side and removed from the allowlist; they are enforced server-only
+ * below.)
  */
 const SERVER_ONLY_SECRETS = [
   'GITHUB_PAT',
+  'GEMINI_API_KEY',
+  'TWELVEDATA_API_KEY',
   'NEWSLETTER_SECRET',
   'RESEND_API_KEY', 'RESEND_WEBHOOK_SECRET',
   'MAILGUN_API_KEY', 'MAILGUN_WEBHOOK_SIGNING_KEY',
