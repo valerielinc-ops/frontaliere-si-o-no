@@ -1,11 +1,8 @@
 /// <reference types="vite/client" />
 
-/** Build timestamp injected by Vite define — used to detect stale caches. */
-declare const __BUILD_ID__: string;
-/** Full commit hash injected by Vite define — used for versioning and debugging. */
-declare const __COMMIT_HASH__: string;
-/** Short commit hash injected by Vite define — used for version badge in UI. */
-declare const __SHORT_COMMIT_HASH__: string;
+// Build id / commit hash are NOT injected via Vite `define` — that baked a fresh
+// value into the bundle every build → new entry content hash → ~100% deploy
+// churn. They are emitted as /build-id.txt + /commit-hash.txt and read at runtime.
 
 interface ImportMetaEnv {
  readonly MODE: string;
