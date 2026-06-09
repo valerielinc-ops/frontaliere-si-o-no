@@ -677,6 +677,22 @@ function compareAgainstBaseline(current, baseline, perSitemapInMemory, tol) {
     // recomputing from prev.total/orphans (v1 baseline carried both).
     const prevRate = Number(prev.ratePct ?? orphanRatePct(prev.orphans, prev.total));
     const rateCap = prevRate + Math.min(prevRate * resolvedTol.relPct / 100, resolvedTol.maxDeltaPp) + resolvedTol.absPp;
+    // Denominator-shrink (corpus contraction) is INTENTIONALLY not a regression
+    // here. If `total` drops (linked pages de-indexed/removed) while `orphans`
+    // stays flat, curRate spikes purely from the smaller denominator — yet the
+    // count floor (`orphans > prev.orphans + minAbsDelta`) stays false, so the
+    // gate passes. That is correct, not a blind spot: a pure shrink buries NO
+    // new page (the exact same orphan URLs exist before and after), so it adds
+    // zero crawl-budget waste — the actual SEO harm Semrush flags is the
+    // ABSOLUTE orphan count, which is unchanged. The count floor is
+    // denominator-independent, so any REAL burial above the noise floor still
+    // trips it regardless of how `total` moved (and contraction only inflates
+    // curRate, making the rate side MORE likely to fire, never less). Gating on
+    // a bare rate spike from contraction would deploy-block legitimate corpus
+    // shrink (e.g. expired job listings dropping out of sitemap-jobs) — a NEW
+    // organic false-fail, the same class #1604 removed. The only uncaught case
+    // is an orphan-count growth of ≤ minAbsDelta, the intended noise floor,
+    // identical with or without contraction. (Verified deferred-item #3, #1605.)
     if (curRate > rateCap && row.orphans > prev.orphans + resolvedTol.minAbsDelta) {
       const baselineExamplesSet = new Set(prev.examples || []);
       const fullList = perSitemapInMemory?.[name]?.orphansList || row.examples || [];
