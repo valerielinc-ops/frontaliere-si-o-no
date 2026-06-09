@@ -309,7 +309,7 @@ function makeResolver(served, meta) {
     // independently disprove an IT path, so treat IT as resolvable here and
     // rely on (B)/live for IT link checks.
     if (loc === 'it' && meta.itSource === 'live-sitemap' && meta.distRoutes === 0) {
-      return served.has(path) || true; // not independently checkable statically
+      return true; // IT path not independently disprovable without local dist
     }
     if (NO_SHARDS && loc !== 'it') return true; // shards skipped → can't disprove
     return served.has(path);
@@ -393,7 +393,11 @@ async function main() {
       }
     }
   } catch (e) {
-    log(`[404]   sitemap index fetch failed: ${e.message} (skipping check A)`);
+    // Fail loud: a sitemap-index fetch failure means check (A) couldn't run.
+    // Silently reporting 0/0 (+ (B)=0 post-fix) would exit green on a broken run
+    // — the same "silently green" trap the shard floor guards against.
+    log(`[404]   FATAL: sitemap index fetch failed: ${e.message}`);
+    process.exit(2);
   }
   report.checks.sitemapCoverage = {
     totalUrls: sitemapTotal,
