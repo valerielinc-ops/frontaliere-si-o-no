@@ -7342,12 +7342,12 @@
     },
     {
       "id": "lups-ba8cb7587995",
-      "slug": "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern",
+      "slug": "dipl-cura-professionale-hf-80-100-m-f-d-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern",
-        "it": "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern",
+        "it": "dipl-cura-professionale-hf-80-100-m-f-d-luzerner-psychiatrie-lups-luzern",
         "en": "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern",
-        "fr": "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern"
+        "fr": "dipl-professionnel-de-soins-hf-80-100-m-f-d-luzerner-psychiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7404,16 +7404,18 @@
       },
       "firstSeenAt": "2026-06-08T22:50:47.336Z",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern",
         "diplomato-a-della-cura-infermieristica-hf-80-100-m-f-d-luzerner-psychiatrie-lups-luzern",
+        "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern",
         "diplome-e-en-soins-infirmiers-hf-80-100-h-f-luzerner-psychiatrie-lups-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomato-a-della-cura-infermieristica-hf-80-100-m-f-d-luzerner-psychiatrie-lups-luzern"
+          "diplomato-a-della-cura-infermieristica-hf-80-100-m-f-d-luzerner-psychiatrie-lups-luzern",
+          "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-hf-80-100-h-f-luzerner-psychiatrie-lups-luzern"
+          "diplome-e-en-soins-infirmiers-hf-80-100-h-f-luzerner-psychiatrie-lups-luzern",
+          "dipl-pflegefachperson-hf-80-100-m-w-d-lups-luzern"
         ]
       }
     },
@@ -7423,8 +7425,8 @@
       "slugByLocale": {
         "de": "psychologin-60-befristet-w-m-d-lups-sursee",
         "it": "psychologin-60-befristet-m-w-d-luzerner-psychiatrie-lups-sursee",
-        "en": "psychologin-60-befristet-w-m-d-lups-sursee",
-        "fr": "psychologin-60-befristet-w-m-d-lups-sursee"
+        "en": "psychologist-60-temporary-f-m-d-luzerner-psychiatrie-lups-sursee",
+        "fr": "psychologue-60-temporaire-f-m-j-luzerner-psychiatrie-lups-sursee"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7469,6 +7471,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "psychologin-60-befristet-w-m-d-lups-sursee"
+        ],
+        "en": [
+          "psychologin-60-befristet-w-m-d-lups-sursee"
+        ],
+        "fr": [
           "psychologin-60-befristet-w-m-d-lups-sursee"
         ]
       },

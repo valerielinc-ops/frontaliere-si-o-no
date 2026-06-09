@@ -2819,11 +2819,11 @@
     },
     {
       "id": "novartis-70d306aa62f4",
-      "slug": "director-m-a-transactions-novartis-ch",
+      "slug": "direttore-m-a-transactions-novartis-basel-city",
       "slugByLocale": {
         "en": "director-m-a-transactions-novartis-ch",
-        "it": "director-m-a-transactions-novartis-ch",
-        "de": "director-m-a-transactions-novartis-ch",
+        "it": "direttore-m-a-transactions-novartis-basel-city",
+        "de": "direktor-m-a-transactions-novartis-basel-city",
         "fr": "director-m-a-transactions-novartis-basel-city"
       },
       "company": "Novartis",
@@ -2880,7 +2880,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T22:57:13.477Z"
+      "firstSeenAt": "2026-06-08T22:57:13.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-m-a-transactions-novartis-ch"
+        ],
+        "de": [
+          "director-m-a-transactions-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-m-a-transactions-novartis-ch"
+      ]
     }
   ]
 }

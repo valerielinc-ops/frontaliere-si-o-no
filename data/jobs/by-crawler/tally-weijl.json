@@ -1038,7 +1038,7 @@
       "id": "tally-weijl-59950cdafc4d",
       "slug": "assistente-flessibile-tally-weijl-aarau",
       "slugByLocale": {
-        "it": "assistente-flexibile-m-w-d-tally-weijl-aarau",
+        "it": "assistente-flessibile-tally-weijl-aarau",
         "en": "flexible-aushilfe-tally-weijl-aarau",
         "de": "flexible-aushilfe-tally-weijl-aarau",
         "fr": "assistant-flexible-tally-weijl-aarau"
@@ -1111,14 +1111,15 @@
       "previousSlugs": [
         "flexible-aushilfe-tally-weijl-aarau",
         "aushilfe-flessibile-tally-weijl-aarau",
+        "assistente-flexibile-m-w-d-tally-weijl-aarau",
         "aushilfe-fur-die-zukunft-tally-weijl-aarau",
-        "aushilfe-flessibile-m-p-g-tally-weijl-aarau",
-        "assistente-flessibile-tally-weijl-aarau"
+        "aushilfe-flessibile-m-p-g-tally-weijl-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-aarau",
-          "aushilfe-flessibile-tally-weijl-aarau"
+          "aushilfe-flessibile-tally-weijl-aarau",
+          "assistente-flexibile-m-w-d-tally-weijl-aarau"
         ],
         "de": [
           "aushilfe-fur-die-zukunft-tally-weijl-aarau"
@@ -1252,12 +1253,12 @@
     },
     {
       "id": "tally-weijl-5010e3f8aec3",
-      "slug": "auxiliaire-m-w-d-tw-sion-tally-weijl-sion",
+      "slug": "assistente-h-f-tw-sion-tally-weijl-sion",
       "slugByLocale": {
         "fr": "auxiliaire-h-f-tw-sion-tally-weijl-sion",
         "en": "auxiliaire-h-f-tw-sion-tally-weijl-sion",
-        "it": "auxiliaire-m-w-d-tw-sion-tally-weijl-sion",
-        "de": "auxiliaire-h-f-tw-sion-tally-weijl-sion"
+        "it": "assistente-h-f-tw-sion-tally-weijl-sion",
+        "de": "assistent-h-f-tw-sion-tally-weijl-sion"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1300,11 +1301,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "auxiliaire-h-f-tw-sion-tally-weijl-sion",
+          "auxiliaire-m-w-d-tw-sion-tally-weijl-sion"
+        ],
+        "de": [
           "auxiliaire-h-f-tw-sion-tally-weijl-sion"
         ]
       },
       "previousSlugs": [
         "auxiliaire-h-f-tw-sion-tally-weijl-sion",
+        "auxiliaire-m-w-d-tw-sion-tally-weijl-sion",
         "assistente-m-f-tw-sion-tally-weijl-sion",
         "assistant-m-f-tw-sion-tally-weijl-sion",
         "assistentin-m-w-tw-sion-tally-weijl-sion"
@@ -2061,12 +2067,12 @@
     },
     {
       "id": "tally-weijl-679cbac43159",
-      "slug": "conseillere-de-vente-50-tally-weijl-sierre",
+      "slug": "consulente-commerciale-50-tally-weijl-sierre",
       "slugByLocale": {
         "fr": "conseillere-de-vente-50-tally-weijl-sierre",
-        "it": "conseillere-de-vente-50-tally-weijl-sierre",
-        "en": "conseillere-de-vente-50-tally-weijl-sierre",
-        "de": "conseillere-de-vente-50-tally-weijl-sierre"
+        "it": "consulente-commerciale-50-tally-weijl-sierre",
+        "en": "sales-advisor-50-tally-weijl-sierre",
+        "de": "verkaufsberater-50-tally-weijl-sierre"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -2121,7 +2127,21 @@
       },
       "postalCode": "3960",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-08T23:21:35.605Z"
+      "firstSeenAt": "2026-06-08T23:21:35.605Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-de-vente-50-tally-weijl-sierre"
+        ],
+        "en": [
+          "conseillere-de-vente-50-tally-weijl-sierre"
+        ],
+        "de": [
+          "conseillere-de-vente-50-tally-weijl-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-de-vente-50-tally-weijl-sierre"
+      ]
     },
     {
       "id": "tally-weijl-93d037552dd5",
@@ -2130,7 +2150,7 @@
         "it": "area-sales-visual-leader-switzerland-tally-weijl-basel",
         "en": "area-sales-visual-leader-switzerland-tally-weijl-basel",
         "de": "area-sales-visual-leader-switzerland-tally-weijl-basel",
-        "fr": "area-sales-visual-leader-switzerland-tally-weijl-basel"
+        "fr": "leader-visuel-des-ventes-suisse-tally-weijl-basel"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",

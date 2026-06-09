@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ubs-f044bfbd8150",
-      "slug": "mandate-specialist-ubs",
+      "slug": "specialista-mandate-ubs-ticino",
       "slugByLocale": {
         "en": "mandate-specialist-ubs",
-        "it": "mandate-specialist-ubs",
-        "de": "mandate-specialist-ubs",
-        "fr": "mandate-specialist-ubs"
+        "it": "specialista-mandate-ubs-ticino",
+        "de": "mandatsspezialist-ubs-ticino",
+        "fr": "specialiste-du-mandat-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -73,15 +73,25 @@
       },
       "firstSeenAt": "2026-06-08T23:25:36.247Z",
       "previousSlugs": [
-        "specialista-mandate-ubs-ticino",
+        "mandate-specialist-ubs",
         "mandate-spezialist-ubs-ticino",
-        "specialiste-du-mandat-ubs-ticino",
         "mandat-spezialist-ubs-ticino",
         "presentation-specialista-ubs-ticino",
         "presentation-specialist-ubs",
         "presentation-spezialist-ubs-ticino",
         "presentation-specialiste-ubs-ticino"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mandate-specialist-ubs"
+        ],
+        "de": [
+          "mandate-specialist-ubs"
+        ],
+        "fr": [
+          "mandate-specialist-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-4609c6768598",
@@ -391,12 +401,12 @@
     },
     {
       "id": "ubs-312d7c5decec",
-      "slug": "desk-head-uhnw-wm-ostschweiz-ubs",
+      "slug": "coppa-del-mondo-uhnw-svizzera-orientale-ubs-ticino",
       "slugByLocale": {
         "de": "desk-head-uhnw-wm-ostschweiz-ubs",
-        "it": "desk-head-uhnw-wm-ostschweiz-ubs",
+        "it": "coppa-del-mondo-uhnw-svizzera-orientale-ubs-ticino",
         "en": "desk-head-uhnw-wm-ostschweiz-ubs",
-        "fr": "desk-head-uhnw-wm-ostschweiz-ubs"
+        "fr": "tete-de-bureau-uhnw-wm-ostschweiz-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -460,10 +470,17 @@
       },
       "firstSeenAt": "2026-06-08T23:25:36.240Z",
       "previousSlugs": [
-        "coppa-del-mondo-uhnw-svizzera-orientale-ubs-ticino",
-        "tete-de-bureau-uhnw-wm-ostschweiz-ubs-ticino",
+        "desk-head-uhnw-wm-ostschweiz-ubs",
         "testa-da-scrivania-uhnw-wm-ostschweiz-ubs-ticino"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "desk-head-uhnw-wm-ostschweiz-ubs"
+        ],
+        "fr": [
+          "desk-head-uhnw-wm-ostschweiz-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-5c598409b6a9",
@@ -1446,8 +1463,8 @@
       "slugByLocale": {
         "en": "process-quality-specialists-intern-ubs",
         "it": "process-quality-specialists-intern-ubs",
-        "de": "process-quality-specialists-intern-ubs",
-        "fr": "process-quality-specialists-intern-ubs"
+        "de": "process-qualitat-specialists-praktikant-ubs-ticino",
+        "fr": "process-qualite-specialists-stagiaire-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1514,12 +1531,12 @@
     },
     {
       "id": "ubs-5298946c2576",
-      "slug": "thematic-esg-research-intern-ubs",
+      "slug": "thematic-esg-ricerca-tirocinante-ubs-ticino",
       "slugByLocale": {
         "en": "thematic-esg-research-intern-ubs",
-        "it": "thematic-esg-research-intern-ubs",
-        "de": "thematic-esg-research-intern-ubs",
-        "fr": "thematic-esg-research-intern-ubs"
+        "it": "thematic-esg-ricerca-tirocinante-ubs-ticino",
+        "de": "thematic-esg-forschung-praktikant-ubs-ticino",
+        "fr": "thematic-esg-recherche-stagiaire-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1582,7 +1599,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:36.223Z"
+      "firstSeenAt": "2026-06-08T23:25:36.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "thematic-esg-research-intern-ubs"
+        ],
+        "de": [
+          "thematic-esg-research-intern-ubs"
+        ],
+        "fr": [
+          "thematic-esg-research-intern-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "thematic-esg-research-intern-ubs"
+      ]
     },
     {
       "id": "ubs-afc3331ddad7",
@@ -2397,12 +2428,12 @@
     },
     {
       "id": "ubs-e7c4051d2e86",
-      "slug": "associate-director-java-developer-ubs",
+      "slug": "associate-direttore-java-sviluppatore-ubs-ticino",
       "slugByLocale": {
         "en": "associate-director-java-developer-ubs",
-        "it": "associate-director-java-developer-ubs",
-        "de": "associate-director-java-developer-ubs",
-        "fr": "associate-director-java-developer-ubs"
+        "it": "associate-direttore-java-sviluppatore-ubs-ticino",
+        "de": "associate-direktor-java-entwickler-ubs-ticino",
+        "fr": "associate-directeur-java-developpeur-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2465,7 +2496,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:36.207Z"
+      "firstSeenAt": "2026-06-08T23:25:36.207Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-java-developer-ubs"
+        ],
+        "de": [
+          "associate-director-java-developer-ubs"
+        ],
+        "fr": [
+          "associate-director-java-developer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-java-developer-ubs"
+      ]
     },
     {
       "id": "ubs-4ba15c3c70c2",
@@ -2751,12 +2796,12 @@
     },
     {
       "id": "ubs-693833ce1769",
-      "slug": "director-tech-cyber-security-specialist-ubs",
+      "slug": "direttore-tech-cyber-security-specialista-ubs-ticino",
       "slugByLocale": {
         "en": "director-tech-cyber-security-specialist-ubs",
-        "it": "director-tech-cyber-security-specialist-ubs",
-        "de": "director-tech-cyber-security-specialist-ubs",
-        "fr": "director-tech-cyber-security-specialist-ubs"
+        "it": "direttore-tech-cyber-security-specialista-ubs-ticino",
+        "de": "direktor-tech-cyber-security-spezialist-ubs-ticino",
+        "fr": "directeur-tech-cyber-security-specialiste-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2819,7 +2864,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:25:36.200Z"
+      "firstSeenAt": "2026-06-08T23:25:36.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-tech-cyber-security-specialist-ubs"
+        ],
+        "de": [
+          "director-tech-cyber-security-specialist-ubs"
+        ],
+        "fr": [
+          "director-tech-cyber-security-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "director-tech-cyber-security-specialist-ubs"
+      ]
     },
     {
       "id": "ubs-c0d842e6d2c3",
@@ -4586,12 +4645,12 @@
     },
     {
       "id": "ubs-740871baed50",
-      "slug": "channel-marketing-specialist-ubs",
+      "slug": "specialista-di-vendita-del-canale-ubs-ticino-bd139c",
       "slugByLocale": {
         "en": "channel-marketing-specialist-ubs",
-        "it": "channel-marketing-specialist-ubs",
+        "it": "specialista-di-vendita-del-canale-ubs-ticino-bd139c",
         "de": "channel-marketing-specialist-ubs",
-        "fr": "channel-marketing-specialist-ubs"
+        "fr": "specialiste-de-la-commercialisation-des-canaux-ubs-ticino-bd139c"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4655,21 +4714,23 @@
       },
       "firstSeenAt": "2026-06-08T23:25:35.660Z",
       "previousSlugs": [
-        "channel-marketing-specialist-ubs",
-        "channel-marketing-spezialist-ubs-ticino",
         "specialista-di-vendita-del-canale-ubs-ticino",
+        "channel-marketing-specialist-ubs",
         "channel-marketing-spezialist-ubs",
-        "specialiste-de-la-commercialisation-des-canaux-ubs-ticino"
+        "specialiste-de-la-commercialisation-des-canaux-ubs-ticino",
+        "channel-marketing-spezialist-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-vendita-del-canale-ubs-ticino"
+          "specialista-di-vendita-del-canale-ubs-ticino",
+          "channel-marketing-specialist-ubs"
         ],
         "de": [
           "channel-marketing-spezialist-ubs"
         ],
         "fr": [
-          "specialiste-de-la-commercialisation-des-canaux-ubs-ticino"
+          "specialiste-de-la-commercialisation-des-canaux-ubs-ticino",
+          "channel-marketing-specialist-ubs"
         ]
       }
     },

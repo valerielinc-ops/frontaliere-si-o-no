@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spitex-zuerich-5f5195d70b7e",
-      "slug": "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
+      "slug": "stoma-continence-terapeuta-in-60-100-a-spitex-zurich-zurich",
       "slugByLocale": {
-        "it": "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
+        "it": "stoma-continence-terapeuta-in-60-100-a-spitex-zurich-zurich",
         "en": "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
         "de": "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
-        "fr": "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich"
+        "fr": "stoma-continence-therapeute-dans-60-100-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
@@ -62,7 +62,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich"
+        ],
+        "fr": [
+          "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich"
+      ]
     },
     {
       "id": "spitex-zuerich-a7681682cef3",

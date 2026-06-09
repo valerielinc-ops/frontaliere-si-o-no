@@ -4140,12 +4140,12 @@
     },
     {
       "id": "spital-emmental-e592449f2b44",
-      "slug": "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
+      "slug": "pool-di-infermieri-qualificati-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
+        "it": "pool-di-infermieri-qualificati-a-spital-emmental-burgdorf-langnau",
         "en": "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
         "de": "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
-        "fr": "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
+        "fr": "infirmier-diplome-piscine-de-soins-infirmiers-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4204,16 +4204,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-f9b47b3f77ae",
-      "slug": "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental",
+      "slug": "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-emergency-care-nds-hf-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental",
-        "en": "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental",
+        "it": "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-emergency-care-nds-hf-a-spital-emmental-burgdorf-langnau",
+        "en": "further-training-position-for-graduate-expert-emergency-care-nds-hf-a-spital-emmental-burgdorf-langnau",
         "de": "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental",
-        "fr": "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental"
+        "fr": "centre-de-formation-continue-pour-au-diplome-e-experte-expert-en-soins-d-urgence-nds-hf-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4272,16 +4283,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental"
+        ],
+        "en": [
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental"
+        ],
+        "fr": [
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "weiterbildungsstelle-zur-zum-dipl-expertin-experte-notfallpflege-nds-hf-a-spital-emmental"
+      ]
     },
     {
       "id": "spital-emmental-103337754e8c",
       "slug": "leitung-betriebs-e-gebaudetechnik-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "leitung-betriebs-e-gebaudetechnik-a-spital-emmental-burgdorf",
-        "en": "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf",
+        "en": "head-of-operations-and-building-technology-a-spital-emmental-burgdorf-langnau",
         "de": "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf",
-        "fr": "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf"
+        "fr": "chef-des-operations-et-de-la-technologie-du-batiment-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4333,6 +4358,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf"
         ]
       },
@@ -4496,10 +4527,8 @@
       },
       "previousSlugs": [
         "professionista-sanitario-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf",
         "healthcare-professional-a-spital-emmental-burgdorf",
         "professionnel-de-la-sante-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
         "professionista-della-salute-a-spital-emmental-burgdorf",
         "operatore-socio-sanitario-oss-spital-emmental-burgdorf",
         "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
@@ -4527,8 +4556,8 @@
       "slugByLocale": {
         "de": "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf",
         "it": "fachperson-betreuung-kind-come-springer-in-a-spital-emmental-burgdorf",
-        "en": "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf",
-        "fr": "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf"
+        "en": "specialist-child-care-as-springer-in-a-spital-emmental-burgdorf",
+        "fr": "garde-d-enfants-specialisee-comme-springer-in-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4580,6 +4609,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "fachperson-betreuung-kind-als-springer-in-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
@@ -4601,12 +4636,12 @@
     },
     {
       "id": "spital-emmental-d5387bc85657",
-      "slug": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
+      "slug": "cura-professionale-dei-bambini-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
+        "it": "cura-professionale-dei-bambini-a-spital-emmental-burgdorf",
         "en": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
         "de": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
-        "fr": "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
+        "fr": "services-professionnels-de-garde-d-enfants-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4665,7 +4700,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-kind-a-spital-emmental-burgdorf"
+      ]
     }
   ]
 }

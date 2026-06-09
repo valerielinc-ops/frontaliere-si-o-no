@@ -6766,12 +6766,12 @@
     },
     {
       "id": "eth-zurich-3abce59eba97",
-      "slug": "phd-position-in-soft-robotics-systems-eth-zurich-ch",
+      "slug": "posizione-di-dottorato-in-sistemi-di-robotica-morbida-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-soft-robotics-systems-eth-zurich-ch",
-        "it": "phd-position-in-soft-robotics-systems-eth-zurich-ch",
+        "it": "posizione-di-dottorato-in-sistemi-di-robotica-morbida-eth-zurich-zurich",
         "de": "phd-position-in-soft-robotics-systems-eth-zurich-ch",
-        "fr": "phd-position-in-soft-robotics-systems-eth-zurich-ch"
+        "fr": "doctorat-en-systemes-de-robotique-douce-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6826,7 +6826,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-08T22:23:22.768Z"
+      "firstSeenAt": "2026-06-08T22:23:22.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-soft-robotics-systems-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-soft-robotics-systems-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-soft-robotics-systems-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-de7fc088e519",
