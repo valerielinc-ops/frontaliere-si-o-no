@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eta-sa-swatch-group",
-  "assembledAt": "2026-06-08T23:25:00.407Z",
+  "assembledAt": "2026-06-09T12:27:05.770Z",
   "jobs": [
     {
       "id": "company-6oyzsp",
@@ -148,7 +148,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "company-6oz0cg",
@@ -292,7 +293,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "company-6oz0cc",
@@ -364,7 +366,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     }
   ]
 }
