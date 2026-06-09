@@ -8022,6 +8022,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.finanze-ticino-consuntivo.title': 'Kantonsrechnung Tessin 2025: Kritik und Herausforderungen',
     'blog.article.finanze-ticino-consuntivo.excerpt': 'Der Tessiner Grossrat diskutiert den Rechnungsabschluss 2025: Defizit von 32,5 Millionen trotz BNS-Gewinn von 80 Millionen. Kritik an Steuererleichterungen und Personalverwaltung.',
     'blog.article.finanze-ticino-consuntivo.imageAlt': 'Kantonsparlament Tessin in Sitzung in Bellinzona',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Sommerjobs: die Regeln, die man kennen muss',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Löhne, Versicherungen und Altersbeschränkungen für junge Grenzgänger im Tessin.',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Sommerjobs für Grenzgänger in Tessin',
 };
 
 export default blogMetaDe;

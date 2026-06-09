@@ -8023,6 +8023,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.finanze-ticino-consuntivo.title': 'Ticino\'s 2025 cantonal finances: criticism and challenges',
     'blog.article.finanze-ticino-consuntivo.excerpt': 'The Ticino parliament discusses the 2025 financial statement: 32.5 million deficit despite 80 million BNS profits. Criticism of tax relief and personnel management.',
     'blog.article.finanze-ticino-consuntivo.imageAlt': 'Ticino cantonal parliament in session in Bellinzona',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Summer jobs, here are the rules to know',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Salaries, insurance and age limits for young cross-border workers in Ticino.',
+    'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Summer jobs for cross-border workers in Ticino',
 };
 
 export default blogMetaEn;
