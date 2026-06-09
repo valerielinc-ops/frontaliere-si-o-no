@@ -95,22 +95,44 @@ function ensureLabelsExist(labels) {
   }
 }
 
+// Cut a string at the first opening bracket that is never closed within it, so
+// no UNBALANCED `(`/`[`/`{` survives into the search phrase. A balanced group
+// (`…(Dedicated)`) is preserved; an open group (`…(KSSG / HOCH` cut by the
+// slice, or `…HIB (Hôpital Intercantonal de la`) is dropped from its opener on.
+function stripUnbalancedBracketTail(s) {
+  const OPEN = { '(': ')', '[': ']', '{': '}' };
+  const CLOSE = new Set([')', ']', '}']);
+  const stack = []; // each entry: { char, index }
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (OPEN[c]) stack.push({ char: c, index: i });
+    else if (CLOSE.has(c) && stack.length) stack.pop();
+  }
+  // Anything left on the stack is an unmatched opener → cut at the FIRST one.
+  return stack.length ? s.slice(0, stack[0].index) : s;
+}
+
 // Make a title prefix SAFE for `gh issue list --search 'in:title "<phrase>"'`.
-// The naive `title.slice(0, 60)` can cut mid-token, leaving an UNBALANCED
-// opening bracket/paren + a partial word (e.g. long crawler names truncate to
-// `...Jobs (Dedicat`). GitHub's phrase search returns ZERO matches for such a
-// fragment → dedup never finds the canonical issue → a fresh duplicate opens
-// every run (observed: 8 identical "Crawler Failure: …(Dedicated)" issues for
-// SVAR alone). Trim back to a whole-token, punctuation-clean prefix so the
-// phrase search resolves. The shorter prefix is still a valid `startsWith`
-// discriminator because the crawler/company name sits before the dropped tail.
+// The naive `title.slice(0, 60)` can cut mid-token, leaving a partial word
+// and/or an UNBALANCED opening bracket (e.g. `...Jobs (Dedicat`, or names with
+// an internal parenthetical like `HIB (Hôpital Intercantonal de la Broye)` /
+// `Kantonsspital St. Gallen (KSSG / HOCH)` cut mid-group). GitHub's phrase
+// search ZERO-matches on a dangling partial word OR an unbalanced bracket →
+// dedup never finds the canonical issue → a fresh duplicate opens every run
+// (observed: 8 identical "Crawler Failure: …(Dedicated)" issues for SVAR alone,
+// 2× each for HIB/KSSG-shaped names). Trim back to a whole-token,
+// balanced-bracket, punctuation-clean prefix so the search resolves. The
+// shorter prefix is still a valid `startsWith` discriminator because the
+// crawler/company name sits before the dropped tail.
 function searchSafePrefix(titlePrefix) {
   let p = String(titlePrefix);
   // Dropped a partial trailing token? The slice cut mid-word → strip it.
   if (/\S$/.test(p) && p.includes(' ')) p = p.replace(/\s+\S*$/, '');
-  // Strip trailing chars that break/destabilize phrase search: unbalanced
-  // openers, quotes, slashes, and dangling punctuation. A balanced closing
-  // bracket (e.g. full short title "…(Dedicated)") is intentionally kept.
+  // Drop any tail from the first unmatched opening bracket (internal or trailing).
+  p = stripUnbalancedBracketTail(p);
+  // Strip trailing chars that break/destabilize phrase search: leftover openers,
+  // quotes, slashes, and dangling punctuation. A balanced closing bracket
+  // (e.g. full short title "…(Dedicated)") is intentionally kept.
   p = p.replace(/[\s"'([{/:;,.\-]+$/u, '').trim();
   // Guard: never return an over-short/empty prefix (would over-match); fall
   // back to the raw quote-stripped slice.
