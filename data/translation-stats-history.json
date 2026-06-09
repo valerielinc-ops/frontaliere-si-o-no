@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-05-22T17:11:12.618Z",
-    "label": "before",
-    "total": 8520,
-    "needsRetranslation": 6325,
-    "incomplete": 682,
-    "complete": 7838,
-    "missingByLocale": {
-      "it": 499,
-      "en": 395,
-      "de": 268,
-      "fr": 500
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 113
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 81
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 68
-      },
-      {
-        "company": "Roche",
-        "pending": 44
-      },
-      {
-        "company": "UBS",
-        "pending": 30
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 24
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 20
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Sulzer",
-        "pending": 14
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 12
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-22T20:27:36.124Z",
-    "label": "after",
-    "total": 8520,
-    "needsRetranslation": 1759,
-    "incomplete": 473,
-    "complete": 8047,
-    "missingByLocale": {
-      "it": 384,
-      "en": 275,
-      "de": 208,
-      "fr": 367
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 80
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 68
-      },
-      {
-        "company": "Roche",
-        "pending": 37
-      },
-      {
-        "company": "UBS",
-        "pending": 30
-      },
-      {
-        "company": "IWC",
-        "pending": 23
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 20
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Sulzer",
-        "pending": 14
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 12
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-23T00:08:25.914Z",
-    "label": "before",
-    "total": 8511,
-    "needsRetranslation": 6351,
-    "incomplete": 654,
-    "complete": 7857,
-    "missingByLocale": {
-      "it": 451,
-      "en": 335,
-      "de": 226,
-      "fr": 425
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 116
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "Roche",
-        "pending": 45
-      },
-      {
-        "company": "UBS",
-        "pending": 30
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 12
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      },
-      {
-        "company": "Lonza",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-23T02:58:04.928Z",
-    "label": "after",
-    "total": 8511,
-    "needsRetranslation": 1722,
-    "incomplete": 496,
-    "complete": 8015,
-    "missingByLocale": {
-      "it": 356,
-      "en": 265,
-      "de": 195,
-      "fr": 333
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "Roche",
-        "pending": 37
-      },
-      {
-        "company": "UBS",
-        "pending": 30
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 12
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      },
-      {
-        "company": "Lonza",
-        "pending": 9
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-23T04:04:45.785Z",
     "label": "before",
     "total": 8511,
@@ -11396,6 +11172,120 @@
       {
         "company": "PwC Switzerland",
         "pending": 18
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-08T23:33:15.514Z",
+    "label": "before",
+    "total": 10911,
+    "needsRetranslation": 7019,
+    "suppressed": 38,
+    "incomplete": 855,
+    "complete": 10056,
+    "missingByLocale": {
+      "it": 448,
+      "en": 334,
+      "de": 292,
+      "fr": 447
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 104
+      },
+      {
+        "company": "Richemont",
+        "pending": 96
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 54
+      },
+      {
+        "company": "UBS",
+        "pending": 32
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 31
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 25
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 19
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 19
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 18
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-09T02:53:24.762Z",
+    "label": "after",
+    "total": 10911,
+    "needsRetranslation": 2936,
+    "suppressed": 38,
+    "incomplete": 673,
+    "complete": 10238,
+    "missingByLocale": {
+      "it": 367,
+      "en": 266,
+      "de": 241,
+      "fr": 352
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 103
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 47
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 31
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 25
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 19
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 19
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 18
+      },
+      {
+        "company": "Sulzer",
+        "pending": 16
       }
     ]
   }
