@@ -104,6 +104,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Rekord: So viele Frauen wie nie im Schweizer Parlament',
     'blog.article.donne-parlamento-record.excerpt': '97 Frauen auf 246 Sitze: Ein neuer historischer Rekord ist erreicht',
     'blog.article.donne-parlamento-record.imageAlt': 'Bundesparlament in Bern mit symbolischer Darstellung der Gleichstellung der Geschlechter',
+    'blog.article.diaspora-svizzera-parlamento.title': 'Die Vertretung der Schweizer Diaspora im Parlament',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin kritisiert die mangelnde Beachtung der Fünften Schweiz im Bundeshaus und fordert E-Voting als demokratisches Hebelinstrument.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
 };
 
 export default blogMetaChDe;

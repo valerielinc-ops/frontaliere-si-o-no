@@ -104,6 +104,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.donne-parlamento-record.title': 'Record-Breaking Number of Women in Swiss Parliament',
     'blog.article.donne-parlamento-record.excerpt': '97 women out of 246 seats: a new historic record is achieved',
     'blog.article.donne-parlamento-record.imageAlt': 'Swiss Federal Parliament building in Bern with symbolic gender equality representation',
+    'blog.article.diaspora-svizzera-parlamento.title': 'Swiss diaspora representation in Parliament',
+    'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin criticizes the lack of attention given to the Fifth Switzerland at the Federal Palace, calling for e-voting as a democratic lever.',
+    'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
 };
 
 export default blogMetaChEn;
