@@ -4,7 +4,6 @@ import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 /* ── Build-time constants ────────────────────────────────────────── */
-import { BUILD_ID, COMMIT_HASH, SHORT_COMMIT_HASH } from './build-plugins/constants';
 
 /* ── Content-hash manifest disabled 2026-04-28 (see plugins block) ──── */
 // import { initManifest, saveManifest, getManifest } from './build-plugins/contentHash';
@@ -358,12 +357,12 @@ export default defineConfig(({ mode }) => {
  // resolved. No-op when BUILD_PROFILE=0.
  profileSummaryPlugin(),
  ],
- define: {
- // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime
- __BUILD_ID__: JSON.stringify(BUILD_ID),
- __COMMIT_HASH__: JSON.stringify(COMMIT_HASH),
- __SHORT_COMMIT_HASH__: JSON.stringify(SHORT_COMMIT_HASH),
- },
+ // No build-time `define`: nothing volatile is injected into the bundle.
+ // Build id / commit hash are emitted as dist/build-id.txt + commit-hash.txt
+ // (buildIdPlugin) and read at RUNTIME. Baking them via define put a fresh
+ // value into the entry chunk every build → new content hash → every one of
+ // ~1.28M prerendered pages re-referenced a new /assets/index-<hash>.js →
+ // ~100% deploy churn. Keep the bundle deterministic so incremental sync works.
  resolve: {
  alias: {
  '@': path.resolve(__dirname, '.'),
