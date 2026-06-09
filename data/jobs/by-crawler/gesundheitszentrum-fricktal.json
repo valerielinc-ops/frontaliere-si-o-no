@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-8ca5c4d9be4b",
-      "slug": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "dottore-di-famiglia-medico-di-famiglia-f-m-d-in-soffietti-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "dottore-di-famiglia-medico-di-famiglia-f-m-d-in-soffietti-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "family-doctor-family-doctor-f-m-d-in-maids-gesundheitszentrum-fricktal-rheinfelden",
         "de": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "medecin-de-famille-medecin-de-famille-f-m-d-en-servantes-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -62,7 +62,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-f20b8847e2e9",

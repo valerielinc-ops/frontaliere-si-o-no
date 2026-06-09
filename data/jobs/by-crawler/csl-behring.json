@@ -3396,8 +3396,7 @@
         "scienziato-senior-tech-ops-csl-behring-bern",
         "senior-scientist-tech-ops-csl-behring-ch",
         "senior-wissenschaftler-tech-ops-csl-behring-bern",
-        "scientifique-principal-tech-ops-csl-behring-bern",
-        "leitender-projektmanager-tech-ops-csl-behring-bern"
+        "scientifique-principal-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3850,8 +3849,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3886,12 +3883,12 @@
     },
     {
       "id": "csl-behring-d6f312586110",
-      "slug": "scientist-tech-ops-analytical-testing-csl-behring-ch",
+      "slug": "scienziato-tech-ops-analitical-testing-csl-behring-bern",
       "slugByLocale": {
         "en": "scientist-tech-ops-analytical-testing-csl-behring-ch",
-        "it": "scientist-tech-ops-analytical-testing-csl-behring-ch",
-        "de": "scientist-tech-ops-analytical-testing-csl-behring-ch",
-        "fr": "scientist-tech-ops-analytical-testing-csl-behring-ch"
+        "it": "scienziato-tech-ops-analitical-testing-csl-behring-bern",
+        "de": "wissenschaftler-tech-ops-analytisches-testen-csl-behring-bern",
+        "fr": "scientifique-operations-techniques-essais-analytiques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3949,8 +3946,12 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-08T22:17:48.433Z",
       "previousSlugs": [
-        "specialista-di-laboratorio-tech-ops-csl-behring-bern",
+        "ricercatore-senior-tech-ops-csl-behring-bern",
+        "scientist-tech-ops-analytical-testing-csl-behring-ch",
         "senior-scientist-tech-ops-csl-behring-ch",
+        "leitender-wissenschaftler-tech-ops-csl-behring-bern",
+        "chercheur-principal-operations-techniques-csl-behring-bern",
+        "specialista-di-laboratorio-tech-ops-csl-behring-bern",
         "leitender-projektmanager-tech-ops-csl-behring-bern",
         "laboratory-specialist-tech-ops-csl-behring-ch",
         "laborspezialist-tech-ops-csl-behring-bern",
@@ -3964,24 +3965,23 @@
         "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern",
         "ricercatore-tech-ops-csl-behring-bern",
         "scientist-tech-ops-csl-behring-ch",
-        "wissenschaftler-tech-ops-csl-behring-bern",
-        "scientifique-tech-ops-csl-behring-bern",
-        "scienziato-senior-tech-ops-csl-behring-bern",
-        "senior-wissenschaftler-tech-ops-csl-behring-bern",
-        "scientifique-principal-tech-ops-csl-behring-bern"
+        "wissenschaftler-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ricercatore-senior-tech-ops-csl-behring-bern"
+          "ricercatore-senior-tech-ops-csl-behring-bern",
+          "scientist-tech-ops-analytical-testing-csl-behring-ch"
         ],
         "en": [
           "senior-scientist-tech-ops-csl-behring-ch"
         ],
         "de": [
-          "leitender-wissenschaftler-tech-ops-csl-behring-bern"
+          "leitender-wissenschaftler-tech-ops-csl-behring-bern",
+          "scientist-tech-ops-analytical-testing-csl-behring-ch"
         ],
         "fr": [
-          "chercheur-principal-operations-techniques-csl-behring-bern"
+          "chercheur-principal-operations-techniques-csl-behring-bern",
+          "scientist-tech-ops-analytical-testing-csl-behring-ch"
         ]
       }
     },
@@ -4062,12 +4062,12 @@
     },
     {
       "id": "csl-behring-9bf100e26280",
-      "slug": "design-technology-lead-csl-behring-ch",
+      "slug": "progettazione-e-tecnologia-lead-csl-behring-bern",
       "slugByLocale": {
         "en": "design-technology-lead-csl-behring-ch",
-        "it": "design-technology-lead-csl-behring-ch",
-        "de": "design-technology-lead-csl-behring-ch",
-        "fr": "design-technology-lead-csl-behring-ch"
+        "it": "progettazione-e-tecnologia-lead-csl-behring-bern",
+        "de": "design-und-technologieleiter-csl-behring-bern",
+        "fr": "responsable-de-la-conception-et-de-la-technologie-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4123,16 +4123,30 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-08T22:17:46.879Z"
+      "firstSeenAt": "2026-06-08T22:17:46.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "design-technology-lead-csl-behring-ch"
+        ],
+        "de": [
+          "design-technology-lead-csl-behring-ch"
+        ],
+        "fr": [
+          "design-technology-lead-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "design-technology-lead-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-63c645f606b4",
-      "slug": "director-ai-innovation-emerging-capabilities-csl-behring-ch",
+      "slug": "direttore-ai-innovation-emerging-capabilita-csl-behring-bern",
       "slugByLocale": {
         "en": "director-ai-innovation-emerging-capabilities-csl-behring-ch",
-        "it": "director-ai-innovation-emerging-capabilities-csl-behring-ch",
+        "it": "direttore-ai-innovation-emerging-capabilita-csl-behring-bern",
         "de": "director-ai-innovation-emerging-capabilities-csl-behring-ch",
-        "fr": "director-ai-innovation-emerging-capabilities-csl-behring-ch"
+        "fr": "directeur-innovation-en-ai-et-capacites-emergentes-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4188,7 +4202,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-08T22:17:46.083Z"
+      "firstSeenAt": "2026-06-08T22:17:46.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-ai-innovation-emerging-capabilities-csl-behring-ch"
+        ],
+        "fr": [
+          "director-ai-innovation-emerging-capabilities-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-ai-innovation-emerging-capabilities-csl-behring-ch"
+      ]
     }
   ]
 }

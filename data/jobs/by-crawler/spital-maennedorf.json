@@ -2806,12 +2806,12 @@
     },
     {
       "id": "spital-maennedorf-1b99406b9852",
-      "slug": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+      "slug": "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+        "it": "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
         "en": "pflegeexpertin-60-100-m-w-d-spital-mannedorf-mannedorf",
         "de": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
-        "fr": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
+        "fr": "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -2856,16 +2856,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
-        "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf"
+        "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
           "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
         ],
         "fr": [
-          "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf",
           "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
         ]
       },
@@ -2960,12 +2957,12 @@
     },
     {
       "id": "spital-maennedorf-c2c97289b7d4",
-      "slug": "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch",
+      "slug": "medico-senior-senior-ostetricia-clinica-femminile-80-100-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch",
-        "en": "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch",
+        "it": "medico-senior-senior-ostetricia-clinica-femminile-80-100-m-f-d-spital-mannedorf-mannedorf",
+        "en": "senior-physician-senior-physician-obstetrics-women-s-clinic-80-100-m-f-d-spital-mannedorf-mannedorf",
         "de": "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch",
-        "fr": "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
+        "fr": "medecin-principal-medecin-principal-obstetrique-clinique-pour-femmes-80-100-m-f-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3022,7 +3019,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-80-100-m-w-d-spital-maennedorf-ch"
+      ]
     },
     {
       "id": "spital-maennedorf-4db98a4a6a7d",

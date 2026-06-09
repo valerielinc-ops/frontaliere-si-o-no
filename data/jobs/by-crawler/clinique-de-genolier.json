@@ -466,7 +466,7 @@
       "slugByLocale": {
         "it": "assistente-medico-clinique-de-genolier-genolier",
         "en": "assistant-e-medical-e-clinique-de-genolier",
-        "de": "arzthelferin-clinique-de-genolier-genolier",
+        "de": "assistent-e-medical-e-clinique-de-genolier-genolier",
         "fr": "assistant-e-medical-e-clinique-de-genolier"
       },
       "company": "Clinique de Genolier",
@@ -512,6 +512,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-e-medical-e-clinique-de-genolier",
+        "arzthelferin-clinique-de-genolier-genolier",
         "assistente-medico-al-100-clinique-de-genolier-genolier",
         "assistant-e-medical-e-a-100-clinique-de-genolier",
         "medizinische-r-assistent-in-100-clinique-de-genolier-genolier"
@@ -521,7 +522,8 @@
           "assistant-e-medical-e-clinique-de-genolier"
         ],
         "de": [
-          "assistant-e-medical-e-clinique-de-genolier"
+          "assistant-e-medical-e-clinique-de-genolier",
+          "arzthelferin-clinique-de-genolier-genolier"
         ]
       },
       "firstSeenAt": "2026-06-08T12:39:48.423Z",

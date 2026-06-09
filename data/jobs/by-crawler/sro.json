@@ -1251,8 +1251,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-spitalsozialberatung-40-60-sro-langenthal",
         "it": "collaboratore-trice-spitalsozialberatung-40-60-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "mitarbeiter-in-spitalsozialberatung-40-60-sro-langenthal",
-        "fr": "mitarbeiter-in-spitalsozialberatung-40-60-sro-langenthal"
+        "en": "employee-in-hospital-social-counselling-40-60-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "services-de-counseling-social-a-l-hopital-40-60-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1302,6 +1302,12 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-spitalsozialberatung-40-60-sro-langenthal"
+        ],
+        "en": [
+          "mitarbeiter-in-spitalsozialberatung-40-60-sro-langenthal"
+        ],
+        "fr": [
           "mitarbeiter-in-spitalsozialberatung-40-60-sro-langenthal"
         ]
       },
@@ -2121,9 +2127,9 @@
       "slug": "ernahrungsberater-in-bsc-60-zentrum-per-essstorungen-e-adipositas-zesa-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "ernahrungsberater-in-bsc-60-zentrum-per-essstorungen-e-adipositas-zesa-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "night-watch-gesundheitszentrum-dielsdorf-regensdorf",
+        "en": "night-watch-sro-ag-spital-region-oberaargau-langenthal",
         "de": "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal",
-        "fr": "montre-de-nuit-gesundheitszentrum-dielsdorf-regensdorf"
+        "fr": "montre-de-nuit-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2181,9 +2187,7 @@
         "montre-de-nuit-gesundheitszentrum-dielsdorf-regensdorf",
         "conseiller-en-nutrition-bsc-60-centre-pour-les-troubles-alimentaires-et-l-obesite-zesa-sro-ag-spital-region-oberaargau",
         "consulente-nutrizionale-bsc-60-centro-per-disturbi-alimentari-e-obesita-zesa-sro-ag-spital-region-oberaargau-langenthal",
-        "nutrition-counselor-bsc-60-center-for-eating-disorders-and-obesity-zesa-sro-ag-spital-region-oberaargau-langenthal",
-        "night-watch-sro-ag-spital-region-oberaargau-langenthal",
-        "montre-de-nuit-sro-ag-spital-region-oberaargau-langenthal"
+        "nutrition-counselor-bsc-60-center-for-eating-disorders-and-obesity-zesa-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2195,16 +2199,14 @@
           "dietitian-bsc-60-center-for-eating-disorders-and-obesity-zesa-sro-ag-spital-region-oberaargau-langenthal",
           "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
           "nachtwache-sro-ag-spital-region-oberaargau-langenthal",
-          "night-watch-gesundheitszentrum-dielsdorf-regensdorf",
-          "night-watch-sro-ag-spital-region-oberaargau-langenthal"
+          "night-watch-gesundheitszentrum-dielsdorf-regensdorf"
         ],
         "fr": [
           "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal",
           "conseiller-ere-en-nutrition-bsc-60-centre-pour-les-troubles-alimentaires-et-l-obesite-zesa-sro-ag-spital-region",
           "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
           "nachtwache-sro-ag-spital-region-oberaargau-langenthal",
-          "montre-de-nuit-gesundheitszentrum-dielsdorf-regensdorf",
-          "montre-de-nuit-sro-ag-spital-region-oberaargau-langenthal"
+          "montre-de-nuit-gesundheitszentrum-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-05-22T23:38:45.436Z",
@@ -3688,9 +3690,9 @@
       "slug": "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+        "en": "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
         "de": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
-        "fr": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+        "fr": "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3740,6 +3742,12 @@
       "previousSlugsByLocale": {
         "it": [
           "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+        ],
+        "en": [
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+        ],
+        "fr": [
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
         ]
       },
       "previousSlugs": [
@@ -3760,12 +3768,12 @@
     },
     {
       "id": "sro-45b948e734d9",
-      "slug": "betriebselektriker-in-90-100-sro-langenthal",
+      "slug": "elettricista-in-90-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "betriebselektriker-in-90-100-sro-langenthal",
+        "it": "elettricista-in-90-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "betriebselektriker-in-90-100-sro-langenthal",
         "de": "betriebselektriker-in-90-100-sro-langenthal",
-        "fr": "betriebselektriker-in-90-100-sro-langenthal"
+        "fr": "entreprise-electricien-dans-90-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3825,17 +3833,18 @@
         }
       },
       "previousSlugs": [
-        "fachperson-gesundheit-50-100-sro-langenthal",
-        "elettricista-industriale-90-100-sro-ag-spital-region-oberaargau-langenthal",
-        "betriebselektriker-in-90-100-sro-langenthal",
-        "electricien-industriel-90-100-sro-ag-spital-region-oberaargau-langenthal",
         "professionista-della-salute-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "betriebselektriker-in-90-100-sro-langenthal",
         "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "professionnel-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal"
+        "fachperson-gesundheit-50-100-sro-langenthal",
+        "professionnel-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "elettricista-industriale-90-100-sro-ag-spital-region-oberaargau-langenthal",
+        "electricien-industriel-90-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professionista-della-salute-50-100-sro-ag-spital-region-oberaargau-langenthal"
+          "professionista-della-salute-50-100-sro-ag-spital-region-oberaargau-langenthal",
+          "betriebselektriker-in-90-100-sro-langenthal"
         ],
         "en": [
           "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal"
@@ -3844,7 +3853,8 @@
           "fachperson-gesundheit-50-100-sro-langenthal"
         ],
         "fr": [
-          "professionnel-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal"
+          "professionnel-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal",
+          "betriebselektriker-in-90-100-sro-langenthal"
         ]
       }
     },

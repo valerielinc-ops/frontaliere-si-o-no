@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "badrutts-palace-1b28acf029cb",
-      "slug": "reservations-agent-m-w-d-badrutts-palace-ch",
+      "slug": "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "reservations-agent-m-w-d-badrutts-palace-ch",
+        "it": "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "reservations-agent-m-w-d-badrutts-palace-ch",
         "de": "reservations-agent-m-w-d-badrutts-palace-ch",
         "fr": "reservations-agent-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -50,13 +50,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "reservations-agent-m-w-d-badrutts-palace-ch",
         "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "reservations-agent-m-w-d-badrutts-palace-ch"
         ],
         "en": [
@@ -164,7 +163,7 @@
         "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "reservations-manager-m-w-d-badrutts-palace-ch",
-        "fr": "reservations-manager-m-w-d-badrutts-palace-ch"
+        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -206,7 +205,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "reservations-manager-m-w-d-badrutts-palace-ch",
-        "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "it-manager-m-w-d-badrutts-palace-ch",
@@ -229,7 +227,6 @@
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "reservations-manager-m-w-d-badrutts-palace-ch"
         ]
       },

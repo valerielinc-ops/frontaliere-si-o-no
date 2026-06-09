@@ -947,9 +947,9 @@
       "slug": "fachperson-gesundheit-cfc-60-80-spitex-am-kohlfirst-dachsen",
       "slugByLocale": {
         "it": "fachperson-gesundheit-cfc-60-80-spitex-am-kohlfirst-dachsen",
-        "en": "fachperson-gesundheit-efz-60-80-spitex-ch-dachsen",
+        "en": "health-professional-efz-60-80-spitex-am-kohlfirst-dachsen",
         "de": "fachperson-gesundheit-efz-60-80-spitex-ch-dachsen",
-        "fr": "fachperson-gesundheit-efz-60-80-spitex-ch-dachsen"
+        "fr": "professionnels-de-la-sante-efz-60-80-spitex-am-kohlfirst-dachsen"
       },
       "company": "Spitex am Kohlfirst",
       "companyKey": "spitex-ch",
@@ -994,6 +994,12 @@
       "firstSeenAt": "2026-06-08T13:46:22.332Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-60-80-spitex-ch-dachsen"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-60-80-spitex-ch-dachsen"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-60-80-spitex-ch-dachsen"
         ]
       },
@@ -1082,8 +1088,7 @@
         "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-infermiere-a-hf-specializzazione-kinder-e-jugendpsychiatria-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-nursing-professional-hf-specialization-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "diplome-e-en-soins-infirmiers-hf-specialise-e-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs",
-        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh"
+        "diplome-e-en-soins-infirmiers-hf-specialise-e-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1182,9 +1187,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
-        "en": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
+        "en": "professional-health-efz-50-70-with-option-additional-role-as-a-practice-trainer-in-spitex-zimmerberg-ag-langnau-am-albis",
         "de": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
-        "fr": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis"
+        "fr": "sante-professionnelle-efz-50-70-avec-option-de-role-supplementaire-comme-formateur-de-pratique-spitex-zimmerberg-ag"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1253,9 +1258,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-adliswil",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-adliswil",
-        "en": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-adliswil",
+        "en": "professional-health-efz-60-80-spitex-zimmerberg-ag-adliswil",
         "de": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-adliswil",
-        "fr": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-adliswil"
+        "fr": "sante-professionnelle-efz-60-80-spitex-zimmerberg-ag-adliswil"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1303,6 +1308,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-adliswil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-adliswil"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-adliswil"
         ]
       },
       "firstSeenAt": "2026-06-08T13:46:18.744Z",
@@ -1321,12 +1332,12 @@
     },
     {
       "id": "spitex-ch-6d24260aab4e",
-      "slug": "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen",
+      "slug": "home-helper-in-40-60-srk-desiderato-spitex-obwalden-sarnen",
       "slugByLocale": {
-        "it": "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen",
-        "en": "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen",
+        "it": "home-helper-in-40-60-srk-desiderato-spitex-obwalden-sarnen",
+        "en": "home-helper-in-40-60-srk-desired-spitex-obwalden-sarnen",
         "de": "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen",
-        "fr": "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen"
+        "fr": "aide-a-domicile-dans-40-60-srk-desire-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1380,16 +1391,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen"
+        ],
+        "en": [
+          "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen"
+        ],
+        "fr": [
+          "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "haushelfer-in-40-60-srk-erwunscht-spitex-ch-sarnen"
+      ]
     },
     {
       "id": "spitex-ch-9bd42d598b3c",
-      "slug": "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen",
+      "slug": "infermiera-hf-fh-dnii-con-focus-sulla-psichiatria-40-60-spitex-bantiger-ittigen",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen",
-        "it": "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen",
+        "it": "infermiera-hf-fh-dnii-con-focus-sulla-psichiatria-40-60-spitex-bantiger-ittigen",
         "en": "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen",
-        "fr": "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen"
+        "fr": "infirmiere-hf-fh-dnii-axee-sur-la-psychiatrie-40-60-spitex-bantiger-ittigen"
       },
       "company": "Spitex Bantiger",
       "companyKey": "spitex-ch",
@@ -1445,7 +1470,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:15:43.280Z"
+      "firstSeenAt": "2026-06-08T23:15:43.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-dnii-mit-schwerpunkt-psychiatrie-40-60-spitex-ch-ittigen"
+      ]
     },
     {
       "id": "spitex-ch-6650f902833d",
@@ -1526,8 +1562,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40",
         "it": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal",
-        "en": "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40",
-        "fr": "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40"
+        "en": "nurse-fage-or-hf-for-the-evening-service-with-a-workload-of-approx-20-40-spitex-mittleres-tosstal-turbenthal",
+        "fr": "infirmiere-fage-ou-hf-pour-le-service-du-soir-avec-une-charge-de-travail-d-environ-20-40-spitex-mittleres-tosstal"
       },
       "company": "Spitex Mittleres Tösstal",
       "companyKey": "spitex-ch",
@@ -1573,6 +1609,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40"
+        ],
+        "en": [
+          "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40"
+        ],
+        "fr": [
           "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40"
         ]
       },

@@ -5148,9 +5148,6 @@
         "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
         "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
         "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
@@ -6572,12 +6569,12 @@
     },
     {
       "id": "ksbl-4261ec4a3d2e",
-      "slug": "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal",
+      "slug": "team-leader-fatturazione-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal",
-        "en": "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal",
+        "it": "team-leader-fatturazione-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "team-leader-invoicing-a-kantonsspital-baselland-ksbl-liestal",
         "de": "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal",
-        "fr": "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal"
+        "fr": "chef-d-equipe-facturation-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6630,16 +6627,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-fakturierung-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-b348af8f17ef",
       "slug": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
+        "en": "dipl-maintenance-professional-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal"
+        "fr": "dipl-professionnel-de-l-entretien-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6699,9 +6710,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ambulatorium-urologie-a-ksbl-liestal",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ambulatorium-urologie-a-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-ambulatorium-urologie-a-ksbl-liestal",
+        "en": "dipl-nursing-professional-ambulatorium-urologie-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-ambulatorium-urologie-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ambulatorium-urologie-a-ksbl-liestal"
+        "fr": "dipl-soins-infirmiers-ambulatoire-urologie-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",

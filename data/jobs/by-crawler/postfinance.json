@@ -24,9 +24,9 @@
         "de": "Lösung Architektur Owner Kundeninteraktion (w/m/d)",
         "fr": "Solution Architecture Owner Kundeninteraktion (w/m/d)"
       },
-      "slug": "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
+      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
+        "it": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
         "en": "solution-architecture-owner-customer-interaction-w-m-d-postfinance-bern",
         "de": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
         "fr": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance"
@@ -65,14 +65,14 @@
       "previousSlugs": [
         "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
         "interazione-del-cliente-w-m-d-postfinance-bern",
-        "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
+        "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
         "kundeninteraktion-w-m-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
           "interazione-del-cliente-w-m-d-postfinance-bern",
-          "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern"
+          "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern"
         ],
         "de": [
           "kundeninteraktion-w-m-d-postfinance-bern"
@@ -270,7 +270,7 @@
         "it": "titolare-del-prodotto-voce-chatbot-w-m-d-postfinance-bern",
         "en": "technical-product-owner-voice-chatbot-w-m-d-postfinance-bern",
         "de": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance",
-        "fr": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
+        "fr": "proprietaire-du-produit-technique-voice-chatbot-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -311,13 +311,11 @@
           "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
         ],
         "fr": [
-          "proprietaire-du-produit-technique-voice-chatbot-w-m-d-postfinance-bern",
           "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
         ]
       },
       "previousSlugs": [
-        "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance",
-        "proprietaire-du-produit-technique-voice-chatbot-w-m-d-postfinance-bern"
+        "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
       ],
       "needsRetranslation": true
     },
