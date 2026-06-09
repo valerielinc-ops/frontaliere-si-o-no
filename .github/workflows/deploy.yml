@@ -835,16 +835,27 @@ jobs:
             keyfile="$RUNNER_TEMP/shard_${loc}_key"
             printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
             export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+            # Source-of-truth file count + the shard's last-published count, read
+            # cheaply (no 2.5 GB clone) — a tiny .shard-filecount marker fetched
+            # from raw.githubusercontent. Drive the gate off these so a PARTIAL
+            # copy (n < source) or an upstream build regression that emits a much
+            # smaller locale (n << last-good) is caught EXACTLY, not just the
+            # near-empty case.
+            src_n="$(find "dist/$loc" -type f | wc -l)"
+            prev_n="$(curl -fsS "https://raw.githubusercontent.com/valerielinc-ops/frontaliere-$loc/main/.shard-filecount" 2>/dev/null || echo 0)"
+            [[ "$prev_n" =~ ^[0-9]+$ ]] || prev_n=0
             # EVERYTHING that builds the shard tree AND pushes runs inside one
-            # `set -e` subshell, with a completeness gate before the push. So a
-            # partial cp (disk-full on the runner) or an empty/truncated dist/$loc
-            # (build regression) ABORTS before the push: a monco/empty tree is
-            # never force-pushed over a good shard and the ok-marker is never
-            # written → the strip step skips this locale (stays in main, no 404).
-            # The copy is hardlinked when same-filesystem (cp -al) to avoid
-            # duplicating ~2.5 GB per locale on an already-tight runner disk,
-            # falling back to a real copy across devices.
-            if (
+            # `set -e` subshell with the integrity gates before the push. A failed
+            # copy / truncated tree ABORTS before push: a monco tree is never
+            # force-pushed over a good shard, the ok-marker is never written → the
+            # strip step skips this locale (stays in main, no 404). The copy is
+            # hardlinked when same-filesystem (cp -al) to avoid duplicating
+            # ~2.5 GB per locale on a tight runner disk, falling back to cp -r.
+            # NB: run the guarded build+push as a STANDALONE subshell and capture
+            # its exit ($?), NOT as an `if (...)` condition — bash neuters an
+            # inner `set -e` when the subshell runs in a condition/&&/|| context,
+            # which would let a failed gate fall through to the push.
+            (
               set -e
               rm -rf "$stage"; mkdir -p "$stage"
               : > "$stage/.nojekyll"                                  # serve every path verbatim
@@ -852,13 +863,20 @@ jobs:
               cp -al "dist/$loc" "$stage/$loc" 2>/dev/null || cp -r "dist/$loc" "$stage/$loc"
               if [ -f "dist/$loc.html" ]; then cp "dist/$loc.html" "$stage/$loc.html"; fi  # homepage at /{loc}
               printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
-              # Completeness gate: the locale landing must exist and the subtree
-              # must clear a sane file-count floor (real locales = tens of
-              # thousands). A failed/partial copy trips this and aborts the push.
-              test -s "$stage/$loc/index.html"
               n="$(find "$stage/$loc" -type f | wc -l)"
-              [ "$n" -ge 50 ]
-              echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files"
+              # (a) copy integrity: the staged subtree must have AT LEAST as many
+              #     files as the source — a partial cp (disk-full) lands fewer → abort.
+              test -s "$stage/$loc/index.html"
+              [ "$n" -ge "$src_n" ]
+              # (b) regression guard: refuse a force-push that would shrink the shard
+              #     >50% vs its last-published count (suspected upstream build
+              #     regression emitting a partial locale). First seed → prev_n 0 → skip.
+              if [ "$prev_n" -gt 0 ] && [ "$((n * 2))" -lt "$prev_n" ]; then
+                echo "::error::$loc shard would shrink $prev_n -> $n files (>50%) — refusing force-push (suspected build regression)"
+                exit 1
+              fi
+              printf '%s' "$n" > "$stage/.shard-filecount"   # high-water-mark for the next run's gate (b)
+              echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n)"
               cd "$stage"
               git init -q
               git checkout -q -b main
@@ -867,11 +885,13 @@ jobs:
               git add -A
               git commit -qm "locale shard $loc ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
               git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main
-            ); then
+            )
+            rc=$?
+            if [ "$rc" -eq 0 ]; then
               touch "$RUNNER_TEMP/shard-ok-$loc"   # consumed by the strip step
               echo "✅ pushed $loc shard"
             else
-              echo "::warning::$loc shard build/push failed — $loc will NOT be stripped from main this run"
+              echo "::warning::$loc shard build/push failed (rc=$rc) — $loc will NOT be stripped from main this run"
             fi
             rm -f "$keyfile"
           done
