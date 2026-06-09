@@ -8015,6 +8015,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Suisse: ratification des conventions ILO contre la violence au travail',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Le Conseil fédéral propose la ratification de deux conventions ILO contre la violence et le harcèlement au travail, sans modification de la législation suisse.',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Panorama de Bellinzona à l\'aube, ville suisse proche de la frontière italienne.',
+    'blog.article.divorzio-cassa-pensioni.title': 'Divorcement : qu\'en sera-t-il de la caisse de retraite ? - UBS',
+    'blog.article.divorzio-cassa-pensioni.excerpt': 'La UBS annonce une nouvelle règle pour la caisse de retraite en cas de divorce. La question qui se pose est : qu\'en sera-t-il de la caisse de retraite ? 📊💡⚠️',
+    'blog.article.divorzio-cassa-pensioni.imageAlt': 'Un travailleur frontalier avec sa femme et ses enfants dans un paysage de Locarno',
 };
 
 export default blogMetaFr;

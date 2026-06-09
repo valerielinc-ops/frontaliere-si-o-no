@@ -43052,6 +43052,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divorzio-cassa-pensioni': {
+    title: 'Divorzio: che ne sarà della cassa pensioni? - UBS',
+    description: 'La UBS annuncia una nuova regola per la cassa pensioni in caso di divorzio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, divorzio, sarà, cassa, pensioni',
+    ogTitle: 'Divorzio: che ne sarà della cassa pensioni? - UBS',
+    ogDescription: 'La UBS annuncia una nuova regola per la cassa pensioni in caso di divorzio',
+    canonicalPath: '/articoli-frontaliere/divorzio-cassa-pensioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divorzio: che ne sarà della cassa pensioni? - UBS",
+      "description": "La UBS annuncia una nuova regola per la cassa pensioni in caso di divorzio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divorzio-cassa-pensioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la moglie e i figli in un panorama di Locarno"
+      },
+      "datePublished": "2026-06-09T00:24:38+00:00",
+      "dateModified": "2026-06-09T00:24:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divorzio-cassa-pensioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
