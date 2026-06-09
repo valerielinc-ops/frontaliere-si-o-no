@@ -1748,26 +1748,30 @@ function isDailyLimitError(status, bodyText = '') {
 }
 
 /**
- * Single source of truth for "the whole free-model pool is transiently
- * unavailable" — i.e. every model in the fallback chain failed because of
- * daily-quota/rate-limit exhaustion, NOT a code/data bug.
+ * Single source of truth for "the whole free-model pool is TRANSIENTLY
+ * unavailable" — every model in the fallback chain failed because of
+ * daily-quota / rate-limit / cooldown / timeout exhaustion, NOT a persistent
+ * fault and NOT a code/data bug.
  *
  * This is a *transient external capacity* condition: free-tier daily limits
  * reset at 00:00 UTC, so the next scheduled run normally succeeds. Callers use
  * it to defer gracefully (skip this run, retry later) instead of crashing and
  * raising a false-positive "Workflow Failure" Bug issue.
  *
- * Detects both the structured `ALL_MODELS_EXHAUSTED` error code thrown by
- * `callLLM` and the legacy message substrings emitted by individual providers,
- * so a single helper replaces the literal substring list previously duplicated
- * across create-article.mjs and dedicated-crawler-common.mjs.
+ * IMPORTANT: `callLLM` throws `code = ALL_MODELS_EXHAUSTED` regardless of WHY
+ * the chain emptied — a persistent outage (all keys revoked 401, credits gone
+ * 402, models removed 404, prompt chronically too large 413, no API keys) also
+ * empties it. Deferring on the bare code would silence those real outages
+ * forever. So for a structured callLLM error we trust its dominant-cause flag
+ * (`transientExhaustion`); only a transient-dominant run defers. Non-callLLM
+ * errors (single provider call re-thrown without the code) fall back to the
+ * unambiguous quota/rate-limit message substrings.
  */
 export function isQuotaExhaustedError(err) {
   if (!err) return false;
-  if (err.code === 'ALL_MODELS_EXHAUSTED') return true;
+  if (err.code === 'ALL_MODELS_EXHAUSTED') return err.transientExhaustion === true;
   const msg = String(err.message || err || '').toLowerCase();
   return (
-    msg.includes('all ai models failed') ||
     msg.includes('daily request limit') ||
     msg.includes('daily limit') ||
     msg.includes('daily quota') ||
@@ -2745,5 +2749,37 @@ export async function callLLM(messages, opts = {}) {
   await flushScores();
   const err = new Error(`All AI models failed. Chain: [${chain.join(' → ')}]. Errors: ${summary}`);
   err.code = 'ALL_MODELS_EXHAUSTED';
+  // Classify the AGGREGATE cause so callers can distinguish a TRANSIENT pool
+  // exhaustion (daily quota / rate-limit / provider cooldown / timeout — self-
+  // heals at the next window) from a PERSISTENT fault (stale keys 401, depleted
+  // credits 402, removed models 404, chronically oversized payload 413, missing
+  // API keys) that needs a human alert. create-article.mjs defers (exit 0) only
+  // on a transient-dominant run; a persistent-dominant run still exits non-zero
+  // and raises the Workflow-Failure issue, so the safety net from #1652 stays
+  // intact for real outages (stale keys, provider down, prompt always too big).
+  err.exhaustionBreakdown = classifyExhaustionCause(errors);
+  err.transientExhaustion = err.exhaustionBreakdown.transient > 0
+    && err.exhaustionBreakdown.transient >= err.exhaustionBreakdown.persistent;
   throw err;
+}
+
+/**
+ * Tally per-model failure reasons collected by callLLM into transient vs
+ * persistent buckets. Transient = quota/rate/cooldown/timeout/5xx/overloaded
+ * (recovers on its own). Persistent = auth/credit/removed-model/payload/no-key
+ * (needs intervention). Reasons matching neither are ignored in the tally.
+ */
+function classifyExhaustionCause(errors) {
+  const persistentRe = /\b40[124]\b|tokens?_limit_reached|context.?length|maximum context|too many tokens|exceeds .*input cap|max output \d+ <|no API key|unknown.?model|no such model|does not exist|decommissioned|deprecated|no longer supported|payment|insufficient|credit/i;
+  const transientRe = /daily (request )?limit|daily quota|exceeded your current quota|plan and billing|free.?models.?per.?day|\b429\b|rate.?limit|resource.?exhausted|cooling down|timeout|aborted|overloaded|\b5\d\d\b|temporarily/i;
+  let transient = 0;
+  let persistent = 0;
+  for (const reason of errors) {
+    const isTransient = transientRe.test(reason);
+    const isPersistent = persistentRe.test(reason);
+    if (isTransient) transient += 1;
+    else if (isPersistent) persistent += 1;
+    // neither → ambiguous, left out of the tally
+  }
+  return { transient, persistent, total: errors.length };
 }
