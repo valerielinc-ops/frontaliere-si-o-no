@@ -796,6 +796,69 @@ jobs:
           fi
           rm -f "$keyfile"
 
+      # ── Locale shard offload (en/de/fr → frontaliere-{loc} / Pages) ───────
+      # Each non-primary locale subtree (dist/en, dist/de, dist/fr) is a
+      # self-contained top-level dir. Push each to its OWN GitHub Pages repo
+      # (frontaliere-{loc}), served behind a Cloudflare Worker at
+      # frontaliereticino.ch/{loc}/ — same URL, different origin. This keeps
+      # every repo well under the 10 GB Pages cap: the main artifact trips it
+      # not on bytes (~9 GB logical) but on the ~1.04M-dir / ~11 GB DISK
+      # footprint (dir-per-page block padding). Splitting by locale removes
+      # ~700k of those dirs from the main artifact.
+      #
+      # ADDITIVE + REVERSIBLE: the locale dirs stay in dist/ here; the strip
+      # step (gated on vars.LOCALE_SHARDS_LIVE, just before the tar pack)
+      # removes them from the MAIN artifact ONLY once the proxy is verified
+      # live. Until that variable is set, this push changes nothing about the
+      # served site — the locales still ship in the main artifact as before.
+      # Mirrors the frontaliere-cdn push pattern (per-repo write-only deploy
+      # key, single force-pushed commit so shard history never accumulates).
+      - name: Push locale shards (en/de/fr → frontaliere-{loc} / Pages)
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        env:
+          SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
+          SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
+          SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
+        run: |
+          set -uo pipefail
+          for loc in en de fr; do
+            key_var="SHARD_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
+            key_val="${!key_var:-}"
+            if [ -z "$key_val" ]; then
+              echo "no $key_var secret — skipping $loc shard push"; continue
+            fi
+            if [ ! -d "dist/$loc" ]; then
+              echo "dist/$loc absent — skipping $loc shard push"; continue
+            fi
+            stage="$RUNNER_TEMP/shard-$loc"
+            rm -rf "$stage" && mkdir -p "$stage"
+            : > "$stage/.nojekyll"                                  # serve every path verbatim
+            printf 'origin-%s.frontaliereticino.ch' "$loc" > "$stage/CNAME"  # shard custom domain (force-push would wipe it)
+            cp -r "dist/$loc" "$stage/$loc"                         # the heavy subtree
+            [ -f "dist/$loc.html" ] && cp "dist/$loc.html" "$stage/$loc.html"  # locale homepage at /{loc}
+            printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
+            echo "$loc shard payload: $(du -sh "$stage" | cut -f1)"
+            keyfile="$RUNNER_TEMP/shard_${loc}_key"
+            printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+            export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+            (
+              cd "$stage"
+              git init -q
+              git checkout -q -b main
+              git config user.email "deploy-bot@frontaliereticino.ch"
+              git config user.name "deploy-bot"
+              git add -A
+              git commit -qm "locale shard $loc ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+              if git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main; then
+                echo "✅ pushed $loc shard"
+              else
+                echo "⚠️ $loc shard push failed — locale stays in main artifact"
+              fi
+            )
+            rm -f "$keyfile"
+          done
+
       # ── CDN assets/ GC janitor (anti-clobber by SEQUENCING) ───────────────
       # The additive assets/ merge above (cp -n) lets old + new content hashes
       # coexist so in-flight HTML keeps booting — but it grows the CDN repo
@@ -1014,6 +1077,25 @@ jobs:
       # │  the 4 heaviest dist/-walking audits and net post-build went   │
       # │  +98s.                                                         │
       # └────────────────────────────────────────────────────────────────┘
+      # Drop the locale subtrees from the MAIN artifact — but ONLY once the
+      # Cloudflare Worker proxy is verified live (repo variable
+      # LOCALE_SHARDS_LIVE=true; the shards were already populated by the push
+      # step above). This is the step that actually shrinks the main artifact
+      # back under the 10 GB Pages cap (removes ~700k dirs / the en+de+fr
+      # subtrees). Until the variable is set this is a no-op → locales ship in
+      # main exactly as before, so the whole change stays reversible.
+      # REVERT TRIGGER: if a deploy after flipping the variable 404s on
+      # /en /de /fr, run `gh variable set LOCALE_SHARDS_LIVE -b false` → the
+      # next deploy ships the locales in the main artifact again.
+      - name: Strip locale shards from main artifact (gated on LOCALE_SHARDS_LIVE)
+        if: ${{ github.event.inputs.profile_sequential != 'true' && vars.LOCALE_SHARDS_LIVE == 'true' }}
+        run: |
+          set -uo pipefail
+          before="$(du -sh dist | cut -f1)"
+          for loc in en de fr; do
+            rm -rf "dist/$loc" "dist/$loc.html"
+          done
+          echo "stripped en/de/fr from main artifact (now served via shards): ${before} -> $(du -sh dist | cut -f1)"
       - name: Pack dist/ into Pages tar archive
         if: github.event.inputs.profile_sequential != 'true'
         run: |

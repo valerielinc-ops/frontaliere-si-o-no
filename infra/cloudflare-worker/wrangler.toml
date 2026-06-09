@@ -1,0 +1,13 @@
+# Cloudflare Worker config for the frontaliereticino.ch locale router.
+# Deploy: `npx wrangler deploy` (or paste locale-router.js in the dashboard).
+# Requires the zone frontaliereticino.ch to be on Cloudflare (NS moved) first.
+
+name = "frontaliere-locale-router"
+main = "locale-router.js"
+compatibility_date = "2026-01-01"
+
+# Run the Worker on every path of the apex (and www, which redirects to apex).
+# The Worker itself rewrites only /en /de /fr to the shard origins.
+routes = [
+  { pattern = "frontaliereticino.ch/*", zone_name = "frontaliereticino.ch" },
+]
