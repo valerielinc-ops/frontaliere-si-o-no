@@ -3327,6 +3327,28 @@ const ST_LOCALITY_PLZ_OVERRIDE = {
   // Multi-site employer whose bare-"St" posting carries no slug/URL city token
   // but a trustworthy per-job postal code (9000 = St. Gallen, 1:1 in CH). #1158.
   'csd-engineers': { '9000': 'St. Gallen' },
+  // Bosch (Scintilla AG) production site in St. Niklaus VS posts bare "St" with
+  // no usable slug/URL city token (primary slug truncates to "…-ag-st"). Its
+  // PLZ is NOT genuine: the upstream enrichment stamped the VS canton-capital
+  // fallback "1950" (= Sion) because "St. Niklaus" was missing from
+  // swiss-postal-codes.json. So we key recovery on that stamped fallback to
+  // restore the real locality, then ST_LOCALITY_CANONICAL_PLZ below heals the
+  // postalCode to St. Niklaus' true value (3924) so the PostalAddress is
+  // internally consistent. Confirmed via the job's own contact (+41 27 Valais /
+  // "Scintilla AG") + slug token "…-bosch-st-niklaus". Supersedes the
+  // KNOWN_DEFERRED canary. #1242.
+  'bosch-thermotechnik-ag': { '1950': 'St. Niklaus' },
+};
+
+// Authoritative PLZ for a recovered St-locality, used to HEAL a postalCode that
+// was stamped via the canton-capital fallback when the locality was absent from
+// swiss-postal-codes.json. Without this, a job recovered to "St. Niklaus" (VS)
+// would keep the wrong fallback PLZ "1950" (Sion) → inconsistent PostalAddress
+// on an indexed JobPosting (#1242 review). Scoped to localities whose stamped
+// PLZ provably disagrees with the real one; localities whose own postalCode is
+// already correct (Valens 7317, St. Gallen 9000) are intentionally absent.
+const ST_LOCALITY_CANONICAL_PLZ = {
+  'St. Niklaus': '3924', // St. Niklaus VS (Mattertal) — Scintilla AG / Bosch site
 };
 
 // Single-site employers whose every posting sits at one HQ city, used to recover
@@ -3436,6 +3458,11 @@ export function healTruncatedStLocalities(jobs) {
     job.addressLocality = city;
     const cant = inferAnyCanton(city);
     if (cant) { job.addressRegion = cant; job.canton = cant; }
+    // Heal a postalCode that was stamped via the canton-capital fallback (the
+    // recovered locality was absent from swiss-postal-codes.json) so it matches
+    // the recovered city — keeps the PostalAddress internally consistent (#1242).
+    const canonicalPlz = ST_LOCALITY_CANONICAL_PLZ[city];
+    if (canonicalPlz) job.postalCode = canonicalPlz;
   };
 
   let healed = 0;
@@ -3446,9 +3473,12 @@ export function healTruncatedStLocalities(jobs) {
     if (!isBare(job)) continue;
     const city = recoverTruncatedStLocality(job);
     if (city) {
+      // Key on the ORIGINAL postalCode (shared with still-bare siblings) before
+      // applyCity may rewrite it via ST_LOCALITY_CANONICAL_PLZ — pass-2 consensus
+      // matches still-bare records by their un-healed PLZ.
+      const key = `${String(job.companyKey || '').toLowerCase()}|${job.postalCode || ''}`;
       applyCity(job, city);
       healed++;
-      const key = `${String(job.companyKey || '').toLowerCase()}|${job.postalCode || ''}`;
       if (!consensus.has(key)) consensus.set(key, new Set());
       consensus.get(key).add(city);
     } else {
