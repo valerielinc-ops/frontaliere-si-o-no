@@ -413,6 +413,24 @@ export default defineConfig(({ mode }) => {
  },
  rollupOptions: {
  output: {
+ // STABLE entry filename (no content-hash). Every prerendered page embeds
+ // <script src=".../assets/index-entry.js">. When the entry was content-hashed
+ // (index-<hash>.js, Vite default) its name changed on ANY bundled-module
+ // change — and Vite chunk hashes are circularly interconnected (entry→App→
+ // leaf→App), so a change anywhere (a PR, but also auto-generated
+ // services/locales/blog-body/*.ts and regenerated locale files) cascaded to
+ // the entry hash → all ~1.28M prerendered pages re-referenced a new
+ // /assets/index-<hash>.js → ~80%/deploy churn (measured). A stable name keeps
+ // pages byte-identical across deploys; the entry's INTERNAL imports (hashed
+ // App/chunks) still rotate, but that's 1 file, not 1.28M pages.
+ // - Matches build-plugins/shared/spaBundleRx.ts (`index-<hashchars>+.js`):
+ //   "entry" ∈ the hash charset, so SPA_ENTRY_JS_RX picks it up unchanged.
+ // - Sub-chunks stay content-hashed (chunkFileNames default) for cache-busting.
+ // - CACHE: index-entry.js bytes change per code-deploy → it must REVALIDATE,
+ //   not be immutable — see public/_headers. Hashed chunks stay immutable.
+ // - CDN offload (deploy.yml) cp -r's all of dist/assets, and prune-cdn-assets
+ //   never prunes a file present in dist/assets → the stable entry ships + persists.
+ entryFileNames: 'assets/index-entry.js',
  manualChunks(id) {
  // Vendor chunks for node_modules
  if (id.includes('node_modules')) {
