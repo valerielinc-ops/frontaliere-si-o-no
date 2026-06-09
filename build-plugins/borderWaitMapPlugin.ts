@@ -496,40 +496,16 @@ function renderPage(opts: {
   });
 
   // ── Playful UI (Workstream UX) ────────────────────────────────────
-  // Self-contained <style> (no Tailwind — JIT does not scan build-plugins/;
-  // no hex — only semantic --color-* tokens, per no-hex-in-seo-plugins test).
-  // NOTE: the mobile horizontal-overflow fix lives in the SHARED stylesheet
-  // (public/assets/seo-static.css → .s-EDtWsL gains min-width:0 +
-  // max-width:min(1100px,100%)). .s-EDtWsL is a grid item of the display:grid
-  // .seo-static-content wrapper; min-width:auto let wide tables stretch the
-  // track past the viewport (≈1116px on a 382px screen). The shared rule fixes
-  // THIS page because its inner main carries ONLY .s-EDtWsL (a single grid
-  // item). It is a NO-OP on comparisonsHubPlugin, whose inner main carried
-  // `seo-static-content s-EDtWsL`: `main.seo-static-content` (0,1,1) beats
-  // `.s-EDtWsL` (0,1,0) and the nested grid leaves min-width:auto at two levels,
-  // so neither min-width:0 nor the max-width cap take effect there. That overflow
-  // is tracked in #961 and fixed structurally (drop seo-static-content from its
-  // inner main, #962), NOT by this shared rule.
-  const playfulStyle = `<style>
-.bw-head-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px}
-.bw-live{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-strong);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-.bw-live-dot{width:8px;height:8px;border-radius:50%;background:var(--color-success-strong);display:inline-block}
-.bw-legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 28px}
-.bw-legend-lbl{font-size:13px;font-weight:700;color:var(--color-subtle)}
-.bw-leg{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:700;color:var(--color-heading);background:var(--color-surface);border:1px solid var(--color-edge)}
-.bw-leg-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
-.bw-times{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0 0}
-.bw-time{padding:16px 18px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge);border-left:4px solid var(--color-accent)}
-.bw-time-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0 0 7px}
-.bw-time-emoji{font-size:20px;line-height:1}
-.bw-time-name{font-weight:800;color:var(--color-heading);font-size:15px}
-.bw-time-win{font-variant-numeric:tabular-nums;color:var(--color-accent);font-weight:800;font-size:14px}
-.bw-time-p{margin:0;color:var(--color-body);font-size:14px;line-height:1.6}
-.bw-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
-.bw-chip-co{background:var(--color-accent-subtle);color:var(--color-accent)}
-.bw-chip-va{background:var(--color-warning-subtle);color:var(--color-warning)}
-@media (prefers-reduced-motion:no-preference){.bw-live-dot{animation:bw-pulse 1.8s ease-in-out infinite}@keyframes bw-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}}
-</style>`;
+  // The .bw-* rules now live in public/assets/seo-static.css (already linked
+  // on this page) instead of a per-page inline <style> block — all semantic
+  // --color-* tokens, no hex. The mobile horizontal-overflow fix lives in that
+  // same sheet (.s-EDtWsL gains min-width:0 + max-width:min(1100px,100%)):
+  // .s-EDtWsL is a grid item of the display:grid .seo-static-content wrapper;
+  // min-width:auto let wide tables stretch the track past the viewport
+  // (≈1116px on a 382px screen). It fixes THIS page (inner main carries ONLY
+  // .s-EDtWsL) but is a NO-OP on comparisonsHubPlugin, whose inner main carried
+  // `seo-static-content s-EDtWsL` (specificity 0,1,1 > 0,1,0, nested grid keeps
+  // min-width:auto at two levels) — tracked in #961, fixed structurally in #962.
 
   const statGrid = renderStatGrid([
     { label: copy.statCrossingsLabel, value: '24', tone: 'accent' },
@@ -561,7 +537,6 @@ function renderPage(opts: {
       </div>`).join('')}</div>`;
 
   const body = `
-    ${playfulStyle}
     <nav class="s-Vigh-K">
       <a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>

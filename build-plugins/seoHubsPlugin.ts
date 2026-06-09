@@ -1342,10 +1342,9 @@ function renderPagination(locale: HubLocale, basePath: string, current: number, 
   // ≥ 100 (master jobs hub) the inline-style variant ballooned to ~250 B
   // per anchor × ~400 anchors = ~100 KB, pushing the last-page HTML past
   // the 200 KB `audit:page-weight` budget (2026-05-18 regression on
-  // /cerca-lavoro-ticino/tutti/page-387/). The shared <style> block costs
-  // ~300 B once and saves ~190 B per anchor — ~70 KB net on a 400-page
-  // hub. Class names are short (.hp, .hc) to keep the inline cost minimal.
-  const flatStyleBlock = `<style>.hp,.hc{display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;font-size:13px}.hp{background:var(--color-surface);color:var(--color-link);text-decoration:none;border:1px solid var(--color-edge)}.hc{background:var(--color-accent);color:var(--color-on-accent);font-weight:700}</style>`;
+  // /cerca-lavoro-ticino/tutti/page-387/). Class names are short (.hp, .hc);
+  // their rules now live in public/assets/seo-static.css (already linked on
+  // these pages) instead of a per-page inline <style> block.
   const flatAnchors: string[] = [];
   for (let p = 1; p <= total; p++) {
     const href = `${BASE_URL}${paginatedPath(basePath, p)}`;
@@ -1355,7 +1354,7 @@ function renderPagination(locale: HubLocale, basePath: string, current: number, 
       flatAnchors.push(`<a href="${href}" class="hp">${pageWord}&nbsp;${p}</a>`);
     }
   }
-  const flatNav = `${flatStyleBlock}<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY">${flatAnchors.join('')}</div></details></nav>`;
+  const flatNav = `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY">${flatAnchors.join('')}</div></details></nav>`;
 
   return `${compactNav}${flatNav}`;
 }
