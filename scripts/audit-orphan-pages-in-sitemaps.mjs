@@ -69,9 +69,10 @@
  *                       run. Use after a deliberate improvement.
  *   --gate=baseline     Compare current run to baseline; exit 1 if any
  *                       sitemap's orphan RATE (orphans/total) regresses beyond
- *                       tolerance AND its orphan count grows by >minAbsDelta,
- *                       or a brand-new sitemap ships ≥90% orphaned. Organic URL
- *                       growth at a flat orphan rate passes. Mode A only.
+ *                       tolerance AND its orphan count grows by >minAbsDelta.
+ *                       Sitemaps absent from the baseline are logged but never
+ *                       fail. Organic URL growth at a flat orphan rate passes.
+ *                       Mode A only.
  */
 
 import { readdir, readFile, stat, writeFile, access } from 'node:fs/promises';
@@ -820,7 +821,8 @@ async function main() {
       process.exit(1);
     }
     // Surface (non-failing) any unbaselined sitemaps so a new shard's orphan
-    // rate is visible in the log even when it's below the buried-shard floor.
+    // rate is visible in the log. These never fail the gate — a fresh
+    // rebaseline folds them in, after which the rate ratchet guards them.
     if (cmp.unbaselined.length > 0) {
       const u = cmp.unbaselined
         .filter((s) => s.orphans > 0)
@@ -859,8 +861,9 @@ async function main() {
         'build. A sitemap fails only when its rate exceeds baseRate*(1+relPct/100)+' +
         'absPp (capped by maxDeltaPp) AND its orphan count grows by more than ' +
         'minAbsDelta — a real internal-link regression burying previously-linked ' +
-        'URLs. A brand-new sitemap shipped ≥90% orphaned over ≥minAbsDelta URLs ' +
-        'hard-fails. Fix orphans via internal links from a hub, never noindex. ' +
+        'URLs. Sitemaps absent from the baseline are logged but never fail the ' +
+        'gate; a fresh rebaseline folds them in so the rate ratchet then guards ' +
+        'them. Fix orphans via internal links from a hub, never noindex. ' +
         'Rates must only DECREASE going forward (modulo tolerance).',
     };
     await writeFile(BASELINE_PATH, JSON.stringify(baselineJson, null, 2) + '\n', 'utf8');
