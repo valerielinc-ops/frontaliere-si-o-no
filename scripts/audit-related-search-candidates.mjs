@@ -32,6 +32,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
@@ -40,31 +41,9 @@ const OUT_PATH = path.join(ROOT, 'data', 'related-search-candidates.json');
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-/**
- * Serialize the candidates file compact-but-line-diffable: top-level metadata
- * is pretty-printed, the large `candidates` (and `topNonEditorialCandidates`)
- * arrays are emitted one JSON object per line. Output is still valid JSON
- * (consumers JSON.parse it unchanged) but drops the ~31% whitespace overhead
- * of full 2-space indentation that was pushing the file toward the 100 MB
- * push limit. Returns a trailing-newline-terminated string.
- */
-function serializeCandidatesFile(output) {
-  const arrayLines = (arr) => {
-    const items = Array.isArray(arr) ? arr : [];
-    if (items.length === 0) return '[]';
-    return `[\n${items.map((item) => `    ${JSON.stringify(item)}`).join(',\n')}\n  ]`;
-  };
-  const head = {
-    generatedAt: output.generatedAt,
-    sources: output.sources,
-    inputs: output.inputs,
-    summary: output.summary,
-  };
-  // Pretty-print the small head, then splice the line-delimited big arrays in.
-  const headJson = JSON.stringify(head, null, 2);
-  const body = headJson.slice(0, headJson.lastIndexOf('}')).replace(/\s*$/, '');
-  return `${body},\n  "topNonEditorialCandidates": ${arrayLines(output.topNonEditorialCandidates)},\n  "candidates": ${arrayLines(output.candidates)}\n}\n`;
-}
+// serializeCandidatesFile is imported from ./lib/related-search-serialize.mjs so
+// the audit writer and the gsc-orphan ingest augmenter share one bounded format
+// (the file's 100 MB push ceiling cannot drift between two writers — #1576).
 
 // ── Editorial-landing constants (mirror build-plugins/jobEditorialLanding.ts) ──
 

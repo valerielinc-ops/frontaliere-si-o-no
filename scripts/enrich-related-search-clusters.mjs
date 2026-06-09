@@ -33,6 +33,7 @@ import {
   isAnyModelAvailable,
   printRunSummary,
 } from './lib/ai-models.mjs';
+import { lineDelimitedObjectMap, serializeWithLineDelimited } from './lib/related-search-serialize.mjs';
 
 // ── Paths ──────────────────────────────────────────────────────────────
 const __filename = fileURLToPath(import.meta.url);
@@ -386,13 +387,11 @@ function saveEnriched(state) {
     totalEnriched: Object.keys(state.entries).length,
     byLocale,
   };
-  const headJson = JSON.stringify(head, null, 2);
-  const body = headJson.slice(0, headJson.lastIndexOf('}')).replace(/\s*$/, '');
-  const entryKeys = Object.keys(state.entries);
-  const entriesBlock = entryKeys.length === 0
-    ? '{}'
-    : `{\n${entryKeys.map((k) => `    ${JSON.stringify(k)}: ${JSON.stringify(state.entries[k])}`).join(',\n')}\n  }`;
-  writeFileSync(OUTPUT_PATH, `${body},\n  "entries": ${entriesBlock}\n}\n`, 'utf8');
+  writeFileSync(
+    OUTPUT_PATH,
+    serializeWithLineDelimited(head, [['entries', lineDelimitedObjectMap(state.entries)]]),
+    'utf8',
+  );
 }
 
 // ── Main ───────────────────────────────────────────────────────────────
