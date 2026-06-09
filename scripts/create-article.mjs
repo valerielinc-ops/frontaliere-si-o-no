@@ -64,7 +64,7 @@ import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, copyFile
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
-import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError } from './lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
@@ -8185,6 +8185,18 @@ async function generateAndValidateArticle(url, sourceContext = null) {
 }
 
 main().catch((e) => {
+  // Transient free-model pool exhaustion (every model in the fallback chain hit
+  // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
+  // reset at 00:00 UTC, so the next scheduled run normally succeeds. Treat it as
+  // a clean deferral (exit 0, no file changes) so the workflow's self-trigger
+  // back-off retries later instead of marking the run failed and raising a
+  // false-positive "Workflow Failure: Generate Blog Article" Bug issue (#1652).
+  // Mirrors the graceful quota-exhausted handling in dedicated-crawler-common.mjs.
+  if (isQuotaExhaustedError(e)) {
+    finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (all free models exhausted): ${e.message}`] });
+    console.error(`\n⚠️  Differito: tutti i modelli AI gratuiti sono temporaneamente esauriti (quota giornaliera). Riprovo al prossimo run. ${e.message}`);
+    process.exit(0);
+  }
   finalizeRunReport('error', { notes: [...RUN_REPORT.notes, `Error: ${e.message}`] });
   console.error(`\n❌ Errore: ${e.message}`);
   process.exit(1);

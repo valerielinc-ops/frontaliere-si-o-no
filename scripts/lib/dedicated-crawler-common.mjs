@@ -2788,13 +2788,13 @@ export async function enrichJobLocalesWithRetryDCC(job, crawlerConfig, ctx = {},
       return await enrichJobLocalesDCC(job, crawlerConfig, ctx);
     } catch (error) {
       lastError = error;
-      const msg = String(error?.message || '').toLowerCase();
-      const quotaExhausted =
-        msg.includes('all ai models failed') ||
-        msg.includes('daily request limit') ||
-        msg.includes('daily quota') ||
-        msg.includes('exceeded your current quota') ||
-        msg.includes('plan and billing details');
+      // Shared single source of truth for "whole free-model pool transiently
+      // exhausted" (see ai-models.mjs:isQuotaExhaustedError). Falls back to a
+      // minimal inline check only if ai-models failed to import (in which case
+      // no AI calls ran, so this branch is effectively unreachable).
+      const quotaExhausted = _aiModels?.isQuotaExhaustedError
+        ? _aiModels.isQuotaExhaustedError(error)
+        : String(error?.message || '').toLowerCase().includes('all ai models failed');
       if (quotaExhausted) break;
       if (attempt < maxAttempts) {
         // eslint-disable-next-line no-await-in-loop
