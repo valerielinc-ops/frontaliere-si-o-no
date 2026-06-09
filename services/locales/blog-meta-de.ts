@@ -8016,6 +8016,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divorzio-cassa-pensioni.title': 'Scheidung: Was passiert mit der Pensionskasse? - UBS',
     'blog.article.divorzio-cassa-pensioni.excerpt': 'Die UBS kündigt eine neue Regelung für die Pensionskasse bei Scheidung an.',
     'blog.article.divorzio-cassa-pensioni.imageAlt': 'Ein Grenzgänger mit seiner Frau und Kindern in einem Landschaftsbild von Locarno',
+    'blog.article.licenziamento-postino-ticino.title': 'Entlassen nach 42 Jahren: Die Geschichte des Veveyser Postboten',
+    'blog.article.licenziamento-postino-ticino.excerpt': 'Ein Postbote aus Vevey wurde nach 42 Jahren im Dienst entlassen, weil er versuchte, Diebstähle zu verhindern, indem er Pakete direkt an die Etagen zustellte.',
+    'blog.article.licenziamento-postino-ticino.imageAlt': 'Postbote liefert Brief in Lugano',
 };
 
 export default blogMetaDe;
