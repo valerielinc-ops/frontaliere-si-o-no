@@ -24,9 +24,9 @@
         "de": "Auxiliaire médical (h/f) 100% - Temporaire 6 mois",
         "fr": "Auxiliaire médical (h/f) 100% - Temporaire 6 mois"
       },
-      "slug": "auxiliaire-medical-m-w-d-100-temporaire-6-mois-groupe-mutuel-sion",
+      "slug": "ausiliario-medico-m-f-100-temporaneo-6-mesi-groupe-mutuel-sion",
       "slugByLocale": {
-        "it": "auxiliaire-medical-m-w-d-100-temporaire-6-mois-groupe-mutuel-sion",
+        "it": "ausiliario-medico-m-f-100-temporaneo-6-mesi-groupe-mutuel-sion",
         "en": "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
         "de": "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
         "fr": "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
@@ -48,11 +48,13 @@
       "id": "groupe-mutuel-fd1fc86d7957",
       "previousSlugsByLocale": {
         "it": [
-          "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
+          "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
+          "auxiliaire-medical-m-w-d-100-temporaire-6-mois-groupe-mutuel-sion"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
+        "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
+        "auxiliaire-medical-m-w-d-100-temporaire-6-mois-groupe-mutuel-sion"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -95,9 +97,9 @@
         "de": "Responsable de vente (h/f) 80-100%",
         "fr": "Responsable de vente (h/f) 80-100%"
       },
-      "slug": "responsable-de-vente-h-f-80-100-groupe-mutuel",
+      "slug": "sales-manager-m-f-80-100-groupe-mutuel-delemont",
       "slugByLocale": {
-        "it": "responsable-de-vente-h-f-80-100-groupe-mutuel",
+        "it": "sales-manager-m-f-80-100-groupe-mutuel-delemont",
         "en": "responsable-de-vente-h-f-80-100-groupe-mutuel",
         "de": "responsable-de-vente-h-f-80-100-groupe-mutuel",
         "fr": "responsable-de-vente-h-f-80-100-groupe-mutuel"
@@ -133,7 +135,15 @@
       "addressLocality": "Delémont",
       "addressCountry": "CH",
       "addressRegion": "JU",
-      "firstSeenAt": "2026-06-08T12:57:07.729Z"
+      "firstSeenAt": "2026-06-08T12:57:07.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-vente-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-vente-h-f-80-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4118?c=groupemutuel&lang=fr-FR",
@@ -157,9 +167,9 @@
         "de": "Kundenberater Agenturen (m/w) 80-100%",
         "fr": "Kundenberater Agenturen (m/w) 80-100%"
       },
-      "slug": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+      "slug": "consulente-clienti-agenzie-m-f-80-100-groupe-mutuel-basel",
       "slugByLocale": {
-        "it": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+        "it": "consulente-clienti-agenzie-m-f-80-100-groupe-mutuel-basel",
         "en": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
         "de": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
         "fr": "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
@@ -196,7 +206,15 @@
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T12:57:07.729Z"
+      "firstSeenAt": "2026-06-08T12:57:07.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4115?c=groupemutuel&lang=fr-FR",
@@ -220,9 +238,9 @@
         "de": "Analyste (h/f) 80-100%",
         "fr": "Analyste (h/f) 80-100%"
       },
-      "slug": "analyste-h-f-80-100-groupe-mutuel",
+      "slug": "analista-m-f-80-100-groupe-mutuel-sion",
       "slugByLocale": {
-        "it": "analyste-h-f-80-100-groupe-mutuel",
+        "it": "analista-m-f-80-100-groupe-mutuel-sion",
         "en": "analyste-h-f-80-100-groupe-mutuel",
         "de": "analyste-h-f-80-100-groupe-mutuel",
         "fr": "analyste-h-f-80-100-groupe-mutuel"
@@ -259,7 +277,15 @@
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-08T12:57:07.729Z"
+      "firstSeenAt": "2026-06-08T12:57:07.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analyste-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "analyste-h-f-80-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4114?c=groupemutuel&lang=fr-FR",
@@ -1854,8 +1880,7 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel",
-          "analyste-d-affaires-prevoyance-individuelle-h-f-80-100-groupe-mutuel-lausanne"
+          "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ],
         "it": [
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"

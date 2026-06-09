@@ -599,7 +599,7 @@
     },
     {
       "title": "Praktikant:in Pflege, 100%",
-      "slug": "praktikant-in-pflege-100-berit-klinik",
+      "slug": "tirocinante-in-cura-100-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_pflege__100__b7a20ea305.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -636,7 +636,7 @@
       },
       "slugByLocale": {
         "de": "praktikant-in-pflege-100-berit-klinik",
-        "it": "praktikant-in-pflege-100-berit-klinik",
+        "it": "tirocinante-in-cura-100-berit-klinik-speicher",
         "en": "praktikant-in-pflege-100-berit-klinik",
         "fr": "praktikant-in-pflege-100-berit-klinik"
       },
@@ -657,7 +657,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T11:01:58.260Z"
+      "firstSeenAt": "2026-06-09T11:01:58.260Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-100-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-100-berit-klinik"
+      ]
     },
     {
       "title": "Koch, 100%",

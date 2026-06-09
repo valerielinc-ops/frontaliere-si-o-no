@@ -376,10 +376,10 @@
     },
     {
       "id": "bls-1628aff0bf01",
-      "slug": "operator-in-bahntechnik-quereinstieg-bls-ch",
+      "slug": "operatore-in-bahntechnik-cambio-carriera-bls-ag-spiez",
       "slugByLocale": {
         "de": "operator-in-bahntechnik-quereinstieg-bls-ch",
-        "it": "operator-in-bahntechnik-quereinstieg-bls-ch",
+        "it": "operatore-in-bahntechnik-cambio-carriera-bls-ag-spiez",
         "en": "operator-in-bahntechnik-quereinstieg-bls-ch",
         "fr": "operator-in-bahntechnik-quereinstieg-bls-ch"
       },
@@ -453,7 +453,15 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-09T11:01:37.323Z"
+      "firstSeenAt": "2026-06-09T11:01:37.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operator-in-bahntechnik-quereinstieg-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operator-in-bahntechnik-quereinstieg-bls-ch"
+      ]
     },
     {
       "id": "bls-04c117dc5e5f",

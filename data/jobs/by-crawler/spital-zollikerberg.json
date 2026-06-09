@@ -75,9 +75,9 @@
     },
     {
       "id": "spital-zollikerberg-520e9b96cf42",
-      "slug": "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg",
+      "slug": "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg",
+        "it": "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-spital-zollikerberg-zollikerberg",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
@@ -126,14 +126,16 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
         "infermiera-diplomatica-nefrologia-spital-zollikerberg-zollikerberg",
         "infermiere-qualificato-specialista-in-nefrologia-spital-zollikerberg-zollikerberg",
-        "dipl-carriera-dipl-specialista-infermieristica-nephrology-spital-zollikerberg-zollikerberg"
+        "dipl-carriera-dipl-specialista-infermieristica-nephrology-spital-zollikerberg-zollikerberg",
+        "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
           "infermiera-diplomatica-nefrologia-spital-zollikerberg-zollikerberg",
           "infermiere-qualificato-specialista-in-nefrologia-spital-zollikerberg-zollikerberg",
-          "dipl-carriera-dipl-specialista-infermieristica-nephrology-spital-zollikerberg-zollikerberg"
+          "dipl-carriera-dipl-specialista-infermieristica-nephrology-spital-zollikerberg-zollikerberg",
+          "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -296,9 +298,9 @@
     },
     {
       "id": "spital-zollikerberg-7387a3e357ae",
-      "slug": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
+      "slug": "assistente-di-pratica-medica-assistenti-di-pratica-medica-mpa-aree-di-ingegneria-medica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
+        "it": "assistente-di-pratica-medica-assistenti-di-pratica-medica-mpa-aree-di-ingegneria-medica-spital-zollikerberg-zollikerberg",
         "en": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
         "de": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
         "fr": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
@@ -355,13 +357,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
+      ]
     },
     {
       "id": "spital-zollikerberg-c774baa5ad94",
-      "slug": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
+      "slug": "assistente-di-progetto-project-assistant-diverses-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
+        "it": "assistente-di-progetto-project-assistant-diverses-spital-zollikerberg-zollikerberg",
         "en": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
         "de": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
         "fr": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
@@ -418,7 +428,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+      ]
     }
   ]
 }

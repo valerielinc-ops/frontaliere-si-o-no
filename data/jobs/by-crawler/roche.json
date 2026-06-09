@@ -39141,9 +39141,9 @@
     },
     {
       "id": "roche-529cf387c78d",
-      "slug": "roche-guangzhou",
+      "slug": "organizzazione-della-pesca-roche-guangzhou-dc8b02",
       "slugByLocale": {
-        "it": "roche-guangzhou",
+        "it": "organizzazione-della-pesca-roche-guangzhou-dc8b02",
         "en": "roche-ch",
         "de": "roche-guangzhou",
         "fr": "roche-guangzhou"
@@ -39186,11 +39186,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-109"
+        "roche-ch-109",
+        "roche-guangzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-109"
+          "roche-ch-109",
+          "roche-guangzhou"
         ]
       },
       "needsRetranslation": true,
@@ -76999,9 +77001,9 @@
     },
     {
       "id": "roche-5faef21dae1f",
-      "slug": "roche-nanchang",
+      "slug": "terreno-della-societa-regiona-locale-roche-nanchang",
       "slugByLocale": {
-        "it": "roche-nanchang",
+        "it": "terreno-della-societa-regiona-locale-roche-nanchang",
         "en": "roche-ch",
         "de": "roche-nanchang",
         "fr": "roche-nanchang"
@@ -77044,11 +77046,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-162"
+        "roche-ch-162",
+        "roche-nanchang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-162"
+          "roche-ch-162",
+          "roche-nanchang"
         ]
       },
       "needsRetranslation": true,
@@ -80637,9 +80641,9 @@
     },
     {
       "id": "roche-3734481479ce",
-      "slug": "roche-lanzhou",
+      "slug": "terreno-della-pesca-roche-lanzhou",
       "slugByLocale": {
-        "it": "roche-lanzhou",
+        "it": "terreno-della-pesca-roche-lanzhou",
         "en": "roche-ch",
         "de": "roche-lanzhou",
         "fr": "roche-lanzhou"
@@ -80682,11 +80686,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-167"
+        "roche-ch-167",
+        "roche-lanzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-167"
+          "roche-ch-167",
+          "roche-lanzhou"
         ]
       },
       "needsRetranslation": true,
@@ -80708,9 +80714,9 @@
     },
     {
       "id": "roche-d3516a93252d",
-      "slug": "roche-shangrao",
+      "slug": "terreno-della-pesca-roche-shangrao",
       "slugByLocale": {
-        "it": "roche-shangrao",
+        "it": "terreno-della-pesca-roche-shangrao",
         "en": "roche-ch",
         "de": "roche-shangrao",
         "fr": "roche-shangrao"
@@ -80753,11 +80759,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-168"
+        "roche-ch-168",
+        "roche-shangrao"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-168"
+          "roche-ch-168",
+          "roche-shangrao"
         ]
       },
       "needsRetranslation": true,
@@ -80856,9 +80864,9 @@
     },
     {
       "id": "roche-0afec4af1031",
-      "slug": "roche-shenyang",
+      "slug": "traduzione-roche-shenyang",
       "slugByLocale": {
-        "it": "roche-shenyang",
+        "it": "traduzione-roche-shenyang",
         "en": "roche-ch",
         "de": "roche-shenyang",
         "fr": "roche-shenyang"
@@ -80901,11 +80909,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-169"
+        "roche-ch-169",
+        "roche-shenyang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-169"
+          "roche-ch-169",
+          "roche-shenyang"
         ]
       },
       "needsRetranslation": true,
@@ -81004,9 +81014,9 @@
     },
     {
       "id": "roche-826cb6d89086",
-      "slug": "tax-expert-roche-ch",
+      "slug": "esperto-fiscale-roche-shanghai",
       "slugByLocale": {
-        "it": "tax-expert-roche-ch",
+        "it": "esperto-fiscale-roche-shanghai",
         "en": "tax-expert-roche-ch",
         "de": "tax-expert-roche-ch",
         "fr": "tax-expert-roche-ch"
@@ -81063,13 +81073,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tax-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-3ac409955c81",
-      "slug": "project-manager-woj-lubelskie-roche-ch",
+      "slug": "responsabile-del-progetto-woj-lubelskie-roche-poland",
       "slugByLocale": {
-        "it": "project-manager-woj-lubelskie-roche-ch",
+        "it": "responsabile-del-progetto-woj-lubelskie-roche-poland",
         "en": "project-manager-woj-lubelskie-roche-ch",
         "de": "project-manager-woj-lubelskie-roche-ch",
         "fr": "project-manager-woj-lubelskie-roche-ch"
@@ -81126,13 +81144,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-woj-lubelskie-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-woj-lubelskie-roche-ch"
+      ]
     },
     {
       "id": "roche-2dc1e9e3ed01",
-      "slug": "sales-executive-thanh-hoa-roche-ch",
+      "slug": "direzione-vendite-thanh-hoa-roche-hanoi",
       "slugByLocale": {
-        "it": "sales-executive-thanh-hoa-roche-ch",
+        "it": "direzione-vendite-thanh-hoa-roche-hanoi",
         "en": "sales-executive-thanh-hoa-roche-ch",
         "de": "sales-executive-thanh-hoa-roche-ch",
         "fr": "sales-executive-thanh-hoa-roche-ch"
@@ -81189,13 +81215,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-executive-thanh-hoa-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-executive-thanh-hoa-roche-ch"
+      ]
     },
     {
       "id": "roche-7a55d9bc7734",
-      "slug": "disease-area-marketing-lead-roche-ch",
+      "slug": "responsabile-marketing-area-malattie-roche-india",
       "slugByLocale": {
-        "it": "disease-area-marketing-lead-roche-ch",
+        "it": "responsabile-marketing-area-malattie-roche-india",
         "en": "disease-area-marketing-lead-roche-ch",
         "de": "disease-area-marketing-lead-roche-ch",
         "fr": "disease-area-marketing-lead-roche-ch"
@@ -81252,7 +81286,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "disease-area-marketing-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "disease-area-marketing-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-2f25bab5d2e8",
@@ -82610,9 +82652,9 @@
     },
     {
       "id": "roche-606c65967231",
-      "slug": "lead-it-expert-rdt-data-platforms-roche-ch",
+      "slug": "lead-it-expert-piattaforme-dati-rdt-roche-warsaw",
       "slugByLocale": {
-        "it": "lead-it-expert-rdt-data-platforms-roche-ch",
+        "it": "lead-it-expert-piattaforme-dati-rdt-roche-warsaw",
         "en": "lead-it-expert-rdt-data-platforms-roche-ch",
         "de": "lead-it-expert-rdt-data-platforms-roche-ch",
         "fr": "lead-it-expert-rdt-data-platforms-roche-ch"
@@ -82669,13 +82711,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-it-expert-rdt-data-platforms-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-it-expert-rdt-data-platforms-roche-ch"
+      ]
     },
     {
       "id": "roche-3b96d0d74326",
-      "slug": "medical-value-partner-roche-ch",
+      "slug": "partner-del-valore-medico-roche-dubai",
       "slugByLocale": {
-        "it": "medical-value-partner-roche-ch",
+        "it": "partner-del-valore-medico-roche-dubai",
         "en": "medical-value-partner-roche-ch",
         "de": "medical-value-partner-roche-ch",
         "fr": "medical-value-partner-roche-ch"
@@ -82732,7 +82782,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-value-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-value-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-9ac8a86c80d7",
@@ -82941,9 +82999,9 @@
     },
     {
       "id": "roche-3efc0207ac49",
-      "slug": "indirect-procurement-buyer-roche-ch",
+      "slug": "acquirente-di-approvvigionamento-indiretto-roche-monza",
       "slugByLocale": {
-        "it": "indirect-procurement-buyer-roche-ch",
+        "it": "acquirente-di-approvvigionamento-indiretto-roche-monza",
         "en": "indirect-procurement-buyer-roche-ch",
         "de": "indirect-procurement-buyer-roche-ch",
         "fr": "indirect-procurement-buyer-roche-ch"
@@ -83000,7 +83058,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "indirect-procurement-buyer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "indirect-procurement-buyer-roche-ch"
+      ]
     },
     {
       "id": "roche-8e8cde98bceb",
@@ -83381,9 +83447,9 @@
     },
     {
       "id": "roche-16219afd6b64",
-      "slug": "roche-shijiazhuang",
+      "slug": "traduzione-roche-shijiazhuang",
       "slugByLocale": {
-        "it": "roche-shijiazhuang",
+        "it": "traduzione-roche-shijiazhuang",
         "en": "roche-ch",
         "de": "roche-shijiazhuang",
         "fr": "roche-shijiazhuang"
@@ -83426,11 +83492,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-175"
+        "roche-ch-175",
+        "roche-shijiazhuang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-175"
+          "roche-ch-175",
+          "roche-shijiazhuang"
         ]
       },
       "needsRetranslation": true,
@@ -83523,9 +83591,9 @@
     },
     {
       "id": "roche-75837c47e424",
-      "slug": "senior-product-manager-roche-ch-2",
+      "slug": "senior-responsabile-del-prodotto-locali-roche-shanghai",
       "slugByLocale": {
-        "it": "senior-product-manager-roche-ch-2",
+        "it": "senior-responsabile-del-prodotto-locali-roche-shanghai",
         "en": "senior-product-manager-roche-ch",
         "de": "senior-product-manager-roche-ch-2",
         "fr": "senior-product-manager-roche-ch-2"
@@ -83582,13 +83650,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-manager-roche-ch-2"
+      ]
     },
     {
       "id": "roche-2d4aafdc8986",
-      "slug": "account-executive-roche-ch-2",
+      "slug": "account-esecutivo-roche-jakarta",
       "slugByLocale": {
-        "it": "account-executive-roche-ch-2",
+        "it": "account-esecutivo-roche-jakarta",
         "en": "account-executive-roche-ch",
         "de": "account-executive-roche-ch-2",
         "fr": "account-executive-roche-ch-2"
@@ -83645,7 +83721,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-executive-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "account-executive-roche-ch-2"
+      ]
     },
     {
       "id": "roche-2faa511f187d",
@@ -84134,9 +84218,9 @@
     },
     {
       "id": "roche-5e5edb0c1ccc",
-      "slug": "sales-executive-roche-ch",
+      "slug": "direzione-vendite-roche-hanoi",
       "slugByLocale": {
-        "it": "sales-executive-roche-ch",
+        "it": "direzione-vendite-roche-hanoi",
         "en": "sales-executive-roche-ch",
         "de": "sales-executive-roche-ch",
         "fr": "sales-executive-roche-ch"
@@ -84193,7 +84277,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-executive-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-executive-roche-ch"
+      ]
     },
     {
       "id": "roche-88a8daf2df9e",
@@ -84331,9 +84423,9 @@
     },
     {
       "id": "roche-504a447cb97f",
-      "slug": "internship-robotics-12-months-roche-ch",
+      "slug": "stage-robotica-12-mesi-roche-rotkreuz",
       "slugByLocale": {
-        "it": "internship-robotics-12-months-roche-ch",
+        "it": "stage-robotica-12-mesi-roche-rotkreuz",
         "en": "internship-robotics-12-months-roche-ch",
         "de": "internship-robotics-12-months-roche-ch",
         "fr": "internship-robotics-12-months-roche-ch"
@@ -84390,7 +84482,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-robotics-12-months-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-robotics-12-months-roche-ch"
+      ]
     },
     {
       "id": "roche-dbb02f4ab6bd",
@@ -84615,10 +84715,10 @@
     },
     {
       "id": "roche-8cbce08cb2f2",
-      "slug": "medical-partner-medical-manager-ophthalmology-12-months-max-term-contract-roche-ch",
+      "slug": "partner-medico-direttore-medico-oftalmologia-contratto-di-12-mesi-roche-sydney",
       "slugByLocale": {
         "en": "medical-partner-medical-manager-ophthalmology-12-months-max-term-contract-roche-ch",
-        "it": "medical-partner-medical-manager-ophthalmology-12-months-max-term-contract-roche-ch",
+        "it": "partner-medico-direttore-medico-oftalmologia-contratto-di-12-mesi-roche-sydney",
         "de": "medical-partner-medical-manager-ophthalmology-12-months-max-term-contract-roche-ch",
         "fr": "medical-partner-medical-manager-ophthalmology-12-months-max-term-contract-roche-ch"
       },
@@ -84676,7 +84776,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T23:07:32.191Z"
+      "firstSeenAt": "2026-06-08T23:07:32.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-partner-medical-manager-ophthalmology-12-months-max-term-contract-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-partner-medical-manager-ophthalmology-12-months-max-term-contract-roche-ch"
+      ]
     },
     {
       "id": "roche-cea7960ffe14",
@@ -84967,10 +85075,10 @@
     },
     {
       "id": "roche-17868b7beb7c",
-      "slug": "compliance-partner-roche-ch",
+      "slug": "partner-per-la-conformita-roche-abidjan",
       "slugByLocale": {
         "en": "compliance-partner-roche-ch",
-        "it": "compliance-partner-roche-ch",
+        "it": "partner-per-la-conformita-roche-abidjan",
         "de": "compliance-partner-roche-ch",
         "fr": "compliance-partner-roche-abidjan"
       },
@@ -85028,7 +85136,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T23:07:27.988Z"
+      "firstSeenAt": "2026-06-08T23:07:27.988Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-c92de135bd4f",
@@ -85180,10 +85296,10 @@
     },
     {
       "id": "roche-91451bd4fa00",
-      "slug": "patient-services-manager-roche-ch",
+      "slug": "responsabile-dei-servizi-ai-pazienti-roche-mississauga",
       "slugByLocale": {
         "en": "patient-services-manager-roche-ch",
-        "it": "patient-services-manager-roche-ch",
+        "it": "responsabile-dei-servizi-ai-pazienti-roche-mississauga",
         "de": "patient-services-manager-roche-ch",
         "fr": "patient-services-manager-roche-ch"
       },
@@ -85241,7 +85357,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T23:07:25.719Z"
+      "firstSeenAt": "2026-06-08T23:07:25.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-services-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-services-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-57f341360a1c",
@@ -85315,10 +85439,10 @@
     },
     {
       "id": "roche-63be62150aa0",
-      "slug": "study-start-up-lead-roche-ch-2",
+      "slug": "iniziare-lo-studio-piombo-roche-mexico-city",
       "slugByLocale": {
         "en": "study-start-up-lead-roche-ch",
-        "it": "study-start-up-lead-roche-ch-2",
+        "it": "iniziare-lo-studio-piombo-roche-mexico-city",
         "de": "study-start-up-lead-roche-ch-2",
         "fr": "study-start-up-lead-roche-ch-2"
       },
@@ -85376,7 +85500,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-08T23:07:24.142Z"
+      "firstSeenAt": "2026-06-08T23:07:24.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-start-up-lead-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "study-start-up-lead-roche-ch-2"
+      ]
     }
   ]
 }

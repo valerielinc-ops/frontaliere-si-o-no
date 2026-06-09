@@ -235,7 +235,7 @@
         "de": "mitarbeiter-in-bar-rotliechtli-davos-klosters-bergbahnen-davos",
         "it": "collaboratore-trice-bar-rotliechtli-davos-klosters-bergbahnen-ag-davos",
         "en": "mitarbeiter-in-bar-rotliechtli-davos-klosters-bergbahnen-davos",
-        "fr": "mitarbeiter-in-bar-rotliechtli-davos-klosters-bergbahnen-davos"
+        "fr": "collaborateur-trice-bar-rotliechtli-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -275,6 +275,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-bar-rotliechtli-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
           "mitarbeiter-in-bar-rotliechtli-davos-klosters-bergbahnen-davos"
         ]
       },

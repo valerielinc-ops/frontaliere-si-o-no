@@ -12232,9 +12232,9 @@
     },
     {
       "id": "soh-solothurner-spitaeler-4198c45373b2",
-      "slug": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "segretaria-medica-segretario-medico-kppp-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "segretaria-medica-segretario-medico-kppp-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn",
         "de": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-ch",
         "fr": "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn"
@@ -12291,7 +12291,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-kppp-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     }
   ]
 }

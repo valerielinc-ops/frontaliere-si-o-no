@@ -231,10 +231,10 @@
       "id": "ameos-ch-e52dd5d11525",
       "slug": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "it": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
+        "it": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "fr": "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
+        "fr": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -278,15 +278,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-m-w-d-ameos-einsiedeln",
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+          "physiotherapeut-m-w-d-ameos-einsiedeln"
         ],
         "fr": [
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
           "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
         ]
       },
@@ -766,10 +764,10 @@
     },
     {
       "id": "ameos-ch-f9e1fcd5d08a",
-      "slug": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+      "slug": "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
-        "it": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+        "it": "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln",
         "en": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
         "fr": "medizinischen-masseur-m-w-d-ameos-einsiedeln"
       },
@@ -827,14 +825,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T10:55:23.678Z"
+      "firstSeenAt": "2026-06-09T10:55:23.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-4bb806984733",
-      "slug": "leitung-m-w-d-operationspflege-ameos-einsiedeln",
+      "slug": "direzione-m-f-d-cura-chirurgica-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "leitung-m-w-d-operationspflege-ameos-einsiedeln",
-        "it": "leitung-m-w-d-operationspflege-ameos-einsiedeln",
+        "it": "direzione-m-f-d-cura-chirurgica-ameos-schweiz-einsiedeln",
         "en": "leitung-m-w-d-operationspflege-ameos-einsiedeln",
         "fr": "leitung-m-w-d-operationspflege-ameos-einsiedeln"
       },
@@ -892,7 +898,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T10:55:22.818Z"
+      "firstSeenAt": "2026-06-09T10:55:22.818Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-c94581b220c7",

@@ -98,9 +98,9 @@
     },
     {
       "id": "privatklinik-wyss-cc9dbc467417",
-      "slug": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
+      "slug": "medico-assistente-m-f-d-privatklinik-wyss-bern-biel-munchenbuchsee",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
+        "it": "medico-assistente-m-f-d-privatklinik-wyss-bern-biel-munchenbuchsee",
         "en": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
         "de": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
         "fr": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
@@ -160,7 +160,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
+      ]
     },
     {
       "id": "privatklinik-wyss-b5e2dc7af012",
