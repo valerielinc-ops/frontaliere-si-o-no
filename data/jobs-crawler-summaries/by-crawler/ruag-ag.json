@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-08T23:08:08.927Z",
+  "generatedAt": "2026-06-09T12:08:49.593Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 13657,
-  "avgDurationMs": 13657,
+  "durationMs": 11575,
+  "avgDurationMs": 11575,
   "durationHistory": [
-    13657
+    11575
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -82,11 +82,11 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-02T14:31:23.679Z",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
