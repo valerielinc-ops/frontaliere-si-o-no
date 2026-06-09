@@ -1058,11 +1058,16 @@ interface ArticleSectionOverride {
 function buildHtml(args: BuildHtmlArgs): string {
   const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss, sectionOverride } = args;
   // Global total (`totalItems`) only on page 1; on page ≥2 use this page's own
-  // slice size (stable per page, JOBS_PAGE_SIZE for full pages). The global
-  // count changes by ±1 on nearly every crawl, so embedding it on every
-  // paginated page made a single job add/remove rewrite ALL ~860 pages of the
-  // `tutti` archive (measured top byte churner, ~110 MB/deploy). Page-1 keeps
-  // the headline total; deep pages report their own slice → no count churn.
+  // slice size (`pageItems.length` = JOBS_PAGE_SIZE for full pages, stable; the
+  // last partial page still tracks its remainder, bounded to 1 page). The
+  // global count changes by ±1 on nearly every crawl, so embedding it on every
+  // paginated page made the count the *only-or-main* per-page delta on the deep
+  // pages of the `tutti` archive (the dir is the top byte churner at ~110 MB/
+  // deploy, of which the count is one component — the rest is the alphabetical
+  // pagination-boundary shift, NOT addressed here). This change only REMOVES a
+  // volatile value (→ can only reduce churn, never add a regression vector);
+  // the realized reduction is a fraction of 110 MB, measured post-merge via
+  // measure-deploy-delta, not pre-merge.
   const displayCount = page === 1 ? totalItems : pageItems.length;
   const title = sectionOverride ? sectionOverride.title : HUB_TITLES[locale][hubKey];
   const description = sectionOverride ? sectionOverride.description : HUB_DESCRIPTIONS[locale][hubKey];
