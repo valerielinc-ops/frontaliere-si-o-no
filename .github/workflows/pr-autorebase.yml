@@ -15,7 +15,14 @@ name: PR auto-rebase (near-merge only, no-Claude)
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # ogni 30min
+    - cron: '*/30 * * * *' # nominale 30min, ma GitHub THROTTLA i cron ad alta
+      #   frequenza (osservato: gira ogni 2-4h, non 30min) → da solo lascia le PR
+      #   near-merge bloccate per ore. Per questo c'è anche il trigger
+      #   pull_request_review qui sotto: appena arriva un `## LGTM` l'autorebase
+      #   parte SUBITO e sblocca la PR (rebase+dispatch o heal) senza aspettare
+      #   il prossimo tick del cron.
+  pull_request_review:
+    types: [submitted]
   workflow_dispatch:
     inputs:
       dry_run:
