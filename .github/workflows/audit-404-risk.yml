@@ -1,0 +1,86 @@
+name: Audit 404-risk (daily)
+
+# Runs the 404-risk detector once a day. It builds the served-path set (main IT
+# pages + the en/de/fr shard repos behind the Cloudflare Worker) and flags EVERY
+# URL that would return a GitHub Pages 404:
+#   (A) sitemap URLs with no served page (shard-coverage gaps)
+#   (B) newsletter company-hub links the builder would emit that 404
+# On ANY finding it opens (or updates, via stable-title dedup) a single GitHub
+# issue listing the offending links, so they can be fixed. This is NOT a deploy
+# gate — it never blocks a deploy; it only reports. Zero-Claude (deterministic
+# audit + bash/node issue creation).
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # 06:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: audit-404-risk
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run 404-risk audit (report all would-be-404s)
+        id: audit
+        run: |
+          mkdir -p /tmp/r
+          set +e
+          node scripts/audit-404-risk.mjs --json=/tmp/r/report.json --limit=100 | tee /tmp/r/out.txt
+          echo "exit=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload full 404-risk report (complete list)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-404-risk-report
+          path: /tmp/r/report.json
+          if-no-files-found: ignore
+
+      - name: Open / update GitHub issue with the offending links
+        if: steps.audit.outputs.exit == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # Build the issue body from the JSON report.
+          node --input-type=module - <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const r = JSON.parse(readFileSync('/tmp/r/report.json', 'utf8'));
+          const a = r.checks?.sitemapCoverage ?? { wouldBe404: 0, totalUrls: 0, sample: [] };
+          const b = r.checks?.newsletterHubLinks ?? { wouldBe404: 0, companiesSampled: 0, sample: [] };
+          const total = a.wouldBe404 + b.wouldBe404;
+          let md = `## 404-risk audit: ${total} URL(s) would return a GitHub Pages 404\n\n`;
+          md += `Served set: ${r.servedSetSize} paths (shards: ${JSON.stringify(r.meta?.shards ?? {})}).\n`;
+          md += `**Run:** ${process.env.RUN_URL}\n\n`;
+          md += `These URLs are referenced (in sitemaps or by the newsletter builder) but have no served page — neither the main repo nor the en/de/fr shard repos. Each one is a silent 404.\n\n`;
+          md += `### (A) Sitemap coverage — ${a.wouldBe404} / ${a.totalUrls} sitemap URLs have no served page\n`;
+          for (const u of a.sample ?? []) md += `- \`${u}\`\n`;
+          if (a.wouldBe404 > (a.sample ?? []).length) md += `- … and ${a.wouldBe404 - a.sample.length} more (raise \`--limit\` to list all)\n`;
+          md += `\n### (B) Newsletter company-hub links — ${b.wouldBe404} would 404 (${b.companiesSampled} companies × 4 locales)\n`;
+          for (const o of b.sample ?? []) md += `- [${o.locale}] \`${o.builderUrl}\` → expected \`${o.expectedUrl}\` (${o.reason})\n`;
+          writeFileSync('/tmp/r/desc.md', md);
+          NODE
+
+          # Create (or dedup-comment on) the issue. Stable title → one canonical
+          # issue, updated daily. Existing labels only (bug, funnel-seo,
+          # priority:medium); no auto-route label (crawler/follow-up) → manual fix.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "404-risk: URLs that would return a GitHub Pages 404" \
+            --description "$(cat /tmp/r/desc.md)" \
+            --priority 3 \
+            --label bug \
+            --label funnel-seo \
+            --workflow "${{ github.workflow }}"
