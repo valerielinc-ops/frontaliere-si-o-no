@@ -32,7 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
@@ -1234,8 +1234,9 @@ function sanitizeJobUrls(html, validSlugs) {
   return html.replace(re, (fullMatch, fullUrl, board, slug) => {
     // Strip query params and trailing slash from slug for comparison
     const cleanSlug = slug.replace(/\/$/, '');
-    // Company pages (azienda-*) are valid — don't strip them
-    if (cleanSlug.startsWith('azienda-')) return fullMatch;
+    // Company-hub pages (azienda-/company-/unternehmen-/entreprise-* per locale)
+    // are valid — don't strip them (they aren't in the job validSlugs set).
+    if (isCompanyHubSlug(cleanSlug)) return fullMatch;
     if (validSlugs.has(cleanSlug)) return fullMatch;
 
     console.warn(`⚠️  Broken job URL removed from newsletter: ${cleanSlug}`);
