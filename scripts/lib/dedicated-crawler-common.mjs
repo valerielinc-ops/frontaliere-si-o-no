@@ -3347,8 +3347,15 @@ const ST_LOCALITY_PLZ_OVERRIDE = {
 // on an indexed JobPosting (#1242 review). Scoped to localities whose stamped
 // PLZ provably disagrees with the real one; localities whose own postalCode is
 // already correct (Valens 7317, St. Gallen 9000) are intentionally absent.
+// Keyed by companyKey, NOT bare city: the "wrong fallback PLZ" fact is a
+// property of THIS employer's upstream enrichment (bosch's "1950" stamp), not
+// of the city name. A non-bosch job recovered to "St. Niklaus" via a different
+// path could carry a genuinely-correct different PLZ — scoping on companyKey
+// prevents force-overwriting it to 3924 (#1659 review).
 const ST_LOCALITY_CANONICAL_PLZ = {
-  'St. Niklaus': '3924', // St. Niklaus VS (Mattertal) — Scintilla AG / Bosch site
+  'bosch-thermotechnik-ag': {
+    'St. Niklaus': '3924', // St. Niklaus VS (Mattertal) — Scintilla AG / Bosch site
+  },
 };
 
 // Single-site employers whose every posting sits at one HQ city, used to recover
@@ -3461,7 +3468,11 @@ export function healTruncatedStLocalities(jobs) {
     // Heal a postalCode that was stamped via the canton-capital fallback (the
     // recovered locality was absent from swiss-postal-codes.json) so it matches
     // the recovered city — keeps the PostalAddress internally consistent (#1242).
-    const canonicalPlz = ST_LOCALITY_CANONICAL_PLZ[city];
+    // Scoped to (companyKey, city): only this employer's stamped fallback is the
+    // known-wrong one, so a non-bosch job recovered to the same city keeps its
+    // own (possibly-correct) postalCode rather than being overwritten (#1659).
+    const ck = String(job.companyKey || '').toLowerCase();
+    const canonicalPlz = ST_LOCALITY_CANONICAL_PLZ[ck]?.[city];
     if (canonicalPlz) job.postalCode = canonicalPlz;
   };
 
