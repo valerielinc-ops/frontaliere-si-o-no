@@ -462,7 +462,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -614,7 +613,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1074,7 +1072,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T14:19:18.343Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1152,7 +1149,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T00:10:18.427Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1216,7 +1212,11 @@
       "requirementsByLocale": {},
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
-        "oberarztin-oberarzt-neonatologie-ksw-ch"
+        "oberarztin-oberarzt-neonatologie-ksw-ch",
+        "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
+        "dispatcher-kantonsspital-winterthur-ksw-winterthur",
+        "disponentin-disponent-ksw-ch",
+        "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1324,7 +1324,7 @@
       "id": "ksw-338414bc11b1",
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
+        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
@@ -1371,20 +1371,19 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-pflegepraktikant-ksw-ch",
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-          "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1533,7 +1532,6 @@
       "requirementsByLocale": {},
       "department": "Pflege Chirurgie",
       "firstSeenAt": "2026-05-21T23:01:34.943Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1946,7 +1944,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:46:53.993Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2287,7 +2284,7 @@
       "slug": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur",
+        "en": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
         "de": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-rad",
         "fr": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth"
       },
@@ -2335,7 +2332,8 @@
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-rad",
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle",
         "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur",
-        "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth"
+        "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
+        "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2349,7 +2347,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2584,7 +2581,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2765,9 +2761,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "nuclear-medicine-and-pet-ct-technologist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "technicien-ne-en-imagerie-moleculaire-et-therapie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2813,7 +2809,9 @@
         "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
         "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur",
-        "technicien-ne-en-medecine-nucleaire-et-pet-ct-hf-kantonsspital-winterthur-ksw-winterthur"
+        "technicien-ne-en-medecine-nucleaire-et-pet-ct-hf-kantonsspital-winterthur-ksw-winterthur",
+        "nuclear-medicine-and-pet-ct-technologist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "technicien-ne-en-imagerie-moleculaire-et-therapie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2830,7 +2828,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2909,7 +2906,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2988,7 +2984,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3066,7 +3061,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3144,7 +3138,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3945,7 +3938,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.043Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4028,7 +4020,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.042Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4103,7 +4094,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.415Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4496,7 +4486,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4525,16 +4514,16 @@
       "title": "Arztsekretärin / Arztsekretär",
       "titleByLocale": {
         "de": "Arztsekretärin / Arztsekretär",
-        "it": "Arztsekretärin / Arztsekretär",
-        "en": "Arztsekretärin / Arztsekretär",
-        "fr": "Arztsekretärin / Arztsekretär"
+        "it": "Segretario medico / Segretario medico",
+        "en": "Medical Secretary / Medical Secretary",
+        "fr": "Secrétaire médical / Secrétaire médical"
       },
       "description": "Für unser kleines, sehr familiäres Team der Klinik für Hand- und Plastische Chirurgie suchen wir eine/n kompetente/n, vielseitig interessierte/n Arztsekretär/in. Du erhältst die Möglichkeit, zusammen mit unserem sehr motivierten Team Deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen. Zudem erwartet Dich eine sorgfältige Einführung in alle Aufgaben und in unsere verschiedenen Prozesse. Du profitierst von unseren modernen Arbeits- und zeitgemässen Anstellungsbedingungen sowie von attraktiven Mitarbeitervergünstigungen. Wir freuen uns auf Deine Bewerbung.\n\nAufgaben:\n• Verantwortlich für eine reibungslose Organisation der ärztlichen Sprechstunden sowie Operationsplanung\n• Pflege von Statistiken, Dokumenten und Arbeitslisten\n• Erfassung und Kontrolle von Abrechnungsleistungen (Tarmed)\n• Allgemeine Sekretariatsaufgaben\n• Teilnahme an Rapporten der Klinik\n\nProfil:\n• Kaufmännische Grundausbildung mit Weiterbildung zur Arztsekretärin sowie Berufserfahrung im medizinischen Bereich\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Selbständige, zuverlässige und exakte Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englisch- und Französischkenntnisse von Vorteil\n• Gutes Organisationstalent\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik Hand- und Plastische Chirurgie\n• Pensum: 80-100%",
       "descriptionByLocale": {
-        "de": "Für unser kleines, sehr familiäres Team der Klinik für Hand- und Plastische Chirurgie suchen wir eine/n kompetente/n, vielseitig interessierte/n Arztsekretär/in. Du erhältst die Möglichkeit, zusammen mit unserem sehr motivierten Team Deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen. Zudem erwartet Dich eine sorgfältige Einführung in alle Aufgaben und in unsere verschiedenen Prozesse. Du profitierst von unseren modernen Arbeits- und zeitgemässen Anstellungsbedingungen sowie von attraktiven Mitarbeitervergünstigungen. Wir freuen uns auf Deine Bewerbung.\n\nAufgaben:\n• Verantwortlich für eine reibungslose Organisation der ärztlichen Sprechstunden sowie Operationsplanung\n• Pflege von Statistiken, Dokumenten und Arbeitslisten\n• Erfassung und Kontrolle von Abrechnungsleistungen (Tarmed)\n• Allgemeine Sekretariatsaufgaben\n• Teilnahme an Rapporten der Klinik\n\nProfil:\n• Kaufmännische Grundausbildung mit Weiterbildung zur Arztsekretärin sowie Berufserfahrung im medizinischen Bereich\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Selbständige, zuverlässige und exakte Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englisch- und Französischkenntnisse von Vorteil\n• Gutes Organisationstalent\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik Hand- und Plastische Chirurgie\n• Pensum: 80-100%",
-        "it": "Für unser kleines, sehr familiäres Team der Klinik für Hand- und Plastische Chirurgie suchen wir eine/n kompetente/n, vielseitig interessierte/n Arztsekretär/in. Du erhältst die Möglichkeit, zusammen mit unserem sehr motivierten Team Deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen. Zudem erwartet Dich eine sorgfältige Einführung in alle Aufgaben und in unsere verschiedenen Prozesse. Du profitierst von unseren modernen Arbeits- und zeitgemässen Anstellungsbedingungen sowie von attraktiven Mitarbeitervergünstigungen. Wir freuen uns auf Deine Bewerbung.\n\nAufgaben:\n• Verantwortlich für eine reibungslose Organisation der ärztlichen Sprechstunden sowie Operationsplanung\n• Pflege von Statistiken, Dokumenten und Arbeitslisten\n• Erfassung und Kontrolle von Abrechnungsleistungen (Tarmed)\n• Allgemeine Sekretariatsaufgaben\n• Teilnahme an Rapporten der Klinik\n\nProfil:\n• Kaufmännische Grundausbildung mit Weiterbildung zur Arztsekretärin sowie Berufserfahrung im medizinischen Bereich\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Selbständige, zuverlässige und exakte Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englisch- und Französischkenntnisse von Vorteil\n• Gutes Organisationstalent\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik Hand- und Plastische Chirurgie\n• Pensum: 80-100%",
-        "en": "Für unser kleines, sehr familiäres Team der Klinik für Hand- und Plastische Chirurgie suchen wir eine/n kompetente/n, vielseitig interessierte/n Arztsekretär/in. Du erhältst die Möglichkeit, zusammen mit unserem sehr motivierten Team Deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen. Zudem erwartet Dich eine sorgfältige Einführung in alle Aufgaben und in unsere verschiedenen Prozesse. Du profitierst von unseren modernen Arbeits- und zeitgemässen Anstellungsbedingungen sowie von attraktiven Mitarbeitervergünstigungen. Wir freuen uns auf Deine Bewerbung.\n\nAufgaben:\n• Verantwortlich für eine reibungslose Organisation der ärztlichen Sprechstunden sowie Operationsplanung\n• Pflege von Statistiken, Dokumenten und Arbeitslisten\n• Erfassung und Kontrolle von Abrechnungsleistungen (Tarmed)\n• Allgemeine Sekretariatsaufgaben\n• Teilnahme an Rapporten der Klinik\n\nProfil:\n• Kaufmännische Grundausbildung mit Weiterbildung zur Arztsekretärin sowie Berufserfahrung im medizinischen Bereich\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Selbständige, zuverlässige und exakte Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englisch- und Französischkenntnisse von Vorteil\n• Gutes Organisationstalent\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik Hand- und Plastische Chirurgie\n• Pensum: 80-100%",
-        "fr": "Für unser kleines, sehr familiäres Team der Klinik für Hand- und Plastische Chirurgie suchen wir eine/n kompetente/n, vielseitig interessierte/n Arztsekretär/in. Du erhältst die Möglichkeit, zusammen mit unserem sehr motivierten Team Deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen. Zudem erwartet Dich eine sorgfältige Einführung in alle Aufgaben und in unsere verschiedenen Prozesse. Du profitierst von unseren modernen Arbeits- und zeitgemässen Anstellungsbedingungen sowie von attraktiven Mitarbeitervergünstigungen. Wir freuen uns auf Deine Bewerbung.\n\nAufgaben:\n• Verantwortlich für eine reibungslose Organisation der ärztlichen Sprechstunden sowie Operationsplanung\n• Pflege von Statistiken, Dokumenten und Arbeitslisten\n• Erfassung und Kontrolle von Abrechnungsleistungen (Tarmed)\n• Allgemeine Sekretariatsaufgaben\n• Teilnahme an Rapporten der Klinik\n\nProfil:\n• Kaufmännische Grundausbildung mit Weiterbildung zur Arztsekretärin sowie Berufserfahrung im medizinischen Bereich\n• Fundierte Kenntnisse der medizinischen Terminologie\n• Selbständige, zuverlässige und exakte Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englisch- und Französischkenntnisse von Vorteil\n• Gutes Organisationstalent\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik Hand- und Plastische Chirurgie\n• Pensum: 80-100%"
+        "de": "## Descrizione\n\n- Für unser kleines, sehr familiäres Team der Klinik für Hand- und Plastische Chirurgie suchen wir eine/n kompetente/n, vielseitig interessierte/n Arztsekretär/in.\n- Du erhältst die Möglichkeit, zusammen mit unserem sehr motivierten Team Deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen.\n- Zudem erwartet Dich eine sorgfältige Einführung in alle Aufgaben und in unsere verschiedenen Prozesse.\n- Du profitierst von unseren modernen Arbeits- und zeitgemässen Anstellungsbedingungen sowie von attraktiven Mitarbeitervergünstigungen.\n- Wir freuen uns auf Deine Bewerbung.\n\n## Aufgaben\n- Verantwortlich für eine reibungslose Organisation der ärztlichen Sprechstunden sowie Operationsplanung\n- Pflege von Statistiken, Dokumenten und Arbeitslisten\n- Erfassung und Kontrolle von Abrechnungsleistungen (Tarmed)\n- Allgemeine Sekretariatsaufgaben\n- Teilnahme an Rapporten der Klinik\n\n## Profil\n- Kaufmännische Grundausbildung mit Weiterbildung zur Arztsekretärin sowie Berufserfahrung im medizinischen Bereich\n- Fundierte Kenntnisse der medizinischen Terminologie\n- Selbständige, zuverlässige und exakte Arbeitsweise\n- Stilsichere Kommunikation in Deutsch, Englisch- und Französischkenntnisse von Vorteil\n- Gutes Organisationstalent\n\n## Benefits\n- Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen.\n- Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.;\n- Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.;\n- In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.;\n- Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus.\n- Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt.\n- Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.;\n- Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.;\n- Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.;\n- Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.;\n- In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n##\n- Berufsfeld: MPA / Arztsekretariate\n- Bereich: Klinik Hand- und Plastische Chirurgie\n- Pensum: 80-100%",
+        "it": "Descrizione\n\n- Per il nostro piccolo team di famiglia della Clinica per Chirurgia Mano e Plastica stiamo cercando un segretario medico competente e versatile.\n- Insieme al nostro team altamente motivato, avrete l'opportunità di portare le vostre qualità professionali e umane a portare in un ambiente di lavoro vario e interessante.\n- Inoltre, ci si può aspettare un'introduzione attenta a tutte le attività e ai nostri vari processi.\n- Lei beneficia delle nostre moderne condizioni di lavoro e di lavoro contemporaneo, nonché dei benefici interessanti dei dipendenti.\n- Non vediamo l'ora della sua applicazione.\n\nCompiti\n- Responsabile per un'organizzazione regolare di ore di consultazione medica e pianificazione delle operazioni\n- Manutenzione di statistiche, documenti e liste di lavoro\n- Raccolta e controllo dei servizi di fatturazione\nCompiti generali di segreteria\n- Partecipazione ai rapporti della clinica\n\nProfilo\n- Formazione commerciale di base con ulteriore formazione come segretario medico e esperienza professionale nel settore medico\nConoscenza sana della terminologia medica\n- Metodo di lavoro indipendente, affidabile ed esatto\n- La comunicazione stilistica in tedesco, inglese e francese è un vantaggio\n- Buon talento organizzativo\n\nVantaggi\n- Il KSW offre ai dipendenti condizioni che permettono loro di conciliare i loro obiettivi professionali e le esigenze personali.\n- Orario di lavoro flessibile, flessibile, home office e un generoso congedo di maternità e livelli di occupazione adattati a situazioni diverse – tutto questo è possibile a KSW, purché l'azienda lo permetta.;\nOgni anno, il KSW offre 40 corsi di formazione interdisciplinari e 50 corsi di formazione professionale. Vi sosteniamo anche nel tempo e/o finanziariamente per la formazione esterna.;\n- In situazioni straordinarie, come B. malattia prolungata, grave stress personale o esperienze difficili nella vita privata, così come nel lavoro quotidiano, varie offerte di conversazione sono a vostra disposizione.;\nLa collaborazione apprezzata e amichevole all'interno delle squadre e nei dipartimenti caratterizza l'atmosfera di lavoro a KSW.\n- Come segno di un forte spirito di squadra, il “tu” è stato introdotto come standard al KSW.\n- Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande festival del personale per tutta la casa ogni quattro anni.;\n- I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione di fondo pensionistico con BVK è molto superiore al minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben coperti.;\n- Con sconti su abbonamenti di fitness, opportunità di formazione interna e offerte di corso, vantaggi in farmacie e presso le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute.;\n- Il nostro centro diurno La Luna con ampie ore di apertura si trova vicino al KSW. Inoltre, è possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla.;\n- In collaborazione con partner culturali di Winterthur e dintorni, offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n\nCampo professionale: MPA / Segreteria medica\n- Area: Chirurgia della mano clinica e plastica\n- Penso: 80-100 %",
+        "en": "Descrizione\n\n- For our small, very family team of the Clinic for Hand and Plastic Surgery we are looking for a competent, versatile doctor secretary.\n- Together with our highly motivated team, you will have the opportunity to bring your professional and human qualities to bear in a diverse and interesting working environment.\n- In addition, you can expect a careful introduction to all tasks and our various processes.\n- You benefit from our modern working and contemporary employment conditions as well as attractive employee benefits.\n- We look forward to your application.\n\nTasks\n- Responsible for a smooth organization of medical consultation hours and planning of operations\n- Maintenance of statistics, documents and work lists\n- Collection and control of billing services (Tarmed)\nGeneral secretarial tasks\n- Participation in reports of the clinic\n\nProfile\n- Basic commercial training with further training as medical secretary and professional experience in the medical sector\nSound knowledge of medical terminology\n- Independent, reliable and exact working method\n- Stylistic communication in German, English and French is an advantage\n- Good organizational talent\n\nBenefits\n- The KSW offers employees conditions that enable them to reconcile their professional goals and personal needs.\n- Flexible, flexible working hours, home office as well as a generous maternity leave and employment levels adapted to different situations – all this is possible at KSW, as long as the company allows it.;\nEvery year, the KSW offers 40 interdisciplinary and 50 professional training courses. We also support you temporally and/or financially for external training.;\n- In extraordinary situations, such as B. prolonged illness, severe personal stress or difficult experiences in private life as well as in everyday work, various offers of conversation are available to you.;\nThe appreciative and friendly cooperation within the teams and across the departments characterizes the working atmosphere at KSW.\n- As a sign of a strong team spirit, the “you” was introduced as a standard at KSW.\n- In addition, the KSW supports annual team events financially and organizes a large staff festival for the whole house every four years.;\n- KSW employees benefit from very good social benefits. Thus, the pension fund solution with BVK is far above the legal minimum. Even in the event of illness or accident, KSW employees are very well covered.;\n- With discounts on fitness subscriptions, internal training opportunities and course offers, perks in pharmacies as well as at the most popular health insurance companies. You can benefit from a comprehensive offer for your health.;\n- Our daycare center La Luna with spacious opening hours is located next to the KSW. In addition, you can use the income-dependent, financial support from the KSW for the crib costs.;\n- In cooperation with cultural partners in and around Winterthur, we regularly offer discounts for concerts and theater performances. The borrowing of media in the in-house library is also free of charge for employees.\n\nProfessional field: MPA / Medical Secretariat\n- Area: Clinic Hand and Plastic Surgery\n- Pensum: 80-100 %",
+        "fr": "Descrizione\n\n- Pour notre petite équipe très familiale de la Clinique de Chirurgie Main et Plastique, nous sommes à la recherche d'un médecin secrétaire compétent et polyvalent.\n- Avec notre équipe très motivée, vous aurez l'occasion d'apporter vos qualités professionnelles et humaines dans un environnement de travail diversifié et intéressant.\n- En outre, vous pouvez vous attendre à une introduction attentive à toutes les tâches et à nos différents processus.\n- Vous bénéficiez de nos conditions de travail modernes et contemporaines ainsi que d'avantages sociaux attrayants.\n- Nous attendons avec impatience votre candidature.\n\nTâche\n- Responsable de la bonne organisation des heures de consultation médicale et de la planification des opérations\n- Tenue de statistiques, de documents et de listes de travail\n- Collecte et contrôle des services de facturation (Tarmé)\nTâches générales de secrétariat\n- Participation aux rapports de la clinique\n\nProfil\n- Formation commerciale de base avec une formation continue en tant que secrétaire médical et expérience professionnelle dans le secteur médical\nBonne connaissance de la terminologie médicale\n- Méthode de travail indépendante, fiable et exacte\n- La communication stylistique en allemand, anglais et français est un avantage\n- Bon talent organisationnel\n\nAvantages\n- La KSW offre aux employés des conditions qui leur permettent de concilier leurs objectifs professionnels et leurs besoins personnels.\n- Des horaires flexibles et flexibles, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés aux différentes situations – tout cela est possible chez KSW, tant que l'entreprise le permet.\nChaque année, le KSW propose 40 formations interdisciplinaires et 50 formations professionnelles. Nous vous soutenons également temporairement et/ou financièrement pour la formation externe;\n- Dans des situations extraordinaires, telles que la maladie prolongée de B., le stress personnel grave ou les expériences difficiles dans la vie privée ainsi que dans le travail quotidien, diverses offres de conversation sont à votre disposition.\nLa coopération reconnaissante et amicale au sein des équipes et des départements caractérise l'atmosphère de travail de KSW.\n- Comme signe d'un esprit d'équipe fort, le -you , a été introduit comme un standard à KSW.\n- En outre, le KSW soutient financièrement les activités annuelles de l ' équipe et organise tous les quatre ans un grand festival du personnel pour toute la maison;\n- Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution de fonds de pension avec BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien couverts.\n- Avec des réductions sur les abonnements de fitness, des possibilités de formation interne et des offres de cours, avantages dans les pharmacies ainsi que dans les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé;\n- Notre garderie La Luna avec des heures d'ouverture spacieuses est située à côté de la KSW. En outre, vous pouvez utiliser le soutien financier dépendant du revenu de la KSW pour les coûts du berceau.\n- En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n\nDomaine professionnel : MPA / Secrétariat médical\n- Domaine: Chirurgie des mains et des plastiques\n- Pensum: 80-100 %"
       },
       "location": "Winterthur",
       "canton": "ZH",
@@ -4561,7 +4550,6 @@
         "de": []
       },
       "department": "Klinik Hand- und Plastische Chirurgie",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4711,7 +4699,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:20:37.293Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5032,7 +5019,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T00:15:33.566Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {

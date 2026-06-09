@@ -239,7 +239,6 @@
         "filialleiter-in-denner",
         "responsabile-di-filiale-denner-schluein"
       ],
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -497,7 +496,7 @@
         "it": "student-in-come-ferienaushilfe-denner-horw",
         "en": "student-in-als-ferienaushilfe-denner-horw",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "etudiant-en-tant-qu-aide-de-vacances-denner-altdorf-ur"
+        "fr": "etudiant-en-tant-qu-aide-de-vacances-denner-ag-steffisburg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -554,7 +553,8 @@
       "crawledAt": "2026-06-08T12:47:09.166Z",
       "previousSlugs": [
         "student-in-als-ferienaushilfe-denner",
-        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-steffisburg"
+        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-steffisburg",
+        "etudiant-en-tant-qu-aide-de-vacances-denner-altdorf-ur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -562,7 +562,8 @@
         ],
         "fr": [
           "etudiant-en-tant-qu-aide-de-vacances-denner-ag-steffisburg",
-          "student-in-als-ferienaushilfe-denner"
+          "student-in-als-ferienaushilfe-denner",
+          "etudiant-en-tant-qu-aide-de-vacances-denner-altdorf-ur"
         ]
       },
       "firstSeenAt": "2026-06-05T21:56:18.867Z",
