@@ -42,8 +42,48 @@ jobs:
         with:
           node-version: '22'
 
+      # Re-review guard: su un `synchronize` il cui delta DALL'ULTIMA review
+      # claude-bot `## LGTM` tocca SOLO file non-code (data/public/reports/
+      # _newsletter_variants/docs) NON ri-eseguiamo Claude — è il token-lever #1:
+      # un crawler che rigenera `data/jobs/*.json` su una PR già LGTM'd faceva
+      # ripartire una review (anche sonnet) a vuoto. L'approvazione regge perché
+      # auto-merge-eval ora usa un fingerprint CODE-only → carry-forward; vitest
+      # gira comunque sull'head (tests.yml su synchronize) come safety net.
+      # Conservativo: opened/reopened, nessuna LGTM precedente, o compare
+      # vuoto/errore → review piena.
+      - name: Re-review guard (skip Claude when no code changed since last LGTM)
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
+          ACTION: ${{ github.event.action }}
+        run: |
+          set -euo pipefail
+          if [ "$ACTION" != "synchronize" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Evento '$ACTION' → review piena."; exit 0
+          fi
+          last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
+          if [ -z "$last" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
+          fi
+          changed=$(gh api "repos/$REPO/compare/$last...$HEAD_SHA" --jq '.files[].filename' 2>/dev/null || true)
+          if [ -z "$changed" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Compare vuoto/errore → review piena (conservativo)."; exit 0
+          fi
+          code=$(echo "$changed" | grep -vE '^(data/|public/|reports/|_newsletter_variants/|docs/)' || true)
+          if [ -z "$code" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Delta dall'ultima LGTM = SOLO data/docs (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest gira comunque."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code cambiato dall'ultima LGTM → review piena."
+          fi
+
       - name: Determine review tier
         id: tier
+        if: steps.guard.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -112,6 +152,7 @@ jobs:
 
       - name: Run Claude review
         id: claude_review
+        if: steps.guard.outputs.skip != 'true'
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -164,7 +205,9 @@ jobs:
             - Incerto → `❓ q:`, no speculazione.
 
       - name: Claude usage metrics
-        if: always()
+        # Solo se la review Claude è effettivamente girata (guard non-skip): a
+        # review skippata non c'è execution_file da riassumere.
+        if: always() && steps.guard.outputs.skip != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
