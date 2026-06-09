@@ -1100,9 +1100,19 @@ jobs:
           set -uo pipefail
           before="$(du -sh dist | cut -f1)"
           # Strip ONLY locales whose shard push succeeded THIS run (ok-marker from
-          # the push step). A locale whose push failed has no marker → it stays in
-          # the main artifact and keeps being served from main → no 404. This makes
-          # the split self-healing per-locale, decoupled from the global gate var.
+          # the push step). What actually prevents a 404 on /{loc} is twofold:
+          #   1. The shard always retains its last-good content — the push uses a
+          #      success-only force-push (set -e subshell), so a failed push never
+          #      empties the shard; the Worker keeps serving the previous build.
+          #   2. This per-locale strip is the safety net for the ONLY window where
+          #      the main copy is still reachable: a deploy where the gate var is
+          #      true but, for that locale, the push just failed AND the proxy
+          #      hasn't taken over yet. Keeping the failed locale in main avoids
+          #      shipping a dead /{loc}. (Once the proxy is live the Worker routes
+          #      /{loc} to the shard, so the main copy is a fallback, not the
+          #      served path — hence the runbook seeds + verifies the shards
+          #      BEFORE flipping LOCALE_SHARDS_LIVE: an empty shard with the gate
+          #      already on must not happen.)
           for loc in en de fr; do
             if [ -f "$RUNNER_TEMP/shard-ok-$loc" ]; then
               rm -rf "dist/$loc" "dist/$loc.html"

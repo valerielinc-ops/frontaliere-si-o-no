@@ -13,7 +13,9 @@
  * The origin-* subdomains are DNS-only (gray-cloud) GitHub Pages custom
  * domains, reachable only from this Worker — never exposed to users. The Host
  * the user sees never changes; only the upstream fetch target's hostname is
- * rewritten.
+ * rewritten. Because the fetch target URL carries the origin-* host, Cloudflare
+ * sends `Host: origin-{loc}.frontaliereticino.ch` upstream, which is what makes
+ * GitHub Pages match the shard repo's custom domain.
  *
  * NOT routed here (served by their own origins directly, no rewrite):
  *   /assets/*, /data/*, /og/*  -> already absolute on cdn.frontaliereticino.ch
@@ -28,7 +30,8 @@ const SHARD_ORIGIN = {
 
 // First path segment must be exactly en|de|fr, followed by end, slash, or the
 // .html locale-homepage file. Anything like /rss-en.xml or /enterprise stays
-// on the main origin.
+// on the main origin. (The Cloudflare route patterns already scope the Worker
+// to these prefixes; this regex is the in-code guard.)
 const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 
 export default {
@@ -36,15 +39,42 @@ export default {
     const url = new URL(request.url);
     const match = url.pathname.match(LOCALE_RE);
 
-    if (match) {
-      const origin = SHARD_ORIGIN[match[1]];
-      const upstream = new URL(request.url);
-      upstream.hostname = origin; // rewrite Host only; path + query preserved
-      // Preserve method/body/headers; the user-facing URL is unchanged.
-      return fetch(new Request(upstream, request));
+    if (!match) {
+      // IT + shared (sitemaps, robots, rss, favicon, /...) — straight passthrough.
+      return fetch(request);
     }
 
-    // IT + shared (sitemaps, robots, rss, favicon, /...) — straight passthrough.
-    return fetch(request);
+    const origin = SHARD_ORIGIN[match[1]];
+    const upstream = new URL(request.url);
+    upstream.hostname = origin; // rewrite Host only; path + query preserved
+    const resp = await fetch(new Request(upstream, request));
+
+    // GitHub Pages 301s a dir path without trailing slash (e.g. /en/lavoro ->
+    // /en/lavoro/). If that Location is absolute on the hidden origin host, the
+    // browser would jump to origin-{loc}.frontaliereticino.ch — exposing the
+    // origin and changing the visible URL. Rewrite any such Location back to the
+    // public apex so the user never leaves frontaliereticino.ch. (Indexed paths
+    // use trailing-slash canonicals → 200, no redirect; this covers the edge.)
+    const loc = resp.headers.get('location');
+    if (loc) {
+      let locUrl = null;
+      try {
+        locUrl = new URL(loc, upstream); // resolves relative Locations too
+      } catch {
+        locUrl = null; // non-URL Location header → leave untouched
+      }
+      if (locUrl && locUrl.hostname === origin) {
+        locUrl.hostname = url.hostname; // public apex
+        const headers = new Headers(resp.headers);
+        headers.set('location', locUrl.toString());
+        return new Response(resp.body, {
+          status: resp.status,
+          statusText: resp.statusText,
+          headers,
+        });
+      }
+    }
+
+    return resp;
   },
 };
