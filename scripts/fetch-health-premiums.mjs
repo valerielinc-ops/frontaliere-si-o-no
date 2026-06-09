@@ -41,6 +41,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -224,11 +225,31 @@ async function parseXLSX(buffer, sheetName) {
 }
 
 // ── Download helper ──
-async function download(url, label) {
+// Routes every BAG/priminfo download through the shared transient-failure retry
+// helper (exponential backoff + jitter, transient-only classification,
+// env-tunable via JOBS_CRAWLER_RETRIES / JOBS_CRAWLER_RETRY_BASE_MS). Each
+// attempt is bounded by a 30s timeout so a slow/blipping UFSP/BAG endpoint
+// retries instead of failing the run on the first network hiccup (#1550).
+// Persistent 4xx fail fast; non-ok HTTP surfaces status + statusText + URL for
+// diagnosability. Returns the successful Response (body still unread).
+async function download(url, label, timeoutMs = 30000) {
   console.log(`📥 Downloading ${label}...`);
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to download ${label}: ${res.status} ${res.statusText}`);
-  return res;
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { signal: controller.signal });
+      if (!res.ok) {
+        const err = new Error(`Failed to download ${label}: ${res.status} ${res.statusText} (${url})`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return res;
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `health-premiums ${label}` });
 }
 
 /**
@@ -252,15 +273,35 @@ async function fetchPremiumsCsv(targetYear) {
     return { csvText, sourceUrl: PREMIUMS_CURRENT_URL };
   }
   // Historical year → Archiv_Praemien_{year}.zip → extract Prämien_CH.csv.
+  // Retry transient blips (network/timeout/429/5xx) via the shared helper;
+  // a persistent 4xx/missing-archive collapses into NoArchiveError → graceful
+  // degradation (exit 2, no file written) as before.
   const archiveUrl = buildHistoricalArchiveUrl(targetYear);
   let res;
   try {
-    res = await fetch(archiveUrl);
+    res = await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30000);
+      try {
+        const r = await fetch(archiveUrl, { signal: controller.signal });
+        if (!r.ok) {
+          const err = new Error(`${archiveUrl} responded ${r.status} ${r.statusText}`);
+          err.status = r.status;
+          err.retryable = RETRYABLE_STATUS.has(r.status);
+          throw err;
+        }
+        return r;
+      } finally {
+        clearTimeout(timer);
+      }
+    }, { label: `health-premiums archive ${targetYear}` });
   } catch (err) {
+    // Persistent HTTP error (server responded non-ok) vs connection-level
+    // failure both degrade to NoArchiveError; the message keeps the detail.
+    if (Number.isFinite(err.status)) {
+      throw new NoArchiveError(targetYear, `${archiveUrl} responded ${err.status}`);
+    }
     throw new NoArchiveError(targetYear, `network error fetching ${archiveUrl}: ${err.message}`);
-  }
-  if (!res.ok) {
-    throw new NoArchiveError(targetYear, `${archiveUrl} responded ${res.status} ${res.statusText}`);
   }
   const contentType = res.headers.get('content-type') || '';
   if (!/zip/i.test(contentType)) {

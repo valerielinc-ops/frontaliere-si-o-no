@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 
 const SOURCE_URL = 'https://www.arbeit.swiss/secoalv/it/home.html';
 const OUT_FILE = path.resolve(process.cwd(), 'public/data/switzerland-unemployment-rate.json');
@@ -225,30 +226,42 @@ function generateSeoText(parsed, history) {
   };
 }
 
-async function fetchWithRetry(url, options, { retries = 3, baseDelay = 5000, timeout = 30000 } = {}) {
-  for (let attempt = 1; attempt <= retries; attempt++) {
+/**
+ * Fetch the SECO page text through the shared transient-failure retry helper
+ * (exponential backoff + jitter, transient-only classification, env-tunable via
+ * JOBS_CRAWLER_RETRIES / JOBS_CRAWLER_RETRY_BASE_MS). Each attempt is bounded by
+ * a 30s timeout — the connect-timeout blips that opened #1533 were well under
+ * the previous 10s ceiling, so a longer per-attempt window plus retry on real
+ * transient errors (429/5xx, ECONNRESET/ETIMEDOUT, abort) clears them. Persistent
+ * 4xx fail fast. On non-ok HTTP the status + URL are surfaced for diagnosability.
+ */
+async function fetchSecoHtml(timeoutMs = 30000) {
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url, { ...options, signal: AbortSignal.timeout(timeout) });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res;
-    } catch (err) {
-      if (attempt === retries) throw err;
-      const delay = baseDelay * 2 ** (attempt - 1);
-      console.log(`[unemployment] Attempt ${attempt}/${retries} failed: ${err.message}. Retrying in ${delay / 1000}s...`);
-      await new Promise((r) => setTimeout(r, delay));
+      const res = await fetch(SOURCE_URL, {
+        headers: {
+          'user-agent': 'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch)',
+          accept: 'text/html,application/xhtml+xml',
+        },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} ${res.statusText} from ${SOURCE_URL}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.text();
+    } finally {
+      clearTimeout(timer);
     }
-  }
+  }, { label: 'unemployment SECO page' });
 }
 
 async function main() {
-  const res = await fetchWithRetry(SOURCE_URL, {
-    headers: {
-      'user-agent': 'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch)',
-      accept: 'text/html,application/xhtml+xml',
-    },
-  });
-
-  const html = await res.text();
+  const html = await fetchSecoHtml();
   const parsed = parseLatestUnemployment(html);
   if (!parsed) {
     throw new Error('Unable to parse unemployment rate from SECO page');
