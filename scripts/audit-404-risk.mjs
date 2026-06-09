@@ -125,6 +125,29 @@ const SHARD_REPOS = {
   fr: 'valerielinc-ops/frontaliere-fr',
 };
 
+// Degenerate-clone floor: a successful clone of a real locale shard returns
+// hundreds of thousands of served pages, whereas an empty/partial tree (renamed
+// repo, failed push, rate-limited clone) returns ≈0 → without the floor that
+// near-zero count makes EVERY sitemap URL for the locale look unserved and
+// poisons the report with tens of thousands of false 404s. The floor catches
+// that. It is NOT an assertion that a shard must ALWAYS exceed it: an
+// early-stage locale could legitimately sit below 1000, in which case a fixed
+// floor would put the monitor permanently RED (alert fatigue → real 404s
+// ignored). So the floor is overridable — globally via AUDIT_404_SHARD_FLOOR or
+// per-locale via AUDIT_404_SHARD_FLOOR_<LOC> (e.g. AUDIT_404_SHARD_FLOOR_FR=0
+// disables it for a brand-new fr shard) — without a code change. Same intent as
+// the configurable `opts.floor` in scripts/lib/compat-paths-floor-guard.mjs
+// (kept separate: that guard compares prev/next of an on-disk accumulator;
+// this is a fresh-clone size check with no prior state to diff against).
+const DEFAULT_SHARD_FLOOR = 1000;
+function shardFloor(loc) {
+  const raw = process.env[`AUDIT_404_SHARD_FLOOR_${loc.toUpperCase()}`]
+    ?? process.env.AUDIT_404_SHARD_FLOOR;
+  if (raw == null) return DEFAULT_SHARD_FLOOR;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 ? n : DEFAULT_SHARD_FLOOR;
+}
+
 // ── CLI args ────────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
 const args = new Map();
@@ -284,16 +307,16 @@ async function buildServedSet() {
         served.add(treeEntryToRoute(e));
         n++;
       }
+      const floor = shardFloor(loc);
       meta.shards[loc] = n;
-      log(`[404]   ${loc}: ${n} served pages`);
+      log(`[404]   ${loc}: ${n} served pages (floor ${floor})`);
       // Fail loud on a degenerate clone (renamed repo, failed push, rate-limit
       // returning an empty/partial tree). Without this, n≈0 makes EVERY sitemap
       // URL for that locale look unserved → a report poisoned with tens of
-      // thousands of false 404s. A real locale shard has hundreds of thousands
-      // of pages; anything under the floor is a broken clone, not a real gap.
-      const SHARD_FLOOR = 1000;
-      if (n < SHARD_FLOOR) {
-        throw new Error(`shard ${loc} (${repo}) returned only ${n} pages (< ${SHARD_FLOOR}) — degenerate clone, refusing to emit a poisoned report`);
+      // thousands of false 404s. See shardFloor() for why the floor is
+      // overridable (legitimately-small early-stage shard ≠ broken clone).
+      if (n < floor) {
+        throw new Error(`shard ${loc} (${repo}) returned only ${n} pages (< floor ${floor}) — degenerate clone, refusing to emit a poisoned report. If this locale is legitimately smaller than the floor, lower it via AUDIT_404_SHARD_FLOOR_${loc.toUpperCase()} (or AUDIT_404_SHARD_FLOOR).`);
       }
     }
   }
