@@ -39,6 +39,7 @@ import {
 import { renderRecencyHubProse } from './shared/jobListingProse';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { windowDaysForVariant } from './jobRecencyLanding';
+import { buildDayStampIso } from './shared/buildDayStamp';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -255,7 +256,9 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             description: model.description,
             inLanguage: locale,
             isPartOf: sectionRootUrl,
-            dateModified: new Date().toISOString(),
+            // Day-granularity, not a full build timestamp — see
+            // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
+            dateModified: buildDayStampIso(),
           });
 
           const faqLd = model.faq.length > 0
