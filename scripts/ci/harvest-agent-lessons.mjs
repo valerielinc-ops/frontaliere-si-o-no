@@ -261,6 +261,18 @@ if (process.env.GITHUB_OUTPUT) {
 function escalationTitle(c) {
   return `escalation(harvester): ${c.source}/${c.key} ricorre nonostante regola`;
 }
+// Recurrence bumps SEVERITY, not count: un'escalation è già "ricorre nonostante
+// regola" (≥soglia×fattore) → baseline medium; se il count scala oltre 2× il
+// fattore → high. Puro → testabile.
+export function severityLabelForCount(count, threshold = THRESHOLD, factor = EFFICACY_FACTOR) {
+  return count >= threshold * factor * 2 ? 'severity:high' : 'severity:medium';
+}
+// Estrae `<source>/<key>` dal titolo canonico, o null. Puro → testabile. Serve
+// al self-heal: mappare un'escalation issue aperta al suo bucket.
+export function parseEscalationKey(title) {
+  const m = /^escalation\(harvester\):\s*(.+?)\s+ricorre nonostante regola\s*$/.exec(String(title || ''));
+  return m ? m[1].trim() : null;
+}
 function escalationBody(c) {
   const examples = (c.examples || [])
     .map((e) => '#' + (e.pr || e.issue))
@@ -286,18 +298,55 @@ function escalationBody(c) {
 
 // Gate: emit only when explicitly enabled (the workflow sets this). Keeps local
 // dry-runs and tests from minting real GitHub issues.
-if (process.env.HARVEST_EMIT_ESCALATIONS === 'true' && escalations.length > 0) {
+if (process.env.HARVEST_EMIT_ESCALATIONS === 'true') {
+  // 1. EMIT/UPDATE: una issue canonica per bucket attivo. createGithubIssue
+  //    dedupa (commenta sul canonico se esiste). Poi bump SEVERITÀ in base al
+  //    count (recidiva → severity sale, non si accumula un'altra issue).
   for (const c of escalations) {
     try {
-      await createGithubIssue({
+      const res = await createGithubIssue({
         title: escalationTitle(c),
         description: escalationBody(c),
         priority: 2,
         labels: ['follow-up'],
         workflow: 'Lessons harvester',
       });
+      const num = res?.number;
+      if (num) {
+        const sev = severityLabelForCount(c.count);
+        const drop = sev === 'severity:high' ? 'severity:medium' : 'severity:high';
+        try {
+          gh(['label', 'create', sev, '--color', sev === 'severity:high' ? 'B60205' : 'D93F0B', '-f']);
+        } catch { /* label esiste già */ }
+        try {
+          gh(['issue', 'edit', String(num), '--add-label', sev, '--remove-label', drop]);
+        } catch (e) { process.stderr.write(`sev bump #${num} fallito: ${e.message}\n`); }
+      }
     } catch (err) {
       process.stderr.write(`escalation emit failed for ${c.source}/${c.key}: ${err.message}\n`);
+    }
+  }
+
+  // 2. SELF-HEAL CLOSE: un'escalation aperta il cui bucket NON è più tra quelli
+  //    attivi (sceso sotto soglia per un'intera finestra) → il pattern si è
+  //    fermato: chiudila (drena il ratchet; riapribile, riemerge se ricorre).
+  //    Search via la frase senza parentesi (le `(` rompono gh search → era il
+  //    blind-spot del monitoring) e filtro per titolo esatto.
+  const liveKeys = new Set(escalations.map((c) => `${c.source}/${c.key}`));
+  const openEsc = (ghJson([
+    'issue', 'list', '--state', 'open', '--search', 'ricorre nonostante regola in:title',
+    '--json', 'number,title', '--limit', '100',
+  ]) || []).filter((i) => parseEscalationKey(i.title));
+  for (const iss of openEsc) {
+    const key = parseEscalationKey(iss.title);
+    if (liveKeys.has(key)) continue; // ancora attivo → lascia aperta
+    try {
+      gh(['issue', 'comment', String(iss.number), '--body',
+        `🌱 Self-heal: il bucket \`${key}\` non ricorre più sopra soglia nella finestra ${WINDOW_DAYS}gg (dal ${sinceDay}) → il pattern si è fermato. Chiusa dal lessons-harvester. Riemergerà in automatico se torna a ricorrere.`]);
+      gh(['issue', 'close', String(iss.number), '--reason', 'completed']);
+      console.log(`SELF-HEAL close #${iss.number} — bucket ${key} quiet`);
+    } catch (e) {
+      process.stderr.write(`self-heal close #${iss.number} fallito: ${e.message}\n`);
     }
   }
 }
