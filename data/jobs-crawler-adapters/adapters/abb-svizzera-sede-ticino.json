@@ -21,11 +21,10 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033392EXTERNALENGLOBAL/R-D-Engineer--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034241EXTERNALENGLOBAL/Customer-Quality-Specialist",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034548EXTERNALENGLOBAL/Technical-Support-Engineer--80-100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00034865EXTERNALENGLOBAL/Continuous-Improvement-Specialist--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician"
   ],
   "notes": "Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-06-09T10:51:14.674Z",
+  "updatedAt": "2026-06-09T21:50:26.839Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033392EXTERNALENGLOBAL/R-D-Engineer--80-100": {
       "location": "Quartino, Ticino, Switzerland",
@@ -67,6 +66,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00027039EXTERNALENGLOBAL/Quality-Technician--80-100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -76,22 +83,6 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034241EXTERNALENGLOBAL/Customer-Quality-Specialist": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00034865EXTERNALENGLOBAL/Continuous-Improvement-Specialist--80-100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
