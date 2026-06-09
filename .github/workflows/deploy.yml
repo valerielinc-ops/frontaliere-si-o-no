@@ -796,6 +796,23 @@ jobs:
           fi
           rm -f "$keyfile"
 
+      # Rewrite dist HTML asset refs → CDN + inject window.__CDN_DATA_BASE__ BEFORE
+      # the locale-shard push below, NOT after. The shards (frontaliere-{en,de,fr})
+      # carry ONLY the locale HTML trees — no /assets /data /og dirs — so any
+      # same-origin /assets|/data|/og ref a shard page keeps would 404 on its shard
+      # origin and is salvaged only by an extra Cloudflare Worker subrequest per
+      # asset (~10/page) → burns the free-tier 100k req/day cap. Running this offload
+      # pass first bakes CDN-absolute URLs (+ __CDN_DATA_BASE__) into dist/en|de|fr so
+      # the shard HTML matches the IT artifact: the browser fetches assets straight
+      # from the CDN and the Worker only proxies the page HTML. It also lets Guard B
+      # below drop dist/assets (no surviving same-origin ref in dist/en|de|fr now),
+      # shrinking the main artifact. CDN_BASE was exported by the CDN push step above
+      # (env persists to later steps), so the rewrite targets are already live.
+      - name: Offload og refs + data base into dist (non-fatal)
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        run: node scripts/offload-generated-images-cdn.mjs
+
       # ── Locale shard offload (en/de/fr → frontaliere-{loc} / Pages) ───────
       # Each non-primary locale subtree (dist/en, dist/de, dist/fr) is a
       # self-contained top-level dir. Push each to its OWN GitHub Pages repo
@@ -915,11 +932,6 @@ jobs:
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
         run: node scripts/ci/prune-cdn-assets.mjs
-
-      - name: Offload og refs + data base into dist (non-fatal)
-        if: github.event.inputs.profile_sequential != 'true'
-        continue-on-error: true
-        run: node scripts/offload-generated-images-cdn.mjs
 
       # Boot-critical asset offload. The build already rebased Vite asset URLs to
       # the CDN (ASSET_CDN/renderBuiltUrl) → the artifact's HTML/JS point at
