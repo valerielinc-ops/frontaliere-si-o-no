@@ -40,6 +40,7 @@ import {
   type WeeklyCountableJob,
 } from './weeklyEmployersPlugin';
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   MIN_JOBS_FOR_CANTON_PAGE,
   WEEKLY_EMPLOYERS_SECTION,
@@ -407,7 +408,7 @@ function renderEmployersPage(inp: RenderInputs): string {
     ${proseHtml}
   </main>`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -417,7 +418,7 @@ function renderEmployersPage(inp: RenderInputs): string {
       { '@type': 'ListItem', position: 4, name: c.breadcrumbSection, item: `${BASE_URL}${inp.canonicalPath}` },
     ],
   });
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: inp.locale,

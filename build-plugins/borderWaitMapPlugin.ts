@@ -33,6 +33,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   LINK_ACCENT_STYLE,
   renderStatGrid,
@@ -444,7 +445,7 @@ function renderPage(opts: {
 &lt;p style="font-size:12px;color:var(--color-subtle);margin-top:4px"&gt;Source: &lt;a href="${canonicalUrl}" rel="nofollow noopener"&gt;Frontaliere Ticino&lt;/a&gt;&lt;/p&gt;`;
 
   // Embed JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -466,7 +467,7 @@ function renderPage(opts: {
     },
   }));
 
-  const mapLd = JSON.stringify({
+  const mapLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Map',
     name: copy.h1,
@@ -484,7 +485,7 @@ function renderPage(opts: {
     },
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,

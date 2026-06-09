@@ -23,6 +23,7 @@ import {
   buildJobRecencyLandingModel,
 } from './jobRecencyLanding';
 import type { JobLandingLocale } from './jobEditorialLanding';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   H1_STYLE,
   LEDE_STYLE,
@@ -223,7 +224,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
           const sectionRootUrl = `${BASE_URL}${withSlash(
             `${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}`.replace(/\/+/g, '/'),
           )}`;
-          const breadcrumbLd = JSON.stringify({
+          const breadcrumbLd = inlineScriptJson({
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
@@ -234,7 +235,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
           });
 
           const itemListLd = model.jobs.length > 0
-            ? JSON.stringify({
+            ? inlineScriptJson({
                 '@context': 'https://schema.org',
                 '@type': 'ItemList',
                 name: model.heading,
@@ -248,7 +249,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
               })
             : '';
 
-          const collectionLd = JSON.stringify({
+          const collectionLd = inlineScriptJson({
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
             name: model.heading,
@@ -262,7 +263,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
           });
 
           const faqLd = model.faq.length > 0
-            ? JSON.stringify({
+            ? inlineScriptJson({
                 '@context': 'https://schema.org',
                 '@type': 'FAQPage',
                 mainEntity: model.faq.map((f) => ({

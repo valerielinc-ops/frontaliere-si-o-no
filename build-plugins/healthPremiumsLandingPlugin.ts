@@ -63,6 +63,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   H1_STYLE,
   H2_STYLE,
@@ -2266,7 +2267,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}&age=${age}`;
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2277,7 +2278,7 @@ function renderLeafPage(inp: LeafInputs): string {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2288,7 +2289,7 @@ function renderLeafPage(inp: LeafInputs): string {
     datePublished: buildDayStampIso(),
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -2299,7 +2300,7 @@ function renderLeafPage(inp: LeafInputs): string {
     })),
   });
 
-  const productLd = JSON.stringify({
+  const productLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: `LAMal premium ${cantonLabel} ${ageLabel}`,
@@ -2594,7 +2595,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     : '';
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2604,7 +2605,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2615,7 +2616,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     datePublished: buildDayStampIso(),
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -2824,7 +2825,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const h1 = copy.h1Root(year);
   const intro = copy.introRoot(year);
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2833,7 +2834,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2844,7 +2845,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     datePublished: buildDayStampIso(),
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,

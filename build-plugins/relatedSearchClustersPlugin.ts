@@ -87,6 +87,7 @@ import {
   type RawJob,
 } from './relatedSearchClustersData';
 import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   startTimer as profileStart,
   recordEmit as profileRecord,
@@ -1694,7 +1695,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
   const sectionPath = `${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
   const sectionUrl = `${BASE_URL}${sectionPath}`;
 
-  const collectionLd = JSON.stringify({
+  const collectionLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: copy.hubTitle,
@@ -1723,7 +1724,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
       })),
     },
   });
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [

@@ -53,6 +53,7 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero } from './shared/landingHeroPersonality';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
@@ -409,7 +410,7 @@ function renderPage(opts: {
   const jobBoardUrl = `${BASE_URL}${buildJobBoardUrl(locale)}`;
   const calculatorUrl = `${BASE_URL}${CALCULATOR_URL[locale]}`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -419,7 +420,7 @@ function renderPage(opts: {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -430,7 +431,7 @@ function renderPage(opts: {
     })),
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
@@ -453,7 +454,7 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  const itemListLd = JSON.stringify({
+  const itemListLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: copy.employersTableTitle,

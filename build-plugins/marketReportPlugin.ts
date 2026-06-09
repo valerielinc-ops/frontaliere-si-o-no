@@ -44,6 +44,7 @@ import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -538,7 +539,7 @@ function renderReport(opts: {
   // Breadcrumbs
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -547,7 +548,7 @@ function renderReport(opts: {
     ],
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
@@ -574,7 +575,7 @@ function renderReport(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  const datasetLd = JSON.stringify({
+  const datasetLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: copy.h1,

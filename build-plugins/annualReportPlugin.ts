@@ -58,6 +58,7 @@ import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -773,7 +774,7 @@ function renderReport(opts: {
   );
 
   // JSON-LD scripts.
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -782,7 +783,7 @@ function renderReport(opts: {
     ],
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
@@ -805,7 +806,7 @@ function renderReport(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  const datasetLd = JSON.stringify({
+  const datasetLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: copy.h1,

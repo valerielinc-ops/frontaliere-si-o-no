@@ -76,6 +76,7 @@ import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/bo
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   FUEL_LOCALE_PREFIX,
   FUEL_SECTION_SLUG,
@@ -1525,7 +1526,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -1540,7 +1541,7 @@ function renderLeafPage(inp: LeafInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -1551,7 +1552,7 @@ function renderLeafPage(inp: LeafInputs): string {
     })),
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -1566,7 +1567,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // openingHoursSpecification, amenityFeature, publicAccess — richer signals
   // for "valico" + "dogana" queries.
   const placeLd = reg
-    ? JSON.stringify({
+    ? inlineScriptJson({
         '@context': 'https://schema.org',
         '@type': ['Place', 'TouristAttraction'],
         '@id': `${canonicalUrl}#place`,
@@ -1635,7 +1636,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // license-quartet (acquireLicensePage / copyrightNotice / license / creator),
   // sourced from the webcam provider when available.
   const imageLd = webcams.length > 0
-    ? JSON.stringify(imageObjectLdDocument({
+    ? inlineScriptJson(imageObjectLdDocument({
         contentUrl: webcams[0].imageUrl,
         caption: `${copy.webcamLabel} — ${crossingDisplay}`,
         creditText: webcams[0].sourceName,
@@ -1890,12 +1891,12 @@ function renderHubPage(inp: HubInputs): string {
       { '@type': 'ListItem', position: 2, name: h1, item: canonicalUrl } as any,
     );
   }
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: breadcrumbItems,
   });
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2283,7 +2284,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2298,7 +2299,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,

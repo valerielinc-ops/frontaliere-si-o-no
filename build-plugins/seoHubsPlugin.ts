@@ -34,6 +34,7 @@ import {
 } from './seoHubsData';
 import { ARTICLE_SECTIONS } from '../services/articleSections';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   resolveBrandLogoUrl,
   renderEntityCard,
@@ -1106,7 +1107,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     ? SECTION_LABEL[locale].articles
     : SECTION_LABEL[locale].jobBoard;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -1118,7 +1119,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     ],
   });
 
-  const collectionLd = JSON.stringify({
+  const collectionLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: title,
@@ -1758,7 +1759,7 @@ function buildThinCantonHubHtml(args: {
 
   const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [

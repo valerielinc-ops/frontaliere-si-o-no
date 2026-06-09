@@ -938,12 +938,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  if (kw.length > 0) ldObj.keywords = kw;
  }
 
- const ldJsonStr = JSON.stringify(ldObj).replace(/</g, '\\u003c');
+ const ldJsonStr = inlineScriptJson(ldObj);
 
  // BreadcrumbList for article pages (enables rich result breadcrumbs in Google)
  const sectionName = locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
  const sectionSlug = blogIndexSlug[locale] || SECTION.indexSlug[(locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'];
- const breadcrumbLd = JSON.stringify({
+ const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
@@ -951,7 +951,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  { '@type': 'ListItem', position: 2, name: sectionName, item: `${BASE_URL}/${sectionSlug}/` },
  { '@type': 'ListItem', position: 3, name: localizedTitle },
  ],
- }).replace(/</g, '\\u003c');
+ });
 
  // Article-specific FAQPage schema: prefer structured `faq` key from body data,
  // fall back to heuristic extraction from H2 headings for evergreen articles.
@@ -1006,7 +1006,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  acceptedAnswer: { '@type': 'Answer', text: pair.answer },
  })),
  };
- faqLdTag = `\n <script type="application/ld+json">${JSON.stringify(faqSchema).replace(/</g, '\\u003c')}</script>`;
+ faqLdTag = `\n <script type="application/ld+json">${inlineScriptJson(faqSchema)}</script>`;
  faqCount++;
 
  const faqLabel = locale === 'en' ? 'Frequently Asked Questions'

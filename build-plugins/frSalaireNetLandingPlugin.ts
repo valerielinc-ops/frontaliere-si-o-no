@@ -62,6 +62,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   H1_STYLE,
   LEDE_STYLE,
@@ -352,7 +353,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     (h) => `    <link rel="alternate" hreflang="${h.hreflang}" href="${h.href}">`,
   ).join('\n');
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -362,7 +363,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: LOCALE,
@@ -373,7 +374,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     })),
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: H1,
@@ -399,7 +400,7 @@ function renderPage(opts: RenderOpts): RenderResult {
   // WebApplication LD — the calculator the primary CTA points at. Helps
   // Google understand that the page exposes an interactive tool, not just
   // an article.
-  const webAppLd = JSON.stringify({
+  const webAppLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Calculateur salaire net frontalier Suisse',

@@ -100,6 +100,7 @@ import {
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F6 fuel-daily feature.
@@ -1722,7 +1723,7 @@ function renderPage(inp: PageInputs): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -1732,7 +1733,7 @@ function renderPage(inp: PageInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -1743,7 +1744,7 @@ function renderPage(inp: PageInputs): string {
     })),
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2034,7 +2035,7 @@ function renderArchive(inp: ArchiveInputs): string {
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2044,7 +2045,7 @@ function renderArchive(inp: ArchiveInputs): string {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -2987,7 +2988,7 @@ function renderStationPage(opts: {
     .map((s) => ({ slug: s.slug, brand: s.brandDisplay, zone: s.zone }));
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -2998,7 +2999,7 @@ function renderStationPage(opts: {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -3010,7 +3011,7 @@ function renderStationPage(opts: {
   });
 
   // GasStation + Place (geo)
-  const gasStationLd = JSON.stringify({
+  const gasStationLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'GasStation',
     name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(),
@@ -3735,7 +3736,7 @@ function renderItalianCityPage(opts: {
       </table>`;
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -3746,7 +3747,7 @@ function renderItalianCityPage(opts: {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -3757,7 +3758,7 @@ function renderItalianCityPage(opts: {
     datePublished: today.toISOString(),
   });
 
-  const itemListLd = JSON.stringify({
+  const itemListLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: h1,
@@ -4758,7 +4759,7 @@ function renderItalianStationPage(opts: {
     .slice(0, 6);
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -4770,7 +4771,7 @@ function renderItalianStationPage(opts: {
     ],
   });
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: h1,
@@ -4781,7 +4782,7 @@ function renderItalianStationPage(opts: {
     datePublished: today.toISOString(),
   });
 
-  const gasStationLd = JSON.stringify({
+  const gasStationLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'GasStation',
     name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(),
