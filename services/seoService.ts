@@ -3957,6 +3957,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-divorzio-cassa-pensioni': { name: 'Divorzio e cassa pensioni', path: '/articoli-frontaliere/divorzio-cassa-pensioni', parent: 'blog' },
     'blog-diaspora-svizzera-parlamento': { name: 'Politica Svizzera', path: '/articoli-svizzera/diaspora-svizzera-parlamento/', parent: 'blog' },
     'blog-licenziamento-postino-ticino': { name: 'Lavoro', path: '/articoli-frontaliere/licenziamento-postino-ticino', parent: 'blog' },
+    'blog-ritmi-insostenibili-logistica-dpd': { name: 'Lavoro e salute', path: '/articoli-svizzera/ritmi-insostenibili-logistica-dpd/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -107,6 +107,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diaspora-svizzera-parlamento.title': 'Die Vertretung der Schweizer Diaspora im Parlament',
     'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin kritisiert die mangelnde Beachtung der Fünften Schweiz im Bundeshaus und fordert E-Voting als demokratisches Hebelinstrument.',
     'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Unhaltbare Arbeitsrhythmen und Druck auf Logistikarbeiter',
+    'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'Der Arbeitnehmerverband DPD Giubiasco meldet Arbeitsbelastungen, die die physischen und psychischen Grenzen überschreiten, sowie einen Anstieg von Unfällen und Burnout im Logistiksektor.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Innenansicht eines Schweizer Logistiklagers mit Arbeitern und Förderbändern',
 };
 
 export default blogMetaChDe;
