@@ -7,12 +7,19 @@ name: SEMrush Weekly Snapshot (F.1 / F.3 / H.10)
 #   • reports/site-audit-diff-YYYY-MM-DD.md
 #   • docs/seo-reports/week-YYYY-WW.md
 #
-# Runs every Monday 06:00 UTC. Commits+pushes with a rebase-retry loop so
-# concurrent scheduled workflows do not race each other.
-
+# Commits+pushes with a rebase-retry loop so concurrent scheduled workflows
+# do not race each other.
+#
+# CRON DISABLED (2026): the SEMrush subscription ended, so SEMRUSH_API_KEY is
+# dead. The weekly cron ran every Monday and failed on every run (the snapshot
+# scripts have no live API, and the commit step touched git-ignored reports/),
+# burning Actions minutes and spamming "Workflow Failure" issues. The schedule
+# trigger is removed to stop the recurring failures; workflow_dispatch is kept
+# so the workflow can be re-run manually if the subscription ever resumes.
+# To re-enable: restore the SEMRUSH_API_KEY secret and re-add the schedule:
+#   schedule:
+#     - cron: '0 6 * * 1' # Every Monday 06:00 UTC
 on:
-  schedule:
-    - cron: '0 6 * * 1' # Every Monday 06:00 UTC
   workflow_dispatch:
 
 permissions:
