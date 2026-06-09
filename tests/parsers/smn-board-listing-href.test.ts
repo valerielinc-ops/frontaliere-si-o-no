@@ -14,10 +14,12 @@
  * Covered:
  *   - scripts/lib/spital-zofingen-job-parser.mjs (34 jobs)
  *   - scripts/lib/pbl-job-parser.mjs (PBL board)
+ *   - scripts/lib/bls-job-parser.mjs (jobs.bls.ch — same SMN template)
  */
 import { describe, it, expect } from 'vitest';
 import { parseSpitalZofingenListing } from '../../scripts/lib/spital-zofingen-job-parser.mjs';
 import { parseJobListHtml as parsePblListing } from '../../scripts/lib/pbl-job-parser.mjs';
+import { parseListingPage as parseBlsListing } from '../../scripts/lib/bls-job-parser.mjs';
 
 describe('Spital Zofingen listing — href hardening', () => {
   it('parses absolute UUID hrefs (today’s markup)', () => {
@@ -75,5 +77,32 @@ describe('PBL listing — href hardening', () => {
     const out = parsePblListing(anchor('https://jobs.pbl.ch/offene-stellen/pflege/job-42'));
     expect(out).toHaveLength(1);
     expect(out[0].detailUrl).toBe('https://jobs.pbl.ch/offene-stellen/pflege/job-42');
+  });
+});
+
+describe('BLS listing — href hardening', () => {
+  it('parses absolute UUID hrefs (today’s markup)', () => {
+    const out = parseBlsListing(
+      '<a href="https://jobs.bls.ch/offene-stellen/lokfuehrer/0123abcd-4567-89ef-0123-456789abcdef">Lokführer</a>'
+    );
+    expect(out).toHaveLength(1);
+    expect(out[0].url).toBe('https://jobs.bls.ch/offene-stellen/lokfuehrer/0123abcd-4567-89ef-0123-456789abcdef');
+    expect(out[0].slug).toBe('lokfuehrer');
+  });
+
+  it('parses root-relative hrefs and normalizes them to absolute', () => {
+    const out = parseBlsListing(
+      '<a href="/offene-stellen/lokfuehrer/0123abcd-4567-89ef-0123-456789abcdef">Lokführer</a>'
+    );
+    expect(out).toHaveLength(1);
+    expect(out[0].url).toBe('https://jobs.bls.ch/offene-stellen/lokfuehrer/0123abcd-4567-89ef-0123-456789abcdef');
+  });
+
+  it('parses a non-UUID (slug-like) detail segment', () => {
+    const out = parseBlsListing(
+      '<a href="https://jobs.bls.ch/offene-stellen/lokfuehrer/job-42">Lokführer</a>'
+    );
+    expect(out).toHaveLength(1);
+    expect(out[0].url).toBe('https://jobs.bls.ch/offene-stellen/lokfuehrer/job-42');
   });
 });
