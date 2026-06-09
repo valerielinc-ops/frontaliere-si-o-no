@@ -203,4 +203,29 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
     expect(searchArg).toContain('Update Foo'); // final token preserved
   });
+
+  it('escalation title with space-free key keeps its bucket discriminator', async () => {
+    // Regression: a space-free bucket key (e.g. reviewer-finding/workflow-scope-creds)
+    // makes slice(0,60) land on the space BEFORE "ricorre" — a length-based strip
+    // gate would drop the whole key and collapse the prefix to
+    // "escalation(harvester)", deduping EVERY bucket onto one canonical. The cut
+    // char (a space) means no word was split → key must be preserved.
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/10';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'escalation(harvester): reviewer-finding/workflow-scope-creds ricorre nonostante regola',
+      description: 'bucket recurs',
+      priority: 2,
+      labels: ['follow-up'],
+    });
+
+    const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
+    const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
+    expect(searchArg).toContain('workflow-scope-creds'); // bucket key preserved
+    expect(searchArg).not.toBe('in:title "escalation(harvester)"'); // not collapsed
+  });
 });
