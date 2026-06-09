@@ -332,6 +332,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'hotel-flaz-pontresina-2028',
+    category: 'novita',
+    date: '2026-06-09T02:25:04.512Z',
+    image: '/images/blog/hotel-flaz-pontresina-2028.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -110,6 +110,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Rythmes insoutenables et pression sur les logisticiens',
     'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'Le Collectif Ouvrier DPD Giubiasco dénonce des charges de travail dépassant les limites physiques et psychologiques ainsi que l\'augmentation des accidents et du burnout dans le secteur logistique.',
     'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Intérieur d\'un entrepôt logistique suisse avec des travailleurs et des tapis roulants',
+    'blog.article.hotel-flaz-pontresina-2028.title': 'Hôtel Flaz',
+    'blog.article.hotel-flaz-pontresina-2028.excerpt': 'Le nouvel hôtel trois étoiles supérieur à Pontresina ouvrira lors de la saison hivernale 2028/2029 avec 176 places. Il investit 25 millions de francs et créé de nouveaux espaces.',
+    'blog.article.hotel-flaz-pontresina-2028.imageAlt': 'Neuf hôtel Flaz à Pontresina, Engadina, avec façade moderne et détails élégants face à un paysage enneigé.',
 };
 
 export default blogMetaChFr;
