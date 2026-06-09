@@ -17,8 +17,50 @@ import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
+import { handleGeminiGenerate } from './src/geminiGenerate.js';
+import { handleGetExchangeRate } from './src/exchangeRate.js';
 
 ensureAdminApp();
+
+// Generic Gemini text generation (feedback "AI optimize", newsletter preview).
+// Keeps GEMINI_API_KEY server-side.
+export const geminiGenerate = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 60,
+ cors: true,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleGeminiGenerate(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[geminiGenerate]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Live CHF/EUR rate (keeps TWELVEDATA_API_KEY server-side). Edge-cached.
+export const getExchangeRate = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 15,
+ cors: true,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleGetExchangeRate(req);
+ res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[getExchangeRate]', error instanceof Error ? error.message : String(error));
+ res.status(200).json({ ok: false, rate: null, error: 'internal_error' });
+ }
+ },
+);
 
 // Browser-safe Remote Config: returns ONLY the allowlisted client params
 // (see functions/src/publicConfig.js) so the full RC template — with all server

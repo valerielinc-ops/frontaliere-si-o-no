@@ -16,8 +16,7 @@ export const PUBLIC_CONFIG_KEYS = [
   'ENABLE_CALCULATOR_PAYWALL',
   'ENABLE_JOB_ALERTS',
   'ENABLE_JOB_PERSONALIZATION',
-  'GEMINI_API_KEY', // PHASE-2: AiChatbot / newsletterPreview / FeedbackSection
-  'GITHUB_PAT', // PHASE-2: FeedbackSection / AdminPanel / ApiStatus
+  'GITHUB_PAT', // PHASE-2 (removed in the GITHUB_PAT PR): FeedbackSection / AdminPanel
   'GITHUB_REPO_NAME',
   'GITHUB_REPO_OWNER',
   'GOOGLE_OAUTH_CLIENT_ID',
@@ -32,5 +31,4 @@ export const PUBLIC_CONFIG_KEYS = [
   'SEO_SERP_EXPERIMENT_TARGETS',
   'SEO_SERP_EXPERIMENT_VARIANT',
   'SEO_SERP_EXPERIMENT_YEAR',
-  'TWELVEDATA_API_KEY', // PHASE-2: exchangeRateService
 ];

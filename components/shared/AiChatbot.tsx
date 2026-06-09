@@ -13,7 +13,6 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { MessageCircle, X, Send, Loader2, Bot, User, Sparkles, AlertCircle, LogIn, Shield } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getConfigValue } from '@/services/firebase';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { unlockAchievement } from '@/services/gamificationService';
@@ -37,10 +36,6 @@ const GAMIFICATION_TOAST_VISIBILITY_EVENT = 'gamification-toast-visibility';
 
 // Server-side inference endpoint (Firebase Function)
 const CHATBOT_FUNCTION_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/chatbotInference';
-
-// Browser-side fallback: uses non-deprecated gemini-2.0-flash-lite
-const GEMINI_FALLBACK_MODEL = 'gemini-2.0-flash-lite';
-const GEMINI_FALLBACK_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_FALLBACK_MODEL}:generateContent`;
 
 // ─── Local deterministic fallback ────────────────────────────
 // Keyword-matched FAQ answers with internal navigation links.
@@ -261,55 +256,6 @@ async function callChatbotFunction(messages: Message[], systemPrompt: string): P
  }
 }
 
-/**
- * Tier 2: Browser-side Gemini call (fallback when Function is unreachable).
- * Uses gemini-2.0-flash-lite (non-deprecated). Requires apiKey from Remote Config.
- */
-async function callGeminiBrowserFallback(messages: Message[], apiKey: string, systemPrompt: string): Promise<string> {
- const contents = messages.map(m => ({
- role: m.role === 'assistant' ? 'model' : 'user',
- parts: [{ text: m.content }],
- }));
-
- for (let attempt = 0; attempt < 3; attempt++) {
- const response = await fetch(`${GEMINI_FALLBACK_URL}?key=${encodeURIComponent(apiKey)}`, {
- method: 'POST',
- headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify({
- system_instruction: { parts: [{ text: systemPrompt }] },
- contents,
- generationConfig: { temperature: 0.7, maxOutputTokens: 1024, topP: 0.95 },
- safetySettings: [
- { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- ],
- }),
- });
-
- if (response.ok) {
- const data = await response.json();
- const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
- if (!text) throw new Error('Empty response from Gemini');
- return text;
- }
-
- if (response.status === 429 && attempt < 2) {
- const retryAfter = response.headers.get('retry-after');
- const delayMs = retryAfter ? Number(retryAfter) * 1000 : 900 * (attempt + 1);
- await sleep(delayMs);
- continue;
- }
-
- const errorText = await response.text().catch(() => '');
- if (response.status === 429) throw Object.assign(new Error('Gemini API error: 429'), { code: '429' });
- throw new Error(`Gemini API error: ${response.status} ${errorText.slice(0, 200)}`);
- }
-
- throw Object.assign(new Error('Gemini API error: 429 Resource exhausted'), { code: '429' });
-}
-
 // ─── Rate limiting ───────────────────────────────────────────
 
 const RATE_LIMIT_KEY = 'chatbot_msgs';
@@ -480,7 +426,6 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  const [input, setInput] = useState('');
  const [loading, setLoading] = useState(false);
  const [error, setError] = useState<string | null>(null);
- const [apiKey, setApiKey] = useState<string | null>(null);
  const [authGateOpen, setAuthGateOpen] = useState(false);
  const [pendingQuestion, setPendingQuestion] = useState('');
  const [authBusy, setAuthBusy] = useState(false);
@@ -515,13 +460,6 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  // Build locale-aware system prompt from i18n knowledge base
  const systemPrompt = useMemo(() => buildSystemPrompt(t, locale), [t, locale]);
 
- // Load API key on first open
- useEffect(() => {
- if (!isOpen || apiKey !== null) return;
- getConfigValue('GEMINI_API_KEY').then(key => {
- setApiKey(key || '');
- });
- }, [isOpen, apiKey]);
 
  // Auto-scroll to bottom
  useEffect(() => {
@@ -677,18 +615,9 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  } catch (err1) {
  const e1 = err1 as Error & { code?: string };
  remoteErr = e1;
- console.warn('[Chatbot] Tier 1 failed:', e1.message);
-
- // Only try Tier 2 if not rate-limited (limit is per API key, shared across tiers)
- if (e1.code !== '429' && apiKey) {
- try {
- reply = await callGeminiBrowserFallback(newMessages, apiKey, systemPrompt);
- } catch (err2) {
- const e2 = err2 as Error & { code?: string };
- remoteErr = e2;
- console.warn('[Chatbot] Tier 2 failed:', e2.message);
- }
- }
+ console.warn('[Chatbot] Tier 1 (Cloud Function) failed:', e1.message);
+ // No browser-side Gemini fallback — the API key stays server-side. On
+ // failure we fall through to the local deterministic FAQ (Tier 3) below.
  }
  }
 
@@ -724,7 +653,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  } finally {
  setLoading(false);
  }
- }, [loading, apiKey, messages, t, systemPrompt, canChat, locale]);
+ }, [loading, messages, t, systemPrompt, canChat, locale]);
 
  const handleSend = useCallback(async () => {
  const text = input.trim();

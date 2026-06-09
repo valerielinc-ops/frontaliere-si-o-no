@@ -25,8 +25,7 @@ export const FeedbackSection: React.FC = () => {
  const [isSubmitting, setIsSubmitting] = useState(false);
  const [submitError, setSubmitError] = useState<string | null>(null);
  const [githubToken, setGithubToken] = useState<string>('');
- const [geminiApiKey, setGeminiApiKey] = useState<string>('');
- 
+
  const [formData, setFormData] = useState<{
  title: string;
  description: string;
@@ -45,18 +44,11 @@ export const FeedbackSection: React.FC = () => {
  async function loadApiKeys() {
  try {
  const githubPat = await getConfigValue('GITHUB_PAT');
- const geminiKey = await getConfigValue('GEMINI_API_KEY');
- 
  setGithubToken((githubPat || '').trim());
- setGeminiApiKey(geminiKey);
- 
- console.log('✅ API keys caricate da Firebase Remote Config');
  } catch (error) {
- console.warn('⚠️ Errore caricamento API keys da Remote Config:', error);
+ console.warn('⚠️ Errore caricamento GitHub PAT da Remote Config:', error);
  reportCaughtError(error, 'feedback.loadApiKeys');
- // No local fallback — secrets only from Remote Config
  setGithubToken('');
- setGeminiApiKey('');
  }
  }
  
@@ -110,25 +102,20 @@ export const FeedbackSection: React.FC = () => {
  }, [githubToken]);
 
  const handleOptimize = async () => {
- if (!formData.description || !geminiApiKey) return;
+ if (!formData.description) return;
  setIsOptimizing(true);
  Analytics.trackUIInteraction('supporto', 'feedback', 'ai_ottimizza', 'click', formData.type);
- 
- try {
- const { GoogleGenAI } = await import('@google/genai');
- const ai = new GoogleGenAI({ apiKey: geminiApiKey });
- const prompt = `Agisci come un esperto Product Manager. 
- L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.
- Testo utente:"${formData.description}".
- 
- Riscrivi il testo in modo chiaro e tecnico per una GitHub Issue. 
- Non aggiungere saluti. Solo il corpo del testo.`;
 
- const response = await ai.models.generateContent({
- model: 'gemini-3-flash-preview',
- contents: prompt
+ try {
+ // Gemini runs server-side (geminiGenerate Cloud Function); no API key in the browser.
+ const userPrompt = `Agisci come un esperto Product Manager. L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.\nTesto utente: "${formData.description}".\n\nRiscrivi il testo in modo chiaro e tecnico per una GitHub Issue. Non aggiungere saluti. Solo il corpo del testo.`;
+ const res = await fetch('https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate', {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify({ userPrompt, maxTokens: 1024, temperature: 0.5 }),
  });
- const optimizedText = response.text || formData.description;
+ const data = await res.json().catch(() => ({}));
+ const optimizedText = (data?.ok && data.text) ? data.text : formData.description;
  setFormData(prev => ({ ...prev, description: optimizedText }));
  } catch (e) {
  reportCaughtError(e, 'feedback.aiOptimize');
