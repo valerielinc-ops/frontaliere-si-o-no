@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-06-09T12:17:38.798Z",
+  "assembledAt": "2026-06-09T23:13:28.452Z",
   "jobs": [
     {
       "id": "spital-zollikerberg-520e9b96cf42",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=50be559c-df7c-42b5-8777-e2cdd522bb55,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:17:36.933Z",
+      "crawledAt": "2026-06-09T23:13:26.544Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,150 +65,6 @@
           "infermiere-qualificato-specialista-in-nefrologia-spital-zollikerberg-zollikerberg",
           "dipl-carriera-dipl-specialista-infermieristica-nephrology-spital-zollikerberg-zollikerberg",
           "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-zollikerberg-29ae31528ce8",
-      "slug": "marketing-manager-marketing-manager-limitato-fino-a-febbraio-2027-middle-office-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "it": "marketing-manager-marketing-manager-limitato-fino-a-febbraio-2027-middle-office-spital-zollikerberg-zollikerberg",
-        "en": "marketing-manager-marketing-managerin-befristet-bis-februar-2027-middle-office-spital",
-        "de": "marketing-manager-marketing-managerin-befristet-bis-februar-2027-middle-office-spital",
-        "fr": "marketing-manager-marketing-managerin-befristet-bis-februar-2027-middle-office-spital"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office /",
-      "titleByLocale": {
-        "it": "Marketing Manager / Marketing Manager – limitato fino a febbraio 2027 Middle Office /",
-        "en": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office /",
-        "de": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office /",
-        "fr": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office /"
-      },
-      "description": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "it": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "en": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "de": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Marketing Manager / Marketing Managerin – befristet bis Februar 2027 Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
-      },
-      "needsRetranslation": true,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=efd06215-df61-40bd-8ae1-14814ff0407f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:17:36.932Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=efd06215-df61-40bd-8ae1-14814ff0407f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "marketing-manager-marketing-managerin-befristet-bis-februar-2027-middle-office-spital",
-        "marketing-manager-marketing-managerin-befristet-bis-februar-2027-middle-office-spital-zollikerberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "marketing-manager-marketing-managerin-befristet-bis-februar-2027-middle-office-spital",
-          "marketing-manager-marketing-managerin-befristet-bis-februar-2027-middle-office-spital-zollikerberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-zollikerberg-b12a71ea69e9",
-      "slug": "esperto-certificato-in-cure-anestesiologiche-nds-hf-in-regime-di-ricovero-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "it": "esperto-certificato-in-cure-anestesiologiche-nds-hf-in-regime-di-ricovero-spital-zollikerberg-zollikerberg",
-        "en": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
-        "de": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
-        "fr": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
-      "titleByLocale": {
-        "it": "Esperto certificato in cure anestesiologiche NDS HF in regime di ricovero",
-        "en": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
-        "de": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
-        "fr": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär"
-      },
-      "description": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "it": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "en": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "de": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
-      },
-      "needsRetranslation": true,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=415646a6-5d08-4b8a-a4e8-9ec40b6cf14c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:17:36.932Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=415646a6-5d08-4b8a-a4e8-9ec40b6cf14c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -257,7 +113,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d9b45dec-d669-4180-988d-4dcd0330fac0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:17:36.931Z",
+      "crawledAt": "2026-06-09T23:13:26.543Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -297,38 +153,38 @@
       }
     },
     {
-      "id": "spital-zollikerberg-c774baa5ad94",
-      "slug": "assistente-di-progetto-project-assistant-diverses-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-b12a71ea69e9",
+      "slug": "esperto-certificato-in-cure-anestesiologiche-nds-hf-in-regime-di-ricovero-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "assistente-di-progetto-project-assistant-diverses-spital-zollikerberg-zollikerberg",
-        "en": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
-        "de": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
-        "fr": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+        "it": "esperto-certificato-in-cure-anestesiologiche-nds-hf-in-regime-di-ricovero-spital-zollikerberg-zollikerberg",
+        "en": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
+        "de": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
+        "fr": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Projektassistentin / Projektassistent Diverses",
+      "title": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
       "titleByLocale": {
-        "it": "Assistente di progetto / Project Assistant Diverses",
-        "en": "Projektassistentin / Projektassistent Diverses",
-        "de": "Projektassistentin / Projektassistent Diverses",
-        "fr": "Projektassistentin / Projektassistent Diverses"
+        "it": "Esperto certificato in cure anestesiologiche NDS HF in regime di ricovero",
+        "en": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
+        "de": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
+        "fr": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär"
       },
-      "description": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "description": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "it": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "en": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "de": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
+        "it": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "en": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "de": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Pflegeberufe. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
       },
       "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=74dddc21-82f8-417a-a790-a8b6de8525b8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=415646a6-5d08-4b8a-a4e8-9ec40b6cf14c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:17:36.930Z",
+      "crawledAt": "2026-06-09T23:13:26.543Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -337,20 +193,20 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "junior",
+      "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=74dddc21-82f8-417a-a790-a8b6de8525b8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=415646a6-5d08-4b8a-a4e8-9ec40b6cf14c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -399,7 +255,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd87a1cc-4350-44fd-abd4-1ca7c2dd335c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T12:17:36.928Z",
+      "crawledAt": "2026-06-09T23:13:26.542Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,6 +293,142 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "spital-zollikerberg-c774baa5ad94",
+      "slug": "assistente-di-progetto-project-assistant-diverses-spital-zollikerberg-zollikerberg",
+      "slugByLocale": {
+        "it": "assistente-di-progetto-project-assistant-diverses-spital-zollikerberg-zollikerberg",
+        "en": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
+        "de": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg",
+        "fr": "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Projektassistentin / Projektassistent Diverses",
+      "titleByLocale": {
+        "it": "Assistente di progetto / Project Assistant Diverses",
+        "en": "Projektassistentin / Projektassistent Diverses",
+        "de": "Projektassistentin / Projektassistent Diverses",
+        "fr": "Projektassistentin / Projektassistent Diverses"
+      },
+      "description": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "it": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "en": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "de": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Projektassistentin / Projektassistent Diverses — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=74dddc21-82f8-417a-a790-a8b6de8525b8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-09T23:13:26.542Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=74dddc21-82f8-417a-a790-a8b6de8525b8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektassistentin-projektassistent-diverses-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-zollikerberg-4f2cd2c06541",
+      "slug": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
+      "slugByLocale": {
+        "de": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
+        "it": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
+        "en": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
+        "fr": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office /",
+      "titleByLocale": {
+        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office /",
+        "it": "Stiftung Diakoniewerk Neumünster Risorse Umane Allrounderin / Risorse Umane Allrounder Middle Office /",
+        "en": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office /",
+        "fr": "Stiftung Diakoniewerk Neumünster Ressources Humaines Allrounderin / Ressources Humaines Allrounder Middle Office /"
+      },
+      "description": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "it": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "en": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=12040c0f-f757-4cb3-891f-adb060f4f2e1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-09T23:13:26.541Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=12040c0f-f757-4cb3-891f-adb060f4f2e1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z"
     }
   ]
 }
