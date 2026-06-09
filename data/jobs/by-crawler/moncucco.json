@@ -1,6 +1,6 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-06-08T22:53:18.944Z",
+  "assembledAt": "2026-06-09T11:55:05.185Z",
   "jobs": [
     {
       "id": "moncucco-a2843a5a57e0",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.moncucco.ch/medico_del_centro_per_cura_dell_obesita2.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-08T22:53:17.275Z",
+      "crawledAt": "2026-06-09T11:55:03.534Z",
       "firstSeenAt": "2026-06-01T15:34:55.145Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -106,7 +106,7 @@
       "applyUrl": "https://www.moncucco.ch/ematologo.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-08T22:53:16.975Z",
+      "crawledAt": "2026-06-09T11:55:03.261Z",
       "previousSlugsByLocale": {
         "en": [
           "hematologist-gruppo-ospedaliero-moncucco-lugano"
@@ -129,6 +129,7 @@
         "ergoterapista-lugano-moncucco"
       ],
       "firstSeenAt": "2026-05-08T10:23:46.959Z",
+      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -187,8 +188,9 @@
       "applyUrl": "https://www.moncucco.ch/assistente_studio_medico.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-08T22:53:16.702Z",
+      "crawledAt": "2026-06-09T11:55:02.980Z",
       "firstSeenAt": "2026-05-08T10:23:46.724Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -247,7 +249,7 @@
       "applyUrl": "https://www.moncucco.ch/psicologo_specialista_neuropsicologia_fsp2.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-08T22:53:16.413Z",
+      "crawledAt": "2026-06-09T11:55:02.687Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "psicologo-a-specialista-in-neuropsicologia-fsp-gruppo-ospedaliero-moncucco-lugano"
