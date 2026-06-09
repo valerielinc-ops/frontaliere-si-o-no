@@ -980,6 +980,26 @@ function _decayScore(score, lastUsedISO) {
  */
 const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank|reranking|stable-diffusion|sdxl|\bflux\b|nemoretriever/i;
 
+// NVIDIA's /v1/models lists its ENTIRE historical NIM catalog with no
+// free/served flag, and the bulk of it (legacy + vision + code-only families:
+// yi-large, fuyu-8b, jamba-1.5-*, codegemma, deplot, gemma-2b, codellama,
+// llama2-70b, kosmos-2, phi-3-vision, granite-code, starcoder2, dbrx, …) is no
+// longer served on integrate.api.nvidia.com → every one 404s on the chat
+// endpoint. Discovering them flooded the chain with 24 dead 404 ids (run
+// 27198839248), wasting a fallback attempt each in the blog generator (#1335)
+// and spamming the smoke-test dead-model table (#1357). A blanket
+// NON_CHAT_MODEL_RE can't catch these — they parse as "chat" by name. So NVIDIA
+// discovery is gated to this positive allowlist of currently-served general-chat
+// instruct families (Nemotron, current Llama 3.x/4 instruct, Gemma 3n/4, Phi-4,
+// DeepSeek V4, Qwen). New families NVIDIA actually serves get added here in a
+// one-line follow-up; the static AI_MODELS NV_* entries are unaffected (this
+// only bounds what AUTO-discovery injects). Module-level (not a cfg `this`
+// property) so the filter never depends on how cfg.pick is invoked.
+const NVIDIA_ALLOW_FAMILY_RE = /(?:^|\/)(?:llama-3\.[13]-nemotron|nemotron|llama-3\.3-|llama-3\.1-(?:8b|70b|405b)|llama-4-|gemma-3n-|gemma-4-|phi-4|deepseek-v4|qwen)/i;
+// Vision/code-only specialisations even within an allowed family are not general
+// chat (e.g. llama-3.2-*-vision-instruct, *-code-instruct).
+const NVIDIA_SPECIALISED_RE = /vision|\bcode\b|codegemma|codellama|starcoder/i;
+
 // Exported for unit testing provider `pick`/alias matching (issue #892).
 export const DISCOVERY_PROVIDERS = Object.freeze([
   {
@@ -1052,9 +1072,14 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
     url: 'https://integrate.api.nvidia.com/v1/models',
     markStale: false,
     maxAdd: 40,
+    // Gated to a positive allowlist of currently-served general-chat instruct
+    // families — see NVIDIA_ALLOW_FAMILY_RE above for the full rationale (#1335 /
+    // #1357 dead-404 flood). NON_CHAT_MODEL_RE alone can't catch these legacy ids.
     pick(m) {
       const id = m?.id;
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      if (NVIDIA_SPECIALISED_RE.test(id)) return null;
+      if (!NVIDIA_ALLOW_FAMILY_RE.test(id)) return null;
       return id;
     },
   },

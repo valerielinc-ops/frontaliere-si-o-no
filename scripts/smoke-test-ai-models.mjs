@@ -97,29 +97,50 @@ const hasMistralKey = Boolean((process.env.MISTRAL_API_KEY || '').trim());
 const mistralLatest = results.filter(
   r => r.model.startsWith('mistral/') && /-latest$/.test(r.model),
 );
+// Pre-flight SKIP statuses are NOT request attempts: the model was never pinged
+// because callLLM short-circuited (daily-quota exhausted, provider cooling down,
+// missing key, or otherwise skipped). The #892 regression this gate exists to
+// catch — the discovery alias pass (aliases[] field) silently no-op'ing so every
+// `-latest` entry gets PRE-EXHAUSTED — itself surfaces as `skipped_exhausted`,
+// which is indistinguishable here from the benign case where production runs
+// simply burned the shared Mistral daily quota earlier in the UTC day. Treating
+// `skipped_exhausted` as a "failure" made the gate fire on pure quota exhaustion
+// (run 27198839248: all 6 `-latest` skipped_exhausted → false exitCode 1, the
+// recurring #1357 failure). Skips are not evidence of an alias regression, so a
+// run where the `-latest` chain was never actually exercised must be a no-op.
+const SKIP_STATUSES = new Set(['skipped_exhausted', 'cooldown', 'no_key', 'skipped']);
+const mistralLatestAttempted = mistralLatest.filter(r => !SKIP_STATUSES.has(r.status));
 // The gate's purpose (#892) is to catch a discovery-alias REGRESSION (aliases[]
-// field drift → every -latest entry pre-marked stale, a silent code no-op). A
-// dead/revoked Mistral API key surfaces as http_401/http_403 on EVERY model and
-// is an ENVIRONMENT problem (rotate the key in Remote Config), not the code
-// regression this gate exists to detect. Firing on pure auth failures opens a
-// "Workflow Failure" issue implying a code bug and burns triage quota chasing a
-// secret rotation (issue #1276: MISTRAL_API_KEY returned 401). So: only trip the
-// regression gate when the -latest failures are NOT entirely auth failures.
-const mistralAuthFailures = mistralLatest.filter(r => r.status === 'http_401' || r.status === 'http_403');
-const allLatestFailed = mistralLatest.length > 0 && mistralLatest.every(r => r.status !== 'pass');
-const allFailuresAreAuth = mistralLatest.length > 0 && mistralAuthFailures.length === mistralLatest.length;
-if (hasMistralKey && allLatestFailed && allFailuresAreAuth) {
+// field drift). A dead/revoked Mistral API key surfaces as http_401/http_403 on
+// EVERY model and is an ENVIRONMENT problem (rotate the key in Remote Config),
+// not the code regression this gate exists to detect. Firing on pure auth
+// failures opens a "Workflow Failure" issue implying a code bug and burns triage
+// quota chasing a secret rotation (issue #1276). So: only trip the regression
+// gate when ALL ATTEMPTED `-latest` failures are real (non-auth) request errors.
+const mistralAuthFailures = mistralLatestAttempted.filter(r => r.status === 'http_401' || r.status === 'http_403');
+const allAttemptedFailed = mistralLatestAttempted.length > 0 && mistralLatestAttempted.every(r => r.status !== 'pass');
+const allFailuresAreAuth = mistralLatestAttempted.length > 0 && mistralAuthFailures.length === mistralLatestAttempted.length;
+if (hasMistralKey && mistralLatest.length > 0 && mistralLatestAttempted.length === 0) {
+  // Every `-latest` model was pre-flight skipped (shared daily quota exhausted by
+  // earlier production runs, provider cooldown, etc.). The alias chain was never
+  // exercised this run, so there is NO regression signal either way — do not fail.
+  console.error(
+    `\nℹ️  Mistral -latest: all ${mistralLatest.length} model(s) were pre-flight ` +
+      `skipped (quota exhausted / cooldown) and never attempted. No alias-regression ` +
+      `signal this run (see #892/#1357); not failing the smoke run.`,
+  );
+} else if (hasMistralKey && allAttemptedFailed && allFailuresAreAuth) {
   // Dead key, not an alias regression. Surface clearly but do NOT fail the run
   // (no code fix would help; the key must be rotated in Remote Config).
   console.error(
-    `\n⚠️  Mistral -latest: all ${mistralLatest.length} attempted -latest model(s) ` +
-      `failed with auth errors (401/403). MISTRAL_API_KEY is likely revoked — ` +
+    `\n⚠️  Mistral -latest: all ${mistralLatestAttempted.length} attempted -latest ` +
+      `model(s) failed with auth errors (401/403). MISTRAL_API_KEY is likely revoked — ` +
       `rotate it in Firebase Remote Config. NOT an alias regression (see #892/#1276); ` +
       `not failing the smoke run.`,
   );
-} else if (hasMistralKey && allLatestFailed) {
+} else if (hasMistralKey && allAttemptedFailed) {
   console.error(
-    `\n❌ Mistral -latest regression: all ${mistralLatest.length} attempted ` +
+    `\n❌ Mistral -latest regression: all ${mistralLatestAttempted.length} attempted ` +
       `-latest model(s) failed (non-auth). Likely the discovery alias pass ` +
       `(aliases[] field in lib/ai-models.mjs) is a no-op — see issue #892.`,
   );
