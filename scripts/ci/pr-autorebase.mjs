@@ -3,9 +3,16 @@
  *
  * stale-pr-rescuer.yml oggi LABELLA + commenta "fai git merge origin/main", ma
  * nessuno lo esegue → le PR restano ferme. Qui lo automatizziamo, ma con
- * FRUGALITÀ: un push di rebase ri-triggera pr-review-loop (= quota Claude Max
- * condivisa), quindi tocchiamo SOLO le PR già "near-merge". Le altre verranno
- * rebasate quando il loro autore pusha.
+ * FRUGALITÀ (zero Claude): dopo il rebase NON ri-eseguiamo la review — ri-
+ * eseguiamo SOLO vitest (dispatch di tests.yml) e lasciamo che auto-merge-eval
+ * porti avanti l'`## LGTM` esistente (il contributo proprio della PR è invariato
+ * su un rebase di solo main-merge). Tocchiamo solo le PR "near-merge".
+ *
+ * NB sul trigger: un push PAT su un branch PR NON ri-triggera in modo
+ * affidabile i workflow `pull_request` (osservato: head rebasati di #1587/#1526
+ * con zero check-run) — per questo dispatchiamo tests.yml esplicitamente invece
+ * di affidarci al push. Questo evita anche di bruciare quota Claude: nessuna
+ * review Opus/Sonnet riparte sul rebase.
  *
  * Per ogni PR OPEN non-draft:
  *   GATE (frugalità): procedi solo se "near-merge" =
@@ -16,14 +23,15 @@
  *   - mergeable (gh pr view --json mergeable; UNKNOWN → poll una volta dopo una
  *     breve attesa; se ancora UNKNOWN → skip questo run).
  *   - MERGEABLE → fetch + checkout branch + `git merge origin/main` (identity
- *     canonica). Clean → push via PAT (ri-attiva review + vitest). Log.
+ *     canonica). Clean → push via PAT + dispatch tests.yml sul branch (vitest
+ *     sull'head; LGTM portato avanti da auto-merge-eval). Log.
  *   - CONFLITTO (CONFLICTING o merge nonzero) → `git merge --abort`; assicura
  *     label `stale-review` (così rescuer/recycle gestiscono); commenta UNA volta
  *     (dedup via marker `<!-- AUTOREBASE_CONFLICT -->`). Niente loop.
  *   Cap: ~10 PR/run; logga le skippate per cap (AGENTS.md no-silent-cap).
  *
  * Uso:  node scripts/ci/pr-autorebase.mjs [--dry-run]
- * Env:  GH_TOKEN (PAT, per push/label che ri-triggerano i workflow),
+ * Env:  GH_TOKEN (PAT, per push + dispatch tests.yml; serve scope actions:write),
  *       GITHUB_REPOSITORY. Richiede `gh` + `git` in un checkout full-history.
  */
 import { execFileSync } from 'node:child_process';
@@ -168,20 +176,37 @@ async function processPR(pr) {
     return;
   }
 
-  // Push via PAT (ri-attiva review + vitest). TOCTOU: tra mergeable-check e push
-  // un nuovo commit potrebbe essere arrivato → push non-fast-forward fallisce
-  // (no --force): semplicemente skip, il prossimo tick ricalcola.
+  // Push via PAT. TOCTOU: tra mergeable-check e push un nuovo commit potrebbe
+  // essere arrivato → push non-fast-forward fallisce (no --force): skip, il
+  // prossimo tick ricalcola.
   const pushed = git(['push', authedUrl(), `${branch}:${branch}`], { allowFail: true });
   if (pushed === null) {
     console.log(`PR #${num}: push fallito (probabile non-fast-forward / TOCTOU) — skip, riprova al prossimo tick.`);
     return;
   }
-  console.log(`✅ PR #${num}: rebasata su origin/main e pushata (${branch}) → review + vitest ri-partono.`);
+
+  // Ri-esegui SOLO i test sull'head rebasato — NON la review Claude (frugalità
+  // quota). Un push PAT su un branch PR NON ri-triggera in modo affidabile i
+  // workflow `pull_request` (osservato: head rebasati di #1587/#1526 con ZERO
+  // check-run), quindi dispatchiamo esplicitamente `tests.yml` sul branch: il
+  // check-run `vitest (unit + integration)` atterra sull'head (= gate 3 di
+  // auto-merge-eval) e il suo `workflow_run: completed` ri-valuta
+  // auto-merge-on-lgtm. L'LGTM esistente viene portato avanti da
+  // auto-merge-eval (contributo PR invariato su un rebase di solo main-merge),
+  // quindi NESSUNA review Opus/Sonnet gira di nuovo. Best-effort: se il
+  // dispatch fallisce (PAT senza scope actions:write) lo logghiamo soltanto.
+  const dispatched = gh(['workflow', 'run', 'tests.yml', '--ref', branch],
+    { json: false, allowFail: true });
+  if (dispatched === null) {
+    console.log(`::warning::PR #${num}: rebasata+pushata ma 'gh workflow run tests.yml --ref ${branch}' fallito — vitest potrebbe non ripartire sull'head; verifica scope actions:write del PAT.`);
+  } else {
+    console.log(`✅ PR #${num}: rebasata su origin/main, pushata (${branch}) e dispatchato tests.yml → vitest sull'head; LGTM carry-forward, zero Claude.`);
+  }
 }
 
 async function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
-  if (!TOKEN) { console.error('::warning::GH_TOKEN (PAT) assente → autorebase inerte (push non ri-triggererebbe i workflow).'); process.exit(0); }
+  if (!TOKEN) { console.error('::warning::GH_TOKEN (PAT) assente → autorebase inerte (serve per push + dispatch tests.yml).'); process.exit(0); }
   console.log(`pr-autorebase${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
 
   let prs;

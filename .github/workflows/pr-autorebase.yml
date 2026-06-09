@@ -2,11 +2,16 @@ name: PR auto-rebase (near-merge only, no-Claude)
 
 # Esegue davvero il rebase che stale-pr-rescuer si limita a SUGGERIRE: una PR a
 # un passo dal merge ma dietro main resta ferma perché nessuno fa
-# `git merge origin/main`. Qui lo facciamo, ma FRUGALMENTE — un push di rebase
-# ri-triggera pr-review-loop (= quota Claude Max condivisa), quindi tocchiamo
-# SOLO le PR "near-merge" (LGTM già dato, oppure label collision-risk/
-# stale-review). Tutto deterministico (scripts/ci/pr-autorebase.mjs + gh + git).
-# ZERO Claude.
+# `git merge origin/main`. Qui lo facciamo, ma FRUGALMENTE e ZERO Claude: dopo
+# il rebase NON ri-eseguiamo la review — dispatchiamo SOLO tests.yml sull'head
+# (vitest cheap) e auto-merge-eval porta avanti l'`## LGTM` esistente (contributo
+# PR invariato su un rebase di solo main-merge). Tocchiamo SOLO le PR
+# "near-merge" (LGTM già dato, oppure label collision-risk/stale-review).
+# Tutto deterministico (scripts/ci/pr-autorebase.mjs + gh + git).
+#
+# Perché dispatchiamo tests invece di affidarci al push: un push PAT su un branch
+# PR NON ri-triggera in modo affidabile i workflow `pull_request` (osservato:
+# head rebasati di #1587/#1526 con zero check-run). Il dispatch è deterministico.
 
 on:
   schedule:
@@ -63,15 +68,17 @@ jobs:
 
       - name: Rebase near-merge PRs (deterministic, no Claude)
         env:
-          # PAT OBBLIGATORIO: il push del rebase deve ri-triggerare pr-review-loop
-          # + tests (GITHUB_TOKEN no, anti-ricorsione → review/vitest non
-          # ripartirebbero e la PR resterebbe comunque ferma).
+          # PAT OBBLIGATORIO: serve per pushare il rebase E per `gh workflow run
+          # tests.yml` (scope actions:write). NON ci affidiamo più al push per
+          # ri-triggerare i workflow (un push PAT su branch PR non triggera
+          # `pull_request` in modo affidabile) — vitest viene dispatchato
+          # esplicitamente; l'LGTM lo porta avanti auto-merge-eval. Zero Claude.
           GH_TOKEN: ${{ env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::warning::GITHUB_PAT assente → autorebase inerte (push non ri-triggererebbe review/vitest)."
+            echo "::warning::GITHUB_PAT assente → autorebase inerte (serve per push + dispatch tests.yml)."
             exit 0
           fi
           if [ "${DRY_RUN:-false}" = "true" ]; then
