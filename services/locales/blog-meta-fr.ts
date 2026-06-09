@@ -8018,6 +8018,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divorzio-cassa-pensioni.title': 'Divorcement : qu\'en sera-t-il de la caisse de retraite ? - UBS',
     'blog.article.divorzio-cassa-pensioni.excerpt': 'La UBS annonce une nouvelle règle pour la caisse de retraite en cas de divorce. La question qui se pose est : qu\'en sera-t-il de la caisse de retraite ? 📊💡⚠️',
     'blog.article.divorzio-cassa-pensioni.imageAlt': 'Un travailleur frontalier avec sa femme et ses enfants dans un paysage de Locarno',
+    'blog.article.licenziamento-postino-ticino.title': 'Licenciement après 42 ans : l\'histoire d\'un facteur à Vevey',
+    'blog.article.licenziamento-postino-ticino.excerpt': 'Un facteur de Vevey a été licencié après 42 ans de service pour avoir cherché à éviter des vols en déposant les colis directement aux étages.',
+    'blog.article.licenziamento-postino-ticino.imageAlt': 'Facteur déposant une lettre à Lugano',
 };
 
 export default blogMetaFr;

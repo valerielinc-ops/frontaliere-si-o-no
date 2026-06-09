@@ -25434,6 +25434,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'licenziamento-postino-ticino',
+ category: 'pratico',
+ date: '2026-06-09T00:59:36.254Z',
+ image: '/images/blog/licenziamento-postino-ticino.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
