@@ -3961,6 +3961,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-finanze-ticino-consuntivo': { name: 'Finanze cantonali', path: '/articoli-frontaliere/finanze-ticino-consuntivo', parent: 'blog' },
     'blog-hotel-flaz-pontresina-2028': { name: 'Hotel | Novità | Socioeconomico', path: '/articoli-svizzera/hotel-flaz-pontresina-2028/', parent: 'blog' },
     'blog-lavoretti-estivi-2026-regole-frontaliere': { name: 'Lavoretti estivi in Ticino', path: '/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere', parent: 'blog' },
+    'blog-carenza-manodopera-gr-2024': { name: 'Carenza manodopera', path: '/articoli-svizzera/carenza-manodopera-gr-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

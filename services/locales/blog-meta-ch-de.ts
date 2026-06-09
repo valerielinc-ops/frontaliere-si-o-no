@@ -113,6 +113,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.hotel-flaz-pontresina-2028.title': 'Beginn der Arbeiten am Hotel Flaz in Pontresina: 25 Millionen CHF und neue Räume',
     'blog.article.hotel-flaz-pontresina-2028.excerpt': 'Das neue 3-Stellen-Hotel in Pontresina wird in der Wintersaison 2028/2029 mit 176 Betten öffnen.',
     'blog.article.hotel-flaz-pontresina-2028.imageAlt': 'Neuer Flaz Hotel in Pontresina, Engadina, mit moderner Fassade und eleganten Details im verschneiten Alpenpanorama.',
+    'blog.article.carenza-manodopera-gr-2024.title': 'Fachkräftemangel in Graubünden: Auswirkungen auf Unternehmen',
+    'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % der Unternehmen in Graubünden melden schwere Schwierigkeiten, qualifiziertes Personal zu finden, während 75 % ihre wirtschaftliche Lage als gut oder sehr gut einschätzen.',
+    'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Alpenblick auf Graubünden mit traditionellen Dörfern und Industriegebieten',
 };
 
 export default blogMetaChDe;
