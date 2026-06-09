@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-06-09T11:36:43.814Z",
+  "assembledAt": "2026-06-09T22:33:24.693Z",
   "jobs": [
     {
       "id": "hopital-du-valais-79a54ad7b54b",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:41.580Z",
+      "crawledAt": "2026-06-09T22:33:22.432Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -61,6 +61,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:33.795Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -118,7 +119,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:41.238Z",
+      "crawledAt": "2026-06-09T22:33:22.098Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -202,7 +203,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:40.086Z",
+      "crawledAt": "2026-06-09T22:33:20.808Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -228,8 +229,8 @@
         "contact-the-reserve-personnel-team-hopital-du-valais-sion",
         "contatto-del-team-personale-di-ricerca-hopital-du-valais-sion"
       ],
-      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -287,7 +288,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:39.760Z",
+      "crawledAt": "2026-06-09T22:33:20.452Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -309,6 +310,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:29:28.600Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -366,7 +368,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/ATSANN0004595/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:39.424Z",
+      "crawledAt": "2026-06-09T22:33:20.120Z",
       "_hvsMeta": {
         "number": "ATSANN0004595",
         "sysId": "3e42908cc3488354a043be4c05013198",
@@ -455,7 +457,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:39.086Z",
+      "crawledAt": "2026-06-09T22:33:19.779Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -529,7 +531,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:38.753Z",
+      "crawledAt": "2026-06-09T22:33:19.447Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -609,7 +611,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:38.431Z",
+      "crawledAt": "2026-06-09T22:33:19.113Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -689,7 +691,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:38.108Z",
+      "crawledAt": "2026-06-09T22:33:18.781Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -706,6 +708,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.837Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -763,7 +766,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:37.725Z",
+      "crawledAt": "2026-06-09T22:33:18.441Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -772,6 +775,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:30.516Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -829,7 +833,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:37.391Z",
+      "crawledAt": "2026-06-09T22:33:18.107Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -846,6 +850,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.192Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -865,9 +870,9 @@
       "id": "hopital-du-valais-aa4a82ec68c2",
       "slug": "assistente-sanitaria-50-100-psichiatria-geriatrica-hopital-du-valais-brig",
       "slugByLocale": {
-        "de": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
         "it": "assistente-sanitaria-50-100-psichiatria-geriatrica-hopital-du-valais-brig",
         "en": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
+        "de": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
         "fr": "assistente-sanitaria-50-100-psichiatria-geriatrica-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
@@ -875,17 +880,17 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Pflegefachperson 50%-100% (Psychogeriatrie)",
       "titleByLocale": {
-        "de": "Pflegefachperson 50%-100% (Psychogeriatrie)",
-        "en": "Pflegefachperson 50%-100% (Psychogeriatrie)",
         "it": "Pflegefachperson 50%-100% (Psychogeriatrie)",
+        "en": "Pflegefachperson 50%-100% (Psychogeriatrie)",
+        "de": "Pflegefachperson 50%-100% (Psychogeriatrie)",
         "fr": "Pflegefachperson 50%-100% (Psychogeriatrie)"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine:\n\nPflegefachperson 50%-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine:\n\nPflegefachperson 50%-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "it": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine:\n\nPflegefachperson 50%-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine:\n\nPflegefachperson 50%-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "fr": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine:\n\nPflegefachperson 50%-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen"
+        "it": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine: Pflegefachperson 50%-100% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n• Eigenverantwortung und aktives Mitdenken\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n• Kommunikative, initiative und flexible Persönlichkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch motiviertes und engagiertes Team\n• Möglichkeit zur Fort- und Weiterbildung\n• Attraktive Anstellungsbedingungen",
+        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine: Pflegefachperson 50%-100% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n• Eigenverantwortung und aktives Mitdenken\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n• Kommunikative, initiative und flexible Persönlichkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch motiviertes und engagiertes Team\n• Möglichkeit zur Fort- und Weiterbildung\n• Attraktive Anstellungsbedingungen",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine: Pflegefachperson 50%-100% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n• Eigenverantwortung und aktives Mitdenken\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n• Kommunikative, initiative und flexible Persönlichkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch motiviertes und engagiertes Team\n• Möglichkeit zur Fort- und Weiterbildung\n• Attraktive Anstellungsbedingungen",
+        "fr": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine: Pflegefachperson 50%-100% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n• Eigenverantwortung und aktives Mitdenken\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n• Kommunikative, initiative und flexible Persönlichkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch motiviertes und engagiertes Team\n• Möglichkeit zur Fort- und Weiterbildung\n• Attraktive Anstellungsbedingungen"
       },
       "location": "Brig",
       "canton": "VS",
@@ -903,7 +908,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:37.068Z",
+      "crawledAt": "2026-06-09T22:33:17.772Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -911,15 +916,16 @@
         "famille": "Soins",
         "site": "BRIG"
       },
+      "previousSlugs": [
+        "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig"
         ]
       },
-      "previousSlugs": [
-        "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-09T11:36:37.068Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -933,8 +939,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-09T11:36:37.068Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-6cc78097e02b",
@@ -978,7 +983,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:36.736Z",
+      "crawledAt": "2026-06-09T22:33:17.439Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -1055,7 +1060,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:36.411Z",
+      "crawledAt": "2026-06-09T22:33:17.101Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -1129,7 +1134,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:36.092Z",
+      "crawledAt": "2026-06-09T22:33:16.763Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -1152,6 +1157,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:29.209Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1209,7 +1215,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:35.760Z",
+      "crawledAt": "2026-06-09T22:33:16.430Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -1286,7 +1292,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c6e10fd973c07181b87322f2153af63/ATSANN0004668/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:35.437Z",
+      "crawledAt": "2026-06-09T22:33:16.095Z",
       "_hvsMeta": {
         "number": "ATSANN0004668",
         "sysId": "3c6e10fd973c07181b87322f2153af63",
@@ -1366,7 +1372,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:35.099Z",
+      "crawledAt": "2026-06-09T22:33:15.749Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -1386,6 +1392,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:14:12.660Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1443,7 +1450,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f2a0b45683b27a1017a39d20ceaad396/ATSANN0004517/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:34.748Z",
+      "crawledAt": "2026-06-09T22:33:15.413Z",
       "_hvsMeta": {
         "number": "ATSANN0004517",
         "sysId": "f2a0b45683b27a1017a39d20ceaad396",
@@ -1523,7 +1530,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8299376c97054350316bb0b71153af2c/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:34.423Z",
+      "crawledAt": "2026-06-09T22:33:15.076Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "8299376c97054350316bb0b71153af2c",
@@ -1543,6 +1550,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T22:41:43.801Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1600,7 +1608,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0a711d2297894f50e7ce346e2153afdb/ATSANN0004682/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:34.100Z",
+      "crawledAt": "2026-06-09T22:33:14.710Z",
       "_hvsMeta": {
         "number": "ATSANN0004682",
         "sysId": "0a711d2297894f50e7ce346e2153afdb",
@@ -1680,7 +1688,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45483162978d8f50e7ce346e2153af79/ATSANN0004684/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:33.777Z",
+      "crawledAt": "2026-06-09T22:33:14.377Z",
       "_hvsMeta": {
         "number": "ATSANN0004684",
         "sysId": "45483162978d8f50e7ce346e2153af79",
@@ -1760,7 +1768,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9463f5a697c98f50e7ce346e2153af48/ATSANN0004683/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:33.437Z",
+      "crawledAt": "2026-06-09T22:33:14.022Z",
       "_hvsMeta": {
         "number": "ATSANN0004683",
         "sysId": "9463f5a697c98f50e7ce346e2153af48",
@@ -1840,7 +1848,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/84aa626287814390dbd6ebd30cbb35af/ATSANN0004686/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:33.116Z",
+      "crawledAt": "2026-06-09T22:33:13.689Z",
       "_hvsMeta": {
         "number": "ATSANN0004686",
         "sysId": "84aa626287814390dbd6ebd30cbb35af",
@@ -1922,7 +1930,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6aef97ba83818b9017a39d20ceaad33b/ATSANN0004691/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:32.795Z",
+      "crawledAt": "2026-06-09T22:33:13.340Z",
       "_hvsMeta": {
         "number": "ATSANN0004691",
         "sysId": "6aef97ba83818b9017a39d20ceaad33b",
@@ -2002,7 +2010,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b26b9b3283418b9017a39d20ceaad364/ATSANN0004690/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:32.472Z",
+      "crawledAt": "2026-06-09T22:33:13.009Z",
       "_hvsMeta": {
         "number": "ATSANN0004690",
         "sysId": "b26b9b3283418b9017a39d20ceaad364",
@@ -2090,7 +2098,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4ef4a33a83058b9017a39d20ceaad348/ATSANN0004694/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:32.153Z",
+      "crawledAt": "2026-06-09T22:33:12.676Z",
       "_hvsMeta": {
         "number": "ATSANN0004694",
         "sysId": "4ef4a33a83058b9017a39d20ceaad348",
@@ -2170,7 +2178,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:31.832Z",
+      "crawledAt": "2026-06-09T22:33:12.343Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -2244,7 +2252,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e43eabe83090b9017a39d20ceaad372/ATSANN0004688/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:31.497Z",
+      "crawledAt": "2026-06-09T22:33:12.010Z",
       "_hvsMeta": {
         "number": "ATSANN0004688",
         "sysId": "3e43eabe83090b9017a39d20ceaad372",
@@ -2324,7 +2332,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/33432f3e83c18b9017a39d20ceaad376/ATSANN0004693/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:31.169Z",
+      "crawledAt": "2026-06-09T22:33:11.675Z",
       "_hvsMeta": {
         "number": "ATSANN0004693",
         "sysId": "33432f3e83c18b9017a39d20ceaad376",
@@ -2348,6 +2356,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:51:55.344Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2405,7 +2414,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8fc1ef3683c18b9017a39d20ceaad33b/ATSANN0004692/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:30.812Z",
+      "crawledAt": "2026-06-09T22:33:11.339Z",
       "_hvsMeta": {
         "number": "ATSANN0004692",
         "sysId": "8fc1ef3683c18b9017a39d20ceaad33b",
@@ -2486,7 +2495,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f3b2f3a83c58b9017a39d20ceaad307/ATSANN0004695/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:30.492Z",
+      "crawledAt": "2026-06-09T22:33:11.006Z",
       "_hvsMeta": {
         "number": "ATSANN0004695",
         "sysId": "8f3b2f3a83c58b9017a39d20ceaad307",
@@ -2566,7 +2575,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6599c15747010bd0339c9146736d431c/ATSANN0004697/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:30.147Z",
+      "crawledAt": "2026-06-09T22:33:10.674Z",
       "_hvsMeta": {
         "number": "ATSANN0004697",
         "sysId": "6599c15747010bd0339c9146736d431c",
@@ -2646,7 +2655,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5ac264d4975187d0316bb0b71153afaf/ATSANN0004701/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:29.825Z",
+      "crawledAt": "2026-06-09T22:33:10.339Z",
       "_hvsMeta": {
         "number": "ATSANN0004701",
         "sysId": "5ac264d4975187d0316bb0b71153afaf",
@@ -2726,7 +2735,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:29.504Z",
+      "crawledAt": "2026-06-09T22:33:10.006Z",
       "_hvsMeta": {
         "number": "ATSANN0004699",
         "sysId": "73f1ff408315cbd017a39d20ceaad318",
@@ -2743,6 +2752,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:51:57.681Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2800,7 +2810,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d7b4201097d187d0316bb0b71153af69/ATSANN0004702/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:29.181Z",
+      "crawledAt": "2026-06-09T22:33:09.670Z",
       "_hvsMeta": {
         "number": "ATSANN0004702",
         "sysId": "d7b4201097d187d0316bb0b71153af69",
@@ -2880,7 +2890,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1292a7c4835d8bd017a39d20ceaad3f5/ATSANN0004698/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:28.858Z",
+      "crawledAt": "2026-06-09T22:33:09.337Z",
       "_hvsMeta": {
         "number": "ATSANN0004698",
         "sysId": "1292a7c4835d8bd017a39d20ceaad3f5",
@@ -2889,6 +2899,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-06-01T14:51:58.054Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2946,7 +2957,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e5eadda8971103d0e7ce346e2153af5f/ATSANN0004706/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:28.529Z",
+      "crawledAt": "2026-06-09T22:33:09.003Z",
       "_hvsMeta": {
         "number": "ATSANN0004706",
         "sysId": "e5eadda8971103d0e7ce346e2153af5f",
@@ -2969,86 +2980,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:19.422Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
-    },
-    {
-      "id": "hopital-du-valais-158b63946569",
-      "slug": "logistica-ne-azioni-deportate-90-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "logistica-ne-azioni-deportate-90-hopital-du-valais-sion",
-        "en": "logisticsien-ne-stocks-deported-90-hopital-du-valais-sion",
-        "de": "logistik-ne-bestande-deportiert-90-hopital-du-valais-sion",
-        "fr": "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Logisticien-ne stocks déportés 90 %",
-      "titleByLocale": {
-        "it": "Logistica-ne azioni deportate 90%",
-        "en": "Logisticsien-ne stocks deported 90%",
-        "de": "Logistik-Ne-Bestände deportiert 90%",
-        "fr": "Logisticien-ne stocks déportés 90 %"
-      },
-      "description": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nLogisticien-ne stocks déportés (90 %)\n\nPour l’unité Approvisionnement du service Biomédical et achats\n\nMission:\nVous participez à la gestion des stocks déportés ainsi qu’à tous les flux logistiques et administratifs liés à cette activité. Vous répondez aux besoins liés à l’approvisionnement des services. Vous assurez la traçabilité et le suivi de tous les mouvements liés à l’approvisionnement.\n\nProfil:\nVous possédez un CFC de logisticien-ne ou un diplôme jugé équivalent. Vous avez une bonne maîtrise des outils informatiques (Office, Opale et Solid). Précis-e, rigoureux-euse et résistant-e au stress, vous maîtrisez et respectez les processus logistiques. De langue maternelle française ou allemande, vous maîtrisez la deuxième langue. Vous connaissez le fonctionnement général d’un établissement hospitalier et de ses contraintes spécifiques. Vous êtes capable de soulever, déplacer et transporter manuellement des charges lourdes.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Vallese sta cercando l'Istituto Centrale degli Ospedali Logistica-ne stock deportati (90%) Per l'unità di approvvigionamento e approvvigionamento di servizi biomedici Missione: Siete coinvolti nella gestione delle scorte deportate e in tutti i flussi logistici e amministrativi legati a questa attività. Si soddisfano le esigenze della fornitura di servizi. Garantisci la tracciabilità e il monitoraggio di tutti i movimenti correlati alla fornitura. Profilo: Hai un CFC Logisticista o un diploma ritenuto equivalente. Hai un buon comando di strumenti informatici (Office, Opale e Solid). Accurate, rigorose e resistenti allo stress, padroneggiate e rispettate i processi logistici. In francese o in tedesco, si parla la seconda lingua. Conosci il funzionamento generale di un ospedale e i suoi vincoli specifici. È possibile sollevare, spostare e trasportare carichi pesanti manualmente. Offerta: Un ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The Valais Hospital is looking for the Central Institute of Hospitals Logisticsien-ne stocks deported (90%) For the Biomedical Service Supply and Procurement Unit Mission: You are involved in the management of deported stocks and in all logistical and administrative flows related to this activity. You meet the needs of the provision of services. You ensure traceability and tracking of all supply-related movements.\n• Profile: You have a Logistician CFC or diploma deemed equivalent. You have a good command of computer tools (Office, Opale and Solid). Accurate, rigorous and stress-resistant, you master and respect logistical processes. In French or German, you speak the second language. You know the general operation of a hospital and its specific constraints. You are able to lift, move and carry heavy loads manually. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Das Walliser Krankenhaus sucht das Zentralinstitut für Krankenhäuser Deportierte logistische Lagerbestände (90%) Für die Abteilung Biomedizinische Service-Versorgung und Beschaffung Mission: Sie sind an der Verwaltung von deportierten Beständen und in allen logistischen und administrativen Strömen im Zusammenhang mit dieser Tätigkeit beteiligt. Sie erfüllen die Bedürfnisse der Dienstleistungen. Sie sorgen für Rückverfolgbarkeit und Verfolgung aller lieferbezogenen Bewegungen. Profil: Sie haben einen Logistician CFC oder Diplom als gleichwertig. Sie haben einen guten Befehl von Computer-Tools (Office, Opale und Solid). Genaue, strenge und stressfeste Prozesse meistern und respektieren Sie logistische Prozesse. Auf Französisch oder Deutsch sprechen Sie die zweite Sprache. Sie kennen den allgemeinen Betrieb eines Krankenhauses und seine spezifischen Zwänge. Sie können schwere Lasten manuell anheben, bewegen und tragen. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten für Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e Logisticien-ne stocks déportés (90 %) Pour l’unité Approvisionnement du service Biomédical et achats Mission: Vous participez à la gestion des stocks déportés ainsi qu’à tous les flux logistiques et administratifs liés à cette activité. Vous répondez aux besoins liés à l’approvisionnement des services. Vous assurez la traçabilité et le suivi de tous les mouvements liés à l’approvisionnement. Profil: Vous possédez un CFC de logisticien-ne ou un diplôme jugé équivalent. Vous avez une bonne maîtrise des outils informatiques (Office, Opale et Solid). Précis-e, rigoureux-euse et résistant-e au stress, vous maîtrisez et respectez les processus logistiques. De langue maternelle française ou allemande, vous maîtrisez la deuxième langue. Vous connaissez le fonctionnement général d’un établissement hospitalier et de ses contraintes spécifiques. Vous êtes capable de soulever, déplacer et transporter manuellement des charges lourdes. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "logistics",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "90%",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7438a050875dcf90dbd6ebd30cbb35ad/ATSANN0004703/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7438a050875dcf90dbd6ebd30cbb35ad/ATSANN0004703/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:28.193Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004703",
-        "sysId": "7438a050875dcf90dbd6ebd30cbb35ad",
-        "societe": "Institut central des hôpitaux",
-        "famille": "Logistique / Technique",
-        "site": "SION"
-      },
-      "previousSlugs": [
-        "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
-        ],
-        "en": [
-          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
-        ],
-        "de": [
-          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T13:22:19.766Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3106,7 +3037,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:36:27.870Z",
+      "crawledAt": "2026-06-09T22:33:08.643Z",
       "_hvsMeta": {
         "number": "ATSANN0004704",
         "sysId": "a05ddcac9711cf90e7ce346e2153af1c",
@@ -3115,6 +3046,87 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:19.092Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS"
+    },
+    {
+      "id": "hopital-du-valais-158b63946569",
+      "slug": "logistica-ne-azioni-deportate-90-hopital-du-valais-sion",
+      "slugByLocale": {
+        "it": "logistica-ne-azioni-deportate-90-hopital-du-valais-sion",
+        "en": "logisticsien-ne-stocks-deported-90-hopital-du-valais-sion",
+        "de": "logistik-ne-bestande-deportiert-90-hopital-du-valais-sion",
+        "fr": "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Logisticien-ne stocks déportés 90 %",
+      "titleByLocale": {
+        "it": "Logistica-ne azioni deportate 90%",
+        "en": "Logisticsien-ne stocks deported 90%",
+        "de": "Logistik-Ne-Bestände deportiert 90%",
+        "fr": "Logisticien-ne stocks déportés 90 %"
+      },
+      "description": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nLogisticien-ne stocks déportés (90 %)\n\nPour l’unité Approvisionnement du service Biomédical et achats\n\nMission:\nVous participez à la gestion des stocks déportés ainsi qu’à tous les flux logistiques et administratifs liés à cette activité. Vous répondez aux besoins liés à l’approvisionnement des services. Vous assurez la traçabilité et le suivi de tous les mouvements liés à l’approvisionnement.\n\nProfil:\nVous possédez un CFC de logisticien-ne ou un diplôme jugé équivalent. Vous avez une bonne maîtrise des outils informatiques (Office, Opale et Solid). Précis-e, rigoureux-euse et résistant-e au stress, vous maîtrisez et respectez les processus logistiques. De langue maternelle française ou allemande, vous maîtrisez la deuxième langue. Vous connaissez le fonctionnement général d’un établissement hospitalier et de ses contraintes spécifiques. Vous êtes capable de soulever, déplacer et transporter manuellement des charges lourdes.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+      "descriptionByLocale": {
+        "it": "L'Ospedale Vallese sta cercando l'Istituto Centrale degli Ospedali Logistica-ne stock deportati (90%) Per l'unità di approvvigionamento e approvvigionamento di servizi biomedici Missione: Siete coinvolti nella gestione delle scorte deportate e in tutti i flussi logistici e amministrativi legati a questa attività. Si soddisfano le esigenze della fornitura di servizi. Garantisci la tracciabilità e il monitoraggio di tutti i movimenti correlati alla fornitura. Profilo: Hai un CFC Logisticista o un diploma ritenuto equivalente. Hai un buon comando di strumenti informatici (Office, Opale e Solid). Accurate, rigorose e resistenti allo stress, padroneggiate e rispettate i processi logistici. In francese o in tedesco, si parla la seconda lingua. Conosci il funzionamento generale di un ospedale e i suoi vincoli specifici. È possibile sollevare, spostare e trasportare carichi pesanti manualmente. Offerta: Un ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
+        "en": "The Valais Hospital is looking for the Central Institute of Hospitals Logisticsien-ne stocks deported (90%) For the Biomedical Service Supply and Procurement Unit Mission: You are involved in the management of deported stocks and in all logistical and administrative flows related to this activity. You meet the needs of the provision of services. You ensure traceability and tracking of all supply-related movements.\n• Profile: You have a Logistician CFC or diploma deemed equivalent. You have a good command of computer tools (Office, Opale and Solid). Accurate, rigorous and stress-resistant, you master and respect logistical processes. In French or German, you speak the second language. You know the general operation of a hospital and its specific constraints. You are able to lift, move and carry heavy loads manually. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
+        "de": "Das Walliser Krankenhaus sucht das Zentralinstitut für Krankenhäuser Deportierte logistische Lagerbestände (90%) Für die Abteilung Biomedizinische Service-Versorgung und Beschaffung Mission: Sie sind an der Verwaltung von deportierten Beständen und in allen logistischen und administrativen Strömen im Zusammenhang mit dieser Tätigkeit beteiligt. Sie erfüllen die Bedürfnisse der Dienstleistungen. Sie sorgen für Rückverfolgbarkeit und Verfolgung aller lieferbezogenen Bewegungen. Profil: Sie haben einen Logistician CFC oder Diplom als gleichwertig. Sie haben einen guten Befehl von Computer-Tools (Office, Opale und Solid). Genaue, strenge und stressfeste Prozesse meistern und respektieren Sie logistische Prozesse. Auf Französisch oder Deutsch sprechen Sie die zweite Sprache. Sie kennen den allgemeinen Betrieb eines Krankenhauses und seine spezifischen Zwänge. Sie können schwere Lasten manuell anheben, bewegen und tragen. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten für Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
+        "fr": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e Logisticien-ne stocks déportés (90 %) Pour l’unité Approvisionnement du service Biomédical et achats Mission: Vous participez à la gestion des stocks déportés ainsi qu’à tous les flux logistiques et administratifs liés à cette activité. Vous répondez aux besoins liés à l’approvisionnement des services. Vous assurez la traçabilité et le suivi de tous les mouvements liés à l’approvisionnement. Profil: Vous possédez un CFC de logisticien-ne ou un diplôme jugé équivalent. Vous avez une bonne maîtrise des outils informatiques (Office, Opale et Solid). Précis-e, rigoureux-euse et résistant-e au stress, vous maîtrisez et respectez les processus logistiques. De langue maternelle française ou allemande, vous maîtrisez la deuxième langue. Vous connaissez le fonctionnement général d’un établissement hospitalier et de ses contraintes spécifiques. Vous êtes capable de soulever, déplacer et transporter manuellement des charges lourdes. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "logistics",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "90%",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7438a050875dcf90dbd6ebd30cbb35ad/ATSANN0004703/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7438a050875dcf90dbd6ebd30cbb35ad/ATSANN0004703/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-09T22:33:08.290Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004703",
+        "sysId": "7438a050875dcf90dbd6ebd30cbb35ad",
+        "societe": "Institut central des hôpitaux",
+        "famille": "Logistique / Technique",
+        "site": "SION"
+      },
+      "previousSlugs": [
+        "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+        ],
+        "en": [
+          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+        ],
+        "de": [
+          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+        ]
+      },
+      "firstSeenAt": "2026-06-02T13:22:19.766Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3154,7 +3166,7 @@
         "it": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un : Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100% Mission: Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. Profil: Vous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
         "en": "Mansioni - Pharmacy specialist in hospital pharmacy 80%-100% Descrizione In the clinical pharmacy team, you participate in clinical visits to the care units of the Valais Hospital or client establishments and you collaborate with the drug information centre. You are participating in the project to implement the new IPR. You're part of the picket service. Required - Diploma of pharmacist-ne - Specialist in hospital pharmacy (or equivalent training) - Interest in clinical computing - Assessment of teamwork - Patient-oriented approach - Good communication skills - French or German mother tongue, with good knowledge of the second language Cosa offeriamo - A stimulating and diverse environment - Possibilità di mise to use your knowledge and experience - Attractive conditions of employment - Opportunities for further training and further training - Find here all the advantages for our employees Contatto",
         "de": "Mansioni - Apotheker in der Krankenhausapotheke 80%-100% Descrizion Im klinischen Apothekenteam nehmen Sie an klinischen Besuchen der Pflegeeinheiten des Walliser Krankenhauses oder der Kundeneinrichtungen teil und arbeiten mit dem Arzneimittelinformationszentrum zusammen. Sie beteiligen sich an dem Projekt zur Umsetzung des neuen IPR. Sie sind Teil des Streikpostendienstes. erforderlich - Diplom des Apothekers-ne - Spezialist für Krankenhausapotheke (oder gleichwertige Ausbildung) Interesse am Clinical Computing - Bewertung der Teamarbeit Patientenorientierter Ansatz - Gute Kommunikationsfähigkeiten - Französische oder deutsche Muttersprache, mit guten Kenntnissen der zweiten Sprache Cosa offeriamo - Eine anregende und vielfältige Umgebung - Possibilità di mise, um Ihr Wissen und Ihre Erfahrung zu nutzen - Attraktive Beschäftigungsbedingungen - Möglichkeiten zur Weiterbildung und Weiterbildung - Hier finden Sie alle Vorteile für unsere Mitarbeiter Contatto",
-        "fr": "## Mansioni - Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100% ## Descrizione Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. ## \n• Requisiti - Diplôme de pharmacien-ne - Titre de spécialiste en pharmacie hospitalière (ou formation équivalente) - Intérêt pour l’informatique clinique - Appréciation du travail en équipe - Approche orientée patient - Bonnes capacités de communication - De langue maternelle française ou allemande, avec de bonnes connaissances de la deuxième langue ## \n• Cosa offriamo - Un environnement stimulant et diversifié - Possibilità di mettere a profit vos connaissances et votre expérience - Conditions d’emploi attrayantes - Possibilità de formation continue et de perfectionnement - Retrouvez ici tous les avantages pour nos collaborateurs-trices ## Contatto"
+        "fr": "## Mansioni - Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100% ## Descrizione Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. ##\n• Requisiti - Diplôme de pharmacien-ne - Titre de spécialiste en pharmacie hospitalière (ou formation équivalente) - Intérêt pour l’informatique clinique - Appréciation du travail en équipe - Approche orientée patient - Bonnes capacités de communication - De langue maternelle française ou allemande, avec de bonnes connaissances de la deuxième langue ##\n• Cosa offriamo - Un environnement stimulant et diversifié - Possibilità di mettere a profit vos connaissances et votre expérience - Conditions d’emploi attrayantes - Possibilità de formation continue et de perfectionnement - Retrouvez ici tous les avantages pour nos collaborateurs-trices ## Contatto"
       },
       "location": "Sion",
       "canton": "VS",
@@ -3172,7 +3184,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0ca3c3b047918714339c9146736d43a4/ATSANN0004709/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:27.540Z",
+      "crawledAt": "2026-06-09T22:33:07.960Z",
       "_hvsMeta": {
         "number": "ATSANN0004709",
         "sysId": "0ca3c3b047918714339c9146736d43a4",
@@ -3180,6 +3192,10 @@
         "famille": "Médico-technique",
         "site": "SION"
       },
+      "previousSlugs": [
+        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+        "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
@@ -3193,12 +3209,8 @@
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
         ]
       },
-      "previousSlugs": [
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-        "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
-      ],
-      "firstSeenAt": "2026-06-03T23:52:48.467Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-03T23:52:48.467Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3236,7 +3248,7 @@
       "description": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un :\n\nPharmacien-ne spécialiste en pharmacie hospitalière à 80%.\n\nMission:\nAu sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet.\n\nProfil:\nVous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
         "it": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un : Pharmacien-ne spécialiste en pharmacie hospitalière à 80%. Mission: Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. Profil: Vous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "en": "The Valais Hospital is looking for the pharmacy of the Central Hospital Institute one: Pharmacy specialist in hospital pharmacy at 80%. Mission: In the clinical pharmacy team, you participate in clinical visits to the care units of the Valais Hospital or client establishments and you collaborate with the drug information centre. You are participating in the project to implement the new IPR. You're part of the picket service. \n• Profile: You have a diploma of pharmacist-ne and a specialist degree in hospital pharmacy (or equivalent training). You have an interest in clinical computing. You appreciate teamwork, focus on patient-oriented approach and have good communication skills. French or German native language you have good knowledge of the second language. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
+        "en": "The Valais Hospital is looking for the pharmacy of the Central Hospital Institute one: Pharmacy specialist in hospital pharmacy at 80%. Mission: In the clinical pharmacy team, you participate in clinical visits to the care units of the Valais Hospital or client establishments and you collaborate with the drug information centre. You are participating in the project to implement the new IPR. You're part of the picket service.\n• Profile: You have a diploma of pharmacist-ne and a specialist degree in hospital pharmacy (or equivalent training). You have an interest in clinical computing. You appreciate teamwork, focus on patient-oriented approach and have good communication skills. French or German native language you have good knowledge of the second language. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
         "de": "Das Walliser Krankenhaus sucht die Apotheke des Central Hospital Institute one: Apotheke Spezialist in Krankenhaus Apotheke bei 80%. Mission: Im klinischen Apothekenteam nehmen Sie an klinischen Besuchen der Pflegeeinheiten des Walliser Krankenhauses oder der Kundeneinrichtungen teil und arbeiten mit dem Arzneimittelinformationszentrum zusammen. Sie beteiligen sich an dem Projekt zur Umsetzung des neuen IPR. Sie sind Teil des Streikpostendienstes. Profil: Sie haben ein Apotheker-Diplom und einen Fachabschluss in Krankenhausapotheke (oder eine gleichwertige Ausbildung). Sie interessieren sich für Clinical Computing. Sie schätzen Teamwork, konzentrieren sich auf patientenorientiertes Vorgehen und verfügen über gute Kommunikationsfähigkeiten. Französische oder deutsche Muttersprache Sie haben gute Kenntnisse der zweiten Sprache. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
         "fr": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un : Pharmacien-ne spécialiste en pharmacie hospitalière à 80%. Mission: Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. Profil: Vous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
@@ -3256,7 +3268,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/16954f7847918714339c9146736d43ed/ATSANN0004710/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:27.199Z",
+      "crawledAt": "2026-06-09T22:33:07.628Z",
       "_hvsMeta": {
         "number": "ATSANN0004710",
         "sysId": "16954f7847918714339c9146736d43ed",
@@ -3264,6 +3276,10 @@
         "famille": "Médico-technique",
         "site": "SION"
       },
+      "previousSlugs": [
+        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+        "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
@@ -3277,12 +3293,8 @@
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ]
       },
-      "previousSlugs": [
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-        "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion"
-      ],
-      "firstSeenAt": "2026-06-03T23:52:48.116Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-03T23:52:48.116Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3340,7 +3352,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a6a0f0ad979dc7d0e7ce346e2153af36/ATSANN0004711/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:26.875Z",
+      "crawledAt": "2026-06-09T22:33:07.295Z",
       "_hvsMeta": {
         "number": "ATSANN0004711",
         "sysId": "a6a0f0ad979dc7d0e7ce346e2153af36",
@@ -3420,7 +3432,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:36:26.256Z",
+      "crawledAt": "2026-06-09T22:33:06.625Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -3454,6 +3466,73 @@
         }
       },
       "addressRegion": "VS"
+    },
+    {
+      "id": "hopital-du-valais-eeea228ef2dc",
+      "slug": "biologiste-moleculaire-60-80-hopital-du-valais-sion",
+      "slugByLocale": {
+        "fr": "biologiste-moleculaire-60-80-hopital-du-valais-sion",
+        "it": "biologiste-moleculaire-60-80-hopital-du-valais-sion",
+        "en": "biologiste-moleculaire-60-80-hopital-du-valais-sion",
+        "de": "biologiste-moleculaire-60-80-hopital-du-valais-sion"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Biologiste moléculaire 60%-80%",
+      "titleByLocale": {
+        "fr": "Biologiste moléculaire 60%-80%",
+        "it": "Biologiste moléculaire 60%-80%",
+        "en": "Biologiste moléculaire 60%-80%",
+        "de": "Biologiste moléculaire 60%-80%"
+      },
+      "description": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e :\n\nBiologiste moléculaire 60%-80%\n\nMission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n\n• Aider à la formation continue du personnel\n\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189)\n\nProfil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage.\n\nOffre:\nUn climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+      "descriptionByLocale": {
+        "fr": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e :\n\nBiologiste moléculaire 60%-80%\n\nMission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n\n• Aider à la formation continue du personnel\n\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189)\n\nProfil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage.\n\nOffre:\nUn climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "it": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e :\n\nBiologiste moléculaire 60%-80%\n\nMission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n\n• Aider à la formation continue du personnel\n\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189)\n\nProfil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage.\n\nOffre:\nUn climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "en": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e :\n\nBiologiste moléculaire 60%-80%\n\nMission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n\n• Aider à la formation continue du personnel\n\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189)\n\nProfil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage.\n\nOffre:\nUn climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "de": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e :\n\nBiologiste moléculaire 60%-80%\n\nMission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n\n• Aider à la formation continue du personnel\n\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189)\n\nProfil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage.\n\nOffre:\nUn climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "logistics",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "60 - 80%",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6058dfa97590350316bb0b71153af23/ATSANN0004713/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6058dfa97590350316bb0b71153af23/ATSANN0004713/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-09T22:33:06.292Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004713",
+        "sysId": "c6058dfa97590350316bb0b71153af23",
+        "societe": "Institut central des hôpitaux",
+        "famille": "Médico-technique",
+        "site": "SION"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-06-09T22:33:06.292Z"
     }
   ]
 }
