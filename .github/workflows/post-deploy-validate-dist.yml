@@ -213,8 +213,15 @@ jobs:
         run: |
           set -euo pipefail
           for loc in en de fr; do
-            if [ -d "dist/$loc" ]; then
-              echo "$loc present in artifact (not stripped this build) — skip rehydrate"
+            # Skip rehydrate only when BOTH the locale dir AND its homepage
+            # `dist/$loc.html` (= `/{loc}`) are present. Checking just the dir
+            # couples this guard to the implicit assumption that the strip in
+            # deploy.yml always removes dir + homepage together (true today). If
+            # a future strip refactor decoupled them, a dir-only check would skip
+            # rehydrate while `/{loc}` stayed missing → locale homepage 404 = SEO
+            # loss. Verifying both decouples the guard from that assumption (#1607).
+            if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
+              echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
               continue
             fi
             tmp="$RUNNER_TEMP/rehydrate-$loc"
@@ -222,6 +229,12 @@ jobs:
             git clone --depth 1 --single-branch --branch main \
               "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
             [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
+            # Remove any partial pre-existing dir first: with the dir+homepage
+            # guard above, we can reach here with `dist/$loc` already present
+            # (dir kept, homepage stripped). `cp -r src existing-dir` would nest
+            # as `dist/$loc/$loc` instead of replacing — so clear it for a clean
+            # rehydrate. No-op in the common case (dir was fully stripped).
+            rm -rf "dist/$loc"
             cp -r "$tmp/$loc" "dist/$loc"
             if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
             echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
