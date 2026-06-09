@@ -23,8 +23,11 @@ const NewsletterInline = lazyRetry(() => import('@/components/community/Newslett
 const NewsletterMount = lazyRetry(() => import('@/components/community/NewsletterMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
-const WhatsNewModal = lazyRetry(() => import('@/components/community/WhatsNewModal'));
-const WhatsNewBellLazy = lazyRetry(() => import('@/components/community/WhatsNewModal').then(m => ({ default: m.WhatsNewBell })));
+// WhatsNewModal/Bell are non-critical UI; use React.lazy (not lazyRetry) so a
+// post-deploy chunk-hash miss silently degrades via SilentErrorBoundary instead
+// of calling window.location.reload() mid-flight (disrupts newsletter autologin).
+const WhatsNewModal = React.lazy(() => import('@/components/community/WhatsNewModal'));
+const WhatsNewBellLazy = React.lazy(() => import('@/components/community/WhatsNewModal').then(m => ({ default: m.WhatsNewBell })));
 
 // Lazy-loaded components — still used in secondary tabs / non-extracted sections
 const FeedbackSection = lazyRetry(() => import('@/components/community/FeedbackSection').then(m => ({ default: m.FeedbackSection })));
@@ -3411,10 +3414,12 @@ const App: React.FC = () => {
  <NewsletterPopup />
  <NewsletterMount />
  {showWhatsNew && (
+ <SilentErrorBoundary boundary="whats-new-modal">
  <WhatsNewModal
  open={showWhatsNew}
  onClose={() => setShowWhatsNew(false)}
  />
+ </SilentErrorBoundary>
  )}
  </Suspense>
  <Suspense fallback={null}>
