@@ -1,5 +1,13 @@
 # Cache headers for GitHub Pages
-# Static assets with hashed filenames — cache for 1 year
+# SPA entry has a STABLE name (assets/index-entry.js, see vite.config.ts) so the
+# ~1.28M prerendered pages don't churn on every bundle rehash. Its bytes DO change
+# per code-deploy (it imports the rotated App chunk), so it must REVALIDATE — must
+# come BEFORE the immutable /assets/* rule below (more-specific path wins).
+# (GitHub Pages ignores _headers today — Pages serves ~600s; this is honored once
+# the site moves to object storage / a CDN that reads _headers.)
+/assets/index-entry.js
+  Cache-Control: public, max-age=0, must-revalidate
+# Static assets with HASHED filenames (App-<hash>.js, *-<hash>.css, chunks) — 1 year immutable
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 

@@ -1,16 +1,16 @@
 {
   "key": "hopital-la-tour",
   "label": "Hôpital de La Tour",
-  "generatedAt": "2026-06-08T22:33:10.123Z",
-  "total": 8,
+  "generatedAt": "2026-06-09T11:34:44.563Z",
+  "total": 7,
   "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2978,
-  "avgDurationMs": 2978,
+  "durationMs": 3325,
+  "avgDurationMs": 3325,
   "durationHistory": [
-    2978
+    3325
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-au-service-des-urgences-cdm-4-mois-70",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:33:08.302Z",
+      "crawledAt": "2026-06-09T11:34:42.764Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/medecin-urgentiste-senior",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:33:08.311Z",
+      "crawledAt": "2026-06-09T11:34:42.774Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-ere-de-nuit-en-medecine-1-cdm-7-mois-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:33:08.313Z",
+      "crawledAt": "2026-06-09T11:34:42.775Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/physiotherapeute-orientee-sport-football-feminin-40-a-60-cdi-40-au-servette-fc-feminin-equipe-professionnelle",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:33:08.315Z",
+      "crawledAt": "2026-06-09T11:34:42.779Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/stagiaire-en-business-intelligence",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:33:08.317Z",
+      "crawledAt": "2026-06-09T11:34:42.781Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-de-nuit-a-lunite-cardio-pulmonaire-cdm-6-mois-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:33:08.319Z",
+      "crawledAt": "2026-06-09T11:34:42.783Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/chef.fe-de-clinique-medecin-praticien-hospitalier",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:33:08.320Z",
+      "crawledAt": "2026-06-09T11:34:42.784Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -272,15 +272,16 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "hopital-la-tour-f4e7eed9464b",
-      "slug": "trm-technicien-ne-en-radio-oncologie-radiotherapie-de-pointe-a-80-hopital-la-tour-meyrin",
+      "slug": "tecnico-a-in-radioterapia-radioterapia-avanzata-all-80-hopital-de-la-tour-meyrin",
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
       "companyDomain": "la-tour.ch",
       "title": "TRM / Technicien(ne) en radio-oncologie – Radiothérapie de pointe à 80% %",
-      "needsRetranslation": false,
       "location": "Meyrin",
       "canton": "GE",
       "url": "https://recrutement.latour.ch/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80",
@@ -302,15 +303,16 @@
       "postedDate": "2025-08-29",
       "applyUrl": "https://recrutement.latour.ch/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-80",
       "firstSeenAt": "2026-05-19T09:58:44.087Z",
-      "_qualityScore": 85,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

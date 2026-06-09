@@ -414,6 +414,18 @@ export function evaluateBfsGate({ perSitemap, baseline, tol }) {
       const curRate = row.total ? (row.atDepthGtMax / row.total * 100) : 0;
       const prevRate = Number(prev.ratePct ?? (Number(prev.total ?? 0) ? prevOff / Number(prev.total) * 100 : 0));
       const rateCap = prevRate + Math.min(prevRate * resolvedTol.relPct / 100, resolvedTol.maxDeltaPp) + resolvedTol.absPp;
+      // Denominator-shrink (corpus contraction) is INTENTIONALLY not gated here,
+      // same as the orphan-pages gate (see audit-orphan-pages-in-sitemaps.mjs).
+      // If `total` drops (pages de-indexed/removed) while `atDepthGtMax` stays
+      // flat, curRate spikes purely from the smaller denominator, but the count
+      // floor (`atDepthGtMax > prevOff + minAbsDelta`) stays false → pass. A pure
+      // shrink buries NO new URL, so it adds zero crawl-budget waste; the harm
+      // metric is the ABSOLUTE buried count, unchanged. The count floor is
+      // denominator-independent, so every REAL regression above the noise floor
+      // still fires regardless of `total` (contraction only makes the rate side
+      // MORE likely to fire). Gating a bare rate spike from contraction would
+      // deploy-block legitimate corpus shrink — a new organic false-fail, the
+      // class #1604 removed. (Verified deferred-item #3, #1605.)
       if (curRate > rateCap && row.atDepthGtMax > prevOff + resolvedTol.minAbsDelta) {
         regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest, prevRate: Number(prevRate.toFixed(3)), curRate: Number(curRate.toFixed(3)), rateCap: Number(rateCap.toFixed(3)) });
       }

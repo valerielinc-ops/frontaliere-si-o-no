@@ -12,7 +12,7 @@ import path from 'node:path';
 const BASE_URL = 'https://frontaliereticino.ch';
 
 /** Mirror the build plugin's canonicalCompanySlug logic (slugify company name, not companyKey) */
-function slugifyCompanyName(name) {
+export function slugifyCompanyName(name) {
   return String(name || '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
