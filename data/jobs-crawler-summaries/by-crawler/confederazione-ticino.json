@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-06-09T11:12:25.845Z",
+  "generatedAt": "2026-06-09T22:11:21.355Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1910,
-  "avgDurationMs": 1910,
+  "durationMs": 1805,
+  "avgDurationMs": 1805,
   "durationHistory": [
-    1910
+    1805
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -501,43 +501,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Sachbearbeiter/in",
-      "slug": "incaricato-a-confederazione-svizzera-bern",
-      "url": "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in/05ef7209-ab40-413c-bb15-e2067a01c12c",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19269",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "admin",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-04",
-      "validThrough": "2028-06-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "confederazione-ticino-4563fd5c43d5",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-04T11:38:08.926Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
