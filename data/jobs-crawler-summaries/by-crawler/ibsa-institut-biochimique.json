@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-06-09T11:39:03.317Z",
+  "generatedAt": "2026-06-09T22:32:46.155Z",
   "total": 10,
   "newCount": 10,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19025,
-  "avgDurationMs": 19025,
+  "durationMs": 22118,
+  "avgDurationMs": 22118,
   "durationHistory": [
-    19025
+    22118
   ],
   "newJobs": [
     {
@@ -36,22 +36,22 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-06-09T11:39:01.991Z",
       "firstSeenAt": "2026-06-09T11:39:01.991Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 85500,
       "salaryMax": 150000,
       "streetAddress": "Via del Piano 29",
       "postalCode": "6926",
-      "addressLocality": "All Area All Clear Apply now » Clinical Research Officer Location: Collina d'Oro",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -60,7 +60,7 @@
       "slug": "dossier-compliance-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
       "company": "IBSA Institut Biochimique",
       "title": "Dossier Compliance Specialist",
-      "location": "All Area All Clear Apply now » Dossier Compliance Specialist Location: Collina d",
+      "location": "Collina d",
       "canton": "TI",
       "category": "other",
       "contract": "internship",
@@ -85,7 +85,7 @@
       "salaryMax": 75000,
       "streetAddress": "Via del Piano 29",
       "postalCode": "6926",
-      "addressLocality": "All Area All Clear Apply now » Dossier Compliance Specialist Location: Collina d",
+      "addressLocality": "Collina d",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
