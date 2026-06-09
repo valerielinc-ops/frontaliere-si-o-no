@@ -288,6 +288,42 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
     expect(recoverTruncatedStLocality(job)).toBe('St. Niklaus');
   });
 
+  it('heals the canton-capital fallback postalCode to match the recovered locality (bosch 1950 → 3924, #1242)', () => {
+    // The crawler stamped the VS canton-capital fallback "1950" (= Sion) because
+    // "St. Niklaus" was missing from swiss-postal-codes.json. healing must rewrite
+    // the postalCode to St. Niklaus' real value (3924) so the PostalAddress is
+    // internally consistent — recovering the locality alone left it as Sion's PLZ.
+    const job = {
+      companyKey: 'bosch-thermotechnik-ag',
+      addressLocality: 'St',
+      addressRegion: 'VS',
+      postalCode: '1950',
+      slug: 'instandhaltung-ref285547a-bosch-thermotechnik-ag-st',
+      url: 'https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div',
+    };
+    const { healed } = healTruncatedStLocalities([job]);
+    expect(healed).toBe(1);
+    expect(job.addressLocality).toBe('St. Niklaus');
+    expect(job.postalCode).toBe('3924'); // not the misleading 1950 (Sion) fallback
+  });
+
+  it('does NOT rewrite a postalCode for a recovered locality whose own PLZ is correct (valens 7317)', () => {
+    // ST_LOCALITY_CANONICAL_PLZ is scoped to localities with a wrong fallback PLZ.
+    // Valens jobs already carry the correct 7317 → must be left untouched.
+    const job = {
+      companyKey: 'kliniken-valens',
+      addressLocality: 'St',
+      addressRegion: 'SG',
+      postalCode: '7317',
+      slug: 'pflegefachperson-kliniken-valens-st-gallen',
+      url: 'https://example.com/job/x',
+    };
+    const { healed } = healTruncatedStLocalities([job]);
+    expect(healed).toBe(1);
+    expect(job.addressLocality).toBe('Valens');
+    expect(job.postalCode).toBe('7317');
+  });
+
   it('defers when no signal is recoverable (no slug/url city, no override)', () => {
     const job = {
       companyKey: 'some-unknown-employer',
