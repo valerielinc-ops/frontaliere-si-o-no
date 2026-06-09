@@ -113,6 +113,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.hotel-flaz-pontresina-2028.title': 'Hôtel Flaz',
     'blog.article.hotel-flaz-pontresina-2028.excerpt': 'Le nouvel hôtel trois étoiles supérieur à Pontresina ouvrira lors de la saison hivernale 2028/2029 avec 176 places. Il investit 25 millions de francs et créé de nouveaux espaces.',
     'blog.article.hotel-flaz-pontresina-2028.imageAlt': 'Neuf hôtel Flaz à Pontresina, Engadina, avec façade moderne et détails élégants face à un paysage enneigé.',
+    'blog.article.carenza-manodopera-gr-2024.title': 'Pénurie de main-d\'œuvre dans le Grisons : impact sur les entreprises',
+    'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % des entreprises grisonnes signalent de graves difficultés à trouver du personnel qualifié, tandis que 75 % évaluent leur situation économique bonne ou très bonne.',
+    'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Vue alpine des Grisons avec villages traditionnels et zones industrielles',
 };
 
 export default blogMetaChFr;

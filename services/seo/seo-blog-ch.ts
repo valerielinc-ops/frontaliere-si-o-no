@@ -1385,6 +1385,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carenza-manodopera-gr-2024': {
+    title: 'Carenza di manodopera in Graubünden: impatto sulle imprese',
+    description: 'Scopri come il 44% delle aziende grigionesi segnala difficoltà nella ricerca di personale qualificato e quali sono le sfide territoriali e burocratiche per il',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenza, manodopera, graubünden, impatto',
+    ogTitle: 'Carenza di manodopera in Graubünden: impatto sulle imprese',
+    ogDescription: 'Il 44% delle aziende grigionesi segnala difficoltà nella ricerca di personale qualificato; analisi delle cause e delle possibili soluzioni.',
+    canonicalPath: '/articoli-svizzera/carenza-manodopera-gr-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenza di manodopera in Graubünden: impatto sulle imprese",
+      "description": "Scopri come il 44% delle aziende grigionesi segnala difficoltà nella ricerca di personale qualificato e quali sono le sfide territoriali e burocratiche per il",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carenza-manodopera-gr-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta alpina dei Grigioni con villaggi tradizionali e aree industriali"
+      },
+      "datePublished": "2026-06-09T03:11:29+00:00",
+      "dateModified": "2026-06-09T03:11:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carenza-manodopera-gr-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

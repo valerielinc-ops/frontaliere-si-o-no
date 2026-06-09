@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2764,
+ "numberOfItems": 2765,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7404,7 +7404,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2761, "name": "Ritmi insostenibili e pressione sui lavoratori ...", "url": `${BASE_URL}/articoli-frontaliere/ritmi-insostenibili-logistica-dpd` },
           { "@type": "ListItem", "position": 2762, "name": "Consuntivo finanze cantonali Ticino 2025: criti...", "url": `${BASE_URL}/articoli-frontaliere/finanze-ticino-consuntivo` },
           { "@type": "ListItem", "position": 2763, "name": "Inizio lavori Hotel Flaz, Pontresina: 25 milion...", "url": `${BASE_URL}/articoli-frontaliere/hotel-flaz-pontresina-2028` },
-          { "@type": "ListItem", "position": 2764, "name": "Lavoretti estivi, ecco le regole da conoscere", "url": `${BASE_URL}/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere` }
+          { "@type": "ListItem", "position": 2764, "name": "Lavoretti estivi, ecco le regole da conoscere", "url": `${BASE_URL}/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere` },
+          { "@type": "ListItem", "position": 2765, "name": "Carenza di manodopera in Graubünden: impatto su...", "url": `${BASE_URL}/articoli-frontaliere/carenza-manodopera-gr-2024` }
  ]
  },
  {
