@@ -276,7 +276,7 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
     expect(recoverTruncatedStLocality(job)).toBeNull();
   });
 
-  it('defers when no signal is recoverable (no slug/url city, no override)', () => {
+  it('recovers via PLZ override when slug/url carry no city token (bosch 1950 → St. Niklaus, #1242)', () => {
     const job = {
       companyKey: 'bosch-thermotechnik-ag',
       addressLocality: 'St',
@@ -284,6 +284,54 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
       postalCode: '1950',
       slug: 'instandhaltung-ref285547a-bosch-thermotechnik-ag-st',
       url: 'https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div',
+    };
+    expect(recoverTruncatedStLocality(job)).toBe('St. Niklaus');
+  });
+
+  it('heals the canton-capital fallback postalCode to match the recovered locality (bosch 1950 → 3924, #1242)', () => {
+    // The crawler stamped the VS canton-capital fallback "1950" (= Sion) because
+    // "St. Niklaus" was missing from swiss-postal-codes.json. healing must rewrite
+    // the postalCode to St. Niklaus' real value (3924) so the PostalAddress is
+    // internally consistent — recovering the locality alone left it as Sion's PLZ.
+    const job = {
+      companyKey: 'bosch-thermotechnik-ag',
+      addressLocality: 'St',
+      addressRegion: 'VS',
+      postalCode: '1950',
+      slug: 'instandhaltung-ref285547a-bosch-thermotechnik-ag-st',
+      url: 'https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div',
+    };
+    const { healed } = healTruncatedStLocalities([job]);
+    expect(healed).toBe(1);
+    expect(job.addressLocality).toBe('St. Niklaus');
+    expect(job.postalCode).toBe('3924'); // not the misleading 1950 (Sion) fallback
+  });
+
+  it('does NOT rewrite a postalCode for a recovered locality whose own PLZ is correct (valens 7317)', () => {
+    // ST_LOCALITY_CANONICAL_PLZ is scoped to localities with a wrong fallback PLZ.
+    // Valens jobs already carry the correct 7317 → must be left untouched.
+    const job = {
+      companyKey: 'kliniken-valens',
+      addressLocality: 'St',
+      addressRegion: 'SG',
+      postalCode: '7317',
+      slug: 'pflegefachperson-kliniken-valens-st-gallen',
+      url: 'https://example.com/job/x',
+    };
+    const { healed } = healTruncatedStLocalities([job]);
+    expect(healed).toBe(1);
+    expect(job.addressLocality).toBe('Valens');
+    expect(job.postalCode).toBe('7317');
+  });
+
+  it('defers when no signal is recoverable (no slug/url city, no override)', () => {
+    const job = {
+      companyKey: 'some-unknown-employer',
+      addressLocality: 'St',
+      addressRegion: 'VS',
+      postalCode: '1950',
+      slug: 'irgendein-job-some-unknown-employer-st',
+      url: 'https://example.com/job/REF000000A-irgendein-job',
     };
     expect(recoverTruncatedStLocality(job)).toBeNull();
   });
@@ -332,11 +380,12 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
         }
       }
     }
-    // bosch + pwc are knowingly deferred (no recoverable per-job signal), tracked
-    // in the PR's "Non implementato". kliniken-valens was healed by the #1199
-    // rebaseline (PLZ override 7317 → Valens, issue #1180) — its slice no longer
-    // emits a bare "St", so it is held to the invariant like any other crawler.
-    const KNOWN_DEFERRED = /^(bosch-thermotechnik-ag|pwc)\.json:/;
+    // pwc is knowingly deferred (no recoverable per-job signal), tracked in the
+    // PR's "Non implementato". kliniken-valens was healed by the #1199 rebaseline
+    // (PLZ override 7317 → Valens, issue #1180); bosch-thermotechnik-ag was healed
+    // by the #1242 PLZ override (1950 → St. Niklaus) — both slices no longer emit a
+    // bare "St", so they are held to the invariant like any other crawler.
+    const KNOWN_DEFERRED = /^(pwc)\.json:/;
     const unexpected = offenders.filter((o) => !KNOWN_DEFERRED.test(o));
     expect(unexpected).toEqual([]);
   });
