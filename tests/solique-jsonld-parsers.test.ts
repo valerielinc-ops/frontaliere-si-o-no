@@ -100,6 +100,35 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
     expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
   });
 
+  it('warns when the id source is renamed (`title.id`→`title.uid`) even with value+link intact (re-review sub-case)', () => {
+    // The parser needs an id from `title.id` || top-level `id` (L191); a rename
+    // to `title.uid` → `id=''` → every row `continue` → 0 jobs. The guard must
+    // mirror the parser predicate (id source present) and fire, not stay silent.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { uid: '999', value: 'Real Title' }, link: 'jobs/x--999' }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
+  });
+
+  it('does NOT warn on a valid row missing `link` (link is optional — fallback URL)', () => {
+    // A row with id + title.value but no `link` is legitimate (L199 falls back
+    // to `jobs/--{id}`); it must parse without a false row-shape warn.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: 'No Link Job', id: '777' }, location: { value: 'Bern' } }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({ id: '777', detailUrl: 'https://live.solique.ch/ipw/de/jobs/--777' });
+    expect(warn).not.toHaveBeenCalled();
+  });
+
   it('warns on a heterogeneous array — valid head, drifted tail (scans all rows)', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const rows = parseSoliqueApiListing(
@@ -129,6 +158,19 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
   it('does NOT warn on a genuinely empty board (valid envelope, zero openings)', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     expect(parseSoliqueApiListing({ jobs: [] }, 'ipw', 'de')).toHaveLength(0);
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('does NOT warn on an all-placeholder board (empty title.value, no link)', () => {
+    // Placeholder rows are a known, intentional Solique pattern (skipped at
+    // L193) — well-formed shape, just an empty value. Must not false-warn.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: '', id: '1' } }, { title: { value: '', id: '2' } }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(0);
     expect(warn).not.toHaveBeenCalled();
   });
 
