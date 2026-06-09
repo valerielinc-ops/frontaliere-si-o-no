@@ -16,8 +16,33 @@ import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
+import { getPublicConfigValues } from './src/publicConfig.js';
 
 ensureAdminApp();
+
+// Browser-safe Remote Config: returns ONLY the allowlisted client params
+// (see functions/src/publicConfig.js) so the full RC template — with all server
+// secrets — never reaches the browser. Cached at the edge; fails open to the
+// client's built-in defaults.
+export const getPublicConfig = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ try {
+ const config = await getPublicConfigValues();
+ res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
+ res.status(200).json(config);
+ } catch (error) {
+ console.error('[getPublicConfig]', error instanceof Error ? error.message : String(error));
+ // Fail open: empty object → client uses its built-in defaults.
+ res.status(200).json({});
+ }
+ },
+);
 
 export const newsletterResendWebhook = onRequest(
  {
