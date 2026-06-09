@@ -158,7 +158,9 @@ export function parseEpflSearchPage(html = '') {
   if (!html) return out;
 
   // Match every job-title anchor: href="/job/<slug>/<id>/" plus inner text.
-  const anchorRe = /<a[^>]+href="(\/job\/[^"]+\/(\d+)\/)"[^>]*class="[^"]*jobTitle-link[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
+  // Assert the class via a zero-width lookahead so `href`/`class` can appear in
+  // either attribute order (an SF skin reorder must not zero-match → 0 jobs).
+  const anchorRe = /<a(?=[^>]*class="[^"]*jobTitle-link[^"]*")[^>]*href="(\/job\/[^"]+\/(\d+)\/)"[^>]*>([\s\S]*?)<\/a>/gi;
   const seen = new Set();
   let m;
   while ((m = anchorRe.exec(html)) !== null) {

@@ -171,6 +171,24 @@ describe('Hirslanden Klinik crawler parser', () => {
       expect(jobs[0].url).toContain('/Hirslanden/job/');
     });
 
+    it('matches tile anchors regardless of class/href attribute order', () => {
+      // A future SF skin could emit `href` before `class`; the lookahead-based
+      // linkRe must not depend on `class` preceding `href` (would zero-match).
+      const html = `
+        <div class="job-row">
+          <a data-focus-tile=".job-id-555" href="/Hirslanden/job/Some-Role-Bern-3000/555/"
+             class="jobTitle-link fontcolorc63bfd23">
+             Fachperson Operationstechnik (a) 100%
+          </a>
+          <div id="job-555-desktop-section-customfield5-value">Bern</div>
+        </div>`;
+      const jobs = parseSearchResults(html);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].jobId).toBe('555');
+      expect(jobs[0].title).toContain('Operationstechnik');
+      expect(jobs[0].location).toBe('Bern');
+    });
+
     it('returns empty array for HTML with no job links', () => {
       expect(parseSearchResults('<div>Keine Ergebnisse</div>')).toEqual([]);
       expect(parseSearchResults('')).toEqual([]);

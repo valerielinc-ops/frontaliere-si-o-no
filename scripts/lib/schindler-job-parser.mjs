@@ -214,8 +214,10 @@ export function parseSearchResults(html) {
   // Match anchors to detail pages across any tenant under job.schindler.com.
   // Pattern: /{Tenant}/job/{slug}/{jobId}/
   // We only care about ones whose anchor has class jobTitle-link to avoid
-  // matching breadcrumb / unrelated links.
-  const anchorRe = /<a[^>]+class="[^"]*jobTitle-link[^"]*"[^>]+href="(\/([A-Za-z_][A-Za-z0-9_]*)\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // matching breadcrumb / unrelated links. Assert the class via a zero-width
+  // lookahead so `class`/`href` can appear in either attribute order (an SF
+  // skin reorder must not zero-match → 0 jobs).
+  const anchorRe = /<a(?=[^>]*class="[^"]*jobTitle-link[^"]*")[^>]*href="(\/([A-Za-z_][A-Za-z0-9_]*)\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = anchorRe.exec(html)) !== null) {
     const relUrl = m[1].replace(/&amp;/g, '&');
