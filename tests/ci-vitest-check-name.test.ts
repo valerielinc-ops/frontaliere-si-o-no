@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 // @ts-expect-error — modulo .mjs senza tipi
 import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
@@ -48,5 +48,27 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
         `${name} usa ancora il literal hardcoded in jq invece della const`,
       ).toBe(false);
     }
+  });
+
+  // Generalizzazione (feedback backlog-agent #3): non solo i 2 consumer noti —
+  // NESSUN nuovo script sotto scripts/ci/ deve reintrodurre il literal. Coglie
+  // un futuro helper che copia-incolla "vitest (unit + integration)" invece di
+  // importare la const, all'author-time invece che in una follow-up issue.
+  it('nessuno script in scripts/ci/ hardcoda il literal vitest check-name (oltre constants.mjs)', () => {
+    const CI_DIR = resolve(ROOT, 'scripts/ci');
+    // Comment-aware: il literal nei docstring/commenti (es. che DESCRIVONO il
+    // check name) è legittimo — solo l'uso ESEGUIBILE è drift. Salta le righe
+    // che sono commenti (`//`, `*`, `/*`).
+    const isCommentLine = (l: string) => /^\s*(\/\/|\*|\/\*)/.test(l);
+    const offenders: string[] = [];
+    for (const entry of readdirSync(CI_DIR, { recursive: true, encoding: 'utf-8' })) {
+      if (!entry.endsWith('.mjs')) continue;
+      if (entry.replace(/\\/g, '/').endsWith('lib/constants.mjs')) continue; // la source-of-truth
+      const src = readFileSync(resolve(CI_DIR, entry), 'utf-8');
+      const hit = src.split('\n').some((l) => l.includes('vitest (unit + integration)') && !isCommentLine(l));
+      if (hit) offenders.push(entry);
+    }
+    expect(offenders, `script con literal hardcoded ESEGUIBILE (devono importare VITEST_CHECK_NAME): ${offenders.join(', ')}`)
+      .toEqual([]);
   });
 });
