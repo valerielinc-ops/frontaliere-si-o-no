@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-08T22:24:38.108Z",
+  "generatedAt": "2026-06-09T11:25:18.740Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1771,
-  "avgDurationMs": 1771,
+  "durationMs": 1731,
+  "avgDurationMs": 1731,
   "durationHistory": [
-    1771
+    1731
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -230,50 +230,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Application Owner - Banking - Corporate Actions",
-      "slug": "proprietario-dell-applicazione-banche-azioni-aziendali-fincons-group-lugano",
-      "url": "https://fincons.applytojob.com/apply/hroHNXSxp7/Application-Owner-Banking-Corporate-Actions",
-      "applyUrl": "https://fincons.applytojob.com/apply/hroHNXSxp7/Application-Owner-Banking-Corporate-Actions",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-03-24",
-      "validThrough": "2026-06-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260324085611_ZWB0MJ3SEYAMSCCD",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": "Lugano"
-      },
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "id": "fincons-group-b7ddb70a41e1",
-      "firstSeenAt": "2026-04-13T21:41:31.727Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
