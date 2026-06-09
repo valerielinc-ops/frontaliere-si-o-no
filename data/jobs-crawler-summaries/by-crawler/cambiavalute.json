@@ -1,22 +1,91 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-06-09T11:07:49.814Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-06-09T22:05:43.194Z",
+  "total": 4,
+  "newCount": 2,
   "updatedCount": 1,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 157615,
-  "avgDurationMs": 157615,
+  "durationMs": 92922,
+  "avgDurationMs": 92922,
   "durationHistory": [
-    157615
+    92922
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-viaqie",
+      "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi",
+      "company": "CambiaValute.ch",
+      "title": "Legal & Compliance Officer",
+      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-06-09T22:05:42.257Z",
+      "firstSeenAt": "2026-06-09T22:05:42.257Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 2,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-a24znt",
+      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
+      "company": "CambiaValute.ch",
+      "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
+      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-06-09T22:05:42.257Z",
+      "firstSeenAt": "2026-06-09T22:05:42.257Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-fooban",
-      "slug": "assistente-sales-marketing-customer-support-mercato-tedesco-cambiavalute-ch-ticino",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
       "location": "Ticino",
@@ -56,90 +125,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-viaqie",
-      "slug": "responsabile-legale-e-di-conformita-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi-viaqie",
-      "company": "CambiaValute.ch",
-      "title": "Legal & Compliance Officer",
-      "location": "2026 CambiaValute",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-06-05T07:22:32.187Z",
-      "firstSeenAt": "2026-06-05T07:22:32.187Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "streetAddress": "Via Pessina 6",
-      "postalCode": "6900",
-      "addressLocality": "2026 CambiaValute",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-a24znt",
-      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
-      "company": "CambiaValute.ch",
-      "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
-      "location": "Ticino",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-04-24T09:46:25.778Z",
-      "firstSeenAt": "2026-04-24T09:46:25.778Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Pessina 6",
-      "postalCode": "6900",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-kbhp6",
