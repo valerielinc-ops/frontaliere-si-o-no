@@ -68,8 +68,11 @@
  *   --rebaseline        Overwrite data/orphan-pages-baseline.json from this
  *                       run. Use after a deliberate improvement.
  *   --gate=baseline     Compare current run to baseline; exit 1 if any
- *                       sitemap orphan count is HIGHER than baseline. Mode A
- *                       only.
+ *                       sitemap's orphan RATE (orphans/total) regresses beyond
+ *                       tolerance AND its orphan count grows by >minAbsDelta.
+ *                       Sitemaps absent from the baseline are logged but never
+ *                       fail. Organic URL growth at a flat orphan rate passes.
+ *                       Mode A only.
  */
 
 import { readdir, readFile, stat, writeFile, access } from 'node:fs/promises';
@@ -626,32 +629,75 @@ async function readBaseline() {
   }
 }
 
+// Rate-ratchet tolerance — IDENTICAL shape + defaults to the bfs-depth gate
+// (DEFAULT_BFS_TOL). relPct/maxDeltaPp bound the relative slack, absPp the
+// absolute slack, minAbsDelta the count floor below which a rate wobble is
+// noise. maxDeltaPp caps the relative term so a sitemap already deeply
+// orphaned can't silently absorb a huge absolute regression.
+export const DEFAULT_ORPHAN_TOL = { relPct: 15, absPp: 5, minAbsDelta: 20, maxDeltaPp: 8 };
+
+const orphanRatePct = (orphans, total) => (total ? (orphans / total) * 100 : 0);
+
 /**
- * Compare current run against baseline. Returns:
- *   { regressed: bool, regressions: Array<{ sitemap, prev, current, newOrphans }> }
- * Where `newOrphans` is up to 10 paths present in `current` but not in
- * `baseline` for that sitemap (best-effort: when baseline doesn't carry the
- * full orphan list — which it shouldn't, to keep file size sane — we fall
- * back to listing the current-run examples).
+ * Compare current run against baseline — RATE-BASED ratchet.
+ *
+ * A sitemap regresses only when its orphan SHARE (orphans/total) worsens
+ * beyond tolerance AND its absolute orphan count grows by more than
+ * minAbsDelta. Organic URL growth (orphans + total rising in lockstep) keeps
+ * the rate flat → no regression. This replaces the old absolute-count ratchet
+ * (`row.orphans > prev.orphans`), which false-failed every time the corpus
+ * grew — e.g. sitemap-jobs went 1039/2409 (43%) → 1046/8721 (12%): +7 orphans
+ * tripped the count gate even though the orphan share dropped 31pp. Same fix
+ * the bfs-depth gate already shipped (see data/bfs-depth-baseline.json
+ * _comment + evaluateBfsGate).
+ *
+ * Returns:
+ *   { regressed, regressions, unbaselined }
+ * where `newOrphans` surfaces paths present now but not in the baseline
+ * examples (best-effort; falls back to the current full list) so the CI log
+ * carries every offending URL — diagnosing without the dist artifact is
+ * non-negotiable. Sitemaps absent from the baseline are collected in
+ * `unbaselined` (informational only — they never fail the gate, matching the
+ * pre-migration behaviour of skipping unbaselined sitemaps; a fresh rebaseline
+ * folds them in so the rate ratchet then guards them).
  */
-function compareAgainstBaseline(current, baseline, perSitemapInMemory) {
-  if (!baseline) return { regressed: false, regressions: [] };
+function compareAgainstBaseline(current, baseline, perSitemapInMemory, tol) {
+  if (!baseline) return { regressed: false, regressions: [], unbaselined: [] };
+  const resolvedTol = { ...DEFAULT_ORPHAN_TOL, ...(tol ?? baseline.tolerance ?? {}) };
   const regressions = [];
+  const unbaselined = [];
   for (const [name, row] of Object.entries(current.perSitemap)) {
+    const curRate = orphanRatePct(row.orphans, row.total);
     const prev = baseline.perSitemap?.[name];
-    if (!prev) continue;
-    if (row.orphans > prev.orphans) {
+    if (!prev) {
+      unbaselined.push({ sitemap: name, orphans: row.orphans, total: row.total, ratePct: Number(curRate.toFixed(2)) });
+      continue;
+    }
+    // Derive prevRate from the stored ratePct (v2 baseline) or fall back to
+    // recomputing from prev.total/orphans (v1 baseline carried both).
+    const prevRate = Number(prev.ratePct ?? orphanRatePct(prev.orphans, prev.total));
+    const rateCap = prevRate + Math.min(prevRate * resolvedTol.relPct / 100, resolvedTol.maxDeltaPp) + resolvedTol.absPp;
+    if (curRate > rateCap && row.orphans > prev.orphans + resolvedTol.minAbsDelta) {
       const baselineExamplesSet = new Set(prev.examples || []);
-      // Prefer the in-memory full list (orphansList) over the capped examples
-      // so the CI log carries every offending URL — diagnosing without the
-      // dist artifact is non-negotiable.
       const fullList = perSitemapInMemory?.[name]?.orphansList || row.examples || [];
       const newOrphans = fullList.filter((u) => !baselineExamplesSet.has(u));
       const surfaced = newOrphans.length > 0 ? newOrphans : fullList;
-      regressions.push({ sitemap: name, prev: prev.orphans, current: row.orphans, newOrphans: surfaced });
+      regressions.push({
+        sitemap: name,
+        prev: prev.orphans,
+        current: row.orphans,
+        prevRate: Number(prevRate.toFixed(2)),
+        curRate: Number(curRate.toFixed(2)),
+        rateCap: Number(rateCap.toFixed(2)),
+        newOrphans: surfaced,
+      });
     }
   }
-  return { regressed: regressions.length > 0, regressions };
+  return {
+    regressed: regressions.length > 0,
+    regressions,
+    unbaselined,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -701,12 +747,16 @@ async function main() {
     perSitemapForOutput[name] = {
       total: row.total,
       orphans: row.orphans,
+      // ratePct is what the rate-ratchet gates on, so organic URL growth
+      // (which adds orphans AND total in lockstep) keeps the rate flat
+      // instead of false-failing the build.
+      ratePct: row.total ? Number(((row.orphans / row.total) * 100).toFixed(4)) : 0,
       examples: row.examples,
     };
   }
 
   const json = {
-    version: 1,
+    version: 2,
     generatedAt: new Date().toISOString(),
     mode,
     totalSitemapUrls: report.totalSitemapUrls,
@@ -736,7 +786,7 @@ async function main() {
   const _writeOrphanReport = (passed, baselineDelta) => writeAuditReport({
     audit: 'orphan-sitemap-pages',
     passed,
-    threshold: { metric: 'count', value: 0, comparator: '<=baseline' },
+    threshold: { metric: 'rate', value: 0, comparator: '<=baselineRate+tol' },
     baselineFile: relBaseline(BASELINE_PATH),
     baselineDelta,
     offenders: _flatOrphans,
@@ -755,10 +805,11 @@ async function main() {
     const cmp = compareAgainstBaseline(json, existing, report.perSitemap);
     if (cmp.regressed) {
       const lines = [];
-      lines.push('[gate] REGRESSION — orphan-pages-in-sitemaps');
+      lines.push('[gate] REGRESSION — orphan-pages-in-sitemaps (rate ratchet)');
       for (const r of cmp.regressions) {
         lines.push(
-          `  ${r.sitemap}: baseline=${r.prev} → current=${r.current} (+${r.current - r.prev})`,
+          `  ${r.sitemap}: orphan-rate ${r.prevRate}% → ${r.curRate}% (cap ${r.rateCap}%), ` +
+            `count ${r.prev} → ${r.current} (+${r.current - r.prev})`,
         );
         for (const u of r.newOrphans) lines.push(`    - ${u}`);
       }
@@ -769,14 +820,53 @@ async function main() {
       await _writeOrphanReport(false, { before: prevTotal, after: currTotal, regression: currTotal - prevTotal });
       process.exit(1);
     }
-    process.stderr.write('[gate] OK — no regression\n');
+    // Surface (non-failing) any unbaselined sitemaps so a new shard's orphan
+    // rate is visible in the log. These never fail the gate — a fresh
+    // rebaseline folds them in, after which the rate ratchet guards them.
+    if (cmp.unbaselined.length > 0) {
+      const u = cmp.unbaselined
+        .filter((s) => s.orphans > 0)
+        .sort((a, b) => b.ratePct - a.ratePct);
+      if (u.length > 0) {
+        process.stderr.write(
+          '[gate] note — sitemaps not in baseline (informational):\n' +
+            u.map((s) => `  ${s.sitemap}: ${s.orphans}/${s.total} (${s.ratePct}%)`).join('\n') +
+            '\n',
+        );
+      }
+    }
+    process.stderr.write('[gate] OK — no rate regression\n');
     printTable(report, mode);
     await _writeOrphanReport(true, null);
     return;
   }
 
   if (REBASELINE || !existing) {
-    await writeFile(BASELINE_PATH, JSON.stringify(json, null, 2) + '\n', 'utf8');
+    // v2 rate baseline: carries per-sitemap ratePct + the tolerance the gate
+    // reads, so the ratchet survives organic growth. Shape mirrors
+    // data/bfs-depth-baseline.json.
+    const baselineJson = {
+      version: 2,
+      mode: 'rate',
+      generatedAt: json.generatedAt,
+      scanMode: mode,
+      totalSitemapUrls: report.totalSitemapUrls,
+      totalOrphans: report.totalOrphans,
+      tolerance: DEFAULT_ORPHAN_TOL,
+      perSitemap: perSitemapForOutput,
+      _comment:
+        'Rate-based baseline for audit-orphan-pages-in-sitemaps.mjs. The gate ' +
+        'tracks each sitemap\'s orphan SHARE (orphans/total), not the absolute ' +
+        'count, so organic URL growth at a flat orphan rate does NOT fail the ' +
+        'build. A sitemap fails only when its rate exceeds baseRate*(1+relPct/100)+' +
+        'absPp (capped by maxDeltaPp) AND its orphan count grows by more than ' +
+        'minAbsDelta — a real internal-link regression burying previously-linked ' +
+        'URLs. Sitemaps absent from the baseline are logged but never fail the ' +
+        'gate; a fresh rebaseline folds them in so the rate ratchet then guards ' +
+        'them. Fix orphans via internal links from a hub, never noindex. ' +
+        'Rates must only DECREASE going forward (modulo tolerance).',
+    };
+    await writeFile(BASELINE_PATH, JSON.stringify(baselineJson, null, 2) + '\n', 'utf8');
     process.stderr.write(
       `[audit] ${REBASELINE ? 'Rebaselined' : 'Seeded baseline'} → ${relative(ROOT, BASELINE_PATH)}\n`,
     );
@@ -818,4 +908,5 @@ export const __test = {
   resolvePathToDistFile,
   compareAgainstBaseline,
   distHasEnoughHtml,
+  DEFAULT_ORPHAN_TOL,
 };

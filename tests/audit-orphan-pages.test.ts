@@ -28,9 +28,28 @@ interface AuditTestExports {
   normaliseInternalPath: (href: string) => string | null;
   resolvePathToDistFile: (distRoot: string, path: string) => Promise<string | null>;
   compareAgainstBaseline: (
-    current: { perSitemap: Record<string, { orphans: number; examples: string[] }> },
-    baseline: { perSitemap: Record<string, { orphans: number; examples: string[] }> } | null,
-  ) => { regressed: boolean; regressions: Array<{ sitemap: string; prev: number; current: number; newOrphans: string[] }> };
+    current: { perSitemap: Record<string, { orphans: number; total?: number; examples?: string[] }> },
+    baseline:
+      | {
+          tolerance?: { relPct: number; absPp: number; minAbsDelta: number; maxDeltaPp: number };
+          perSitemap: Record<string, { orphans: number; total?: number; ratePct?: number; examples?: string[] }>;
+        }
+      | null,
+    perSitemapInMemory?: Record<string, { orphansList?: string[] }>,
+    tol?: { relPct: number; absPp: number; minAbsDelta: number; maxDeltaPp: number },
+  ) => {
+    regressed: boolean;
+    regressions: Array<{
+      sitemap: string;
+      prev: number;
+      current: number;
+      prevRate: number;
+      curRate: number;
+      rateCap: number;
+      newOrphans: string[];
+    }>;
+    unbaselined: Array<{ sitemap: string; orphans: number; total: number; ratePct: number }>;
+  };
   distHasEnoughHtml: (distRoot: string) => Promise<boolean>;
 }
 
@@ -179,46 +198,112 @@ describe('audit-orphan-pages: extractors and helpers', () => {
   });
 });
 
-describe('audit-orphan-pages: --gate=baseline', () => {
-  it('compareAgainstBaseline flags regressions only when count is higher', async () => {
+describe('audit-orphan-pages: --gate=baseline (rate ratchet)', () => {
+  it('does NOT regress on organic growth — orphan count rises but the rate falls', async () => {
+    // The real-world false-fail this migration fixes: sitemap-jobs grew
+    // 1039/2409 (43%) → 1046/8721 (12%). +7 orphans tripped the old
+    // absolute-count gate even though the orphan SHARE dropped 31pp.
     const { compareAgainstBaseline } = await loadHelpers();
     const baseline = {
       perSitemap: {
-        'sitemap-blog.xml': { orphans: 100, examples: ['https://x/a', 'https://x/b'] },
-        'sitemap-jobs.xml': { orphans: 50, examples: [] },
+        'sitemap-jobs.xml': { total: 2409, orphans: 1039, ratePct: 43.13, examples: [] },
       },
     };
     const current = {
       perSitemap: {
-        'sitemap-blog.xml': { orphans: 105, examples: ['https://x/a', 'https://x/c', 'https://x/d'] },
-        'sitemap-jobs.xml': { orphans: 40, examples: [] },
+        'sitemap-jobs.xml': { total: 8721, orphans: 1046, examples: [] },
+      },
+    };
+    const cmp = compareAgainstBaseline(current, baseline);
+    expect(cmp.regressed).toBe(false);
+    expect(cmp.regressions).toHaveLength(0);
+  });
+
+  it('regresses when the orphan RATE spikes beyond tolerance AND count grows past the floor', async () => {
+    const { compareAgainstBaseline } = await loadHelpers();
+    const baseline = {
+      perSitemap: {
+        'sitemap-blog.xml': { total: 1000, orphans: 100, ratePct: 10, examples: ['https://x/a'] },
+      },
+    };
+    const current = {
+      perSitemap: {
+        'sitemap-blog.xml': { total: 1000, orphans: 300, examples: ['https://x/a', 'https://x/c', 'https://x/d'] },
       },
     };
     const cmp = compareAgainstBaseline(current, baseline);
     expect(cmp.regressed).toBe(true);
     expect(cmp.regressions).toHaveLength(1);
     expect(cmp.regressions[0]?.sitemap).toBe('sitemap-blog.xml');
-    expect(cmp.regressions[0]?.prev).toBe(100);
-    expect(cmp.regressions[0]?.current).toBe(105);
-    // newOrphans should surface the items not in baseline examples
+    expect(cmp.regressions[0]?.curRate).toBe(30);
+    // newOrphans surfaces items not present in the baseline examples
     expect(cmp.regressions[0]?.newOrphans).toEqual(['https://x/c', 'https://x/d']);
   });
 
-  it('compareAgainstBaseline returns no regression when counts are flat or lower', async () => {
+  it('does NOT regress when the rate worsens slightly but stays within tolerance', async () => {
     const { compareAgainstBaseline } = await loadHelpers();
     const baseline = {
-      perSitemap: { 'sitemap-blog.xml': { orphans: 100, examples: [] } },
+      perSitemap: { 'sitemap-blog.xml': { total: 1000, orphans: 100, ratePct: 10, examples: [] } },
+    };
+    // 100 → 130 orphans, rate 10% → 13%. Cap = 10 + min(1.5, 8) + 5 = 16.5%.
+    // 13% < 16.5% → within tolerance even though +30 count > minAbsDelta.
+    const cmp = compareAgainstBaseline(
+      { perSitemap: { 'sitemap-blog.xml': { total: 1000, orphans: 130, examples: [] } } },
+      baseline,
+    );
+    expect(cmp.regressed).toBe(false);
+  });
+
+  it('does NOT regress on a small count bump below minAbsDelta even if the rate ticks up', async () => {
+    const { compareAgainstBaseline } = await loadHelpers();
+    const baseline = {
+      perSitemap: { 'sitemap-pages.xml': { total: 100, orphans: 10, ratePct: 10, examples: [] } },
+    };
+    // 10 → 25 orphans on a flat total: rate 25% > cap 16.5%, BUT +15 < minAbsDelta(20).
+    const cmp = compareAgainstBaseline(
+      { perSitemap: { 'sitemap-pages.xml': { total: 100, orphans: 25, examples: [] } } },
+      baseline,
+    );
+    expect(cmp.regressed).toBe(false);
+  });
+
+  it('returns no regression when counts are flat or lower', async () => {
+    const { compareAgainstBaseline } = await loadHelpers();
+    const baseline = {
+      perSitemap: { 'sitemap-blog.xml': { total: 1000, orphans: 100, ratePct: 10, examples: [] } },
     };
     const flat = compareAgainstBaseline(
-      { perSitemap: { 'sitemap-blog.xml': { orphans: 100, examples: [] } } },
+      { perSitemap: { 'sitemap-blog.xml': { total: 1000, orphans: 100, examples: [] } } },
       baseline,
     );
     expect(flat.regressed).toBe(false);
     const lower = compareAgainstBaseline(
-      { perSitemap: { 'sitemap-blog.xml': { orphans: 50, examples: [] } } },
+      { perSitemap: { 'sitemap-blog.xml': { total: 1000, orphans: 50, examples: [] } } },
       baseline,
     );
     expect(lower.regressed).toBe(false);
+  });
+
+  it('never fails on a sitemap absent from the baseline — only records it as unbaselined', async () => {
+    // Pre-migration the gate skipped unbaselined sitemaps entirely. The rate
+    // migration preserves that: a brand-new sitemap (even 100% orphaned) is
+    // surfaced for the log but does NOT fail the build — a fresh rebaseline
+    // folds it in, after which the rate ratchet guards it. Avoids turning a
+    // pre-existing tolerated condition (e.g. sitemap-comuni-frontiera at ~95%
+    // orphaned, already accepted by the bfs-depth baseline) into a deploy block.
+    const { compareAgainstBaseline } = await loadHelpers();
+    const baseline = {
+      perSitemap: { 'sitemap-blog.xml': { total: 1000, orphans: 100, ratePct: 10, examples: [] } },
+    };
+    const cmp = compareAgainstBaseline(
+      { perSitemap: { 'sitemap-new-shard.xml': { total: 320, orphans: 304, examples: [] } } },
+      baseline,
+    );
+    expect(cmp.regressed).toBe(false);
+    expect(cmp.regressions).toHaveLength(0);
+    expect(cmp.unbaselined).toHaveLength(1);
+    expect(cmp.unbaselined[0]?.sitemap).toBe('sitemap-new-shard.xml');
+    expect(cmp.unbaselined[0]?.ratePct).toBe(95);
   });
 
   it('script exits 1 when --gate=baseline runs in Mode B (no dist/)', async () => {
