@@ -1,18 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-06-09T11:50:19.482Z",
+  "generatedAt": "2026-06-09T22:44:12.662Z",
   "total": 12,
-  "newCount": 2,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22736,
-  "avgDurationMs": 22736,
+  "durationMs": 10931,
+  "avgDurationMs": 10931,
   "durationHistory": [
-    22736
+    10931
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-xsgkjj",
       "slug": "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino-xsgkjj",
@@ -36,15 +37,21 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-06-09T11:50:17.739Z",
       "firstSeenAt": "2026-06-09T11:50:17.739Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 66,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Riazzino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -70,19 +77,23 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-06-09T11:50:17.739Z",
       "firstSeenAt": "2026-06-09T11:50:17.739Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 66,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-xsgkhv",
       "slug": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
