@@ -15,7 +15,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { reportCaughtError } from '@/services/errorReporter';
 
-const TWELVEDATA_URL = 'https://api.twelvedata.com/exchange_rate?symbol=CHF/EUR';
 const CACHE_KEY = 'exchange_rate_cache';
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
 const DEFAULT_RATE = 0.94;
@@ -128,46 +127,30 @@ async function saveFirestoreRate(rate: number): Promise<void> {
  }
 }
 
-// ─── TwelveData API ──────────────────────────────────────────
+// ─── Live rate (via getExchangeRate Cloud Function) ──────────
 
-const TWELVEDATA_MAX_RETRIES = 2;
-const TWELVEDATA_RETRY_DELAYS = [1000, 2000]; // exponential backoff: 1s, 2s
+// Live rate now comes from the getExchangeRate Cloud Function, which calls
+// TwelveData server-side (retries + the API key stay off the browser).
+const EXCHANGE_RATE_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getExchangeRate';
 
 async function fetchFromTwelveData(): Promise<number | null> {
  if (IS_TEST_ENV) return null;
- const { getConfigValue } = await import('@/services/firebase');
- const apiKey = await getConfigValue('TWELVEDATA_API_KEY');
- if (!apiKey) return null;
-
- for (let attempt = 0; attempt <= TWELVEDATA_MAX_RETRIES; attempt++) {
  const controller = new AbortController();
- const timeoutId = setTimeout(() => controller.abort(), 5000);
+ const timeoutId = setTimeout(() => controller.abort(), 6000);
  try {
- const res = await fetch(`${TWELVEDATA_URL}&apikey=${apiKey}`, { signal: controller.signal });
+ const res = await fetch(EXCHANGE_RATE_ENDPOINT, { signal: controller.signal });
+ if (!res.ok) return null;
  const data = await res.json();
- if (data?.rate) {
- return parseFloat(data.rate);
- }
- if (data?.code === 429 || data?.status === 'error') {
- console.warn('⚠️ TwelveData rate limit or error:', data.message);
- return null; // Don't retry rate limits
- }
+ return data?.ok && typeof data.rate === 'number' ? data.rate : null;
  } catch (e) {
- // Don't report abort (timeout) or network errors on non-final attempts
  const isAbort = (e instanceof Error && e.name === 'AbortError') || (e instanceof DOMException && e.name === 'AbortError');
- if (attempt < TWELVEDATA_MAX_RETRIES && !isAbort) {
- await new Promise(r => setTimeout(r, TWELVEDATA_RETRY_DELAYS[attempt]));
- continue;
- }
- // Final attempt — report but skip AbortError (timeouts are expected)
  if (!isAbort) {
- reportCaughtError(e, 'exchangeRate.twelveDataFetch', { apiEndpoint: TWELVEDATA_URL });
+ reportCaughtError(e, 'exchangeRate.cfFetch', { apiEndpoint: EXCHANGE_RATE_ENDPOINT });
  }
+ return null;
  } finally {
  clearTimeout(timeoutId);
  }
- }
- return null;
 }
 
 // ─── Main fetch function ─────────────────────────────────────
@@ -282,9 +265,9 @@ export function useExchangeRate(): {
  * Used by ApiStatus component.
  */
 export async function isTwelveDataConfigured(): Promise<boolean> {
- const { getConfigValue } = await import('@/services/firebase');
- const key = await getConfigValue('TWELVEDATA_API_KEY');
- return !!key && key !== '';
+ // The TwelveData key is now server-side (getExchangeRate Cloud Function); the
+ // browser no longer holds it, so there is nothing to check client-side.
+ return true;
 }
 
 // ─── Historical exchange rate data (Firestore-cached) ────────
