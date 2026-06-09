@@ -95,11 +95,72 @@ function ensureLabelsExist(labels) {
   }
 }
 
-function searchIssuesByTitlePrefix(titlePrefix, state) {
+// Cut a string at the first opening bracket that is never closed within it, so
+// no UNBALANCED `(`/`[`/`{` survives into the search phrase. A balanced group
+// (`…(Dedicated)`) is preserved; an open group (`…(KSSG / HOCH` cut by the
+// slice, or `…HIB (Hôpital Intercantonal de la`) is dropped from its opener on.
+function stripUnbalancedBracketTail(s) {
+  const OPEN = { '(': ')', '[': ']', '{': '}' };
+  const CLOSE = new Set([')', ']', '}']);
+  const stack = []; // each entry: { char, index }
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (OPEN[c]) stack.push({ char: c, index: i });
+    else if (CLOSE.has(c) && stack.length) stack.pop();
+  }
+  // Anything left on the stack is an unmatched opener → cut at the FIRST one.
+  return stack.length ? s.slice(0, stack[0].index) : s;
+}
+
+// Make a title prefix SAFE for `gh issue list --search 'in:title "<phrase>"'`.
+// The naive `title.slice(0, 60)` can cut mid-token, leaving a partial word
+// and/or an UNBALANCED opening bracket (e.g. `...Jobs (Dedicat`, or names with
+// an internal parenthetical like `HIB (Hôpital Intercantonal de la Broye)` /
+// `Kantonsspital St. Gallen (KSSG / HOCH)` cut mid-group). GitHub's phrase
+// search ZERO-matches on a dangling partial word OR an unbalanced bracket →
+// dedup never finds the canonical issue → a fresh duplicate opens every run
+// (observed: 8 identical "Crawler Failure: …(Dedicated)" issues for SVAR alone,
+// 2× each for HIB/KSSG-shaped names). Trim back to a whole-token,
+// balanced-bracket, punctuation-clean prefix so the search resolves. The
+// shorter prefix is still a valid `startsWith` discriminator because the
+// crawler/company name sits before the dropped tail.
+// Takes the FULL title (not a pre-sliced prefix) so it can tell whether
+// slice(0,LEN) actually split a word — the only reliable signal for whether the
+// trailing token is a fragment that must be dropped.
+function searchSafePrefix(fullTitle) {
+  const LEN = DEDUP_TITLE_PREFIX_LEN;
+  const full = String(fullTitle);
+  let p = full.slice(0, LEN);
+  // Strip the dangling trailing token ONLY when slice(0,LEN) actually SPLIT a
+  // word — i.e. the title is longer than the ceiling AND the char AT the cut is
+  // a non-space. Gating on the cut char (not on p.length) is essential: a title
+  // whose 60th char is a space — e.g.
+  // "escalation(harvester): reviewer-finding/workflow-scope-creds ricorre…"
+  // (the key is space-free, only the space before "ricorre" precedes the cut) —
+  // must KEEP its discriminator. Gating on length alone would strip the whole
+  // space-free key and collapse every escalation to "escalation(harvester)",
+  // making distinct buckets dedup onto one canonical.
+  const cutSplitWord = full.length > LEN && /\S/.test(full[LEN]);
+  if (cutSplitWord && p.includes(' ')) p = p.replace(/\s+\S*$/, '');
+  // Drop any tail from the first unmatched opening bracket (internal or trailing).
+  p = stripUnbalancedBracketTail(p);
+  // Strip trailing chars that break/destabilize phrase search: leftover openers,
+  // quotes, slashes, and dangling punctuation. A balanced closing bracket
+  // (e.g. full short title "…(Dedicated)") is intentionally kept.
+  p = p.replace(/[\s"'([{/:;,.\-]+$/u, '').trim();
+  // Guard: never return an over-short/empty prefix (would over-match); fall
+  // back to the raw quote-stripped slice.
+  return p.length >= 8 ? p : full.slice(0, LEN).replace(/"/g, '').trim();
+}
+
+// `fullTitle` is the complete issue title (callers must NOT pre-slice it — the
+// mid-word-cut detection in searchSafePrefix needs the char at the ceiling).
+function searchIssuesByTitlePrefix(fullTitle, state) {
+  const safePrefix = searchSafePrefix(fullTitle);
   const out = gh([
     'issue', 'list',
     '--state', state,
-    '--search', `in:title "${titlePrefix.replace(/"/g, '\\"')}"`,
+    '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
     '--limit', '10',
     '--json', 'number,title,url,closedAt,state',
     ...repoFlag(),
@@ -112,14 +173,16 @@ function searchIssuesByTitlePrefix(titlePrefix, state) {
     // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
     // entrambi comparire. Filtra al match esatto di prefisso → niente commento
     // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
-    return issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(titlePrefix));
+    // Match sul prefisso SANITIZZATO (stesso usato per la query) così il filtro
+    // resta coerente quando lo slice grezzo era stato troncato a metà token.
+    return issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(safePrefix));
   } catch {
     return [];
   }
 }
 
-function findOpenIssueByTitlePrefix(titlePrefix) {
-  return searchIssuesByTitlePrefix(titlePrefix, 'open')[0] || null;
+function findOpenIssueByTitlePrefix(fullTitle) {
+  return searchIssuesByTitlePrefix(fullTitle, 'open')[0] || null;
 }
 
 /**
@@ -131,10 +194,10 @@ function findOpenIssueByTitlePrefix(titlePrefix) {
  * OPEN issues, so each per-deploy transient that had been closed reopened as a
  * brand-new issue. Returns the most-recently-closed matching issue, or null.
  */
-function findRecentlyClosedIssueByTitlePrefix(titlePrefix, withinHours) {
+function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours) {
   if (!withinHours || withinHours <= 0) return null;
   const cutoff = Date.now() - withinHours * 3600 * 1000;
-  const matches = searchIssuesByTitlePrefix(titlePrefix, 'closed')
+  const matches = searchIssuesByTitlePrefix(fullTitle, 'closed')
     .filter((i) => i.closedAt && Date.parse(i.closedAt) >= cutoff)
     .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
   return matches[0] || null;
@@ -209,9 +272,11 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
     console.error('[github-issue-creator] resolve: title is required');
     return null;
   }
-  const prefix = titlePrefix.slice(0, DEDUP_TITLE_PREFIX_LEN);
-  const existing = findOpenIssueByTitlePrefix(prefix);
+  // Pass the FULL title — searchSafePrefix slices + sanitizes internally and
+  // needs the un-sliced title to detect a mid-word cut.
+  const existing = findOpenIssueByTitlePrefix(titlePrefix);
   if (!existing) {
+    const prefix = titlePrefix.slice(0, DEDUP_TITLE_PREFIX_LEN);
     console.log(`[github-issue-creator] resolve: no open issue matching "${prefix}" — nothing to close`);
     return null;
   }
@@ -269,8 +334,11 @@ export async function createGithubIssue({
     return null;
   }
 
+  // Pass the FULL title to dedup — searchSafePrefix slices/sanitizes internally
+  // and needs the un-sliced title to detect a real mid-word cut. `titlePrefix`
+  // stays for logging/gate messages only.
   const titlePrefix = title.slice(0, DEDUP_TITLE_PREFIX_LEN);
-  const existing = findOpenIssueByTitlePrefix(titlePrefix);
+  const existing = findOpenIssueByTitlePrefix(title);
 
   // Auto-enable the consecutive-failure gate for the stable crawler-failure
   // reporter title, unless a caller explicitly opted out (consecutiveGate < 0).
@@ -359,7 +427,7 @@ export async function createGithubIssue({
   // flapping red again. Reopen + comment instead of minting a new issue — this
   // is what stops the per-deploy-run churn (#928/#931/#937/#941) from recurring.
   if (reopenWithinHours > 0) {
-    const recentlyClosed = findRecentlyClosedIssueByTitlePrefix(titlePrefix, reopenWithinHours);
+    const recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWithinHours);
     if (recentlyClosed) {
       const reopened = gh(
         ['issue', 'reopen', String(recentlyClosed.number), ...repoFlag()],
