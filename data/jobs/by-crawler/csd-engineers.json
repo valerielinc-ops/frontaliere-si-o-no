@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csd-engineers",
-  "assembledAt": "2026-06-08T22:17:47.788Z",
+  "assembledAt": "2026-06-09T11:17:33.451Z",
   "jobs": [
     {
       "id": "csd-engineers-01683e54e340",
@@ -33,7 +33,7 @@
       "url": "https://jobs.csd.ch/jobs/5761536-ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:45.390Z",
+      "crawledAt": "2026-06-09T11:17:31.218Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -64,8 +64,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "retranslationAttempts": 2
+      "addressRegion": "VD"
     },
     {
       "id": "csd-engineers-b193302f66ca",
@@ -95,7 +94,7 @@
       "url": "https://jobs.csd.ch/jobs/5761617-projektleiter-in-bauingenieur-in-hochbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:45.036Z",
+      "crawledAt": "2026-06-09T11:17:30.881Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -170,7 +169,7 @@
       "url": "https://jobs.csd.ch/jobs/5761889-bauingenieur-in-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:44.695Z",
+      "crawledAt": "2026-06-09T11:17:30.547Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -245,7 +244,7 @@
       "url": "https://jobs.csd.ch/jobs/5761929-teamleiter-in-bauingenieur-in-hochbau-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:44.354Z",
+      "crawledAt": "2026-06-09T11:17:30.218Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -320,7 +319,7 @@
       "url": "https://jobs.csd.ch/jobs/5761953-zeichner-in-fachrichtung-ingenieurbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:44.011Z",
+      "crawledAt": "2026-06-09T11:17:29.889Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -395,7 +394,7 @@
       "url": "https://jobs.csd.ch/jobs/5762077-praktikant-in-bauingenieurwesen-oder-holzbau",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:43.668Z",
+      "crawledAt": "2026-06-09T11:17:29.557Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -473,7 +472,7 @@
       "url": "https://jobs.csd.ch/jobs/5762909-chef-de-projet-environnement-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:43.326Z",
+      "crawledAt": "2026-06-09T11:17:29.226Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -505,6 +504,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:18.208Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -547,7 +547,7 @@
       "url": "https://jobs.csd.ch/jobs/5882813-bauingenieur-als-projektleiter-geotechnik-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:42.974Z",
+      "crawledAt": "2026-06-09T11:17:28.890Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -619,7 +619,7 @@
       "url": "https://jobs.csd.ch/jobs/6136143-bauingenieur-als-projektingenieur-tragwerksplanung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:42.635Z",
+      "crawledAt": "2026-06-09T11:17:28.560Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -648,6 +648,7 @@
       "localeMismatchSuppressedLen": 88,
       "retranslationAttempts": 5,
       "firstSeenAt": "2026-06-02T23:14:17.411Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -693,7 +694,7 @@
       "url": "https://jobs.csd.ch/jobs/6354078-zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:42.296Z",
+      "crawledAt": "2026-06-09T11:17:28.230Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -767,7 +768,7 @@
       "url": "https://jobs.csd.ch/jobs/6558690-teamleiter-geologie-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:41.956Z",
+      "crawledAt": "2026-06-09T11:17:27.904Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -816,7 +817,7 @@
       "titleByLocale": {
         "it": "Chef de projet CVC 80-100% (f/h/d)",
         "en": "Project Chef CVC 80-100% (f/h/d)",
-        "de": "Chef de projet CVC 80-100% (w/h/d)",
+        "de": "Chef de projet CVC 80-100% (f/h/d)",
         "fr": "Chef de projet CVC 80-100 % (f/h/d)"
       },
       "description": "Chef de projet CVC 80-100% (f/h/d) — CSD ENGINEERS, Lausanne",
@@ -828,7 +829,7 @@
       "url": "https://jobs.csd.ch/jobs/6563044-chef-de-projet-cvc-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:41.611Z",
+      "crawledAt": "2026-06-09T11:17:27.570Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -889,7 +890,7 @@
       "url": "https://jobs.csd.ch/jobs/6563154-collaborateur-de-projet-cvc-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-08T22:17:41.257Z",
+      "crawledAt": "2026-06-09T11:17:27.232Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -950,7 +951,7 @@
       "url": "https://jobs.csd.ch/jobs/6632866-praktikant-bauingenieurwesen-4-6-monate-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:40.904Z",
+      "crawledAt": "2026-06-09T11:17:26.889Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1025,7 +1026,7 @@
       "url": "https://jobs.csd.ch/jobs/6632871-erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:40.563Z",
+      "crawledAt": "2026-06-09T11:17:26.561Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -1070,8 +1071,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "csd-engineers-a6a9ec139ed8",
@@ -1101,7 +1101,7 @@
       "url": "https://jobs.csd.ch/jobs/6732528-dessinateur-en-genie-civil-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:40.219Z",
+      "crawledAt": "2026-06-09T11:17:26.198Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1179,7 +1179,7 @@
       "url": "https://jobs.csd.ch/jobs/6761296-projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:39.867Z",
+      "crawledAt": "2026-06-09T11:17:25.857Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1224,8 +1224,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL",
-      "retranslationAttempts": 1
+      "addressRegion": "BL"
     },
     {
       "id": "csd-engineers-ec479f56f58d",
@@ -1255,7 +1254,7 @@
       "url": "https://jobs.csd.ch/jobs/6771563-erfahrener-geologe-teamleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:39.520Z",
+      "crawledAt": "2026-06-09T11:17:25.524Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1308,7 +1307,7 @@
       "slugByLocale": {
         "it": "ingegnere-dell-ingegneria-civile-leader-del-progetto-80-100-f-m-d-csd-engineers-bulle",
         "en": "civil-engineering-engineer-project-leader-80-100-f-m-d-csd-engineers-bulle",
-        "de": "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch",
+        "de": "bauingenieur-projektleiter-80-100-w-m-d-csd-engineers-bulle",
         "fr": "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -1321,19 +1320,19 @@
         "de": "Bauingenieur - Projektleiter 80-100% (w/m/d)",
         "fr": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d)"
       },
-      "description": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
+      "description": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre succursale <strong>Bâtiment</strong> à <strong>Lausanne </strong>(VD)<strong>, Grand-Lancy </strong>(GE)<strong> </strong>ou<strong> Bulle </strong>(FR) un <strong>Ingénieur en génie civil - Chef de projet</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Piloter des mandats de structures en béton armé (bâtiment) dans toutes les phases SIA , en prenant en compte la dimension multidisciplinaire des projets d’ingénierie dont le groupe est en charge, et la coordination avec les autres spécialistes de la construction</p></li><li><p>Garantir la fiabilité structurelle des ouvrages (calcul et dimensionnement)</p></li><li><p>Assurer la gestion de la qualité, des coûts et des délais</p></li><li><p>Gérer des projets de manière autonome nécessitant des compétences relationnelles, organisationelles et techniques</p></li><li><p>Réaliser des offres pour l'acquisition de nouveaux mandats</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>Ingénieur/e EPF ou HES en génie civil, ou équivalent, avec spécialisation structures</p></li><li><p>Expérience de 5 ans dans le calcul des structures en béton armé (bâtiments et ouvrages complexes)</p></li><li><p>Connaissances solides dans le dimensionnement et les logiciels (Cubus, SCIA, SOFISTIK, etc.) ainsi que des outils informatiques usuels (Messerli, Microsoft Office, etc.)</p></li><li><p>Parfaite maîtrise des normes SIA et VSS</p></li><li><p>Capacité à travailler de manière indépendante et en équipe</p></li><li><p>Polyvalent, esprit de synthèse et facilité de rédaction</p></li><li><p>Personnalité dynamique et autonome, ayant le sens de l'initiative</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un travail passionnant dans le cadre de projets phares, tels que d'importants quartiers de logements, des équipements publics (écoles, centres sportifs…) des infrastructures techniques en lien avec le développement durable du territoire</p></li><li><p>Un réseau de professionnels provenant de différents domaines de l’ingénierie</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong><br></p>",
       "descriptionByLocale": {
         "it": "Ingénieur en génie civile - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
-        "en": "Civil Engineer - Project Manager 80-100% (m/f/d) — CSD ENGINEERS, Bulle\n\nCSD ENGINEERS is seeking a highly motivated Civil Engineer to join our team as a Project Manager. This position is based in Bulle and offers a full-time contract with a salary of 80-100% of the Swiss salary scale.\n\nResponsibilities:\n\n- Management and coordination of civil engineering projects from inception to completion.\n- Development and implementation of project plans, schedules, and budgets.\n- Supervision of project teams, including engineers, technicians, and other staff.\n- Ensuring the quality and safety of construction projects.\n- Coordination with clients, contractors, and other stakeholders.\n- Participation in project meetings and presentations.\n- Contribution to the development of new projects and the improvement of existing processes.\n\nRequirements:\n\n- University degree in Civil Engineering or a related field.\n- Proven experience as a Project Manager in civil engineering.\n- Strong organizational and leadership skills.\n- Excellent communication and interpersonal skills.\n- Proficiency in project management tools and software (e.g., MS Project, Primavera, etc.).\n- Knowledge of Swiss construction regulations and standards.\n- Ability to work independently and as part of a team.\n- Fluent in French and English, with good German skills being an asset.\n\nWhat we offer:\n\n- A challenging and rewarding career in a dynamic and international environment.\n- Competitive salary and benefits package.\n- Opportunities for professional development and career growth.\n- A supportive and collaborative work environment.\n\nIf you are a passionate Civil Engineer with a strong project management background and a desire to work in a leading engineering firm, we invite you to apply. Please submit your application, including your CV and a cover letter, to hr@csdengineers.ch.\n\nCSD ENGINEERS is an equal opportunity employer and welcomes applications from all qualified candidates.",
+        "en": "Civil Engineer - Project Manager 80-100% (m/f/d) — CSD ENGINEERS, Bulle CSD ENGINEERS is seeking a highly motivated Civil Engineer to join our team as a Project Manager. This position is based in Bulle and offers a full-time contract with a salary of 80-100% of the Swiss salary scale. \n• Responsibilities: - Management and coordination of civil engineering projects from inception to completion. - Development and implementation of project plans, schedules, and budgets. - Supervision of project teams, including engineers, technicians, and other staff. - Ensuring the quality and safety of construction projects. - Coordination with clients, contractors, and other stakeholders. - Participation in project meetings and presentations. - Contribution to the development of new projects and the improvement of existing processes. \n• Requirements: - University degree in Civil Engineering or a related field. - Proven experience as a Project Manager in civil engineering. - Strong organizational and leadership skills. - Excellent communication and interpersonal skills. - Proficiency in project management tools and software (e.g., MS Project, Primavera, etc.). - Knowledge of Swiss construction regulations and standards. - Ability to work independently and as part of a team. - Fluent in French and English, with good German skills being an asset. \n• What we offer: - A challenging and rewarding career in a dynamic and international environment. - Competitive salary and benefits package. - Opportunities for professional development and career growth. - A supportive and collaborative work environment. If you are a passionate Civil Engineer with a strong project management background and a desire to work in a leading engineering firm, we invite you to apply. Please submit your application, including your CV and a cover letter, to hr@csdengineers.ch. CSD ENGINEERS is an equal opportunity employer and welcomes applications from all qualified candidates.",
         "de": "Ingénieur en génie civil - Chef de projet 80-100% (f/m/d) — CSD ENGINEERS, Bulle",
-        "fr": "Ingénieur en génie civil - Chef de projet 80-100 % (f/m/d) — CSD ENGINEERS, Bulle"
+        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p>Nous recherchons pour notre succursale <strong>Bâtiment</strong> à <strong>Lausanne </strong>(VD)<strong>, Grand-Lancy </strong>(GE)<strong> </strong>ou<strong> Bulle </strong>(FR) un <strong>Ingénieur en génie civil - Chef de projet</strong> 80-100% (f/h/d).</p><p><strong>\n• Vos tâches</strong></p><ul><li><p>Piloter des mandats de structures en béton armé (bâtiment) dans toutes les phases SIA , en prenant en compte la dimension multidisciplinaire des projets d’ingénierie dont le groupe est en charge, et la coordination avec les autres spécialistes de la construction</p></li><li><p>Garantir la fiabilité structurelle des ouvrages (calcul et dimensionnement)</p></li><li><p>Assurer la gestion de la qualité, des coûts et des délais</p></li><li><p>Gérer des projets de manière autonome nécessitant des compétences relationnelles, organisationelles et techniques</p></li><li><p>Réaliser des offres pour l'acquisition de nouveaux mandats</p></li></ul><p><strong>\n• Votre profil</strong></p><ul><li><p>Ingénieur/e EPF ou HES en génie civil, ou équivalent, avec spécialisation structures</p></li><li><p>Expérience de 5 ans dans le calcul des structures en béton armé (bâtiments et ouvrages complexes)</p></li><li><p>Connaissances solides dans le dimensionnement et les logiciels (Cubus, SCIA, SOFISTIK, etc.) ainsi que des outils informatiques usuels (Messerli, Microsoft Office, etc.)</p></li><li><p>Parfaite maîtrise des normes SIA et VSS</p></li><li><p>Capacité à travailler de manière indépendante et en équipe</p></li><li><p>Polyvalent, esprit de synthèse et facilité de rédaction</p></li><li><p>Personnalité dynamique et autonome, ayant le sens de l'initiative</p></li></ul><p><strong>Nous vous offrons</strong></p><ul><li><p>Un travail passionnant dans le cadre de projets phares, tels que d'importants quartiers de logements, des équipements publics (écoles, centres sportifs…) des infrastructures techniques en lien avec le développement durable du territoire</p></li><li><p>Un réseau de professionnels provenant de différents domaines de l’ingénierie</p></li><li><p>De multiples possibilités de développement professionnel et personnel</p></li><li><p>Un environnement de travail dynamique dans un climat de respect mutuel</p></li><li><p>Des conditions attractives permettant une grande flexibilité dans l’aménagement du temps de travail</p></li></ul><p><strong>Les offres d’agences de placement ne sont pas prises en considération dans le cadre de ce recrutement. Dès lors, CSD n’entrera d’aucune manière en négociation pour le versement d’une quelconque prétention.</strong><br></p>"
       },
       "location": "Bulle",
       "canton": "FR",
       "url": "https://jobs.csd.ch/jobs/6794096-ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:39.180Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-09T11:17:25.185Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1359,12 +1358,16 @@
         ],
         "en": [
           "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
+        ],
+        "de": [
+          "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
         ]
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 80,
       "retranslationAttempts": 4,
       "firstSeenAt": "2026-06-02T23:14:13.006Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1410,7 +1413,7 @@
       "url": "https://jobs.csd.ch/jobs/6900060-experte-hydrogeologie-60-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:38.827Z",
+      "crawledAt": "2026-06-09T11:17:24.544Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1436,6 +1439,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:12.541Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1481,7 +1485,7 @@
       "url": "https://jobs.csd.ch/jobs/6901991-projektleiter-altlasten-w-m-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:38.475Z",
+      "crawledAt": "2026-06-09T11:17:24.209Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1552,7 +1556,7 @@
       "url": "https://jobs.csd.ch/jobs/6910104-chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:37.921Z",
+      "crawledAt": "2026-06-09T11:17:23.866Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "streetAddress": "Rte Jo Siffert 4",
@@ -1584,6 +1588,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.859Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1629,7 +1634,7 @@
       "url": "https://jobs.csd.ch/jobs/6964011-projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:37.568Z",
+      "crawledAt": "2026-06-09T11:17:23.530Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -1661,6 +1666,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.396Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1706,7 +1712,7 @@
       "url": "https://jobs.csd.ch/jobs/7022753-diagnostiker-bauschadstoffe-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:36.995Z",
+      "crawledAt": "2026-06-09T11:17:23.187Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Flurhofstrasse 150",
@@ -1738,6 +1744,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.920Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1783,7 +1790,7 @@
       "url": "https://jobs.csd.ch/jobs/7038517-chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:36.643Z",
+      "crawledAt": "2026-06-09T11:17:22.847Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -1815,6 +1822,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.458Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1860,7 +1868,7 @@
       "url": "https://jobs.csd.ch/jobs/7041166-chef-de-projet-energie-senior-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:36.290Z",
+      "crawledAt": "2026-06-09T11:17:22.511Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -1878,6 +1886,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T23:14:09.998Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1923,7 +1932,7 @@
       "url": "https://jobs.csd.ch/jobs/7184735-ingenieur-junior-hydraulique-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:35.939Z",
+      "crawledAt": "2026-06-09T11:17:22.170Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -1980,6 +1989,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:17.486Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2025,7 +2035,7 @@
       "url": "https://jobs.csd.ch/jobs/7221757-projektleiter-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:35.585Z",
+      "crawledAt": "2026-06-09T11:17:21.831Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -2057,6 +2067,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:09.195Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2073,11 +2084,11 @@
     },
     {
       "id": "csd-engineers-cbb9b77ee626",
-      "slug": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
       "slugByLocale": {
-        "it": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "it": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
         "en": "chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2102,7 +2113,7 @@
       "url": "https://jobs.csd.ch/jobs/7237464-chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:35.246Z",
+      "crawledAt": "2026-06-09T11:17:21.500Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2120,17 +2131,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
+        "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
+          "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.736Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2147,11 +2162,11 @@
     },
     {
       "id": "csd-engineers-6e8ca344904c",
-      "slug": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
       "slugByLocale": {
-        "it": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "it": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
         "en": "chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2176,7 +2191,7 @@
       "url": "https://jobs.csd.ch/jobs/7237667-chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:34.893Z",
+      "crawledAt": "2026-06-09T11:17:21.164Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2194,17 +2209,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
+        "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
+          "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.267Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2250,7 +2269,7 @@
       "url": "https://jobs.csd.ch/jobs/7361647-projektingenieur-siedlungsentwasserung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:34.542Z",
+      "crawledAt": "2026-06-09T11:17:20.829Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -2327,7 +2346,7 @@
       "url": "https://jobs.csd.ch/jobs/7678428-chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:33.953Z",
+      "crawledAt": "2026-06-09T11:17:20.497Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2359,6 +2378,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.774Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2404,7 +2424,7 @@
       "url": "https://jobs.csd.ch/jobs/7678706-stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:33.600Z",
+      "crawledAt": "2026-06-09T11:17:20.162Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2436,6 +2456,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.304Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2481,7 +2502,7 @@
       "url": "https://jobs.csd.ch/jobs/7705442-zeichner-fachrichtung-ingenieurbau-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:33.247Z",
+      "crawledAt": "2026-06-09T11:17:19.823Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -2510,6 +2531,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.840Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2555,7 +2577,7 @@
       "url": "https://jobs.csd.ch/jobs/7745880-geologue-chef-de-projets-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:32.907Z",
+      "crawledAt": "2026-06-09T11:17:19.495Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -2587,6 +2609,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:11:52.666Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2632,7 +2655,7 @@
       "url": "https://jobs.csd.ch/jobs/7762493-chef-de-projet-traitement-des-eaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:32.554Z",
+      "crawledAt": "2026-06-09T11:17:19.158Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2664,6 +2687,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.159Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2709,7 +2733,7 @@
       "url": "https://jobs.csd.ch/jobs/7774786-projektleiter-geologie-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:32.203Z",
+      "crawledAt": "2026-06-09T11:17:18.820Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -2741,6 +2765,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.700Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2786,7 +2811,7 @@
       "url": "https://jobs.csd.ch/jobs/7798058-cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:31.863Z",
+      "crawledAt": "2026-06-09T11:17:18.493Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -2818,6 +2843,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.234Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2863,7 +2889,7 @@
       "url": "https://jobs.csd.ch/jobs/7839292-collaborateur-comptabilite-ap-ar-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:31.510Z",
+      "crawledAt": "2026-06-09T11:17:18.153Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "streetAddress": "Rte Jo Siffert 4",
@@ -2895,6 +2921,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:11.471Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2940,7 +2967,7 @@
       "url": "https://jobs.csd.ch/jobs/7852725-stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:31.157Z",
+      "crawledAt": "2026-06-09T11:17:17.818Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2972,6 +2999,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:10.601Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3017,7 +3045,7 @@
       "url": "https://jobs.csd.ch/jobs/7853687-stagiaire-en-environnement-eau-f-h-d-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:30.801Z",
+      "crawledAt": "2026-06-09T11:17:17.481Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -3049,6 +3077,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:09.709Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3094,7 +3123,7 @@
       "url": "https://jobs.csd.ch/jobs/7853694-praktikant-geologie-und-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:30.449Z",
+      "crawledAt": "2026-06-09T11:17:17.142Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Alexanderstrasse 16",
@@ -3123,6 +3152,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:08.812Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3168,7 +3198,7 @@
       "url": "https://jobs.csd.ch/jobs/7853916-praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:30.105Z",
+      "crawledAt": "2026-06-09T11:17:16.811Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3245,7 +3275,7 @@
       "url": "https://jobs.csd.ch/jobs/7856150-chef-de-projet-en-electricite-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:29.764Z",
+      "crawledAt": "2026-06-09T11:17:16.482Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -3322,7 +3352,7 @@
       "url": "https://jobs.csd.ch/jobs/7856647-project-management-officer-pmo-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:29.411Z",
+      "crawledAt": "2026-06-09T11:17:16.143Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -3348,6 +3378,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:42:35.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3393,7 +3424,7 @@
       "url": "https://jobs.csd.ch/jobs/7857380-bauleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:29.058Z",
+      "crawledAt": "2026-06-09T11:17:15.806Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3427,6 +3458,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:42:35.643Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3443,12 +3475,12 @@
     },
     {
       "id": "csd-engineers-d4efcfd3a611",
-      "slug": "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch",
+      "slug": "responsabile-progetto-architettura-80-100-w-m-d-csd-engineers-zurich",
       "slugByLocale": {
-        "it": "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch",
-        "en": "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch",
+        "it": "responsabile-progetto-architettura-80-100-w-m-d-csd-engineers-zurich",
+        "en": "architecture-project-leader-80-100-w-m-d-csd-engineers-zurich",
         "de": "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch",
-        "fr": "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch"
+        "fr": "chef-de-projet-architecture-80-100-w-m-d-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3462,17 +3494,17 @@
       },
       "description": "<p><span><strong>1’000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindergeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale und nachhaltige Lösungen für unsere Kunden mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen.</strong> <strong>Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz. Werden Sie Teil unseres Erfolges.</strong></span></p><p><span>Wir suchen per sofort oder nach Vereinbarung für unseren Bereich <strong>Bautechnik</strong> in <strong>Zürich</strong>, <strong>Pratteln</strong> oder <strong>Frauenfeld</strong> einen <strong>Teilprojektleiter Architektur</strong> mit <strong>Doppelspezialisierung auf Gebäudehülle und Brandschutz</strong> in Richtung Infrastrukturanlagen<strong> (</strong>Industriebereich) 80-100% (w/m/d).</span></p><p><span>Sie vereinen zwei eng verknüpfte Fachbereiche in einer Person: die technische Tiefe der Fassadensysteme, Dachaufbauten, Abdichtungen – mit dem normativen Fachwissen im Brandschutz gemäss kantonalen Vorschriften.</span></p><p><span><strong>Ihr Aufgabengebiet</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpFirst\"><span><strong>Fachplanung Gebäudehülle</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Fachplanung und Koordination von Fassaden-, Dach- und Abdichtungssystemen</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Entwicklung und Beurteilung technischer Lösungen für Industrie- und Gewerbebauten</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Sicherstellung der bauphysikalischen \n• Anforderungen sowie der relevanten Normen und Richtlinien</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Koordination der Schnittstellen zu Rohbau, Gebäudetechnik und Innenausbau<br></span></p></li></ul></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Brandschutz – Konzept, Planung und Umsetzung</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Erarbeitung und Umsetzung von Brandschutzkonzepten</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Sicherstellung der normgerechten Umsetzung gemäss VKF-Richtlinien und kantonalen Vorgaben</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Koordination brandschutztechnischer \n• Anforderungen über alle Gewerke hinweg</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Begleitung von Behördenabnahmen sowie Erstellung der erforderlichen Dokumentationen</span></p></li></ul></li></ul><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Projektmanagement</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Erstellung von Ausschreibungen und technische Beurteilung von Angeboten</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Fachliche Begleitung der Ausführung und Sicherstellung der Ausführungsqualität</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Termin- und Kostenkontrolle im Verantwortungsbereich</span></p></li><li><p class=\"MsoListParagraphCxSpLast\"><span>Ansprechpartner:in für Bauherrschaften, Fachplanende, Behörden und Unternehmer</span></p></li></ul></li></ul><p><span><strong>\n• Ihr Profil</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpFirst\"><span><strong>Fachliche Qualifikationen</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Abgeschlossenes Studium in Architektur, Bauingenieurwesen oder Bautechnik (FH, ETH oder HF)</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Mehrjährige Erfahrung in der Planung und Realisierung von Gebäudehüllen, Fassaden- oder Dachsystemen</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Kenntnisse im Brandschutz oder Bereitschaft zur fachlichen Vertiefung in diesem Bereich</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Erfahrung mit Ausschreibungen und Vergaben nach NPK</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Gute Kenntnisse der relevanten Normen und Richtlinien (insbesondere SIA und VKF)</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Sicherer Umgang mit CAD-Software und MS Office; BIM-Kenntnisse von Vorteil</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Führerausweis Kategorie B<br></span></p></li></ul></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Persönliche Kompetenzen</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Technisch versiert und lösungsorientiert</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Selbständige und strukturierte Arbeitsweise</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Freude an interdisziplinärer Zusammenarbeit</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Kommunikationsstark und durchsetzungsfähig</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Hoher Qualitätsanspruch und Verantwortungsbewusstsein<br></span></p></li></ul></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Sprachkenntnisse</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Deutsch: verhandlungssicher (C1/C2)</span></p></li><li><p class=\"MsoListParagraphCxSpLast\"><span>Weitere Sprachen: von Vorteil</span></p></li></ul></li></ul><p><span><strong>\n• Wir bieten</strong></span></p><ul><li><p><span>Einzigartige Fachposition, die zwei hochspezialisierte Bereiche vereint – mit entsprechend hoher Wertschätzung im Team</span></p></li><li><p><span>Verantwortungsvolle, abwechslungsreiche Tätigkeit mit Gestaltungsspielraum</span></p></li><li><p><span>Abwechslungsreiche Industrie- und Hochbauprojekte mit komplexen Fassadensystemen und anspruchsvollen Brandschutzanforderungen</span></p></li><li><p><span>Modernes Arbeitsumfeld mit BIM-Integration und digitalen Planungstools</span></p></li><li><p><span>Attraktive Anstellungsbedingungen und leistungsgerechte Entlöhnung</span></p></li><li><p><span>Flexible Arbeitszeiten</span></p></li><li><p><span>Kollegiales Team</span></p></li></ul><p><span><strong>Angebote von Personalvermittlungsagenturen werden bei dieser Rekrutierung nicht in Betracht gezogen. CSD wird daher in keiner Weise über die Zahlung von Ansprüchen verhandeln.</strong></span></p>",
       "descriptionByLocale": {
-        "it": "Descrizione\n\n1.000 dipendenti in 30 sedi in Svizzera e in Europa: il Gruppo CSD è una società di ingegneria dinamica e in costante crescita. Inventiva, competenza e multidisciplinarità caratterizzano i nostri team, soluzioni ottimali e sostenibili per i nostri clienti con un plus per la qualità della vita e dell'ambiente sono il nostro marchio. Godono di lavorare in un ambiente professionale e agile e attribuiscono grande importanza alla qualità e all'efficienza. Diventa parte del nostro successo.\n\nStiamo cercando un sub-progetto manager per la nostra tecnologia di costruzione a Zurigo, Pratteln o Frauenfeld con doppia specializzazione in busta edili e protezione antincendio nella direzione di infrastrutture (settore industriale) 80-100% (f/m/d).\n\nCombinano due aree specializzate strettamente legate in una sola persona: la profondità tecnica dei sistemi di facciata, delle strutture di tetto, dell'impermeabilizzazione – con l'esperienza normativa nella protezione antincendio secondo le normative cantonali.\n\nMansioni\n\nProgettazione specialistica della busta da costruzione\n- Progettazione specialistica e coordinamento di facciate, tetti e sistemi impermeabili\n- Sviluppo e valutazione di soluzioni tecniche per edifici industriali e commerciali\nGarantire i requisiti di fisica degli edifici, nonché gli standard e le linee guida pertinenti\n- Coordinamento delle interfacce per la costruzione di conchiglie, la tecnologia di costruzione e l'interior design\nProtezione antincendio – concetto, pianificazione e realizzazione\n- Sviluppo e attuazione dei concetti di protezione antincendio\nGarantire l'implementazione standard secondo le linee guida VKF e i requisiti cantonali\n- Coordinamento dei requisiti di protezione antincendio in tutti i settori\n- Accompagnamento delle autorizzazioni dell'autorità e preparazione della documentazione necessaria\n- Gestione dei progetti\n- preparazione delle offerte e valutazione tecnica delle offerte\n- Supporto professionale di esecuzione e garanzia della qualità dell'esecuzione\n- Programma e controllo dei costi nel settore della responsabilità\n- Persona di contatto: per clienti, pianificatori specializzati, autorità e imprenditori\n\nRequisiti\n\nQualifiche professionali\n\n- Laurea completa in architettura, ingegneria civile o ingegneria delle costruzioni (FH, ETH o HF)\n- Diversi anni di esperienza nella progettazione e realizzazione di buste da costruzione, sistemi di facciata o tetto\n- Conoscenza della protezione antincendio o disponibilità a specializzarsi in questo settore\n- Esperienza con appalto e assegnazione a NPK\nBuona conoscenza delle relative norme e linee guida (in particolare SIA e VKF)\nGestione sicura del software CAD e di MS Office; la conoscenza di BIM è utile\n- Titolo di guida della categoria B\n\nCompetenze personali\n\n- Tecnicamente adatta e orientata alla soluzione\n- Metodi di lavoro indipendenti e strutturati\n- Gioia della cooperazione interdisciplinare\n- Forte comunicazione e assertiva\nStandard e responsabilità di alta qualità\n\nCapacità linguistiche\n\nin tedesco: prova di negoziazione (C1/C2)\n- Altre lingue: benefico\n\nCosa di Friamo\n\nPosizione specializzata unica che combina due aree altamente specializzate – con un apprezzamento corrispondente nel team\nResponsabile, varia attività con spazio per manovra\n- Progetti industriali e di costruzione vari con sistemi di facciata complessi e requisiti di protezione antincendio esigenti\nAmbiente di lavoro moderno con l'integrazione BIM e strumenti di pianificazione digitale\n- Condizioni di lavoro interessanti e remunerazioni connesse alle prestazioni\nOre lavorative flessibili\n- Squadra Collegiale\n\nLe offerte da agenzie di reclutamento non sono considerate in questo reclutamento. CSD pertanto non negozierà in alcun modo il pagamento dei crediti.",
-        "en": "Descrizione\n\n1,000 employees at 30 locations in Switzerland and Europe: The CSD Group is a dynamic, constantly growing engineering company. Inventiveness, competence and multidisciplinarity characterize our teams, optimal and sustainable solutions for our customers with a plus for the quality of life and the environment are our trademark. They enjoy working in a professional and agile environment and attach great importance to quality and efficiency. Become part of our success.\n\nWe are looking for a sub-project manager for our construction technology in Zurich, Pratteln or Frauenfeld with double specialization in building envelope and fire protection in the direction of infrastructure facilities (industrial sector) 80-100% (f/m/d).\n\nThey combine two closely linked specialist areas in one person: the technical depth of the facade systems, roof structures, waterproofing – with the normative expertise in fire protection according to cantonal regulations.\n\nMansioni\n\nSpecialist planning of building envelope\n- Specialist planning and coordination of facade, roof and waterproofing systems\n- Development and assessment of technical solutions for industrial and commercial buildings\nEnsuring building physics requirements as well as relevant standards and guidelines\n- Coordination of interfaces to shell construction, building technology and interior design\nFire protection – concept, planning and implementation\n- Development and implementation of fire protection concepts\nEnsuring the standard-compliant implementation according to VKF guidelines and cantonal requirements\n- Coordination of fire protection requirements across all trades\n- Accompaniment of authority approvals and preparation of the necessary documentation\n- Project management\n- preparation of tenders and technical assessment of tenders\n- Professional support of execution and assurance of execution quality\n- Schedule and cost control in the area of responsibility\n- Contact person: for clients, specialist planners, authorities and entrepreneurs\n\nRequirements\n\nProfessional qualifications\n\n- Completed degree in architecture, civil engineering or construction engineering (FH, ETH or HF)\n- Several years of experience in the planning and realization of building envelopes, facade or roof systems\n- Knowledge of fire protection or willingness to specialise in this area\n- Experience with tendering and awarding to NPK\nGood knowledge of the relevant standards and guidelines (especially SIA and VKF)\nSecure handling of CAD software and MS Office; BIM knowledge is beneficial\n- Category B driving licence\n\nPersonal competences\n\n- Technically adept and solution-oriented\n- Independent and structured working methods\n- Joy of interdisciplinary cooperation\n- Strong communication and assertive\nHigh quality standards and responsibility\n\nLanguage skills\n\nin German: negotiation-proof (C1/C2)\n- Other languages: beneficial\n\nCosa of Friamo\n\nUnique specialist position that combines two highly specialized areas – with correspondingly high appreciation in the team\nResponsible, varied activity with room for manoeuvre\n- Varied industrial and building construction projects with complex facade systems and demanding fire protection requirements\nModern working environment with BIM integration and digital planning tools\n- Attractive employment conditions and performance-related remuneration\nFlexible working hours\n- Collegial team\n\nOffers from recruitment agencies are not considered in this recruitment. CSD will therefore in no way negotiate the payment of claims.",
-        "de": "Descrizione\n\n1’000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindergeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale und nachhaltige Lösungen für unsere Kunden mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz. Werden Sie Teil unseres Erfolges.\n\nWir suchen per sofort oder nach Vereinbarung für unseren Bereich Bautechnik in Zürich , Pratteln oder Frauenfeld einen Teilprojektleiter Architektur mit Doppelspezialisierung auf Gebäudehülle und Brandschutz in Richtung Infrastrukturanlagen ( Industriebereich) 80-100% (w/m/d).\n\nSie vereinen zwei eng verknüpfte Fachbereiche in einer Person: die technische Tiefe der Fassadensystemen, Dachaufbauten, Abdichtungen – mit dem normativen Fachwissen im Brandschutz gemäss kantonalen Vorschriften.\n\nMansioni\n\n- Fachplanung Gebäudehülle\n- Fachplanung und Koordination von Fassaden-, Dach- und Abdichtungssystemen\n- Entwicklung und Beurteilung technischer Lösungen für Industrie- und Gewerbebauten\n- Sicherstellung der bauphysikalischen Anforderungen sowie der relevanten Normen und Richtlinien\n- Koordination der Schnittstellen zu Rohbau, Gebäudetechnik und Innenausbau\n- Brandschutz – Konzept, Planung und Umsetzung\n- Erarbeitung und Umsetzung von Brandschutzkonzepten\n- Sicherstellung der normgerechten Umsetzung gemäss VKF-Richtlinien und kantonalen Vorgaben\n- Koordination brandschutztechnischer Anforderungen über alle Gewerke hinweg\n- Begleitung von Behördenabnahmen sowie Erstellung der erforderlichen Dokumentationen\n- Projektmanagement\n- Erstellung von Ausschreibungen und technische Beurteilung von Angeboten\n- Fachliche Begleitung der Ausführung und Sicherstellung der Ausführungsqualität\n- Termin- und Kostenkontrolle im Verantwortungsbereich\n- Ansprechpartner:in für Bauherrschaften, Fachplanende, Behörden und Unternehmer\n\nRequisiti\n\nFachliche Qualifikationen\n\n- Abgeschlossenes Studium in Architektur, Bauingenieurwesen oder Bautechnik (FH, ETH oder HF)\n- Mehrjährige Erfahrung in der Planung und Realisierung von Gebäudehüllen, Fassaden- oder Dachsystemen\n- Kenntnisse im Brandschutz oder Bereitschaft zur fachlichen Vertiefung in diesem Bereich\n- Erfahrung mit Ausschreibungen und Vergaben nach NPK\n- Gute Kenntnisse der relevanten Normen und Richtlinien (insbesondere SIA und VKF)\n- Sicherer Umgang mit CAD-Software und MS Office; BIM-Kenntnisse von Vorteil\n- Führerausweis Kategorie B\n\nPersönliche Kompetenzen\n\n- Technisch versiert und lösungsorientiert\n- Selbständige und strukturierte Arbeitsweise\n- Freude an interdisziplinärer Zusammenarbeit\n- Kommunikationsstark und durchsetzungsfähig\n- Hoher Qualitätsanspruch und Verantwortungsbewusstsein\n\nSprachkenntnisse\n\n- Deutsch: verhandlungssicher (C1/C2)\n- Weitere Sprachen: von Vorteil\n\nCosa offriamo\n\n- Einzigartige Fachposition, die zwei hochspezialisierte Bereiche vereint – mit entsprechend hoher Wertschätzung im Team\n- Verantwortungsvolle, abwechslungsreiche Tätigkeit mit Gestaltungsspielraum\n- Abwechslungsreiche Industrie- und Hochbauprojekte mit komplexen Fassadensystemen und anspruchsvollen Brandschutzanforderungen\n- Modernes Arbeitsumfeld mit BIM-Integration und digitalen Planungstools\n- Attraktive Anstellungsbedingungen und leistungsgerechte Entlöhnung\n- Flexible Arbeitszeiten\n- Kollegiales Team\n\nAngebote von Personalvermittlungsagenturen werden bei dieser Rekrutierung nicht in Betracht gezogen. CSD wird daher in keiner Weise über die Zahlung von Ansprüchen verhandeln.",
-        "fr": "Descrizione\n\n1000 collaborateurs dans 30 sites en Suisse et en Europe : Le Groupe CSD est une entreprise d'ingénierie dynamique et en constante croissance. Inventivité, compétence et multidisciplinarité caractérisent nos équipes, des solutions optimales et durables pour nos clients avec un plus pour la qualité de vie et l'environnement sont notre marque de fabrique. Ils aiment travailler dans un environnement professionnel et agile et attachent une grande importance à la qualité et à l'efficacité. Faites partie de notre succès.\n\nNous sommes à la recherche d'un gestionnaire de sous-projet pour notre technologie de construction à Zurich, Pratteln ou Frauenfeld avec une double spécialisation en enveloppe de bâtiment et protection contre l'incendie en direction des infrastructures (secteur industriel) 80-100% (f/m/d).\n\nIls combinent deux domaines spécialisés étroitement liés en une seule personne : la profondeur technique des systèmes de façade, les structures du toit, l'imperméabilisation – avec l'expertise normative en matière de protection contre l'incendie selon la réglementation cantonale.\n\nMansioni\n\nPlanification spécialisée de l'enveloppe du bâtiment\n- Planification spécialisée et coordination des systèmes de façade, de toit et d'étanchéité\n- Développement et évaluation de solutions techniques pour les bâtiments industriels et commerciaux\nAssurer les exigences en physique du bâtiment ainsi que les normes et directives pertinentes\n- Coordination des interfaces pour la construction de coques, la technologie du bâtiment et la conception intérieure\nProtection contre les incendies – concept, planification et mise en œuvre\n- Élaboration et mise en œuvre de concepts de protection contre les incendies\nAssurer une mise en œuvre conforme aux normes conformément aux directives de la VKF et aux exigences cantonales\n- Coordination des exigences en matière de protection contre les incendies dans tous les métiers\n- Accompagnement des autorisations et préparation des documents nécessaires\n- Gestion de projet\n- préparation des offres et évaluation technique des offres\n- Soutien professionnel à l'exécution et assurance de la qualité de l'exécution\n- Calendrier et contrôle des coûts dans la zone de responsabilité\n- Personne à contacter: pour les clients, planificateurs spécialisés, autorités et entrepreneurs\n\nExigences\n\nCompétences professionnelles\n\n- Diplôme d ' architecture, de génie civil ou de génie de la construction (FH, ETH ou HF)\n- Plusieurs années d'expérience dans la planification et la réalisation d'enveloppes de construction, de façades ou de toitures\n- Connaissance de la protection contre l'incendie ou volonté de se spécialiser dans ce domaine\n- Expérience de l'appel d'offres et de l'attribution à NPK\nBonne connaissance des normes et lignes directrices pertinentes (notamment SIA et VKF)\nGestion sûre des logiciels de CAO et de MS Office; les connaissances BIM sont bénéfiques\n- Permis de conduire de catégorie B\n\nCompétences personnelles\n\n- Techniquement adapté et orienté vers la solution\n- Méthodes de travail indépendantes et structurées\n- Joy de coopération interdisciplinaire\n- Communication forte et affirmée\nNormes de qualité et responsabilité élevées\n\nCompétences linguistiques\n\nen allemand: épreuve de négociation (C1/C2)\n- Autres langues: utiles\n\nCosa de Friamo\n\nUn poste de spécialiste unique qui combine deux domaines hautement spécialisés – avec une grande appréciation correspondante dans l'équipe\nActivité responsable et variée avec marge de manoeuvre\n- Projets de construction industrielle et de construction variés avec systèmes de façade complexes et exigences exigeantes en matière de protection contre l'incendie\nEnvironnement de travail moderne avec intégration BIM et outils de planification numérique\n- Conditions d'emploi attrayantes et rémunération liée à la performance\nDurée du travail flexible\n- Équipe collégiale\n\nLes offres des agences de recrutement ne sont pas prises en compte dans ce recrutement. Le DCT ne négociera donc en aucune manière le paiement des créances."
+        "it": "Descrizione 1.000 dipendenti in 30 sedi in Svizzera e in Europa: il Gruppo CSD è una società di ingegneria dinamica e in costante crescita. Inventiva, competenza e multidisciplinarità caratterizzano i nostri team, soluzioni ottimali e sostenibili per i nostri clienti con un plus per la qualità della vita e dell'ambiente sono il nostro marchio. Godono di lavorare in un ambiente professionale e agile e attribuiscono grande importanza alla qualità e all'efficienza. Diventa parte del nostro successo. \n• Stiamo cercando un sub-progetto manager per la nostra tecnologia di costruzione a Zurigo, Pratteln o Frauenfeld con doppia specializzazione in busta edili e protezione antincendio nella direzione di infrastrutture (settore industriale) 80-100% (f/m/d). Combinano due aree specializzate strettamente legate in una sola persona: la profondità tecnica dei sistemi di facciata, delle strutture di tetto, dell'impermeabilizzazione – con l'esperienza normativa nella protezione antincendio secondo le normative cantonali. Mansioni Progettazione specialistica della busta da costruzione - Progettazione specialistica e coordinamento di facciate, tetti e sistemi impermeabili - Sviluppo e valutazione di soluzioni tecniche per edifici industriali e commerciali Garantire i requisiti di fisica degli edifici, nonché gli standard e le linee guida pertinenti - Coordinamento delle interfacce per la costruzione di conchiglie, la tecnologia di costruzione e l'interior design Protezione antincendio – concetto, pianificazione e realizzazione - Sviluppo e attuazione dei concetti di protezione antincendio Garantire l'implementazione standard secondo le linee guida VKF e i requisiti cantonali - Coordinamento dei requisiti di protezione antincendio in tutti i settori - Accompagnamento delle autorizzazioni dell'autorità e preparazione della documentazione necessaria - Gestione dei progetti - preparazione delle offerte e valutazione tecnica delle offerte - Supporto professionale di esecuzione e garanzia della qualità dell'esecuzione - Programma e controllo dei costi nel settore della responsabilità - Persona di contatto: per clienti, pianificatori specializzati, autorità e imprenditori \n• Requisiti Qualifiche professionali - Laurea completa in architettura, ingegneria civile o ingegneria delle costruzioni (FH, ETH o HF) - Diversi anni di esperienza nella progettazione e realizzazione di buste da costruzione, sistemi di facciata o tetto - Conoscenza della protezione antincendio o disponibilità a specializzarsi in questo settore - Esperienza con appalto e assegnazione a NPK Buona conoscenza delle relative norme e linee guida (in particolare SIA e VKF) Gestione sicura del software CAD e di MS Office; la conoscenza di BIM è utile - Titolo di guida della categoria B Competenze personali - Tecnicamente adatta e orientata alla soluzione - Metodi di lavoro indipendenti e strutturati - Gioia della cooperazione interdisciplinare - Forte comunicazione e assertiva Standard e responsabilità di alta qualità Capacità linguistiche in tedesco: prova di negoziazione (C1/C2) - Altre lingue: benefico Cosa di Friamo Posizione specializzata unica che combina due aree altamente specializzate – con un apprezzamento corrispondente nel team Responsabile, varia attività con spazio per manovra - Progetti industriali e di costruzione vari con sistemi di facciata complessi e requisiti di protezione antincendio esigenti Ambiente di lavoro moderno con l'integrazione BIM e strumenti di pianificazione digitale - Condizioni di lavoro interessanti e remunerazioni connesse alle prestazioni Ore lavorative flessibili - Squadra Collegiale Le offerte da agenzie di reclutamento non sono considerate in questo reclutamento. CSD pertanto non negozierà in alcun modo il pagamento dei crediti.",
+        "en": "Descrizione 1,000 employees at 30 locations in Switzerland and Europe: The CSD Group is a dynamic, constantly growing engineering company. Inventiveness, competence and multidisciplinarity characterize our teams, optimal and sustainable solutions for our customers with a plus for the quality of life and the environment are our trademark. They enjoy working in a professional and agile environment and attach great importance to quality and efficiency. Become part of our success. We are looking for a sub-project manager for our construction technology in Zurich, Pratteln or Frauenfeld with double specialization in building envelope and fire protection in the direction of infrastructure facilities (industrial sector) 80-100% (f/m/d). They combine two closely linked specialist areas in one person: the technical depth of the facade systems, roof structures, waterproofing – with the normative expertise in fire protection according to cantonal regulations. Mansioni Specialist planning of building envelope - Specialist planning and coordination of facade, roof and waterproofing systems - Development and assessment of technical solutions for industrial and commercial buildings Ensuring building physics requirements as well as relevant standards and guidelines - Coordination of interfaces to shell construction, building technology and interior design Fire protection – concept, planning and implementation - Development and implementation of fire protection concepts Ensuring the standard-compliant implementation according to VKF guidelines and cantonal requirements - Coordination of fire protection requirements across all trades - Accompaniment of authority approvals and preparation of the necessary documentation - Project management - preparation of tenders and technical assessment of tenders - Professional support of execution and assurance of execution quality - Schedule and cost control in the area of responsibility - Contact person: for clients, specialist planners, authorities and entrepreneurs \n• Requirements Professional qualifications - Completed degree in architecture, civil engineering or construction engineering (FH, ETH or HF) - Several years of experience in the planning and realization of building envelopes, facade or roof systems - Knowledge of fire protection or willingness to specialise in this area - Experience with tendering and awarding to NPK Good knowledge of the relevant standards and guidelines (especially SIA and VKF) Secure handling of CAD software and MS Office; BIM knowledge is beneficial - Category B driving licence Personal competences - Technically adept and solution-oriented - Independent and structured working methods - Joy of interdisciplinary cooperation - Strong communication and assertive High quality standards and responsibility Language skills in German: negotiation-proof (C1/C2) - Other languages: beneficial Cosa of Friamo Unique specialist position that combines two highly specialized areas – with correspondingly high appreciation in the team Responsible, varied activity with room for manoeuvre - Varied industrial and building construction projects with complex facade systems and demanding fire protection requirements Modern working environment with BIM integration and digital planning tools - Attractive employment conditions and performance-related remuneration Flexible working hours - Collegial team Offers from recruitment agencies are not considered in this recruitment. CSD will therefore in no way negotiate the payment of claims.",
+        "de": "<p><span><strong>1’000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindergeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale und nachhaltige Lösungen für unsere Kunden mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen.</strong> <strong>Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz. Werden Sie Teil unseres Erfolges.</strong></span></p><p><span>Wir suchen per sofort oder nach Vereinbarung für unseren Bereich <strong>Bautechnik</strong> in <strong>Zürich</strong>, <strong>Pratteln</strong> oder <strong>Frauenfeld</strong> einen <strong>Teilprojektleiter Architektur</strong> mit <strong>Doppelspezialisierung auf Gebäudehülle und Brandschutz</strong> in Richtung Infrastrukturanlagen<strong> (</strong>Industriebereich) 80-100% (w/m/d).</span></p><p><span>Sie vereinen zwei eng verknüpfte Fachbereiche in einer Person: die technische Tiefe der Fassadensysteme, Dachaufbauten, Abdichtungen – mit dem normativen Fachwissen im Brandschutz gemäss kantonalen Vorschriften.</span></p><p><span><strong>Ihr Aufgabengebiet</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpFirst\"><span><strong>Fachplanung Gebäudehülle</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Fachplanung und Koordination von Fassaden-, Dach- und Abdichtungssystemen</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Entwicklung und Beurteilung technischer Lösungen für Industrie- und Gewerbebauten</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Sicherstellung der bauphysikalischen \n• Anforderungen sowie der relevanten Normen und Richtlinien</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Koordination der Schnittstellen zu Rohbau, Gebäudetechnik und Innenausbau<br></span></p></li></ul></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Brandschutz – Konzept, Planung und Umsetzung</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Erarbeitung und Umsetzung von Brandschutzkonzepten</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Sicherstellung der normgerechten Umsetzung gemäss VKF-Richtlinien und kantonalen Vorgaben</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Koordination brandschutztechnischer \n• Anforderungen über alle Gewerke hinweg</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Begleitung von Behördenabnahmen sowie Erstellung der erforderlichen Dokumentationen</span></p></li></ul></li></ul><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Projektmanagement</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Erstellung von Ausschreibungen und technische Beurteilung von Angeboten</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Fachliche Begleitung der Ausführung und Sicherstellung der Ausführungsqualität</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Termin- und Kostenkontrolle im Verantwortungsbereich</span></p></li><li><p class=\"MsoListParagraphCxSpLast\"><span>Ansprechpartner:in für Bauherrschaften, Fachplanende, Behörden und Unternehmer</span></p></li></ul></li></ul><p><span><strong>\n• Ihr Profil</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpFirst\"><span><strong>Fachliche Qualifikationen</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Abgeschlossenes Studium in Architektur, Bauingenieurwesen oder Bautechnik (FH, ETH oder HF)</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Mehrjährige Erfahrung in der Planung und Realisierung von Gebäudehüllen, Fassaden- oder Dachsystemen</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Kenntnisse im Brandschutz oder Bereitschaft zur fachlichen Vertiefung in diesem Bereich</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Erfahrung mit Ausschreibungen und Vergaben nach NPK</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Gute Kenntnisse der relevanten Normen und Richtlinien (insbesondere SIA und VKF)</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Sicherer Umgang mit CAD-Software und MS Office; BIM-Kenntnisse von Vorteil</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Führerausweis Kategorie B<br></span></p></li></ul></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Persönliche Kompetenzen</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Technisch versiert und lösungsorientiert</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Selbständige und strukturierte Arbeitsweise</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Freude an interdisziplinärer Zusammenarbeit</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Kommunikationsstark und durchsetzungsfähig</span></p></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Hoher Qualitätsanspruch und Verantwortungsbewusstsein<br></span></p></li></ul></li><li><p class=\"MsoListParagraphCxSpMiddle\"><span><strong>Sprachkenntnisse</strong></span></p><ul><li><p class=\"MsoListParagraphCxSpMiddle\"><span>Deutsch: verhandlungssicher (C1/C2)</span></p></li><li><p class=\"MsoListParagraphCxSpLast\"><span>Weitere Sprachen: von Vorteil</span></p></li></ul></li></ul><p><span><strong>\n• Wir bieten</strong></span></p><ul><li><p><span>Einzigartige Fachposition, die zwei hochspezialisierte Bereiche vereint – mit entsprechend hoher Wertschätzung im Team</span></p></li><li><p><span>Verantwortungsvolle, abwechslungsreiche Tätigkeit mit Gestaltungsspielraum</span></p></li><li><p><span>Abwechslungsreiche Industrie- und Hochbauprojekte mit komplexen Fassadensystemen und anspruchsvollen Brandschutzanforderungen</span></p></li><li><p><span>Modernes Arbeitsumfeld mit BIM-Integration und digitalen Planungstools</span></p></li><li><p><span>Attraktive Anstellungsbedingungen und leistungsgerechte Entlöhnung</span></p></li><li><p><span>Flexible Arbeitszeiten</span></p></li><li><p><span>Kollegiales Team</span></p></li></ul><p><span><strong>Angebote von Personalvermittlungsagenturen werden bei dieser Rekrutierung nicht in Betracht gezogen. CSD wird daher in keiner Weise über die Zahlung von Ansprüchen verhandeln.</strong></span></p>",
+        "fr": "Descrizione 1000 collaborateurs dans 30 sites en Suisse et en Europe : Le Groupe CSD est une entreprise d'ingénierie dynamique et en constante croissance. Inventivité, compétence et multidisciplinarité caractérisent nos équipes, des solutions optimales et durables pour nos clients avec un plus pour la qualité de vie et l'environnement sont notre marque de fabrique. Ils aiment travailler dans un environnement professionnel et agile et attachent une grande importance à la qualité et à l'efficacité. Faites partie de notre succès. Nous sommes à la recherche d'un gestionnaire de sous-projet pour notre technologie de construction à Zurich, Pratteln ou Frauenfeld avec une double spécialisation en enveloppe de bâtiment et protection contre l'incendie en direction des infrastructures (secteur industriel) 80-100% (f/m/d). Ils combinent deux domaines spécialisés étroitement liés en une seule personne : la profondeur technique des systèmes de façade, les structures du toit, l'imperméabilisation – avec l'expertise normative en matière de protection contre l'incendie selon la réglementation cantonale. Mansioni Planification spécialisée de l'enveloppe du bâtiment - Planification spécialisée et coordination des systèmes de façade, de toit et d'étanchéité - Développement et évaluation de solutions techniques pour les bâtiments industriels et commerciaux Assurer les exigences en physique du bâtiment ainsi que les normes et directives pertinentes - Coordination des interfaces pour la construction de coques, la technologie du bâtiment et la conception intérieure Protection contre les incendies – concept, planification et mise en œuvre - Élaboration et mise en œuvre de concepts de protection contre les incendies Assurer une mise en œuvre conforme aux normes conformément aux directives de la VKF et aux exigences cantonales - Coordination des exigences en matière de protection contre les incendies dans tous les métiers - Accompagnement des autorisations et préparation des documents nécessaires - Gestion de projet - préparation des offres et évaluation technique des offres - Soutien professionnel à l'exécution et assurance de la qualité de l'exécution - Calendrier et contrôle des coûts dans la zone de responsabilité - Personne à contacter: pour les clients, planificateurs spécialisés, autorités et entrepreneurs \n• Exigences Compétences professionnelles - Diplôme d ' architecture, de génie civil ou de génie de la construction (FH, ETH ou HF) - Plusieurs années d'expérience dans la planification et la réalisation d'enveloppes de construction, de façades ou de toitures - Connaissance de la protection contre l'incendie ou volonté de se spécialiser dans ce domaine - Expérience de l'appel d'offres et de l'attribution à NPK Bonne connaissance des normes et lignes directrices pertinentes (notamment SIA et VKF) Gestion sûre des logiciels de CAO et de MS Office; les connaissances BIM sont bénéfiques - Permis de conduire de catégorie B Compétences personnelles - Techniquement adapté et orienté vers la solution - Méthodes de travail indépendantes et structurées - Joy de coopération interdisciplinaire - Communication forte et affirmée Normes de qualité et responsabilité élevées Compétences linguistiques en allemand: épreuve de négociation (C1/C2) - Autres langues: utiles Cosa de Friamo Un poste de spécialiste unique qui combine deux domaines hautement spécialisés – avec une grande appréciation correspondante dans l'équipe Activité responsable et variée avec marge de manoeuvre - Projets de construction industrielle et de construction variés avec systèmes de façade complexes et exigences exigeantes en matière de protection contre l'incendie Environnement de travail moderne avec intégration BIM et outils de planification numérique - Conditions d'emploi attrayantes et rémunération liée à la performance Durée du travail flexible - Équipe collégiale Les offres des agences de recrutement ne sont pas prises en compte dans ce recrutement. Le DCT ne négociera donc en aucune manière le paiement des créances."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.csd.ch/jobs/7867787-teilprojektleiter-architektur-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T22:17:28.702Z",
+      "crawledAt": "2026-06-09T11:17:15.461Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3490,15 +3522,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-08T12:45:29.856Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "en": [
+          "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "fr": [
+          "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teilprojektleiter-architektur-80-100-w-m-d-csd-engineers-ch"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
@@ -3508,34 +3555,34 @@
       "id": "csd-engineers-558c5fe32307",
       "slug": "apprenti-dessinateur-f-h-d-csd-engineers-ch",
       "slugByLocale": {
-        "fr": "apprenti-dessinateur-f-h-d-csd-engineers-ch",
         "it": "apprenti-dessinateur-f-h-d-csd-engineers-ch",
         "en": "apprenti-dessinateur-f-h-d-csd-engineers-ch",
-        "de": "apprenti-dessinateur-f-h-d-csd-engineers-ch"
+        "de": "apprenti-dessinateur-f-h-d-csd-engineers-ch",
+        "fr": "apprenti-dessinateur-f-h-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
       "companyDomain": "csd.ch",
-      "title": "Apprenti Dessinateur (f/h/d)",
+      "title": "Apprenti Dessinateur durant 4 années de 2027 à 2031 (f/h/d)",
       "titleByLocale": {
-        "fr": "Apprenti Dessinateur (f/h/d)",
-        "it": "Apprenti Dessinateur (f/m/d)",
+        "it": "Apprenti Dessinateur durant 4 années de 2027 à 2031 (f/m/d)",
         "en": "Apprenti Dessinateur (f/h/d)",
-        "de": "Apprenti Dessinateur (f/h/d)"
+        "de": "Apprenti Dessinateur (f/h/d)",
+        "fr": "Apprenti Dessinateur durant 4 années de 2027 à 2031 (f/h/d)"
       },
       "description": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) un <strong>Apprenti Dessinateur </strong>(f/h/d), durant <strong>4 années de 2027 à 2031.</strong></span></p><p><span><em>L’apprenti(e) bénéficiera d’un accompagnement de proximité durant sa formation, principalement sur le site de Porrentruy, avec présence possible à Delémont selon les besoins.</em></span></p><p></p><p><span><strong>\n• Vos missions </strong></span></p><ul><li class=\"MsoNormal\"><p><span>Réalisation de plans techniques en génie civil</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux projets de conception et d’exécution</span></p></li><li class=\"MsoNormal\"><p><span>Mise à jour et modification de plans selon les besoins des projets</span></p></li><li class=\"MsoNormal\"><p><span>Collaboration avec les ingénieurs et les chefs de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux relevés et au suivi technique des dossiers</span></p></li><li class=\"MsoNormal\"><p><span>Respect des normes techniques et des procédures internes</span></p></li></ul><p></p><p><strong>\n• Votre profil </strong></p><ul><li class=\"MsoNormal\"><p><span>Intérêt marqué pour le génie civil et le dessin technique </span></p></li><li class=\"MsoNormal\"><p><span>Motivation à apprendre et à évoluer dans un environnement technique</span></p></li><li class=\"MsoNormal\"><p><span>Rigueur, précision et sens de l’organisation</span></p></li><li class=\"MsoNormal\"><p><span>Bon esprit d’équipe</span></p></li></ul>",
       "descriptionByLocale": {
-        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) un <strong>Apprenti Dessinateur </strong>(f/h/d), durant <strong>4 années de 2027 à 2031.</strong></span></p><p><span><em>L’apprenti(e) bénéficiera d’un accompagnement de proximité durant sa formation, principalement sur le site de Porrentruy, avec présence possible à Delémont selon les besoins.</em></span></p><p></p><p><span><strong>\n• Vos missions </strong></span></p><ul><li class=\"MsoNormal\"><p><span>Réalisation de plans techniques en génie civil</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux projets de conception et d’exécution</span></p></li><li class=\"MsoNormal\"><p><span>Mise à jour et modification de plans selon les besoins des projets</span></p></li><li class=\"MsoNormal\"><p><span>Collaboration avec les ingénieurs et les chefs de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux relevés et au suivi technique des dossiers</span></p></li><li class=\"MsoNormal\"><p><span>Respect des normes techniques et des procédures internes</span></p></li></ul><p></p><p><strong>\n• Votre profil </strong></p><ul><li class=\"MsoNormal\"><p><span>Intérêt marqué pour le génie civil et le dessin technique </span></p></li><li class=\"MsoNormal\"><p><span>Motivation à apprendre et à évoluer dans un environnement technique</span></p></li><li class=\"MsoNormal\"><p><span>Rigueur, précision et sens de l’organisation</span></p></li><li class=\"MsoNormal\"><p><span>Bon esprit d’équipe</span></p></li></ul>",
         "it": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) un <strong>Apprenti Dessinateur </strong>(f/h/d), durant <strong>4 années de 2027 à 2031.</strong></span></p><p><span><em>L’apprenti(e) bénéficiera d’un accompagnement de proximité durant sa formation, principalement sur le site de Porrentruy, avec présence possible à Delémont selon les besoins.</em></span></p><p></p><p><span><strong>\n• Vos missions </strong></span></p><ul><li class=\"MsoNormal\"><p><span>Réalisation de plans techniques en génie civil</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux projets de conception et d’exécution</span></p></li><li class=\"MsoNormal\"><p><span>Mise à jour et modification de plans selon les besoins des projets</span></p></li><li class=\"MsoNormal\"><p><span>Collaboration avec les ingénieurs et les chefs de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux relevés et au suivi technique des dossiers</span></p></li><li class=\"MsoNormal\"><p><span>Respect des normes techniques et des procédures internes</span></p></li></ul><p></p><p><strong>\n• Votre profil </strong></p><ul><li class=\"MsoNormal\"><p><span>Intérêt marqué pour le génie civil et le dessin technique </span></p></li><li class=\"MsoNormal\"><p><span>Motivation à apprendre et à évoluer dans un environnement technique</span></p></li><li class=\"MsoNormal\"><p><span>Rigueur, précision et sens de l’organisation</span></p></li><li class=\"MsoNormal\"><p><span>Bon esprit d’équipe</span></p></li></ul>",
         "en": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) un <strong>Apprenti Dessinateur </strong>(f/h/d), durant <strong>4 années de 2027 à 2031.</strong></span></p><p><span><em>L’apprenti(e) bénéficiera d’un accompagnement de proximité durant sa formation, principalement sur le site de Porrentruy, avec présence possible à Delémont selon les besoins.</em></span></p><p></p><p><span><strong>\n• Vos missions </strong></span></p><ul><li class=\"MsoNormal\"><p><span>Réalisation de plans techniques en génie civil</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux projets de conception et d’exécution</span></p></li><li class=\"MsoNormal\"><p><span>Mise à jour et modification de plans selon les besoins des projets</span></p></li><li class=\"MsoNormal\"><p><span>Collaboration avec les ingénieurs et les chefs de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux relevés et au suivi technique des dossiers</span></p></li><li class=\"MsoNormal\"><p><span>Respect des normes techniques et des procédures internes</span></p></li></ul><p></p><p><strong>\n• Votre profil </strong></p><ul><li class=\"MsoNormal\"><p><span>Intérêt marqué pour le génie civil et le dessin technique </span></p></li><li class=\"MsoNormal\"><p><span>Motivation à apprendre et à évoluer dans un environnement technique</span></p></li><li class=\"MsoNormal\"><p><span>Rigueur, précision et sens de l’organisation</span></p></li><li class=\"MsoNormal\"><p><span>Bon esprit d’équipe</span></p></li></ul>",
-        "de": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) un <strong>Apprenti Dessinateur </strong>(f/h/d), durant <strong>4 années de 2027 à 2031.</strong></span></p><p><span><em>L’apprenti(e) bénéficiera d’un accompagnement de proximité durant sa formation, principalement sur le site de Porrentruy, avec présence possible à Delémont selon les besoins.</em></span></p><p></p><p><span><strong>\n• Vos missions </strong></span></p><ul><li class=\"MsoNormal\"><p><span>Réalisation de plans techniques en génie civil</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux projets de conception et d’exécution</span></p></li><li class=\"MsoNormal\"><p><span>Mise à jour et modification de plans selon les besoins des projets</span></p></li><li class=\"MsoNormal\"><p><span>Collaboration avec les ingénieurs et les chefs de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux relevés et au suivi technique des dossiers</span></p></li><li class=\"MsoNormal\"><p><span>Respect des normes techniques et des procédures internes</span></p></li></ul><p></p><p><strong>\n• Votre profil </strong></p><ul><li class=\"MsoNormal\"><p><span>Intérêt marqué pour le génie civil et le dessin technique </span></p></li><li class=\"MsoNormal\"><p><span>Motivation à apprendre et à évoluer dans un environnement technique</span></p></li><li class=\"MsoNormal\"><p><span>Rigueur, précision et sens de l’organisation</span></p></li><li class=\"MsoNormal\"><p><span>Bon esprit d’équipe</span></p></li></ul>"
+        "de": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) un <strong>Apprenti Dessinateur </strong>(f/h/d), durant <strong>4 années de 2027 à 2031.</strong></span></p><p><span><em>L’apprenti(e) bénéficiera d’un accompagnement de proximité durant sa formation, principalement sur le site de Porrentruy, avec présence possible à Delémont selon les besoins.</em></span></p><p></p><p><span><strong>\n• Vos missions </strong></span></p><ul><li class=\"MsoNormal\"><p><span>Réalisation de plans techniques en génie civil</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux projets de conception et d’exécution</span></p></li><li class=\"MsoNormal\"><p><span>Mise à jour et modification de plans selon les besoins des projets</span></p></li><li class=\"MsoNormal\"><p><span>Collaboration avec les ingénieurs et les chefs de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux relevés et au suivi technique des dossiers</span></p></li><li class=\"MsoNormal\"><p><span>Respect des normes techniques et des procédures internes</span></p></li></ul><p></p><p><strong>\n• Votre profil </strong></p><ul><li class=\"MsoNormal\"><p><span>Intérêt marqué pour le génie civil et le dessin technique </span></p></li><li class=\"MsoNormal\"><p><span>Motivation à apprendre et à évoluer dans un environnement technique</span></p></li><li class=\"MsoNormal\"><p><span>Rigueur, précision et sens de l’organisation</span></p></li><li class=\"MsoNormal\"><p><span>Bon esprit d’équipe</span></p></li></ul>",
+        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) un <strong>Apprenti Dessinateur </strong>(f/h/d), durant <strong>4 années de 2027 à 2031.</strong></span></p><p><span><em>L’apprenti(e) bénéficiera d’un accompagnement de proximité durant sa formation, principalement sur le site de Porrentruy, avec présence possible à Delémont selon les besoins.</em></span></p><p></p><p><span><strong>\n• Vos missions </strong></span></p><ul><li class=\"MsoNormal\"><p><span>Réalisation de plans techniques en génie civil</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux projets de conception et d’exécution</span></p></li><li class=\"MsoNormal\"><p><span>Mise à jour et modification de plans selon les besoins des projets</span></p></li><li class=\"MsoNormal\"><p><span>Collaboration avec les ingénieurs et les chefs de projet</span></p></li><li class=\"MsoNormal\"><p><span>Participation aux relevés et au suivi technique des dossiers</span></p></li><li class=\"MsoNormal\"><p><span>Respect des normes techniques et des procédures internes</span></p></li></ul><p></p><p><strong>\n• Votre profil </strong></p><ul><li class=\"MsoNormal\"><p><span>Intérêt marqué pour le génie civil et le dessin technique </span></p></li><li class=\"MsoNormal\"><p><span>Motivation à apprendre et à évoluer dans un environnement technique</span></p></li><li class=\"MsoNormal\"><p><span>Rigueur, précision et sens de l’organisation</span></p></li><li class=\"MsoNormal\"><p><span>Bon esprit d’équipe</span></p></li></ul>"
       },
       "location": "Porrentruy",
       "canton": "JU",
-      "url": "https://jobs.csd.ch/jobs/7873607-apprenti-dessinateur-f-h-d",
+      "url": "https://jobs.csd.ch/jobs/7873607-apprenti-dessinateur-durant-4-annees-de-2027-a-2031-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:17:28.345Z",
+      "crawledAt": "2026-06-09T11:17:15.122Z",
       "addressLocality": "Porrentruy",
       "postalCode": "2900",
       "streetAddress": "Rte de Courgenay 18",
@@ -3549,7 +3596,71 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://jobs.csd.ch/jobs/7873607-apprenti-dessinateur-f-h-d",
+      "applyUrl": "https://jobs.csd.ch/jobs/7873607-apprenti-dessinateur-durant-4-annees-de-2027-a-2031-f-h-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-08T22:17:28.345Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "JU"
+    },
+    {
+      "id": "csd-engineers-03d31f57ed80",
+      "slug": "ingenieur-en-genie-civil-f-h-d-80-100-csd-engineers-ch",
+      "slugByLocale": {
+        "fr": "ingenieur-en-genie-civil-f-h-d-80-100-csd-engineers-ch",
+        "it": "ingenieur-en-genie-civil-f-h-d-80-100-csd-engineers-ch",
+        "en": "ingenieur-en-genie-civil-f-h-d-80-100-csd-engineers-ch",
+        "de": "ingenieur-en-genie-civil-f-h-d-80-100-csd-engineers-ch"
+      },
+      "company": "CSD ENGINEERS",
+      "companyKey": "csd-engineers",
+      "companyDomain": "csd.ch",
+      "title": "Ingénieur en Génie Civil (f/h/d) 80-100%",
+      "titleByLocale": {
+        "fr": "Ingénieur en Génie Civil (f/h/d) 80-100%",
+        "it": "Ingénieur en Génie Civil (f/m/d) 80-100%",
+        "en": "Ingénieur en Génie Civil (f/h/d) 80-100%",
+        "de": "Ingénieur en Génie Civil (f/h/d) 80-100%"
+      },
+      "description": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) ou <strong>Delémont</strong> (JU) un <strong>Ingénieur en Génie Civil </strong>(f/h/d) 80-100%.</span></p><p></p><p><span><strong>\n• Vos missions</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Réaliser les études techniques et les calculs de dimensionnement des structures et ouvrages.</span></p></li><li class=\"MsoListParagraph\"><p><span>Concevoir des ouvrages de génie civil :</span></p></li><li class=\"MsoListParagraph\"><p><span>Élaborer les notes de calcul, rapports techniques et documents de conception</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux différentes phases des projets : avant-projet, projet d’exécution, appels d’offres, suivi de chantier</span></p></li><li class=\"MsoListParagraph\"><p><span>Produire et vérifier les plans techniques en coordination avec les dessinateurs/projeteurs</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux réunions de coordination avec les clients, architectes, entreprises et partenaires</span></p></li><li class=\"MsoListParagraph\"><p><span>Suivre l’avancement des travaux et assurer le contrôle qualité sur chantier</span></p></li></ul><p></p><p class=\"MsoNormal\"><span><strong>\n• Votre profil</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Diplôme d’Ingénieur en Génie Civil (EPF, HES ou équivalent)</span></p></li><li class=\"MsoListParagraph\"><p><span>Expérience de 2 à 5 ans dans un bureau d’ingénierie ou entreprise de construction</span></p></li><li class=\"MsoListParagraph\"><p><span>Bon esprit d’analyse et de synthèse</span></p></li><li class=\"MsoListParagraph\"><p><span>Autonomie, rigueur et sens des responsabilités</span></p></li><li class=\"MsoListParagraph\"><p><span>Aptitude au travail en équipe multidisciplinaire</span></p></li><li class=\"MsoListParagraph\"><p><span>Excellentes capacités rédactionnelles et relationnelles</span></p></li><li class=\"MsoListParagraph\"><p><span>Maîtrise du français ; l’allemand ou l’anglais constitue un atout</span></p></li></ul>",
+      "descriptionByLocale": {
+        "fr": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) ou <strong>Delémont</strong> (JU) un <strong>Ingénieur en Génie Civil </strong>(f/h/d) 80-100%.</span></p><p></p><p><span><strong>\n• Vos missions</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Réaliser les études techniques et les calculs de dimensionnement des structures et ouvrages.</span></p></li><li class=\"MsoListParagraph\"><p><span>Concevoir des ouvrages de génie civil :</span></p></li><li class=\"MsoListParagraph\"><p><span>Élaborer les notes de calcul, rapports techniques et documents de conception</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux différentes phases des projets : avant-projet, projet d’exécution, appels d’offres, suivi de chantier</span></p></li><li class=\"MsoListParagraph\"><p><span>Produire et vérifier les plans techniques en coordination avec les dessinateurs/projeteurs</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux réunions de coordination avec les clients, architectes, entreprises et partenaires</span></p></li><li class=\"MsoListParagraph\"><p><span>Suivre l’avancement des travaux et assurer le contrôle qualité sur chantier</span></p></li></ul><p></p><p class=\"MsoNormal\"><span><strong>\n• Votre profil</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Diplôme d’Ingénieur en Génie Civil (EPF, HES ou équivalent)</span></p></li><li class=\"MsoListParagraph\"><p><span>Expérience de 2 à 5 ans dans un bureau d’ingénierie ou entreprise de construction</span></p></li><li class=\"MsoListParagraph\"><p><span>Bon esprit d’analyse et de synthèse</span></p></li><li class=\"MsoListParagraph\"><p><span>Autonomie, rigueur et sens des responsabilités</span></p></li><li class=\"MsoListParagraph\"><p><span>Aptitude au travail en équipe multidisciplinaire</span></p></li><li class=\"MsoListParagraph\"><p><span>Excellentes capacités rédactionnelles et relationnelles</span></p></li><li class=\"MsoListParagraph\"><p><span>Maîtrise du français ; l’allemand ou l’anglais constitue un atout</span></p></li></ul>",
+        "it": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) ou <strong>Delémont</strong> (JU) un <strong>Ingénieur en Génie Civil </strong>(f/h/d) 80-100%.</span></p><p></p><p><span><strong>\n• Vos missions</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Réaliser les études techniques et les calculs de dimensionnement des structures et ouvrages.</span></p></li><li class=\"MsoListParagraph\"><p><span>Concevoir des ouvrages de génie civil :</span></p></li><li class=\"MsoListParagraph\"><p><span>Élaborer les notes de calcul, rapports techniques et documents de conception</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux différentes phases des projets : avant-projet, projet d’exécution, appels d’offres, suivi de chantier</span></p></li><li class=\"MsoListParagraph\"><p><span>Produire et vérifier les plans techniques en coordination avec les dessinateurs/projeteurs</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux réunions de coordination avec les clients, architectes, entreprises et partenaires</span></p></li><li class=\"MsoListParagraph\"><p><span>Suivre l’avancement des travaux et assurer le contrôle qualité sur chantier</span></p></li></ul><p></p><p class=\"MsoNormal\"><span><strong>\n• Votre profil</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Diplôme d’Ingénieur en Génie Civil (EPF, HES ou équivalent)</span></p></li><li class=\"MsoListParagraph\"><p><span>Expérience de 2 à 5 ans dans un bureau d’ingénierie ou entreprise de construction</span></p></li><li class=\"MsoListParagraph\"><p><span>Bon esprit d’analyse et de synthèse</span></p></li><li class=\"MsoListParagraph\"><p><span>Autonomie, rigueur et sens des responsabilités</span></p></li><li class=\"MsoListParagraph\"><p><span>Aptitude au travail en équipe multidisciplinaire</span></p></li><li class=\"MsoListParagraph\"><p><span>Excellentes capacités rédactionnelles et relationnelles</span></p></li><li class=\"MsoListParagraph\"><p><span>Maîtrise du français ; l’allemand ou l’anglais constitue un atout</span></p></li></ul>",
+        "en": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) ou <strong>Delémont</strong> (JU) un <strong>Ingénieur en Génie Civil </strong>(f/h/d) 80-100%.</span></p><p></p><p><span><strong>\n• Vos missions</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Réaliser les études techniques et les calculs de dimensionnement des structures et ouvrages.</span></p></li><li class=\"MsoListParagraph\"><p><span>Concevoir des ouvrages de génie civil :</span></p></li><li class=\"MsoListParagraph\"><p><span>Élaborer les notes de calcul, rapports techniques et documents de conception</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux différentes phases des projets : avant-projet, projet d’exécution, appels d’offres, suivi de chantier</span></p></li><li class=\"MsoListParagraph\"><p><span>Produire et vérifier les plans techniques en coordination avec les dessinateurs/projeteurs</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux réunions de coordination avec les clients, architectes, entreprises et partenaires</span></p></li><li class=\"MsoListParagraph\"><p><span>Suivre l’avancement des travaux et assurer le contrôle qualité sur chantier</span></p></li></ul><p></p><p class=\"MsoNormal\"><span><strong>\n• Votre profil</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Diplôme d’Ingénieur en Génie Civil (EPF, HES ou équivalent)</span></p></li><li class=\"MsoListParagraph\"><p><span>Expérience de 2 à 5 ans dans un bureau d’ingénierie ou entreprise de construction</span></p></li><li class=\"MsoListParagraph\"><p><span>Bon esprit d’analyse et de synthèse</span></p></li><li class=\"MsoListParagraph\"><p><span>Autonomie, rigueur et sens des responsabilités</span></p></li><li class=\"MsoListParagraph\"><p><span>Aptitude au travail en équipe multidisciplinaire</span></p></li><li class=\"MsoListParagraph\"><p><span>Excellentes capacités rédactionnelles et relationnelles</span></p></li><li class=\"MsoListParagraph\"><p><span>Maîtrise du français ; l’allemand ou l’anglais constitue un atout</span></p></li></ul>",
+        "de": "<p><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></p><p></p><p><span>Nous recherchons pour notre société <strong>CSD INGENIEURS SA / Voisard & Migy</strong> à <strong>Porrentruy</strong> (JU) ou <strong>Delémont</strong> (JU) un <strong>Ingénieur en Génie Civil </strong>(f/h/d) 80-100%.</span></p><p></p><p><span><strong>\n• Vos missions</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Réaliser les études techniques et les calculs de dimensionnement des structures et ouvrages.</span></p></li><li class=\"MsoListParagraph\"><p><span>Concevoir des ouvrages de génie civil :</span></p></li><li class=\"MsoListParagraph\"><p><span>Élaborer les notes de calcul, rapports techniques et documents de conception</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux différentes phases des projets : avant-projet, projet d’exécution, appels d’offres, suivi de chantier</span></p></li><li class=\"MsoListParagraph\"><p><span>Produire et vérifier les plans techniques en coordination avec les dessinateurs/projeteurs</span></p></li><li class=\"MsoListParagraph\"><p><span>Participer aux réunions de coordination avec les clients, architectes, entreprises et partenaires</span></p></li><li class=\"MsoListParagraph\"><p><span>Suivre l’avancement des travaux et assurer le contrôle qualité sur chantier</span></p></li></ul><p></p><p class=\"MsoNormal\"><span><strong>\n• Votre profil</strong></span></p><ul><li class=\"MsoListParagraph\"><p><span>Diplôme d’Ingénieur en Génie Civil (EPF, HES ou équivalent)</span></p></li><li class=\"MsoListParagraph\"><p><span>Expérience de 2 à 5 ans dans un bureau d’ingénierie ou entreprise de construction</span></p></li><li class=\"MsoListParagraph\"><p><span>Bon esprit d’analyse et de synthèse</span></p></li><li class=\"MsoListParagraph\"><p><span>Autonomie, rigueur et sens des responsabilités</span></p></li><li class=\"MsoListParagraph\"><p><span>Aptitude au travail en équipe multidisciplinaire</span></p></li><li class=\"MsoListParagraph\"><p><span>Excellentes capacités rédactionnelles et relationnelles</span></p></li><li class=\"MsoListParagraph\"><p><span>Maîtrise du français ; l’allemand ou l’anglais constitue un atout</span></p></li></ul>"
+      },
+      "location": "Porrentruy",
+      "canton": "JU",
+      "url": "https://jobs.csd.ch/jobs/7873966-ingenieur-en-genie-civil-f-h-d-80-100",
+      "source": "CSD ENGINEERS Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-09T11:17:14.783Z",
+      "addressLocality": "Porrentruy",
+      "postalCode": "2900",
+      "streetAddress": "Rte de Courgenay 18",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Ingegneria / Ambiente",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://jobs.csd.ch/jobs/7873966-ingenieur-en-genie-civil-f-h-d-80-100",
       "requirements": [],
       "requirementsByLocale": {
         "fr": []
@@ -3568,7 +3679,7 @@
         }
       },
       "addressRegion": "JU",
-      "firstSeenAt": "2026-06-08T22:17:28.345Z"
+      "firstSeenAt": "2026-06-09T11:17:14.783Z"
     }
   ]
 }
