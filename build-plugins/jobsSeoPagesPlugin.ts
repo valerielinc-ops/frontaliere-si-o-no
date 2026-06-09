@@ -4454,7 +4454,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  isPartOf: options.isPartOf,
  });
  const itemListLd = options.items.length > 0
- ? JSON.stringify({
+ ? inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: options.name,

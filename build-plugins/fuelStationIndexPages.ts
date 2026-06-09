@@ -81,6 +81,7 @@ import {
   renderEntityCard,
 } from './shared/seoContentTokens';
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Visual style constants (local to the index pages) ─────────────
 //
@@ -850,7 +851,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   // BreadcrumbList JSON-LD.
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -886,7 +887,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     url: `${BASE_URL}${item.href}`,
   }));
 
-  const webPageLd = JSON.stringify({
+  const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: titles.h1,

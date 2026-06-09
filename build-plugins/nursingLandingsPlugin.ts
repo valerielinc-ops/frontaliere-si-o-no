@@ -91,6 +91,7 @@ import {
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
 import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
@@ -336,7 +337,7 @@ function renderPage(opts: {
     : jobBoardUrl;
   const calculatorUrl = `${BASE_URL}${CALCULATOR_URL[locale]}`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -346,7 +347,7 @@ function renderPage(opts: {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -357,7 +358,7 @@ function renderPage(opts: {
     })),
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,

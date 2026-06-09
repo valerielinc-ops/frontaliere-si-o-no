@@ -54,6 +54,7 @@ import {
 } from './comparisonsHubAggregate';
 import { COMPARISONS_HUB_COPY, type ComparisonsHubCopy } from './comparisonsHubCopy';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -423,7 +424,7 @@ function renderPage(opts: {
   const bodyHtml = `<main class="s-EDtWsL">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -433,7 +434,7 @@ function renderPage(opts: {
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -444,7 +445,7 @@ function renderPage(opts: {
     })),
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
@@ -474,7 +475,7 @@ function renderPage(opts: {
 
   // DataDownload — links to the public salary CSV emitted by annualReportPlugin
   // (docs/SEO-FEATURES.md + annualReportPlugin.ts → /data/jobs-salary-aggregate.csv).
-  const datasetLd = JSON.stringify({
+  const datasetLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: locale === 'it'

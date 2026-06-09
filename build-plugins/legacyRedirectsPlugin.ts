@@ -9,6 +9,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { resolveCantonSection, resolveJobCanton, type CantonLocale } from './shared/cantonSection';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import jobsFile from '../data/jobs.json';
 
@@ -330,7 +331,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
  const hreflangTags = getHreflangHtml(to);
- const redirectLd = JSON.stringify({
+ const redirectLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'WebPage',
  name: `Redirect ${from} → ${to}`,

@@ -36,6 +36,7 @@ import {
   type JobCardListItem,
 } from './shared/jobCardHtml';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 import type { JobBoardLocale } from './jobBoardSeo';
 import {
   SECTOR_HUB_KEYS,
@@ -256,7 +257,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}`.replace(/\/+/g, '/'),
   )}`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -267,7 +268,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   });
 
   const itemListLd = jobCards.length > 0
-    ? JSON.stringify({
+    ? inlineScriptJson({
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         name: seo.h1,
@@ -281,7 +282,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
       })
     : '';
 
-  const collectionLd = JSON.stringify({
+  const collectionLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: seo.h1,
@@ -295,7 +296,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   });
 
   const faqLd = seo.faq.length > 0
-    ? JSON.stringify({
+    ? inlineScriptJson({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: seo.faq.map((f) => ({
