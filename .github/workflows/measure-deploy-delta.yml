@@ -33,7 +33,12 @@ concurrency:
 jobs:
   delta:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # `samples>0` adds two extra full streaming passes over BOTH ~1.4GB tars
+    # (extract_members) on top of the two manifest sha1 passes — ~327k members
+    # ×2 archives overran the old 30-min cap (samples=0 fit; samples>0 timed
+    # out, blocking the post-fix churn measurement — #1633 item 1). Raised so
+    # the sample-diff path can complete; still bounded against a runaway job.
+    timeout-minutes: 90
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
