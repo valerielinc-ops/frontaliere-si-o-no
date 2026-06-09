@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-06-09T11:12:04.267Z",
+  "generatedAt": "2026-06-09T22:10:30.805Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6032,
-  "avgDurationMs": 6032,
+  "durationMs": 5540,
+  "avgDurationMs": 5540,
   "durationHistory": [
-    6032
+    5540
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000126682308-apprenti-e-technologue-en-dispositif-medicaux",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T11:12:02.248Z",
+      "crawledAt": "2026-06-09T22:10:28.917Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -53,47 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-generale-beaulieu-92b216e17f86",
-      "slug": "infermiera-in-oncologia-ambulatoria-clinique-generale-beaulieu-geneve",
-      "company": "Clinique Générale-Beaulieu",
-      "companyKey": "clinique-generale-beaulieu",
-      "companyDomain": "swissmedical.net",
-      "title": "Infirmier(ère) en oncologie ambulatoire",
-      "needsRetranslation": false,
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130215099-infirmier-ere-en-oncologie-ambulatoire",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130215099-infirmier-ere-en-oncologie-ambulatoire",
-      "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-08T22:12:28.901Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1206",
-      "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "datePosted": "2026-06-04",
-      "firstSeenAt": "2026-06-04T14:44:24.013Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
