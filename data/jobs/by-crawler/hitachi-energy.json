@@ -117,7 +117,9 @@
         }
       },
       "postalCode": "5600",
-      "firstSeenAt": "2026-06-09T11:38:38.271Z"
+      "firstSeenAt": "2026-06-09T11:38:38.271Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Technical Buyer 80 - 100% (f/m/d)",
@@ -244,8 +246,7 @@
       },
       "previousSlugs": [
         "production-controller-80-100-f-m-d-hitachi-energy-zurich-switzerland"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Area Sales Manager 80 - 100% (f/m/d)",
@@ -636,7 +637,7 @@
       "slugByLocale": {
         "it": "machine-operator-80-100-w-m-d-hitachi-energy-zurich-switzerland",
         "en": "machine-operator-80-100-w-m-d-hitachi-energy-zurich-switzerland",
-        "de": "maschinenbediener-80-100-w-m-d-hitachi-energy-zurich",
+        "de": "machine-operator-80-100-w-m-d-hitachi-energy-zurich-switzerland",
         "fr": "operateur-de-machines-80-100-m-j-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-a1bf1ce9dfed",
@@ -659,7 +660,10 @@
         "de": [
           "maschinenbediener-80-100-w-m-d-hitachi-energy-zurich"
         ]
-      }
+      },
+      "previousSlugs": [
+        "maschinenbediener-80-100-w-m-d-hitachi-energy-zurich"
+      ]
     },
     {
       "title": "R&D Team Leader - Bipolar Semiconductors 80 - 100% (f/m/d)",
@@ -728,8 +732,7 @@
       },
       "previousSlugs": [
         "r-d-team-leader-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Research Scientist – Physics of Failure & Reliability (f/m/d)",
@@ -3494,7 +3497,7 @@
         "fr": "En tant que leader mondial des semi-conducteurs électriques, Hitachi Energy offre l'un des portefeuilles de produits les plus diversifiés. Parmi eux: Thyristors, diodes, thyristors à orifices de sortie (GTO), thyristors intégrés à orifices de sortie (IGCT), transistors bipolaires à orifices isolés (IGBT) et MOSFETs, estimés dans l'industrie, transmission et distribution d'énergie, mobilité et énergies renouvelables pour leur haute qualité et fiabilité. Pour notre équipe, nous sommes à la recherche d'un 'automatique' qui aide à construire et à commander nos systèmes d'essai de semi-conducteurs. Cela vous permet de construire des systèmes d'essai de semi-conducteurs électriques, électriques, pneumatiques et hydrauliques pour effectuer des travaux d'adaptation sur des constructions défectueuses, des pièces de fabrication ou des schémas pour contrôler toutes les fonctions mécaniques, pneumatiques, électriques, programmées et hydrauliques pour effectuer des mesures de mise à la terre (contrôle de la continuité du système d'échelle de protection selon EN 60204-1 18b) Cela vous apporte avec une formation complète en tant que technicien automatique (éventuellement avec une école technique supérieure), idéalement avec une expérience professionnelle dans l'assemblage d'expérience en gestion de projet Savoir-faire financé dans le traitement mécanique des matériaux (tournage, fraisage, forage, sciage, etc.) Confiance avec les semi-conducteurs électriques, la technologie de mesure ainsi que les lignes directrices et normes pertinentes Gestion sûre avec Office 365 Très bon allemand et bonne connaissance de l'anglais dans la parole et l'écriture Plus sur nous Position limitée dans une société de haute technologie de leader international Varié et responsable\n• Tâches dans le domaine des semi-conducteurs électriques Une culture d'entreprise ouverte avec de courtes voies de décision Des avantages sociaux attrayants et des ressources de travail modernes"
       },
       "slugByLocale": {
-        "it": "limitato-automatico-80-100-w-m-d-hitachi-energy-lenzburg",
+        "it": "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg",
         "en": "limited-automatic-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
         "de": "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
         "fr": "limite-automatique-80-100-m-j-hitachi-energy-lenzburg-switzerland"
@@ -3513,7 +3516,8 @@
         ]
       },
       "previousSlugs": [
-        "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland"
+        "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
+        "limitato-automatico-80-100-w-m-d-hitachi-energy-lenzburg"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -3933,7 +3937,7 @@
       "slugByLocale": {
         "it": "trasporto-commercio-e-logistica-junior-specialista-esportazione-80-100-w-m-d-hitachi-energy-baden-switzerland",
         "en": "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
-        "de": "transport-handel-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden",
+        "de": "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
         "fr": "transport-commerce-et-logistique-junior-specialiste-export-80-100-m-j-hitachi-energy-baden-switzerland"
       },
       "id": "hitachi-energy-163314de11c7",
@@ -3956,7 +3960,8 @@
         "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
         "transport-trade-logistica-junior-specialista-export-80-100-w-m-d-hitachi-energy-baden",
         "transport-trade-logistique-junior-specialiste-export-80-100-w-m-d-hitachi-energy-baden",
-        "transport-trade-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden"
+        "transport-trade-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden",
+        "transport-handel-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3969,7 +3974,6 @@
         ],
         "de": [
           "transport-trade-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden",
-          "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
           "transport-handel-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden"
         ]
       }
@@ -5162,7 +5166,7 @@
       "slugByLocale": {
         "it": "troubleshooting-improvement-specialista-40-50-f-m-d-hitachi-energy-zurich",
         "en": "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "fehlerbehebung-spezialist-40-50-f-m-d-hitachi-energy-zurich",
+        "de": "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "troubleshooting-improvement-specialiste-40-50-f-m-d-hitachi-energy-zurich"
       },
       "id": "hitachi-energy-cc74e763ae07",
@@ -5182,14 +5186,14 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-02T23:49:33.750Z",
       "previousSlugs": [
-        "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland"
+        "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
+        "fehlerbehebung-spezialist-40-50-f-m-d-hitachi-energy-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
           "fehlerbehebung-spezialist-40-50-f-m-d-hitachi-energy-zurich"
         ],
         "fr": [
@@ -5383,7 +5387,7 @@
       "slugByLocale": {
         "it": "risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "en": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "fehlerbehebung-prozess-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich",
+        "de": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-e5438dfe7558",
@@ -5405,14 +5409,14 @@
       "previousSlugs": [
         "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "troubleshooting-process-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich",
-        "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich"
+        "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich",
+        "fehlerbehebung-prozess-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
           "fehlerbehebung-prozess-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich"
         ]
       }
@@ -5522,7 +5526,7 @@
       "slugByLocale": {
         "it": "warehouse-specialista-80-100-f-m-d-hitachi-energy-zurich",
         "en": "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "warehouse-spezialist-80-100-f-m-d-hitachi-energy-zurich",
+        "de": "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "warehouse-specialiste-80-100-f-m-d-hitachi-energy-zurich"
       },
       "id": "hitachi-energy-d958aaee4dbd",
@@ -5547,7 +5551,6 @@
         ],
         "de": [
           "lagerspezialist-80-100-w-m-d-hitachi-energy-zurich",
-          "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
           "warehouse-spezialist-80-100-f-m-d-hitachi-energy-zurich"
         ],
         "fr": [
@@ -5556,7 +5559,8 @@
       },
       "previousSlugs": [
         "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "lagerspezialist-80-100-w-m-d-hitachi-energy-zurich"
+        "lagerspezialist-80-100-w-m-d-hitachi-energy-zurich",
+        "warehouse-spezialist-80-100-f-m-d-hitachi-energy-zurich"
       ]
     },
     {
@@ -5987,7 +5991,10 @@
         }
       },
       "postalCode": "5400",
-      "firstSeenAt": "2026-06-09T11:38:38.271Z"
+      "firstSeenAt": "2026-06-09T11:38:38.271Z",
+      "previousSlugs": [
+        "senior-r-d-reliability-ingenieur-80-100-f-m-d-hitachi-energy-zurich"
+      ]
     },
     {
       "title": "Working Student Defectivity Engineering BIMOS 40% (f/m/d)",
@@ -6100,7 +6107,7 @@
       "slugByLocale": {
         "it": "installation-project-manager-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "en": "installation-project-manager-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "installationsprojektleiter-80-100-w-m-d-hitachi-energy-zurich",
+        "de": "installation-project-manager-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "gestionnaire-de-projet-d-installation-80-100-f-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-511281e3ae3d",
@@ -6123,7 +6130,10 @@
         "de": [
           "installationsprojektleiter-80-100-w-m-d-hitachi-energy-zurich"
         ]
-      }
+      },
+      "previousSlugs": [
+        "installationsprojektleiter-80-100-w-m-d-hitachi-energy-zurich"
+      ]
     },
     {
       "title": "Global AI Prompting Engineer PGTR",
@@ -6233,7 +6243,7 @@
         "fr": "Descrizione La gamme GIS (Systèmes de commutation à gaz) représente la plus haute qualité, sécurité et efficacité – et c'est là que votre rôle est défini. Dans ce rôle, vous jouez un rôle central dans le traitement et la coordination des rapports de qualité dans la production. Vous reconnaissez les problèmes à un stade précoce, les analysez de manière structurée et assurez des solutions durables. Vous travaillez en étroite collaboration avec divers intervenants internes et contribuez activement au développement de nos processus. Mansioni - Sont la première étape d'escalade de la production - Collabore étroitement avec les parties prenantes internes - Responsable de la création et de la coordination des rapports de qualité (QN) dans la production - Assurer le respect des normes de qualité et de sécurité - Priorité des rapports de qualité (notifications Q) - Coopération étroite avec les services internes tels que la production, la qualité, l'ingénierie, la planification, la gestion de projet et l'achat - Appui aux audits et aux examens internes\n• Requisiti - Formation technique en génie électrique, mécanique, qualité - Expérience de dépannage, processus de production ou gestion de la qualité - Pensée analytique, travail structuré et haute compétence de résolution de problèmes - Communication et prise de décision réprimées - Compétences en allemand et en anglais - Connaissance du SAP et du MES - Connaissance détaillée du produit dans le domaine des systèmes de commutation isothermes de gaz\n• Cosa offriamo - Une culture qui veut apprendre continuellement et façonner conjointement des solutions énergétiques durables - Un environnement de travail inclusif où chaque opinion compte et vous pouvez présenter vos idées – indépendamment de l'origine, du sexe ou du contexte - L'occasion de présenter vos idées et vos expériences et de contribuer activement au développement de nos processus Contatto - Chez Hitachi Energy, nous croyons au pouvoir de la diversité, de la coopération et de l'innovation. Notre culture se caractérise par un apprentissage continu et l'objectif commun de concevoir des solutions énergétiques durables."
       },
       "slugByLocale": {
-        "it": "risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich",
+        "it": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "en": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "de": "troubleshooting-process-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich",
         "fr": "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich"
@@ -6268,8 +6278,7 @@
           "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "it": [
-          "risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-          "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+          "risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ]
       }
     },
@@ -6528,7 +6537,7 @@
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-d-hitachi-energy-zurich-switzerland",
         "en": "field-service-technician-w-m-d-hitachi-energy-zurich-switzerland",
-        "de": "techniker-w-m-d-hitachi-energy-zurich",
+        "de": "field-service-technician-w-m-d-hitachi-energy-zurich-switzerland",
         "fr": "gestion-du-projet-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-86ac97969fe2",
@@ -6555,12 +6564,12 @@
           "field-service-technician-w-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "field-service-technician-w-m-d-hitachi-energy-zurich-switzerland",
           "techniker-w-m-d-hitachi-energy-zurich"
         ]
       },
       "previousSlugs": [
-        "field-service-technician-w-m-d-hitachi-energy-zurich-switzerland"
+        "field-service-technician-w-m-d-hitachi-energy-zurich-switzerland",
+        "techniker-w-m-d-hitachi-energy-zurich"
       ]
     },
     {
@@ -6601,7 +6610,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland-02d2ab",
         "en": "field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "field-service-ingenieur-f-m-d-hitachi-energy-zurich",
+        "de": "field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "ingenieur-du-service-mobile-f-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-52872821a354",
@@ -6639,7 +6648,6 @@
         ],
         "de": [
           "fachingenieur-w-m-d-hitachi-energy-zurich",
-          "field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland",
           "field-service-ingenieur-f-m-d-hitachi-energy-zurich"
         ]
       }
@@ -6681,7 +6689,7 @@
       },
       "slugByLocale": {
         "it": "teamleader-design-engineering-generatore-elettorale-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "en": "team-leader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich",
+        "en": "teamleader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "de": "teamleader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "genie-de-conception-de-chef-d-equipe-disjoncteur-de-generateur-80-100-f-m-d-hitachi-energy-zurich-switzerland"
       },
@@ -6709,12 +6717,12 @@
           "teamleader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "en": [
-          "teamleader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland",
           "team-leader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich"
         ]
       },
       "previousSlugs": [
-        "teamleader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+        "teamleader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+        "team-leader-design-engineering-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich"
       ]
     },
     {
@@ -7676,14 +7684,14 @@
       "titleByLocale": {
         "it": "Ingegnere attrezzature 80 – 100% (f/m/d)",
         "en": "Equipment Engineer 80 – 100% (f/m/d)",
-        "de": "Equipment Ingenieur 80 – 100% (f/m/d)",
+        "de": "Equipment Engineer 80 – 100% (w/m/d)",
         "fr": "Ingénieur de l'équipement 80 – 100% (f/m/d)"
       },
       "descriptionByLocale": {
-        "it": "Opportunità Siete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, limiti al centro dell'accettazione dei sistemi di collaborazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un potenziale dove le tue idee e le tue competenze avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Se siete pronti a contribuire a progetti significativi e a crescere all'interno di un team supportivo e innovativo, ci piacerebbe sentire da voi. Descrizione - Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP) - Promuovere un ambiente di lavoro sicuro attraverso l'applicazione dei principi 6S e il supporto ai protocolli di sicurezza ABRA - Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle linee di produzione - Supportare gli sforzi di documentazione contribuendo ai registri di mansione primaria e sviluppando risorse di risoluzione dei problemi - Contribuire alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti - Partecipare agli audit e aiutare a risolvere gli elementi di azione e miglioramento relativi alla sicurezza - Supportare le operazioni tecniche assistndo con la manutenzione del sistema e assicurando che la produzione si allinei alle migliori pratiche attuali\n• Requisiti - Formazione tecnica con successivi corsi di estensione specifica, o laurea in elettronica, meccanica o fisica, o equivalente formazione - Almeno 5 anni di esperienza nel mantenimento dei sistemi di produzione dei semiconduttori (misure preventive, risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione utilizzati nella fotolitografia - Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/303030i5a Steppers) - Buona conoscenza del tedesco e dell'asilo, qualsiasi altra lingua è vantaggiosa - Disponibilità a lavorare a turni - Team player con specializzazione interpersonali e di comunicazione Cosa? - Lavori interessanti in un team motivato e con uno stile di comunicazione aperta - Un piano di induzione individuale e orientaleto alla pratica per supportare la vostra crescita professionale e la vostra autonomia - Un ambiente di lavoro dinamico dove potrete contribuire a progetti significativi e crescere come professionista Contatto - Ci piacerebbe sentire da voi!",
-        "en": "## Opportunità Siete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, sarete al centro dell'ottimizzazione dei sistemi di produzione, della collaborazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un ambiente dinamico dove le vostre idee e le vostre competenze avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Se siete pronti a contribuire a progetti significativi e a crescere all'interno di un team supportivo e innovativo, ci piacerebbe sentire da voi. ## Descrizione - Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP) - Promuovere un ambiente di lavoro sicuro attraverso l'applicazione dei principi 6S e il supporto ai protocolli di sicurezza ABRA - Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle linee di produzione - Supportare gli sforzi di documentazione contribuendo ai registri di compiti giornalieri e sviluppando risorse di risoluzione dei problemi - Contribuire alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti - Partecipare agli audit e aiutare a risolvere gli elementi di azione e miglioramento relativi alla sicurezza - Supportare le operazioni tecniche assistendo con la manutenzione del sistema e assicurando che la produzione si allinei alle migliori pratiche attuali ##\n• Requisiti - Formazione tecnica con successivi corsi di estensione specifici, o laurea in elettronica, meccanica o fisica, o equivalente formazione - Almeno 5 anni di esperienza nel mantenimento dei sistemi di produzione dei semiconduttori (misure preventive, risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione utilizzati nella fotolitografia - Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/3030i5a Steppers) - Buona conoscenza del tedesco e dell'inglese obbligatoria, qualsiasi altra lingua è vantaggiosa - Disponibilità a lavorare in turni - Team player con eccellenti abilità interpersonali e di comunicazione ##\n• Cosa offriamo - Lavori interessanti in un team motivato e con uno stile di comunicazione aperto - Un piano di induzione individuale e orientato alla pratica per supportare la vostra crescita professionale e la vostra autonomia - Un ambiente di lavoro dinamico e innovativo dove potrete contribuire a progetti significativi e crescere come professionista ## Contatto - Ci piacerebbe sentire da voi!",
-        "de": "Opportunità Siete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, sarete al centro dell'ottimizzazione dei sistemi di produzione, della collaborazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un ambiente dinamico dove le vostre idee e le vostre competenze avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Se siete pronti a contribuire a progetti significativi e a crescere all'interno di un team supportivo e innovativeo, ci piacerebbe sentire da voi. Descrizion - Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP) Promuovere un ambiente di lavoro sicuro attraverso l'applicazione dei principi 6S e il supporto ai protocolli di sicurezza ABRA - Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle linee di produzione - Supportare gli sforzi di documentazione contribuendo ai registri di compiti giornalieri e sviluppando risorse di risoluzione dei problemi - Contribuire alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti Partecipare agli audit e aiutare a risolvere gli elementi di azione e miglioramento relativi alla sicurezza - Supportare le operazioni tecniche assistendo con la manutenzione del sistema e assicurando che la produzione si allinei alle migliori pratiche attuali\n• Requisiti - Formazione tecnica con successivi corsi di estensione specifici, o laurea in elettronica, meccanica o fisica, o equivalente formazione - Almeno 5 anni di esperienza nel mantenimento dei sistemi di produzione dei semiconduttori (verhindernd, Risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione utilizzati nella fotolitografia - Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/3030i5a Steppers) - Buona conoscenza del tedesco e dell'inglese obbligatoria, qualsiasi altra lingua è vantaggiosa - Disponibilità a lavorare in turni Teamplayer con eccellenti abilità interpersonali e di comunicazione\n• Cosa offriamo - Lavori interessanti in un team motivato e con uno stile di comunicazione aperto - Un piano di induzione individuale e orientato alla pratica per supportare la vostra crescita professionale e la vostra autonomia - Un ambiente di lavoro dinamico e innovativeo dove potrete contribuire a progetti significativi e crescere come professionista Contatto - Ci piacerebbe sentire da voi!",
-        "fr": "Annexe Siete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, sarete al centro dell'ottimizzazione dei sistemi di produzione, della collazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un ambiente dinamico dove le vostre idee e le vostre concurrente avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Siete pronti a contribuer a progetti significativi e a crescere all'interno di un team supportivo e innovativo, ci piacerebbe sentire da voi. Descrizione - Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP) - Promuovere un ambiente di lavoro sicuro attraverso l'application dei principi 6S e il supporto ai protocolli di sicurezza ABRA - Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle line di produzione - Supportare gli sforzi di documentazione contribuendo ai registri di compiti giornalieri e sviluppando risorse di risoluzione dei problemi - Contribution alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti - Participare agli audit e autare a risolvere gli elementi di azione e migliaramento relativi alla sicurezza - Supportare le opérazioni tecniche assistendo con la manutenzione del sistema e assicurando che la produzione si alle migliori pratiche attuali\n• Requisiti - Formazione tecnica con successi corsi di estensione specifici, o laurea in elettronica, meccanica o fisica, o équivalente formazione - Almeno 5 anni di espérienza nel mantenimento dei sistemi di produzione dei semiconduttori (misure préventive, risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione usingzati nella fotolitografia - Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/3030i5a Steppers) - Buona conoscenza del tedesco e dell'inglese obbligatoria, qualsiasi altra lingua è vantaggiosa - Disponibilità a lavorare in tourni - Team player con eccellenti abilità interpersonnelle e di comunicazione\n• Cosa offriamo - Lavori interessanti in un team motivato e con uno stile di comunicazione aperto - Un piano di induzione individuale e orientalato alla pratica per supportare la vostra crescita professionale e la vostra autonomia - Un ambiente di lavoro dinamico e innovativo colombe potret contribue a progetti significativi e crescere come professionista Contatto - Ci piacerebbe sentire da voi !"
+        "it": "Opportunità\n\nSiete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, limiti al centro dell'accettazione dei sistemi di collaborazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un potenziale dove le tue idee e le tue competenze avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Se siete pronti a contribuire a progetti significativi e a crescere all'interno di un team supportivo e innovativo, ci piacerebbe sentire da voi.\n\nDescrizione\n\n- Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP)\n- Promuovere un ambiente di lavoro sicuro attraverso l'applicazione dei principi 6S e il supporto ai protocolli di sicurezza ABRA\n- Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle linee di produzione\n- Supportare gli sforzi di documentazione contribuendo ai registri di mansione primaria e sviluppando risorse di risoluzione dei problemi\n- Contribuire alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti\n- Partecipare agli audit e aiutare a risolvere gli elementi di azione e miglioramento relativi alla sicurezza\n- Supportare le operazioni tecniche assistndo con la manutenzione del sistema e assicurando che la produzione si allinei alle migliori pratiche attuali\n\nRequisiti\n\n- Formazione tecnica con successivi corsi di estensione specifica, o laurea in elettronica, meccanica o fisica, o equivalente formazione\n- Almeno 5 anni di esperienza nel mantenimento dei sistemi di produzione dei semiconduttori (misure preventive, risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione utilizzati nella fotolitografia\n- Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/303030i5a Steppers)\n- Buona conoscenza del tedesco e dell'asilo, qualsiasi altra lingua è vantaggiosa\n- Disponibilità a lavorare a turni\n- Team player con specializzazione interpersonali e di comunicazione\n\nCosa?\n\n- Lavori interessanti in un team motivato e con uno stile di comunicazione aperta\n- Un piano di induzione individuale e orientaleto alla pratica per supportare la vostra crescita professionale e la vostra autonomia\n- Un ambiente di lavoro dinamico dove potrete contribuire a progetti significativi e crescere come professionista\n\nContatto\n\n- Ci piacerebbe sentire da voi!",
+        "en": "## Opportunità\n\nSiete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, sarete al centro dell'ottimizzazione dei sistemi di produzione, della collaborazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un ambiente dinamico dove le vostre idee e le vostre competenze avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Se siete pronti a contribuire a progetti significativi e a crescere all'interno di un team supportivo e innovativo, ci piacerebbe sentire da voi.\n\n## Descrizione\n\n- Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP)\n- Promuovere un ambiente di lavoro sicuro attraverso l'applicazione dei principi 6S e il supporto ai protocolli di sicurezza ABRA\n- Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle linee di produzione\n- Supportare gli sforzi di documentazione contribuendo ai registri di compiti giornalieri e sviluppando risorse di risoluzione dei problemi\n- Contribuire alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti\n- Partecipare agli audit e aiutare a risolvere gli elementi di azione e miglioramento relativi alla sicurezza\n- Supportare le operazioni tecniche assistendo con la manutenzione del sistema e assicurando che la produzione si allinei alle migliori pratiche attuali\n\n## Requisiti\n\n- Formazione tecnica con successivi corsi di estensione specifici, o laurea in elettronica, meccanica o fisica, o equivalente formazione\n- Almeno 5 anni di esperienza nel mantenimento dei sistemi di produzione dei semiconduttori (misure preventive, risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione utilizzati nella fotolitografia\n- Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/3030i5a Steppers)\n- Buona conoscenza del tedesco e dell'inglese obbligatoria, qualsiasi altra lingua è vantaggiosa\n- Disponibilità a lavorare in turni\n- Team player con eccellenti abilità interpersonali e di comunicazione\n\n## Cosa offriamo\n\n- Lavori interessanti in un team motivato e con uno stile di comunicazione aperto\n- Un piano di induzione individuale e orientato alla pratica per supportare la vostra crescita professionale e la vostra autonomia\n- Un ambiente di lavoro dinamico e innovativo dove potrete contribuire a progetti significativi e crescere come professionista\n\n## Contatto\n\n- Ci piacerebbe sentire da voi!",
+        "de": "Opportunità\n\nSiete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, sarete al centro dell'ottimizzazione dei sistemi di produzione, della collaborazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un ambiente dinamico dove le vostre idee e le vostre competenze avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Se siete pronti a contribuire a progetti significativi e a crescere all'interno di un team supportivo e innovativeo, ci piacerebbe sentire da voi.\n\nDescrizion\n\n- Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP)\nPromuovere un ambiente di lavoro sicuro attraverso l'applicazione dei principi 6S e il supporto ai protocolli di sicurezza ABRA\n- Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle linee di produzione\n- Supportare gli sforzi di documentazione contribuendo ai registri di compiti giornalieri e sviluppando risorse di risoluzione dei problemi\n- Contribuire alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti\nPartecipare agli audit e aiutare a risolvere gli elementi di azione e miglioramento relativi alla sicurezza\n- Supportare le operazioni tecniche assistendo con la manutenzione del sistema e assicurando che la produzione si allinei alle migliori pratiche attuali\n\nRequisiti\n\n- Formazione tecnica con successivi corsi di estensione specifici, o laurea in elettronica, meccanica o fisica, o equivalente formazione\n- Almeno 5 anni di esperienza nel mantenimento dei sistemi di produzione dei semiconduttori (verhindernd, Risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione utilizzati nella fotolitografia\n- Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/3030i5a Steppers)\n- Buona conoscenza del tedesco e dell'inglese obbligatoria, qualsiasi altra lingua è vantaggiosa\n- Disponibilità a lavorare in turni\nTeamplayer con eccellenti abilità interpersonali e di comunicazione\n\nCosa offriamo\n\n- Lavori interessanti in un team motivato e con uno stile di comunicazione aperto\n- Un piano di induzione individuale e orientato alla pratica per supportare la vostra crescita professionale e la vostra autonomia\n- Un ambiente di lavoro dinamico e innovativeo dove potrete contribuire a progetti significativi e crescere come professionista\n\nContatto\n\n- Ci piacerebbe sentire da voi!",
+        "fr": "Annexe\n\nSiete appassionati di guidare l'innovazione e migliorare i processi di produzione? Come Ingegnere di Macchinario, sarete al centro dell'ottimizzazione dei sistemi di produzione, della collazione con team interfunzionali e della definizione del futuro della tecnologia dei semiconduttori. Questo ruolo offre un ambiente dinamico dove le vostre idee e le vostre concurrente avranno un impatto diretto sulla prestazione degli impianti, sui standard di sicurezza e sulle iniziative di miglioramento continuo. Siete pronti a contribuer a progetti significativi e a crescere all'interno di un team supportivo e innovativo, ci piacerebbe sentire da voi.\n\nDescrizione\n\n- Assicurare la affidabilità degli impianti attraverso la manutenzione proattiva e il contributo alle iniziative di miglioramento continuo (CIP)\n- Promuovere un ambiente di lavoro sicuro attraverso l'application dei principi 6S e il supporto ai protocolli di sicurezza ABRA\n- Collaborare con i team per supportare la modernizzazione, l'espansione e l'operazione liscia delle line di produzione\n- Supportare gli sforzi di documentazione contribuendo ai registri di compiti giornalieri e sviluppando risorse di risoluzione dei problemi\n- Contribution alla manutenzione del sistema attraverso l'aiuto nella manutenzione del software di pianificazione di produzione (SiView) e l'aggiornamento dei database e dei log degli impianti\n- Participare agli audit e autare a risolvere gli elementi di azione e migliaramento relativi alla sicurezza\n- Supportare le opérazioni tecniche assistendo con la manutenzione del sistema e assicurando che la produzione si alle migliori pratiche attuali\n\nRequisiti\n\n- Formazione tecnica con successi corsi di estensione specifici, o laurea in elettronica, meccanica o fisica, o équivalente formazione\n- Almeno 5 anni di espérienza nel mantenimento dei sistemi di produzione dei semiconduttori (misure préventive, risoluzione dei problemi, riparazioni, documentazione), specialmente con gli impianti di produzione usingzati nella fotolitografia\n- Conoscenza degli strumenti per la verniciatura e lo sviluppo del resist (Screen 80B/80EX) e l'esposizione (Ultratech 1500/Canon i3000W/3030i5a Steppers)\n- Buona conoscenza del tedesco e dell'inglese obbligatoria, qualsiasi altra lingua è vantaggiosa\n- Disponibilità a lavorare in tourni\n- Team player con eccellenti abilità interpersonnelle e di comunicazione\n\nCosa offriamo\n\n- Lavori interessanti in un team motivato e con uno stile di comunicazione aperto\n- Un piano di induzione individuale e orientalato alla pratica per supportare la vostra crescita professionale e la vostra autonomia\n- Un ambiente di lavoro dinamico e innovativo colombe potret contribue a progetti significativi e crescere come professionista\n\nContatto\n\n- Ci piacerebbe sentire da voi !"
       },
       "slugByLocale": {
         "it": "equipment-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
