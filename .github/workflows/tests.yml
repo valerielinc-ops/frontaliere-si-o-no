@@ -6,9 +6,15 @@ name: tests
 # (added in PR #294) landed already-failing without anyone noticing, and the
 # `#root{min-height:100vh}` bug hit production for 24h until manual report.
 #
-# Wall time on GitHub-hosted runners is typically 8-12 min as the dataset and
-# regression suite grow. Keep the budget explicit so timeout cancellations are
-# treated as infrastructure failures, not test failures.
+# Wall time: the vitest portion alone was ~408s on a single runner (the full
+# job ~8-13 min) and was the dominant slice of the auto-merge wait — every PR
+# blocks on the `vitest (unit + integration)` check before auto-merge-on-lgtm
+# proceeds. The suite (~744 files, `isolate:true` → +30% but deterministic) is
+# now SHARDED across 4 parallel runners via `vitest run --shard=i/4`, cutting
+# the vitest portion to ~1/4 (~100s) so wall drops to ~3 min. This is a public
+# repo → parallel runner minutes are free, so the 4× setup duplication costs
+# $0. Sharding is behaviour-preserving: every file still runs, split
+# deterministically by hash; no test is skipped and no threshold is relaxed.
 #
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
@@ -34,10 +40,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  vitest:
-    name: vitest (unit + integration)
+  # Each shard runs ~1/4 of the test files in parallel. fail-fast:false so a
+  # red shard does NOT cancel its siblings — one run surfaces the full failure
+  # set instead of forcing re-runs to discover the next failing file.
+  vitest-shard:
+    name: vitest shard ${{ matrix.shard }}/4
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v5
 
@@ -78,5 +91,27 @@ jobs:
         # canton-aware section paths. The migration is idempotent.
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
-      - name: vitest run
-        run: npm test
+      - name: vitest run (shard ${{ matrix.shard }}/4)
+        run: npm test -- --shard=${{ matrix.shard }}/4
+
+  # Aggregator gate. Preserves the EXACT check-run name every downstream
+  # consumer keys on — auto-merge-on-lgtm's "Block merge if vitest gate is RED"
+  # step (`select(.name == "vitest (unit + integration)")`), auto-merge-eval
+  # gate 3, and pr-autorebase's workflow_dispatch expectation. Green ONLY when
+  # all 4 shards are green; any shard failure/cancellation makes this RED, so
+  # the merge gate behaves identically to the old single-job version.
+  vitest:
+    name: vitest (unit + integration)
+    runs-on: ubuntu-latest
+    needs: vitest-shard
+    if: ${{ always() }}
+    steps:
+      - name: Fail unless every shard is green
+        run: |
+          result='${{ needs.vitest-shard.result }}'
+          echo "aggregated shard result: '$result'"
+          if [ "$result" != "success" ]; then
+            echo "::error::one or more vitest shards did not succeed (result='$result') — gate is RED"
+            exit 1
+          fi
+          echo "all 4 vitest shards green — gate is GREEN"
