@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2757,
+ "numberOfItems": 2758,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7397,7 +7397,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2754, "name": "Neutralizzazione valori stima Ticino: no stanga...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-valori-stima-ticino` },
           { "@type": "ListItem", "position": 2755, "name": "Votazioni in 16 Cantoni: tasse, salario minimo ...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-cantonali-giugno-salario-minimo` },
           { "@type": "ListItem", "position": 2756, "name": "Svizzera verso ratifica convenzioni ILO su viol...", "url": `${BASE_URL}/articoli-frontaliere/ratifica-convenzioni-ilo-svizzera-lavoro` },
-          { "@type": "ListItem", "position": 2757, "name": "Mai così tante donne nel Parlamento svizzero", "url": `${BASE_URL}/articoli-frontaliere/donne-parlamento-record` }
+          { "@type": "ListItem", "position": 2757, "name": "Mai così tante donne nel Parlamento svizzero", "url": `${BASE_URL}/articoli-frontaliere/donne-parlamento-record` },
+          { "@type": "ListItem", "position": 2758, "name": "Divorzio: che ne sarà della cassa pensioni? - UBS", "url": `${BASE_URL}/articoli-frontaliere/divorzio-cassa-pensioni` }
  ]
  },
  {

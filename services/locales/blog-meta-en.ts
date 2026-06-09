@@ -8014,6 +8014,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Switzerland moves to ratify ILO conventions on workplace violence',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'The Federal Council recommends ratifying two ILO conventions against violence and harassment in the workplace, without changes to Swiss law.',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Bellinzona panorama at dawn, Swiss city near the Italian border.',
+    'blog.article.divorzio-cassa-pensioni.title': 'Divorce: What Happens to the Pension Fund? - UBS',
+    'blog.article.divorzio-cassa-pensioni.excerpt': 'The UBS announces a new rule for the pension fund in case of divorce. The new regulation aims to provide clarity and stability for cross-border workers and their spouses. According to the UBS, the new rule will ensure that the pension fund is divided fairly and in accordance with the applicable laws. The UBS emphasizes that the new regulation is designed to protect the interests of both the cross-border worker and their spouse. The exact details of the new rule are still unclear, but the UBS promises to provide more information in the coming weeks. 💡',
+    'blog.article.divorzio-cassa-pensioni.imageAlt': 'A frontier worker with his wife and children in a Locarno landscape',
 };
 
 export default blogMetaEn;

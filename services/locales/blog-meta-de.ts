@@ -8013,6 +8013,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.title': 'Schweiz plant ILO-Konventionen gegen Gewalt am Arbeitsplatz',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.excerpt': 'Der Bundesrat schlägt die Ratifizierung von zwei ILO-Konventionen gegen Gewalt und Belästigung am Arbeitsplatz vor, ohne Änderungen am Schweizer Gesetz.',
     'blog.article.ratifica-convenzioni-ilo-svizzera-lavoro.imageAlt': 'Bellinzona-Panorama bei Sonnenaufgang, Schweizer Stadt nahe der italienischen Grenze.',
+    'blog.article.divorzio-cassa-pensioni.title': 'Scheidung: Was passiert mit der Pensionskasse? - UBS',
+    'blog.article.divorzio-cassa-pensioni.excerpt': 'Die UBS kündigt eine neue Regelung für die Pensionskasse bei Scheidung an.',
+    'blog.article.divorzio-cassa-pensioni.imageAlt': 'Ein Grenzgänger mit seiner Frau und Kindern in einem Landschaftsbild von Locarno',
 };
 
 export default blogMetaDe;
