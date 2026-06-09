@@ -4002,9 +4002,9 @@
     },
     {
       "id": "spital-emmental-6ee57d97366d",
-      "slug": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau",
+      "slug": "paramedico-dipl-hf-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau",
+        "it": "paramedico-dipl-hf-a-spital-emmental-langnau",
         "en": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau",
         "de": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau",
         "fr": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau"
@@ -4014,7 +4014,7 @@
       "companyDomain": "spital-emmental.ch",
       "title": "dipl. Rettungssanitäter:innen HF (a)",
       "titleByLocale": {
-        "it": "dipl. Rettungssanitäter:innen HF (a)",
+        "it": "paramedico dipl. HF (a)",
         "en": "dipl. Rettungssanitäter:innen HF (a)",
         "de": "dipl. Rettungssanitäter:innen HF (a)",
         "fr": "dipl. Rettungssanitäter:innen HF (a)"
@@ -4067,7 +4067,15 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-35883c471c47",

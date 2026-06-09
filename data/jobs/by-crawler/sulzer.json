@@ -835,7 +835,7 @@
       "companyDomain": "sulzer.com",
       "title": "IT Systemadministrator (w/m/d)",
       "titleByLocale": {
-        "it": "IT Systemadministrator (w/m/d)",
+        "it": "Amministratore di sistema IT (f/m/d)",
         "en": "IT Systemadministrator (w/m/d)",
         "de": "IT Systemadministrator (w/m/d)",
         "fr": "IT Systemadministrator (w/m/d)"
@@ -2298,7 +2298,7 @@
       "companyDomain": "sulzer.com",
       "title": "Coordenador(a) de Contratos",
       "titleByLocale": {
-        "it": "Coordenador(a) de Contratos",
+        "it": "Coordinatore(a) dei contratti",
         "en": "Coordenador(a) de Contratos",
         "de": "Coordenador(a) de Contratos",
         "fr": "Coordenador(a) de Contratos"
@@ -2655,7 +2655,7 @@
       "companyDomain": "sulzer.com",
       "title": "Technical Buyer PPR",
       "titleByLocale": {
-        "it": "Technical Buyer PPR",
+        "it": "Acquirente tecnico PPR",
         "en": "Technical Buyer PPR",
         "de": "Technical Buyer PPR",
         "fr": "Technical Buyer PPR"
@@ -4086,7 +4086,7 @@
       "companyDomain": "sulzer.com",
       "title": "Assistente de Montagem",
       "titleByLocale": {
-        "it": "Assistente de Montagem",
+        "it": "Assistente di montaggio",
         "en": "Assistente de Montagem",
         "de": "Assistente de Montagem",
         "fr": "Assistente de Montagem"
@@ -5449,9 +5449,9 @@
     },
     {
       "id": "sulzer-0b004bfa577f",
-      "slug": "responsabile-del-progetto-sulzer-buchelay",
+      "slug": "leader-del-progetto-sulzer-buchelay",
       "slugByLocale": {
-        "it": "responsabile-del-progetto-sulzer-buchelay",
+        "it": "leader-del-progetto-sulzer-buchelay",
         "en": "chef-de-projets-sulzer-ch",
         "de": "chef-de-projets-sulzer-ch",
         "fr": "chef-de-projets-sulzer-ch"
@@ -5461,7 +5461,7 @@
       "companyDomain": "sulzer.com",
       "title": "Chef de Projets",
       "titleByLocale": {
-        "it": "Chef de Projets",
+        "it": "Leader del progetto",
         "en": "Chef de Projets",
         "de": "Chef de Projets",
         "fr": "Chef de Projets"
@@ -5497,13 +5497,13 @@
       "previousSlugs": [
         "chef-de-projets-sulzer-ch",
         "chef-de-projets-sulzer-buchelay",
-        "leader-del-progetto-sulzer-buchelay"
+        "responsabile-del-progetto-sulzer-buchelay"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projets-sulzer-ch",
           "chef-de-projets-sulzer-buchelay",
-          "leader-del-progetto-sulzer-buchelay"
+          "responsabile-del-progetto-sulzer-buchelay"
         ]
       },
       "firstSeenAt": "2026-06-04T01:28:34.936Z",
@@ -6329,7 +6329,7 @@
       "companyDomain": "sulzer.com",
       "title": "Assistente Entrada de Pedidos",
       "titleByLocale": {
-        "it": "Assistente Entrada de Pedidos",
+        "it": "Assistente all'ingresso di richieste di informazioni",
         "en": "Assistente Entrada de Pedidos",
         "de": "Assistente Entrada de Pedidos",
         "fr": "Assistente Entrada de Pedidos"
@@ -10401,7 +10401,7 @@
       "companyDomain": "sulzer.com",
       "title": "Manual Machinist",
       "titleByLocale": {
-        "it": "Manual Machinist",
+        "it": "Macchinista manuale",
         "en": "Manual Machinist",
         "de": "Manual Machinist",
         "fr": "Manual Machinist"
@@ -14765,7 +14765,7 @@
       "companyDomain": "sulzer.com",
       "title": "Manual Machinist",
       "titleByLocale": {
-        "it": "Manual Machinist",
+        "it": "Macchinista manuale",
         "en": "Manual Machinist",
         "de": "Manual Machinist",
         "fr": "Manual Machinist"
@@ -16262,7 +16262,7 @@
       "companyDomain": "sulzer.com",
       "title": "Manual Machinist",
       "titleByLocale": {
-        "it": "Manual Machinist",
+        "it": "Macchinista manuale",
         "en": "Manual Machinist",
         "de": "Manual Machinist",
         "fr": "Manual Machinist"
@@ -19120,9 +19120,9 @@
     },
     {
       "id": "sulzer-c50108337a9b",
-      "slug": "amministratore-del-centro-servizi-sulzer-piedmont",
+      "slug": "amministratore-del-service-center-sulzer-piedmont",
       "slugByLocale": {
-        "it": "amministratore-del-centro-servizi-sulzer-piedmont",
+        "it": "amministratore-del-service-center-sulzer-piedmont",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -19132,7 +19132,7 @@
       "companyDomain": "sulzer.com",
       "title": "Service Center Administrator",
       "titleByLocale": {
-        "it": "Service Center Administrator",
+        "it": "Amministratore del Service Center",
         "en": "Service Center Administrator",
         "de": "Service Center Administrator",
         "fr": "Service Center Administrator"
@@ -19169,14 +19169,14 @@
         "service-center-administrator-sulzer-ch",
         "service-center-administrator-sulzer-piedmont",
         "amministratore-del-centro-di-servizio-sulzer-piedmont",
-        "amministratore-del-service-center-sulzer-piedmont"
+        "amministratore-del-centro-servizi-sulzer-piedmont"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-center-administrator-sulzer-ch",
           "service-center-administrator-sulzer-piedmont",
           "amministratore-del-centro-di-servizio-sulzer-piedmont",
-          "amministratore-del-service-center-sulzer-piedmont"
+          "amministratore-del-centro-servizi-sulzer-piedmont"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:08.032Z",
@@ -21814,9 +21814,9 @@
     },
     {
       "id": "sulzer-d000d155539e",
-      "slug": "amministratore-del-centro-servizi-sulzer-pasadena",
+      "slug": "amministratore-del-service-center-sulzer-pasadena",
       "slugByLocale": {
-        "it": "amministratore-del-centro-servizi-sulzer-pasadena",
+        "it": "amministratore-del-service-center-sulzer-pasadena",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -21826,7 +21826,7 @@
       "companyDomain": "sulzer.com",
       "title": "Service Center Administrator",
       "titleByLocale": {
-        "it": "Service Center Administrator",
+        "it": "Amministratore del Service Center",
         "en": "Service Center Administrator",
         "de": "Service Center Administrator",
         "fr": "Service Center Administrator"
@@ -21864,7 +21864,7 @@
         "service-center-administrator-sulzer-ch-2",
         "service-center-administrator-sulzer-pasadena",
         "amministratore-del-centro-di-servizio-sulzer-pasadena",
-        "amministratore-del-service-center-sulzer-pasadena"
+        "amministratore-del-centro-servizi-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21872,7 +21872,7 @@
           "service-center-administrator-sulzer-ch-2",
           "service-center-administrator-sulzer-pasadena",
           "amministratore-del-centro-di-servizio-sulzer-pasadena",
-          "amministratore-del-service-center-sulzer-pasadena"
+          "amministratore-del-centro-servizi-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-05-22T23:43:00.083Z",
@@ -25463,7 +25463,7 @@
       "companyDomain": "sulzer.com",
       "title": "Coordenador de Contratos PL",
       "titleByLocale": {
-        "it": "Coordenador de Contratos PL",
+        "it": "Coordinatore dei contratti PL",
         "en": "Coordenador de Contratos PL",
         "de": "Coordenador de Contratos PL",
         "fr": "Coordenador de Contratos PL"
@@ -26330,7 +26330,7 @@
       "companyDomain": "sulzer.com",
       "title": "Administrator",
       "titleByLocale": {
-        "it": "Administrator",
+        "it": "Amministratore",
         "en": "Administrator",
         "de": "Administrator",
         "fr": "Administrator"
@@ -28230,7 +28230,7 @@
       "companyDomain": "sulzer.com",
       "title": "Manual Machinist",
       "titleByLocale": {
-        "it": "Manual Machinist",
+        "it": "Macchinista manuale",
         "en": "Manual Machinist",
         "de": "Manual Machinist",
         "fr": "Manual Machinist"
@@ -28651,10 +28651,10 @@
     },
     {
       "id": "sulzer-2a7193458ea5",
-      "slug": "manual-machinist-turbine-repair-shop-sulzer-ch",
+      "slug": "macchinista-manuale-negozio-di-riparazione-turbina-sulzer-la-porte",
       "slugByLocale": {
         "en": "manual-machinist-turbine-repair-shop-sulzer-ch",
-        "it": "manual-machinist-turbine-repair-shop-sulzer-ch",
+        "it": "macchinista-manuale-negozio-di-riparazione-turbina-sulzer-la-porte",
         "de": "manual-machinist-turbine-repair-shop-sulzer-ch",
         "fr": "manual-machinist-turbine-repair-shop-sulzer-ch"
       },
@@ -28664,7 +28664,7 @@
       "title": "Manual Machinist - Turbine Repair Shop",
       "titleByLocale": {
         "en": "Manual Machinist - Turbine Repair Shop",
-        "it": "Manual Machinist - Turbine Repair Shop",
+        "it": "Macchinista manuale - Negozio di riparazione turbina",
         "de": "Manual Machinist - Turbine Repair Shop",
         "fr": "Manual Machinist - Turbine Repair Shop"
       },
@@ -28712,7 +28712,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-08T23:19:37.370Z"
+      "firstSeenAt": "2026-06-08T23:19:37.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manual-machinist-turbine-repair-shop-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manual-machinist-turbine-repair-shop-sulzer-ch"
+      ]
     }
   ]
 }

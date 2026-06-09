@@ -51,11 +51,15 @@ describe('localizedUrl', () => {
 });
 
 describe('companyPageUrl', () => {
+  // The company-hub URL prefix is localized (mirrors the build plugin's
+  // companyRoutePrefix): azienda-/company-/unternehmen-/entreprise-. A hardcoded
+  // IT `azienda-` on a non-IT board path 404s (the real page uses the locale
+  // prefix). Canonical form has a trailing slash.
   it.each([
-    ['it', '/cerca-lavoro-ticino/azienda-acme'],
-    ['en', '/en/find-jobs-ticino/azienda-acme'],
-    ['de', '/de/jobs-im-tessin/azienda-acme'],
-    ['fr', '/fr/trouver-emploi-tessin/azienda-acme'],
+    ['it', '/cerca-lavoro-ticino/azienda-acme/'],
+    ['en', '/en/find-jobs-ticino/company-acme/'],
+    ['de', '/de/jobs-im-tessin/unternehmen-acme/'],
+    ['fr', '/fr/trouver-emploi-tessin/entreprise-acme/'],
   ])('builds locale-aware URL for %s', (loc, expected) => {
     expect(companyPageUrl('acme', loc)).toBe(
       `https://frontaliereticino.ch${expected}`,
