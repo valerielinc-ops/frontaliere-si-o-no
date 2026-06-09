@@ -3327,6 +3327,11 @@ const ST_LOCALITY_PLZ_OVERRIDE = {
   // Multi-site employer whose bare-"St" posting carries no slug/URL city token
   // but a trustworthy per-job postal code (9000 = St. Gallen, 1:1 in CH). #1158.
   'csd-engineers': { '9000': 'St. Gallen' },
+  // Bosch site at PLZ 1950 posts bare "St" with no slug/URL city token. The
+  // company's own active + expired postings consistently tag PLZ 1950 as
+  // St. Niklaus VS (slugs "…-bosch-thermotechnik-ag-st-niklaus") — authoritative
+  // over the truncated locality. Supersedes the KNOWN_DEFERRED canary. #1242.
+  'bosch-thermotechnik-ag': { '1950': 'St. Niklaus' },
 };
 
 // Single-site employers whose every posting sits at one HQ city, used to recover
