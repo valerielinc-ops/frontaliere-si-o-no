@@ -17,9 +17,12 @@
  * sends `Host: origin-{loc}.frontaliereticino.ch` upstream, which is what makes
  * GitHub Pages match the shard repo's custom domain.
  *
- * NOT routed here (served by their own origins directly, no rewrite):
- *   /assets/*, /data/*, /og/*  -> already absolute on cdn.frontaliereticino.ch
- *   /rss-en.xml, /sitemap-*    -> tiny root files kept in the main repo
+ * Also proxies /assets /data /og to the CDN: the shard-served locale pages
+ * reference these SAME-ORIGIN (their HTML was captured before the pipeline's
+ * /assets->cdn rewrite), but the bundle/data/og live on cdn.frontaliereticino.ch
+ * and 404 on the apex — so without this, locale pages load with no CSS/JS.
+ *
+ *   /rss-en.xml, /sitemap-*  -> tiny root files kept in the main repo (passthrough)
  */
 
 const SHARD_ORIGIN = {
@@ -27,6 +30,11 @@ const SHARD_ORIGIN = {
   de: 'origin-de.frontaliereticino.ch',
   fr: 'origin-fr.frontaliereticino.ch',
 };
+
+// Static paths that live on the CDN, not the apex Pages origin. Shard locale
+// pages reference them same-origin, so proxy them to the CDN.
+const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const CDN_PATHS = /^\/(assets|data|og)\//;
 
 // First path segment must be exactly en|de|fr, followed by end, slash, or the
 // .html locale-homepage file. Anything like /rss-en.xml or /enterprise stays
@@ -37,6 +45,12 @@ const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 export default {
   async fetch(request) {
     const url = new URL(request.url);
+
+    // Same-origin CDN paths from shard locale pages → serve from the CDN.
+    if (CDN_PATHS.test(url.pathname)) {
+      return fetch(CDN_BASE + url.pathname + url.search, request);
+    }
+
     const match = url.pathname.match(LOCALE_RE);
 
     if (!match) {

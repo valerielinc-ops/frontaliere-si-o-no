@@ -21,4 +21,7 @@ routes = [
   { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/assets/*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/data/*",   zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/og/*",     zone_name = "frontaliereticino.ch" },
 ]
