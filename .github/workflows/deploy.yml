@@ -842,7 +842,13 @@ jobs:
             keyfile="$RUNNER_TEMP/shard_${loc}_key"
             printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
             export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
-            (
+            # set -e in the subshell so a failed git init/config/commit aborts
+            # BEFORE the push — never force-push a partial/empty tree over a good
+            # shard. The ok-marker is written ONLY when the whole chain incl. push
+            # succeeds; the strip step keys off it so a failed push is self-healing
+            # (locale stays in main, exactly like the frontaliere-cdn pattern).
+            if (
+              set -e
               cd "$stage"
               git init -q
               git checkout -q -b main
@@ -850,12 +856,13 @@ jobs:
               git config user.name "deploy-bot"
               git add -A
               git commit -qm "locale shard $loc ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
-              if git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main; then
-                echo "✅ pushed $loc shard"
-              else
-                echo "⚠️ $loc shard push failed — locale stays in main artifact"
-              fi
-            )
+              git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main
+            ); then
+              touch "$RUNNER_TEMP/shard-ok-$loc"   # consumed by the strip step
+              echo "✅ pushed $loc shard"
+            else
+              echo "⚠️ $loc shard push failed — $loc will NOT be stripped from main this run"
+            fi
             rm -f "$keyfile"
           done
 
@@ -1092,10 +1099,19 @@ jobs:
         run: |
           set -uo pipefail
           before="$(du -sh dist | cut -f1)"
+          # Strip ONLY locales whose shard push succeeded THIS run (ok-marker from
+          # the push step). A locale whose push failed has no marker → it stays in
+          # the main artifact and keeps being served from main → no 404. This makes
+          # the split self-healing per-locale, decoupled from the global gate var.
           for loc in en de fr; do
-            rm -rf "dist/$loc" "dist/$loc.html"
+            if [ -f "$RUNNER_TEMP/shard-ok-$loc" ]; then
+              rm -rf "dist/$loc" "dist/$loc.html"
+              echo "stripped $loc from main (shard push ok this run)"
+            else
+              echo "::warning::$loc shard push did NOT succeed this run — keeping $loc in main artifact (no strip)"
+            fi
           done
-          echo "stripped en/de/fr from main artifact (now served via shards): ${before} -> $(du -sh dist | cut -f1)"
+          echo "main artifact: ${before} -> $(du -sh dist | cut -f1)"
       - name: Pack dist/ into Pages tar archive
         if: github.event.inputs.profile_sequential != 'true'
         run: |
