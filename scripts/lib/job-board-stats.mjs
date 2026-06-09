@@ -10,6 +10,28 @@ const HISTORY_LIMIT = 180;
 const COMPACT_AFTER_DAYS = 30;
 const ZURICH_TIMEZONE = 'Europe/Zurich';
 
+// Retention / file-size ceiling — data/jobs-stats-history.json grows on every
+// deploy and MUST stay well under GitHub's 100 MB hard push limit (a 100+ MB
+// blob makes `git push` reject the whole commit and breaks the Persist Job
+// Stats workflow, see issue #1358). Three layers bound the file by construction:
+//
+//   1. HISTORY_LIMIT (180) — keep at most ~6 months of daily entries.
+//   2. COMPACT_AFTER_DAYS (30) — strip ALL verbose fields (keys + named stat
+//      buckets) for entries older than 30 days; only the scalar daily totals
+//      survive for the long-range sparkline.
+//   3. slimVerboseKeyArrays() — within the 0–30 day verbose window, the only
+//      raw key arrays any consumer ever reads by *value* are the per-bucket
+//      and entry-level `addedKeys` (used to dedupe the "added" leaders across
+//      the 30-day window). The `updatedKeys` / `removedKeys` arrays are read
+//      ONLY for their `.length`, which is already persisted as the scalar
+//      `updated` / `removed` (entry level) and `updatedCount` / `removedCount`
+//      (bucket level). So for every entry except the still-accumulating
+//      current day we drop those arrays, eliminating ~58 MB of dead weight
+//      (the dominant contributor: ~6 000 updatedKeys/day × 30 days).
+//
+// Today's entry keeps full arrays because concurrent same-day crawler pushes
+// rely on `entry.updatedKeys.includes(jobKey)` to deduplicate within the day.
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -123,8 +145,9 @@ function toLeaderItems(rawItems = [], mode = 'count') {
   return rawItems
     .map((item) => {
       const added = safeArray(item.addedKeys).length;
-      const updated = safeArray(item.updatedKeys).length;
-      const removed = safeArray(item.removedKeys).length;
+      // updatedKeys/removedKeys may be slimmed away — fall back to the count.
+      const updated = safeArray(item.updatedKeys).length || Number(item.updatedCount || 0);
+      const removed = safeArray(item.removedKeys).length || Number(item.removedCount || 0);
       return {
         key: item.key,
         name: item.name,
@@ -175,28 +198,51 @@ function finalizeHistoryEntry(entry) {
   next.updatedKeys = Array.from(new Set(safeArray(next.updatedKeys))).sort();
   next.removedKeys = Array.from(new Set(safeArray(next.removedKeys))).sort();
   next.added = next.addedKeys.length;
-  next.updated = next.updatedKeys.length;
-  next.removed = next.removedKeys.length;
+  // updatedKeys/removedKeys are slimmed away on past days (see
+  // slimVerboseKeyArrays): when the array is empty we MUST keep the persisted
+  // scalar count rather than overwrite it with 0.
+  next.updated = next.updatedKeys.length > 0 ? next.updatedKeys.length : Number(next.updated || 0);
+  next.removed = next.removedKeys.length > 0 ? next.removedKeys.length : Number(next.removed || 0);
 
   for (const bucketKey of ['companyStats', 'locationStats', 'titleStats']) {
     next[bucketKey] = safeArray(next[bucketKey])
-      .map((item) => ({
-        ...item,
-        addedKeys: Array.from(new Set(safeArray(item.addedKeys))).sort(),
-        updatedKeys: Array.from(new Set(safeArray(item.updatedKeys))).sort(),
-        removedKeys: Array.from(new Set(safeArray(item.removedKeys))).sort(),
-      }))
-      .filter((item) => item.addedKeys.length > 0 || item.updatedKeys.length > 0 || item.removedKeys.length > 0)
+      .map((item) => {
+        const addedKeys = Array.from(new Set(safeArray(item.addedKeys))).sort();
+        const updatedKeys = Array.from(new Set(safeArray(item.updatedKeys))).sort();
+        const removedKeys = Array.from(new Set(safeArray(item.removedKeys))).sort();
+        return {
+          ...item,
+          addedKeys,
+          updatedKeys,
+          removedKeys,
+          // Persist bucket-level counts so slimmed days still report
+          // updated/removed magnitude (consumers read these as .length today).
+          updatedCount: updatedKeys.length > 0 ? updatedKeys.length : Number(item.updatedCount || 0),
+          removedCount: removedKeys.length > 0 ? removedKeys.length : Number(item.removedCount || 0),
+        };
+      })
+      .filter((item) => bucketHasActivity(item))
       .sort((a, b) => compareLeaderItems({
         name: a.name,
-        count: safeArray(a.addedKeys).length + safeArray(a.updatedKeys).length + safeArray(a.removedKeys).length,
+        count: bucketActivityCount(a),
       }, {
         name: b.name,
-        count: safeArray(b.addedKeys).length + safeArray(b.updatedKeys).length + safeArray(b.removedKeys).length,
+        count: bucketActivityCount(b),
       }));
   }
 
   return next;
+}
+
+function bucketActivityCount(item) {
+  const added = safeArray(item.addedKeys).length;
+  const updated = safeArray(item.updatedKeys).length || Number(item.updatedCount || 0);
+  const removed = safeArray(item.removedKeys).length || Number(item.removedCount || 0);
+  return added + updated + removed;
+}
+
+function bucketHasActivity(item) {
+  return bucketActivityCount(item) > 0;
 }
 
 /**
@@ -217,8 +263,10 @@ function deduplicateEntriesByDate(entries) {
       existing[field] = Array.from(new Set([...safeArray(existing[field]), ...safeArray(e[field])]));
     }
     existing.added = existing.addedKeys.length;
-    existing.updated = existing.updatedKeys.length;
-    existing.removed = existing.removedKeys.length;
+    // updatedKeys/removedKeys may have been slimmed on either side; fall back to
+    // the larger of (unioned array length, persisted scalar count).
+    existing.updated = Math.max(existing.updatedKeys.length, Number(existing.updated || 0), Number(e.updated || 0));
+    existing.removed = Math.max(existing.removedKeys.length, Number(existing.removed || 0), Number(e.removed || 0));
     // Merge stat buckets
     for (const bucket of ['companyStats', 'locationStats', 'titleStats']) {
       const map = new Map();
@@ -232,6 +280,8 @@ function deduplicateEntriesByDate(entries) {
         for (const f of ['addedKeys', 'updatedKeys', 'removedKeys']) {
           prev[f] = Array.from(new Set([...safeArray(prev[f]), ...safeArray(item[f])]));
         }
+        prev.updatedCount = Math.max(safeArray(prev.updatedKeys).length, Number(prev.updatedCount || 0), Number(item.updatedCount || 0));
+        prev.removedCount = Math.max(safeArray(prev.removedKeys).length, Number(prev.removedCount || 0), Number(item.removedCount || 0));
         prev.name = prev.name || item.name;
         prev.url = prev.url || item.url;
       }
@@ -272,6 +322,32 @@ export function computeJobDiff(previousJobs = [], currentJobs = []) {
   }
 
   return { addedJobs, updatedJobs, removedJobs };
+}
+
+/**
+ * Slim the dead-weight key arrays out of every entry except `keepDate`
+ * (the still-accumulating current day). `updatedKeys` / `removedKeys` are only
+ * ever read for their length, so we collapse them to the scalar counts that
+ * consumers already use (`updated` / `removed` at entry level,
+ * `updatedCount` / `removedCount` at bucket level). `addedKeys` are kept
+ * because the 30-day "added" leader aggregation dedupes them by value.
+ */
+function slimVerboseKeyArrays(entry, keepDate) {
+  if (entry.date === keepDate) return entry;
+  entry.updatedKeys = [];
+  entry.removedKeys = [];
+  for (const bucketKey of ['companyStats', 'locationStats', 'titleStats']) {
+    for (const item of safeArray(entry[bucketKey])) {
+      const updatedCount = safeArray(item.updatedKeys).length || Number(item.updatedCount || 0);
+      const removedCount = safeArray(item.removedKeys).length || Number(item.removedCount || 0);
+      item.updatedKeys = [];
+      item.removedKeys = [];
+      // Omit zero counts to keep the file lean; absent === 0 for consumers.
+      if (updatedCount > 0) item.updatedCount = updatedCount; else delete item.updatedCount;
+      if (removedCount > 0) item.removedCount = removedCount; else delete item.removedCount;
+    }
+  }
+  return entry;
 }
 
 export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJobs = [], options = {}) {
@@ -330,6 +406,10 @@ export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJ
       e.companyStats = [];
       e.locationStats = [];
       e.titleStats = [];
+    } else {
+      // Within the verbose window: drop the never-read-by-value
+      // updatedKeys/removedKeys arrays (keep counts) for every past day.
+      slimVerboseKeyArrays(e, date);
     }
   }
 
