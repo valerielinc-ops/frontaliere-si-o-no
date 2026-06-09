@@ -2025,7 +2025,6 @@
         "senior-backend-developer-tether-ch-16",
         "senior-backend-developer-tether-ch-17",
         "senior-backend-developer-tether-ch-18",
-        "investimenti-associate-rise-fund-100-remote-tether-operations-zurich",
         "senior-backend-developer-tether-ch-19"
       ],
       "previousSlugsByLocale": {
@@ -5220,12 +5219,12 @@
     },
     {
       "id": "tether-ecb10b4f08d7",
-      "slug": "portfolio-manager-real-estate-tether-ch",
+      "slug": "portfolio-manager-immobiliare-tether-operations-zurich-zurich",
       "slugByLocale": {
         "en": "portfolio-manager-real-estate-tether-ch",
-        "it": "portfolio-manager-real-estate-tether-ch",
-        "de": "portfolio-manager-real-estate-tether-ch",
-        "fr": "portfolio-manager-real-estate-tether-ch"
+        "it": "portfolio-manager-immobiliare-tether-operations-zurich-zurich",
+        "de": "portfoliomanager-immobilien-tether-operations-zurich-zurich",
+        "fr": "gestionnaire-de-portefeuille-immobilier-tether-operations-zurich-zurich"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -5285,8 +5284,20 @@
       },
       "firstSeenAt": "2026-06-09T12:24:08.597Z",
       "previousSlugs": [
+        "portfolio-manager-real-estate-tether-ch",
         "portfolio-manager-immobiliare-tether-operations-roma-lazio"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "portfolio-manager-real-estate-tether-ch"
+        ],
+        "de": [
+          "portfolio-manager-real-estate-tether-ch"
+        ],
+        "fr": [
+          "portfolio-manager-real-estate-tether-ch"
+        ]
+      }
     },
     {
       "id": "tether-d4ef425278e7",

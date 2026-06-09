@@ -511,12 +511,12 @@
     },
     {
       "id": "uroviva-9d88327aa0b2",
-      "slug": "arztsekretar-in-60-80-uroviva-baar",
+      "slug": "segreteria-medica-in-60-80-uroviva-baar",
       "slugByLocale": {
         "de": "arztsekretar-in-60-80-uroviva-baar",
-        "it": "arztsekretar-in-60-80-uroviva-baar",
-        "en": "arztsekretar-in-60-80-uroviva-baar",
-        "fr": "arztsekretar-in-60-80-uroviva-baar"
+        "it": "segreteria-medica-in-60-80-uroviva-baar",
+        "en": "medical-secretary-in-60-80-uroviva-baar",
+        "fr": "secretaire-medical-dans-60-80-uroviva-baar"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -571,7 +571,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T12:27:59.657Z"
+      "firstSeenAt": "2026-06-09T12:27:59.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-60-80-uroviva-baar"
+        ],
+        "en": [
+          "arztsekretar-in-60-80-uroviva-baar"
+        ],
+        "fr": [
+          "arztsekretar-in-60-80-uroviva-baar"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-60-80-uroviva-baar"
+      ]
     },
     {
       "id": "uroviva-1fe6c6a5424d",

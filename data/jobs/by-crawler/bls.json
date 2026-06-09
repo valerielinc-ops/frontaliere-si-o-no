@@ -376,8 +376,8 @@
       "slugByLocale": {
         "de": "operator-in-bahntechnik-quereinstieg-bls-ch",
         "it": "operatore-in-bahntechnik-cambio-carriera-bls-ag-spiez",
-        "en": "operator-in-bahntechnik-quereinstieg-bls-ch",
-        "fr": "operator-in-bahntechnik-quereinstieg-bls-ch"
+        "en": "operator-in-railway-engineering-lateral-entry-bls-ag-spiez",
+        "fr": "operateur-en-genie-ferroviaire-entree-laterale-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -451,6 +451,12 @@
       "firstSeenAt": "2026-06-09T11:01:37.323Z",
       "previousSlugsByLocale": {
         "it": [
+          "operator-in-bahntechnik-quereinstieg-bls-ch"
+        ],
+        "en": [
+          "operator-in-bahntechnik-quereinstieg-bls-ch"
+        ],
+        "fr": [
           "operator-in-bahntechnik-quereinstieg-bls-ch"
         ]
       },

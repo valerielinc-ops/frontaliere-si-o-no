@@ -3442,12 +3442,12 @@
     },
     {
       "id": "spital-buelach-e96fbdcfff82",
-      "slug": "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach",
+      "slug": "dipl-infermiera-medicina-20-100-medicina-spital-bulach-bulach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach",
-        "it": "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach",
+        "it": "dipl-infermiera-medicina-20-100-medicina-spital-bulach-bulach",
         "en": "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach"
+        "fr": "dipl-medecine-infirmiere-20-100-medecine-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3502,7 +3502,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T12:15:19.131Z"
+      "firstSeenAt": "2026-06-09T12:15:19.131Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-medizin-20-100-medizin-spital-buelach-bulach"
+      ]
     }
   ]
 }

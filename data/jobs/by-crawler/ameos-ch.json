@@ -274,8 +274,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln",
-        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln"
+        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -761,8 +760,8 @@
       "slugByLocale": {
         "de": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
         "it": "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln",
-        "en": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
-        "fr": "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        "en": "medical-masseur-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "masseur-medical-m-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -821,6 +820,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        ],
+        "en": [
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        ],
+        "fr": [
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
         ]
       },
       "previousSlugs": [
@@ -833,8 +838,8 @@
       "slugByLocale": {
         "de": "leitung-m-w-d-operationspflege-ameos-einsiedeln",
         "it": "direzione-m-f-d-cura-chirurgica-ameos-schweiz-einsiedeln",
-        "en": "leitung-m-w-d-operationspflege-ameos-einsiedeln",
-        "fr": "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+        "en": "management-m-f-d-operational-care-ameos-schweiz-einsiedeln",
+        "fr": "gestion-m-f-d-soins-operationnels-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -892,6 +897,12 @@
       "firstSeenAt": "2026-06-09T10:55:22.818Z",
       "previousSlugsByLocale": {
         "it": [
+          "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+        ],
+        "en": [
+          "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+        ],
+        "fr": [
           "leitung-m-w-d-operationspflege-ameos-einsiedeln"
         ]
       },

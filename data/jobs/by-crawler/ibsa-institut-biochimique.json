@@ -116,9 +116,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "dossier-compliance-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "en": "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "de": "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
-        "fr": "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
+        "en": "dossier-compliance-specialist-ibsa-institut-biochimique-collina-d",
+        "de": "dossier-compliance-spezialist-ibsa-institut-biochimique-collina-d",
+        "fr": "dossier-compliance-specialiste-ibsa-institut-biochimique-collina-d"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -126,10 +126,22 @@
       "previousSlugsByLocale": {
         "it": [
           "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d"
+        ],
+        "en": [
+          "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
+        ],
+        "de": [
+          "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
+        ],
+        "fr": [
+          "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
         ]
       },
       "previousSlugs": [
-        "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d"
+        "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d",
+        "dossier-compliance-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
+        "dossier-compliance-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge",
+        "dossier-compliance-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-dossier-compliance-specialist-location-collina-d-24q2ge"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -842,8 +854,8 @@
       "slugByLocale": {
         "it": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
         "en": "cmo-manager-ibsa-institut-biochimique-6916-working-area",
-        "de": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
-        "fr": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4"
+        "de": "cmo-manager-ibsa-institut-biochimique-grancia",
+        "fr": "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
       },
       "sourceLang": "it",
       "country": "CH",
@@ -859,13 +871,11 @@
         ],
         "de": [
           "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
-          "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
-          "cmo-manager-ibsa-institut-biochimique-grancia"
+          "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia"
         ],
         "fr": [
           "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area",
-          "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
-          "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
+          "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia"
         ]
       },
       "previousSlugs": [
@@ -877,8 +887,7 @@
         "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
         "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
         "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area",
-        "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
-        "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
+        "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia"
       ],
       "salaryMin": 82500,
       "salaryMax": 127000,
