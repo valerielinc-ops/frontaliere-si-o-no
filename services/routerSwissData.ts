@@ -57,6 +57,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'votazioni-cantonali-giugno-salario-minimo': { it: 'votazioni-cantonali-giugno-salario-minimo', en: 'cantonal-votes-june-minimum-wage', de: 'kantonale-abstimmungen-juni-mindestlohn', fr: 'votations-cantonales-juin-salaire-minimum' },
  'donne-parlamento-record': { it: 'donne-parlamento-record', en: 'swiss-parliament-women-record', de: 'rekord-frauen-parlament-schweiz', fr: 'record-femmes-parlement-suisse' },
  'diaspora-svizzera-parlamento': { it: 'diaspora-svizzera-parlamento', en: 'swiss-diaspora-parliament', de: 'schweizer-diaspora-parlament', fr: 'diaspora-suisse-parlement' },
+ 'ritmi-insostenibili-logistica-dpd': { it: 'ritmi-insostenibili-logistica-dpd', en: 'unsustainable-pace-pressure-logistics-workers', de: 'untragbare-tempo-druck-logistikarbeiter', fr: 'rythmes-intenables-pression-travailleurs-logistique' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

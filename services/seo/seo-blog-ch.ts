@@ -1307,6 +1307,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ritmi-insostenibili-logistica-dpd': {
+    title: 'Ritmi insostenibili e pressione sui lavoratori della logistica',
+    description: 'Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro insostenibili e l\'aumento di burnout e infortuni. Critica alla narrativa dei "furbetti dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritmi, insostenibili, pressione, lavoratori',
+    ogTitle: 'Ritmi insostenibili e pressione sui lavoratori della logistica',
+    ogDescription: 'Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro insostenibili e l\'aumento di burnout e infortuni. Critica alla narrativa dei "furbetti".',
+    canonicalPath: '/articoli-svizzera/ritmi-insostenibili-logistica-dpd/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ritmi insostenibili e pressione sui lavoratori della logistica",
+      "description": "Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro insostenibili e l'aumento di burnout e infortuni. Critica alla narrativa dei \"furbetti dei",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ritmi-insostenibili-logistica-dpd.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un magazzino logistico svizzero con lavoratori e nastri trasportatori"
+      },
+      "datePublished": "2026-06-09T01:15:48+00:00",
+      "dateModified": "2026-06-09T01:15:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ritmi-insostenibili-logistica-dpd/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

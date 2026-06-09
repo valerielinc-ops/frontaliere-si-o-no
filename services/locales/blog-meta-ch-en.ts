@@ -107,6 +107,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diaspora-svizzera-parlamento.title': 'Swiss diaspora representation in Parliament',
     'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin criticizes the lack of attention given to the Fifth Switzerland at the Federal Palace, calling for e-voting as a democratic lever.',
     'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Unsustainable pace and pressure on logistics workers',
+    'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'The DPD Giubiasco Workers\' Collective denounces workloads that exceed physical and psychological limits and the rise of injuries and burnout in the logistics sector.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Inside a Swiss logistics warehouse with workers and conveyor belts',
 };
 
 export default blogMetaChEn;

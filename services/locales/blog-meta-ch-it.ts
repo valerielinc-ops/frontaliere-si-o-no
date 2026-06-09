@@ -107,6 +107,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diaspora-svizzera-parlamento.title': 'La rappresentanza della diaspora svizzera in Parlamento',
     'blog.article.diaspora-svizzera-parlamento.excerpt': 'Irène Kälin critica la scarsa considerazione per la Quinta Svizzera a Palazzo federale, invocando il voto elettronico come leva democratica.',
     'blog.article.diaspora-svizzera-parlamento.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.title': 'Ritmi insostenibili e pressione sui lavoratori della logistica',
+    'blog.article.ritmi-insostenibili-logistica-dpd.excerpt': 'Il Collettivo Operaio DPD Giubiasco denuncia carichi di lavoro oltre i limiti fisici e psicologici e l\'aumento di infortuni e burnout nel settore logistico.',
+    'blog.article.ritmi-insostenibili-logistica-dpd.imageAlt': 'Interno di un magazzino logistico svizzero con lavoratori e nastri trasportatori',
 };
 
 export default blogMetaChIt;
