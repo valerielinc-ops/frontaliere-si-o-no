@@ -832,23 +832,33 @@ jobs:
               echo "dist/$loc absent — skipping $loc shard push"; continue
             fi
             stage="$RUNNER_TEMP/shard-$loc"
-            rm -rf "$stage" && mkdir -p "$stage"
-            : > "$stage/.nojekyll"                                  # serve every path verbatim
-            printf 'origin-%s.frontaliereticino.ch' "$loc" > "$stage/CNAME"  # shard custom domain (force-push would wipe it)
-            cp -r "dist/$loc" "$stage/$loc"                         # the heavy subtree
-            [ -f "dist/$loc.html" ] && cp "dist/$loc.html" "$stage/$loc.html"  # locale homepage at /{loc}
-            printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
-            echo "$loc shard payload: $(du -sh "$stage" | cut -f1)"
             keyfile="$RUNNER_TEMP/shard_${loc}_key"
             printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
             export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
-            # set -e in the subshell so a failed git init/config/commit aborts
-            # BEFORE the push — never force-push a partial/empty tree over a good
-            # shard. The ok-marker is written ONLY when the whole chain incl. push
-            # succeeds; the strip step keys off it so a failed push is self-healing
-            # (locale stays in main, exactly like the frontaliere-cdn pattern).
+            # EVERYTHING that builds the shard tree AND pushes runs inside one
+            # `set -e` subshell, with a completeness gate before the push. So a
+            # partial cp (disk-full on the runner) or an empty/truncated dist/$loc
+            # (build regression) ABORTS before the push: a monco/empty tree is
+            # never force-pushed over a good shard and the ok-marker is never
+            # written → the strip step skips this locale (stays in main, no 404).
+            # The copy is hardlinked when same-filesystem (cp -al) to avoid
+            # duplicating ~2.5 GB per locale on an already-tight runner disk,
+            # falling back to a real copy across devices.
             if (
               set -e
+              rm -rf "$stage"; mkdir -p "$stage"
+              : > "$stage/.nojekyll"                                  # serve every path verbatim
+              printf 'origin-%s.frontaliereticino.ch' "$loc" > "$stage/CNAME"  # shard custom domain
+              cp -al "dist/$loc" "$stage/$loc" 2>/dev/null || cp -r "dist/$loc" "$stage/$loc"
+              if [ -f "dist/$loc.html" ]; then cp "dist/$loc.html" "$stage/$loc.html"; fi  # homepage at /{loc}
+              printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
+              # Completeness gate: the locale landing must exist and the subtree
+              # must clear a sane file-count floor (real locales = tens of
+              # thousands). A failed/partial copy trips this and aborts the push.
+              test -s "$stage/$loc/index.html"
+              n="$(find "$stage/$loc" -type f | wc -l)"
+              [ "$n" -ge 50 ]
+              echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files"
               cd "$stage"
               git init -q
               git checkout -q -b main
@@ -861,7 +871,7 @@ jobs:
               touch "$RUNNER_TEMP/shard-ok-$loc"   # consumed by the strip step
               echo "✅ pushed $loc shard"
             else
-              echo "⚠️ $loc shard push failed — $loc will NOT be stripped from main this run"
+              echo "::warning::$loc shard build/push failed — $loc will NOT be stripped from main this run"
             fi
             rm -f "$keyfile"
           done
