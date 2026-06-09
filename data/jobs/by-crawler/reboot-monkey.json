@@ -4293,7 +4293,15 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-08T23:04:42.135Z"
+      "firstSeenAt": "2026-06-08T23:04:42.135Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "data-center-techniker-schweiz-plan-les-ouates-vor-ort-reboot-monkey-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "data-center-techniker-schweiz-plan-les-ouates-vor-ort-reboot-monkey-plan-les-ouates"
+      ]
     },
     {
       "id": "reboot-monkey-39fa58da10d7",
@@ -4475,11 +4483,21 @@
       "remote": false,
       "previousSlugsByLocale": {
         "it": [
-          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+          "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln"
+        ],
+        "de": [
+          "data-center-techniker-schweiz-pratteln-vor-ort-reboot-monkey-pratteln"
+        ],
+        "fr": [
+          "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln"
         ]
       },
       "previousSlugs": [
-        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
+        "data-center-techniker-schweiz-pratteln-vor-ort-reboot-monkey-pratteln",
+        "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln"
       ],
       "needsRetranslation": true,
       "salaryMin": 49500,
