@@ -1,18 +1,19 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-08T13:56:00.728Z",
+  "generatedAt": "2026-06-08T23:24:30.138Z",
   "total": 17,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 15,
-  "durationMs": 17076,
-  "avgDurationMs": 17076,
+  "durationMs": 20914,
+  "avgDurationMs": 20914,
   "durationHistory": [
-    17076
+    20914
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-213j0l",
       "slug": "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-can-213j0l",
@@ -35,16 +36,21 @@
       "firstSeenAt": "2026-06-08T13:55:55.547Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 72,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 4,
-        "completeness": 19
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-213j37",
       "slug": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",

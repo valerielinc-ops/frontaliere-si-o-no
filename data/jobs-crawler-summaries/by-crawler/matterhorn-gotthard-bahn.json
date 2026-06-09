@@ -1,18 +1,19 @@
 {
   "key": "matterhorn-gotthard-bahn",
   "label": "Matterhorn Gotthard Bahn",
-  "generatedAt": "2026-06-08T13:19:34.794Z",
-  "total": 10,
-  "newCount": 3,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "generatedAt": "2026-06-08T22:49:51.276Z",
+  "total": 9,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 13845,
-  "avgDurationMs": 13845,
+  "durationMs": 12635,
+  "avgDurationMs": 12635,
   "durationHistory": [
-    13845
+    12635
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "matterhorn-gotthard-bahn-0f412224b7c0",
       "slug": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.bvzholding.ch/Carrosserielackierer-fachmann-mwd-de-j697.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:22.438Z",
+      "crawledAt": "2026-06-08T22:49:40.069Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,11 +47,13 @@
         "identifier": "PERS - 708",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-08T13:19:22.438Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 18,
         "completeness": 20
       }
     },
@@ -66,7 +69,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Instandhaltung-Polywerkstatt-Zermatt-mwd-de-j703.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:31.166Z",
+      "crawledAt": "2026-06-08T22:49:47.526Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,11 +90,12 @@
         "identifier": "PERS-714",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-08T13:19:31.166Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -107,7 +111,7 @@
       "url": "https://jobs.bvzholding.ch/Zusatzlehre-Automatiker-oder-Automatikmonteur-mwd-de-j680.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:32.137Z",
+      "crawledAt": "2026-06-08T22:49:48.472Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -128,16 +132,15 @@
         "identifier": "Pers-",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-08T13:19:32.137Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "matterhorn-gotthard-bahn-1457cacc11d2",
       "slug": "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
@@ -150,7 +153,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-j664.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:26.822Z",
+      "crawledAt": "2026-06-08T22:49:44.346Z",
       "addressLocality": "Herbriggen",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,7 +196,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Fahrzeugtechnik-mwd-de-j706.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:30.025Z",
+      "crawledAt": "2026-06-08T22:49:46.414Z",
       "addressLocality": "Brig, Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,7 +239,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:24.716Z",
+      "crawledAt": "2026-06-08T22:49:42.298Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -278,7 +281,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Instandhaltung-mwd-de-j705.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:27.776Z",
+      "crawledAt": "2026-06-08T22:49:45.310Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -309,48 +312,6 @@
       }
     },
     {
-      "id": "matterhorn-gotthard-bahn-2c87edf4ac3e",
-      "slug": "sommeraushilfe-kundenlenkung-e-zooom-m-w-d-matterhorn-gotthard-bahn-zermatt",
-      "company": "Matterhorn Gotthard Bahn",
-      "companyKey": "matterhorn-gotthard-bahn",
-      "companyDomain": "bvzholding.ch",
-      "title": "Sommeraushilfe Kundenlenkung und Zooom (m/w/d)",
-      "location": "Zermatt",
-      "canton": "VS",
-      "url": "https://jobs.bvzholding.ch/Sommeraushilfe-Kundenlenkung-und-Zooom-mwd-de-j704.html",
-      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:28.903Z",
-      "addressLocality": "Zermatt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3920",
-      "streetAddress": "Bahnhofplatz 9",
-      "category": "Commerciale",
-      "sector": "Trasporti / Ferrovia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "validThrough": "2026-06-08",
-      "applyUrl": "https://jobs.bvzholding.ch/Sommeraushilfe-Kundenlenkung-und-Zooom-mwd-de-f704.html",
-      "_mgbMeta": {
-        "rexxId": "704",
-        "identifier": "PERS-",
-        "hiringOrganization": "Matterhorn Gotthard Bahn"
-      },
-      "firstSeenAt": "2026-06-01T15:26:50.704Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "id": "matterhorn-gotthard-bahn-062e2c43af0e",
       "slug": "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
       "company": "Matterhorn Gotthard Bahn",
@@ -362,7 +323,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:23.741Z",
+      "crawledAt": "2026-06-08T22:49:41.336Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -404,7 +365,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrer-GGB-mwd-de-j702.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-08T13:19:25.687Z",
+      "crawledAt": "2026-06-08T22:49:43.246Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -435,6 +396,52 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "matterhorn-gotthard-bahn-2c87edf4ac3e",
+      "slug": "sommeraushilfe-kundenlenkung-e-zooom-m-w-d-matterhorn-gotthard-bahn-zermatt",
+      "company": "Matterhorn Gotthard Bahn",
+      "companyKey": "matterhorn-gotthard-bahn",
+      "companyDomain": "bvzholding.ch",
+      "title": "Sommeraushilfe Kundenlenkung und Zooom (m/w/d)",
+      "location": "Zermatt",
+      "canton": "VS",
+      "url": "https://jobs.bvzholding.ch/Sommeraushilfe-Kundenlenkung-und-Zooom-mwd-de-j704.html",
+      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-08T13:19:28.903Z",
+      "addressLocality": "Zermatt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3920",
+      "streetAddress": "Bahnhofplatz 9",
+      "category": "Commerciale",
+      "sector": "Trasporti / Ferrovia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "validThrough": "2026-06-08",
+      "applyUrl": "https://jobs.bvzholding.ch/Sommeraushilfe-Kundenlenkung-und-Zooom-mwd-de-f704.html",
+      "_mgbMeta": {
+        "rexxId": "704",
+        "identifier": "PERS-",
+        "hiringOrganization": "Matterhorn Gotthard Bahn"
+      },
+      "firstSeenAt": "2026-06-01T15:26:50.704Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressRegion": "VS",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
