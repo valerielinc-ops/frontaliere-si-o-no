@@ -129,4 +129,103 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(labels).toContain('priority:high');
     expect(labels).not.toContain('crawler-transient');
   });
+
+  it('dedup search prefix is sanitized — no unbalanced "(Dedicat" tail (long crawler names)', async () => {
+    // Regression: `title.slice(0, 60)` cut long crawler titles mid-word, leaving
+    // an unbalanced "(Dedicat" → GitHub `in:title "..."` returned ZERO → dedup
+    // missed → a fresh duplicate issue every 12h run (SVAR opened 8 dups).
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/7';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'Crawler Failure: Update SVAR Spitalverbund AR Jobs (Dedicated)',
+      description: 'fetch failed',
+      priority: 2,
+      labels: ['Bug'],
+    });
+
+    const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
+    const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
+    // Must NOT carry the mid-word/unbalanced-paren fragment that breaks search.
+    expect(searchArg).not.toContain('(Dedicat');
+    // Keeps the whole-token, per-crawler discriminator.
+    expect(searchArg).toContain('Update SVAR Spitalverbund AR Jobs');
+  });
+
+  it('dedup search prefix has NO unbalanced bracket — name with internal parenthetical', async () => {
+    // Crawlers whose NAME carries a parenthetical (HIB, KSSG, CNP) get cut
+    // mid-group by slice(0,60), leaving an unbalanced `(` that also voids the
+    // phrase search. The sanitizer must drop the tail from the first unmatched
+    // opener, keeping a clean, still-discriminating prefix.
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/8';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'Crawler Failure: Update HIB (Hôpital Intercantonal de la Broye) Jobs (Dedicated)',
+      description: 'fetch failed',
+      priority: 2,
+      labels: ['Bug'],
+    });
+
+    const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
+    const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
+    // Count of unmatched '(' inside the quoted phrase must be zero.
+    const opens = (searchArg.match(/\(/g) || []).length;
+    const closes = (searchArg.match(/\)/g) || []).length;
+    expect(opens).toBe(closes); // balanced (here: both 0)
+    expect(searchArg).toContain('Update HIB'); // discriminator retained
+  });
+
+  it('short (untruncated) title keeps its final token — no over-match', async () => {
+    // The trailing-token strip must fire ONLY on real truncation. A short title
+    // shorter than the slice ceiling must keep its last whole token as the
+    // discriminator (else it degrades to a generic prefix that over-matches).
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/9';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'Crawler Failure: Update Foo', // 27 chars, well under the ceiling
+      description: 'fetch failed',
+      priority: 2,
+      labels: ['Bug'],
+    });
+
+    const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
+    const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
+    expect(searchArg).toContain('Update Foo'); // final token preserved
+  });
+
+  it('escalation title with space-free key keeps its bucket discriminator', async () => {
+    // Regression: a space-free bucket key (e.g. reviewer-finding/workflow-scope-creds)
+    // makes slice(0,60) land on the space BEFORE "ricorre" — a length-based strip
+    // gate would drop the whole key and collapse the prefix to
+    // "escalation(harvester)", deduping EVERY bucket onto one canonical. The cut
+    // char (a space) means no word was split → key must be preserved.
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/10';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'escalation(harvester): reviewer-finding/workflow-scope-creds ricorre nonostante regola',
+      description: 'bucket recurs',
+      priority: 2,
+      labels: ['follow-up'],
+    });
+
+    const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
+    const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
+    expect(searchArg).toContain('workflow-scope-creds'); // bucket key preserved
+    expect(searchArg).not.toBe('in:title "escalation(harvester)"'); // not collapsed
+  });
 });
