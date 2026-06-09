@@ -1,10 +1,12 @@
 /**
  * Shared constants for Vite build plugins.
  *
- * BUILD_ID: timestamp injected as __BUILD_ID__ — used by BlogArticles
- * to detect stale caches.
- * COMMIT_HASH / SHORT_COMMIT_HASH: injected as __COMMIT_HASH__ /
- * __SHORT_COMMIT_HASH__ for the version badge and GitHub link.
+ * BUILD_ID: per-build timestamp. Emitted to dist/build-id.txt by buildIdPlugin
+ * and read at runtime (staleness checks). NOT injected as a Vite `define` —
+ * baking it into the bundle changed the entry hash every build → ~100% page
+ * churn (see vite.config define removal).
+ * COMMIT_HASH / SHORT_COMMIT_HASH: build commit. Emitted to dist/commit-hash.txt
+ * and read at runtime (version badge fetches it). Also NOT a `define`, same reason.
  * BASE_URL: canonical site origin used across all static-page generators.
  */
 
