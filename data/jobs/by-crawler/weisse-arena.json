@@ -783,9 +783,9 @@
     },
     {
       "id": "weisse-arena-d769fa9b6cdc",
-      "slug": "pizzaiolo-a-koch-kochin-weisse-arena-ch",
+      "slug": "pizzaiolo-a-chef-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "pizzaiolo-a-koch-kochin-weisse-arena-ch",
+        "it": "pizzaiolo-a-chef-weisse-arena-gruppe-laax",
         "en": "pizzaiolo-a-koch-kochin-weisse-arena-ch",
         "de": "pizzaiolo-a-koch-kochin-weisse-arena-ch",
         "fr": "pizzaiolo-a-koch-kochin-weisse-arena-ch"
@@ -845,7 +845,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "pizzaiolo-a-koch-kochin-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pizzaiolo-a-koch-kochin-weisse-arena-ch"
+      ]
     }
   ]
 }

@@ -664,12 +664,12 @@
     },
     {
       "id": "bachem-ab79d941e89a",
-      "slug": "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf",
+      "slug": "tecnico-di-produzione-a-turni-a-nuovo-edificio-k-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf",
-        "it": "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf",
+        "it": "tecnico-di-produzione-a-turni-a-nuovo-edificio-k-100-bachem-ag-bubendorf",
         "en": "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf",
-        "fr": "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf"
+        "fr": "technicien-de-production-en-service-poste-a-nouveau-batiment-k-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -724,7 +724,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-08T23:15:06.494Z"
+      "firstSeenAt": "2026-06-08T23:15:06.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "production-technician-im-schichtbetrieb-a-neubau-gebaude-k-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-463c36e92848",
