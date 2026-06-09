@@ -90,7 +90,9 @@ export function parsePradaListingHtml(html) {
   const seen = new Set();
 
   // Pattern 1: SuccessFactors jobTitle-link with href — <a class="jobTitle-link" href="/job/.../{id}/">
-  const linkRe = /<(?:a|span)[^>]*class="[^"]*jobTitle-link[^"]*"[^>]*href="([^"]*\/job\/([^"]*?)\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/(?:a|span)>/gi;
+  // Assert the class via a zero-width lookahead so `class`/`href` can appear in
+  // either attribute order (an SF skin reorder must not zero-match → 0 jobs).
+  const linkRe = /<(?:a|span)(?=[^>]*class="[^"]*jobTitle-link[^"]*")[^>]*href="([^"]*\/job\/([^"]*?)\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/(?:a|span)>/gi;
   let match;
   while ((match = linkRe.exec(html)) !== null) {
     const relUrl = match[1];
