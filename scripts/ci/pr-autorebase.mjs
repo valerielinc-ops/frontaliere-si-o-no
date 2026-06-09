@@ -39,6 +39,7 @@
  *       GITHUB_REPOSITORY. Richiede `gh` + `git` in un checkout full-history.
  */
 import { execFileSync } from 'node:child_process';
+import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -114,7 +115,7 @@ function headPushedMinutesAgo(head) {
 function headHasVitestCheck(head) {
   const out = gh(
     ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
-      '--jq', '[.check_runs[] | select(.name == "vitest (unit + integration)")] | length'],
+      '--jq', `[.check_runs[] | select(.name == ${JSON.stringify(VITEST_CHECK_NAME)})] | length`],
     { json: false, allowFail: true });
   return (parseInt((out || '0').trim(), 10) || 0) > 0;
 }
