@@ -49,18 +49,16 @@ const ApiStatus: React.FC = () => {
  testUrl: 'https://aistudio.google.com/app/apikey'
  });
 
- // 3. GitHub PAT - Carica da Firebase Remote Config
- const githubPat = await getConfigValue('GITHUB_PAT');
- const hasGithub = !!githubPat && githubPat !== 'your_github_pat_here' && githubPat !== '';
+ // 3. GitHub issue tracking — now server-side. The PAT lives in the
+ // createFeedbackIssue / githubAdminProxy Cloud Functions; the browser no
+ // longer receives a repo token, so there is nothing to check client-side.
  checks.push({
- name: 'GitHub Personal Access Token',
- key: '****',
- configured: hasGithub,
- value: hasGithub ? '✓ Configurato' : '✗ Non configurato',
- status: hasGithub ? 'success' : 'warning',
- message: hasGithub
- ? 'Configurato correttamente - Issue tracking GitHub attivo'
- : 'Non configurato - Issue tracking GitHub disabilitato',
+ name: 'GitHub Issue Tracking',
+ key: 'server-managed',
+ configured: true,
+ value: '✓ Server-side (Cloud Function)',
+ status: 'success',
+ message: 'Issue tracking via createFeedbackIssue — nessun PAT nel browser.',
  testUrl: 'https://github.com/settings/tokens'
  });
 

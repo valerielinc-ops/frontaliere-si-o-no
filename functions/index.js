@@ -19,6 +19,7 @@ import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
+import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
 
 ensureAdminApp();
 
@@ -58,6 +59,47 @@ export const getExchangeRate = onRequest(
  } catch (error) {
  console.error('[getExchangeRate]', error instanceof Error ? error.message : String(error));
  res.status(200).json({ ok: false, rate: null, error: 'internal_error' });
+ }
+ },
+);
+
+// Public feedback → GitHub issue (reCAPTCHA-gated). Keeps the repo PAT
+// server-side instead of shipping it to every browser via the feedback form.
+export const createFeedbackIssue = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleCreateFeedbackIssue(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[createFeedbackIssue]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Admin-only GitHub connection: returns the repo PAT to the verified admin
+// (Firebase ID-token email allowlist) so `GITHUB_PAT` can leave the universal
+// public config. The dashboard's existing GitHub logic is otherwise unchanged.
+export const getAdminGithubToken = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleGetAdminGithubToken(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[getAdminGithubToken]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },
 );
