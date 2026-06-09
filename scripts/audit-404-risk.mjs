@@ -92,6 +92,10 @@ import { tmpdir } from 'node:os';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import https from 'node:https';
+// Exercise the REAL newsletter URL builder, not a frozen copy of the bug — so
+// check (B) auto-resolves once companyPageUrl is fixed AND catches any future
+// prefix/slug regression (the builder is the single source of truth).
+import { companyPageUrl, slugifyCompanyName } from '../services/newsletter-content.mjs';
 
 const execFileP = promisify(execFile);
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -282,6 +286,15 @@ async function buildServedSet() {
       }
       meta.shards[loc] = n;
       log(`[404]   ${loc}: ${n} served pages`);
+      // Fail loud on a degenerate clone (renamed repo, failed push, rate-limit
+      // returning an empty/partial tree). Without this, n≈0 makes EVERY sitemap
+      // URL for that locale look unserved → a report poisoned with tens of
+      // thousands of false 404s. A real locale shard has hundreds of thousands
+      // of pages; anything under the floor is a broken clone, not a real gap.
+      const SHARD_FLOOR = 1000;
+      if (n < SHARD_FLOOR) {
+        throw new Error(`shard ${loc} (${repo}) returned only ${n} pages (< ${SHARD_FLOOR}) — degenerate clone, refusing to emit a poisoned report`);
+      }
     }
   }
   return { served, meta };
@@ -304,11 +317,6 @@ function makeResolver(served, meta) {
 }
 
 // ── Company sample for check (B): real companies from the jobs dataset ───────
-function slugifyCompany(value) {
-  return String(value || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
-}
-
 async function loadCompanySample(limit) {
   // Try assembled jobs dataset, then a few known fallbacks. Each entry → a
   // company display name; we only need a representative spread of slugs.
@@ -334,20 +342,21 @@ async function loadCompanySample(limit) {
       if (names.size >= limit) break;
     }
   }
+  // Slug via the SAME function the real builder uses (slugifyCompanyName), so
+  // the URL we test matches what the newsletter actually emits.
   // Always include the proven-incident company so the gate self-tests.
   names.add('EOC Ente Ospedaliero Cantonale');
-  return [...names].map((name) => ({ name, slug: slugifyCompany(name) })).filter((c) => c.slug);
+  return [...names].map((name) => ({ name, slug: slugifyCompanyName(name) })).filter((c) => c.slug);
 }
 
-// The newsletter builder's CURRENT output (the bug under test): IT prefix on
-// every locale. We reproduce it so the audit fails exactly where production
-// would 404 — independent of whether newsletter-content.mjs has been fixed.
-function buggyNewsletterHubUrl(slug, locale) {
-  const board = `${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}`.replace(/^\//, '');
-  return normPath(`/${board}/azienda-${slug}`);
+// The path the REAL newsletter builder emits for a company hub, for the given
+// locale. companyPageUrl returns an absolute URL → reduce to a normalized path.
+function builderHubPath(slug, locale) {
+  return normPath(companyPageUrl(slug, locale));
 }
-// The CORRECT URL the emitter actually produces (localized prefix).
-function correctHubUrl(slug, locale) {
+// The locally-correct localized form, used only for a human-readable hint in the
+// report (the offender DETECTION above is driven by the real builder).
+function expectedHubPath(slug, locale) {
   const board = `${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}`.replace(/^\//, '');
   return normPath(`/${board}/${COMPANY_ROUTE_PREFIX[locale]}-${slug}`);
 }
@@ -398,15 +407,16 @@ async function main() {
   const hubOffenders = [];
   for (const { name, slug } of companies) {
     for (const locale of ['it', 'en', 'de', 'fr']) {
-      const url = buggyNewsletterHubUrl(slug, locale);
+      const url = builderHubPath(slug, locale); // what the REAL builder emits
       if (!resolves(url)) {
+        const expected = expectedHubPath(slug, locale);
         hubOffenders.push({
           company: name,
           locale,
           builderUrl: url,
-          expectedUrl: correctHubUrl(slug, locale),
-          reason: correctHubUrl(slug, locale) !== url
-            ? `wrong locale prefix (uses 'azienda-', should be '${COMPANY_ROUTE_PREFIX[locale]}-')`
+          expectedUrl: expected,
+          reason: expected !== url
+            ? `builder emits wrong locale prefix → expected '${COMPANY_ROUTE_PREFIX[locale]}-'`
             : 'hub page not present in served set',
         });
       }

@@ -27,11 +27,11 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Run 404-risk audit (report all would-be-404s)
         id: audit
@@ -39,11 +39,17 @@ jobs:
           mkdir -p /tmp/r
           set +e
           node scripts/audit-404-risk.mjs --json=/tmp/r/report.json --limit=100 | tee /tmp/r/out.txt
-          echo "exit=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          rc=${PIPESTATUS[0]}
+          echo "exit=$rc" >> "$GITHUB_OUTPUT"
+          # exit 2 = the audit could not run reliably (e.g. a degenerate shard
+          # clone / network down) → FAIL the job so the daily monitor goes RED
+          # instead of silently green on a broken run. exit 1 = findings, handled
+          # by the issue step below; exit 0 = clean.
+          if [ "$rc" = "2" ]; then echo "::error::404-risk audit failed to run (exit 2) — not reporting on a poisoned/empty result"; exit 1; fi
 
       - name: Upload full 404-risk report (complete list)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: audit-404-risk-report
           path: /tmp/r/report.json
