@@ -17,6 +17,7 @@
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 
 const WINDOW_DAYS = Number(process.env.WINDOW_DAYS || 14);
 const THRESHOLD = Number(process.env.THRESHOLD || 3);
@@ -246,4 +247,57 @@ if (process.env.GITHUB_OUTPUT) {
   fs.appendFileSync(process.env.GITHUB_OUTPUT,
     `has_novel=${novel.length > 0}\nnovel_count=${novel.length}\n` +
     `has_escalation=${escalations.length > 0}\nescalation_count=${escalations.length}\n`);
+}
+
+// ---- Escalation issues: DETERMINISTIC + dedup-by-construction (zero Claude) ----
+// Previously the Claude step was told to open one escalation issue per
+// `recurringDespiteRule` cluster and dedup by re-searching the title. That
+// soft, LLM-driven dedup drifted (same bucket filed under `source/key` AND
+// `source:key`) and re-fired every run → duplicate escalations piled up
+// (i18n-naming ×4, blocked-workflows-scope ×5, …). Emit them from code with a
+// SINGLE canonical title + the hardened code-level dedup in
+// github-issue-creator.mjs (comments on the open canonical instead of
+// duplicating). The Claude step now handles ONLY novel doc-rule proposals.
+function escalationTitle(c) {
+  return `escalation(harvester): ${c.source}/${c.key} ricorre nonostante regola`;
+}
+function escalationBody(c) {
+  const examples = (c.examples || [])
+    .map((e) => '#' + (e.pr || e.issue))
+    .filter((s) => s !== '#undefined')
+    .join(', ') || '—';
+  return [
+    '## Bucket',
+    `\`${c.source}/${c.key}\` — count **${c.count}** su finestra ${WINDOW_DAYS}gg (dal ${sinceDay})`,
+    '',
+    '## Esempi PR/issue',
+    examples,
+    '',
+    '## Perché escalare',
+    `Pattern GIÀ documentato ma che ricorre ≥ soglia×fattore-efficacia ` +
+      `(${THRESHOLD}×${EFFICACY_FACTOR}). La regola prosa NON previene l'errore ` +
+      `→ serve un fix **STRUTTURALE** (gate CI deterministico, template, lint, ` +
+      `modulo condiviso, refactor che lo renda impossibile by-construction), ` +
+      `non un'altra riga di doc.`,
+    '',
+    '_Auto-filed dal lessons-harvester (dedup deterministico per bucket)._',
+  ].join('\n');
+}
+
+// Gate: emit only when explicitly enabled (the workflow sets this). Keeps local
+// dry-runs and tests from minting real GitHub issues.
+if (process.env.HARVEST_EMIT_ESCALATIONS === 'true' && escalations.length > 0) {
+  for (const c of escalations) {
+    try {
+      await createGithubIssue({
+        title: escalationTitle(c),
+        description: escalationBody(c),
+        priority: 2,
+        labels: ['follow-up'],
+        workflow: 'Lessons harvester',
+      });
+    } catch (err) {
+      process.stderr.write(`escalation emit failed for ${c.source}/${c.key}: ${err.message}\n`);
+    }
+  }
 }
