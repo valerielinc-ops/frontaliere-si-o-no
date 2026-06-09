@@ -5,7 +5,6 @@
 
 import { Fragment, useState, useEffect, useRef, useMemo } from 'react';
 import { getSerpExperimentDiagnostics } from '@/services/seoService';
-import { getConfigValue } from '@/services/firebase';
 import { useAuth } from '@/services/authService';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -2062,24 +2061,29 @@ export default function AdminPanel() {
  };
 
  const getGitHubConnection = async () => {
- const [token, ownerCfg, repoCfg] = await Promise.all([
- getConfigValue('GITHUB_PAT'),
- getConfigValue('GITHUB_REPO_OWNER'),
- getConfigValue('GITHUB_REPO_NAME'),
- ]);
- const ghToken = (token || '').trim();
- if (!ghToken) {
+ // The repo PAT is no longer in the public config. Retrieve it from an
+ // admin-only Cloud Function gated by this admin's Firebase ID token, so the
+ // token reaches only this trusted account — not every visitor's browser.
+ if (!user) {
+ throw new Error('Devi essere autenticato come admin per usare le funzioni GitHub.');
+ }
+ const idToken = await user.getIdToken();
+ const res = await fetch(
+ 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getAdminGithubToken',
+ {
+ method: 'POST',
+ headers: { Authorization: `Bearer ${idToken}`, 'Content-Type': 'application/json' },
+ },
+ );
+ const data = await res.json().catch(() => ({}));
+ if (!res.ok || !data.ok || !data.token) {
  throw new Error(
- 'GITHUB_PAT mancante in Remote Config. ' +
- 'Verifica che il parametro esista nella console Firebase Remote Config e che App Check sia attivo.'
+ data.error === 'not_admin'
+ ? 'Accesso negato: questo account non è autorizzato alle funzioni GitHub admin.'
+ : `Impossibile ottenere la connessione GitHub (${data.error || res.status}).`,
  );
  }
- if (!ghToken.startsWith('github_pat_') && !ghToken.startsWith('ghp_') && !ghToken.startsWith('gho_')) {
- console.warn('⚠️ GITHUB_PAT non sembra un token GitHub valido (non inizia con github_pat_, ghp_, gho_)');
- }
- const owner = (ownerCfg || 'valerielinc-ops').trim();
- const repo = (repoCfg || 'frontaliere-si-o-no').trim();
- return { token: ghToken, owner, repo };
+ return { token: String(data.token).trim(), owner: data.owner, repo: data.repo };
  };
 
  const githubRequest = async (
