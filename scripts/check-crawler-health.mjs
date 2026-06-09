@@ -127,6 +127,26 @@ const EMPTY_OK_CRAWLERS = new Set([
   // correctly filters them as non-Swiss; same legitimately-empty regional-filter
   // case as manor and alten-switzerland. Re-arms when a CH listing appears.
   'fusalp',
+  // Bracco Suisse S.A.: the Workday API (bracco.wd103.myworkdayjobs.com) returns
+  // 100+ jobs globally but currently 0 at the two Swiss sites the crawler is
+  // scoped to (Cadempino TI + Plan-les-Ouates GE — location facets verified
+  // returning total:0). A small medical-imaging subsidiary legitimately has no
+  // Swiss openings for weeks; parser is healthy and re-arms when a CH role
+  // appears. Same regional-filter case as manor/alten-switzerland.
+  'bracco',
+  // Schweizer Paraplegiker-Gruppe (Umantis tenant 2782) and Universitäre
+  // Psychiatrische Dienste Bern / UPD (Umantis tenant 2908): both listing
+  // endpoints (/Jobs/All) still return ~10 jobs, but the per-job detail URLs
+  // (/Vacancies/{id}/Description/*) now 3xx-redirect cross-host — the tenants
+  // migrated their job descriptions off Umantis (issue #1245). The shared
+  // umantis parser correctly QUARANTINES every dead-detail job (it refuses to
+  // synthesise boilerplate that would trip the dataset boilerplate-guard) and
+  // emits 0 — the accepted degraded state for a migrated source, NOT a parser
+  // break. Re-arms automatically if the tenant restores Umantis detail pages.
+  // Real fix (per-tenant public-site description extraction) is deferred in
+  // #1245 as fragile/per-tenant.
+  'paraplegie',
+  'upd',
 ]);
 
 /** Read JSON file, return null on any error. */

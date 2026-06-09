@@ -117,12 +117,30 @@ export function parseLocation(raw = '') {
 /* ── Listing page parser ──────────────────────────────────── */
 
 /**
- * Parse the SuccessFactors / j2w search-results HTML table.
- * Each row links to a detail page at /Hirslanden/job/.../{jobId}/.
+ * Parse the SuccessFactors / j2w search-results page.
+ *
+ * Hirslanden's careers.mediclinic.com instance has migrated from the legacy
+ * `<tr>/<td>` table layout to the newer div-based "tile" layout where each
+ * listing is an `<a class="jobTitle-link" href="/Hirslanden/job/.../{jobId}/">`
+ * with the location in a sibling `section-customfield5-value` block. We parse
+ * the table layout first (older j2w skins still emit it) and, when no table
+ * rows yield a job, fall back to the tile layout so a SF skin swap does not
+ * silently zero the crawler.
+ *
  * Returns array of { title, url, location, postedDate, jobId }.
  */
 export function parseSearchResults(html) {
   if (!html || typeof html !== 'string') return [];
+  const fromTable = parseSearchResultsTable(html);
+  if (fromTable.length > 0) return fromTable;
+  return parseSearchResultsTiles(html);
+}
+
+/**
+ * Legacy table-row layout: each job is a `<tr>` with a `/Hirslanden/job/...`
+ * link plus Title | Location | Date cells.
+ */
+function parseSearchResultsTable(html) {
   const jobs = [];
   const seen = new Set();
 
@@ -166,6 +184,52 @@ export function parseSearchResults(html) {
       url: fullUrl,
       location,
       postedDate,
+      jobId,
+    });
+  }
+  return jobs;
+}
+
+/**
+ * Newer div-based "tile" layout (current careers.mediclinic.com skin):
+ *   <a class="jobTitle-link" ... href="/Hirslanden/job/{slug}/{jobId}/"> Title </a>
+ *   ... <div id="job-{jobId}-...-customfield5-value"> Ort </div>
+ * Each job repeats across desktop/tablet/mobile tile variants, so dedup by
+ * jobId. The location lives in a `customfield5-value` div keyed by the jobId.
+ */
+function parseSearchResultsTiles(html) {
+  const jobs = [];
+  const seen = new Set();
+
+  const linkRe =
+    /<a[^>]+class="[^"]*jobTitle-link[^"]*"[^>]*href="(\/Hirslanden\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = linkRe.exec(html)) !== null) {
+    const relUrl = m[1].replace(/&amp;/g, '&');
+    const jobId = m[2];
+    if (seen.has(jobId)) continue;
+    seen.add(jobId);
+
+    const rawTitle = normalizeSpace(stripHtml(m[3]));
+    const title = rawTitle
+      .replace(/^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i, '')
+      .trim();
+    if (!title || title.length < 3) continue;
+
+    // Location: `customfield5-value` div keyed by this jobId ("Ort" field).
+    let location = '';
+    const locRe = new RegExp(
+      `<div[^>]+id="job-${jobId}-[^"]*customfield5-value"[^>]*>([\\s\\S]*?)<\\/div>`,
+      'i',
+    );
+    const locMatch = html.match(locRe);
+    if (locMatch) location = normalizeSpace(stripHtml(locMatch[1]));
+
+    jobs.push({
+      title,
+      url: `${BASE_URL}${relUrl}`,
+      location,
+      postedDate: '',
       jobId,
     });
   }

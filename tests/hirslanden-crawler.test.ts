@@ -4,6 +4,7 @@ import {
   HIRSLANDEN_COMPANY_NAME,
   isHirslandenJob,
   isTrustedDomain,
+  parseSearchResults,
 } from '../scripts/lib/hirslanden-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +125,55 @@ describe('Hirslanden Klinik crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── parseSearchResults: layout handling ──
+  describe('parseSearchResults', () => {
+    it('parses the legacy <tr>/<td> table layout', () => {
+      const html = `
+        <table>
+          <tr>
+            <td><a href="/Hirslanden/job/Some-Role-Zurich-8008/111/">Dipl. Pflegefachfrau</a></td>
+            <td>Zürich</td>
+            <td>2026-06-01</td>
+          </tr>
+        </table>`;
+      const jobs = parseSearchResults(html);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].jobId).toBe('111');
+      expect(jobs[0].title).toBe('Dipl. Pflegefachfrau');
+      expect(jobs[0].location).toBe('Zürich');
+      expect(jobs[0].url).toContain('/Hirslanden/job/Some-Role-Zurich-8008/111/');
+    });
+
+    it('falls back to the div-based tile layout (current SF skin)', () => {
+      // careers.mediclinic.com migrated away from <tr> rows to job tiles.
+      const html = `
+        <div class="job-row">
+          <span class="section-title title" role="heading">
+            <a class="jobTitle-link fontcolorc63bfd23" data-focus-tile=".job-id-1293595201"
+               href="/Hirslanden/job/Hirslanden-Klinik-St_-Anna-Luze-6003/1293595201/">
+               Dipl. Expertin / Experte Anästhesiepflege NDS (a) 80-100%
+            </a>
+          </span>
+          <div id="job-1293595201-desktop-section-customfield5-value">Luzern</div>
+          <!-- tablet variant repeats the same job -->
+          <a class="jobTitle-link" href="/Hirslanden/job/Hirslanden-Klinik-St_-Anna-Luze-6003/1293595201/">
+            Dipl. Expertin / Experte Anästhesiepflege NDS (a) 80-100%
+          </a>
+        </div>`;
+      const jobs = parseSearchResults(html);
+      expect(jobs).toHaveLength(1); // deduped across tile variants
+      expect(jobs[0].jobId).toBe('1293595201');
+      expect(jobs[0].title).toContain('Anästhesiepflege');
+      expect(jobs[0].location).toBe('Luzern');
+      expect(jobs[0].url).toContain('/Hirslanden/job/');
+    });
+
+    it('returns empty array for HTML with no job links', () => {
+      expect(parseSearchResults('<div>Keine Ergebnisse</div>')).toEqual([]);
+      expect(parseSearchResults('')).toEqual([]);
     });
   });
 });
