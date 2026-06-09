@@ -796,6 +796,106 @@ jobs:
           fi
           rm -f "$keyfile"
 
+      # ── Locale shard offload (en/de/fr → frontaliere-{loc} / Pages) ───────
+      # Each non-primary locale subtree (dist/en, dist/de, dist/fr) is a
+      # self-contained top-level dir. Push each to its OWN GitHub Pages repo
+      # (frontaliere-{loc}), served behind a Cloudflare Worker at
+      # frontaliereticino.ch/{loc}/ — same URL, different origin. This keeps
+      # every repo well under the 10 GB Pages cap: the main artifact trips it
+      # not on bytes (~9 GB logical) but on the ~1.04M-dir / ~11 GB DISK
+      # footprint (dir-per-page block padding). Splitting by locale removes
+      # ~700k of those dirs from the main artifact.
+      #
+      # ADDITIVE + REVERSIBLE: the locale dirs stay in dist/ here; the strip
+      # step (gated on vars.LOCALE_SHARDS_LIVE, just before the tar pack)
+      # removes them from the MAIN artifact ONLY once the proxy is verified
+      # live. Until that variable is set, this push changes nothing about the
+      # served site — the locales still ship in the main artifact as before.
+      # Mirrors the frontaliere-cdn push pattern (per-repo write-only deploy
+      # key, single force-pushed commit so shard history never accumulates).
+      - name: Push locale shards (en/de/fr → frontaliere-{loc} / Pages)
+        if: github.event.inputs.profile_sequential != 'true'
+        continue-on-error: true
+        env:
+          SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
+          SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
+          SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
+        run: |
+          set -uo pipefail
+          for loc in en de fr; do
+            key_var="SHARD_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
+            key_val="${!key_var:-}"
+            if [ -z "$key_val" ]; then
+              echo "no $key_var secret — skipping $loc shard push"; continue
+            fi
+            if [ ! -d "dist/$loc" ]; then
+              echo "dist/$loc absent — skipping $loc shard push"; continue
+            fi
+            stage="$RUNNER_TEMP/shard-$loc"
+            keyfile="$RUNNER_TEMP/shard_${loc}_key"
+            printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+            export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+            # Source-of-truth file count + the shard's last-published count, read
+            # cheaply (no 2.5 GB clone) — a tiny .shard-filecount marker fetched
+            # from raw.githubusercontent. Drive the gate off these so a PARTIAL
+            # copy (n < source) or an upstream build regression that emits a much
+            # smaller locale (n << last-good) is caught EXACTLY, not just the
+            # near-empty case.
+            src_n="$(find "dist/$loc" -type f | wc -l)"
+            prev_n="$(curl -fsS "https://raw.githubusercontent.com/valerielinc-ops/frontaliere-$loc/main/.shard-filecount" 2>/dev/null || echo 0)"
+            [[ "$prev_n" =~ ^[0-9]+$ ]] || prev_n=0
+            # EVERYTHING that builds the shard tree AND pushes runs inside one
+            # `set -e` subshell with the integrity gates before the push. A failed
+            # copy / truncated tree ABORTS before push: a monco tree is never
+            # force-pushed over a good shard, the ok-marker is never written → the
+            # strip step skips this locale (stays in main, no 404). The copy is
+            # hardlinked when same-filesystem (cp -al) to avoid duplicating
+            # ~2.5 GB per locale on a tight runner disk, falling back to cp -r.
+            # NB: run the guarded build+push as a STANDALONE subshell and capture
+            # its exit ($?), NOT as an `if (...)` condition — bash neuters an
+            # inner `set -e` when the subshell runs in a condition/&&/|| context,
+            # which would let a failed gate fall through to the push.
+            (
+              set -e
+              rm -rf "$stage"; mkdir -p "$stage"
+              : > "$stage/.nojekyll"                                  # serve every path verbatim
+              printf 'origin-%s.frontaliereticino.ch' "$loc" > "$stage/CNAME"  # shard custom domain
+              cp -al "dist/$loc" "$stage/$loc" 2>/dev/null || cp -r "dist/$loc" "$stage/$loc"
+              if [ -f "dist/$loc.html" ]; then cp "dist/$loc.html" "$stage/$loc.html"; fi  # homepage at /{loc}
+              printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
+              n="$(find "$stage/$loc" -type f | wc -l)"
+              # (a) copy integrity: the staged subtree must have AT LEAST as many
+              #     files as the source — a partial cp (disk-full) lands fewer → abort.
+              test -s "$stage/$loc/index.html"
+              [ "$n" -ge "$src_n" ]
+              # (b) regression guard: refuse a force-push that would shrink the shard
+              #     >50% vs its last-published count (suspected upstream build
+              #     regression emitting a partial locale). First seed → prev_n 0 → skip.
+              if [ "$prev_n" -gt 0 ] && [ "$((n * 2))" -lt "$prev_n" ]; then
+                echo "::error::$loc shard would shrink $prev_n -> $n files (>50%) — refusing force-push (suspected build regression)"
+                exit 1
+              fi
+              printf '%s' "$n" > "$stage/.shard-filecount"   # high-water-mark for the next run's gate (b)
+              echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n)"
+              cd "$stage"
+              git init -q
+              git checkout -q -b main
+              git config user.email "deploy-bot@frontaliereticino.ch"
+              git config user.name "deploy-bot"
+              git add -A
+              git commit -qm "locale shard $loc ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+              git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main
+            )
+            rc=$?
+            if [ "$rc" -eq 0 ]; then
+              touch "$RUNNER_TEMP/shard-ok-$loc"   # consumed by the strip step
+              echo "✅ pushed $loc shard"
+            else
+              echo "::warning::$loc shard build/push failed (rc=$rc) — $loc will NOT be stripped from main this run"
+            fi
+            rm -f "$keyfile"
+          done
+
       # ── CDN assets/ GC janitor (anti-clobber by SEQUENCING) ───────────────
       # The additive assets/ merge above (cp -n) lets old + new content hashes
       # coexist so in-flight HTML keeps booting — but it grows the CDN repo
@@ -1014,6 +1114,44 @@ jobs:
       # │  the 4 heaviest dist/-walking audits and net post-build went   │
       # │  +98s.                                                         │
       # └────────────────────────────────────────────────────────────────┘
+      # Drop the locale subtrees from the MAIN artifact — but ONLY once the
+      # Cloudflare Worker proxy is verified live (repo variable
+      # LOCALE_SHARDS_LIVE=true; the shards were already populated by the push
+      # step above). This is the step that actually shrinks the main artifact
+      # back under the 10 GB Pages cap (removes ~700k dirs / the en+de+fr
+      # subtrees). Until the variable is set this is a no-op → locales ship in
+      # main exactly as before, so the whole change stays reversible.
+      # REVERT TRIGGER: if a deploy after flipping the variable 404s on
+      # /en /de /fr, run `gh variable set LOCALE_SHARDS_LIVE -b false` → the
+      # next deploy ships the locales in the main artifact again.
+      - name: Strip locale shards from main artifact (gated on LOCALE_SHARDS_LIVE)
+        if: ${{ github.event.inputs.profile_sequential != 'true' && vars.LOCALE_SHARDS_LIVE == 'true' }}
+        run: |
+          set -uo pipefail
+          before="$(du -sh dist | cut -f1)"
+          # Strip ONLY locales whose shard push succeeded THIS run (ok-marker from
+          # the push step). What actually prevents a 404 on /{loc} is twofold:
+          #   1. The shard always retains its last-good content — the push uses a
+          #      success-only force-push (set -e subshell), so a failed push never
+          #      empties the shard; the Worker keeps serving the previous build.
+          #   2. This per-locale strip is the safety net for the ONLY window where
+          #      the main copy is still reachable: a deploy where the gate var is
+          #      true but, for that locale, the push just failed AND the proxy
+          #      hasn't taken over yet. Keeping the failed locale in main avoids
+          #      shipping a dead /{loc}. (Once the proxy is live the Worker routes
+          #      /{loc} to the shard, so the main copy is a fallback, not the
+          #      served path — hence the runbook seeds + verifies the shards
+          #      BEFORE flipping LOCALE_SHARDS_LIVE: an empty shard with the gate
+          #      already on must not happen.)
+          for loc in en de fr; do
+            if [ -f "$RUNNER_TEMP/shard-ok-$loc" ]; then
+              rm -rf "dist/$loc" "dist/$loc.html"
+              echo "stripped $loc from main (shard push ok this run)"
+            else
+              echo "::warning::$loc shard push did NOT succeed this run — keeping $loc in main artifact (no strip)"
+            fi
+          done
+          echo "main artifact: ${before} -> $(du -sh dist | cut -f1)"
       - name: Pack dist/ into Pages tar archive
         if: github.event.inputs.profile_sequential != 'true'
         run: |
