@@ -340,19 +340,59 @@ function loadEnriched() {
   }
 }
 
+/**
+ * Evict enriched entries whose `${locale}::${slug}` is no longer eligible for
+ * enrichment (slug rotated out of candidates, or dropped below the jobCount>=5
+ * gate). Without this the file is an unbounded accumulator: entries persist
+ * forever via the incremental cache and the file grew past GitHub's 100 MB
+ * hard push limit (177 MB observed, run 27130780511 → issue #1576).
+ *
+ * Pruning an entry only removes its cached AI intro/FAQ — the cluster page
+ * still emits with its template prose fallback (relatedSearchClustersPlugin),
+ * so no indexed URL is orphaned. We only prune entries the script would not
+ * refresh anyway (they are not in the work pool).
+ *
+ * `eligibleKeys` is the authoritative live set. `prunableLocales` restricts
+ * eviction to the locales actually processed this run: a `--locale=it` run must
+ * not evict en/de/fr entries it never looked at.
+ */
+function pruneEnrichedEntries(state, eligibleKeys, prunableLocales) {
+  let evicted = 0;
+  for (const key of Object.keys(state.entries)) {
+    const entry = state.entries[key];
+    const locale = entry?.locale;
+    if (locale && !prunableLocales.has(locale)) continue;
+    if (!eligibleKeys.has(key)) {
+      delete state.entries[key];
+      evicted++;
+    }
+  }
+  return evicted;
+}
+
 function saveEnriched(state) {
   const byLocale = {};
   for (const e of Object.values(state.entries)) {
     byLocale[e.locale] = (byLocale[e.locale] || 0) + 1;
   }
-  const out = {
+  // Serialize compact-but-line-diffable: pretty-print the small head, emit the
+  // large `entries` map one key/value per line. Still valid JSON (consumers
+  // JSON.parse it unchanged) but without the full 2-space indentation overhead.
+  // Combined with stale-entry eviction (pruneEnrichedEntries) this keeps the
+  // file bounded well under GitHub's 100 MB hard push limit (#1576).
+  const head = {
     generatedAt: new Date().toISOString(),
     modelStats: getAiStats(),
     totalEnriched: Object.keys(state.entries).length,
     byLocale,
-    entries: state.entries,
   };
-  writeFileSync(OUTPUT_PATH, JSON.stringify(out, null, 2) + '\n', 'utf8');
+  const headJson = JSON.stringify(head, null, 2);
+  const body = headJson.slice(0, headJson.lastIndexOf('}')).replace(/\s*$/, '');
+  const entryKeys = Object.keys(state.entries);
+  const entriesBlock = entryKeys.length === 0
+    ? '{}'
+    : `{\n${entryKeys.map((k) => `    ${JSON.stringify(k)}: ${JSON.stringify(state.entries[k])}`).join(',\n')}\n  }`;
+  writeFileSync(OUTPUT_PATH, `${body},\n  "entries": ${entriesBlock}\n}\n`, 'utf8');
 }
 
 // ── Main ───────────────────────────────────────────────────────────────
@@ -364,8 +404,16 @@ async function main() {
   console.log(`📥 Loaded ${candidates.length} candidates from ${INPUT_PATH}`);
 
   // Filter: jobCount >= 5 && editorialCollision === null
-  let pool = candidates.filter((c) => c.jobCount >= 5 && c.editorialCollision === null);
+  const eligible = candidates.filter((c) => c.jobCount >= 5 && c.editorialCollision === null);
+  let pool = eligible;
   console.log(`✅ ${pool.length} pass inclusion gate (jobCount >= 5 AND no editorial collision)`);
+
+  // Authoritative live set of `${locale}::${slug}` keys that may keep an
+  // enriched entry. Computed from the FULL eligible set (independent of
+  // --limit / --locale) so eviction never drops a still-valid cluster.
+  const eligibleKeys = new Set(eligible.map((c) => `${c.locale}::${c.slug}`));
+  // Only evict within the locales this run actually covers.
+  const prunableLocales = new Set(args.locale ? [args.locale] : SUPPORTED_LOCALES);
 
   if (args.locale) {
     pool = pool.filter((c) => c.locale === args.locale);
@@ -401,6 +449,13 @@ async function main() {
   }
   console.log(`🗃️  Cache: ${cachedHits} hits, ${workList.length} to enrich`);
 
+  // Count entries that would be evicted (stale slugs / dropped below gate).
+  let wouldEvict = 0;
+  for (const [key, entry] of Object.entries(state.entries)) {
+    if (entry?.locale && !prunableLocales.has(entry.locale)) continue;
+    if (!eligibleKeys.has(key)) wouldEvict++;
+  }
+
   if (args.dryRun) {
     console.log('\n🧪 --dry-run: not calling AI. Sample of candidates that would be enriched:');
     for (const item of workList.slice(0, 10)) {
@@ -408,12 +463,20 @@ async function main() {
       console.log(`  - ${item.candidate.locale}::${item.candidate.slug} (jobs=${item.candidate.jobCount}, keyword="${keyword}"${city ? `, city=${city}` : ''})`);
     }
     if (workList.length > 10) console.log(`  ... and ${workList.length - 10} more`);
-    console.log(`\n📊 Would enrich: ${workList.length}`);
+    console.log(`\n📊 Would enrich: ${workList.length}; would evict ${wouldEvict} stale entries`);
     return;
   }
 
   if (workList.length === 0) {
-    console.log('✨ Nothing to do — everything is cached.');
+    console.log('✨ Nothing new to enrich — everything is cached.');
+    // Still prune stale entries so the file shrinks back under the size limit.
+    if (!args.force) {
+      const evicted = pruneEnrichedEntries(state, eligibleKeys, prunableLocales);
+      if (evicted > 0) {
+        saveEnriched(state);
+        console.log(`🧹 Evicted ${evicted} stale enriched entries; rewrote ${OUTPUT_PATH}`);
+      }
+    }
     return;
   }
 
@@ -457,7 +520,13 @@ async function main() {
     }
   });
 
-  // Final save.
+  // Prune stale entries (slugs that rotated out of candidates or fell below
+  // the gate) so the file stays bounded, then final save. Skipped on --force
+  // since the cache was reset and only freshly-enriched eligible entries exist.
+  let evicted = 0;
+  if (!args.force) {
+    evicted = pruneEnrichedEntries(state, eligibleKeys, prunableLocales);
+  }
   saveEnriched(state);
 
   // ── Summary ──────────────────────────────────────────────────────────
@@ -467,6 +536,7 @@ async function main() {
   console.log(`   Total candidates considered: ${pool.length}`);
   console.log(`   Cache hits (skipped): ${cachedHits}`);
   console.log(`   Newly enriched: ${enrichedCount}`);
+  console.log(`   Stale entries evicted: ${evicted}`);
   console.log(`   Failures: ${failureCount}`);
   if (failures.length > 0 && args.verbose) {
     for (const f of failures.slice(0, 20)) console.log(`     - ${f.key}: ${f.reason}`);

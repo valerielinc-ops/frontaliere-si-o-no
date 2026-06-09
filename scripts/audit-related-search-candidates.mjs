@@ -40,6 +40,32 @@ const OUT_PATH = path.join(ROOT, 'data', 'related-search-candidates.json');
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
+/**
+ * Serialize the candidates file compact-but-line-diffable: top-level metadata
+ * is pretty-printed, the large `candidates` (and `topNonEditorialCandidates`)
+ * arrays are emitted one JSON object per line. Output is still valid JSON
+ * (consumers JSON.parse it unchanged) but drops the ~31% whitespace overhead
+ * of full 2-space indentation that was pushing the file toward the 100 MB
+ * push limit. Returns a trailing-newline-terminated string.
+ */
+function serializeCandidatesFile(output) {
+  const arrayLines = (arr) => {
+    const items = Array.isArray(arr) ? arr : [];
+    if (items.length === 0) return '[]';
+    return `[\n${items.map((item) => `    ${JSON.stringify(item)}`).join(',\n')}\n  ]`;
+  };
+  const head = {
+    generatedAt: output.generatedAt,
+    sources: output.sources,
+    inputs: output.inputs,
+    summary: output.summary,
+  };
+  // Pretty-print the small head, then splice the line-delimited big arrays in.
+  const headJson = JSON.stringify(head, null, 2);
+  const body = headJson.slice(0, headJson.lastIndexOf('}')).replace(/\s*$/, '');
+  return `${body},\n  "topNonEditorialCandidates": ${arrayLines(output.topNonEditorialCandidates)},\n  "candidates": ${arrayLines(output.candidates)}\n}\n`;
+}
+
 // ── Editorial-landing constants (mirror build-plugins/jobEditorialLanding.ts) ──
 
 const SEARCH_PREFIX = { it: 'ricerca', en: 'search', de: 'suche', fr: 'recherche' };
@@ -538,7 +564,15 @@ function main() {
     topNonEditorialCandidates: ranked.slice(0, 50),
     candidates: ranked,
   };
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
+  // Serialize compact, one candidate per line. This is an append-only coverage
+  // accumulator: every (locale, slug) maps to a live emitted cluster page
+  // (MIN_JOB_COUNT=1 in relatedSearchClustersPlugin), so entries CANNOT be
+  // pruned by frequency without orphaning indexed URLs. The 2-space pretty
+  // print added ~31% pure whitespace overhead (66 MB → 46 MB) and was pushing
+  // the file toward GitHub's 100 MB hard push limit (#1576). Writing the bulk
+  // `candidates` array one-object-per-line keeps git diffs line-granular while
+  // dropping the indentation overhead by construction.
+  fs.writeFileSync(OUT_PATH, serializeCandidatesFile(output));
 
   // Stdout summary
   console.log('');
