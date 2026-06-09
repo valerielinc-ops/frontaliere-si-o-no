@@ -75,9 +75,31 @@ function prContributionFingerprint(sha) {
   // compare API tronca a 300 file e omette `.patch` su file molto grandi: in
   // entrambi i casi non posso garantire l'identita' -> bail conservativo.
   if (cmp.files.length >= 300) return null;
+  return codeContributionFingerprint(cmp.files);
+}
+
+// File NON reviewabili come code (dati/static rigenerati): esclusi dal
+// fingerprint del contributo. Stessa lista del tier-gate di pr-review-loop.yml
+// e degli exclude del diff reviewer. Così un push che tocca SOLO questi (es. un
+// crawler che rigenera `data/jobs/*.json`) NON cambia il fingerprint CODE → il
+// carry-forward dell'LGTM regge senza ri-eseguire la review (zero Claude),
+// mentre il gate vitest resta sull'head fresco. Prima il carry-forward valeva
+// SOLO per i rebase di puro main-merge; ora anche per i push data/docs-only.
+export const NON_REVIEWABLE_FINGERPRINT_RE = /^(data|public|reports|_newsletter_variants|docs)\//;
+
+/**
+ * Costruisce il fingerprint del contributo CODE da `files` (l'array `.files`
+ * della compare API). Puro (niente gh) → testabile. Esclude i file non-code; un
+ * file dati con `.patch` omesso (troppo grande) viene scartato PRIMA del bail,
+ * così la churn dati non forza un bail conservativo. Bail (null) solo se un file
+ * CODE modificato non ha patch (binario/troppo grande → identità non garantita).
+ */
+export function codeContributionFingerprint(files) {
+  if (!Array.isArray(files)) return null;
   const parts = [];
-  for (const f of cmp.files) {
-    // `patch` assente (binario/troppo grande) su un file modificato -> bail.
+  for (const f of files) {
+    if (NON_REVIEWABLE_FINGERPRINT_RE.test(f.filename || '')) continue; // dati/static: non è contributo CODE
+    // `patch` assente (binario/troppo grande) su un file CODE modificato -> bail.
     if (f.patch === undefined && f.status !== 'removed' && f.status !== 'added') return null;
     // Tieni SOLO le righe di contenuto +/- (escludi header +++/--- e hunk @@):
     // il fingerprint resta invariante allo shift di contesto/numero-riga indotto
@@ -211,4 +233,7 @@ function main() {
   }
 }
 
-main();
+// Esegui solo come CLI (non quando importato dai test → evita gh/process.exit).
+if (process.argv[1]?.endsWith('auto-merge-eval.mjs')) {
+  main();
+}
