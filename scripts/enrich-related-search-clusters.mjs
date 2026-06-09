@@ -21,7 +21,7 @@
  *   node scripts/enrich-related-search-clusters.mjs --verbose    # log each call
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,6 +44,11 @@ const OUTPUT_PATH = resolve(ROOT, 'data', 'related-search-enriched.json');
 
 // ── Constants ──────────────────────────────────────────────────────────
 const SUPPORTED_LOCALES = ['it', 'en', 'de', 'fr'];
+// Push-safety ceiling for data/related-search-enriched.json.
+// GitHub's hard push limit is 100 MB; we abort at 50 MB to leave headroom and
+// catch runaway growth (e.g. a full --force re-enrich on a bloated candidates
+// set) before it reaches the hard limit (#1576, #1651).
+const OUTPUT_SIZE_LIMIT_BYTES = 50 * 1024 * 1024; // 50 MB
 const CONCURRENCY = 5;
 const MIN_WORDS = 80;
 const MAX_WORDS = 130; // 120 target + small tolerance
@@ -394,6 +399,20 @@ function saveEnriched(state) {
   );
 }
 
+function assertOutputSize(path) {
+  const { size } = statSync(path);
+  if (size > OUTPUT_SIZE_LIMIT_BYTES) {
+    console.error(
+      `❌ ${path} is ${(size / 1024 / 1024).toFixed(1)} MB, ` +
+      `exceeding the ${OUTPUT_SIZE_LIMIT_BYTES / 1024 / 1024} MB push-safety ceiling ` +
+      `(GitHub hard limit: 100 MB — issue #1576). ` +
+      `Run with --locale=<locale> or --limit=N to reduce scope, ` +
+      `or prune stale entries first.`,
+    );
+    process.exit(1);
+  }
+}
+
 // ── Main ───────────────────────────────────────────────────────────────
 async function main() {
   const args = parseArgs(process.argv);
@@ -473,6 +492,7 @@ async function main() {
       const evicted = pruneEnrichedEntries(state, eligibleKeys, prunableLocales);
       if (evicted > 0) {
         saveEnriched(state);
+        assertOutputSize(OUTPUT_PATH);
         console.log(`🧹 Evicted ${evicted} stale enriched entries; rewrote ${OUTPUT_PATH}`);
       }
     }
@@ -516,6 +536,7 @@ async function main() {
     // Periodic flush so a crash doesn't lose all progress.
     if (enrichedCount % 50 === 0) {
       try { saveEnriched(state); } catch (err) { console.warn(`  ⚠️  partial save failed: ${err.message}`); }
+      assertOutputSize(OUTPUT_PATH); // process.exit bypasses the catch above
     }
   });
 
@@ -527,6 +548,7 @@ async function main() {
     evicted = pruneEnrichedEntries(state, eligibleKeys, prunableLocales);
   }
   saveEnriched(state);
+  assertOutputSize(OUTPUT_PATH);
 
   // ── Summary ──────────────────────────────────────────────────────────
   const elapsedSec = ((Date.now() - startedAt) / 1000).toFixed(1);
