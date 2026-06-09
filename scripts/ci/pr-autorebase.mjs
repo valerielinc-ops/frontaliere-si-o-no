@@ -45,6 +45,13 @@ const REPO = process.env.GITHUB_REPOSITORY || '';
 const TOKEN = process.env.GH_TOKEN || '';
 const MAX_PER_RUN = 10;
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
+// Activity-guard: don't rebase-push a branch whose head was pushed in the last
+// N minutes — a contributor/agent is likely mid-flight (still pushing fixes on
+// top of an LGTM'd PR). Rebasing then races their push: ours lands first, their
+// non-fast-forward push is rejected, and they must fetch+reset+cherry-pick to
+// recover (observed on #1616 this session). The rebase isn't urgent — main is
+// always seconds-fresh — so deferring one tick (~30m) is free. 0 disables.
+const ACTIVITY_GUARD_MIN = Number(process.env.AUTOREBASE_ACTIVITY_GUARD_MIN || 6);
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
@@ -87,6 +94,16 @@ function behindMain(head) {
   const out = gh(['api', `repos/${REPO}/compare/main...${head}`, '--jq', '.behind_by // 0'],
     { json: false, allowFail: true });
   return parseInt((out || '0').trim(), 10) || 0;
+}
+
+/** Minuti dall'ultimo push sull'head = committer date del commit head. Serve
+ * all'activity-guard: un head appena pushato = contributor/agent mid-flight. */
+function headPushedMinutesAgo(head) {
+  const iso = gh(['api', `repos/${REPO}/commits/${head}`, '--jq', '.commit.committer.date'],
+    { json: false, allowFail: true });
+  const t = Date.parse((iso || '').trim());
+  if (Number.isNaN(t)) return Infinity; // sconosciuto → non bloccare il rebase
+  return (Date.now() - t) / 60000;
 }
 
 /** Esiste già un check-run `vitest (unit + integration)` sull'head (qualunque
@@ -183,6 +200,19 @@ async function processPR(pr) {
     return;
   }
   console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
+
+  // Activity-guard: se l'head è stato pushato pochi minuti fa, un contributor/
+  // agent è probabilmente mid-flight (sta ancora pushando fix su una PR LGTM'd).
+  // Rebasare ora racerebbe il suo push → skip, riprova al prossimo tick (il
+  // rebase non è urgente: main è sempre fresco). Non tocca l'orphan-heal sopra
+  // (quello dispatcha solo tests, nessuna race di push).
+  if (ACTIVITY_GUARD_MIN > 0) {
+    const mins = headPushedMinutesAgo(head);
+    if (mins < ACTIVITY_GUARD_MIN) {
+      console.log(`PR #${num}: head pushato ${mins.toFixed(1)}min fa (< ${ACTIVITY_GUARD_MIN}min) — contributor mid-flight, skip rebase questo tick.`);
+      return;
+    }
+  }
 
   const m = await mergeableState(num);
   if (m === 'UNKNOWN' || m === '') {
