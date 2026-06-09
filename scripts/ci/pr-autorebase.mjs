@@ -19,7 +19,11 @@
  *     - ha una review claude-bot con `## LGTM` su un qualche commit, OPPURE
  *     - porta label `collision-risk` o `stale-review`.
  *     Altrimenti skip.
- *   - behind = commit di origin/main non nella head; behind==0 → skip.
+ *   - behind = commit di origin/main non nella head. behind==0 (già allineata):
+ *     di norma skip, MA se l'head è "orfano" (0 check-run `vitest`, lasciato da
+ *     un push PAT che non ri-triggera `pull_request` o da un rebase pre-#1597
+ *     che non dispatchava) → dispatch tests.yml (HEAL) così auto-merge-eval può
+ *     gattare+mergiare. Senza, la PR near-merge resta stuck per sempre (#1595/#1526).
  *   - mergeable (gh pr view --json mergeable; UNKNOWN → poll una volta dopo una
  *     breve attesa; se ancora UNKNOWN → skip questo run).
  *   - MERGEABLE → fetch + checkout branch + `git merge origin/main` (identity
@@ -85,6 +89,32 @@ function behindMain(head) {
   return parseInt((out || '0').trim(), 10) || 0;
 }
 
+/** Esiste già un check-run `vitest (unit + integration)` sull'head (qualunque
+ * stato: queued/in_progress/completed)? Serve a (a) non ri-dispatchare se vitest
+ * sta già girando o è concluso, e (b) rilevare gli head "orfani" a 0 check-run
+ * lasciati da un push PAT che non ha ri-triggerato `pull_request` o da un
+ * autorebase pre-#1597 che pushava senza dispatchare. */
+function headHasVitestCheck(head) {
+  const out = gh(
+    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
+      '--jq', '[.check_runs[] | select(.name == "vitest (unit + integration)")] | length'],
+    { json: false, allowFail: true });
+  return (parseInt((out || '0').trim(), 10) || 0) > 0;
+}
+
+/** Dispatcha tests.yml sul branch → il check-run vitest atterra sull'head e il
+ * suo `workflow_run: completed` ri-valuta auto-merge-on-lgtm (LGTM portato avanti
+ * da auto-merge-eval). Best-effort: serve PAT con scope actions:write. */
+function dispatchTests(num, branch) {
+  if (DRY) { console.log(`[dry] dispatch tests.yml --ref ${branch} (#${num})`); return true; }
+  const d = gh(['workflow', 'run', 'tests.yml', '--ref', branch], { json: false, allowFail: true });
+  if (d === null) {
+    console.log(`::warning::PR #${num}: 'gh workflow run tests.yml --ref ${branch}' fallito — vitest potrebbe non ripartire sull'head; verifica scope actions:write del PAT.`);
+    return false;
+  }
+  return true;
+}
+
 /** mergeable con un poll su UNKNOWN. */
 async function mergeableState(num) {
   let m = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'mergeable',
@@ -135,7 +165,23 @@ async function processPR(pr) {
   }
 
   const behind = behindMain(head);
-  if (behind === 0) { console.log(`PR #${num} 0 dietro main — skip (già up-to-date).`); return; }
+  if (behind === 0) {
+    // Già allineata a main, ma l'head può essere "orfano" (0 check-run vitest):
+    // rebasato da un push PAT che non ha ri-triggerato `pull_request`, o da un
+    // autorebase pre-#1597 che pushava senza dispatchare. In quel caso
+    // auto-merge-eval resta in attesa per sempre (gate vitest==success mai
+    // soddisfatto) → PR near-merge bloccata (osservato #1595/#1526). HEAL: se
+    // manca del tutto il check vitest, dispatchiamo tests.yml. Idempotente:
+    // appena un run è queued, headHasVitestCheck torna true → niente
+    // ri-dispatch. Nessun rebase, nessuna review Claude.
+    if (!headHasVitestCheck(head)) {
+      console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests.yml (heal, no rebase).`);
+      dispatchTests(num, branch);
+    } else {
+      console.log(`PR #${num} 0 dietro main, vitest già presente sull'head — skip.`);
+    }
+    return;
+  }
   console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
 
   const m = await mergeableState(num);
@@ -195,11 +241,7 @@ async function processPR(pr) {
   // auto-merge-eval (contributo PR invariato su un rebase di solo main-merge),
   // quindi NESSUNA review Opus/Sonnet gira di nuovo. Best-effort: se il
   // dispatch fallisce (PAT senza scope actions:write) lo logghiamo soltanto.
-  const dispatched = gh(['workflow', 'run', 'tests.yml', '--ref', branch],
-    { json: false, allowFail: true });
-  if (dispatched === null) {
-    console.log(`::warning::PR #${num}: rebasata+pushata ma 'gh workflow run tests.yml --ref ${branch}' fallito — vitest potrebbe non ripartire sull'head; verifica scope actions:write del PAT.`);
-  } else {
+  if (dispatchTests(num, branch)) {
     console.log(`✅ PR #${num}: rebasata su origin/main, pushata (${branch}) e dispatchato tests.yml → vitest sull'head; LGTM carry-forward, zero Claude.`);
   }
 }
