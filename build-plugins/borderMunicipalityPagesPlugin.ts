@@ -19,6 +19,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type WaitSnapshot = {
@@ -902,7 +903,7 @@ function renderPage(params: {
     <script src="/assets/comuni-frontiera-hydrate.js" defer></script>
   </div>`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -912,7 +913,7 @@ function renderPage(params: {
     ],
   });
 
-  const placeLd = JSON.stringify({
+  const placeLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'City',
     name: municipality.name,
@@ -933,7 +934,7 @@ function renderPage(params: {
     },
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [

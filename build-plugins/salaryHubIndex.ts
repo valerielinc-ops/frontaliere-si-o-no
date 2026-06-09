@@ -48,6 +48,7 @@ import {
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
@@ -533,7 +534,7 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
   // Breadcrumb + ItemList JSON-LD. ItemList is intentionally summarised at
   // tier-level (18 entries) so the JSON-LD payload stays small while still
   // surfacing the structure to crawlers.
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -543,7 +544,7 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
     ],
   });
 
-  const itemListLd = JSON.stringify({
+  const itemListLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: l.h1,
@@ -556,7 +557,7 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
     })),
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: l.faqs.map((f) => ({

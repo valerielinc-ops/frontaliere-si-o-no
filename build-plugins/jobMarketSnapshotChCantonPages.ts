@@ -49,6 +49,7 @@ import {
 } from './jobMarketSnapshotPlugin';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { buildSnapshotProseBlock } from './shared/cantonSnapshotProse';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Local types — kept loose; the TI-side JobRecord is already compatible. ──
 interface JobLike {
@@ -516,7 +517,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     <p class="s-Zti1kS"><a href="${esc(inp.hiringHubHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
   </main>`;
 
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
