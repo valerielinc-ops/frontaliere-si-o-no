@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-06-08T23:01:52.126Z",
+  "generatedAt": "2026-06-09T12:02:43.974Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13086,
-  "avgDurationMs": 13086,
+  "unchangedCount": 3,
+  "durationMs": 13622,
+  "avgDurationMs": 13622,
   "durationHistory": [
-    13086
+    13622
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -23,7 +23,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
+      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-finanziari",
@@ -48,90 +48,7 @@
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "addressRegion": "BE",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
-      "title": "Kundenbetreuer:in Customer Center",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zofingen",
-      "canton": "AG",
-      "country": "CH",
-      "slug": "responsabile-dell-assistenza-clienti-in-customer-center-postfinance-zofingen",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-29",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Zofingen"
-      },
-      "crawledAt": "",
-      "id": "postfinance-ab7984c0d7f2",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "5000",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "addressRegion": "AG",
-      "firstSeenAt": "2026-05-29T13:34:15.377Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "title": "Lead Developer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-21",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-7b604c82531b",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T12:58:33.524Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "addressRegion": "BE",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -174,10 +91,100 @@
       "addressCountry": "CH",
       "addressRegion": "BE",
       "firstSeenAt": "2026-06-03T00:39:50.515Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "title": "Lead Developer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-21",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-7b604c82531b",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-21T12:58:33.524Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "addressRegion": "BE",
+      "needsRetranslation": true,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
+      "title": "Kundenbetreuer:in Customer Center",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zofingen",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "responsabile-dell-assistenza-clienti-in-customer-center-postfinance-zofingen",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-29",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Zofingen"
+      },
+      "crawledAt": "",
+      "id": "postfinance-ab7984c0d7f2",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "5000",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "addressRegion": "AG",
+      "firstSeenAt": "2026-05-29T13:34:15.377Z",
+      "needsRetranslation": true,
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
@@ -216,6 +223,7 @@
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "addressRegion": "VD",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -258,6 +266,7 @@
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "addressRegion": "VD",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -266,7 +275,5 @@
         "completeness": 17
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
