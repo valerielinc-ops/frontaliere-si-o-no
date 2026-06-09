@@ -267,6 +267,44 @@ describe('audit-orphan-pages: --gate=baseline (rate ratchet)', () => {
     expect(cmp.regressed).toBe(false);
   });
 
+  it('does NOT regress on pure corpus contraction — total shrinks, orphan count flat (#1605 item 3)', async () => {
+    // Denominator-shrink is intentionally not a regression: linked pages leave
+    // the sitemap (de-indexed/removed) so `total` halves while `orphans` stays
+    // flat → the orphan RATE doubles (10% → 20%, > cap) purely from the smaller
+    // denominator. No NEW page is buried (the same orphan URLs exist before and
+    // after), so there is zero new crawl-budget waste; the count floor is
+    // denominator-independent and stays false (+0 < minAbsDelta). Gating this
+    // would deploy-block legitimate corpus shrink — a new organic false-fail,
+    // the class #1604 removed. A real burial under contraction still fires
+    // because the count floor catches it regardless of `total`.
+    const { compareAgainstBaseline } = await loadHelpers();
+    const baseline = {
+      perSitemap: { 'sitemap-jobs.xml': { total: 2000, orphans: 200, ratePct: 10, examples: [] } },
+    };
+    const cmp = compareAgainstBaseline(
+      { perSitemap: { 'sitemap-jobs.xml': { total: 1000, orphans: 200, examples: [] } } },
+      baseline,
+    );
+    expect(cmp.regressed).toBe(false);
+    expect(cmp.regressions).toHaveLength(0);
+  });
+
+  it('STILL regresses when real burial happens during contraction (count floor is denominator-independent)', async () => {
+    // Same shrink as above, but orphans also grow past the floor: rate worsens
+    // AND +220 > minAbsDelta(20) → caught. Contraction never hides a real
+    // internal-link regression above the noise floor.
+    const { compareAgainstBaseline } = await loadHelpers();
+    const baseline = {
+      perSitemap: { 'sitemap-jobs.xml': { total: 2000, orphans: 200, ratePct: 10, examples: [] } },
+    };
+    const cmp = compareAgainstBaseline(
+      { perSitemap: { 'sitemap-jobs.xml': { total: 1000, orphans: 420, examples: [] } } },
+      baseline,
+    );
+    expect(cmp.regressed).toBe(true);
+    expect(cmp.regressions).toHaveLength(1);
+  });
+
   it('returns no regression when counts are flat or lower', async () => {
     const { compareAgainstBaseline } = await loadHelpers();
     const baseline = {

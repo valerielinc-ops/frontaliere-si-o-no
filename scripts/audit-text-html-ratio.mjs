@@ -226,6 +226,16 @@ export function createAuditor(opts = {}) {
             const baseRate = base ? Number(base.ratePct ?? 0) : 0;
             const baseOff = base ? Number(base.offenders ?? 0) : 0;
             const rateCap = baseRate + Math.min(baseRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
+            // Denominator-shrink (fewer pages scanned) is INTENTIONALLY not gated,
+            // same as the orphan-pages / bfs-depth gates: if `scanned` drops while
+            // the offender count stays flat, curRate spikes from the smaller
+            // denominator, but the count floor (`curOff > baseOff + minAbsDelta`)
+            // stays false → pass. A pure shrink adds NO new low-text page; the harm
+            // metric is the absolute offender count, unchanged. The count floor is
+            // denominator-independent, so every real regression above the noise
+            // floor still fires regardless of how `scanned` moved. Gating a bare
+            // rate spike from contraction would deploy-block legitimate content
+            // pruning — a new organic false-fail (class #1604). (#1605 item #3.)
             if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
               regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
             }
