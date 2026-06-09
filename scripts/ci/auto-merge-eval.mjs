@@ -50,6 +50,28 @@ function fail(msg) {
   process.exit(0); // esito atteso, non errore di workflow
 }
 
+// Osservabilità (feedback backlog-agent): quando l'## LGTM è presente ma il
+// merge ATTENDE vitest, postiamo UN commento (deduped via marker) così il
+// comportamento "held for vitest" è visibile sulla PR senza dover pollare i
+// check. Best-effort: serve un token write (riusa MERGE_PRIMARY_TOKEN); se manca
+// o l'API fallisce, si logga e si prosegue — mai bloccare la valutazione.
+const AWAITING_VITEST_MARKER = '<!-- AWAITING_VITEST -->';
+function notifyAwaitingVitest(pr) {
+  const token = process.env.MERGE_PRIMARY_TOKEN || '';
+  if (!token) return;
+  try {
+    const existing = gh(['api', `repos/${REPO}/issues/${pr}/comments`, '--paginate',
+      '--jq', '[.[] | .body] | join("\\n")'], { json: false, token }) || '';
+    if (existing.includes(AWAITING_VITEST_MARKER)) return; // già notificato
+    gh(['issue', 'comment', String(pr), '--repo', REPO, '--body',
+      `${AWAITING_VITEST_MARKER}\n🟡 \`## LGTM\` ricevuto — l'auto-merge ATTENDE che il check \`${VITEST_CHECK_NAME}\` concluda con success prima di mergiare (nessun merge su pending). Mergia in automatico appena vitest è verde.`,
+    ], { json: false, token });
+    console.log(`Commento "attendo vitest" postato su #${pr}.`);
+  } catch (e) {
+    console.log(`notifyAwaitingVitest best-effort fallito: ${String(e).slice(0, 120)}`);
+  }
+}
+
 /**
  * Fingerprint del CONTRIBUTO PROPRIO della PR a un dato commit `sha` =
  * il diff vs il merge-base con main (3-dot), indipendente dalla churn di main.
@@ -179,6 +201,10 @@ function main() {
     return fail(`Impossibile leggere check-runs HEAD ${head}: ${String(e).slice(0, 160)} — skip.`);
   }
   if (conclusion !== 'success') {
+    // Pending/missing (NON failure): l'## LGTM è già passato, manca solo vitest →
+    // notifica osservabile (deduped). Su 'failure' non notifichiamo "attendo" (è
+    // rosso, non in attesa).
+    if (conclusion !== 'failure') notifyAwaitingVitest(PR);
     return fail(`vitest gate conclusion='${conclusion || '<none/pending>'}' ≠ success — skip; il completamento di 'tests' ri-valuterà (no merge su pending/missing).`);
   }
   console.log('Gate vitest: success ✔');
