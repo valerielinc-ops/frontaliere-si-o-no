@@ -95,11 +95,34 @@ function ensureLabelsExist(labels) {
   }
 }
 
+// Make a title prefix SAFE for `gh issue list --search 'in:title "<phrase>"'`.
+// The naive `title.slice(0, 60)` can cut mid-token, leaving an UNBALANCED
+// opening bracket/paren + a partial word (e.g. long crawler names truncate to
+// `...Jobs (Dedicat`). GitHub's phrase search returns ZERO matches for such a
+// fragment → dedup never finds the canonical issue → a fresh duplicate opens
+// every run (observed: 8 identical "Crawler Failure: …(Dedicated)" issues for
+// SVAR alone). Trim back to a whole-token, punctuation-clean prefix so the
+// phrase search resolves. The shorter prefix is still a valid `startsWith`
+// discriminator because the crawler/company name sits before the dropped tail.
+function searchSafePrefix(titlePrefix) {
+  let p = String(titlePrefix);
+  // Dropped a partial trailing token? The slice cut mid-word → strip it.
+  if (/\S$/.test(p) && p.includes(' ')) p = p.replace(/\s+\S*$/, '');
+  // Strip trailing chars that break/destabilize phrase search: unbalanced
+  // openers, quotes, slashes, and dangling punctuation. A balanced closing
+  // bracket (e.g. full short title "…(Dedicated)") is intentionally kept.
+  p = p.replace(/[\s"'([{/:;,.\-]+$/u, '').trim();
+  // Guard: never return an over-short/empty prefix (would over-match); fall
+  // back to the raw quote-stripped slice.
+  return p.length >= 8 ? p : String(titlePrefix).replace(/"/g, '').trim();
+}
+
 function searchIssuesByTitlePrefix(titlePrefix, state) {
+  const safePrefix = searchSafePrefix(titlePrefix);
   const out = gh([
     'issue', 'list',
     '--state', state,
-    '--search', `in:title "${titlePrefix.replace(/"/g, '\\"')}"`,
+    '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
     '--limit', '10',
     '--json', 'number,title,url,closedAt,state',
     ...repoFlag(),
@@ -112,7 +135,9 @@ function searchIssuesByTitlePrefix(titlePrefix, state) {
     // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
     // entrambi comparire. Filtra al match esatto di prefisso → niente commento
     // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
-    return issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(titlePrefix));
+    // Match sul prefisso SANITIZZATO (stesso usato per la query) così il filtro
+    // resta coerente quando lo slice grezzo era stato troncato a metà token.
+    return issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(safePrefix));
   } catch {
     return [];
   }

@@ -129,4 +129,29 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(labels).toContain('priority:high');
     expect(labels).not.toContain('crawler-transient');
   });
+
+  it('dedup search prefix is sanitized — no unbalanced "(Dedicat" tail (long crawler names)', async () => {
+    // Regression: `title.slice(0, 60)` cut long crawler titles mid-word, leaving
+    // an unbalanced "(Dedicat" → GitHub `in:title "..."` returned ZERO → dedup
+    // missed → a fresh duplicate issue every 12h run (SVAR opened 8 dups).
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/7';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'Crawler Failure: Update SVAR Spitalverbund AR Jobs (Dedicated)',
+      description: 'fetch failed',
+      priority: 2,
+      labels: ['Bug'],
+    });
+
+    const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
+    const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
+    // Must NOT carry the mid-word/unbalanced-paren fragment that breaks search.
+    expect(searchArg).not.toContain('(Dedicat');
+    // Keeps the whole-token, per-crawler discriminator.
+    expect(searchArg).toContain('Update SVAR Spitalverbund AR Jobs');
+  });
 });

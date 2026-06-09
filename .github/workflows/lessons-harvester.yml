@@ -67,10 +67,15 @@ jobs:
           WINDOW_DAYS: ${{ github.event.inputs.window_days || '14' }}
           THRESHOLD: ${{ github.event.inputs.threshold || '3' }}
           HARVEST_OUT: harvest-clusters.json
+          # Escalation issues are filed deterministically BY THIS SCRIPT (canonical
+          # title + code-level dedup) — no Claude turn, no LLM title drift.
+          HARVEST_EMIT_ESCALATIONS: 'true'
         run: node scripts/ci/harvest-agent-lessons.mjs
 
-      - name: Draft doc-rule proposal (Claude — only if novel OR escalation patterns)
-        if: steps.guard.outputs.open_proposals == '0' && (steps.harvest.outputs.has_novel == 'true' || steps.harvest.outputs.has_escalation == 'true')
+      - name: Draft doc-rule proposal (Claude — only if NOVEL patterns)
+        # Escalations are auto-filed by the harvest step above → Claude is spent
+        # ONLY when a genuinely-new (novel) recurring pattern needs a doc rule.
+        if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -94,16 +99,15 @@ jobs:
             - `reviewer-finding/fp:<...>` (fingerprint catch-all) → pattern nuovo non ancora in tassonomia: valuta se è un tema reale; se sì, regola preventiva E considera di proporre un bucket esplicito in `harvest-agent-lessons.mjs` (questo È codice → vedi escalation).
             - `fix-outcome/<code>` (es. ×N issue-fix bloccati con lo stesso `<code>`) → il fixer sbatte sullo stesso muro. Affina la regola in ISSUES.md → "Abort senza PR" o il capability-guard.
 
-            **Per ogni cluster `recurringDespiteRule` (escalation — la prosa ha fallito):**
-            - NON scrivere un'altra regola `.md` sullo stesso tema: non verrebbe seguita più della precedente.
-            - Apri UNA **issue di escalation** (label `follow-up`) che descrive: il bucket, il count, gli esempi PR/issue, la regola esistente che non basta, e propone un fix STRUTTURALE (template, gate CI deterministico, lint, modulo condiviso, refactor che rende l'errore impossibile by-construction). Titolo stabile `escalation(harvester): <bucket> ricorre nonostante regola` (dedup: se un'issue con quel titolo è già aperta, commenta invece di duplicare). Esempio reale: il contratto PR-body è documentato ma ricorreva → fix vero = PR template + workflow `pr-body-contract.yml`, non un'altra riga.
-            - L'agent NON implementa il fix strutturale da solo (può toccare codice/workflow, fuori scope qui): lo propone all'owner via issue.
+            **Cluster `recurringDespiteRule` (escalation — la prosa ha fallito):**
+            - Le issue di escalation sono GIÀ create deterministicamente dallo step harvest (titolo canonico `escalation(harvester): <source>/<bucket> ricorre nonostante regola` + dedup a livello codice). NON aprirle tu — duplicheresti.
+            - NON scrivere nemmeno un'altra regola `.md` sullo stesso tema: la regola c'è già, il fix vero è strutturale e va all'owner via la issue auto-creata. Ignora questi cluster e concentrati solo sui `novel`.
 
             **Vincoli (CRITICI):**
             - CHIRURGICO: poche righe, nello stile esistente. No drive-by, no riscritture. AGENTS.md è iniettato ogni sessione → ogni riga costa token: massima densità.
             - DEDUP: se rileggendo i doc la regola è di fatto già presente (anche con parole diverse) → NON aggiungerla. Meglio zero modifiche che rumore.
-            - Se NESSUN cluster produce né una regola nuova né un'escalation azionabile → **NON aprire PR né issue**, esci. Va benissimo "niente da migliorare oggi".
-            - Mai abbassare gate/quality. Nel ramo PR: SOLO file `.md`. Il fix strutturale di un'escalation si propone via issue, non si committa qui.
+            - Se NESSUN cluster `novel` produce una regola nuova utile → **NON aprire PR**, esci. Va benissimo "niente da migliorare oggi". (Le escalation sono già gestite dallo step harvest, non da te.)
+            - Mai abbassare gate/quality. Nel ramo PR: SOLO file `.md`. Il fix strutturale di un'escalation si propone via la issue auto-creata, non si committa qui.
 
             **Se (e solo se) hai ≥1 regola `novel` nuova utile → apri una PR doc:**
             1. `git config user.name "Valerie Linc"; git config user.email "valerielinc@gmail.com"`.
