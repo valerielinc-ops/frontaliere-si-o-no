@@ -39,6 +39,7 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 // stays within TITLE_MAX_CHARS (70). See build-plugins/shared/titleSuffix.ts.
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 function capTitle70(s: string): string {
  if (!s) return s;
@@ -243,7 +244,7 @@ function buildDedicatedFaqHtml(
  })),
  };
 
- return { html, jsonLd: JSON.stringify(jsonLdObj) };
+ return { html, jsonLd: inlineScriptJson(jsonLdObj) };
 }
 
 // ── Unique editorial content for 19 salary landing pages ──────────────
@@ -1924,10 +1925,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  parsed = Array.isArray(parsed)
  ? parsed.map((item: Record<string, unknown>) => capItemList(item))
  : capItemList(parsed as Record<string, unknown>);
- // Serialize as compact JSON for injection into HTML
+ // Serialize as compact JSON for injection into HTML. Each block is
+ // escaped (`<`→`<`) so a literal `</script` in arbitrary content
+ // can't break out of the inline tag; the `</script>` SEPARATOR between
+ // blocks is intentional markup and stays raw (escape per-block, not the
+ // joined string). See #1515.
  sd = Array.isArray(parsed)
- ? parsed.map((item: Record<string, unknown>) => JSON.stringify(item)).join('</script>\n <script type="application/ld+json">')
- : JSON.stringify(parsed);
+ ? parsed.map((item: Record<string, unknown>) => inlineScriptJson(item)).join('</script>\n <script type="application/ld+json">')
+ : inlineScriptJson(parsed);
  } catch { /* structured data parse failed — skip SD for this entry */ }
  }
  }
@@ -2487,7 +2492,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const readableName = BREADCRUMB_NAMES[seg] || LOCALE_SECTION_TITLES[locale]?.[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
  breadcrumbs.push({ name: readableName, url: BASE_URL + withTrailingSlash(accumPath) });
  }
- const breadcrumbJsonLd = JSON.stringify({
+ const breadcrumbJsonLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: breadcrumbs.map((b, i) => ({
@@ -4448,7 +4453,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ];
  const isContentPage = contentSlugs.some(s => firstSeg === s || canonicalPath.startsWith(`/${s}/`) || canonicalPath.startsWith(`/${locale}/${s}/`));
  const speakableLd = isContentPage
- ? `\n <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1","[data-speakable]","article p:first-of-type"]})}</script>`
+ ? `\n <script type="application/ld+json">${inlineScriptJson({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1","[data-speakable]","article p:first-of-type"]})}</script>`
  : '';
 
  // SPA shell: loads the app directly at the correct URL (no redirect)

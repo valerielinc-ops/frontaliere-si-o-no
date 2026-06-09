@@ -621,12 +621,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::medical-director-cvm-roche-ch-2": {
-    "winnerJobIdentifier": "roche-2be2bf7bb947",
+    "winnerJobIdentifier": "roche-f9ab1a13e6aa",
     "winnerCanonical": "medical-direktor-cvm-roche-basel",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.375,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::de::medico-senior-kardiopsychosomatik-universitatsspital-basel-basel": {
@@ -2376,21 +2376,21 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::medical-director-cvm-roche-ch": {
-    "winnerJobIdentifier": "roche-2be2bf7bb947",
-    "winnerCanonical": "medical-direttore-cvm-roche-basel",
+    "winnerJobIdentifier": "roche-f9ab1a13e6aa",
+    "winnerCanonical": "direttore-medico-cvm-roche-basel",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::medical-director-cvm-roche-ch-2": {
-    "winnerJobIdentifier": "roche-2be2bf7bb947",
-    "winnerCanonical": "medical-direttore-cvm-roche-basel",
+    "winnerJobIdentifier": "roche-f9ab1a13e6aa",
+    "winnerCanonical": "direttore-medico-cvm-roche-basel",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.375,
-    "candidatesCount": 2,
+    "score": 0.2222,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::medico-senior-kardiopsychosomatik-universitatsspital-basel-basel": {
@@ -3294,12 +3294,12 @@
     "canton": "BE"
   },
   "BE::de::scientifique-principal-tech-ops-csl-behring-bern": {
-    "winnerJobIdentifier": "csl-behring-aa462e79050c",
-    "winnerCanonical": "leitender-projektmanager-tech-ops-csl-behring-bern",
+    "winnerJobIdentifier": "csl-behring-dfbe362c3ed2",
+    "winnerCanonical": "leitender-wissenschaftler-tech-ops-csl-behring-bern",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::scientifique-tech-ops-csl-behring-bern": {
@@ -8769,7 +8769,7 @@
     "winnerJobIdentifier": "company-qfd5dq",
     "winnerCanonical": "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.2727,
     "candidatesCount": 1,
     "canton": "GR"
@@ -8967,7 +8967,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 2,
     "canton": "GR"
@@ -9759,7 +9759,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "seller-in-food-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 2,
     "canton": "GR"
@@ -9774,11 +9774,11 @@
     "canton": "GR"
   },
   "GR::en::seller-in-food-coop-genossenschaft-felsberg-9fezrn": {
-    "winnerJobIdentifier": "company-b0fgse",
-    "winnerCanonical": "seller-in-food-coop-genossenschaft-felsberg",
-    "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
-    "score": 0.8571,
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-schiers",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -9993,7 +9993,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "seller-in-food-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 2,
     "canton": "GR"
@@ -10812,7 +10812,7 @@
     "winnerJobIdentifier": "company-qfd5dq",
     "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-schiers",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
     "canton": "GR"
@@ -10911,7 +10911,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 2,
     "canton": "GR"
@@ -11019,7 +11019,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "GR"
@@ -12348,11 +12348,11 @@
     "canton": "GR"
   },
   "GR::it::seller-in-food-coop-genossenschaft-felsberg-9fezrn": {
-    "winnerJobIdentifier": "company-b0fgse",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-felsberg",
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-schiers",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -12729,7 +12729,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 2,
     "canton": "GR"
@@ -26157,7 +26157,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.2273,
     "candidatesCount": 1,
     "canton": "VD"
@@ -26175,7 +26175,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 1,
     "canton": "VD"

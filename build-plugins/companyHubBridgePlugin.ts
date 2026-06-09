@@ -35,6 +35,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
 import type { Locale } from '../services/i18n';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -393,7 +394,7 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     pageLabel: entry.displayName,
     canonicalUrl,
   });
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -445,7 +446,7 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     pageLabel: entry.displayName,
     canonicalUrl: hubAbsoluteUrl,
   });
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,

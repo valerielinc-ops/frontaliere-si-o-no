@@ -2,15 +2,29 @@
 /**
  * Generate RSS 2.0 feeds for Google Publisher Center sections.
  *
- * Reads article metadata from seo-blog.ts + seo-blog-2.ts and slug mappings
- * from routerBlogData.ts to produce per-locale RSS feeds.
+ * Two article sections, each with its own data sources and per-locale feeds:
+ *   • frontaliere — cross-border (Ticino) articles
+ *       seo:   services/seo/seo-blog.ts + seo-blog-2.ts
+ *       slugs: services/routerBlogData.ts
+ *       meta:  services/locales/blog-meta-{locale}.ts
+ *       body:  services/locales/blog-body/{locale}/*.ts
+ *       out:   rss.xml, rss-{locale}.xml
+ *   • svizzera — national (Switzerland-wide) articles
+ *       seo:   services/seo/seo-blog-ch.ts
+ *       slugs: services/routerSwissData.ts (SWISS_SLUGS)
+ *       meta:  services/locales/blog-meta-ch-{locale}.ts
+ *       body:  services/locales/blog-body-ch/{locale}/*.ts
+ *       out:   rss-svizzera.xml, rss-svizzera-{locale}.xml
  *
- * Output files (in public/):
- *   rss.xml     — Main feed (Italian, last 50 articles)
- *   rss-it.xml  — Italian feed
- *   rss-en.xml  — English feed
- *   rss-de.xml  — German feed
- *   rss-fr.xml  — French feed
+ * The svizzera section mirrors the frontaliere pipeline so the actively-fed
+ * national articles (`create-article.mjs --section=svizzera`) are syndicated to
+ * RSS readers / aggregators instead of being silently excluded (Refs #1226).
+ *
+ * The generated feeds are committed seeds maintained by the article-gen
+ * workflow: `create-article.mjs` runs this script after every successful
+ * generation and `generate-article.yml` commits the result. The svizzera feeds
+ * are NOT seeded in the introducing PR (they are derived artifacts, ~1.5MB);
+ * the first scheduled article-gen run after merge materializes + commits them.
  *
  * Usage:
  *   node scripts/generate-rss-feeds.mjs          # Generate all feeds
@@ -29,19 +43,56 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MAX_ITEMS = 50;
 
-const LOCALE_META = {
-  it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: '/articoli-frontaliere/' },
-  en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: '/en/cross-border-articles/' },
-  de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: '/de/grenzgaenger-artikel/' },
-  fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: '/fr/articles-frontalier/' },
-};
+// ── Section configs ───────────────────────────────────────────────────
+// Each section declares its data sources + per-locale channel metadata. The
+// parse/emit logic below is section-agnostic and driven entirely by this table,
+// so the frontaliere output stays byte-identical to the pre-#1226 single-section
+// version while svizzera is added purely additively.
+const SECTIONS = [
+  {
+    id: 'frontaliere',
+    seoFiles: ['seo-blog.ts', 'seo-blog-2.ts'],
+    slugFile: 'services/routerBlogData.ts',
+    metaFile: (locale) => `blog-meta-${locale}.ts`,
+    bodyDir: 'blog-body',
+    // Localized slug fallback: missing locale → IT slug → articleId.
+    slugFallback: 'it',
+    mainFeed: 'rss.xml',
+    feedFile: (locale) => `rss-${locale}.xml`,
+    localeMeta: {
+      it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: '/articoli-frontaliere/' },
+      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: '/en/cross-border-articles/' },
+      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: '/de/grenzgaenger-artikel/' },
+      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: '/fr/articles-frontalier/' },
+    },
+  },
+  {
+    id: 'svizzera',
+    seoFiles: ['seo-blog-ch.ts'],
+    slugFile: 'services/routerSwissData.ts',
+    metaFile: (locale) => `blog-meta-ch-${locale}.ts`,
+    bodyDir: 'blog-body-ch',
+    // National slugs default to the article id per-locale (matches the
+    // indexing-api URL resolution in generate-article.yml: SWISS_SLUGS[id][loc]
+    // with an id fallback, NOT an IT-slug fallback).
+    slugFallback: 'id',
+    mainFeed: 'rss-svizzera.xml',
+    feedFile: (locale) => `rss-svizzera-${locale}.xml`,
+    localeMeta: {
+      it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana', language: 'it', articlePrefix: '/articoli-svizzera/' },
+      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life', language: 'en', articlePrefix: '/en/swiss-articles/' },
+      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag', language: 'de', articlePrefix: '/de/schweiz-artikel/' },
+      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne', language: 'fr', articlePrefix: '/fr/articles-suisse/' },
+    },
+  },
+];
 
-// ── Parse seo-blog.ts files for article metadata ──────────────────────
+// ── Parse seo-blog*.ts files for article metadata ─────────────────────
 
-function parseSeoBlogs() {
+function parseSeoBlogs(seoFiles) {
   const articles = new Map(); // key: articleId → metadata
 
-  for (const file of ['seo-blog.ts', 'seo-blog-2.ts']) {
+  for (const file of seoFiles) {
     const filePath = path.join(ROOT, 'services', 'seo', file);
     if (!fs.existsSync(filePath)) continue;
     const src = fs.readFileSync(filePath, 'utf-8');
@@ -89,10 +140,10 @@ function parseSeoBlogs() {
   return articles;
 }
 
-// ── Parse routerBlogData.ts for slug mappings ─────────────────────────
+// ── Parse slug mappings (routerBlogData.ts / routerSwissData.ts) ──────
 
-function parseBlogSlugs() {
-  const filePath = path.join(ROOT, 'services', 'routerBlogData.ts');
+function parseBlogSlugs(slugFile) {
+  const filePath = path.join(ROOT, slugFile);
   if (!fs.existsSync(filePath)) return new Map();
   const src = fs.readFileSync(filePath, 'utf-8');
 
@@ -107,8 +158,8 @@ function parseBlogSlugs() {
 
 // ── Parse blog-meta-{locale}.ts for localized titles ──────────────────
 
-function parseLocalizedTitles(locale) {
-  const filePath = path.join(ROOT, 'services', 'locales', `blog-meta-${locale}.ts`);
+function parseLocalizedTitles(metaFileName) {
+  const filePath = path.join(ROOT, 'services', 'locales', metaFileName);
   if (!fs.existsSync(filePath)) return new Map();
   const src = fs.readFileSync(filePath, 'utf-8');
 
@@ -123,8 +174,8 @@ function parseLocalizedTitles(locale) {
   return titles;
 }
 
-function parseLocalizedExcerpts(locale) {
-  const filePath = path.join(ROOT, 'services', 'locales', `blog-meta-${locale}.ts`);
+function parseLocalizedExcerpts(metaFileName) {
+  const filePath = path.join(ROOT, 'services', 'locales', metaFileName);
   if (!fs.existsSync(filePath)) return new Map();
   const src = fs.readFileSync(filePath, 'utf-8');
 
@@ -183,20 +234,20 @@ function resolveImageUrl(imageFile, articleId) {
 // ── Blog body parsing ─────────────────────────────────────────────────
 
 /**
- * Parse full article bodies from blog-body/{locale}/*.ts files.
+ * Parse full article bodies from {bodyDir}/{locale}/*.ts files.
  * Returns Map<articleId, fullBodyHtml>.
  */
-function parseBlogBodies(locale) {
+function parseBlogBodies(bodyDir, locale) {
   const bodies = new Map();
-  const bodyDir = path.join(ROOT, 'services', 'locales', 'blog-body', locale);
-  if (!fs.existsSync(bodyDir)) return bodies;
+  const dir = path.join(ROOT, 'services', 'locales', bodyDir, locale);
+  if (!fs.existsSync(dir)) return bodies;
 
-  const files = fs.readdirSync(bodyDir).filter(f => f.endsWith('.ts'));
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.ts'));
   // Match: 'blog.article.{id}.bodyN': `...` or '...'
   const rx = /['"]blog\.article\.([^'"]+)\.(body\d+)['"]\s*:\s*[`']((?:[^`'\\]|\\.)*)(?:[`'])/g;
 
   for (const file of files) {
-    const src = fs.readFileSync(path.join(bodyDir, file), 'utf-8');
+    const src = fs.readFileSync(path.join(dir, file), 'utf-8');
     const articleParts = new Map(); // articleId → { body1: '...', body2: '...' }
     let m;
     rx.lastIndex = 0;
@@ -223,15 +274,23 @@ function parseBlogBodies(locale) {
 
 // ── RSS feed generation ───────────────────────────────────────────────
 
-function generateRssFeed(locale, articles, slugs, localizedTitles, localizedExcerpts, localizedBodies) {
-  const meta = LOCALE_META[locale];
-  const feedUrl = locale === 'it' ? `${BASE_URL}/rss.xml` : `${BASE_URL}/rss-${locale}.xml`;
+function generateRssFeed(section, locale, articles, slugs, localizedTitles, localizedExcerpts, localizedBodies) {
+  const meta = section.localeMeta[locale];
+  // The IT per-locale feed's self-link points at the section's main feed
+  // (rss.xml / rss-svizzera.xml), since the main feed is a byte copy of the IT
+  // one. Preserves the exact pre-#1226 frontaliere output.
+  const feedUrl = locale === 'it'
+    ? `${BASE_URL}/${section.mainFeed}`
+    : `${BASE_URL}/${section.feedFile(locale)}`;
 
   // Build items from articles, sorted by datePublished descending
   const items = [];
   for (const [articleId, article] of articles) {
     const locSlugs = slugs.get(articleId);
-    const slug = locSlugs?.[locale] || locSlugs?.it || articleId;
+    // Section-aware slug fallback: frontaliere → IT-slug then id; svizzera → id.
+    const slug = locSlugs?.[locale]
+      || (section.slugFallback === 'it' ? locSlugs?.it : undefined)
+      || articleId;
     const title = localizedTitles.get(articleId) || article.headline;
     const excerpt = localizedExcerpts.get(articleId) || article.excerpt || article.description;
     const imageUrl = resolveImageUrl(article.imageFile, articleId);
@@ -299,52 +358,70 @@ ${itemsXml}
 
 // ── Main ──────────────────────────────────────────────────────────────
 
+function generateSection(section) {
+  const articles = parseSeoBlogs(section.seoFiles);
+  const slugs = parseBlogSlugs(section.slugFile);
+
+  if (articles.size === 0) {
+    console.warn(`⚠️  No articles found for section '${section.id}' — skipping.`);
+    return { emitted: 0, hadArticles: false };
+  }
+  console.log(`   [${section.id}] Found ${articles.size} articles, ${slugs.size} slug mappings`);
+
+  let emitted = 0;
+  for (const locale of LOCALES) {
+    const titles = parseLocalizedTitles(section.metaFile(locale));
+    const excerpts = parseLocalizedExcerpts(section.metaFile(locale));
+    const bodies = parseBlogBodies(section.bodyDir, locale);
+    const feed = generateRssFeed(section, locale, articles, slugs, titles, excerpts, bodies);
+
+    if (!feed) {
+      console.warn(`   ⚠️  No items for ${section.id}/${locale} feed — skipping`);
+      continue;
+    }
+
+    const filename = section.feedFile(locale);
+    const outputPath = path.join(PUBLIC_DIR, filename);
+    fs.writeFileSync(outputPath, feed, 'utf-8');
+    emitted++;
+    console.log(`   ✅ ${filename} written (${feed.length} bytes)`);
+
+    // Main feed is a copy of the Italian feed with a self-referencing atom:link
+    // pointing at the main filename instead of the per-locale one.
+    if (locale === 'it') {
+      const mainPath = path.join(PUBLIC_DIR, section.mainFeed);
+      const mainFeed = feed.replace(
+        `href="${BASE_URL}/${section.feedFile('it')}"`,
+        `href="${BASE_URL}/${section.mainFeed}"`
+      );
+      fs.writeFileSync(mainPath, mainFeed, 'utf-8');
+      emitted++;
+      console.log(`   ✅ ${section.mainFeed} written (copy of ${section.id} IT feed)`);
+    }
+  }
+
+  return { emitted, hadArticles: true };
+}
+
 function main() {
   const checkMode = process.argv.includes('--check');
 
   console.log('📡 Generating RSS feeds...');
 
-  // Parse data sources
-  const articles = parseSeoBlogs();
-  const slugs = parseBlogSlugs();
+  let totalEmitted = 0;
+  let anyArticles = false;
+  for (const section of SECTIONS) {
+    const { emitted, hadArticles } = generateSection(section);
+    totalEmitted += emitted;
+    anyArticles = anyArticles || hadArticles;
+  }
 
-  if (articles.size === 0) {
-    console.warn('⚠️  No articles found in seo-blog.ts — skipping RSS generation.');
+  if (!anyArticles) {
+    console.warn('⚠️  No articles found in any section — skipping RSS generation.');
     process.exit(checkMode ? 1 : 0);
   }
-  console.log(`   Found ${articles.size} articles, ${slugs.size} slug mappings`);
 
-  // Generate per-locale feeds
-  for (const locale of LOCALES) {
-    const titles = parseLocalizedTitles(locale);
-    const excerpts = parseLocalizedExcerpts(locale);
-    const bodies = parseBlogBodies(locale);
-    const feed = generateRssFeed(locale, articles, slugs, titles, excerpts, bodies);
-
-    if (!feed) {
-      console.warn(`   ⚠️  No items for ${locale} feed — skipping`);
-      continue;
-    }
-
-    const filename = `rss-${locale}.xml`;
-    const outputPath = path.join(PUBLIC_DIR, filename);
-    fs.writeFileSync(outputPath, feed, 'utf-8');
-    console.log(`   ✅ ${filename} written (${feed.length} bytes)`);
-
-    // Main rss.xml is a copy of the Italian feed
-    if (locale === 'it') {
-      const mainPath = path.join(PUBLIC_DIR, 'rss.xml');
-      // Update self-referencing atom:link to point to rss.xml
-      const mainFeed = feed.replace(
-        `href="${BASE_URL}/rss-it.xml"`,
-        `href="${BASE_URL}/rss.xml"`
-      );
-      fs.writeFileSync(mainPath, mainFeed, 'utf-8');
-      console.log(`   ✅ rss.xml written (copy of IT feed)`);
-    }
-  }
-
-  console.log('📡 RSS feeds generated successfully.');
+  console.log(`📡 RSS feeds generated successfully (${totalEmitted} files).`);
 }
 
 main();

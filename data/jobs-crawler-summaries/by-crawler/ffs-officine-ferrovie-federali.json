@@ -1,18 +1,47 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-06-09T12:11:56.189Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-06-09T23:04:24.678Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 36842,
-  "avgDurationMs": 36842,
+  "durationMs": 53352,
+  "avgDurationMs": 53352,
   "durationHistory": [
-    36842
+    53352
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "sbb-b7a598d953c6",
+      "slug": "capoteam-telecom-e-impianti-elettrici-m-f-d-ffs-officine-ferrovie-federali-biasca",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Capoteam telecom e impianti elettrici (m/f/d)",
+      "location": "Biasca",
+      "canton": "TI",
+      "addressLocality": "Biasca",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "it",
+      "postedDate": "2026-06-08",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/capoteam-telecom-e-impianti-elettrici-m-f-d/c3bfd5ba-d2f9-4a36-b53e-9249d362f446",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-06-09T23:04:24.486Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "sbb-6947fc349476",
@@ -33,7 +62,7 @@
       "postedDate": "2026-06-01",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/impiegato-in-logistica-m-f-d/d29fd7bf-40a2-43e2-bd85-a78c48405e6e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-09T12:11:32.781Z",
+      "crawledAt": "2026-06-09T23:04:24.376Z",
       "firstSeenAt": "2026-06-01T16:00:39.946Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -62,7 +91,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-generale-immobili-m-f-d/4ceb3d72-b043-4b0e-96d7-2b721351df44",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-09T12:11:46.586Z",
+      "crawledAt": "2026-06-09T23:04:05.077Z",
       "firstSeenAt": "2026-05-07T22:29:03.851Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -91,7 +120,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/chef-de-projet-general-immobilier-m-f-d/aa5b5720-9265-4767-af29-1ad2f0f46dfa",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-09T12:11:52.997Z",
+      "crawledAt": "2026-06-09T23:04:18.106Z",
       "firstSeenAt": "2026-05-07T22:29:08.604Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -120,7 +149,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gesamtprojektleiter-in-immobilien-development/6581a2cb-a00d-4f8a-9d8e-d3699891c828",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-09T12:11:56.017Z",
+      "crawledAt": "2026-06-09T23:04:19.735Z",
       "firstSeenAt": "2026-05-07T22:28:47.416Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -149,7 +178,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-09T12:11:55.747Z",
+      "crawledAt": "2026-06-09T23:04:04.322Z",
       "firstSeenAt": "2026-04-13T11:12:31.894Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {

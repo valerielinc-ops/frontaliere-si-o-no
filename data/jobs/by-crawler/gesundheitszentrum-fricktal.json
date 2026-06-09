@@ -1,147 +1,7 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-06-09T11:27:58.355Z",
+  "assembledAt": "2026-06-09T22:25:15.473Z",
   "jobs": [
-    {
-      "id": "gesundheitszentrum-fricktal-f20b8847e2e9",
-      "slug": "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
-      "slugByLocale": {
-        "it": "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden"
-      },
-      "company": "Gesundheitszentrum Fricktal",
-      "companyKey": "gesundheitszentrum-fricktal",
-      "companyDomain": "gzf.ch",
-      "title": "Dipl. Pflegefachperson HF (w/m/d)",
-      "titleByLocale": {
-        "it": "Consulente senior (w/m/d)",
-        "en": "Dipl. Pflegefachperson HF (w/m/d)",
-        "de": "Dipl. Pflegefachperson HF (w/m/d)",
-        "fr": "Dipl. Consultant principal (m/j)"
-      },
-      "description": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Rivolgiti ai nostri pazienti: sia individualmente che con molta empatia – le loro esigenze sono sempre al centro di te\n• Area: Villa Robersten\n• Tipo: Parttime\n• Termine ultimo: illimitato",
-        "en": "You address our patients: both individually and with a lot of empathy – their needs are always at the heart of you\n• Area: Villa Robersten\n• Type: Parttime\n• Deadline: Unlimited",
-        "de": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Vous adressez nos patients : individuellement et avec beaucoup d'empathie – leurs besoins sont toujours au cœur de vous\n• Région: Villa Robersten\n• Type: temps partiel\n• Date limite: illimitée"
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2087/Description/1",
-      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:56.492Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2087/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
-        ]
-      },
-      "firstSeenAt": "2026-06-04T14:59:29.901Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gesundheitszentrum-fricktal-af5ac4960f12",
-      "slug": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-      "slugByLocale": {
-        "it": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "gestionnaire-de-cas-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
-      },
-      "company": "Gesundheitszentrum Fricktal",
-      "companyKey": "gesundheitszentrum-fricktal",
-      "companyDomain": "gzf.ch",
-      "title": "Case Manager:in (w/m/d)",
-      "titleByLocale": {
-        "it": "Case Manager (w/m/d)",
-        "en": "Case Manager:in (w/m/d)",
-        "de": "Case Manager:in (w/m/d)",
-        "fr": "Gestionnaire de cas (w/m/d)"
-      },
-      "description": "Gesundheitszentrum Fricktal AG | online seit : 22.05.2026 Arbeitsort : GZF Rheinfelden/Laufenburg\n• Du arbeitest mit Freude in einem interdisziplinären Team? Du betreust und berätst Menschen und ihre Angehörigen mit viel Herzblut? Dann bist du bei uns richtig. Aufgrund einer Pensionierung suchen wir eine engagierte Persönlichkeit, die unser Case Management Team verstärkt.\n\n• Als Profi für soziale Angelegenheiten hältst du alle Fäden in der Hand: Vom Eintritt bis zum Austritt bist du die zentrale Ansprechperson für die sozialen Belange der Patientinnen und ihrer Vertrauenspersonen\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Descrizione Gesundheitszentrum Fricktal AG | online dal : 19.05.2026 Luogo di lavoro : GZF Rheinfelden/Laufenburg - Lavori con piacere in un team interdisciplinare? Assisti e consigli le persone e i loro familiari con molta passione? Allora sei nel posto giusto. A causa di un pensionamento, siamo alla ricerca di una personalità impegnata che rafforzi il nostro team di case management. - Come professionista degli affari sociali, hai tutti i fili in mano: dall'ingresso alla dimissione, sei il referente centrale per gli interessi sociali dei pazienti e delle loro persone di fiducia - Tipo: part-time - Scadenza: a tempo indeterminato",
-        "en": "Descrizione Gesundheitszentrum Fricktal AG | online since : 05/19/2026 Place of work : GZF Rheinfelden/Laufenburg - Do you enjoy working in an interdisciplinary team? Do you care for and advise people and their relatives with a lot of passion? Then you've come to the right place. Due to a retirement, we are looking for a committed person to strengthen our case management team. - As a social affairs professional, you hold all the strings in your hand: from entry to exit, you are the central point of contact for the social concerns of patients and their confidants - Type: part-time - Fixed-term: indefinite",
-        "de": "Gesundheitszentrum Fricktal AG | online seit : 22.05.2026 Arbeitsort : GZF Rheinfelden/Laufenburg\n• Du arbeitest mit Freude in einem interdisziplinären Team? Du betreust und berätst Menschen und ihre Angehörigen mit viel Herzblut? Dann bist du bei uns richtig. Aufgrund einer Pensionierung suchen wir eine engagierte Persönlichkeit, die unser Case Management Team verstärkt.\n• Als Profi für soziale Angelegenheiten hältst du alle Fäden in der Hand: Vom Eintritt bis zum Austritt bist du die zentrale Ansprechperson für die sozialen Belange der Patientinnen und ihrer Vertrauenspersonen\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Descrizione Gesundheitszentrum Fricktal AG | en ligne depuis : 19/05/2026 Lieu de travail : GZF Rheinfelden/Laufenburg - Tu travailles avec plaisir dans une équipe interdisciplinaire ? Tu encadres et conseilles les gens et leurs proches avec beaucoup de cœur et d'âme ? Alors vous êtes au bon endroit. En raison d'une retraite, nous recherchons une personnalité engagée qui renforcera notre équipe de gestion de cas. - En tant que professionnel des affaires sociales, vous avez toutes les cartes en main : de l'entrée à la sortie, vous êtes l'interlocuteur central pour les intérêts sociaux des patientes et de leurs personnes de confiance - Type : temps partiel - Durée : indéterminée"
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2225/Description/1",
-      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:55.567Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2225/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "sachbearbeiter-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T16:17:56.504Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "gesundheitszentrum-fricktal-bd6e1bb01e53",
       "slug": "dipl-carriera-m-d-piscina-gesundheitszentrum-fricktal-rheinfelden",
@@ -168,12 +28,13 @@
         "de": "Bist du auf der Suche nach einer spannenden und abwechslungsreichen Tätigkeit, bei der du in verschiedenen Abteilungen und Teams arbeiten kannst?\n• Bereich: GZF Pflegedienst\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "fr": "Vous recherchez une activité passionnante et variée où vous pouvez travailler dans différents départements et équipes?\n• Zone: Service de soins GZF\n• Type: plein temps\n• Date limite: illimitée"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1861/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:54.760Z",
+      "crawledAt": "2026-06-09T22:25:13.705Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -238,12 +99,13 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 22.05.2026 Keine Details erfasst\n• Willkommen in der Akutgeriatrie am GZF! Bei uns steht der Mensch im Mittelpunkt – für eine würdevolle und respektvolle Pflege. Wir widmen uns der ganzheitlichen Versorgung älterer Menschen mit akuten gesundheitlichen Herausforderungen. Unser interdisziplinäres Team aus Pflegefachpersonen, Ärzten und Therapeuten arbeiten Hand in Hand um die Lebensqualität und Selbstständigkeit unserer Patientinnen und Patienten zu fördern. Du pflegst ältere Menschen mit viel Herzblut und arbeitest gerne im Team? Dann bist du bei uns genau richtig – unser Pflegeteam freut sich auf deine Verstärkung!\n• Übernimm die Verantwortung und organisiere aktiv eine Pflegegruppe, in der du einen echten Unterschied machst\n• Befristung: Unbefristet",
         "fr": "Descrizione Mansioni - Benvenuto nella Geriatria Acuta del GZF ! Qui, la persona è al centro di tutto - per una cura dignitosa e rispettosa. - Ci dedichiamo alla cura global degli anziani con problemi di salu acuti. - Il nostro team interdisciplinare composto da infermieri, medici e terapeuti lavora a stretto contatto per promuovere la qualité della vita e l'indipendenza dei nostri pazienti. - Ti prendi cura degli anziani con tanto cuore e lavori volenteri en équipe ? Allora be nel posto giusto - il nostro team di infermieri non vede l'ora di averti a bordo! Compiti - Assumer la responsabilité à e organizza ativamente un gruppo di cure in cui fai la differente. Contrat - Contratto un tempo indéterminato"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1833/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:53.906Z",
+      "crawledAt": "2026-06-09T22:25:12.927Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -324,7 +186,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2227/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:53.095Z",
+      "crawledAt": "2026-06-09T22:25:12.144Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -405,7 +267,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1980/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:52.287Z",
+      "crawledAt": "2026-06-09T22:25:11.367Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -484,7 +346,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2243/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:51.480Z",
+      "crawledAt": "2026-06-09T22:25:10.561Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -561,7 +423,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2222/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:50.649Z",
+      "crawledAt": "2026-06-09T22:25:09.766Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -638,7 +500,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2237/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:49.841Z",
+      "crawledAt": "2026-06-09T22:25:08.980Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -681,9 +543,9 @@
       "id": "gesundheitszentrum-fricktal-1bb6a41dbe5a",
       "slug": "dipartimento-di-gestione-dipartimento-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "de": "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "it": "dipartimento-di-gestione-dipartimento-dipartimento-privato-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "department-management-private-department-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "gestion-du-departement-departement-prive-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -691,24 +553,25 @@
       "companyDomain": "gzf.ch",
       "title": "Abteilungsleitung Privatabteilung (m/w/d)",
       "titleByLocale": {
-        "de": "Abteilungsleitung Privatabteilung (m/w/d)",
         "it": "Dipartimento di gestione Dipartimento Dipartimento privato (m/f/d)",
         "en": "Department management Private department (m/f/d)",
+        "de": "Abteilungsleitung Privatabteilung (m/w/d)",
         "fr": "Gestion du département Département privé (m/f/d)"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : Villa Robersten Rheinfelden\n• Du möchtest Verantwortung übernehmen und gemeinsam mit deinem Team eine exzellente Versorgung auf höchstem Niveau sicherstellen? Unsere interdisziplinäre Privatabteilung zeichnet sich durch ein dynamisches, lebhaftes und zugleich anspruchsvolles Umfeld aus, in dem Patient:innen aus verschiedenen Fachbereichen auf hohem medizinischem und pflegerischem Niveau betreut werden. Dazu gehören insbesondere die Innere Medizin, die Viszeralchirurgie sowie das Zentrum für Bewegung, ergänzt durch die Frauenklinik und die Klinik Aesthea.\n\n• Du führst sicher durch ein komplexes, interdisziplinäres Umfeld und verbindest die Fachbereiche zu einem starken Ganzen\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : Villa Robersten Rheinfelden\n• Du möchtest Verantwortung übernehmen und gemeinsam mit deinem Team eine exzellente Versorgung auf höchstem Niveau sicherstellen? Unsere interdisziplinäre Privatabteilung zeichnet sich durch ein dynamisches, lebhaftes und zugleich anspruchsvolles Umfeld aus, in dem Patient:innen aus verschiedenen Fachbereichen auf hohem medizinischem und pflegerischem Niveau betreut werden. Dazu gehören insbesondere die Innere Medizin, die Viszeralchirurgie sowie das Zentrum für Bewegung, ergänzt durch die Frauenklinik und die Klinik Aesthea.\n\n• Du führst sicher durch ein komplexes, interdisziplinäres Umfeld und verbindest die Fachbereiche zu einem starken Ganzen\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
-        "it": "Centro sanitario Fricktal AG | online dal: 09.06.2026 Luogo di lavoro: Villa Robersten Rheinfelden\n• Vuoi assumerti la responsabilità e insieme al tuo team assicurarti un'ottima cura al massimo livello? Il nostro reparto privato interdisciplinare è caratterizzato da un ambiente dinamico, vivace e allo stesso tempo esigente in cui i pazienti provenienti da diverse aree specializzate sono curati a livello medico e di allattamento. Questi includono in particolare la medicina interna, la chirurgia viscerale e il Centro per il Movimento, completato dalla clinica femminile e dalla clinica Aesthea.\n\n• Condurre in modo sicuro attraverso un ambiente complesso e interdisciplinare e collegare i dipartimenti a un complesso forte\n\nTipo: Tempo pieno\n• Termine temporaneo: illimitato",
-        "en": "Health Centre Fricktal AG | online since : 09.06.2026 Place of work : Villa Robersten Rheinfelden\n• You want to take responsibility and together with your team ensure excellent care at the highest level? Our interdisciplinary private department is characterized by a dynamic, lively and at the same time demanding environment in which patients from different specialist areas are cared for at a high medical and nursing level. These include in particular internal medicine, visceral surgery and the Center for Movement, supplemented by the Women's Clinic and the Clinic Aesthea.\n\n• You lead safely through a complex, interdisciplinary environment and connect the departments to a strong whole\n\nType: Full-time\n• Temporary term: unlimited",
-        "fr": "Centre de santé Fricktal AG en ligne depuis : 09.06.2026 Lieu de travail : Villa Robersten Rheinfelden\n• Vous voulez prendre des responsabilités et avec votre équipe assurer un excellent soin au plus haut niveau? Notre département privé interdisciplinaire se caractérise par un environnement dynamique, animé et en même temps exigeant dans lequel les patients de différents domaines spécialisés sont soignés à un niveau médical et infirmier élevé. Il s'agit en particulier de la médecine interne, de la chirurgie viscérale et du Centre pour le Mouvement, complétés par la Clinique des Femmes et l'Esthéa clinique.\n\n• Vous dirigez en toute sécurité à travers un environnement complexe et interdisciplinaire et connectez les départements à un ensemble fort\n\nType: Temps plein\n• Terme temporaire: illimité"
+        "it": "Centro sanitario Fricktal AG | online dal: 09.06.2026 Luogo di lavoro: Villa Robersten Rheinfelden\n• Vuoi assumerti la responsabilità e insieme al tuo team assicurarti un'ottima cura al massimo livello? Il nostro reparto privato interdisciplinare è caratterizzato da un ambiente dinamico, vivace e allo stesso tempo esigente in cui i pazienti provenienti da diverse aree specializzate sono curati a livello medico e di allattamento. Questi includono in particolare la medicina interna, la chirurgia viscerale e il Centro per il Movimento, completato dalla clinica femminile e dalla clinica Aesthea.\n• Condurre in modo sicuro attraverso un ambiente complesso e interdisciplinare e collegare i dipartimenti a un complesso forte Tipo: Tempo pieno\n• Termine temporaneo: illimitato",
+        "en": "Health Centre Fricktal AG | online since : 09.06.2026 Place of work : Villa Robersten Rheinfelden\n• You want to take responsibility and together with your team ensure excellent care at the highest level? Our interdisciplinary private department is characterized by a dynamic, lively and at the same time demanding environment in which patients from different specialist areas are cared for at a high medical and nursing level. These include in particular internal medicine, visceral surgery and the Center for Movement, supplemented by the Women's Clinic and the Clinic Aesthea.\n• You lead safely through a complex, interdisciplinary environment and connect the departments to a strong whole Type: Full-time\n• Temporary term: unlimited",
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : Villa Robersten Rheinfelden\n• Du möchtest Verantwortung übernehmen und gemeinsam mit deinem Team eine exzellente Versorgung auf höchstem Niveau sicherstellen? Unsere interdisziplinäre Privatabteilung zeichnet sich durch ein dynamisches, lebhaftes und zugleich anspruchsvolles Umfeld aus, in dem Patient:innen aus verschiedenen Fachbereichen auf hohem medizinischem und pflegerischem Niveau betreut werden. Dazu gehören insbesondere die Innere Medizin, die Viszeralchirurgie sowie das Zentrum für Bewegung, ergänzt durch die Frauenklinik und die Klinik Aesthea.\n• Du führst sicher durch ein komplexes, interdisziplinäres Umfeld und verbindest die Fachbereiche zu einem starken Ganzen\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Centre de santé Fricktal AG en ligne depuis : 09.06.2026 Lieu de travail : Villa Robersten Rheinfelden\n• Vous voulez prendre des responsabilités et avec votre équipe assurer un excellent soin au plus haut niveau? Notre département privé interdisciplinaire se caractérise par un environnement dynamique, animé et en même temps exigeant dans lequel les patients de différents domaines spécialisés sont soignés à un niveau médical et infirmier élevé. Il s'agit en particulier de la médecine interne, de la chirurgie viscérale et du Centre pour le Mouvement, complétés par la Clinique des Femmes et l'Esthéa clinique.\n• Vous dirigez en toute sécurité à travers un environnement complexe et interdisciplinaire et connectez les départements à un ensemble fort Type: Temps plein\n• Terme temporaire: illimité"
       },
+      "needsRetranslation": false,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2262/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T11:27:49.034Z",
+      "crawledAt": "2026-06-09T22:25:08.197Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -724,9 +587,94 @@
       "postedDate": "2026-06-09",
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2262/Application/CheckLogin/1",
       "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "firstSeenAt": "2026-06-09T11:27:49.034Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gesundheitszentrum-fricktal-1198ad109095",
+      "slug": "assistentin-gesundheit-e-soziales-ags-o-pflegeassistent-pa-m-w-d-im-nachtdienst-gesundheitszentrum-fricktal-rheinfelden",
+      "slugByLocale": {
+        "de": "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst",
+        "it": "assistentin-gesundheit-e-soziales-ags-o-pflegeassistent-pa-m-w-d-im-nachtdienst-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst",
+        "fr": "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst"
+      },
+      "company": "Gesundheitszentrum Fricktal",
+      "companyKey": "gesundheitszentrum-fricktal",
+      "companyDomain": "gzf.ch",
+      "title": "Assistentin Gesundheit und Soziales (AGS) oder Pflegeassistent (PA) (m/w/d) - im Nachtdienst",
+      "titleByLocale": {
+        "de": "Assistentin Gesundheit und Soziales (AGS) oder Pflegeassistent (PA) (m/w/d) - im Nachtdienst",
+        "it": "Assistentin Gesundheit e Soziales (AGS) o Pflegeassistent (PA) (m/w/d) - im Nachtdienst",
+        "en": "Assistentin Gesundheit und Soziales (AGS) oder Pflegeassistent (PA) (m/w/d) - im Nachtdienst",
+        "fr": "Assistentin Gesundheit und Soziales (AGS) oder Pflegeassistent (PA) (m/w/d) - im Nachtdienst"
+      },
+      "description": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Keine Details erfasst\n• Du pflegst ältere Menschen mit viel Herzblut und arbeitest mit Freude in einem interdisziplinären Team? Dann bist du bei uns genau richtig - unser Pflegeteam freut sich auf deine Verstärkung.\n\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Keine Details erfasst\n• Du pflegst ältere Menschen mit viel Herzblut und arbeitest mit Freude in einem interdisziplinären Team? Dann bist du bei uns genau richtig - unser Pflegeteam freut sich auf deine Verstärkung.\n\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "it": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Keine Details erfasst\n• Du pflegst ältere Menschen mit viel Herzblut und arbeitest mit Freude in einem interdisziplinären Team? Dann bist du bei uns genau richtig - unser Pflegeteam freut sich auf deine Verstärkung.\n\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "en": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Keine Details erfasst\n• Du pflegst ältere Menschen mit viel Herzblut und arbeitest mit Freude in einem interdisziplinären Team? Dann bist du bei uns genau richtig - unser Pflegeteam freut sich auf deine Verstärkung.\n\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "fr": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Keine Details erfasst\n• Du pflegst ältere Menschen mit viel Herzblut und arbeitest mit Freude in einem interdisziplinären Team? Dann bist du bei uns genau richtig - unser Pflegeteam freut sich auf deine Verstärkung.\n\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n\n• Art: Teilzeit\n• Befristung: Unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2260/Description/1",
+      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-09T22:25:07.390Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2260/Application/CheckLogin/1",
+      "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -739,21 +687,80 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T11:27:49.034Z",
+      "firstSeenAt": "2026-06-09T22:25:07.390Z"
+    },
+    {
+      "id": "gesundheitszentrum-fricktal-d3ac4d9767ba",
+      "slug": "collaboratore-trice-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "collaboratore-trice-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      },
+      "company": "Gesundheitszentrum Fricktal",
+      "companyKey": "gesundheitszentrum-fricktal",
+      "companyDomain": "gzf.ch",
+      "title": "Mitarbeiter:in Technischer Dienst - HLKS (m/w/d)",
+      "titleByLocale": {
+        "de": "Mitarbeiter:in Technischer Dienst - HLKS (m/w/d)",
+        "it": "Collaboratore/trice Technischer Dienst - HLKS (m/w/d)",
+        "en": "Associate Technischer Dienst - HLKS (m/w/d)",
+        "fr": "Collaborateur/trice Technischer Dienst - HLKS (m/w/d)"
+      },
+      "description": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : GZF Rheinfelden\n• Deine Motivation ist es, technische Anlagen optimal zu betreiben und mit deinem Wissen einen wichtigen Beitrag zu einem reibungslosen und sicheren Betrieb zu leisten? Dann bringst du genau die richtige Einstellung für unser Team mit.\n\n• Du übernimmst die Verantwortung für die Revision, Wartung, Instandhaltung sowie die Störungsbehebung an unseren Heizungs-, Lüftungs-, Kälte- und Sanitäranlagen (HLKS)\n\n• Bereich: GZF Direktion u. direktionsnahe Bereiche\n• Art: Vollzeit\n• Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : GZF Rheinfelden\n• Deine Motivation ist es, technische Anlagen optimal zu betreiben und mit deinem Wissen einen wichtigen Beitrag zu einem reibungslosen und sicheren Betrieb zu leisten? Dann bringst du genau die richtige Einstellung für unser Team mit.\n\n• Du übernimmst die Verantwortung für die Revision, Wartung, Instandhaltung sowie die Störungsbehebung an unseren Heizungs-, Lüftungs-, Kälte- und Sanitäranlagen (HLKS)\n\n• Bereich: GZF Direktion u. direktionsnahe Bereiche\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "it": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : GZF Rheinfelden\n• Deine Motivation ist es, technische Anlagen optimal zu betreiben und mit deinem Wissen einen wichtigen Beitrag zu einem reibungslosen und sicheren Betrieb zu leisten? Dann bringst du genau die richtige Einstellung für unser Team mit.\n\n• Du übernimmst die Verantwortung für die Revision, Wartung, Instandhaltung sowie die Störungsbehebung an unseren Heizungs-, Lüftungs-, Kälte- und Sanitäranlagen (HLKS)\n\n• Bereich: GZF Direktion u. direktionsnahe Bereiche\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "en": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : GZF Rheinfelden\n• Deine Motivation ist es, technische Anlagen optimal zu betreiben und mit deinem Wissen einen wichtigen Beitrag zu einem reibungslosen und sicheren Betrieb zu leisten? Dann bringst du genau die richtige Einstellung für unser Team mit.\n\n• Du übernimmst die Verantwortung für die Revision, Wartung, Instandhaltung sowie die Störungsbehebung an unseren Heizungs-, Lüftungs-, Kälte- und Sanitäranlagen (HLKS)\n\n• Bereich: GZF Direktion u. direktionsnahe Bereiche\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Gesundheitszentrum Fricktal AG | online seit : 09.06.2026 Arbeitsort : GZF Rheinfelden\n• Deine Motivation ist es, technische Anlagen optimal zu betreiben und mit deinem Wissen einen wichtigen Beitrag zu einem reibungslosen und sicheren Betrieb zu leisten? Dann bringst du genau die richtige Einstellung für unser Team mit.\n\n• Du übernimmst die Verantwortung für die Revision, Wartung, Instandhaltung sowie die Störungsbehebung an unseren Heizungs-, Lüftungs-, Kälte- und Sanitäranlagen (HLKS)\n\n• Bereich: GZF Direktion u. direktionsnahe Bereiche\n• Art: Vollzeit\n• Befristung: Unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2269/Description/1",
+      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-09T22:25:06.617Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Tecnica",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2269/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "en": [
-          "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "fr": [
-          "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "previousSlugs": [
-        "abteilungsleitung-privatabteilung-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-      ]
+        "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-09T22:25:06.617Z"
     }
   ]
 }

@@ -46,6 +46,7 @@ import {
 } from '../data/faq-hub';
 import type { FaqHubCategory, FaqHubEntry, FaqHubLocale } from '../data/faq-hub';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { inlineScriptJson } from './shared/inlineJsonScript';
 
 // ── Locale-specific static copy ────────────────────────────────────
 
@@ -368,7 +369,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
   const bodyHtml = `<main class="fh-main">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
-  const breadcrumbLd = JSON.stringify({
+  const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -378,7 +379,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     ],
   });
 
-  const faqLd = JSON.stringify({
+  const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
@@ -400,7 +401,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     })),
   });
 
-  const articleLd = JSON.stringify({
+  const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
