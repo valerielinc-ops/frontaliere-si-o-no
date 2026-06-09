@@ -17,6 +17,15 @@ on:
     branches: [main]
   push:
     branches: [main]
+  # Dispatchable so pr-autorebase.yml can re-run vitest on a freshly-rebased PR
+  # head: a PAT push to a PR branch does NOT reliably re-trigger `pull_request`
+  # workflows (observed: rebased heads of #1587/#1526 got zero check-runs), so
+  # the autorebase explicitly dispatches this on the branch ref. The run's
+  # `vitest (unit + integration)` check-run lands on the branch head SHA (= PR
+  # head), satisfying auto-merge-eval gate 3, and its `workflow_run: completed`
+  # re-fires auto-merge-on-lgtm. No Claude review is re-run (auto-merge-eval
+  # carries the existing ## LGTM forward across a pure main-merge rebase).
+  workflow_dispatch:
 
 # Cancel in-progress runs for the same ref so superseded commits don't waste
 # the runner pool (matches deploy.yml's behaviour).
