@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2762,
+ "numberOfItems": 2763,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7402,7 +7402,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2759, "name": "La rappresentanza della diaspora svizzera in Pa...", "url": `${BASE_URL}/articoli-frontaliere/diaspora-svizzera-parlamento` },
           { "@type": "ListItem", "position": 2760, "name": "Licenziato dopo 42 anni di lavoro: la storia de...", "url": `${BASE_URL}/articoli-frontaliere/licenziamento-postino-ticino` },
           { "@type": "ListItem", "position": 2761, "name": "Ritmi insostenibili e pressione sui lavoratori ...", "url": `${BASE_URL}/articoli-frontaliere/ritmi-insostenibili-logistica-dpd` },
-          { "@type": "ListItem", "position": 2762, "name": "Consuntivo finanze cantonali Ticino 2025: criti...", "url": `${BASE_URL}/articoli-frontaliere/finanze-ticino-consuntivo` }
+          { "@type": "ListItem", "position": 2762, "name": "Consuntivo finanze cantonali Ticino 2025: criti...", "url": `${BASE_URL}/articoli-frontaliere/finanze-ticino-consuntivo` },
+          { "@type": "ListItem", "position": 2763, "name": "Inizio lavori Hotel Flaz, Pontresina: 25 milion...", "url": `${BASE_URL}/articoli-frontaliere/hotel-flaz-pontresina-2028` }
  ]
  },
  {

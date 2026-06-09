@@ -1346,6 +1346,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hotel-flaz-pontresina-2028': {
+    title: 'Inizio lavori Hotel Flaz, Pontresina: 25 milioni CHF e nuovi spazi',
+    description: 'Approfondimenti sull’inizio lavori per il nuovo hotel Flaz a Pontresina, con 176 camere, investimenti superiori ai 25 milioni CHF e nuovi spazi comunitari. Voto',
+    keywords: 'frontalieri, ticino, svizzera, italia, inizio, lavori, hotel, flaz',
+    ogTitle: 'Inizio lavori Hotel Flaz, Pontresina: i fatti e le implicazioni',
+    ogDescription: 'Novità e fatti chiave sul nuovo hotel Flaz a Pontresina, con 176 posti letto e investimento da oltre 25 milioni CHF. Tutte le informazioni e le implicazioni',
+    canonicalPath: '/articoli-svizzera/hotel-flaz-pontresina-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inizio lavori Hotel Flaz, Pontresina: 25 milioni CHF e nuovi spazi",
+      "description": "Approfondimenti sull’inizio lavori per il nuovo hotel Flaz a Pontresina, con 176 camere, investimenti superiori ai 25 milioni CHF e nuovi spazi comunitari. Voto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hotel-flaz-pontresina-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Hotel Flaz a Pontresina in Engadina mostra facciata nuova con dettagli architettonici ed elementi stilistici moderni in contesto sciolto."
+      },
+      "datePublished": "2026-06-09T02:25:04+00:00",
+      "dateModified": "2026-06-09T02:25:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hotel-flaz-pontresina-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
