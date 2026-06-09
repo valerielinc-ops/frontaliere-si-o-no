@@ -135,7 +135,61 @@ function parseSoliqueTileBody(id, body) {
  */
 export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
   const base = `https://live.solique.ch/${soliqueTenant}`;
+  // Non-silent shape guard (#1518 item 2). The Solique JSON envelope is only
+  // exercised against `apiLang:'de'`; a different lang segment, a paginated
+  // ({jobs}→{data,page,…}) or renamed envelope would otherwise drop every row
+  // through the `Array.isArray` fallback below and look identical to a board
+  // that is genuinely empty. Warn loudly so a shape/lang/pagination change
+  // surfaces immediately instead of decaying into a silent zero-job crawl.
+  if (!Array.isArray(data?.jobs)) {
+    // `data` can be a bare array/string/number for a fully-changed endpoint
+    // (JSON.parse yields a non-object); only print envelope keys when `data`
+    // is a plain object, else describe the actual type so the warn isn't
+    // misleading (printing array/char indices).
+    const shapeDesc =
+      data == null
+        ? String(data)
+        : Array.isArray(data)
+          ? `array[${data.length}]`
+          : typeof data !== 'object'
+            ? typeof data
+            : `\`${typeof data.jobs}\` (envelope keys: ${Object.keys(data).join(', ') || 'none'})`;
+    console.warn(
+      `⚠️ Solique API shape mismatch for ${soliqueTenant} (${lang}): expected an array at \`data.jobs\`, got ${shapeDesc} — the /${lang}/api/v1/data/ response may have changed shape, lang, or paginated.`,
+    );
+  }
   const jobs = Array.isArray(data?.jobs) ? data.jobs : [];
+  // Distinguish a per-row *schema drift* (renamed fields → nothing parseable)
+  // from the known, intentional empty-`title.value` *placeholder* rows (skipped
+  // silently below). Both drop a row, but only drift is a problem. The guard
+  // must mirror the parser's REAL acceptance predicate (L191-193): a row is
+  // usable iff it exposes an *id source* (`title.id` || top-level `id`) AND a
+  // `title.value` property — `link` is OPTIONAL (L199 falls back to
+  // `jobs/--{id}`), so it must NOT be part of the test. We check *structural*
+  // presence of those properties (not their non-emptiness) so an all-empty
+  // placeholder board does not false-warn, while a rename that moves the id
+  // source (e.g. `title.id`→`title.uid`) or the `value` key still fires — the
+  // exact silent zero-job class item 2 targets. Scan ALL rows so a well-formed
+  // head followed by a drifted tail also warns.
+  if (jobs.length > 0) {
+    const hasIdSource = (r) =>
+      (r?.title != null && typeof r.title === 'object' && 'id' in r.title) || 'id' in r;
+    const structurallyOk = (r) =>
+      r != null &&
+      typeof r === 'object' &&
+      hasIdSource(r) &&
+      r.title != null &&
+      typeof r.title === 'object' &&
+      'value' in r.title;
+    const firstBad = jobs.find((r) => !structurallyOk(r));
+    if (firstBad !== undefined) {
+      console.warn(
+        `⚠️ Solique API row shape mismatch for ${soliqueTenant} (${lang}): a row among ${jobs.length} is missing the expected id source (\`title.id\`/\`id\`) + \`title.value\` shape (row keys: ${
+          firstBad && typeof firstBad === 'object' ? Object.keys(firstBad).join(', ') || 'none' : typeof firstBad
+        }) — per-job field names may have changed.`,
+      );
+    }
+  }
   const out = [];
   const seen = new Set();
   for (const j of jobs) {
