@@ -82,6 +82,7 @@ import {
 import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { buildPath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { useNavigation } from '@/services/NavigationContext';
@@ -2352,7 +2353,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userId = authUser?.uid || null;
  useEffect(() => {
  if (!isJobDetailView || !selectedJob) return;
- if (!enableJobAlerts || !userId || !userEmail) return;
+ if (!enableJobAlerts) return;
+ if (!userId || !userEmail) {
+ // Diagnostic: a visitor who arrived on a newsletter autologin link but is
+ // still anonymous here means the autologin never completed — the exact
+ // failure that silently drops the prompt. Scoped to that cohort (not every
+ // anonymous SEO view) so it stays a low-volume, high-signal event.
+ if (wasNewsletterAutologinAttempted()) {
+ Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'no_auth');
+ }
+ return;
+ }
  const categoryKey = categoryTranslationKey(selectedJob);
  const localizedCategory = (t(categoryKey) || '').trim();
  if (!localizedCategory) return;

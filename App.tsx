@@ -479,6 +479,11 @@ const App: React.FC = () => {
  if (!autologinCode && !legacyAuthToken) return;
  if (!email || !email.includes('@')) return;
 
+ // Emit an attempt marker before the async exchange so an aborted exchange
+ // (page reload mid-flight) stays countable: attempts − success − failed −
+ // error = aborted autologins.
+ Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', 'attempt');
+
  let user = null;
  if (autologinCode) {
  // New flow: exchange HMAC code for a fresh custom token via Cloud Function
