@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 // @ts-expect-error — plain .mjs crawler libs, no type declarations
 import { parseSoliqueListing, parseSoliqueApiListing, extractSoliqueDetailContent } from '../scripts/lib/solique-common.mjs';
 // @ts-expect-error — plain .mjs
@@ -36,6 +36,10 @@ const JSONLD_DETAIL = `<script type="application/ld+json">
 </script>`;
 
 describe('Solique listing parsers (consolidated solique-common)', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('parses the flat SSR board (adullam variant)', () => {
     const rows = parseSoliqueListing(SOLIQUE_SSR);
     expect(rows).toHaveLength(1);
@@ -59,6 +63,121 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
       maxPct: 80,
       detailUrl: 'https://live.solique.ch/ipw/de/jobs/Assistenzaerztin---Assistenzarzt--4006969',
     });
+  });
+
+  it('warns (non-silent) when the API envelope drops the `jobs` array — shape/lang/pagination drift', () => {
+    // #1518 item 2: a renamed/paginated envelope (e.g. `{ data: [...] }`) must NOT
+    // decay into a silent zero-job crawl indistinguishable from an empty board.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing({ data: [], page: 1 }, 'ipw', 'fr');
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API shape mismatch for ipw (fr)');
+    expect(warn.mock.calls[0][0]).toContain('data, page');
+  });
+
+  it('warns when rows lose the `title.value`/`link` per-row shape (field rename)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // `jobs` array present but rows use renamed fields → every row skipped.
+    const rows = parseSoliqueApiListing({ jobs: [{ name: 'X', href: '/y' }] }, 'ipw', 'de');
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
+  });
+
+  it('warns when `title.value` is renamed away even if a top-level `id` survives (reviewer sub-case)', () => {
+    // A drift that renames `title.value` while keeping a top-level `id` must
+    // still warn: the parser needs `title.value` (→ `!title -> continue`), so
+    // every row drops silently. The structural test catches the lost `value`.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ id: '999', title: { id: '999', text: 'Renamed' }, link: 'jobs/x--999' }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
+  });
+
+  it('warns when the id source is renamed (`title.id`→`title.uid`) even with value+link intact (re-review sub-case)', () => {
+    // The parser needs an id from `title.id` || top-level `id` (L191); a rename
+    // to `title.uid` → `id=''` → every row `continue` → 0 jobs. The guard must
+    // mirror the parser predicate (id source present) and fire, not stay silent.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { uid: '999', value: 'Real Title' }, link: 'jobs/x--999' }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
+  });
+
+  it('does NOT warn on a valid row missing `link` (link is optional — fallback URL)', () => {
+    // A row with id + title.value but no `link` is legitimate (L199 falls back
+    // to `jobs/--{id}`); it must parse without a false row-shape warn.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: 'No Link Job', id: '777' }, location: { value: 'Bern' } }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({ id: '777', detailUrl: 'https://live.solique.ch/ipw/de/jobs/--777' });
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('warns on a heterogeneous array — valid head, drifted tail (scans all rows)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      {
+        jobs: [
+          { title: { value: 'Good', id: '1' }, link: 'jobs/good--1' },
+          { name: 'drifted', href: '/x' },
+        ],
+      },
+      'ipw',
+      'de',
+    );
+    // the valid head still parses, but the drifted tail must surface a warn
+    expect(rows).toHaveLength(1);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch');
+  });
+
+  it('describes a bare non-object `data` without printing index keys', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseSoliqueApiListing(['a', 'b'], 'ipw', 'de')).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('got array[2]');
+    expect(warn.mock.calls[0][0]).not.toContain('envelope keys: 0, 1');
+  });
+
+  it('does NOT warn on a genuinely empty board (valid envelope, zero openings)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseSoliqueApiListing({ jobs: [] }, 'ipw', 'de')).toHaveLength(0);
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('does NOT warn on an all-placeholder board (empty title.value, no link)', () => {
+    // Placeholder rows are a known, intentional Solique pattern (skipped at
+    // L193) — well-formed shape, just an empty value. Must not false-warn.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: '', id: '1' } }, { title: { value: '', id: '2' } }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(0);
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('does NOT warn on the known-good de envelope (no regression)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseSoliqueApiListing(SOLIQUE_API, 'ipw', 'de')).toHaveLength(1);
+    expect(warn).not.toHaveBeenCalled();
   });
 
   it('extracts the job-introduction + content template (migratedBoard) without duplicating prose', () => {
