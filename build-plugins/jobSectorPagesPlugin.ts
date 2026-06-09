@@ -52,6 +52,7 @@ import {
   type SectorCountableJob,
   type SectorHubKey,
 } from './jobSectorLanding';
+import { buildDayStampIso } from './shared/buildDayStamp';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -288,7 +289,9 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     description: seo.desc,
     inLanguage: locale,
     isPartOf: sectionRootUrl,
-    dateModified: new Date().toISOString(),
+    // Day-granularity, not a full build timestamp — see
+    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
+    dateModified: buildDayStampIso(),
   });
 
   const faqLd = seo.faq.length > 0
