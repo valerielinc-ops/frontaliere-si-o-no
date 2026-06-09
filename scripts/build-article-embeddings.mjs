@@ -216,17 +216,42 @@ async function main() {
       return;
     }
     console.error(`EMBEDDINGS_BUILD embedding ${toEmbed.length} new articles (incremental=${isIncremental || !isFullRebuild})`);
-    for (let i = 0; i < toEmbed.length; i += BATCH_SIZE) {
-      const batch = toEmbed.slice(i, i + BATCH_SIZE);
-      const vectors = await embedBatch({ inputs: batch.map((b) => b.text) });
-      for (let j = 0; j < batch.length; j++) {
-        const slug = batch[j].slug;
-        const hashBuf = slugHashBuffer(slug);
-        const payload = Buffer.from(vectors[j].buffer, vectors[j].byteOffset, RECORD_PAYLOAD_BYTES);
-        records.push({ hashBuf, payload, slug });
-        perArticle[slug] = { hash: hashBuf.toString('hex'), byteOffset: 0 };
+    try {
+      for (let i = 0; i < toEmbed.length; i += BATCH_SIZE) {
+        const batch = toEmbed.slice(i, i + BATCH_SIZE);
+        const vectors = await embedBatch({ inputs: batch.map((b) => b.text) });
+        for (let j = 0; j < batch.length; j++) {
+          const slug = batch[j].slug;
+          const hashBuf = slugHashBuffer(slug);
+          const payload = Buffer.from(vectors[j].buffer, vectors[j].byteOffset, RECORD_PAYLOAD_BYTES);
+          records.push({ hashBuf, payload, slug });
+          perArticle[slug] = { hash: hashBuf.toString('hex'), byteOffset: 0 };
+        }
+        console.error(`EMBEDDINGS_BUILD batch ${i / BATCH_SIZE + 1} done (${batch.length} vectors)`);
       }
-      console.error(`EMBEDDINGS_BUILD batch ${i / BATCH_SIZE + 1} done (${batch.length} vectors)`);
+    } catch (err) {
+      // Graceful degradation (#1338): the keys ARE configured, but the embedding
+      // provider chain failed at REQUEST time — both Mistral and Cohere exhausted
+      // their free-tier quota / rate-limited / transiently down (embedBatch only
+      // throws after EVERY keyed provider fails). Embeddings are a similarity
+      // SIGNAL, not a hard dependency: cascadedScore falls through to the cluster
+      // median for any article that lacks a vector, so a missing embedding never
+      // blocks article generation. Crashing here would hard-fail the whole evidence
+      // build over a transient quota dip and brick the ~95%-revenue blog funnel
+      // (#1335). So: log loudly, write a meta-only sidecar preserving the existing
+      // store, and exit success — the next run retries the uncached articles once
+      // quota resets. (Distinct from the no-key path above, which never attempts.)
+      console.error(`EMBEDDINGS_BUILD skipped — embedding provider chain exhausted at request time (all keyed providers failed: ${err?.message || err}). ${toEmbed.length - records.length} article(s) left unembedded; cascadedScore will fall through to cluster median. Will retry next run.`);
+      const meta = {
+        model: existingStoreModel || EMBEDDING_MODEL,
+        dim: EMBEDDING_DIM,
+        count: existingStore.count,
+        builtAt: new Date().toISOString(),
+        skipped: 'provider chain exhausted at request time',
+      };
+      writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2) + '\n');
+      console.error(`EMBEDDINGS_BUILD wrote meta-only sidecar at ${OUTPUT_META}`);
+      return;
     }
   } else {
     console.error('EMBEDDINGS_BUILD no new articles to embed');
