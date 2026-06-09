@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Send, Bug, Lightbulb, Github, CheckCircle, Clock, Sparkles, Loader2, MessageSquare, AlertTriangle, ChevronRight, ExternalLink, Lock } from 'lucide-react';
+import { Send, Bug, Lightbulb, Github, CheckCircle, Clock, Sparkles, Loader2, MessageSquare, AlertTriangle, ChevronRight, ExternalLink } from 'lucide-react';
 import { Analytics } from '../../services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '@/services/i18n';
 import recaptchaService from '../../services/recaptchaService';
-import { getConfigValue } from '../../services/firebase';
 
 interface FeedbackItem {
  id: string;
@@ -24,9 +23,7 @@ export const FeedbackSection: React.FC = () => {
  const [isOptimizing, setIsOptimizing] = useState(false);
  const [isSubmitting, setIsSubmitting] = useState(false);
  const [submitError, setSubmitError] = useState<string | null>(null);
- const [githubToken, setGithubToken] = useState<string>('');
- const [geminiApiKey, setGeminiApiKey] = useState<string>('');
- 
+
  const [formData, setFormData] = useState<{
  title: string;
  description: string;
@@ -39,51 +36,20 @@ export const FeedbackSection: React.FC = () => {
 
  const REPO_OWNER = 'valerielinc-ops';
  const REPO_NAME = 'frontaliere-si-o-no';
-
- // Carica le API keys da Firebase Remote Config
- useEffect(() => {
- async function loadApiKeys() {
- try {
- const githubPat = await getConfigValue('GITHUB_PAT');
- const geminiKey = await getConfigValue('GEMINI_API_KEY');
- 
- setGithubToken((githubPat || '').trim());
- setGeminiApiKey(geminiKey);
- 
- console.log('✅ API keys caricate da Firebase Remote Config');
- } catch (error) {
- console.warn('⚠️ Errore caricamento API keys da Remote Config:', error);
- reportCaughtError(error, 'feedback.loadApiKeys');
- // No local fallback — secrets only from Remote Config
- setGithubToken('');
- setGeminiApiKey('');
- }
- }
- 
- loadApiKeys();
- }, []);
+ // Issue creation goes through a Cloud Function that holds the repo PAT
+ // server-side; the browser never sees a write token.
+ const FEEDBACK_ISSUE_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createFeedbackIssue';
 
  useEffect(() => {
  const fetchIssues = async () => {
- // Attendi che il token sia caricato
- if (!githubToken) return;
- 
  try {
  setLoading(true);
- const headers: HeadersInit = {
- 'Accept': 'application/vnd.github.v3+json'
- };
- 
- // Aggiungi autenticazione se il token è disponibile (necessario per repository privati)
- if (githubToken) {
- headers['Authorization'] = `token ${githubToken}`;
- }
- 
+ // Public repo → list issues unauthenticated (no PAT in the browser).
  const response = await fetch(
  `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues?state=all&per_page=10`,
- { headers }
+ { headers: { 'Accept': 'application/vnd.github.v3+json' } }
  );
- 
+
  if (response.ok) {
  const data = await response.json();
  const mappedItems: FeedbackItem[] = data.map((issue: any) => ({
@@ -107,28 +73,23 @@ export const FeedbackSection: React.FC = () => {
  };
 
  fetchIssues();
- }, [githubToken]);
+ }, []);
 
  const handleOptimize = async () => {
- if (!formData.description || !geminiApiKey) return;
+ if (!formData.description) return;
  setIsOptimizing(true);
  Analytics.trackUIInteraction('supporto', 'feedback', 'ai_ottimizza', 'click', formData.type);
- 
- try {
- const { GoogleGenAI } = await import('@google/genai');
- const ai = new GoogleGenAI({ apiKey: geminiApiKey });
- const prompt = `Agisci come un esperto Product Manager. 
- L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.
- Testo utente:"${formData.description}".
- 
- Riscrivi il testo in modo chiaro e tecnico per una GitHub Issue. 
- Non aggiungere saluti. Solo il corpo del testo.`;
 
- const response = await ai.models.generateContent({
- model: 'gemini-3-flash-preview',
- contents: prompt
+ try {
+ // Gemini runs server-side (geminiGenerate Cloud Function); no API key in the browser.
+ const userPrompt = `Agisci come un esperto Product Manager. L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.\nTesto utente: "${formData.description}".\n\nRiscrivi il testo in modo chiaro e tecnico per una GitHub Issue. Non aggiungere saluti. Solo il corpo del testo.`;
+ const res = await fetch('https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate', {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify({ userPrompt, maxTokens: 1024, temperature: 0.5 }),
  });
- const optimizedText = response.text || formData.description;
+ const data = await res.json().catch(() => ({}));
+ const optimizedText = (data?.ok && data.text) ? data.text : formData.description;
  setFormData(prev => ({ ...prev, description: optimizedText }));
  } catch (e) {
  reportCaughtError(e, 'feedback.aiOptimize');
@@ -141,63 +102,54 @@ export const FeedbackSection: React.FC = () => {
  e.preventDefault();
  if (!formData.title) return;
  
- if (!githubToken) {
- setSubmitError(t('feedback.missingToken'));
- reportCaughtError(new Error('Missing GitHub Token'), 'feedback.missingToken');
- return;
- }
-
  setIsSubmitting(true);
  setSubmitError(null);
 
  try {
- // Generate + verify reCAPTCHA token server-side before creating an issue.
- const verification = await recaptchaService.verifyAction('FEEDBACK_SUBMIT');
- if (!verification.passed) {
+ // Generate a reCAPTCHA token; the Cloud Function verifies it server-side
+ // before spending the repo PAT (which never reaches the browser).
+ const recaptchaToken = await recaptchaService.executeRecaptcha('FEEDBACK_SUBMIT');
+ if (!recaptchaToken) {
  setSubmitError(t('feedback.submitError') || 'Verifica anti-bot fallita. Riprova.');
- reportCaughtError(new Error(`recaptcha_blocked:${verification.error ?? 'unknown'}`), 'feedback.recaptcha');
+ reportCaughtError(new Error('recaptcha_token_failed'), 'feedback.recaptcha');
  setIsSubmitting(false);
  return;
  }
 
- const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
+ const response = await fetch(FEEDBACK_ISSUE_ENDPOINT, {
  method: 'POST',
- headers: {
- 'Authorization': `token ${githubToken}`,
- 'Content-Type': 'application/json',
- 'Accept': 'application/vnd.github.v3+json'
- },
+ headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({
  title: formData.title,
- body: formData.description +"\n\n> Segnalato tramite Web App",
- labels: [formData.type === 'BUG' ? 'bug' : 'enhancement']
- })
+ description: `${formData.description}`,
+ type: formData.type,
+ recaptchaToken,
+ }),
  });
 
- if (response.ok) {
- const newIssue = await response.json();
+ const result = await response.json().catch(() => ({}));
+ if (response.ok && result.ok && result.issue) {
  // Add locally to list immediately
  const newItem: FeedbackItem = {
- id: String(newIssue.id),
- title: newIssue.title,
- description: newIssue.body,
+ id: result.issue.id,
+ title: result.issue.title,
+ description: result.issue.body,
  type: formData.type,
  status: 'OPEN',
  createdAt: new Date().toISOString(),
- author: newIssue.user.login,
- url: newIssue.html_url
+ author: result.issue.author,
+ url: result.issue.url
  };
  setItems(prev => [newItem, ...prev]);
  Analytics.trackFeedback('submit', formData.type);
  setFormData({ title: '', description: '', type: 'BUG' });
  alert(t('feedback.submitSuccess'));
  } else {
- const err = await response.json();
- throw new Error(err.message ||"Errore invio");
+ throw new Error(result.error || 'Errore invio');
  }
  } catch (error: any) {
  setSubmitError(`${t('feedback.apiError')}: ${error.message}`);
- reportCaughtError(error, 'feedback.githubIssuePost', { apiEndpoint: `github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues` });
+ reportCaughtError(error, 'feedback.githubIssuePost', { apiEndpoint: 'createFeedbackIssue' });
  } finally {
  setIsSubmitting(false);
  }
@@ -287,13 +239,6 @@ export const FeedbackSection: React.FC = () => {
  {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Github size={18} />}
  {t('feedback.openIssue')}
  </button>
- 
- {!githubToken && (
- <p className="text-xs text-center text-muted">
- <Lock size={10} className="inline mr-1"/>
- {t('feedback.requiresToken')}
- </p>
- )}
  </form>
  </div>
 

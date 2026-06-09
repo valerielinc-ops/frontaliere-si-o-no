@@ -37,33 +37,28 @@ const ApiStatus: React.FC = () => {
  testUrl: 'https://developer.tomtom.com/routing-api/documentation/tomtom-maps/calculate-route'
  });
 
- // 2. Google Gemini API - Carica da Firebase Remote Config
- const geminiKey = await getConfigValue('GEMINI_API_KEY');
- const hasGemini = !!geminiKey && geminiKey !== 'your_gemini_api_key_here' && geminiKey !== '';
+ // 2. Google Gemini API — now server-side (geminiGenerate / chatbotInference
+ // Cloud Functions). No API key in the browser to inspect.
  checks.push({
  name: 'Google Gemini API',
- key: '****',
- configured: hasGemini,
- value: hasGemini ? '✓ Configurata' : '✗ Non configurata',
- status: hasGemini ? 'success' : 'warning',
- message: hasGemini
- ? 'Configurata correttamente - Funzionalità AI attive nel feedback'
- : 'Non configurata - Funzionalità AI nel feedback disabilitate',
+ key: 'server-managed',
+ configured: true,
+ value: '✓ Server-side (Cloud Function)',
+ status: 'success',
+ message: 'AI via geminiGenerate/chatbotInference — nessuna chiave nel browser.',
  testUrl: 'https://aistudio.google.com/app/apikey'
  });
 
- // 3. GitHub PAT - Carica da Firebase Remote Config
- const githubPat = await getConfigValue('GITHUB_PAT');
- const hasGithub = !!githubPat && githubPat !== 'your_github_pat_here' && githubPat !== '';
+ // 3. GitHub issue tracking — now server-side. The PAT lives in the
+ // createFeedbackIssue / githubAdminProxy Cloud Functions; the browser no
+ // longer receives a repo token, so there is nothing to check client-side.
  checks.push({
- name: 'GitHub Personal Access Token',
- key: '****',
- configured: hasGithub,
- value: hasGithub ? '✓ Configurato' : '✗ Non configurato',
- status: hasGithub ? 'success' : 'warning',
- message: hasGithub
- ? 'Configurato correttamente - Issue tracking GitHub attivo'
- : 'Non configurato - Issue tracking GitHub disabilitato',
+ name: 'GitHub Issue Tracking',
+ key: 'server-managed',
+ configured: true,
+ value: '✓ Server-side (Cloud Function)',
+ status: 'success',
+ message: 'Issue tracking via createFeedbackIssue — nessun PAT nel browser.',
  testUrl: 'https://github.com/settings/tokens'
  });
 
