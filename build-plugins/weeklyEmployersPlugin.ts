@@ -39,6 +39,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
@@ -2900,8 +2901,8 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     url: canonicalUrl,
     description: heroSummary,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    dateModified: buildDayStampIso(),
+    datePublished: buildDayStampIso(),
   });
 
   const faqLd = JSON.stringify({
@@ -3336,8 +3337,8 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     url: canonicalUrl,
     description: heroSummary,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    dateModified: buildDayStampIso(),
+    datePublished: buildDayStampIso(),
   });
 
   const itemListLd = JSON.stringify({

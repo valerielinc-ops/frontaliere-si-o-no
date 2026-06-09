@@ -32,6 +32,7 @@ import {
   countHtmlBodyWords,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
@@ -2283,8 +2284,8 @@ function renderLeafPage(inp: LeafInputs): string {
     url: canonicalUrl,
     description: introLong.slice(0, 200),
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    dateModified: buildDayStampIso(),
+    datePublished: buildDayStampIso(),
   });
 
   const faqLd = JSON.stringify({
@@ -2610,8 +2611,8 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     url: canonicalUrl,
     description: introLong.slice(0, 200),
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    dateModified: buildDayStampIso(),
+    datePublished: buildDayStampIso(),
   });
 
   const faqLd = JSON.stringify({
@@ -2839,8 +2840,8 @@ function renderRootHubPage(inp: RootHubInputs): string {
     url: canonicalUrl,
     description: intro.slice(0, 200),
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    dateModified: buildDayStampIso(),
+    datePublished: buildDayStampIso(),
   });
 
   const faqLd = JSON.stringify({
