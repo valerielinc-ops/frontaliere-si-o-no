@@ -3958,6 +3958,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-diaspora-svizzera-parlamento': { name: 'Politica Svizzera', path: '/articoli-svizzera/diaspora-svizzera-parlamento/', parent: 'blog' },
     'blog-licenziamento-postino-ticino': { name: 'Lavoro', path: '/articoli-frontaliere/licenziamento-postino-ticino', parent: 'blog' },
     'blog-ritmi-insostenibili-logistica-dpd': { name: 'Lavoro e salute', path: '/articoli-svizzera/ritmi-insostenibili-logistica-dpd/', parent: 'blog' },
+    'blog-finanze-ticino-consuntivo': { name: 'Finanze cantonali', path: '/articoli-frontaliere/finanze-ticino-consuntivo', parent: 'blog' },
  };
 
  const info = sectionNames[section];
