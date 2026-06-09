@@ -1,56 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-09T11:37:09.584Z",
-  "total": 10,
+  "generatedAt": "2026-06-09T22:33:48.453Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 15508,
-  "avgDurationMs": 15508,
+  "updatedCount": 7,
+  "removedCount": 1,
+  "unchangedCount": 2,
+  "durationMs": 14237,
+  "avgDurationMs": 14237,
   "durationHistory": [
-    15508
+    14237
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Employé(e) Frontoffice service après-vente (m/f/d) 100%",
-      "slug": "employe-e-frontoffice-service-apres-vente-m-f-d-100-hoval-crissier",
-      "url": "https://www.hoval.it/it_IT/job/3945",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3945/Application/New/3?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Crissier",
-      "addressLocality": "Crissier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "hoval-dc5354be3e0d",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "1003",
-      "firstSeenAt": "2026-05-13T22:23:31.122Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
       "slug": "frontoffice-mitarbeiter-in-m-w-d-hoval-harkingen",
@@ -309,7 +272,48 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
+    {
+      "title": "Employé(e) Frontoffice service après-vente (m/f/d) 100%",
+      "slug": "servizio-post-vendita-dei-dipendenti-m-f-d-100-hoval-crissier",
+      "url": "https://www.hoval.it/it_IT/job/3945",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3945/Application/New/3?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Crissier",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-dc5354be3e0d",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-13T22:23:31.122Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -384,7 +388,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
