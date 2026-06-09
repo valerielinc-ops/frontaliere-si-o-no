@@ -181,4 +181,26 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(opens).toBe(closes); // balanced (here: both 0)
     expect(searchArg).toContain('Update HIB'); // discriminator retained
   });
+
+  it('short (untruncated) title keeps its final token — no over-match', async () => {
+    // The trailing-token strip must fire ONLY on real truncation. A short title
+    // shorter than the slice ceiling must keep its last whole token as the
+    // discriminator (else it degrades to a generic prefix that over-matches).
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'create') return 'https://github.com/o/r/issues/9';
+      return '';
+    });
+
+    await createGithubIssue({
+      title: 'Crawler Failure: Update Foo', // 27 chars, well under the ceiling
+      description: 'fetch failed',
+      priority: 2,
+      labels: ['Bug'],
+    });
+
+    const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
+    const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
+    expect(searchArg).toContain('Update Foo'); // final token preserved
+  });
 });

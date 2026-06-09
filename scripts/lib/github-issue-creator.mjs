@@ -126,8 +126,15 @@ function stripUnbalancedBracketTail(s) {
 // crawler/company name sits before the dropped tail.
 function searchSafePrefix(titlePrefix) {
   let p = String(titlePrefix);
-  // Dropped a partial trailing token? The slice cut mid-word → strip it.
-  if (/\S$/.test(p) && p.includes(' ')) p = p.replace(/\s+\S*$/, '');
+  // Strip the dangling trailing token ONLY when the prefix actually hit the
+  // slice ceiling (i.e. the title was truncated and the last token abuts the
+  // cut). Gating on length avoids collapsing a SHORT, untruncated title — e.g.
+  // a hypothetical two-word "Crawler Failure: Update Foo" must keep "Foo" as
+  // its discriminator instead of degrading to "Crawler Failure: Update" and
+  // over-matching every crawler issue.
+  if (p.length >= DEDUP_TITLE_PREFIX_LEN && /\S$/.test(p) && p.includes(' ')) {
+    p = p.replace(/\s+\S*$/, '');
+  }
   // Drop any tail from the first unmatched opening bracket (internal or trailing).
   p = stripUnbalancedBracketTail(p);
   // Strip trailing chars that break/destabilize phrase search: leftover openers,
