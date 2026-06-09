@@ -72,6 +72,7 @@ import {
 } from './orphanQueryData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
+import { buildDayStampIso } from './shared/buildDayStamp';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -968,7 +969,9 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           url: canonicalUrl,
           description: copy.description,
           inLanguage: loc,
-          dateModified: new Date().toISOString(),
+          // Day-granularity, not a full build timestamp — see
+          // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
+          dateModified: buildDayStampIso(),
           mainEntity: {
             '@type': 'ItemList',
             numberOfItems: sorted.length,

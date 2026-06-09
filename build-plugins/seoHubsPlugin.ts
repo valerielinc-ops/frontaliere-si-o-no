@@ -46,6 +46,7 @@ import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSecti
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
+import { buildDayStampIso } from './shared/buildDayStamp';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_IT',
@@ -1124,7 +1125,9 @@ function buildHtml(args: BuildHtmlArgs): string {
     url: canonicalUrl,
     description,
     inLanguage: locale,
-    dateModified: new Date().toISOString(),
+    // Day-granularity, not a full build timestamp — see
+    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
+    dateModified: buildDayStampIso(),
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: totalItems,

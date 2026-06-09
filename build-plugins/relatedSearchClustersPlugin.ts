@@ -1701,7 +1701,12 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     url: canonicalUrl,
     description: copy.hubDescription,
     inLanguage: locale,
-    dateModified: new Date().toISOString(),
+    // Day-granularity (matches the visible `dateStamp` rendered on the page),
+    // NOT a full build timestamp: a sub-second `new Date().toISOString()` here
+    // made every search-cluster/listing page churn on every deploy. Stable
+    // within the UTC day → same-day deploys no longer rewrite these pages from
+    // dateModified alone. See build-plugins/shared/buildDayStamp.ts.
+    dateModified: `${dateStamp}T00:00:00.000Z`,
     mainEntity: {
       '@type': 'ItemList',
       // numberOfItems reports the full list size; itemListElement is a sample.

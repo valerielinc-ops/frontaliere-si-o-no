@@ -390,7 +390,7 @@
     "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
     "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-06-02T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.9,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -618,6 +618,15 @@
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::de::medical-director-cvm-roche-ch-2": {
+    "winnerJobIdentifier": "roche-2be2bf7bb947",
+    "winnerCanonical": "medical-direktor-cvm-roche-basel",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::de::medico-senior-kardiopsychosomatik-universitatsspital-basel-basel": {
@@ -1161,12 +1170,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::teamleiterin-teamleiter-workplace-management-a-ksbl-liestal": {
-    "winnerJobIdentifier": "ksbl-641e243a52bd",
-    "winnerCanonical": "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
+    "winnerJobIdentifier": "ksbl-6f896ef5218d",
+    "winnerCanonical": "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4545,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::en::verkaufer-in-denner": {
@@ -1380,7 +1389,7 @@
     "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln-847ca8",
     "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-06-02T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.1765,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -1737,12 +1746,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::teamleiterin-teamleiter-workplace-management-a-ksbl-liestal": {
-    "winnerJobIdentifier": "ksbl-641e243a52bd",
-    "winnerCanonical": "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
+    "winnerJobIdentifier": "ksbl-6f896ef5218d",
+    "winnerCanonical": "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 2,
+    "score": 0.1765,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::fr::verkaufer-in-denner": {
@@ -2010,7 +2019,7 @@
     "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
     "decidedAt": "2026-05-20T00:00:00.000Z",
-    "lastSeenAt": "2026-06-02T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -2025,11 +2034,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
-    "winnerCanonical": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
-    "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
-    "score": 0.4615,
+    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
+    "winnerCanonical": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln-847ca8",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -2366,6 +2375,24 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::it::medical-director-cvm-roche-ch": {
+    "winnerJobIdentifier": "roche-2be2bf7bb947",
+    "winnerCanonical": "medical-direttore-cvm-roche-basel",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::medical-director-cvm-roche-ch-2": {
+    "winnerJobIdentifier": "roche-2be2bf7bb947",
+    "winnerCanonical": "medical-direttore-cvm-roche-basel",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::it::medico-senior-kardiopsychosomatik-universitatsspital-basel-basel": {
     "winnerJobIdentifier": "unispital-basel-d9b80aeaa105",
     "winnerCanonical": "logistikerin-logistiker-cfc-specializzazione-lagertechnik-lagerlogistik-apprendistato-universitatsspital-basel",
@@ -2484,21 +2511,21 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::roche-ch": {
-    "winnerJobIdentifier": "roche-0ce493009c85",
-    "winnerCanonical": "roche-basel",
-    "decidedAt": "2026-06-05T00:00:00.000Z",
+    "winnerJobIdentifier": "roche-4db7837b6f91",
+    "winnerCanonical": "locale-registrati-locali-roche-basel",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 3,
+    "score": 0.1667,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::roche-ch-6": {
-    "winnerJobIdentifier": "roche-0ce493009c85",
-    "winnerCanonical": "roche-basel",
-    "decidedAt": "2026-06-05T00:00:00.000Z",
+    "winnerJobIdentifier": "roche-4db7837b6f91",
+    "winnerCanonical": "locale-registrati-locali-roche-basel",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "score": 0.1429,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::segretario-del-dottore-in-universitatsspital-basel-basel": {
@@ -6561,12 +6588,12 @@
     "canton": "BE"
   },
   "BE::it::verkauferin-verkaufer-im-aussendienst-localsearch-ch": {
-    "winnerJobIdentifier": "localsearch-5f7f2e129012",
-    "winnerCanonical": "venditore-esterno-localsearch-langenthal",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "localsearch-2c9e01e8f54f",
+    "winnerCanonical": "venditore-venditrice-esterno-localsearch-lyssach",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.1111,
-    "candidatesCount": 4,
+    "score": 0.1,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::verkaufsprofi-liftmodernisierung-in-bern-m-w-d-80-100-schindler-bern": {
@@ -8334,7 +8361,7 @@
     "canton": "GR"
   },
   "GR::de::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
+    "winnerJobIdentifier": "10020247",
     "winnerCanonical": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
@@ -8343,7 +8370,7 @@
     "canton": "GR"
   },
   "GR::de::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
+    "winnerJobIdentifier": "10020247",
     "winnerCanonical": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
@@ -9369,20 +9396,20 @@
     "canton": "GR"
   },
   "GR::en::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
-    "winnerCanonical": "professional-cook-cook-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "10020247",
+    "winnerCanonical": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
-    "winnerCanonical": "professional-cook-cook-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "10020247",
+    "winnerCanonical": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -10395,11 +10422,11 @@
     "canton": "GR"
   },
   "GR::fr::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
-    "winnerCanonical": "cuisinier-professionnel-cuisinier-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "10020247",
+    "winnerCanonical": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -10422,11 +10449,11 @@
     "canton": "GR"
   },
   "GR::fr::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
-    "winnerCanonical": "cuisinier-professionnel-cuisinier-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "10020247",
+    "winnerCanonical": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.4286,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -11484,11 +11511,11 @@
     "canton": "GR"
   },
   "GR::it::berufslehre-kochin-koch-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
-    "winnerCanonical": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "10020247",
+    "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -11682,20 +11709,20 @@
     "canton": "GR"
   },
   "GR::it::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
-    "winnerCanonical": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "10020247",
+    "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.5714,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9552644",
-    "winnerCanonical": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "10020247",
+    "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.375,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -18855,7 +18882,7 @@
     "canton": "TG"
   },
   "TG::de::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
@@ -18867,13 +18894,13 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
@@ -18882,7 +18909,7 @@
     "canton": "TG"
   },
   "TG::de::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
@@ -18894,7 +18921,7 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
     "canton": "TG"
@@ -18972,7 +18999,7 @@
     "canton": "TG"
   },
   "TG::de::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
@@ -19206,11 +19233,11 @@
     "canton": "TG"
   },
   "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.2667,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -19260,11 +19287,11 @@
     "canton": "TG"
   },
   "TG::en::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.6,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -19299,26 +19326,26 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2143,
+    "score": 0.2308,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0.1429,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -19326,7 +19353,7 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
     "canton": "TG"
@@ -19431,11 +19458,11 @@
     "canton": "TG"
   },
   "TG::en::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.0588,
+    "score": 0.0625,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -19683,11 +19710,11 @@
     "canton": "TG"
   },
   "TG::fr::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.0417,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -19737,11 +19764,11 @@
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.6,
+    "score": 0.2353,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -19749,7 +19776,7 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.0588,
     "candidatesCount": 1,
     "canton": "TG"
@@ -19785,35 +19812,35 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.2353,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2143,
+    "score": 0.2222,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0.375,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2143,
+    "score": 0.2222,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -19917,11 +19944,11 @@
     "canton": "TG"
   },
   "TG::fr::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.0588,
+    "score": 0.9167,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -20160,11 +20187,11 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-06-05T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2273,
+    "score": 0.75,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -20232,29 +20259,29 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.4118,
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2353,
+    "score": 0.1,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2353,
+    "score": 0.1,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -20325,26 +20352,26 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.8889,
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.1538,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -20376,38 +20403,38 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa": {
-    "winnerJobIdentifier": "stgag-9b65c4acfbdb",
-    "winnerCanonical": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.6364,
+    "score": 0.9,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.5455,
-    "candidatesCount": 1,
-    "canton": "TG"
-  },
-  "TG::it::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "TG"
   },
-  "TG::it::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+  "TG::it::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.3846,
+    "score": 0.4615,
+    "candidatesCount": 1,
+    "canton": "TG"
+  },
+  "TG::it::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "score": 0.3571,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -20415,7 +20442,7 @@
     "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-05T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
     "canton": "TG"
@@ -20448,11 +20475,11 @@
     "canton": "TG"
   },
   "TG::it::education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.1905,
+    "score": 0.1818,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -20538,20 +20565,20 @@
     "canton": "TG"
   },
   "TG::it::formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.1304,
+    "score": 0.1739,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.125,
+    "score": 0.1667,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -20565,38 +20592,38 @@
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2857,
+    "score": 0.3571,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2667,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-f431a9": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2667,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.2667,
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -32025,7 +32052,7 @@
     "winnerJobIdentifier": "pwc-1902c8b10636",
     "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zurich",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-06-01T00:00:00.000Z",
+    "lastSeenAt": "2026-06-09T00:00:00.000Z",
     "score": 0.1364,
     "candidatesCount": 1,
     "canton": "ZH"
