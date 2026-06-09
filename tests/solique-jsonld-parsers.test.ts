@@ -85,6 +85,47 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
     expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
   });
 
+  it('warns when `title.value` is renamed away even if a top-level `id` survives (reviewer sub-case)', () => {
+    // A drift that renames `title.value` while keeping a top-level `id` must
+    // still warn: the parser needs `title.value` (→ `!title -> continue`), so
+    // every row drops silently. The structural test catches the lost `value`.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ id: '999', title: { id: '999', text: 'Renamed' }, link: 'jobs/x--999' }] },
+      'ipw',
+      'de',
+    );
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
+  });
+
+  it('warns on a heterogeneous array — valid head, drifted tail (scans all rows)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      {
+        jobs: [
+          { title: { value: 'Good', id: '1' }, link: 'jobs/good--1' },
+          { name: 'drifted', href: '/x' },
+        ],
+      },
+      'ipw',
+      'de',
+    );
+    // the valid head still parses, but the drifted tail must surface a warn
+    expect(rows).toHaveLength(1);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch');
+  });
+
+  it('describes a bare non-object `data` without printing index keys', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseSoliqueApiListing(['a', 'b'], 'ipw', 'de')).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('got array[2]');
+    expect(warn.mock.calls[0][0]).not.toContain('envelope keys: 0, 1');
+  });
+
   it('does NOT warn on a genuinely empty board (valid envelope, zero openings)', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     expect(parseSoliqueApiListing({ jobs: [] }, 'ipw', 'de')).toHaveLength(0);

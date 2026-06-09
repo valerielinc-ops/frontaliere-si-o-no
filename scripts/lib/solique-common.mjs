@@ -142,23 +142,45 @@ export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
   // that is genuinely empty. Warn loudly so a shape/lang/pagination change
   // surfaces immediately instead of decaying into a silent zero-job crawl.
   if (!Array.isArray(data?.jobs)) {
+    // `data` can be a bare array/string/number for a fully-changed endpoint
+    // (JSON.parse yields a non-object); only print envelope keys when `data`
+    // is a plain object, else describe the actual type so the warn isn't
+    // misleading (printing array/char indices).
+    const shapeDesc =
+      data == null
+        ? String(data)
+        : Array.isArray(data)
+          ? `array[${data.length}]`
+          : typeof data !== 'object'
+            ? typeof data
+            : `\`${typeof data.jobs}\` (envelope keys: ${Object.keys(data).join(', ') || 'none'})`;
     console.warn(
-      `⚠️ Solique API shape mismatch for ${soliqueTenant} (${lang}): expected an array at \`data.jobs\`, got ${
-        data == null ? String(data) : `\`${typeof (data.jobs)}\` (envelope keys: ${Object.keys(data).join(', ') || 'none'})`
-      } — the /${lang}/api/v1/data/ response may have changed shape, lang, or paginated.`,
+      `⚠️ Solique API shape mismatch for ${soliqueTenant} (${lang}): expected an array at \`data.jobs\`, got ${shapeDesc} — the /${lang}/api/v1/data/ response may have changed shape, lang, or paginated.`,
     );
   }
   const jobs = Array.isArray(data?.jobs) ? data.jobs : [];
-  // A non-empty `jobs` array whose first row lacks the expected `title.value`
-  // (+ `link`) shape means the per-row schema drifted (renamed fields): every
-  // row would be skipped below, again indistinguishable from an empty board.
+  // Distinguish a per-row *schema drift* (renamed fields → nothing parseable)
+  // from the known, intentional empty-`title.value` *placeholder* rows (skipped
+  // silently below). Both lead to a dropped row, but only drift is a problem:
+  // a placeholder keeps the structural shape (a `title` object exposing a
+  // `value` property + a `link`); a rename loses those keys. We therefore test
+  // *structural* presence, NOT a non-empty value — so an all-placeholder board
+  // does not false-warn, while a `title.value`→renamed drift (the reviewer's
+  // sub-case: row keeps a top-level `id` but loses `title.value`) still fires.
+  // Scan ALL rows so a well-formed head followed by a drifted tail also warns.
   if (jobs.length > 0) {
-    const sample = jobs[0];
-    const hasTitleValue = sample?.title?.value != null || sample?.id != null;
-    if (!hasTitleValue || sample?.link == null) {
+    const structurallyOk = (r) =>
+      r != null &&
+      typeof r === 'object' &&
+      r.title != null &&
+      typeof r.title === 'object' &&
+      'value' in r.title &&
+      r.link != null;
+    const firstBad = jobs.find((r) => !structurallyOk(r));
+    if (firstBad !== undefined) {
       console.warn(
-        `⚠️ Solique API row shape mismatch for ${soliqueTenant} (${lang}): first of ${jobs.length} row(s) is missing \`title.value\`/\`link\` (row keys: ${
-          sample && typeof sample === 'object' ? Object.keys(sample).join(', ') || 'none' : typeof sample
+        `⚠️ Solique API row shape mismatch for ${soliqueTenant} (${lang}): a row among ${jobs.length} is missing the expected \`title.value\`/\`link\` shape (row keys: ${
+          firstBad && typeof firstBad === 'object' ? Object.keys(firstBad).join(', ') || 'none' : typeof firstBad
         }) — per-job field names may have changed.`,
       );
     }
