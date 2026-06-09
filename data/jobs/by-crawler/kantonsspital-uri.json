@@ -16,7 +16,7 @@
       "companyDomain": "ksuri.ch",
       "title": "Unterassistenten Innere Medizin",
       "titleByLocale": {
-        "it": "Unterassistenten Innere Medizin",
+        "it": "Medicina interna subassista",
         "en": "Assistant Internal Medicine",
         "de": "Unterassistenten Innere Medizin",
         "fr": "Sous-assistants en médecine interne"
@@ -68,7 +68,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "kantonsspital-uri-1d9b044c4b95",
