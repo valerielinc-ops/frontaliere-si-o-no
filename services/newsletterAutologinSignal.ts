@@ -60,10 +60,23 @@ let inFlight = ((): boolean => {
  }
 })();
 
+// Captured once at module load and never reset (unlike `inFlight`, which
+// settles after the exchange). True for the whole SPA session when the user
+// arrived on a newsletter autologin link. Lets late-running consumers — e.g.
+// the job-alert prompt — distinguish "this visitor came from a newsletter but
+// is still anonymous" (autologin never completed) from organic anonymous
+// traffic, without emitting telemetry for every anonymous page view.
+const attemptedAtLoad = inFlight;
+
 const subscribers = new Set<() => void>();
 
 export function isNewsletterAutologinInFlight(): boolean {
  return inFlight;
+}
+
+/** True if this SPA session began on a newsletter autologin link. Never resets. */
+export function wasNewsletterAutologinAttempted(): boolean {
+ return attemptedAtLoad;
 }
 
 /** Subscribe to the moment newsletter autologin settles. No-op if already settled. */
