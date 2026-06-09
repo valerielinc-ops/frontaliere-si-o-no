@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 // @ts-expect-error — plain .mjs crawler libs, no type declarations
 import { parseSoliqueListing, parseSoliqueApiListing, extractSoliqueDetailContent } from '../scripts/lib/solique-common.mjs';
 // @ts-expect-error — plain .mjs
@@ -36,6 +36,10 @@ const JSONLD_DETAIL = `<script type="application/ld+json">
 </script>`;
 
 describe('Solique listing parsers (consolidated solique-common)', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('parses the flat SSR board (adullam variant)', () => {
     const rows = parseSoliqueListing(SOLIQUE_SSR);
     expect(rows).toHaveLength(1);
@@ -59,6 +63,38 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
       maxPct: 80,
       detailUrl: 'https://live.solique.ch/ipw/de/jobs/Assistenzaerztin---Assistenzarzt--4006969',
     });
+  });
+
+  it('warns (non-silent) when the API envelope drops the `jobs` array — shape/lang/pagination drift', () => {
+    // #1518 item 2: a renamed/paginated envelope (e.g. `{ data: [...] }`) must NOT
+    // decay into a silent zero-job crawl indistinguishable from an empty board.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing({ data: [], page: 1 }, 'ipw', 'fr');
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API shape mismatch for ipw (fr)');
+    expect(warn.mock.calls[0][0]).toContain('data, page');
+  });
+
+  it('warns when rows lose the `title.value`/`link` per-row shape (field rename)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // `jobs` array present but rows use renamed fields → every row skipped.
+    const rows = parseSoliqueApiListing({ jobs: [{ name: 'X', href: '/y' }] }, 'ipw', 'de');
+    expect(rows).toHaveLength(0);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain('Solique API row shape mismatch for ipw (de)');
+  });
+
+  it('does NOT warn on a genuinely empty board (valid envelope, zero openings)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseSoliqueApiListing({ jobs: [] }, 'ipw', 'de')).toHaveLength(0);
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it('does NOT warn on the known-good de envelope (no regression)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseSoliqueApiListing(SOLIQUE_API, 'ipw', 'de')).toHaveLength(1);
+    expect(warn).not.toHaveBeenCalled();
   });
 
   it('extracts the job-introduction + content template (migratedBoard) without duplicating prose', () => {

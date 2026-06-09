@@ -135,7 +135,34 @@ function parseSoliqueTileBody(id, body) {
  */
 export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
   const base = `https://live.solique.ch/${soliqueTenant}`;
+  // Non-silent shape guard (#1518 item 2). The Solique JSON envelope is only
+  // exercised against `apiLang:'de'`; a different lang segment, a paginated
+  // ({jobs}→{data,page,…}) or renamed envelope would otherwise drop every row
+  // through the `Array.isArray` fallback below and look identical to a board
+  // that is genuinely empty. Warn loudly so a shape/lang/pagination change
+  // surfaces immediately instead of decaying into a silent zero-job crawl.
+  if (!Array.isArray(data?.jobs)) {
+    console.warn(
+      `⚠️ Solique API shape mismatch for ${soliqueTenant} (${lang}): expected an array at \`data.jobs\`, got ${
+        data == null ? String(data) : `\`${typeof (data.jobs)}\` (envelope keys: ${Object.keys(data).join(', ') || 'none'})`
+      } — the /${lang}/api/v1/data/ response may have changed shape, lang, or paginated.`,
+    );
+  }
   const jobs = Array.isArray(data?.jobs) ? data.jobs : [];
+  // A non-empty `jobs` array whose first row lacks the expected `title.value`
+  // (+ `link`) shape means the per-row schema drifted (renamed fields): every
+  // row would be skipped below, again indistinguishable from an empty board.
+  if (jobs.length > 0) {
+    const sample = jobs[0];
+    const hasTitleValue = sample?.title?.value != null || sample?.id != null;
+    if (!hasTitleValue || sample?.link == null) {
+      console.warn(
+        `⚠️ Solique API row shape mismatch for ${soliqueTenant} (${lang}): first of ${jobs.length} row(s) is missing \`title.value\`/\`link\` (row keys: ${
+          sample && typeof sample === 'object' ? Object.keys(sample).join(', ') || 'none' : typeof sample
+        }) — per-job field names may have changed.`,
+      );
+    }
+  }
   const out = [];
   const seen = new Set();
   for (const j of jobs) {
