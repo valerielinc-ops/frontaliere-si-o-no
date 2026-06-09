@@ -1748,6 +1748,37 @@ function isDailyLimitError(status, bodyText = '') {
 }
 
 /**
+ * Single source of truth for "the whole free-model pool is transiently
+ * unavailable" — i.e. every model in the fallback chain failed because of
+ * daily-quota/rate-limit exhaustion, NOT a code/data bug.
+ *
+ * This is a *transient external capacity* condition: free-tier daily limits
+ * reset at 00:00 UTC, so the next scheduled run normally succeeds. Callers use
+ * it to defer gracefully (skip this run, retry later) instead of crashing and
+ * raising a false-positive "Workflow Failure" Bug issue.
+ *
+ * Detects both the structured `ALL_MODELS_EXHAUSTED` error code thrown by
+ * `callLLM` and the legacy message substrings emitted by individual providers,
+ * so a single helper replaces the literal substring list previously duplicated
+ * across create-article.mjs and dedicated-crawler-common.mjs.
+ */
+export function isQuotaExhaustedError(err) {
+  if (!err) return false;
+  if (err.code === 'ALL_MODELS_EXHAUSTED') return true;
+  const msg = String(err.message || err || '').toLowerCase();
+  return (
+    msg.includes('all ai models failed') ||
+    msg.includes('daily request limit') ||
+    msg.includes('daily limit') ||
+    msg.includes('daily quota') ||
+    msg.includes('exceeded your current quota') ||
+    msg.includes('plan and billing details') ||
+    msg.includes('free-models-per-day') ||
+    msg.includes('free models per day')
+  );
+}
+
+/**
  * Detect permanent client errors that should NOT be retried.
  * - unknown_model: model doesn't exist on the provider (mark exhausted)
  * - context length / too many tokens: prompt too large for this model
