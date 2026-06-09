@@ -17,8 +17,50 @@ import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
+import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
 
 ensureAdminApp();
+
+// Public feedback → GitHub issue (reCAPTCHA-gated). Keeps the repo PAT
+// server-side instead of shipping it to every browser via the feedback form.
+export const createFeedbackIssue = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleCreateFeedbackIssue(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[createFeedbackIssue]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Admin-only GitHub connection: returns the repo PAT to the verified admin
+// (Firebase ID-token email allowlist) so `GITHUB_PAT` can leave the universal
+// public config. The dashboard's existing GitHub logic is otherwise unchanged.
+export const getAdminGithubToken = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleGetAdminGithubToken(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[getAdminGithubToken]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
 
 // Browser-safe Remote Config: returns ONLY the allowlisted client params
 // (see functions/src/publicConfig.js) so the full RC template — with all server
