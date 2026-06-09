@@ -267,7 +267,7 @@ function renderHero({ campaign, exchangeRate, locale }) {
           </table>
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr><td align="left">
-              <a href="${utmUrl('/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:13px 18px;border-radius:12px;font-size:15px;font-weight:700;">${nlT(locale, 'heroCta')}</a>
+              <a target="_blank" rel="noopener noreferrer" href="${utmUrl('/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:13px 18px;border-radius:12px;font-size:15px;font-weight:700;">${nlT(locale, 'heroCta')}</a>
             </td></tr>
           </table>
         </td>
@@ -309,7 +309,7 @@ function renderExchangeRate({ rate, previousRate, campaign, locale }) {
         </table>
         <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
           <tr><td align="left">
-            <a href="${utmUrl('/compara-servizi/cambio-franco-euro', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
+            <a target="_blank" rel="noopener noreferrer" href="${utmUrl('/compara-servizi/cambio-franco-euro', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
               ${nlT(locale, 'exchangeCta')}
             </a>
           </td></tr>
@@ -354,7 +354,7 @@ function renderMarketOutlook({ insight, campaign, locale }) {
 
         <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
           <tr><td align="left">
-            <a href="${utmUrl('/compara-servizi/cambio-franco-euro', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
+            <a target="_blank" rel="noopener noreferrer" href="${utmUrl('/compara-servizi/cambio-franco-euro', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
               ${nlT(locale, 'outlookCta')}
             </a>
           </td></tr>
@@ -372,7 +372,7 @@ function renderTopArticles({ articles, campaign, locale }) {
           <tr>
             <td style="width:28px;vertical-align:top;font-size:20px;font-weight:bold;color:${BRAND_BLUE};">${i + 1}</td>
             <td style="vertical-align:top;">
-              <a href="${utmUrl(a.url, campaign)}" style="font-size:15px;font-weight:600;color:${BRAND_DARK};text-decoration:none;">${escapeHtml(a.title)}</a>
+              <a target="_blank" rel="noopener noreferrer" href="${utmUrl(a.url, campaign)}" style="font-size:15px;font-weight:600;color:${BRAND_DARK};text-decoration:none;">${escapeHtml(a.title)}</a>
               <div style="font-size:12px;color:${MUTED_COLOR};margin-top:2px;">${a.views} ${nlT(locale, 'articleReads')} · ${a.readingMinutes || 5} ${nlT(locale, 'articleMin')}</div>
             </td>
           </tr>
@@ -387,7 +387,7 @@ function renderTopArticles({ articles, campaign, locale }) {
         <table width="100%" cellpadding="0" cellspacing="0">${rows}</table>
         <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
           <tr><td align="left">
-            <a href="${utmUrl('/articoli-frontaliere', campaign)}" style="display:inline-block;color:${BRAND_BLUE};text-decoration:none;font-size:14px;font-weight:700;">${nlT(locale, 'articlesCta')}</a>
+            <a target="_blank" rel="noopener noreferrer" href="${utmUrl('/articoli-frontaliere', campaign)}" style="display:inline-block;color:${BRAND_BLUE};text-decoration:none;font-size:14px;font-weight:700;">${nlT(locale, 'articlesCta')}</a>
           </td></tr>
         </table>
       </td></tr>
@@ -415,7 +415,7 @@ function renderLatestArticle({ title, excerpt, imageUrl, articleUrl, campaign, l
           <div style="font-size:15px;color:${TEXT_COLOR};line-height:1.6;padding-bottom:16px;">${escapeHtml(excerpt)}</div>
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr><td align="left">
-              <a href="${utmUrl(articleUrl, campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
+              <a target="_blank" rel="noopener noreferrer" href="${utmUrl(articleUrl, campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
                 ${nlT(locale, 'latestCta')}
               </a>
             </td></tr>
@@ -432,7 +432,7 @@ function renderFeaturedTool({ title, description, buttonText, toolUrl, campaign,
         <div style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:${MUTED_COLOR};padding-bottom:8px;font-weight:700;">${nlT(locale, 'toolLabel')}</div>
         <div style="font-size:24px;line-height:1.25;font-weight:800;color:${BRAND_DARK};padding-bottom:8px;">${escapeHtml(title)}</div>
         <div style="font-size:15px;color:${TEXT_COLOR};line-height:1.6;padding-bottom:16px;">${escapeHtml(description)}</div>
-        <a href="${utmUrl(toolUrl, campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
+        <a target="_blank" rel="noopener noreferrer" href="${utmUrl(toolUrl, campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:15px;font-weight:700;">
           ${escapeHtml(buttonText)}
         </a>
       </td></tr>
@@ -465,7 +465,7 @@ function renderJobSection({ jobs, campaign, locale }) {
     return `
       <tr>
         <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
-          <a href="${jobUrl}" style="text-decoration:none;">
+          <a target="_blank" rel="noopener noreferrer" href="${jobUrl}" style="text-decoration:none;">
             <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${title}</div>
             <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${company}${location ? ` · ${location}` : ''}</div>
           </a>
@@ -483,7 +483,7 @@ function renderJobSection({ jobs, campaign, locale }) {
           </table>
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
             <tr><td align="center">
-              <a href="${utmUrl('/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:700;">${JOB_CTA[locale] || JOB_CTA.it}</a>
+              <a target="_blank" rel="noopener noreferrer" href="${utmUrl('/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:700;">${JOB_CTA[locale] || JOB_CTA.it}</a>
             </td></tr>
           </table>
         </td>
@@ -505,7 +505,7 @@ function renderAffiliatePartners({ campaign, locale }) {
     return `
       <tr>
         <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
-          <a href="${utmUrl(p.goUrl, campaign)}" style="text-decoration:none;">
+          <a target="_blank" rel="noopener noreferrer" href="${utmUrl(p.goUrl, campaign)}" style="text-decoration:none;">
             <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${p.emoji} ${escapeHtml(p.name)}</div>
             <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${escapeHtml(desc)}</div>
           </a>
@@ -607,7 +607,7 @@ export function buildNewsletter(data) {
         <tr><td class="outer-card" style="background:${LIGHT_BG};padding:24px;">
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
             <tr><td style="text-align:center;">
-              <a href="${BASE_URL}" style="text-decoration:none;">
+              <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="text-decoration:none;">
                 <img src="${BASE_URL}/icons/icon-192x192.png" alt="Frontaliere Ticino" width="40" height="40" style="display:inline-block;vertical-align:middle;border-radius:10px;margin-right:8px;" />
                 <span style="font-size:18px;font-weight:800;color:${BRAND_BLUE};vertical-align:middle;">Frontaliere Ticino</span>
               </a>
@@ -619,11 +619,11 @@ export function buildNewsletter(data) {
         <tr><td style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:16px;padding:18px;text-align:center;">
           <div style="font-size:13px;color:${MUTED_COLOR};line-height:1.6;">${nlT(locale, 'footerReason')}</div>
           <div style="margin-top:12px;font-size:12px;color:${MUTED_COLOR};line-height:1.8;">
-            <a href="${data.unsubscribeUrl || '#'}" style="font-size:11px;color:${MUTED_COLOR};text-decoration:underline;">${nlT(locale, 'footerUnsub')}</a>
+            <a target="_blank" rel="noopener noreferrer" href="${data.unsubscribeUrl || '#'}" style="font-size:11px;color:${MUTED_COLOR};text-decoration:underline;">${nlT(locale, 'footerUnsub')}</a>
             <span style="color:${MUTED_COLOR};font-size:11px;"> · </span>
-            <a href="${data.resubscribeUrl || '{{RESUBSCRIBE_URL}}'}" style="font-size:11px;color:${MUTED_COLOR};text-decoration:underline;">${nlT(locale, 'footerResub')}</a>
+            <a target="_blank" rel="noopener noreferrer" href="${data.resubscribeUrl || '{{RESUBSCRIBE_URL}}'}" style="font-size:11px;color:${MUTED_COLOR};text-decoration:underline;">${nlT(locale, 'footerResub')}</a>
             <span style="color:${MUTED_COLOR};font-size:11px;"> · </span>
-            <a href="${utmUrl('/privacy', campaign)}" style="font-size:11px;color:${MUTED_COLOR};text-decoration:underline;">${nlT(locale, 'footerPrivacy')}</a>
+            <a target="_blank" rel="noopener noreferrer" href="${utmUrl('/privacy', campaign)}" style="font-size:11px;color:${MUTED_COLOR};text-decoration:underline;">${nlT(locale, 'footerPrivacy')}</a>
           </div>
         </td></tr>
       </table>

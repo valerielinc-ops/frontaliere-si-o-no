@@ -281,7 +281,7 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
       html = html.replace(new RegExp(`<a[^>]*>\\s*(${titleEsc})\\s*</a>`, 'gi'), '$1');
       html = html.replace(new RegExp(`<strong>(${titleEsc})</strong>`, 'gi'), '$1');
       if (jobUrl && appearsInText(html, titleEsc)) {
-        html = replaceOutsideTags(html, titleEsc, 'i', (m) => `<a href="${jobUrl}" style="${linkStyle}">${m}</a>`);
+        html = replaceOutsideTags(html, titleEsc, 'i', (m) => `<a target="_blank" rel="noopener noreferrer" href="${jobUrl}" style="${linkStyle}">${m}</a>`);
         foundTitle = true;
       }
     }
@@ -297,7 +297,7 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
         html = html.replace(new RegExp(`<a[^>]*>\\s*(${nameEsc})\\s*</a>`, 'gi'), '$1');
         html = html.replace(new RegExp(`<strong>(${nameEsc})</strong>`, 'gi'), '$1');
         if (companyUrl && appearsInText(html, nameEsc)) {
-          html = replaceOutsideTags(html, nameEsc, 'i', (m) => `<a href="${companyUrl}" style="${linkStyle}">${m}</a>`);
+          html = replaceOutsideTags(html, nameEsc, 'i', (m) => `<a target="_blank" rel="noopener noreferrer" href="${companyUrl}" style="${linkStyle}">${m}</a>`);
           companyLinked = true;
         }
       }
@@ -305,9 +305,9 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
 
     // Collect snippet for fallback paragraph if title wasn't found in AI text
     if (!foundTitle && jobUrl && j.title) {
-      const titleLink = `<a href="${jobUrl}" style="${linkStyle}">${j.title}</a>`;
+      const titleLink = `<a target="_blank" rel="noopener noreferrer" href="${jobUrl}" style="${linkStyle}">${j.title}</a>`;
       const companyPart = j.company && companyUrl
-        ? ` ${i18n.at} <a href="${companyUrl}" style="${linkStyle}">${j.company}</a>`
+        ? ` ${i18n.at} <a target="_blank" rel="noopener noreferrer" href="${companyUrl}" style="${linkStyle}">${j.company}</a>`
         : j.company ? ` ${i18n.at} ${j.company}` : '';
       const locationPart = j.location ? ` ${i18n.in} ${j.location}` : '';
       linkedSnippets.push(`${titleLink}${companyPart}${locationPart}`);
@@ -353,7 +353,7 @@ function injectToolLinks(html, locale = 'it') {
       const closeAnchors = (before.match(/<\/a>/gi) || []).length;
       if (openAnchors > closeAnchors) return match; // inside an existing <a>
       const absUrl = `${BASE_URL}${url}`;
-      return `<a href="${absUrl}" style="${linkStyle}">${match}</a>`;
+      return `<a target="_blank" rel="noopener noreferrer" href="${absUrl}" style="${linkStyle}">${match}</a>`;
     });
   }
   return html;

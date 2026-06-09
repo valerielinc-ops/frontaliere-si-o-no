@@ -402,7 +402,7 @@ function renderHeroExchangeRate({ rate, previousRate, locale }) {
       <div style="font-size:14px;color:#94a3b8;margin:0 0 20px;">${nlT(locale, 'greetingSub')}</div>
 
       <!--[if mso]><table cellpadding="0" cellspacing="0" align="center"><tr><td style="background:#1e293b;border-radius:16px;padding:20px 36px;"><![endif]-->
-      <a href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="text-decoration:none;display:inline-block;">
+      <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="text-decoration:none;display:inline-block;">
       <div class="rate-box" style="display:inline-block;background:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:20px 36px;margin:8px 0 16px;">
         <div style="font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">${nlT(locale, 'rateLabel')}</div>
         <div class="hero-rate" style="font-size:52px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-1px;line-height:1.1;">${rate.toFixed(4)}</div>
@@ -419,7 +419,7 @@ function renderHeroExchangeRate({ rate, previousRate, locale }) {
       <div style="margin-top:12px;font-size:14px;color:#e2e8f0;line-height:1.5;">${compareHtml}</div>
 
       <div style="margin-top:16px;">
-        <a href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="display:inline-block;background:${BRAND_ORANGE};color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:12px 28px;border-radius:8px;">${nlT(locale, 'rateCta')}</a>
+        <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="display:inline-block;background:${BRAND_ORANGE};color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:12px 28px;border-radius:8px;">${nlT(locale, 'rateCta')}</a>
       </div>
     </td></tr>`;
 }
@@ -455,7 +455,7 @@ function renderMetrics(totalJobs, metrics, locale) {
       <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0"><tr><td width="33%" valign="top"><![endif]-->
       <table width="100%" cellpadding="0" cellspacing="0"><tr class="metric-row">
         <td width="33%" style="padding:0 4px 0 0;">
-          <a href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="text-decoration:none;display:block;">
+          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcbc</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${totalJobs || '200+'}</div>
@@ -465,7 +465,7 @@ function renderMetrics(totalJobs, metrics, locale) {
         </td>
         <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
         <td width="33%" style="padding:0 4px;">
-          <a href="${localizedUrl('/statistiche', locale)}" style="text-decoration:none;display:block;">
+          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/statistiche', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcca</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${unemploymentRate}</div>
@@ -475,7 +475,7 @@ function renderMetrics(totalJobs, metrics, locale) {
         </td>
         <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
         <td width="33%" style="padding:0 0 0 4px;">
-          <a href="${localizedUrl('/compara-servizi/confronta-casse-malati', locale)}" style="text-decoration:none;display:block;">
+          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/compara-servizi/confronta-casse-malati', locale)}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83c\udfe5</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${lamalPremium}</div>
@@ -506,7 +506,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
 
     return `
       <tr><td style="padding:0 0 10px;">
-        <a href="${directUrl(job.url)}" style="text-decoration:none;display:block;">
+        <a target="_blank" rel="noopener noreferrer" href="${directUrl(job.url)}" style="text-decoration:none;display:block;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background:${BRAND_DARK};border-radius:12px;">
             <tr>
               <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
@@ -519,7 +519,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
               </td>
               <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
                 <div class="job-title" style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;line-height:1.3;">${escapeHtml(truncatedTitle)}</div>
-                <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${job.companyUrl ? `<a href="${directUrl(job.companyUrl)}" style="color:#94a3b8;text-decoration:underline;">${escapeHtml(job.company)}</a>` : escapeHtml(job.company)}${job.location ? ' \u00b7 ' + escapeHtml(job.location) : ''}</div>
+                <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${job.companyUrl ? `<a target="_blank" rel="noopener noreferrer" href="${directUrl(job.companyUrl)}" style="color:#94a3b8;text-decoration:underline;">${escapeHtml(job.company)}</a>` : escapeHtml(job.company)}${job.location ? ' \u00b7 ' + escapeHtml(job.location) : ''}</div>
                 ${tags.length > 0 ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : ''}
               </td>
             </tr>
@@ -535,7 +535,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
       <table width="100%" cellpadding="0" cellspacing="0">
         ${jobCards}
         <tr><td style="text-align:center;padding-top:14px;">
-          <a href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${ctaText}</a>
+          <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${ctaText}</a>
         </td></tr>
       </table>
     </td></tr>`;
@@ -592,7 +592,7 @@ function renderArticle(article, locale) {
   const emoji = deriveArticleEmoji(article);
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 8px;">
-      <a href="${directUrl(article.url)}" style="text-decoration:none;display:block;">
+      <a target="_blank" rel="noopener noreferrer" href="${directUrl(article.url)}" style="text-decoration:none;display:block;">
         <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;overflow:hidden;">
           <div style="width:100%;height:200px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:200px;">
             <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
@@ -618,7 +618,7 @@ function renderTools(locale) {
     const popular = isFeatured ? `<span style="font-size:9px;background:${BRAND_ORANGE};color:#fff;padding:2px 6px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-left:4px;vertical-align:middle;">\u2605 #1</span>` : '';
     return `
       <td width="50%" class="tool-cell" style="padding:${i % 2 === 0 ? '0 5px 10px 0' : '0 0 10px 5px'};vertical-align:top;">
-        <a href="${localizedUrl(tool.toolUrl, locale)}" style="text-decoration:none;display:block;">
+        <a target="_blank" rel="noopener noreferrer" href="${localizedUrl(tool.toolUrl, locale)}" style="text-decoration:none;display:block;">
           <div style="background:${bg};border:1px solid ${border};border-radius:12px;padding:16px 14px;">
             <div style="font-size:24px;margin-bottom:6px;">${tool.icon}</div>
             <div style="font-size:13px;font-weight:700;color:${nameColor};margin:0 0 4px;">${escapeHtml(tool.title)}${popular}</div>
@@ -651,19 +651,19 @@ function renderCloser(locale) {
 }
 
 function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
-  const unsubLink = `<a href="${unsubscribeUrl || '{{UNSUBSCRIBE_URL}}'}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'unsubLink')}</a>`;
+  const unsubLink = `<a target="_blank" rel="noopener noreferrer" href="${unsubscribeUrl || '{{UNSUBSCRIBE_URL}}'}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'unsubLink')}</a>`;
   const unsubLine = nlT(locale, 'unsubText').replace('{link}', unsubLink);
   const prefsLine = preferencesUrl
-    ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a href="${preferencesUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'prefsLink')}</a></div>`
+    ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${preferencesUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'prefsLink')}</a></div>`
     : '';
   return `
     <tr><td class="footer-pad" style="background:${BRAND_DARK};padding:28px;text-align:center;">
       <div style="margin-bottom:12px;">
-        <a href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
-        <a href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
-        <a href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
+        <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
       </div>
-      <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${nlT(locale, 'footerReason')} <a href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
+      <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${nlT(locale, 'footerReason')} <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${unsubLine}</div>
       ${prefsLine}
       <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 ${nlT(locale, 'copyright')}</div>

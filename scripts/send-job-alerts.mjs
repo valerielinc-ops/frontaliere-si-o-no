@@ -633,7 +633,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 
     return `
         <tr><td style="padding:0 0 10px;">
-          <a href="${url}" style="text-decoration:none;display:block;">
+          <a target="_blank" rel="noopener noreferrer" href="${url}" style="text-decoration:none;display:block;">
             <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
               <tr>
                 <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
@@ -687,7 +687,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
                 <span style="color:${BRAND_ORANGE};">\u25cf</span> Frontaliere Ticino
               </td>
               <td align="right" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">
-                <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:none;">${s.manageAlerts}</a>
+                <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:none;">${s.manageAlerts}</a>
               </td>
             </tr>
           </table>
@@ -711,7 +711,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
           <table width="100%" cellpadding="0" cellspacing="0">
             ${jobCards}
             <tr><td style="text-align:center;padding-top:14px;">
-              <a href="${allJobsUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${s.viewAll}</a>
+              <a target="_blank" rel="noopener noreferrer" href="${allJobsUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${s.viewAll}</a>
             </td></tr>
           </table>
         </td></tr>
@@ -730,18 +730,18 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
             ${s.intendedFor(escHtml(alert.email), filterSummary)}
           </div>
           <div style="margin-bottom:12px;">
-            <a href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
-            <a href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
-            <a href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
+            <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
           </div>
           <div style="font-size:12px;color:${MUTED};margin:4px 0;">
-            <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${s.manageAlerts}</a>
+            <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${s.manageAlerts}</a>
           </div>
           <div style="font-size:12px;color:${MUTED};margin:4px 0;">
-            ${s.unsubThis(filterLabel)} <a href="${unsubscribeUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${s.unsubThisLink}</a>
+            ${s.unsubThis(filterLabel)} <a target="_blank" rel="noopener noreferrer" href="${unsubscribeUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${s.unsubThisLink}</a>
           </div>
           <div style="font-size:12px;color:${MUTED};margin:4px 0;">
-            <a href="${unsubAllUrl}" style="color:#94a3b8;text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
+            <a target="_blank" rel="noopener noreferrer" href="${unsubAllUrl}" style="color:#94a3b8;text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
           </div>
           <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
         </td></tr>

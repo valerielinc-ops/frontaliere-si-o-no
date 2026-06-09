@@ -51,7 +51,7 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') 
  <tr><td align="center">
  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
  <tr><td style="text-align:center;padding-bottom:24px;">
- <a href="${BASE_URL}" style="text-decoration:none;">
+ <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="text-decoration:none;">
  <img src="${BASE_URL}/icons/icon-192x192.png" alt="${t(lang, 'brandName')}" width="48" height="48" style="display:block;margin:0 auto 8px;border-radius:12px;" />
  <div style="font-size:22px;font-weight:800;color:${BRAND_BLUE};">${t(lang, 'brandName')}</div>
  <div style="font-size:12px;color:${MUTED_COLOR};letter-spacing:.04em;">${t(lang, 'brandTagline')}</div>
@@ -64,7 +64,7 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') 
  </div>
  <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
  <tr><td align="center">
- <a href="${escapeHtml(confirmUrl)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;letter-spacing:.02em;">
+ <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(confirmUrl)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;letter-spacing:.02em;">
  ${t(lang, 'confirmButton')}
  </a>
  </td></tr>
@@ -93,7 +93,7 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') 
  <tr><td style="text-align:center;padding:20px 0 8px;">
  <div style="font-size:12px;color:${MUTED_COLOR};">
  ${t(lang, 'copyright', { year })} ·
- <a href="${BASE_URL}" style="color:${MUTED_COLOR};text-decoration:none;">frontaliereticino.ch</a>
+ <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${MUTED_COLOR};text-decoration:none;">frontaliereticino.ch</a>
  </div>
  </td></tr>
  </table>
