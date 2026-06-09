@@ -81,7 +81,12 @@ jobs:
           # one-item nel prompt (R3-A): il prompt-only R2-A non sempre teneva
           # (#1172 error_max_turns post-merge). is_aggregate guida l'istruzione
           # forte "fixa 1 item poi STOP".
-          N=$(printf '%s' "$body" | grep -oiE '[0-9]+ item deferred' | head -1 | grep -oE '^[0-9]+' || true)
+          # `items?` (not just `item`): il titolo è LLM-generated dal template
+          # FOLLOWUP.md; per N>=2 il fraseggio naturale è il plurale "2 items
+          # deferred". Senza la `s?` opzionale il match fallisce → is_aggregate
+          # falso negativo → circuit-breaker one-item no-op → error_max_turns su
+          # aggregate (#1172-class, ~2M token). Cfr. #1201 item 1.
+          N=$(printf '%s' "$body" | grep -oiE '[0-9]+ items? deferred' | head -1 | grep -oE '^[0-9]+' || true)
           if [ "${N:-0}" -ge 2 ] 2>/dev/null; then
             echo "is_aggregate=true" >> "$GITHUB_OUTPUT"
             echo "agg_count=${N}" >> "$GITHUB_OUTPUT"
