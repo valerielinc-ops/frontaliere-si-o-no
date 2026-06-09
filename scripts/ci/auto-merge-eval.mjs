@@ -33,6 +33,7 @@
  * atteso (l'altro trigger ri-valuterà), non un errore di workflow.
  */
 import { execFileSync } from 'node:child_process';
+import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
@@ -172,7 +173,7 @@ function main() {
   let conclusion = '';
   try {
     conclusion = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
-      '--jq', '[.check_runs[] | select(.name == "vitest (unit + integration)")][0].conclusion // ""'],
+      '--jq', `[.check_runs[] | select(.name == ${JSON.stringify(VITEST_CHECK_NAME)})][0].conclusion // ""`],
       { json: false }).trim();
   } catch (e) {
     return fail(`Impossibile leggere check-runs HEAD ${head}: ${String(e).slice(0, 160)} — skip.`);
