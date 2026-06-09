@@ -23,9 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-09T11:46:45.234Z",
-      "slug": "medizinische-r-praxisassistent-in-schmerzzentrum-kantonsspital-graubunden-chur",
+      "slug": "medico-r-assistente-di-pratica-nel-centro-di-dolore-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-schmerzzentrum-kantonsspital-graubunden-chur"
+        "de": "medizinische-r-praxisassistent-in-schmerzzentrum-kantonsspital-graubunden-chur",
+        "it": "medico-r-assistente-di-pratica-nel-centro-di-dolore-kantonsspital-graubunden-chur",
+        "en": "medical-r-practice-assistant-in-pain-center-kantonsspital-graubunden-chur",
+        "fr": "assistant-medical-centre-de-soins-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Schmerzzentrum",
@@ -55,7 +58,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-09T11:46:45.234Z"
+      "firstSeenAt": "2026-06-09T11:46:45.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-schmerzzentrum-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-schmerzzentrum-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10066879",
@@ -78,9 +89,11 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-09T11:46:45.234Z",
-      "slug": "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur",
+      "slug": "disposizione-reception-paziente-amministrazione-interna-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur"
+        "de": "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur",
+        "it": "disposizione-reception-paziente-amministrazione-interna-kantonsspital-graubunden-chur",
+        "en": "disposition-reception-patient-interior-administration-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Verfügbarkeit / Empfang / Patient:innen Verwaltung",
@@ -110,7 +123,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-09T11:46:45.234Z"
+      "firstSeenAt": "2026-06-09T11:46:45.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10054272",
@@ -6228,7 +6249,6 @@
         "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur",
-        "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {

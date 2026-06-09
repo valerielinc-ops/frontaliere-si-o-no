@@ -81,12 +81,12 @@
     },
     {
       "id": "nant-dade70997287",
-      "slug": "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey",
+      "slug": "infermiera-all-80-foehn-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey",
-        "it": "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey",
-        "en": "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey",
-        "de": "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey"
+        "it": "infermiera-all-80-foehn-fondation-de-nant-corsier-sur-vevey",
+        "en": "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
+        "de": "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -142,7 +142,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T11:59:17.992Z"
+      "firstSeenAt": "2026-06-09T11:59:17.992Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey"
+        ],
+        "de": [
+          "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-s-a-80-foehn-nant-corsier-sur-vevey"
+      ]
     },
     {
       "id": "nant-466f15d99955",

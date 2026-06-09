@@ -549,12 +549,12 @@
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-91b9bb363811",
-      "slug": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
+      "slug": "cuocere-cucinare-efz-100-luzerner-hohenklinik-montana-crans-montana",
       "slugByLocale": {
         "de": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "it": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "en": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "fr": "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        "it": "cuocere-cucinare-efz-100-luzerner-hohenklinik-montana-crans-montana",
+        "en": "cook-cook-efz-100-luzerner-hohenklinik-montana-crans-montana",
+        "fr": "faire-cuire-cuire-efz-100-luzerner-hohenklinik-montana-crans-montana"
       },
       "company": "Luzerner Höhenklinik Montana",
       "companyKey": "lhm-luzerner-hohenklinik-montana",
@@ -611,11 +611,23 @@
       },
       "firstSeenAt": "2026-06-09T11:50:29.602Z",
       "previousSlugs": [
+        "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
         "addetto-di-ristorante-cfc-con-compiti-speciali-luzerner-hohenklinik-montana-crans-montana",
         "restaurant-professional-with-special-duties-luzerner-hohenklinik-montana-crans-montana",
         "restaurantfachperson-efz-mit-besonderen-lhm-luzerner-hohenklinik-montana-crans-montana",
         "professionnel-de-la-restauration-avec-des-taches-speciales-luzerner-hohenklinik-montana-crans-montana"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "en": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "fr": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ]
+      }
     }
   ]
 }

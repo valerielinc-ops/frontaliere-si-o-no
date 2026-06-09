@@ -521,12 +521,12 @@
     },
     {
       "id": "davos-klosters-bergbahnen-cbe65104ec80",
-      "slug": "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
+      "slug": "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
-        "it": "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
-        "en": "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
-        "fr": "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
+        "it": "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos",
+        "en": "business-electrician-in-parsenn-davos-klosters-bergbahnen-ag-davos",
+        "fr": "electricien-d-affaires-en-parsenn-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -578,16 +578,30 @@
       "postalCode": "7270",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-09T11:17:26.316Z"
+      "firstSeenAt": "2026-06-09T11:17:26.316Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-b1e9004c53e4",
-      "slug": "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
+      "slug": "elettricisti-di-affari-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
-        "it": "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
-        "en": "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
-        "fr": "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos"
+        "it": "elettricisti-di-affari-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos",
+        "en": "business-electricians-in-real-estate-maintenance-davos-klosters-bergbahnen-ag-davos",
+        "fr": "electriciens-d-affaires-dans-l-entretien-immobilier-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -639,7 +653,21 @@
       "postalCode": "7270",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-09T11:17:26.005Z"
+      "firstSeenAt": "2026-06-09T11:17:26.005Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos"
+      ]
     }
   ]
 }

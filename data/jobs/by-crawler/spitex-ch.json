@@ -1164,12 +1164,12 @@
     },
     {
       "id": "spitex-ch-149c420d7684",
-      "slug": "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal",
+      "slug": "dipl-esperto-di-wound-esperto-diwound-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "slugByLocale": {
         "de": "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal",
-        "it": "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal",
-        "en": "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal",
-        "fr": "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal"
+        "it": "dipl-esperto-di-wound-esperto-diwound-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "en": "dipl-wound-expert-wound-expert-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "fr": "dipl-expert-expert-des-blesses-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1225,7 +1225,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T12:17:48.580Z"
+      "firstSeenAt": "2026-06-09T12:17:48.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal"
+        ],
+        "en": [
+          "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
+          "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal"
+      ]
     },
     {
       "id": "spitex-ch-ae05f4b270ab",
@@ -1302,12 +1316,12 @@
     },
     {
       "id": "spitex-ch-22480c934081",
-      "slug": "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen",
+      "slug": "amministratore-delegato-80-100-spitex-laufental-laufen",
       "slugByLocale": {
         "de": "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen",
-        "it": "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen",
-        "en": "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen",
-        "fr": "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen"
+        "it": "amministratore-delegato-80-100-spitex-laufental-laufen",
+        "en": "managing-director-80-100-spitex-laufental-laufen",
+        "fr": "directeur-general-80-100-spitex-laufental-laufen"
       },
       "company": "SPITEX Laufental",
       "companyKey": "spitex-ch",
@@ -1363,16 +1377,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T12:17:47.075Z"
+      "firstSeenAt": "2026-06-09T12:17:47.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen"
+        ],
+        "en": [
+          "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen"
+        ],
+        "fr": [
+          "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsleiterin-geschaftsleiter-80-100-spitex-ch-laufen"
+      ]
     },
     {
       "id": "spitex-ch-764fb542e3ad",
-      "slug": "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal",
+      "slug": "gestione-della-cura-60-80-membro-della-direzione-spitex-oberaargau-ag-langenthal",
       "slugByLocale": {
         "de": "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal",
-        "it": "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal",
-        "en": "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal",
-        "fr": "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal"
+        "it": "gestione-della-cura-60-80-membro-della-direzione-spitex-oberaargau-ag-langenthal",
+        "en": "care-management-60-80-member-of-the-management-spitex-oberaargau-ag-langenthal",
+        "fr": "gestion-des-soins-60-80-membre-de-la-direction-spitex-oberaargau-ag-langenthal"
       },
       "company": "Spitex Oberaargau AG",
       "companyKey": "spitex-ch",
@@ -1430,19 +1458,31 @@
       },
       "firstSeenAt": "2026-06-09T12:17:46.472Z",
       "previousSlugs": [
+        "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal",
         "gestione-60-80-membro-della-direzione-spitex-oberaargau-ag-langenthal",
         "management-care-60-80-member-of-the-management-board-spitex-oberaargau-ag-langenthal",
         "soins-de-gestion-60-80-membre-du-directoire-spitex-oberaargau-ag-langenthal"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal"
+        ],
+        "en": [
+          "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal"
+        ],
+        "fr": [
+          "fachleitung-pflege-60-80-mitglied-der-geschaftsleitung-spitex-ch-langenthal"
+        ]
+      }
     },
     {
       "id": "spitex-ch-c8ef1ecd7108",
-      "slug": "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal",
+      "slug": "gestione-del-team-dipl-infermiere-hf-fh-80-100-spitex-oberaargau-ag-langenthal",
       "slugByLocale": {
         "de": "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal",
-        "it": "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal",
-        "en": "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal",
-        "fr": "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal"
+        "it": "gestione-del-team-dipl-infermiere-hf-fh-80-100-spitex-oberaargau-ag-langenthal",
+        "en": "team-management-dipl-nurse-hf-fh-80-100-spitex-oberaargau-ag-langenthal",
+        "fr": "gestion-d-equipe-infirmiere-diplomee-hf-fh-80-100-spitex-oberaargau-ag-langenthal"
       },
       "company": "Spitex Oberaargau AG",
       "companyKey": "spitex-ch",
@@ -1498,7 +1538,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T12:17:45.719Z"
+      "firstSeenAt": "2026-06-09T12:17:45.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal"
+        ],
+        "en": [
+          "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal"
+        ],
+        "fr": [
+          "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-dipl-pflegefachperson-hf-fh-80-100-spitex-ch-langenthal"
+      ]
     },
     {
       "id": "spitex-ch-43bfefa22fb7",
@@ -1506,8 +1560,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch",
         "it": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg",
-        "en": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg",
-        "fr": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg"
+        "en": "dipl-care-professional-hf-or-fh-60-80-with-interest-in-palliative-care-spitex-rothenburg-rothenburg",
+        "fr": "dipl-soins-professionnels-hf-ou-fh-60-80-avec-interet-pour-les-soins-palliatifs-spitex-rothenburg-rothenburg"
       },
       "company": "Spitex Rothenburg",
       "companyKey": "spitex-ch",
@@ -1644,7 +1698,6 @@
         "infirmier-dipl-hf-specialise-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-infermiere-a-hf-specializzazione-kinder-e-jugendpsychiatria-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
         "dipl-nursing-professional-hf-specialization-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl"
       ],
       "previousSlugsByLocale": {
@@ -1670,12 +1723,12 @@
     },
     {
       "id": "spitex-ch-33c2437cd148",
-      "slug": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
+      "slug": "professionista-della-salute-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "it": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "en": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        "it": "professionista-della-salute-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "en": "health-professional-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "professionnels-de-la-sante-efz-fage-50-90-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -1733,15 +1786,24 @@
       },
       "firstSeenAt": "2026-06-09T12:17:43.617Z",
       "previousSlugs": [
-        "professionista-della-salute-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
-        "health-professional-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
-        "professionnels-de-la-sante-efz-fage-50-90-spitex-rechtes-limmattal-weiningen-zh",
+        "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
         "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "professional-health-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "sante-professionnelle-efz-fage-50-90-spitex-rechtes-limmattal-weiningen-zh",
         "salute-professionale-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "specialista-della-salute-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        ]
+      }
     },
     {
       "id": "spitex-ch-bdab6d40b374",

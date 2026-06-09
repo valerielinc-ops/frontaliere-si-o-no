@@ -130,10 +130,10 @@
     },
     {
       "id": "bachem-737e2720b192",
-      "slug": "pcs-library-engineer-a-100-bachem-stein-ag",
+      "slug": "ingegnere-della-biblioteca-pcs-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
         "de": "pcs-library-engineer-a-100-bachem-stein-ag",
-        "it": "pcs-library-engineer-a-100-bachem-stein-ag",
+        "it": "ingegnere-della-biblioteca-pcs-a-100-bachem-ag-stein-ag",
         "en": "pcs-library-engineer-a-100-bachem-stein-ag",
         "fr": "pcs-library-engineer-a-100-bachem-stein-ag"
       },
@@ -190,7 +190,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T12:21:55.807Z"
+      "firstSeenAt": "2026-06-09T12:21:55.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pcs-library-engineer-a-100-bachem-stein-ag"
+        ]
+      },
+      "previousSlugs": [
+        "pcs-library-engineer-a-100-bachem-stein-ag"
+      ]
     },
     {
       "id": "bachem-6a6221092ef2",
@@ -3364,9 +3372,9 @@
     },
     {
       "id": "bachem-6dd471c0ab59",
-      "slug": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+      "slug": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
       "slugByLocale": {
-        "it": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+        "it": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
         "en": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
         "de": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
         "fr": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
@@ -3412,12 +3420,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lab-technician-qc-ipc-a-100-bachem-bubendorf",
-        "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106"
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-qc-ipc-a-100-bachem-bubendorf",
-          "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
           "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
         ]
       },

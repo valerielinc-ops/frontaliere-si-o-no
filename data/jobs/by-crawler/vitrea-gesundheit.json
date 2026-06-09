@@ -382,12 +382,12 @@
     },
     {
       "id": "vitrea-gesundheit-2263701e66f3",
-      "slug": "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "studenti-a-cura-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
         "de": "diatkoch-diatkochin-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "it": "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "it": "studenti-a-cura-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "students-a-care-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "eleves-a-soins-de-sante-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -442,7 +442,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T12:31:49.401Z"
+      "firstSeenAt": "2026-06-09T12:31:49.401Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "en": [
+          "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "fr": [
+          "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-a-pflege-hf-fh-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ]
     },
     {
       "id": "vitrea-gesundheit-b6dd1cc722ba",
@@ -524,8 +538,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-20-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den",
         "it": "dipl-pflegefachperson-hf-20-100-per-das-parkinson-zentrum-la-neurorehabilitation-e-den-pflegepool-vitrea-gesundheit-tschugg",
-        "en": "dipl-pflegefachperson-hf-20-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den",
-        "fr": "dipl-pflegefachperson-hf-20-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den"
+        "en": "dipl-care-professional-hf-20-100-for-the-parkinson-s-center-neurorehabilitation-and-care-pool-vitrea-gesundheit-tschugg",
+        "fr": "dipl-soins-professionnels-hf-20-100-pour-le-centre-parkinson-la-neurorehabilitation-et-la-piscine-de-soins-vitrea"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -571,6 +585,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-20-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-20-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-20-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den"
         ]
       },
       "previousSlugs": [
@@ -596,8 +616,8 @@
       "slugByLocale": {
         "de": "fage-50-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den-pflegepool-vitrea",
         "it": "fage-50-100-per-das-parkinson-zentrum-la-neurorehabilitation-e-den-pflegepool-vitrea-gesundheit-tschugg",
-        "en": "fage-50-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den-pflegepool-vitrea",
-        "fr": "fage-50-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den-pflegepool-vitrea"
+        "en": "fage-50-100-for-the-parkinson-s-center-neurorehabilitation-and-the-care-pool-vitrea-gesundheit-tschugg",
+        "fr": "fage-50-100-pour-le-centre-parkinson-la-neurorehabilitation-et-la-piscine-de-soins-vitrea-gesundheit-tschugg"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -642,6 +662,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fage-50-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den-pflegepool-vitrea"
+        ],
+        "en": [
+          "fage-50-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den-pflegepool-vitrea"
+        ],
+        "fr": [
           "fage-50-100-fur-das-parkinson-zentrum-die-neurorehabilitation-und-den-pflegepool-vitrea"
         ]
       },

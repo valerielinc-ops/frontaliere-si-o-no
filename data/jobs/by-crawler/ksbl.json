@@ -345,12 +345,12 @@
     },
     {
       "id": "ksbl-1f87f6de291d",
-      "slug": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+      "slug": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "it": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "en": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "fr": "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
+        "it": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -407,20 +407,23 @@
       },
       "firstSeenAt": "2026-06-09T11:46:35.556Z",
       "previousSlugs": [
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal",
         "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal"
+          "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
         ],
         "en": [
-          "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal"
+          "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal",
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
         ],
         "fr": [
-          "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal"
+          "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal",
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
         ]
       }
     },

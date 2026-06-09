@@ -7495,12 +7495,12 @@
     },
     {
       "id": "lups-dc5b4e2f97f4",
-      "slug": "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen",
+      "slug": "segretariato-medico-del-team-segretario-medico-principale-f-m-d-80-100-luzerner-psychiatrie-lups-sarnen",
       "slugByLocale": {
         "de": "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen",
-        "it": "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen",
-        "en": "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen",
-        "fr": "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen"
+        "it": "segretariato-medico-del-team-segretario-medico-principale-f-m-d-80-100-luzerner-psychiatrie-lups-sarnen",
+        "en": "team-leader-medical-secretariat-chief-medical-secretary-f-m-d-80-100-luzerner-psychiatrie-lups-sarnen",
+        "fr": "chef-d-equipe-secretariat-medical-secretaire-medical-en-chef-f-m-j-80-100-luzerner-psychiatrie-lups-sarnen"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7555,7 +7555,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T11:54:20.660Z"
+      "firstSeenAt": "2026-06-09T11:54:20.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen"
+        ],
+        "en": [
+          "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen"
+        ],
+        "fr": [
+          "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-arztsekretariat-chefarztsekretarin-w-m-d-80-100-lups-sarnen"
+      ]
     }
   ]
 }
