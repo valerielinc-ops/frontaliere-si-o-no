@@ -17,10 +17,9 @@
  * sends `Host: origin-{loc}.frontaliereticino.ch` upstream, which is what makes
  * GitHub Pages match the shard repo's custom domain.
  *
- * Also proxies /assets /data /og to the CDN: the shard-served locale pages
- * reference these SAME-ORIGIN (their HTML was captured before the pipeline's
- * /assets->cdn rewrite), but the bundle/data/og live on cdn.frontaliereticino.ch
- * and 404 on the apex — so without this, locale pages load with no CSS/JS.
+ * Locale responses are cached via caches.default (5-min TTL) to cut repeated
+ * shard round-trips. Asset/data/og refs in shard HTML are CDN-absolute (since
+ * #1665), so those requests bypass this Worker entirely.
  *
  *   /rss-en.xml, /sitemap-*  -> tiny root files kept in the main repo (passthrough)
  */
@@ -31,31 +30,35 @@ const SHARD_ORIGIN = {
   fr: 'origin-fr.frontaliereticino.ch',
 };
 
-// Static paths that live on the CDN, not the apex Pages origin. Shard locale
-// pages reference them same-origin, so proxy them to the CDN.
-const CDN_BASE = 'https://cdn.frontaliereticino.ch';
-const CDN_PATHS = /^\/(assets|data|og)\//;
-
 // First path segment must be exactly en|de|fr, followed by end, slash, or the
 // .html locale-homepage file. Anything like /rss-en.xml or /enterprise stays
 // on the main origin. (The Cloudflare route patterns already scope the Worker
 // to these prefixes; this regex is the in-code guard.)
 const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 
+// TTL for locale pages cached in the Workers Cache API. Short enough that a
+// fresh deploy (new asset fingerprints) is visible within 5 min without manual
+// cache purge.
+const CACHE_MAX_AGE = 300; // 5 min
+
 export default {
-  async fetch(request) {
+  async fetch(request, _env, ctx) {
     const url = new URL(request.url);
-
-    // Same-origin CDN paths from shard locale pages → serve from the CDN.
-    if (CDN_PATHS.test(url.pathname)) {
-      return fetch(CDN_BASE + url.pathname + url.search, request);
-    }
-
     const match = url.pathname.match(LOCALE_RE);
 
     if (!match) {
       // IT + shared (sitemaps, robots, rss, favicon, /...) — straight passthrough.
       return fetch(request);
+    }
+
+    const cache = caches.default;
+    // Strip per-request headers from the cache key so all users share the same
+    // cached entry for a given URL.
+    const cacheKey = new Request(url.toString());
+
+    if (request.method === 'GET') {
+      const cached = await cache.match(cacheKey);
+      if (cached) return cached;
     }
 
     const origin = SHARD_ORIGIN[match[1]];
@@ -87,6 +90,21 @@ export default {
           headers,
         });
       }
+    }
+
+    // Cache successful GET responses and stamp Cache-Control so Cloudflare CDN
+    // can also serve from edge without re-entering the Worker.
+    if (request.method === 'GET' && resp.status === 200) {
+      const headers = new Headers(resp.headers);
+      headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
+      const cacheable = new Response(resp.body, {
+        status: resp.status,
+        statusText: resp.statusText,
+        headers,
+      });
+      const toReturn = cacheable.clone();
+      ctx.waitUntil(cache.put(cacheKey, cacheable));
+      return toReturn;
     }
 
     return resp;
