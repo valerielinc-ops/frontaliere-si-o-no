@@ -8019,6 +8019,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.licenziamento-postino-ticino.title': 'Entlassen nach 42 Jahren: Die Geschichte des Veveyser Postboten',
     'blog.article.licenziamento-postino-ticino.excerpt': 'Ein Postbote aus Vevey wurde nach 42 Jahren im Dienst entlassen, weil er versuchte, Diebstähle zu verhindern, indem er Pakete direkt an die Etagen zustellte.',
     'blog.article.licenziamento-postino-ticino.imageAlt': 'Postbote liefert Brief in Lugano',
+    'blog.article.finanze-ticino-consuntivo.title': 'Kantonsrechnung Tessin 2025: Kritik und Herausforderungen',
+    'blog.article.finanze-ticino-consuntivo.excerpt': 'Der Tessiner Grossrat diskutiert den Rechnungsabschluss 2025: Defizit von 32,5 Millionen trotz BNS-Gewinn von 80 Millionen. Kritik an Steuererleichterungen und Personalverwaltung.',
+    'blog.article.finanze-ticino-consuntivo.imageAlt': 'Kantonsparlament Tessin in Sitzung in Bellinzona',
 };
 
 export default blogMetaDe;

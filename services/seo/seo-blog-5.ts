@@ -43130,6 +43130,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanze-ticino-consuntivo': {
+    title: 'Consuntivo finanze cantonali Ticino 2025: critiche e sfide',
+    description: 'Dibattito sul Consuntivo 2025 in Ticino: disavanzo di 32,5 milioni, critiche a sgravi fiscali e gestione del personale. Impatto sui frontalieri e prospettive',
+    keywords: 'frontalieri, ticino, svizzera, italia, consuntivo, finanze, cantonali, 2025',
+    ogTitle: 'Consuntivo finanze cantonali Ticino 2025: analisi dettagliata',
+    ogDescription: 'Analisi del Consuntivo 2025 del Canton Ticino: disavanzo, critiche e implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/finanze-ticino-consuntivo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consuntivo finanze cantonali Ticino 2025: critiche e sfide",
+      "description": "Dibattito sul Consuntivo 2025 in Ticino: disavanzo di 32,5 milioni, critiche a sgravi fiscali e gestione del personale. Impatto sui frontalieri e prospettive",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanze-ticino-consuntivo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento cantonale ticinese in sessione a Bellinzona"
+      },
+      "datePublished": "2026-06-09T02:12:46+00:00",
+      "dateModified": "2026-06-09T02:12:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/finanze-ticino-consuntivo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

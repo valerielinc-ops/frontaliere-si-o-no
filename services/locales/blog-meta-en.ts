@@ -8020,6 +8020,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.licenziamento-postino-ticino.title': 'Fired After 42 Years: Vevey Postman\'s Story',
     'blog.article.licenziamento-postino-ticino.excerpt': 'A Vevey postman was dismissed after 42 years of service for attempting to prevent thefts by delivering packages directly to apartments.',
     'blog.article.licenziamento-postino-ticino.imageAlt': 'Postman delivering letter in Lugano',
+    'blog.article.finanze-ticino-consuntivo.title': 'Ticino\'s 2025 cantonal finances: criticism and challenges',
+    'blog.article.finanze-ticino-consuntivo.excerpt': 'The Ticino parliament discusses the 2025 financial statement: 32.5 million deficit despite 80 million BNS profits. Criticism of tax relief and personnel management.',
+    'blog.article.finanze-ticino-consuntivo.imageAlt': 'Ticino cantonal parliament in session in Bellinzona',
 };
 
 export default blogMetaEn;
