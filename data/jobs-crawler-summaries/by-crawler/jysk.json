@@ -1,18 +1,46 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-06-09T22:37:55.508Z",
-  "total": 14,
-  "newCount": 0,
+  "generatedAt": "2026-06-10T12:19:01.338Z",
+  "total": 15,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 39661,
-  "avgDurationMs": 39661,
+  "durationMs": 37876,
+  "avgDurationMs": 37876,
   "durationHistory": [
-    39661
+    37876
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-7v3b0u",
+      "slug": "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-basel-jysk-pratteln-7v3b0u",
+      "company": "JYSK",
+      "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Basel",
+      "location": "Pratteln",
+      "canton": "BL",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-basel",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-06-10T12:19:00.859Z",
+      "firstSeenAt": "2026-06-10T12:19:00.859Z",
+      "sourceLang": "de",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-qrsmyr",
