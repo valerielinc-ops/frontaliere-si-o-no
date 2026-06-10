@@ -47,8 +47,27 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Pre-flight — already-resolved gate (zero-Claude)
+        id: preflight
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # STRUCTURAL fix per escalation #1647 (`fix-outcome:already-fixed` 10×/14d).
+        # Prima di spendere un run Claude, controlla deterministicamente se questa
+        # follow-up è già stata risolta su main da una PR successiva senza `Closes #N`
+        # (done-but-open): se un token DISTINTIVO della regione `Suggested action`
+        # è già presente VERBATIM nel file citato → short-circuit. Lo script rimuove
+        # `agent:fix`, posta commento + marker `FIX_OUTCOME: already-fixed`, ed emette
+        # `already_resolved=true`. CONSERVATIVO (bias a procedere): solo follow-up
+        # singole non-in-flight con match forte; aggregate/ambiguo/nessun match →
+        # `already_resolved=false` e il fixer normale gira invariato. Matcher condiviso
+        # con reconcile-followups.mjs (followup-resolution-match.mjs, no drift).
+        run: node scripts/ci/check-issue-already-resolved.mjs
+
       - name: Determine fix tier
         id: tier
+        if: steps.preflight.outputs.already_resolved != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -97,12 +116,14 @@ jobs:
           echo "Aggregate: is_aggregate=$(grep is_aggregate= "$GITHUB_OUTPUT" | tail -1)"
 
       - name: Configure git identity
+        if: steps.preflight.outputs.already_resolved != 'true'
         run: |
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
 
       - name: Run Claude fix
         id: claude_review
+        if: steps.preflight.outputs.already_resolved != 'true'
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -164,14 +185,18 @@ jobs:
             - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 7) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
 
       - name: Claude usage metrics
-        if: always()
+        # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
+        if: always() && steps.preflight.outputs.already_resolved != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "issue-fix"
 
       - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
-        if: always()
+        # Skip on short-circuit: the pre-flight gate already posted the granular
+        # `<!-- FIX_OUTCOME: already-fixed -->` marker; this coarse backstop would
+        # otherwise post `no-pr-unspecified` and poison the lessons-harvester signal.
+        if: always() && steps.preflight.outputs.already_resolved != 'true'
         # The agent SHOULD post a granular `<!-- FIX_OUTCOME: <code> -->` marker,
         # but prompt-emitted markers are unreliable (observed: #974 ran with the
         # marker prompt on main yet posted none). This backstop guarantees the
