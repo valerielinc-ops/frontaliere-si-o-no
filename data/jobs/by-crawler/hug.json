@@ -4275,12 +4275,12 @@
     },
     {
       "id": "hug-71dc57087959",
-      "slug": "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve",
+      "slug": "chief-medical-officer-o-responsabile-della-clinica-di-scienze-sociali-70-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve",
-        "it": "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve",
-        "en": "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve",
-        "de": "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve"
+        "it": "chief-medical-officer-o-responsabile-della-clinica-di-scienze-sociali-70-hug-geneve",
+        "en": "chief-medical-officer-or-head-of-social-sciences-clinic-70-hug-geneve",
+        "de": "chief-medical-officer-oder-leiter-der-sozialwissenschaftlichen-klinik-70-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4336,7 +4336,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-09T22:34:04.823Z"
+      "firstSeenAt": "2026-06-09T22:34:04.823Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve"
+        ],
+        "en": [
+          "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve"
+        ],
+        "de": [
+          "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-ou-cheffe-de-clinique-specialisee-en-sciences-sociales-70-hug-geneve"
+      ]
     },
     {
       "id": "hug-19c98b4cb61f",

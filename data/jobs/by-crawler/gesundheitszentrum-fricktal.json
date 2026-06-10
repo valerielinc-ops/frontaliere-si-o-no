@@ -620,8 +620,8 @@
       "slugByLocale": {
         "de": "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst",
         "it": "assistentin-gesundheit-e-soziales-ags-o-pflegeassistent-pa-m-w-d-im-nachtdienst-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst",
-        "fr": "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst"
+        "en": "assistant-health-and-social-affairs-ags-or-nursing-assistant-pa-m-f-d-on-night-duty-gesundheitszentrum-fricktal",
+        "fr": "assistant-a-la-sante-et-aux-affaires-sociales-ags-ou-assistant-aux-soins-infirmiers-ap-m-f-j-en-service-de-nuit"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -667,6 +667,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst"
+        ],
+        "en": [
+          "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst"
+        ],
+        "fr": [
+          "assistentin-gesundheit-und-soziales-ags-oder-pflegeassistent-pa-m-w-d-im-nachtdienst"
         ]
       },
       "previousSlugs": [
@@ -692,8 +698,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "it": "collaboratore-trice-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "en": "employee-in-technical-service-hvac-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "employe-en-service-technique-cvc-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -738,6 +744,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
           "mitarbeiter-in-technischer-dienst-hlks-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },

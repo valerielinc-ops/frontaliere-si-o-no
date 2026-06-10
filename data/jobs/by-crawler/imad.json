@@ -1214,12 +1214,12 @@
     },
     {
       "id": "imad-23e4c8677a62",
-      "slug": "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva",
+      "slug": "infermiera-uatr-unita-di-rispito-temporaneo-80-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva",
-        "it": "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva",
-        "en": "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva",
-        "de": "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva"
+        "it": "infermiera-uatr-unita-di-rispito-temporaneo-80-cdi-imad-geneva",
+        "en": "uatr-nurse-temporary-respite-units-80-cdi-imad-geneva",
+        "de": "uatr-krankenschwester-temporary-rthrough-units-80-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -1277,11 +1277,23 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-06-09T22:35:14.194Z",
       "previousSlugs": [
+        "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva",
         "assistant-e-socio-educatif-pour-les-unites-d-accueil-temporaire-de-repit-uatr-a-50-en-cdi-imad-geneva",
         "socio-educational-assistant-for-temporary-respite-reception-units-uatr-50-cdi-imad-geneva",
         "sozio-educational-assistant-for-temporary-respite-reception-units-uatr-50-cdi-imad-geneva",
         "assistant-e-socio-educatif-pour-les-unites-d-accueil-temporaire-de-repit-uatr-a-50-en-cdi"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva"
+        ]
+      }
     }
   ]
 }

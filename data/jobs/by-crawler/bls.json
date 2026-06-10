@@ -1280,12 +1280,12 @@
     },
     {
       "id": "bls-e633b376ab26",
-      "slug": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+      "slug": "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
       "slugByLocale": {
         "de": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "it": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "en": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "fr": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "it": "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
+        "en": "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez",
+        "fr": "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1354,7 +1354,21 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-06-09T22:00:42.288Z"
+      "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        ],
+        "en": [
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        ],
+        "fr": [
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+      ]
     },
     {
       "id": "bls-2df372c27978",
@@ -1704,12 +1718,12 @@
     },
     {
       "id": "bls-303749cc8ff0",
-      "slug": "rechtsanwalt-in-bls-ch",
+      "slug": "avvocato-bls-ag-bern",
       "slugByLocale": {
         "de": "rechtsanwalt-in-bls-ch",
-        "it": "rechtsanwalt-in-bls-ch",
-        "en": "rechtsanwalt-in-bls-ch",
-        "fr": "rechtsanwalt-in-bls-ch"
+        "it": "avvocato-bls-ag-bern",
+        "en": "lawyer-in-bls-ag-bern",
+        "fr": "avocat-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1779,7 +1793,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-09T22:00:37.982Z"
+      "firstSeenAt": "2026-06-09T22:00:37.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtsanwalt-in-bls-ch"
+        ],
+        "en": [
+          "rechtsanwalt-in-bls-ch"
+        ],
+        "fr": [
+          "rechtsanwalt-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rechtsanwalt-in-bls-ch"
+      ]
     },
     {
       "id": "bls-12ce67f8780b",

@@ -858,7 +858,6 @@
         "assistant-en-sante-efz-viva-luzern-luzern",
         "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2",
         "fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-        "fachfrau-mann-gesundheit-cfc-viva-luzern",
         "specialista-della-salute-efz-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
@@ -972,8 +971,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-wascherei-viva-luzern-luzern",
         "it": "collaboratore-trice-in-wascherei-viva-luzern",
-        "en": "mitarbeiter-in-wascherei-viva-luzern-luzern",
-        "fr": "mitarbeiter-in-wascherei-viva-luzern-luzern"
+        "en": "employee-laundry-viva-luzern-luzern",
+        "fr": "employe-blanchisserie-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1018,6 +1017,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-wascherei-viva-luzern-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-wascherei-viva-luzern-luzern"
+        ],
+        "fr": [
           "mitarbeiter-in-wascherei-viva-luzern-luzern"
         ]
       },
