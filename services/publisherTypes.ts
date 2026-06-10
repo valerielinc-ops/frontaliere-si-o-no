@@ -54,6 +54,9 @@ export interface Publisher {
   email: string;
   company: PublisherCompany;
   verification: PublisherVerificationStatus;
+  /** Domain ownership (DNS TXT) verification — set by verifyPublisherDomain CF. */
+  domainVerified?: boolean;
+  domainVerifyToken?: string;
   /** Stripe customer id once a checkout has been initiated. */
   stripeCustomerId?: string;
   createdAt: IsoTimestamp;

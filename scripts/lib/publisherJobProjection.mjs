@@ -148,11 +148,49 @@ export function publisherJobToRecords(pubJob, opts = {}) {
 }
 
 /**
- * Project many publisher jobs to a flat record array (skips non-paid).
+ * Featured inventory cap PER CANTON — keeps the sponsored "featured" placement
+ * scarce (and therefore valuable). Beyond the cap, the most-recently-paid ads
+ * keep the boost; the rest stay paid/listed but lose `featured` (no demotion of
+ * the ad itself, only of the premium placement). Owner tunes this one constant.
+ */
+export const FEATURED_SLOTS_PER_CANTON = 6;
+
+/**
+ * Apply the per-canton featured cap to a flat record array (mutating featured).
+ * Records are ranked by paidAt/firstSeenAt desc within each canton.
+ * @param {object[]} records
+ * @param {number} [cap]
+ * @returns {object[]} the same records (featured possibly downgraded)
+ */
+export function applyFeaturedSlotCap(records, cap = FEATURED_SLOTS_PER_CANTON) {
+  if (!Array.isArray(records)) return [];
+  const byCanton = new Map();
+  for (const r of records) {
+    if (!r.featured) continue;
+    const key = r.canton || 'TI';
+    if (!byCanton.has(key)) byCanton.set(key, []);
+    byCanton.get(key).push(r);
+  }
+  for (const group of byCanton.values()) {
+    if (group.length <= cap) continue;
+    group.sort((a, b) => {
+      const ta = Date.parse(a.postedDate || a.firstSeenAt || '') || 0;
+      const tb = Date.parse(b.postedDate || b.firstSeenAt || '') || 0;
+      return tb - ta; // most recently paid first
+    });
+    group.slice(cap).forEach((r) => { r.featured = false; });
+  }
+  return records;
+}
+
+/**
+ * Project many publisher jobs to a flat record array (skips non-live) and apply
+ * the per-canton featured inventory cap.
  * @param {object[]} pubJobs
- * @param {object} [opts]
+ * @param {object} [opts] { featuredCap }
  */
 export function publisherJobsToSlice(pubJobs, opts = {}) {
   if (!Array.isArray(pubJobs)) return [];
-  return pubJobs.flatMap((j) => publisherJobToRecords(j, opts));
+  const records = pubJobs.flatMap((j) => publisherJobToRecords(j, opts));
+  return applyFeaturedSlotCap(records, opts.featuredCap);
 }

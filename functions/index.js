@@ -24,6 +24,7 @@ import { handleCreatePublisherCheckout, handleStripeWebhook } from './src/stripe
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
+import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 
 ensureAdminApp();
 
@@ -718,6 +719,31 @@ export const forwardPublisherApplication = onDocumentCreated(
  if (!result.ok) console.error('[forwardPublisherApplication]', result.error);
  } catch (error) {
  console.error('[forwardPublisherApplication]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Publisher domain ownership verification (DNS TXT). Authenticated; returns the
+// TXT record to add, and on a follow-up call flips domainVerified once present.
+export const verifyPublisherDomain = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleVerifyPublisherDomain(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[verifyPublisherDomain]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },
 );

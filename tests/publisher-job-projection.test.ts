@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   publisherJobToRecords,
   publisherJobsToSlice,
+  applyFeaturedSlotCap,
   slugifyPublisher,
   truncatePublisherSlug,
   PUBLISHER_SOURCE_KEY,
@@ -171,6 +172,40 @@ describe('slug helpers', () => {
     const long = 'a'.repeat(60) + '-' + 'b'.repeat(80);
     expect(truncatePublisherSlug(long, 120).endsWith('-')).toBe(false);
     expect(truncatePublisherSlug(long, 120).length).toBeLessThanOrEqual(120);
+  });
+});
+
+describe('applyFeaturedSlotCap', () => {
+  const mk = (canton: string, postedDate: string) => ({ canton, featured: true, postedDate });
+
+  it('keeps all featured when within cap', () => {
+    const recs = [mk('TI', '2026-06-01'), mk('TI', '2026-06-02')];
+    applyFeaturedSlotCap(recs, 6);
+    expect(recs.every((r) => r.featured)).toBe(true);
+  });
+
+  it('caps featured per canton, keeping the most recently paid', () => {
+    const recs = [
+      mk('TI', '2026-06-01'),
+      mk('TI', '2026-06-03'),
+      mk('TI', '2026-06-02'),
+    ];
+    applyFeaturedSlotCap(recs, 2);
+    const kept = recs.filter((r) => r.featured).map((r) => r.postedDate).sort();
+    expect(kept).toEqual(['2026-06-02', '2026-06-03']); // newest two
+  });
+
+  it('caps independently per canton', () => {
+    const recs = [mk('TI', '2026-06-01'), mk('TI', '2026-06-02'), mk('GR', '2026-06-01')];
+    applyFeaturedSlotCap(recs, 1);
+    expect(recs.filter((r) => r.canton === 'TI' && r.featured)).toHaveLength(1);
+    expect(recs.filter((r) => r.canton === 'GR' && r.featured)).toHaveLength(1);
+  });
+
+  it('never touches non-featured records', () => {
+    const recs = [{ canton: 'TI', featured: false, postedDate: '2026-06-01' }];
+    applyFeaturedSlotCap(recs, 0);
+    expect(recs[0].featured).toBe(false);
   });
 });
 
