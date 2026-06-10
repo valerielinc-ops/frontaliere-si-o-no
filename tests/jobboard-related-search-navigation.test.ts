@@ -54,10 +54,15 @@ describe('JobBoard company link navigation', () => {
     expect(source.match(/onClickCapture=\{openGateCompanyFilter\}/g)).toHaveLength(2);
   });
 
-  it('uses the same company routing on expired and orphan job views', () => {
+  it('routes company clicks through SPA nav on expired and orphan job views', () => {
     const expiredSource = readFileSync(join(process.cwd(), 'components/community/JobExpiredView.tsx'), 'utf8');
     const orphanSource = readFileSync(join(process.cwd(), 'components/community/JobOrphanView.tsx'), 'utf8');
 
+    // Expired/Orphan views render the company link as a <button> (no href) so a
+    // full-nav to a possibly-rotated-out company hub (404 → blank page) is
+    // impossible by construction — middle-click / cmd-click cannot bypass the
+    // handler. The click is handled by handleCompanyClick, which routes via SPA
+    // nav (onNavigateToCompany or window.history.pushState).
     for (const source of [expiredSource, orphanSource]) {
       const helperBody = source.match(/const handleCompanyClick = \(e: MouseEvent<HTMLButtonElement>\) => \{[\s\S]*?\n \};/)?.[0];
       expect(helperBody).toContain('e.nativeEvent.stopImmediatePropagation?.()');
