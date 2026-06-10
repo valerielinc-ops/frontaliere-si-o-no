@@ -8,14 +8,17 @@
  *
  * This script:
  *   1. Fetches the sitemap.xml from positions.manor.ch.
- *   2. Extracts all job URLs and filters for Ticino cities.
+ *   2. Extracts all job URLs and keeps every Swiss-target store (CH-wide).
  *   3. Fetches job detail pages for title/description/date.
  *   4. Merges discovered jobs into data/jobs.json.
  *   5. Updates the adapter config with discovered seed URLs.
  *   6. Post-processes rows for canonical consistency.
  *   7. Validates locale coverage.
  *
- * Ticino presence: Manor stores in Lugano, Locarno, Biasca.
+ * Manor AG is a national department-store chain (HQ Basel) with stores in
+ * every canton, so the crawler collects CH-wide. Per-job canton is inferred
+ * from the store city encoded in the URL via inferAnyCanton; the region gate
+ * is isTargetSwissLocation (spans all 26 TARGET_CANTONS).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -43,8 +46,8 @@ import {
 mergeLocaleTextMap,
 detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import { TICINO_CITIES, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isTargetSwissLocation, isKnownSwissCity, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -59,8 +62,6 @@ const MANOR_COMPANY_NAME = 'Manor AG';
 const MANOR_HOST = 'positions.manor.ch';
 const MANOR_SITEMAP_URL = 'https://positions.manor.ch/sitemap.xml';
 const MANOR_LOCALES = ['it', 'en', 'de', 'fr'];
-
-const MANOR_TICINO_CITIES = TICINO_CITIES.map((city) => normalize(city));
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -118,20 +119,24 @@ function detectCategory(title = '') {
 }
 
 /* ── Description builders ──────────────────────────────────── */
-function buildDescriptionIt(title, city) {
-  return `${title} presso Manor, con sede a ${city}, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.`;
+function buildDescriptionIt(title, city, canton) {
+  const region = getCantonDisplayName(canton, 'it');
+  return `${title} presso Manor, con sede a ${city}, Canton ${region}, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.`;
 }
 
-function buildDescriptionEn(title, city) {
-  return `${title} at Manor, located in ${city}, Canton Ticino, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.`;
+function buildDescriptionEn(title, city, canton) {
+  const region = getCantonDisplayName(canton, 'en');
+  return `${title} at Manor, located in ${city}, Canton of ${region}, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.`;
 }
 
-function buildDescriptionDe(title, city) {
-  return `${title} bei Manor, gelegen in ${city}, Kanton Tessin, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.`;
+function buildDescriptionDe(title, city, canton) {
+  const region = getCantonDisplayName(canton, 'de');
+  return `${title} bei Manor, gelegen in ${city}, Kanton ${region}, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.`;
 }
 
-function buildDescriptionFr(title, city) {
-  return `${title} chez Manor, situé à ${city}, Canton du Tessin, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client.`;
+function buildDescriptionFr(title, city, canton) {
+  const region = getCantonDisplayName(canton, 'fr');
+  return `${title} chez Manor, situé à ${city}, Canton de ${region}, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client.`;
 }
 
 /* ── HTTP helpers ──────────────────────────────────────────── */
@@ -174,20 +179,44 @@ function parseSitemapUrls(xml) {
 }
 
 /**
- * Extract city from a Manor job URL.
- * Format: /job/{City}-{Title}/{ID}/
+ * Maximum number of leading dash-separated slug segments to treat as a city.
+ * Covers multi-word Swiss municipalities like "Affoltern am Albis",
+ * "Chavannes de Bogis", "Rickenbach b. Wil".
  */
+const MANOR_CITY_MAX_SEGMENTS = 4;
+
+/**
+ * Extract the store city from a Manor job URL — CH-wide.
+ * Format: /job/{City}-{Title}/{ID}/ where {City} may itself contain dashes.
+ *
+ * Greedily try the longest leading prefix (up to MANOR_CITY_MAX_SEGMENTS
+ * segments) that resolves to a known Swiss city or a target Swiss canton via
+ * the central helpers. A trailing numeric district segment (e.g. "Genève 1")
+ * is tolerated. Returns the matched city string, or null when no Swiss city is
+ * recognisable (the downstream isTargetSwissLocation gate then drops the row).
+ */
+// Returns { city, segments }: the resolved city and the NUMBER OF DASH-PARTS it
+// consumed from the slug. Callers need `segments` (not the rendered city's word
+// count) to strip the city prefix from the title — a district-stripped city
+// ("Genève-1" → "Genève") consumes 2 dash-parts but renders as 1 word.
 function extractCityFromUrl(url) {
   const match = url.match(/\/job\/([^/]+)\//);
-  if (!match) return null;
-  const slug = decodeURIComponent(match[1]);
-  // City is the first segment before the first dash (but multi-word cities use dashes too)
-  for (const city of MANOR_TICINO_CITIES) {
-    if (slug.toLowerCase().startsWith(city + '-') || slug.toLowerCase() === city) {
-      return city.charAt(0).toUpperCase() + city.slice(1);
+  if (!match) return { city: null, segments: 0 };
+  let slug;
+  try { slug = decodeURIComponent(match[1]); } catch { slug = match[1]; }
+  const parts = slug.split('-');
+  const maxSeg = Math.min(MANOR_CITY_MAX_SEGMENTS, parts.length);
+  for (let n = maxSeg; n >= 1; n--) {
+    const candidate = parts.slice(0, n).join(' ').replace(/_/g, '.').trim();
+    if (!candidate) continue;
+    // Drop a trailing pure-number district suffix ("Genève 1" → "Genève").
+    const candidateNoDistrict = candidate.replace(/\s+\d+$/, '').trim();
+    for (const c of [candidate, candidateNoDistrict]) {
+      if (!c) continue;
+      if (isKnownSwissCity(c) || isTargetSwissLocation(c)) return { city: c, segments: n };
     }
   }
-  return null;
+  return { city: null, segments: 0 };
 }
 
 /**
@@ -243,29 +272,29 @@ async function fetchManorJobs() {
   const allUrls = parseSitemapUrls(sitemapXml);
   console.log(`📋 Sitemap returned ${allUrls.length} total job URLs.`);
 
-  // Filter for Ticino cities
-  const ticinoUrls = [];
+  // Keep every store URL whose city resolves to a target Swiss canton (CH-wide).
+  const targetUrls = [];
   for (const url of allUrls) {
-    const city = extractCityFromUrl(url);
-    if (city) {
-      ticinoUrls.push({ url, city });
+    const { city } = extractCityFromUrl(url);
+    if (city && isTargetSwissLocation(city)) {
+      targetUrls.push({ url, city });
     }
   }
-  console.log(`📋 Ticino job URLs: ${ticinoUrls.length}`);
+  console.log(`📋 Swiss-target job URLs: ${targetUrls.length}`);
 
-  if (ticinoUrls.length === 0) {
-    console.log('ℹ️  No Ticino job listings found in sitemap.');
+  if (targetUrls.length === 0) {
+    console.log('ℹ️  No Swiss-target job listings found in sitemap.');
     return [];
   }
 
   const jobs = [];
 
-  // Fetch detail pages for each Ticino job
-  for (let i = 0; i < ticinoUrls.length; i++) {
-    const { url, city } = ticinoUrls[i];
+  // Fetch detail pages for each target job
+  for (let i = 0; i < targetUrls.length; i++) {
+    const { url, city } = targetUrls[i];
     const jobId = extractJobId(url) || '';
 
-    console.log(`  📄 [${i + 1}/${ticinoUrls.length}] Fetching: ${url}`);
+    console.log(`  📄 [${i + 1}/${targetUrls.length}] Fetching: ${url}`);
 
     let pageData;
     try {
@@ -290,14 +319,18 @@ async function fetchManorJobs() {
 
     const category = detectCategory(title);
 
+    // Per-job canton inferred CH-wide from the store city; HQ default only as
+    // a last resort when the central helper cannot resolve a code.
+    const canton = inferAnyCanton(`${city} ${pageData.location || ''}`) || DEFAULT_CANTON;
+
     // Use page description if substantial, otherwise template
     const pageDesc = (pageData.description || '').trim();
     const descIt = pageDesc.length >= 100
       ? pageDesc
-      : buildDescriptionIt(title, city);
-    const descEn = buildDescriptionEn(title, city);
-    const descDe = buildDescriptionDe(title, city);
-    const descFr = buildDescriptionFr(title, city);
+      : buildDescriptionIt(title, city, canton);
+    const descEn = buildDescriptionEn(title, city, canton);
+    const descDe = buildDescriptionDe(title, city, canton);
+    const descFr = buildDescriptionFr(title, city, canton);
 
     const baseSlug = normalizeKey(`manor ${title} ${city}`);
 
@@ -307,7 +340,7 @@ async function fetchManorJobs() {
       companyKey: MANOR_KEY,
       url,
       location: city,
-      canton: DEFAULT_CANTON,
+      canton,
       country: 'CH',
       category,
       description: descIt,
@@ -334,12 +367,12 @@ async function fetchManorJobs() {
     jobs.push(job);
 
     // Rate-limit between requests
-    if (i < ticinoUrls.length - 1) {
+    if (i < targetUrls.length - 1) {
       await sleep(delayMs);
     }
   }
 
-  console.log(`📋 Total unique Manor Ticino jobs discovered: ${jobs.length}`);
+  console.log(`📋 Total unique Manor Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }
 
@@ -351,13 +384,14 @@ async function fetchManorJobs() {
 function extractTitleFromUrl(url) {
   const match = url.match(/\/job\/([^/]+)\//);
   if (!match) return '';
-  const slug = decodeURIComponent(match[1]);
-  // Remove the city prefix
+  let slug;
+  try { slug = decodeURIComponent(match[1]); } catch { slug = match[1]; }
   const parts = slug.split('-');
-  // Skip the first part (city)
-  const cityLower = (parts[0] || '').toLowerCase();
-  const isTicinoCity = MANOR_TICINO_CITIES.includes(cityLower) || isTargetSwissLocation(cityLower);
-  const titleParts = isTicinoCity ? parts.slice(1) : parts;
+  // Strip the leading city prefix (CH-wide, possibly multi-word) when present.
+  // Use the dash-part count the matcher consumed — NOT the rendered city's word
+  // count — so a district-stripped city ("Genève-1") doesn't leave "1" in the title.
+  const { segments: citySegments } = extractCityFromUrl(url);
+  const titleParts = citySegments > 0 ? parts.slice(citySegments) : parts;
   return titleParts.join(' ').replace(/_/g, '.').trim();
 }
 
@@ -463,7 +497,7 @@ function updateAdapterConfig(seedUrls) {
     seedUrls,
     seedMetaByUrl,
     notes:
-      'Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG department store chain with locations in Lugano, Locarno, and Biasca.',
+      'Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.',
     updatedAt: new Date().toISOString(),
   };
 
@@ -546,7 +580,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_manor_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Manor jobs found — the company may not have active Ticino openings.',
+    noJobsMessage: 'No Manor jobs found — the company may not have active Swiss openings.',
   });
 }
 
@@ -565,7 +599,7 @@ async function main() {
   const discoveredJobs = await fetchManorJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('ℹ️  No Ticino job listings found — skipping crawl.');
+    console.log('ℹ️  No Swiss job listings found — skipping crawl.');
     return;
   }
 

@@ -3,9 +3,9 @@
  * Allianz Suisse — Dedicated Crawler
  *
  * Crawls https://recruitingapp-2872.umantis.com/Jobs/All (Abacus-Umantis ATS)
- * 1. POSTs listing page with Region Tessin + Region Graubünden filters → extracts vacancy IDs
+ * 1. POSTs the Umantis listing UNFILTERED (national, no region facet) → extracts vacancy IDs
  * 2. Fetches each detail page (Italian) → extracts title, location, description
- * 3. Filters TI/GR-relevant jobs (by agency, location, or shared geo filter)
+ * 3. Keeps CH jobs (per-job canton via inferAllianzCanton → inferAnyCanton, all 26 cantons)
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
  */
@@ -58,12 +58,6 @@ const COMPANY_HOST = 'recruitingapp-2872.umantis.com';
 const COMPANY_DOMAIN = 'umantis.com';
 const CAREERS_URL = 'https://recruitingapp-2872.umantis.com/Jobs/All';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-
-// Region filter IDs from Umantis ATS
-const REGION_FILTERS = [
-  { id: '38999405', label: 'Tessin', canton: 'TI' },
-  { id: '38999401', label: 'Graubünden', canton: 'GR' },
-];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 const MAX_DETAIL_PAGES = Number(process.env.ALLIANZ_MAX_DETAIL_PAGES) || 100000;
@@ -167,48 +161,48 @@ function inferLocation(listing, detail) {
 }
 
 async function fetchAllListings() {
-  console.log('🔍 Fetching Allianz Suisse listing pages (Tessin + Graubünden filters)...');
+  console.log('🔍 Fetching Allianz Suisse listing pages (CH-wide, unfiltered)...');
 
   const allItems = [];
   const seenIds = new Set();
 
-  for (const region of REGION_FILTERS) {
-    const filterBody = `searchSkill1004=${region.id}&Search=Suchen`;
-    let page = 1;
-    const maxPages = 10;
+  // CH-wide: no searchSkill1004 region filter → the Umantis /Jobs/All listing
+  // returns the full national set. Per-job canton is resolved downstream by
+  // inferAllianzCanton (inferAnyCanton over agency+location, all 26 cantons),
+  // which also drops non-CH/unresolved postings.
+  const filterBody = 'Search=Suchen';
+  let page = 1;
+  const maxPages = 30;
 
-    console.log(`\n🔎 Region: ${region.label} (filter ID ${region.id})`);
+  while (page <= maxPages) {
+    const url = page === 1 ? CAREERS_URL : `${CAREERS_URL}?tc1152481=p${page}&_search_token1152481=*`;
 
-    while (page <= maxPages) {
-      const url = page === 1 ? CAREERS_URL : `${CAREERS_URL}?tc1152481=p${page}&_search_token1152481=*`;
-
-      console.log(`  📄 Page ${page}: POST ${url}`);
-      let html;
-      try {
-        html = await fetchText(url, { method: 'POST', body: filterBody });
-      } catch (err) {
-        console.log(`  ⚠️ Page ${page} fetch failed: ${err.message}`);
-        break;
-      }
-
-      const items = parseAllianzListingPage(html);
-      const newItems = items.filter((item) => !seenIds.has(item.vacancyId));
-      if (newItems.length === 0) break;
-
-      for (const item of newItems) {
-        seenIds.add(item.vacancyId);
-        allItems.push(item);
-      }
-      console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
-
-      if (items.length < 10) break;
-
-      page += 1;
-      await sleep(DETAIL_DELAY_MS);
+    console.log(`  📄 Page ${page}: POST ${url}`);
+    let html;
+    try {
+      html = await fetchText(url, { method: 'POST', body: filterBody });
+    } catch (err) {
+      console.log(`  ⚠️ Page ${page} fetch failed: ${err.message}`);
+      break;
     }
+
+    const items = parseAllianzListingPage(html);
+    const newItems = items.filter((item) => !seenIds.has(item.vacancyId));
+    if (newItems.length === 0) break;
+
+    for (const item of newItems) {
+      seenIds.add(item.vacancyId);
+      allItems.push(item);
+    }
+    console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
+
+    if (items.length < 10) break;
+
+    page += 1;
+    await sleep(DETAIL_DELAY_MS);
   }
 
-  console.log(`\n📋 Total unique TI/GR listings: ${allItems.length}`);
+  console.log(`\n📋 Total unique national listings: ${allItems.length}`);
   return allItems;
 }
 
@@ -243,7 +237,9 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Check TI/GR relevance after detail enrichment and assign canton
+  // CH-wide relevance after detail enrichment: keep jobs whose canton resolves
+  // to a Swiss canton (inferAllianzCanton → inferAnyCanton over all 26); drop
+  // non-CH/unresolved.
   const relevant = [];
   for (const job of enriched) {
     const canton = inferAllianzCanton(job.agency || '', job.location || '');
@@ -252,9 +248,10 @@ async function enrichWithDetails(listings) {
       relevant.push(job);
     }
   }
-  const tiCount = relevant.filter((j) => j._canton === 'TI').length;
-  const grCount = relevant.filter((j) => j._canton === 'GR').length;
-  console.log(`\n📍 Target jobs after enrichment: ${relevant.length} / ${enriched.length} (TI: ${tiCount}, GR: ${grCount})`);
+  const cantonCounts = {};
+  for (const j of relevant) cantonCounts[j._canton] = (cantonCounts[j._canton] || 0) + 1;
+  const spread = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}:${n}`).join(', ');
+  console.log(`\n📍 CH jobs after enrichment: ${relevant.length} / ${enriched.length} — ${spread}`);
   return relevant;
 }
 
@@ -360,7 +357,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Allianz Suisse crawler POSTs the Umantis listing with Region Tessin + Region Graubünden filters, fetches Italian detail pages. Keeps TI/GR vacancies.',
+    notes: 'Dedicated Allianz Suisse crawler POSTs the Umantis listing unfiltered (national), fetches Italian detail pages. Keeps CH vacancies (canton via inferAllianzCanton).',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -383,7 +380,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Tessin');
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Allianz Suisse');
   console.log('═══════════════════════════════════════════════');
   console.log('  Allianz Suisse — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -391,7 +388,7 @@ async function main() {
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('⚠️ No TI/GR listings found on Allianz Suisse — skipping.');
+    console.log('⚠️ No listings found on Allianz Suisse — skipping.');
     return;
   }
 
@@ -436,7 +433,7 @@ async function main() {
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
-    label: 'Tessin',
+    label: 'Allianz Suisse',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
     newCount: diff.newJobs.length,
