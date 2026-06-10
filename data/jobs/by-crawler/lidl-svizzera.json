@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-06-10T10:00:24.633Z",
+  "assembledAt": "2026-06-10T12:31:27.445Z",
   "jobs": [
     {
       "id": "company-xsgkjj",
@@ -73,6 +73,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500
     },
@@ -157,6 +158,7 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -564,6 +566,7 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -690,6 +693,7 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -806,6 +810,7 @@
           "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -928,6 +933,7 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -1059,6 +1065,7 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     }
