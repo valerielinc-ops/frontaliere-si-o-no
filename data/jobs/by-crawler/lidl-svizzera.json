@@ -73,7 +73,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500
     },
@@ -107,8 +106,8 @@
       "slugByLocale": {
         "it": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
         "en": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno",
-        "de": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
-        "fr": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k"
+        "de": "verkaufer-verkaufer-m-w-d-40-lidl-svizzera-locarno",
+        "fr": "vendeur-vendeur-m-f-d-40-lidl-svizzera-locarno"
       },
       "titleByLocale": {
         "en": "Venditore / Venditrice (m/f/d) 40%",
@@ -149,19 +148,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "verkaufer-verkaufer-m-w-d-40-lidl-svizzera-locarno",
-        "vendeur-vendeur-m-f-d-40-lidl-svizzera-locarno",
         "venditore-venditrice-lun-f-d-40-lidl-svizzera-locarno"
       ],
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "de": [
-          "verkaufer-verkaufer-m-w-d-40-lidl-svizzera-locarno"
-        ],
-        "fr": [
-          "vendeur-vendeur-m-f-d-40-lidl-svizzera-locarno"
-        ]
-      },
       "salaryMin": 59000,
       "salaryMax": 90500
     },
@@ -245,7 +233,6 @@
         "343-seller-seller-m-f-d-20-40-lidl-svizzera-minusio",
         "venditore-venditrice-m-f-d-40-60-lidl-svizzera-minusio"
       ],
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500
     },
@@ -330,7 +317,6 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -526,9 +512,6 @@
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-3t5gz5",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-kscbfg",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-tyv50x"
-        ],
-        "de": [
-          "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano-ixk693"
         ]
       },
       "salaryMin": 41600,
@@ -741,7 +724,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -847,8 +829,7 @@
           "retail-apprenticeship-vet-or-federal-vet-diploma-starting-2026-lidl-svizzera-biasca"
         ],
         "de": [
-          "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-biasca-3t5gz5",
-          "lernen-im-einzelhandel-cfp-oder-afc-start-2026-biasca-lidl-svizzera-biasca-3t5gz5"
+          "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-biasca-3t5gz5"
         ]
       },
       "previousSlugs": [
@@ -869,7 +850,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -986,7 +966,6 @@
           "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -1109,7 +1088,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -1241,7 +1219,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     }
