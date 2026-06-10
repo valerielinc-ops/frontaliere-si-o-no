@@ -1,38 +1,38 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-06-10T11:54:52.885Z",
-  "total": 14,
+  "generatedAt": "2026-06-10T22:29:58.956Z",
+  "total": 15,
   "newCount": 1,
-  "updatedCount": 13,
-  "removedCount": 1,
+  "updatedCount": 14,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2545,
-  "avgDurationMs": 2545,
+  "durationMs": 2293,
+  "avgDurationMs": 2293,
   "durationHistory": [
-    2545
+    2293
   ],
   "newJobs": [
     {
-      "id": "corner-banca-9238ccb59915",
-      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+      "id": "corner-banca-9a08d15ac96b",
+      "slug": "employee-collection-team-zurich-corner-banca-wallisellen",
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
+      "title": "Employee Collection Team Zürich",
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
       "addressCountry": "CH",
-      "category": "finance",
+      "category": "sales",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.675Z",
+      "crawledAt": "2026-06-10T22:29:56.932Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -62,7 +62,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.671Z",
+      "crawledAt": "2026-06-10T22:29:56.927Z",
       "firstSeenAt": "2026-06-08T12:44:36.978Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -91,7 +91,7 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.665Z",
+      "crawledAt": "2026-06-10T22:29:56.921Z",
       "firstSeenAt": "2026-06-02T23:12:26.649Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -120,7 +120,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.666Z",
+      "crawledAt": "2026-06-10T22:29:56.923Z",
       "firstSeenAt": "2026-05-21T11:39:53.164Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -149,13 +149,43 @@
       "url": "https://jobs.corner.ch/o/litigation-office-associate",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.667Z",
+      "crawledAt": "2026-06-10T22:29:56.923Z",
       "firstSeenAt": "2026-05-18T12:11:07.107Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "corner-banca-9238ccb59915",
+      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-10T22:29:56.934Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T11:54:50.675Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -178,7 +208,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.667Z",
+      "crawledAt": "2026-06-10T22:29:56.924Z",
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -207,7 +237,7 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.669Z",
+      "crawledAt": "2026-06-10T22:29:56.926Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,7 +266,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.672Z",
+      "crawledAt": "2026-06-10T22:29:56.928Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -265,7 +295,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.672Z",
+      "crawledAt": "2026-06-10T22:29:56.929Z",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -294,7 +324,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.674Z",
+      "crawledAt": "2026-06-10T22:29:56.933Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -323,7 +353,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T11:54:50.675Z",
+      "crawledAt": "2026-06-10T22:29:56.935Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -352,7 +382,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.676Z",
+      "crawledAt": "2026-06-10T22:29:56.935Z",
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -381,7 +411,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T11:54:50.677Z",
+      "crawledAt": "2026-06-10T22:29:56.936Z",
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -410,7 +440,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T11:54:50.678Z",
+      "crawledAt": "2026-06-10T22:29:56.937Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
       "_qualityScore": 81,
@@ -422,43 +452,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "corner-banca-55e210fc5d83",
-      "slug": "gestione-del-rischio-di-mercato-corner-banca-lugano",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Market Risk Manager",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://jobs.corner.ch/o/market-risk-manager",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.608Z",
-      "firstSeenAt": "2026-05-13T10:51:00.114Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
