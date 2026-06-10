@@ -1,18 +1,19 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-06-10T09:03:27.920Z",
-  "total": 15,
-  "newCount": 15,
-  "updatedCount": 0,
+  "generatedAt": "2026-06-10T12:12:07.982Z",
+  "total": 11,
+  "newCount": 0,
+  "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19252,
-  "avgDurationMs": 19252,
+  "durationMs": 18939,
+  "avgDurationMs": 18939,
   "durationHistory": [
-    19252
+    18939
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hermes-15455aba22d4",
       "slug": "stage-communication-1an-f-h-hermes-ch",
@@ -25,7 +26,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:21.426Z",
+      "crawledAt": "2026-06-10T12:12:01.532Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-06-10",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:21.426Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 17
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22031/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T09:03:21.737Z",
+      "crawledAt": "2026-06-10T12:12:01.842Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -75,11 +78,13 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22031/",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:21.737Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -95,7 +100,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21860/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:22.058Z",
+      "crawledAt": "2026-06-10T12:12:02.161Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -109,11 +114,13 @@
       "featured": false,
       "postedDate": "2026-06-03",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21860/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:22.058Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -129,7 +136,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22355/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T09:03:22.360Z",
+      "crawledAt": "2026-06-10T12:12:02.464Z",
       "addressLocality": "St. Moritz, Graubuenden, Switzerland",
       "addressRegion": "St. Moritz, Graubuenden, Switzerland",
       "addressCountry": "CH",
@@ -143,11 +150,13 @@
       "featured": false,
       "postedDate": "2026-06-02",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22355/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:22.360Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -163,7 +172,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22205/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:22.668Z",
+      "crawledAt": "2026-06-10T12:12:02.771Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "Lugano, Ticino, Switzerland",
       "addressCountry": "CH",
@@ -177,11 +186,13 @@
       "featured": false,
       "postedDate": "2026-05-26",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22205/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:22.668Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -197,7 +208,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22036/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T09:03:22.970Z",
+      "crawledAt": "2026-06-10T12:12:03.072Z",
       "addressLocality": "Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -212,17 +223,19 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22036/",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:22.970Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 17
       }
     },
     {
       "id": "hermes-72295ebf73a5",
-      "slug": "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch",
+      "slug": "cdi-verkaufsberater-experte-uhren-e-schmuck-zurich-m-w-d-hermes-zurich-switzerland",
       "company": "Hermès",
       "companyKey": "hermes",
       "companyDomain": "hermes.com",
@@ -232,7 +245,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:23.277Z",
+      "crawledAt": "2026-06-10T12:12:03.381Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -246,11 +259,13 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:23.277Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -266,7 +281,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21861/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:23.580Z",
+      "crawledAt": "2026-06-10T12:12:03.683Z",
       "addressLocality": "Crans-Montana, Valais, Switzerland",
       "addressRegion": "Crans-Montana, Valais, Switzerland",
       "addressCountry": "CH",
@@ -280,11 +295,13 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21861/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:23.580Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -300,7 +317,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21898/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T09:03:23.883Z",
+      "crawledAt": "2026-06-10T12:12:03.985Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "Lugano, Ticino, Switzerland",
       "addressCountry": "CH",
@@ -314,11 +331,13 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21898/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:23.883Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -334,7 +353,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21867/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:24.183Z",
+      "crawledAt": "2026-06-10T12:12:04.286Z",
       "addressLocality": "Brügg BE, Bern, Switzerland",
       "addressRegion": "Brügg BE, Bern, Switzerland",
       "addressCountry": "CH",
@@ -348,11 +367,13 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21867/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:24.183Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -368,7 +389,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21845/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:24.484Z",
+      "crawledAt": "2026-06-10T12:12:04.587Z",
       "addressLocality": "Brügg BE, Bern, Switzerland",
       "addressRegion": "Brügg BE, Bern, Switzerland",
       "addressCountry": "CH",
@@ -382,11 +403,13 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21845/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:24.484Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -402,7 +425,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:24.787Z",
+      "crawledAt": "2026-06-10T12:12:04.890Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -416,11 +439,13 @@
       "featured": false,
       "postedDate": "2026-04-26",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:24.787Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -436,7 +461,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21420/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T09:03:25.089Z",
+      "crawledAt": "2026-06-10T12:12:05.191Z",
       "addressLocality": "Gstaad, Bern, Switzerland",
       "addressRegion": "Gstaad, Bern, Switzerland",
       "addressCountry": "CH",
@@ -450,11 +475,13 @@
       "featured": false,
       "postedDate": "2026-04-19",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21420/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:25.089Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -470,7 +497,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/20217/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:25.390Z",
+      "crawledAt": "2026-06-10T12:12:05.492Z",
       "addressLocality": "Basel-Stadt, Switzerland",
       "addressRegion": "Basel-Stadt, Switzerland",
       "addressCountry": "CH",
@@ -484,11 +511,13 @@
       "featured": false,
       "postedDate": "2026-03-22",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/20217/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:25.390Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -504,7 +533,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/19709/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:25.691Z",
+      "crawledAt": "2026-06-10T12:12:05.793Z",
       "addressLocality": "Gstaad, Bern, Switzerland",
       "addressRegion": "Gstaad, Bern, Switzerland",
       "addressCountry": "CH",
@@ -518,16 +547,17 @@
       "featured": false,
       "postedDate": "2026-01-20",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/19709/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:25.691Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
