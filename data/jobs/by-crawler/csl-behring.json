@@ -2902,7 +2902,6 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "senior-project-manager-tech-ops-csl-behring-ch",
         "specialista-di-laboratorio-tech-ops-csl-behring-bern",
         "scientifique-principal-operations-techniques-csl-behring-bern",
         "ricercatore-senior-tech-ops-csl-behring-bern",
@@ -2920,14 +2919,18 @@
         "wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-tech-ops-csl-behring-bern",
         "scienziato-senior-tech-ops-csl-behring-bern",
-        "senior-scientist-tech-ops-csl-behring-ch"
+        "senior-scientist-tech-ops-csl-behring-ch",
+        "senior-wissenschaftler-tech-ops-csl-behring-bern",
+        "scientifique-principal-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-tech-ops-csl-behring-ch",
           "specialista-di-laboratorio-tech-ops-csl-behring-bern",
           "scientifique-principal-operations-techniques-csl-behring-bern",
-          "ricercatore-senior-tech-ops-csl-behring-bern"
+          "ricercatore-senior-tech-ops-csl-behring-bern",
+          "senior-wissenschaftler-tech-ops-csl-behring-bern",
+          "scientifique-principal-tech-ops-csl-behring-bern"
         ],
         "en": [
           "laboratory-specialist-tech-ops-csl-behring-ch"
@@ -3464,10 +3467,6 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "scientist-tech-ops-analytical-testing-csl-behring-ch",
-        "scientifique-tech-ops-csl-behring-bern",
-        "scienziato-senior-tech-ops-csl-behring-bern",
-        "senior-wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-principal-tech-ops-csl-behring-bern",
         "ricercatore-senior-tech-ops-csl-behring-bern",
         "senior-scientist-tech-ops-csl-behring-ch",
@@ -3484,7 +3483,10 @@
         "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
         "senior-laboratory-specialist-tech-ops-csl-behring-ch",
         "senior-laboratoriumspezialist-tech-ops-csl-behring-bern",
-        "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern"
+        "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern",
+        "ricercatore-tech-ops-csl-behring-bern",
+        "scientist-tech-ops-csl-behring-ch",
+        "wissenschaftler-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3493,7 +3495,10 @@
           "scienziato-senior-tech-ops-csl-behring-bern",
           "senior-wissenschaftler-tech-ops-csl-behring-bern",
           "scientifique-principal-tech-ops-csl-behring-bern",
-          "ricercatore-senior-tech-ops-csl-behring-bern"
+          "ricercatore-senior-tech-ops-csl-behring-bern",
+          "ricercatore-tech-ops-csl-behring-bern",
+          "scientist-tech-ops-csl-behring-ch",
+          "wissenschaftler-tech-ops-csl-behring-bern"
         ],
         "en": [
           "senior-scientist-tech-ops-csl-behring-ch"
