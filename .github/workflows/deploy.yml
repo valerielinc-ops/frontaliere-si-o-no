@@ -839,18 +839,27 @@ jobs:
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
         run: |
           set -uo pipefail
-          for loc in en de fr; do
+          # Build + force-push ONE locale shard. Factored into a function so the
+          # three locales can run CONCURRENTLY (below) — they target independent
+          # repos / deploy keys / stage dirs, so wall-clock drops from
+          # sum(en+de+fr) (~13 min serial) to the slowest single locale (~5 min).
+          push_shard() {
+            local loc="$1"
+            local key_var key_val stage keyfile src_n prev_n rc
             key_var="SHARD_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
             key_val="${!key_var:-}"
             if [ -z "$key_val" ]; then
-              echo "no $key_var secret — skipping $loc shard push"; continue
+              echo "no $key_var secret — skipping $loc shard push"; return 0
             fi
             if [ ! -d "dist/$loc" ]; then
-              echo "dist/$loc absent — skipping $loc shard push"; continue
+              echo "dist/$loc absent — skipping $loc shard push"; return 0
             fi
             stage="$RUNNER_TEMP/shard-$loc"
             keyfile="$RUNNER_TEMP/shard_${loc}_key"
             printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+            # GIT_SSH_COMMAND is exported inside this function — and each locale
+            # runs in its OWN background subshell (the `&` below), so the three
+            # deploy keys never clobber one another when run concurrently.
             export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
             # Source-of-truth file count + the shard's last-published count, read
             # cheaply (no 2.5 GB clone) — a tiny .shard-filecount marker fetched
@@ -911,7 +920,19 @@ jobs:
               echo "::warning::$loc shard build/push failed (rc=$rc) — $loc will NOT be stripped from main this run"
             fi
             rm -f "$keyfile"
+          }
+          # Push all three locales CONCURRENTLY. Each runs in its own background
+          # subshell (isolated GIT_SSH_COMMAND / stage dir) and writes its own
+          # shard-ok-$loc marker on success, so one locale failing can never let
+          # the strip step drop a missing shard. continue-on-error keeps a degraded
+          # round (e.g. disk pressure) from failing the deploy — the locale just
+          # stays in the main artifact this run.
+          pids=()
+          for loc in en de fr; do
+            push_shard "$loc" &
+            pids+=("$!")
           done
+          for p in "${pids[@]}"; do wait "$p" || true; done
 
       # ── CDN assets/ GC janitor (anti-clobber by SEQUENCING) ───────────────
       # The additive assets/ merge above (cp -n) lets old + new content hashes
