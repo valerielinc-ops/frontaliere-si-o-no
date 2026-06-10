@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Dedicated Swisscom (sede Ticino) crawler runner.
+ * Dedicated Swisscom crawler runner (CH-wide; legacy key 'swisscom-sede-ticino').
  *
  * Swisscom is the leading Swiss telecom company with offices across Switzerland,
  * including several locations in Ticino (Bellinzona, Grancia, Balerna, S. Antonino).
@@ -116,7 +116,7 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
-function isTicinoLocation(locText = '') {
+function isSwissLocation(locText = '') {
   return isTargetSwissLocation(locText);
 }
 
@@ -154,7 +154,7 @@ async function fetchJson(url, options = {}) {
 }
 
 /**
- * List all Swiss Swisscom jobs via Workday API, then filter for Ticino.
+ * List all Swiss Swisscom jobs via Workday API, then keep CH-wide (all 26 cantons).
  * Workday caps limit at 20, so we paginate with offset.
  */
 async function listTicinoJobs() {
@@ -200,12 +200,12 @@ async function listTicinoJobs() {
 
   // Filter TI/GR-based jobs
   const relevantPostings = allPostings.filter(p =>
-    isTicinoLocation(p.locationsText || '')
+    isSwissLocation(p.locationsText || '')
   );
 
   const tiCount = relevantPostings.filter(p => inferCanton(p.locationsText || '') === 'TI').length;
   const grCount = relevantPostings.filter(p => inferCanton(p.locationsText || '') === 'GR').length;
-  console.log(`  🎯 TI/GR jobs found: ${relevantPostings.length} (TI: ${tiCount}, GR: ${grCount})`);
+  console.log(`  🎯 CH jobs kept: ${relevantPostings.length} (TI: ${tiCount}, GR: ${grCount}, others: ${relevantPostings.length - tiCount - grCount})`);
   for (const p of relevantPostings) {
     console.log(`     - ${p.title} (${p.locationsText}) [${inferCanton(p.locationsText || '')}]`);
   }
