@@ -117,4 +117,30 @@ describe('switzerland unemployment parser', () => {
     expect(extractPeriod('en janvier 2017')).toBe('2017-01');
     expect(extractPeriod('no month here')).toBeNull();
   });
+
+  it('findReleaseHref resolves release URL for dot-decimal figures (EN re-point, #1737)', () => {
+    // Regression for figRx bug: escapeRegExp("3.0") → "3\\.0", then
+    // .replace(/[.,]/g,"[.,]") rewrites the escaped dot → "3\\[.,]0" — a
+    // malformed anchor.  Fix: skip escapeRegExp since rate figures are purely
+    // numeric (digits + decimal separator, no other regex-special chars).
+    const html = `
+<!doctype html><html lang="en"><head><title>SECO</title></head><body>
+<div id="__nuxt">
+  <div class="u-base-card u-teaser-card u-teaser-card--list">
+    <div class="u-base-card__body__text">
+      <h5 class="u-heading"><span>Labour market situation in May 2026</span></h5>
+      <span class="u-teaser-card__description">In May 2026 the unemployment rate stood at 3.0%.</span>
+    </div>
+  </div>
+</div>
+<script>window.__NUXT__=(function(){return {data:[{"lead":"In May 2026 the unemployment rate stood at 3.0%.","https://www.admin.ch/en/test/dot-decimal-release",{"x":1}}]}})()</script>
+</body></html>`;
+    const parsed = parseLatestUnemployment(html);
+    expect(parsed).not.toBeNull();
+    expect(parsed.rate).toBe(3);
+    expect(parsed.period).toBe('2026-05');
+    // With the bug: figRx = "3\\[.,]0" → anchorRe never matches → href falls back
+    // to SOURCE_URL. With the fix: figRx = "3[.,]0" → admin.ch link is found.
+    expect(parsed.href).toBe('https://www.admin.ch/en/test/dot-decimal-release');
+  });
 });
