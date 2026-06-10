@@ -43208,6 +43208,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-via-mazzini-lugano-chiusura-lavori': {
+    title: 'Via Mazzini a Lugano chiusa per lavori: orari e viabilità alternativa',
+    description: 'Via Mazzini a Lugano sarà chiusa sabato 13 giugno 2026 per lavori. Scopri gli orari e le viabilità alternative. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mazzini, lugano, chiusa, lavori',
+    ogTitle: 'Via Mazzini a Lugano chiusa per lavori',
+    ogDescription: 'Chiusura di via Mazzini a Lugano per lavori di smontaggio di una gru di cantiere.',
+    canonicalPath: '/articoli-frontaliere/via-mazzini-lugano-chiusura-lavori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Via Mazzini a Lugano chiusa per lavori: orari e viabilità alternativa",
+      "description": "Via Mazzini a Lugano sarà chiusa sabato 13 giugno 2026 per lavori. Scopri gli orari e le viabilità alternative. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/via-mazzini-lugano-chiusura-lavori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada chiusa al traffico con segnaletica di deviazione a Lugano"
+      },
+      "datePublished": "2026-06-10T00:35:45+00:00",
+      "dateModified": "2026-06-10T00:35:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/via-mazzini-lugano-chiusura-lavori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

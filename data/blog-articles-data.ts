@@ -25461,6 +25461,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'via-mazzini-lugano-chiusura-lavori',
+ category: 'pratico',
+ date: '2026-06-10T00:35:45.640Z',
+ image: '/images/blog/via-mazzini-lugano-chiusura-lavori.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

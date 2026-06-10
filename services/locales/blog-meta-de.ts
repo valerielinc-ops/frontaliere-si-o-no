@@ -8025,6 +8025,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Sommerjobs: die Regeln, die man kennen muss',
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Löhne, Versicherungen und Altersbeschränkungen für junge Grenzgänger im Tessin.',
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Sommerjobs für Grenzgänger in Tessin',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.title': 'Lugano: Via Mazzini gesperrt für Arbeiten',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.excerpt': 'Am Samstag, 13. Juni, wird die Via Mazzini für den Fahrzeugverkehr gesperrt, um den Abbau eines Krans auf einer Baustelle zu ermöglichen.',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.imageAlt': 'Straße in Lugano wegen Bauarbeiten gesperrt',
 };
 
 export default blogMetaDe;
