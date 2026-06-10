@@ -1,89 +1,18 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-06-10T12:24:11.924Z",
+  "generatedAt": "2026-06-10T22:57:38.052Z",
   "total": 7,
-  "newCount": 2,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6100,
-  "avgDurationMs": 6100,
+  "durationMs": 3964,
+  "avgDurationMs": 3964,
   "durationHistory": [
-    6100
+    3964
   ],
-  "newJobs": [
-    {
-      "title": "Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026",
-      "slug": "mitarbeiterin-administration-mit-zusatzfunktion-it-support-60-100-06-2026-klinik-wyssholzli",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Mitarbeiterin-Administration-mit-Zusatzfunktion-IT-Support-_60_100_06_2026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-10",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Inserat-Mitarbeiterin-Administration-mit-Zusatzfunktion-IT-Support-_60_100_06_2026.pdf"
-      },
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Mitarbeiterin It Support 40 06/2026",
-      "slug": "mitarbeiterin-it-support-40-06-2026-klinik-wyssholzli",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Mitarbeiterin-IT-Support-40-_06_2026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-10",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Inserat-Mitarbeiterin-IT-Support-40-_06_2026.pdf"
-      },
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Stv. Leitung Behandlung 02/2026",
@@ -267,6 +196,80 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026",
+      "slug": "mitarbeiterin-administration-mit-zusatzfunktion-it-support-60-100-06-2026-klinik-wyssholzli",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Mitarbeiterin-Administration-mit-Zusatzfunktion-IT-Support-_60_100_06_2026.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-10",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Inserat-Mitarbeiterin-Administration-mit-Zusatzfunktion-IT-Support-_60_100_06_2026.pdf"
+      },
+      "id": "klinik-wyssholzli-101dcb2ca155",
+      "firstSeenAt": "2026-06-10T12:24:11.922Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Mitarbeiterin It Support 40 06/2026",
+      "slug": "mitarbeiterin-it-support-40-06-2026-klinik-wyssholzli",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Mitarbeiterin-IT-Support-40-_06_2026.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-10",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Inserat-Mitarbeiterin-IT-Support-40-_06_2026.pdf"
+      },
+      "id": "klinik-wyssholzli-2aab5834c80e",
+      "firstSeenAt": "2026-06-10T12:24:11.922Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
         "completeness": 17
       }
     }
