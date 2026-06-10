@@ -27,6 +27,7 @@
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import { detectAlreadyResolved } from './followup-resolution-match.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_ISSUES = Number(process.env.MAX_ISSUES || 100);
@@ -44,61 +45,18 @@ function gh(args, { allowFail = false } = {}) {
 
 const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 
-/**
- * Pull distinctive CODE tokens out of a backtick-quoted span. A token qualifies only
- * if it carries code punctuation (paren/quote/colon/dot-member/operator) — bare prose
- * words and plain identifiers are rejected to keep precision high (we'd rather miss a
- * resolved issue than wrongly flag a live one). Bare file paths are handled separately.
- */
-function isDistinctiveToken(s) {
-  if (s.length < 6 || s.length > 80) return false;
-  if (/^[\w./-]+$/.test(s) && /\.[a-z]{2,4}$/i.test(s)) return false; // bare file path
-  if (/\s/.test(s.trim()) && !/[(){}'"`:=<>]|\.\w/.test(s)) return false; // prose phrase
-  return /[(){}'"`]|::|=>|\.\w|:\d|>=|<=|\b(toContain|toBe|toEqual|expect|describe|getList|markStale|mergedCount|previousSlugs)\b/.test(s);
-}
-
-/** Backticked file paths in the body that exist on disk (strip `:Lnnn` suffix). */
-function citedFiles(body) {
-  const out = new Set();
-  for (const m of body.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+)?`/gi)) {
-    const p = m[1];
-    if (p.includes('/') && fs.existsSync(p)) out.add(p);
-  }
-  return [...out];
-}
-
-/**
- * Scope token extraction to the `Suggested action` region(s) when present — that text
- * describes the PRESCRIBED fix, so a token from it appearing in the file is real signal
- * of "done". Falls back to the whole body for free-form issues. Avoids the trap where an
- * issue QUOTES the status-quo code it wants changed (`Original text`) — that token is in
- * the file because the work is NOT done, the opposite of what we want to flag.
- */
-function suggestedActionText(body) {
-  const lines = body.split('\n');
-  const regions = [];
-  for (let i = 0; i < lines.length; i++) {
-    if (/suggested action/i.test(lines[i])) {
-      const buf = [lines[i]];
-      for (let j = i + 1; j < lines.length; j++) {
-        if (/^(#{2,3}\s|- Source:|- Original text:|- Funnel impact:)/.test(lines[j])) break;
-        buf.push(lines[j]);
-      }
-      regions.push(buf.join('\n'));
-    }
-  }
-  return regions.length ? regions.join('\n') : body;
-}
-
-/** Backticked spans → distinctive tokens (capped, deduped). */
-function citedTokens(body) {
-  const out = new Set();
-  for (const m of suggestedActionText(body).matchAll(/`([^`]{3,90})`/g)) {
-    const t = m[1].trim();
-    if (isDistinctiveToken(t)) out.add(t);
-  }
-  return [...out].slice(0, 8);
-}
+// Matcher (isDistinctiveToken / citedFiles / citedTokens / detectAlreadyResolved) lives
+// in ./followup-resolution-match.mjs — shared verbatim with the issue-fix.yml pre-flight
+// gate (check-issue-already-resolved.mjs) so the two can never drift on what counts as
+// "already resolved" (AGENTS.md #6). Disk-backed IO resolver for this scheduled pass:
+const fileCache = new Map();
+const diskIo = {
+  fileExists: (p) => fs.existsSync(p),
+  readFile: (p) => {
+    if (!fileCache.has(p)) fileCache.set(p, fs.readFileSync(p, 'utf-8'));
+    return fileCache.get(p);
+  },
+};
 
 function alreadyCommented(number) {
   const out = gh(['issue', 'view', String(number), ...repoArgs, '--json', 'comments'], { allowFail: true });
@@ -139,24 +97,11 @@ function main() {
   }
 
   const flagged = [];
-  const fileCache = new Map();
 
   for (const iss of issues) {
     if (inFlight(iss.number)) { console.log(`#${iss.number}: in-flight PR open, skip`); continue; }
-    const body = iss.body || '';
-    const files = citedFiles(body);
-    const tokens = citedTokens(body);
-    if (!files.length || !tokens.length) continue;
-
-    const evidence = [];
-    for (const file of files) {
-      if (!fileCache.has(file)) fileCache.set(file, fs.readFileSync(file, 'utf-8'));
-      const content = fileCache.get(file);
-      for (const tok of tokens) {
-        if (content.includes(tok)) evidence.push({ file, tok });
-      }
-    }
-    if (!evidence.length) continue;
+    const { resolved, evidence } = detectAlreadyResolved(iss.body || '', diskIo);
+    if (!resolved) continue;
     if (alreadyCommented(iss.number)) { console.log(`#${iss.number}: already reconciled, skip`); continue; }
 
     flagged.push({ number: iss.number, title: iss.title, evidence });
