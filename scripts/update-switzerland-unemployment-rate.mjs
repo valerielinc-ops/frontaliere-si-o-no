@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 
 const SOURCE_URL = 'https://www.arbeit.swiss/secoalv/it/home.html';
 const OUT_FILE = path.resolve(process.cwd(), 'public/data/switzerland-unemployment-rate.json');
@@ -236,28 +236,18 @@ function generateSeoText(parsed, history) {
  * 4xx fail fast. On non-ok HTTP the status + URL are surfaced for diagnosability.
  */
 async function fetchSecoHtml(timeoutMs = 30000) {
-  return fetchWithRetry(async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(SOURCE_URL, {
-        headers: {
-          'user-agent': 'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch)',
-          accept: 'text/html,application/xhtml+xml',
-        },
-        signal: controller.signal,
-      });
-      if (!res.ok) {
-        const err = new Error(`HTTP ${res.status} ${res.statusText} from ${SOURCE_URL}`);
-        err.status = res.status;
-        err.retryable = RETRYABLE_STATUS.has(res.status);
-        throw err;
-      }
-      return await res.text();
-    } finally {
-      clearTimeout(timer);
-    }
-  }, { label: 'unemployment SECO page' });
+  const res = await httpFetchWithRetry(SOURCE_URL, {
+    headers: {
+      'user-agent': 'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch)',
+      accept: 'text/html,application/xhtml+xml',
+    },
+  }, { timeout: timeoutMs, label: 'unemployment SECO page' });
+  // Transient 429/5xx + network blips were retried inside the helper; a
+  // persistent non-ok still fails fast so we never parse an error page.
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} ${res.statusText} from ${SOURCE_URL}`);
+  }
+  return await res.text();
 }
 
 async function main() {
