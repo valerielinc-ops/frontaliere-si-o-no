@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText } from 'lucide-react';
+import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
@@ -268,6 +268,7 @@ const PublisherDashboardPage: React.FC = () => {
                   <th scope="col" className="text-right font-medium px-3 py-3">{t('publisherDashboard.col.views')}</th>
                   <th scope="col" className="text-right font-medium px-3 py-3">{t('publisherDashboard.col.applyClicks')}</th>
                   <th scope="col" className="text-right font-medium px-4 py-3">{t('publisherDashboard.col.applications')}</th>
+                  <th scope="col" className="text-right font-medium px-4 py-3"><span className="sr-only">{t('publisherDashboard.edit')}</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -285,6 +286,15 @@ const PublisherDashboardPage: React.FC = () => {
                     <td className="px-3 py-3 text-right text-body">{r.views}</td>
                     <td className="px-3 py-3 text-right text-body">{r.applyClicks}</td>
                     <td className="px-4 py-3 text-right text-body">{apps.filter((a) => a.jobId === r.id).length}</td>
+                    <td className="px-4 py-3 text-right">
+                      <a
+                        href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
+                        className="inline-flex items-center gap-1 text-link hover:underline"
+                      >
+                        <Pencil className="w-3.5 h-3.5" />
+                        {t('publisherDashboard.edit')}
+                      </a>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -307,6 +317,13 @@ const PublisherDashboardPage: React.FC = () => {
                   <span className="inline-flex items-center gap-1"><MousePointerClick className="w-4 h-4 text-subtle" />{r.applyClicks}</span>
                   <span className="inline-flex items-center gap-1"><FileText className="w-4 h-4 text-subtle" />{apps.filter((a) => a.jobId === r.id).length}</span>
                 </div>
+                <a
+                  href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
+                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-link hover:underline"
+                >
+                  <Pencil className="w-4 h-4" />
+                  {t('publisherDashboard.edit')}
+                </a>
               </div>
             ))}
           </div>

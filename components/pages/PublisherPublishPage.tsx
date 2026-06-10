@@ -24,6 +24,9 @@ import {
  getFirestore,
  collection,
  addDoc,
+ doc,
+ getDoc,
+ setDoc,
  serverTimestamp,
 } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
@@ -33,6 +36,7 @@ import type {
  ApplyMode,
  PublisherLegalForm,
  PublisherJobLocation,
+ PublisherJobStatus,
  PublisherTier,
 } from '@/services/publisherTypes';
 
@@ -186,7 +190,39 @@ function isValidEmail(value: string): boolean {
  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
-type SubmitStatus = 'idle' | 'submitting' | 'redirecting' | 'published' | 'error';
+type SubmitStatus = 'idle' | 'submitting' | 'redirecting' | 'published' | 'edited' | 'error';
+
+/**
+ * Build the distinct PublisherJobLocation[] from a cart item's rows, attaching
+ * the structured address the projection reads (raw.canton + raw.address.*).
+ * Empty address subfields are omitted so the projection's `|| fallback` logic
+ * stays clean. Shared by the create loop and the edit-update path.
+ */
+function buildJobLocations(rows: LocationRow[]): PublisherJobLocation[] {
+ const seen = new Set<string>();
+ const out: PublisherJobLocation[] = [];
+ for (const row of rows) {
+ const label = row.label.trim();
+ const key = label.toLowerCase();
+ if (!label || seen.has(key)) continue;
+ seen.add(key);
+ const canton = row.canton.trim() || 'TI';
+ const postalCode = row.postalCode.trim();
+ const streetAddress = row.street.trim();
+ out.push({
+ label,
+ canton,
+ address: {
+ addressLocality: label,
+ addressRegion: canton,
+ addressCountry: 'CH',
+ ...(postalCode ? { postalCode } : {}),
+ ...(streetAddress ? { streetAddress } : {}),
+ },
+ });
+ }
+ return out;
+}
 
 const PublisherPublishPage: React.FC = () => {
  const { t, locale } = useTranslation();
@@ -226,6 +262,15 @@ const PublisherPublishPage: React.FC = () => {
  // are NOT captured here. The checkout CF sums distinct locations across every
  // ad → the volume discount is reachable across several distinct ads.
  const [cart, setCart] = useState<CartItem[]>([]);
+
+ // ── Edit mode ───────────────────────────────────────────────
+ // When the dashboard links here with `?edit=<id>`, we load that publisher_jobs
+ // doc, prefill every field, and switch the form to a single-ad "edit" flow:
+ // the cart / "add another ad" affordances are hidden, the tier is read-only,
+ // and submit updates the doc in place (no checkout, no status/tier change).
+ const [editId, setEditId] = useState<string | null>(null);
+ const [editStatus, setEditStatus] = useState<PublisherJobStatus | null>(null);
+ const isEdit = editId != null;
 
  const [status, setStatus] = useState<SubmitStatus>('idle');
  const [errors, setErrors] = useState<string[]>([]);
@@ -297,10 +342,68 @@ const PublisherPublishPage: React.FC = () => {
  if (isFree && applyMode !== 'external_url') setApplyMode('external_url');
  }, [isFree, applyMode]);
 
- // Prefill the company section from a saved publisher profile (repeat posters
- // shouldn't re-type their company on every ad).
+ // ── Edit-mode load ──────────────────────────────────────────
+ // Read `?edit=<id>` once the user is known. If the doc exists AND belongs to
+ // the user, prefill every field from it and enter edit mode. The router
+ // preserves window.location.search, so this query param survives navigation.
  useEffect(() => {
  if (!user) return;
+ const wantEditId = new URLSearchParams(window.location.search).get('edit');
+ if (!wantEditId) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const db = getFirestore(await getApp());
+ const snap = await getDoc(doc(db, 'publisher_jobs', wantEditId));
+ if (cancelled || !snap.exists()) return;
+ const d = snap.data() as Record<string, unknown>;
+ if (d.publisherUid !== user.uid) return; // not the owner's ad — ignore
+
+ setEditId(wantEditId);
+ setEditStatus((d.status as PublisherJobStatus) ?? null);
+ setTier((d.tier as PublisherTier) || 'sponsored');
+
+ const c = (d.company as Record<string, unknown>) || {};
+ setCompanyName(c.name ? String(c.name) : '');
+ if (c.legalForm) setLegalForm(c.legalForm as PublisherLegalForm);
+ setDomain(c.domain ? String(c.domain) : '');
+ setLogoUrl(c.logoUrl ? String(c.logoUrl) : '');
+
+ setTitle(d.title ? String(d.title) : '');
+ setDescription(d.description ? String(d.description) : '');
+ setCategory(d.category ? String(d.category) : '');
+ setSector(d.sector ? String(d.sector) : '');
+ if (d.employmentType) setEmploymentType(String(d.employmentType));
+ if (d.contractType) setContractType(String(d.contractType));
+ setSalaryMin(d.salaryMin != null ? String(d.salaryMin) : '');
+ setSalaryMax(d.salaryMax != null ? String(d.salaryMax) : '');
+
+ const docLocations = Array.isArray(d.locations) ? (d.locations as PublisherJobLocation[]) : [];
+ const rows: LocationRow[] = docLocations.map(loc => ({
+ label: loc.label || '',
+ postalCode: loc.address?.postalCode || '',
+ canton: loc.canton || loc.address?.addressRegion || 'TI',
+ street: loc.address?.streetAddress || '',
+ }));
+ setLocations(rows.length > 0 ? rows : [emptyLocationRow()]);
+
+ const apply = (d.apply as Record<string, unknown>) || {};
+ if (apply.mode) setApplyMode(apply.mode as ApplyMode);
+ setApplyUrl(apply.url ? String(apply.url) : '');
+ setApplyEmail(apply.email ? String(apply.email) : '');
+ setPrivacyPolicyUrl(apply.privacyPolicyUrl ? String(apply.privacyPolicyUrl) : '');
+ } catch (error) {
+ reportCaughtError(error, 'publisher.editLoad');
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [user]);
+
+ // Prefill the company section from a saved publisher profile (repeat posters
+ // shouldn't re-type their company on every ad). Skipped in edit mode — the
+ // edited ad's own company snapshot is the source of truth there.
+ useEffect(() => {
+ if (!user || isEdit) return;
  let cancelled = false;
  (async () => {
  try {
@@ -318,7 +421,7 @@ const PublisherPublishPage: React.FC = () => {
  }
  })();
  return () => { cancelled = true; };
- }, [user]);
+ }, [user, isEdit]);
 
  // ── Live price preview ──────────────────────────────────────
  // Billing counts DISTINCT non-empty location labels (one ad × location unit each).
@@ -468,37 +571,63 @@ const PublisherPublishPage: React.FC = () => {
  ...(logoUrl.trim() ? { logoUrl: logoUrl.trim() } : {}),
  };
 
+ // ── Edit mode: update the existing doc in place ──────────────
+ // Merge only the CONTENT fields — status / tier / publisherUid / createdAt
+ // are deliberately left untouched (firestore.rules' contentEditOk requires
+ // them unchanged, and the webhook/Admin SDK still owns paid/expired). No
+ // checkout: a paid ad stays paid, a free ad stays free.
+ if (isEdit && editId) {
+ const ad = ads[0];
+ const jobLocations = buildJobLocations(ad.locations);
+ const parsedMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
+ const parsedMax = ad.salaryMax.trim() ? Number(ad.salaryMax) : undefined;
+ await setDoc(
+ doc(db, 'publisher_jobs', editId),
+ {
+ title: ad.title.trim(),
+ description: ad.description.trim(),
+ company,
+ locations: jobLocations,
+ employmentType: ad.employmentType,
+ ...(ad.category.trim() ? { category: ad.category.trim() } : {}),
+ ...(ad.sector.trim() ? { sector: ad.sector.trim() } : {}),
+ ...(ad.contractType.trim() ? { contractType: ad.contractType.trim() } : {}),
+ ...(parsedMin != null && Number.isFinite(parsedMin) ? { salaryMin: parsedMin } : {}),
+ ...(parsedMax != null && Number.isFinite(parsedMax) ? { salaryMax: parsedMax } : {}),
+ currency: 'CHF',
+ apply: {
+ mode: ad.apply.mode,
+ ...(ad.apply.mode === 'external_url' ? { url: ad.apply.url.trim() } : {}),
+ ...(ad.apply.mode === 'forward_email' || ad.apply.mode === 'in_house' ? { email: ad.apply.email.trim() } : {}),
+ ...(ad.apply.privacyPolicyUrl.trim() ? { privacyPolicyUrl: ad.apply.privacyPolicyUrl.trim() } : {}),
+ },
+ updatedAt: serverTimestamp(),
+ },
+ { merge: true },
+ );
+
+ // Keep the saved company profile fresh too (best-effort, non-blocking).
+ try {
+ await setDoc(
+ doc(db, 'publishers', user.uid),
+ { email: user.email || null, company, updatedAt: serverTimestamp() },
+ { merge: true },
+ );
+ } catch {
+ // non-fatal — the ad edit is already saved
+ }
+
+ Analytics.trackUIInteraction('publisher', 'form', 'submit', 'edited');
+ setStatus('edited');
+ return;
+ }
+
  // Write one publisher_jobs doc per ad (same shape as before). The CF sums
  // distinct locations across ALL of them for billing + volume discount.
  // status 'pending_payment' — only the Stripe webhook (Admin SDK) may set 'paid'.
  const jobIds: string[] = [];
  for (const ad of ads) {
- // Build PublisherJobLocation[] from distinct labels, attaching the
- // structured address the projection reads (raw.canton + raw.address.*).
- // Empty address subfields are omitted so the projection's `|| fallback`
- // logic stays clean.
- const seenLocations = new Set<string>();
- const jobLocations: PublisherJobLocation[] = [];
- for (const row of ad.locations) {
- const label = row.label.trim();
- const key = label.toLowerCase();
- if (!label || seenLocations.has(key)) continue;
- seenLocations.add(key);
- const canton = row.canton.trim() || 'TI';
- const postalCode = row.postalCode.trim();
- const streetAddress = row.street.trim();
- jobLocations.push({
- label,
- canton,
- address: {
- addressLocality: label,
- addressRegion: canton,
- addressCountry: 'CH',
- ...(postalCode ? { postalCode } : {}),
- ...(streetAddress ? { streetAddress } : {}),
- },
- });
- }
+ const jobLocations = buildJobLocations(ad.locations);
  const parsedSalaryMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
  const parsedSalaryMax = ad.salaryMax.trim() ? Number(ad.salaryMax) : undefined;
 
@@ -641,6 +770,21 @@ const PublisherPublishPage: React.FC = () => {
  );
  }
 
+ // ── Edit saved success ──────────────────────────────────────
+ if (status === 'edited') {
+ return (
+ <div className="max-w-2xl mx-auto px-4 py-12">
+ <div className="text-center space-y-4">
+ <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle">
+ <Clock className="w-8 h-8 text-success" />
+ </div>
+ <h2 className="text-2xl font-bold font-display text-strong">{t('publisher.editSuccess.title')}</h2>
+ <p className="text-subtle max-w-md mx-auto">{t('publisher.editSuccess.message')}</p>
+ </div>
+ </div>
+ );
+ }
+
  return (
  <div className="max-w-2xl mx-auto px-4 py-8">
  {/* Header */}
@@ -649,7 +793,7 @@ const PublisherPublishPage: React.FC = () => {
  <Briefcase className="w-7 h-7 text-link" />
  </div>
  <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2">
- {t('publisher.title')}
+ {isEdit ? t('publisher.editTitle') : t('publisher.title')}
  </h1>
  <p className="text-subtle max-w-lg mx-auto">{t('publisher.subtitle')}</p>
  </div>
@@ -669,8 +813,10 @@ const PublisherPublishPage: React.FC = () => {
  key={opt.value}
  type="button"
  aria-pressed={selected}
- onClick={() => setTier(opt.value as PublisherTier)}
- className={`text-left p-4 rounded-2xl border transition-colors ${selected ? 'border-accent bg-accent-subtle' : 'border-edge bg-surface-alt hover:border-accent'}`}
+ disabled={isEdit}
+ aria-disabled={isEdit}
+ onClick={() => { if (!isEdit) setTier(opt.value as PublisherTier); }}
+ className={`text-left p-4 rounded-2xl border transition-colors ${selected ? 'border-accent bg-accent-subtle' : 'border-edge bg-surface-alt hover:border-accent'} ${isEdit ? 'opacity-60 cursor-not-allowed hover:border-edge' : ''}`}
  >
  <span className="block text-sm font-semibold text-strong">{t(opt.titleKey)}</span>
  <span className="block text-xs text-subtle mt-1">{t(opt.descKey)}</span>
@@ -1089,6 +1235,8 @@ const PublisherPublishPage: React.FC = () => {
  </section>
 
  {/* ── Add-another-ad + cart ──────────────────────────── */}
+ {/* Hidden in edit mode — editing is a single-ad, in-place update. */}
+ {!isEdit && (
  <section>
  <button
  type="button"
@@ -1135,6 +1283,7 @@ const PublisherPublishPage: React.FC = () => {
  </div>
  )}
  </section>
+ )}
 
  {/* ── Price preview ──────────────────────────────────── */}
  <section className="rounded-2xl border border-edge bg-surface-alt p-5">
@@ -1208,7 +1357,7 @@ const PublisherPublishPage: React.FC = () => {
  ) : (
  <>
  <Send className="w-4 h-4" />
- {isFree ? t('publisher.submitFree') : t('publisher.submit')}
+ {isEdit ? t('publisher.editSubmit') : isFree ? t('publisher.submitFree') : t('publisher.submit')}
  </>
  )}
  </button>

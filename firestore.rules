@@ -180,6 +180,16 @@ service cloud.firestore {
     function clientJobWriteOk(d) {
       return freeJobOk(d) || sponsoredJobOk(d);
     }
+    // Pure CONTENT edit on ANY status (fix a typo, update the description on an
+    // already-paid ad). Allowed only when status / tier / owner are UNCHANGED —
+    // status transitions stay gated by clientJobWriteOk, and the webhook/Admin SDK
+    // still owns paid/expired flips. A free ad still cannot become featured here.
+    function contentEditOk(prev, next) {
+      return next.publisherUid == prev.publisherUid
+        && next.tier == prev.tier
+        && next.status == prev.status
+        && (next.tier != 'free' || next.featured != true);
+    }
 
     // Publisher accounts / company profile — owner-only (billing data is private;
     // public company info is mirrored into the job slice, not read from here).
@@ -197,13 +207,20 @@ service cloud.firestore {
       allow create: if isSignedIn()
         && request.auth.uid == request.resource.data.publisherUid
         && clientJobWriteOk(request.resource.data);
-      // Owner may edit while not sponsored-paid, but cannot reassign ownership,
-      // flip a sponsored ad to paid, nor turn a free ad into a featured one.
+      // Owner may either (a) drive a status transition while not sponsored-paid
+      // (draft → pending_payment etc., via clientJobWriteOk), or (b) make a pure
+      // content edit (typo / description fix) on ANY status as long as it does
+      // NOT change owner / tier / status (contentEditOk). Neither path can
+      // reassign ownership, flip a sponsored ad to paid, nor turn a free ad into
+      // a featured one — those remain Admin-SDK-only.
       allow update: if isSignedIn()
         && request.auth.uid == resource.data.publisherUid
         && request.resource.data.publisherUid == resource.data.publisherUid
-        && request.resource.data.tier == resource.data.tier
-        && clientJobWriteOk(request.resource.data);
+        && (
+          (request.resource.data.tier == resource.data.tier
+            && clientJobWriteOk(request.resource.data))
+          || contentEditOk(resource.data, request.resource.data)
+        );
       allow delete: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
     }
 
