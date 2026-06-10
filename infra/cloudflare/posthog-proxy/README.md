@@ -1,34 +1,37 @@
-# PostHog first-party proxy (Cloudflare Worker)
+# PostHog proxy — MIGRATED to PostHog managed reverse proxy (no Worker)
 
-Reverse-proxies PostHog EU Cloud under `https://t.frontaliereticino.ch` so
-analytics requests are same-origin and survive ad-blockers. The web client
-points `api_host` at this domain in [`services/posthog.ts`](../../../services/posthog.ts).
+**This directory is a tombstone.** The Cloudflare Worker that used to proxy
+`t.frontaliereticino.ch` → PostHog EU Cloud was **removed on 2026-06-10** and
+replaced by PostHog's own **managed reverse proxy** — a plain DNS CNAME, no
+Worker, no code.
 
-- `/static/*` → `eu-assets.i.posthog.com` (posthog-js bundle)
-- everything else → `eu.i.posthog.com` (ingestion, flags, …)
+## Why
 
-## Background
+The Worker counted every analytics request against the Cloudflare **free-plan
+Workers cap (100k requests/day)**. On 2026-06-09 the shared account hit 102k/100k
+(locale-router + this proxy together). PostHog's managed reverse proxy is **free
+for all PostHog Cloud users** and runs on PostHog's own infrastructure, so the
+analytics traffic no longer touches our Cloudflare Workers at all.
 
-On 2026-06-09 `t.frontaliereticino.ch` resolved to NXDOMAIN (no DNS record), so
-100% of PostHog events failed — the analytics blackout was a broken proxy, not
-just a quota issue. This Worker + its custom domain restore it.
+This is also how it worked **before** the June NS move to Cloudflare: `api_host`
+was switched to `t.frontaliereticino.ch` on 2026-04-12 as a managed-proxy CNAME.
+When the zone moved to Cloudflare the CNAME was lost (→ NXDOMAIN, the 2026-06-09
+analytics blackout) and a Worker was built as a stopgap instead of just
+re-creating the CNAME. The Worker was never actually necessary.
 
-## Deploy
+## Current setup (no Worker)
 
-Automatic: any push to `main` touching `infra/cloudflare/posthog-proxy/**`
-runs [`.github/workflows/deploy-posthog-proxy.yml`](../../../.github/workflows/deploy-posthog-proxy.yml).
+- **Cloudflare DNS:** `CNAME t → e2adb634446919dbda51.cf-prod-eu-proxy.europehog.com`,
+  **gray-cloud (DNS-only / Proxy status: DNS only)**. PostHog provisions the TLS
+  cert automatically and routes `/static/*` → assets, everything else → ingestion.
+  - Must stay **gray-cloud** — PostHog's managed proxy must NOT be proxied by our
+    Cloudflare (per PostHog docs).
+- **Client:** `services/posthog.ts` keeps `api_host: 'https://t.frontaliereticino.ch'`
+  unchanged.
+- **PostHog dashboard:** managed reverse proxy configured for `t.frontaliereticino.ch`.
 
-Manual:
+## If analytics breaks (t = NXDOMAIN / 5xx)
 
-```bash
-cd infra/cloudflare/posthog-proxy
-npx wrangler deploy        # OAuth (wrangler login) or CLOUDFLARE_API_TOKEN
-```
-
-The first deploy creates the `t.frontaliereticino.ch` custom domain (proxied DNS
-record + edge TLS cert) automatically; later deploys only update the script.
-
-## CI secrets
-
-- `CLOUDFLARE_API_TOKEN` — token with the *Edit Cloudflare Workers* permission set.
-- `CLOUDFLARE_ACCOUNT_ID` — `a426452d1d2987ac744c6feff20dd8b3`.
+Re-create the gray-cloud CNAME above (target is shown in PostHog → Settings →
+managed reverse proxy). Do **not** rebuild a Worker — that re-introduces the cap
+cost and would conflict with the CNAME by re-claiming the `t` custom domain.
