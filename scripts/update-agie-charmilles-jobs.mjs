@@ -4,12 +4,15 @@
  *
  * Crawls https://www.find-your-future.ch/it/lavoro-nel-settore-mem/settore-azienda/ritratti-aziendali/agie-charmilles-sa/
  * 1. Fetches company profile page → extracts all joboffer listings from HTML
- * 2. Filters for Ticino-relevant positions (canton TI / Losone)
+ *    (the page already serves the FULL national set — no region facet to drop)
+ * 2. Keeps every job whose location resolves to a Swiss canton (CH-wide, 26
+ *    cantons); drops non-CH / unresolved offers. Canton inferred per-job.
  * 3. Builds job entries with localized content
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
  *
- * AGIE Charmilles SA = GF Machining Solutions (Georg Fischer), Losone (TI)
+ * AGIE Charmilles SA = GF Machining Solutions (Georg Fischer), a national
+ * manufacturer (HQ Losone TI; sites in Biel BE, Langnau BE, Meyrin GE, ...).
  * Source: find-your-future.ch (Swissmem industry job portal)
  */
 
@@ -43,7 +46,7 @@ import {
 import {
   parseAgieCharmillesProfilePage,
   parseAgieCharmillesDetailPage,
-  isAgieCharmillesTicinoRelevant,
+  isAgieCharmillesSwissRelevant,
   inferAgieCharmillesCanton,
   inferAgieCharmillesCategory,
   buildAgieCharmillesLocalizedContent,
@@ -140,14 +143,14 @@ async function fetchAllListings() {
 
   console.log(`📋 Found ${items.length} total job listings`);
 
-  // Filter for Ticino-relevant positions
-  const ticinoJobs = items.filter(isAgieCharmillesTicinoRelevant);
-  const skipped = items.length - ticinoJobs.length;
+  // Keep CH-wide positions: any job whose location resolves to a Swiss canton.
+  const swissJobs = items.filter(isAgieCharmillesSwissRelevant);
+  const skipped = items.length - swissJobs.length;
   if (skipped > 0) {
-    console.log(`  🔍 Filtered: ${ticinoJobs.length} Ticino-relevant (skipped ${skipped} non-TI)`);
+    console.log(`  🔍 Filtered: ${swissJobs.length} CH-wide (skipped ${skipped} non-CH/unresolved)`);
   }
 
-  return ticinoJobs;
+  return swissJobs;
 }
 
 function buildAgieCharmillesJob(row) {
@@ -245,7 +248,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated AGIE Charmilles crawler. Parses find-your-future.ch company profile page (Swissmem portal). AGIE Charmilles SA = GF Machining Solutions (Georg Fischer). HQ in Losone (TI), Via dei Pioppi 2, 6616. EDM, milling, laser, AM machine tools.',
+    notes: 'Dedicated AGIE Charmilles crawler. Parses find-your-future.ch company profile page (Swissmem portal), CH-wide across all 26 cantons (per-job canton inferred from location). AGIE Charmilles SA = GF Machining Solutions (Georg Fischer), national manufacturer. HQ in Losone (TI), Via dei Pioppi 2, 6616; sites in Biel (BE), Langnau (BE), Meyrin (GE). EDM, milling, laser, AM machine tools.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -277,7 +280,7 @@ async function main() {
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('⚠️ No Ticino-relevant job listings found — skipping.');
+    console.log('⚠️ No CH-wide job listings found — skipping.');
     return;
   }
 

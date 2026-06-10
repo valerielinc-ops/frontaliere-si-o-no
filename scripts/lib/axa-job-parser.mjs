@@ -1,15 +1,20 @@
 /**
  * AXA Svizzera — Prospective.ch Career Center parser
  *
- * Listing: https://jobs.axa.ch/?lang=it&offset=0&limit=500&filter_20=68794
- *   - filter_20=68794 → Region Tessin
- *   - filter_20=68792 → Region Ostschweiz (inkl. GR)
+ * AXA Svizzera is a national insurer (HQ Winterthur), so the crawler collects
+ * jobs CH-wide across all 26 cantons — NOT filtered to any region. Per-job
+ * canton is inferred from the listing's clean `.place-of-work` city string via
+ * inferAnyCanton; jobs whose canton does not resolve to a Swiss canton are
+ * dropped upstream.
+ *
+ * Listing: https://jobs.axa.ch/?lang=it&offset=0&limit=500
+ *   - No filter_20 facet → national (all regions) result set
  *   - Server-rendered HTML, paginated via offset/limit query params
  *   - Jobs in <a id="job-{numericId}" href="/posizioni-aperte/{slug}/{uuid}">
  *     - data-href → Umantis apply URL
  *     - title → job title
  *     - .job-meta1 p → short description
- *     - .job-meta2 → location/workload spans
+ *     - .job-meta2 .place-of-work → "City, NN %" (clean city signal for canton)
  *
  * Detail: https://jobs.axa.ch/posizioni-aperte/{slug}/{uuid}
  *   - <h1> → title
@@ -23,7 +28,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://jobs.axa.ch';
 
@@ -32,11 +37,6 @@ const LANG_SLUGS = {
   de: 'offene-stellen',
   fr: 'postes-vacants',
   en: 'open-positions',
-};
-
-const REGION_FILTERS = {
-  tessin: '68794',
-  ostschweiz: '68792',
 };
 
 function normalizeSpace(value = '') {
@@ -75,14 +75,14 @@ function slugify(value = '') {
 }
 
 /**
- * Build listing URL with region filter.
+ * Build national listing URL (no region facet) with offset/limit pagination.
  * @param {'it'|'de'|'fr'|'en'} lang
- * @param {string} regionCode - REGION_FILTERS value (68794 for Tessin, 68792 for Ostschweiz)
+ * @param {number} [offset=0]
  * @param {number} [limit=500]
  * @returns {string}
  */
-export function buildListingUrl(lang = 'it', regionCode = REGION_FILTERS.tessin, limit = 500) {
-  return `${BASE_URL}/?lang=${lang}&offset=0&limit=${limit}&filter_20=${regionCode}`;
+export function buildListingUrl(lang = 'it', offset = 0, limit = 500) {
+  return `${BASE_URL}/?lang=${lang}&offset=${offset}&limit=${limit}`;
 }
 
 /**
@@ -105,6 +105,15 @@ export function parseAxaListingPage(html) {
     const meta1 = link.querySelector('.job-meta1 p');
     const excerpt = normalizeSpace(meta1?.textContent || '');
 
+    // Clean city signal from the listing: ".place-of-work" holds "City, NN %".
+    // The city is the segment before the first comma — used ALONE (no region
+    // string appended) for canton inference, since a combined "city + region"
+    // string makes inferAnyCanton return the wrong canton.
+    const powText = normalizeSpace(
+      link.querySelector('.job-meta2 .place-of-work')?.textContent || '',
+    );
+    const listingCity = powText.split(',')[0].replace(/\d+\s*%.*$/, '').trim();
+
     if (!title || !url) continue;
 
     jobs.push({
@@ -113,6 +122,7 @@ export function parseAxaListingPage(html) {
       url: url.startsWith('http') ? url : `${BASE_URL}${url}`,
       applyUrl: applyUrl || '',
       excerpt,
+      listingCity,
     });
   }
 
@@ -244,21 +254,36 @@ export function parseAxaDetailPage(html, pageUrl = '') {
 }
 
 /**
- * Check if a job is Ticino/GR relevant based on location text.
- */
-export function isAxaTicinoRelevant(location = '', address = '', title = '') {
-  const combined = `${location} ${address} ${title}`.toLowerCase();
-  return isTargetSwissLocation(combined);
-}
-
-/**
- * Infer canton from job location/address text.
+ * Resolve a job's Swiss canton from the cleanest single city signal.
  *
- * Uses inferAnyCanton, which matches against all 26 Swiss cantons via the BFS
- * municipality dataset (2,110 cities + aliases) plus canton names and codes.
+ * Tries the listing `.place-of-work` city first (cleanest), then the detail
+ * location, then the post-postal-code city segment of the address. Each
+ * candidate is passed to inferAnyCanton ALONE — never a combined
+ * "city + region" string, which would make inferAnyCanton return the wrong
+ * canton due to TARGET_CANTONS array order. Returns '' when no candidate
+ * resolves to one of the 26 Swiss cantons (foreign / unresolved → dropped
+ * upstream, never defaulted to TI).
+ *
+ * @param {string} listingCity - clean city from listing .place-of-work
+ * @param {string} location - detail-page location
+ * @param {string} address - detail-page address (Swiss "Street N, PostalCode City")
+ * @returns {string} 2-letter canton code or ''
  */
-export function inferAxaCanton(location = '', address = '') {
-  return inferAnyCanton(`${location} ${address}`);
+export function inferAxaCanton(listingCity = '', location = '', address = '') {
+  const addressCity = String(address || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .pop() // last segment = "PostalCode City"
+    ?.replace(/^\d{4}\s*/, '')
+    .trim() || '';
+  for (const candidate of [listingCity, location, addressCity]) {
+    const clean = String(candidate || '').trim();
+    if (!clean) continue;
+    const canton = inferAnyCanton(clean);
+    if (canton) return canton;
+  }
+  return '';
 }
 
 /**
@@ -315,4 +340,4 @@ export function extractUuidFromUrl(url = '') {
   return match ? match[1] : '';
 }
 
-export { REGION_FILTERS, LANG_SLUGS, BASE_URL };
+export { LANG_SLUGS, BASE_URL };

@@ -89,18 +89,23 @@ function deriveLocationLabel(detail, listing) {
   const cityState = String(detail?.cityState || '').trim();
   const listingCity = String(listing?.city || '').trim();
   const location = String(detail?.location || '').trim();
+  // Strip parentheticals (e.g. "Zurich (Headquarter)") and trailing ", CH".
+  const clean = (value = '') => value
+    .replace(/\s*\([^)]*\)\s*/g, ' ')
+    .replace(/,\s*CH$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 
   if (
     titleCity &&
-    !/zurich/i.test(titleCity) &&
     !/%/.test(titleCity) &&
     /[a-zA-Z]/.test(titleCity)
-  ) return titleCity;
-  if (cityState && !/zurich/i.test(cityState)) return cityState;
-  if (listingCity && listingCity.toLowerCase() !== 'ticino') return listingCity;
-  if (location && location.toLowerCase() !== 'ticino') return location;
-  if (listingCity) return listingCity;
-  return location || 'Ticino';
+  ) return clean(titleCity);
+  // Sunrise's per-job `city` is the most reliable location label (cityState
+  // leaks the Zürich HQ for jobs in other cantons). Prefer it over cityState.
+  if (listingCity) return clean(listingCity);
+  if (cityState) return clean(cityState);
+  return clean(location);
 }
 
 async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
@@ -156,12 +161,12 @@ async function fetchSunriseListings() {
   }
   const target = discovered.filter(isSunriseTargetLocation);
   console.log(`📋 Total search rows: ${discovered.length}`);
-  console.log(`📋 Ticino/Grigioni rows: ${target.length}`);
+  console.log(`📋 Swiss (CH-wide) rows: ${target.length}`);
   for (const row of target) {
     console.log(`  📄 ${row.title} (${row.city || row.cityState || row.state})`);
   }
   if (target.length < 1) {
-    throw new Error(`Expected at least 1 Sunrise job in Ticino/Grigioni, found ${target.length}`);
+    throw new Error(`Expected at least 1 Sunrise job in Switzerland, found ${target.length}`);
   }
   return target;
 }
@@ -271,7 +276,7 @@ function updateAdapterConfig(jobs) {
     priority: 14,
     crawlerModes: ['html', 'jsonld'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Sunrise crawler parses the Phenom search pages and keeps only Ticino/Grigioni jobs from the Sunrise careers portal.',
+    notes: 'Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -335,14 +340,13 @@ async function main() {
   try {
     listings = await fetchSunriseListings();
   } catch (fetchErr) {
-    // Sunrise's careers portal legitimately has 0 Ticino/Grigioni positions
-    // most of the time (Sunrise is HQ'd in Zurich; regional roles are rare).
+    // Sunrise is a national telecom (HQ Zürich) with a CH-wide careers feed.
     // Treat both "0 matches in source" and "fetch failed" as a no-op: keep
     // any existing slice intact and exit cleanly, instead of failing the
     // workflow on every run where the source is empty.
     const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
     const existing = allJobs.filter(isTargetJob);
-    console.log(`⚠️  Sunrise listing fetch returned no Ticino/Grigioni matches (${fetchErr.message}).`);
+    console.log(`⚠️  Sunrise listing fetch returned no Swiss matches (${fetchErr.message}).`);
     if (existing.length > 0) {
       console.log(`   Keeping ${existing.length} existing Sunrise job(s) — no changes made.`);
     } else {

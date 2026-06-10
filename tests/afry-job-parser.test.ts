@@ -3,7 +3,7 @@ import {
   parseAfryApiResponse,
   parseAfryDetailPage,
   parseSmartRecruitersPage,
-  isAfryTicinoRelevant,
+  isAfrySwissCanton,
   inferAfryCanton,
   inferAfryCategory,
   buildAfryLocalizedContent,
@@ -75,18 +75,19 @@ describe('afry-job-parser', () => {
     });
   });
 
-  describe('isAfryTicinoRelevant', () => {
-    it('matches Ticino cities', () => {
-      expect(isAfryTicinoRelevant({ cities: ['Airolo'], title: 'Geologo', location: 'Airolo' })).toBe(true);
-      expect(isAfryTicinoRelevant({ cities: ['Bellinzona'], title: 'Ingegnere', location: 'Bellinzona' })).toBe(true);
+  describe('isAfrySwissCanton', () => {
+    it('keeps Ticino cities', () => {
+      expect(isAfrySwissCanton({ cities: ['Airolo'], title: 'Geologo', location: 'Airolo' })).toBe(true);
+      expect(isAfrySwissCanton({ cities: ['Bellinzona'], title: 'Ingegnere', location: 'Bellinzona' })).toBe(true);
     });
 
-    it('matches Gottardo keywords in title', () => {
-      expect(isAfryTicinoRelevant({ cities: [], title: 'Geologo - San Gottardo', location: '' })).toBe(true);
+    it('keeps CH-wide cities outside Ticino/Grigioni', () => {
+      expect(isAfrySwissCanton({ cities: ['Zürich'], title: 'Engineer', location: 'Zürich' })).toBe(true);
+      expect(isAfrySwissCanton({ cities: ['Lausanne'], title: 'Ingénieur', location: 'Lausanne' })).toBe(true);
     });
 
-    it('rejects non-Ticino locations', () => {
-      expect(isAfryTicinoRelevant({ cities: ['Stockholm'], title: 'Developer', location: 'Stockholm' })).toBe(false);
+    it('rejects non-Swiss locations', () => {
+      expect(isAfrySwissCanton({ cities: ['Stockholm'], title: 'Developer', location: 'Stockholm' })).toBe(false);
     });
   });
 
@@ -95,8 +96,16 @@ describe('afry-job-parser', () => {
       expect(inferAfryCanton({ cities: ['Chur'], location: 'Chur' })).toBe('GR');
     });
 
-    it('defaults to TI', () => {
+    it('infers ZH for Zürich (CH-wide, not defaulted to TI)', () => {
+      expect(inferAfryCanton({ cities: ['Zürich'], location: 'Zürich' })).toBe('ZH');
+    });
+
+    it('infers TI for Bellinzona via city signal', () => {
       expect(inferAfryCanton({ cities: ['Bellinzona'], location: 'Bellinzona' })).toBe('TI');
+    });
+
+    it('returns empty for unresolved/non-Swiss city', () => {
+      expect(inferAfryCanton({ cities: ['Stockholm'], location: 'Stockholm' })).toBe('');
     });
   });
 
