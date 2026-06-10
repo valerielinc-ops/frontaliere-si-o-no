@@ -42,6 +42,11 @@ export async function handleForwardApplication(appData, appId) {
   const jobSnap = await db().collection('publisher_jobs').doc(String(jobId)).get();
   if (!jobSnap.exists) return { ok: false, error: 'job_not_found' };
   const job = jobSnap.data();
+  // Never forward PII for an ad that isn't live (paid/published) — guards against
+  // applications written against a draft/expired/unpaid ad.
+  if (job.status !== 'paid' && job.status !== 'published') {
+    return { ok: false, error: 'job_not_live' };
+  }
   const apply = job.apply || {};
 
   // Only forward_email / in_house modes deliver candidate data by email.

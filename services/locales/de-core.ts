@@ -3177,6 +3177,7 @@ Regeln:
  'publisherDashboard.status.published': 'Veröffentlicht',
  'publisherDashboard.status.expired': 'Abgelaufen',
  'publisherDashboard.status.rejected': 'Abgelehnt',
+ 'publisherDashboard.manageBilling': 'Abonnement verwalten',
  'jobBoard.sponsored': 'Gesponsert',
  'publisherApply.title': 'Auf diese Stelle bewerben',
  'publisherApply.name': 'Vor- und Nachname',

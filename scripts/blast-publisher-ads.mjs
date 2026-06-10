@@ -88,30 +88,37 @@ async function main() {
     }
 
     const subject = `Nuova offerta: ${ad.title}`;
-    const html =
+    const adHtml = (email) =>
       `<h2>${esc(ad.title)}</h2>` +
       `<p>${esc(ad.company?.name || '')}${ad.sector ? ' · ' + esc(ad.sector) : ''}</p>` +
       `<p><a href="${SITE}/lavoro">Vedi l'offerta su Frontaliere Ticino</a></p>` +
-      `<hr><p style="font-size:12px;color:#666">Ricevi questa email perché corrisponde alle tue ricerche di lavoro su Frontaliere Ticino.</p>`;
+      `<hr><p style="font-size:12px;color:#666">Ricevi questa email perché corrisponde alle tue ricerche di lavoro su Frontaliere Ticino. ` +
+      `<a href="${SITE}/?action=unsubscribe&email=${encodeURIComponent(email)}">Disiscriviti</a>.</p>`;
 
     let adSent = 0;
+    let interrupted = false;
     for (const r of audience) {
       if (sentTotal >= PER_RUN_CAP) {
-        console.warn(`[blast] per-run cap ${PER_RUN_CAP} reached — stopping (remaining ads next run).`);
+        console.warn(`[blast] per-run cap ${PER_RUN_CAP} reached — pausing ad ${ad.id} (resumes next run).`);
+        interrupted = true;
         break;
       }
       try {
-        const { error } = await resend.emails.send({ from: FROM_EMAIL, to: r.email, subject, html });
+        const { error } = await resend.emails.send({ from: FROM_EMAIL, to: r.email, subject, html: adHtml(r.email) });
         if (!error) { adSent++; sentTotal++; }
       } catch (e) {
         console.error(`[blast] send failed to ${r.email}: ${e?.message || e}`);
       }
     }
-    await db.collection('publisher_jobs').doc(ad.id).set(
-      { blastSentAt: admin.firestore.FieldValue.serverTimestamp(), blastCount: adSent },
-      { merge: true },
-    );
-    console.log(`[blast] ad ${ad.id}: sent ${adSent}`);
+    // Only mark done when the FULL audience was processed — otherwise the next run
+    // re-sends to everyone (acceptable dup risk) rather than dropping the remainder.
+    if (!interrupted) {
+      await db.collection('publisher_jobs').doc(ad.id).set(
+        { blastSentAt: admin.firestore.FieldValue.serverTimestamp(), blastCount: adSent },
+        { merge: true },
+      );
+    }
+    console.log(`[blast] ad ${ad.id}: sent ${adSent}${interrupted ? ' (incomplete — not marked done)' : ''}`);
     if (sentTotal >= PER_RUN_CAP) break;
   }
 

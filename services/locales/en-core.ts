@@ -3174,6 +3174,7 @@ Rules:
  'publisherDashboard.status.published': 'Published',
  'publisherDashboard.status.expired': 'Expired',
  'publisherDashboard.status.rejected': 'Rejected',
+ 'publisherDashboard.manageBilling': 'Manage subscription',
  'jobBoard.sponsored': 'Sponsored',
  'publisherApply.title': 'Apply for this position',
  'publisherApply.name': 'Full name',

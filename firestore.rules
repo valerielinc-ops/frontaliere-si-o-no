@@ -230,7 +230,15 @@ service cloud.firestore {
     // employer is a distinct processing purpose from the site's silent consent).
     match /applications/{appId} {
       allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
-      allow create: if request.resource.data.consentGiven == true;
+      // Anonymous candidates may submit, but only a well-formed, consented payload:
+      // required fields present + explicit consent. (Volume/abuse throttling is
+      // enforced upstream by reCAPTCHA on the form, not expressible in rules.)
+      allow create: if request.resource.data.consentGiven == true
+        && request.resource.data.consentText is string
+        && request.resource.data.jobId is string
+        && request.resource.data.publisherUid is string
+        && request.resource.data.candidateEmail is string
+        && request.resource.data.candidateName is string;
       // No client update/delete — retention purge handled by a Cloud Function.
     }
   }

@@ -3177,6 +3177,7 @@ Règles :
  'publisherDashboard.status.published': 'Publié',
  'publisherDashboard.status.expired': 'Expiré',
  'publisherDashboard.status.rejected': 'Rejeté',
+ 'publisherDashboard.manageBilling': 'Gérer l\'abonnement',
  'jobBoard.sponsored': 'Sponsorisé',
  'publisherApply.title': 'Postuler à ce poste',
  'publisherApply.name': 'Nom et prénom',

@@ -3264,6 +3264,7 @@ Regole:
  'publisherDashboard.status.published': 'Pubblicato',
  'publisherDashboard.status.expired': 'Scaduto',
  'publisherDashboard.status.rejected': 'Rifiutato',
+ 'publisherDashboard.manageBilling': 'Gestisci abbonamento',
  'jobBoard.sponsored': 'Sponsorizzato',
  'publisherApply.title': 'Candidati per questa posizione',
  'publisherApply.name': 'Nome e cognome',

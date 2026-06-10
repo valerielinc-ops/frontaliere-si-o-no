@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Briefcase, LogIn, Plus, Eye, MousePointerClick } from 'lucide-react';
+import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
@@ -36,15 +36,37 @@ function tsToMillis(value: unknown): number | null {
   return null;
 }
 
+const BILLING_PORTAL_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
+
 const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
   const { user, loading, signIn } = useAuth();
   const [rows, setRows] = useState<DashboardRow[]>([]);
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
+  const [billingBusy, setBillingBusy] = useState(false);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci', 'Publisher Dashboard');
   }, []);
+
+  const handleManageBilling = async () => {
+    if (!user || billingBusy) return;
+    setBillingBusy(true);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch(BILLING_PORTAL_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({ returnUrl: window.location.href }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; url?: string };
+      if (data.ok && data.url) window.location.assign(data.url);
+      else setBillingBusy(false);
+    } catch {
+      setBillingBusy(false);
+    }
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -143,13 +165,26 @@ const PublisherDashboardPage: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">{t('publisherDashboard.title')}</h1>
           <p className="text-subtle mt-1">{t('publisherDashboard.subtitle')}</p>
         </div>
-        <a
-          href={buildPath({ activeTab: 'publish' }, locale)}
-          className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors shrink-0"
-        >
-          <Plus className="w-4 h-4" />
-          {t('publisherDashboard.createCta')}
-        </a>
+        <div className="flex flex-wrap gap-2 shrink-0">
+          {rows.some((r) => r.tier === 'sponsored') && (
+            <button
+              type="button"
+              onClick={() => { void handleManageBilling(); }}
+              disabled={billingBusy}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-medium text-link border border-edge rounded-xl hover:bg-surface-alt disabled:opacity-60 transition-colors"
+            >
+              <CreditCard className="w-4 h-4" />
+              {t('publisherDashboard.manageBilling')}
+            </button>
+          )}
+          <a
+            href={buildPath({ activeTab: 'publish' }, locale)}
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+          >
+            <Plus className="w-4 h-4" />
+            {t('publisherDashboard.createCta')}
+          </a>
+        </div>
       </div>
 
       {state === 'loading' && (

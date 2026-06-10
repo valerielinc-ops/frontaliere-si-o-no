@@ -177,6 +177,27 @@ export async function handleCreatePublisherCheckout(req) {
   return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, units, amountChf: netChf } };
 }
 
+// ── createBillingPortal ─────────────────────────────────────────────────────
+// Self-serve subscription management (cancel, update payment method, invoices)
+// via Stripe's hosted Billing Portal. Authenticated; uses the publisher's
+// stored Stripe customer.
+export async function handleCreateBillingPortal(req) {
+  if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+  const decoded = await verifyCaller(req);
+  if (!decoded) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
+
+  const returnUrl = String((req.body || {}).returnUrl || '');
+  if (!/^https?:\/\//.test(returnUrl)) return { status: 400, body: { ok: false, error: 'invalid_return_url' } };
+
+  const pubSnap = await db().collection('publishers').doc(decoded.uid).get();
+  const customerId = pubSnap.exists ? pubSnap.data().stripeCustomerId : null;
+  if (!customerId) return { status: 400, body: { ok: false, error: 'no_customer' } };
+
+  const stripe = await getStripe();
+  const session = await stripe.billingPortal.sessions.create({ customer: customerId, return_url: returnUrl });
+  return { status: 200, body: { ok: true, url: session.url } };
+}
+
 // ── stripeWebhook ───────────────────────────────────────────────────────────
 
 async function setJobsStatus(jobIds, status, extra = {}) {
@@ -223,8 +244,26 @@ export async function handleStripeWebhook(req) {
     return { status: 400, body: { ok: false, error: `signature_verification_failed` } };
   }
 
+  // Idempotency: Stripe redelivers events. Record-then-skip on the event id so a
+  // replay can't double-apply (e.g. re-flip an expired ad back to paid).
+  const eventRef = db().collection('stripe_events').doc(event.id);
+  const seen = await eventRef.get();
+  if (seen.exists) return { status: 200, body: { received: true, duplicate: true } };
+
   const obj = event.data?.object || {};
   const ts = admin.firestore.FieldValue.serverTimestamp();
+
+  // Sub-statuses that mean the ad must come down.
+  const DEAD_SUB_STATUSES = new Set(['canceled', 'unpaid', 'incomplete_expired']);
+
+  async function expireBySubscription(subscriptionId) {
+    if (!subscriptionId) return;
+    const orderSnap = await orderByStripeRef({ subscriptionId });
+    if (orderSnap) {
+      await orderSnap.ref.update({ status: 'canceled', updatedAt: ts });
+      await setJobsStatus(orderSnap.data().jobIds, 'expired');
+    }
+  }
 
   switch (event.type) {
     case 'checkout.session.completed': {
@@ -243,8 +282,7 @@ export async function handleStripeWebhook(req) {
     }
     case 'invoice.paid': {
       // Renewal succeeded — keep jobs paid (idempotent).
-      const subscriptionId = obj.subscription;
-      const orderSnap = await orderByStripeRef({ subscriptionId });
+      const orderSnap = await orderByStripeRef({ subscriptionId: obj.subscription });
       if (orderSnap) {
         await orderSnap.ref.update({ status: 'active', updatedAt: ts });
         await setJobsStatus(orderSnap.data().jobIds, 'paid');
@@ -256,18 +294,34 @@ export async function handleStripeWebhook(req) {
       if (orderSnap) await orderSnap.ref.update({ status: 'past_due', updatedAt: ts });
       break;
     }
+    case 'customer.subscription.updated': {
+      // Stripe cancels a non-paying subscription after dunning → status flips to
+      // canceled/unpaid here (no separate 'deleted' for some configs).
+      if (DEAD_SUB_STATUSES.has(obj.status)) await expireBySubscription(obj.id);
+      break;
+    }
     case 'customer.subscription.deleted':
     case 'customer.subscription.canceled': {
-      const orderSnap = await orderByStripeRef({ subscriptionId: obj.id });
-      if (orderSnap) {
-        await orderSnap.ref.update({ status: 'canceled', updatedAt: ts });
-        await setJobsStatus(orderSnap.data().jobIds, 'expired');
+      await expireBySubscription(obj.id);
+      break;
+    }
+    case 'charge.refunded': {
+      // A refunded charge → bring the ad down. Resolve subscription via the invoice.
+      let subscriptionId = null;
+      if (obj.invoice) {
+        try {
+          const inv = await stripe.invoices.retrieve(obj.invoice);
+          subscriptionId = inv.subscription || null;
+        } catch { /* best-effort */ }
       }
+      await expireBySubscription(subscriptionId);
       break;
     }
     default:
       break; // ignore unrelated events
   }
 
+  // Mark processed (after handling, so a crash mid-handle re-runs rather than silently skips).
+  await eventRef.set({ type: event.type, processedAt: ts });
   return { status: 200, body: { received: true } };
 }

@@ -72,8 +72,19 @@ function toIso(value, fallbackIso) {
  * @param {number} [opts.validDays=30]  validThrough window (matches 30-day billing).
  * @returns {object[]}  by-crawler job records, one per distinct location. Empty if not paid.
  */
+/** Minimum description words for an indexable page (thin-content gate, AGENTS). */
+export const MIN_DESCRIPTION_WORDS = 50;
+
+function wordCount(text) {
+  const t = String(text || '').trim();
+  return t ? t.split(/\s+/).length : 0;
+}
+
 export function publisherJobToRecords(pubJob, opts = {}) {
   if (!pubJob || !LIVE_STATUSES.has(pubJob.status)) return [];
+  // Server-side thin-content gate (defense beyond the client check): never emit a
+  // sub-50-word page, regardless of how the doc reached a live status.
+  if (wordCount(pubJob.description) < MIN_DESCRIPTION_WORDS) return [];
   // Free tier is a plain crawler-style job: never featured (defense-in-depth on
   // top of the Firestore-rules guard).
   const isFree = pubJob.tier === 'free';
