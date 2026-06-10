@@ -110,6 +110,11 @@ const LIBRETRANSLATE_PUBLIC = [
 // Self-hosted LibreTranslate — runs as a service container in CI (translate-pending.yml).
 // Unlimited capacity, no API key, no rate limits. Set via LIBRETRANSLATE_SELF_HOSTED_URL env.
 const LIBRETRANSLATE_SELF_HOSTED = (process.env.LIBRETRANSLATE_SELF_HOSTED_URL || '').trim();
+// Bounded timeout for the self-hosted fetch. Default 5s protects the hot path if the
+// endpoint is reachable-but-slow (hung, not fast-fail). Override in CI via
+// LIBRETRANSLATE_TIMEOUT_MS (e.g. set to 35000 to cover the ~30s first model-load).
+// AbortError is caught by the try/catch in translateWithLibreTranslateSelfHosted → '' → next tier.
+const LIBRETRANSLATE_TIMEOUT_MS = parseInt(process.env.LIBRETRANSLATE_TIMEOUT_MS || '5000', 10);
 
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 
@@ -523,7 +528,7 @@ async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLan
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
-      signal: AbortSignal.timeout(30000), // first call loads models (~30s), subsequent <500ms
+      signal: AbortSignal.timeout(LIBRETRANSLATE_TIMEOUT_MS),
     });
     if (!res.ok) {
       console.warn(`⚠️  LibreTranslate self-hosted: HTTP ${res.status}`);
