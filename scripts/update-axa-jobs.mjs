@@ -2,10 +2,14 @@
 /**
  * AXA Svizzera — Dedicated Crawler
  *
+ * AXA Svizzera is a national insurer (HQ Winterthur), so this crawler collects
+ * jobs CH-wide across all 26 cantons — NOT filtered to any region.
+ *
  * Crawls https://jobs.axa.ch/ (Prospective.ch Career Center)
- * 1. Fetches listing page filtered by Region Tessin (68794) + Ostschweiz/GR (68792)
+ * 1. Fetches the national listing (no region facet), paginated via offset/limit
  * 2. Fetches each detail page → extracts description, workload, location, apply URL
- * 3. Filters Ticino/GR-relevant jobs
+ * 3. Resolves each job's Swiss canton from the clean city signal; drops jobs
+ *    whose canton does not resolve to one of the 26 Swiss cantons
  * 4. Merges into data/jobs.json
  * 5. Updates adapter config
  */
@@ -41,13 +45,11 @@ import {
   parseAxaListingPage,
   parseAxaDetailPage,
   buildAxaLocalizedContent,
-  isAxaTicinoRelevant,
   inferAxaCanton,
   inferAxaCategory,
   extractUuidFromUrl,
   buildDetailUrl,
   buildListingUrl,
-  REGION_FILTERS,
   BASE_URL,
 } from './lib/axa-job-parser.mjs';
 
@@ -147,33 +149,45 @@ async function fetchText(url, retries = 2) {
   }
 }
 
+const LISTING_PAGE_LIMIT = 500;
+const LISTING_MAX_OFFSET = 5000; // safety cap; AXA national set is ~160 jobs
+
 /**
- * Fetch listing pages for target regions and collect all job summaries.
+ * Fetch the national listing (no region facet), paginating offset/limit until a
+ * page yields no new jobs. Collects all job summaries CH-wide.
  */
 async function fetchAllListings() {
   const allJobs = new Map();
 
-  for (const [regionName, regionCode] of Object.entries(REGION_FILTERS)) {
-    const url = buildListingUrl('it', regionCode, 500);
-    console.log(`\n📋 Fetching ${regionName} listing: ${url}`);
+  for (let offset = 0; offset <= LISTING_MAX_OFFSET; offset += LISTING_PAGE_LIMIT) {
+    const url = buildListingUrl('it', offset, LISTING_PAGE_LIMIT);
+    console.log(`\n📋 Fetching national listing (offset ${offset}): ${url}`);
 
+    let jobs;
     try {
       const html = await fetchText(url);
-      const jobs = parseAxaListingPage(html);
-      console.log(`  ✅ Found ${jobs.length} jobs in ${regionName}`);
-
-      for (const job of jobs) {
-        const uuid = extractUuidFromUrl(job.url);
-        if (uuid && !allJobs.has(uuid)) {
-          allJobs.set(uuid, { ...job, uuid, region: regionName });
-        }
-      }
+      jobs = parseAxaListingPage(html);
+      console.log(`  ✅ Found ${jobs.length} jobs on this page`);
     } catch (err) {
-      console.log(`  ⚠️ Failed to fetch ${regionName} listing: ${err.message}`);
+      console.log(`  ⚠️ Failed to fetch listing at offset ${offset}: ${err.message}`);
+      break;
     }
+
+    let added = 0;
+    for (const job of jobs) {
+      const uuid = extractUuidFromUrl(job.url);
+      if (uuid && !allJobs.has(uuid)) {
+        allJobs.set(uuid, { ...job, uuid });
+        added += 1;
+      }
+    }
+
+    // Stop when a page adds no new vacancies (end of the national set).
+    if (added === 0) break;
+    await sleep(DETAIL_DELAY_MS);
   }
 
-  console.log(`\n📊 Total unique jobs from all regions: ${allJobs.size}`);
+  console.log(`\n📊 Total unique national jobs: ${allJobs.size}`);
   return [...allJobs.values()];
 }
 
@@ -246,15 +260,19 @@ async function enrichWithDetails(listings) {
     if (start + DETAIL_CONCURRENCY < toFetch.length) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Filter to Ticino/GR-relevant only
-  const relevant = enriched.filter((job) => {
-    // Jobs from Tessin region filter are already Ticino-relevant
-    if (job.region === 'tessin') return true;
-    // Jobs from Ostschweiz need location check for GR
-    return isAxaTicinoRelevant(job.location, job.address, job.title);
-  });
+  // Keep only jobs whose canton resolves to one of the 26 Swiss cantons.
+  // Canton is inferred from the cleanest single city signal (listing
+  // .place-of-work first, then detail location/address) — never defaulted to
+  // TI. Unresolved / foreign locations are dropped.
+  const relevant = [];
+  for (const job of enriched) {
+    const canton = inferAxaCanton(job.listingCity, job.location, job.address);
+    if (canton) {
+      relevant.push({ ...job, canton });
+    }
+  }
 
-  console.log(`\n📍 Target-region jobs: ${relevant.length} / ${enriched.length}`);
+  console.log(`\n📍 Swiss-canton jobs: ${relevant.length} / ${enriched.length}`);
   return relevant;
 }
 
@@ -299,7 +317,9 @@ export function buildAxaRegeneratedSlug(job, location) {
 
 export function buildAxaJob(row) {
   const localized = buildAxaLocalizedContent(row, row.excerpt || '');
-  const canton = inferAxaCanton(row.location, row.address);
+  // Reuse the canton resolved during filtering when present; otherwise resolve
+  // from the clean city signals (listing city → detail location → address).
+  const canton = row.canton || inferAxaCanton(row.listingCity, row.location, row.address);
   const category = inferAxaCategory(row.title, row.description);
   const detailUrl = row.detailUrl || row.url;
 
@@ -321,6 +341,10 @@ export function buildAxaJob(row) {
     return true;
   };
   const addressLocality = (() => {
+    // Prefer the clean listing city, then the detail location, then the
+    // post-postal-code city segment of the Swiss address.
+    const fromListing = String(row.listingCity || '').trim();
+    if (isUsableCity(fromListing)) return fromListing;
     const fromLocation = String(row.location || '').trim();
     if (isUsableCity(fromLocation)) return fromLocation;
     const segments = String(row.address || '')
@@ -333,7 +357,9 @@ export function buildAxaJob(row) {
     if (isUsableCity(cityFromLast)) return cityFromLast;
     return last;
   })();
-  const resolvedLocation = addressLocality || 'Ticino';
+  // CH-wide crawler: no TI default. Fall back to the canton display name when
+  // no city is parseable, never to 'Ticino'.
+  const resolvedLocation = addressLocality || canton || '';
   const slug = buildAxaRegeneratedSlug(
     { title: row.title, url: detailUrl },
     resolvedLocation,
@@ -443,7 +469,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated AXA Svizzera crawler. Prospective.ch Career Center (CC 2193). Filters by Region Tessin (68794) + Ostschweiz/GR (68792). Detail pages at /posizioni-aperte/{slug}/{uuid}. ATS: Umantis (recruitingapp-2735.umantis.com).',
+    notes: 'Dedicated AXA Svizzera crawler. Prospective.ch Career Center (CC 2193). National (CH-wide) listing, no region facet — per-job canton inferred from the clean city signal across all 26 cantons. Detail pages at /posizioni-aperte/{slug}/{uuid}. ATS: Umantis (recruitingapp-2735.umantis.com).',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });

@@ -15,16 +15,32 @@
  *
  * AGIE Charmilles SA is part of GF Machining Solutions (Georg Fischer group),
  * headquartered in Losone (TI). They also have offices in Biel, Meyrin, Langnau.
- * We filter for Ticino-relevant positions (Losone = canton TI).
+ * GF Machining is a national manufacturer: we collect positions CH-wide across
+ * all 26 cantons, inferring each job's canton from its own location signal.
  */
 
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 
 const BASE_URL = 'https://www.find-your-future.ch';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Reduce a raw location signal (PLZ + city + country prefix, possibly a list
+ * like "6616 Losone, Meyrin or Biel") to a single clean city string suitable
+ * for inferAnyCanton. We take the first listed city only: combining city +
+ * region or multiple cities makes inferAnyCanton resolve the wrong canton.
+ */
+export function cleanAgieCharmillesCity(rawLocation = '') {
+  // Strip a "CH-" / "CH " country prefix ONLY when followed by a separator, so
+  // real cities starting with "Ch" (Chur, Chiasso, Cham, Chêne) are NOT mangled.
+  let s = String(rawLocation || '').replace(/\bCH[-\s]+/i, '').trim();
+  s = s.split(/,| or /i)[0].trim(); // first city only
+  s = s.replace(/^\d{4}\s+/, '').trim(); // strip leading 4-digit PLZ
+  return s;
 }
 
 function slugify(value = '') {
@@ -114,16 +130,23 @@ export function parseAgieCharmillesProfilePage(html = '') {
     const tempMatch = block.match(/Temporaneo:\s*\n?\s*(S[iì]|No)/i);
     const isTemporary = tempMatch ? /s[iì]/i.test(tempMatch[1]) : false;
 
-    // Extract full location text from expanded details
+    // Extract full location text from expanded details. This is the authoritative
+    // per-job location: the 'ort' dataLayer push is unreliable (the national feed
+    // emits "Biel/Bienne" for every offer) and the 'kanton' push is partially
+    // wrong, so we derive the real city from this text.
     const locationTextMatch = block.match(/AGIE Charmilles SA,\s*([^<]+)/);
     const locationText = locationTextMatch ? normalizeSpace(locationTextMatch[1]) : city;
+
+    // Clean single-city signal for canton inference + display (locationText first,
+    // dataLayer 'ort' only as fallback).
+    const cleanCity = cleanAgieCharmillesCity(locationText) || cleanAgieCharmillesCity(city);
 
     items.push({
       jobId,
       title,
       detailUrl,
       applyUrl,
-      city,
+      city: cleanCity || city,
       canton,
       plz,
       language,
@@ -137,27 +160,30 @@ export function parseAgieCharmillesProfilePage(html = '') {
 }
 
 /**
- * Check if a parsed job is target-CH-relevant based on canton and city.
+ * Check whether a parsed job resolves to a Swiss canton (CH-wide, 26 cantons).
+ * GF Machining is a national manufacturer, so we keep every job whose location
+ * resolves to a real Swiss canton and drop only non-CH / unresolved offers.
+ * Canton is inferred from the clean single-city signal — NEVER defaulted to TI.
  */
-export function isAgieCharmillesTicinoRelevant(job = {}) {
-  if (isTargetCanton(job.canton)) return true;
-  const city = (job.city || '').toLowerCase();
-  const locationText = (job.locationText || '').toLowerCase();
-  return isTargetSwissLocation(`${city} ${locationText}`);
+export function isAgieCharmillesSwissRelevant(job = {}) {
+  return Boolean(inferAgieCharmillesCanton(job));
 }
 
 /**
- * Infer canton from job data.
- * Derives from city name first (authoritative — via BFS municipality dataset),
- * then falls back to the dataLayer value. This prevents source sites that
- * embed headquarters canton for all jobs from mislabelling remote-office jobs
- * (e.g. GF Machining tagging Biel jobs as TI).
+ * Infer canton from job data, CH-wide.
+ * Derives from the clean city name (authoritative — via BFS municipality dataset),
+ * then falls back to the dataLayer 'kanton' value only as a last resort. The
+ * dataLayer 'ort'/'kanton' pushes are unreliable on the national feed (every
+ * offer reports "Biel/Bienne" and some Losone jobs are mistagged TI), so the
+ * parsed clean city wins. Returns '' for non-CH / unresolved jobs (caller drops).
  */
 export function inferAgieCharmillesCanton(job = {}) {
   const city = (job.city || '').trim();
-  const cantonFromCity = city ? inferAnyCanton(city) : '';
+  const cantonFromCity = city ? inferAnyCanton(cleanAgieCharmillesCity(city)) : '';
   if (cantonFromCity) return cantonFromCity;
-  return job.canton || '';
+  // Last-resort dataLayer fallback, only if it's a valid Swiss canton code.
+  const dl = String(job.canton || '').trim().toUpperCase();
+  return isTargetCanton(dl) ? dl : '';
 }
 
 /**
@@ -313,7 +339,7 @@ export function buildAgieCharmillesLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || 'Losone').trim();
   const detailDescription = String(job.detailDescription || '').trim();
-  const canton = inferAgieCharmillesCanton(job) || 'TI';
+  const canton = inferAgieCharmillesCanton(job);
 
   // If we have a rich detail description (>= 50 words), use it
   if (detailDescription && detailDescription.split(/\s+/).length >= 50) {

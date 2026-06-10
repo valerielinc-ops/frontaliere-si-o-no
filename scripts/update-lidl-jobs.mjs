@@ -1,19 +1,23 @@
 #!/usr/bin/env node
 /**
  * Dedicated Lidl Svizzera crawler runner.
- * Runs only Lidl jobs relevant to Ticino + Grigioni italiano and enforces
- * full locale coverage for SEO-critical fields.
+ * Lidl Svizzera is a national discount retailer, so this crawler collects Lidl
+ * jobs CH-wide (all 26 cantons) and enforces full locale coverage for
+ * SEO-critical fields.
  *
  * Data source:
  *   team.lidl.ch search API (used by the public "Cerca opportunità" page):
  *   GET /it/search_api/jobsearch?...  -> JSON with result.hits[]
  *
  * This script:
- *   1. Calls Lidl search API with dedicated query seeds (Ticino / Grigioni italiano).
+ *   1. Calls Lidl search API UNFILTERED (no geo facet) and paginates the full
+ *      national result set via the `page` param (result.pageCount pages).
  *   2. Extracts unique job detail URLs from API hits.
- *   3. Updates the Lidl adapter seed URLs + seedMetaByUrl.
- *   4. Runs base crawler for detail parsing/localization.
- *   5. Post-processes and deduplicates Lidl jobs for canonical consistency.
+ *   3. Infers each job's canton from the clean city signal via inferAnyCanton
+ *      and drops jobs whose canton does not resolve to a Swiss canton.
+ *   4. Updates the Lidl adapter seed URLs + seedMetaByUrl.
+ *   5. Runs base crawler for detail parsing/localization.
+ *   6. Post-processes and deduplicates Lidl jobs for canonical consistency.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -42,7 +46,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { hasListContent, MIN_LIDL_FULL_DESC } from './lib/lidl-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -51,26 +55,13 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const LIDL_KEY = 'lidl-svizzera';
-const DEFAULT_CANTON = getCompanyDefaults(LIDL_KEY)?.canton || 'TI';
 const LIDL_COMPANY_NAME = 'Lidl Svizzera';
 const LIDL_TEAM_HOST = 'team.lidl.ch';
 const LIDL_COMPANY_DOMAIN = 'lidl.ch';
 const LIDL_SEARCH_API_BASE = 'https://team.lidl.ch/it/search_api/jobsearch';
-
-const LIDL_SEARCH_SOURCES = [
-  {
-    name: 'Ticino',
-    canton: DEFAULT_CANTON,
-    listingUrl:
-      'https://team.lidl.ch/it/cerca-opportunita?page=1&midpoint_name=Canton%20Ticino,%20Canton%20Ticino&midpoint_lat=null&midpoint_lon=null&radius=null&filter=%7B%22contract_type%22:%5B%5D,%22employment_area%22:%5B%5D,%22entry_level%22:%5B%5D,%22language%22:%5B%5D%7D&min_lat=46.632568359375&min_lon=8.382412910461426&max_lat=45.81787872314453&max_lon=9.160479545593262&with_event=true&hash=',
-  },
-  {
-    name: 'Grigioni italiano',
-    canton: 'GR',
-    listingUrl:
-      'https://team.lidl.ch/it/cerca-opportunita?page=1&midpoint_name=Grigioni%20italiano,%20Grigioni&midpoint_lat=46.3434&midpoint_lon=9.5906&radius=null&filter=%7B%22contract_type%22:%5B%5D,%22employment_area%22:%5B%5D,%22entry_level%22:%5B%5D,%22language%22:%5B%5D%7D&with_event=true&hash=',
-  },
-];
+// Safety cap on the number of national pages to fetch (server returns 15
+// hits/page; the full Lidl Svizzera careers feed is ~26 pages / ~390 jobs).
+const LIDL_MAX_PAGES = Number(process.env.JOBS_LIDL_MAX_PAGES) || 60;
 
 function normalizeKey(value = '') {
   return String(value || '')
@@ -178,16 +169,17 @@ function languageScore(lang = '') {
   return 0;
 }
 
-function inferCantonFromCoordinates(lat, lon, fallback = '') {
-  const nLat = Number(lat);
-  const nLon = Number(lon);
-  if (!Number.isFinite(nLat) || !Number.isFinite(nLon)) return fallback;
-
-  // Approximate bbox for Ticino.
-  if (nLat >= 45.78 && nLat <= 46.65 && nLon >= 8.37 && nLon <= 9.22) return 'TI';
-  // Approximate bbox for Grigioni.
-  if (nLat >= 46.00 && nLat <= 47.25 && nLon >= 8.70 && nLon <= 10.70) return 'GR';
-  return fallback;
+/**
+ * Resolve a job's canton CH-wide from the cleanest single signal — the bare
+ * `location.city` string — via the central inferAnyCanton helper (26 cantons).
+ * The city string MUST be passed alone: a combined "city + region" string makes
+ * inferAnyCanton return the wrong canton because of TARGET_CANTONS array order.
+ * Returns a 2-letter Swiss canton code, or '' when the location does not
+ * resolve to any Swiss canton (caller drops such jobs — never default to TI).
+ */
+function inferLidlCanton(hit) {
+  const city = String(hit?.location?.city || '').trim();
+  return inferAnyCanton(city) || '';
 }
 
 function normalizeLidlContract(raw = '') {
@@ -214,7 +206,7 @@ function stripHtmlToPlain(html = '') {
     .trim();
 }
 
-function buildJobFromApiHit(hit, detailUrl, sourceCanton) {
+function buildJobFromApiHit(hit, detailUrl) {
   const title = String(hit?.title || '').trim();
   if (!title) return null;
 
@@ -223,7 +215,10 @@ function buildJobFromApiHit(hit, detailUrl, sourceCanton) {
   const body = [desc, offer].filter(Boolean).join('\n\n');
   if (!body || body.length < 50) return null;
 
-  const meta = buildSeedMetaFromHit(hit, sourceCanton);
+  const meta = buildSeedMetaFromHit(hit);
+  // Drop jobs whose location does not resolve to a Swiss canton (non-CH /
+  // unresolved). Never default to TI.
+  if (!meta.canton) return null;
   const lang = inferHitLanguage(hit, detailUrl);
   const slug = normalizeKey(`${title}-${LIDL_KEY}-${meta.location}`);
 
@@ -258,19 +253,17 @@ function buildJobFromApiHit(hit, detailUrl, sourceCanton) {
   };
 }
 
-function buildSeedMetaFromHit(hit, sourceCanton) {
-  const lat = hit?.location?.latitude;
-  const lon = hit?.location?.longitude;
-  const inferredCanton = inferCantonFromCoordinates(lat, lon, sourceCanton);
+function buildSeedMetaFromHit(hit) {
+  const canton = inferLidlCanton(hit);
   const city = String(hit?.location?.city || '').trim();
   const locationTitle = String(hit?.location?.title || '').trim();
   const address = String(hit?.location?.address || '').trim();
-  const location = city || locationTitle || address || (sourceCanton === 'GR' ? 'Grigioni' : 'Ticino');
+  const location = city || locationTitle || address;
   const contract = normalizeLidlContract(hit?.contractType || '');
   return {
     location,
     addressLocality: location,
-    canton: inferredCanton || sourceCanton,
+    canton,
     country: 'CH',
     company: LIDL_COMPANY_NAME,
     companyDomain: LIDL_COMPANY_DOMAIN,
@@ -278,12 +271,29 @@ function buildSeedMetaFromHit(hit, sourceCanton) {
   };
 }
 
-function parseSearchParamsFromListingUrl(rawUrl = '') {
-  const url = new URL(String(rawUrl || ''));
-  const params = new URLSearchParams(url.search || '');
-  if (!params.get('page')) params.set('page', '1');
-  if (!params.get('with_event')) params.set('with_event', 'true');
-  return params;
+async function fetchLidlSearchPage(page, { userAgent, timeoutMs }) {
+  const params = new URLSearchParams({ page: String(page), with_event: 'true' });
+  const apiUrl = `${LIDL_SEARCH_API_BASE}?${params.toString()}`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(apiUrl, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'X-Requested-With': 'XMLHttpRequest',
+        Referer: 'https://team.lidl.ch/it/cerca-opportunita',
+        'User-Agent': userAgent,
+      },
+    });
+    if (!res.ok) {
+      console.warn(`    ⚠️ API returned ${res.status} for page ${page}`);
+      return null;
+    }
+    return await res.json();
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 async function fetchLidlJobDetailUrls() {
@@ -294,83 +304,77 @@ async function fetchLidlJobDetailUrls() {
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-  console.log('🔍 Fetching Lidl jobs from team.lidl.ch search API...');
+  // National, UNFILTERED fetch: no geo facet (midpoint/bbox/canton). The Lidl
+  // search API ignores the listing geo params here and paginates the full CH
+  // careers feed via `page` (15 hits/page). Per-job canton is resolved later
+  // from the clean city signal via inferLidlCanton (CH-wide, 26 cantons).
+  console.log('🔍 Fetching Lidl jobs CH-wide from team.lidl.ch search API (unfiltered, paginated)...');
 
-  for (const source of LIDL_SEARCH_SOURCES) {
-    let apiUrl = '';
+  let droppedNonCh = 0;
+  let pageCount = 1;
+  for (let page = 1; page <= LIDL_MAX_PAGES; page += 1) {
+    let payload = null;
     try {
-      const params = parseSearchParamsFromListingUrl(source.listingUrl);
-      apiUrl = `${LIDL_SEARCH_API_BASE}?${params.toString()}`;
+      payload = await fetchLidlSearchPage(page, { userAgent, timeoutMs });
     } catch (err) {
-      console.warn(`⚠️ Invalid Lidl listing URL (${source.name}): ${err?.message || err}`);
-      continue;
+      console.warn(`    ⚠️ Failed to fetch Lidl page ${page}: ${err?.message || err}`);
+      break;
+    }
+    if (!payload) break;
+
+    if (page === 1) {
+      pageCount = Math.min(Number(payload?.result?.pageCount) || 1, LIDL_MAX_PAGES);
+      console.log(`    📦 Reported national results: ${payload?.result?.count ?? '?'} (${pageCount} page(s))`);
     }
 
-    console.log(`  📡 ${source.name}: ${apiUrl}`);
-    try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-      const res = await fetch(apiUrl, {
-        signal: controller.signal,
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          'X-Requested-With': 'XMLHttpRequest',
-          Referer: source.listingUrl,
-          'User-Agent': userAgent,
-        },
-      });
-      clearTimeout(timer);
+    // `result.hits` is nested; the helper validates a top-level key, so pass
+    // the already-resolved `result` sub-object as `data` and `hits` as the leaf key.
+    const hits = assertJsonListShape(payload?.result, { key: 'hits', source: `lidl:page${page}` });
+    if (hits.length === 0) break;
+    console.log(`    📡 page ${page}: ${hits.length} hit(s)`);
 
-      if (!res.ok) {
-        console.warn(`    ⚠️ API returned ${res.status} for ${source.name}`);
+    for (const hit of hits) {
+      const detailUrl = toAbsoluteLidlUrl(hit?.url || '');
+      if (!detailUrl || !/\/jobs\//i.test(detailUrl)) continue;
+
+      // Drop jobs whose location does not resolve to a Swiss canton
+      // (non-CH / unresolved). Never default to TI.
+      const canton = inferLidlCanton(hit);
+      if (!canton) {
+        droppedNonCh += 1;
         continue;
       }
 
-      const payload = await res.json();
-      // `result.hits` is nested; the helper validates a top-level key, so pass
-      // the already-resolved `result` sub-object as `data` and `hits` as the leaf key.
-      const hits = assertJsonListShape(payload?.result, { key: 'hits', source: `lidl:${source.name}` });
-      console.log(`    📦 ${source.name}: ${hits.length} hit(s)`);
+      const reqId = extractReqIdFromHit(hit, detailUrl);
+      const pathKey = normalizeLidlDetailPath(detailUrl);
+      const key = reqId ? `req:${reqId}` : `path:${pathKey}`;
+      const lang = inferHitLanguage(hit, detailUrl);
+      const descLen = String(hit?.descResponsibilities || '').length;
+      const score = languageScore(lang) + Math.min(8000, descLen) + (hit?.highlight ? 120 : 0);
 
-      for (const hit of hits) {
-        const detailUrl = toAbsoluteLidlUrl(hit?.url || '');
-        if (!detailUrl || !/\/jobs\//i.test(detailUrl)) continue;
-
-        const reqId = extractReqIdFromHit(hit, detailUrl);
-        const pathKey = normalizeLidlDetailPath(detailUrl);
-        const key = reqId ? `req:${reqId}` : `path:${pathKey}`;
-        const lang = inferHitLanguage(hit, detailUrl);
-        const descLen = String(hit?.descResponsibilities || '').length;
-        const score = languageScore(lang) + Math.min(8000, descLen) + (hit?.highlight ? 120 : 0);
-
-        const prev = selectedByKey.get(key);
-        if (!prev || score > prev.score) {
-          selectedByKey.set(key, {
-            score,
-            detailUrl,
-            sourceName: source.name,
-            sourceCanton: source.canton,
-            reqId,
-            hit,
-          });
-        }
+      const prev = selectedByKey.get(key);
+      if (!prev || score > prev.score) {
+        selectedByKey.set(key, { score, detailUrl, reqId, hit });
       }
-    } catch (err) {
-      console.warn(`    ⚠️ Failed to fetch Lidl ${source.name}: ${err?.message || err}`);
     }
+
+    if (page >= pageCount) break;
   }
 
   const detailUrls = [];
   const jobsFromApi = [];
   for (const item of selectedByKey.values()) {
     detailUrls.push(item.detailUrl);
-    seedMetaByUrl[item.detailUrl] = buildSeedMetaFromHit(item.hit, item.sourceCanton);
+    seedMetaByUrl[item.detailUrl] = buildSeedMetaFromHit(item.hit);
     // Build job directly from API hit (rich description available)
-    const apiJob = buildJobFromApiHit(item.hit, item.detailUrl, item.sourceCanton);
+    const apiJob = buildJobFromApiHit(item.hit, item.detailUrl);
     if (apiJob) jobsFromApi.push(apiJob);
   }
 
   detailUrls.sort((a, b) => a.localeCompare(b));
+  if (droppedNonCh > 0) {
+    console.log(`  🚫 Dropped ${droppedNonCh} Lidl hit(s) not resolving to a Swiss canton.`);
+  }
   console.log(`✅ Total unique Lidl detail URLs discovered: ${detailUrls.length}`);
   console.log(`✅ Jobs built from API data: ${jobsFromApi.length}`);
   return { urls: detailUrls, seedMetaByUrl, jobsFromApi };
@@ -379,7 +383,7 @@ async function fetchLidlJobDetailUrls() {
 function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
   const adapterPath = path.join(ADAPTERS_DIR, `${LIDL_KEY}.json`);
   const notes =
-    'Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.';
+    'Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.';
 
   if (!fs.existsSync(adapterPath)) {
     console.log(`⚠️ Adapter ${LIDL_KEY}.json not found — creating it.`);
@@ -568,11 +572,14 @@ function postProcessLidlJobs() {
       fixed += 1;
     }
 
-    const lat = Number(job?.latitude || job?.addressLatitude || job?.jobLocation?.latitude);
-    const lon = Number(job?.longitude || job?.addressLongitude || job?.jobLocation?.longitude);
-    const inferred = inferCantonFromCoordinates(lat, lon, normalize(String(job?.canton || '').toUpperCase()));
+    // Re-infer canton CH-wide from the clean city signal (addressLocality /
+    // location). Only overwrite when it resolves to a Swiss canton — never
+    // blank an already-set canton, never default to TI.
+    const cityForCanton = String(job?.addressLocality || job?.location || '').trim();
+    const inferred = inferAnyCanton(cityForCanton);
     if (inferred && inferred !== job.canton) {
       job.canton = inferred;
+      job.addressRegion = inferred;
       fixed += 1;
     }
   }
@@ -696,16 +703,19 @@ function logLidlJobStats(beforeSnapshot = new Map()) {
   const allJobs = Array.isArray(raw) ? raw : [];
   const lidlJobs = allJobs.filter(isLidlJob);
   const ticinoJobs = lidlJobs.filter((job) => normalize(job?.canton) === 'ti');
-  const grJobs = lidlJobs.filter((job) => normalize(job?.canton) === 'gr');
-  const otherJobs = lidlJobs.length - ticinoJobs.length - grJobs.length;
-
-  console.log('\n📊 === Lidl Svizzera Job Stats ===');
-  console.log(`  🛒 Job totali trovati (Lidl): ${lidlJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  console.log(`  ✅ Job in Grigioni (canton=GR): ${grJobs.length}`);
-  if (otherJobs > 0) {
-    console.log(`  ℹ️ Job in altri cantoni: ${otherJobs}`);
+  const byCanton = new Map();
+  for (const job of lidlJobs) {
+    const c = String(job?.canton || '').toUpperCase() || '??';
+    byCanton.set(c, (byCanton.get(c) || 0) + 1);
   }
+  const cantonBreakdown = [...byCanton.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([c, n]) => `${c}:${n}`)
+    .join(' ');
+
+  console.log('\n📊 === Lidl Svizzera Job Stats (CH-wide) ===');
+  console.log(`  🛒 Job totali trovati (Lidl): ${lidlJobs.length}`);
+  console.log(`  🇨🇭 Cantoni coperti (${byCanton.size}): ${cantonBreakdown}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(lidlJobs);
@@ -735,7 +745,7 @@ async function main() {
   registerCrawlerSummaryGuard(LIDL_KEY, 'Lidl');
   console.log('🛒 Running dedicated Lidl Svizzera jobs crawler...');
   console.log('   Source: team.lidl.ch search_api/jobsearch');
-  console.log('   Scope: Ticino + Grigioni italiano');
+  console.log('   Scope: CH-wide (all 26 cantons)');
   console.log('');
 
   const discovery = await fetchLidlJobDetailUrls();

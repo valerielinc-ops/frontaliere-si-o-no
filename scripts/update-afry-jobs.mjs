@@ -5,9 +5,12 @@
  * Crawls https://afry.com/en/api/afp-hr-smartrecruiteres-job-list
  * 1. Fetches global job listing JSON API (SmartRecruiters proxy)
  * 2. Filters Swiss jobs (country=ch)
- * 3. Filters Ticino/Grigioni relevant jobs by city
+ * 3. Keeps CH-wide jobs whose city resolves to a Swiss canton (all 26)
  * 4. Fetches detail pages for descriptions + apply URLs
  * 5. Merges into data/jobs.json
+ *
+ * AFRY is a national engineering/consulting firm, so jobs are collected
+ * across every Swiss canton (no Ticino/Grigioni restriction).
  */
 
 import fs from 'node:fs';
@@ -41,7 +44,7 @@ import {
   parseAfryApiResponse,
   parseAfryDetailPage,
   parseSmartRecruitersPage,
-  isAfryTicinoRelevant,
+  isAfrySwissCanton,
   inferAfryCanton,
   inferAfryCategory,
   buildAfryLocalizedContent,
@@ -162,11 +165,11 @@ async function fetchAllListings() {
 
   console.log(`📋 API returned ${totalGlobal} global jobs, ${totalSwiss} in Switzerland`);
 
-  // Filter for Ticino/Grigioni relevance
-  const ticinoJobs = items.filter(isAfryTicinoRelevant);
-  console.log(`🎯 Ticino/Grigioni relevant: ${ticinoJobs.length}`);
+  // Keep CH-wide jobs whose city resolves to a real Swiss canton (drop non-CH/unresolved)
+  const swissJobs = items.filter(isAfrySwissCanton);
+  console.log(`🎯 Swiss canton-resolved (CH-wide): ${swissJobs.length}`);
 
-  return ticinoJobs;
+  return swissJobs;
 }
 
 async function enrichWithDetails(listings) {
@@ -235,8 +238,8 @@ function buildAfryJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || 'Ticino',
-    addressLocality: (row.cities || [])[0] || row.location || 'Ticino',
+    location: row.location || 'Switzerland',
+    addressLocality: (row.cities || [])[0] || row.location || 'Switzerland',
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
@@ -316,7 +319,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['api'],
     seedUrls: [API_URL],
-    notes: 'Dedicated AFRY crawler. Uses Drupal proxy to SmartRecruiters API. Returns all global jobs in one JSON call; filters by country=CH then Ticino/Grigioni cities. ~18000 employees globally, major presence in Swiss engineering/infrastructure. Swiss HQ in Zurich, Ticino offices in Bellinzona/Airolo.',
+    notes: 'Dedicated AFRY crawler. Uses Drupal proxy to SmartRecruiters API. Returns all global jobs in one JSON call; filters by country=CH then keeps CH-wide jobs whose city resolves to a Swiss canton (all 26). ~18000 employees globally, major presence in Swiss engineering/infrastructure. Swiss HQ in Zurich, offices nationwide incl. Bellinzona/Airolo.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -333,7 +336,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_afry_domain',
     failWhenNoJobs: false,
     maxToleratedMissingDescriptions: 10,
-    noJobsMessage: 'No AFRY Ticino/GR jobs found after dedicated crawl.',
+    noJobsMessage: 'No AFRY Swiss jobs found after dedicated crawl.',
     detectSourceLang: (job) => job.sourceLang || 'de',
   });
 }
@@ -348,7 +351,7 @@ async function main() {
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('⚠️ No Ticino/GR AFRY jobs found — skipping.');
+    console.log('⚠️ No Swiss AFRY jobs found — skipping.');
     return;
   }
 
@@ -367,7 +370,7 @@ async function main() {
   validateLocales();
 
   console.log('\n📊 === AFRY Job Stats ===');
-  console.log(`  🏢 Total AFRY Ticino/GR jobs: ${total}`);
+  console.log(`  🏢 Total AFRY Swiss jobs (CH-wide): ${total}`);
   console.log(`  ➕ Added: ${added}`);
   console.log(`  🔄 Updated: ${updated}`);
 

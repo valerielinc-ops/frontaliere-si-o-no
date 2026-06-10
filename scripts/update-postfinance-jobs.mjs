@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /**
  * Dedicated PostFinance crawler runner.
- * Crawls jobs.postfinance.ch sitemap for Ticino/Grigioni positions.
+ * Crawls jobs.postfinance.ch sitemap for positions across all 26 Swiss cantons.
  *
- * PostFinance is a subsidiary of Swiss Post. Both share the same
- * SuccessFactors NES job platform (job.post.ch). This crawler targets
- * PostFinance-specific positions via the branded careers portal.
+ * PostFinance is a national Swiss bank and a subsidiary of Swiss Post. Both
+ * share the same SuccessFactors NES job platform (job.post.ch). This crawler
+ * targets PostFinance-specific positions via the branded careers portal,
+ * CH-wide (no canton/region pre-filter).
  *
  * Discovery flow:
  *   1. Fetch sitemap from jobs.postfinance.ch/sitemap.xml
- *   2. Filter for /PostFinance/job/ URLs with Ticino city slugs
+ *   2. Filter for /PostFinance/job/ URLs (national, unfiltered)
  *   3. Optionally scan PostCH corporate listing pages for /v2/ URLs
  *   4. Cross-reference: prefer /v2/ URL (has JSON-LD) when available
  *   5. Fetch detail pages, extract data from meta tags or JSON-LD
- *   6. Filter to Ticino/Grigioni region only
+ *   6. Per-job canton via inferAnyCanton on the city slug (all 26 cantons);
+ *      drop jobs whose canton does not resolve to a Swiss canton (non-CH)
  *   7. Merge into dataset, run AI localization, validate locale coverage
  *   8. Write per-crawler slice and reassemble global dataset
  */
@@ -44,7 +46,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
+import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -62,18 +64,6 @@ const SITEMAP_URL = 'https://jobs.postfinance.ch/sitemap.xml';
 // PostCH corporate listing pages — used to find supplementary /v2/ URLs
 const POSTCH_LISTING_URLS = [
   'https://www.post.ch/en/jobs/jobs?jobsCategory=professionals&workload-maximum=1&workload-minimum=0',
-];
-
-// Ticino city keywords for pre-filtering sitemap URLs
-const TICINO_CITY_KEYWORDS = [
-  'bellinzona', 'lugano', 'locarno', 'mendrisio', 'chiasso', 'biasca',
-  'manno', 'giubiasco', 'vezia', 'cadenazzo', 'bodio', 'airolo',
-  'faido', 'castione', 'monte-carasso', 'camorino', 'sementina',
-  'gordola', 'muralto', 'minusio', 'ascona', 'losone', 'magadino',
-  'tenero', 'stabio', 'balerna', 'coldrerio', 'morbio', 'vacallo',
-  'novazzano', 'brig', 'visp', 'naters', 'chur', 'davos', 'ilanz',
-  'poschiavo', 'brusio', 'mesocco', 'grono', 'roveredo',
-  'tessin', 'ticino', 'graubunden', 'grigioni',
 ];
 
 // ──────────────────────────────────────────────────────────────
@@ -171,23 +161,20 @@ function parseSitemapUrls(xml = '') {
 }
 
 /**
- * Filter sitemap URLs for PostFinance Ticino jobs.
+ * Filter sitemap URLs for PostFinance jobs (CH-wide, no canton pre-filter).
+ * The jobs.postfinance.ch sitemap is a flat urlset hosted on job.post.ch that
+ * mixes all Swiss Post brands; we keep only PostFinance-branded vacancies.
+ * Per-job canton is resolved downstream via inferAnyCanton (all 26 cantons),
+ * which also drops non-CH/unresolved postings.
  * PostFinance job URLs: https://job.post.ch/PostFinance/job/{slug}/{reqId}/
  */
-function filterPostFinanceTicinoUrls(urls) {
-  return urls.filter((url) => {
-    // Must be a PostFinance-specific URL
-    if (!url.includes('/PostFinance/job/')) return false;
-
-    const lower = url.toLowerCase();
-    // Check if URL slug contains a Ticino city keyword
-    return TICINO_CITY_KEYWORDS.some((kw) => lower.includes(kw));
-  });
+function filterPostFinanceUrls(urls) {
+  return urls.filter((url) => url.includes('/PostFinance/job/'));
 }
 
 /**
  * Extract the city name from a PostFinance job URL slug.
- * URL format: .../PostFinance/job/Bellinzona-Compliance-Officer-(wmd)/1378566933/
+ * URL format: .../PostFinance/job/Bern-Compliance-Officer-(wmd)/1378566933/
  * The first segment of the slug (before the first dash followed by a role keyword) is usually the city.
  */
 function extractCityFromSlug(url) {
@@ -197,7 +184,10 @@ function extractCityFromSlug(url) {
     // Find the segment after 'job'
     const jobIdx = segments.indexOf('job');
     if (jobIdx < 0 || jobIdx + 1 >= segments.length) return '';
-    const slug = segments[jobIdx + 1] || '';
+    let slug = segments[jobIdx + 1] || '';
+    // Slug segments are URL-encoded (e.g. Gen%C3%A8ve, Z%C3%BCrich) — decode so
+    // the city signal is clean for inferAnyCanton.
+    try { slug = decodeURIComponent(slug); } catch { /* keep raw */ }
     const parts = slug.split('-');
     // The first part(s) before a common title word is the city
     // PostFinance URLs typically start with the city name
@@ -436,15 +426,17 @@ function findV2Match(v2Map, title, city) {
 // Location validation
 // ──────────────────────────────────────────────────────────────
 
-function isTicinoJob(city, location) {
-  return (
-    isTargetSwissLocation(city) ||
-    isTargetSwissLocation(location)
-  );
-}
-
+/**
+ * Resolve the canton for a PostFinance job CH-wide (all 26 cantons).
+ *
+ * The cleanest single signal is the city string ALONE — passing a combined
+ * "city + region" string makes inferAnyCanton return the wrong canton because
+ * of TARGET_CANTONS array ordering. Returns '' when the location does not
+ * resolve to a Swiss canton (non-CH / foreign), so the caller can drop it.
+ * Never defaults to TI.
+ */
 function detectCanton(city = '') {
-  return inferAnyCanton(city) || 'TI';
+  return inferAnyCanton(city);
 }
 
 function detectEmploymentType(detail) {
@@ -483,28 +475,20 @@ async function fetchPostFinanceJobs() {
   const allUrls = parseSitemapUrls(sitemapXml);
   console.log(`  📋 Total URLs in sitemap: ${allUrls.length}`);
 
-  // Step 2: Filter for PostFinance Ticino jobs
-  const ticinoUrls = filterPostFinanceTicinoUrls(allUrls);
-  console.log(`  🎯 PostFinance Ticino URLs after pre-filter: ${ticinoUrls.length}`);
+  // Step 2: Filter for PostFinance jobs (CH-wide, no canton pre-filter)
+  const pfUrls = filterPostFinanceUrls(allUrls);
+  console.log(`  🎯 PostFinance job URLs (national): ${pfUrls.length}`);
 
-  if (ticinoUrls.length === 0) {
-    console.log('  ℹ️ No Ticino PostFinance URLs found in sitemap. Checking all PostFinance URLs...');
-    // Fallback: fetch all /PostFinance/job/ URLs and filter by detail page location
-    const allPfUrls = allUrls.filter((u) => u.includes('/PostFinance/job/'));
-    console.log(`  📋 All PostFinance job URLs: ${allPfUrls.length}`);
-    if (allPfUrls.length === 0) return [];
-    // Use allPfUrls but validate location on detail page fetch
-    return fetchAndParseJobDetails(allPfUrls, true);
-  }
+  if (pfUrls.length === 0) return [];
 
   // Step 3: Scan PostCH listings for supplementary /v2/ URLs
   const v2Map = await scanPostChListingsForV2Urls();
 
   // Step 4: Fetch detail pages
-  return fetchAndParseJobDetails(ticinoUrls, false, v2Map);
+  return fetchAndParseJobDetails(pfUrls, v2Map);
 }
 
-async function fetchAndParseJobDetails(urls, validateLocation = false, v2Map = new Map()) {
+async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
   const jobs = [];
 
   for (const url of urls) {
@@ -546,17 +530,19 @@ async function fetchAndParseJobDetails(urls, validateLocation = false, v2Map = n
       continue;
     }
 
-    // Determine city
-    const city = detail.city || cityFromSlug || 'Bellinzona';
+    // Determine city — cleanest single signal for canton inference.
+    const city = detail.city || cityFromSlug || '';
 
-    // Validate location if we didn't pre-filter
-    if (validateLocation && !isTicinoJob(city, detail.location || detail.region || '')) {
-      console.log(`     ↳ Skipping (not Ticino): ${detail.title} — ${city}`);
+    // CH-wide: resolve canton from the city string ALONE (all 26 cantons).
+    // Drop jobs whose location does not resolve to a Swiss canton (non-CH /
+    // foreign, e.g. Budapest). Never default to TI.
+    const canton = detectCanton(city);
+    if (!canton) {
+      console.log(`     ↳ Skipping (non-CH / unresolved canton): ${detail.title} — ${city || '?'}`);
       continue;
     }
 
     const title = detail.title;
-    const canton = detectCanton(city);
     const slug = slugify(title, 'postfinance');
 
     const descriptionIt = detail.description && detail.description.length > 30
@@ -598,7 +584,7 @@ async function fetchAndParseJobDetails(urls, validateLocation = false, v2Map = n
     console.log(`     ✅ ${title} — ${city} (${canton})${needsRetranslation ? ' [needs retranslation]' : ''}`);
   }
 
-  console.log(`\n📋 Total PostFinance Ticino jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total PostFinance CH-wide jobs discovered: ${jobs.length}`);
   return jobs;
 }
 
@@ -773,10 +759,6 @@ function postProcessPostFinanceJobs() {
       fixed++;
     }
     job.country = 'CH';
-    if (!job.location) {
-      job.location = 'Bellinzona';
-      fixed++;
-    }
     if (!job.descriptionByLocale || job.descriptionByLocale.it !== job.description) {
       job.descriptionByLocale = { ...(job.descriptionByLocale || {}), it: job.description };
       fixed++;
@@ -790,8 +772,13 @@ function postProcessPostFinanceJobs() {
       fixed++;
     }
     if (!job.canton) {
-      job.canton = detectCanton(job.location);
-      fixed++;
+      // CH-wide canton inference from the city signal; leave unset if unresolved
+      // (never default to TI).
+      const inferred = detectCanton(job.location);
+      if (inferred) {
+        job.canton = inferred;
+        fixed++;
+      }
     }
   }
 
@@ -862,7 +849,7 @@ function validatePostFinanceLocaleCoverage() {
     detectSourceLang: (text) => detectLang(text, 'it'),
     minDescriptionChars: 80,
     noJobsMessage: 'No PostFinance jobs found after crawl.',
-    failWhenNoJobs: false, // PostFinance may have 0 Ticino jobs at times
+    failWhenNoJobs: false, // PostFinance may have 0 CH jobs listed at times
     sampleLimit: 25,
     maxToleratedMissingDescriptions: 8,
   });
@@ -883,8 +870,8 @@ async function main() {
   const discoveredJobs = await fetchPostFinanceJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('⚠️ No PostFinance Ticino jobs discovered.');
-    console.log('   The sitemap may have no Ticino positions currently listed.');
+    console.log('⚠️ No PostFinance CH-wide jobs discovered.');
+    console.log('   The sitemap may have no PostFinance positions currently listed.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     logPostFinanceJobStats();
     return;

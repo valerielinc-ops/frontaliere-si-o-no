@@ -3,11 +3,16 @@
  * Hoval — Dedicated Crawler
  *
  * Crawls https://www.hoval.it/it_IT/jobs via SAP Hybris JSON API
- * 1. Fetches JSON listing API filtered by country=Switzerland
+ *
+ * Hoval is a national heating/HVAC employer, so this crawler is CH-wide
+ * (all 26 cantons) — there is NO Ticino/Grigioni restriction.
+ *
+ * 1. Fetches JSON listing API filtered by country=Switzerland (national set)
  * 2. Fetches each detail page → extracts description + apply URL
- * 3. Filters Ticino-relevant jobs
- * 4. Merges into data/jobs.json
- * 5. Updates adapter config
+ * 3. Keeps only Swiss (CH) postings; drops any foreign posting
+ * 4. Infers per-job canton via inferAnyCanton over all 26 cantons (no TI default)
+ * 5. Merges into data/jobs.json
+ * 6. Updates adapter config
  */
 
 import fs from 'node:fs';
@@ -41,7 +46,7 @@ import {
   parseHovalListingJson,
   parseHovalDetailPage,
   buildHovalLocalizedContent,
-  isHovalTicinoRelevant,
+  isHovalSwissJob,
   inferHovalCanton,
 } from './lib/hoval-job-parser.mjs';
 
@@ -212,10 +217,11 @@ async function enrichWithDetails(listings) {
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 
-  // Filter to Ticino-relevant only
-  const ticino = enriched.filter((job) => isHovalTicinoRelevant(job.location));
-  console.log(`\n📍 Ticino-relevant jobs: ${ticino.length} / ${enriched.length}`);
-  return ticino;
+  // CH-wide gate: keep only Swiss postings (drop any foreign posting). Hoval is
+  // a national employer — per-job canton (all 26) is resolved in buildHovalJob.
+  const swiss = enriched.filter((job) => isHovalSwissJob(job));
+  console.log(`\n📍 Swiss (CH-wide) jobs: ${swiss.length} / ${enriched.length}`);
+  return swiss;
 }
 
 function buildHovalJob(row) {

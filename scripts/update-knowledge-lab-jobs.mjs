@@ -3,8 +3,10 @@
  * Knowledge Lab — Dedicated Crawler
  *
  * Crawls via Freshteam API (https://klab.freshteam.com/api/job_postings)
- * 1. Fetches all published jobs in one API call (with auth token)
- * 2. Filters to Swiss + Ticino-relevant jobs
+ * 1. Fetches all published jobs in one API call (with auth token) — the feed
+ *    is national (no canton/region facet), Knowledge Lab is a CH-wide employer
+ * 2. Keeps jobs whose branch city resolves to any of the 26 Swiss cantons;
+ *    drops non-CH / unresolved (foreign) jobs
  * 3. Merges into data/jobs.json
  * 4. Updates adapter config
  *
@@ -41,7 +43,6 @@ import {
 import {
   parseKnowledgeLabListingJson,
   buildKnowledgeLabLocalizedContent,
-  isKnowledgeLabTicinoRelevant,
   inferKnowledgeLabCanton,
 } from './lib/knowledge-lab-job-parser.mjs';
 
@@ -287,31 +288,29 @@ async function main() {
     return;
   }
 
-  // Filter to Swiss jobs
-  const swissJobs = listings.filter((j) => j.countryCode === 'CH');
-  console.log(`🇨🇭 Swiss jobs: ${swissJobs.length} / ${listings.length}`);
+  // Filter to Swiss jobs (CH-wide): keep only jobs whose branch city resolves
+  // to one of the 26 Swiss cantons. Drops non-CH / unresolved (foreign) jobs.
+  // Never defaults unresolved jobs to a canton.
+  const swissJobs = listings.filter((j) => inferKnowledgeLabCanton(j) !== '');
+  console.log(`🇨🇭 Swiss-canton jobs: ${swissJobs.length} / ${listings.length}`);
 
-  // Filter to Ticino-relevant
-  const ticinoJobs = swissJobs.filter(isKnowledgeLabTicinoRelevant);
-  console.log(`📍 Ticino-relevant jobs: ${ticinoJobs.length} / ${swissJobs.length}`);
-
-  if (ticinoJobs.length === 0) {
-    console.log('⚠️ No Ticino-relevant jobs found — skipping merge.');
+  if (swissJobs.length === 0) {
+    console.log('⚠️ No Swiss-canton jobs found — skipping merge.');
     return;
   }
 
   // Deduplicate by apply URL
   const seenUrls = new Map();
   const deduplicated = [];
-  for (const listing of ticinoJobs) {
+  for (const listing of swissJobs) {
     const key = normalize(listing.applyUrl || listing.jobId);
     if (!seenUrls.has(key)) {
       seenUrls.set(key, listing);
       deduplicated.push(listing);
     }
   }
-  if (deduplicated.length < ticinoJobs.length) {
-    console.log(`🔄 Deduplicated: ${ticinoJobs.length} → ${deduplicated.length} unique jobs`);
+  if (deduplicated.length < swissJobs.length) {
+    console.log(`🔄 Deduplicated: ${swissJobs.length} → ${deduplicated.length} unique jobs`);
   }
 
   const jobs = deduplicated.map(buildKnowledgeLabJob);

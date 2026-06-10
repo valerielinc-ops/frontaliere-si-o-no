@@ -10,7 +10,7 @@
  *   - Apply URL in <a> with href to recruitingapp-2710.umantis.com
  */
 
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const BASE_URL = 'https://www.hoval.it';
@@ -141,17 +141,38 @@ export function buildHovalLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a location string is relevant to any target canton.
+ * Check whether a listing is a Swiss (CH) posting.
+ *
+ * Hoval is a national heating/HVAC employer, so the crawler is CH-wide (all
+ * 26 cantons). The Hybris feed is already country-filtered (country:Switzerland),
+ * so the feed's own `country` field is the authoritative CH gate — foreign
+ * postings (if any) are dropped here. Per-job canton is resolved separately by
+ * inferHovalCanton over all 26 cantons; we never default to a single canton.
+ *
+ * @param {{ country?: string, location?: string }} job
  */
-export function isHovalTicinoRelevant(location = '') {
-  const loc = normalizeSpace(location);
-  if (!loc) return false;
-  return isTargetSwissLocation(loc);
+export function isHovalSwissJob(job = {}) {
+  const country = normalizeSpace(job.country || '').toLowerCase();
+  if (country) {
+    return country === 'switzerland' || country === 'svizzera' || country === 'schweiz' || country === 'suisse' || country === 'ch';
+  }
+  // No country signal: fall back to canton resolution over all 26 cantons.
+  return Boolean(inferAnyCanton(normalizeSpace(job.location || '')));
 }
 
 /**
- * Infer canton code from a location string via the BFS municipality dataset.
+ * Infer canton code (one of all 26 Swiss cantons) from the clean city signal
+ * via the BFS municipality dataset. Falls back to the generic 'CH' marker for
+ * Swiss postings whose small municipality is absent from the BFS token set
+ * (e.g. Feldmeilen) — never defaults to a specific canton such as TI.
  */
 export function inferHovalCanton(location = '') {
-  return inferAnyCanton(normalizeSpace(location)) || 'CH';
+  // Use the clean leading city token alone (strip trailing region/"bzw."
+  // clauses) so inferAnyCanton matches the actual city, not a co-located
+  // region label that could resolve to the wrong canton via array order.
+  const cleanCity = normalizeSpace(location)
+    .split(/[,;]|\bbzw\.\b/i)[0]
+    .replace(/^(rc|ostschweiz|region)\s+/i, '')
+    .trim();
+  return inferAnyCanton(cleanCity) || inferAnyCanton(normalizeSpace(location)) || 'CH';
 }
