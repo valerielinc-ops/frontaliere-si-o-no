@@ -67,9 +67,28 @@ const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
 //    if any `/images/blog/thumbnails/` ref unexpectedly survives in HTML, the dir
 //    is KEPT (non-fatal) — no 404. (Places thumbnails under /images/places/ are
 //    NOT offloaded: they stay same-origin, not pushed to the CDN.)
+//  • Self-hosted brand/logo/author images (`/images/{brands,insurers,providers,
+//    logos,authors,publisher}/`): static SSG HTML references them (job cards,
+//    employer cards, fuel pages, JSON-LD publisher/company logo) AND the SPA does
+//    at runtime (resolveCompanyLogoUrl, getProviderLogoUrl, ProviderLogo,
+//    FuelPriceStats, author photos). The SPA emits the CDN URL at render time via
+//    services/cdnImageBase.ts cdnImageUrl() (reads window.__CDN_DATA_BASE__), and
+//    the rewrite below catches every same-origin ref in static HTML. The deploy
+//    pushes public/images/{brands,…} to ${CDN}/images/{brands,…} BEFORE this runs.
+//    Per-target leak guard: if any same-origin `/images/<prefix>/…` ref survives
+//    in static HTML post-rewrite, that dir is KEPT in dist (non-fatal — no 404).
+//    `/images/places/` is NOT here: it stays same-origin (blog hero places), not
+//    pushed to the CDN. (MUST stay in sync with CDN_OFFLOADED_IMAGE_PREFIXES in
+//    services/cdnImageBase.ts and the deploy.yml CDN-push staging step.)
 const TARGETS = [
   { dir: ['og'], url: '/og/' },
   { dir: ['images', 'blog', 'thumbnails'], url: '/images/blog/thumbnails/' },
+  { dir: ['images', 'brands'], url: '/images/brands/' },
+  { dir: ['images', 'insurers'], url: '/images/insurers/' },
+  { dir: ['images', 'providers'], url: '/images/providers/' },
+  { dir: ['images', 'logos'], url: '/images/logos/' },
+  { dir: ['images', 'authors'], url: '/images/authors/' },
+  { dir: ['images', 'publisher'], url: '/images/publisher/' },
 ];
 
 function log(msg) {
@@ -99,7 +118,9 @@ function walkAll(dir, fn) {
 }
 
 // File-tail patterns (capture group 1 = the relative path under the prefix).
-const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg))";
+// OG_FILE covers og cards AND the brand/logo/author image TARGETS, so its
+// extension set spans every image type those dirs hold (incl. .ico/.gif).
+const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg|ico|gif))";
 const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
 const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 

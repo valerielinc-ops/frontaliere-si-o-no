@@ -4,6 +4,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 import { FUEL_DAILY_LOCALES, buildFuelItalianStationPath, buildStationSlug, slugify, type FuelDailyLocale } from '@/build-plugins/fuelDailyData';
 import { brandLogoSlug } from '@/build-plugins/shared/brandSlug';
 
@@ -141,7 +142,7 @@ function StationBrandLogo({ brand }: { brand: string }) {
  }
  return (
  <img
- src={`/images/brands/${slug}.svg`}
+ src={cdnImageUrl(`/images/brands/${slug}.svg`)}
  alt={brand}
  width={40}
  height={40}
