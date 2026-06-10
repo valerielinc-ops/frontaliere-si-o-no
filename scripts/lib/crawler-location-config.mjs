@@ -540,19 +540,36 @@ export function getCantonDisplayName(cantonCode = '', locale = 'it') {
   const entry = SWISS_CANTONS[code];
   if (!entry) return cantonCode;
 
+  // All 26 cantons localized (it/de/fr/en) — CH-wide crawlers (sbb/manor/coop/
+  // confederazione) emit per-canton descriptions in every locale, so the bare
+  // names[0] fallback (which ignores locale) must not leak for non-TI cantons.
   const map = {
-    TI: { it: 'Ticino', de: 'Tessin', fr: 'Tessin', en: 'Ticino' },
-    GR: { it: 'Grigioni', de: 'Graubünden', fr: 'Grisons', en: 'Graubünden' },
-    VS: { it: 'Vallese', de: 'Wallis', fr: 'Valais', en: 'Valais' },
-    ZH: { it: 'Zurigo', de: 'Zürich', fr: 'Zurich', en: 'Zurich' },
+    AG: { it: 'Argovia', de: 'Aargau', fr: 'Argovie', en: 'Aargau' },
+    AI: { it: 'Appenzello Interno', de: 'Appenzell Innerrhoden', fr: 'Appenzell Rhodes-Intérieures', en: 'Appenzell Innerrhoden' },
+    AR: { it: 'Appenzello Esterno', de: 'Appenzell Ausserrhoden', fr: 'Appenzell Rhodes-Extérieures', en: 'Appenzell Ausserrhoden' },
     BE: { it: 'Berna', de: 'Bern', fr: 'Berne', en: 'Bern' },
-    LU: { it: 'Lucerna', de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' },
+    BL: { it: 'Basilea Campagna', de: 'Basel-Landschaft', fr: 'Bâle-Campagne', en: 'Basel-Landschaft' },
     BS: { it: 'Basilea Città', de: 'Basel-Stadt', fr: 'Bâle-Ville', en: 'Basel-Stadt' },
-    GE: { it: 'Ginevra', de: 'Genf', fr: 'Genève', en: 'Geneva' },
-    VD: { it: 'Vaud', de: 'Waadt', fr: 'Vaud', en: 'Vaud' },
     FR: { it: 'Friburgo', de: 'Freiburg', fr: 'Fribourg', en: 'Fribourg' },
-    NE: { it: 'Neuchâtel', de: 'Neuenburg', fr: 'Neuchâtel', en: 'Neuchâtel' },
+    GE: { it: 'Ginevra', de: 'Genf', fr: 'Genève', en: 'Geneva' },
+    GL: { it: 'Glarona', de: 'Glarus', fr: 'Glaris', en: 'Glarus' },
+    GR: { it: 'Grigioni', de: 'Graubünden', fr: 'Grisons', en: 'Graubünden' },
     JU: { it: 'Giura', de: 'Jura', fr: 'Jura', en: 'Jura' },
+    LU: { it: 'Lucerna', de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' },
+    NE: { it: 'Neuchâtel', de: 'Neuenburg', fr: 'Neuchâtel', en: 'Neuchâtel' },
+    NW: { it: 'Nidvaldo', de: 'Nidwalden', fr: 'Nidwald', en: 'Nidwalden' },
+    OW: { it: 'Obvaldo', de: 'Obwalden', fr: 'Obwald', en: 'Obwalden' },
+    SG: { it: 'San Gallo', de: 'St. Gallen', fr: 'Saint-Gall', en: 'St. Gallen' },
+    SH: { it: 'Sciaffusa', de: 'Schaffhausen', fr: 'Schaffhouse', en: 'Schaffhausen' },
+    SO: { it: 'Soletta', de: 'Solothurn', fr: 'Soleure', en: 'Solothurn' },
+    SZ: { it: 'Svitto', de: 'Schwyz', fr: 'Schwytz', en: 'Schwyz' },
+    TG: { it: 'Turgovia', de: 'Thurgau', fr: 'Thurgovie', en: 'Thurgau' },
+    TI: { it: 'Ticino', de: 'Tessin', fr: 'Tessin', en: 'Ticino' },
+    UR: { it: 'Uri', de: 'Uri', fr: 'Uri', en: 'Uri' },
+    VD: { it: 'Vaud', de: 'Waadt', fr: 'Vaud', en: 'Vaud' },
+    VS: { it: 'Vallese', de: 'Wallis', fr: 'Valais', en: 'Valais' },
+    ZG: { it: 'Zugo', de: 'Zug', fr: 'Zoug', en: 'Zug' },
+    ZH: { it: 'Zurigo', de: 'Zürich', fr: 'Zurich', en: 'Zurich' },
   };
 
   const loc = map[code];

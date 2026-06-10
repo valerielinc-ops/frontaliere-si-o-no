@@ -503,8 +503,13 @@ async function fetchSbbJobDetailUrls() {
   // canton is inferred downstream via inferAnyCanton.
   const targetJobs = allJobs.filter((job) => {
     const regions = job?.attributes?.['110'] || [];
-    if (regions.length === 0) return true; // no region data → keep (country attr already CH)
-    return regions.some((r) => isTargetSwissLocation(r));
+    if (regions.some((r) => isTargetSwissLocation(r))) return true;
+    // Region-empty / unresolved → require the CITY attribute to resolve to a
+    // Swiss canton before keeping (mirror the confederazione/coop/manor
+    // drop-unresolved gate). Never let a non-resolving posting fall through to
+    // the DEFAULT_CANTON='TI' + addressCountry:'CH' defaults downstream.
+    const cities = job?.attributes?.['100'] || [];
+    return cities.some((c) => Boolean(inferAnyCanton(c)));
   });
 
   console.log(`  🎯 Target jobs (CH-wide region filter): ${targetJobs.length}`);
