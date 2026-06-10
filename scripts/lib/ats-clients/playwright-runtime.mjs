@@ -179,10 +179,14 @@ export async function fetchWithRateLimit(context, url, options = {}) {
       ? options.minDelayMs
       : DEFAULT_MIN_DELAY_MS;
 
-  const last = lastRequestAt.get(context) || 0;
+  // Reserve a min-delay-spaced slot SYNCHRONOUSLY (read + write lastRequestAt
+  // with no await in between) so concurrent fetches on the same context each get
+  // a distinct slot instead of all reading the same timestamp, waiting the same
+  // delta, and bursting together. Same race fixed in mymemory-translate.mjs.
   const now = Date.now();
-  const elapsed = now - last;
-  const waitMs = elapsed >= minDelayMs ? 0 : minDelayMs - elapsed;
+  const slot = Math.max(now, lastRequestAt.get(context) || 0);
+  lastRequestAt.set(context, slot + minDelayMs);
+  const waitMs = slot - now;
   if (waitMs > 0) {
     await new Promise((resolve) => setTimeout(resolve, waitMs));
   }
@@ -190,8 +194,6 @@ export async function fetchWithRateLimit(context, url, options = {}) {
   process.stderr.write(
     `[playwright-runtime] GET ${url} (waited ${waitMs}ms)\n`,
   );
-
-  lastRequestAt.set(context, Date.now());
 
   // Retry only TRANSIENT navigation failures (page.goto timeout / network
   // blip → NavigationTimeout, #1308 Kantonsspital Obwalden). AntiBotBlockError
