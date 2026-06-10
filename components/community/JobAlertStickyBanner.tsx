@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { BellRing, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 
 const DISMISS_KEY = 'jobAlertStickyBanner:dismissedUntil';
 const DISMISS_DAYS = 7;
@@ -60,7 +61,7 @@ export default function JobAlertStickyBanner() {
  <div
  role="region"
  aria-label={t('jobAlert.stickyBannerAria') || 'Invito a iscriversi alle alert lavoro'}
- className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-md animate-slide-up"
+ className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-md animate-slide-up`}
  >
  <div className="flex items-center gap-3 p-3 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
  <span className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-subtle text-accent">

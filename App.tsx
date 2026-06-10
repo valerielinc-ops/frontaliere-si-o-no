@@ -3423,6 +3423,9 @@ const App: React.FC = () => {
  )}
  </Suspense>
  <Suspense fallback={null}>
+ {/* Hide the floating AI assistant on the job-detail page: its bottom-right
+ bubble overlaps the job-alert prompt toast and the apply CTA. */}
+ {!(activeTab === 'job-board' && jobSlug) && (
  <AiChatbot
  isLoggedIn={!!authUser}
  onSignIn={chatbotGoogleSignIn}
@@ -3430,6 +3433,7 @@ const App: React.FC = () => {
  onContinueWithEmail={chatbotContinueWithEmail}
  hideOnMobile={activeTab === 'blog'}
  />
+ )}
  </Suspense>
  </div>
  </NavigationContext.Provider>
