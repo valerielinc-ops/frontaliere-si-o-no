@@ -14,7 +14,7 @@
  */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { Briefcase, Plus, Trash2, Send, AlertTriangle, LogIn, Clock, Shield } from 'lucide-react';
+import { Briefcase, Plus, Trash2, Send, AlertTriangle, LogIn, Clock, Shield, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { recaptchaService } from '@/services/recaptchaService';
@@ -37,6 +37,30 @@ import type {
 
 const CREATE_CHECKOUT_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherCheckout';
+const GEMINI_ENDPOINT =
+ 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate';
+
+const VALID_EMPLOYMENT_TYPES = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY', 'INTERN'];
+
+/** Parse the model's reply (may be fenced ```json) into a job-post object. */
+function parseAiJobPost(text: string): {
+ title?: string;
+ description?: string;
+ employmentType?: string;
+ sector?: string;
+} | null {
+ if (!text) return null;
+ const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+ const start = cleaned.indexOf('{');
+ const end = cleaned.lastIndexOf('}');
+ if (start === -1 || end === -1 || end <= start) return null;
+ try {
+ const obj = JSON.parse(cleaned.slice(start, end + 1));
+ return obj && typeof obj === 'object' ? obj : null;
+ } catch {
+ return null;
+ }
+}
 
 const LEGAL_FORMS: { value: PublisherLegalForm; labelKey: string }[] = [
  { value: 'ditta_individuale', labelKey: 'publisher.company.legalForm.dittaIndividuale' },
@@ -111,6 +135,44 @@ const PublisherPublishPage: React.FC = () => {
  const [status, setStatus] = useState<SubmitStatus>('idle');
  const [errors, setErrors] = useState<string[]>([]);
  const [errorMessage, setErrorMessage] = useState('');
+
+ // ── AI auto-fill (sponsored only) ───────────────────────────
+ const [aiPosition, setAiPosition] = useState('');
+ const [aiStatus, setAiStatus] = useState<'idle' | 'loading' | 'error'>('idle');
+
+ const handleAiFill = async () => {
+ const position = aiPosition.trim();
+ if (!position || aiStatus === 'loading') return;
+ setAiStatus('loading');
+ try {
+ const userPrompt =
+ `Sei un esperto di annunci di lavoro per il mercato Ticino/Svizzera (frontalieri). ` +
+ `Genera un annuncio in ITALIANO per la posizione: "${position}". ` +
+ `Rispondi SOLO con JSON valido, senza testo extra, con queste chiavi: ` +
+ `"title" (titolo conciso), "description" (almeno 70 parole, professionale, con responsabilità e requisiti), ` +
+ `"employmentType" (uno tra ${VALID_EMPLOYMENT_TYPES.join(', ')}), ` +
+ `"sector" (settore breve, es. "sanità", "edilizia", "IT").`;
+ const res = await fetch(GEMINI_ENDPOINT, {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify({ userPrompt, maxTokens: 1024, temperature: 0.6 }),
+ });
+ const data = (await res.json().catch(() => ({}))) as { ok?: boolean; text?: string };
+ const parsed = data?.ok && data.text ? parseAiJobPost(data.text) : null;
+ if (!parsed) throw new Error('ai_parse_failed');
+ if (parsed.title) setTitle(String(parsed.title).slice(0, 200));
+ if (parsed.description) setDescription(String(parsed.description));
+ if (parsed.employmentType && VALID_EMPLOYMENT_TYPES.includes(parsed.employmentType)) {
+ setEmploymentType(parsed.employmentType);
+ }
+ setAiStatus('idle');
+ Analytics.trackUIInteraction('publisher', 'ai', 'autofill', 'success');
+ } catch (error) {
+ setAiStatus('error');
+ Analytics.trackUIInteraction('publisher', 'ai', 'autofill', 'error');
+ reportCaughtError(error, 'publisher.aiFill');
+ }
+ };
 
  useEffect(() => {
  Analytics.trackPageView('/pubblica-offerta', 'Publisher Publish Page');
@@ -410,6 +472,40 @@ const PublisherPublishPage: React.FC = () => {
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.ad.section')}</h2>
  <div className="space-y-5">
+ {!isFree && (
+ <div className="rounded-xl border border-accent/40 bg-accent-subtle p-4">
+ <label htmlFor="pub-ai-position" className="block text-sm font-medium text-strong mb-1.5">
+ {t('publisher.ai.label')}
+ </label>
+ <div className="flex flex-col sm:flex-row gap-2">
+ <input
+ id="pub-ai-position"
+ type="text"
+ value={aiPosition}
+ onChange={e => setAiPosition(e.target.value)}
+ className={inputClass}
+ placeholder={t('publisher.ai.placeholder')}
+ />
+ <button
+ type="button"
+ onClick={() => { void handleAiFill(); }}
+ disabled={!aiPosition.trim() || aiStatus === 'loading'}
+ className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-medium text-on-accent bg-accent hover:bg-accent-hover disabled:bg-surface-muted disabled:cursor-not-allowed rounded-xl transition-colors"
+ >
+ {aiStatus === 'loading' ? (
+ <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+ ) : (
+ <Sparkles className="w-4 h-4" />
+ )}
+ {t('publisher.ai.button')}
+ </button>
+ </div>
+ <p className="mt-1.5 text-xs text-muted">{t('publisher.ai.hint')}</p>
+ {aiStatus === 'error' && (
+ <p className="mt-1 text-xs text-danger">{t('publisher.ai.error')}</p>
+ )}
+ </div>
+ )}
  <div>
  <label htmlFor="pub-title" className={labelClass}>
  {t('publisher.ad.title')} *
