@@ -127,6 +127,20 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
         const assign = new RegExp(`(?:const|let)\\s+${ident}\\s*=\\s*(?![^;]*inlineScriptJson)[^;]*?JSON\\.stringify\\(`);
         if (assign.test(src)) shapes.push(`direct-emit-raw:${ident}`);
       }
+      // 5. member-expression emit `${seoData.sd}` (#1672 escalation). Shape 4's
+      //    EMIT captured only a bare `${ident}`, never `${obj.prop}`, so a member
+      //    field emitted directly into a hand-rolled tag was invisible. The non-IT
+      //    `sd`-translation path rebuilds `locSeo.sd` via split(sep) → map(part =>
+      //    translate + re-serialize) → join(sep): shape 3 also misses it because the
+      //    map body is multi-statement and the join separator is a variable (not a
+      //    literal `ld+json`). Flag a member-expr ld+json emit when the file ALSO
+      //    re-serializes inside a map callback with a RAW JSON.stringify (the escape
+      //    downgrade). The escaped form (`return inlineScriptJson(obj)`) leaves no
+      //    `return JSON.stringify` in a map → silent. A safe member-expr emit whose
+      //    field is escape-built does not false-positive (no raw map re-stringify).
+      const memberLdEmit = /application\/ld\+json">\$\{[A-Za-z_$][\w$]*\.[\w$.]+\}/.test(src);
+      const mapReturnsRawStringify = /\.map\(\s*\(?[\w$,\s]*\)?\s*=>\s*\{[\s\S]{0,600}?return\s+JSON\.stringify\(/.test(src);
+      if (memberLdEmit && mapReturnsRawStringify) shapes.push('member-emit-map-raw-stringify');
       return shapes;
     };
 
@@ -243,6 +257,19 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(rawJsonLdShapes(
         'const t = parts.map((p) => JSON.stringify(p));\nsd = t.join(sdSeparator);',
       )).toEqual([]);
+
+      // (3b) the real `sd`-translation path (#1672 escalation): split → map(part =>
+      // multi-statement translate + re-serialize) → join(variableSep), emitted via a
+      // member-expr `${seoData.sd}`. A RAW re-stringify inside the map MUST fire;
+      // swapping it for inlineScriptJson MUST go silent; and a safe member-expr emit
+      // with no raw map re-stringify MUST NOT false-positive.
+      const sdMap = (serialize: string) =>
+        `const translated = sdParts.map((part) => {\n  const obj = JSON.parse(part);\n  translateSchema(obj, lang);\n  return ${serialize}(obj);\n});\n locSeo.sd = translated.join(sdSeparator);\n h = \`<script type="application/ld+json">\${seoData.sd}</script>\`;`;
+      expect(rawJsonLdShapes(sdMap('JSON.stringify'))).toContain('member-emit-map-raw-stringify');
+      expect(rawJsonLdShapes(sdMap('inlineScriptJson'))).toEqual([]);
+      expect(
+        rawJsonLdShapes('h = `<script type="application/ld+json">${seoData.sd}</script>`;'),
+      ).toEqual([]);
 
       // (4) a non-`Ld`-suffixed var emitted DIRECTLY into a tag must be escaped.
       // `ldJsonStr` / `sd` end in neither `Ld` nor `JsonLd`, so shape (2) misses
