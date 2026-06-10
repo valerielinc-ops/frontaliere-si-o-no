@@ -1,6 +1,6 @@
 {
   "crawlerKey": "emmi",
-  "assembledAt": "2026-06-10T12:00:00.280Z",
+  "assembledAt": "2026-06-10T22:34:50.872Z",
   "jobs": [
     {
       "id": "emmi-522a64170ebf",
@@ -33,7 +33,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/collaborateur-trice-a-temps-partiel-pour-les-degustations-promotions-dans-toute-la-suisse/67d6c61c-c687-4d14-aa07-6f38abd398af",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T11:59:57.822Z",
+      "crawledAt": "2026-06-10T22:34:48.349Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -73,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.216Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -82,97 +83,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "emmi-e28e09d3e178",
-      "slug": "apprendistato-come-anlagenfuhrer-in-cfc-2026-emmi-langnau-im-emmental-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-anlagenfuhrer-in-cfc-2026-emmi-langnau-im-emmental-bern",
-        "en": "apprenticeship-as-plant-operator-efz-2026-emmi-langnau-im-emmental",
-        "de": "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch",
-        "fr": "apprentissage-de-conducteur-d-installations-cfc-2026-emmi-langnau-im-emmental"
-      },
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Lehre als Anlagenführer:in EFZ 2026",
-      "titleByLocale": {
-        "it": "Apprendistato come Anlagenführer:in CFC 2026",
-        "en": "Apprenticeship as plant operator EFZ 2026",
-        "de": "Lehre als Anlagenführer:in EFZ 2026",
-        "fr": "Apprentissage de conducteur d'installations : CFC 2026"
-      },
-      "description": "• Du bedienst und überwachst unsere hochmodernen Produktions- und Verpackungsanlagen zuverlässig.\n\n• Nach jedem Produktwechsel findest du die richtigen Einstellungen und passt die Anlage entsprechend an.\n\n• Während deiner Ausbildung eignest du dir umfassendes Wissen zu Materialkunde, Produktivität, Qualitätskontrolle, Fehleranalysen und Hygienevorschriften an.\n\n• Du analysierst Störungen, erkennst Optimierungspotenzial und unterstützt bei Verbesserungen im Ablauf .\n\n• Mit deinem Einsatz sorgst du dafür, dass unsere Produkte 拏 pünktlich, sicher und in bester Qualität das Werk verlassen.\n\n• Du verfügst über einen Real- oder Sekabschluss.\n\n• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.\n\n• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.\n\n• Du arbeitest gern im Team 里 und kannst dich gut organisieren.\n\n• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.\n\n• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
-      "descriptionByLocale": {
-        "it": "• Gestisci e supervisioni in modo affidabile i nostri impianti di produzione e confezionamento all'avanguardia.\n• Dopo ogni cambio di prodotto, troverai le impostazioni corrette e adatterai l'impianto di conseguenza.\n• Durante la tua formazione acquisirai una conoscenza approfondita della scienza dei materiali, della produttività, del controllo di qualità, dell'analisi dei guasti e delle norme igieniche.\n• Analizzi i guasti, riconosci il potenziale di ottimizzazione e supporti i miglioramenti nel processo.\n• Con il tuo impegno, ti assicuri che i nostri prodotti lascino la fabbrica in 拏 tempo, in sicurezza e con la migliore qualità.\n• Hai un diploma reale o secondario.\n• La tecnologia ti affascina e hai una buona abilità artigianale.\n• La cura e la pulizia fanno naturalmente parte del tuo lavoro, soprattutto per quanto riguarda gli alimenti.\n• Ti piace lavorare in squadra 里 e puoi organizzarti bene.\n• Con un buon senso delle macchine e dei processi, puoi trovare rapidamente il tuo posto nella produzione.\n• La tua conoscenza della lingua tedesca corrisponde almeno al livello B1.",
-        "en": "• You reliably operate and monitor our state-of-the-art production and packaging facilities.\n• After each product change, you will find the right settings and adjust the system accordingly.\n• During your training, you will acquire comprehensive knowledge of materials science, productivity, quality control, error analysis and hygiene regulations.\n• You analyse faults, identify potential for optimisation and support improvements in the process.\n• With your commitment, you ensure that our products leave the factory 拏 on time, safely and in the best quality.\n• You have a Real or Second Degree.\n• Technology fascinates you and you have good craftsmanship.\n• Care and cleanliness are, of course, part of working for you – especially when it comes to food.\n• You enjoy working in a team 里 and are good at organizing yourself.\n• With a good feel for machines and processes, you will quickly find your place in production.\n• Your German skills correspond to at least level B1.",
-        "de": "• Du bedienst und überwachst unsere hochmodernen Produktions- und Verpackungsanlagen zuverlässig.\n• Nach jedem Produktwechsel findest du die richtigen Einstellungen und passt die Anlage entsprechend an.\n• Während deiner Ausbildung eignest du dir umfassendes Wissen zu Materialkunde, Produktivität, Qualitätskontrolle, Fehleranalysen und Hygienevorschriften an.\n• Du analysierst Störungen, erkennst Optimierungspotenzial und unterstützt bei Verbesserungen im Ablauf .\n• Mit deinem Einsatz sorgst du dafür, dass unsere Produkte 拏 pünktlich, sicher und in bester Qualität das Werk verlassen.\n• Du verfügst über einen Real- oder Sekabschluss.\n• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.\n• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.\n• Du arbeitest gern im Team 里 und kannst dich gut organisieren.\n• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.\n• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
-        "fr": "• Vous exploitez et surveillez de manière fiable nos installations de production et d'emballage ultramodernes.\n• Après chaque changement de produit, tu trouves les bons réglages et adaptes le système en conséquence.\n• Au cours de ta formation, tu acquerras des connaissances approfondies sur la science des matériaux, la productivité, le contrôle de la qualité, l'analyse des erreurs et les règles d'hygiène.\n• Vous analysez les perturbations, identifiez le potentiel d'optimisation et aidez à améliorer le processus.\n• Avec votre engagement, vous vous assurez que nos produits quittent l'usine 拏 à temps, en toute sécurité et avec la meilleure qualité.\n• Tu disposes d'un diplôme réel ou secondaire.\n• La technologie te fascine et tu as un bon savoir-faire.\n• Le soin et la propreté font bien sûr partie du travail pour vous, en particulier pour les aliments.\n• Tu aimes travailler en équipe 里 et tu peux bien t'organiser.\n• Avec un bon sens des machines et des processus, tu trouveras rapidement ta place dans la production.\n• Tes connaissances en allemand correspondent au moins au niveau B1."
-      },
-      "location": "Langnau im Emmental, Bern",
-      "canton": "BE",
-      "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2026/2f2513e3-1f71-4c20-80f8-9ff590e01d62",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.821Z",
-      "addressLocality": "Langnau im Emmental",
-      "postalCode": "3550",
-      "addressRegion": "Bern",
-      "streetAddress": "Bahnhofstrasse 34",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-07-18",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=18896",
-      "requirements": [
-        "• Du verfügst über einen Real- oder Sekabschluss.",
-        "• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.",
-        "• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.",
-        "• Du arbeitest gern im Team 里 und kannst dich gut organisieren.",
-        "• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.",
-        "• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du verfügst über einen Real- oder Sekabschluss.",
-          "• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.",
-          "• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.",
-          "• Du arbeitest gern im Team 里 und kannst dich gut organisieren.",
-          "• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.",
-          "• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
-          "• Du arbeitest gern im Team 里 und kannst dich gut organisieren."
-        ]
-      },
-      "previousSlugs": [
-        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3",
-        "apprendistato-come-gestore-di-impianti-in-afc-2026-emmi-langnau-im-emmental",
-        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3",
-          "apprendistato-come-gestore-di-impianti-in-afc-2026-emmi-langnau-im-emmental",
-          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:39.214Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -198,17 +108,17 @@
       },
       "description": "• Du bedienst und überwachst unsere hochmodernen Produktions- und Verpackungsanlagen zuverlässig.\n\n• Nach jedem Produktwechsel findest du die richtigen Einstellungen und passt die Anlage entsprechend an.\n\n• Während deiner Ausbildung eignest du dir umfassendes Wissen zu Materialkunde, Produktivität, Qualitätskontrolle, Fehleranalysen und Hygienevorschriften an.\n\n• Du analysierst Störungen, erkennst Optimierungspotenzial und unterstützt bei Verbesserungen im Ablauf .\n\n• Mit deinem Einsatz sorgst du dafür, dass unsere Produkte 拏 pünktlich, sicher und in bester Qualität das Werk verlassen.\n\n• Du verfügst über einen Real- oder Sekabschluss.\n\n• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.\n\n• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.\n\n• Du arbeitest gern im Team 里 und kannst dich gut organisieren.\n\n• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.\n\n• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
       "descriptionByLocale": {
-        "it": "Mansioni - Gestisci e sorveglia le nostre moderne linee di produzione e confezionamento in modo affidabile. - Dopo ogni cambio prodotto trovi le impostazioni corrette e adatti l'impianto di conseguenza. - Durante la tua formazione acquisisci una conoscenza approfondita di materia prima, produttività, controllo qualità, analisi degli errori e norme igieniche. - Analizzi i guasti, individui potenziali di ottimizzazione e supporti i miglioramenti nel flusso di lavoro . - Con il tuo impegno assicuri che i nostri prodotti 拏 escono dal stabilimento puntualmente, in sicurezza e con la migliore qualità. \n• Requisiti - Hai un diploma di scuola secondaria superiore o equivalente. - La tecnologia ti affascina e hai una buona abilità manuale. - Cura e pulizia sono per te parte integrante del lavoro – soprattutto con gli alimenti. - Ti piace lavorare in team 里 e sei bravo a organizzarti. - Con un buon intuito per macchine e processi trovi rapidamente il tuo posto nella produzione. - Le tue conoscenze di tedesco corrispondono almeno al livello B1.",
-        "en": "Responsibilities - Operate and monitor our state‑of‑the‑art production and packaging lines reliably. - After each product change you find the correct settings and adjust the plant accordingly. - During your apprenticeship you acquire comprehensive knowledge of material science, productivity, quality control, fault analysis and hygiene regulations. - You analyse faults, identify optimisation potential and support improvements in the workflow . - With your effort you ensure that our products 拏 leave the plant on time, safely and in the best quality. \n• Requirements - You have a secondary school diploma or equivalent. - Technology fascinates you and you have good manual skills. - Care and cleanliness are part of your work – especially with food. - You enjoy working in a team 里 and you can organise yourself well. - With a good sense of machines and processes you quickly find your place in production. - Your German skills are at least at level B1.",
+        "it": "Mansioni - Gestisci e sorveglia le nostre moderne linee di produzione e confezionamento in modo affidabile. - Dopo ogni cambio prodotto trovi le impostazioni corrette e adatti l'impianto di conseguenza. - Durante la tua formazione acquisisci una conoscenza approfondita di materia prima, produttività, controllo qualità, analisi degli errori e norme igieniche. - Analizzi i guasti, individui potenziali di ottimizzazione e supporti i miglioramenti nel flusso di lavoro . - Con il tuo impegno assicuri che i nostri prodotti 拏 escono dal stabilimento puntualmente, in sicurezza e con la migliore qualità.\n• Requisiti - Hai un diploma di scuola secondaria superiore o equivalente. - La tecnologia ti affascina e hai una buona abilità manuale. - Cura e pulizia sono per te parte integrante del lavoro – soprattutto con gli alimenti. - Ti piace lavorare in team 里 e sei bravo a organizzarti. - Con un buon intuito per macchine e processi trovi rapidamente il tuo posto nella produzione. - Le tue conoscenze di tedesco corrispondono almeno al livello B1.",
+        "en": "Responsibilities - Operate and monitor our state‑of‑the‑art production and packaging lines reliably. - After each product change you find the correct settings and adjust the plant accordingly. - During your apprenticeship you acquire comprehensive knowledge of material science, productivity, quality control, fault analysis and hygiene regulations. - You analyse faults, identify optimisation potential and support improvements in the workflow . - With your effort you ensure that our products 拏 leave the plant on time, safely and in the best quality.\n• Requirements - You have a secondary school diploma or equivalent. - Technology fascinates you and you have good manual skills. - Care and cleanliness are part of your work – especially with food. - You enjoy working in a team 里 and you can organise yourself well. - With a good sense of machines and processes you quickly find your place in production. - Your German skills are at least at level B1.",
         "de": "• Du bedienst und überwachst unsere hochmodernen Produktions- und Verpackungsanlagen zuverlässig.\n• Nach jedem Produktwechsel findest du die richtigen Einstellungen und passt die Anlage entsprechend an.\n• Während deiner Ausbildung eignest du dir umfassendes Wissen zu Materialkunde, Produktivität, Qualitätskontrolle, Fehleranalysen und Hygienevorschriften an.\n• Du analysierst Störungen, erkennst Optimierungspotenzial und unterstützt bei Verbesserungen im Ablauf .\n• Mit deinem Einsatz sorgst du dafür, dass unsere Produkte 拏 pünktlich, sicher und in bester Qualität das Werk verlassen.\n• Du verfügst über einen Real- oder Sekabschluss.\n• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.\n• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.\n• Du arbeitest gern im Team 里 und kannst dich gut organisieren.\n• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.\n• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
-        "fr": "Responsabilités - Vous exploitez et surveillez nos lignes de production et d’emballage modernes de manière fiable. - Après chaque changement de produit, vous trouvez les réglages appropriés et ajustez l’installation en conséquence. - Au cours de votre apprentissage, vous acquérez une connaissance approfondie de la science des matériaux, de la productivité, du contrôle qualité, de l’analyse des défauts et des normes d’hygiène. - Vous analysez les pannes, identifiez les potentiels d’optimisation et soutenez les améliorations du flux de travail . - Grâce à votre engagement, vous vous assurez que nos produits 拏 quittent l’usine à temps, en toute sécurité et avec la meilleure qualité. \n• Exigences - Vous possédez un diplôme d’études secondaires ou équivalent. - La technologie vous fascine et vous avez de bonnes compétences manuelles. - La rigueur et la propreté font partie intégrante de votre travail – surtout avec les aliments. - Vous aimez travailler en équipe 里 et vous savez bien vous organiser. - Avec une bonne intuition pour les machines et les processus, vous trouvez rapidement votre place dans la production. - Vos connaissances en allemand sont au moins au niveau B1."
+        "fr": "Responsabilités - Vous exploitez et surveillez nos lignes de production et d’emballage modernes de manière fiable. - Après chaque changement de produit, vous trouvez les réglages appropriés et ajustez l’installation en conséquence. - Au cours de votre apprentissage, vous acquérez une connaissance approfondie de la science des matériaux, de la productivité, du contrôle qualité, de l’analyse des défauts et des normes d’hygiène. - Vous analysez les pannes, identifiez les potentiels d’optimisation et soutenez les améliorations du flux de travail . - Grâce à votre engagement, vous vous assurez que nos produits 拏 quittent l’usine à temps, en toute sécurité et avec la meilleure qualité.\n• Exigences - Vous possédez un diplôme d’études secondaires ou équivalent. - La technologie vous fascine et vous avez de bonnes compétences manuelles. - La rigueur et la propreté font partie intégrante de votre travail – surtout avec les aliments. - Vous aimez travailler en équipe 里 et vous savez bien vous organiser. - Avec une bonne intuition pour les machines et les processus, vous trouvez rapidement votre place dans la production. - Vos connaissances en allemand sont au moins au niveau B1."
       },
       "location": "Ostermundigen, Bern",
       "canton": "BE",
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2026/81258026-8fd7-476c-b2e2-8ed73b3212ad",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.821Z",
+      "crawledAt": "2026-06-10T22:34:48.348Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -321,7 +231,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-milchtechnologe-efz-2026/d13f658d-f2c8-4209-a19b-93c4eaf034cb",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.820Z",
+      "crawledAt": "2026-06-10T22:34:48.347Z",
       "addressLocality": "Kaltbach",
       "postalCode": "6212",
       "addressRegion": "Luzern",
@@ -360,6 +270,101 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.214Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "emmi-e28e09d3e178",
+      "slug": "apprendistato-come-anlagenfuhrer-in-cfc-2026-emmi-langnau-im-emmental-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-anlagenfuhrer-in-cfc-2026-emmi-langnau-im-emmental-bern",
+        "en": "apprenticeship-as-plant-operator-efz-2026-emmi-langnau-im-emmental",
+        "de": "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch",
+        "fr": "apprentissage-de-conducteur-d-installations-cfc-2026-emmi-langnau-im-emmental"
+      },
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Lehre als Anlagenführer:in EFZ 2026",
+      "titleByLocale": {
+        "it": "Apprendistato come Anlagenführer:in CFC 2026",
+        "en": "Apprenticeship as plant operator EFZ 2026",
+        "de": "Lehre als Anlagenführer:in EFZ 2026",
+        "fr": "Apprentissage de conducteur d'installations : CFC 2026"
+      },
+      "description": "• Du bedienst und überwachst unsere hochmodernen Produktions- und Verpackungsanlagen zuverlässig.\n\n• Nach jedem Produktwechsel findest du die richtigen Einstellungen und passt die Anlage entsprechend an.\n\n• Während deiner Ausbildung eignest du dir umfassendes Wissen zu Materialkunde, Produktivität, Qualitätskontrolle, Fehleranalysen und Hygienevorschriften an.\n\n• Du analysierst Störungen, erkennst Optimierungspotenzial und unterstützt bei Verbesserungen im Ablauf .\n\n• Mit deinem Einsatz sorgst du dafür, dass unsere Produkte 拏 pünktlich, sicher und in bester Qualität das Werk verlassen.\n\n• Du verfügst über einen Real- oder Sekabschluss.\n\n• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.\n\n• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.\n\n• Du arbeitest gern im Team 里 und kannst dich gut organisieren.\n\n• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.\n\n• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
+      "descriptionByLocale": {
+        "it": "• Gestisci e supervisioni in modo affidabile i nostri impianti di produzione e confezionamento all'avanguardia.\n• Dopo ogni cambio di prodotto, troverai le impostazioni corrette e adatterai l'impianto di conseguenza.\n• Durante la tua formazione acquisirai una conoscenza approfondita della scienza dei materiali, della produttività, del controllo di qualità, dell'analisi dei guasti e delle norme igieniche.\n• Analizzi i guasti, riconosci il potenziale di ottimizzazione e supporti i miglioramenti nel processo.\n• Con il tuo impegno, ti assicuri che i nostri prodotti lascino la fabbrica in 拏 tempo, in sicurezza e con la migliore qualità.\n• Hai un diploma reale o secondario.\n• La tecnologia ti affascina e hai una buona abilità artigianale.\n• La cura e la pulizia fanno naturalmente parte del tuo lavoro, soprattutto per quanto riguarda gli alimenti.\n• Ti piace lavorare in squadra 里 e puoi organizzarti bene.\n• Con un buon senso delle macchine e dei processi, puoi trovare rapidamente il tuo posto nella produzione.\n• La tua conoscenza della lingua tedesca corrisponde almeno al livello B1.",
+        "en": "• You reliably operate and monitor our state-of-the-art production and packaging facilities.\n• After each product change, you will find the right settings and adjust the system accordingly.\n• During your training, you will acquire comprehensive knowledge of materials science, productivity, quality control, error analysis and hygiene regulations.\n• You analyse faults, identify potential for optimisation and support improvements in the process.\n• With your commitment, you ensure that our products leave the factory 拏 on time, safely and in the best quality.\n• You have a Real or Second Degree.\n• Technology fascinates you and you have good craftsmanship.\n• Care and cleanliness are, of course, part of working for you – especially when it comes to food.\n• You enjoy working in a team 里 and are good at organizing yourself.\n• With a good feel for machines and processes, you will quickly find your place in production.\n• Your German skills correspond to at least level B1.",
+        "de": "• Du bedienst und überwachst unsere hochmodernen Produktions- und Verpackungsanlagen zuverlässig.\n• Nach jedem Produktwechsel findest du die richtigen Einstellungen und passt die Anlage entsprechend an.\n• Während deiner Ausbildung eignest du dir umfassendes Wissen zu Materialkunde, Produktivität, Qualitätskontrolle, Fehleranalysen und Hygienevorschriften an.\n• Du analysierst Störungen, erkennst Optimierungspotenzial und unterstützt bei Verbesserungen im Ablauf .\n• Mit deinem Einsatz sorgst du dafür, dass unsere Produkte 拏 pünktlich, sicher und in bester Qualität das Werk verlassen.\n• Du verfügst über einen Real- oder Sekabschluss.\n• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.\n• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.\n• Du arbeitest gern im Team 里 und kannst dich gut organisieren.\n• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.\n• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
+        "fr": "• Vous exploitez et surveillez de manière fiable nos installations de production et d'emballage ultramodernes.\n• Après chaque changement de produit, tu trouves les bons réglages et adaptes le système en conséquence.\n• Au cours de ta formation, tu acquerras des connaissances approfondies sur la science des matériaux, la productivité, le contrôle de la qualité, l'analyse des erreurs et les règles d'hygiène.\n• Vous analysez les perturbations, identifiez le potentiel d'optimisation et aidez à améliorer le processus.\n• Avec votre engagement, vous vous assurez que nos produits quittent l'usine 拏 à temps, en toute sécurité et avec la meilleure qualité.\n• Tu disposes d'un diplôme réel ou secondaire.\n• La technologie te fascine et tu as un bon savoir-faire.\n• Le soin et la propreté font bien sûr partie du travail pour vous, en particulier pour les aliments.\n• Tu aimes travailler en équipe 里 et tu peux bien t'organiser.\n• Avec un bon sens des machines et des processus, tu trouveras rapidement ta place dans la production.\n• Tes connaissances en allemand correspondent au moins au niveau B1."
+      },
+      "location": "Langnau im Emmental, Bern",
+      "canton": "BE",
+      "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2026/2f2513e3-1f71-4c20-80f8-9ff590e01d62",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.347Z",
+      "addressLocality": "Langnau im Emmental",
+      "postalCode": "3550",
+      "addressRegion": "Bern",
+      "streetAddress": "Bahnhofstrasse 34",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-07-18",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=18896",
+      "requirements": [
+        "• Du verfügst über einen Real- oder Sekabschluss.",
+        "• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.",
+        "• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.",
+        "• Du arbeitest gern im Team 里 und kannst dich gut organisieren.",
+        "• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.",
+        "• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du verfügst über einen Real- oder Sekabschluss.",
+          "• Technik fasziniert dich und du hast ein gutes handwerkliches Geschick.",
+          "• Sorgfalt und Sauberkeit gehören für dich selbstverständlich zum Arbeiten dazu – besonders bei Lebensmitteln.",
+          "• Du arbeitest gern im Team 里 und kannst dich gut organisieren.",
+          "• Mit einem guten Gespür für Maschinen und Prozessen findest du schnell deinen Platz in der Produktion.",
+          "• Deine Deutschkenntnisse entsprechen mindestens dem Niveau B1.",
+          "• Du arbeitest gern im Team 里 und kannst dich gut organisieren."
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3",
+        "apprendistato-come-gestore-di-impianti-in-afc-2026-emmi-langnau-im-emmental",
+        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch",
+        "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-3",
+          "apprendistato-come-gestore-di-impianti-in-afc-2026-emmi-langnau-im-emmental",
+          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch",
+          "lehre-als-anlagenfuhrer-in-efz-2026-emmi-ch-2"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:39.214Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -404,7 +409,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-anlagenfuehrer-in-efz-2026/d6c5b8ab-1e53-4f3b-b19d-3d2358487735",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.819Z",
+      "crawledAt": "2026-06-10T22:34:48.346Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -451,6 +456,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.214Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -495,7 +501,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/apprenti-e-technologue-du-lait-cfc-2026/622961b5-b1aa-4237-b63a-7ce2c7611088",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T11:59:57.818Z",
+      "crawledAt": "2026-06-10T22:34:48.345Z",
       "addressLocality": "Saignelégier",
       "postalCode": "2350",
       "addressRegion": "Jura",
@@ -535,6 +541,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.213Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -579,7 +586,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/apprenti-e-technologue-du-lait-cfc-2026/b0e5cd09-4872-49d4-ba79-e1843a8d07f3",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T11:59:57.817Z",
+      "crawledAt": "2026-06-10T22:34:48.344Z",
       "addressLocality": "Courgenay",
       "postalCode": "2950",
       "addressRegion": "Jura",
@@ -619,6 +626,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.212Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -628,89 +636,6 @@
           "@type": "QuantitativeValue",
           "minValue": 41600,
           "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "emmi-e14e8fb5671b",
-      "slug": "tecnologa-o-tecnologo-del-latte-emmi-emmen",
-      "slugByLocale": {
-        "it": "tecnologa-o-tecnologo-del-latte-emmi-emmen",
-        "en": "dairy-technologist-emmi-emmen",
-        "de": "milchtechnologin-oder-milchtechnologe-emmi-ch",
-        "fr": "technologue-en-lait-ou-technologue-en-lait-emmi-emmen"
-      },
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Milchtechnologin oder Milchtechnologe",
-      "titleByLocale": {
-        "it": "Tecnologa o tecnologo del latte",
-        "en": "Dairy technologist",
-        "de": "Milchtechnologin oder Milchtechnologe",
-        "fr": "Technologue en lait ou technologue en lait"
-      },
-      "description": "• Du bedienst und überwachst unsere modernen Produktionsanlagen und sorgst dafür, dass der Herstellungsprozess reibungslos läuft.\n\n• Qualität steht an erster Stelle: Du stellst sicher, dass unsere Käseprodukte - darunter der Luzerner Rahmkäse - höchsten Standards entsprechen.\n\n• Hygiene, Sicherheit und Prozessstandards setzt du konsequent um und leistest damit einen wichtigen Beitrag zu einer sicheren Produktion.\n\n• Mit deinem technischen Verständnis erkennst du Optimierungspotenziale und bringst aktiv Ideen ein, um Prozesse und Anlagen weiterzuentwickeln.\n\n• Dein Wissen gibst du gerne weiter und unterstützt Mitarbeitende sowie Lernende bei der Arbeit an unseren Anlagen.\n\n• Auch Reinigung, Kontrolle und kleinere Wartungsarbeiten gehören für dich selbstverständlich dazu - damit unsere Anlagen jederzeit zuverlässig laufen.\n\n• Eine abgeschlossene Ausbildung als Milchtechnologe / Milchtechnologin EFZ oder eine vergleichbare Ausbildung in der Lebensmittelproduktion.\n\n• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.\n\n• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.\n\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb.\n\n• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten.",
-      "descriptionByLocale": {
-        "it": "• Gestisci e supervisioni i nostri moderni impianti di produzione e ti assicuri che il processo di produzione proceda senza intoppi.\n• La qualità viene prima di tutto: ti assicuri che i nostri prodotti caseari, tra cui il formaggio alla panna di Lucerna, soddisfino i più elevati standard.\n• Implementi in modo coerente l'igiene, la sicurezza e gli standard di processo, contribuendo così in modo significativo a una produzione sicura.\n• Con la tua comprensione tecnica, riconosci i potenziali di ottimizzazione e apporti attivamente idee per sviluppare ulteriormente processi e impianti.\n• Condividi volentieri le tue conoscenze e supporti i dipendenti e gli apprendisti nel lavoro presso i nostri impianti.\n• Anche la pulizia, il controllo e i piccoli lavori di manutenzione fanno parte del tuo lavoro, in modo che i nostri impianti funzionino sempre in modo affidabile.\n• Una formazione completata come tecnologo / tecnologa lattiero-casearia AFC o una formazione comparabile nella produzione alimentare.\n• Esperienza nella gestione degli impianti di produzione e buona conoscenza tecnica.\n• Un alto livello di consapevolezza della qualità e dell'igiene e un metodo di lavoro accurato.\n• Disponibilità a lavorare su 3 turni.\n• Motivazione a svilupparti ulteriormente e a collaborare con il nostro team per dare forma al caseificio di domani.",
-        "en": "• You operate and supervise our modern production facilities and ensure that the manufacturing process runs smoothly.\n• Quality comes first: you ensure that our cheese products - including the Lucerne cream cheese - meet the highest standards.\n• You consistently implement hygiene, safety and process standards and thus make an important contribution to safe production.\n• With your technical understanding, you recognize optimization potential and actively contribute ideas to further develop processes and plants.\n• You are happy to pass on your knowledge and support employees and learners in working on our systems.\n• Cleaning, inspection and minor maintenance work are also a matter of course for you - so that our systems run reliably at all times.\n• Completed training as a dairy technologist EFZ or comparable training in food production.\n• Experience in handling production equipment and a good technical understanding.\n• A high level of quality and hygiene awareness as well as a careful way of working.\n• Willingness to work in 3-shift operation.\n• Motivation to develop yourself further and to help shape the cheese dairy of tomorrow together with our team.",
-        "de": "• Du bedienst und überwachst unsere modernen Produktionsanlagen und sorgst dafür, dass der Herstellungsprozess reibungslos läuft.\n• Qualität steht an erster Stelle: Du stellst sicher, dass unsere Käseprodukte - darunter der Luzerner Rahmkäse - höchsten Standards entsprechen.\n• Hygiene, Sicherheit und Prozessstandards setzt du konsequent um und leistest damit einen wichtigen Beitrag zu einer sicheren Produktion.\n• Mit deinem technischen Verständnis erkennst du Optimierungspotenziale und bringst aktiv Ideen ein, um Prozesse und Anlagen weiterzuentwickeln.\n• Dein Wissen gibst du gerne weiter und unterstützt Mitarbeitende sowie Lernende bei der Arbeit an unseren Anlagen.\n• Auch Reinigung, Kontrolle und kleinere Wartungsarbeiten gehören für dich selbstverständlich dazu - damit unsere Anlagen jederzeit zuverlässig laufen.\n• Eine abgeschlossene Ausbildung als Milchtechnologe / Milchtechnologin EFZ oder eine vergleichbare Ausbildung in der Lebensmittelproduktion.\n• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.\n• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb.\n• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten.",
-        "fr": "• Tu utilises et surveilles nos installations de production modernes et tu veilles au bon déroulement du processus de fabrication.\n• La qualité est primordiale : vous vous assurez que nos produits fromagers - y compris le fromage à la crème de Lucerne - répondent aux normes les plus élevées.\n• L'hygiène, la sécurité et les normes de processus sont mises en œuvre de manière cohérente et apportent ainsi une contribution importante à une production sûre.\n• Avec votre compréhension technique, vous identifiez les potentiels d'optimisation et apportez activement des idées pour développer davantage les processus et les installations.\n• Tu transmettras volontiers tes connaissances et soutiendras les employés et les apprentis dans leur travail sur nos installations.\n• Le nettoyage, le contrôle et les petits travaux d'entretien en font bien sûr partie pour vous - afin que nos installations fonctionnent de manière fiable à tout moment.\n• Une formation de technologue en lait CFC ou une formation comparable dans la production alimentaire.\n• Expérience dans l'utilisation des équipements de production et une bonne compréhension technique.\n• Une grande conscience de la qualité et de l'hygiène ainsi qu'une méthode de travail soignée.\n• Volonté de travailler en 3 équipes.\n• Motivation à continuer à te développer et à façonner avec notre équipe la fromagerie de demain."
-      },
-      "location": "Emmen, Luzern",
-      "canton": "LU",
-      "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-oder-milchtechnologe/5925f5b3-e395-464d-8eeb-12e1eab27440",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.816Z",
-      "addressLocality": "Emmen",
-      "postalCode": "6032",
-      "addressRegion": "Luzern",
-      "streetAddress": "Seetalstrasse 200",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-16",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19326",
-      "requirements": [
-        "• Eine abgeschlossene Ausbildung als Milchtechnologe / Milchtechnologin EFZ oder eine vergleichbare Ausbildung in der Lebensmittelproduktion.",
-        "• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.",
-        "• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.",
-        "• Bereitschaft zur Arbeit im 3-Schichtbetrieb.",
-        "• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.",
-          "• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.",
-          "• Bereitschaft zur Arbeit im 3-Schichtbetrieb.",
-          "• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten."
-        ]
-      },
-      "previousSlugs": [
-        "milchtechnologin-oder-milchtechnologe-emmi-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "milchtechnologin-oder-milchtechnologe-emmi-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:39.211Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -746,7 +671,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/1dbfb579-5826-4dd4-95f1-f3d08457acf2",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.816Z",
+      "crawledAt": "2026-06-10T22:34:48.343Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -787,6 +712,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.212Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -831,7 +757,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/automatiker-in-betriebselektriker-in/57edf55a-f12f-48f0-a5c1-44cee61d4e07",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.815Z",
+      "crawledAt": "2026-06-10T22:34:48.342Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -872,6 +798,91 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.210Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "emmi-e14e8fb5671b",
+      "slug": "tecnologa-o-tecnologo-del-latte-emmi-emmen",
+      "slugByLocale": {
+        "it": "tecnologa-o-tecnologo-del-latte-emmi-emmen",
+        "en": "dairy-technologist-emmi-emmen",
+        "de": "milchtechnologin-oder-milchtechnologe-emmi-ch",
+        "fr": "technologue-en-lait-ou-technologue-en-lait-emmi-emmen"
+      },
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Milchtechnologin oder Milchtechnologe",
+      "titleByLocale": {
+        "it": "Tecnologa o tecnologo del latte",
+        "en": "Dairy technologist",
+        "de": "Milchtechnologin oder Milchtechnologe",
+        "fr": "Technologue en lait ou technologue en lait"
+      },
+      "description": "• Du bedienst und überwachst unsere modernen Produktionsanlagen und sorgst dafür, dass der Herstellungsprozess reibungslos läuft.\n\n• Qualität steht an erster Stelle: Du stellst sicher, dass unsere Käseprodukte - darunter der Luzerner Rahmkäse - höchsten Standards entsprechen.\n\n• Hygiene, Sicherheit und Prozessstandards setzt du konsequent um und leistest damit einen wichtigen Beitrag zu einer sicheren Produktion.\n\n• Mit deinem technischen Verständnis erkennst du Optimierungspotenziale und bringst aktiv Ideen ein, um Prozesse und Anlagen weiterzuentwickeln.\n\n• Dein Wissen gibst du gerne weiter und unterstützt Mitarbeitende sowie Lernende bei der Arbeit an unseren Anlagen.\n\n• Auch Reinigung, Kontrolle und kleinere Wartungsarbeiten gehören für dich selbstverständlich dazu - damit unsere Anlagen jederzeit zuverlässig laufen.\n\n• Eine abgeschlossene Ausbildung als Milchtechnologe / Milchtechnologin EFZ oder eine vergleichbare Ausbildung in der Lebensmittelproduktion.\n\n• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.\n\n• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.\n\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb.\n\n• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten.",
+      "descriptionByLocale": {
+        "it": "• Gestisci e supervisioni i nostri moderni impianti di produzione e ti assicuri che il processo di produzione proceda senza intoppi.\n• La qualità viene prima di tutto: ti assicuri che i nostri prodotti caseari, tra cui il formaggio alla panna di Lucerna, soddisfino i più elevati standard.\n• Implementi in modo coerente l'igiene, la sicurezza e gli standard di processo, contribuendo così in modo significativo a una produzione sicura.\n• Con la tua comprensione tecnica, riconosci i potenziali di ottimizzazione e apporti attivamente idee per sviluppare ulteriormente processi e impianti.\n• Condividi volentieri le tue conoscenze e supporti i dipendenti e gli apprendisti nel lavoro presso i nostri impianti.\n• Anche la pulizia, il controllo e i piccoli lavori di manutenzione fanno parte del tuo lavoro, in modo che i nostri impianti funzionino sempre in modo affidabile.\n• Una formazione completata come tecnologo / tecnologa lattiero-casearia AFC o una formazione comparabile nella produzione alimentare.\n• Esperienza nella gestione degli impianti di produzione e buona conoscenza tecnica.\n• Un alto livello di consapevolezza della qualità e dell'igiene e un metodo di lavoro accurato.\n• Disponibilità a lavorare su 3 turni.\n• Motivazione a svilupparti ulteriormente e a collaborare con il nostro team per dare forma al caseificio di domani.",
+        "en": "• You operate and supervise our modern production facilities and ensure that the manufacturing process runs smoothly.\n• Quality comes first: you ensure that our cheese products - including the Lucerne cream cheese - meet the highest standards.\n• You consistently implement hygiene, safety and process standards and thus make an important contribution to safe production.\n• With your technical understanding, you recognize optimization potential and actively contribute ideas to further develop processes and plants.\n• You are happy to pass on your knowledge and support employees and learners in working on our systems.\n• Cleaning, inspection and minor maintenance work are also a matter of course for you - so that our systems run reliably at all times.\n• Completed training as a dairy technologist EFZ or comparable training in food production.\n• Experience in handling production equipment and a good technical understanding.\n• A high level of quality and hygiene awareness as well as a careful way of working.\n• Willingness to work in 3-shift operation.\n• Motivation to develop yourself further and to help shape the cheese dairy of tomorrow together with our team.",
+        "de": "• Du bedienst und überwachst unsere modernen Produktionsanlagen und sorgst dafür, dass der Herstellungsprozess reibungslos läuft.\n• Qualität steht an erster Stelle: Du stellst sicher, dass unsere Käseprodukte - darunter der Luzerner Rahmkäse - höchsten Standards entsprechen.\n• Hygiene, Sicherheit und Prozessstandards setzt du konsequent um und leistest damit einen wichtigen Beitrag zu einer sicheren Produktion.\n• Mit deinem technischen Verständnis erkennst du Optimierungspotenziale und bringst aktiv Ideen ein, um Prozesse und Anlagen weiterzuentwickeln.\n• Dein Wissen gibst du gerne weiter und unterstützt Mitarbeitende sowie Lernende bei der Arbeit an unseren Anlagen.\n• Auch Reinigung, Kontrolle und kleinere Wartungsarbeiten gehören für dich selbstverständlich dazu - damit unsere Anlagen jederzeit zuverlässig laufen.\n• Eine abgeschlossene Ausbildung als Milchtechnologe / Milchtechnologin EFZ oder eine vergleichbare Ausbildung in der Lebensmittelproduktion.\n• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.\n• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.\n• Bereitschaft zur Arbeit im 3-Schichtbetrieb.\n• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten.",
+        "fr": "• Tu utilises et surveilles nos installations de production modernes et tu veilles au bon déroulement du processus de fabrication.\n• La qualité est primordiale : vous vous assurez que nos produits fromagers - y compris le fromage à la crème de Lucerne - répondent aux normes les plus élevées.\n• L'hygiène, la sécurité et les normes de processus sont mises en œuvre de manière cohérente et apportent ainsi une contribution importante à une production sûre.\n• Avec votre compréhension technique, vous identifiez les potentiels d'optimisation et apportez activement des idées pour développer davantage les processus et les installations.\n• Tu transmettras volontiers tes connaissances et soutiendras les employés et les apprentis dans leur travail sur nos installations.\n• Le nettoyage, le contrôle et les petits travaux d'entretien en font bien sûr partie pour vous - afin que nos installations fonctionnent de manière fiable à tout moment.\n• Une formation de technologue en lait CFC ou une formation comparable dans la production alimentaire.\n• Expérience dans l'utilisation des équipements de production et une bonne compréhension technique.\n• Une grande conscience de la qualité et de l'hygiène ainsi qu'une méthode de travail soignée.\n• Volonté de travailler en 3 équipes.\n• Motivation à continuer à te développer et à façonner avec notre équipe la fromagerie de demain."
+      },
+      "location": "Emmen, Luzern",
+      "canton": "LU",
+      "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-oder-milchtechnologe/5925f5b3-e395-464d-8eeb-12e1eab27440",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.342Z",
+      "addressLocality": "Emmen",
+      "postalCode": "6032",
+      "addressRegion": "Luzern",
+      "streetAddress": "Seetalstrasse 200",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-16",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19326",
+      "requirements": [
+        "• Eine abgeschlossene Ausbildung als Milchtechnologe / Milchtechnologin EFZ oder eine vergleichbare Ausbildung in der Lebensmittelproduktion.",
+        "• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.",
+        "• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.",
+        "• Bereitschaft zur Arbeit im 3-Schichtbetrieb.",
+        "• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Erfahrung im Umgang mit Produktionsanlagen und ein gutes technisches Verständnis.",
+          "• Ein hohes Qualitäts- und Hygienebewusstsein sowie eine sorgfältige Arbeitsweise.",
+          "• Bereitschaft zur Arbeit im 3-Schichtbetrieb.",
+          "• Motivation, dich weiterzuentwickeln und gemeinsam mit unserem Team die Käserei von morgen mitzugestalten."
+        ]
+      },
+      "previousSlugs": [
+        "milchtechnologin-oder-milchtechnologe-emmi-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "milchtechnologin-oder-milchtechnologe-emmi-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:39.211Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -916,7 +927,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/aide-fromager/a7a43d29-fb7f-4b6a-b194-db7eb146827f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T11:59:57.814Z",
+      "crawledAt": "2026-06-10T22:34:48.341Z",
       "addressLocality": "Combremont-le-Petit",
       "postalCode": "1536",
       "addressRegion": "Vaud",
@@ -952,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -996,7 +1008,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/sales-system-process-manager/b02ff015-b245-4ddf-92cb-254e8ddd7c0a",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.813Z",
+      "crawledAt": "2026-06-10T22:34:48.340Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -1034,6 +1046,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.209Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1078,7 +1091,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-uperisation/04b48c79-1663-4c63-ba34-965fa7394f61",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.813Z",
+      "crawledAt": "2026-06-10T22:34:48.340Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -1116,6 +1129,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.209Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1150,17 +1164,17 @@
       },
       "description": "• Beim Kommissionieren stellst du sicher, dass Waren aus dem Lager termingerecht für den Versand bereitstehen.\n\n• In deinem Verantwortungsbereich übernimmst du einfache Logistikdienstleistungen für externe Kunden und Kundinnen.\n\n• Dabei behältst du jederzeit den Überblick und sorgst dafür, dass alle Produkte zur richtigen Zeit am richtigen Ort verfügbar sind.\n\n• Im Arbeitsalltag achtest du auf sichere, saubere und reibungslose Abläufe.\n\n• Mit deinen Ideen bringst du dich aktiv ein und gestaltest unsere Prozesse kontinuierlich mit.\n\n• Du hast eine abgeschlossene Ausbildung als Logistiker:in EFZ oder EBA.\n\n• Bereitschaft im 2-Schichtbetrieb zu arbeiten (Frühschicht: Mo bis und mit Sa 6:00h - 14:30h, Spätschicht: Mo bis Fr 14:00h - 23:30h)\n\n• Teamgeist und Kommunikation sind für dich keine Fremdwörter.\n\n• Das Arbeiten in der Kälte ist für dich kein Problem.",
       "descriptionByLocale": {
-        "it": "Compiti - Assicurati che le merci dal magazzino siano pronte per la spedizione in tempo. - Esegui semplici servizi logistici per clienti esterni. - Mantieni sempre il controllo e assicurati che tutti i prodotti siano disponibili al momento giusto e al posto giusto. - Nel tuo lavoro quotidiano assicurati che le operazioni siano sicure, pulite e senza intoppi. - Con le tue idee, ti impegni attivamente e modelli i nostri processi in modo continuativo. \n• Requisiti - Hai una formazione conclusa come operatore logistico EFZ o EBA. - Sei disponibile a lavorare in turni diurni e notturni (turno diurno: lunedì a sabato 6:00h - 14:30h, turno notturno: lunedì a venerdì 14:00h - 23:30h). - Il team work e la comunicazione non sono per te parole straniere. - Non hai problemi a lavorare in ambienti freddi.",
-        "en": "Responsibilities - Ensure that goods from the warehouse are ready for shipment on time. - Perform simple logistics services for external customers. - Maintain control at all times and ensure that all products are available at the right time and in the right place. - In your daily work, ensure that operations are safe, clean, and smooth. - With your ideas, you actively engage and continuously model our processes. \n• Requirements - You have a completed education as a logistics operator EFZ or EBA. - You are willing to work in a 2-shift operation (morning shift: Mon to Sat 6:00h - 14:30h, evening shift: Mon to Fri 14:00h - 23:30h). - Teamwork and communication are not foreign words for you. - Working in the cold is not a problem for you.",
+        "it": "Compiti - Assicurati che le merci dal magazzino siano pronte per la spedizione in tempo. - Esegui semplici servizi logistici per clienti esterni. - Mantieni sempre il controllo e assicurati che tutti i prodotti siano disponibili al momento giusto e al posto giusto. - Nel tuo lavoro quotidiano assicurati che le operazioni siano sicure, pulite e senza intoppi. - Con le tue idee, ti impegni attivamente e modelli i nostri processi in modo continuativo.\n• Requisiti - Hai una formazione conclusa come operatore logistico EFZ o EBA. - Sei disponibile a lavorare in turni diurni e notturni (turno diurno: lunedì a sabato 6:00h - 14:30h, turno notturno: lunedì a venerdì 14:00h - 23:30h). - Il team work e la comunicazione non sono per te parole straniere. - Non hai problemi a lavorare in ambienti freddi.",
+        "en": "Responsibilities - Ensure that goods from the warehouse are ready for shipment on time. - Perform simple logistics services for external customers. - Maintain control at all times and ensure that all products are available at the right time and in the right place. - In your daily work, ensure that operations are safe, clean, and smooth. - With your ideas, you actively engage and continuously model our processes.\n• Requirements - You have a completed education as a logistics operator EFZ or EBA. - You are willing to work in a 2-shift operation (morning shift: Mon to Sat 6:00h - 14:30h, evening shift: Mon to Fri 14:00h - 23:30h). - Teamwork and communication are not foreign words for you. - Working in the cold is not a problem for you.",
         "de": "• Beim Kommissionieren stellst du sicher, dass Waren aus dem Lager termingerecht für den Versand bereitstehen.\n• In deinem Verantwortungsbereich übernimmst du einfache Logistikdienstleistungen für externe Kunden und Kundinnen.\n• Dabei behältst du jederzeit den Überblick und sorgst dafür, dass alle Produkte zur richtigen Zeit am richtigen Ort verfügbar sind.\n• Im Arbeitsalltag achtest du auf sichere, saubere und reibungslose Abläufe.\n• Mit deinen Ideen bringst du dich aktiv ein und gestaltest unsere Prozesse kontinuierlich mit.\n• Du hast eine abgeschlossene Ausbildung als Logistiker:in EFZ oder EBA.\n• Bereitschaft im 2-Schichtbetrieb zu arbeiten (Frühschicht: Mo bis und mit Sa 6:00h - 14:30h, Spätschicht: Mo bis Fr 14:00h - 23:30h)\n• Teamgeist und Kommunikation sind für dich keine Fremdwörter.\n• Das Arbeiten in der Kälte ist für dich kein Problem.",
-        "fr": "Tâches - Assurez-vous que les marchandises du entrepôt soient prêtes pour l'expédition à temps. - Effectuez des services logistiques simples pour des clients externes. - Maintenez toujours le contrôle et assurez-vous que tous les produits soient disponibles à l'heure et au bon endroit. - Dans votre travail quotidien, assurez-vous que les opérations soient sûres, propres et sans heurts. - Avec vos idées, vous vous impliquez activement et modélisez continuellement nos processus. \n• Exigences - Vous avez une formation complétée en tant qu'opérateur logistique EFZ ou EBA. - Vous êtes prêt à travailler en deux équipes (équipe de matinée : lundi à samedi 6h00 - 14h30, équipe de soirée : lundi à vendredi 14h00 - 23h30). - Le travail d'équipe et la communication ne sont pas des mots étrangers pour vous. - Le travail en environnement froid ne vous pose pas de problème."
+        "fr": "Tâches - Assurez-vous que les marchandises du entrepôt soient prêtes pour l'expédition à temps. - Effectuez des services logistiques simples pour des clients externes. - Maintenez toujours le contrôle et assurez-vous que tous les produits soient disponibles à l'heure et au bon endroit. - Dans votre travail quotidien, assurez-vous que les opérations soient sûres, propres et sans heurts. - Avec vos idées, vous vous impliquez activement et modélisez continuellement nos processus.\n• Exigences - Vous avez une formation complétée en tant qu'opérateur logistique EFZ ou EBA. - Vous êtes prêt à travailler en deux équipes (équipe de matinée : lundi à samedi 6h00 - 14h30, équipe de soirée : lundi à vendredi 14h00 - 23h30). - Le travail d'équipe et la communication ne sont pas des mots étrangers pour vous. - Le travail en environnement froid ne vous pose pas de problème."
       },
       "location": "Emmen, Luzern",
       "canton": "LU",
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmitarbeiter-in-logistik/d536ec5d-c79e-4ce4-9154-3a3c8cedb235",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.812Z",
+      "crawledAt": "2026-06-10T22:34:48.339Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -1256,7 +1270,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in/82ce5c6a-92f7-44bc-89e7-fd028b969845",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.811Z",
+      "crawledAt": "2026-06-10T22:34:48.338Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -1297,6 +1311,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.207Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1306,87 +1321,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "emmi-ec58e03d4cc3",
-      "slug": "gestore-dell-impianto-in-uht-past-emmi-ostermundigen",
-      "slugByLocale": {
-        "it": "gestore-dell-impianto-in-uht-past-emmi-ostermundigen",
-        "en": "plant-manager-uht-past-emmi-ostermundigen",
-        "de": "anlagenfuhrer-in-uht-past-emmi-ch",
-        "fr": "conducteur-d-installation-en-uht-passe-emmi-ostermundigen"
-      },
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Anlagenführer:in UHT/Past",
-      "titleByLocale": {
-        "it": "Gestore dell'impianto:in UHT/Past",
-        "en": "Plant Manager UHT/Past",
-        "de": "Anlagenführer:in UHT/Past",
-        "fr": "Conducteur d'installation :en UHT/passé"
-      },
-      "description": "• Du bist verantwortlich für das selbständige Bedienen und Überwachen der Abfüllanlagen.\n\n• Weiter bist du zuständig für das Reinigen, Sterilisieren und Vorbereiten der Produktion sowie für das Umstellen der Anlagen.\n\n• Du hilfst bei Revisionen mit und führst die Reinigungs- und Wartungsarbeiten an den Anlagen eigenständig durch.\n\n• Deine technischen Fähigkeiten ermöglichen es dir, Unterstützung bei auftretenden Produktionsproblemen zu leisten.\n\n• Du verfügst über eine abgeschlossene Berufslehre im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Käser:in, Bäcker;in, Koch/Köchin, Metzger:in) und hast idealerweise bereits Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.\n\n• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.\n\n• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.\n\n• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht).",
-      "descriptionByLocale": {
-        "it": "Mansioni - Lei è responsabile dell'operazione indipendente e del monitoraggio degli impianti di riempimento. - Inoltre, sei responsabile della pulizia, della sterilizzazione e della preparazione della produzione e della modifica delle strutture. Aiutare con le ispezioni e svolgere i lavori di pulizia e manutenzione sugli impianti indipendentemente. - No. Le tue competenze tecniche ti permettono di fornire supporto quando si presentano problemi di produzione.\n• Requisiti - Hai un apprendistato professionale completato nel settore alimentare (chinologo di latte, caseificio:in, panettiere;in, cuoco/chef, macellaio:in) e idealmente hanno già acquisito esperienza come gestore di impianti:in un'azienda alimentare. - No. Porti un metodo di lavoro preciso, pulito e avanzato, così come una buona conoscenza del tedesco. - No. Hai un tocco tecnico e un interesse per grandi impianti di produzione. - Lei è un giocatore di squadra e mostra impegno e flessibilità per il funzionamento a turni (3-4 turni).",
-        "en": "Mansioni - You are responsible for the independent operation and monitoring of the filling plants. - Furthermore, you are responsible for cleaning, sterilizing and preparing the production as well as for changing the facilities. You help with inspections and carry out the cleaning and maintenance work on the plants independently. - Your technical skills allow you to provide support when production problems arise.\n• Requisiti - You have a completed vocational apprenticeship in the food sector (milk chinologist, cheesemaker:in, baker;in, cook/chef, butcher:in) and ideally have already gained experience as a plant manager:in in a food business. - You bring an exact, clean and forward working method as well as good knowledge of German. - You have a technical flair and interest in large production plants. - You are a team player and show commitment and flexibility for shift operation (3-4 shift).",
-        "de": "• Du bist verantwortlich für das selbständige Bedienen und Überwachen der Abfüllanlagen.\n• Weiter bist du zuständig für das Reinigen, Sterilisieren und Vorbereiten der Produktion sowie für das Umstellen der Anlagen.\n• Du hilfst bei Revisionen mit und führst die Reinigungs- und Wartungsarbeiten an den Anlagen eigenständig durch.\n• Deine technischen Fähigkeiten ermöglichen es dir, Unterstützung bei auftretenden Produktionsproblemen zu leisten.\n• Du verfügst über eine abgeschlossene Berufslehre im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Käser:in, Bäcker;in, Koch/Köchin, Metzger:in) und hast idealerweise bereits Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.\n• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.\n• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.\n• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht).",
-        "fr": "Mansioni - Vous êtes responsable de l'exploitation et de la surveillance indépendantes des systèmes de remplissage. - Vous êtes également responsable du nettoyage, de la stérilisation et de la préparation de la production ainsi que de la conversion des systèmes. - Vous participez aux révisions et effectuez les travaux de nettoyage et de maintenance des systèmes en toute autonomie. -\n• Vos compétences techniques vous permettent d'apporter votre soutien lorsque des problèmes de production surviennent.\n• Requisiti - Vous avez effectué un apprentissage dans le secteur alimentaire (technologue du lait, fromager, boulanger, cuisinier, boucher) et idéalement avez déjà acquis une expérience en tant qu'exploitant d'usine dans une entreprise alimentaire. - Vous avez une manière de travailler précise, propre et rapide ainsi qu'une bonne connaissance de l'allemand. - Vous avez un flair technique et un intérêt pour les grands systèmes de production. - Vous avez l'esprit d'équipe et faites preuve d'engagement et de flexibilité pour le travail posté (3-4 équipes)."
-      },
-      "location": "Ostermundigen, Bern",
-      "canton": "BE",
-      "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-uht-past/4c743be1-45a3-4aae-b3f8-060531a04ca1",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.810Z",
-      "addressLocality": "Ostermundigen",
-      "postalCode": "3072",
-      "addressRegion": "Bern",
-      "streetAddress": "Milchstrasse 9",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-29",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19414",
-      "requirements": [
-        "• Du verfügst über eine abgeschlossene Berufslehre im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Käser:in, Bäcker;in, Koch/Köchin, Metzger:in) und hast idealerweise bereits Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.",
-        "• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.",
-        "• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.",
-        "• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht)."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.",
-          "• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.",
-          "• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht)."
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-uht-past-emmi-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-uht-past-emmi-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:39.206Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -1422,7 +1356,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/magaziner-in/1fa004d7-96ce-45d9-a32a-a2fd5529dd14",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.810Z",
+      "crawledAt": "2026-06-10T22:34:48.337Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -1462,6 +1396,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.207Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1506,7 +1441,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/fdcb0c51-7410-497e-ad6c-48b2ba5a3716",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.809Z",
+      "crawledAt": "2026-06-10T22:34:48.336Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -1584,83 +1519,83 @@
       }
     },
     {
-      "id": "emmi-3aa5a158f07b",
-      "slug": "elettricista-aziendale-automatico-a-emmi-dagmersellen",
+      "id": "emmi-ec58e03d4cc3",
+      "slug": "gestore-dell-impianto-in-uht-past-emmi-ostermundigen",
       "slugByLocale": {
-        "it": "elettricista-aziendale-automatico-a-emmi-dagmersellen",
-        "en": "plantelectrician-automation-technician-emmi-dagmersellen",
-        "de": "betriebselektriker-in-automatiker-in-emmi-ch",
-        "fr": "electricien-d-exploitation-automaticien-emmi-dagmersellen"
+        "it": "gestore-dell-impianto-in-uht-past-emmi-ostermundigen",
+        "en": "plant-manager-uht-past-emmi-ostermundigen",
+        "de": "anlagenfuhrer-in-uht-past-emmi-ch",
+        "fr": "conducteur-d-installation-en-uht-passe-emmi-ostermundigen"
       },
       "company": "Emmi",
       "companyKey": "emmi",
       "companyDomain": "emmi.com",
-      "title": "Betriebselektriker:in / Automatiker:in",
+      "title": "Anlagenführer:in UHT/Past",
       "titleByLocale": {
-        "it": "Elettricista aziendale / Automatico/a",
-        "en": "PlantElectrician / Automation Technician",
-        "de": "Betriebselektriker:in / Automatiker:in",
-        "fr": "Électricien d'exploitation/automaticien"
+        "it": "Gestore dell'impianto:in UHT/Past",
+        "en": "Plant Manager UHT/Past",
+        "de": "Anlagenführer:in UHT/Past",
+        "fr": "Conducteur d'installation :en UHT/passé"
       },
-      "description": "• Instandhaltung, Störungsbehebung, Umbauten und Erweiterungen an unserer elektrischen Installation sowie an den Produktions und Gebäudetechnischen Anlagen sind für dich Routine.\n\n• Du findest Dich auf unserem Prozessleitsystem zurecht und ersetzt Sensoren, Elektromotoren, Frequenzumrichter und vieles mehr.\n\n• Du gestaltest aktiv Verbesserungsprozesse mit und unterstützt bei Investitionen, um unsere technologische Spitzenposition zu stärken.\n\n• Du begleitest und betreust externe Dienstleister auf unserem Areal.\n\n• Mit einer abgeschlossenen Ausbildung EFZ als Elektriker:in, Automatiker:in oder einem verwandten Beruf bist du eine wertvolle Ergänzung unseres Teams.\n\n• Idealerweise bringst du einige Jahre Berufserfahrung in der elektrischen Instandhaltung mit und besitzt die Bewilligung NIV Art. 13/15.\n\n• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.\n\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.",
+      "description": "• Du bist verantwortlich für das selbständige Bedienen und Überwachen der Abfüllanlagen.\n\n• Weiter bist du zuständig für das Reinigen, Sterilisieren und Vorbereiten der Produktion sowie für das Umstellen der Anlagen.\n\n• Du hilfst bei Revisionen mit und führst die Reinigungs- und Wartungsarbeiten an den Anlagen eigenständig durch.\n\n• Deine technischen Fähigkeiten ermöglichen es dir, Unterstützung bei auftretenden Produktionsproblemen zu leisten.\n\n• Du verfügst über eine abgeschlossene Berufslehre im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Käser:in, Bäcker;in, Koch/Köchin, Metzger:in) und hast idealerweise bereits Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.\n\n• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.\n\n• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.\n\n• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht).",
       "descriptionByLocale": {
-        "it": "Mansioni - La manutenzione, la risoluzione dei problemi, le conversioni e le estensioni della nostra installazione elettrica così come dei sistemi di produzione e tecnologia edilizia sono routine per te. - Troverai la tua strada nel nostro sistema di controllo di processo e sostituirai sensori, motori elettrici, convertitori di frequenza e molto altro. - Modellerai attivamente i processi di miglioramento e supporterai gli investimenti per rafforzare la nostra posizione di leadership tecnologica. - Accompagnerai e supporterai fornitori di servizi esterni sul nostro sito.\n• Requisiti - Con un apprendistato EFZ completato come elettricista, tecnico di automazione o in una professione correlata, sei un'aggiunta preziosa al nostro team. - Idealmente, hai qualche anno di esperienza professionale nella manutenzione elettrica e possiedi il permesso NIV art. 13/15. - Non hai paura di assumere 4-5 settimane di turno all'anno. - Quando le cose vanno male, resti calmo e puoi stabilire le priorità.",
-        "en": "Mansioni - Maintenance, troubleshooting, conversions and extensions to our electrical installation as well as to the production and building technology systems are routine for you. - You will find your way around our process control system and replace sensors, electric motors, frequency converters and much more. - You will actively shape improvement processes and support investments in order to strengthen our technological leadership position. - You will accompany and support external service providers on our site.\n• Requisiti - With a completed EFZ apprenticeship as an electrician, automation technician or a related profession, you are a valuable addition to our team. - Ideally, you have a few years of professional experience in electrical maintenance and have the NIV Art. 13/15 permit. - You are not afraid to take on 4 - 5 weeks of on-call duty per year. - When things go haywire, you stay calm and can set priorities.",
-        "de": "• Instandhaltung, Störungsbehebung, Umbauten und Erweiterungen an unserer elektrischen Installation sowie an den Produktions und Gebäudetechnischen Anlagen sind für dich Routine.\n• Du findest Dich auf unserem Prozessleitsystem zurecht und ersetzt Sensoren, Elektromotoren, Frequenzumrichter und vieles mehr.\n• Du gestaltest aktiv Verbesserungsprozesse mit und unterstützt bei Investitionen, um unsere technologische Spitzenposition zu stärken.\n• Du begleitest und betreust externe Dienstleister auf unserem Areal.\n• Mit einer abgeschlossenen Ausbildung EFZ als Elektriker:in, Automatiker:in oder einem verwandten Beruf bist du eine wertvolle Ergänzung unseres Teams.\n• Idealerweise bringst du einige Jahre Berufserfahrung in der elektrischen Instandhaltung mit und besitzt die Bewilligung NIV Art. 13/15.\n• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.",
-        "fr": "Mansioni - La maintenance, le dépannage, les conversions et extensions de notre installation électrique ainsi que des systèmes de production et de technologie du bâtiment sont une routine pour vous. - Vous trouverez votre chemin dans notre système de contrôle de procédé et remplacerez capteurs, moteurs électriques, convertisseurs de fréquence et bien plus encore. - Vous allez activement façonner les processus d'amélioration et soutenir les investissements afin de renforcer notre position de leader technologique. - Vous accompagnerez et soutiendrez les prestataires de services externes sur notre site.\n• Requirements - Avec un apprentissage EFZ terminé en tant qu'électricien, technicien en automatisation ou dans une profession connexe, vous êtes un atout précieux pour notre équipe. - Idéalement, vous avez quelques années d'expérience professionnelle en maintenance électrique et le permis NIV Art. 13/15. - Vous n'avez pas peur de prendre 4 à 5 semaines de service d'astreinte par an. - Quand tout part en vrille, tu restes calme et tu peux fixer les priorités."
+        "it": "Mansioni - Lei è responsabile dell'operazione indipendente e del monitoraggio degli impianti di riempimento. - Inoltre, sei responsabile della pulizia, della sterilizzazione e della preparazione della produzione e della modifica delle strutture. Aiutare con le ispezioni e svolgere i lavori di pulizia e manutenzione sugli impianti indipendentemente. - No. Le tue competenze tecniche ti permettono di fornire supporto quando si presentano problemi di produzione.\n• Requisiti - Hai un apprendistato professionale completato nel settore alimentare (chinologo di latte, caseificio:in, panettiere;in, cuoco/chef, macellaio:in) e idealmente hanno già acquisito esperienza come gestore di impianti:in un'azienda alimentare. - No. Porti un metodo di lavoro preciso, pulito e avanzato, così come una buona conoscenza del tedesco. - No. Hai un tocco tecnico e un interesse per grandi impianti di produzione. - Lei è un giocatore di squadra e mostra impegno e flessibilità per il funzionamento a turni (3-4 turni).",
+        "en": "Mansioni - You are responsible for the independent operation and monitoring of the filling plants. - Furthermore, you are responsible for cleaning, sterilizing and preparing the production as well as for changing the facilities. You help with inspections and carry out the cleaning and maintenance work on the plants independently. - Your technical skills allow you to provide support when production problems arise.\n• Requisiti - You have a completed vocational apprenticeship in the food sector (milk chinologist, cheesemaker:in, baker;in, cook/chef, butcher:in) and ideally have already gained experience as a plant manager:in in a food business. - You bring an exact, clean and forward working method as well as good knowledge of German. - You have a technical flair and interest in large production plants. - You are a team player and show commitment and flexibility for shift operation (3-4 shift).",
+        "de": "• Du bist verantwortlich für das selbständige Bedienen und Überwachen der Abfüllanlagen.\n• Weiter bist du zuständig für das Reinigen, Sterilisieren und Vorbereiten der Produktion sowie für das Umstellen der Anlagen.\n• Du hilfst bei Revisionen mit und führst die Reinigungs- und Wartungsarbeiten an den Anlagen eigenständig durch.\n• Deine technischen Fähigkeiten ermöglichen es dir, Unterstützung bei auftretenden Produktionsproblemen zu leisten.\n• Du verfügst über eine abgeschlossene Berufslehre im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Käser:in, Bäcker;in, Koch/Köchin, Metzger:in) und hast idealerweise bereits Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.\n• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.\n• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.\n• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht).",
+        "fr": "Mansioni - Vous êtes responsable de l'exploitation et de la surveillance indépendantes des systèmes de remplissage. - Vous êtes également responsable du nettoyage, de la stérilisation et de la préparation de la production ainsi que de la conversion des systèmes. - Vous participez aux révisions et effectuez les travaux de nettoyage et de maintenance des systèmes en toute autonomie. -\n• Vos compétences techniques vous permettent d'apporter votre soutien lorsque des problèmes de production surviennent.\n• Requisiti - Vous avez effectué un apprentissage dans le secteur alimentaire (technologue du lait, fromager, boulanger, cuisinier, boucher) et idéalement avez déjà acquis une expérience en tant qu'exploitant d'usine dans une entreprise alimentaire. - Vous avez une manière de travailler précise, propre et rapide ainsi qu'une bonne connaissance de l'allemand. - Vous avez un flair technique et un intérêt pour les grands systèmes de production. - Vous avez l'esprit d'équipe et faites preuve d'engagement et de flexibilité pour le travail posté (3-4 équipes)."
       },
-      "location": "Dagmersellen, Luzern",
-      "canton": "LU",
-      "url": "https://jobs.emmi.com/offene-stellen/betriebselektriker-in-automatiker-in/504d6284-8df4-4a73-9c3e-469729373f49",
+      "location": "Ostermundigen, Bern",
+      "canton": "BE",
+      "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-uht-past/4c743be1-45a3-4aae-b3f8-060531a04ca1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.808Z",
-      "addressLocality": "Dagmersellen",
-      "postalCode": "6252",
-      "addressRegion": "Luzern",
-      "streetAddress": "Stationsstrasse 21",
+      "crawledAt": "2026-06-10T22:34:48.336Z",
+      "addressLocality": "Ostermundigen",
+      "postalCode": "3072",
+      "addressRegion": "Bern",
+      "streetAddress": "Milchstrasse 9",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Risorse Umane",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Food & Beverage (dairy)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-30",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19301",
+      "postedDate": "2026-04-29",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19414",
       "requirements": [
-        "• Mit einer abgeschlossenen Ausbildung EFZ als Elektriker:in, Automatiker:in oder einem verwandten Beruf bist du eine wertvolle Ergänzung unseres Teams.",
-        "• Idealerweise bringst du einige Jahre Berufserfahrung in der elektrischen Instandhaltung mit und besitzt die Bewilligung NIV Art. 13/15.",
-        "• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.",
-        "• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen."
+        "• Du verfügst über eine abgeschlossene Berufslehre im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Käser:in, Bäcker;in, Koch/Köchin, Metzger:in) und hast idealerweise bereits Erfahrung als Anlagenführer:in in einem Lebensmittelbetrieb gesammelt.",
+        "• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.",
+        "• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.",
+        "• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht)."
       ],
       "requirementsByLocale": {
         "de": [
-          "• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.",
-          "• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen."
+          "• Du bringst eine exakte, saubere und speditive Arbeitsweise sowie gute Deutschkenntnisse mit.",
+          "• Du hast ein technisches Flair und Interesse an grossen Produktionsanlagen.",
+          "• Du bist ein Teamplayer und zeigst Einsatzbereitschaft und Flexibilität für den Schichtbetrieb (3-4 Schicht)."
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-in-automatiker-in-emmi-ch-2",
-        "betriebselektriker-in-automatiker-in-emmi-ch"
+        "anlagenfuhrer-in-uht-past-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-automatiker-in-emmi-ch-2",
-          "betriebselektriker-in-automatiker-in-emmi-ch"
+          "anlagenfuhrer-in-uht-past-emmi-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:51:39.204Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-06-10T07:51:39.206Z",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -1696,7 +1631,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/3c3ad34f-2ed8-4fc6-94ca-366552d28511",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.808Z",
+      "crawledAt": "2026-06-10T22:34:48.335Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -1735,6 +1670,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.205Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1779,7 +1715,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebselektriker-in-automatiker-in/030ef2da-51d6-416e-9ba5-1e3298d0d0cf",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.808Z",
+      "crawledAt": "2026-06-10T22:34:48.335Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -1823,6 +1759,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.205Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1832,88 +1769,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "emmi-b9d385f26520",
-      "slug": "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
-      "slugByLocale": {
-        "it": "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
-        "en": "plant-manager-mixing-plant-emmi-suhr",
-        "de": "anlagenfuhrer-in-mischerei-emmi-ch",
-        "fr": "conducteur-d-installation-en-melange-emmi-suhr"
-      },
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Anlagenführer:in Mischerei",
-      "titleByLocale": {
-        "it": "Conduttore dell'impianto:in miscelazione",
-        "en": "Plant Manager Mixing Plant",
-        "de": "Anlagenführer:in Mischerei",
-        "fr": "Conducteur d'installation :en mélange"
-      },
-      "description": "• Du richtest deine vielseitigen Anlagen ein im Bereich Annahme und Mischerei und kontrollierst die Produktionsprozesse nach den Vorgaben.\n\n• Die zuverlässige Bedienung und Einhaltung der Hygiene- und Sicherheitsvorschriften liegen dir und du schaffst es Produktverluste oder Stillstände an der Linie zu minimieren und zu beheben.\n\n• Bevor du deinen wohlverdienten Feierabend geniesst bist du bedacht, eine saubere, genaue und gut dokumentierte Schichtübergabe zu machen.\n\n• Dein innovatives Denken ermöglichen es dir Verbesserungsvorschläge anzubringen um die Prozessoptimierung voranzubringen.\n\n• Du verfügst über eine abgeschlossene Ausbildung als Milchtechnologe/Milchtechnologin oder im Lebensmittelbereich (Koch, Metzger, Bäcker etc.) und bringst vielleicht schon erste Erfahrung als Anlagenführer:in mit.\n\n• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.\n\n• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.\n\n• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).\n\n• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Installate i vostri sistemi versatili nell'area di ricevimento e miscelazione e controllate i processi di produzione secondo le specifiche. - Il funzionamento affidabile e il rispetto delle norme di igiene e sicurezza sono tua responsabilità e riesci a ridurre al minimo ed eliminare le perdite di prodotto o i tempi di fermo della linea. - Prima di goderti la meritata fine del lavoro, assicurati di effettuare un passaggio di consegne pulito, accurato e ben documentato. - Il tuo pensiero innovativo ti consente di fornire suggerimenti per miglioramenti per promuovere l'ottimizzazione dei processi.\n• Requisiti - Hai completato una formazione come tecnologo del latte o nel settore alimentare (cuoco, macellaio, panettiere, ecc.) e magari hai già qualche esperienza come operatore di impianto. - Dimostri la tua flessibilità, tra le altre cose, nella tua disponibilità a lavorare su 4 turni. - Parli fluentemente la lingua tedesca, sia parlata che scritta, e hai talento tecnico. - Impari velocemente e padroneggi presto il funzionamento dei sistemi operativi (MES/SAP). - La tua forma fisica e mentale ti motiva e ti consente di raggiungere le massime prestazioni, sei resistente e non perdi la calma anche in situazioni di stress.",
-        "en": "Mansioni - You set up your versatile systems in the receiving and mixing area and control the production processes according to the specifications. - Reliable operation and compliance with hygiene and safety regulations are your responsibility and you manage to minimize and eliminate product losses or downtimes on the line. - Before you enjoy your well-deserved end of work, make sure to do a clean, accurate and well-documented shift handover. - Your innovative thinking enables you to make suggestions for improvements to advance process optimization.\n• Requisiti - You have completed training as a milk technologist or in the food sector (chef, butcher, baker, etc.) and perhaps already have some experience as a plant operator. - You show your flexibility, among other things, in your willingness to work in 4 shifts. - You are fluent in the German language, both spoken and written, and have technical flair. - You learn quickly and will soon master the operation of the operating systems (MES/SAP). - Your physical and mental fitness motivates and enables you to achieve top performance, you are resilient and do not lose your calm even in stressful situations.",
-        "de": "• Du richtest deine vielseitigen Anlagen ein im Bereich Annahme und Mischerei und kontrollierst die Produktionsprozesse nach den Vorgaben.\n• Die zuverlässige Bedienung und Einhaltung der Hygiene- und Sicherheitsvorschriften liegen dir und du schaffst es Produktverluste oder Stillstände an der Linie zu minimieren und zu beheben.\n• Bevor du deinen wohlverdienten Feierabend geniesst bist du bedacht, eine saubere, genaue und gut dokumentierte Schichtübergabe zu machen.\n• Dein innovatives Denken ermöglichen es dir Verbesserungsvorschläge anzubringen um die Prozessoptimierung voranzubringen.\n• Du verfügst über eine abgeschlossene Ausbildung als Milchtechnologe/Milchtechnologin oder im Lebensmittelbereich (Koch, Metzger, Bäcker etc.) und bringst vielleicht schon erste Erfahrung als Anlagenführer:in mit.\n• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.\n• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.\n• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).\n• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe.",
-        "fr": "Mansioni - Vous installez vos systèmes polyvalents dans la zone de réception et de mélange et contrôlez les processus de production selon les spécifications. - Un fonctionnement fiable et le respect des règles d'hygiène et de sécurité relèvent de votre responsabilité et vous parvenez à minimiser et éliminer les pertes de produits ou les temps d'arrêt sur la ligne. - Avant de profiter de votre fin de travail bien méritée, assurez-vous d'effectuer un transfert de poste propre, précis et bien documenté. - Votre réflexion innovante vous permet de faire des suggestions d'amélioration pour faire progresser l'optimisation des processus.\n• Requisiti - Vous avez complété une formation de technologue laitier ou dans le secteur alimentaire (chef, boucher, boulanger, etc.) et possédez peut-être déjà une certaine expérience en tant qu'opérateur d'usine. - Vous démontrez votre flexibilité, entre autres, dans votre volonté de travailler en 4 équipes. - Vous maîtrisez la langue allemande, parlée et écrite, et avez un flair technique. - Vous apprenez vite et maîtriserez bientôt le fonctionnement des systèmes d'exploitation (MES/SAP). - Votre forme physique et mentale vous motive et vous permet d'atteindre des performances optimales, vous êtes résilient et ne perdez pas votre calme même dans des situations stressantes."
-      },
-      "location": "Suhr, Aargau",
-      "canton": "AG",
-      "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-mischerei/c5e66438-5bb5-431b-96ec-435829db580e",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.807Z",
-      "addressLocality": "Suhr",
-      "postalCode": "5034",
-      "addressRegion": "Aargau",
-      "streetAddress": "Obertelweg 2",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-30",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19347",
-      "requirements": [
-        "• Du verfügst über eine abgeschlossene Ausbildung als Milchtechnologe/Milchtechnologin oder im Lebensmittelbereich (Koch, Metzger, Bäcker etc.) und bringst vielleicht schon erste Erfahrung als Anlagenführer:in mit.",
-        "• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.",
-        "• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.",
-        "• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).",
-        "• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.",
-          "• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.",
-          "• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP)."
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-mischerei-emmi-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-mischerei-emmi-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:39.204Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -1949,7 +1804,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pet/3e06f9b7-c377-41fb-925a-bc87a0f4b6d8",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.807Z",
+      "crawledAt": "2026-06-10T22:34:48.334Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -1988,6 +1843,90 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.204Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "emmi-3aa5a158f07b",
+      "slug": "elettricista-aziendale-automatico-a-emmi-dagmersellen",
+      "slugByLocale": {
+        "it": "elettricista-aziendale-automatico-a-emmi-dagmersellen",
+        "en": "plantelectrician-automation-technician-emmi-dagmersellen",
+        "de": "betriebselektriker-in-automatiker-in-emmi-ch",
+        "fr": "electricien-d-exploitation-automaticien-emmi-dagmersellen"
+      },
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Betriebselektriker:in / Automatiker:in",
+      "titleByLocale": {
+        "it": "Elettricista aziendale / Automatico/a",
+        "en": "PlantElectrician / Automation Technician",
+        "de": "Betriebselektriker:in / Automatiker:in",
+        "fr": "Électricien d'exploitation/automaticien"
+      },
+      "description": "• Instandhaltung, Störungsbehebung, Umbauten und Erweiterungen an unserer elektrischen Installation sowie an den Produktions und Gebäudetechnischen Anlagen sind für dich Routine.\n\n• Du findest Dich auf unserem Prozessleitsystem zurecht und ersetzt Sensoren, Elektromotoren, Frequenzumrichter und vieles mehr.\n\n• Du gestaltest aktiv Verbesserungsprozesse mit und unterstützt bei Investitionen, um unsere technologische Spitzenposition zu stärken.\n\n• Du begleitest und betreust externe Dienstleister auf unserem Areal.\n\n• Mit einer abgeschlossenen Ausbildung EFZ als Elektriker:in, Automatiker:in oder einem verwandten Beruf bist du eine wertvolle Ergänzung unseres Teams.\n\n• Idealerweise bringst du einige Jahre Berufserfahrung in der elektrischen Instandhaltung mit und besitzt die Bewilligung NIV Art. 13/15.\n\n• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.\n\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.",
+      "descriptionByLocale": {
+        "it": "Mansioni - La manutenzione, la risoluzione dei problemi, le conversioni e le estensioni della nostra installazione elettrica così come dei sistemi di produzione e tecnologia edilizia sono routine per te. - Troverai la tua strada nel nostro sistema di controllo di processo e sostituirai sensori, motori elettrici, convertitori di frequenza e molto altro. - Modellerai attivamente i processi di miglioramento e supporterai gli investimenti per rafforzare la nostra posizione di leadership tecnologica. - Accompagnerai e supporterai fornitori di servizi esterni sul nostro sito.\n• Requisiti - Con un apprendistato EFZ completato come elettricista, tecnico di automazione o in una professione correlata, sei un'aggiunta preziosa al nostro team. - Idealmente, hai qualche anno di esperienza professionale nella manutenzione elettrica e possiedi il permesso NIV art. 13/15. - Non hai paura di assumere 4-5 settimane di turno all'anno. - Quando le cose vanno male, resti calmo e puoi stabilire le priorità.",
+        "en": "Mansioni - Maintenance, troubleshooting, conversions and extensions to our electrical installation as well as to the production and building technology systems are routine for you. - You will find your way around our process control system and replace sensors, electric motors, frequency converters and much more. - You will actively shape improvement processes and support investments in order to strengthen our technological leadership position. - You will accompany and support external service providers on our site.\n• Requisiti - With a completed EFZ apprenticeship as an electrician, automation technician or a related profession, you are a valuable addition to our team. - Ideally, you have a few years of professional experience in electrical maintenance and have the NIV Art. 13/15 permit. - You are not afraid to take on 4 - 5 weeks of on-call duty per year. - When things go haywire, you stay calm and can set priorities.",
+        "de": "• Instandhaltung, Störungsbehebung, Umbauten und Erweiterungen an unserer elektrischen Installation sowie an den Produktions und Gebäudetechnischen Anlagen sind für dich Routine.\n• Du findest Dich auf unserem Prozessleitsystem zurecht und ersetzt Sensoren, Elektromotoren, Frequenzumrichter und vieles mehr.\n• Du gestaltest aktiv Verbesserungsprozesse mit und unterstützt bei Investitionen, um unsere technologische Spitzenposition zu stärken.\n• Du begleitest und betreust externe Dienstleister auf unserem Areal.\n• Mit einer abgeschlossenen Ausbildung EFZ als Elektriker:in, Automatiker:in oder einem verwandten Beruf bist du eine wertvolle Ergänzung unseres Teams.\n• Idealerweise bringst du einige Jahre Berufserfahrung in der elektrischen Instandhaltung mit und besitzt die Bewilligung NIV Art. 13/15.\n• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.",
+        "fr": "Mansioni - La maintenance, le dépannage, les conversions et extensions de notre installation électrique ainsi que des systèmes de production et de technologie du bâtiment sont une routine pour vous. - Vous trouverez votre chemin dans notre système de contrôle de procédé et remplacerez capteurs, moteurs électriques, convertisseurs de fréquence et bien plus encore. - Vous allez activement façonner les processus d'amélioration et soutenir les investissements afin de renforcer notre position de leader technologique. - Vous accompagnerez et soutiendrez les prestataires de services externes sur notre site.\n• Requirements - Avec un apprentissage EFZ terminé en tant qu'électricien, technicien en automatisation ou dans une profession connexe, vous êtes un atout précieux pour notre équipe. - Idéalement, vous avez quelques années d'expérience professionnelle en maintenance électrique et le permis NIV Art. 13/15. - Vous n'avez pas peur de prendre 4 à 5 semaines de service d'astreinte par an. - Quand tout part en vrille, tu restes calme et tu peux fixer les priorités."
+      },
+      "location": "Dagmersellen, Luzern",
+      "canton": "LU",
+      "url": "https://jobs.emmi.com/offene-stellen/betriebselektriker-in-automatiker-in/504d6284-8df4-4a73-9c3e-469729373f49",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.334Z",
+      "addressLocality": "Dagmersellen",
+      "postalCode": "6252",
+      "addressRegion": "Luzern",
+      "streetAddress": "Stationsstrasse 21",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19301",
+      "requirements": [
+        "• Mit einer abgeschlossenen Ausbildung EFZ als Elektriker:in, Automatiker:in oder einem verwandten Beruf bist du eine wertvolle Ergänzung unseres Teams.",
+        "• Idealerweise bringst du einige Jahre Berufserfahrung in der elektrischen Instandhaltung mit und besitzt die Bewilligung NIV Art. 13/15.",
+        "• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.",
+        "• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du schreckst nicht davor zurück 4 - 5 Wochen Pikettdienst pro Jahr zu übernehmen.",
+          "• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen."
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-in-automatiker-in-emmi-ch-2",
+        "betriebselektriker-in-automatiker-in-emmi-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-in-automatiker-in-emmi-ch-2",
+          "betriebselektriker-in-automatiker-in-emmi-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:39.204Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2032,7 +1971,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/lehre-als-milchtechnologin-oder-milchtechnologe-efz-2026/c7dfa706-c545-444c-8fcb-5ffd802c92ed",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.806Z",
+      "crawledAt": "2026-06-10T22:34:48.333Z",
       "addressLocality": "Stein",
       "postalCode": "9063",
       "addressRegion": "Appenzell Ausserrhoden",
@@ -2090,6 +2029,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.203Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2099,6 +2039,89 @@
           "@type": "QuantitativeValue",
           "minValue": 41600,
           "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "emmi-b9d385f26520",
+      "slug": "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
+      "slugByLocale": {
+        "it": "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
+        "en": "plant-manager-mixing-plant-emmi-suhr",
+        "de": "anlagenfuhrer-in-mischerei-emmi-ch",
+        "fr": "conducteur-d-installation-en-melange-emmi-suhr"
+      },
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Anlagenführer:in Mischerei",
+      "titleByLocale": {
+        "it": "Conduttore dell'impianto:in miscelazione",
+        "en": "Plant Manager Mixing Plant",
+        "de": "Anlagenführer:in Mischerei",
+        "fr": "Conducteur d'installation :en mélange"
+      },
+      "description": "• Du richtest deine vielseitigen Anlagen ein im Bereich Annahme und Mischerei und kontrollierst die Produktionsprozesse nach den Vorgaben.\n\n• Die zuverlässige Bedienung und Einhaltung der Hygiene- und Sicherheitsvorschriften liegen dir und du schaffst es Produktverluste oder Stillstände an der Linie zu minimieren und zu beheben.\n\n• Bevor du deinen wohlverdienten Feierabend geniesst bist du bedacht, eine saubere, genaue und gut dokumentierte Schichtübergabe zu machen.\n\n• Dein innovatives Denken ermöglichen es dir Verbesserungsvorschläge anzubringen um die Prozessoptimierung voranzubringen.\n\n• Du verfügst über eine abgeschlossene Ausbildung als Milchtechnologe/Milchtechnologin oder im Lebensmittelbereich (Koch, Metzger, Bäcker etc.) und bringst vielleicht schon erste Erfahrung als Anlagenführer:in mit.\n\n• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.\n\n• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.\n\n• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).\n\n• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe.",
+      "descriptionByLocale": {
+        "it": "Mansioni - Installate i vostri sistemi versatili nell'area di ricevimento e miscelazione e controllate i processi di produzione secondo le specifiche. - Il funzionamento affidabile e il rispetto delle norme di igiene e sicurezza sono tua responsabilità e riesci a ridurre al minimo ed eliminare le perdite di prodotto o i tempi di fermo della linea. - Prima di goderti la meritata fine del lavoro, assicurati di effettuare un passaggio di consegne pulito, accurato e ben documentato. - Il tuo pensiero innovativo ti consente di fornire suggerimenti per miglioramenti per promuovere l'ottimizzazione dei processi.\n• Requisiti - Hai completato una formazione come tecnologo del latte o nel settore alimentare (cuoco, macellaio, panettiere, ecc.) e magari hai già qualche esperienza come operatore di impianto. - Dimostri la tua flessibilità, tra le altre cose, nella tua disponibilità a lavorare su 4 turni. - Parli fluentemente la lingua tedesca, sia parlata che scritta, e hai talento tecnico. - Impari velocemente e padroneggi presto il funzionamento dei sistemi operativi (MES/SAP). - La tua forma fisica e mentale ti motiva e ti consente di raggiungere le massime prestazioni, sei resistente e non perdi la calma anche in situazioni di stress.",
+        "en": "Mansioni - You set up your versatile systems in the receiving and mixing area and control the production processes according to the specifications. - Reliable operation and compliance with hygiene and safety regulations are your responsibility and you manage to minimize and eliminate product losses or downtimes on the line. - Before you enjoy your well-deserved end of work, make sure to do a clean, accurate and well-documented shift handover. - Your innovative thinking enables you to make suggestions for improvements to advance process optimization.\n• Requisiti - You have completed training as a milk technologist or in the food sector (chef, butcher, baker, etc.) and perhaps already have some experience as a plant operator. - You show your flexibility, among other things, in your willingness to work in 4 shifts. - You are fluent in the German language, both spoken and written, and have technical flair. - You learn quickly and will soon master the operation of the operating systems (MES/SAP). - Your physical and mental fitness motivates and enables you to achieve top performance, you are resilient and do not lose your calm even in stressful situations.",
+        "de": "• Du richtest deine vielseitigen Anlagen ein im Bereich Annahme und Mischerei und kontrollierst die Produktionsprozesse nach den Vorgaben.\n• Die zuverlässige Bedienung und Einhaltung der Hygiene- und Sicherheitsvorschriften liegen dir und du schaffst es Produktverluste oder Stillstände an der Linie zu minimieren und zu beheben.\n• Bevor du deinen wohlverdienten Feierabend geniesst bist du bedacht, eine saubere, genaue und gut dokumentierte Schichtübergabe zu machen.\n• Dein innovatives Denken ermöglichen es dir Verbesserungsvorschläge anzubringen um die Prozessoptimierung voranzubringen.\n• Du verfügst über eine abgeschlossene Ausbildung als Milchtechnologe/Milchtechnologin oder im Lebensmittelbereich (Koch, Metzger, Bäcker etc.) und bringst vielleicht schon erste Erfahrung als Anlagenführer:in mit.\n• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.\n• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.\n• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).\n• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe.",
+        "fr": "Mansioni - Vous installez vos systèmes polyvalents dans la zone de réception et de mélange et contrôlez les processus de production selon les spécifications. - Un fonctionnement fiable et le respect des règles d'hygiène et de sécurité relèvent de votre responsabilité et vous parvenez à minimiser et éliminer les pertes de produits ou les temps d'arrêt sur la ligne. - Avant de profiter de votre fin de travail bien méritée, assurez-vous d'effectuer un transfert de poste propre, précis et bien documenté. - Votre réflexion innovante vous permet de faire des suggestions d'amélioration pour faire progresser l'optimisation des processus.\n• Requisiti - Vous avez complété une formation de technologue laitier ou dans le secteur alimentaire (chef, boucher, boulanger, etc.) et possédez peut-être déjà une certaine expérience en tant qu'opérateur d'usine. - Vous démontrez votre flexibilité, entre autres, dans votre volonté de travailler en 4 équipes. - Vous maîtrisez la langue allemande, parlée et écrite, et avez un flair technique. - Vous apprenez vite et maîtriserez bientôt le fonctionnement des systèmes d'exploitation (MES/SAP). - Votre forme physique et mentale vous motive et vous permet d'atteindre des performances optimales, vous êtes résilient et ne perdez pas votre calme même dans des situations stressantes."
+      },
+      "location": "Suhr, Aargau",
+      "canton": "AG",
+      "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-mischerei/c5e66438-5bb5-431b-96ec-435829db580e",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.333Z",
+      "addressLocality": "Suhr",
+      "postalCode": "5034",
+      "addressRegion": "Aargau",
+      "streetAddress": "Obertelweg 2",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19347",
+      "requirements": [
+        "• Du verfügst über eine abgeschlossene Ausbildung als Milchtechnologe/Milchtechnologin oder im Lebensmittelbereich (Koch, Metzger, Bäcker etc.) und bringst vielleicht schon erste Erfahrung als Anlagenführer:in mit.",
+        "• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.",
+        "• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.",
+        "• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP).",
+        "• Deine körperliche und geistige Fitness motiviert und befähigt dich zu Höchstleistungen, du bist belastbar und kommst auch in Stresssituationen nicht aus der Ruhe."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Deine Flexibilität zeigst du unter anderem in deiner Bereitschaft auch 4-schichtig zu arbeiten.",
+          "• Du beherrscht die Deutsche Sprache in Wort und Schrift und verfügst über technisches Flair.",
+          "• Du lernst schnell und beherrscht schon bald die Bedienung der Betriebssysteme (MES/SAP)."
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-mischerei-emmi-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-mischerei-emmi-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:39.204Z",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -2134,7 +2157,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/hr-services-specialist/a430e989-a369-4dbb-8d4f-6a89b85d57ac",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.805Z",
+      "crawledAt": "2026-06-10T22:34:48.332Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -2260,7 +2283,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/collaborateurtrice-affinage-de-fromage-gruyere-aop/96e564ab-ef95-47b8-b47f-e5d1c87c4acb",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T11:59:57.804Z",
+      "crawledAt": "2026-06-10T22:34:48.331Z",
       "addressLocality": "Moudon",
       "postalCode": "1510",
       "addressRegion": "Vaud",
@@ -2301,6 +2324,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.203Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2345,7 +2369,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmitarbeiter-in-logistik-verlad/164dfaa1-e17f-4d80-90d6-2ca4ab0c235a",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.800Z",
+      "crawledAt": "2026-06-10T22:34:48.326Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -2449,7 +2473,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in-automatiker-in-tagesbetrieb/b4be9f66-68b3-47df-8ad8-c4a12f35d190",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.799Z",
+      "crawledAt": "2026-06-10T22:34:48.325Z",
       "addressLocality": "Langnau im Emmental",
       "postalCode": "3550",
       "addressRegion": "Bern",
@@ -2551,7 +2575,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-konsumentenpackungen/86c3f69e-1402-434e-9ced-7ceee99ec744",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.799Z",
+      "crawledAt": "2026-06-10T22:34:48.325Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -2671,7 +2695,7 @@
       "url": "https://jobs.emmi.com/postes-vacants/acheteur-acheteuse-le-gruyere-aop-responsable-qualite/e9f48bed-9864-45c5-a2ad-ea4db61e8151",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T11:59:57.798Z",
+      "crawledAt": "2026-06-10T22:34:48.324Z",
       "addressLocality": "Moudon",
       "postalCode": "1510",
       "addressRegion": "Vaud",
@@ -2707,6 +2731,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.199Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2751,7 +2776,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-ice-cream/393903e0-7f5d-411b-9d6a-3848953fcba4",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.798Z",
+      "crawledAt": "2026-06-10T22:34:48.324Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -2847,7 +2872,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/linienfuehrer-in-kaeserei/4ae09229-db45-4d29-a34a-56eacaa58742",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.793Z",
+      "crawledAt": "2026-06-10T22:34:48.319Z",
       "addressLocality": "Kaltbach",
       "postalCode": "6212",
       "addressRegion": "Luzern",
@@ -2939,7 +2964,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-team-butter/ef778268-626d-44ea-8535-c71336e604c3",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.793Z",
+      "crawledAt": "2026-06-10T22:34:48.319Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -2975,6 +3000,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.196Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3019,7 +3045,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-kaeserei/32013d8d-c3d8-4d21-9824-0322e5b1586d",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.792Z",
+      "crawledAt": "2026-06-10T22:34:48.318Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -3070,6 +3096,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.196Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3114,7 +3141,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-weiterverpackung/51eda6e6-5b57-4396-8b4b-db7523b5a140",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.791Z",
+      "crawledAt": "2026-06-10T22:34:48.317Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -3149,6 +3176,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.195Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3193,7 +3221,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-spezialitaeten/24bb88d3-8866-4d23-8caa-e2df8bf8caf0",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.790Z",
+      "crawledAt": "2026-06-10T22:34:48.316Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -3232,6 +3260,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.195Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3276,7 +3305,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-aufbereitung/2dbc0cd7-8b54-40d6-8f34-121cf6aab49f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.789Z",
+      "crawledAt": "2026-06-10T22:34:48.315Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -3314,6 +3343,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.194Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3358,7 +3388,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-abfuellung/b3153e36-3f16-484e-b776-972d79cfc7d7",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.788Z",
+      "crawledAt": "2026-06-10T22:34:48.314Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -3396,6 +3426,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.193Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3440,7 +3471,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/35574ad9-df02-4c3a-8b5b-93457d599926",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.786Z",
+      "crawledAt": "2026-06-10T22:34:48.313Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -3478,6 +3509,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.192Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3522,7 +3554,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/techniker-in-heizung-lueftung-klima-sanitaer-hlks/2e34c8ca-3ee6-4cb8-8069-d5bd266878af",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.785Z",
+      "crawledAt": "2026-06-10T22:34:48.311Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -3563,6 +3595,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.188Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3607,7 +3640,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/fachmitarbeiter-in-produktionslogistik/2a8c4fd5-fd37-41eb-b0cb-af72d3efdd01",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.785Z",
+      "crawledAt": "2026-06-10T22:34:48.311Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -3676,6 +3709,88 @@
       }
     },
     {
+      "id": "emmi-e521bea89a8f",
+      "slug": "tecnico-lattiero-caseario-emmi-frenkendorf",
+      "slugByLocale": {
+        "it": "tecnico-lattiero-caseario-emmi-frenkendorf",
+        "en": "dairy-technologist-emmi-frenkendorf",
+        "de": "milchtechnologin-milchtechnologe-emmi-ch",
+        "fr": "technologue-technologue-du-lait-emmi-frenkendorf"
+      },
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Milchtechnologin / Milchtechnologe",
+      "titleByLocale": {
+        "it": "Tecnico lattiero-caseario",
+        "en": "Dairy technologist",
+        "de": "Milchtechnologin / Milchtechnologe",
+        "fr": "Technologue/technologue du lait"
+      },
+      "description": "• Du bist mittendrin statt nur dabei: Vom Rohstoff bis zum fertigen Produkt begleitest du den gesamten Herstellungsprozess.\n\n• Du steuerst und überwachst unsere Anlagen und sorgst für einen reibungslosen Ablauf.\n\n• Du produzierst eine breite Vielfalt an Milchprodukten - von Pastmilch und Joghurt über Käse (ohne Käsepflege) bis hin zu Rahm, Fondue, Raclette und weiteren Spezialitäten.Qualität steht bei dir an erster Stelle!\n\n• Du stellst sicher, dass unsere hohen Standards jederzeit eingehalten werden.\n\n• Du bringst dich aktiv ein und hilfst mit, unsere Spezialitäten weiterzuentwickeln.\n\n• Du hast eine abgeschlossene Ausbildung EFZ im Lebensmittelbereich (z. B. Milchtechnologe, Lebensmitteltechnologe, Bäcker:in).\n\n• Du fühlst dich sicher in der deutschen Sprache.\n\n• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.\n\n• Bereitschaft für Schichtarbeit brinsgt du mit.",
+      "descriptionByLocale": {
+        "it": "• Sei proprio nel mezzo di tutto invece di essere semplicemente presente: dalla materia prima al prodotto finito, accompagni l'intero processo produttivo.\n• Controlli e monitori i nostri sistemi e assicuri che tutto funzioni senza intoppi.\n• Producete una vasta gamma di prodotti lattiero-caseari - dal latte pasticcio e yogurt al formaggio (senza cura del formaggio) fino alla panna, fondue, raclette e altre specialità.\n• Garantirete che i nostri elevati standard siano sempre mantenuti.\n• Siete attivamente coinvolti e contribuite allo sviluppo delle nostre specialità.\n• Hai completato un apprendistato nel settore alimentare (ad esempio tecnico lattiero-caseario, tecnologo alimentare, fornaio).\n• Ti senti sicuro nella lingua tedesca.\n• Comprensione tecnica e piacere nel lavorare con attrezzature di produzione.\n• Sei disposto a lavorare a turni.",
+        "en": "• You are right in the middle of it instead of just being there: From the raw material to the finished product, you accompany the entire manufacturing process.\n• You control and monitor our systems and ensure that everything runs smoothly.\n• You produce a wide variety of dairy products - from pastry milk and yoghurt to cheese (without cheese care) to cream, fondue, raclette and other specialities.\n• You will ensure that our high standards are maintained at all times.\n• You are actively involved and help to further develop our specialties.\n• You have completed an apprenticeship in the food sector (e.g. dairy technologist, food technologist, baker).\n• You feel confident in the German language.\n• Technical understanding and enjoyment of working with production equipment.\n• You are willing to work shifts.",
+        "de": "• Du bist mittendrin statt nur dabei: Vom Rohstoff bis zum fertigen Produkt begleitest du den gesamten Herstellungsprozess.\n• Du steuerst und überwachst unsere Anlagen und sorgst für einen reibungslosen Ablauf.\n• Du produzierst eine breite Vielfalt an Milchprodukten - von Pastmilch und Joghurt über Käse (ohne Käsepflege) bis hin zu Rahm, Fondue, Raclette und weiteren Spezialitäten.Qualität steht bei dir an erster Stelle!\n• Du stellst sicher, dass unsere hohen Standards jederzeit eingehalten werden.\n• Du bringst dich aktiv ein und hilfst mit, unsere Spezialitäten weiterzuentwickeln.\n• Du hast eine abgeschlossene Ausbildung EFZ im Lebensmittelbereich (z. B. Milchtechnologe, Lebensmitteltechnologe, Bäcker:in).\n• Du fühlst dich sicher in der deutschen Sprache.\n• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.\n• Bereitschaft für Schichtarbeit brinsgt du mit.",
+        "fr": "• Vous êtes au milieu au lieu de juste là: De la matière première au produit fini, vous accompagnez tout le processus de fabrication.\n• Vous contrôlez et surveillez nos installations et assurez un processus en douceur.\n• Vous produisez une grande variété de produits laitiers - du lait et du yaourt passés au fromage (sans soin du fromage) à la crème, fondue, raclette et autres spécialités. Assurez-vous que nos normes élevées sont respectées en tout temps.\n• Vous participez activement au développement de nos spécialités.\n• Vous avez suivi une formation EFZ dans le secteur alimentaire (p. ex. technologue laitier, technologue alimentaire, boulanger:in). Vous vous sentez en sécurité en allemand.\n• Compréhension technique et plaisir dans le traitement des installations de production.\n• Volonté de travailler, vous êtes impliqué."
+      },
+      "location": "Frenkendorf, Basel-Landschaft",
+      "canton": "BL",
+      "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-milchtechnologe/a51d1937-08a4-4d3f-a74c-4068d84e9d37",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.310Z",
+      "addressLocality": "Frenkendorf",
+      "postalCode": "4402",
+      "addressRegion": "Basel-Landschaft",
+      "streetAddress": "Flachsackerstrasse 100",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19424",
+      "requirements": [
+        "• Du hast eine abgeschlossene Ausbildung EFZ im Lebensmittelbereich (z. B. Milchtechnologe, Lebensmitteltechnologe, Bäcker:in).",
+        "• Du fühlst dich sicher in der deutschen Sprache.",
+        "• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.",
+        "• Bereitschaft für Schichtarbeit brinsgt du mit."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du fühlst dich sicher in der deutschen Sprache.",
+          "• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.",
+          "• Bereitschaft für Schichtarbeit brinsgt du mit."
+        ]
+      },
+      "previousSlugs": [
+        "milchtechnologin-milchtechnologe-emmi-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "milchtechnologin-milchtechnologe-emmi-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:39.186Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "emmi-c7932e8bc35e",
       "slug": "preparatore-di-materie-prime-emmi-emmen",
       "slugByLocale": {
@@ -3706,7 +3821,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/rohstoffvorbereiter-in/55e15cc7-f2a3-40da-bdef-9b17f4ff6a2e",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.784Z",
+      "crawledAt": "2026-06-10T22:34:48.310Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -3746,87 +3861,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.187Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "emmi-e521bea89a8f",
-      "slug": "tecnico-lattiero-caseario-emmi-frenkendorf",
-      "slugByLocale": {
-        "it": "tecnico-lattiero-caseario-emmi-frenkendorf",
-        "en": "dairy-technologist-emmi-frenkendorf",
-        "de": "milchtechnologin-milchtechnologe-emmi-ch",
-        "fr": "technologue-technologue-du-lait-emmi-frenkendorf"
-      },
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Milchtechnologin / Milchtechnologe",
-      "titleByLocale": {
-        "it": "Tecnico lattiero-caseario",
-        "en": "Dairy technologist",
-        "de": "Milchtechnologin / Milchtechnologe",
-        "fr": "Technologue/technologue du lait"
-      },
-      "description": "• Du bist mittendrin statt nur dabei: Vom Rohstoff bis zum fertigen Produkt begleitest du den gesamten Herstellungsprozess.\n\n• Du steuerst und überwachst unsere Anlagen und sorgst für einen reibungslosen Ablauf.\n\n• Du produzierst eine breite Vielfalt an Milchprodukten - von Pastmilch und Joghurt über Käse (ohne Käsepflege) bis hin zu Rahm, Fondue, Raclette und weiteren Spezialitäten.Qualität steht bei dir an erster Stelle!\n\n• Du stellst sicher, dass unsere hohen Standards jederzeit eingehalten werden.\n\n• Du bringst dich aktiv ein und hilfst mit, unsere Spezialitäten weiterzuentwickeln.\n\n• Du hast eine abgeschlossene Ausbildung EFZ im Lebensmittelbereich (z. B. Milchtechnologe, Lebensmitteltechnologe, Bäcker:in).\n\n• Du fühlst dich sicher in der deutschen Sprache.\n\n• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.\n\n• Bereitschaft für Schichtarbeit brinsgt du mit.",
-      "descriptionByLocale": {
-        "it": "• Sei proprio nel mezzo di tutto invece di essere semplicemente presente: dalla materia prima al prodotto finito, accompagni l'intero processo produttivo.\n• Controlli e monitori i nostri sistemi e assicuri che tutto funzioni senza intoppi.\n• Producete una vasta gamma di prodotti lattiero-caseari - dal latte pasticcio e yogurt al formaggio (senza cura del formaggio) fino alla panna, fondue, raclette e altre specialità.\n• Garantirete che i nostri elevati standard siano sempre mantenuti.\n• Siete attivamente coinvolti e contribuite allo sviluppo delle nostre specialità.\n• Hai completato un apprendistato nel settore alimentare (ad esempio tecnico lattiero-caseario, tecnologo alimentare, fornaio).\n• Ti senti sicuro nella lingua tedesca.\n• Comprensione tecnica e piacere nel lavorare con attrezzature di produzione.\n• Sei disposto a lavorare a turni.",
-        "en": "• You are right in the middle of it instead of just being there: From the raw material to the finished product, you accompany the entire manufacturing process.\n• You control and monitor our systems and ensure that everything runs smoothly.\n• You produce a wide variety of dairy products - from pastry milk and yoghurt to cheese (without cheese care) to cream, fondue, raclette and other specialities.\n• You will ensure that our high standards are maintained at all times.\n• You are actively involved and help to further develop our specialties.\n• You have completed an apprenticeship in the food sector (e.g. dairy technologist, food technologist, baker).\n• You feel confident in the German language.\n• Technical understanding and enjoyment of working with production equipment.\n• You are willing to work shifts.",
-        "de": "• Du bist mittendrin statt nur dabei: Vom Rohstoff bis zum fertigen Produkt begleitest du den gesamten Herstellungsprozess.\n• Du steuerst und überwachst unsere Anlagen und sorgst für einen reibungslosen Ablauf.\n• Du produzierst eine breite Vielfalt an Milchprodukten - von Pastmilch und Joghurt über Käse (ohne Käsepflege) bis hin zu Rahm, Fondue, Raclette und weiteren Spezialitäten.Qualität steht bei dir an erster Stelle!\n• Du stellst sicher, dass unsere hohen Standards jederzeit eingehalten werden.\n• Du bringst dich aktiv ein und hilfst mit, unsere Spezialitäten weiterzuentwickeln.\n• Du hast eine abgeschlossene Ausbildung EFZ im Lebensmittelbereich (z. B. Milchtechnologe, Lebensmitteltechnologe, Bäcker:in).\n• Du fühlst dich sicher in der deutschen Sprache.\n• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.\n• Bereitschaft für Schichtarbeit brinsgt du mit.",
-        "fr": "• Vous êtes au milieu au lieu de juste là: De la matière première au produit fini, vous accompagnez tout le processus de fabrication.\n• Vous contrôlez et surveillez nos installations et assurez un processus en douceur.\n• Vous produisez une grande variété de produits laitiers - du lait et du yaourt passés au fromage (sans soin du fromage) à la crème, fondue, raclette et autres spécialités. Assurez-vous que nos normes élevées sont respectées en tout temps.\n• Vous participez activement au développement de nos spécialités.\n• Vous avez suivi une formation EFZ dans le secteur alimentaire (p. ex. technologue laitier, technologue alimentaire, boulanger:in). Vous vous sentez en sécurité en allemand.\n• Compréhension technique et plaisir dans le traitement des installations de production.\n• Volonté de travailler, vous êtes impliqué."
-      },
-      "location": "Frenkendorf, Basel-Landschaft",
-      "canton": "BL",
-      "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-milchtechnologe/a51d1937-08a4-4d3f-a74c-4068d84e9d37",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.783Z",
-      "addressLocality": "Frenkendorf",
-      "postalCode": "4402",
-      "addressRegion": "Basel-Landschaft",
-      "streetAddress": "Flachsackerstrasse 100",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19424",
-      "requirements": [
-        "• Du hast eine abgeschlossene Ausbildung EFZ im Lebensmittelbereich (z. B. Milchtechnologe, Lebensmitteltechnologe, Bäcker:in).",
-        "• Du fühlst dich sicher in der deutschen Sprache.",
-        "• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.",
-        "• Bereitschaft für Schichtarbeit brinsgt du mit."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du fühlst dich sicher in der deutschen Sprache.",
-          "• Technisches Verständnis und Freude am Umgang mit Produktionsanlagen.",
-          "• Bereitschaft für Schichtarbeit brinsgt du mit."
-        ]
-      },
-      "previousSlugs": [
-        "milchtechnologin-milchtechnologe-emmi-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "milchtechnologin-milchtechnologe-emmi-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:39.186Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3871,7 +3906,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/hr-digital-solutions-mit-fokus-talent-management/7dd000d0-bb1c-4c60-a3eb-0a02ad6285c1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.782Z",
+      "crawledAt": "2026-06-10T22:34:48.309Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -3910,6 +3945,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.185Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3954,7 +3990,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/d3f4a5a5-b32f-4783-a18e-b25461e981fb",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.781Z",
+      "crawledAt": "2026-06-10T22:34:48.308Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -3997,6 +4033,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.184Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4041,7 +4078,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/c5bccc70-53fd-437e-ada5-fc7f125a0172",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.781Z",
+      "crawledAt": "2026-06-10T22:34:48.308Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4077,87 +4114,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.184Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "emmi-6304a5acb429",
-      "slug": "venditore-in-emmi-shop-temporanea-emmi-emmen",
-      "slugByLocale": {
-        "it": "venditore-in-emmi-shop-temporanea-emmi-emmen",
-        "en": "seller-in-emmi-shop-temporary-emmi-emmen",
-        "de": "verkaufer-in-emmi-shop-befristet-emmi-ch",
-        "fr": "assistante-commerciale-emmi-shop-temporaire-emmi-emmen"
-      },
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Verkäufer:in Emmi Shop (befristet)",
-      "titleByLocale": {
-        "it": "Venditore: in Emmi Shop (temporanea)",
-        "en": "Seller: in Emmi Shop (temporary)",
-        "de": "Verkäufer:in Emmi Shop (befristet)",
-        "fr": "Assistante commerciale Emmi Shop (temporaire)"
-      },
-      "description": "• Du hast Freude an Lebensmittel und am Kundenkontakt.\n\n• Unterstütze das Team bei der Präsentation der Produkte, um Kunden zu begeistern.\n\n• Halte unsere hohen Qualitätsstandards ein, indem du nicht nur exzellente Beratung lieferst, sondern auch regelmässige Reinigungsarbeiten durchführst.\n\n• Bediene die Kasse und sorge für einen reibungslosen Bezahlvorgang.\n\n• Du übernimmst die Lagerpflege und nimmst dich der Warenpräsentation im Outlet-Bereich an.\n\n• Kümmere dich um die Warenannahme und behalte den Überblick über die eingehenden Lieferungen.\n\n• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.\n\n• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.\n\n• In einem kleinen Team leistest du aufgrund deiner selbständigen, zuverlässigen und verantwortungsvollen Arbeitsweise einen wichtigen Beitrag zu unserem Erfolg.\n\n• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit.",
-      "descriptionByLocale": {
-        "it": "• Ti piace il cibo e il contatto con i clienti.\n• Sostenere il team nella presentazione dei prodotti per ispirare i clienti.\n• Mantenere i nostri standard di alta qualità non solo fornendo consigli eccellenti, ma anche svolgendo lavori di pulizia regolari.\n• Servire il registro di cassa e garantire un processo di pagamento regolare.\n• Si prende cura della manutenzione del magazzino e prendersi cura della presentazione delle merci nella zona di uscita.\n• Prendersi cura dell'accettazione delle merci e tenere traccia delle consegne in arrivo.\n• Idealmente, si dispone di esperienza professionale nella vendita al dettaglio o nella gastronomia.\n• Come persona di piacere, è possibile ottenere te stesso e gli altri eccitati per i nostri prodotti.\n• In un piccolo team, contribuirai molto al nostro successo grazie al tuo modo di lavorare indipendente, affidabile e responsabile. Si parla fluente tedesco e si porta un alto grado di flessibilità.",
-        "en": "• You enjoy food and customer contact.\n• Support the team in presenting the products to inspire customers.\n• Maintain our high quality standards by not only providing excellent advice but also performing regular cleaning work.\n• Serve the cash register and ensure a smooth payment process.\n• You take care of the warehouse maintenance and take care of the presentation of goods in the outlet area.\n• Take care of the acceptance of goods and keep track of the incoming deliveries.\n• Ideally, you have professional experience in food retailing or gastronomy.\n• As a pleasure person, you can get yourself and others excited about our products.\n• In a small team, you make an important contribution to our success because of your independent, reliable and responsible way of working. You speak fluent German and you bring a high degree of flexibility.",
-        "de": "• Du hast Freude an Lebensmittel und am Kundenkontakt.\n• Unterstütze das Team bei der Präsentation der Produkte, um Kunden zu begeistern.\n• Halte unsere hohen Qualitätsstandards ein, indem du nicht nur exzellente Beratung lieferst, sondern auch regelmässige Reinigungsarbeiten durchführst.\n• Bediene die Kasse und sorge für einen reibungslosen Bezahlvorgang.\n• Du übernimmst die Lagerpflege und nimmst dich der Warenpräsentation im Outlet-Bereich an.\n• Kümmere dich um die Warenannahme und behalte den Überblick über die eingehenden Lieferungen.\n• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.\n• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.\n• In einem kleinen Team leistest du aufgrund deiner selbständigen, zuverlässigen und verantwortungsvollen Arbeitsweise einen wichtigen Beitrag zu unserem Erfolg.\n• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit.",
-        "fr": "• Vous aimez la nourriture et le contact client.\n• Soutenir l'équipe dans la présentation des produits pour inspirer les clients.\n• Maintenir nos normes de qualité élevées en fournissant non seulement d'excellents conseils, mais aussi des travaux de nettoyage réguliers.\n• Servir la caisse enregistreuse et assurer un processus de paiement en douceur.\n• Vous prenez soin de l'entretien de l'entrepôt et de la présentation des marchandises dans la zone de sortie.\n• Prendre soin de l'acceptation des marchandises et suivre les livraisons entrantes.\n• Idéalement, vous avez une expérience professionnelle dans le commerce de détail alimentaire ou la gastronomie.\n• En tant que personne de plaisir, vous pouvez vous-même et les autres excités par nos produits.\n• Dans une petite équipe, vous contribuez grandement à notre succès en raison de votre façon de travailler indépendante, fiable et responsable. Vous parlez couramment allemand et vous apportez un haut degré de flexibilité."
-      },
-      "location": "Emmen, Luzern",
-      "canton": "LU",
-      "url": "https://jobs.emmi.com/offene-stellen/verkaeufer-in-emmi-shop-befristet/15faf3bc-7ec4-40aa-8647-e598357ca181",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.780Z",
-      "addressLocality": "Emmen",
-      "postalCode": "6032",
-      "addressRegion": "Luzern",
-      "streetAddress": "Seetalstrasse 200",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19472",
-      "requirements": [
-        "• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.",
-        "• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.",
-        "• In einem kleinen Team leistest du aufgrund deiner selbständigen, zuverlässigen und verantwortungsvollen Arbeitsweise einen wichtigen Beitrag zu unserem Erfolg.",
-        "• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.",
-          "• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.",
-          "• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit."
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-emmi-shop-befristet-emmi-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-emmi-shop-befristet-emmi-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:39.184Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4202,7 +4159,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/hr-business-partner/fad5cb13-0727-4e10-b014-69dff72f8dbe",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.779Z",
+      "crawledAt": "2026-06-10T22:34:48.307Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -4243,6 +4200,89 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "emmi-6304a5acb429",
+      "slug": "venditore-in-emmi-shop-temporanea-emmi-emmen",
+      "slugByLocale": {
+        "it": "venditore-in-emmi-shop-temporanea-emmi-emmen",
+        "en": "seller-in-emmi-shop-temporary-emmi-emmen",
+        "de": "verkaufer-in-emmi-shop-befristet-emmi-ch",
+        "fr": "assistante-commerciale-emmi-shop-temporaire-emmi-emmen"
+      },
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Verkäufer:in Emmi Shop (befristet)",
+      "titleByLocale": {
+        "it": "Venditore: in Emmi Shop (temporanea)",
+        "en": "Seller: in Emmi Shop (temporary)",
+        "de": "Verkäufer:in Emmi Shop (befristet)",
+        "fr": "Assistante commerciale Emmi Shop (temporaire)"
+      },
+      "description": "• Du hast Freude an Lebensmittel und am Kundenkontakt.\n\n• Unterstütze das Team bei der Präsentation der Produkte, um Kunden zu begeistern.\n\n• Halte unsere hohen Qualitätsstandards ein, indem du nicht nur exzellente Beratung lieferst, sondern auch regelmässige Reinigungsarbeiten durchführst.\n\n• Bediene die Kasse und sorge für einen reibungslosen Bezahlvorgang.\n\n• Du übernimmst die Lagerpflege und nimmst dich der Warenpräsentation im Outlet-Bereich an.\n\n• Kümmere dich um die Warenannahme und behalte den Überblick über die eingehenden Lieferungen.\n\n• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.\n\n• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.\n\n• In einem kleinen Team leistest du aufgrund deiner selbständigen, zuverlässigen und verantwortungsvollen Arbeitsweise einen wichtigen Beitrag zu unserem Erfolg.\n\n• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit.",
+      "descriptionByLocale": {
+        "it": "• Ti piace il cibo e il contatto con i clienti.\n• Sostenere il team nella presentazione dei prodotti per ispirare i clienti.\n• Mantenere i nostri standard di alta qualità non solo fornendo consigli eccellenti, ma anche svolgendo lavori di pulizia regolari.\n• Servire il registro di cassa e garantire un processo di pagamento regolare.\n• Si prende cura della manutenzione del magazzino e prendersi cura della presentazione delle merci nella zona di uscita.\n• Prendersi cura dell'accettazione delle merci e tenere traccia delle consegne in arrivo.\n• Idealmente, si dispone di esperienza professionale nella vendita al dettaglio o nella gastronomia.\n• Come persona di piacere, è possibile ottenere te stesso e gli altri eccitati per i nostri prodotti.\n• In un piccolo team, contribuirai molto al nostro successo grazie al tuo modo di lavorare indipendente, affidabile e responsabile. Si parla fluente tedesco e si porta un alto grado di flessibilità.",
+        "en": "• You enjoy food and customer contact.\n• Support the team in presenting the products to inspire customers.\n• Maintain our high quality standards by not only providing excellent advice but also performing regular cleaning work.\n• Serve the cash register and ensure a smooth payment process.\n• You take care of the warehouse maintenance and take care of the presentation of goods in the outlet area.\n• Take care of the acceptance of goods and keep track of the incoming deliveries.\n• Ideally, you have professional experience in food retailing or gastronomy.\n• As a pleasure person, you can get yourself and others excited about our products.\n• In a small team, you make an important contribution to our success because of your independent, reliable and responsible way of working. You speak fluent German and you bring a high degree of flexibility.",
+        "de": "• Du hast Freude an Lebensmittel und am Kundenkontakt.\n• Unterstütze das Team bei der Präsentation der Produkte, um Kunden zu begeistern.\n• Halte unsere hohen Qualitätsstandards ein, indem du nicht nur exzellente Beratung lieferst, sondern auch regelmässige Reinigungsarbeiten durchführst.\n• Bediene die Kasse und sorge für einen reibungslosen Bezahlvorgang.\n• Du übernimmst die Lagerpflege und nimmst dich der Warenpräsentation im Outlet-Bereich an.\n• Kümmere dich um die Warenannahme und behalte den Überblick über die eingehenden Lieferungen.\n• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.\n• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.\n• In einem kleinen Team leistest du aufgrund deiner selbständigen, zuverlässigen und verantwortungsvollen Arbeitsweise einen wichtigen Beitrag zu unserem Erfolg.\n• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit.",
+        "fr": "• Vous aimez la nourriture et le contact client.\n• Soutenir l'équipe dans la présentation des produits pour inspirer les clients.\n• Maintenir nos normes de qualité élevées en fournissant non seulement d'excellents conseils, mais aussi des travaux de nettoyage réguliers.\n• Servir la caisse enregistreuse et assurer un processus de paiement en douceur.\n• Vous prenez soin de l'entretien de l'entrepôt et de la présentation des marchandises dans la zone de sortie.\n• Prendre soin de l'acceptation des marchandises et suivre les livraisons entrantes.\n• Idéalement, vous avez une expérience professionnelle dans le commerce de détail alimentaire ou la gastronomie.\n• En tant que personne de plaisir, vous pouvez vous-même et les autres excités par nos produits.\n• Dans une petite équipe, vous contribuez grandement à notre succès en raison de votre façon de travailler indépendante, fiable et responsable. Vous parlez couramment allemand et vous apportez un haut degré de flexibilité."
+      },
+      "location": "Emmen, Luzern",
+      "canton": "LU",
+      "url": "https://jobs.emmi.com/offene-stellen/verkaeufer-in-emmi-shop-befristet/15faf3bc-7ec4-40aa-8647-e598357ca181",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.307Z",
+      "addressLocality": "Emmen",
+      "postalCode": "6032",
+      "addressRegion": "Luzern",
+      "streetAddress": "Seetalstrasse 200",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19472",
+      "requirements": [
+        "• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.",
+        "• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.",
+        "• In einem kleinen Team leistest du aufgrund deiner selbständigen, zuverlässigen und verantwortungsvollen Arbeitsweise einen wichtigen Beitrag zu unserem Erfolg.",
+        "• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Idealerweise verfügst du über Berufserfahrung im Lebensmittel-Detailhandel oder in der Gastronomie.",
+          "• Als Genussmensch kannst du dich und andere für unsere Produkte begeistern.",
+          "• Du sprichst fliessend Deutsch und du bringst eine hohe Flexibilität mit."
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-emmi-shop-befristet-emmi-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-emmi-shop-befristet-emmi-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:39.184Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4287,7 +4327,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/kundenberater-aussendienst-foodservice/4e7be1a8-09c6-45c1-903e-7fc310386902",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.775Z",
+      "crawledAt": "2026-06-10T22:34:48.302Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -4362,6 +4402,118 @@
       }
     },
     {
+      "id": "emmi-1d53a8e79163",
+      "slug": "responsabile-di-ricezione-emmi-ostermundigen",
+      "slugByLocale": {
+        "it": "responsabile-di-ricezione-emmi-ostermundigen",
+        "en": "reception-team-leader-emmi-ostermundigen",
+        "de": "teamleiter-in-empfang-emmi-ch",
+        "fr": "chef-d-equipe-de-reception-emmi-ostermundigen"
+      },
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Teamleiter:in Empfang",
+      "titleByLocale": {
+        "it": "Responsabile di ricezione",
+        "en": "Reception Team Leader",
+        "de": "Teamleiter:in Empfang",
+        "fr": "Chef d'équipe de réception"
+      },
+      "description": "• Du bist verantwortlich für die personelle sowie fachliche Führung des Empfang-Teams (2 Mitarbeitende) und koordinierst die Einsatz- und Personalplanung (inkl. KV-Lernende) effizient.\n\n• Du stellst den telefonischen sowie persönlichen Kontakt am Empfang für interne und externe Kunden sicher, unterstützt bei Besucheranmeldungen und agierst als Ansprechperson verschiedener Fachbereiche in administrativen Belangen.\n\n• Du kümmerst dich um alle administrativen anfallenden Aufgaben (z.B. Bearbeitung der ein- und ausgehenden Post, Erstellung von Parkplatz-Mietverträgen, Erstellung von Beiträgen für Emmi TV und Emmi News am Standort).\n\n• Du bist verantwortlich für die Kontierung von Rechnungen, die Kassenführung am Standort (inkl. monatlichem Kassenabschluss) und kümmerst dich um die Erstellung und Bewirtschaftung von Identifikationsbadges für interne und externe Kunden (inkl. Verrechnung bei Verlust).\n\n• Du betreust unsere KV-Lernenden während ihrer Rotation am Empfang und beurteilst ihre Praxisaufträge.\n\n• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.\n\n• Du bringst bereits Erfahrung in einer administrativen Tätigkeit mit und verfügst idealerweise über erste Führungserfahrung.\n\n• Du bist eine aufgestellte, herzliche Persönlichkeit und findest Freude im regen Austausch mit internen und externen Kunden.\n\n• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.\n\n• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).\n\n• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse.\n\nAufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert.",
+      "descriptionByLocale": {
+        "it": "• Sei responsabile della gestione personale e professionale del team di ricezione (2 dipendenti) e coordini l'organizzazione del personale e la pianificazione degli incarichi (compresi gli apprendisti) in modo efficiente.\n• Assicuri il contatto telefonico e personale al ricevimento per clienti interni ed esterni, supporti le registrazioni dei visitatori e agisci come referente per vari settori in materia amministrativa.\n• Ti occupi di tutte le attività amministrative che si presentano (ad esempio, gestione della posta in entrata e in uscita, creazione di contratti di locazione di parcheggio, creazione di contributi per Emmi TV ed Emmi News presso il sito).\n• Sei responsabile della contabilizzazione delle fatture, della gestione della cassa presso il sito (compreso il saldo mensile della cassa) e ti occupi della creazione e della gestione di badge di identificazione per clienti interni ed esterni (compresa la fatturazione in caso di smarrimento).\n• Segui i nostri apprendisti durante la loro rotazione al ricevimento e valuti i loro compiti pratici.\n• Disponi di una formazione professionale commerciale conclusa o di un titolo di studio equivalente.\n• Hai già esperienza in un'attività amministrativa e disponi idealmente di una prima esperienza di gestione.\n• Sei una personalità cordiale e dinamica e trovi gioia nello scambio con clienti interni ed esterni.\n• Idealmente, disponi della formazione di formatore pratico o sei disposto a conseguirla.\n• Sei esperto nell'utilizzo degli strumenti Office comuni (Outlook, Excel, Word).\n• Hai conoscenze di tedesco sicure e fluenti in inglese. A causa delle assenze per ferie, i colloqui del primo turno saranno programmati non prima della settimana 27.",
+        "en": "• You are responsible for the personnel and professional management of the reception team (2 employees) and coordinate the personnel and job planning (including apprentices) efficiently.\n• You ensure telephone and personal contact at the reception for internal and external customers, support visitor registrations and act as a contact person for various departments in administrative matters.\n• You take care of all administrative tasks that arise (e.g. processing incoming and outgoing mail, creating parking rental contracts, creating contributions for Emmi TV and Emmi News at the site).\n• You are responsible for the accounting of invoices, cash management at the site (including monthly cash settlement) and take care of the creation and management of identification badges for internal and external customers (including invoicing in case of loss).\n• You supervise our apprentices during their rotation at the reception and evaluate their practical tasks.\n• You have completed commercial training or an equivalent degree.\n• You already have experience in an administrative activity and ideally have some management experience.\n• You are a friendly and dynamic personality and enjoy exchanging with internal and external customers.\n• Ideally, you have a practical trainer qualification or are willing to obtain it.\n• You are proficient in the use of common Office tools (Outlook, Excel, Word).\n• You have fluent German and English language skills. Due to vacation absences, the first-round interviews will be scheduled no earlier than week 27.",
+        "de": "• Du bist verantwortlich für die personelle sowie fachliche Führung des Empfang-Teams (2 Mitarbeitende) und koordinierst die Einsatz- und Personalplanung (inkl. KV-Lernende) effizient.\n• Du stellst den telefonischen sowie persönlichen Kontakt am Empfang für interne und externe Kunden sicher, unterstützt bei Besucheranmeldungen und agierst als Ansprechperson verschiedener Fachbereiche in administrativen Belangen.\n• Du kümmerst dich um alle administrativen anfallenden Aufgaben (z.B. Bearbeitung der ein- und ausgehenden Post, Erstellung von Parkplatz-Mietverträgen, Erstellung von Beiträgen für Emmi TV und Emmi News am Standort).\n• Du bist verantwortlich für die Kontierung von Rechnungen, die Kassenführung am Standort (inkl. monatlichem Kassenabschluss) und kümmerst dich um die Erstellung und Bewirtschaftung von Identifikationsbadges für interne und externe Kunden (inkl. Verrechnung bei Verlust).\n• Du betreust unsere KV-Lernenden während ihrer Rotation am Empfang und beurteilst ihre Praxisaufträge.\n• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.\n• Du bringst bereits Erfahrung in einer administrativen Tätigkeit mit und verfügst idealerweise über erste Führungserfahrung.\n• Du bist eine aufgestellte, herzliche Persönlichkeit und findest Freude im regen Austausch mit internen und externen Kunden.\n• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.\n• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).\n• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse. Aufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert.",
+        "fr": "• Vous êtes responsable de la gestion du personnel et de la direction professionnelle de l'équipe de réception (2 collaborateurs) et coordonnez la planification du personnel et des tâches (y compris les apprentis) de manière efficace.\n• Vous assurez le contact téléphonique et personnel à la réception pour les clients internes et externes, soutenez les enregistrements des visiteurs et agissez en tant que personne de contact pour divers départements en matière administrative.\n• Vous vous occupez de toutes les tâches administratives qui se présentent (par exemple, traitement du courrier entrant et sortant, création de contrats de location de parking, création de contributions pour Emmi TV et Emmi News sur le site).\n• Vous êtes responsable de la comptabilisation des factures, de la gestion de la caisse sur le site (y compris le règlement mensuel de la caisse) et vous occupez de la création et de la gestion de badges d'identification pour les clients internes et externes (y compris la facturation en cas de perte).\n• Vous supervisez nos apprentis lors de leur rotation à la réception et évaluez leurs tâches pratiques.\n• Vous avez suivi une formation commerciale ou un diplôme équivalent.\n• Vous avez déjà de l'expérience dans une activité administrative et disposez idéalement d'une première expérience de gestion.\n• Vous êtes une personnalité cordiale et dynamique et trouvez plaisir à échanger avec les clients internes et externes.\n• Idéalement, vous disposez d'une qualification de formateur pratique ou êtes prêt à l'obtenir.\n• Vous êtes compétent dans l'utilisation des outils Office courants (Outlook, Excel, Word).\n• Vous avez des connaissances d'allemand sûres et fluides en anglais. En raison des absences pour vacances, les entretiens du premier tour seront programmés au plus tôt à la semaine 27."
+      },
+      "location": "Ostermundigen, Bern",
+      "canton": "BE",
+      "url": "https://jobs.emmi.com/offene-stellen/teamleiter-in-empfang/690289a4-f1f9-4167-a005-21feefb40986",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.301Z",
+      "addressLocality": "Ostermundigen",
+      "postalCode": "3072",
+      "addressRegion": "Bern",
+      "streetAddress": "Milchstrasse 9",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19474",
+      "requirements": [
+        "• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.",
+        "• Du bringst bereits Erfahrung in einer administrativen Tätigkeit mit und verfügst idealerweise über erste Führungserfahrung.",
+        "• Du bist eine aufgestellte, herzliche Persönlichkeit und findest Freude im regen Austausch mit internen und externen Kunden.",
+        "• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.",
+        "• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).",
+        "• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse.",
+        "Aufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "• Disponi di una formazione professionale commerciale conclusa o di un titolo di studio equivalente.",
+          "• Hai già esperienza in un'attività amministrativa e disponi idealmente di una prima esperienza di gestione.",
+          "• Sei una personalità cordiale e dinamica e trovi gioia nello scambio con clienti interni ed esterni.",
+          "• Idealmente, disponi della formazione di formatore pratico o sei disposto a conseguirla.",
+          "• Sei esperto nell'utilizzo degli strumenti Office comuni (Outlook, Excel, Word).",
+          "• Hai conoscenze di tedesco sicure e fluenti in inglese.",
+          "A causa delle assenze per ferie, i colloqui del primo turno saranno programmati non prima della settimana 27."
+        ],
+        "en": [
+          "• You have completed commercial training or an equivalent degree.",
+          "• You already have experience in an administrative activity and ideally have some management experience.",
+          "• You are a friendly and dynamic personality and enjoy exchanging with internal and external customers.",
+          "• Ideally, you have a practical trainer qualification or are willing to obtain it.",
+          "• You are proficient in the use of common Office tools (Outlook, Excel, Word).",
+          "• You have fluent German and English language skills.",
+          "Due to vacation absences, the first-round interviews will be scheduled no earlier than week 27."
+        ],
+        "de": [
+          "• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.",
+          "• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.",
+          "• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).",
+          "• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse.",
+          "Aufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert."
+        ],
+        "fr": [
+          "• Vous avez suivi une formation commerciale ou un diplôme équivalent.",
+          "• Vous êtes une personnalité cordiale et dynamique et trouvez plaisir à échanger avec les clients internes et externes.",
+          "• Idéalement, vous disposez d'une qualification de formateur pratique ou êtes prêt à l'obtenir.",
+          "• Vous êtes compétent dans l'utilisation des outils Office courants (Outlook, Excel, Word).",
+          "• Vous avez des connaissances d'allemand sûres et fluides en anglais.",
+          "En raison des absences pour vacances, les entretiens du premier tour seront programmés au plus tôt à la semaine 27."
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-empfang-emmi-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-empfang-emmi-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:39.178Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "emmi-1aed5744d501",
       "slug": "responsabile-impianti-di-riempimento-emmi-suhr",
       "slugByLocale": {
@@ -4392,7 +4544,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-abfuellung/d5784236-a64c-470e-8e84-4545873702b8",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.774Z",
+      "crawledAt": "2026-06-10T22:34:48.301Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4481,7 +4633,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/transportdisponent-in/aed43a16-f315-41f3-8d40-bf7468a4d649",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.773Z",
+      "crawledAt": "2026-06-10T22:34:48.300Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -4519,6 +4671,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.177Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4528,118 +4681,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "emmi-1d53a8e79163",
-      "slug": "responsabile-di-ricezione-emmi-ostermundigen",
-      "slugByLocale": {
-        "it": "responsabile-di-ricezione-emmi-ostermundigen",
-        "en": "reception-team-leader-emmi-ostermundigen",
-        "de": "teamleiter-in-empfang-emmi-ch",
-        "fr": "chef-d-equipe-de-reception-emmi-ostermundigen"
-      },
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Teamleiter:in Empfang",
-      "titleByLocale": {
-        "it": "Responsabile di ricezione",
-        "en": "Reception Team Leader",
-        "de": "Teamleiter:in Empfang",
-        "fr": "Chef d'équipe de réception"
-      },
-      "description": "• Du bist verantwortlich für die personelle sowie fachliche Führung des Empfang-Teams (2 Mitarbeitende) und koordinierst die Einsatz- und Personalplanung (inkl. KV-Lernende) effizient.\n\n• Du stellst den telefonischen sowie persönlichen Kontakt am Empfang für interne und externe Kunden sicher, unterstützt bei Besucheranmeldungen und agierst als Ansprechperson verschiedener Fachbereiche in administrativen Belangen.\n\n• Du kümmerst dich um alle administrativen anfallenden Aufgaben (z.B. Bearbeitung der ein- und ausgehenden Post, Erstellung von Parkplatz-Mietverträgen, Erstellung von Beiträgen für Emmi TV und Emmi News am Standort).\n\n• Du bist verantwortlich für die Kontierung von Rechnungen, die Kassenführung am Standort (inkl. monatlichem Kassenabschluss) und kümmerst dich um die Erstellung und Bewirtschaftung von Identifikationsbadges für interne und externe Kunden (inkl. Verrechnung bei Verlust).\n\n• Du betreust unsere KV-Lernenden während ihrer Rotation am Empfang und beurteilst ihre Praxisaufträge.\n\n• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.\n\n• Du bringst bereits Erfahrung in einer administrativen Tätigkeit mit und verfügst idealerweise über erste Führungserfahrung.\n\n• Du bist eine aufgestellte, herzliche Persönlichkeit und findest Freude im regen Austausch mit internen und externen Kunden.\n\n• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.\n\n• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).\n\n• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse.\n\nAufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert.",
-      "descriptionByLocale": {
-        "it": "• Sei responsabile della gestione personale e professionale del team di ricezione (2 dipendenti) e coordini l'organizzazione del personale e la pianificazione degli incarichi (compresi gli apprendisti) in modo efficiente.\n• Assicuri il contatto telefonico e personale al ricevimento per clienti interni ed esterni, supporti le registrazioni dei visitatori e agisci come referente per vari settori in materia amministrativa.\n• Ti occupi di tutte le attività amministrative che si presentano (ad esempio, gestione della posta in entrata e in uscita, creazione di contratti di locazione di parcheggio, creazione di contributi per Emmi TV ed Emmi News presso il sito).\n• Sei responsabile della contabilizzazione delle fatture, della gestione della cassa presso il sito (compreso il saldo mensile della cassa) e ti occupi della creazione e della gestione di badge di identificazione per clienti interni ed esterni (compresa la fatturazione in caso di smarrimento).\n• Segui i nostri apprendisti durante la loro rotazione al ricevimento e valuti i loro compiti pratici.\n• Disponi di una formazione professionale commerciale conclusa o di un titolo di studio equivalente.\n• Hai già esperienza in un'attività amministrativa e disponi idealmente di una prima esperienza di gestione.\n• Sei una personalità cordiale e dinamica e trovi gioia nello scambio con clienti interni ed esterni.\n• Idealmente, disponi della formazione di formatore pratico o sei disposto a conseguirla.\n• Sei esperto nell'utilizzo degli strumenti Office comuni (Outlook, Excel, Word).\n• Hai conoscenze di tedesco sicure e fluenti in inglese. A causa delle assenze per ferie, i colloqui del primo turno saranno programmati non prima della settimana 27.",
-        "en": "• You are responsible for the personnel and professional management of the reception team (2 employees) and coordinate the personnel and job planning (including apprentices) efficiently.\n• You ensure telephone and personal contact at the reception for internal and external customers, support visitor registrations and act as a contact person for various departments in administrative matters.\n• You take care of all administrative tasks that arise (e.g. processing incoming and outgoing mail, creating parking rental contracts, creating contributions for Emmi TV and Emmi News at the site).\n• You are responsible for the accounting of invoices, cash management at the site (including monthly cash settlement) and take care of the creation and management of identification badges for internal and external customers (including invoicing in case of loss).\n• You supervise our apprentices during their rotation at the reception and evaluate their practical tasks.\n• You have completed commercial training or an equivalent degree.\n• You already have experience in an administrative activity and ideally have some management experience.\n• You are a friendly and dynamic personality and enjoy exchanging with internal and external customers.\n• Ideally, you have a practical trainer qualification or are willing to obtain it.\n• You are proficient in the use of common Office tools (Outlook, Excel, Word).\n• You have fluent German and English language skills. Due to vacation absences, the first-round interviews will be scheduled no earlier than week 27.",
-        "de": "• Du bist verantwortlich für die personelle sowie fachliche Führung des Empfang-Teams (2 Mitarbeitende) und koordinierst die Einsatz- und Personalplanung (inkl. KV-Lernende) effizient.\n• Du stellst den telefonischen sowie persönlichen Kontakt am Empfang für interne und externe Kunden sicher, unterstützt bei Besucheranmeldungen und agierst als Ansprechperson verschiedener Fachbereiche in administrativen Belangen.\n• Du kümmerst dich um alle administrativen anfallenden Aufgaben (z.B. Bearbeitung der ein- und ausgehenden Post, Erstellung von Parkplatz-Mietverträgen, Erstellung von Beiträgen für Emmi TV und Emmi News am Standort).\n• Du bist verantwortlich für die Kontierung von Rechnungen, die Kassenführung am Standort (inkl. monatlichem Kassenabschluss) und kümmerst dich um die Erstellung und Bewirtschaftung von Identifikationsbadges für interne und externe Kunden (inkl. Verrechnung bei Verlust).\n• Du betreust unsere KV-Lernenden während ihrer Rotation am Empfang und beurteilst ihre Praxisaufträge.\n• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.\n• Du bringst bereits Erfahrung in einer administrativen Tätigkeit mit und verfügst idealerweise über erste Führungserfahrung.\n• Du bist eine aufgestellte, herzliche Persönlichkeit und findest Freude im regen Austausch mit internen und externen Kunden.\n• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.\n• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).\n• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse. Aufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert.",
-        "fr": "• Vous êtes responsable de la gestion du personnel et de la direction professionnelle de l'équipe de réception (2 collaborateurs) et coordonnez la planification du personnel et des tâches (y compris les apprentis) de manière efficace.\n• Vous assurez le contact téléphonique et personnel à la réception pour les clients internes et externes, soutenez les enregistrements des visiteurs et agissez en tant que personne de contact pour divers départements en matière administrative.\n• Vous vous occupez de toutes les tâches administratives qui se présentent (par exemple, traitement du courrier entrant et sortant, création de contrats de location de parking, création de contributions pour Emmi TV et Emmi News sur le site).\n• Vous êtes responsable de la comptabilisation des factures, de la gestion de la caisse sur le site (y compris le règlement mensuel de la caisse) et vous occupez de la création et de la gestion de badges d'identification pour les clients internes et externes (y compris la facturation en cas de perte).\n• Vous supervisez nos apprentis lors de leur rotation à la réception et évaluez leurs tâches pratiques.\n• Vous avez suivi une formation commerciale ou un diplôme équivalent.\n• Vous avez déjà de l'expérience dans une activité administrative et disposez idéalement d'une première expérience de gestion.\n• Vous êtes une personnalité cordiale et dynamique et trouvez plaisir à échanger avec les clients internes et externes.\n• Idéalement, vous disposez d'une qualification de formateur pratique ou êtes prêt à l'obtenir.\n• Vous êtes compétent dans l'utilisation des outils Office courants (Outlook, Excel, Word).\n• Vous avez des connaissances d'allemand sûres et fluides en anglais. En raison des absences pour vacances, les entretiens du premier tour seront programmés au plus tôt à la semaine 27."
-      },
-      "location": "Ostermundigen, Bern",
-      "canton": "BE",
-      "url": "https://jobs.emmi.com/offene-stellen/teamleiter-in-empfang/690289a4-f1f9-4167-a005-21feefb40986",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.773Z",
-      "addressLocality": "Ostermundigen",
-      "postalCode": "3072",
-      "addressRegion": "Bern",
-      "streetAddress": "Milchstrasse 9",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19474",
-      "requirements": [
-        "• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.",
-        "• Du bringst bereits Erfahrung in einer administrativen Tätigkeit mit und verfügst idealerweise über erste Führungserfahrung.",
-        "• Du bist eine aufgestellte, herzliche Persönlichkeit und findest Freude im regen Austausch mit internen und externen Kunden.",
-        "• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.",
-        "• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).",
-        "• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse.",
-        "Aufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "• Disponi di una formazione professionale commerciale conclusa o di un titolo di studio equivalente.",
-          "• Hai già esperienza in un'attività amministrativa e disponi idealmente di una prima esperienza di gestione.",
-          "• Sei una personalità cordiale e dinamica e trovi gioia nello scambio con clienti interni ed esterni.",
-          "• Idealmente, disponi della formazione di formatore pratico o sei disposto a conseguirla.",
-          "• Sei esperto nell'utilizzo degli strumenti Office comuni (Outlook, Excel, Word).",
-          "• Hai conoscenze di tedesco sicure e fluenti in inglese.",
-          "A causa delle assenze per ferie, i colloqui del primo turno saranno programmati non prima della settimana 27."
-        ],
-        "en": [
-          "• You have completed commercial training or an equivalent degree.",
-          "• You already have experience in an administrative activity and ideally have some management experience.",
-          "• You are a friendly and dynamic personality and enjoy exchanging with internal and external customers.",
-          "• Ideally, you have a practical trainer qualification or are willing to obtain it.",
-          "• You are proficient in the use of common Office tools (Outlook, Excel, Word).",
-          "• You have fluent German and English language skills.",
-          "Due to vacation absences, the first-round interviews will be scheduled no earlier than week 27."
-        ],
-        "de": [
-          "• Du verfügst über eine abgeschlossene kaufmännische Berufsausbildung oder einen vergleichbaren Abschluss.",
-          "• Idealerweise bringst du die Praxisbildner-Ausbildung mit oder bist bereit, diese noch zu absolvieren.",
-          "• Du bist sattelfest im Umgang mit den gängigen Office-Tools (Outlook, Excel, Word).",
-          "• Du hast verhandlungssichere Deutsch- und fliessende Englischkenntnisse.",
-          "Aufgrund von Ferienabwesenheiten werden die Erstrundengespräche frühestens auf KW27 terminiert."
-        ],
-        "fr": [
-          "• Vous avez suivi une formation commerciale ou un diplôme équivalent.",
-          "• Vous êtes une personnalité cordiale et dynamique et trouvez plaisir à échanger avec les clients internes et externes.",
-          "• Idéalement, vous disposez d'une qualification de formateur pratique ou êtes prêt à l'obtenir.",
-          "• Vous êtes compétent dans l'utilisation des outils Office courants (Outlook, Excel, Word).",
-          "• Vous avez des connaissances d'allemand sûres et fluides en anglais.",
-          "En raison des absences pour vacances, les entretiens du premier tour seront programmés au plus tôt à la semaine 27."
-        ]
-      },
-      "previousSlugs": [
-        "teamleiter-in-empfang-emmi-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-empfang-emmi-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:39.178Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -4675,7 +4716,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/automatiker-in-betriebselektriker-in/2ff4ff6e-ef59-44f7-a5d3-67b4897ce106",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.771Z",
+      "crawledAt": "2026-06-10T22:34:48.298Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -4782,7 +4823,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-oder-milchtechnologe/537438de-a408-407a-a9c5-2b40051c5521",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.770Z",
+      "crawledAt": "2026-06-10T22:34:48.297Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressRegion": "Graubünden",
@@ -4824,6 +4865,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.176Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4868,7 +4910,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin/f101bfd9-ad40-4ae8-9f24-7b64118bdc87",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.769Z",
+      "crawledAt": "2026-06-10T22:34:48.296Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -4949,7 +4991,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-kaesereiberei/3775b760-9faa-41b6-8390-8928540ae0c1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.767Z",
+      "crawledAt": "2026-06-10T22:34:48.295Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -5044,7 +5086,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/speditionsmitarbeiter-in/e1008e10-bf78-4390-8319-b98f666c548b",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.766Z",
+      "crawledAt": "2026-06-10T22:34:48.294Z",
       "addressLocality": "Kaltbach",
       "postalCode": "6212",
       "addressRegion": "Luzern",
@@ -5152,7 +5194,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-in-der-einmischung/753948d8-ad04-4bde-954a-8a624f3e990f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.765Z",
+      "crawledAt": "2026-06-10T22:34:48.292Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -5247,7 +5289,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-uht-past/4663aedb-fe6b-467a-99c5-77c61e81dc47",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.757Z",
+      "crawledAt": "2026-06-10T22:34:48.284Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -5332,7 +5374,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/leiter-in-produktionsplanung-warendisposition/fc719719-8f8f-4313-be08-b2d59d40030a",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.756Z",
+      "crawledAt": "2026-06-10T22:34:48.283Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -5371,6 +5413,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.164Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5415,7 +5458,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/39379c6c-1d78-47fc-934a-b516eb0ad3de",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:59:57.752Z",
+      "crawledAt": "2026-06-10T22:34:48.280Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
