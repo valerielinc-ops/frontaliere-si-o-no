@@ -49,6 +49,13 @@ jobs:
 
       - name: Pre-flight — already-resolved gate (zero-Claude)
         id: preflight
+        # PROCEED-SAFE: a gate failure must NEVER strand the issue. The script is total
+        # (catches its own throws → emits already_resolved=false), but continue-on-error is
+        # belt-and-suspenders: any infra fault (node/npm) leaves the output unset → the
+        # downstream `already_resolved != 'true'` gates evaluate true → the normal fixer
+        # runs unchanged. The only way the Claude steps are skipped is an EXPLICIT
+        # `already_resolved=true` (a strong, deterministic match), never an error.
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}

@@ -79,32 +79,57 @@ function setOutput(resolved) {
 }
 
 /**
- * IO resolver backed by the checked-out working tree (issue-fix.yml checks out the
- * default branch at full depth, so disk === main). Falls back to `git show origin/main:`
- * if the file is not on disk for any reason — keeps the gate honest about main's state.
+ * IO resolver: the gate must judge whether the fix is present ON MAIN. issue-fix.yml
+ * checks out the default branch at full depth, so the working tree === main — but we do
+ * NOT trust that blindly. We read `git show origin/main:<path>` as the authoritative ref
+ * and use the working-tree copy only as an optimisation when it is verifiably the same
+ * commit as origin/main; otherwise we go straight to origin/main so a stray ref/checkout
+ * can never make us read a wrong-ref file as if it were main.
+ *
+ * PROCEED-SAFE: if BOTH the working tree and `git show origin/main:<path>` are
+ * unavailable, readFile returns null → the matcher skips that file → `resolved=false`
+ * → the fixer runs. A failed ref resolution can never produce a false short-circuit.
  */
+const DISK_IS_MAIN = (() => {
+  try {
+    const head = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf-8' }).trim();
+    const originMain = execFileSync('git', ['rev-parse', 'origin/main'], { encoding: 'utf-8' }).trim();
+    return head.length > 0 && head === originMain;
+  } catch {
+    return false; // can't prove HEAD === origin/main → never read disk as main
+  }
+})();
+
+function readFromOriginMain(p) {
+  try {
+    return execFileSync('git', ['show', `origin/main:${p}`], { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
+  } catch {
+    return null;
+  }
+}
+
 const cache = new Map();
 const io = {
   fileExists: (p) => {
-    if (fs.existsSync(p)) return true;
+    // origin/main is authoritative; disk only counts when it is provably main.
     try {
       execFileSync('git', ['cat-file', '-e', `origin/main:${p}`], { stdio: 'ignore' });
       return true;
     } catch {
-      return false;
+      return DISK_IS_MAIN && fs.existsSync(p);
     }
   },
   readFile: (p) => {
     if (cache.has(p)) return cache.get(p);
     let content = null;
-    try {
-      content = fs.readFileSync(p, 'utf-8');
-    } catch {
+    if (DISK_IS_MAIN) {
       try {
-        content = execFileSync('git', ['show', `origin/main:${p}`], { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
+        content = fs.readFileSync(p, 'utf-8');
       } catch {
-        content = null;
+        content = readFromOriginMain(p);
       }
+    } else {
+      content = readFromOriginMain(p); // disk not provably main → only trust the ref
     }
     cache.set(p, content);
     return content;
@@ -147,15 +172,25 @@ function main() {
   }
 
   // In-flight: an open PR referencing this issue means the work is in progress, NOT done.
-  const openPrs = JSON.parse(
-    gh(['pr', 'list', '--state', 'open', ...repoArgs, '--json', 'number,headRefName,title,body', '--limit', '100'], { allowFail: true }) || '[]',
-  );
-  const inFlight = openPrs.some((pr) =>
-    pr.headRefName?.includes(`issue-${ISSUE}`) ||
-    new RegExp(`(^|[^\\d])#${ISSUE}([^\\d]|$)`).test(`${pr.title}\n${pr.body || ''}`),
-  );
+  // issue-fix names its branch `fix/issue-<N>` (issue-fix.yml § "Branch isolato"), so the
+  // `issue-<N>` substring catches the autonomous fixer's own PR; the `#<N>` title/body
+  // regex catches organic PRs. Bias to PROCEED on ANY doubt: if the PR list can't be read
+  // or parsed, treat as in-flight (don't short-circuit) rather than risk dropping a real
+  // fix while a PR is open.
+  let inFlight = false;
+  try {
+    const openPrs = JSON.parse(
+      gh(['pr', 'list', '--state', 'open', ...repoArgs, '--json', 'number,headRefName,title,body', '--limit', '100'], { allowFail: true }) || '[]',
+    );
+    inFlight = openPrs.some((pr) =>
+      (pr.headRefName || '').includes(`issue-${ISSUE}`) ||
+      new RegExp(`(^|[^\\d])#${ISSUE}([^\\d]|$)`).test(`${pr.title || ''}\n${pr.body || ''}`),
+    );
+  } catch {
+    inFlight = true; // unreadable PR state → assume in-flight, proceed-safe.
+  }
   if (inFlight) {
-    console.log('Open PR references this issue — proceeding (in-flight, not done).');
+    console.log('Open PR references this issue (or PR state unreadable) — proceeding (in-flight, not done).');
     setOutput(false);
     return;
   }
@@ -199,4 +234,16 @@ ${OUTCOME}`;
   }
 }
 
-main();
+// TOTAL / PROCEED-SAFE: the preflight step in issue-fix.yml has no continue-on-error and
+// every Claude step gates on `already_resolved != 'true'`. If main() ever throws (malformed
+// body, gh fault, ref error), the job would fail WITHOUT removing `agent:fix` → the issue is
+// stranded labeled-but-undispatched (the very failure mode this gate exists to prevent). So
+// any uncaught error is swallowed → emit `already_resolved=false` and exit 0 → the normal
+// fixer runs unchanged. A throw can NEVER strand the issue.
+try {
+  main();
+} catch (e) {
+  console.error('Pre-flight gate error — proceeding (normal fixer runs):', e && e.message ? e.message : e);
+  setOutput(false);
+  process.exit(0);
+}

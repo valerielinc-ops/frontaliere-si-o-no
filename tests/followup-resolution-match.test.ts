@@ -4,6 +4,7 @@ import {
   citedFiles,
   citedTokens,
   suggestedActionText,
+  mostSpecificToken,
   detectAlreadyResolved,
   // @ts-expect-error — plain .mjs module, no types
 } from '../scripts/ci/followup-resolution-match.mjs';
@@ -40,9 +41,9 @@ describe('isDistinctiveToken', () => {
   });
 
   it('rejects bare funnel field/helper names — they occur in cited files independent of any fix (#1647)', () => {
-    // A bare field name lives in a slug/redirect builder regardless of whether the
-    // prescribed fix landed; promoting it to "distinctive" would silently short-circuit a
-    // still-pending funnel-critical fix. Only its real punctuated form is distinctive.
+    // REVIEW.md L92 fields: present in slug/redirect/orphan-merge files INDEPENDENTLY of any
+    // prescribed fix. A bare occurrence must NOT qualify as distinctive, or a coincidental
+    // hit short-circuits the gate and drops a still-pending redirect/canonical fix.
     expect(isDistinctiveToken('previousSlugs')).toBe(false);
     expect(isDistinctiveToken('mergedCount')).toBe(false);
     expect(isDistinctiveToken('getList')).toBe(false);
@@ -51,6 +52,15 @@ describe('isDistinctiveToken', () => {
     // …but the punctuated forms still qualify:
     expect(isDistinctiveToken('previousSlugs.push(')).toBe(true);
     expect(isDistinctiveToken('getList()')).toBe(true);
+  });
+
+  it('STILL accepts those field names when carrying code punctuation (real prescribed signal)', () => {
+    // With code punctuation (call / member / comparison) the token is the actual prescribed
+    // code shape → legitimate evidence, not a coincidental bare field name.
+    expect(isDistinctiveToken('markStale()')).toBe(true); // call
+    expect(isDistinctiveToken('mergedCount >= 1')).toBe(true); // comparison
+    expect(isDistinctiveToken('job.previousSlugs')).toBe(true); // dot-member
+    expect(isDistinctiveToken('getList()')).toBe(true); // call
   });
 
   it('does NOT short-circuit on a bare funnel field present for unrelated reasons (#1647 false-positive)', () => {
@@ -67,6 +77,13 @@ describe('isDistinctiveToken', () => {
       readFile: () => 'export function build(job) { return job.previousSlugs ?? []; }',
     };
     expect(detectAlreadyResolved(body, io).resolved).toBe(false);
+  });
+});
+
+describe('mostSpecificToken', () => {
+  it('picks the token carrying the richest code structure', () => {
+    expect(mostSpecificToken(['markStale()', 'previousSlugs:'])).toBe('markStale()');
+    expect(mostSpecificToken([])).toBe(null);
   });
 });
 
@@ -165,5 +182,83 @@ describe('detectAlreadyResolved (end-to-end matcher)', () => {
   it('tolerates unreadable files (readFile null) without throwing', () => {
     const io = { fileExists: () => true, readFile: () => null };
     expect(detectAlreadyResolved(body, io).resolved).toBe(false);
+  });
+
+  // ── False-positive safety: the reviewer 🔴 — a coincidental bare field-name match
+  //    must NOT short-circuit and drop a still-pending fix. ──────────────────────────
+  it('does NOT flag when only a BARE field name is cited and the prescribed code token is absent', () => {
+    // Body cites a slug/redirect builder; the ONLY backticked span in Suggested action is a
+    // bare `previousSlugs` (no punctuation). It is no longer distinctive → no token → proceed,
+    // even though the file legitimately contains the field independently of the fix.
+    const bareBody = [
+      '### Restore redirects',
+      '- Suggested action: ensure `previousSlugs` are preserved in `scripts/ci/slug-builder.mjs`',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/ci/slug-builder.mjs',
+      // File contains the field name as part of unrelated existing code — must NOT count.
+      readFile: () => 'const out = { previousSlugs: job.previousSlugs ?? [] };',
+    };
+    const res = detectAlreadyResolved(bareBody, io);
+    expect(res.tokens).toEqual([]); // bare identifier rejected → no distinctive token
+    expect(res.resolved).toBe(false); // → proceed (run the fixer), do not drop the fix
+  });
+
+  it('does NOT short-circuit when only SOME (not all) prescribed tokens are present', () => {
+    // Two prescribed tokens; only one happens to be in the file. The bar is ALL tokens
+    // present — a partial match proves the fix is incomplete → proceed.
+    const twoTokBody = [
+      '- Suggested action: add `mergedCount >= 1` guard and call `markStale()` in',
+      '  `scripts/ci/parser.mjs`',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/ci/parser.mjs',
+      // Contains `mergedCount >= 1` but NOT `markStale()`.
+      readFile: () => 'if (mergedCount >= 1) { /* TODO: still need markStale call */ }',
+    };
+    const res = detectAlreadyResolved(twoTokBody, io);
+    expect(res.evidence.length).toBeGreaterThan(0); // one token did match…
+    expect(res.resolved).toBe(false); // …but not ALL → proceed (do not drop the fix)
+  });
+
+  it('flags resolved only when ALL prescribed tokens are present', () => {
+    const twoTokBody = [
+      '- Suggested action: add `mergedCount >= 1` guard and call `markStale()` in',
+      '  `scripts/ci/parser.mjs`',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/ci/parser.mjs',
+      readFile: () => 'if (mergedCount >= 1) { markStale(); }',
+    };
+    expect(detectAlreadyResolved(twoTokBody, io).resolved).toBe(true);
+  });
+
+  // ── Total / defensive: a malformed body or faulty resolver must never throw. ──────
+  it('does NOT throw on a malformed / non-string body → proceed', () => {
+    const io = { fileExists: () => true, readFile: () => 'whatever' };
+    // @ts-expect-error — deliberately passing junk to prove it is swallowed.
+    expect(() => detectAlreadyResolved(null, io)).not.toThrow();
+    // @ts-expect-error
+    expect(detectAlreadyResolved(undefined, io).resolved).toBe(false);
+    // @ts-expect-error
+    expect(detectAlreadyResolved({ not: 'a string' }, io).resolved).toBe(false);
+  });
+
+  it('does NOT throw when the resolver itself throws → proceed', () => {
+    const io = {
+      fileExists: () => true,
+      readFile: () => {
+        throw new Error('git show exploded');
+      },
+    };
+    expect(() => detectAlreadyResolved(body, io)).not.toThrow();
+    expect(detectAlreadyResolved(body, io).resolved).toBe(false);
+  });
+
+  it('does NOT throw when io is missing/partial → proceed', () => {
+    // @ts-expect-error — missing readFile
+    expect(detectAlreadyResolved(body, {}).resolved).toBe(false);
+    // @ts-expect-error — no io at all
+    expect(() => detectAlreadyResolved(body, undefined)).not.toThrow();
   });
 });

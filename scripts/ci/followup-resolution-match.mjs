@@ -24,10 +24,21 @@
  */
 
 /**
- * A token qualifies only if it carries code punctuation (paren/quote/colon/dot-member/
- * operator) — bare prose words and plain identifiers are rejected to keep precision
- * high (we'd rather miss a resolved issue than wrongly flag a live one). Bare file
- * paths are handled separately by fileResolver/citedFiles.
+ * A token qualifies only if it carries CODE PUNCTUATION (paren/brace/quote/backtick,
+ * dot-member, `::`, `=>`, comparison/assignment operator, `:digit`). Bare prose words
+ * AND bare identifiers — `previousSlugs`, `mergedCount`, `getList`, `markStale` on their
+ * own — are REJECTED.
+ *
+ * Why no bare-identifier allowlist (was `getList|markStale|mergedCount|previousSlugs`):
+ * those are exactly the funnel-critical #829 field names cited in REVIEW.md L92. They
+ * occur in the cited file INDEPENDENTLY of the prescribed fix (`previousSlugs` lives in
+ * every slug/redirect builder; `mergedCount` in any orphan-merge), so promoting a bare
+ * occurrence to "distinctive" lets a coincidental field-name hit short-circuit the gate
+ * and DROP a still-pending redirect/canonical fix. A token must therefore appear WITH
+ * code punctuation in the issue's `Suggested action` (e.g. `markStale()`,
+ * `job.previousSlugs`, `mergedCount >= 1`) before it can ever count as evidence. Test
+ * matchers (`toContain`/`expect`/…) likewise only qualify inside a call/member shape via
+ * the generic punctuation classes below — never as a bare word.
  */
 export function isDistinctiveToken(s) {
   if (s.length < 6 || s.length > 80) return false;
@@ -42,6 +53,21 @@ export function isDistinctiveToken(s) {
   // Such names still qualify in their real form (`previousSlugs.push(`, `getList()`) via the
   // dot-member/paren branches below.
   return /[(){}'"`]|::|=>|\.\w|:\d|>=|<=/.test(s);
+}
+
+/**
+ * The single MOST-SPECIFIC token among a candidate set: the one carrying the richest code
+ * structure (most punctuation, longest). Exported for inspection/telemetry; the
+ * short-circuit bar in detectAlreadyResolved requires ALL distinctive tokens present
+ * (a superset of "most-specific present"), which is not sensitive to this ordering.
+ */
+export function mostSpecificToken(tokens) {
+  if (!tokens.length) return null;
+  const score = (t) => {
+    const punct = (t.match(/[(){}[\]'"`.:;=<>+\-*/!&|?]/g) || []).length;
+    return punct * 100 + t.length; // punctuation dominates, length tie-breaks
+  };
+  return [...tokens].sort((a, b) => score(b) - score(a))[0];
 }
 
 /**
@@ -96,8 +122,26 @@ export function citedTokens(body) {
 }
 
 /**
- * Core resolution check: does any distinctive cited token already appear verbatim in
- * its cited file's current content? Pure — the caller injects file access.
+ * Core resolution check: does the cited file's CURRENT content already contain the
+ * prescribed fix? Pure — the caller injects file access.
+ *
+ * SHORT-CIRCUIT BAR (deliberately high — a false short-circuit drops a REAL bug, far
+ * worse than a wasted run):
+ *   1. There is at least one distinctive cited token (code-punctuation-carrying — a bare
+ *      field name like `previousSlugs` no longer qualifies); AND
+ *   2. EVERY distinctive token from the prescribed `Suggested action` is present verbatim
+ *      in a cited file. Requiring ALL of them — not merely *some* token, and not just the
+ *      heuristic "most-specific" one — means a single coincidental field-name hit can
+ *      never alone flip `resolved` to true; the whole prescribed shape must be on main.
+ *      (This is a strict superset of "most-specific token present", and unlike that test
+ *      it is not sensitive to any token-scoring heuristic.)
+ * Anything weaker/partial/ambiguous → `resolved=false` → the caller PROCEEDS (runs the
+ * fixer). The worst outcome — dropping a still-pending fix — is structurally excluded.
+ *
+ * TOTAL / DEFENSIVE: any malformed body or resolver fault is swallowed and reported as
+ * `resolved=false` (proceed), so a throw can NEVER strand an issue (the issue-fix
+ * pre-flight has no continue-on-error; a throw there would skip the `agent:fix` removal
+ * AND the fixer → labeled-but-undispatched). Never throws.
  *
  * @param {string} body                              issue body markdown
  * @param {object} io
@@ -106,20 +150,32 @@ export function citedTokens(body) {
  * @returns {{ resolved: boolean, evidence: Array<{file:string, tok:string}>,
  *             files: string[], tokens: string[] }}
  */
-export function detectAlreadyResolved(body, { fileExists, readFile }) {
-  const files = citedFiles(body || '', fileExists);
-  const tokens = citedTokens(body || '');
-  const evidence = [];
-  if (files.length && tokens.length) {
-    const cache = new Map();
-    for (const file of files) {
-      if (!cache.has(file)) cache.set(file, readFile(file));
-      const content = cache.get(file);
-      if (content == null) continue;
-      for (const tok of tokens) {
-        if (content.includes(tok)) evidence.push({ file, tok });
+export function detectAlreadyResolved(body, io) {
+  const empty = { resolved: false, evidence: [], files: [], tokens: [] };
+  try {
+    const fileExists = io && typeof io.fileExists === 'function' ? io.fileExists : () => false;
+    const readFile = io && typeof io.readFile === 'function' ? io.readFile : () => null;
+    const files = citedFiles(body || '', fileExists);
+    const tokens = citedTokens(body || '');
+    const evidence = [];
+    if (files.length && tokens.length) {
+      const cache = new Map();
+      for (const file of files) {
+        if (!cache.has(file)) cache.set(file, readFile(file));
+        const content = cache.get(file);
+        if (typeof content !== 'string') continue;
+        for (const tok of tokens) {
+          if (content.includes(tok)) evidence.push({ file, tok });
+        }
       }
     }
+    // Bar: EVERY distinctive prescribed token must be matched (high bar — a coincidental
+    // single field-name hit can never short-circuit and drop a real fix).
+    const matched = new Set(evidence.map((e) => e.tok));
+    const resolved = tokens.length > 0 && tokens.every((t) => matched.has(t));
+    return { resolved, evidence, files, tokens };
+  } catch {
+    // Malformed body / faulty resolver → proceed-safe. Never strand the issue.
+    return empty;
   }
-  return { resolved: evidence.length > 0, evidence, files, tokens };
 }
