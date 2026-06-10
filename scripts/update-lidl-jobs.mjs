@@ -323,8 +323,13 @@ async function fetchLidlJobDetailUrls() {
     if (!payload) break;
 
     if (page === 1) {
-      pageCount = Math.min(Number(payload?.result?.pageCount) || 1, LIDL_MAX_PAGES);
+      const reportedPageCount = Number(payload?.result?.pageCount) || 1;
+      pageCount = Math.min(reportedPageCount, LIDL_MAX_PAGES);
       console.log(`    📦 Reported national results: ${payload?.result?.count ?? '?'} (${pageCount} page(s))`);
+      // Surface the safety-ceiling so a silent cap ≠ a fully drained feed.
+      if (reportedPageCount > LIDL_MAX_PAGES) {
+        console.warn(`    ⚠️ Pagination capped at ${LIDL_MAX_PAGES}/${reportedPageCount} pages (LIDL_MAX_PAGES=${LIDL_MAX_PAGES} ceiling) — raise JOBS_LIDL_MAX_PAGES if the national Lidl feed has grown.`);
+      }
     }
 
     // `result.hits` is nested; the helper validates a top-level key, so pass
