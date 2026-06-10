@@ -112,6 +112,7 @@ export async function createAlert(
     setDoc,
     query,
     where,
+    orderBy,
     getDocs,
     serverTimestamp,
   } = await import('firebase/firestore');
@@ -119,10 +120,20 @@ export async function createAlert(
   const normalizedEmail = normalizeEmail(email);
 
   // Enforce per-user limit across all subscriber docs.
+  // NOTE: the `orderBy('createdAt', 'desc')` is REQUIRED, not cosmetic — it makes
+  // this collectionGroup query reuse the deployed composite index
+  // (userId ASC, active ASC, createdAt DESC), identical to getUserAlerts below.
+  // Without it the equality-only query needs a separate (userId, active) index
+  // that was never deployed (firestore.indexes.json is not applied by CI —
+  // deploy-firestore-rules.yml ships `firestore:rules` only), so getDocs threw
+  // FAILED_PRECONDITION ("query requires an index") and createAlert aborted
+  // before writing — surfacing as the "Non sono riuscito a creare l'alert" toast
+  // for every newsletter/autologin user (the exact target of the job-detail prompt).
   const existingQ = query(
     collectionGroup(db, ALERTS_SUBCOLLECTION),
     where('userId', '==', userId),
     where('active', '==', true),
+    orderBy('createdAt', 'desc'),
   );
   const existing = await getDocs(existingQ);
   if (existing.size >= MAX_ALERTS_PER_USER) {
