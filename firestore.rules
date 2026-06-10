@@ -188,7 +188,11 @@ service cloud.firestore {
       return next.publisherUid == prev.publisherUid
         && next.tier == prev.tier
         && next.status == prev.status
-        && (next.tier != 'free' || next.featured != true);
+        && (next.tier != 'free' || next.featured != true)
+        // Billing is per-location and the Stripe subscription quantity is fixed at
+        // checkout. A content edit must NOT change the location count (would emit
+        // unbilled per-location pages). Adding locations requires a new checkout.
+        && next.locations.size() == prev.locations.size();
     }
 
     // Publisher accounts / company profile — owner-only (billing data is private;

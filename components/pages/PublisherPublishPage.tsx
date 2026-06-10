@@ -441,9 +441,14 @@ const PublisherPublishPage: React.FC = () => {
  const updateLocation = (index: number, patch: Partial<LocationRow>) => {
  setLocations(prev => prev.map((loc, i) => (i === index ? { ...loc, ...patch } : loc)));
  };
- const addLocation = () => setLocations(prev => [...prev, emptyLocationRow()]);
- const removeLocation = (index: number) =>
+ // In edit mode the location COUNT is locked: billing is per-location and the
+ // Stripe subscription quantity is fixed at checkout (firestore.rules pins the
+ // count too). Adding/removing locations requires a new purchase.
+ const addLocation = () => { if (isEdit) return; setLocations(prev => [...prev, emptyLocationRow()]); };
+ const removeLocation = (index: number) => {
+ if (isEdit) return;
  setLocations(prev => (prev.length <= 1 ? prev : prev.filter((_, i) => i !== index)));
+ };
 
  const cantonOptions = useMemo(() => listCantonOptions(locale), [locale]);
  const descriptionWords = useMemo(() => countWords(description), [description]);
@@ -1090,7 +1095,7 @@ const PublisherPublishPage: React.FC = () => {
  placeholder={t('publisher.locations.placeholder')}
  />
  </div>
- {locations.length > 1 && (
+ {!isEdit && locations.length > 1 && (
  <button
  type="button"
  onClick={() => removeLocation(index)}
@@ -1152,6 +1157,7 @@ const PublisherPublishPage: React.FC = () => {
  </div>
  ))}
  </div>
+ {!isEdit && (
  <button
  type="button"
  onClick={addLocation}
@@ -1160,6 +1166,7 @@ const PublisherPublishPage: React.FC = () => {
  <Plus className="w-4 h-4" />
  {t('publisher.locations.add')}
  </button>
+ )}
  </section>
 
  {/* ── Apply ──────────────────────────────────────────── */}

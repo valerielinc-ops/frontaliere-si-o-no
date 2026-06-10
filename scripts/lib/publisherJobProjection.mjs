@@ -97,8 +97,17 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   const apply = pubJob.apply || {};
   const postedIso = toIso(pubJob.paidAt, nowIso) || toIso(pubJob.createdAt, nowIso);
   const firstSeenIso = toIso(pubJob.createdAt, postedIso);
+  // `crawledAt` = "last verified live" — the emitter (jobsSeoPagesPlugin
+  // toValidThrough) derives JobPosting validThrough from crawledAt (+60d), NOT
+  // from the record's validThrough. A still-paid ad is re-projected every sync
+  // run, so anchoring crawledAt to TODAY (day granularity, not the full
+  // timestamp) keeps validThrough ~60d in the future for the whole subscription
+  // while changing the slice at most once/day (no 30-min deploy churn). When the
+  // subscription lapses the ad drops from the slice entirely.
+  const crawledAtIso = String(nowIso || postedIso || '').slice(0, 10) || null;
   const validThroughIso =
-    postedIso ? new Date(new Date(postedIso).getTime() + validDays * 86400000).toISOString() : null;
+    crawledAtIso ? new Date(new Date(crawledAtIso).getTime() + validDays * 86400000).toISOString()
+      : (postedIso ? new Date(new Date(postedIso).getTime() + validDays * 86400000).toISOString() : null);
 
   const locations = distinctLocations(pubJob.locations);
   if (locations.length === 0) return [];
@@ -145,6 +154,8 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       salaryMax: pubJob.salaryMax ?? null,
       currency: pubJob.currency || 'CHF',
       firstSeenAt: firstSeenIso,
+      // Refreshed (day-granularity) while the ad stays live → validThrough never goes stale.
+      crawledAt: crawledAtIso,
       featured: !isFree && pubJob.featured === true,
       tier: isFree ? 'free' : 'sponsored',
       // Apply mode drives the candidate-side UI: 'external_url' → link out (free

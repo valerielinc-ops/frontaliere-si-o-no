@@ -77,8 +77,21 @@ describe('publisherJobToRecords', () => {
     expect(r.country).toBe('CH');
     expect(r.currency).toBe('CHF');
     expect(r.postedDate).toBe(NOW);
-    expect(r.validThrough).toBe('2026-07-10T10:00:00.000Z'); // +30 days
+    // crawledAt is day-granularity (= "last verified live"); validThrough = crawledAt + 30d.
+    expect(r.crawledAt).toBe('2026-06-10');
+    expect(r.validThrough).toBe('2026-07-10T00:00:00.000Z');
     expect(r.addressLocality).toBe('Lugano');
+  });
+
+  it('refreshes crawledAt so validThrough never goes stale on a still-live ad', () => {
+    // Ad paid months ago but re-projected today → crawledAt = today, validThrough future.
+    const [r] = publisherJobToRecords(
+      paidJob({ paidAt: '2026-01-01T00:00:00.000Z', createdAt: '2026-01-01T00:00:00.000Z' }),
+      { nowIso: '2026-09-15T08:00:00.000Z' },
+    );
+    expect(r.crawledAt).toBe('2026-09-15');
+    expect(r.postedDate).toBe('2026-01-01T00:00:00.000Z'); // datePosted stays true
+    expect(new Date(r.validThrough).getTime()).toBeGreaterThan(new Date('2026-09-15').getTime());
   });
 
   it('honors explicit location address + canton', () => {
