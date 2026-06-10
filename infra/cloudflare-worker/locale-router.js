@@ -42,10 +42,13 @@ const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 // keeps frontaliere-locale-router under the free-tier 100k/day cap once the
 // asset fan-out is gone (#1665 + route drop). Safe against stale-HTML 404s:
 // superseded CDN asset hashes are retained GRACE_DAYS=7 (prune-cdn-assets.mjs),
-// far longer than this TTL, so HTML served up to 1h stale still resolves every
+// far longer than this TTL, so HTML served up to 2h stale still resolves every
 // referenced /assets hash. Live job data is client-fetched fresh from the CDN at
-// runtime (not baked into this cached HTML), so a 1h-stale SEO shell is fine.
-const CACHE_MAX_AGE = 3600; // 1 h
+// runtime (not baked into this cached HTML), so a 2h-stale SEO shell is fine.
+// Bumped 3600->7200 (2026-06-10): on the free plan the Worker is mandatory for
+// the shard Host rewrite (Origin Rules' Host-header override is paid-only), so
+// edge caching is the only lever left to cut invocations under the 100k/day cap.
+const CACHE_MAX_AGE = 7200; // 2 h
 
 export default {
   async fetch(request, _env, ctx) {

@@ -261,7 +261,18 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  // ── Handlers ──
 
- const handleCompanyClick = (e: MouseEvent<HTMLAnchorElement>) => {
+ // Orphan views always route the company link through SPA in-app navigation
+ // (a <button>, never an <a href>): the slug came from GSC / a legacy URL with
+ // no live data, so the company may have rotated out of the current build
+ // (zero active jobs → no static hub emitted). A full-nav to the hub URL would
+ // 404 → 404.html saves the URL → location.replace('/') → SPA restore →
+ // staticOverlay:true → BLANK PAGE (the burkhalter-group incident,
+ // build-plugins/staticPagesPlugin.ts:~1341). SPA nav resolves to an
+ // empty-but-browsable board (HTTP 200) — strictly safer. A <button> (no href)
+ // makes this fail-safe by construction: middle-click / cmd-click / "open in
+ // new tab" cannot bypass the handler into a possible-404 full-nav, which an
+ // <a href> would allow. See issue #1183 / PR #1156 Non implementato.
+ const handleCompanyClick = (e: MouseEvent<HTMLButtonElement>) => {
  if (!companySlug) return;
  e.preventDefault();
  e.stopPropagation();
@@ -363,14 +374,14 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {(slugParts.company || slugParts.location) && (
  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-2 text-sm leading-tight text-subtle">
  {slugParts.company && companyHref && (
- <a
- href={companyHref}
- onClickCapture={handleCompanyClick}
+ <button
+ type="button"
+ onClick={handleCompanyClick}
  className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <Building2 size={14} className="text-muted" />
  {slugParts.company}
- </a>
+ </button>
  )}
  {slugParts.location && locationHref && (
  <a
@@ -389,10 +400,10 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  const companyBanner = slugParts.company && companyHref && (
- <a
- href={companyHref}
- onClickCapture={handleCompanyClick}
- className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
+ <button
+ type="button"
+ onClick={handleCompanyClick}
+ className="block w-full text-left rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
@@ -418,7 +429,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </p>
  </div>
  </div>
- </a>
+ </button>
  );
 
  const activeJobsSection = activeJobLinks.length > 0 && (
