@@ -2412,17 +2412,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // waiting out the dwell timer. Consume the ref so it fires only once.
  const justAuthed = justAuthedJobIdRef.current === selectedJob.id;
  if (justAuthed) justAuthedJobIdRef.current = null;
- // 1.5 s otherwise (was 4 s): the 4 s timer was further pushed back by the
- // detail enrichment fetch re-running this effect (selectedJob ref changes),
- // so eligible users — 75% mobile, short dwell — left before the prompt
- // showed (~4 `shown` events in 30 days). 1.5 s still avoids prompting on an
- // accidental tap while landing the impression while the user is engaged.
+ // Show immediately (0 s) for peak-intent arrivals; 1.5 s dwell otherwise.
+ // Newsletter-autologin visitors only become authenticated after a ~4 s token
+ // exchange, and the 1.5 s timer then races (and usually loses) against the
+ // AdSense/enrichment re-renders that re-run this effect — so the prompt often
+ // never fires (observed: hasUser:true at +4 s, then no toast). They clicked a
+ // job in an email = peak intent, so treat them like an in-app post-auth unlock.
+ const showImmediately = justAuthed || wasNewsletterAutologinAttempted();
  timerId = window.setTimeout(() => {
  if (cancelled) return;
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
  Analytics.trackJobAlertCtaShown('job_detail_prompt', localizedCategory);
- }, justAuthed ? 0 : 1500);
+ }, showImmediately ? 0 : 1500);
  })();
 
  return () => {
