@@ -77,6 +77,20 @@ service cloud.firestore {
       allow read: if true;
     }
 
+    // Collection-group reads for `alerts` (getUserAlerts + createAlert's per-user
+    // limit check both run `collectionGroup('alerts').where('userId','==',uid)`).
+    // Firestore does NOT apply the nested
+    // `/job_alert_subscribers/{email}/alerts/{alertId}` rule to collection-group
+    // queries, so without this top-level `{path=**}` rule every such read is
+    // permission-denied — which silently broke BOTH listing and creating job
+    // alerts (job_alert_subscribers frozen since 2026-04-25, ~21 GA4
+    // `job_alert_cta_skipped:get_alerts_failed` events/day). Scoped to the
+    // caller's own alerts via the denormalized userId.
+    match /{path=**}/alerts/{alertId} {
+      allow read: if request.auth != null
+        && request.auth.uid == resource.data.userId;
+    }
+
     // Job alert subscribers — root doc per email, mirrors newsletter_subscribers.
     // Top-level doc is public-write (Cloud Functions + client init); engagement
     // counters are written by ESP webhooks via the Admin SDK.
