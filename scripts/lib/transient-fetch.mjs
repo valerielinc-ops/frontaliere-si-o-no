@@ -154,8 +154,15 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
  *     `.arrayBuffer()`, inspects `.ok`/`.status`/`.headers` as before);
  *   - does NOT throw on a non-retryable non-ok status — the caller keeps its own
  *     `if (!res.ok) …` handling (e.g. graceful-degradation paths);
- *   - adds an `AbortSignal.timeout(timeout)` so a hung socket aborts instead of
- *     blocking the run forever (the abort is itself treated as transient).
+ *   - bounds the CONNECTION/HEADER phase with a per-attempt timeout (a stalled
+ *     DNS/TLS/handshake aborts instead of blocking the run forever, and the
+ *     abort is treated as transient) — but clears the timer the instant the
+ *     response headers arrive, so the body read the caller runs afterwards
+ *     (`.text()`/`.arrayBuffer()` on a multi-MB ZIP/XLSX) is NOT aborted
+ *     mid-stream. Keeping an `AbortSignal.timeout` armed through the body read
+ *     would abort a slow-but-healthy large download and throw an `AbortError`
+ *     at the caller's `.arrayBuffer()` (outside its try/catch) → the very
+ *     "Workflow Failure" crash this helper exists to prevent.
  *
  * Retryable HTTP statuses are surfaced as a thrown tagged error so the backoff
  * loop sees them; after the final attempt the real `Response` is returned so the
@@ -175,9 +182,26 @@ export async function httpFetchWithRetry(url, options = {}, opts = {}) {
   const label = opts.label || String(url);
   return fetchWithRetry(
     async () => {
-      // A caller-supplied signal takes precedence; otherwise apply our timeout.
-      const signal = options.signal ?? (timeout > 0 ? AbortSignal.timeout(timeout) : undefined);
-      const res = await fetch(url, { ...options, signal });
+      // Bound ONLY the connection/header phase, never the body read. We use a
+      // manual AbortController + a timer we clear the instant `fetch` resolves
+      // (response headers received) so a slow-but-healthy body stream — the
+      // multi-MB BAG archive ZIP / regions XLSX read later via
+      // `.arrayBuffer()`/`.text()` at the call site — is never aborted
+      // mid-stream. `AbortSignal.timeout(timeout)` would stay armed through the
+      // body read and crash the run on a legit large download. A caller-supplied
+      // signal still takes precedence (left as-is, no extra timer).
+      let res;
+      if (options.signal || !(timeout > 0)) {
+        res = await fetch(url, options);
+      } else {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeout);
+        try {
+          res = await fetch(url, { ...options, signal: controller.signal });
+        } finally {
+          clearTimeout(timer);
+        }
+      }
       // Retryable HTTP status → throw a tagged transient error so the backoff
       // loop retries it. On the FINAL attempt fetchWithRetry re-throws this, so
       // we attach the Response to let the caller still inspect it if it catches.

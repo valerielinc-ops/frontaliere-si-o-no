@@ -170,4 +170,23 @@ describe('httpFetchWithRetry', () => {
     expect(res.status).toBe(200);
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });
+
+  it('clears the connection-phase timer once headers arrive (body read not aborted)', async () => {
+    // Regression: the helper must bound only the connection/header phase, not
+    // the body read. An `AbortSignal.timeout` left armed through `.arrayBuffer()`
+    // on a multi-MB BAG ZIP/XLSX would abort mid-stream → AbortError outside the
+    // caller's try/catch → run crash (the very failure this helper prevents).
+    let captured: AbortSignal | undefined;
+    global.fetch = vi.fn((_url: unknown, options: { signal?: AbortSignal } = {}) => {
+      captured = options.signal;
+      return Promise.resolve(mkResponse(200));
+    }) as unknown as typeof fetch;
+    const res = await httpFetchWithRetry('https://x.test', {}, { timeout: 10, retryBaseMs: 0 });
+    expect(res.status).toBe(200);
+    // Wait past the 10ms connection-phase timeout. Because the timer was cleared
+    // the instant headers arrived, the request signal must NOT abort — a slow
+    // body read would survive instead of throwing AbortError.
+    await new Promise((r) => setTimeout(r, 40));
+    expect(captured?.aborted ?? false).toBe(false);
+  });
 });
