@@ -1,7 +1,66 @@
 {
   "crawlerKey": "geberit",
-  "assembledAt": "2026-06-10T12:06:36.396Z",
+  "assembledAt": "2026-06-10T22:41:13.021Z",
   "jobs": [
+    {
+      "id": "geberit-c776ebc06d83",
+      "slug": "praxisintegriertes-bachelor-studium-geberit-ch",
+      "slugByLocale": {
+        "it": "praxisintegriertes-bachelor-studium-geberit-ch",
+        "en": "praxisintegriertes-bachelor-studium-geberit-ch",
+        "de": "praxisintegriertes-bachelor-studium-geberit-ch",
+        "fr": "praxisintegriertes-bachelor-studium-geberit-ch"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Praxisintegriertes Bachelor Studium",
+      "titleByLocale": {
+        "it": "Praxisintegriertes Bachelor Studium",
+        "en": "Praxisintegriertes Bachelor Studium",
+        "de": "Praxisintegriertes Bachelor Studium",
+        "fr": "Praxisintegriertes Bachelor Studium"
+      },
+      "description": "Praxisintegriertes Bachelor Studium — Geberit, Rapperswil-Jona",
+      "descriptionByLocale": {
+        "it": "Praxisintegriertes Bachelor Studium — Geberit, Rapperswil-Jona"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Praxisintegriertes-Bachelor-Studium/1360515457/",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-06-10T22:41:10.994Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8645",
+      "addressRegion": "St. Gallen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-06",
+      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Praxisintegriertes-Bachelor-Studium/1360515457/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:19.078Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "geberit-067a76742f1e",
       "slug": "verpackungsmanager-a-80-100-geberit-rapperswil-jona",
@@ -30,7 +89,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Verpackungsmanager-%28a%29-80-100/1361317257/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:06:34.524Z",
+      "crawledAt": "2026-06-10T22:41:10.994Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -97,7 +156,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Verfahrenstechniker-Spritzgusstechnik-%28a%29-80-100/1348656157/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:06:34.524Z",
+      "crawledAt": "2026-06-10T22:41:10.994Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -156,7 +215,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Talent-for-Sales-Management-%28a%29-100/1348740357/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:06:34.524Z",
+      "crawledAt": "2026-06-10T22:41:10.994Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -215,7 +274,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Electronics-Engineer-Product-Lifecycle-%28a%29-80-100/1363323857/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:06:34.524Z",
+      "crawledAt": "2026-06-10T22:41:10.994Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -231,8 +290,9 @@
       "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Electronics-Engineer-Product-Lifecycle-%28a%29-80-100/1363323857/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:19.078Z",
+      "previousSlugs": [
+        "electronics-engineer-product-lifecycle-a-80-100-geberit-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "electronics-engineer-product-lifecycle-a-80-100-geberit-ch"
@@ -244,9 +304,8 @@
           "electronics-engineer-product-lifecycle-a-80-100-geberit-ch"
         ]
       },
-      "previousSlugs": [
-        "electronics-engineer-product-lifecycle-a-80-100-geberit-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:19.078Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -288,7 +347,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Technician-Sanitary-Laboratory-%28a%29-80-100/1352962757/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:06:34.523Z",
+      "crawledAt": "2026-06-10T22:41:10.994Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -302,65 +361,6 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Technician-Sanitary-Laboratory-%28a%29-80-100/1352962757/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:19.077Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "geberit-1f0031b40645",
-      "slug": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
-      "slugByLocale": {
-        "it": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
-        "en": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
-        "de": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
-        "fr": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
-      "titleByLocale": {
-        "it": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
-        "en": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
-        "de": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
-        "fr": "Praktikum Werkstofftechnik am WC Sitz (a) 100"
-      },
-      "description": "Praktikum Werkstofftechnik am WC Sitz (a) 100 — Geberit, Rapperswil-Jona",
-      "descriptionByLocale": {
-        "it": "Praktikum Werkstofftechnik am WC Sitz (a) 100 — Geberit, Rapperswil-Jona"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Praktikum-Werkstofftechnik-am-WC-Sitz-%28a%29-100/1362551657/",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:06:34.523Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8645",
-      "addressRegion": "St. Gallen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-06",
-      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Praktikum-Werkstofftechnik-am-WC-Sitz-%28a%29-100/1362551657/",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
@@ -406,7 +406,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Head-Building-Physics-Laboratory-%28a%29-100/1362539357/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:06:34.523Z",
+      "crawledAt": "2026-06-10T22:41:10.993Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -465,7 +465,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Intern-Corporate-Controlling-%28a%29-50-70/1359416057/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:06:34.523Z",
+      "crawledAt": "2026-06-10T22:41:10.993Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -524,7 +524,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Mobile-Apps-Software-Architect-%28a%29-80-100/1352353357/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:06:34.523Z",
+      "crawledAt": "2026-06-10T22:41:10.993Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -583,7 +583,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Automatiker-Elektriker-Instandhaltung-%28a%29-100/1362764857/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:06:34.523Z",
+      "crawledAt": "2026-06-10T22:41:10.993Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -615,34 +615,34 @@
       }
     },
     {
-      "id": "geberit-c776ebc06d83",
-      "slug": "praxisintegriertes-bachelor-studium-geberit-ch",
+      "id": "geberit-77f04db7e157",
+      "slug": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
       "slugByLocale": {
-        "it": "praxisintegriertes-bachelor-studium-geberit-ch",
-        "en": "praxisintegriertes-bachelor-studium-geberit-ch",
-        "de": "praxisintegriertes-bachelor-studium-geberit-ch",
-        "fr": "praxisintegriertes-bachelor-studium-geberit-ch"
+        "it": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
+        "en": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
+        "de": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
+        "fr": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch"
       },
       "company": "Geberit",
       "companyKey": "geberit",
       "companyDomain": "geberit.com",
-      "title": "Praxisintegriertes Bachelor Studium",
+      "title": "Mechaniker Instandhaltung Grobmechanik (a) 100",
       "titleByLocale": {
-        "it": "Praxisintegriertes Bachelor Studium",
-        "en": "Praxisintegriertes Bachelor Studium",
-        "de": "Praxisintegriertes Bachelor Studium",
-        "fr": "Praxisintegriertes Bachelor Studium"
+        "it": "Mechaniker Instandhaltung Grobmechanik (a) 100",
+        "en": "Mechaniker Instandhaltung Grobmechanik (a) 100",
+        "de": "Mechaniker Instandhaltung Grobmechanik (a) 100",
+        "fr": "Mechaniker Instandhaltung Grobmechanik (a) 100"
       },
-      "description": "Praxisintegriertes Bachelor Studium — Geberit, Rapperswil-Jona",
+      "description": "Mechaniker Instandhaltung Grobmechanik (a) 100 — Geberit, Rapperswil-Jona",
       "descriptionByLocale": {
-        "it": "Praxisintegriertes Bachelor Studium — Geberit, Rapperswil-Jona"
+        "de": "Mechaniker Instandhaltung Grobmechanik (a) 100 — Geberit, Rapperswil-Jona"
       },
       "location": "Rapperswil-Jona",
       "canton": "SG",
-      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Praxisintegriertes-Bachelor-Studium/1360515457/",
+      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Mechaniker-Instandhaltung-Grobmechanik-%28a%29-100/1359674057/",
       "source": "Geberit Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:06:34.523Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:41:10.992Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -655,11 +655,11 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-06",
-      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Praxisintegriertes-Bachelor-Studium/1360515457/",
+      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Mechaniker-Instandhaltung-Grobmechanik-%28a%29-100/1359674057/",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:19.078Z",
+      "firstSeenAt": "2026-06-10T09:03:19.077Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -701,7 +701,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Mechaniker-Instandhaltung-Feinmechanik-%28a%29-100/1359675757/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:06:34.522Z",
+      "crawledAt": "2026-06-10T22:41:10.992Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -715,6 +715,65 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Mechaniker-Instandhaltung-Feinmechanik-%28a%29-100/1359675757/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:19.077Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "geberit-1f0031b40645",
+      "slug": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
+      "slugByLocale": {
+        "it": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
+        "en": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
+        "de": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
+        "fr": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
+      "titleByLocale": {
+        "it": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
+        "en": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
+        "de": "Praktikum Werkstofftechnik am WC Sitz (a) 100",
+        "fr": "Praktikum Werkstofftechnik am WC Sitz (a) 100"
+      },
+      "description": "Praktikum Werkstofftechnik am WC Sitz (a) 100 — Geberit, Rapperswil-Jona",
+      "descriptionByLocale": {
+        "it": "Praktikum Werkstofftechnik am WC Sitz (a) 100 — Geberit, Rapperswil-Jona"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Praktikum-Werkstofftechnik-am-WC-Sitz-%28a%29-100/1362551657/",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-06-10T22:41:10.992Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8645",
+      "addressRegion": "St. Gallen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-06",
+      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Praktikum-Werkstofftechnik-am-WC-Sitz-%28a%29-100/1362551657/",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
@@ -760,7 +819,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Teamleiter-F%C3%B6rdertechnik-%28a%29-100/1359342357/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:06:34.521Z",
+      "crawledAt": "2026-06-10T22:41:10.991Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -778,65 +837,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:19.076Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "geberit-77f04db7e157",
-      "slug": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
-      "slugByLocale": {
-        "it": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
-        "en": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
-        "de": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch",
-        "fr": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Mechaniker Instandhaltung Grobmechanik (a) 100",
-      "titleByLocale": {
-        "it": "Mechaniker Instandhaltung Grobmechanik (a) 100",
-        "en": "Mechaniker Instandhaltung Grobmechanik (a) 100",
-        "de": "Mechaniker Instandhaltung Grobmechanik (a) 100",
-        "fr": "Mechaniker Instandhaltung Grobmechanik (a) 100"
-      },
-      "description": "Mechaniker Instandhaltung Grobmechanik (a) 100 — Geberit, Rapperswil-Jona",
-      "descriptionByLocale": {
-        "de": "Mechaniker Instandhaltung Grobmechanik (a) 100 — Geberit, Rapperswil-Jona"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Mechaniker-Instandhaltung-Grobmechanik-%28a%29-100/1359674057/",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:06:34.521Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8645",
-      "addressRegion": "St. Gallen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-06",
-      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Mechaniker-Instandhaltung-Grobmechanik-%28a%29-100/1359674057/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:19.077Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -878,7 +878,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Ferienaushilfe-in-der-Produktion-%28a%29-100/1359211857/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:06:34.497Z",
+      "crawledAt": "2026-06-10T22:41:10.968Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -905,6 +905,76 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "geberit-7a0f224a0fc9",
+      "slug": "sanitary-retail-business-development-consulente-a-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "it": "sanitary-retail-business-development-consulente-a-geberit-rapperswil-jona",
+        "en": "sanitary-retail-business-development-consultant-a-geberit-ch",
+        "de": "sanitary-retail-business-development-berater-a-geberit-rapperswil-jona",
+        "fr": "sanitary-retail-business-development-consultant-a-geberit-ch"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Sanitary Retail Business Development Consultant (a)",
+      "titleByLocale": {
+        "it": "Sanitary Retail Business Development Consulente (a)",
+        "en": "Sanitary Retail Business Development Consultant (a)",
+        "de": "Sanitary Retail Business Development Berater (a)",
+        "fr": "Sanitary Retail Business Development Consultant (a)"
+      },
+      "description": "Sanitary Retail Business Development Consultant (a) — Geberit, Rapperswil-Jona",
+      "descriptionByLocale": {
+        "fr": "Sanitary Retail Business Development Consultant (a) — Geberit, Rapperswil-Jona"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Sanitary-Retail-Business-Development-Consultant-%28a%29/1348815957/",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T22:41:10.938Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8645",
+      "addressRegion": "St. Gallen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-06",
+      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Sanitary-Retail-Business-Development-Consultant-%28a%29/1348815957/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sanitary-retail-business-development-consultant-a-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitary-retail-business-development-consultant-a-geberit-ch"
+        ],
+        "de": [
+          "sanitary-retail-business-development-consultant-a-geberit-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:19.039Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       }
@@ -937,7 +1007,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Strategic-Project-Buyer-%28a%29-100/1361090157/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:06:34.466Z",
+      "crawledAt": "2026-06-10T22:41:10.937Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -996,7 +1066,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Sanitary-Retail-Business-Development-Consultant/1348816057/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:06:34.466Z",
+      "crawledAt": "2026-06-10T22:41:10.937Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
@@ -1012,89 +1082,19 @@
       "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Sanitary-Retail-Business-Development-Consultant/1348816057/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:19.039Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitary-retail-business-development-consultant-geberit-ch"
-        ],
-        "de": [
-          "sanitary-retail-business-development-consultant-geberit-ch"
-        ]
-      },
       "previousSlugs": [
         "sanitary-retail-business-development-consultant-geberit-ch"
       ],
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "geberit-7a0f224a0fc9",
-      "slug": "sanitary-retail-business-development-consulente-a-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "it": "sanitary-retail-business-development-consulente-a-geberit-rapperswil-jona",
-        "en": "sanitary-retail-business-development-consultant-a-geberit-ch",
-        "de": "sanitary-retail-business-development-berater-a-geberit-rapperswil-jona",
-        "fr": "sanitary-retail-business-development-consultant-a-geberit-ch"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Sanitary Retail Business Development Consultant (a)",
-      "titleByLocale": {
-        "it": "Sanitary Retail Business Development Consulente (a)",
-        "en": "Sanitary Retail Business Development Consultant (a)",
-        "de": "Sanitary Retail Business Development Berater (a)",
-        "fr": "Sanitary Retail Business Development Consultant (a)"
-      },
-      "description": "Sanitary Retail Business Development Consultant (a) — Geberit, Rapperswil-Jona",
-      "descriptionByLocale": {
-        "fr": "Sanitary Retail Business Development Consultant (a) — Geberit, Rapperswil-Jona"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Sanitary-Retail-Business-Development-Consultant-%28a%29/1348815957/",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:06:34.466Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8645",
-      "addressRegion": "St. Gallen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-06",
-      "applyUrl": "https://jobs.geberit.com/job/Rapperswil-Jona-Sanitary-Retail-Business-Development-Consultant-%28a%29/1348815957/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:19.039Z",
       "previousSlugsByLocale": {
         "it": [
-          "sanitary-retail-business-development-consultant-a-geberit-ch"
+          "sanitary-retail-business-development-consultant-geberit-ch"
         ],
         "de": [
-          "sanitary-retail-business-development-consultant-a-geberit-ch"
+          "sanitary-retail-business-development-consultant-geberit-ch"
         ]
       },
-      "previousSlugs": [
-        "sanitary-retail-business-development-consultant-a-geberit-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:19.039Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1136,7 +1136,7 @@
       "url": "https://jobs.geberit.com/job/Rapperswil-Jona-Talent-for-Sales-Management-%28a%29-100/1348844257/",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:06:34.464Z",
+      "crawledAt": "2026-06-10T22:41:10.935Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8645",
       "addressRegion": "St. Gallen",
