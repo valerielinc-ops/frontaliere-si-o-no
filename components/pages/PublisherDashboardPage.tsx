@@ -27,6 +27,16 @@ interface DashboardRow {
   createdAt: number | null;
 }
 
+interface ApplicationRow {
+  id: string;
+  jobId: string;
+  candidateName: string;
+  candidateEmail: string;
+  message: string | null;
+  cvUrl: string | null;
+  createdAt: number | null;
+}
+
 function tsToMillis(value: unknown): number | null {
   if (value == null) return null;
   if (typeof value === 'number') return value;
@@ -43,6 +53,7 @@ const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
   const { user, loading, signIn } = useAuth();
   const [rows, setRows] = useState<DashboardRow[]>([]);
+  const [apps, setApps] = useState<ApplicationRow[]>([]);
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
 
@@ -115,8 +126,31 @@ const PublisherDashboardPage: React.FC = () => {
           }),
         );
         result.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
+
+        // Applications received (in-house/forward) — the publisher owns these by publisherUid.
+        let appRows: ApplicationRow[] = [];
+        try {
+          const aSnap = await getDocs(query(collection(db, 'applications'), where('publisherUid', '==', user.uid)));
+          appRows = aSnap.docs.map((d) => {
+            const a = d.data() as Record<string, unknown>;
+            return {
+              id: d.id,
+              jobId: String(a.jobId || ''),
+              candidateName: String(a.candidateName || ''),
+              candidateEmail: String(a.candidateEmail || ''),
+              message: a.message ? String(a.message) : null,
+              cvUrl: a.cvUrl ? String(a.cvUrl) : null,
+              createdAt: tsToMillis(a.createdAt),
+            };
+          });
+          appRows.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
+        } catch {
+          // applications optional / index building
+        }
+
         if (!cancelled) {
           setRows(result);
+          setApps(appRows);
           setState('ready');
         }
       } catch (error) {
@@ -256,6 +290,42 @@ const PublisherDashboardPage: React.FC = () => {
             ))}
           </div>
         </>
+      )}
+
+      {/* Applications received (in-house / forward) */}
+      {state === 'ready' && (
+        <section className="mt-10">
+          <h2 className="text-lg font-bold font-display text-strong mb-3">
+            {t('publisherDashboard.applications.title')}
+          </h2>
+          {apps.length === 0 ? (
+            <p className="text-sm text-subtle">{t('publisherDashboard.applications.empty')}</p>
+          ) : (
+            <ul className="space-y-3">
+              {apps.map((a) => {
+                const adTitle = rows.find((r) => r.id === a.jobId)?.title;
+                return (
+                  <li key={a.id} className="rounded-2xl border border-edge bg-surface-alt p-4">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <span className="font-semibold text-strong">{a.candidateName}</span>
+                      {adTitle && <span className="text-xs text-muted">{adTitle}</span>}
+                    </div>
+                    <div className="mt-1 text-sm text-body">
+                      <a href={`mailto:${a.candidateEmail}`} className="text-link hover:underline">{a.candidateEmail}</a>
+                      {a.cvUrl && (
+                        <>
+                          {' · '}
+                          <a href={a.cvUrl} target="_blank" rel="noopener noreferrer" className="text-link hover:underline">CV</a>
+                        </>
+                      )}
+                    </div>
+                    {a.message && <p className="mt-2 text-sm text-subtle whitespace-pre-line">{a.message}</p>}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </section>
       )}
     </div>
   );

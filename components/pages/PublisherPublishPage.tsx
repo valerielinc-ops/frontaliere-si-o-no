@@ -956,6 +956,7 @@ const PublisherPublishPage: React.FC = () => {
  </p>
  )}
  <p className="text-xs text-muted mt-2">{t('publisher.price.autoRenew')}</p>
+ <p className="text-xs text-muted mt-1">{t('publisher.price.invoiceNote')}</p>
  </>
  )}
  </section>
