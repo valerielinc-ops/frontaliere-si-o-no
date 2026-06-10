@@ -8028,6 +8028,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.via-mazzini-lugano-chiusura-lavori.title': 'Lugano: Via Mazzini gesperrt für Arbeiten',
     'blog.article.via-mazzini-lugano-chiusura-lavori.excerpt': 'Am Samstag, 13. Juni, wird die Via Mazzini für den Fahrzeugverkehr gesperrt, um den Abbau eines Krans auf einer Baustelle zu ermöglichen.',
     'blog.article.via-mazzini-lugano-chiusura-lavori.imageAlt': 'Straße in Lugano wegen Bauarbeiten gesperrt',
+    'blog.article.economia-sociale-lavoro-valore.title': 'Soziale Ökonomie',
+    'blog.article.economia-sociale-lavoro-valore.excerpt': 'Der Dialog zwischen Profit und Non-Profit, um den Mangel an Arbeitskräften zu bekämpfen: die Chancen der beruflichen Integration zwischen Kooperation und Unternehmen.',
+    'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Professionelles Geschäftstreffen in einem modernen Büro mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

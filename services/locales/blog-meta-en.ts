@@ -8029,6 +8029,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.via-mazzini-lugano-chiusura-lavori.title': 'Lugano: Via Mazzini closed for works',
     'blog.article.via-mazzini-lugano-chiusura-lavori.excerpt': 'On Saturday, June 13, Via Mazzini will be closed to vehicular traffic to allow for the dismantling of a construction crane.',
     'blog.article.via-mazzini-lugano-chiusura-lavori.imageAlt': 'Road closed to traffic with diversion signs in Lugano',
+    'blog.article.economia-sociale-lavoro-valore.title': 'Social economy',
+    'blog.article.economia-sociale-lavoro-valore.excerpt': 'The dialogue between profit and non-profit to address the labor shortage: job placement opportunities between cooperation and companies.',
+    'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Professional business meeting in a modern office with a view of Lake Lugano',
 };
 
 export default blogMetaEn;
