@@ -7,11 +7,11 @@ import {
 } from '../scripts/lib/ikea-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-describe('IKEA Svizzera crawler parser', () => {
+describe('IKEA crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(IKEA_KEY).toBe('ikea');
-    expect(IKEA_COMPANY_NAME).toBe('IKEA Svizzera');
+    expect(IKEA_COMPANY_NAME).toBe('IKEA');
   });
 
   // ── isCompanyJob ──
@@ -21,11 +21,11 @@ describe('IKEA Svizzera crawler parser', () => {
     });
 
     it('matches by company name', () => {
-      expect(isIkeaJob({ company: 'IKEA Svizzera' })).toBe(true);
+      expect(isIkeaJob({ company: 'IKEA' })).toBe(true);
     });
 
     it('matches by URL domain', () => {
-      expect(isIkeaJob({ url: 'https://ikea.com/jobs/123' })).toBe(true);
+      expect(isIkeaJob({ url: 'https://ikea.ch/jobs/123' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -42,11 +42,11 @@ describe('IKEA Svizzera crawler parser', () => {
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://ikea.com/careers/job-123')).toBe(true);
+      expect(isTrustedDomain('https://ikea.ch/careers/job-123')).toBe(true);
     });
 
     it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.ikea.com/job/456')).toBe(true);
+      expect(isTrustedDomain('https://careers.ikea.ch/job/456')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -86,18 +86,18 @@ describe('IKEA Svizzera crawler parser', () => {
     const validJob = {
       id: 'ikea-abc123',
       slug: 'test-position-ikea-ch',
-      slugByLocale: { en: 'test-position-ikea-ch' },
-      company: 'IKEA Svizzera',
+      slugByLocale: { de: 'test-position-ikea-ch' },
+      company: 'IKEA',
       companyKey: 'ikea',
       title: 'Test Position',
-      titleByLocale: { en: 'Test Position' },
+      titleByLocale: { de: 'Test Position' },
       description: 'A test job description for validation.',
-      descriptionByLocale: { en: 'A test job description for validation.' },
+      descriptionByLocale: { de: 'A test job description for validation.' },
       location: 'Lugano',
       canton: 'TI',
-      url: 'https://ikea.com/jobs/test',
-      source: 'IKEA Svizzera Dedicated Parser',
-      sourceLang: 'en',
+      url: 'https://ikea.ch/jobs/test',
+      source: 'IKEA Dedicated Parser',
+      sourceLang: 'de',
       crawledAt: new Date().toISOString(),
     };
 

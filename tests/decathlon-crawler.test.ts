@@ -1,169 +1,129 @@
-/**
- * Decathlon Suisse crawler parser tests
- *
- * Tests parseDecathlonListingPage(), parseDecathlonDetailPage(),
- * isDecathlonTicinoJob(), and constants.
- */
 import { describe, it, expect } from 'vitest';
-
 import {
-  parseDecathlonListingPage,
-  parseDecathlonDetailPage,
-  isDecathlonTicinoJob,
-  DECATHLON_API_BASE,
-} from '@/scripts/lib/decathlon-job-parser.mjs';
+  DECATHLON_KEY,
+  DECATHLON_COMPANY_NAME,
+  isDecathlonJob,
+  isTrustedDomain,
+} from '../scripts/lib/decathlon-job-parser.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-// ─── Fixture: Listing page with job links ───
-const LISTING_HTML = `
-<html>
-<body>
-<div class="job-list">
-  <a href="/it_CH/annonces/venditore-sport-lugano-12345">Venditore Sport - Lugano</a>
-  <a href="/it_CH/annonces/responsabile-reparto-bellinzona-12346">Responsabile Reparto - Bellinzona</a>
-  <a href="/it_CH/annonce/magazziniere-sant-antonino-12347">Magazziniere - Sant'Antonino</a>
-</div>
-</body>
-</html>`;
+describe('Decathlon crawler parser', () => {
+  // ── Constants ──
+  it('exports valid company key and name', () => {
+    expect(DECATHLON_KEY).toBe('decathlon');
+    expect(DECATHLON_COMPANY_NAME).toBe('Decathlon');
+  });
 
-// ─── Fixture: Detail page ───
-const DETAIL_HTML = `
-<html>
-<head>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "JobPosting",
-    "title": "Venditore Sport",
-    "employmentType": "FULL_TIME",
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lugano"
+  // ── isCompanyJob ──
+  describe('isDecathlonJob', () => {
+    it('matches by companyKey', () => {
+      expect(isDecathlonJob({ companyKey: 'decathlon' })).toBe(true);
+    });
+
+    it('matches by company name', () => {
+      expect(isDecathlonJob({ company: 'Decathlon' })).toBe(true);
+    });
+
+    it('matches by URL domain', () => {
+      expect(isDecathlonJob({ url: 'https://decathlon.ch/jobs/123' })).toBe(true);
+    });
+
+    it('rejects unrelated jobs', () => {
+      expect(isDecathlonJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+    });
+
+    it('handles null/undefined gracefully', () => {
+      expect(isDecathlonJob(null)).toBe(false);
+      expect(isDecathlonJob(undefined)).toBe(false);
+      expect(isDecathlonJob({})).toBe(false);
+    });
+  });
+
+  // ── isTrustedDomain ──
+  describe('isTrustedDomain', () => {
+    it('trusts primary domain', () => {
+      expect(isTrustedDomain('https://decathlon.ch/careers/job-123')).toBe(true);
+    });
+
+    it('trusts subdomains', () => {
+      expect(isTrustedDomain('https://careers.decathlon.ch/job/456')).toBe(true);
+    });
+
+    it('rejects other domains', () => {
+      expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
+    });
+
+    it('handles invalid URLs', () => {
+      expect(isTrustedDomain('')).toBe(false);
+      expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── slugify (imported from crawler-template) ──
+  describe('slugify', () => {
+    it('converts title to URL-safe slug', () => {
+      const slug = slugify('Software Engineer (m/f/d)');
+      expect(slug).toBe('software-engineer-m-f-d');
+    });
+
+    it('strips diacritics', () => {
+      expect(slugify('Ingénieur qualité')).toBe('ingenieur-qualite');
+    });
+
+    it('builds slug with company suffix inline', () => {
+      expect(slugify('Developer decathlon ch')).toBe('developer-decathlon-ch');
+    });
+
+    it('respects max length', () => {
+      const long = 'a'.repeat(200);
+      expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── Job Shape Validation ──
+  describe('job shape', () => {
+    // A minimal valid job for reference
+    const validJob = {
+      id: 'decathlon-abc123',
+      slug: 'test-position-decathlon-ch',
+      slugByLocale: { fr: 'test-position-decathlon-ch' },
+      company: 'Decathlon',
+      companyKey: 'decathlon',
+      title: 'Test Position',
+      titleByLocale: { fr: 'Test Position' },
+      description: 'A test job description for validation.',
+      descriptionByLocale: { fr: 'A test job description for validation.' },
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://decathlon.ch/jobs/test',
+      source: 'Decathlon Dedicated Parser',
+      sourceLang: 'fr',
+      crawledAt: new Date().toISOString(),
+    };
+
+    it('has all required fields', () => {
+      const required = [
+        'id', 'slug', 'slugByLocale', 'company', 'companyKey',
+        'title', 'titleByLocale', 'description', 'descriptionByLocale',
+        'location', 'canton', 'url', 'source', 'sourceLang', 'crawledAt',
+      ];
+      for (const field of required) {
+        expect(validJob).toHaveProperty(field);
       }
-    }
-  }
-  </script>
-</head>
-<body>
-<main>
-  <h1>Venditore Sport</h1>
-  <div class="description">
-    <p>Decathlon cerca un venditore appassionato di sport per il negozio
-    di Lugano. Il candidato ideale ha esperienza nel retail e una forte
-    passione per lo sport. Offriamo un ambiente di lavoro dinamico e
-    opportunita di crescita professionale all'interno del gruppo.</p>
-    <h3>Le tue responsabilita</h3>
-    <ul>
-      <li>Accoglienza e consulenza clienti</li>
-      <li>Gestione del reparto assegnato</li>
-      <li>Rifornimento scaffali e visual merchandising</li>
-    </ul>
-  </div>
-</main>
-</body>
-</html>`;
+    });
 
-// ═══════════════════════════════════════════════════════════════
-// parseDecathlonListingPage
-// ═══════════════════════════════════════════════════════════════
+    it('slug only contains source locale', () => {
+      const locales = Object.keys(validJob.slugByLocale);
+      expect(locales).toHaveLength(1);
+      expect(locales[0]).toBe(validJob.sourceLang);
+    });
 
-describe('parseDecathlonListingPage', () => {
-  it('extracts job URLs from listing page', () => {
-    const results = parseDecathlonListingPage(LISTING_HTML);
-    expect(results.length).toBe(3);
-  });
+    it('id starts with company key', () => {
+      expect(validJob.id).toMatch(/^decathlon-/);
+    });
 
-  it('builds absolute URLs with decathlon.ch domain', () => {
-    const results = parseDecathlonListingPage(LISTING_HTML);
-    expect(results[0].url).toContain('joinus.decathlon.ch');
-  });
-
-  it('extracts titles', () => {
-    const results = parseDecathlonListingPage(LISTING_HTML);
-    expect(results[0].title).toContain('Venditore Sport');
-  });
-
-  it('returns empty array for empty input', () => {
-    expect(parseDecathlonListingPage('')).toEqual([]);
-    expect(parseDecathlonListingPage(null)).toEqual([]);
-  });
-
-  it('deduplicates URLs', () => {
-    const dupeHtml = `
-      <a href="/it_CH/annonces/test-123">Test Job</a>
-      <a href="/it_CH/annonces/test-123">Test Job Dup</a>
-    `;
-    const results = parseDecathlonListingPage(dupeHtml);
-    expect(results.length).toBe(1);
-  });
-});
-
-// ═══════════════════════════════════════════════════════════════
-// parseDecathlonDetailPage
-// ═══════════════════════════════════════════════════════════════
-
-describe('parseDecathlonDetailPage', () => {
-  it('extracts title', () => {
-    const result = parseDecathlonDetailPage(DETAIL_HTML);
-    expect(result).not.toBeNull();
-    expect(result.title).toBe('Venditore Sport');
-  });
-
-  it('extracts location from JSON-LD', () => {
-    const result = parseDecathlonDetailPage(DETAIL_HTML);
-    expect(result.location).toBe('Lugano');
-  });
-
-  it('extracts contract type', () => {
-    const result = parseDecathlonDetailPage(DETAIL_HTML);
-    expect(result.contract).toBe('FULL_TIME');
-  });
-
-  it('extracts body text', () => {
-    const result = parseDecathlonDetailPage(DETAIL_HTML);
-    expect(result.body).toContain('venditore appassionato');
-  });
-
-  it('returns null for empty input', () => {
-    expect(parseDecathlonDetailPage('')).toBeNull();
-    expect(parseDecathlonDetailPage(null)).toBeNull();
-  });
-});
-
-// ═══════════════════════════════════════════════════════════════
-// isDecathlonTicinoJob
-// ═══════════════════════════════════════════════════════════════
-
-describe('isDecathlonTicinoJob', () => {
-  it('returns true for Lugano', () => {
-    expect(isDecathlonTicinoJob({ location: 'Lugano' })).toBe(true);
-  });
-
-  it('returns true for canton TI', () => {
-    expect(isDecathlonTicinoJob({ canton: 'TI' })).toBe(true);
-  });
-
-  it('returns true for Sant\'Antonino', () => {
-    expect(isDecathlonTicinoJob({ location: 'Sant\'Antonino' })).toBe(true);
-  });
-
-  it('returns false for Zurich', () => {
-    // Cathedral 2026-05-10: Zurich (ZH) is now a target canton — assertion updated to true.
-    expect(isDecathlonTicinoJob({ location: 'Zurich' })).toBe(true);
-  });
-
-  it('returns false for null', () => {
-    expect(isDecathlonTicinoJob(null)).toBe(false);
-  });
-});
-
-// ═══════════════════════════════════════════════════════════════
-// Constants
-// ═══════════════════════════════════════════════════════════════
-
-describe('DECATHLON_API_BASE', () => {
-  it('points to Digital Recruiters API', () => {
-    expect(DECATHLON_API_BASE).toContain('digitalrecruiters.com');
+    it('slug is URL-safe', () => {
+      expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
   });
 });

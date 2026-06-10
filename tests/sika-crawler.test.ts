@@ -7,11 +7,11 @@ import {
 } from '../scripts/lib/sika-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-describe('Sika AG crawler parser', () => {
+describe('Sika crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(SIKA_KEY).toBe('sika');
-    expect(SIKA_COMPANY_NAME).toBe('Sika AG');
+    expect(SIKA_COMPANY_NAME).toBe('Sika');
   });
 
   // ── isCompanyJob ──
@@ -21,7 +21,7 @@ describe('Sika AG crawler parser', () => {
     });
 
     it('matches by company name', () => {
-      expect(isSikaJob({ company: 'Sika AG' })).toBe(true);
+      expect(isSikaJob({ company: 'Sika' })).toBe(true);
     });
 
     it('matches by URL domain', () => {
@@ -86,18 +86,18 @@ describe('Sika AG crawler parser', () => {
     const validJob = {
       id: 'sika-abc123',
       slug: 'test-position-sika-ch',
-      slugByLocale: { de: 'test-position-sika-ch' },
-      company: 'Sika AG',
+      slugByLocale: { en: 'test-position-sika-ch' },
+      company: 'Sika',
       companyKey: 'sika',
       title: 'Test Position',
-      titleByLocale: { de: 'Test Position' },
+      titleByLocale: { en: 'Test Position' },
       description: 'A test job description for validation.',
-      descriptionByLocale: { de: 'A test job description for validation.' },
+      descriptionByLocale: { en: 'A test job description for validation.' },
       location: 'Lugano',
       canton: 'TI',
       url: 'https://sika.com/jobs/test',
-      source: 'Sika AG Dedicated Parser',
-      sourceLang: 'de',
+      source: 'Sika Dedicated Parser',
+      sourceLang: 'en',
       crawledAt: new Date().toISOString(),
     };
 

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       strict_localization:
-        description: 'Fail if any Decathlon locale is missing/untranslated (1=yes, 0=no)'
+        description: 'Fail if any locale is missing/untranslated (1=yes, 0=no)'
         required: false
         default: '1'
         type: string
@@ -15,7 +15,7 @@ on:
       skip_ai_translation:
         description: "Skip AI translation (1=yes, cache only)"
         required: false
-        default: "1"
+        default: "0"
         type: string
 
 concurrency:
@@ -71,7 +71,7 @@ jobs:
           JOBS_DECATHLON_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: '1'
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: npm run jobs:update:decathlon
+        run: node scripts/update-decathlon-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)
         env:
@@ -84,9 +84,9 @@ jobs:
         id: changes
         env:
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🏃 Auto-update Decathlon jobs (dedicated crawler)" data/jobs-crawler-adapters/
+        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Decathlon jobs (dedicated crawler)" data/jobs-crawler-adapters/
 
-      - name: Report failure to GitHub Issues
+      - name: Report failure to Linear
         if: failure()
         continue-on-error: true
         env:

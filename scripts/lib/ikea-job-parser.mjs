@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * IKEA Svizzera job parser — Fetcher and job builder.
+ * IKEA job parser — Fetcher and job builder.
  *
- * Source: https://jobs.ikea.com/en/location/grancia-jobs
+ * Source: https://jobs.ikea.com/en/location/switzerland-jobs/22908/2658434/2
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllIkeaJobs()  — Fetch and parse all jobs
@@ -11,32 +11,32 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const IKEA_KEY = 'ikea';
-export const IKEA_COMPANY_NAME = 'IKEA Svizzera';
-export const IKEA_COMPANY_DOMAIN = 'ikea.com';
+export const IKEA_COMPANY_NAME = 'IKEA';
+export const IKEA_COMPANY_DOMAIN = 'ikea.ch';
 
-const CAREER_URL = 'https://jobs.ikea.com/en/location/grancia-jobs';
-const BASE_URL = 'https://jobs.ikea.com';
-const HQ = getCompanyDefaults('ikea');
+// IKEA Switzerland runs a self-hosted TalentBrew/Radancy career portal on
+// jobs.ikea.com. The CH listing is path-scoped to the Switzerland geo facet
+// (place id 2658434, level 2 = country); pagination is path-style (/{page}).
+// The unscoped /en root and AJAX results endpoints return the global ~1168-job
+// set and ignore the geo facet, so we MUST crawl the path-paginated landing.
+const ATS_HOST = 'jobs.ikea.com';
+const ATS_ORIGIN = 'https://jobs.ikea.com';
+const CAREER_URL = 'https://jobs.ikea.com/en/location/switzerland-jobs/22908/2658434/2';
 
-/**
- * IKEA uses iCIMS / TalentBrew. The career site renders job cards that
- * contain links and titles. We scrape the listing page HTML with JSDOM.
- * Alternative: IKEA may expose a JSON search API at /api/jobs.
- */
-const SEARCH_API_URLS = [
-  'https://jobs.ikea.com/api/jobs?location=grancia&limit=50',
-  'https://jobs.ikea.com/api/jobs?location=switzerland&limit=50',
-  'https://jobs.ikea.com/api/jobs?q=&location=Ticino&limit=50',
-];
+const HQ_CITY = 'Spreitenbach';
+const HQ_CANTON = 'AG';
+const HQ_POSTAL = '8957';
+const HQ_REGION = 'Aargau';
+
+const UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -51,7 +51,7 @@ function normalizeSpace(s = '') {
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Check if a job belongs to IKEA Svizzera.
+ * Check if a job belongs to IKEA.
  * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isIkeaJob(job) {
@@ -66,18 +66,26 @@ export function isIkeaJob(job) {
   return (
     key === IKEA_KEY ||
     key.startsWith('ikea') ||
-    company.includes('ikea svizzera') ||
-    url.includes('ikea.com')
+    company.includes('ikea') ||
+    url.includes('ikea.ch')
   );
 }
 
 /**
- * Validate that a URL belongs to IKEA Svizzera's domain.
+ * Validate that a URL belongs to IKEA's domain or its real ATS host.
+ * The public listing + indexed job-detail pages live on jobs.ikea.com
+ * (Radancy/TalentBrew portal); apply links go to ikea.avature.net.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'ikea.com' || host.endsWith('.ikea.com');
+    return (
+      host === 'ikea.ch' ||
+      host.endsWith('.ikea.ch') ||
+      host === 'jobs.ikea.com' ||
+      host === 'ikea.avature.net' ||
+      host.endsWith('.avature.net')
+    );
   } catch {
     return false;
   }
@@ -119,148 +127,171 @@ function detectEmploymentType(text = '') {
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
-/**
- * Try IKEA's JSON search APIs to fetch job listings.
- * iCIMS/TalentBrew sites sometimes expose a search API.
- */
-async function trySearchApi() {
-  for (const apiUrl of SEARCH_API_URLS) {
+const FETCH_OPTS = { headers: { 'User-Agent': UA, 'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8' } };
+
+function decodeEntities(s = '') {
+  return String(s || '')
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&nbsp;|&#xA0;|&#x202F;/g, ' ');
+}
+
+/** A location string is Swiss if it mentions Switzerland or a known CH canton. */
+function isSwissLocation(loc = '') {
+  const t = String(loc || '');
+  if (/\b(switzerland|schweiz|suisse|svizzera)\b/i.test(t)) return true;
+  return Boolean(inferSwissTargetCanton(t));
+}
+
+/** Parse the rendered listing HTML into raw row objects. */
+function parseListingRows(html) {
+  const rows = [];
+  // Each job row is a <a ... data-job-id="N" class="job-list__anchor"> followed
+  // (in document order) by span.job-list__title and span.job-list__location.
+  const re =
+    /<a href="(\/en\/job\/[^"]+)" data-job-id="(\d+)" class="job-list__anchor">([\s\S]*?)(?=<a href="\/en\/job\/|<\/(?:ul|section)\b)/g;
+  let m;
+  while ((m = re.exec(html))) {
+    const href = m[1];
+    const jobReqId = m[2];
+    const body = m[3] || '';
+    const titleM = body.match(/job-list__title">\s*([^<]*)/);
+    const locM = body.match(/job-list__location">\s*([^<]*)/);
+    const title = normalizeSpace(decodeEntities(titleM ? titleM[1] : ''));
+    const location = normalizeSpace(decodeEntities(locM ? locM[1] : ''));
+    if (!title) continue;
+    rows.push({ title, location, url: ATS_ORIGIN + href, jobReqId });
+  }
+  return rows;
+}
+
+/** Pull the JSON-LD JobPosting (if any) from a detail page. */
+function parseJobPosting(html) {
+  const blocks = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
+  for (const block of blocks) {
+    const raw = block.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, '').trim();
+    let data;
     try {
-      console.log(`   Trying IKEA search API: ${apiUrl}`);
-      const data = await fetchJson(apiUrl, { timeoutMs: 15000 });
-      const items = data?.jobs || data?.results || data?.data || (Array.isArray(data) ? data : []);
-      if (items.length > 0) {
-        console.log(`   API returned ${items.length} jobs`);
-        return items;
-      }
-    } catch (err) {
-      console.log(`   API attempt failed: ${err.message}`);
+      data = JSON.parse(raw);
+    } catch {
+      continue;
+    }
+    const candidates = Array.isArray(data) ? data : [data];
+    for (const c of candidates) {
+      if (c && c['@type'] === 'JobPosting') return c;
     }
   }
   return null;
 }
 
+/** Normalize the JSON-LD datePosted (e.g. "2026-6-10") to ISO YYYY-MM-DD. */
+function normalizeDate(value) {
+  if (!value) return null;
+  const m = String(value).match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if (!m) return null;
+  const [, y, mo, d] = m;
+  return `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+}
+
 /**
- * Parse the IKEA jobs listing page HTML.
- * TalentBrew sites render job cards with links and titles.
+ * Crawl all path-paginated CH landing pages and enrich each row from its
+ * job-detail JSON-LD (description, datePosted, employmentType, postal code).
  */
-function parseListingPage(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
+async function fetchJobListings() {
+  console.log(`   Fetching from: ${CAREER_URL}`);
+
+  const firstHtml = await fetchHtml(CAREER_URL, FETCH_OPTS);
+  const totalPagesM = firstHtml.match(/data-total-pages="(\d+)"/);
+  const totalPages = Math.min(totalPagesM ? Number(totalPagesM[1]) : 1, 20);
+
   const seen = new Set();
-
-  // TalentBrew / iCIMS selectors
-  const JOB_SELECTORS = [
-    '.iCIMS_JobsTable a[href*="job"]',
-    '.jobs-list a, .job-listing a',
-    'a[href*="/job/"], a[href*="/jobs/"]',
-    '.results-list a, .search-results a',
-    'h2 a, h3 a, h4 a',
-  ];
-
-  for (const selector of JOB_SELECTORS) {
-    const links = document.querySelectorAll(selector);
-    for (const link of links) {
-      const href = link.getAttribute('href') || '';
-      const title = normalizeSpace(link.textContent || '');
-
-      if (!title || title.length < 5) continue;
-      if (seen.has(title.toLowerCase())) continue;
-      // Filter out non-job links
-      if (/login|privacy|cookie|about|locations|culture|benefits|search/i.test(title)) continue;
-
-      seen.add(title.toLowerCase());
-      const fullUrl = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-
-      // Extract location from nearby text
-      const parent = link.closest('li, tr, div, article') || link.parentElement;
-      const parentText = parent?.textContent || '';
-      const locationMatch = parentText.match(/(?:grancia|lugano|zurich|zürich|bern|geneva|lausanne|basel|spreitenbach|st\.\s*gallen|lyssach|rothenburg|pratteln)/i);
-      const location = locationMatch ? locationMatch[0] : 'Grancia';
-
-      jobs.push({ title, url: fullUrl, location, description: '' });
+  const rows = [];
+  const pushRows = (parsed) => {
+    for (const r of parsed) {
+      if (seen.has(r.jobReqId)) continue;
+      // Defensive CH post-filter — the path landing is already CH-only, but
+      // jobs.ikea.com is the GLOBAL portal so we never trust an off-CH row.
+      if (r.location && !isSwissLocation(r.location)) continue;
+      seen.add(r.jobReqId);
+      rows.push(r);
     }
-    if (jobs.length > 0) break;
-  }
+  };
 
-  return jobs;
-}
+  pushRows(parseListingRows(firstHtml));
 
-/**
- * Fetch detail page for a single IKEA job listing.
- */
-async function fetchDetailDescription(url) {
-  try {    let html = '';
-  try {
-    html = await fetchHtml(url, { timeoutMs: 20000 });
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
-    if (!html) return '';
-    const { document } = new JSDOM(html).window;
-
-    const BODY_SELECTORS = [
-      '.iCIMS_JobContent',
-      '.job-description',
-      '.job-details',
-      '[class*="description"]',
-      'article',
-      'main',
-    ];
-
-    for (const sel of BODY_SELECTORS) {
-      const el = document.querySelector(sel);
-      if (!el) continue;
-      const text = stripHtml(el.innerHTML || '');
-      if (text.length >= 100) return text;
+  for (let page = 2; page <= totalPages; page++) {
+    const pageUrl = `${CAREER_URL}/${page}`;
+    try {
+      const html = await fetchHtml(pageUrl, FETCH_OPTS);
+      pushRows(parseListingRows(html));
+    } catch (err) {
+      console.warn(`   ⚠️ page ${page} failed: ${err?.message || err}`);
     }
-    return '';
-  } catch {
-    return '';
+    await new Promise((r) => setTimeout(r, 250));
   }
+
+  console.log(`  🗂  Listing rows (CH, deduped): ${rows.length}`);
+
+  // Enrich from detail JSON-LD (description, datePosted, postalCode, employment).
+  for (const row of rows) {
+    try {
+      const detailHtml = await fetchHtml(row.url, FETCH_OPTS);
+      const posting = parseJobPosting(detailHtml);
+      if (posting) {
+        row.description = posting.description || '';
+        row.postedAt = normalizeDate(posting.datePosted);
+        row.employmentTypeRaw = posting.employmentType || '';
+        const addr =
+          (Array.isArray(posting.jobLocation) ? posting.jobLocation[0] : posting.jobLocation)?.address ||
+          {};
+        row.addressLocality = addr.addressLocality || '';
+        row.addressRegion = addr.addressRegion || '';
+        // IKEA's feed puts the 4-digit Swiss postal code in streetAddress.
+        const postalCandidate = String(addr.postalCode || addr.streetAddress || '').trim();
+        row.postalCode = /^\d{4}$/.test(postalCandidate) ? postalCandidate : '';
+      }
+    } catch (err) {
+      console.warn(`   ⚠️ detail fetch failed (${row.jobReqId}): ${err?.message || err}`);
+    }
+    await new Promise((r) => setTimeout(r, 200));
+  }
+
+  return rows;
+}
+
+/** Map IKEA's free-text employmentType to the schema.org enum. */
+function mapEmploymentType(raw = '', title = '') {
+  const t = normalize(raw);
+  if (/part.?time|teilzeit|temps partiel|tempo parziale/.test(t)) return 'PART_TIME';
+  if (/full.?time|vollzeit|temps plein|tempo pieno/.test(t)) return 'FULL_TIME';
+  if (/intern|praktik|stage|trainee/.test(t)) return 'INTERN';
+  if (/temporary|befristet|temporär/.test(t)) return 'TEMPORARY';
+  // Fall back to the title's workload percent hint (IKEA titles end in e.g.
+  // "... 50%" / "... 100%"): <100% → part-time, 100% → full-time.
+  const pct = String(title).match(/(\d{2,3})\s*%/);
+  if (pct) return Number(pct[1]) >= 100 ? 'FULL_TIME' : 'PART_TIME';
+  return detectEmploymentType(title);
 }
 
 /**
- * Check if a location is in Ticino (or neighboring southern Switzerland).
- */
-function isTicinoLocation(location = '') {
-  const loc = location.toLowerCase();
-  return /grancia|lugano|manno|mendrisio|chiasso|bellinzona|locarno|biasca|stabio|caslano|paradiso|massagno/i.test(loc);
-}
-
-/**
- * Fetch all IKEA Svizzera jobs.
+ * Fetch all IKEA jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * Strategy:
- *  1. Try IKEA search API endpoints
- *  2. Fall back to HTML scraping of the listing page
- *  3. Fetch detail pages for descriptions
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllIkeaJobs() {
-  console.log(`🔍 Fetching IKEA Svizzera jobs`);
+  console.log(`🔍 Fetching IKEA jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  // Strategy 1: Try JSON API
-  let listings = await trySearchApi();
-
-  // Strategy 2: Fall back to HTML scraping
+  const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
-    console.log('   JSON API did not return jobs, trying HTML scraping...');
-    try {
-      const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
-      listings = parseListingPage(html);
-      console.log(`   HTML scraping found ${listings?.length || 0} job links`);
-    } catch (err) {
-      console.warn(`   HTML fetch failed: ${err.message}`);
-      listings = [];
-    }
-  }
-
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No IKEA job listings found.');
+    console.warn('⚠️ No job listings returned.');
     return [];
   }
 
@@ -268,28 +299,23 @@ export async function fetchAllIkeaJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    const title = normalizeSpace(listing.title || listing.name || '');
+    const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || listing.city || '';
-    const location = normalizeSpace(rawLocation) || HQ?.city || 'Grancia';
-    const canton = inferAnyCanton(location) || HQ?.canton || '';
-    const publicUrl = listing.url || listing.link || CAREER_URL;
+    const location = normalizeSpace(listing.location || '');
+    const canton = inferSwissTargetCanton(location) || HQ_CANTON;
+    const addressLocality = listing.addressLocality || location.split(',')[0].trim() || HQ_CITY;
+    const addressRegion = listing.addressRegion || '';
+    const postalCode = listing.postalCode || (canton === HQ_CANTON ? HQ_POSTAL : '');
+    const descriptionText = stripHtml(listing.description || '');
+    const publicUrl = listing.url || CAREER_URL;
 
-    // Fetch detail page for description
-    let descriptionText = stripHtml(listing.description || listing.content || '');
-    if (descriptionText.length < 100 && publicUrl !== CAREER_URL) {
-      const detailDesc = await fetchDetailDescription(publicUrl);
-      if (detailDesc.length > descriptionText.length) descriptionText = detailDesc;
-    }
-
-    const sourceLang = detectLang(descriptionText || title, 'en');
+    const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} ikea ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const desc = descriptionText || `${title} — Position at IKEA Svizzera, ${location}. IKEA is the world's largest furniture retailer, with a store in Grancia (Ticino), Switzerland.`;
-
     const job = {
+      // ── Required fields ──
       id: `ikea-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
@@ -298,36 +324,37 @@ export async function fetchAllIkeaJobs() {
       companyDomain: IKEA_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: desc,
-      descriptionByLocale: { [sourceLang]: desc },
-      location,
+      description: descriptionText || `${title} — ${IKEA_COMPANY_NAME}`,
+      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${IKEA_COMPANY_NAME}` },
+      location: location || addressLocality,
       canton,
       url: publicUrl,
-      source: 'IKEA Svizzera Dedicated Parser',
+      source: 'IKEA Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
-      addressLocality: location,
-      addressRegion: HQ?.addressRegion || 'TI',
+
+      // ── Recommended fields ──
+      addressLocality,
+      postalCode,
+      addressRegion: addressRegion || (canton === HQ_CANTON ? HQ_REGION : ''),
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ?.postalCode || '6916',
       category: detectCategory(title),
-      contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || listing.type || title),
+      contract: 'full-time',
+      employmentType: mapEmploymentType(listing.employmentTypeRaw, title),
       experienceLevel: detectExperienceLevel(title),
-      sector: 'Vendita al dettaglio / Arredamento',
+      sector: 'Retail / Furniture',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || listing.datePosted || new Date().toISOString().split('T')[0],
-      applyUrl: listing.applyUrl || publicUrl,
+      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300));
   }
 
-  console.log(`\n📋 Total IKEA Svizzera jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total IKEA jobs discovered: ${jobs.length}`);
   return jobs;
 }

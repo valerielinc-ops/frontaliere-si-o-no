@@ -1,199 +1,261 @@
+#!/usr/bin/env node
 /**
- * Decathlon Suisse -- joinus.decathlon.ch job parser
+ * Decathlon job parser — Fetcher and job builder.
  *
- * Decathlon uses Digital Recruiters (Cegid HR) as their ATS. The careers
- * page at joinus.decathlon.ch/it_CH/annonces is a Nuxt.js SPA backed by
- * the Digital Recruiters API.
+ * Source: https://joinus.decathlon.ch/fr_CH/annonces
  *
- * The page HTML includes an embedded Nuxt state object with:
- *   - jobAds: array of job ad objects (may be empty)
- *   - API base URLs for fetching more data
- *
- * When jobAds is empty in the state, there are no open positions.
- * When it contains entries, each has id, title, location, contract etc.
- *
- * This module provides:
- *   parseDecathlonListingPage(html) -- extract job links from listing/state
- *   parseDecathlonDetailPage(html)  -- extract job data from detail page
- *   isDecathlonTicinoJob(job)       -- filter for Ticino positions
- *   DECATHLON_API_BASE              -- Digital Recruiters API base URL
+ * Exports the 4 required functions for the crawler template:
+ *   - fetchAllDecathlonJobs()  — Fetch and parse all jobs
+ *   - isDecathlonJob()         — Match jobs belonging to this company
+ *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { createHash } from 'node:crypto';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+/* ── Constants ─────────────────────────────────────────────── */
 
-export const DECATHLON_API_BASE = 'https://api.digitalrecruiters.com';
+export const DECATHLON_KEY = 'decathlon';
+export const DECATHLON_COMPANY_NAME = 'Decathlon';
+export const DECATHLON_COMPANY_DOMAIN = 'decathlon.ch';
+
+// Switzerland-only career domain (DigitalRecruiters ATS). Every job_ad here is a
+// Swiss store/HQ role, so no country facet is needed.
+const CAREER_DOMAIN = 'joinus.decathlon.ch';
+const CAREER_URL = `https://${CAREER_DOMAIN}/fr_CH/annonces`;
+// DigitalRecruiters public job-ads API. Locale MUST be underscore form (fr_CH /
+// de_CH); hyphen form returns HTTP 400. Detail URL = /fr_CH/annonce/{item.url}.
+const API_BASE = 'https://api.digitalrecruiters.com/public/v1/careers-site/job-ads';
+const API_LOCALE = 'fr_CH';
+const PAGE_LIMIT = 200;
+const DETAIL_URL_PREFIX = `https://${CAREER_DOMAIN}/${API_LOCALE}/annonce/`;
+
+/* ── Helpers ───────────────────────────────────────────────── */
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-function stripHtml(html = '') {
-  return html
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n• ')
-    .replace(/<\/p>/gi, '\n')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
+/* ── Company Matchers ──────────────────────────────────────── */
+
+/**
+ * Check if a job belongs to Decathlon.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function isDecathlonJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === DECATHLON_KEY ||
+    key.startsWith('decathlon') ||
+    company.includes('decathlon') ||
+    url.includes('decathlon.ch')
+  );
 }
 
 /**
- * Try to extract Nuxt state data from the HTML.
- * The page embeds state as: window.__NUXT__= or __NUXT_DATA__.
- * The jobAds array lives inside this state.
+ * Validate that a URL belongs to Decathlon's domain.
  */
-function extractNuxtJobAds(html) {
-  // Try to find jobAds JSON array in the embedded state
-  const jobAdsMatch = html.match(/"jobAds"\s*:\s*(\[[\s\S]*?\])\s*[,}]/);
-  if (jobAdsMatch) {
-    try {
-      return JSON.parse(jobAdsMatch[1]);
-    } catch { /* ignore parse errors */ }
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return (
+      host === 'decathlon.ch' ||
+      host.endsWith('.decathlon.ch') || // joinus.decathlon.ch (real posting host)
+      host === 'api.digitalrecruiters.com' // DigitalRecruiters ATS API
+    );
+  } catch {
+    return false;
   }
-  return [];
+}
+
+/* ── Category Detection ────────────────────────────────────── */
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
+  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
+  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
+  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
+  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
+  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
+  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
+  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
+  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  return 'Altro';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(junior|jr)/.test(t)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  return 'mid';
+}
+
+function detectEmploymentType(text = '') {
+  const t = normalize(text);
+  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
+  return 'OTHER';
+}
+
+/* ── Fetch + Parse ─────────────────────────────────────────── */
+
+const REQUEST_HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+  Origin: `https://${CAREER_DOMAIN}`,
+  Referer: CAREER_URL,
+};
+
+/**
+ * Parse the trailing "-{4-digit-postal}-{city}" segment from a job-ad slug.
+ * e.g. "...-decathlon-martigny-1920-martigny" → { postalCode: '1920' }.
+ */
+function parsePostalFromSlug(slug = '') {
+  const m = String(slug).match(/-(\d{4})-[a-z0-9-]+$/i);
+  return m ? m[1] : '';
 }
 
 /**
- * Extract job links from a Decathlon listing page HTML.
- *
- * Strategy 1: Parse embedded Nuxt state for jobAds array
- * Strategy 2: Look for job card links in rendered HTML
- * Strategy 3: Extract from annonce/annonces URL patterns
- *
- * @param {string} html - Raw HTML of the listing page
- * @returns {{ url: string, title: string, location: string }[]}
+ * Fetch all job-ad listings from the DigitalRecruiters public API.
+ * Paginates by 1-based `page` until collected items reach the reported count.
+ * Returns raw listing objects from the ATS (no normalization here).
  */
-export function parseDecathlonListingPage(html = '') {
-  if (!html) return [];
+async function fetchJobListings() {
+  console.log(`   Fetching from: ${API_BASE} (domain ${CAREER_DOMAIN})`);
 
-  const results = [];
+  const collected = [];
+  let page = 1;
+  let total = Infinity;
 
-  // Strategy 1: Extract from Nuxt embedded state
-  const nuxtAds = extractNuxtJobAds(html);
-  for (const ad of nuxtAds) {
-    if (!ad) continue;
-    const id = ad.id || ad.slug || '';
-    const title = normalizeSpace(ad.title || ad.name || '');
-    const location = normalizeSpace(ad.city || ad.location || '');
-    if (id && title) {
-      results.push({
-        url: `https://joinus.decathlon.ch/it_CH/annonces/${id}`,
-        title,
-        location,
-      });
-    }
+  // Hard cap on pages as a safety net (count is ~72; PAGE_LIMIT=200 fits in 1).
+  while (collected.length < total && page <= 25) {
+    const url = `${API_BASE}?domainName=${encodeURIComponent(CAREER_DOMAIN)}&limit=${PAGE_LIMIT}&page=${page}&locale=${API_LOCALE}`;
+    const data = await fetchJson(url, {
+      method: 'POST',
+      headers: REQUEST_HEADERS,
+      body: { filters: {}, searchParameters: {} },
+    });
+
+    const items = Array.isArray(data?.items) ? data.items : [];
+    if (typeof data?.count === 'number') total = data.count;
+    if (items.length === 0) break;
+
+    collected.push(...items);
+    if (items.length < PAGE_LIMIT) break; // last page
+    page += 1;
   }
 
-  // Strategy 2: Look for /it_CH/annonces/{slug} links
-  const linkPattern = /href="(\/it_CH\/annonces\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-  let match;
-  while ((match = linkPattern.exec(html)) !== null) {
-    const relUrl = match[1];
-    const rawTitle = normalizeSpace(stripHtml(match[2]));
-    if (relUrl && rawTitle && rawTitle.length > 3) {
-      results.push({
-        url: `https://joinus.decathlon.ch${relUrl}`,
-        title: rawTitle,
-        location: '',
-      });
-    }
+  return collected;
+}
+
+/**
+ * Fetch all Decathlon jobs.
+ * Returns an array of ParsedJob objects (source-locale only).
+ *
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
+ */
+export async function fetchAllDecathlonJobs() {
+  console.log(`🔍 Fetching Decathlon jobs`);
+  console.log(`   Source: ${CAREER_URL}\n`);
+
+  const listings = await fetchJobListings();
+  if (!listings || listings.length === 0) {
+    console.warn('⚠️ No job listings returned.');
+    return [];
   }
 
-  // Strategy 3: /annonce/ singular pattern
-  const singularPattern = /href="(\/it_CH\/annonce\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-  while ((match = singularPattern.exec(html)) !== null) {
-    const relUrl = match[1];
-    const rawTitle = normalizeSpace(stripHtml(match[2]));
-    if (relUrl && rawTitle && rawTitle.length > 3) {
-      results.push({
-        url: `https://joinus.decathlon.ch${relUrl}`,
-        title: rawTitle,
-        location: '',
-      });
-    }
-  }
+  console.log(`  📋 Listings found: ${listings.length}`);
 
-  // Deduplicate
+  const jobs = [];
   const seen = new Set();
-  return results.filter((r) => {
-    if (seen.has(r.url)) return false;
-    seen.add(r.url);
-    return true;
-  });
-}
+  for (const listing of listings) {
+    const title = normalizeSpace(listing.title || '');
+    if (!title || title.length < 3) continue;
 
-/**
- * Extract job data from a Decathlon detail page.
- *
- * @param {string} html - Raw HTML of a job detail page
- * @returns {{ title: string, body: string, location: string, contract: string } | null}
- */
-export function parseDecathlonDetailPage(html = '') {
-  if (!html) return null;
+    // url slug is the stable per-ad identifier; build the public detail URL.
+    const slug = String(listing.url || '').trim();
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+    const publicUrl = `${DETAIL_URL_PREFIX}${slug}`;
 
-  // Title from h1 or JSON-LD
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+    // Swiss-only domain: location is always a Swiss city. Canton via the city,
+    // fall back to the HQ canton (Vernier / GE) for the rare unmatched city.
+    const location = normalizeSpace(listing.location || 'Vernier');
+    const canton = inferSwissTargetCanton(location) || 'GE';
+    const postalCode = parsePostalFromSlug(slug);
 
-  // Location from structured data or page content
-  let location = '';
-  const locationMatch = html.match(/addressLocality['"]\s*:\s*['"]([^'"]+)/i)
-    || html.match(/location['"]\s*:\s*['"]([^'"]+)/i);
-  if (locationMatch) {
-    location = normalizeSpace(locationMatch[1]);
+    // Listing API has no body; the assembled title carries the role context.
+    // The AI localization step enriches the description from the detail page.
+    const descriptionText = title;
+
+    const sourceLang = detectLang(title, 'fr');
+    const jobSlug = slugify(`${title} decathlon ch`);
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+    // contract: "Contrat à durée indéterminée" (CDI) / "...déterminée" (CDD).
+    const contractText = String(listing.contract || '');
+
+    const job = {
+      // ── Required fields ──
+      id: `decathlon-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: DECATHLON_COMPANY_NAME,
+      companyKey: DECATHLON_KEY,
+      companyDomain: DECATHLON_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
+      location,
+      canton,
+      url: publicUrl,
+      source: 'Decathlon Dedicated Parser',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+
+      // ── Recommended fields ──
+      addressLocality: location,
+      postalCode: postalCode || (canton === 'GE' ? '1214' : ''),
+      addressRegion: canton,
+      addressCountry: 'CH',
+      country: 'CH',
+      category: detectCategory(title),
+      employmentType: detectEmploymentType(`${contractText} ${title}`),
+      experienceLevel: detectExperienceLevel(title),
+      sector: 'retail',
+      currency: 'CHF',
+      featured: false,
+      postedDate: new Date().toISOString().split('T')[0],
+      applyUrl: publicUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    };
+
+    jobs.push(job);
   }
 
-  // Contract type
-  let contract = '';
-  const contractMatch = html.match(/employmentType['"]\s*:\s*['"]([^'"]+)/i);
-  if (contractMatch) {
-    contract = normalizeSpace(contractMatch[1]);
-  }
-
-  // Body from main content area
-  let body = '';
-  const contentMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-    || html.match(/<div[^>]*class="[^"]*description[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-
-  if (contentMatch) {
-    body = stripHtml(contentMatch[1]);
-  }
-
-  if (!title && !body) return null;
-
-  return { title, body, location, contract };
-}
-
-/**
- * Check if a Decathlon job is in Ticino.
- * @param {{ location?: string, canton?: string, city?: string }} job
- * @returns {boolean}
- */
-export function isDecathlonTicinoJob(job) {
-  if (!job) return false;
-  const loc = String(job.location || job.city || '').toLowerCase();
-  const canton = String(job.canton || '').toLowerCase();
-
-  if (canton === 'ti' || canton === 'ticino' || canton === 'tessin') return true;
-
-  return isTargetSwissLocation(loc);
-}
-
-export function inferEmploymentType(title = '', description = '', percentage = '') {
-  const combined = `${title} ${percentage} ${description}`;
-  if (/part[- ]?time|teilzeit|tempo parziale|temps partiel/i.test(combined)) return 'PART_TIME';
-  const pctMatch = combined.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || combined.match(/(\d{2,3})\s*%/);
-  if (pctMatch) {
-    const maxPct = pctMatch[2] ? parseInt(pctMatch[2]) : parseInt(pctMatch[1]);
-    if (maxPct < 80) return 'PART_TIME';
-  }
-  return 'FULL_TIME';
+  console.log(`\n📋 Total Decathlon jobs discovered: ${jobs.length}`);
+  return jobs;
 }
