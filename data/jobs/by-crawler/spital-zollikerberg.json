@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-06-09T23:13:28.452Z",
+  "assembledAt": "2026-06-10T13:00:59.867Z",
   "jobs": [
     {
       "id": "spital-zollikerberg-520e9b96cf42",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=50be559c-df7c-42b5-8777-e2cdd522bb55,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T23:13:26.544Z",
+      "crawledAt": "2026-06-10T13:00:58.012Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d9b45dec-d669-4180-988d-4dcd0330fac0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T23:13:26.543Z",
+      "crawledAt": "2026-06-10T13:00:58.011Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=415646a6-5d08-4b8a-a4e8-9ec40b6cf14c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T23:13:26.543Z",
+      "crawledAt": "2026-06-10T13:00:58.011Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,77 +207,6 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-zollikerberg-7387a3e357ae",
-      "slug": "assistente-di-pratica-medica-assistenti-di-pratica-medica-mpa-aree-di-ingegneria-medica-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "it": "assistente-di-pratica-medica-assistenti-di-pratica-medica-mpa-aree-di-ingegneria-medica-spital-zollikerberg-zollikerberg",
-        "en": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
-        "de": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
-        "fr": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche",
-      "titleByLocale": {
-        "it": "Assistente di pratica medica / Assistenti di pratica medica (MPA) Aree di ingegneria medica",
-        "en": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche",
-        "de": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche",
-        "fr": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche"
-      },
-      "description": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "it": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "en": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "de": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
-      },
-      "needsRetranslation": true,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd87a1cc-4350-44fd-abd4-1ca7c2dd335c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-09T23:13:26.542Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd87a1cc-4350-44fd-abd4-1ca7c2dd335c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -326,7 +255,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=74dddc21-82f8-417a-a790-a8b6de8525b8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T23:13:26.542Z",
+      "crawledAt": "2026-06-10T13:00:58.010Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -366,12 +295,83 @@
       }
     },
     {
+      "id": "spital-zollikerberg-7387a3e357ae",
+      "slug": "assistente-di-pratica-medica-assistenti-di-pratica-medica-mpa-aree-di-ingegneria-medica-spital-zollikerberg-zollikerberg",
+      "slugByLocale": {
+        "it": "assistente-di-pratica-medica-assistenti-di-pratica-medica-mpa-aree-di-ingegneria-medica-spital-zollikerberg-zollikerberg",
+        "en": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
+        "de": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische",
+        "fr": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
+      },
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche",
+      "titleByLocale": {
+        "it": "Assistente di pratica medica / Assistenti di pratica medica (MPA) Aree di ingegneria medica",
+        "en": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche",
+        "de": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche",
+        "fr": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche"
+      },
+      "description": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH).\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+      "descriptionByLocale": {
+        "it": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "en": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "de": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Medizinische Praxisassistentin / Medizinischen Praxisassistenten (MPA) Medizintechnische Bereiche — Spital Zollikerberg, Zollikerberg (ZH). Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd87a1cc-4350-44fd-abd4-1ca7c2dd335c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T13:00:58.009Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd87a1cc-4350-44fd-abd4-1ca7c2dd335c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-medizintechnische"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spital-zollikerberg-4f2cd2c06541",
       "slug": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
       "slugByLocale": {
-        "de": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
         "it": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
         "en": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
+        "de": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital",
         "fr": "stiftung-diakoniewerk-neumunster-hr-allrounderin-hr-allrounder-middle-office-spital"
       },
       "company": "Spital Zollikerberg",
@@ -379,17 +379,17 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office /",
       "titleByLocale": {
-        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office /",
         "it": "Stiftung Diakoniewerk Neumünster Risorse Umane Allrounderin / Risorse Umane Allrounder Middle Office /",
         "en": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office /",
+        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office /",
         "fr": "Stiftung Diakoniewerk Neumünster Ressources Humaines Allrounderin / Ressources Humaines Allrounder Middle Office /"
       },
       "description": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
       "descriptionByLocale": {
-        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "en": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "fr": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Verwaltung.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
+        "it": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "en": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "de": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
+        "fr": "Stiftung Diakoniewerk Neumünster HR Allrounderin / HR Allrounder Middle Office / — Spital Zollikerberg, Zollikerberg (ZH). Bereich: Verwaltung. Das Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien. Vollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform."
       },
       "needsRetranslation": true,
       "location": "Zollikerberg",
@@ -397,7 +397,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=12040c0f-f757-4cb3-891f-adb060f4f2e1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T23:13:26.541Z",
+      "crawledAt": "2026-06-10T13:00:58.007Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -413,9 +413,8 @@
       "postedDate": "2026-06-09",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=12040c0f-f757-4cb3-891f-adb060f4f2e1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -427,8 +426,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      }
     }
   ]
 }
