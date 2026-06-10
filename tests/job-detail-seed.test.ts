@@ -97,6 +97,53 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
   });
 
   describe('inline <script> JSON escaping (class fix)', () => {
+    // Single source of truth for the raw-JSON-LD scanner — used both by the
+    // whole-class build-plugin scan and by its own non-leakiness proof. Returns
+    // the banned shapes present in one source string. A shape is "raw" when
+    // arbitrary content reaches a `<script type="application/ld+json">` tag via
+    // `JSON.stringify` (does NOT escape `<`) instead of inlineScriptJson /
+    // escapeInlineScript. Hardened in #1672 to cover the `.map(…).join(…)` `sd`
+    // builder and non-`Ld`-suffixed direct-emit vars (`ldJsonStr`/`sd`).
+    const rawJsonLdShapes = (src: string): string[] => {
+      const shapes: string[] = [];
+      // 1. inline  `application/ld+json">${JSON.stringify(...)}`
+      if (/application\/ld\+json">\$\{JSON\.stringify/.test(src)) shapes.push('inline-stringify');
+      // 2. a var   `const *Ld / *JsonLd = JSON.stringify(...)` (adjacent assign)
+      if (/const\s+[A-Za-z]*(?:Ld|JsonLd) = JSON\.stringify\(/.test(src)) shapes.push('var-ld-stringify');
+      // 3. multi-block `.map(x => JSON.stringify(x)).join('…ld+json…')`. `[^;]`
+      //    keeps the match inside ONE statement so the translate-then-`.join(sep)`
+      //    path (a separate `.map` and `.join` statement) is not a false positive.
+      if (/\.map\([^;]*?JSON\.stringify[^;]*?\)\.join\([^;]*?ld\+json/.test(src)) shapes.push('map-join-stringify');
+      // 4. any var emitted DIRECTLY into `application/ld+json">${X}</script>` (a
+      //    hand-rolled tag bypassing htmlTemplate's escapeInlineScript choke
+      //    point) MUST be escape-built — regardless of name suffix. Catches
+      //    `ldJsonStr`/`sd`-style names shape (2) misses. Vars only `.push`ed onto
+      //    `jsonLdScripts` are NOT direct-emitted, so their raw JSON.stringify
+      //    (escaped centrally) is correctly ignored.
+      const EMIT = /application\/ld\+json">\$\{([A-Za-z_$][\w$]*)\}/g;
+      let m: RegExpExecArray | null;
+      while ((m = EMIT.exec(src)) !== null) {
+        const ident = m[1];
+        const assign = new RegExp(`(?:const|let)\\s+${ident}\\s*=\\s*(?![^;]*inlineScriptJson)[^;]*?JSON\\.stringify\\(`);
+        if (assign.test(src)) shapes.push(`direct-emit-raw:${ident}`);
+      }
+      // 5. member-expression emit `${seoData.sd}` (#1672 escalation). Shape 4's
+      //    EMIT captured only a bare `${ident}`, never `${obj.prop}`, so a member
+      //    field emitted directly into a hand-rolled tag was invisible. The non-IT
+      //    `sd`-translation path rebuilds `locSeo.sd` via split(sep) → map(part =>
+      //    translate + re-serialize) → join(sep): shape 3 also misses it because the
+      //    map body is multi-statement and the join separator is a variable (not a
+      //    literal `ld+json`). Flag a member-expr ld+json emit when the file ALSO
+      //    re-serializes inside a map callback with a RAW JSON.stringify (the escape
+      //    downgrade). The escaped form (`return inlineScriptJson(obj)`) leaves no
+      //    `return JSON.stringify` in a map → silent. A safe member-expr emit whose
+      //    field is escape-built does not false-positive (no raw map re-stringify).
+      const memberLdEmit = /application\/ld\+json">\$\{[A-Za-z_$][\w$]*\.[\w$.]+\}/.test(src);
+      const mapReturnsRawStringify = /\.map\(\s*\(?[\w$,\s]*\)?\s*=>\s*\{[\s\S]{0,600}?return\s+JSON\.stringify\(/.test(src);
+      if (memberLdEmit && mapReturnsRawStringify) shapes.push('member-emit-map-raw-stringify');
+      return shapes;
+    };
+
     it('inlineScriptJson neutralises "<" so a "</script>" in the payload cannot break out', () => {
       const payload = { title: 'Dev </script><img src=x>', desc: 'a < b' };
       const out = inlineScriptJson(payload);
@@ -148,22 +195,19 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(tpl).toMatch(/jsonLdScripts\.map\(ld =>[\s\S]{0,80}escapeInlineScript\(ld\)/);
     });
 
-    it('NO build-plugin emits raw JSON-LD into a <script> tag (whole-class scan, #1515)', () => {
+    it('NO build-plugin emits raw JSON-LD into a <script> tag (whole-class scan, #1515 + #1672)', () => {
       // Class fix for #1515: any `<script type="application/ld+json">${X}</script>`
       // where X is data-controlled (job title/company/desc, GSC queries, article
       // prose) can break out of the script context if the JSON contains a literal
       // `</script`. JSON.stringify does NOT escape `<`; inlineScriptJson /
       // escapeInlineScript (`<`→`<`, valid JSON, Google-parsed) do.
       //
-      // Two banned shapes, scanned across EVERY build-plugin (not one file — the
-      // previous guard read only jobsSeoPagesPlugin, so ~8 sibling plugins stayed
-      // raw while it passed):
-      //   1. inline  `application/ld+json">${JSON.stringify(...)}`
-      //   2. a var   `const *Ld = JSON.stringify(...)` / `*JsonLd = JSON.stringify(...)`
-      //      (these are emitted into a direct ld+json tag in the hand-rolled
-      //      templates; vars passed to `jsonLdScripts:[...]` go through the
-      //      escaped htmlTemplate choke point and are fine — they don't match
-      //      the `const *Ld =` shape after this fix either way).
+      // Scanned across EVERY build-plugin (not one file — the previous guard read
+      // only jobsSeoPagesPlugin, so ~8 sibling plugins stayed raw while it passed).
+      // The banned shapes live in `rawJsonLdShapes` (shared with the
+      // non-leakiness proof below). Detector hardened in #1672 to also cover the
+      // `.map(…JSON.stringify…).join(…ld+json…)` `sd` builder and non-`Ld`-suffixed
+      // vars (`ldJsonStr`/`sd`) emitted directly into a tag.
       const walk = (dir: string): string[] => {
         const out: string[] = [];
         for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -173,14 +217,77 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
         }
         return out;
       };
-      const INLINE_RAW = /application\/ld\+json">\$\{JSON\.stringify/;
-      const VAR_RAW = /const\s+[A-Za-z]*(?:Ld|JsonLd) = JSON\.stringify\(/;
       const files = walk(path.resolve(root, 'build-plugins'));
-      const offenders = files.filter((f) => {
-        const src = fs.readFileSync(f, 'utf-8');
-        return INLINE_RAW.test(src) || VAR_RAW.test(src);
-      }).map((f) => path.relative(root, f));
+      const offenders = files
+        .map((f) => ({ file: path.relative(root, f), shapes: rawJsonLdShapes(fs.readFileSync(f, 'utf-8')) }))
+        .filter((o) => o.shapes.length > 0);
       expect(offenders).toEqual([]);
+    });
+
+    it('the raw-JSON-LD scanner is itself non-leaky (#1672): it fires on every banned shape and stays silent on the escaped form', () => {
+      // The previous guard was shape-specific — it would have stayed GREEN on a
+      // future emit using `.map(…).join(…)` or a non-`Ld`-suffixed var. Prove the
+      // hardened detector catches each offender shape AND does not false-positive
+      // on its correctly-escaped sibling. Without this, a leaky regex passes on the
+      // regression it is supposed to block (the exact failure mode of #1672).
+
+      // (1) inline ${JSON.stringify}
+      expect(rawJsonLdShapes('x = `<script type="application/ld+json">${JSON.stringify(jobLd)}</script>`'))
+        .toContain('inline-stringify');
+      expect(rawJsonLdShapes('x = `<script type="application/ld+json">${inlineScriptJson(jobLd)}</script>`'))
+        .toEqual([]);
+
+      // (2) `const *Ld = JSON.stringify(...)`
+      expect(rawJsonLdShapes('const jobLd = JSON.stringify(obj);')).toContain('var-ld-stringify');
+      expect(rawJsonLdShapes('const jobLd = inlineScriptJson(obj);')).toEqual([]);
+
+      // (3) `.map(x => JSON.stringify(x)).join('…ld+json…')` — the multi-block `sd`
+      // builder. The real code maps through inlineScriptJson; a swap to
+      // JSON.stringify must be caught.
+      const SEP = '</scr' + 'ipt>\\n <script type="application/ld+json">';
+      expect(rawJsonLdShapes(
+        `sd = parsed.map((item) => JSON.stringify(item)).join('${SEP}');`,
+      )).toContain('map-join-stringify');
+      expect(rawJsonLdShapes(
+        `sd = parsed.map((item) => inlineScriptJson(item)).join('${SEP}');`,
+      )).toEqual([]);
+      // The translate-then-join path (separate `.map` and `.join` statements) is
+      // intentionally NOT a false positive — the join target is a `sdSeparator`
+      // variable on its own statement, not an inline `ld+json` literal.
+      expect(rawJsonLdShapes(
+        'const t = parts.map((p) => JSON.stringify(p));\nsd = t.join(sdSeparator);',
+      )).toEqual([]);
+
+      // (3b) the real `sd`-translation path (#1672 escalation): split → map(part =>
+      // multi-statement translate + re-serialize) → join(variableSep), emitted via a
+      // member-expr `${seoData.sd}`. A RAW re-stringify inside the map MUST fire;
+      // swapping it for inlineScriptJson MUST go silent; and a safe member-expr emit
+      // with no raw map re-stringify MUST NOT false-positive.
+      const sdMap = (serialize: string) =>
+        `const translated = sdParts.map((part) => {\n  const obj = JSON.parse(part);\n  translateSchema(obj, lang);\n  return ${serialize}(obj);\n});\n locSeo.sd = translated.join(sdSeparator);\n h = \`<script type="application/ld+json">\${seoData.sd}</script>\`;`;
+      expect(rawJsonLdShapes(sdMap('JSON.stringify'))).toContain('member-emit-map-raw-stringify');
+      expect(rawJsonLdShapes(sdMap('inlineScriptJson'))).toEqual([]);
+      expect(
+        rawJsonLdShapes('h = `<script type="application/ld+json">${seoData.sd}</script>`;'),
+      ).toEqual([]);
+
+      // (4) a non-`Ld`-suffixed var emitted DIRECTLY into a tag must be escaped.
+      // `ldJsonStr` / `sd` end in neither `Ld` nor `JsonLd`, so shape (2) misses
+      // them — the direct-emit taint check catches them by emission site instead.
+      expect(rawJsonLdShapes(
+        'const ldJsonStr = JSON.stringify(ldObj);\nh = `<script type="application/ld+json">${ldJsonStr}</script>`;',
+      )).toContain('direct-emit-raw:ldJsonStr');
+      expect(rawJsonLdShapes(
+        'const ldJsonStr = inlineScriptJson(ldObj);\nh = `<script type="application/ld+json">${ldJsonStr}</script>`;',
+      )).toEqual([]);
+      // A raw `JSON.stringify` var that is NOT direct-emitted but pushed onto the
+      // `jsonLdScripts` choke point (escaped centrally in htmlTemplate) is correct
+      // and must stay silent — mirrors nursing/orphanQuery `itemListLd`, whose
+      // real (ternary, non-adjacent-assign) shape evades the name-based shape (2)
+      // and is not direct-emitted, so shape (4) is silent too.
+      expect(rawJsonLdShapes(
+        'const itemListLd = jobs.length > 0\n  ? JSON.stringify(obj)\n  : null;\njsonLdScripts.push(itemListLd);',
+      )).toEqual([]);
     });
   });
 

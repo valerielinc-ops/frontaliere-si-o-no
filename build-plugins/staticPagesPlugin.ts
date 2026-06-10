@@ -4798,8 +4798,13 @@ ${hrefTags}
  const obj = normalizeStructuredData(JSON.parse(part));
  translateSchema(obj, lang);
  if (typeof obj.inLanguage === 'string') obj.inLanguage = lang;
- return JSON.stringify(obj);
- } catch { /* not valid JSON, pass through */ }
+ // Re-escape `<` (inlineScriptJson, NOT a bare JSON.stringify): the JSON.parse
+ // above decodes the IT builder's `<` back to a literal `<`, so a raw
+ // re-stringify would DOWNGRADE the escape and let a `</script>` inside a
+ // translated string value break out of the inline tag on the EN/DE/FR variants
+ // — `locSeo.sd` is emitted RAW via `${seoData.sd}` (#1672 escalation).
+ return inlineScriptJson(obj);
+ } catch { /* not valid JSON, pass through (already escaped by the IT builder) */ }
  return part;
  });
  locSeo.sd = translated.join(sdSeparator);
