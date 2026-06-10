@@ -2,20 +2,27 @@
 /**
  * Dedicated Fust crawler runner.
  *
- * Fust is a subsidiary of the Coop Group and uses the same
- * Prospective.ch JobBooster platform (Career Center 1000103).
+ * Fust is a national household-electronics retailer (subsidiary of the Coop
+ * Group) with stores throughout all of Switzerland, so this crawler collects
+ * Fust jobs CH-wide across all 26 cantons (Cathedral). It uses the same
+ * Prospective.ch JobBooster platform as Coop (Career Center 1000103).
  *
  * This script:
- *   1. Fetches the Prospective.ch JSON API for TI + GR job listings.
- *   2. Filters for jobs where the company attribute (70) is "Fust".
- *   3. Sets those detail page URLs as adapter seed URLs.
- *   4. Runs the base crawler to fetch JSON-LD JobPosting data from each page.
- *   5. Re-tags discovered jobs with companyKey "fust".
- *   6. Translates missing locales and validates coverage.
+ *   1. Fetches the Prospective.ch JSON API UNFILTERED (no canton facet),
+ *      paginating through the full national result set.
+ *   2. Filters for jobs where the company attribute (70) is "Fust"
+ *      (the medium is a Coop-group feed; keep only the Fust subsidiary).
+ *   3. Drops any Fust job whose canton label doesn't resolve to a Swiss
+ *      canton (CH-only gate — foreign/unresolved postings are dropped, never
+ *      defaulted to TI).
+ *   4. Sets those detail page URLs as adapter seed URLs.
+ *   5. Runs the base crawler to fetch JSON-LD JobPosting data from each page.
+ *   6. Re-tags discovered jobs with companyKey "fust".
+ *   7. Translates missing locales and validates coverage.
  *
- * Fust has stores throughout Switzerland including Ticino (Bellinzona,
- * Lugano, etc.) and specialises in household electronics, kitchens, and
- * bathroom installations.
+ * Per-job canton is inferred from the canton label the API returns in
+ * attribute 30 (e.g. "Zurigo", "Vallese", "San Gallo", "Ticino") via the
+ * shared CH-wide inferAnyCanton helper.
  *
  * Detail pages live at jobs.fust.ch and contain JSON-LD JobPosting.
  */
@@ -46,6 +53,7 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -58,11 +66,21 @@ const FUST_COMPANY_NAME = 'Fust';
 
 /**
  * Prospective.ch API — same medium as Coop (1000103).
- * Canton filter IDs: TI = 1024522, GR = 1024512.
+ *
+ * CH-wide fetch: we issue an UNFILTERED query (no `f=30:{cantonId}` canton
+ * facet), which the API answers with every Coop-group job across all 26
+ * cantons. We then keep only the Fust subsidiary (attribute 70 = "Fust") and
+ * paginate via offset/limit until the full national result set is drained.
+ *
+ *   https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500
+ *
+ * Per-job canton comes from attribute 30 (a localized canton label such as
+ * "Zurigo", "Vallese", "San Gallo", "Ticino"), resolved CH-wide by
+ * inferAnyCanton.
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
-const CANTON_IDS = { TI: '1024522', GR: '1024512' };
-const API_LIMIT = 500;
+const API_LIMIT = 500; // max jobs per request
+const API_MAX_PAGES = 20; // hard ceiling: 20 * 500 = 10000 jobs (safety stop)
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -79,15 +97,20 @@ function isFustJob(job) {
   );
 }
 
+/**
+ * Resolve a Prospective.ch attribute-30 canton label (e.g. "Zurigo",
+ * "Vallese", "San Gallo", "Ticino") to a 2-letter Swiss canton code, CH-wide.
+ * Returns '' (never a TI default) when the label doesn't resolve to a Swiss
+ * canton — the caller uses that to drop foreign/unresolved postings.
+ */
 function normalizeCantonCode(raw = '', fallback = '') {
-  const lower = String(raw || '').trim().toLowerCase();
-  if (['ti', 'ticino', 'tessin'].includes(lower)) return 'TI';
-  if (['gr', 'grigioni', 'graubunden', 'graubünden', 'grisons'].includes(lower)) return 'GR';
-  return fallback || '';
+  const label = String(raw || '').trim();
+  if (!label) return fallback || '';
+  return inferAnyCanton(label) || fallback || '';
 }
 
 function cantonLabel(canton = '') {
-  return canton === 'GR' ? 'Grigioni' : 'Ticino';
+  return canton || '';
 }
 
 function dateOnly(raw = '') {
@@ -96,10 +119,13 @@ function dateOnly(raw = '') {
   return dt.toISOString().slice(0, 10);
 }
 
-function buildSeedMetaFromApiJob(job, fallbackCanton) {
+function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
+  // Canton inferred from the clean attribute-30 label ALONE (never a combined
+  // "city + region" string, which would mislead inferAnyCanton).
   const canton = normalizeCantonCode(attr30, fallbackCanton);
-  const location = attr30 || cantonLabel(canton || fallbackCanton);
+  const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
+  const location = apiCity || attr30 || cantonLabel(canton || fallbackCanton);
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
   return {
@@ -114,22 +140,37 @@ function buildSeedMetaFromApiJob(job, fallbackCanton) {
 }
 
 /* ── API Discovery ─────────────────────────────────────────── */
+/**
+ * Fetch Fust job detail URLs from the Prospective.ch JSON API CH-wide.
+ *
+ * Uses a single UNFILTERED query (no canton facet) paginated over the full
+ * national result set. Keeps only the Fust subsidiary (company attribute 70 =
+ * "Fust"), and drops any Fust posting whose canton label doesn't resolve to a
+ * Swiss canton (CH-only gate — never defaulted to TI).
+ */
 async function fetchFustJobUrls() {
   const allUrls = new Set();
   const seedMetaByUrl = {};
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
 
-  for (const [canton, cantonId] of Object.entries(CANTON_IDS)) {
+  /** Canton distribution for logging (2-letter code → count). */
+  const cantonCounts = {};
+  let apiTotal = null;
+  let fetched = 0;
+  let fustFound = 0;
+  let droppedNonCh = 0;
+
+  for (let page = 0; page < API_MAX_PAGES; page += 1) {
+    const offset = page * API_LIMIT;
     const params = new URLSearchParams({
       lang: 'it',
-      offset: '0',
+      offset: String(offset),
       limit: String(API_LIMIT),
     });
-    params.append('f', `30:${cantonId}`);
-
     const apiUrl = `${API_BASE}/jobs?${params}`;
-    console.log(`🔍 Fetching Coop Group jobs for ${canton} from Prospective API…`);
+    console.log(`🔍 Fetching Coop Group feed CH-wide page ${page + 1} (offset ${offset})…`);
 
+    let jobs;
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -141,35 +182,56 @@ async function fetchFustJobUrls() {
       clearTimeout(timer);
 
       if (!res.ok) {
-        console.warn(`⚠️ API returned ${res.status} for ${canton} — skipping.`);
-        continue;
+        console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
+        break;
       }
 
       const data = await res.json();
-      const jobs = assertJsonListShape(data, { key: 'jobs', source: 'fust', lang: canton });
-      console.log(`  📦 ${canton}: ${jobs.length} total Coop Group jobs`);
-
-      let fustCount = 0;
-      for (const job of jobs) {
-        const company = normalize(job?.attributes?.['70']?.[0] || job?.company || '');
-        if (!company.includes('fust')) continue;
-
-        const directLink = String(job?.links?.directlink || '').trim();
-        if (directLink && directLink.startsWith('http')) {
-          allUrls.add(directLink);
-          if (!seedMetaByUrl[directLink]) {
-            seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job, canton);
-          }
-          fustCount++;
-        }
-      }
-      console.log(`  🏪 ${canton}: ${fustCount} Fust jobs found`);
+      jobs = assertJsonListShape(data, { key: 'jobs', source: 'fust', lang: `offset:${offset}` });
+      if (apiTotal === null && typeof data?.total === 'number') apiTotal = data.total;
     } catch (err) {
-      console.warn(`⚠️ API fetch failed for ${canton}: ${err.message}`);
+      console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
+      break;
     }
+
+    if (jobs.length === 0) break;
+    fetched += jobs.length;
+
+    for (const job of jobs) {
+      const company = normalize(job?.attributes?.['70']?.[0] || job?.company || '');
+      if (!company.includes('fust')) continue; // keep only the Fust subsidiary
+      fustFound++;
+
+      const directLink = String(job?.links?.directlink || '').trim();
+      if (!directLink || !directLink.startsWith('http') || allUrls.has(directLink)) continue;
+
+      const meta = buildSeedMetaFromApiJob(job);
+      // CH-only gate: drop foreign/unresolved postings whose label doesn't
+      // resolve to a Swiss canton (never defaulted to TI).
+      if (!meta.canton) { droppedNonCh += 1; continue; }
+
+      allUrls.add(directLink);
+      seedMetaByUrl[directLink] = meta;
+      cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
+    }
+
+    console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
+
+    // Drained the full result set.
+    if (apiTotal !== null && offset + jobs.length >= apiTotal) break;
+    if (jobs.length < API_LIMIT) break;
   }
 
-  console.log(`\n✅ Total unique Fust detail URLs discovered: ${allUrls.size}\n`);
+  // Surface the safety-ceiling so a silent stop ≠ a fully drained feed.
+  if (apiTotal !== null && fetched < apiTotal) {
+    console.warn(`  ⚠️ Pagination stopped at ${fetched}/${apiTotal} jobs (API_MAX_PAGES=${API_MAX_PAGES} ceiling) — raise the ceiling if the Coop-group listing has grown.`);
+  }
+
+  console.log(`\n📋 Fust API Discovery Summary (CH-wide):`);
+  console.log(`  API total: ${apiTotal ?? '?'} · Fust matched: ${fustFound} · dropped non-CH/unresolved: ${droppedNonCh} · unique detail URLs: ${allUrls.size}`);
+  const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
+  console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
+  console.log(`✅ Total unique Fust detail URLs discovered: ${allUrls.size}\n`);
   return { urls: [...allUrls], seedMetaByUrl };
 }
 
@@ -264,13 +326,18 @@ function logStats(beforeSnapshot = new Map()) {
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isFustJob);
-  const tiJobs = jobs.filter((j) => normalize(j?.canton) === 'ti');
-  const grJobs = jobs.filter((j) => normalize(j?.canton) === 'gr');
 
-  console.log(`\n📊 === Fust Job Stats ===`);
+  // CH-wide canton distribution (2-letter code → count).
+  const byCanton = {};
+  for (const job of jobs) {
+    const code = String(job?.canton || '').toUpperCase() || '??';
+    byCanton[code] = (byCanton[code] || 0) + 1;
+  }
+  const sortedCantons = Object.entries(byCanton).sort((a, b) => b[1] - a[1]);
+
+  console.log(`\n📊 === Fust Job Stats (CH-wide) ===`);
   console.log(`  🏪 Total Fust jobs: ${jobs.length}`);
-  console.log(`  ✅ Ticino: ${tiJobs.length}`);
-  console.log(`  ✅ Grigioni: ${grJobs.length}`);
+  console.log(`  🇨🇭 Cantons covered (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);
@@ -299,7 +366,7 @@ async function main() {
   registerCrawlerSummaryGuard(FUST_KEY, 'Fust');
   console.log('🏪 Running dedicated Fust jobs crawler...');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103, Coop Group)');
-  console.log('   Cantons: TI (Ticino) + GR (Grigioni)');
+  console.log('   Scope: CH-wide (all 26 cantons, unfiltered national query; Fust subsidiary only)');
   console.log('');
 
   // Step 0: Re-tag existing Fust jobs that may have coop-ticino key

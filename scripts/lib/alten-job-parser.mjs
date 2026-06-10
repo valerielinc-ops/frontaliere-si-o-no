@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
-import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { getCantonDisplayName } from './crawler-location-config.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './swiss-locality-sentence-split.mjs';
 
 function compact(text = '') {
@@ -40,8 +41,13 @@ const ALTEN_TITLE_TRANSLATIONS = {
   },
 };
 
-export function isAltenTicinoLocation(location = '') {
-  return isTargetSwissLocation(compact(location));
+// ALTEN Switzerland is a national engineering consultancy — collect jobs
+// across all 26 cantons. A listing is kept iff its location string resolves
+// to a Swiss canton (CH-wide via inferAnyCanton). Foreign or canton-less
+// rows (e.g. a bare "Switzerland" with no city/region) stay unresolved and
+// are dropped — we never default an unresolved job to a canton.
+export function isAltenSwissLocation(location = '') {
+  return Boolean(inferAnyCanton(compact(location)));
 }
 
 export function inferAltenCategory(title = '', description = '') {
@@ -63,7 +69,7 @@ export function parseAltenListingHtml(html = '') {
       const postedDate = compact(card.querySelector('.card-date .mx-2')?.textContent || '');
       return { title, href, location, postedDate };
     })
-    .filter((item) => item.title && item.href && isAltenTicinoLocation(item.location));
+    .filter((item) => item.title && item.href && isAltenSwissLocation(item.location));
 }
 
 export function parseAltenDetailHtml(html = '', pageUrl = '') {
@@ -74,7 +80,7 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
   const applyUrl = document.querySelector('a[href$="/apply"]')?.getAttribute('href') || '';
   // Strip the leading "Location" label and ANY trailing prose:
   //   1. `[class*="location"]` selector (loose) sometimes matches the
-  //      requirements <p> when ALTEN inlines "Location: Ticino, Switzerland."
+  //      requirements <p> when ALTEN inlines "Location: Zürich, Switzerland."
   //      mid-paragraph (no newline before the next sentence). Without a
   //      sentence-boundary cut, the previous parser took the entire trailing
   //      paragraph as the city ("Ticino, Switzerland.Availability to work
@@ -92,7 +98,7 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
   const rawLocationNode = compact(
     Array.from(document.querySelectorAll('.block--inner, .wp-block-jobboard-offer-sidebar, .card-location, [class*="location"]'))
       .map((el) => compact(el.textContent || ''))
-      .find((text) => /Location/i.test(text) && isTargetSwissLocation(text)) || ''
+      .find((text) => /Location/i.test(text) && isAltenSwissLocation(text)) || ''
   );
   const location = rawLocationNode
     .replace(/^.*?Location\s*[:.]?\s*/i, '')
@@ -136,7 +142,14 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
     fr: overrides.fr || title,
   };
   const descriptionByLocale = description ? { en: description } : {};
-  const regionFallback = inferSwissTargetCanton(location) === 'GR' ? 'Graubunden' : 'Ticino';
+  // CH-wide fallback label for the slug when no city string was extracted:
+  // use the resolved canton's display name (any of the 26 cantons), never a
+  // hard-coded TI/GR default. If the canton cannot be resolved, fall back to
+  // the neutral "Switzerland" rather than guessing a canton.
+  const fallbackCanton = inferAnyCanton(location);
+  const regionFallback = fallbackCanton
+    ? getCantonDisplayName(fallbackCanton, 'en') || 'Switzerland'
+    : 'Switzerland';
   const slugByLocale = {
     it: slugify(`${titleByLocale.it} Alten Switzerland ${location || regionFallback}`),
     en: slugify(`${titleByLocale.en} Alten Switzerland ${location || regionFallback}`),

@@ -14,7 +14,7 @@
  * Apply links: career74.sapsf.eu/career?company=bundesamtf&...
  */
 
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
@@ -55,6 +55,35 @@ function slugify(value = '') {
 }
 
 /**
+ * Reduce a federal arbeitsort string to the bare city — the cleanest single
+ * signal for inferAnyCanton. Strips the PLZ prefix ("6593 Cadenazzo"), the
+ * trailing country suffix ("Posieux, Svizzera"), and dual-site lists
+ * ("1260 Nyon o 1725 Posieux" -> "Nyon").
+ */
+export function cleanAgroscopeCity(rawLocation = '') {
+  return String(rawLocation || '')
+    .split(/\s+o\s+|\s*\/\s*/i)[0]
+    .replace(/,\s*(?:svizzera|schweiz|suisse|switzerland)\s*$/i, '')
+    .replace(/^\d{4}\s+/, '')
+    .trim();
+}
+
+/**
+ * Resolve a job's Swiss canton (all 26). Primary: inferAnyCanton on the clean
+ * city alone. Fallback: the first canton code inside the macro-region label
+ * for Agroscope research stations missing from the BFS dataset. Returns '' for
+ * locations that resolve to no Swiss canton (foreign / "Estero").
+ */
+export function resolveAgroscopeCanton({ city = '', region = '' } = {}) {
+  const fromCity = String(inferAnyCanton(cleanAgroscopeCity(city)) || '').toUpperCase();
+  if (isTargetCanton(fromCity)) return fromCity;
+  const regionCanton = [...String(region || '').matchAll(/\b([A-Z]{2})\b/g)]
+    .map((m) => m[1].toUpperCase())
+    .find((code) => isTargetCanton(code));
+  return regionCanton || '';
+}
+
+/**
  * Parse the Prospective API response and extract job items.
  * @param {object} data - Parsed JSON from the API
  * @returns {{ items: Array, total: number }}
@@ -71,20 +100,28 @@ export function parseAgroscopeApiResponse(data = {}) {
     const pensum = (attrs['75'] || [])[0] || '';
     const pensumMin = szas.sza_pensum_min || szas['sza_pensum.min'] || '';
 
-    // Extract city from location (format: "6593 Cadenazzo")
-    const cityMatch = locationRaw.match(/^\d{4}\s+(.+)$/);
-    const city = cityMatch ? cityMatch[1].trim() : locationRaw;
+    // Extract a clean city from the location (format: "6593 Cadenazzo",
+    // "Posieux, Svizzera", "1260 Nyon o 1725 Posieux"). Strip the PLZ prefix,
+    // the trailing ", Svizzera/Schweiz" country suffix, and any "city o city"
+    // dual-site list (take the first). The CITY ALONE is the cleanest single
+    // signal for inferAnyCanton — a "city + region" combined string makes
+    // inferAnyCanton return the wrong canton (TARGET_CANTONS array order).
+    const city = cleanAgroscopeCity(locationRaw);
     const postalCode = locationRaw.match(/^(\d{4})/)?.[1] || '';
-
-    // Extract canton abbreviation from region (format: "Ticino (TI)")
-    const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)/);
-    const canton = cantonMatch ? cantonMatch[1] : '';
 
     // Build description from szas fields
     const parts = [];
     if (szas.sza_tasks) parts.push(stripHtml(szas.sza_tasks));
     if (szas.sza_requirements) parts.push(stripHtml(szas.sza_requirements));
     const description = parts.join('\n\n');
+
+    // Per-job canton (CH-wide, all 26 cantons). Primary signal: inferAnyCanton
+    // on the clean city alone. Fallback for Agroscope research stations not in
+    // the BFS municipality dataset (Posieux, Reckenholz, Ettenhausen, …): the
+    // first canton code in the macro-region label (e.g. "Espace Mittelland
+    // (BE, FR, JU, NE, SO)"), which keeps the job as Swiss even when the exact
+    // municipality is unresolved. Empty canton => not a resolvable CH location.
+    const canton = resolveAgroscopeCanton({ city, region: regionRaw });
 
     return {
       id: String(j.id || ''),
@@ -114,22 +151,23 @@ export function parseAgroscopeApiResponse(data = {}) {
 }
 
 /**
- * Check if a job is in any target canton based on location and region.
+ * Keep a job when it resolves to a Swiss canton (CH-wide, all 26). Agroscope is
+ * a national federal research org, so we keep every Swiss posting and drop only
+ * foreign ("Estero") ones — those resolve to no canton (the macro-region
+ * carries no Swiss canton code and the clean city is not a CH municipality).
  */
-export function isAgroscopeTicinoRelevant(job = {}) {
-  const canton = String(job.canton || '').toUpperCase();
-  if (isTargetCanton(canton)) return true;
-  const combined = `${job.city || ''} ${job.location || ''} ${job.region || ''}`;
-  return isTargetSwissLocation(combined);
+export function isAgroscopeSwissRelevant(job = {}) {
+  return isTargetCanton(String(job.canton || '').toUpperCase());
 }
 
 /**
- * Infer canton from job data via the BFS municipality dataset.
+ * Infer the Swiss canton for a job (all 26). Trusts the canton resolved at
+ * parse time; otherwise re-resolves from the clean city / macro-region.
  */
 export function inferAgroscopeCanton(job = {}) {
   const canton = String(job.canton || '').toUpperCase();
   if (isTargetCanton(canton)) return canton;
-  return inferAnyCanton(`${job.city || ''} ${job.location || ''} ${job.region || ''}`);
+  return resolveAgroscopeCanton({ city: job.city, region: job.region });
 }
 
 /**

@@ -31,7 +31,7 @@ import {
   parseAltenDetailHtml,
   inferAltenCategory,
 } from './lib/alten-job-parser.mjs';
-import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 
@@ -158,9 +158,9 @@ async function discoverListings() {
       if (!ok) throw new Error('ALTEN listing did not become available in browser session');
       const html = await page.content();
       const listings = parseAltenListingHtml(html);
-      console.log(`📋 Total TI/GR ALTEN jobs discovered: ${listings.length}`);
+      console.log(`📋 Total Swiss ALTEN jobs discovered (CH-wide): ${listings.length}`);
       for (const listing of listings) console.log(`  📄 ${listing.title} (${listing.location})`);
-      if (listings.length < 1) throw new Error(`Expected at least 1 ALTEN TI/GR job, found ${listings.length}`);
+      if (listings.length < 1) throw new Error(`Expected at least 1 ALTEN Swiss job, found ${listings.length}`);
       return listings;
     });
   } catch (err) {
@@ -200,7 +200,17 @@ async function buildJobs(listings) {
           continue;
         }
         const parsed = parseAltenDetailHtml(await page.content(), listing.href);
-        const canton = inferAnyCanton(parsed.location) || DEFAULT_CANTON;
+        // Resolve the canton CH-wide from the cleanest single signal first
+        // (the detail-page city string), falling back to the listing card
+        // location only if the detail field is canton-less. Never default to
+        // a hard-coded canton: if neither resolves to a Swiss canton the job
+        // is foreign / un-geolocatable and is dropped.
+        const canton = inferAnyCanton(parsed.location) || inferAnyCanton(listing.location);
+        if (!canton) {
+          console.warn(`  ⚠️  No Swiss canton resolved for ${listing.href} (location: "${parsed.location}") — skipping`);
+          skipped += 1;
+          continue;
+        }
         jobs.push({
           title: parsed.title,
           slug: parsed.slug,
@@ -314,7 +324,7 @@ function updateAdapterConfig(jobs) {
     priority: 16,
     crawlerModes: ['browser', 'html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts TI/GR jobs from the ALTEN Switzerland job board.',
+    notes: 'Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts CH-wide jobs (all 26 cantons) from the ALTEN Switzerland job board, keeping only rows whose location resolves to a Swiss canton.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });

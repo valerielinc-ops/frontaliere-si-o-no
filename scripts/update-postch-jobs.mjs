@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
  * Dedicated Swiss Post (La Posta Svizzera) crawler runner.
- * Crawls the Post.ch careers portal for Ticino/Grigioni positions
- * (apprenticeships + professionals) and enforces full locale coverage.
+ * Swiss Post is a national employer, so this crawls the Post.ch careers
+ * portal CH-wide (all 26 cantons; apprenticeships + professionals) and
+ * enforces full locale coverage.
  *
  * Listing URLs:
  *   Apprenticeships: https://www.post.ch/en/jobs/jobs?jobsCategory=apprenticeships
@@ -15,7 +16,8 @@
  *   1. Fetch both listing pages
  *   2. Parse job links (job.post.ch/v2/job-vacancies/{slug}/{uuid})
  *   3. Fetch each job detail page to extract data from JSON-LD (JobPosting schema)
- *   4. Filter to only keep target-region jobs (Ticino/Grigioni)
+ *   4. Keep every job whose location resolves to a Swiss canton (drop
+ *      non-CH / unresolved); infer the per-job canton CH-wide
  *   5. Build job objects; merge into data/jobs.json
  *   6. Run the base crawler for AI localization (4 locales)
  *   7. Post-process: fix company name, location, canton
@@ -36,7 +38,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, m
 } from './lib/dedicated-crawler-common.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './lib/postch-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,16 +54,17 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
  * The legacy `www.post.ch/en/jobs/jobs?jobsCategory=…` pages are now an
  * SPA shell that loads jobs via XHR; scraping the HTML returns zero `<a>`
  * elements. The widget calls `POST /services/recruiting/v1/jobs`, which
- * returns the full job list with pipe-separated location strings. We
- * paginate the German locale (the largest superset — Italian/French/English
- * only return jobs explicitly translated to that locale, missing most TI/GR
- * positions) and filter for the target cantons here.
+ * returns the full NATIONAL job list (no canton facet in the request body)
+ * with pipe-separated location strings. We paginate the German locale (the
+ * largest superset — Italian/French/English only return jobs explicitly
+ * translated to that locale, missing many positions) and keep every job
+ * whose location resolves to a Swiss canton.
  */
 const JOBS_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
 // We paginate every locale because the API only returns jobs that have a
-// translation in the requested locale. de_DE is the largest superset (≈100
-// jobs) but Italian-only postings (e.g. AutoPostale Bellinzona) are missing
-// from it — we'd silently drop them without scanning it_IT separately.
+// translation in the requested locale. de_DE is the largest superset (≈100+
+// jobs) but Italian-only / French-only postings are missing from it — we'd
+// silently drop them without scanning it_IT / fr_FR separately.
 const JOBS_API_LISTING_LOCALES = ['de_DE', 'it_IT', 'fr_FR', 'en_US'];
 const JOBS_API_MAX_PAGES = 100000; // uncapped — loop already bounded by `seen < totalJobs` and breaks on empty page
 const JOBS_DETAIL_LOCALES = ['it_IT', 'de_DE', 'fr_FR', 'en_US']; // priority for description language
@@ -225,67 +228,89 @@ function buildDetailUrl(record, locale = 'it_IT') {
   return `https://job.post.ch/${brand}/job/${slug}/${id}-${locale}`;
 }
 
+// Localities the SF feed uses for non-physical placements (home office /
+// remote / hybrid in DE/FR/IT/EN). They appear as a `jobLocationShort` entry
+// and carry no canton — skip them when resolving a record's canton.
+const NON_PHYSICAL_LOCALITIES = new Set([
+  'homeoffice', 'home office', 'home-office',
+  'remote', 'remotearbeit', 'travail à distance', 'lavoro a distanza', 'fernarbeit',
+  'hybrid', 'hybride', 'ibrido', 'hub locations', 'siti hub',
+]);
+
 /**
- * Test whether any `jobLocationShort` entry on a record lies in our target
- * cantons (TI / GR). Pipe-separated form: "City|Canton|CC|Country|CCC ".
+ * Resolve a record's Swiss canton CH-wide from its `jobLocationShort` field.
+ * Pipe-separated form: "City|CantonName|CC|Country|CCC ".
+ *
+ * The canonical signal is the 2-letter canton-code token (parts[2] in the
+ * standard 5-token CH form) — validated via normalizeCantonCode, which knows
+ * all 26 cantons (small municipalities like Emmenbrücke/Nänikon are absent
+ * from the city-token index, so the code token is authoritative). Only when
+ * there is no valid code token do we fall back to inferring from the CITY
+ * STRING ALONE (parts[0]) — the cleanest single signal. We never pass a
+ * combined "city + canton-name" string to inferAnyCanton, which would return
+ * the wrong canton (the canton-name token matches TARGET_CANTONS first by
+ * array order). Country code (last token) must be CHE to keep CH jobs.
+ *
+ * Returns `{ canton, city }` for the first location that resolves to a Swiss
+ * canton, or `null` for non-CH / unresolved records (foreign postings).
  */
-function recordIsInTargetCanton(record) {
+function resolveRecordCanton(record) {
   const locs = Array.isArray(record?.jobLocationShort) ? record.jobLocationShort : [];
   for (const loc of locs) {
-    const parts = String(loc || '').split('|').map(p => p.trim());
-    // Index 2 is the 2-letter canton code in the standard CH form.
-    if (parts.length >= 5 && (parts[2] === 'TI' || parts[2] === 'GR')) return true;
-    // Italian/French locales render the canton name in their language; the
-    // canton code (parts[2]) is canonical, but as a safety net we also scan
-    // textually for known target localities + canton names.
-    const lc = String(loc || '').toLowerCase();
-    if (lc.includes('|ti|') || lc.includes('|gr|')) return true;
-    if (/(ticino|tessin|grigioni|grisons|graub[üu]nden)/i.test(loc || '')) return true;
+    const parts = String(loc || '').split('|').map(p => p.trim()).filter(Boolean);
+    if (parts.length === 0) continue;
+    const city = parts[0];
+    if (!city || NON_PHYSICAL_LOCALITIES.has(city.toLowerCase())) continue;
+    // Reject foreign locations: the trailing token is the ISO-3 country code.
+    const countryCode = String(parts[parts.length - 1] || '').toUpperCase();
+    if (/^[A-Z]{3}$/.test(countryCode) && countryCode !== 'CHE') continue;
+    // Canonical 2-letter canton code (standard 5-token CH form: index 2).
+    const cc = parts.length >= 5 ? normalizeCantonCode(parts[2]) : '';
+    if (cc) return { canton: cc, city };
+    // Fall back to inferring from the city string ALONE (clean signal).
+    const inferred = inferAnyCanton(city);
+    if (inferred) return { canton: inferred, city };
   }
-  return false;
+  return null;
 }
 
 /**
- * Locality of the first target-canton entry on a record (used as a tiebreaker
- * when the detail-page location parsing is unavailable).
+ * Resolve a parsed detail page to a Swiss canton CH-wide. Prefers the
+ * authoritative 2-letter region code the parser extracted (detail.region /
+ * places[].region), validated via normalizeCantonCode; falls back to
+ * inferring from the city string ALONE. Returns the 2-letter canton code, or
+ * '' if it does not resolve to a Swiss canton (non-CH / unresolved).
  */
-function recordTargetCity(record) {
-  const locs = Array.isArray(record?.jobLocationShort) ? record.jobLocationShort : [];
-  for (const loc of locs) {
-    const parts = String(loc || '').split('|').map(p => p.trim());
-    if (parts.length >= 5 && (parts[2] === 'TI' || parts[2] === 'GR')) return parts[0];
-  }
-  return '';
-}
-
-/**
- * Check whether a job's region indicates it's in the TI/GR target area.
- */
-function isTicinoJob(detail) {
-  const region = normalize(detail.region);
+function detailCanton(detail) {
+  const regionCode = normalizeCantonCode(detail.region || '');
+  if (regionCode) return regionCode;
+  const placeCode = (detail.places || [])
+    .map(p => normalizeCantonCode(p?.region || ''))
+    .find(Boolean);
+  if (placeCode) return placeCode;
   const city = normalize(detail.city);
   const location = normalize(detail.location);
-  return (
-    isTargetSwissLocation(region) ||
-    isTargetSwissLocation(city) ||
-    isTargetSwissLocation(location)
-  );
+  return inferAnyCanton(city) || inferAnyCanton(location) || '';
 }
 
 /**
- * Detect the city from the location/region fields.
+ * Detect the city from the location/region fields. Returns '' when no city
+ * is present (caller falls back to the API record's city).
  */
 function detectCity(detail) {
   const city = detail.city || '';
   // Remove " / Homeoffice" suffix
   const clean = city.replace(/\s*\/\s*homeoffice/i, '').trim();
   if (clean) return clean;
-  if (detail.region && detail.region.toLowerCase().includes('tessin')) return 'Bellinzona';
-  return 'Bellinzona';
+  return '';
 }
 
+/**
+ * Infer the canton CH-wide from a city string. Returns '' when unresolved —
+ * callers must never default to a target canton.
+ */
 function detectCanton(city = '') {
-  return inferAnyCanton(city) || 'TI';
+  return inferAnyCanton(city) || '';
 }
 
 function detectEmploymentType(detail) {
@@ -348,9 +373,19 @@ async function fetchPostJobs() {
     return [];
   }
 
-  // 2. Filter to TI/GR via the pipe-separated jobLocationShort field.
-  const targetRecords = apiRecords.filter(recordIsInTargetCanton);
-  console.log(`  🎯 ${targetRecords.length} record(s) in target cantons (TI/GR)`);
+  // 2. Resolve each record to a Swiss canton CH-wide (all 26 cantons) from
+  //    the pipe-separated jobLocationShort field. Drop non-CH / unresolved
+  //    records (foreign postings). Each kept record carries the resolved
+  //    `{ canton, city }` so the detail loop never has to default.
+  const targetRecords = [];
+  for (const record of apiRecords) {
+    const resolved = resolveRecordCanton(record);
+    if (!resolved) continue;
+    record._resolvedCanton = resolved.canton;
+    record._resolvedCity = resolved.city;
+    targetRecords.push(record);
+  }
+  console.log(`  🎯 ${targetRecords.length} record(s) resolved to a Swiss canton (CH-wide)`);
 
   if (targetRecords.length === 0) {
     return [];
@@ -402,28 +437,29 @@ async function fetchPostJobs() {
       continue;
     }
 
-    // Sanity check: detail page location must still resolve to TI/GR.
-    // (Listing API can lag; if the underlying job moved we re-filter.)
-    if (!isTicinoJob(detail)) {
-      const apiFallbackCity = recordTargetCity(record);
-      if (!apiFallbackCity) {
-        console.log(`     ↳ Skipping (detail no longer TI/GR): ${detail.title}`);
-        continue;
-      }
-      detail.city = detail.city || apiFallbackCity;
-      detail.location = detail.location || apiFallbackCity;
+    // The listing record already resolved to a Swiss canton; that is the
+    // canonical CH-wide classification. Fall back to it when the detail page
+    // location is missing.
+    if (!detail.city && record._resolvedCity) {
+      detail.city = record._resolvedCity;
+      detail.location = detail.location || record._resolvedCity;
     }
 
     const title = detail.title || '';
-    // Multi-location job: prefer the place that lies in our target cantons
-    // over the detail page's "first" city (which depends on SF's display
-    // order and may be a SG/ZH co-location for a TI/GR opening).
-    const targetPlace = (detail.places || []).find(p => p.region === 'TI' || p.region === 'GR');
-    const city = (targetPlace && targetPlace.city)
-      || detectCity(detail)
-      || recordTargetCity(record)
-      || 'Bellinzona';
-    const canton = (targetPlace && targetPlace.region) || detectCanton(city);
+    // Pick the detail-page city/canton; otherwise fall back to the canton the
+    // listing record already resolved CH-wide. Never default to a target
+    // canton: an unresolved job is dropped.
+    const city = detectCity(detail)
+      || record._resolvedCity
+      || '';
+    const canton = detailCanton(detail)
+      || detectCanton(city)
+      || record._resolvedCanton
+      || '';
+    if (!canton || !city) {
+      console.log(`     ↳ Skipping (location did not resolve to a Swiss canton): ${title}`);
+      continue;
+    }
     const slug = slugify(title, 'post');
     const brandCompany = Array.isArray(record.cust_brandCompanyJobSearch)
       ? record.cust_brandCompanyJobSearch[0]
@@ -464,7 +500,7 @@ async function fetchPostJobs() {
     console.log(`     ✅ ${title} — ${city} (${canton})`);
   }
 
-  console.log(`\n📋 Total Post.ch Ticino/Grigioni jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Post.ch jobs discovered (CH-wide): ${jobs.length}`);
   return jobs;
 }
 
@@ -583,7 +619,7 @@ function updateAdapterConfig(seedUrls = []) {
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['html', 'jsonld'];
   adapter.seedUrls = [...LISTING_URLS, ...seedUrls];
-  adapter.notes = 'Swiss Post careers portal — Ticino/Grigioni jobs discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs) and detail HTML scraped from job.post.ch.';
+  adapter.notes = 'Swiss Post careers portal — CH-wide jobs (all 26 cantons) discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs, national / no canton facet) and detail HTML scraped from job.post.ch.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -627,10 +663,8 @@ function postProcessPostJobs() {
       fixed++;
     }
     job.country = 'CH';
-    if (!job.location) {
-      job.location = 'Bellinzona';
-      fixed++;
-    }
+    // Discovery guarantees a resolved Swiss city; do NOT default an empty
+    // location to any specific (target) city — that would mis-place the job.
     if (!job.descriptionByLocale || job.descriptionByLocale.it !== job.description) {
       job.descriptionByLocale = { ...(job.descriptionByLocale || {}), it: job.description };
       fixed++;
@@ -738,7 +772,7 @@ async function main() {
   const discoveredJobs = await fetchPostJobs();
 
   if (discoveredJobs.length === 0) {
-    console.log('⚠️ No Post.ch Ticino jobs discovered from the careers portal.');
+    console.log('⚠️ No Post.ch jobs discovered from the careers portal (CH-wide).');
     console.log('   The page structure may have changed or be temporarily unavailable.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     logPostJobStats();

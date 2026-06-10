@@ -9,17 +9,22 @@
  *
  * The career center serves server-rendered HTML with 7 jobs per page
  * and pagination via an `offset` query parameter (POST form, but also
- * works via GET). Region filters:
- *   - Graubünden = 1164264
- *   - Tessin     = 1164274
- *   - Wallis     = 1164278
+ * works via GET).
+ *
+ * fenaco / Volg is a national employer, so this crawler fetches the
+ * career center UNFILTERED (no region facet) and paginates the full
+ * national set. The canton of each job is inferred per-job from the
+ * city string alone via inferAnyCanton (CH-wide, all 26 cantons).
+ * Jobs whose city does not resolve to a Swiss canton (foreign / unknown)
+ * are dropped — there is no TI default.
  *
  * This crawler:
- *   1. Fetches all pages for each target region from the career center.
+ *   1. Fetches all pages of the national career center (unfiltered).
  *   2. Parses job listings from HTML (title, company, location, workload).
- *   3. Builds standardized job objects.
- *   4. Merges into data/jobs.json.
- *   5. Translates missing locales.
+ *   3. Infers the canton per job from the city; drops non-CH jobs.
+ *   4. Builds standardized job objects.
+ *   5. Merges into data/jobs.json.
+ *   6. Translates missing locales.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -50,6 +55,7 @@ import {
   mergeLocaleTextMap,
   ensureMinimumDescriptionWordCount,
 } from './lib/dedicated-crawler-common.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -69,13 +75,6 @@ const UA =
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 const JOBS_PER_PAGE = 7;
-
-// Prospective.ch region filter IDs → canton codes
-const REGION_FILTERS = [
-  { id: '1164264', name: 'Graubünden', canton: 'GR' },
-  { id: '1164274', name: 'Tessin', canton: 'TI' },
-  { id: '1164278', name: 'Wallis', canton: 'VS' },
-];
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback = []) {
@@ -185,38 +184,52 @@ function parseJobListings(html) {
   return jobs;
 }
 
-/* ── Fetch All Jobs for a Region ───────────────────────────── */
-async function fetchRegionJobs(regionFilter) {
-  const { id, name, canton } = regionFilter;
+/* ── Fetch All Jobs (national, unfiltered) ─────────────────── */
+
+/**
+ * Resolve a job's canton CH-wide from its city string alone.
+ *
+ * The city is the cleanest single signal (the part after the company in
+ * the "COMPANY, CITY" company-name div). Passing a "city + region"
+ * combined string to inferAnyCanton would let TARGET_CANTONS array order
+ * pick the wrong canton, so we infer from the bare city only.
+ * Returns a 2-letter Swiss canton code, or '' when the city is not a
+ * Swiss location (foreign / unknown) — never defaults to TI.
+ */
+function resolveJobCanton(city = '') {
+  return inferAnyCanton(String(city || '').trim()) || '';
+}
+
+/**
+ * Fetch the full national career center (no region facet) and paginate
+ * via the `offset` query parameter. Canton is inferred per job later
+ * from the city; non-CH / unresolved jobs are dropped.
+ */
+async function fetchAllJobs() {
   const allJobs = [];
   let offset = 0;
 
   // First page to get total count
-  const firstUrl = `${CC_BASE}?filter_20=${id}&lang=de&offset=0`;
-  console.log(`  📥 Fetching ${name} (${canton}) page 1: ${firstUrl}`);
+  const firstUrl = `${CC_BASE}?lang=de&offset=0`;
+  console.log(`  📥 Fetching national page 1: ${firstUrl}`);
   const firstHtml = await fetchPage(firstUrl);
   const totalCount = extractTotalCount(firstHtml);
-  console.log(`     Total: ${totalCount} jobs`);
+  console.log(`     Total: ${totalCount} jobs (national, unfiltered)`);
 
   if (totalCount === 0) return [];
 
-  const firstBatch = parseJobListings(firstHtml);
-  for (const j of firstBatch) {
-    allJobs.push({ ...j, canton, region: name });
-  }
+  allJobs.push(...parseJobListings(firstHtml));
 
   // Paginate through remaining pages
   offset += JOBS_PER_PAGE;
   while (offset < totalCount) {
     const pageNum = Math.floor(offset / JOBS_PER_PAGE) + 1;
-    const url = `${CC_BASE}?filter_20=${id}&lang=de&offset=${offset}`;
-    console.log(`  📥 Fetching ${name} page ${pageNum}: ${url}`);
+    const url = `${CC_BASE}?lang=de&offset=${offset}`;
+    console.log(`  📥 Fetching national page ${pageNum}: ${url}`);
     const html = await fetchPage(url);
     const batch = parseJobListings(html);
     if (batch.length === 0) break;
-    for (const j of batch) {
-      allJobs.push({ ...j, canton, region: name });
-    }
+    allJobs.push(...batch);
     offset += JOBS_PER_PAGE;
   }
 
@@ -568,7 +581,9 @@ function getCompanyBoilerplate(company = '') {
   ].join('\n');
 }
 
-// Per-city postal code table for Volg/LANDI/fenaco locations in GR, VS, TI.
+// Per-city postal code table for known Volg/LANDI/fenaco locations.
+// Used as a fast lookup; cities outside the table fall back to a
+// canton-level postal code (see CANTON_POSTAL_FALLBACK), then '0000'.
 // Prevents applyCompanyDefaults from overwriting per-job locations with HQ (Cadenazzo).
 const CITY_POSTAL_CH = {
   // Graubünden
@@ -601,7 +616,7 @@ function getPostalCode(city = '', canton = '') {
 }
 
 function buildJob(raw) {
-  const { url, title, company, city, workload, contractTerms, canton, region } = raw;
+  const { url, title, company, city, workload, contractTerms, canton } = raw;
   const { employmentType, contractType } = mapEmploymentType(workload, contractTerms);
   const slug = slugify(`${title}-${company}-${safeLocationToken(city)}`);
   const sourceLang = detectLang(title, 'de');
@@ -609,7 +624,7 @@ function buildJob(raw) {
   const postalCode = getPostalCode(city, canton);
 
   const metaLine = [
-    `${title} — ${company}, ${city} (${region}).`,
+    `${title} — ${company}, ${city} (${canton}).`,
     workload ? `Pensum: ${workload}.` : '',
     contractTerms ? `Vertrag: ${contractTerms}.` : '',
     `Bewerbung über ${JOBS_PORTAL}`,
@@ -706,9 +721,13 @@ function mergeJobs(discoveredJobs) {
 function logStats() {
   const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const jobs = allJobs.filter(isTargetJob);
-  const gr = jobs.filter((j) => normalize(j.canton) === 'gr');
-  const ti = jobs.filter((j) => normalize(j.canton) === 'ti');
-  const vs = jobs.filter((j) => normalize(j.canton) === 'vs');
+
+  // Canton breakdown (CH-wide)
+  const cantons = {};
+  for (const j of jobs) {
+    const c = (j.canton || '??').toUpperCase();
+    cantons[c] = (cantons[c] || 0) + 1;
+  }
 
   // Company breakdown
   const companies = {};
@@ -719,7 +738,12 @@ function logStats() {
 
   console.log(`\n📊 === ${COMPANY_NAME} Job Stats ===`);
   console.log(`  🏪 Total jobs: ${jobs.length}`);
-  console.log(`  📍 GR: ${gr.length}, TI: ${ti.length}, VS: ${vs.length}`);
+  console.log(
+    `  📍 Cantons: ${Object.entries(cantons)
+      .sort((a, b) => b[1] - a[1])
+      .map(([k, v]) => `${k}:${v}`)
+      .join(', ')}`,
+  );
   console.log(`  🏢 Companies:`);
   for (const [name, count] of Object.entries(companies).sort((a, b) => b[1] - a[1])) {
     console.log(`     ${name}: ${count}`);
@@ -746,22 +770,16 @@ async function main() {
   console.log(`   Source: ${CC_BASE}`);
   console.log('');
 
-  // Step 1: Fetch all jobs from each target region
-  const allRawJobs = [];
-  for (const region of REGION_FILTERS) {
-    const regionJobs = await fetchRegionJobs(region);
-    allRawJobs.push(...regionJobs);
-    console.log(`   ✅ ${region.name}: ${regionJobs.length} jobs\n`);
-  }
-
-  console.log(`📋 Found ${allRawJobs.length} total jobs across target regions`);
+  // Step 1: Fetch the full national career center (unfiltered)
+  const allRawJobs = await fetchAllJobs();
+  console.log(`📋 Found ${allRawJobs.length} total jobs (national)`);
 
   if (allRawJobs.length === 0) {
-    console.log('ℹ️ No jobs found in target regions. Exiting OK.');
+    console.log('ℹ️ No jobs found. Exiting OK.');
     return;
   }
 
-  // Deduplicate by URL (same job might appear in overlapping searches)
+  // Deduplicate by URL (same job might appear across pages)
   const seen = new Set();
   const uniqueJobs = allRawJobs.filter((j) => {
     const key = j.url.toLowerCase();
@@ -771,8 +789,26 @@ async function main() {
   });
   console.log(`🎯 ${uniqueJobs.length} unique jobs after dedup`);
 
+  // Step 1b: Infer canton CH-wide from the city; drop non-Swiss / unresolved.
+  let dropped = 0;
+  const chJobs = uniqueJobs
+    .map((j) => ({ ...j, canton: resolveJobCanton(j.city) }))
+    .filter((j) => {
+      if (!j.canton) {
+        dropped += 1;
+        return false;
+      }
+      return true;
+    });
+  console.log(`🇨🇭 ${chJobs.length} jobs resolved to a Swiss canton (${dropped} non-CH/unresolved dropped)`);
+
+  if (chJobs.length === 0) {
+    console.log('ℹ️ No Swiss-resolved jobs. Exiting OK.');
+    return;
+  }
+
   // Step 2: Build standardized job objects
-  const jobs = uniqueJobs.map(buildJob);
+  const jobs = chJobs.map(buildJob);
   console.log(`✅ Built ${jobs.length} job objects`);
 
   // Step 2b: Enrich with detail page content
