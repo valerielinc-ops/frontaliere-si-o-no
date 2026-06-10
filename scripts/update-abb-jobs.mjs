@@ -40,6 +40,7 @@ import {
   deriveLocalizedSlug,
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
@@ -256,7 +257,7 @@ async function fetchAbbSearchPage(pageUrl, timeoutMs, userAgent) {
 
     const refine = ddo?.eagerLoadRefineSearch || {};
     const data = refine?.data || {};
-    const jobs = Array.isArray(data?.jobs) ? data.jobs : [];
+    const jobs = assertJsonListShape(data, { key: 'jobs', source: 'abb' });
     const hits = Number(refine?.hits || jobs.length || 0);
     const totalHits = Number(refine?.totalHits || jobs.length || 0);
     return { jobs, hits, totalHits };

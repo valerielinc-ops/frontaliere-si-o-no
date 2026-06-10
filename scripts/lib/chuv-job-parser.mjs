@@ -28,6 +28,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -218,7 +219,7 @@ async function fetchFeed() {
     throw new Error(`CHUV feed HTTP ${res.status} from ${FEED_URL}`);
   }
   const data = await res.json();
-  return Array.isArray(data?.jobs) ? data.jobs : [];
+  return assertJsonListShape(data, { key: 'jobs', source: 'chuv' });
 }
 
 /**

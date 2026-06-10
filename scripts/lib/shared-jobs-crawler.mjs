@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
@@ -2388,7 +2389,7 @@ async function searchGoogleCse(query, limit = 8) {
     const res = await fetchWithTimeout(url, { headers: { Accept: 'application/json' } });
     if (!res.ok) return [];
     const data = await res.json();
-    const items = Array.isArray(data?.items) ? data.items : [];
+    const items = assertJsonListShape(data, { key: 'items', source: 'shared-jobs-crawler:google-cse' });
     return items
       .map((x) => tryUrl(x?.link || ''))
       .filter(Boolean);
