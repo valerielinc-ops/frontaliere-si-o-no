@@ -22655,7 +22655,7 @@
       "id": "roche-6d705c37327b",
       "slug": "roche-hangzhou",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "roche-hangzhou",
         "en": "mce-roche-ch",
         "de": "eine-neue-technologie-roche-hangzhou",
         "fr": "les-roche-hangzhou"
@@ -22698,14 +22698,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-ch-161",
-        "roche-shanghai-xgl6mx",
-        "roche-ch-168",
-        "roche-shanghai",
-        "roche-shanghai-l6hd8k",
-        "roche-hangzhou-xgl6pj",
-        "roche-ch-175",
-        "roche-hangzhou",
+        "roche-nanjing",
+        "roche-ch-60",
+        "roche-jinan",
+        "roche-zhengzhou-4mwu80",
+        "roche-ch-64",
+        "roche-guangzhou-4mww96",
+        "roche-ch-138",
         "roche-zhengzhou-4mxh6f",
         "roche-changchun-4mxe1n",
         "roche-ch-71",
@@ -22717,11 +22716,11 @@
         "roche-guangzhou",
         "roche-hangzhou-xgl4hi",
         "roche-ch-173",
-        "roche-ch-41"
+        "roche-ch-41",
+        "roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-beijing-o74bqf",
           "roche-nanjing",
           "roche-ch-60",
           "roche-jinan",
@@ -22740,7 +22739,8 @@
           "roche-guangzhou",
           "roche-hangzhou-xgl4hi",
           "roche-ch-173",
-          "roche-ch-41"
+          "roche-ch-41",
+          "roche-basel"
         ],
         "en": [
           "roche-ch"
@@ -40274,8 +40274,6 @@
         "field-engineering-spezialist-albuquerque-nm-roche-albuquerque",
         "field-engineering-specialiste-albuquerque-nm-roche-albuquerque",
         "field-engineering-spezialist-los-angeles-ca-roche-basel",
-        "field-engineering-specialist-roche-ch",
-        "field-engineering-specialist-roche-ch-4",
         "field-engineering-specialist-scranton-pennsylvania-roche-ch",
         "field-engineering-spezialist-scranton-pennsylvania-roche-basel",
         "field-engineering-specialiste-scranton-pennsylvania-roche-basel",
