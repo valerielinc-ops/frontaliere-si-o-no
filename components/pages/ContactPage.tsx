@@ -4,8 +4,9 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Send, CheckCircle, AlertTriangle, ArrowLeft, Shield } from 'lucide-react';
+import { Mail, Send, CheckCircle, AlertTriangle, ArrowLeft, Shield, Briefcase } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { buildPath } from '@/services/router';
 import { recaptchaService } from '@/services/recaptchaService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { Analytics } from '@/services/analytics';
@@ -46,7 +47,7 @@ const TOPICS = [
 ] as const;
 
 const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed }) => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const [form, setForm] = useState<ContactFormData>({
  name: '',
  email: '',
@@ -228,6 +229,17 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
  ))}
  </select>
  </div>
+
+ {/* Publisher self-serve hint when topic is job posting */}
+ {form.topic === 'contact.topic.jobPost' && (
+ <a
+ href={buildPath({ activeTab: 'publish' }, locale)}
+ className="flex items-center gap-2 p-3 rounded-xl bg-accent-subtle border border-edge text-sm text-link hover:underline"
+ >
+ <Briefcase className="w-4 h-4 flex-shrink-0" />
+ <span>{t('publisher.title')}</span>
+ </a>
+ )}
 
  {/* Message */}
  <div>

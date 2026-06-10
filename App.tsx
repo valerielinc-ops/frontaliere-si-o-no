@@ -44,6 +44,9 @@ const NewsletterPreferences = lazyRetry(() => import('@/components/pages/Newslet
 const GamificationPage = lazyRetry(() => import('@/components/community/GamificationPage'));
 const CommunityForum = lazyRetry(() => import('@/components/community/CommunityForum'));
 const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
+const PublisherPublishPage = lazyRetry(() => import('@/components/pages/PublisherPublishPage'));
+const PublisherDashboardPage = lazyRetry(() => import('@/components/pages/PublisherDashboardPage'));
+const ForEmployersPage = lazyRetry(() => import('@/components/pages/ForEmployersPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
 const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
@@ -2380,6 +2383,18 @@ const App: React.FC = () => {
  <div className="max-w-7xl mx-auto">
  <ContactPage prefill={contactPrefill} onPrefillConsumed={() => setContactPrefill(null)} />
  </div>
+ ) : activeTab === 'publish' ? (
+ <div className="max-w-7xl mx-auto">
+ <PublisherPublishPage />
+ </div>
+ ) : activeTab === 'publisher-dashboard' ? (
+ <div className="max-w-7xl mx-auto">
+ <PublisherDashboardPage />
+ </div>
+ ) : activeTab === 'for-employers' ? (
+ <div className="max-w-7xl mx-auto">
+ <ForEmployersPage />
+ </div>
  ) : activeTab === 'partners' ? (
  <div className="max-w-7xl mx-auto">
  <PartnerServices />
@@ -2417,8 +2432,7 @@ const App: React.FC = () => {
  if (slug) window.scrollTo({ top: 0, behavior: 'instant' });
  }}
  onPostJob={() => {
- setContactPrefill({ topic: 'contact.topic.jobPost' });
- navigateTo('contact' as any);
+ navigateTo('for-employers' as any);
  }}
  />
  </div>
@@ -2944,6 +2958,15 @@ const App: React.FC = () => {
  </a>
  <span className="text-edge">·</span>
  <a
+ href={buildPath({ activeTab: 'for-employers' as any })}
+ onClick={(e) => { e.preventDefault(); navigateTo('for-employers' as any); }}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-success transition-colors no-underline"
+ >
+ <Briefcase className="w-3.5 h-3.5" />
+ {t('publisherLanding.footerLink')}
+ </a>
+ <span className="text-edge">·</span>
+ <a
  href={buildPath({ activeTab: 'consulting' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }}
  className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
@@ -3096,6 +3119,7 @@ const App: React.FC = () => {
  <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
  <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline">{t('footer.apiStatus')}</a>
  <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-success py-1.5 min-h-[44px] no-underline">{t('partners.footerLink')}</a>
+ <a href={buildPath({ activeTab: 'for-employers' as any })} onClick={(e) => { e.preventDefault(); navigateTo('for-employers' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-success py-1.5 min-h-[44px] no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('publisherLanding.footerLink')}</a>
  </div>
  </details>
  {/* Strumenti */}
