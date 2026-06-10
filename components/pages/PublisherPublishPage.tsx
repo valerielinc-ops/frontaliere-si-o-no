@@ -14,7 +14,7 @@
  */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { Briefcase, Plus, Trash2, Send, AlertTriangle, LogIn, Clock, Shield, Sparkles } from 'lucide-react';
+import { Briefcase, Plus, Trash2, Send, AlertTriangle, LogIn, Clock, Shield, Sparkles, ShoppingCart } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { recaptchaService } from '@/services/recaptchaService';
@@ -84,6 +84,33 @@ interface LocationRow {
 
 const emptyLocationRow = (): LocationRow => ({ label: '', postalCode: '', canton: 'TI', street: '' });
 
+/** Apply-method snapshot stored per cart item. */
+interface ApplySpec {
+ mode: ApplyMode;
+ url: string;
+ email: string;
+ privacyPolicyUrl: string;
+}
+
+/**
+ * One authored ad captured into the multi-ad cart. Mirrors the per-ad field
+ * state (NOT company / tier, which are shared across the whole purchase).
+ * A unique `id` lets React key the list and the cart removal stay stable.
+ */
+interface CartItem {
+ id: string;
+ title: string;
+ description: string;
+ category: string;
+ sector: string;
+ employmentType: string;
+ contractType: string;
+ salaryMin: string;
+ salaryMax: string;
+ locations: LocationRow[];
+ apply: ApplySpec;
+}
+
 /** Parse the model's reply (may be fenced ```json) into a job-post object. */
 function parseAiJobPost(text: string): {
  title?: string;
@@ -136,6 +163,21 @@ function countWords(text: string): number {
  return trimmed.split(/\s+/).length;
 }
 
+/** Distinct, non-empty location labels (case-insensitive) for one ad's rows. */
+function distinctLocationLabels(rows: LocationRow[]): string[] {
+ const seen = new Set<string>();
+ const out: string[] = [];
+ for (const loc of rows) {
+ const label = loc.label.trim();
+ const key = label.toLowerCase();
+ if (label && !seen.has(key)) {
+ seen.add(key);
+ out.push(label);
+ }
+ }
+ return out;
+}
+
 function isValidUrl(value: string): boolean {
  return /^https?:\/\/.+/i.test(value.trim());
 }
@@ -177,6 +219,13 @@ const PublisherPublishPage: React.FC = () => {
  const [applyUrl, setApplyUrl] = useState('');
  const [applyEmail, setApplyEmail] = useState('');
  const [privacyPolicyUrl, setPrivacyPolicyUrl] = useState('');
+
+ // ── Multi-ad cart ───────────────────────────────────────────
+ // Each item is a snapshot of the per-ad fields above. Company + tier are
+ // shared across the whole cart (one company, one tier per purchase), so they
+ // are NOT captured here. The checkout CF sums distinct locations across every
+ // ad → the volume discount is reachable across several distinct ads.
+ const [cart, setCart] = useState<CartItem[]>([]);
 
  const [status, setStatus] = useState<SubmitStatus>('idle');
  const [errors, setErrors] = useState<string[]>([]);
@@ -273,22 +322,16 @@ const PublisherPublishPage: React.FC = () => {
 
  // ── Live price preview ──────────────────────────────────────
  // Billing counts DISTINCT non-empty location labels (one ad × location unit each).
- const distinctLocations = useMemo(() => {
- const seen = new Set<string>();
- const out: string[] = [];
- for (const loc of locations) {
- const label = loc.label.trim();
- const key = label.toLowerCase();
- if (label && !seen.has(key)) {
- seen.add(key);
- out.push(label);
- }
- }
- return out;
- }, [locations]);
+ const distinctLocations = useMemo(() => distinctLocationLabels(locations), [locations]);
+ // Whole order = every ad already in the cart + the current in-progress ad.
+ // The CF recomputes the same way, so the discount applies across all of them.
  const price = useMemo(
- () => priceForCart([{ id: 'ad', locations: distinctLocations }]),
- [distinctLocations],
+ () =>
+ priceForCart([
+ ...cart.map(c => ({ id: c.id, locations: distinctLocationLabels(c.locations) })),
+ { id: 'current', locations: distinctLocations },
+ ]),
+ [cart, distinctLocations],
  );
 
  // ── Location helpers ────────────────────────────────────────
@@ -303,9 +346,10 @@ const PublisherPublishPage: React.FC = () => {
  const descriptionWords = useMemo(() => countWords(description), [description]);
 
  // ── Client-side validation ──────────────────────────────────
- const validate = (): string[] => {
+ // Per-ad validation (title / description / ≥1 location / apply fields). Reused
+ // both when adding an ad to the cart and when validating the final ad on submit.
+ const validateCurrentAd = (): string[] => {
  const found: string[] = [];
- if (!companyName.trim()) found.push(t('publisher.error.companyName'));
  if (!title.trim()) found.push(t('publisher.error.title'));
  if (countWords(description) < DESCRIPTION_MIN_WORDS) found.push(t('publisher.error.description'));
  if (distinctLocations.length < 1) found.push(t('publisher.error.locations'));
@@ -318,12 +362,80 @@ const PublisherPublishPage: React.FC = () => {
  return found;
  };
 
+ // True when the current ad form is meaningfully started (so submit knows
+ // whether to include it on top of the cart, or treat it as blank).
+ const currentAdHasContent = (): boolean =>
+ Boolean(title.trim()) || countWords(description) > 0 || distinctLocations.length > 0;
+
+ // Snapshot the current ad fields into a cart item (company / tier excluded).
+ const snapshotCurrentAd = (): CartItem => ({
+ id: `ad-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+ title,
+ description,
+ category,
+ sector,
+ employmentType,
+ contractType,
+ salaryMin,
+ salaryMax,
+ locations: locations.map(loc => ({ ...loc })),
+ apply: { mode: applyMode, url: applyUrl, email: applyEmail, privacyPolicyUrl },
+ });
+
+ // Reset the per-ad fields after stashing one in the cart. KEEPS company + tier.
+ const resetAdFields = () => {
+ setTitle('');
+ setDescription('');
+ setCategory('');
+ setSector('');
+ setEmploymentType('FULL_TIME');
+ setContractType('permanent');
+ setSalaryMin('');
+ setSalaryMax('');
+ setLocations([emptyLocationRow()]);
+ setApplyMode(isFree ? 'external_url' : applyMode);
+ setApplyUrl('');
+ setApplyEmail('');
+ setPrivacyPolicyUrl('');
+ setAiPosition('');
+ };
+
+ // "Aggiungi un altro annuncio": validate the current ad, snapshot it, reset.
+ const handleAddToCart = () => {
+ const adErrors = validateCurrentAd();
+ if (adErrors.length > 0) {
+ setErrors(adErrors);
+ return;
+ }
+ setErrors([]);
+ setCart(prev => [...prev, snapshotCurrentAd()]);
+ resetAdFields();
+ Analytics.trackUIInteraction('publisher', 'cart', 'add', 'ok');
+ };
+
+ const removeCartItem = (id: string) => setCart(prev => prev.filter(item => item.id !== id));
+
  const handleSubmit = async (e: React.FormEvent) => {
  e.preventDefault();
  if (status === 'submitting' || status === 'redirecting') return;
  if (!user) return;
 
- const validationErrors = validate();
+ // Company is shared across the whole purchase; validate it once.
+ const companyErrors: string[] = [];
+ if (!companyName.trim()) companyErrors.push(t('publisher.error.companyName'));
+
+ // Collect every ad to publish: the cart items, plus the current in-progress
+ // ad when it has content. An empty current form with a non-empty cart simply
+ // checks out the cart. The current ad (when present) must still pass per-ad
+ // validation.
+ const includeCurrent = cart.length === 0 || currentAdHasContent();
+ const currentAdErrors = includeCurrent ? validateCurrentAd() : [];
+ const ads: CartItem[] = [...cart, ...(includeCurrent ? [snapshotCurrentAd()] : [])];
+
+ const validationErrors = [...companyErrors, ...currentAdErrors];
+ if (validationErrors.length === 0 && ads.length === 0) {
+ validationErrors.push(t('publisher.error.title'));
+ }
  if (validationErrors.length > 0) {
  setErrors(validationErrors);
  setStatus('idle');
@@ -336,7 +448,8 @@ const PublisherPublishPage: React.FC = () => {
  try {
  Analytics.trackUIInteraction('publisher', 'form', 'submit', 'start');
 
- // reCAPTCHA: generate + verify server-side before persisting anything.
+ // reCAPTCHA: generate + verify server-side ONCE before persisting anything
+ // (one human gesture covers the whole multi-ad checkout, not per ad).
  const token = await recaptchaService.getTokenForApi('PUBLISH_JOB');
  if (!token) throw new Error('recaptcha_token_missing');
  const verification = await recaptchaService.verifyToken(token, 'PUBLISH_JOB');
@@ -348,12 +461,25 @@ const PublisherPublishPage: React.FC = () => {
  const firebaseApp = await getApp();
  const db = getFirestore(firebaseApp);
 
- // Build PublisherJobLocation[] from distinct labels, attaching the structured
- // address the projection reads (raw.canton + raw.address.*). Empty address
- // subfields are omitted so the projection's `|| fallback` logic stays clean.
+ const company = {
+ name: companyName.trim(),
+ legalForm,
+ ...(domain.trim() ? { domain: domain.trim() } : {}),
+ ...(logoUrl.trim() ? { logoUrl: logoUrl.trim() } : {}),
+ };
+
+ // Write one publisher_jobs doc per ad (same shape as before). The CF sums
+ // distinct locations across ALL of them for billing + volume discount.
+ // status 'pending_payment' — only the Stripe webhook (Admin SDK) may set 'paid'.
+ const jobIds: string[] = [];
+ for (const ad of ads) {
+ // Build PublisherJobLocation[] from distinct labels, attaching the
+ // structured address the projection reads (raw.canton + raw.address.*).
+ // Empty address subfields are omitted so the projection's `|| fallback`
+ // logic stays clean.
  const seenLocations = new Set<string>();
  const jobLocations: PublisherJobLocation[] = [];
- for (const row of locations) {
+ for (const row of ad.locations) {
  const label = row.label.trim();
  const key = label.toLowerCase();
  if (!label || seenLocations.has(key)) continue;
@@ -373,43 +499,37 @@ const PublisherPublishPage: React.FC = () => {
  },
  });
  }
- const parsedSalaryMin = salaryMin.trim() ? Number(salaryMin) : undefined;
- const parsedSalaryMax = salaryMax.trim() ? Number(salaryMax) : undefined;
+ const parsedSalaryMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
+ const parsedSalaryMax = ad.salaryMax.trim() ? Number(ad.salaryMax) : undefined;
 
- // ONE publisher_jobs doc with the full locations array. The Cloud Function
- // sums distinct locations for billing. status 'pending_payment' — only the
- // Stripe webhook (Admin SDK) may ever set 'paid'.
  const docRef = await addDoc(collection(db, 'publisher_jobs'), {
  publisherUid: user.uid,
  tier,
  // free → live immediately as a plain listing; sponsored → awaits Stripe.
  status: isFree ? 'published' : 'pending_payment',
- title: title.trim(),
- description: description.trim(),
+ title: ad.title.trim(),
+ description: ad.description.trim(),
  sourceLang: 'it',
- company: {
- name: companyName.trim(),
- legalForm,
- ...(domain.trim() ? { domain: domain.trim() } : {}),
- ...(logoUrl.trim() ? { logoUrl: logoUrl.trim() } : {}),
- },
+ company,
  locations: jobLocations,
- employmentType,
- ...(category.trim() ? { category: category.trim() } : {}),
- ...(sector.trim() ? { sector: sector.trim() } : {}),
- ...(contractType.trim() ? { contractType: contractType.trim() } : {}),
+ employmentType: ad.employmentType,
+ ...(ad.category.trim() ? { category: ad.category.trim() } : {}),
+ ...(ad.sector.trim() ? { sector: ad.sector.trim() } : {}),
+ ...(ad.contractType.trim() ? { contractType: ad.contractType.trim() } : {}),
  ...(parsedSalaryMin != null && Number.isFinite(parsedSalaryMin) ? { salaryMin: parsedSalaryMin } : {}),
  ...(parsedSalaryMax != null && Number.isFinite(parsedSalaryMax) ? { salaryMax: parsedSalaryMax } : {}),
  currency: 'CHF',
  apply: {
- mode: applyMode,
- ...(applyMode === 'external_url' ? { url: applyUrl.trim() } : {}),
- ...(applyMode === 'forward_email' || applyMode === 'in_house' ? { email: applyEmail.trim() } : {}),
- ...(privacyPolicyUrl.trim() ? { privacyPolicyUrl: privacyPolicyUrl.trim() } : {}),
+ mode: ad.apply.mode,
+ ...(ad.apply.mode === 'external_url' ? { url: ad.apply.url.trim() } : {}),
+ ...(ad.apply.mode === 'forward_email' || ad.apply.mode === 'in_house' ? { email: ad.apply.email.trim() } : {}),
+ ...(ad.apply.privacyPolicyUrl.trim() ? { privacyPolicyUrl: ad.apply.privacyPolicyUrl.trim() } : {}),
  },
  createdAt: serverTimestamp(),
  updatedAt: serverTimestamp(),
  });
+ jobIds.push(docRef.id);
+ }
 
  // Save the company profile so the next ad prefills (best-effort, non-blocking).
  try {
@@ -418,12 +538,7 @@ const PublisherPublishPage: React.FC = () => {
  fDoc(db, 'publishers', user.uid),
  {
  email: user.email || null,
- company: {
- name: companyName.trim(),
- legalForm,
- ...(domain.trim() ? { domain: domain.trim() } : {}),
- ...(logoUrl.trim() ? { logoUrl: logoUrl.trim() } : {}),
- },
+ company,
  updatedAt: serverTimestamp(),
  },
  { merge: true },
@@ -450,7 +565,7 @@ const PublisherPublishPage: React.FC = () => {
  Authorization: `Bearer ${idToken}`,
  },
  body: JSON.stringify({
- jobIds: [docRef.id],
+ jobIds,
  successUrl: `${window.location.origin}${window.location.pathname}?publisher_checkout=success`,
  cancelUrl: window.location.href,
  }),
@@ -971,6 +1086,54 @@ const PublisherPublishPage: React.FC = () => {
  />
  </div>
  </div>
+ </section>
+
+ {/* ── Add-another-ad + cart ──────────────────────────── */}
+ <section>
+ <button
+ type="button"
+ onClick={handleAddToCart}
+ className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-link border border-dashed border-edge rounded-xl hover:bg-surface-alt transition-colors"
+ >
+ <Plus className="w-4 h-4" />
+ {t('publisher.cart.add')}
+ </button>
+ {cart.length > 0 && (
+ <div className="mt-4 rounded-2xl border border-edge bg-surface-alt p-4">
+ <h2 className="flex items-center gap-2 text-base font-semibold font-display text-strong mb-3">
+ <ShoppingCart className="w-4 h-4 text-link flex-shrink-0" />
+ {t('publisher.cart.title')}
+ </h2>
+ <ul className="space-y-2">
+ {cart.map(item => {
+ const count = distinctLocationLabels(item.locations).length;
+ return (
+ <li
+ key={item.id}
+ className="flex items-center gap-3 rounded-xl border border-edge bg-surface p-3"
+ >
+ <div className="flex-1 min-w-0">
+ <p className="text-sm font-medium text-strong truncate">
+ {item.title.trim() || t('publisher.ad.title')}
+ </p>
+ <p className="text-xs text-subtle mt-0.5">
+ {t('publisher.cart.locationsCount', { n: count })}
+ </p>
+ </div>
+ <button
+ type="button"
+ onClick={() => removeCartItem(item.id)}
+ aria-label={`${t('publisher.cart.remove')}: ${item.title.trim() || t('publisher.ad.title')}`}
+ className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-xl border border-edge text-subtle hover:text-danger hover:border-danger-border transition-colors"
+ >
+ <Trash2 className="w-4 h-4" />
+ </button>
+ </li>
+ );
+ })}
+ </ul>
+ </div>
+ )}
  </section>
 
  {/* ── Price preview ──────────────────────────────────── */}
