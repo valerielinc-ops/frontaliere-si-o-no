@@ -136,11 +136,11 @@
     },
     {
       "id": "prada-2d8f05e979e3",
-      "slug": "accountant-contractor-prada-group-seoul-accountant-contractor",
+      "slug": "contabile-contractor-prada-group-seoul-accountant-contractor",
       "slugByLocale": {
         "en": "accountant-contractor-prada-group-seoul-accountant-contractor",
-        "it": "accountant-contractor-prada-group-seoul-accountant-contractor",
-        "de": "accountant-contractor-prada-group-seoul-accountant-contractor",
+        "it": "contabile-contractor-prada-group-seoul-accountant-contractor",
+        "de": "buchhalter-contractor-prada-group-seoul-accountant-contractor",
         "fr": "accountant-contractor-prada-group-seoul-accountant-contractor"
       },
       "company": "Prada Group",
@@ -194,7 +194,18 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-06-10T12:40:19.583Z"
+      "firstSeenAt": "2026-06-10T12:40:19.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accountant-contractor-prada-group-seoul-accountant-contractor"
+        ],
+        "de": [
+          "accountant-contractor-prada-group-seoul-accountant-contractor"
+        ]
+      },
+      "previousSlugs": [
+        "accountant-contractor-prada-group-seoul-accountant-contractor"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
