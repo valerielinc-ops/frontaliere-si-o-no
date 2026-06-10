@@ -15,6 +15,7 @@ import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { CRITICAL_CSS } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
@@ -641,7 +642,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  ].filter(Boolean).join('');
  const preloadTag = corePreloads ? '\n ' + corePreloads : '';
 
- const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:#0f172a}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}';
+ // Critical CSS (first-paint, non-render-blocking) — single source of truth in
+ // shared/criticalCss.ts, shared with staticPagesPlugin. This used to be a
+ // hand-copied literal that had drifted (missing the font-metric overrides
+ // staticPages/index.html carry → no font CLS stabilization on OG pages); the
+ // shared constant makes that drift impossible (#1586).
+ const criticalCSS = CRITICAL_CSS;
 
  // ── Build related articles helper for cross-linking (SEO: inter-article links) ──
  const relatedArticlesLabel: Record<string, string> = {
