@@ -40,6 +40,7 @@
 import type fsT from 'node:fs';
 import type npT from 'node:path';
 import { ARTICLES_PAGE_SIZE } from '../seoHubsData';
+import { readArticleSlugs, readBlogUrlSlugs } from './articleReaders';
 import {
   ARTICLE_SECTIONS,
   type ArticleSection,
@@ -50,6 +51,12 @@ import {
  * (`blog.article.<slug>.title` in `{metaPrefix}-it.ts`) and its slug-map keys
  * (the `{slugConst}` block in `{slugDataFile}`). Mirrors the `masterSlugs`
  * built by the section's emitter exactly.
+ *
+ * Both halves of the union come from the SAME readers the emitter uses
+ * ({@link readArticleSlugs} + {@link readBlogUrlSlugs} in
+ * `shared/articleReaders.ts`) — not a re-inlined copy of their regexes — so the
+ * navigator and the emitter cannot drift on the registry parse (the #1486/#1497
+ * class). The IT locale carries the canonical `BlogArticleId` key set for both.
  */
 export function readArticleArchiveUnionSlugs(
   fs: typeof fsT,
@@ -60,35 +67,14 @@ export function readArticleArchiveUnionSlugs(
   const cfg = ARTICLE_SECTIONS[section];
   const slugs = new Set<string>();
 
-  // 1. Meta title-keys from `{metaPrefix}-it.ts` (same regex as
-  //    `readArticleSlugs` in seoHubsPlugin.ts).
-  try {
-    const metaFile = np.resolve(rootDir, 'services/locales', `${cfg.metaPrefix}-it.ts`);
-    if (fs.existsSync(metaFile)) {
-      const src = fs.readFileSync(metaFile, 'utf-8');
-      const rx = /'blog\.article\.([^']+?)\.title':\s*'(?:[^'\\]|\\.)*'/g;
-      let m: RegExpExecArray | null;
-      while ((m = rx.exec(src)) !== null) slugs.add(m[1]);
-    }
-  } catch (err) {
-    console.warn(`[article-union] failed to read ${cfg.metaPrefix}-it.ts`, err);
+  // 1. Meta title-keys from `{metaPrefix}-it.ts`.
+  for (const { slug } of readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix)) {
+    slugs.add(slug);
   }
 
-  // 2. Slug-map keys (`{slugConst}` block in `{slugDataFile}`; same parser as
-  //    `readBlogUrlSlugs` in seoHubsPlugin.ts).
-  try {
-    const slugFile = np.resolve(rootDir, cfg.slugDataFile);
-    if (fs.existsSync(slugFile)) {
-      const src = fs.readFileSync(slugFile, 'utf-8');
-      const block = src.match(new RegExp(`const ${cfg.slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-      if (block) {
-        const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
-        let bm: RegExpExecArray | null;
-        while ((bm = rx.exec(block)) !== null) slugs.add(bm[1]);
-      }
-    }
-  } catch (err) {
-    console.warn(`[article-union] failed to read ${cfg.slugConst} from ${cfg.slugDataFile}`, err);
+  // 2. Slug-map keys (`{slugConst}` block in `{slugDataFile}`).
+  for (const slug of Object.keys(readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, cfg.slugConst))) {
+    slugs.add(slug);
   }
 
   return slugs;
