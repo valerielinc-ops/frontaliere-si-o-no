@@ -1,7 +1,145 @@
 {
   "crawlerKey": "liebherr",
-  "assembledAt": "2026-06-10T12:32:55.996Z",
+  "assembledAt": "2026-06-10T23:02:08.834Z",
   "jobs": [
+    {
+      "id": "liebherr-f80ad8d2090f",
+      "slug": "teamleader-h-f-x-commodities-liebherr-bulle",
+      "slugByLocale": {
+        "en": "teamleader-h-f-x-commodities-liebherr-bulle",
+        "it": "teamleader-h-f-x-commodities-liebherr-bulle",
+        "de": "teamleader-h-f-x-commodities-liebherr-bulle",
+        "fr": "teamleader-h-f-x-commodities-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Teamleader (h/f/x) Commodities",
+      "titleByLocale": {
+        "en": "Teamleader (h/f/x) Commodities",
+        "fr": "Teamleader (h/f/x) Commodities",
+        "it": "Teamleader (h/f/x) Commodities",
+        "de": "Teamleader (h/f/x) Commodities"
+      },
+      "description": "Teamleader (h/f/x) Commodities — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "en": "Teamleader (h/f/x) Commodities — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Teamleader-%28hfx%29-Commodities/1275408801/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.674Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Teamleader-%28hfx%29-Commodities/1275408801/",
+      "jobReqId": "1275408801",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630",
+      "firstSeenAt": "2026-06-10T23:02:06.674Z"
+    },
+    {
+      "id": "liebherr-d828deca3d91",
+      "slug": "gru-a-torre-di-clerk-tecnico-m-w-liebherr-reiden",
+      "slugByLocale": {
+        "it": "gru-a-torre-di-clerk-tecnico-m-w-liebherr-reiden",
+        "en": "technical-clerk-tower-cranes-m-w-liebherr-reiden",
+        "de": "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden",
+        "fr": "grues-a-tour-de-commis-technique-m-p-liebherr-reiden"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Technischer Sachbearbeiter Turmdrehkrane (m/w)",
+      "titleByLocale": {
+        "it": "Gru a torre di clerk tecnico (m/w)",
+        "en": "Technical clerk tower cranes (m/w)",
+        "de": "Technischer Sachbearbeiter Turmdrehkrane (m/w)",
+        "fr": "Grues à tour de commis technique (m/p)"
+      },
+      "description": "Technischer Sachbearbeiter Turmdrehkrane (m/w) — Liebherr (Reiden, CH)",
+      "descriptionByLocale": {
+        "de": "Technischer Sachbearbeiter Turmdrehkrane (m/w) — Liebherr (Reiden, CH)"
+      },
+      "location": "Reiden",
+      "canton": "LU",
+      "url": "https://careers.liebherr.com/job/Reiden-Technischer-Sachbearbeiter-Turmdrehkrane-%28mw%29/1377533633/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:02:06.673Z",
+      "addressLocality": "Reiden",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Reiden-Technischer-Sachbearbeiter-Turmdrehkrane-%28mw%29/1377533633/",
+      "jobReqId": "1377533633",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
+        ],
+        "en": [
+          "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.405Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6003"
+    },
     {
       "id": "liebherr-010ae37b0a50",
       "slug": "export-administrator-m-w-d-liebherr-nussbaumen",
@@ -30,7 +168,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Export-Administrator-%28mwd%29/1392221733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:32:53.598Z",
+      "crawledAt": "2026-06-10T23:02:06.672Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -64,69 +202,6 @@
       "postalCode": "1700"
     },
     {
-      "id": "liebherr-314533df6441",
-      "slug": "hr-business-partner-m-w-d-liebherr-nussbaumen",
-      "slugByLocale": {
-        "fr": "hr-business-partner-m-w-d-liebherr-nussbaumen",
-        "it": "hr-business-partner-m-w-d-liebherr-nussbaumen",
-        "en": "hr-business-partner-m-w-d-liebherr-nussbaumen",
-        "de": "hr-business-partner-m-w-d-liebherr-nussbaumen"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "HR Business Partner (m/w/d)",
-      "titleByLocale": {
-        "fr": "HR Business Partner (m/w/d)",
-        "it": "Risorse Umane Business Partner (m/w/d)",
-        "en": "HR Business Partner (m/w/d)",
-        "de": "Personalwesen Business Partner (m/w/d)"
-      },
-      "description": "HR Business Partner (m/w/d) — Liebherr (Nussbaumen, CH)",
-      "descriptionByLocale": {
-        "fr": "HR Business Partner (m/w/d) — Liebherr (Nussbaumen, CH)"
-      },
-      "location": "Nussbaumen",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Nussbaumen-HR-Business-Partner-%28mwd%29/1402823133/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.595Z",
-      "addressLocality": "Nussbaumen",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Nussbaumen-HR-Business-Partner-%28mwd%29/1402823133/",
-      "jobReqId": "1402823133",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700",
-      "firstSeenAt": "2026-06-10T12:32:53.595Z"
-    },
-    {
       "id": "liebherr-22a7e988b83f",
       "slug": "servizio-tecnico-torre-gru-m-w-liebherr-reiden",
       "slugByLocale": {
@@ -154,7 +229,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Turmdrehkrane-%28mw%29/1275818101/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.595Z",
+      "crawledAt": "2026-06-10T23:02:06.669Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -171,22 +246,22 @@
       "jobReqId": "1275818101",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
+        "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden",
-          "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
-        ],
         "it": [
           "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
         ],
         "en": [
           "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden",
+          "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
         ]
       },
-      "previousSlugs": [
-        "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
-        "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.408Z",
       "salaryMin": 49500,
@@ -202,6 +277,128 @@
         }
       },
       "postalCode": "6003"
+    },
+    {
+      "id": "liebherr-314533df6441",
+      "slug": "hr-business-partner-m-w-d-liebherr-nussbaumen",
+      "slugByLocale": {
+        "it": "hr-business-partner-m-w-d-liebherr-nussbaumen",
+        "en": "hr-business-partner-m-w-d-liebherr-nussbaumen",
+        "de": "hr-business-partner-m-w-d-liebherr-nussbaumen",
+        "fr": "hr-business-partner-m-w-d-liebherr-nussbaumen"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "HR Business Partner (m/w/d)",
+      "titleByLocale": {
+        "it": "Risorse Umane Business Partner (m/w/d)",
+        "en": "HR Business Partner (m/w/d)",
+        "de": "Personalwesen Business Partner (m/w/d)",
+        "fr": "HR Business Partner (m/w/d)"
+      },
+      "description": "HR Business Partner (m/w/d) — Liebherr (Nussbaumen, CH)",
+      "descriptionByLocale": {
+        "fr": "HR Business Partner (m/w/d) — Liebherr (Nussbaumen, CH)"
+      },
+      "location": "Nussbaumen",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Nussbaumen-HR-Business-Partner-%28mwd%29/1402823133/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.668Z",
+      "addressLocality": "Nussbaumen",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Nussbaumen-HR-Business-Partner-%28mwd%29/1402823133/",
+      "jobReqId": "1402823133",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T12:32:53.595Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700"
+    },
+    {
+      "id": "liebherr-e76f04922f96",
+      "slug": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
+      "slugByLocale": {
+        "it": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
+        "en": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
+        "de": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
+        "fr": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Service Manager Earthmoving & Mining, location Nigeria",
+      "titleByLocale": {
+        "it": "Service Manager Earthmoving & Mining, location Nigeria",
+        "en": "Service Manager Earthmoving & Mining, location Nigeria",
+        "de": "Service Manager Earthmoving & Mining, location Nigeria",
+        "fr": "Service Manager Earthmoving & Mining, location Nigeria"
+      },
+      "description": "Service Manager Earthmoving & Mining, location Nigeria — Liebherr (Abuja, CH)",
+      "descriptionByLocale": {
+        "en": "Service Manager Earthmoving & Mining, location Nigeria — Liebherr (Abuja, CH)"
+      },
+      "location": "Abuja",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035833/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-10T23:02:06.665Z",
+      "addressLocality": "Abuja",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035833/",
+      "jobReqId": "1385035833",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.421Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700"
     },
     {
       "id": "liebherr-0836de1a03e3",
@@ -231,7 +428,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Monteur-Turmdrehkrane-%28mw%29/1275818001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.592Z",
+      "crawledAt": "2026-06-10T23:02:06.665Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -279,128 +476,6 @@
       "postalCode": "6003"
     },
     {
-      "id": "liebherr-e76f04922f96",
-      "slug": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
-      "slugByLocale": {
-        "it": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
-        "en": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
-        "de": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
-        "fr": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Service Manager Earthmoving & Mining, location Nigeria",
-      "titleByLocale": {
-        "it": "Service Manager Earthmoving & Mining, location Nigeria",
-        "en": "Service Manager Earthmoving & Mining, location Nigeria",
-        "de": "Service Manager Earthmoving & Mining, location Nigeria",
-        "fr": "Service Manager Earthmoving & Mining, location Nigeria"
-      },
-      "description": "Service Manager Earthmoving & Mining, location Nigeria — Liebherr (Abuja, CH)",
-      "descriptionByLocale": {
-        "en": "Service Manager Earthmoving & Mining, location Nigeria — Liebherr (Abuja, CH)"
-      },
-      "location": "Abuja",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035833/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.591Z",
-      "addressLocality": "Abuja",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035833/",
-      "jobReqId": "1385035833",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.421Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700"
-    },
-    {
-      "id": "liebherr-adf278f183eb",
-      "slug": "fleet-management-90-m-w-d-liebherr-nussbaumen",
-      "slugByLocale": {
-        "it": "fleet-management-90-m-w-d-liebherr-nussbaumen",
-        "en": "fleet-management-90-m-w-d-liebherr-nussbaumen",
-        "de": "fleet-management-90-m-w-d-liebherr-nussbaumen",
-        "fr": "fleet-management-90-m-w-d-liebherr-nussbaumen"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Fleet Management 90% (m/w/d)",
-      "titleByLocale": {
-        "it": "Fleet Management 90% (m/w/d)",
-        "en": "Fleet Management 90% (m/w/d)",
-        "de": "Fleet Management 90% (m/w/d)",
-        "fr": "Fleet Management 90% (m/w/d)"
-      },
-      "description": "Fleet Management 90% (m/w/d) — Liebherr (Nussbaumen, CH)",
-      "descriptionByLocale": {
-        "fr": "Fleet Management 90% (m/w/d) — Liebherr (Nussbaumen, CH)"
-      },
-      "location": "Nussbaumen",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Nussbaumen-Fleet-Management-90-%28mwd%29/1389583433/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.588Z",
-      "addressLocality": "Nussbaumen",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Nussbaumen-Fleet-Management-90-%28mwd%29/1389583433/",
-      "jobReqId": "1389583433",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.418Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700"
-    },
-    {
       "id": "liebherr-75b9ee526cec",
       "slug": "apprendistato-kauffrau-mann-cfc-liebherr-reiden",
       "slugByLocale": {
@@ -428,7 +503,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Lehrstelle-Kauffrau-mann-EFZ/1399769033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.588Z",
+      "crawledAt": "2026-06-10T23:02:06.662Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -505,7 +580,7 @@
       "url": "https://careers.liebherr.com/job/Baden-Key-Account-Manager-Bereich-Erneuerbare-EnergienWindenergie-%28mwd%29/1402378733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.588Z",
+      "crawledAt": "2026-06-10T23:02:06.662Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -539,6 +614,67 @@
       "postalCode": "5400"
     },
     {
+      "id": "liebherr-adf278f183eb",
+      "slug": "fleet-management-90-m-w-d-liebherr-nussbaumen",
+      "slugByLocale": {
+        "it": "fleet-management-90-m-w-d-liebherr-nussbaumen",
+        "en": "fleet-management-90-m-w-d-liebherr-nussbaumen",
+        "de": "fleet-management-90-m-w-d-liebherr-nussbaumen",
+        "fr": "fleet-management-90-m-w-d-liebherr-nussbaumen"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Fleet Management 90% (m/w/d)",
+      "titleByLocale": {
+        "it": "Fleet Management 90% (m/w/d)",
+        "en": "Fleet Management 90% (m/w/d)",
+        "de": "Fleet Management 90% (m/w/d)",
+        "fr": "Fleet Management 90% (m/w/d)"
+      },
+      "description": "Fleet Management 90% (m/w/d) — Liebherr (Nussbaumen, CH)",
+      "descriptionByLocale": {
+        "fr": "Fleet Management 90% (m/w/d) — Liebherr (Nussbaumen, CH)"
+      },
+      "location": "Nussbaumen",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Nussbaumen-Fleet-Management-90-%28mwd%29/1389583433/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.661Z",
+      "addressLocality": "Nussbaumen",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Nussbaumen-Fleet-Management-90-%28mwd%29/1389583433/",
+      "jobReqId": "1389583433",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.418Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700"
+    },
+    {
       "id": "liebherr-16cb4e08f91b",
       "slug": "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
       "slugByLocale": {
@@ -566,7 +702,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-Technicien-grues-%C3%A0-tour-%28hf%29/1293554301/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.585Z",
+      "crawledAt": "2026-06-10T23:02:06.659Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -641,7 +777,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Serrurier-Constructeur-M%C3%A9tallique-%28hfx%29/1381777033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.584Z",
+      "crawledAt": "2026-06-10T23:02:06.658Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -689,6 +825,67 @@
       "postalCode": "1630"
     },
     {
+      "id": "liebherr-694763ed3a4a",
+      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+      "slugByLocale": {
+        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
+        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Initialbewerbung Liebherr-Baumaschinen AG",
+      "titleByLocale": {
+        "it": "Applicazione iniziale Liebherr-Baumaschinen AG",
+        "en": "Initial application Liebherr-Baumaschinen AG",
+        "de": "Initialbewerbung Liebherr-Baumaschinen AG",
+        "fr": "Demande initiale Liebherr-Baumaschinen AG"
+      },
+      "description": "Initialbewerbung Liebherr-Baumaschinen AG — Liebherr (Reiden, CH)",
+      "descriptionByLocale": {
+        "de": "Initialbewerbung Liebherr-Baumaschinen AG — Liebherr (Reiden, CH)"
+      },
+      "location": "Reiden",
+      "canton": "LU",
+      "url": "https://careers.liebherr.com/job/Reiden-Initialbewerbung-Liebherr-Baumaschinen-AG/1399715833/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:02:06.657Z",
+      "addressLocality": "Reiden",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Reiden-Initialbewerbung-Liebherr-Baumaschinen-AG/1399715833/",
+      "jobReqId": "1399715833",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.410Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6003"
+    },
+    {
       "id": "liebherr-674a52c00910",
       "slug": "applicazione-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
@@ -716,7 +913,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Initialbewerbung-Liebherr-Baumaschinen-AG/1399715933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.583Z",
+      "crawledAt": "2026-06-10T23:02:06.657Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -791,7 +988,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Sachbearbeiter-Vermietung-&-Service-Turmdrehkrane-%28mw%29/1390645033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.582Z",
+      "crawledAt": "2026-06-10T23:02:06.656Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -839,217 +1036,6 @@
       "postalCode": "6003"
     },
     {
-      "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
-      "slugByLocale": {
-        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
-        "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
-        "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Initialbewerbung Liebherr-Baumaschinen AG",
-      "titleByLocale": {
-        "it": "Applicazione iniziale Liebherr-Baumaschinen AG",
-        "en": "Initial application Liebherr-Baumaschinen AG",
-        "de": "Initialbewerbung Liebherr-Baumaschinen AG",
-        "fr": "Demande initiale Liebherr-Baumaschinen AG"
-      },
-      "description": "Initialbewerbung Liebherr-Baumaschinen AG — Liebherr (Reiden, CH)",
-      "descriptionByLocale": {
-        "de": "Initialbewerbung Liebherr-Baumaschinen AG — Liebherr (Reiden, CH)"
-      },
-      "location": "Reiden",
-      "canton": "LU",
-      "url": "https://careers.liebherr.com/job/Reiden-Initialbewerbung-Liebherr-Baumaschinen-AG/1399715833/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.582Z",
-      "addressLocality": "Reiden",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Reiden-Initialbewerbung-Liebherr-Baumaschinen-AG/1399715833/",
-      "jobReqId": "1399715833",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.410Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6003"
-    },
-    {
-      "id": "liebherr-7210a0d1b0c8",
-      "slug": "leiter-finanz-e-rechnungswesen-m-w-d-liebherr-reiden",
-      "slugByLocale": {
-        "it": "leiter-finanz-e-rechnungswesen-m-w-d-liebherr-reiden",
-        "en": "head-of-finance-and-accounting-m-f-liebherr-reiden",
-        "de": "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden",
-        "fr": "chef-des-finances-et-de-la-comptabilite-m-f-liebherr-reiden"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Leiter Finanz- und Rechnungswesen (m/w)",
-      "titleByLocale": {
-        "it": "Leiter Finanz- e Rechnungswesen (m/w)",
-        "en": "Head of Finance and Accounting (m/f)",
-        "de": "Leiter Finanz- und Rechnungswesen (m/w)",
-        "fr": "Chef des finances et de la comptabilité (m/f)"
-      },
-      "description": "Leiter Finanz- und Rechnungswesen (m/w) — Liebherr (Reiden, CH)",
-      "descriptionByLocale": {
-        "de": "Leiter Finanz- und Rechnungswesen (m/w) — Liebherr (Reiden, CH)"
-      },
-      "location": "Reiden",
-      "canton": "LU",
-      "url": "https://careers.liebherr.com/job/Reiden-Leiter-Finanz-und-Rechnungswesen-%28mw%29/1389617333/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.581Z",
-      "addressLocality": "Reiden",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Reiden-Leiter-Finanz-und-Rechnungswesen-%28mw%29/1389617333/",
-      "jobReqId": "1389617333",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
-        ],
-        "en": [
-          "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
-        ],
-        "fr": [
-          "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.408Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6003"
-    },
-    {
-      "id": "liebherr-7db5e3d3b09c",
-      "slug": "service-techniker-fahrmischer-e-betonpumpen-m-w-d-liebherr-reiden",
-      "slugByLocale": {
-        "it": "service-techniker-fahrmischer-e-betonpumpen-m-w-d-liebherr-reiden",
-        "en": "service-technician-truck-mixers-and-concrete-pumps-m-w-liebherr-reiden",
-        "de": "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden",
-        "fr": "technicien-de-service-melangeurs-de-camions-et-pompes-a-beton-m-p-liebherr-reiden"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Service-Techniker Fahrmischer und Betonpumpen (m/w)",
-      "titleByLocale": {
-        "it": "Service-Techniker Fahrmischer e Betonpumpen (m/w)",
-        "en": "Service technician truck mixers and concrete pumps (m/w)",
-        "de": "Service-Techniker Fahrmischer und Betonpumpen (m/w)",
-        "fr": "Technicien de service mélangeurs de camions et pompes à béton (m/p)"
-      },
-      "description": "Service-Techniker Fahrmischer und Betonpumpen (m/w) — Liebherr (Reiden, CH)",
-      "descriptionByLocale": {
-        "de": "Service-Techniker Fahrmischer und Betonpumpen (m/w) — Liebherr (Reiden, CH)"
-      },
-      "location": "Reiden",
-      "canton": "LU",
-      "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Fahrmischer-und-Betonpumpen-%28mw%29/1199107401/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.580Z",
-      "addressLocality": "Reiden",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Fahrmischer-und-Betonpumpen-%28mw%29/1199107401/",
-      "jobReqId": "1199107401",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
-        ],
-        "en": [
-          "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
-        ],
-        "fr": [
-          "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.406Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6003"
-    },
-    {
       "id": "liebherr-f1624eb2ba35",
       "slug": "meccanico-di-ingegneria-del-calcestruzzo-miscelatore-del-camion-m-w-liebherr-reiden",
       "slugByLocale": {
@@ -1077,7 +1063,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Mechaniker-Betontechnik-Fahrmischer-%28mw%29/1016496201/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.580Z",
+      "crawledAt": "2026-06-10T23:02:06.655Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1125,6 +1111,81 @@
       "postalCode": "6003"
     },
     {
+      "id": "liebherr-7210a0d1b0c8",
+      "slug": "leiter-finanz-e-rechnungswesen-m-w-d-liebherr-reiden",
+      "slugByLocale": {
+        "it": "leiter-finanz-e-rechnungswesen-m-w-d-liebherr-reiden",
+        "en": "head-of-finance-and-accounting-m-f-liebherr-reiden",
+        "de": "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden",
+        "fr": "chef-des-finances-et-de-la-comptabilite-m-f-liebherr-reiden"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Leiter Finanz- und Rechnungswesen (m/w)",
+      "titleByLocale": {
+        "it": "Leiter Finanz- e Rechnungswesen (m/w)",
+        "en": "Head of Finance and Accounting (m/f)",
+        "de": "Leiter Finanz- und Rechnungswesen (m/w)",
+        "fr": "Chef des finances et de la comptabilité (m/f)"
+      },
+      "description": "Leiter Finanz- und Rechnungswesen (m/w) — Liebherr (Reiden, CH)",
+      "descriptionByLocale": {
+        "de": "Leiter Finanz- und Rechnungswesen (m/w) — Liebherr (Reiden, CH)"
+      },
+      "location": "Reiden",
+      "canton": "LU",
+      "url": "https://careers.liebherr.com/job/Reiden-Leiter-Finanz-und-Rechnungswesen-%28mw%29/1389617333/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:02:06.655Z",
+      "addressLocality": "Reiden",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Reiden-Leiter-Finanz-und-Rechnungswesen-%28mw%29/1389617333/",
+      "jobReqId": "1389617333",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
+        ],
+        "en": [
+          "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "leiter-finanz-und-rechnungswesen-m-w-liebherr-reiden"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.408Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6003"
+    },
+    {
       "id": "liebherr-5028cdbe91bf",
       "slug": "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
       "slugByLocale": {
@@ -1152,7 +1213,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-ElektrikerService-Techniker-Betontechnik-%28mw%29/1218775701/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.579Z",
+      "crawledAt": "2026-06-10T23:02:06.654Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1169,6 +1230,9 @@
       "jobReqId": "1218775701",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden",
@@ -1181,9 +1245,81 @@
           "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.406Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6003"
+    },
+    {
+      "id": "liebherr-7db5e3d3b09c",
+      "slug": "service-techniker-fahrmischer-e-betonpumpen-m-w-d-liebherr-reiden",
+      "slugByLocale": {
+        "it": "service-techniker-fahrmischer-e-betonpumpen-m-w-d-liebherr-reiden",
+        "en": "service-technician-truck-mixers-and-concrete-pumps-m-w-liebherr-reiden",
+        "de": "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden",
+        "fr": "technicien-de-service-melangeurs-de-camions-et-pompes-a-beton-m-p-liebherr-reiden"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Service-Techniker Fahrmischer und Betonpumpen (m/w)",
+      "titleByLocale": {
+        "it": "Service-Techniker Fahrmischer e Betonpumpen (m/w)",
+        "en": "Service technician truck mixers and concrete pumps (m/w)",
+        "de": "Service-Techniker Fahrmischer und Betonpumpen (m/w)",
+        "fr": "Technicien de service mélangeurs de camions et pompes à béton (m/p)"
+      },
+      "description": "Service-Techniker Fahrmischer und Betonpumpen (m/w) — Liebherr (Reiden, CH)",
+      "descriptionByLocale": {
+        "de": "Service-Techniker Fahrmischer und Betonpumpen (m/w) — Liebherr (Reiden, CH)"
+      },
+      "location": "Reiden",
+      "canton": "LU",
+      "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Fahrmischer-und-Betonpumpen-%28mw%29/1199107401/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:02:06.654Z",
+      "addressLocality": "Reiden",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Fahrmischer-und-Betonpumpen-%28mw%29/1199107401/",
+      "jobReqId": "1199107401",
+      "requirements": [],
+      "requirementsByLocale": {},
       "previousSlugs": [
-        "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+        "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
+        ],
+        "en": [
+          "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
+        ],
+        "fr": [
+          "service-techniker-fahrmischer-und-betonpumpen-m-w-liebherr-reiden"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.406Z",
       "salaryMin": 49500,
@@ -1228,7 +1364,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-Responsable-SAV-grues-%28hf%29/1376978633/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.578Z",
+      "crawledAt": "2026-06-10T23:02:06.653Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1276,81 +1412,6 @@
       "postalCode": "1003"
     },
     {
-      "id": "liebherr-d828deca3d91",
-      "slug": "gru-a-torre-di-clerk-tecnico-m-w-liebherr-reiden",
-      "slugByLocale": {
-        "it": "gru-a-torre-di-clerk-tecnico-m-w-liebherr-reiden",
-        "en": "technical-clerk-tower-cranes-m-w-liebherr-reiden",
-        "de": "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden",
-        "fr": "grues-a-tour-de-commis-technique-m-p-liebherr-reiden"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Technischer Sachbearbeiter Turmdrehkrane (m/w)",
-      "titleByLocale": {
-        "it": "Gru a torre di clerk tecnico (m/w)",
-        "en": "Technical clerk tower cranes (m/w)",
-        "de": "Technischer Sachbearbeiter Turmdrehkrane (m/w)",
-        "fr": "Grues à tour de commis technique (m/p)"
-      },
-      "description": "Technischer Sachbearbeiter Turmdrehkrane (m/w) — Liebherr (Reiden, CH)",
-      "descriptionByLocale": {
-        "de": "Technischer Sachbearbeiter Turmdrehkrane (m/w) — Liebherr (Reiden, CH)"
-      },
-      "location": "Reiden",
-      "canton": "LU",
-      "url": "https://careers.liebherr.com/job/Reiden-Technischer-Sachbearbeiter-Turmdrehkrane-%28mw%29/1377533633/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.578Z",
-      "addressLocality": "Reiden",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Reiden-Technischer-Sachbearbeiter-Turmdrehkrane-%28mw%29/1377533633/",
-      "jobReqId": "1377533633",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
-        ],
-        "en": [
-          "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
-        ],
-        "fr": [
-          "technischer-sachbearbeiter-turmdrehkrane-m-w-liebherr-reiden"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.405Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6003"
-    },
-    {
       "id": "liebherr-11c70df9fef6",
       "slug": "capo-squadra-claim-management-m-f-x-liebherr-bulle",
       "slugByLocale": {
@@ -1378,7 +1439,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.576Z",
+      "crawledAt": "2026-06-10T23:02:06.651Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1447,7 +1508,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.576Z",
+      "crawledAt": "2026-06-10T23:02:06.651Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1518,7 +1579,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Development-Engineer-%28mwx%29/1379886433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.575Z",
+      "crawledAt": "2026-06-10T23:02:06.650Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1587,7 +1648,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Optimisation-des-processus-d'usinage/1380318633/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.575Z",
+      "crawledAt": "2026-06-10T23:02:06.650Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1635,83 +1696,6 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-952065e7af14",
-      "slug": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
-      "slugByLocale": {
-        "it": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
-        "en": "maintenance-technician-h-f-x-automation-liebherr-bulle",
-        "de": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
-        "fr": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Technicien de maintenance (h/f/x) Automatisation",
-      "titleByLocale": {
-        "it": "Manutenzione Tecnica (h/f/x) Automazione",
-        "en": "Maintenance Technician (h/f/x) Automation",
-        "de": "Technicien de maintenance (h/f/x) Automatisation",
-        "fr": "Technicien de maintenance (h/f/x) Automatisation"
-      },
-      "description": "Technicien de maintenance (h/f/x) Automatisation — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Technicien de maintenance (h/f/x) Automatisation — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Technicien-de-maintenance-%28hfx%29-Automatisation/1378968533/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.574Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Technicien-de-maintenance-%28hfx%29-Automatisation/1378968533/",
-      "jobReqId": "1378968533",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
-          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
-        ],
-        "it": [
-          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
-        ],
-        "en": [
-          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
-        "wartungstechniker-h-w-x-automatisierung-liebherr-bulle"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.401Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
       "id": "liebherr-ed1137e883d8",
       "slug": "project-purchasing-leader-m-w-d-temporaire-liebherr-bulle",
       "slugByLocale": {
@@ -1739,7 +1723,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Project-purchasing-leader%28mfx%29-Temporaire/1378479933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.574Z",
+      "crawledAt": "2026-06-10T23:02:06.649Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1756,19 +1740,19 @@
       "jobReqId": "1378479933",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
-          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
-        ],
-        "it": [
-          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
-        ]
-      },
       "previousSlugs": [
         "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
         "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
+        ],
+        "de": [
+          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
+          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.401Z",
       "salaryMin": 49500,
@@ -1813,7 +1797,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Project-purchasing-manager-%28mfx%29-Temporaire/1378480033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.574Z",
+      "crawledAt": "2026-06-10T23:02:06.649Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1858,75 +1842,6 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-7b8b1cf07de5",
-      "slug": "senior-project-manager-m-w-x-liebherr-bulle",
-      "slugByLocale": {
-        "it": "senior-project-manager-m-w-x-liebherr-bulle",
-        "en": "senior-project-manager-m-w-x-liebherr-bulle",
-        "de": "senior-project-manager-m-w-x-liebherr-bulle",
-        "fr": "directeur-principal-de-projet-m-m-x-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Senior Project Manager (m/w/x)",
-      "titleByLocale": {
-        "it": "Senior Project Manager (m/p/x)",
-        "en": "Senior Project Manager (m/w/x)",
-        "de": "Senior Project Manager (m/w/x)",
-        "fr": "Directeur principal de projet (m/m/x)"
-      },
-      "description": "Senior Project Manager (m/w/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Senior Project Manager (m/w/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Senior-Project-Manager-%28mwx%29/1381804533/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.573Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Senior-Project-Manager-%28mwx%29/1381804533/",
-      "jobReqId": "1381804533",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "senior-projektmanager-m-w-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "senior-projektmanager-m-w-x-liebherr-bulle"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.400Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
       "id": "liebherr-1fc42ca70609",
       "slug": "tecnico-di-manutenzione-m-f-d-automazione-liebherr-bulle",
       "slugByLocale": {
@@ -1954,7 +1869,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Instandhaltungstechniker-%28mwd%29-Automatisierung/1378968433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.573Z",
+      "crawledAt": "2026-06-10T23:02:06.648Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2002,39 +1917,39 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-30b680065896",
-      "slug": "giovani-talenti-pre-heg-ritorno-2026-liebherr-bulle",
+      "id": "liebherr-952065e7af14",
+      "slug": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
       "slugByLocale": {
-        "it": "giovani-talenti-pre-heg-ritorno-2026-liebherr-bulle",
-        "en": "young-talent-pre-heg-rentree-2026-liebherr-bulle",
-        "de": "young-talent-pre-heg-rentree-2026-liebherr-bulle",
-        "fr": "young-talent-pre-heg-rentree-2026-liebherr-bulle"
+        "it": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
+        "en": "maintenance-technician-h-f-x-automation-liebherr-bulle",
+        "de": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
+        "fr": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
-      "title": "Young Talent Pré-HEG - Rentrée 2026",
+      "title": "Technicien de maintenance (h/f/x) Automatisation",
       "titleByLocale": {
-        "it": "Giovani Talenti Pre-HEG - Ritorno 2026",
-        "en": "Young Talent Pre-HEG - Return 2026",
-        "de": "Young Talent Pré-HEG - Rentrée 2026",
-        "fr": "Young Talent Pré-HEG - Rentrée 2026"
+        "it": "Manutenzione Tecnica (h/f/x) Automazione",
+        "en": "Maintenance Technician (h/f/x) Automation",
+        "de": "Technicien de maintenance (h/f/x) Automatisation",
+        "fr": "Technicien de maintenance (h/f/x) Automatisation"
       },
-      "description": "Young Talent Pré-HEG - Rentrée 2026 — Liebherr (Bulle, CH)",
+      "description": "Technicien de maintenance (h/f/x) Automatisation — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
-        "de": "Young Talent Pré-HEG - Rentrée 2026 — Liebherr (Bulle, CH)"
+        "de": "Technicien de maintenance (h/f/x) Automatisation — Liebherr (Bulle, CH)"
       },
       "location": "Bulle",
       "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Pr%C3%A9-HEG-Rentr%C3%A9e-2026/1386724833/",
+      "url": "https://careers.liebherr.com/job/Bulle-Technicien-de-maintenance-%28hfx%29-Automatisation/1378968533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.572Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.648Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Risorse Umane",
+      "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -2042,20 +1957,28 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Pr%C3%A9-HEG-Rentr%C3%A9e-2026/1386724833/",
-      "jobReqId": "1386724833",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Technicien-de-maintenance-%28hfx%29-Automatisation/1378968533/",
+      "jobReqId": "1378968533",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "young-talent-pre-heg-rentree-2026-liebherr-bulle"
+        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
+        "wartungstechniker-h-w-x-automatisierung-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "young-talent-pre-heg-rentree-2026-liebherr-bulle"
+          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
+        ],
+        "en": [
+          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
+        ],
+        "de": [
+          "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
+          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.399Z",
+      "firstSeenAt": "2026-06-10T09:03:08.401Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2098,7 +2021,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Logistics-Management-%28fmx%29/1386989633/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.572Z",
+      "crawledAt": "2026-06-10T23:02:06.647Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2132,72 +2055,69 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-15478436d34f",
-      "slug": "giovani-talenti-tecnico-it-m-f-x-liebherr-bulle",
+      "id": "liebherr-7b8b1cf07de5",
+      "slug": "senior-project-manager-m-w-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "giovani-talenti-tecnico-it-m-f-x-liebherr-bulle",
-        "en": "young-talent-it-technician-m-f-x-liebherr-bulle",
-        "de": "young-talent-it-technician-m-f-x-liebherr-bulle",
-        "fr": "young-talent-it-technicien-m-f-x-liebherr-bulle"
+        "it": "senior-project-manager-m-w-x-liebherr-bulle",
+        "en": "senior-project-manager-m-w-x-liebherr-bulle",
+        "de": "senior-project-manager-m-w-x-liebherr-bulle",
+        "fr": "directeur-principal-de-projet-m-m-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
-      "title": "Young Talent - IT Technician (m/f/x)",
+      "title": "Senior Project Manager (m/w/x)",
       "titleByLocale": {
-        "it": "Giovani Talenti - Tecnico IT (m/f/x)",
-        "en": "Young Talent - IT Technician (m/f/x)",
-        "de": "Young Talent - IT Techniker (m/f/x)",
-        "fr": "Young Talent - IT Technicien (m/f/x)"
+        "it": "Senior Project Manager (m/p/x)",
+        "en": "Senior Project Manager (m/w/x)",
+        "de": "Senior Project Manager (m/w/x)",
+        "fr": "Directeur principal de projet (m/m/x)"
       },
-      "description": "Young Talent - IT Technician (m/f/x) — Liebherr (Bulle, CH)",
+      "description": "Senior Project Manager (m/w/x) — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
-        "de": "Young Talent - IT Technician (m/f/x) — Liebherr (Bulle, CH)"
+        "de": "Senior Project Manager (m/w/x) — Liebherr (Bulle, CH)"
       },
       "location": "Bulle",
       "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-IT-Technician-%28mfx%29/1388162533/",
+      "url": "https://careers.liebherr.com/job/Bulle-Senior-Project-Manager-%28mwx%29/1381804533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.571Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.647Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "IT",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-IT-Technician-%28mfx%29/1388162533/",
-      "jobReqId": "1388162533",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Senior-Project-Manager-%28mwx%29/1381804533/",
+      "jobReqId": "1381804533",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "young-talent-it-technician-m-f-x-liebherr-bulle"
+        "senior-projektmanager-m-w-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "young-talent-it-technician-m-f-x-liebherr-bulle"
-        ],
-        "fr": [
-          "young-talent-it-technician-m-f-x-liebherr-bulle"
+        "de": [
+          "senior-projektmanager-m-w-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.398Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
+      "firstSeenAt": "2026-06-10T09:03:08.400Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
@@ -2234,7 +2154,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Work-Preparation-Combustion-Engines-%28mfx%29/1386724733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.571Z",
+      "crawledAt": "2026-06-10T23:02:06.646Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2282,34 +2202,34 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-0c9658736c19",
-      "slug": "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
+      "id": "liebherr-30b680065896",
+      "slug": "giovani-talenti-pre-heg-ritorno-2026-liebherr-bulle",
       "slugByLocale": {
-        "it": "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
-        "en": "user-safety-safe-liebherr-bulle-59c43e",
-        "de": "young-talent-engine-assembly-m-f-x-liebherr-bulle",
-        "fr": "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle"
+        "it": "giovani-talenti-pre-heg-ritorno-2026-liebherr-bulle",
+        "en": "young-talent-pre-heg-rentree-2026-liebherr-bulle",
+        "de": "young-talent-pre-heg-rentree-2026-liebherr-bulle",
+        "fr": "young-talent-pre-heg-rentree-2026-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
-      "title": "Young Talent - Engine Assembly (m/f/x)",
+      "title": "Young Talent Pré-HEG - Rentrée 2026",
       "titleByLocale": {
-        "it": "Giovani Talenti - Montaggio motore (m/f/x)",
-        "en": "User Safety: safe",
-        "de": "Young Talent - Engine Assembly (m/f/x)",
-        "fr": "Jeunes talents - Assemblage moteur (m/f/x)"
+        "it": "Giovani Talenti Pre-HEG - Ritorno 2026",
+        "en": "Young Talent Pre-HEG - Return 2026",
+        "de": "Young Talent Pré-HEG - Rentrée 2026",
+        "fr": "Young Talent Pré-HEG - Rentrée 2026"
       },
-      "description": "Young Talent - Engine Assembly (m/f/x) — Liebherr (Bulle, CH)",
+      "description": "Young Talent Pré-HEG - Rentrée 2026 — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
-        "de": "Young Talent - Engine Assembly (m/f/x) — Liebherr (Bulle, CH)"
+        "de": "Young Talent Pré-HEG - Rentrée 2026 — Liebherr (Bulle, CH)"
       },
       "location": "Bulle",
       "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Engine-Assembly-%28mfx%29/1388382733/",
+      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Pr%C3%A9-HEG-Rentr%C3%A9e-2026/1386724833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.570Z",
+      "crawledAt": "2026-06-10T23:02:06.646Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2322,26 +2242,20 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Engine-Assembly-%28mfx%29/1388382733/",
-      "jobReqId": "1388382733",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Pr%C3%A9-HEG-Rentr%C3%A9e-2026/1386724833/",
+      "jobReqId": "1386724833",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+        "young-talent-pre-heg-rentree-2026-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
-        ],
-        "en": [
-          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
-        ],
-        "fr": [
-          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+          "young-talent-pre-heg-rentree-2026-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.397Z",
+      "firstSeenAt": "2026-06-10T09:03:08.399Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2384,7 +2298,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Group-CO%E2%82%82-Specialist-%28mwd%29/1388136233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.570Z",
+      "crawledAt": "2026-06-10T23:02:06.645Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2401,13 +2315,11 @@
       "jobReqId": "1388136233",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.398Z",
       "previousSlugsByLocale": {
-        "it": [
+        "fr": [
           "group-co-specialist-m-w-d-liebherr-bulle"
         ],
-        "fr": [
+        "it": [
           "group-co-specialist-m-w-d-liebherr-bulle"
         ],
         "de": [
@@ -2417,6 +2329,8 @@
       "previousSlugs": [
         "group-co-specialist-m-w-d-liebherr-bulle"
       ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.398Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2432,39 +2346,39 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-effcfae8eeee",
-      "slug": "giovani-talenti-agente-di-processo-m-w-x-liebherr-bulle",
+      "id": "liebherr-15478436d34f",
+      "slug": "giovani-talenti-tecnico-it-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "giovani-talenti-agente-di-processo-m-w-x-liebherr-bulle",
-        "en": "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "de": "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "fr": "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
+        "it": "giovani-talenti-tecnico-it-m-f-x-liebherr-bulle",
+        "en": "young-talent-it-technician-m-f-x-liebherr-bulle",
+        "de": "young-talent-it-technician-m-f-x-liebherr-bulle",
+        "fr": "young-talent-it-technicien-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
-      "title": "Young Talent - Process Agent (m/w/x)",
+      "title": "Young Talent - IT Technician (m/f/x)",
       "titleByLocale": {
-        "it": "Giovani Talenti - Agente di Processo (m/w/x)",
-        "en": "Young Talent - Process Agent (m/w/x)",
-        "de": "Young Talent - Process Agent (m/w/x)",
-        "fr": "Jeunes talents - Agent de traitement (m/m/x)"
+        "it": "Giovani Talenti - Tecnico IT (m/f/x)",
+        "en": "Young Talent - IT Technician (m/f/x)",
+        "de": "Young Talent - IT Techniker (m/f/x)",
+        "fr": "Young Talent - IT Technicien (m/f/x)"
       },
-      "description": "Young Talent - Process Agent (m/w/x) — Liebherr (Bulle, CH)",
+      "description": "Young Talent - IT Technician (m/f/x) — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
-        "de": "Young Talent - Process Agent (m/w/x) — Liebherr (Bulle, CH)"
+        "de": "Young Talent - IT Technician (m/f/x) — Liebherr (Bulle, CH)"
       },
       "location": "Bulle",
       "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Process-Agent-%28mwx%29/1387474133/",
+      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-IT-Technician-%28mfx%29/1388162533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.569Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-10T23:02:06.645Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Risorse Umane",
+      "category": "IT",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -2472,37 +2386,32 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Process-Agent-%28mwx%29/1387474133/",
-      "jobReqId": "1387474133",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-IT-Technician-%28mfx%29/1388162533/",
+      "jobReqId": "1388162533",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "young-talent-it-technician-m-f-x-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "junges-talent-prozessagent-m-w-x-liebherr-bulle",
-          "young-talent-process-agent-m-w-x-liebherr-bulle"
-        ],
         "it": [
-          "young-talent-process-agent-m-w-x-liebherr-bulle"
+          "young-talent-it-technician-m-f-x-liebherr-bulle"
         ],
         "fr": [
-          "young-talent-process-agent-m-w-x-liebherr-bulle"
+          "young-talent-it-technician-m-f-x-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "junges-talent-prozessagent-m-w-x-liebherr-bulle"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.396Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-06-10T09:03:08.398Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -2536,7 +2445,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Purchasing-Combustion-engines-%28mwx%29/1387475333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.569Z",
+      "crawledAt": "2026-06-10T23:02:06.644Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2584,6 +2493,230 @@
       "postalCode": "1630"
     },
     {
+      "id": "liebherr-0c9658736c19",
+      "slug": "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
+        "en": "user-safety-safe-liebherr-bulle-59c43e",
+        "de": "young-talent-engine-assembly-m-f-x-liebherr-bulle",
+        "fr": "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Young Talent - Engine Assembly (m/f/x)",
+      "titleByLocale": {
+        "it": "Giovani Talenti - Montaggio motore (m/f/x)",
+        "en": "User Safety: safe",
+        "de": "Young Talent - Engine Assembly (m/f/x)",
+        "fr": "Jeunes talents - Assemblage moteur (m/f/x)"
+      },
+      "description": "Young Talent - Engine Assembly (m/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Young Talent - Engine Assembly (m/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Engine-Assembly-%28mfx%29/1388382733/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:02:06.644Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Engine-Assembly-%28mfx%29/1388382733/",
+      "jobReqId": "1388382733",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.397Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-b8ab946a0d26",
+      "slug": "change-management-specialista-m-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "change-management-specialista-m-f-x-liebherr-bulle",
+        "en": "change-management-specialist-m-f-x-liebherr-bulle",
+        "de": "change-management-spezialist-m-f-x-liebherr-bulle",
+        "fr": "change-management-specialist-m-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Change Management Specialist (m/f/x)",
+      "titleByLocale": {
+        "it": "Change Management Specialista (m/f/x)",
+        "en": "Change Management Specialist (m/f/x)",
+        "de": "Change Management Spezialist (m/f/x)",
+        "fr": "Change Management Spécialiste (m/f/x)"
+      },
+      "description": "Change Management Specialist (m/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "fr": "Change Management Specialist (m/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Change-Management-Specialist-%28mfx%29/1389543133/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.643Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Change-Management-Specialist-%28mfx%29/1389543133/",
+      "jobReqId": "1389543133",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "change-management-specialist-m-f-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "change-management-specialist-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "change-management-specialist-m-f-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.396Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-effcfae8eeee",
+      "slug": "giovani-talenti-agente-di-processo-m-w-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "giovani-talenti-agente-di-processo-m-w-x-liebherr-bulle",
+        "en": "young-talent-process-agent-m-w-x-liebherr-bulle",
+        "de": "young-talent-process-agent-m-w-x-liebherr-bulle",
+        "fr": "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Young Talent - Process Agent (m/w/x)",
+      "titleByLocale": {
+        "it": "Giovani Talenti - Agente di Processo (m/w/x)",
+        "en": "Young Talent - Process Agent (m/w/x)",
+        "de": "Young Talent - Process Agent (m/w/x)",
+        "fr": "Jeunes talents - Agent de traitement (m/m/x)"
+      },
+      "description": "Young Talent - Process Agent (m/w/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Young Talent - Process Agent (m/w/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Process-Agent-%28mwx%29/1387474133/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.643Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Process-Agent-%28mwx%29/1387474133/",
+      "jobReqId": "1387474133",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "young-talent-process-agent-m-w-x-liebherr-bulle",
+        "junges-talent-prozessagent-m-w-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "young-talent-process-agent-m-w-x-liebherr-bulle"
+        ],
+        "de": [
+          "junges-talent-prozessagent-m-w-x-liebherr-bulle",
+          "young-talent-process-agent-m-w-x-liebherr-bulle"
+        ],
+        "fr": [
+          "young-talent-process-agent-m-w-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.396Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
       "id": "liebherr-b169f79450d5",
       "slug": "sales-support-italien-m-w-d-liebherr-nussbaumen",
       "slugByLocale": {
@@ -2611,7 +2744,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Sales-Support-Italien-%28mwd%29/1379954033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.568Z",
+      "crawledAt": "2026-06-10T23:02:06.642Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2645,78 +2778,6 @@
       "postalCode": "1700"
     },
     {
-      "id": "liebherr-b8ab946a0d26",
-      "slug": "change-management-specialista-m-f-x-liebherr-bulle",
-      "slugByLocale": {
-        "it": "change-management-specialista-m-f-x-liebherr-bulle",
-        "en": "change-management-specialist-m-f-x-liebherr-bulle",
-        "de": "change-management-spezialist-m-f-x-liebherr-bulle",
-        "fr": "change-management-specialist-m-f-x-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Change Management Specialist (m/f/x)",
-      "titleByLocale": {
-        "it": "Change Management Specialista (m/f/x)",
-        "en": "Change Management Specialist (m/f/x)",
-        "de": "Change Management Spezialist (m/f/x)",
-        "fr": "Change Management Spécialiste (m/f/x)"
-      },
-      "description": "Change Management Specialist (m/f/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "fr": "Change Management Specialist (m/f/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Change-Management-Specialist-%28mfx%29/1389543133/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.568Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Change-Management-Specialist-%28mfx%29/1389543133/",
-      "jobReqId": "1389543133",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.396Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "change-management-specialist-m-f-x-liebherr-bulle"
-        ],
-        "de": [
-          "change-management-specialist-m-f-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "change-management-specialist-m-f-x-liebherr-bulle"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
       "id": "liebherr-06676f9b520b",
       "slug": "it-support-m-w-d-liebherr-nussbaumen",
       "slugByLocale": {
@@ -2744,7 +2805,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-IT-Support-%28mwd%29/1375197433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.565Z",
+      "crawledAt": "2026-06-10T23:02:06.639Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2805,7 +2866,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-2026-DHBW-Studium-Wirtschaftsingenieurwesen-internationaler-technischer-Vertrieb/1251979201/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.562Z",
+      "crawledAt": "2026-06-10T23:02:06.636Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2866,7 +2927,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Vertriebsassistenz-%28mwd%29/1395515433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.560Z",
+      "crawledAt": "2026-06-10T23:02:06.634Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2927,7 +2988,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Sales-Support-&-Analytics-%28mwd%29/1391621833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.557Z",
+      "crawledAt": "2026-06-10T23:02:06.631Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2988,7 +3049,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Team-Leader-Subsystems-Engineering-%28mwx%29/1398793733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.554Z",
+      "crawledAt": "2026-06-10T23:02:06.628Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3060,7 +3121,7 @@
       "url": "https://careers.liebherr.com/job/Baden-Senior-Process-Org_-Developer-%28mwd%29/1281873501/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:32:53.554Z",
+      "crawledAt": "2026-06-10T23:02:06.628Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3121,7 +3182,7 @@
       "url": "https://careers.liebherr.com/job/Baden-Head-of-Customer-Service-Business-Development-%28mwd%29/1270561501/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.554Z",
+      "crawledAt": "2026-06-10T23:02:06.628Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3193,7 +3254,7 @@
       "url": "https://careers.liebherr.com/job/Baden-Division-Controller-%28mwd%29/1390645333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.554Z",
+      "crawledAt": "2026-06-10T23:02:06.628Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3210,19 +3271,19 @@
       "jobReqId": "1390645333",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "reglerbereich-m-w-d-liebherr-baden",
-          "division-controller-m-w-d-liebherr-baden"
-        ],
-        "it": [
-          "division-controller-m-w-d-liebherr-baden"
-        ]
-      },
       "previousSlugs": [
         "division-controller-m-w-d-liebherr-baden",
         "reglerbereich-m-w-d-liebherr-baden"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "division-controller-m-w-d-liebherr-baden"
+        ],
+        "de": [
+          "reglerbereich-m-w-d-liebherr-baden",
+          "division-controller-m-w-d-liebherr-baden"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.382Z",
       "salaryMin": 49500,
@@ -3238,6 +3299,81 @@
         }
       },
       "postalCode": "5400"
+    },
+    {
+      "id": "liebherr-46d07e2246a4",
+      "slug": "assistente-contabile-analitico-h-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "assistente-contabile-analitico-h-f-x-liebherr-bulle",
+        "en": "analytical-accounting-assistant-h-f-x-liebherr-bulle",
+        "de": "analytischer-buchhalter-h-f-x-liebherr-bulle",
+        "fr": "aide-comptable-analytique-h-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Aide-comptable analytique (h/f/x)",
+      "titleByLocale": {
+        "it": "Assistente contabile analitico (h/f/x)",
+        "en": "Analytical Accounting Assistant (h/f/x)",
+        "de": "Analytischer Buchhalter (h/f/x)",
+        "fr": "Aide-comptable analytique (h/f/x)"
+      },
+      "description": "Aide-comptable analytique (h/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "fr": "Aide-comptable analytique (h/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Aide-comptable-analytique-%28hfx%29/1398899533/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.627Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Aide-comptable-analytique-%28hfx%29/1398899533/",
+      "jobReqId": "1398899533",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "aide-comptable-analytique-h-f-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-comptable-analytique-h-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "aide-comptable-analytique-h-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "aide-comptable-analytique-h-f-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.381Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
     },
     {
       "id": "liebherr-8eb5d539fedd",
@@ -3267,7 +3403,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Financial-Controller-%28mfx%29-Temporary/1398900233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.553Z",
+      "crawledAt": "2026-06-10T23:02:06.627Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3342,7 +3478,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Contr%C3%B4leur-financier-%28hfx%29-Temporaire/1398900333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.553Z",
+      "crawledAt": "2026-06-10T23:02:06.627Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3390,6 +3526,67 @@
       "postalCode": "1630"
     },
     {
+      "id": "liebherr-0c1fdad12be7",
+      "slug": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
+        "en": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
+        "de": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
+        "fr": "controller-data-analyst-junior-m-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Controller & Data Analyst junior (m/f/x)",
+      "titleByLocale": {
+        "it": "Controller & Data Analista junior (m/f/x)",
+        "en": "Controller & Data Analyst junior (m/f/x)",
+        "de": "Controller & Data Analyst Junior (m/w/x)",
+        "fr": "Controller & Data Analyste junior (m/f/x)"
+      },
+      "description": "Controller & Data Analyst junior (m/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "fr": "Controller & Data Analyst junior (m/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Controller-&-Data-Analyst-junior-%28mfx%29/1398899933/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.626Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Controller-&-Data-Analyst-junior-%28mfx%29/1398899933/",
+      "jobReqId": "1398899933",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.380Z",
+      "salaryMin": 46000,
+      "salaryMax": 78500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46000,
+          "maxValue": 78500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
       "id": "liebherr-759ff51ceb4d",
       "slug": "controleur-de-gestion-junior-data-analyst-h-f-x-liebherr-bulle",
       "slugByLocale": {
@@ -3417,7 +3614,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Contr%C3%B4leur-de-gestion-junior-&-Data-analyst-%28hfx%29/1398900033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.552Z",
+      "crawledAt": "2026-06-10T23:02:06.626Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3451,39 +3648,39 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-46d07e2246a4",
-      "slug": "assistente-contabile-analitico-h-f-x-liebherr-bulle",
+      "id": "liebherr-df0a1344732d",
+      "slug": "production-ingegnere-dmu-m-w-d-liebherr-bulle",
       "slugByLocale": {
-        "it": "assistente-contabile-analitico-h-f-x-liebherr-bulle",
-        "en": "analytical-accounting-assistant-h-f-x-liebherr-bulle",
-        "de": "analytischer-buchhalter-h-f-x-liebherr-bulle",
-        "fr": "aide-comptable-analytique-h-f-x-liebherr-bulle"
+        "it": "production-ingegnere-dmu-m-w-d-liebherr-bulle",
+        "en": "production-engineer-dmu-m-w-d-liebherr-bulle",
+        "de": "production-engineer-dmu-m-w-d-liebherr-bulle",
+        "fr": "production-ingenieur-dmu-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
-      "title": "Aide-comptable analytique (h/f/x)",
+      "title": "Production Engineer DMU (m/w/d)",
       "titleByLocale": {
-        "it": "Assistente contabile analitico (h/f/x)",
-        "en": "Analytical Accounting Assistant (h/f/x)",
-        "de": "Analytischer Buchhalter (h/f/x)",
-        "fr": "Aide-comptable analytique (h/f/x)"
+        "it": "Production Ingegnere DMU (m/w/d)",
+        "en": "Production Engineer DMU (m/w/d)",
+        "de": "Production Ingenieur DMU (m/w/d)",
+        "fr": "Production Ingénieur DMU (m/w/d)"
       },
-      "description": "Aide-comptable analytique (h/f/x) — Liebherr (Bulle, CH)",
+      "description": "Production Engineer DMU (m/w/d) — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
-        "fr": "Aide-comptable analytique (h/f/x) — Liebherr (Bulle, CH)"
+        "de": "Production Engineer DMU (m/w/d) — Liebherr (Bulle, CH)"
       },
       "location": "Bulle",
       "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Aide-comptable-analytique-%28hfx%29/1398899533/",
+      "url": "https://careers.liebherr.com/job/Bulle-Production-Engineer-DMU-%28mwd%29/1398033833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.552Z",
+      "crawledAt": "2026-06-10T23:02:06.625Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Ingegneria",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -3491,26 +3688,23 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Aide-comptable-analytique-%28hfx%29/1398899533/",
-      "jobReqId": "1398899533",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Production-Engineer-DMU-%28mwd%29/1398033833/",
+      "jobReqId": "1398033833",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-comptable-analytique-h-f-x-liebherr-bulle"
+        "production-engineer-dmu-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-comptable-analytique-h-f-x-liebherr-bulle"
+          "production-engineer-dmu-m-w-d-liebherr-bulle"
         ],
-        "en": [
-          "aide-comptable-analytique-h-f-x-liebherr-bulle"
-        ],
-        "de": [
-          "aide-comptable-analytique-h-f-x-liebherr-bulle"
+        "fr": [
+          "production-engineer-dmu-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.381Z",
+      "firstSeenAt": "2026-06-10T09:03:08.379Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3553,7 +3747,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Ing%C3%A9nieur-de-Production-DMU-%28hfx%29/1398033933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.551Z",
+      "crawledAt": "2026-06-10T23:02:06.625Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3570,22 +3764,22 @@
       "jobReqId": "1398033933",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
+        "produktionsingenieur-dmu-h-f-x-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "produktionsingenieur-dmu-h-f-x-liebherr-bulle",
-          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
-        ],
         "it": [
           "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
         ],
         "en": [
           "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "produktionsingenieur-dmu-h-f-x-liebherr-bulle",
+          "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
-        "produktionsingenieur-dmu-h-f-x-liebherr-bulle"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.379Z",
       "salaryMin": 49500,
@@ -3597,280 +3791,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-0c1fdad12be7",
-      "slug": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
-      "slugByLocale": {
-        "it": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
-        "en": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
-        "de": "controller-data-analyst-junior-m-f-x-liebherr-bulle",
-        "fr": "controller-data-analyst-junior-m-f-x-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Controller & Data Analyst junior (m/f/x)",
-      "titleByLocale": {
-        "it": "Controller & Data Analista junior (m/f/x)",
-        "en": "Controller & Data Analyst junior (m/f/x)",
-        "de": "Controller & Data Analyst Junior (m/w/x)",
-        "fr": "Controller & Data Analyste junior (m/f/x)"
-      },
-      "description": "Controller & Data Analyst junior (m/f/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "fr": "Controller & Data Analyst junior (m/f/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Controller-&-Data-Analyst-junior-%28mfx%29/1398899933/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.551Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Controller-&-Data-Analyst-junior-%28mfx%29/1398899933/",
-      "jobReqId": "1398899933",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.380Z",
-      "salaryMin": 46000,
-      "salaryMax": 78500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 78500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-a89c9c0dd436",
-      "slug": "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle",
-      "slugByLocale": {
-        "it": "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle",
-        "en": "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
-        "de": "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
-        "fr": "gestionnaire-principal-de-produits-genset-diesel-m-f-x-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Senior Product Manager - Genset Diesel (m/f/x)",
-      "titleByLocale": {
-        "it": "Senior Product Manager - Gruppo elettrogeno Diesel (m/f/x)",
-        "en": "Senior Product Manager - Genset Diesel (m/f/x)",
-        "de": "Senior Product Manager - Genset Diesel (m/f/x)",
-        "fr": "Gestionnaire principal de produits - Genset Diesel (m/f/x)"
-      },
-      "description": "Senior Product Manager - Genset Diesel (m/f/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Senior Product Manager - Genset Diesel (m/f/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Senior-Product-Manager-Genset-Diesel-%28mfx%29/1252770501/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.550Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Senior-Product-Manager-Genset-Diesel-%28mfx%29/1252770501/",
-      "jobReqId": "1252770501",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.378Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
-      ],
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-df0a1344732d",
-      "slug": "production-ingegnere-dmu-m-w-d-liebherr-bulle",
-      "slugByLocale": {
-        "it": "production-ingegnere-dmu-m-w-d-liebherr-bulle",
-        "en": "production-engineer-dmu-m-w-d-liebherr-bulle",
-        "de": "production-engineer-dmu-m-w-d-liebherr-bulle",
-        "fr": "production-ingenieur-dmu-m-w-d-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Production Engineer DMU (m/w/d)",
-      "titleByLocale": {
-        "it": "Production Ingegnere DMU (m/w/d)",
-        "en": "Production Engineer DMU (m/w/d)",
-        "de": "Production Ingenieur DMU (m/w/d)",
-        "fr": "Production Ingénieur DMU (m/w/d)"
-      },
-      "description": "Production Engineer DMU (m/w/d) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Production Engineer DMU (m/w/d) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Production-Engineer-DMU-%28mwd%29/1398033833/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.550Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Production-Engineer-DMU-%28mwd%29/1398033833/",
-      "jobReqId": "1398033833",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.379Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "production-engineer-dmu-m-w-d-liebherr-bulle"
-        ],
-        "fr": [
-          "production-engineer-dmu-m-w-d-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "production-engineer-dmu-m-w-d-liebherr-bulle"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-84ea1bc04b31",
-      "slug": "responsabile-product-security-m-w-d-liebherr-bulle",
-      "slugByLocale": {
-        "it": "responsabile-product-security-m-w-d-liebherr-bulle",
-        "en": "head-of-product-security-m-w-d-liebherr-bulle",
-        "de": "head-of-product-security-m-w-d-liebherr-bulle",
-        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Head of Product Security (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile Product Security (m/w/d)",
-        "en": "Head of Product Security (m/w/d)",
-        "de": "Leiter Product Security (m/w/d)",
-        "fr": "Responsable Product Security (m/w/d)"
-      },
-      "description": "Head of Product Security (m/w/d) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Head of Product Security (m/w/d) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Head-of-Product-Security-%28mwd%29/1285185201/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.549Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Head-of-Product-Security-%28mwd%29/1285185201/",
-      "jobReqId": "1285185201",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.378Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-product-security-m-w-d-liebherr-bulle"
-        ],
-        "fr": [
-          "head-of-product-security-m-w-d-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-product-security-m-w-d-liebherr-bulle"
-      ],
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
           "unitText": "YEAR"
         }
       },
@@ -3904,7 +3824,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Procurement-Coordinator-Serial-parts-%28hfx%29/1264913801/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.549Z",
+      "crawledAt": "2026-06-10T23:02:06.623Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3938,6 +3858,301 @@
       "postalCode": "1630"
     },
     {
+      "id": "liebherr-a89c9c0dd436",
+      "slug": "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle",
+        "en": "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
+        "de": "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
+        "fr": "gestionnaire-principal-de-produits-genset-diesel-m-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Senior Product Manager - Genset Diesel (m/f/x)",
+      "titleByLocale": {
+        "it": "Senior Product Manager - Gruppo elettrogeno Diesel (m/f/x)",
+        "en": "Senior Product Manager - Genset Diesel (m/f/x)",
+        "de": "Senior Product Manager - Genset Diesel (m/f/x)",
+        "fr": "Gestionnaire principal de produits - Genset Diesel (m/f/x)"
+      },
+      "description": "Senior Product Manager - Genset Diesel (m/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Senior Product Manager - Genset Diesel (m/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Senior-Product-Manager-Genset-Diesel-%28mfx%29/1252770501/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:02:06.623Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Senior-Product-Manager-Genset-Diesel-%28mfx%29/1252770501/",
+      "jobReqId": "1252770501",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.378Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-4902476df46e",
+      "slug": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
+        "en": "customer-claim-manager-m-w-x-liebherr-bulle",
+        "de": "customer-claim-manager-m-w-x-liebherr-bulle",
+        "fr": "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Customer Claim Manager (m/w/x)",
+      "titleByLocale": {
+        "it": "Responsabile del reclamo del cliente (m/w/x)",
+        "en": "Customer Claim Manager (m/w/x)",
+        "de": "Customer Claim Manager (m/w/x)",
+        "fr": "Gestionnaire des réclamations du client (m/w/x)"
+      },
+      "description": "Customer Claim Manager (m/w/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Customer Claim Manager (m/w/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28mwx%29/1278614201/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.622Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28mwx%29/1278614201/",
+      "jobReqId": "1278614201",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "customer-claim-manager-m-w-x-liebherr-bulle",
+        "kundenschadensmanager-m-w-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-claim-manager-m-w-x-liebherr-bulle"
+        ],
+        "de": [
+          "kundenschadensmanager-m-w-x-liebherr-bulle",
+          "customer-claim-manager-m-w-x-liebherr-bulle"
+        ],
+        "fr": [
+          "customer-claim-manager-m-w-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.377Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-84ea1bc04b31",
+      "slug": "responsabile-product-security-m-w-d-liebherr-bulle",
+      "slugByLocale": {
+        "it": "responsabile-product-security-m-w-d-liebherr-bulle",
+        "en": "head-of-product-security-m-w-d-liebherr-bulle",
+        "de": "head-of-product-security-m-w-d-liebherr-bulle",
+        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Head of Product Security (m/w/d)",
+      "titleByLocale": {
+        "it": "Responsabile Product Security (m/w/d)",
+        "en": "Head of Product Security (m/w/d)",
+        "de": "Leiter Product Security (m/w/d)",
+        "fr": "Responsable Product Security (m/w/d)"
+      },
+      "description": "Head of Product Security (m/w/d) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Head of Product Security (m/w/d) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Head-of-Product-Security-%28mwd%29/1285185201/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.622Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Head-of-Product-Security-%28mwd%29/1285185201/",
+      "jobReqId": "1285185201",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "head-of-product-security-m-w-d-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-product-security-m-w-d-liebherr-bulle"
+        ],
+        "fr": [
+          "head-of-product-security-m-w-d-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.378Z",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-14e740ab6e31",
+      "slug": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
+        "en": "customer-claim-manager-h-f-x-liebherr-bulle",
+        "de": "customer-claim-manager-h-f-x-liebherr-bulle",
+        "fr": "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Customer Claim Manager (h/f/x)",
+      "titleByLocale": {
+        "it": "Gestione dei reclami clienti (h/f/x)",
+        "en": "Customer Claim Manager (h/f/x)",
+        "de": "Customer Claim Manager (h/f/x)",
+        "fr": "Gestionnaire des réclamations du client (h/f/x)"
+      },
+      "description": "Customer Claim Manager (h/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Customer Claim Manager (h/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28hfx%29/1278614001/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.621Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28hfx%29/1278614001/",
+      "jobReqId": "1278614001",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "customer-claim-manager-h-f-x-liebherr-bulle",
+        "kundenreklamationsmanager-h-w-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-claim-manager-h-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "kundenreklamationsmanager-h-w-x-liebherr-bulle",
+          "customer-claim-manager-h-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "customer-claim-manager-h-f-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.376Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
       "id": "liebherr-a96e7e7f11c1",
       "slug": "responsabile-del-reclamo-del-cliente-m-f-x-liebherr-bulle",
       "slugByLocale": {
@@ -3965,7 +4180,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28mfx%29/1278614101/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.548Z",
+      "crawledAt": "2026-06-10T23:02:06.621Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4010,34 +4225,34 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-4902476df46e",
-      "slug": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
+      "id": "liebherr-3815bfb757b4",
+      "slug": "applicazione-non-richiesta-liebherr-bulle",
       "slugByLocale": {
-        "it": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
-        "en": "customer-claim-manager-m-w-x-liebherr-bulle",
-        "de": "customer-claim-manager-m-w-x-liebherr-bulle",
-        "fr": "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
+        "it": "applicazione-non-richiesta-liebherr-bulle",
+        "en": "candidature-spontanee-liebherr-bulle",
+        "de": "unerbetene-anwendung-liebherr-bulle",
+        "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
-      "title": "Customer Claim Manager (m/w/x)",
+      "title": "Candidature spontanée",
       "titleByLocale": {
-        "it": "Responsabile del reclamo del cliente (m/w/x)",
-        "en": "Customer Claim Manager (m/w/x)",
-        "de": "Customer Claim Manager (m/w/x)",
-        "fr": "Gestionnaire des réclamations du client (m/w/x)"
+        "it": "Applicazione non richiesta",
+        "en": "Candidature spontanée",
+        "de": "Unerbetene Anwendung",
+        "fr": "Candidature spontanée"
       },
-      "description": "Customer Claim Manager (m/w/x) — Liebherr (Bulle, CH)",
+      "description": "Candidature spontanée — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
-        "de": "Customer Claim Manager (m/w/x) — Liebherr (Bulle, CH)"
+        "en": "Candidature spontanée — Liebherr (Bulle, CH)"
       },
       "location": "Bulle",
       "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28mwx%29/1278614201/",
+      "url": "https://careers.liebherr.com/job/Bulle-Candidature-spontan%C3%A9e/724771901/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.548Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-10T23:02:06.620Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4050,37 +4265,32 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28mwx%29/1278614201/",
-      "jobReqId": "1278614201",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Candidature-spontan%C3%A9e/724771901/",
+      "jobReqId": "724771901",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "candidature-spontanee-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "kundenschadensmanager-m-w-x-liebherr-bulle",
-          "customer-claim-manager-m-w-x-liebherr-bulle"
-        ],
         "it": [
-          "customer-claim-manager-m-w-x-liebherr-bulle"
+          "candidature-spontanee-liebherr-bulle"
         ],
-        "fr": [
-          "customer-claim-manager-m-w-x-liebherr-bulle"
+        "de": [
+          "candidature-spontanee-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "customer-claim-manager-m-w-x-liebherr-bulle",
-        "kundenschadensmanager-m-w-x-liebherr-bulle"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.377Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "firstSeenAt": "2026-06-10T09:03:08.376Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -4114,7 +4324,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Speculative-application/724772001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.547Z",
+      "crawledAt": "2026-06-10T23:02:06.620Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4131,238 +4341,17 @@
       "jobReqId": "724772001",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "spekulative-anwendung-liebherr-bulle",
-          "speculative-application-liebherr-bulle"
-        ],
-        "it": [
-          "speculative-application-liebherr-bulle"
-        ]
-      },
       "previousSlugs": [
         "speculative-application-liebherr-bulle",
         "spekulative-anwendung-liebherr-bulle"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.376Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-14e740ab6e31",
-      "slug": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
-      "slugByLocale": {
-        "it": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
-        "en": "customer-claim-manager-h-f-x-liebherr-bulle",
-        "de": "customer-claim-manager-h-f-x-liebherr-bulle",
-        "fr": "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Customer Claim Manager (h/f/x)",
-      "titleByLocale": {
-        "it": "Gestione dei reclami clienti (h/f/x)",
-        "en": "Customer Claim Manager (h/f/x)",
-        "de": "Customer Claim Manager (h/f/x)",
-        "fr": "Gestionnaire des réclamations du client (h/f/x)"
-      },
-      "description": "Customer Claim Manager (h/f/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Customer Claim Manager (h/f/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28hfx%29/1278614001/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.547Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28hfx%29/1278614001/",
-      "jobReqId": "1278614001",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "kundenreklamationsmanager-h-w-x-liebherr-bulle",
-          "customer-claim-manager-h-f-x-liebherr-bulle"
-        ],
-        "it": [
-          "customer-claim-manager-h-f-x-liebherr-bulle"
-        ],
-        "fr": [
-          "customer-claim-manager-h-f-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "customer-claim-manager-h-f-x-liebherr-bulle",
-        "kundenreklamationsmanager-h-w-x-liebherr-bulle"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.376Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-a2ee910fd683",
-      "slug": "initiativebewerbung-liebherr-bulle",
-      "slugByLocale": {
-        "it": "initiativebewerbung-liebherr-bulle",
-        "en": "initiativbewerbung-liebherr-bulle",
-        "de": "initativbewerbung-liebherr-bulle",
-        "fr": "initativbewerbung-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Initativbewerbung",
-      "titleByLocale": {
-        "it": "Initiativebewerbung",
-        "en": "Initiativbewerbung",
-        "de": "Initativbewerbung",
-        "fr": "Initativbewerbung"
-      },
-      "description": "Initativbewerbung — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Initativbewerbung — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Initativbewerbung/724771801/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.546Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Initativbewerbung/724771801/",
-      "jobReqId": "724771801",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "initativbewerbung-liebherr-bulle"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "initativbewerbung-liebherr-bulle"
-        ],
-        "en": [
-          "initativbewerbung-liebherr-bulle"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.375Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-3815bfb757b4",
-      "slug": "applicazione-non-richiesta-liebherr-bulle",
-      "slugByLocale": {
-        "it": "applicazione-non-richiesta-liebherr-bulle",
-        "en": "candidature-spontanee-liebherr-bulle",
-        "de": "unerbetene-anwendung-liebherr-bulle",
-        "fr": "candidature-spontanee-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Candidature spontanée",
-      "titleByLocale": {
-        "it": "Applicazione non richiesta",
-        "en": "Candidature spontanée",
-        "de": "Unerbetene Anwendung",
-        "fr": "Candidature spontanée"
-      },
-      "description": "Candidature spontanée — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "en": "Candidature spontanée — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Candidature-spontan%C3%A9e/724771901/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.546Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Candidature-spontan%C3%A9e/724771901/",
-      "jobReqId": "724771901",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "candidature-spontanee-liebherr-bulle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-liebherr-bulle"
+          "speculative-application-liebherr-bulle"
         ],
         "de": [
-          "candidature-spontanee-liebherr-bulle"
+          "spekulative-anwendung-liebherr-bulle",
+          "speculative-application-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4409,7 +4398,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Product-Manager-Defense-%28mfx%29/1225254001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.545Z",
+      "crawledAt": "2026-06-10T23:02:06.619Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4426,21 +4415,21 @@
       "jobReqId": "1225254001",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "product-manager-defense-m-f-x-liebherr-bulle",
+        "produktmanager-verteidigung-m-w-x-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "produktmanager-verteidigung-m-w-x-liebherr-bulle"
-        ],
         "it": [
           "product-manager-defense-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "produktmanager-verteidigung-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "product-manager-defense-m-f-x-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "produktmanager-verteidigung-m-w-x-liebherr-bulle",
-        "product-manager-defense-m-f-x-liebherr-bulle"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.374Z",
       "salaryMin": 68000,
@@ -4485,7 +4474,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Cyber-Security-Consulting-%28mwd%29/1148682301/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.545Z",
+      "crawledAt": "2026-06-10T23:02:06.619Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4519,6 +4508,78 @@
       "postalCode": "1630"
     },
     {
+      "id": "liebherr-a2ee910fd683",
+      "slug": "initiativebewerbung-liebherr-bulle",
+      "slugByLocale": {
+        "it": "initiativebewerbung-liebherr-bulle",
+        "en": "initiativbewerbung-liebherr-bulle",
+        "de": "initativbewerbung-liebherr-bulle",
+        "fr": "initativbewerbung-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Initativbewerbung",
+      "titleByLocale": {
+        "it": "Initiativebewerbung",
+        "en": "Initiativbewerbung",
+        "de": "Initativbewerbung",
+        "fr": "Initativbewerbung"
+      },
+      "description": "Initativbewerbung — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Initativbewerbung — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Initativbewerbung/724771801/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.619Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Initativbewerbung/724771801/",
+      "jobReqId": "724771801",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "initativbewerbung-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "initativbewerbung-liebherr-bulle"
+        ],
+        "en": [
+          "initativbewerbung-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.375Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
       "id": "liebherr-b6fc7f90abdd",
       "slug": "responsabile-data-security-m-w-d-liebherr-bulle",
       "slugByLocale": {
@@ -4546,7 +4607,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Data-Security-%28mwd%29/1181280201/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.544Z",
+      "crawledAt": "2026-06-10T23:02:06.618Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4563,8 +4624,9 @@
       "jobReqId": "1181280201",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.373Z",
+      "previousSlugs": [
+        "head-of-data-security-m-w-d-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-data-security-m-w-d-liebherr-bulle"
@@ -4573,9 +4635,8 @@
           "head-of-data-security-m-w-d-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "head-of-data-security-m-w-d-liebherr-bulle"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.373Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -4621,7 +4682,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-M%C3%A9catronicien-%28hfx%29-bancs-d'essai-moteurs-%C3%A0-combustion-Temporaire/1226522001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.544Z",
+      "crawledAt": "2026-06-10T23:02:06.618Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4696,7 +4757,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Ing%C3%A9nieur-Process-%28hfx%29-Methods-Time-Measurement/1203700001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.543Z",
+      "crawledAt": "2026-06-10T23:02:06.617Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4771,7 +4832,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Application-Security-%28mwd%29/1181279601/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.543Z",
+      "crawledAt": "2026-06-10T23:02:06.617Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4788,8 +4849,9 @@
       "jobReqId": "1181279601",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.373Z",
+      "previousSlugs": [
+        "head-of-application-security-m-w-d-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-application-security-m-w-d-liebherr-bulle"
@@ -4798,9 +4860,8 @@
           "head-of-application-security-m-w-d-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "head-of-application-security-m-w-d-liebherr-bulle"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.373Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -4843,7 +4904,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Warranty-Investigation-Technician-%28mfx%29/1364834833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.542Z",
+      "crawledAt": "2026-06-10T23:02:06.616Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4915,7 +4976,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Teamleader-%28mfx%29-Production-assemblage-hydraulique/1289043901/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.542Z",
+      "crawledAt": "2026-06-10T23:02:06.616Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4993,7 +5054,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Engine-Subsystem-Owner-Crank-Case-&-Cylinder-Head-%28mwx%29/1375459233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.541Z",
+      "crawledAt": "2026-06-10T23:02:06.615Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5065,7 +5126,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Warranty-Investigation-Technician-%28mwd%29/1364834733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.541Z",
+      "crawledAt": "2026-06-10T23:02:06.615Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5137,7 +5198,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Customer-quality-engineer-%28mfx%29-&-field-quality/1371388433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.540Z",
+      "crawledAt": "2026-06-10T23:02:06.614Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5198,7 +5259,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Customer-quality-engineer-%28mfx%29-&-problem-solving/1371388533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.540Z",
+      "crawledAt": "2026-06-10T23:02:06.614Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5217,6 +5278,77 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.370Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-b76924d67aab",
+      "slug": "capo-squadra-claim-management-m-f-x-liebherr-bulle-8f8f0b",
+      "slugByLocale": {
+        "it": "capo-squadra-claim-management-m-f-x-liebherr-bulle-8f8f0b",
+        "en": "team-leader-claim-management-m-f-x-liebherr-bulle-3",
+        "de": "team-leader-claim-management-m-f-x-liebherr-bulle",
+        "fr": "team-leader-claim-management-m-f-x-liebherr-bulle-3"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Team Leader - Claim Management (m/f/x)",
+      "titleByLocale": {
+        "it": "Capo squadra - Claim Management (m/f/x)",
+        "en": "Team Leader - Claims Management (m/f/x)",
+        "de": "Team Leader - Claim Management (m/f/x)",
+        "fr": "Team Leader - Claim Management (m/f/x)"
+      },
+      "description": "Team Leader - Claim Management (m/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Team Leader - Claim Management (m/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260233/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.613Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260233/",
+      "jobReqId": "1380260233",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "team-leader-claim-management-m-f-x-liebherr-bulle-3",
+        "team-leader-claim-management-m-f-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-claim-management-m-f-x-liebherr-bulle-3",
+          "team-leader-claim-management-m-f-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.369Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5262,7 +5394,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Collaborateur-sp%C3%A9cialis%C3%A9-%28hfx%29-Tarifications-douani%C3%A8res-Temporaire/1373578533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.539Z",
+      "crawledAt": "2026-06-10T23:02:06.613Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5310,6 +5442,78 @@
       "postalCode": "1630"
     },
     {
+      "id": "liebherr-b8371a0c23b9",
+      "slug": "control-systems-ingegnere-m-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "control-systems-ingegnere-m-f-x-liebherr-bulle",
+        "en": "control-systems-engineer-m-f-x-liebherr-bulle",
+        "de": "control-systems-engineer-m-f-x-liebherr-bulle",
+        "fr": "control-systems-ingenieur-m-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Control Systems Engineer (m/f/x)",
+      "titleByLocale": {
+        "it": "Control Systems Ingegnere (m/f/x)",
+        "en": "Control Systems Engineer (m/f/x)",
+        "de": "Control Systems Ingenieur (m/f/x)",
+        "fr": "Control Systems Ingénieur (m/f/x)"
+      },
+      "description": "Control Systems Engineer (m/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Control Systems Engineer (m/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Control-Systems-Engineer-%28mfx%29/1395958333/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.612Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Control-Systems-Engineer-%28mfx%29/1395958333/",
+      "jobReqId": "1395958333",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "control-systems-engineer-m-f-x-liebherr-bulle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "control-systems-engineer-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "control-systems-engineer-m-f-x-liebherr-bulle"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.368Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
       "id": "liebherr-d28aa2534f2f",
       "slug": "engine-remanufacturing-design-engineer-m-f-x-liebherr-bulle",
       "slugByLocale": {
@@ -5337,7 +5541,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Engine-Remanufacturing-Design-Engineer-%28mfx%29/1395958433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.538Z",
+      "crawledAt": "2026-06-10T23:02:06.612Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5356,77 +5560,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.368Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-b76924d67aab",
-      "slug": "capo-squadra-claim-management-m-f-x-liebherr-bulle-8f8f0b",
-      "slugByLocale": {
-        "it": "capo-squadra-claim-management-m-f-x-liebherr-bulle-8f8f0b",
-        "en": "team-leader-claim-management-m-f-x-liebherr-bulle-3",
-        "de": "team-leader-claim-management-m-f-x-liebherr-bulle",
-        "fr": "team-leader-claim-management-m-f-x-liebherr-bulle-3"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Team Leader - Claim Management (m/f/x)",
-      "titleByLocale": {
-        "it": "Capo squadra - Claim Management (m/f/x)",
-        "en": "Team Leader - Claims Management (m/f/x)",
-        "de": "Team Leader - Claim Management (m/f/x)",
-        "fr": "Team Leader - Claim Management (m/f/x)"
-      },
-      "description": "Team Leader - Claim Management (m/f/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Team Leader - Claim Management (m/f/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260233/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.538Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260233/",
-      "jobReqId": "1380260233",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "team-leader-claim-management-m-f-x-liebherr-bulle-3",
-        "team-leader-claim-management-m-f-x-liebherr-bulle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "team-leader-claim-management-m-f-x-liebherr-bulle-3",
-          "team-leader-claim-management-m-f-x-liebherr-bulle"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.369Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5469,7 +5602,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-IT-Business-Analysis%E2%80%8B-%28mwx%29/1394654633/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:32:53.537Z",
+      "crawledAt": "2026-06-10T23:02:06.611Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5514,142 +5647,6 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-b8371a0c23b9",
-      "slug": "control-systems-ingegnere-m-f-x-liebherr-bulle",
-      "slugByLocale": {
-        "it": "control-systems-ingegnere-m-f-x-liebherr-bulle",
-        "en": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "de": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "fr": "control-systems-ingenieur-m-f-x-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Control Systems Engineer (m/f/x)",
-      "titleByLocale": {
-        "it": "Control Systems Ingegnere (m/f/x)",
-        "en": "Control Systems Engineer (m/f/x)",
-        "de": "Control Systems Ingenieur (m/f/x)",
-        "fr": "Control Systems Ingénieur (m/f/x)"
-      },
-      "description": "Control Systems Engineer (m/f/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Control Systems Engineer (m/f/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Control-Systems-Engineer-%28mfx%29/1395958333/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.537Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Control-Systems-Engineer-%28mfx%29/1395958333/",
-      "jobReqId": "1395958333",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.368Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "control-systems-engineer-m-f-x-liebherr-bulle"
-        ],
-        "fr": [
-          "control-systems-engineer-m-f-x-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "control-systems-engineer-m-f-x-liebherr-bulle"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
-      "id": "liebherr-0ddb97e05134",
-      "slug": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
-      "slugByLocale": {
-        "it": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
-        "en": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
-        "de": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
-        "fr": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary",
-      "titleByLocale": {
-        "it": "Technical Specialista (m/f/x) - Defence Product Safety - Temporary",
-        "en": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary",
-        "de": "Technical Spezialist (m/f/x) - Defence Product Safety - Temporary",
-        "fr": "Technical Spécialiste (m/f/x) - Defence Product Safety - Temporary"
-      },
-      "description": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "it": "Specialista tecnico (m/f/x) - Sicurezza dei prodotti di difesa - Temporary — Liebherr (Bulletin, CH)",
-        "en": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary — Liebherr (Bulletin, CH)",
-        "de": "Technical Specialist (m/w/x) - Defence Product Safety - Temporary - Liebherr (Bulletin, CH)",
-        "fr": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Technical-Specialist-%28mfx%29-Defence-Product-Safety-Temporary/1394653733/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.536Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Technical-Specialist-%28mfx%29-Defence-Product-Safety-Temporary/1394653733/",
-      "jobReqId": "1394653733",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.366Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
       "id": "liebherr-89865a05af47",
       "slug": "specialiste-technique-m-w-d-securite-produits-defense-temporaire-liebherr-bulle",
       "slugByLocale": {
@@ -5680,7 +5677,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Sp%C3%A9cialiste-Technique-%28hfx%29-S%C3%A9curit%C3%A9-Produits-Defense-Temporaire/1394653833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.536Z",
+      "crawledAt": "2026-06-10T23:02:06.610Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5728,67 +5725,6 @@
       "postalCode": "1630"
     },
     {
-      "id": "liebherr-f74af63c25c9",
-      "slug": "young-talent-hr-talent-management-m-f-x-liebherr-bulle",
-      "slugByLocale": {
-        "it": "young-talent-hr-talent-management-m-f-x-liebherr-bulle",
-        "en": "user-safety-safe-liebherr-bulle-fc2d39",
-        "de": "young-talent-hr-talent-management-m-f-x-liebherr-bulle",
-        "fr": "young-talent-hr-talent-management-m-f-x-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Young Talent HR Talent Management (m/f/x)",
-      "titleByLocale": {
-        "it": "Young Talent Risorse Umane Talent Management (m/f/x)",
-        "en": "User Safety: safe",
-        "de": "Young Talent Personalwesen Talent Management (m/f/x)",
-        "fr": "Young Talent HR Talent Management (m/f/x)"
-      },
-      "description": "Young Talent HR Talent Management (m/f/x) — Liebherr (Bulle, CH)",
-      "descriptionByLocale": {
-        "de": "Young Talent HR Talent Management (m/f/x) — Liebherr (Bulle, CH)"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-HR-Talent-Management-%28mfx%29/1397738233/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.535Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-HR-Talent-Management-%28mfx%29/1397738233/",
-      "jobReqId": "1397738233",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.365Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1630"
-    },
-    {
       "id": "liebherr-6e4681b69a84",
       "slug": "young-talent-business-analyst-spare-parts-m-f-x-liebherr-bulle",
       "slugByLocale": {
@@ -5816,7 +5752,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Business-Analyst-Spare-Parts-%28mfx%29/1397651833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.535Z",
+      "crawledAt": "2026-06-10T23:02:06.609Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5831,6 +5767,194 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Business-Analyst-Spare-Parts-%28mfx%29/1397651833/",
       "jobReqId": "1397651833",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.365Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-0ddb97e05134",
+      "slug": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
+      "slugByLocale": {
+        "it": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
+        "en": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
+        "de": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle",
+        "fr": "technical-specialist-m-f-x-defence-product-safety-temporary-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary",
+      "titleByLocale": {
+        "it": "Technical Specialista (m/f/x) - Defence Product Safety - Temporary",
+        "en": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary",
+        "de": "Technical Spezialist (m/f/x) - Defence Product Safety - Temporary",
+        "fr": "Technical Spécialiste (m/f/x) - Defence Product Safety - Temporary"
+      },
+      "description": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "it": "Specialista tecnico (m/f/x) - Sicurezza dei prodotti di difesa - Temporary — Liebherr (Bulletin, CH)",
+        "en": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary — Liebherr (Bulletin, CH)",
+        "de": "Technical Specialist (m/w/x) - Defence Product Safety - Temporary - Liebherr (Bulletin, CH)",
+        "fr": "Technical Specialist (m/f/x) - Defence Product Safety - Temporary — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Technical-Specialist-%28mfx%29-Defence-Product-Safety-Temporary/1394653733/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.609Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Technical-Specialist-%28mfx%29-Defence-Product-Safety-Temporary/1394653733/",
+      "jobReqId": "1394653733",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.366Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630"
+    },
+    {
+      "id": "liebherr-140b4103231d",
+      "slug": "teamleader-h-f-x-commodities-liebherr-bulle-2",
+      "slugByLocale": {
+        "en": "teamleader-h-f-x-commodities-liebherr-bulle",
+        "it": "teamleader-h-f-x-commodities-liebherr-bulle-2",
+        "de": "teamleader-h-f-x-commodities-liebherr-bulle-2",
+        "fr": "teamleader-h-f-x-commodities-liebherr-bulle-2"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Teamleader (h/f/x) Commodities",
+      "titleByLocale": {
+        "en": "Teamleader (h/f/x) Commodities",
+        "fr": "Teamleader (h/f/x) Commodities",
+        "it": "Teamleader (h/f/x) Commodities",
+        "de": "Teamleader (h/f/x) Commodities"
+      },
+      "description": "Teamleader (h/f/x) Commodities — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "en": "Teamleader (h/f/x) Commodities — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Teamleader-%28hfx%29-Commodities/1275408701/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.608Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Teamleader-%28hfx%29-Commodities/1275408701/",
+      "jobReqId": "1275408701",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630",
+      "firstSeenAt": "2026-06-10T23:02:06.608Z"
+    },
+    {
+      "id": "liebherr-f74af63c25c9",
+      "slug": "young-talent-hr-talent-management-m-f-x-liebherr-bulle",
+      "slugByLocale": {
+        "it": "young-talent-hr-talent-management-m-f-x-liebherr-bulle",
+        "en": "user-safety-safe-liebherr-bulle-fc2d39",
+        "de": "young-talent-hr-talent-management-m-f-x-liebherr-bulle",
+        "fr": "young-talent-hr-talent-management-m-f-x-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Young Talent HR Talent Management (m/f/x)",
+      "titleByLocale": {
+        "it": "Young Talent Risorse Umane Talent Management (m/f/x)",
+        "en": "User Safety: safe",
+        "de": "Young Talent Personalwesen Talent Management (m/f/x)",
+        "fr": "Young Talent HR Talent Management (m/f/x)"
+      },
+      "description": "Young Talent HR Talent Management (m/f/x) — Liebherr (Bulle, CH)",
+      "descriptionByLocale": {
+        "de": "Young Talent HR Talent Management (m/f/x) — Liebherr (Bulle, CH)"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-HR-Talent-Management-%28mfx%29/1397738233/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:02:06.608Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-HR-Talent-Management-%28mfx%29/1397738233/",
+      "jobReqId": "1397738233",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
@@ -5877,7 +6001,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28wmx%29-Inline-Engines-Product-Management/1392711433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.534Z",
+      "crawledAt": "2026-06-10T23:02:06.607Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5938,7 +6062,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28mfx%29-Predevelopment/1392681433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.533Z",
+      "crawledAt": "2026-06-10T23:02:06.606Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5955,22 +6079,22 @@
       "jobReqId": "1392681433",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "young-talent-m-f-x-predevelopment-liebherr-bulle",
+        "junge-talente-m-w-x-vorentwicklung-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "junge-talente-m-w-x-vorentwicklung-liebherr-bulle",
-          "young-talent-m-f-x-predevelopment-liebherr-bulle"
-        ],
         "it": [
           "young-talent-m-f-x-predevelopment-liebherr-bulle"
         ],
         "en": [
           "young-talent-m-f-x-predevelopment-liebherr-bulle"
+        ],
+        "de": [
+          "junge-talente-m-w-x-vorentwicklung-liebherr-bulle",
+          "young-talent-m-f-x-predevelopment-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "young-talent-m-f-x-predevelopment-liebherr-bulle",
-        "junge-talente-m-w-x-vorentwicklung-liebherr-bulle"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.363Z",
       "salaryMin": 49500,
@@ -6015,7 +6139,7 @@
       "url": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:32:53.531Z",
+      "crawledAt": "2026-06-10T23:02:06.604Z",
       "addressLocality": "Abuja",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -6076,7 +6200,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28wmx%29-Software-Engineering/1392233433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:32:53.494Z",
+      "crawledAt": "2026-06-10T23:02:06.570Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -6093,16 +6217,16 @@
       "jobReqId": "1392233433",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.326Z",
+      "previousSlugs": [
+        "young-talent-w-m-x-software-engineering-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "young-talent-w-m-x-software-engineering-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "young-talent-w-m-x-software-engineering-liebherr-bulle"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.326Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6145,7 +6269,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Serrurier-Constructeur-M%C3%A9tallique-%28hfx%29/1381776933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:32:53.484Z",
+      "crawledAt": "2026-06-10T23:02:06.561Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
