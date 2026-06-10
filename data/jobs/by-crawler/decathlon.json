@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "decathlon-2773922bc6be",
-      "slug": "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch",
+      "slug": "consulente-sportivo-in-velo-decathlon-centro-di-zurigo-20-90-decathlon-zurich",
       "slugByLocale": {
         "de": "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch",
-        "it": "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch",
+        "it": "consulente-sportivo-in-velo-decathlon-centro-di-zurigo-20-90-decathlon-zurich",
         "en": "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch",
         "fr": "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch"
       },
@@ -62,14 +62,22 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.832Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportberater-in-velo-decathlon-zurich-center-20-90-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-3efdaf6cfdf8",
-      "slug": "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch",
+      "slug": "responsabile-marketing-e-comunicazione-regione-mittelland-de-eng-decathlon-bern",
       "slugByLocale": {
         "en": "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch",
-        "it": "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch",
+        "it": "responsabile-marketing-e-comunicazione-regione-mittelland-de-eng-decathlon-bern",
         "de": "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch",
         "fr": "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch"
       },
@@ -124,7 +132,15 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.832Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-and-communication-manager-mittelland-region-de-eng-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-23a5ee935a1f",
@@ -189,12 +205,12 @@
     },
     {
       "id": "decathlon-9771c1ff90a8",
-      "slug": "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-20-decathlon-svizzera-decathlon-hinwil",
       "slugByLocale": {
         "de": "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch",
-        "it": "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch",
-        "en": "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch",
-        "fr": "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-20-decathlon-svizzera-decathlon-hinwil",
+        "en": "sports-leader-sales-consultant-m-f-d-20-decathlon-switzerland-decathlon-hinwil",
+        "fr": "leader-sportif-consultant-commercial-m-f-d-20-decathlon-suisse-decathlon-hinwil"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -247,16 +263,30 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.830Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch"
+        ],
+        "en": [
+          "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch"
+        ],
+        "fr": [
+          "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sports-leader-verkaufstberater-m-w-d-20-decathlon-schweiz-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-a862b575c129",
-      "slug": "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch",
+      "slug": "velomechanic-80-w-m-d-decathlon-hinwil-decathlon-hinwil",
       "slugByLocale": {
         "de": "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch",
-        "it": "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch",
+        "it": "velomechanic-80-w-m-d-decathlon-hinwil-decathlon-hinwil",
         "en": "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch",
-        "fr": "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch"
+        "fr": "velomecanique-80-m-j-decathlon-hinwil"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -309,14 +339,25 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.828Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch"
+        ],
+        "fr": [
+          "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "velomechaniker-80-w-m-d-decathlon-hinwil-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-60b2e6ba0ce2",
-      "slug": "kassierer-in-in-decathlon-zurich-center-decathlon-ch",
+      "slug": "cashier-al-decathlon-centro-di-zurigo-decathlon-zurich",
       "slugByLocale": {
         "de": "kassierer-in-in-decathlon-zurich-center-decathlon-ch",
-        "it": "kassierer-in-in-decathlon-zurich-center-decathlon-ch",
+        "it": "cashier-al-decathlon-centro-di-zurigo-decathlon-zurich",
         "en": "kassierer-in-in-decathlon-zurich-center-decathlon-ch",
         "fr": "kassierer-in-in-decathlon-zurich-center-decathlon-ch"
       },
@@ -371,7 +412,15 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.827Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "kassierer-in-in-decathlon-zurich-center-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kassierer-in-in-decathlon-zurich-center-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-822ba6cb31e0",
@@ -379,8 +428,8 @@
       "slugByLocale": {
         "de": "sportberater-in-decathlon-herblingen-20-befristet-november-bis-ende-januar-decathlon-ch",
         "it": "sportberater-in-decathlon-herblingen-20-befristet-november-bis-ende-januar-decathlon-schaffhausen",
-        "en": "sportberater-in-decathlon-herblingen-20-befristet-november-bis-ende-januar-decathlon-ch",
-        "fr": "sportberater-in-decathlon-herblingen-20-befristet-november-bis-ende-januar-decathlon-ch"
+        "en": "sports-consultant-decathlon-herblingen-20-limited-november-to-the-end-of-january-decathlon-schaffhausen",
+        "fr": "consultant-sportif-decathlon-herblingen-20-limite-novembre-a-fin-janvier-decathlon-schaffhausen"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -423,6 +472,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-decathlon-herblingen-20-befristet-november-bis-ende-januar-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-decathlon-herblingen-20-befristet-november-bis-ende-januar-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-decathlon-herblingen-20-befristet-november-bis-ende-januar-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -449,8 +504,8 @@
       "slugByLocale": {
         "de": "sportberater-in-decathlon-herblingen-50-befristet-nov-bid-ende-januar-decathlon-ch",
         "it": "sportberater-in-decathlon-herblingen-50-befristet-nov-bid-ende-januar-decathlon-schaffhausen",
-        "en": "sportberater-in-decathlon-herblingen-50-befristet-nov-bid-ende-januar-decathlon-ch",
-        "fr": "sportberater-in-decathlon-herblingen-50-befristet-nov-bid-ende-januar-decathlon-ch"
+        "en": "sports-consultant-decathlon-herblingen-50-temporary-nov-bid-end-of-january-decathlon-schaffhausen",
+        "fr": "consultant-sportif-decathlon-herblingen-50-temporaire-nov-soumission-fin-janvier-decathlon-schaffhausen"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -493,6 +548,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-decathlon-herblingen-50-befristet-nov-bid-ende-januar-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-decathlon-herblingen-50-befristet-nov-bid-ende-januar-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-decathlon-herblingen-50-befristet-nov-bid-ende-januar-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -515,12 +576,12 @@
     },
     {
       "id": "decathlon-696b5ef5f3bd",
-      "slug": "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-80-bern-city-decathlon-bern",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch",
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-80-bern-city-decathlon-bern",
         "en": "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-m-f-d-80-bern-city-decathlon-bern"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -573,7 +634,18 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.824Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-80-bern-city-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-ec18c65fd071",
@@ -581,8 +653,8 @@
       "slugByLocale": {
         "fr": "vendeur-technicien-atelier-20-80-cdd-h-f-avry-decathlon-ch",
         "it": "vendeur-technicien-atelier-20-80-cdd-m-w-d-avry-decathlon-matran",
-        "en": "vendeur-technicien-atelier-20-80-cdd-h-f-avry-decathlon-ch",
-        "de": "vendeur-technicien-atelier-20-80-cdd-h-f-avry-decathlon-ch"
+        "en": "vendor-technician-workshop-20-80-csd-h-f-avry-decathlon-matran",
+        "de": "vendor-techniker-workshop-20-80-csd-h-f-avry-decathlon-matran"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -625,6 +697,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-technicien-atelier-20-80-cdd-h-f-avry-decathlon-ch"
+        ],
+        "en": [
+          "vendeur-technicien-atelier-20-80-cdd-h-f-avry-decathlon-ch"
+        ],
+        "de": [
+          "vendeur-technicien-atelier-20-80-cdd-h-f-avry-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -651,7 +729,7 @@
       "slugByLocale": {
         "fr": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
         "it": "store-leader-incubation-m-w-d-ost-e-zentralschweiz-decathlon-zurich",
-        "en": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
+        "en": "store-leader-incubation-m-f-d-eastern-and-central-switzerland-decathlon-zurich",
         "de": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
       },
       "company": "Decathlon",
@@ -695,6 +773,9 @@
       "previousSlugsByLocale": {
         "it": [
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
+        ],
+        "en": [
+          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -717,12 +798,12 @@
     },
     {
       "id": "decathlon-370a3ff8ec12",
-      "slug": "sportberater-in-decathlon-stans-40-60-decathlon-ch",
+      "slug": "consulente-sportivo-decathlon-stans-40-60-decathlon-stans",
       "slugByLocale": {
         "de": "sportberater-in-decathlon-stans-40-60-decathlon-ch",
-        "it": "sportberater-in-decathlon-stans-40-60-decathlon-ch",
-        "en": "sportberater-in-decathlon-stans-40-60-decathlon-ch",
-        "fr": "sportberater-in-decathlon-stans-40-60-decathlon-ch"
+        "it": "consulente-sportivo-decathlon-stans-40-60-decathlon-stans",
+        "en": "sports-consultant-decathlon-stans-40-60-decathlon-stans",
+        "fr": "consultant-sportif-decathlon-stans-40-60-decathlon-stans"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -775,7 +856,21 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.822Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sportberater-in-decathlon-stans-40-60-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-decathlon-stans-40-60-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-decathlon-stans-40-60-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportberater-in-decathlon-stans-40-60-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-53e6b2815a1e",
@@ -849,12 +944,12 @@
     },
     {
       "id": "decathlon-4d5c687c9aa7",
-      "slug": "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch",
+      "slug": "consulente-sportivo-ve-20-ciclo-officina-noleggio-decathlon-martigny-decathlon-martigny",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch"
+        "it": "consulente-sportivo-ve-20-ciclo-officina-noleggio-decathlon-martigny-decathlon-martigny",
+        "en": "sports-advisor-age-ve-20-cycle-workshop-rental-decathlon-martigny-decathlon-martigny",
+        "de": "sportberater-alter-ve-20-zyklus-werkstatt-miete-decathlon-martigny-decathlon-martigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -907,7 +1002,21 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.821Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-20-cycle-atelier-location-decathlon-martigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-6035f4f64bbb",
@@ -915,8 +1024,8 @@
       "slugByLocale": {
         "de": "sports-leader-sportberater-m-w-d-70-im-bereich-velo-befristet-5-monate-decathlon-ch",
         "it": "sports-leader-sportberater-m-w-d-70-im-bereich-velo-befristet-5-monate-decathlon-winterthur",
-        "en": "sports-leader-sportberater-m-w-d-70-im-bereich-velo-befristet-5-monate-decathlon-ch",
-        "fr": "sports-leader-sportberater-m-w-d-70-im-bereich-velo-befristet-5-monate-decathlon-ch"
+        "en": "sports-leader-sports-consultant-m-f-d-70-in-the-field-of-velo-temporary-5-months-decathlon-winterthur",
+        "fr": "leader-sportif-consultant-sportif-m-f-d-70-dans-le-domaine-de-velo-temporaire-5-mois-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -959,6 +1068,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sports-leader-sportberater-m-w-d-70-im-bereich-velo-befristet-5-monate-decathlon-ch"
+        ],
+        "en": [
+          "sports-leader-sportberater-m-w-d-70-im-bereich-velo-befristet-5-monate-decathlon-ch"
+        ],
+        "fr": [
+          "sports-leader-sportberater-m-w-d-70-im-bereich-velo-befristet-5-monate-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -983,7 +1098,7 @@
       "id": "decathlon-c5a86e6736cf",
       "slug": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
       "slugByLocale": {
-        "fr": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
+        "fr": "chef-de-magasin-m-m-j-decathlon-winterthur-decathlon-winterthur",
         "it": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
         "en": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
         "de": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch"
@@ -1043,12 +1158,12 @@
     },
     {
       "id": "decathlon-160875c164a8",
-      "slug": "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-f-m-d-20-80-decathlon-stans-decathlon-stans",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch",
+        "it": "leader-sportivo-consulente-commerciale-f-m-d-20-80-decathlon-stans-decathlon-stans",
         "en": "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-f-m-j-20-80-decathlon-stans-decathlon-stans"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1101,7 +1216,18 @@
         }
       },
       "firstSeenAt": "2026-06-10T09:03:00.818Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-w-m-d-20-80-decathlon-stans-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-2a887fe3ad29",
@@ -1109,8 +1235,8 @@
       "slugByLocale": {
         "de": "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch",
         "it": "capo-squadra-abteilungsleiter-m-w-d-hinwil-decathlon-hinwil",
-        "en": "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch",
-        "fr": "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch"
+        "en": "team-leader-head-of-department-m-f-d-hinwil-decathlon-hinwil",
+        "fr": "chef-d-equipe-chef-de-departement-m-f-d-hinwil-decathlon-hinwil"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1165,6 +1291,12 @@
       "firstSeenAt": "2026-06-10T09:03:00.817Z",
       "previousSlugsByLocale": {
         "it": [
+          "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch"
+        ],
+        "en": [
+          "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch"
+        ],
+        "fr": [
           "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch"
         ]
       },
@@ -1304,12 +1436,12 @@
     },
     {
       "id": "decathlon-61d2f550b761",
-      "slug": "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
+      "slug": "consulente-sportivo-gestione-delle-merci-m-f-d-40-60-decathlon-svizzera-decathlon-spreitenbach",
       "slugByLocale": {
         "de": "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
-        "it": "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
-        "en": "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch",
-        "fr": "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
+        "it": "consulente-sportivo-gestione-delle-merci-m-f-d-40-60-decathlon-svizzera-decathlon-spreitenbach",
+        "en": "sports-consultant-goods-management-m-f-d-40-60-decathlon-switzerland-decathlon-spreitenbach",
+        "fr": "consultant-sportif-gestion-des-biens-m-f-d-40-60-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1361,16 +1493,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.815Z"
+      "firstSeenAt": "2026-06-10T09:03:00.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-d2e66fa6686c",
-      "slug": "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch",
+      "slug": "consulente-sportivo-consulente-commerciale-m-f-d-20-30-decathlon-svizzera-decathlon-spreitenbach",
       "slugByLocale": {
         "de": "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch",
-        "it": "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch",
-        "en": "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch",
-        "fr": "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
+        "it": "consulente-sportivo-consulente-commerciale-m-f-d-20-30-decathlon-svizzera-decathlon-spreitenbach",
+        "en": "sports-consultant-sales-consultant-m-f-d-20-30-decathlon-switzerland-decathlon-spreitenbach",
+        "fr": "consultant-en-sport-vendeur-m-f-d-20-30-decathlon-suisse-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1422,16 +1568,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.815Z"
+      "firstSeenAt": "2026-06-10T09:03:00.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportberater-verkaufsberater-m-w-d-20-30-decathlon-schweiz-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-1a53ffda5473",
-      "slug": "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch",
+      "slug": "sportleader-multisport-racket-80-90-flessibile-da-usare-decathlon-basel",
       "slugByLocale": {
         "de": "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch",
-        "it": "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch",
-        "en": "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch",
-        "fr": "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
+        "it": "sportleader-multisport-racket-80-90-flessibile-da-usare-decathlon-basel",
+        "en": "sportsleader-multisport-racket-80-90-flexible-to-use-decathlon-basel",
+        "fr": "leader-sportif-multisport-racket-80-90-flexible-a-utiliser-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1483,16 +1643,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.815Z"
+      "firstSeenAt": "2026-06-10T09:03:00.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
+        ],
+        "en": [
+          "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
+        ],
+        "fr": [
+          "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportsleader-multisport-racket-80-90-flexibel-einsetzbar-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-79b550a97e9a",
-      "slug": "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch",
+      "slug": "consulente-vendite-velo-cycling-m-f-d-80-decathlon-dietlikon-decathlon-dietlikon",
       "slugByLocale": {
         "de": "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch",
-        "it": "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch",
-        "en": "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch",
-        "fr": "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch"
+        "it": "consulente-vendite-velo-cycling-m-f-d-80-decathlon-dietlikon-decathlon-dietlikon",
+        "en": "sales-consultant-velo-cycling-m-f-d-80-decathlon-dietlikon-decathlon-dietlikon",
+        "fr": "consultant-en-ventes-velo-cyclisme-m-f-j-80-decathlon-dietlikon"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1544,7 +1718,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.813Z"
+      "firstSeenAt": "2026-06-10T09:03:00.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch"
+        ],
+        "en": [
+          "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch"
+        ],
+        "fr": [
+          "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-velo-radsport-m-w-d-80-decathlon-dietlikon-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-75fc45f44fdb",
@@ -1617,12 +1805,12 @@
     },
     {
       "id": "decathlon-d0da8f11255d",
-      "slug": "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch",
+      "slug": "sporting-eta-consulente-team-scivola-20-decathlon-conthey-decathlon-conthey",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch"
+        "it": "sporting-eta-consulente-team-scivola-20-decathlon-conthey-decathlon-conthey",
+        "en": "sporting-age-advisor-team-slides-20-decathlon-conthey-decathlon-conthey",
+        "de": "sporting-age-advisor-team-rutscht-20-decathlon-conthey-decathlon-conthey"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1674,16 +1862,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.811Z"
+      "firstSeenAt": "2026-06-10T09:03:00.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-1ef380c48f3e",
-      "slug": "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch",
+      "slug": "consulente-sportivo-running-decathlon-yverdon-50-decathlon-montagny-pres-yverdon",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch"
+        "it": "consulente-sportivo-running-decathlon-yverdon-50-decathlon-montagny-pres-yverdon",
+        "en": "sports-counsellor-running-decathlon-yverdon-50-decathlon-montagny-pres-yverdon",
+        "de": "sportberater-laufen-decathlon-yverdon-50-decathlon-montagny-pres-yverdon"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1735,15 +1937,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.810Z"
+      "firstSeenAt": "2026-06-10T09:03:00.810Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-running-decathlon-yverdon-50-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-5235f25b42af",
-      "slug": "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
+      "slug": "tecnico-del-workshop-60-citta-di-zurigo-decathlon-zurich",
       "slugByLocale": {
-        "fr": "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
-        "it": "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
-        "en": "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
+        "fr": "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
+        "it": "tecnico-del-workshop-60-citta-di-zurigo-decathlon-zurich",
+        "en": "workshop-technician-60-city-of-zurich-decathlon-zurich",
         "de": "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
       },
       "company": "Decathlon",
@@ -1796,7 +2012,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.809Z"
+      "firstSeenAt": "2026-06-10T09:03:00.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+        ],
+        "en": [
+          "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+        ],
+        "fr": [
+          "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-609d208b84a8",
@@ -1804,8 +2034,8 @@
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-outdoorsport-m-w-d-60-befristet-bern-westside-decathlon-ch",
         "it": "sport-leader-verkaufsberater-outdoorsport-m-w-d-60-befristet-bern-westside-decathlon-bern",
-        "en": "sport-leader-verkaufsberater-outdoorsport-m-w-d-60-befristet-bern-westside-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-outdoorsport-m-w-d-60-befristet-bern-westside-decathlon-ch"
+        "en": "sport-leader-sales-consultant-outdoorsport-m-f-d-60-temporary-bern-westside-decathlon-bern",
+        "fr": "leader-sportif-conseiller-commercial-outdoorsport-m-f-d-60-temporaire-bern-westside-decathlon-bern"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1850,6 +2080,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-outdoorsport-m-w-d-60-befristet-bern-westside-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-outdoorsport-m-w-d-60-befristet-bern-westside-decathlon-ch"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-outdoorsport-m-w-d-60-befristet-bern-westside-decathlon-ch"
         ]
       },
@@ -1994,12 +2230,12 @@
     },
     {
       "id": "decathlon-28cc5c0a2685",
-      "slug": "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-80-baar-decathlon-baar",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch",
-        "en": "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-80-baar-decathlon-baar",
+        "en": "sport-leader-sales-advisor-m-f-d-80-baar-decathlon-baar",
+        "fr": "leader-sportif-conseiller-commercial-m-f-j-80-baar-decathlon-baar"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2051,7 +2287,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.806Z"
+      "firstSeenAt": "2026-06-10T09:03:00.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-80-baar-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-53990cff8ed3",
@@ -2059,8 +2309,8 @@
       "slugByLocale": {
         "de": "velo-verkaufer-und-montage-spezialist-m-w-d-20-80-baar-decathlon-ch",
         "it": "velo-verkaufer-e-montage-spezialist-m-w-d-20-80-baar-decathlon-baar",
-        "en": "velo-verkaufer-und-montage-spezialist-m-w-d-20-80-baar-decathlon-ch",
-        "fr": "velo-verkaufer-und-montage-spezialist-m-w-d-20-80-baar-decathlon-ch"
+        "en": "velo-seller-and-assembly-specialist-m-f-d-20-80-baar-decathlon-baar",
+        "fr": "vendeur-velo-et-specialiste-de-l-assemblage-m-f-j-20-80-baar-decathlon-baar"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2103,6 +2353,12 @@
       "previousSlugsByLocale": {
         "it": [
           "velo-verkaufer-und-montage-spezialist-m-w-d-20-80-baar-decathlon-ch"
+        ],
+        "en": [
+          "velo-verkaufer-und-montage-spezialist-m-w-d-20-80-baar-decathlon-ch"
+        ],
+        "fr": [
+          "velo-verkaufer-und-montage-spezialist-m-w-d-20-80-baar-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -2129,7 +2385,7 @@
         "de": "velomechaniker-w-m-d-50-60-basel-city-decathlon-ch",
         "it": "velomechaniker-w-m-d-50-60-basel-city-decathlon-ch",
         "en": "velomechaniker-w-m-d-50-60-basel-city-decathlon-ch",
-        "fr": "velomechaniker-w-m-d-50-60-basel-city-decathlon-ch"
+        "fr": "velomechaniker-w-m-d-50-60-bale-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2190,7 +2446,7 @@
         "de": "sports-leader-m-w-d-60-80-fur-3-monate-decathlon-dietlikon-decathlon-ch",
         "it": "sports-leader-m-w-d-60-80-per-3-monate-decathlon-dietlikon",
         "en": "sports-leader-m-w-d-60-80-fur-3-monate-decathlon-dietlikon-decathlon-ch",
-        "fr": "sports-leader-m-w-d-60-80-fur-3-monate-decathlon-dietlikon-decathlon-ch"
+        "fr": "leader-sportif-m-f-j-60-80-pendant-3-mois-decathlon-dietlikon-decathlon-dietlikon"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2233,6 +2489,9 @@
       "previousSlugsByLocale": {
         "it": [
           "sports-leader-m-w-d-60-80-fur-3-monate-decathlon-dietlikon-decathlon-ch"
+        ],
+        "fr": [
+          "sports-leader-m-w-d-60-80-fur-3-monate-decathlon-dietlikon-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -2259,7 +2518,7 @@
         "de": "sports-leader-m-w-d-60-80-fur-2-monate-decathlon-dietlikon-decathlon-ch",
         "it": "sports-leader-m-w-d-60-80-per-2-monate-decathlon-dietlikon",
         "en": "sports-leader-m-w-d-60-80-fur-2-monate-decathlon-dietlikon-decathlon-ch",
-        "fr": "sports-leader-m-w-d-60-80-fur-2-monate-decathlon-dietlikon-decathlon-ch"
+        "fr": "leader-sportif-m-f-j-60-80-pendant-2-mois-decathlon-dietlikon-decathlon-dietlikon"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2301,6 +2560,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "sports-leader-m-w-d-60-80-fur-2-monate-decathlon-dietlikon-decathlon-ch"
+        ],
+        "fr": [
           "sports-leader-m-w-d-60-80-fur-2-monate-decathlon-dietlikon-decathlon-ch"
         ]
       },
@@ -2449,8 +2711,8 @@
       "slugByLocale": {
         "en": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch",
         "it": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch",
-        "de": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch",
-        "fr": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch"
+        "de": "finanzplanung-und-haushaltsleiter-8-monate-cdd-lausanne-m-w-x-decathlon-bussigny",
+        "fr": "responsable-de-la-planification-financiere-et-du-budget-8-mois-cdd-lausanne-m-f-x-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2510,8 +2772,8 @@
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-racketsport-m-w-d-50-befristet-basel-decathlon-ch",
         "it": "sport-leader-verkaufsberater-racketsport-m-w-d-50-befristet-basel-decathlon-basel",
-        "en": "sport-leader-verkaufsberater-racketsport-m-w-d-50-befristet-basel-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-racketsport-m-w-d-50-befristet-basel-decathlon-ch"
+        "en": "sport-leader-sales-consultant-racketsport-m-f-d-50-temporary-basel-decathlon-basel",
+        "fr": "sport-leader-sales-consultant-raquettesport-m-f-d-50-temporaire-bale-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2554,6 +2816,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-racketsport-m-w-d-50-befristet-basel-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-racketsport-m-w-d-50-befristet-basel-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-racketsport-m-w-d-50-befristet-basel-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -2575,12 +2843,12 @@
     },
     {
       "id": "decathlon-f42549d8d52c",
-      "slug": "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch",
+      "slug": "consigliere-sportivo-decathlon-20-sabato-e-lunedi-giugno-luglio-decathlon-montagny-pres-yverdon",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch"
+        "it": "consigliere-sportivo-decathlon-20-sabato-e-lunedi-giugno-luglio-decathlon-montagny-pres-yverdon",
+        "en": "sports-counsellor-decathlon-20-saturdays-and-mondays-june-july-decathlon-montagny-pres-yverdon",
+        "de": "sportberater-decathlon-20-samstag-und-montag-juni-juli-decathlon-montagny-pres-yverdon"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2632,16 +2900,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.797Z"
+      "firstSeenAt": "2026-06-10T09:03:00.797Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-decathlon-20-les-samedi-et-lundi-juin-juillet-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-ae565ed7b5b1",
-      "slug": "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch",
+      "slug": "consulente-sportivo-decathlon-yverdon-30-60-decathlon-montagny-pres-yverdon",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch"
+        "it": "consulente-sportivo-decathlon-yverdon-30-60-decathlon-montagny-pres-yverdon",
+        "en": "sports-counsellor-decathlon-yverdon-30-60-decathlon-montagny-pres-yverdon",
+        "de": "sportberater-decathlon-yverdon-30-60-decathlon-montagny-pres-yverdon"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2693,16 +2975,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.796Z"
+      "firstSeenAt": "2026-06-10T09:03:00.796Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-decathlon-yverdon-30-60-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-bbb2d3163af1",
-      "slug": "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch",
+      "slug": "consulente-sportivo-junior-sportco-nutrizione-80-decathlon-conthey-decathlon-conthey",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch"
+        "it": "consulente-sportivo-junior-sportco-nutrizione-80-decathlon-conthey-decathlon-conthey",
+        "en": "junior-sports-counsellor-sportco-nutrition-80-decathlon-conthey-decathlon-conthey",
+        "de": "junior-sports-counsellor-sportco-ernahrung-80-decathlon-conthey-decathlon-conthey"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2755,7 +3051,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.795Z"
+      "firstSeenAt": "2026-06-10T09:03:00.795Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-rayon-junior-sportco-nutrition-80-decathlon-conthey-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-cc341f4f1142",
@@ -2763,8 +3073,8 @@
       "slugByLocale": {
         "de": "befristet-sports-leader-m-w-d-80-fur-3-monate-decathlon-winterthur-decathlon-ch",
         "it": "befristet-sports-leader-m-w-d-80-per-3-monate-decathlon-winterthur",
-        "en": "befristet-sports-leader-m-w-d-80-fur-3-monate-decathlon-winterthur-decathlon-ch",
-        "fr": "befristet-sports-leader-m-w-d-80-fur-3-monate-decathlon-winterthur-decathlon-ch"
+        "en": "temporary-sports-leader-m-f-d-80-for-3-months-decathlon-winterthur-decathlon-winterthur",
+        "fr": "leader-sportif-temporaire-m-f-j-80-pendant-3-mois-decathlon-winterthur-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2807,6 +3117,12 @@
       "previousSlugsByLocale": {
         "it": [
           "befristet-sports-leader-m-w-d-80-fur-3-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "en": [
+          "befristet-sports-leader-m-w-d-80-fur-3-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "fr": [
+          "befristet-sports-leader-m-w-d-80-fur-3-monate-decathlon-winterthur-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -2832,8 +3148,8 @@
       "slugByLocale": {
         "de": "befristet-sports-leader-m-w-d-80-fur-2-monate-decathlon-winterthur-decathlon-ch",
         "it": "befristet-sports-leader-m-w-d-80-per-2-monate-decathlon-winterthur",
-        "en": "befristet-sports-leader-m-w-d-80-fur-2-monate-decathlon-winterthur-decathlon-ch",
-        "fr": "befristet-sports-leader-m-w-d-80-fur-2-monate-decathlon-winterthur-decathlon-ch"
+        "en": "temporary-sports-leader-m-f-d-80-for-2-months-decathlon-winterthur-decathlon-winterthur",
+        "fr": "leader-sportif-temporaire-m-f-j-80-pendant-2-mois-decathlon-winterthur-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2876,6 +3192,12 @@
       "previousSlugsByLocale": {
         "it": [
           "befristet-sports-leader-m-w-d-80-fur-2-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "en": [
+          "befristet-sports-leader-m-w-d-80-fur-2-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "fr": [
+          "befristet-sports-leader-m-w-d-80-fur-2-monate-decathlon-winterthur-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -2901,8 +3223,8 @@
       "slugByLocale": {
         "de": "befristet-sports-leader-m-w-d-60-fur-2-monate-decathlon-winterthur-decathlon-ch",
         "it": "befristet-sports-leader-m-w-d-60-per-2-monate-decathlon-winterthur",
-        "en": "befristet-sports-leader-m-w-d-60-fur-2-monate-decathlon-winterthur-decathlon-ch",
-        "fr": "befristet-sports-leader-m-w-d-60-fur-2-monate-decathlon-winterthur-decathlon-ch"
+        "en": "temporary-sports-leader-m-f-d-60-for-2-months-decathlon-winterthur-decathlon-winterthur",
+        "fr": "leader-sportif-temporaire-m-f-j-60-pendant-2-mois-decathlon-winterthur-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2945,6 +3267,12 @@
       "previousSlugsByLocale": {
         "it": [
           "befristet-sports-leader-m-w-d-60-fur-2-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "en": [
+          "befristet-sports-leader-m-w-d-60-fur-2-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "fr": [
+          "befristet-sports-leader-m-w-d-60-fur-2-monate-decathlon-winterthur-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -2970,8 +3298,8 @@
       "slugByLocale": {
         "de": "befristet-sports-leader-m-w-d-50-fur-3-monate-decathlon-winterthur-decathlon-ch",
         "it": "befristet-sports-leader-m-w-d-50-per-3-monate-decathlon-winterthur",
-        "en": "befristet-sports-leader-m-w-d-50-fur-3-monate-decathlon-winterthur-decathlon-ch",
-        "fr": "befristet-sports-leader-m-w-d-50-fur-3-monate-decathlon-winterthur-decathlon-ch"
+        "en": "temporary-sports-leader-m-f-d-50-for-3-months-decathlon-winterthur-decathlon-winterthur",
+        "fr": "leader-sportif-temporaire-m-f-j-50-pendant-3-mois-decathlon-winterthur-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3014,6 +3342,12 @@
       "previousSlugsByLocale": {
         "it": [
           "befristet-sports-leader-m-w-d-50-fur-3-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "en": [
+          "befristet-sports-leader-m-w-d-50-fur-3-monate-decathlon-winterthur-decathlon-ch"
+        ],
+        "fr": [
+          "befristet-sports-leader-m-w-d-50-fur-3-monate-decathlon-winterthur-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -3039,8 +3373,8 @@
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-20-befristet-letzipark-decathlon-ch",
         "it": "sport-leader-verkaufsberater-m-w-d-20-befristet-letzipark-decathlon-zurich",
-        "en": "sport-leader-verkaufsberater-m-w-d-20-befristet-letzipark-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-20-befristet-letzipark-decathlon-ch"
+        "en": "sport-leader-sales-consultant-m-f-d-20-temporary-letzipark-decathlon-zurich",
+        "fr": "leader-sportif-consultant-commercial-m-f-d-20-temporaire-letzipark-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3083,6 +3417,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-20-befristet-letzipark-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-20-befristet-letzipark-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-20-befristet-letzipark-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -3108,8 +3448,8 @@
       "slugByLocale": {
         "de": "befristet-sports-leader-m-w-d-40-fur-3-monate-decathlon-zurich-decathlon-ch",
         "it": "befristet-sports-leader-m-w-d-40-per-3-monate-decathlon-zurich",
-        "en": "befristet-sports-leader-m-w-d-40-fur-3-monate-decathlon-zurich-decathlon-ch",
-        "fr": "befristet-sports-leader-m-w-d-40-fur-3-monate-decathlon-zurich-decathlon-ch"
+        "en": "temporary-sports-leader-m-f-d-40-for-3-months-decathlon-zurich-decathlon-zurich",
+        "fr": "leader-sportif-temporaire-m-f-j-40-pendant-3-mois-decathlon-zurich-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3152,6 +3492,12 @@
       "previousSlugsByLocale": {
         "it": [
           "befristet-sports-leader-m-w-d-40-fur-3-monate-decathlon-zurich-decathlon-ch"
+        ],
+        "en": [
+          "befristet-sports-leader-m-w-d-40-fur-3-monate-decathlon-zurich-decathlon-ch"
+        ],
+        "fr": [
+          "befristet-sports-leader-m-w-d-40-fur-3-monate-decathlon-zurich-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -3173,12 +3519,12 @@
     },
     {
       "id": "decathlon-120d82205ce8",
-      "slug": "sportberater-in-decathlon-stans-80-100-decathlon-ch",
+      "slug": "consulente-sportivo-decathlon-stans-80-100-decathlon-stans",
       "slugByLocale": {
         "de": "sportberater-in-decathlon-stans-80-100-decathlon-ch",
-        "it": "sportberater-in-decathlon-stans-80-100-decathlon-ch",
-        "en": "sportberater-in-decathlon-stans-80-100-decathlon-ch",
-        "fr": "sportberater-in-decathlon-stans-80-100-decathlon-ch"
+        "it": "consulente-sportivo-decathlon-stans-80-100-decathlon-stans",
+        "en": "sports-consultant-decathlon-stans-80-100-decathlon-stans",
+        "fr": "consultant-sportif-decathlon-stans-80-100-decathlon-stans"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3230,7 +3576,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.785Z"
+      "firstSeenAt": "2026-06-10T09:03:00.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sportberater-in-decathlon-stans-80-100-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-decathlon-stans-80-100-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-decathlon-stans-80-100-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportberater-in-decathlon-stans-80-100-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-24ecb0510de2",
@@ -3238,7 +3598,7 @@
       "slugByLocale": {
         "en": "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch",
         "it": "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch",
-        "de": "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch",
+        "de": "techniker-workshop-100-h-f-weiss-geneva-decathlon-vernier",
         "fr": "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch"
       },
       "company": "Decathlon",
@@ -3375,7 +3735,7 @@
         "de": "store-leader-filialleiter-m-w-d-100-decathlon-chur-decathlon-ch",
         "it": "store-leader-filialleiter-m-w-d-100-decathlon-chur-decathlon-ch",
         "en": "store-leader-filialleiter-m-w-d-100-decathlon-chur-decathlon-ch",
-        "fr": "store-leader-filialleiter-m-w-d-100-decathlon-chur-decathlon-ch"
+        "fr": "chef-de-magasin-gestionnaire-de-succursale-m-f-d-100-decathlon-chur-decathlon-chur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3497,7 +3857,7 @@
         "de": "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch",
         "it": "capo-squadra-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-schaffhausen",
         "en": "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch",
-        "fr": "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch"
+        "fr": "chef-d-equipe-chef-de-departement-f-m-d-decathlon-schaffhausen-decathlon-schaffhausen"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3553,6 +3913,9 @@
       "previousSlugsByLocale": {
         "it": [
           "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch"
+        ],
+        "fr": [
+          "team-leader-abteilungsleiter-w-m-d-decathlon-schaffhausen-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -3561,12 +3924,12 @@
     },
     {
       "id": "decathlon-a4dbe7d7ad51",
-      "slug": "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-80-basilea-sport-di-montagna-decathlon-basel",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch",
-        "en": "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-80-basilea-sport-di-montagna-decathlon-basel",
+        "en": "sport-leader-sales-consultant-m-f-d-80-basel-mountain-sports-decathlon-basel",
+        "fr": "leader-sportif-conseiller-commercial-m-f-d-80-bale-sports-de-montagne-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3618,7 +3981,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.778Z"
+      "firstSeenAt": "2026-06-10T09:03:00.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-80-basel-bergsport-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-faaa8f29290c",
@@ -3626,8 +4003,8 @@
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-60-befristet-luzern-city-decathlon-ch",
         "it": "sport-leader-verkaufsberater-m-w-d-60-befristet-luzern-city-decathlon-luzern",
-        "en": "sport-leader-verkaufsberater-m-w-d-60-befristet-luzern-city-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-60-befristet-luzern-city-decathlon-ch"
+        "en": "sport-leader-sales-advisor-m-f-d-60-temporary-lucerne-city-decathlon-luzern",
+        "fr": "leader-sportif-conseiller-commercial-m-f-d-60-temporaire-lucerne-city-decathlon-luzern"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3670,6 +4047,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-60-befristet-luzern-city-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-60-befristet-luzern-city-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-60-befristet-luzern-city-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -3694,8 +4077,8 @@
       "slug": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch",
       "slugByLocale": {
         "it": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch",
-        "en": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch",
-        "de": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch",
+        "en": "technician-workshop-80-h-f-csd-6-months-bussigny-decathlon-bussigny",
+        "de": "techniker-workshop-80-h-f-csd-6-monate-bussigny-decathlon-bussigny",
         "fr": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch"
       },
       "company": "Decathlon",
@@ -3757,7 +4140,7 @@
         "de": "ski-servicetechniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch",
         "it": "ski-servicetechniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-koniz",
         "en": "ski-servicetechniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch",
-        "fr": "ski-servicetechniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch"
+        "fr": "technicien-des-services-de-ski-m-f-d-100-permanent-atelier-federal-bern-decathlon-koniz"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3800,6 +4183,9 @@
       "previousSlugsByLocale": {
         "it": [
           "ski-servicetechniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch"
+        ],
+        "fr": [
+          "ski-servicetechniker-m-w-d-100-unbefristet-federal-workshop-bern-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -3825,8 +4211,8 @@
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-30-befristet-bern-shoppyland-decathlon-ch",
         "it": "sport-leader-verkaufsberater-m-w-d-30-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl",
-        "en": "sport-leader-verkaufsberater-m-w-d-30-befristet-bern-shoppyland-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-30-befristet-bern-shoppyland-decathlon-ch"
+        "en": "sport-leader-sales-advisor-m-f-d-30-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl",
+        "fr": "leader-sportif-conseiller-commercial-m-f-d-30-temporaire-bern-shoppyland-decathlon-urtenen-schonbuhl"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3868,6 +4254,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-30-befristet-bern-shoppyland-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-30-befristet-bern-shoppyland-decathlon-ch"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-30-befristet-bern-shoppyland-decathlon-ch"
         ]
       },
@@ -4012,12 +4404,12 @@
     },
     {
       "id": "decathlon-bf4c1d6c58d9",
-      "slug": "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch",
+      "slug": "consulente-sportivo-velo-h-f-cdi-80-bussigny-decathlon-bussigny",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch",
-        "it": "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch",
-        "en": "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch",
-        "de": "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch"
+        "it": "consulente-sportivo-velo-h-f-cdi-80-bussigny-decathlon-bussigny",
+        "en": "sports-adviser-velo-h-f-cdi-80-bussigny-decathlon-bussigny",
+        "de": "sportberater-velo-h-f-cdi-80-bussigny-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4069,15 +4461,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.769Z"
+      "firstSeenAt": "2026-06-10T09:03:00.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-velo-h-f-cdi-80-bussigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-bc0698c7b29c",
       "slug": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
       "slugByLocale": {
         "it": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
-        "en": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
-        "de": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
+        "en": "mechanic-technician-cycle-h-f-80-100-cdi-conthey-decathlon-conthey",
+        "de": "mechaniker-techniker-zyklus-h-f-80-100-cdi-conthey-decathlon-conthey",
         "fr": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch"
       },
       "company": "Decathlon",
@@ -4138,8 +4544,8 @@
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch",
         "it": "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl",
-        "en": "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch"
+        "en": "sport-leader-sales-advisor-m-f-d-40-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl",
+        "fr": "leader-sportif-conseiller-commercial-m-f-d-40-temporaire-bern-shoppyland-decathlon-urtenen-schonbuhl"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4182,6 +4588,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-40-befristet-bern-shoppyland-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -4207,8 +4619,8 @@
       "slugByLocale": {
         "de": "team-leader-abteilungsleiter-m-w-d-okosystem-zug-baar-decathlon-ch",
         "it": "capo-squadra-abteilungsleiter-m-w-d-okosystem-zug-baar-decathlon-zug",
-        "en": "team-leader-abteilungsleiter-m-w-d-okosystem-zug-baar-decathlon-ch",
-        "fr": "team-leader-abteilungsleiter-m-w-d-okosystem-zug-baar-decathlon-ch"
+        "en": "team-leader-head-of-department-m-f-d-zug-baar-ecosystem-decathlon-zug",
+        "fr": "chef-d-equipe-chef-de-departement-m-f-d-ecosysteme-zug-baar-decathlon-zug"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4264,6 +4676,12 @@
       "previousSlugsByLocale": {
         "it": [
           "team-leader-abteilungsleiter-m-w-d-okosystem-zug-baar-decathlon-ch"
+        ],
+        "en": [
+          "team-leader-abteilungsleiter-m-w-d-okosystem-zug-baar-decathlon-ch"
+        ],
+        "fr": [
+          "team-leader-abteilungsleiter-m-w-d-okosystem-zug-baar-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -4272,12 +4690,12 @@
     },
     {
       "id": "decathlon-76e13272d619",
-      "slug": "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-80-st-gallen-decathlon-st-gallen",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch",
-        "en": "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-80-st-gallen-decathlon-st-gallen",
+        "en": "sport-leader-sales-advisor-m-f-d-80-st-gallen-decathlon-st-gallen",
+        "fr": "leader-sportif-conseiller-commercial-m-f-d-80-st-gallen-decathlon-st-gallen"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4329,7 +4747,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.753Z"
+      "firstSeenAt": "2026-06-10T09:03:00.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-80-st-gallen-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-492711a78005",
@@ -4337,8 +4769,8 @@
       "slugByLocale": {
         "de": "sportberater-in-decathlon-bern-westside-60-juli-und-august-decathlon-ch",
         "it": "sportberater-in-decathlon-bern-westside-60-juli-e-august-decathlon-bern",
-        "en": "sportberater-in-decathlon-bern-westside-60-juli-und-august-decathlon-ch",
-        "fr": "sportberater-in-decathlon-bern-westside-60-juli-und-august-decathlon-ch"
+        "en": "sports-advisor-decathlon-bern-westside-60-july-and-august-decathlon-bern",
+        "fr": "conseiller-sportif-decathlon-bern-westside-60-juillet-et-aout-decathlon-bern"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4381,6 +4813,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-decathlon-bern-westside-60-juli-und-august-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-decathlon-bern-westside-60-juli-und-august-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-decathlon-bern-westside-60-juli-und-august-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -4402,12 +4840,12 @@
     },
     {
       "id": "decathlon-c792810c119b",
-      "slug": "sportberater-in-decathlon-basel-city-decathlon-ch",
+      "slug": "consulente-sportivo-decathlon-basel-city-decathlon-basel",
       "slugByLocale": {
         "de": "sportberater-in-decathlon-basel-city-decathlon-ch",
-        "it": "sportberater-in-decathlon-basel-city-decathlon-ch",
-        "en": "sportberater-in-decathlon-basel-city-decathlon-ch",
-        "fr": "sportberater-in-decathlon-basel-city-decathlon-ch"
+        "it": "consulente-sportivo-decathlon-basel-city-decathlon-basel",
+        "en": "sports-advisor-decathlon-basel-city-decathlon-basel",
+        "fr": "conseiller-sportif-decathlon-bale-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4459,7 +4897,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.747Z"
+      "firstSeenAt": "2026-06-10T09:03:00.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sportberater-in-decathlon-basel-city-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-decathlon-basel-city-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-decathlon-basel-city-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportberater-in-decathlon-basel-city-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-4c9d32c469de",
@@ -4467,8 +4919,8 @@
       "slugByLocale": {
         "de": "sportberater-in-80-befristet-3-monate-decathlon-suhr-wassersport-kids-decathlon-ch",
         "it": "sportberater-in-80-befristet-3-monate-decathlon-suhr-wassersport-kids-decathlon-suhr",
-        "en": "sportberater-in-80-befristet-3-monate-decathlon-suhr-wassersport-kids-decathlon-ch",
-        "fr": "sportberater-in-80-befristet-3-monate-decathlon-suhr-wassersport-kids-decathlon-ch"
+        "en": "sports-consultant-in-80-temporary-3-months-decathlon-suhr-watersports-kids-decathlon-suhr",
+        "fr": "consultant-sportif-en-80-temporaire-3-mois-decathlon-suhr-sports-nautiques-enfants-decathlon-suhr"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4511,6 +4963,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-80-befristet-3-monate-decathlon-suhr-wassersport-kids-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-80-befristet-3-monate-decathlon-suhr-wassersport-kids-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-80-befristet-3-monate-decathlon-suhr-wassersport-kids-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -4532,12 +4990,12 @@
     },
     {
       "id": "decathlon-628ec961e84b",
-      "slug": "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch",
+      "slug": "consulente-eta-sporty-ve-ciclo-laboratorio-noleggio-cdd-decathlon-martigny-decathlon-martigny",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch",
-        "it": "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch",
-        "en": "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch",
-        "de": "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch"
+        "it": "consulente-eta-sporty-ve-ciclo-laboratorio-noleggio-cdd-decathlon-martigny-decathlon-martigny",
+        "en": "consultant-age-sporty-ve-cycle-workshop-rental-cdd-decathlon-martigny-decathlon-martigny",
+        "de": "berater-alter-sportlich-ve-zyklus-werkstatt-miete-cdd-decathlon-martigny-decathlon-martigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4589,7 +5047,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:00.738Z"
+      "firstSeenAt": "2026-06-10T09:03:00.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch"
+      ]
     }
   ]
 }
