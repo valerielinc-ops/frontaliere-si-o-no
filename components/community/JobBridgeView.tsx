@@ -17,6 +17,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
 
@@ -377,7 +378,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {jobData?.company && (() => {
  const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(jobData.company)}`;
  const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
- const companyLogo = resolveCompanyLogoUrl({ company: jobData.company });
+ const companyLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: jobData.company }));
  return (
  <a
  href={companyHref}
@@ -412,7 +413,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const rjSlug = rj.slug;
  const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
- const rjLogo = resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url });
+ const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
  const rjSalary = formatRelatedSalary(rj);
  const rjContract = formatContractLabel(rj.contract, locale);
  const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
