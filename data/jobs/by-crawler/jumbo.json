@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-06-09T22:34:45.641Z",
+  "assembledAt": "2026-06-10T12:18:21.971Z",
   "jobs": [
     {
       "id": "jumbo-890c5910-af3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/890c5910-af33-4f69-8100-307051dff257",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:34:43.529Z",
+      "crawledAt": "2026-06-10T12:18:19.837Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -145,7 +145,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/cb72777c-d77c-4e8b-bf4a-23f23f88709a",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:34:43.529Z",
+      "crawledAt": "2026-06-10T12:18:19.837Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-do-it-inkl-stellvertretung-der-geschaeftsfuehrung/4149462b-53bc-440b-85e0-d2773303c3c5",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:34:43.528Z",
+      "crawledAt": "2026-06-10T12:18:19.836Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -297,6 +297,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:18:49.424Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -341,7 +342,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/f5577ce8-6ba0-4200-8d4b-714c355d7b96",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:34:43.527Z",
+      "crawledAt": "2026-06-10T12:18:19.835Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -377,6 +378,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:59:36.350Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -421,7 +423,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/caissiere-caissier-f-h-d/c9cdcd13-7b67-4eba-bd10-b6a3d09d621f",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:34:43.527Z",
+      "crawledAt": "2026-06-10T12:18:19.835Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -443,6 +445,7 @@
       ],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-21T12:18:16.291Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -487,7 +490,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garten/5342df1a-efe0-47ea-8786-f3499f04428f",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:34:43.526Z",
+      "crawledAt": "2026-06-10T12:18:19.834Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -523,6 +526,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:59:57.997Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -567,7 +571,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/cf9579bd-6253-4062-83ed-3a0b57d93be8",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:34:43.525Z",
+      "crawledAt": "2026-06-10T12:18:19.833Z",
       "addressLocality": "Brig-Glis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -603,6 +607,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:12:29.430Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
