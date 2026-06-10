@@ -213,6 +213,33 @@ async function setJobsStatus(jobIds, status, extra = {}) {
   await batch.commit();
 }
 
+// Best-effort "your ad is live" confirmation to the publisher after payment.
+// The Stripe receipt/invoice is sent separately by Stripe.
+async function sendPublisherConfirmation(publisherUid, jobCount) {
+  try {
+    const pubSnap = await db().collection('publishers').doc(String(publisherUid)).get();
+    const to = pubSnap.exists ? pubSnap.data().email : null;
+    if (!to) return;
+    const resendApiKey = await getRemoteConfigValue('RESEND_API_KEY');
+    if (!resendApiKey) return;
+    const { Resend } = await import('resend');
+    const resend = new Resend(resendApiKey);
+    await resend.emails.send({
+      from: 'Frontaliere Ticino <confirmation@frontaliereticino.ch>',
+      to,
+      subject: 'Pagamento confermato — il tuo annuncio sta per andare online',
+      html:
+        `<h2>Grazie, pagamento confermato</h2>` +
+        `<p>${jobCount > 1 ? 'I tuoi annunci saranno online' : 'Il tuo annuncio sarà online'} entro 1–2 ore con pagina SEO dedicata.</p>` +
+        `<p>Gestisci gli annunci e vedi le candidature dalla tua dashboard: ` +
+        `<a href="https://frontaliereticino.ch/i-miei-annunci">I miei annunci</a>.</p>` +
+        `<p style="font-size:12px;color:#666">La ricevuta/fattura ti arriva separatamente da Stripe. Abbonamento rinnovato ogni 30 giorni; disdici quando vuoi dalla dashboard.</p>`,
+    });
+  } catch {
+    // non-fatal
+  }
+}
+
 async function orderByStripeRef({ sessionId, subscriptionId, orderId }) {
   const col = db().collection('orders');
   if (orderId) {
@@ -277,6 +304,7 @@ export async function handleStripeWebhook(req) {
           updatedAt: ts,
         });
         await setJobsStatus(order.jobIds, 'paid', { paidAt: ts, subscriptionId: obj.subscription || null });
+        await sendPublisherConfirmation(order.publisherUid, (order.jobIds || []).length);
       }
       break;
     }
