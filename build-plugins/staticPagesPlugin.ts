@@ -25,6 +25,7 @@ import {
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
 import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import { countSvizzeraArticleArchivePages } from './shared/svizzeraArticleUnion';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
@@ -1063,20 +1064,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   * and a page-N navigator. Without it the entire sitemap-blog-ch.xml shard
   * ships orphan at BFS depth > 4 (audit-bfs-depth hard-fails a brand-new
   * shard that buries an entire tier — no `noindex`, no baseline flooring;
-  * the fix is internal links per CLAUDE.md non-negotiable #5). Slug source
-  * mirrors emitSvizzeraArticlesHub: blog-meta-ch-it.ts title keys. */
+  * the fix is internal links per CLAUDE.md non-negotiable #5).
+  *
+  * Page count is derived from the SAME union source `emitSvizzeraArticlesHub`
+  * paginates (meta `blog-meta-ch-it.ts` slugs ∪ `SWISS_SLUGS` keys), via the
+  * shared `countSvizzeraArticleArchivePages` helper — NOT the meta-only count.
+  * The two sources coincide today (both → 1 page, navigator not emitted) but
+  * the meta-only count silently under-counts the emitter once the registries
+  * diverge past 100 articles, orphaning the trailing `/tutti/page-N/` pages
+  * (the regression PR #1486 closed; see issue #1497). Single source of truth
+  * makes the drift impossible by construction (AGENTS.md #6). */
  const svizzeraArchiveBases = svizzeraArticlesArchiveBasePaths();
- let svizzeraArticlesTotalPages = 1;
- try {
- const chMetaSrc = fs.readFileSync(np.resolve(rootDir, 'services/locales/blog-meta-ch-it.ts'), 'utf-8');
- const chTitleKeys = new Set<string>();
- const chTitleRx = /'blog\.article\.([^']+?)\.title'/g;
- let cm: RegExpExecArray | null;
- while ((cm = chTitleRx.exec(chMetaSrc)) !== null) chTitleKeys.add(cm[1]);
- svizzeraArticlesTotalPages = Math.max(1, Math.ceil(chTitleKeys.size / ARTICLES_PAGE_SIZE));
- } catch (e) {
- console.warn('[static-pages] Could not compute svizzeraArticlesTotalPages from blog-meta-ch-it.ts:', e);
- }
+ const svizzeraArticlesTotalPages = countSvizzeraArticleArchivePages(fs, np, rootDir);
 
  // Same for the jobs hub: emit a deep-link navigator on /cerca-lavoro-ticino/
  // so every /tutti/page-K/ archive page is at depth 2 from `/`. With ~30k
