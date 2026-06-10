@@ -119,6 +119,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-di-cassa-malati-ticino.title': 'Parlement sépare les primes de maladie',
     'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Le Parlement tessinois a décidé de diviser l\'application des deux mesures promues par Lega et PS et votées par le peuple il y a quelques mois.',
     'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'une scène de travail à l\'hôpital en Suisse',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Séjour à l\'étranger: comment éviter une lacune dans l\'AVS',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Découvrez comment planifier correctement votre séjour à l\'étranger pour éviter les lacunes dans l\'AVS et garantir la continuité de votre pension. 📊💡⚠️',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Paysage alpin suisse avec lac et ville, scène DSLR réaliste.',
 };
 
 export default blogMetaChFr;

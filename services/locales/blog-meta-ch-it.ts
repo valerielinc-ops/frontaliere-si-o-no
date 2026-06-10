@@ -119,6 +119,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-di-cassa-malati-ticino.title': 'Parlamento spacchetta premi di cassa malati',
     'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre.',
     'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'una scena di lavoro al pronto soccorso in Svizzera',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Soggiorno all’estero: come evitare una lacuna nell’AVS',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Scopri come pianificare correttamente il soggiorno all’estero per evitare lacune nell’AVS e garantire la continuità della pensione.',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Paesaggio alpino svizzero con lago e città, in luce naturale.',
 };
 
 export default blogMetaChIt;

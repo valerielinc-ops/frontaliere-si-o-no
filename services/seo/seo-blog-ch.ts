@@ -1463,6 +1463,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soggiorno-estero-avs-evitare-lacuna': {
+    title: 'Soggiorno all’estero: come evitare una lacuna nell’AVS',
+    description: 'Scopri come pianificare il soggiorno all’estero per evitare lacune nell’AVS e garantire la pensione, con procedure e strumenti pratici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, soggiorno, estero, evitare, lacuna',
+    ogTitle: 'Soggiorno all’estero: come evitare una lacuna nell’AVS',
+    ogDescription: 'Guida pratica su come gestire i soggiorni all’estero e mantenere la copertura AVS senza rischi di lacune.',
+    canonicalPath: '/articoli-svizzera/soggiorno-estero-avs-evitare-lacuna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Soggiorno all’estero: come evitare una lacuna nell’AVS",
+      "description": "Scopri come pianificare il soggiorno all’estero per evitare lacune nell’AVS e garantire la pensione, con procedure e strumenti pratici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soggiorno-estero-avs-evitare-lacuna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero con lago e città, in luce naturale."
+      },
+      "datePublished": "2026-06-10T00:49:47+00:00",
+      "dateModified": "2026-06-10T00:49:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soggiorno-estero-avs-evitare-lacuna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

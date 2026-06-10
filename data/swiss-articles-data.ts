@@ -359,6 +359,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'soggiorno-estero-avs-evitare-lacuna',
+    category: 'fiscale',
+    date: '2026-06-10T00:49:47.680Z',
+    image: '/images/blog/soggiorno-estero-avs-evitare-lacuna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
