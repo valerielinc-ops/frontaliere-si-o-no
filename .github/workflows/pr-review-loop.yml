@@ -132,8 +132,17 @@ jobs:
           # Strip DATA/static: il tier si decide solo sul CODE.
           code_files=$(echo "$files" | grep -vE '^(data/|public/|reports/|_newsletter_variants/|docs/)' || true)
           if [ -z "$code_files" ]; then
-            echo "Data/docs-only PR (no reviewable code touched)."
-            set_tier normal claude-sonnet-4-6 15
+            # Token-lever: una PR data/docs-only (zero code) non ha contributo
+            # code-reviewable — l'unica cosa da verificare è il completeness
+            # contract del body. Tier `minimal`: sonnet + max-turns 8 (da 15) +
+            # prompt corto che SALTA la lettura di REVIEW.md, il cross-file
+            # probing e l'adversarial check (tutti no-op senza code). Posta
+            # comunque `## LGTM` come claude-bot → auto-merge invariato.
+            # 8 turni bastano con margine per: leggi body+files, valida
+            # contract, posta review (~4-6 turni osservati). REVERT-TRIGGER: se
+            # compaiono `error_max_turns` sul tier minimal → bump 8→12.
+            echo "Data/docs-only PR (no reviewable code touched) → tier minimal."
+            set_tier minimal claude-sonnet-4-6 8
             exit 0
           fi
           # CODE funnel-critical → high. Match diretto su test/CI/build-plugin,
@@ -177,6 +186,8 @@ jobs:
           claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --allowedTools 'Bash(gh:*),Bash(rg:*),Bash(git:*),Read,Grep,Glob'"
           prompt: |
             Reviewer automatico PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
+
+            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) `gh pr view $PR_NUMBER --json title,body,files`; (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui il Bootstrap sotto.)
 
             **Bootstrap:**
             1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
