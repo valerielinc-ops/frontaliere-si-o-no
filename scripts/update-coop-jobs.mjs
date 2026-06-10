@@ -1,21 +1,29 @@
 #!/usr/bin/env node
 /**
  * Dedicated Coop (Coop Società Cooperativa) crawler runner.
- * Runs only Coop Ticino / Grigioni jobs and enforces full locale coverage
- * for SEO-critical fields.
+ * Coop is a national retail cooperative (~2600 stores, HQ Basel), so this
+ * crawler collects Coop jobs CH-wide across all 26 cantons (Cathedral) and
+ * enforces full locale coverage for SEO-critical fields.
  *
  * The Coop careers portal uses the Prospective.ch JobBooster platform.
  * The listing page at jobs.coopjobs.ch is a client-side SPA that cannot
  * be crawled directly. Instead, this script:
- *   1. Fetches the Prospective.ch JSON API to discover all Ticino and
- *      Grigioni job detail URLs.
+ *   1. Fetches the Prospective.ch JSON API (UNFILTERED — no canton facet) to
+ *      discover every Swiss job detail URL, paginating through the full result
+ *      set (API returns up to `limit` jobs per page).
  *   2. Sets those SSR detail URLs as adapter seed URLs.
  *   3. Runs the base crawler which fetches each detail page and parses
  *      the JSON-LD JobPosting structured data embedded in it.
  *
  * API endpoints used:
- *   - Jobs:       https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500&f=30:{cantonId}
+ *   - Jobs:       https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500
+ *                 (no `f=30:{cantonId}` filter → all CH cantons)
  *   - Attributes: https://ohws.prospective.ch/public/v1/medium/1000103/attributes?lang=it
+ *
+ * Per-job canton is inferred from the canton label the API returns in
+ * attribute 30 (e.g. "Zurigo", "Vallese", "Ticino") via the shared CH-wide
+ * inferAnyCanton helper. The JSON-LD post-process step later refines it with
+ * the authoritative addressRegion from the SSR detail page.
  *
  * Detail page URL pattern:
  *   https://jobs.coopjobs.ch/offene-stellen/{slug}/{uuid}
@@ -45,6 +53,7 @@ import {
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -71,43 +80,22 @@ const COOP_TRANSLATIONS_CACHE = path.resolve(ROOT, 'data', 'jobs', 'by-crawler',
  * Prospective.ch Career Center API for Coop.
  * Medium ID 1000103 = Coop's career center.
  *
- * Canton filter IDs (attribute 30):
- *   Ticino   = 1024522
- *   Grigioni = 1024512
+ * CH-wide fetch: we issue an UNFILTERED query (no `f=30:{cantonId}` canton
+ * facet), which the API answers with every Swiss Coop-group job across all 26
+ * cantons (the canton facet enumerates all 26 — verified live). The single
+ * unfiltered query also implicitly covers all 3 website tabs (Offerte di
+ * lavoro / Posti di apprendistato / Tirocini di prova), so no per-position
+ * fan-out is needed. We paginate via offset/limit until the full result set is
+ * drained.
  *
- * Position type filter IDs (attribute 50):
- *   Apprendistato (apprenticeship)  = 1024532
- *   Tirocinio di prova (trial)      = 1208595
- *
- * The website has 3 tabs:
- *   1. "Offerte di lavoro"       — regular job offers
- *   2. "Posti di apprendistato"  — apprenticeship positions
- *   3. "Tirocini di prova"       — trial internship positions
- *
- * We explicitly fetch each position category per canton to ensure
- * complete coverage across all 3 tabs.
- *
- * The API returns up to `limit` jobs per request.
- * We request both cantons and all position categories, then merge.
+ * Per-job canton comes from attribute 30 (a localized canton label such as
+ * "Zurigo", "Vallese", "Ticino"), resolved CH-wide by inferAnyCanton. The
+ * JSON-LD post-process later refines it with the SSR detail page addressRegion.
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
-const CANTON_IDS = {
-  TI: '1024522',
-  GR: '1024512',
-};
-
-/**
- * Position type filter values (attribute 50 = "Posizione").
- * null means "no position filter" — catches any remaining types
- * (Quadro, Collaboratore, Partner in franchising, etc.)
- */
-const POSITION_TYPES = {
-  'Offerte di lavoro':      null,            // all regular jobs (no filter)
-  'Posti di apprendistato': '1024532',       // Apprendistato
-  'Tirocini di prova':      '1208595',       // Tirocinio di prova
-};
 
 const API_LIMIT = 500; // max jobs per request
+const API_MAX_PAGES = 20; // hard ceiling: 20 * 500 = 10000 jobs (safety stop)
 const DISCOVERED_COOP_HOSTS = new Set();
 
 // ──────────────────────────────────────────────────────────────
@@ -190,15 +178,35 @@ function deriveLocalizedSlug(job, locale) {
   return String(job?.slug || '').trim();
 }
 
+/**
+ * Resolve a Prospective.ch attribute-30 canton label (e.g. "Zurigo",
+ * "Vallese", "Ticino") to a 2-letter Swiss canton code, CH-wide.
+ *
+ * inferAnyCanton (BFS over names + aliases + municipalities for all 26
+ * cantons) resolves most labels directly. A few localized labels the API
+ * uses are not in that name set, so they are mapped explicitly here:
+ *   - "Regione di Basilea" → BL (Basel-Landschaft)
+ *   - "Nidwaldo"           → NW
+ *   - "Obwaldo"            → OW
+ * The Liechtenstein label ("Principato del Liechtenstein") is intentionally
+ * left unresolved (not a Swiss canton).
+ */
+const COOP_CANTON_LABEL_OVERRIDES = {
+  'regione di basilea': 'BL',
+  nidwaldo: 'NW',
+  obwaldo: 'OW',
+};
+
 function normalizeCantonCode(raw = '', fallback = '') {
-  const lower = String(raw || '').trim().toLowerCase();
-  if (['ti', 'ticino', 'tessin'].includes(lower)) return 'TI';
-  if (['gr', 'grigioni', 'graubunden', 'graubünden', 'grisons'].includes(lower)) return 'GR';
-  return fallback || '';
+  const label = String(raw || '').trim();
+  if (!label) return fallback || '';
+  const override = COOP_CANTON_LABEL_OVERRIDES[label.toLowerCase()];
+  if (override) return override;
+  return inferAnyCanton(label) || fallback || '';
 }
 
 function cantonLabel(canton = '') {
-  return canton === 'GR' ? 'Grigioni' : 'Ticino';
+  return canton || '';
 }
 
 function dateOnly(raw = '') {
@@ -207,7 +215,7 @@ function dateOnly(raw = '') {
   return dt.toISOString().slice(0, 10);
 }
 
-function buildSeedMetaFromApiJob(job, fallbackCanton) {
+function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const canton = normalizeCantonCode(attr30, fallbackCanton);
   // Try to get city-level location from various API fields before falling back to canton
@@ -231,9 +239,12 @@ function buildSeedMetaFromApiJob(job, fallbackCanton) {
 // ──────────────────────────────────────────────────────────────
 
 /**
- * Fetch Coop job detail URLs from the Prospective.ch JSON API
- * for the specified cantons (Ticino + Grigioni) across all 3
- * position categories: regular offers, apprenticeships, and trials.
+ * Fetch Coop job detail URLs from the Prospective.ch JSON API CH-wide.
+ *
+ * Uses a single UNFILTERED query (no canton facet) paginated over the full
+ * result set. This covers all 26 cantons and all 3 position categories
+ * (regular offers, apprenticeships, trials) in one pass. Per-job canton is
+ * inferred from the API canton label (attribute 30) by buildSeedMetaFromApiJob.
  *
  * Returns unique detail URLs + metadata indexed by URL.
  */
@@ -242,75 +253,76 @@ async function fetchCoopJobDetailUrls() {
   const seedMetaByUrl = {};
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
 
-  /** Stats per category for logging. */
-  const stats = {};
+  /** Canton distribution for logging (2-letter code → count). */
+  const cantonCounts = {};
+  let apiTotal = null;
+  let fetched = 0;
 
-  for (const [canton, cantonId] of Object.entries(CANTON_IDS)) {
-    for (const [category, positionId] of Object.entries(POSITION_TYPES)) {
-      // Build API URL: always filter by canton, optionally by position type.
-      // When positionId is null we get ALL positions for the canton (belt-and-suspenders).
-      const params = new URLSearchParams({
-        lang: 'it',
-        offset: '0',
-        limit: String(API_LIMIT),
+  for (let page = 0; page < API_MAX_PAGES; page += 1) {
+    const offset = page * API_LIMIT;
+    const params = new URLSearchParams({
+      lang: 'it',
+      offset: String(offset),
+      limit: String(API_LIMIT),
+    });
+    const apiUrl = `${API_BASE}/jobs?${params}`;
+    console.log(`🔍 Fetching Coop CH-wide page ${page + 1} (offset ${offset})…`);
+
+    let jobs;
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+      const res = await fetch(apiUrl, {
+        signal: controller.signal,
+        headers: {
+          Accept: 'application/json',
+          'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        },
       });
-      // Canton filter (attribute 30)
-      params.append('f', `30:${cantonId}`);
-      // Position type filter (attribute 50), only when narrowing to a specific category
-      if (positionId) {
-        params.append('f', `50:${positionId}`);
+      clearTimeout(timer);
+
+      if (!res.ok) {
+        console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
+        break;
       }
 
-      const apiUrl = `${API_BASE}/jobs?${params}`;
-      const label = `${canton}/${category}`;
-      console.log(`🔍 Fetching Coop ${label} from API…`);
+      const data = await res.json();
+      jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
+      if (apiTotal === null && typeof data?.total === 'number') apiTotal = data.total;
+    } catch (err) {
+      console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
+      break;
+    }
 
-      try {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
+    if (jobs.length === 0) break;
+    fetched += jobs.length;
 
-        const res = await fetch(apiUrl, {
-          signal: controller.signal,
-          headers: {
-            Accept: 'application/json',
-            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-          },
-        });
-        clearTimeout(timer);
-
-        if (!res.ok) {
-          console.warn(`⚠️ API returned ${res.status} for ${label} — skipping.`);
-          continue;
-        }
-
-        const data = await res.json();
-        const jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: label });
-        const total = data?.total ?? '?';
-        stats[label] = { found: jobs.length, total };
-        console.log(`  📦 ${label}: ${jobs.length} jobs (API total: ${total})`);
-
-        for (const job of jobs) {
-          const directLink = String(job?.links?.directlink || '').trim();
-          if (directLink && directLink.startsWith('http')) {
-            const discoveredHost = hostOf(directLink);
-            if (discoveredHost) DISCOVERED_COOP_HOSTS.add(discoveredHost);
-            allUrls.add(directLink);
-            if (!seedMetaByUrl[directLink]) {
-              seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job, canton);
-            }
-          }
-        }
-      } catch (err) {
-        console.warn(`⚠️ API fetch failed for ${label}: ${err.message}`);
+    for (const job of jobs) {
+      const directLink = String(job?.links?.directlink || '').trim();
+      if (directLink && directLink.startsWith('http') && !allUrls.has(directLink)) {
+        const discoveredHost = hostOf(directLink);
+        if (discoveredHost) DISCOVERED_COOP_HOSTS.add(discoveredHost);
+        allUrls.add(directLink);
+        const meta = buildSeedMetaFromApiJob(job);
+        seedMetaByUrl[directLink] = meta;
+        const code = meta.canton || '??';
+        cantonCounts[code] = (cantonCounts[code] || 0) + 1;
       }
     }
+
+    console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
+
+    // Drained the full result set.
+    if (apiTotal !== null && offset + jobs.length >= apiTotal) break;
+    if (jobs.length < API_LIMIT) break;
   }
 
   // Summary log
-  console.log(`\n📋 Coop API Discovery Summary:`);
-  for (const [label, s] of Object.entries(stats)) {
-    console.log(`  ${label}: ${s.found} jobs (total ${s.total})`);
-  }
+  console.log(`\n📋 Coop API Discovery Summary (CH-wide):`);
+  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · unique detail URLs: ${allUrls.size}`);
+  const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
+  console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   if (DISCOVERED_COOP_HOSTS.size > 0) {
     console.log(`  Trusted hosts from Coop API: ${[...DISCOVERED_COOP_HOSTS].sort().join(', ')}`);
   }
@@ -601,21 +613,18 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   const allJobs = Array.isArray(raw) ? raw : [];
   const coopJobs = allJobs.filter(isCoopJob);
   const ticinoJobs = coopJobs.filter((job) => normalize(job?.canton) === 'ti');
-  const grJobs = coopJobs.filter((job) => normalize(job?.canton) === 'gr');
-  const otherJobs = coopJobs.length - ticinoJobs.length - grJobs.length;
 
-  console.log(`\n📊 === Coop Ticino Job Stats ===`);
-  console.log(`  🛒 Job totali trovati (Coop): ${coopJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  console.log(`  ✅ Job in Grigioni (canton=GR): ${grJobs.length}`);
-  if (otherJobs > 0) {
-    console.log(`  ℹ️ Job in altri cantoni: ${otherJobs}`);
-    const examples = coopJobs
-      .filter((job) => !['ti', 'gr'].includes(normalize(job?.canton)))
-      .map((job) => `${job?.title || '?'} → ${job?.location || job?.canton || '?'}`)
-      .slice(0, 10);
-    for (const loc of examples) console.log(`     - ${loc}`);
+  // CH-wide canton distribution (2-letter code → count).
+  const byCanton = {};
+  for (const job of coopJobs) {
+    const code = String(job?.canton || '').toUpperCase() || '??';
+    byCanton[code] = (byCanton[code] || 0) + 1;
   }
+  const sortedCantons = Object.entries(byCanton).sort((a, b) => b[1] - a[1]);
+
+  console.log(`\n📊 === Coop Job Stats (CH-wide) ===`);
+  console.log(`  🛒 Job totali trovati (Coop): ${coopJobs.length}`);
+  console.log(`  🇨🇭 Cantoni coperti (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   console.log('');
 
   // Crawl change summary (new/updated/removed)
@@ -650,7 +659,7 @@ async function main() {
   setCrawlerStartTime(); // reset wall-clock baseline at actual crawler start
   registerCrawlerSummaryGuard(COOP_KEY, 'Coop');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103)');
-  console.log('   Cantons: TI (Ticino) + GR (Grigioni)');
+  console.log('   Scope: CH-wide (all 26 cantons, unfiltered national query)');
   console.log('   Categories: Offerte di lavoro + Posti di apprendistato + Tirocini di prova');
   console.log('');
 
