@@ -122,6 +122,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Staying abroad: how to avoid a gap in the AVS',
     'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Learn how to properly plan your stay abroad to avoid gaps in the AVS and ensure pension continuity.',
     'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Swiss alpine landscape with lake and city, realistic DSLR scene.',
+    'blog.article.avs-finanziamento-13esima.title': '13th AHV goes to conciliation conference',
+    'blog.article.avs-finanziamento-13esima.excerpt': 'No agreement between National Council and States on financing the 13th AHV',
+    'blog.article.avs-finanziamento-13esima.imageAlt': 'Swiss Parliament building in Bern with AVS logo',
 };
 
 export default blogMetaChEn;
