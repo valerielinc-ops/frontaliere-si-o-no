@@ -15,6 +15,8 @@ These supersede any earlier "HYPOTHESIS"/options text below where they conflict.
 4. **Autopublish on payment.** No human review. UI tells the publisher the ad will be **"disponibile tra 1–2 ore"** — that wording maps to the deploy/SSG latency, not a review queue. → §6.4 / Task 6.
 5. **Application system = generic for now.** Build the 3 modes generically; defer all PhysioMedical-specific wiring to `docs/PUBLISHER-PORTAL-physiomedical.md` *after* all phases land. → §6.8 / Task 7.
 6. **Company + ad data entered by the publisher at ad-creation time** (company onboarding folded into the first ad-creation flow, not a separate prior step). → §5(b) / Task 5.
+7. **Two tiers (2026-06-10):** **free** = plain crawler-style listing (enters the `by-crawler` slice, NO featured, NO newsletter blast, **external apply link only** — like a crawled job; no payment, self-publishes as `status:'published'`); **sponsored** = paid subscription (featured, blast, all apply modes, analytics, Stripe). → Task 8.
+8. **Sponsored authoring gets AI auto-fill** (position in → form auto-filled, reusing the Gemini CF). → Task 9.
 
 **Default discount table (tunable, §6.10):** 1–2 ads → 0% · 3 ads → 10% · then +5% per extra ad, capped 40%
 (`3→10, 4→15, 5→20, …, ≥9→40`). Marked as the concrete reading of "10% a crescere"; owner confirms the curve.

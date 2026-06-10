@@ -163,8 +163,22 @@ service cloud.firestore {
     // flip happens only via the Stripe webhook running with the Admin SDK
     // (which bypasses these rules). This prevents free self-publishing.
     function isSignedIn() { return request.auth != null; }
-    function clientSettableStatus(s) {
-      return s == 'draft' || s == 'pending_payment';
+    // Free tier may self-publish (status 'published') but ONLY as a plain crawler-
+    // style job: never featured, apply must be an external link. Sponsored tier
+    // may only reach 'draft'/'pending_payment' from the client — the Stripe webhook
+    // (Admin SDK) is the only thing that sets 'paid'.
+    function freeJobOk(d) {
+      return d.tier == 'free'
+        && (d.status == 'draft' || d.status == 'published')
+        && d.featured != true
+        && d.apply.mode == 'external_url';
+    }
+    function sponsoredJobOk(d) {
+      return d.tier == 'sponsored'
+        && (d.status == 'draft' || d.status == 'pending_payment');
+    }
+    function clientJobWriteOk(d) {
+      return freeJobOk(d) || sponsoredJobOk(d);
     }
 
     // Publisher accounts / company profile — owner-only (billing data is private;
@@ -182,13 +196,14 @@ service cloud.firestore {
       allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
       allow create: if isSignedIn()
         && request.auth.uid == request.resource.data.publisherUid
-        && clientSettableStatus(request.resource.data.status);
-      // Owner may edit content while unpaid, but cannot change status to paid/active
-      // nor reassign ownership.
+        && clientJobWriteOk(request.resource.data);
+      // Owner may edit while not sponsored-paid, but cannot reassign ownership,
+      // flip a sponsored ad to paid, nor turn a free ad into a featured one.
       allow update: if isSignedIn()
         && request.auth.uid == resource.data.publisherUid
         && request.resource.data.publisherUid == resource.data.publisherUid
-        && clientSettableStatus(request.resource.data.status);
+        && request.resource.data.tier == resource.data.tier
+        && clientJobWriteOk(request.resource.data);
       allow delete: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
     }
 

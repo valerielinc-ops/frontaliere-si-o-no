@@ -119,6 +119,49 @@ describe('publisherJobsToSlice', () => {
   });
 });
 
+describe('free tier', () => {
+  it('projects free ads with status "published" (live alongside sponsored "paid")', () => {
+    const recs = publisherJobToRecords(
+      paidJob({ tier: 'free', status: 'published', locations: [{ label: 'Lugano' }] }),
+      { nowIso: NOW },
+    );
+    expect(recs).toHaveLength(1);
+    expect(recs[0].tier).toBe('free');
+  });
+
+  it('never marks a free ad as featured, even if the flag is set', () => {
+    const [r] = publisherJobToRecords(
+      paidJob({ tier: 'free', status: 'published', featured: true, locations: [{ label: 'Lugano' }] }),
+      { nowIso: NOW },
+    );
+    expect(r.featured).toBe(false);
+  });
+
+  it('tags sponsored ads with tier "sponsored"', () => {
+    const [r] = publisherJobToRecords(paidJob({ tier: 'sponsored' }), { nowIso: NOW });
+    expect(r.tier).toBe('sponsored');
+  });
+
+  it('does not project a free ad still in draft', () => {
+    expect(
+      publisherJobToRecords(paidJob({ tier: 'free', status: 'draft' }), { nowIso: NOW }),
+    ).toEqual([]);
+  });
+
+  it('slice includes both free-published and sponsored-paid, skips drafts', () => {
+    const slice = publisherJobsToSlice(
+      [
+        paidJob({ id: 'spon', tier: 'sponsored', status: 'paid', locations: [{ label: 'Lugano' }] }),
+        paidJob({ id: 'free', tier: 'free', status: 'published', locations: [{ label: 'Locarno' }] }),
+        paidJob({ id: 'draft', tier: 'free', status: 'draft', locations: [{ label: 'Bellinzona' }] }),
+      ],
+      { nowIso: NOW },
+    );
+    expect(slice).toHaveLength(2);
+    expect(slice.map((r: any) => r.tier).sort()).toEqual(['free', 'sponsored']);
+  });
+});
+
 describe('slug helpers', () => {
   it('slugifies with diacritic stripping', () => {
     expect(slugifyPublisher('Zürich Genève')).toBe('zurich-geneve');

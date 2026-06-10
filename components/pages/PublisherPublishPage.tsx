@@ -32,6 +32,7 @@ import type {
  ApplyMode,
  PublisherLegalForm,
  PublisherJobLocation,
+ PublisherTier,
 } from '@/services/publisherTypes';
 
 const CREATE_CHECKOUT_ENDPOINT =
@@ -76,11 +77,17 @@ function isValidEmail(value: string): boolean {
  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
-type SubmitStatus = 'idle' | 'submitting' | 'redirecting' | 'error';
+type SubmitStatus = 'idle' | 'submitting' | 'redirecting' | 'published' | 'error';
 
 const PublisherPublishPage: React.FC = () => {
  const { t } = useTranslation();
  const { user, loading, signIn } = useAuth();
+
+ // ── Tier ────────────────────────────────────────────────────
+ // free      → plain crawler-style listing (no featured/blast, external apply only), no payment.
+ // sponsored → paid subscription (featured/blast/all apply modes), Stripe checkout.
+ const [tier, setTier] = useState<PublisherTier>('sponsored');
+ const isFree = tier === 'free';
 
  // ── Form state ──────────────────────────────────────────────
  const [companyName, setCompanyName] = useState('');
@@ -109,6 +116,11 @@ const PublisherPublishPage: React.FC = () => {
  Analytics.trackPageView('/pubblica-offerta', 'Publisher Publish Page');
  Analytics.trackUIInteraction('publisher', 'page', 'publish_page', 'view');
  }, []);
+
+ // Free tier is external-apply only — force the mode when switching to free.
+ useEffect(() => {
+ if (isFree && applyMode !== 'external_url') setApplyMode('external_url');
+ }, [isFree, applyMode]);
 
  // ── Live price preview ──────────────────────────────────────
  const distinctLocations = useMemo(
@@ -183,7 +195,9 @@ const PublisherPublishPage: React.FC = () => {
  // Stripe webhook (Admin SDK) may ever set 'paid'.
  const docRef = await addDoc(collection(db, 'publisher_jobs'), {
  publisherUid: user.uid,
- status: 'pending_payment',
+ tier,
+ // free → live immediately as a plain listing; sponsored → awaits Stripe.
+ status: isFree ? 'published' : 'pending_payment',
  title: title.trim(),
  description: description.trim(),
  sourceLang: 'it',
@@ -208,7 +222,15 @@ const PublisherPublishPage: React.FC = () => {
  updatedAt: serverTimestamp(),
  });
 
- // Authenticated call to the checkout Cloud Function.
+ // Free tier: no payment — the ad is already 'published' and the sync
+ // workflow will pick it up into the crawler slice. Done.
+ if (isFree) {
+ Analytics.trackUIInteraction('publisher', 'form', 'submit', 'published_free');
+ setStatus('published');
+ return;
+ }
+
+ // Sponsored: authenticated call to the checkout Cloud Function.
  const idToken = await user.getIdToken();
  setStatus('redirecting');
  const res = await fetch(CREATE_CHECKOUT_ENDPOINT, {
@@ -265,6 +287,21 @@ const PublisherPublishPage: React.FC = () => {
  );
  }
 
+ // ── Free-tier published success ─────────────────────────────
+ if (status === 'published') {
+ return (
+ <div className="max-w-2xl mx-auto px-4 py-12">
+ <div className="text-center space-y-4">
+ <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle">
+ <Clock className="w-8 h-8 text-success" />
+ </div>
+ <h2 className="text-2xl font-bold font-display text-strong">{t('publisher.published.title')}</h2>
+ <p className="text-subtle max-w-md mx-auto">{t('publisher.published.message')}</p>
+ </div>
+ </div>
+ );
+ }
+
  return (
  <div className="max-w-2xl mx-auto px-4 py-8">
  {/* Header */}
@@ -279,6 +316,30 @@ const PublisherPublishPage: React.FC = () => {
  </div>
 
  <form onSubmit={handleSubmit} className="space-y-8">
+ {/* ── Tier selector ──────────────────────────────────── */}
+ <section>
+ <h2 className={sectionTitleClass}>{t('publisher.tier.section')}</h2>
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+ {([
+ { value: 'free', titleKey: 'publisher.tier.free.title', descKey: 'publisher.tier.free.desc' },
+ { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', descKey: 'publisher.tier.sponsored.desc' },
+ ] as const).map(opt => {
+ const selected = tier === opt.value;
+ return (
+ <button
+ key={opt.value}
+ type="button"
+ aria-pressed={selected}
+ onClick={() => setTier(opt.value as PublisherTier)}
+ className={`text-left p-4 rounded-2xl border transition-colors ${selected ? 'border-accent bg-accent-subtle' : 'border-edge bg-surface-alt hover:border-accent'}`}
+ >
+ <span className="block text-sm font-semibold text-strong">{t(opt.titleKey)}</span>
+ <span className="block text-xs text-subtle mt-1">{t(opt.descKey)}</span>
+ </button>
+ );
+ })}
+ </div>
+ </section>
  {/* ── Company ────────────────────────────────────────── */}
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.company.section')}</h2>
@@ -474,6 +535,9 @@ const PublisherPublishPage: React.FC = () => {
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.apply.section')}</h2>
  <div className="space-y-5">
+ {isFree ? (
+ <p className="text-xs text-muted">{t('publisher.apply.freeOnlyExternal')}</p>
+ ) : (
  <div>
  <label htmlFor="pub-apply-mode" className={labelClass}>
  {t('publisher.apply.mode')}
@@ -491,6 +555,7 @@ const PublisherPublishPage: React.FC = () => {
  ))}
  </select>
  </div>
+ )}
  {applyMode === 'external_url' && (
  <div>
  <label htmlFor="pub-apply-url" className={labelClass}>
@@ -543,6 +608,13 @@ const PublisherPublishPage: React.FC = () => {
  <h2 className="text-base font-semibold font-display text-strong mb-2">
  {t('publisher.price.title')}
  </h2>
+ {isFree ? (
+ <>
+ <p className="text-2xl font-bold text-strong">{t('publisher.price.free')}</p>
+ <p className="text-xs text-muted mt-2">{t('publisher.price.freeNote')}</p>
+ </>
+ ) : (
+ <>
  <p className="text-2xl font-bold text-strong">
  {t('publisher.price.perPeriod', { n: price.netChf })}
  </p>
@@ -558,6 +630,8 @@ const PublisherPublishPage: React.FC = () => {
  </p>
  )}
  <p className="text-xs text-muted mt-2">{t('publisher.price.autoRenew')}</p>
+ </>
+ )}
  </section>
 
  {/* ── Validation errors ──────────────────────────────── */}
@@ -600,7 +674,7 @@ const PublisherPublishPage: React.FC = () => {
  ) : (
  <>
  <Send className="w-4 h-4" />
- {t('publisher.submit')}
+ {isFree ? t('publisher.submitFree') : t('publisher.submit')}
  </>
  )}
  </button>

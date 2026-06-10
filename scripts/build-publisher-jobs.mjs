@@ -37,7 +37,11 @@ async function initDb() {
 
 async function main() {
   const db = await initDb();
-  const snap = await db.collection('publisher_jobs').where('status', '==', 'paid').get();
+  // Live ads = sponsored+paid OR free+published.
+  const snap = await db
+    .collection('publisher_jobs')
+    .where('status', 'in', ['paid', 'published'])
+    .get();
 
   const pubJobs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
   const nowIso = new Date().toISOString();
@@ -48,7 +52,7 @@ async function main() {
   writeJobsCrawlerSlice(PUBLISHER_SOURCE_KEY, records);
 
   console.log(
-    `[build-publisher-jobs] ${pubJobs.length} paid ad(s) → ${records.length} job record(s) in ` +
+    `[build-publisher-jobs] ${pubJobs.length} live ad(s) (paid + free-published) → ${records.length} job record(s) in ` +
       `data/jobs/by-crawler/${PUBLISHER_SOURCE_KEY}.json`,
   );
 

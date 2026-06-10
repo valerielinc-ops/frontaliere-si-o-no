@@ -17,6 +17,9 @@ export const PUBLISHER_SOURCE_KEY = 'publisher-submitted';
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const SLUG_MAX = 120;
 
+// A publisher ad is "live" (projected into the slice) when sponsored+paid or free+published.
+const LIVE_STATUSES = new Set(['paid', 'published']);
+
 /** Lowercase ASCII slug; collapses non-alphanumerics to single hyphens. */
 export function slugifyPublisher(input = '') {
   return String(input)
@@ -69,7 +72,10 @@ function toIso(value, fallbackIso) {
  * @returns {object[]}  by-crawler job records, one per distinct location. Empty if not paid.
  */
 export function publisherJobToRecords(pubJob, opts = {}) {
-  if (!pubJob || pubJob.status !== 'paid') return [];
+  if (!pubJob || !LIVE_STATUSES.has(pubJob.status)) return [];
+  // Free tier is a plain crawler-style job: never featured (defense-in-depth on
+  // top of the Firestore-rules guard).
+  const isFree = pubJob.tier === 'free';
   const nowIso = opts.nowIso || null;
   const validDays = Number.isFinite(opts.validDays) ? opts.validDays : 30;
 
@@ -127,7 +133,8 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       salaryMax: pubJob.salaryMax ?? null,
       currency: pubJob.currency || 'CHF',
       firstSeenAt: firstSeenIso,
-      featured: pubJob.featured === true,
+      featured: !isFree && pubJob.featured === true,
+      tier: isFree ? 'free' : 'sponsored',
       // Provenance — distinguishes self-published ads from crawled jobs downstream.
       publisherUid: pubJob.publisherUid || null,
       publisherJobId: pubJob.id || null,

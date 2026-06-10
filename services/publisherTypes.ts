@@ -63,19 +63,36 @@ export interface Publisher {
 // ─── Publisher job ad ───────────────────────────────────────────────────────
 
 /**
+ * Two product tiers (owner decision 2026-06-10):
+ *   free      — enters the normal crawler flow: published straight into the
+ *               by-crawler slice, NO featured, NO newsletter blast, apply is
+ *               external-link only (exactly like a crawled job). No payment.
+ *   sponsored — paid subscription: featured eligible, newsletter blast, all
+ *               three apply modes, analytics. Goes through Stripe.
+ */
+export type PublisherTier = 'free' | 'sponsored';
+
+/**
  * Lifecycle:
  *   draft           — being edited, never public
- *   pending_payment — checkout created, awaiting Stripe confirmation
- *   paid            — subscription active (set ONLY by webhook/Admin SDK)
+ *   pending_payment — sponsored: checkout created, awaiting Stripe confirmation
+ *   paid            — sponsored: subscription active (set ONLY by webhook/Admin SDK)
+ *   published       — free: live in the slice (client-settable, gated; free tier only)
  *   expired         — subscription cancelled / lapsed (webhook)
  *   rejected        — failed an automatic gate (thin content / dedup)
+ *
+ * "Live" (projected into the slice) = `paid` (sponsored) OR `published` (free).
  */
 export type PublisherJobStatus =
   | 'draft'
   | 'pending_payment'
   | 'paid'
+  | 'published'
   | 'expired'
   | 'rejected';
+
+/** Status values that mean the ad is live and should be projected into the slice. */
+export const LIVE_JOB_STATUSES: readonly PublisherJobStatus[] = ['paid', 'published'];
 
 /** How candidates apply (locked: build all three generically). */
 export type ApplyMode = 'external_url' | 'forward_email' | 'in_house';
@@ -106,6 +123,7 @@ export interface PublisherJobApply {
 export interface PublisherJob {
   id: string;
   publisherUid: string;
+  tier: PublisherTier;
   status: PublisherJobStatus;
 
   // Content (it canonical, other locales optional / auto-translated in Phase 2)
