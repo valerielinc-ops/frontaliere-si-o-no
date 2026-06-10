@@ -8,6 +8,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/spezialmonteur-in-mechaniker-in-instandhaltung-80-100_2026-2209/",
+    "https://www.rhb.ch/it/job/spezialist-in-vertriebssysteme-50-100_2026-2208/",
     "https://www.rhb.ch/it/job/projektleiter-in-bahndienst-80-100_2026-2210/",
     "https://www.rhb.ch/it/job/projektleiter-in-logistik-und-support-50-100_2025-2101/",
     "https://www.rhb.ch/it/job/spezialist-in-rechnungswesen-50-100_2026-2207/",
@@ -15,11 +17,17 @@
     "https://www.rhb.ch/it/job/spezialist-in-arbeitssicherheit-50-100_2026-2144/",
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-autoverlad-vereina-50-100_2025-2086/",
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2171/",
-    "https://www.rhb.ch/it/job/fachspezialist-in-rollmaterialeinsatzplanung-50-100_2026-2202/",
-    "https://www.rhb.ch/it/job/technik-und-ereignismanager-in-50-60_2026-2201/",
-    "https://www.rhb.ch/it/job/quereinstieg-als-zugverkehrsleiter-in-100_2026-2197/"
+    "https://www.rhb.ch/it/job/fachspezialist-in-rollmaterialeinsatzplanung-50-100_2026-2202/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/spezialmonteur-in-mechaniker-in-instandhaltung-80-100_2026-2209/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/spezialist-in-vertriebssysteme-50-100_2026-2208/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/projektleiter-in-bahndienst-80-100_2026-2210/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -51,16 +59,8 @@
     "https://www.rhb.ch/it/job/fachspezialist-in-rollmaterialeinsatzplanung-50-100_2026-2202/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/technik-und-ereignismanager-in-50-60_2026-2201/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/quereinstieg-als-zugverkehrsleiter-in-100_2026-2197/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-06-09T22:21:52.029Z"
+  "updatedAt": "2026-06-10T12:02:36.305Z"
 }
