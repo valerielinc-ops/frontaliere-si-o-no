@@ -12,7 +12,11 @@ import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { lineHasViolation, collect } from '../scripts/ci/check-hardcoded-locale-segments.mjs';
+import {
+  lineHasViolation,
+  lineViolationLiterals,
+  collect,
+} from '../scripts/ci/check-hardcoded-locale-segments.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'ci', 'check-hardcoded-locale-segments.mjs');
@@ -47,6 +51,25 @@ describe('check-hardcoded-locale-segments — detection predicate', () => {
     expect(lineHasViolation(line)).toBe(false);
     const target = 'const url = `${base}/de/job/${hash}`;';
     expect(lineHasViolation(target, '// locale-segment-ok: legacy portal fixed at /de/')).toBe(false);
+  });
+});
+
+describe('check-hardcoded-locale-segments — identità per-literal (robusto al line-shift)', () => {
+  it('estrae il LITERAL offendente come identità stabile (non il numero di riga)', () => {
+    // Il literal — non la posizione — è la chiave di baseline: spostare/reindentare
+    // una riga legittima NON deve trasformarla in una "nuova violazione" (regressione
+    // che bloccava ogni PR che editava un file con segmento esterno baselinato).
+    expect(lineViolationLiterals('const url = `${base}/de/job/${hash}`;')).toEqual(['${base}/de/job/${hash}']);
+    // stessa riga, indentata diversamente / spostata → STESSO literal → stessa identità
+    expect(lineViolationLiterals('      const url = `${base}/de/job/${hash}`;')).toEqual([
+      '${base}/de/job/${hash}',
+    ]);
+    // caso legittimo / prosa → nessun literal
+    expect(lineViolationLiterals('console.log(`Locale checks: ${n} (it/en/de/fr)`);')).toEqual([]);
+    // allowlist inline → nessun literal
+    expect(
+      lineViolationLiterals('const url = `${base}/de/job/${hash}`; // locale-segment-ok: solo-DE')
+    ).toEqual([]);
   });
 });
 
