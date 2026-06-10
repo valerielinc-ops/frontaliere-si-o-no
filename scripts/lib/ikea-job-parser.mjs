@@ -207,7 +207,13 @@ async function fetchJobListings() {
 
   const firstHtml = await fetchHtml(CAREER_URL, FETCH_OPTS);
   const totalPagesM = firstHtml.match(/data-total-pages="(\d+)"/);
-  const totalPages = Math.min(totalPagesM ? Number(totalPagesM[1]) : 1, 20);
+  const MAX_PAGES = 20;
+  const reportedTotalPages = totalPagesM ? Number(totalPagesM[1]) : 1;
+  const totalPages = Math.min(reportedTotalPages, MAX_PAGES);
+  // Surface the safety-ceiling so a silent cap ≠ a fully drained feed.
+  if (reportedTotalPages > MAX_PAGES) {
+    console.warn(`   ⚠️ Pagination capped at ${MAX_PAGES}/${reportedTotalPages} pages (MAX_PAGES=${MAX_PAGES} ceiling) — raise the cap if the IKEA CH listing has grown.`);
+  }
 
   const seen = new Set();
   const rows = [];
