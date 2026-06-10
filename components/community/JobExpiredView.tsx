@@ -275,7 +275,18 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  // ── SPA navigation helpers ──
 
- const handleCompanyClick = (e: MouseEvent<HTMLAnchorElement>) => {
+ // Expired/Orphan views always route the company link through SPA in-app
+ // navigation (a <button>, never an <a href>), because the viewed job is NOT
+ // active: its company may have rotated out of the current build (zero active
+ // jobs → no static hub emitted). A full navigation to the hub URL would 404
+ // → 404.html saves the URL → location.replace('/') → SPA restore →
+ // staticOverlay:true → BLANK PAGE (the burkhalter-group incident,
+ // build-plugins/staticPagesPlugin.ts:~1341). SPA nav instead resolves to an
+ // empty-but-browsable board (HTTP 200) — strictly safer. Using a <button>
+ // (no href) makes this fail-safe by construction: middle-click / cmd-click /
+ // "open in new tab" cannot bypass the handler into a possible-404 full-nav,
+ // which an <a href> would allow. See issue #1183 / PR #1156 Non implementato.
+ const handleCompanyClick = (e: MouseEvent<HTMLButtonElement>) => {
  if (!companySlug) return;
  e.preventDefault();
  e.stopPropagation();
@@ -345,14 +356,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
  {job.company && companyHref && (
- <a
- href={companyHref}
- onClickCapture={handleCompanyClick}
+ <button
+ type="button"
+ onClick={handleCompanyClick}
  className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <Building2 size={14} />
  {job.company}
- </a>
+ </button>
  )}
  {jobLocation && locationHref && (
  <a
@@ -376,10 +387,10 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  );
 
  const companyBanner = job.company && companyHref && (
- <a
- href={companyHref}
- onClickCapture={handleCompanyClick}
- className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
+ <button
+ type="button"
+ onClick={handleCompanyClick}
+ className="block w-full text-left rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
@@ -397,7 +408,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </p>
  </div>
  </div>
- </a>
+ </button>
  );
 
  const relatedJobsSection = relatedJobs.length > 0 && (
