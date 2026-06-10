@@ -260,7 +260,7 @@ async function enrichListing(row) {
   const addr = (jp.jobLocation && jp.jobLocation.address) || {};
   const country = String(addr.addressCountry || '').trim();
   // Authoritative Switzerland-only filter.
-  if (country && country.toLowerCase() !== 'schweiz') return null;
+  if (country && !/\b(switzerland|schweiz|suisse|svizzera)\b/i.test(country)) return null;
   // No country in JSON-LD → fall back to the list-anchor canton inference.
   if (!country && !inferSwissTargetCanton(row.location)) return null;
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated undefined crawler runner.
+ * Dedicated Straumann crawler runner.
  *
- * Uses the standard crawler template with the undefined parser.
+ * Uses the standard crawler template with the Straumann parser.
  * All fetch/parse logic lives in ./lib/straumann-job-parser.mjs.
  */
 import path from 'node:path';
@@ -28,6 +28,6 @@ runStandardCrawlerPipeline({
   isTrustedDomain,
   defaultSourceLang: 'en',
 }).catch((err) => {
-  console.error(`❌ undefined crawler failed: ${err?.message || err}`);
+  console.error(`❌ Straumann crawler failed: ${err?.message || err}`);
   process.exit(1);
 });

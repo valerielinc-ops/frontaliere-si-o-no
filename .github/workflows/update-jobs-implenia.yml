@@ -1,4 +1,4 @@
-name: Update undefined Jobs (Dedicated)
+name: Update Implenia Jobs (Dedicated)
 
 on:
   workflow_dispatch:
@@ -64,7 +64,7 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      - name: Run dedicated undefined crawler
+      - name: Run dedicated Implenia crawler
         env:
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
@@ -84,7 +84,7 @@ jobs:
         id: changes
         env:
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update undefined jobs (dedicated crawler)" data/jobs-crawler-adapters/
+        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Implenia jobs (dedicated crawler)" data/jobs-crawler-adapters/
 
       - name: Report failure to Linear
         if: failure()

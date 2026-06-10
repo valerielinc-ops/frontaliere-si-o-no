@@ -237,8 +237,8 @@ export async function fetchAllDecathlonJobs() {
 
       // ── Recommended fields ──
       addressLocality: location,
-      postalCode: postalCode || '1214',
-      addressRegion: canton === 'GE' ? 'Genève' : location,
+      postalCode: postalCode || (canton === 'GE' ? '1214' : ''),
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
