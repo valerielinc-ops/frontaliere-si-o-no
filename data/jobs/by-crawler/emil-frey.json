@@ -763,7 +763,6 @@
           "Langue maternelle allemande ou très bonnes connaissances de l'allemand à l'oral et à l'écrit"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobildiagnostiker-in-fur-aston-martin-jaguar-und-land-rover-emil-frey-safenwil"
@@ -864,7 +863,6 @@
           "Permis de conduire catégorie B"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobil-mechatroniker-emil-frey-opfikon"
@@ -889,10 +887,10 @@
     },
     {
       "id": "emil-frey-97171ab73e81",
-      "slug": "it-consultant-ms-dynamics-365-finance-emil-frey-zurich",
+      "slug": "it-consulente-ms-dynamics-365-finanza-emil-frey-zurich",
       "slugByLocale": {
         "de": "it-consultant-ms-dynamics-365-finance-emil-frey-zurich",
-        "it": "it-consultant-ms-dynamics-365-finance-emil-frey-zurich",
+        "it": "it-consulente-ms-dynamics-365-finanza-emil-frey-zurich",
         "en": "it-consultant-ms-dynamics-365-finance-emil-frey-zurich",
         "fr": "it-consultant-ms-dynamics-365-finance-emil-frey-zurich"
       },
@@ -950,7 +948,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T07:52:28.410Z"
+      "firstSeenAt": "2026-06-10T07:52:28.410Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-consultant-ms-dynamics-365-finance-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "it-consultant-ms-dynamics-365-finance-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-d338bacd08e4",
@@ -1202,7 +1208,6 @@
           "Permis de conduire Cat. B"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobilfachmann-fachfrau-automobilmechatroniker-in-emil-frey-ostermundigen"
@@ -1404,7 +1409,6 @@
           "Permis de conduire catégorie B"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobil-verkaufsberater-in-land-rover-emil-frey-ostermundigen"
@@ -1505,7 +1509,6 @@
           "Disponibilité à travailler dans un environnement de travail dynamique et exigeant"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2072,7 +2075,6 @@
           "Verfügbarkeit für Tag- und Nachtshifts"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mecatronicien-d-automobiles-emil-frey-les-acacias"
@@ -2146,7 +2148,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobil-mechatroniker-in-emil-frey-bern"
@@ -2246,7 +2247,7 @@
       "id": "emil-frey-d48f26eb81ef",
       "slug": "carrosserie-e-verniciatura-emil-frey-schaffhausen",
       "slugByLocale": {
-        "de": "carrosseriespengler-in-emil-frey-schaffhausen",
+        "de": "karosseriespengler-in-emil-frey-schaffhausen",
         "it": "carrosserie-e-verniciatura-emil-frey-schaffhausen",
         "en": "carrosseriespengler-in-emil-frey-schaffhausen",
         "fr": "atelier-de-carrosserie-et-de-peinture-emil-frey-schaffhausen"
@@ -2317,9 +2318,11 @@
           "Possession d'un permis de conduire valide de catégorie B"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "carrosseriespengler-in-emil-frey-schaffhausen"
+        ],
+        "de": [
           "carrosseriespengler-in-emil-frey-schaffhausen"
         ]
       },
@@ -2344,7 +2347,7 @@
       "id": "emil-frey-7ced812d1878",
       "slug": "carrosserie-pengler-emil-frey-ostermundigen",
       "slugByLocale": {
-        "de": "carrosseriespengler-in-emil-frey-ostermundigen",
+        "de": "karosseriespengler-in-emil-frey-ostermundigen",
         "it": "carrosserie-pengler-emil-frey-ostermundigen",
         "en": "carrosseriespengler-in-emil-frey-ostermundigen",
         "fr": "carrosserie-pengler-emil-frey-ostermundigen"
@@ -2415,9 +2418,11 @@
           "Permis de conduire de catégorie B"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "carrosseriespengler-in-emil-frey-ostermundigen"
+        ],
+        "de": [
           "carrosseriespengler-in-emil-frey-ostermundigen"
         ]
       },
@@ -2512,7 +2517,6 @@
           "Permis de conduire catégorie B"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-emil-frey-volketswil"
@@ -2870,7 +2874,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-hochregallager-emil-frey-harkingen"
@@ -4084,12 +4087,12 @@
     },
     {
       "id": "emil-frey-5c77aa87b4fe",
-      "slug": "team-leader-business-analyst-emil-frey-zurich",
+      "slug": "teamleiter-in-business-analista-emil-frey-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-business-analyst-emil-frey-zurich",
-        "it": "team-leader-business-analyst-emil-frey-zurich",
+        "it": "teamleiter-in-business-analista-emil-frey-zurich",
         "en": "teamleiter-in-business-analyst-emil-frey-zurich",
-        "fr": "chef-d-equipe-business-analyst-emil-frey-zurich"
+        "fr": "teamleiter-in-business-analyste-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -4153,11 +4156,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-business-analyst-emil-frey-zurich"
+          "teamleiter-in-business-analyst-emil-frey-zurich",
+          "team-leader-business-analyst-emil-frey-zurich"
+        ],
+        "fr": [
+          "chef-d-equipe-business-analyst-emil-frey-zurich"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-business-analyst-emil-frey-zurich"
+        "teamleiter-in-business-analyst-emil-frey-zurich",
+        "team-leader-business-analyst-emil-frey-zurich",
+        "chef-d-equipe-business-analyst-emil-frey-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4224,7 +4233,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-warenausgang-emil-frey-safenwil"
@@ -4822,10 +4830,10 @@
     },
     {
       "id": "emil-frey-63fe867ab60c",
-      "slug": "carrozzeria-pittore-efz-emil-frey-schlieren",
+      "slug": "carrosserielackierer-in-cfc-emil-frey-schlieren",
       "slugByLocale": {
         "de": "carrosserielackierer-in-efz-emil-frey-schlieren",
-        "it": "carrozzeria-pittore-efz-emil-frey-schlieren",
+        "it": "carrosserielackierer-in-cfc-emil-frey-schlieren",
         "en": "bodyshop-painter-technician-efz-emil-frey-schlieren",
         "fr": "peintre-technicien-de-carrosserie-efz-emil-frey-schlieren"
       },
@@ -4897,11 +4905,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "carrosserielackierer-in-efz-emil-frey-schlieren"
+          "carrosserielackierer-in-efz-emil-frey-schlieren",
+          "carrozzeria-pittore-efz-emil-frey-schlieren"
         ]
       },
       "previousSlugs": [
-        "carrosserielackierer-in-efz-emil-frey-schlieren"
+        "carrosserielackierer-in-efz-emil-frey-schlieren",
+        "carrozzeria-pittore-efz-emil-frey-schlieren"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5280,7 +5290,6 @@
           "Volonté de prendre en charge plus de postes de travail dans l'équipe en cas d'absences"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-50-emil-frey-munchenstein"
@@ -6311,7 +6320,6 @@
           "Sie sind dynamisch und effizient"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mecatronicien-d-automobiles-bmw-mini-emil-frey-crissier"
@@ -6606,7 +6614,7 @@
         "de": "hr-generalist-in-emil-frey-glattbrugg",
         "it": "hr-generalist-in-emil-frey-glattbrugg",
         "en": "hr-generalist-in-emil-frey-glattbrugg",
-        "fr": "hr-generaliste-emil-frey-glattbrugg"
+        "fr": "ressources-humaines-generalist-in-emil-frey-glattbrugg"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6680,7 +6688,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T07:52:28.345Z"
+      "firstSeenAt": "2026-06-10T07:52:28.345Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "hr-generaliste-emil-frey-glattbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "hr-generaliste-emil-frey-glattbrugg"
+      ]
     },
     {
       "id": "emil-frey-035000b754a3",
@@ -6894,7 +6910,7 @@
         "de": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich",
         "it": "autista-navetta-zurich-emil-frey-opfikon-zurich",
         "en": "shuttle-driver-zurich-emil-frey-opfikon-zurich",
-        "fr": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
+        "fr": "conducteur-de-navette-zurich-emil-frey-opfikon-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6970,6 +6986,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
+        ],
+        "fr": [
           "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
         ]
       },
@@ -7703,10 +7722,10 @@
     },
     {
       "id": "emil-frey-4d2dba76f2d2",
-      "slug": "specialista-di-meccatronica-automobilistica-efz-emil-frey-altendorf",
+      "slug": "automobil-mechatroniker-in-cfc-emil-frey-altendorf",
       "slugByLocale": {
         "de": "automobil-mechatroniker-in-efz-emil-frey-altendorf",
-        "it": "specialista-di-meccatronica-automobilistica-efz-emil-frey-altendorf",
+        "it": "automobil-mechatroniker-in-cfc-emil-frey-altendorf",
         "en": "automotive-mechanic-efz-emil-frey-altendorf",
         "fr": "mecanicien-automobile-efz-emil-frey-altendorf"
       },
@@ -7774,11 +7793,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "automobil-mechatroniker-in-efz-emil-frey-altendorf"
+          "automobil-mechatroniker-in-efz-emil-frey-altendorf",
+          "specialista-di-meccatronica-automobilistica-efz-emil-frey-altendorf"
         ]
       },
       "previousSlugs": [
-        "automobil-mechatroniker-in-efz-emil-frey-altendorf"
+        "automobil-mechatroniker-in-efz-emil-frey-altendorf",
+        "specialista-di-meccatronica-automobilistica-efz-emil-frey-altendorf"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7869,7 +7890,6 @@
           "Possession d'une permis de conduire catégorie B"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "carrosserielackierer-in-emil-frey-safenwil"

@@ -145,7 +145,7 @@
         "de": "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
         "it": "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden",
         "en": "employee-supply-chain-management-f-m-d-straumann-rheinfelden",
-        "fr": "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
+        "fr": "mitarbeiter-chaine-d-approvisionnement-management-w-m-d-straumann-rheinfelden"
       },
       "company": "Straumann",
       "companyKey": "straumann",
@@ -186,14 +186,17 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-supply-chain-management-w-m-d-straumann-ch"
+        ],
+        "fr": [
+          "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-supply-chain-management-w-m-d-straumann-ch"
+        "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
+        "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -259,7 +262,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -346,7 +348,6 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:55:16.721Z"
     },
     {
