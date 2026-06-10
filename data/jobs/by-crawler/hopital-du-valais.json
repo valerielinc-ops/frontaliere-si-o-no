@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-06-09T22:33:24.693Z",
+  "assembledAt": "2026-06-10T12:15:03.580Z",
   "jobs": [
     {
       "id": "hopital-du-valais-79a54ad7b54b",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:22.432Z",
+      "crawledAt": "2026-06-10T12:15:01.370Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -61,6 +61,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:33.795Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -118,7 +119,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:22.098Z",
+      "crawledAt": "2026-06-10T12:15:01.054Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -175,16 +176,16 @@
       "title": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
       "titleByLocale": {
         "it": "CONTATTO DEL TEAM PERSONALE DI RICERCA",
-        "en": "CONTACT THE RESERVE PERSONNEL TEAM",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
         "de": "KONTAKT DES RESERVEPERSONALTEAMS",
         "fr": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE"
       },
       "description": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\nVous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\nProfil:\n• Infirmier/ère instrumentiste ou TSO\n\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n• Au moins 2 ans d'expérience professionnelle\n\n• Capacité à fixer des priorités et conscience de ses responsabilités\n\n• Personnalité flexible et résistante au stress\n\n• Prêt/e à s'engager en cas de situation extraordinaire\n\n• Volonté de maintenir ses compétences via la formation\n\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\nOffre:\n• 2 jours de formation continue par an\n\n• 4 jours de formation théorique et pratique initiale\n\n• 1 indemnité annuelle de disponibilité\n\n• 1 indemnité par jour de formation\n\n• Possibilité de suivre le cours ALS",
       "descriptionByLocale": {
-        "it": "CONTATTO DEL TEAM PERSONALE DI RICERCA\n\n... e aiutaci a superare la prossima crisi!\n\nMissione:\nIn caso di pandemica, terremoto,..., la squadra \"Reserve Personnel\" del Centro ospedaliero romano del Vallese sarà un aiuto molto importante per superare le crisi future.\n\nAnche tu puoi far parte del \"personale di riserva\" e dare un importante contributo alla popolazione del Vallese Romand.\n\nProfilo:\n• Infermiera/strumentalista o TSO\n\n• Infermiera HES/ES specializzata in assistenza di emergenza, assistenza intensiva e anestesia\n\n• Almeno 2 anni di esperienza professionale\n\n• Capacità di fissare le priorità e la consapevolezza delle responsabilità\n\n• personalità flessibile e resistente allo stress\n\n• Pronta ad impegnarsi in situazioni straordinarie\n\n• Volontà di mantenere le proprie competenze attraverso la formazione\n\n• Se si lavora in-house, la domanda sarà eleggibile solo se non si è impegnati nel campo di cura.\n\nOfferta:\n• 2 giorni di formazione continua all'anno\n\n• 4 giorni di formazione teorica e pratica iniziale\n\n• 1 indennità di disponibilità\n\n• 1 indennità al giorno di formazione\n\n• Possibilità di prendere il corso ALS",
-        "en": "CONTACT THE RESERVE PERSONNEL TEAM\n\n... and help us overcome the next crisis!\n\nMission:\nIn the event of a pandemic, earthquake,..., the \"Reserve Personnel\" team at the Valais Romand Hospital Center will be a very important help to overcome future crises.\n\nYou too can be part of the \"reserve staff\" and make an important contribution to the population of Valais Romand.\n\nProfile:\n• Nurse/instrumentalist or TSO\n\n• Nurse HES/ES specialized in emergency care, intensive care and anaesthesia\n\n• At least 2 years of professional experience\n\n• Ability to set priorities and awareness of responsibilities\n\n• Flexible and stress-resistant personality\n\n• Ready to engage in extraordinary situations\n\n• Will to maintain its skills through training\n\n• If you work in-house, your application will only be eligible if you are not engaged in the care field.\n\nOffer:\n• 2 days of continuing training per year\n\n• 4 days of theoretical and initial practical training\n\n• 1 annual availability allowance\n\n• 1 allowance per day of training\n\n• Possibility of taking the ALS course",
-        "de": "KONTAKT DES RESERVEPERSONALTEAMS\n\n... und helfen Sie uns, die nächste Krise zu überwinden!\n\nMission:\nIm Falle einer Pandemie, Erdbeben,... wird das Team „Reserve Personal im Walliser Krankenhaus Romand eine sehr wichtige Hilfe sein, um zukünftige Krisen zu überwinden.\n\nAuch Sie können Teil des \"Reservepersonals\" sein und einen wichtigen Beitrag für die Bevölkerung des Walliser Romanden leisten.\n\nProfil:\n• Krankenschwester / Instrumentalist oder TSO\n\n• Krankenschwester HES / ES spezialisiert auf Notfallversorgung, Intensivpflege und Anästhesie\n\n• Mindestens 2 Jahre Berufserfahrung\n\n• Fähigkeit, Prioritäten zu setzen und Verantwortungsbewusstsein\n\n• Flexible und stressresistente Persönlichkeit\n\n• Bereit, sich in außergewöhnlichen Situationen zu engagieren\n\n• Wird seine Fähigkeiten durch Training erhalten\n\n• Wenn Sie intern arbeiten, ist Ihre Bewerbung nur zulässig, wenn Sie nicht im Pflegebereich tätig sind.\n\nAngebot:\n• 2 Tage Weiterbildung pro Jahr\n\n• 4 Tage theoretische und praktische Erstausbildung\n\n• 1 jährliche Verfügbarkeitszulage\n\n• 1 Zulage pro Trainingstag\n\n• Möglichkeit, den ALS-Kurs zu belegen",
-        "fr": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\nVous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\nProfil:\n• Infirmier/ère instrumentiste ou TSO\n\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n• Au moins 2 ans d'expérience professionnelle\n\n• Capacité à fixer des priorités et conscience de ses responsabilités\n\n• Personnalité flexible et résistante au stress\n\n• Prêt/e à s'engager en cas de situation extraordinaire\n\n• Volonté de maintenir ses compétences via la formation\n\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\nOffre:\n• 2 jours de formation continue par an\n\n• 4 jours de formation théorique et pratique initiale\n\n• 1 indemnité annuelle de disponibilité\n\n• 1 indemnité par jour de formation\n\n• Possibilité de suivre le cours ALS"
+        "it": "CONTATTO DEL TEAM PERSONALE DI RICERCA ... e aiutaci a superare la prossima crisi! Missione: In caso di pandemica, terremoto,..., la squadra \"Reserve Personnel\" del Centro ospedaliero romano del Vallese sarà un aiuto molto importante per superare le crisi future. Anche tu puoi far parte del \"personale di riserva\" e dare un importante contributo alla popolazione del Vallese Romand. Profilo:\n• Infermiera/strumentalista o TSO\n• Infermiera HES/ES specializzata in assistenza di emergenza, assistenza intensiva e anestesia\n• Almeno 2 anni di esperienza professionale\n• Capacità di fissare le priorità e la consapevolezza delle responsabilità\n• personalità flessibile e resistente allo stress\n• Pronta ad impegnarsi in situazioni straordinarie\n• Volontà di mantenere le proprie competenze attraverso la formazione\n• Se si lavora in-house, la domanda sarà eleggibile solo se non si è impegnati nel campo di cura. Offerta:\n• 2 giorni di formazione continua all'anno\n• 4 giorni di formazione teorica e pratica iniziale\n• 1 indennità di disponibilità\n• 1 indennità al giorno di formazione\n• Possibilità di prendere il corso ALS",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. Profil:\n• Infirmier/ère instrumentiste ou TSO\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n• Au moins 2 ans d'expérience professionnelle\n• Capacité à fixer des priorités et conscience de ses responsabilités\n• Personnalité flexible et résistante au stress\n• Prêt/e à s'engager en cas de situation extraordinaire\n• Volonté de maintenir ses compétences via la formation\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. Offre:\n• 2 jours de formation continue par an\n• 4 jours de formation théorique et pratique initiale\n• 1 indemnité annuelle de disponibilité\n• 1 indemnité par jour de formation\n• Possibilité de suivre le cours ALS",
+        "de": "KONTAKT DES RESERVEPERSONALTEAMS ... und helfen Sie uns, die nächste Krise zu überwinden! Mission: Im Falle einer Pandemie, Erdbeben,... wird das Team „Reserve Personal im Walliser Krankenhaus Romand eine sehr wichtige Hilfe sein, um zukünftige Krisen zu überwinden. Auch Sie können Teil des \"Reservepersonals\" sein und einen wichtigen Beitrag für die Bevölkerung des Walliser Romanden leisten. Profil:\n• Krankenschwester / Instrumentalist oder TSO\n• Krankenschwester HES / ES spezialisiert auf Notfallversorgung, Intensivpflege und Anästhesie\n• Mindestens 2 Jahre Berufserfahrung\n• Fähigkeit, Prioritäten zu setzen und Verantwortungsbewusstsein\n• Flexible und stressresistente Persönlichkeit\n• Bereit, sich in außergewöhnlichen Situationen zu engagieren\n• Wird seine Fähigkeiten durch Training erhalten\n• Wenn Sie intern arbeiten, ist Ihre Bewerbung nur zulässig, wenn Sie nicht im Pflegebereich tätig sind. Angebot:\n• 2 Tage Weiterbildung pro Jahr\n• 4 Tage theoretische und praktische Erstausbildung\n• 1 jährliche Verfügbarkeitszulage\n• 1 Zulage pro Trainingstag\n• Möglichkeit, den ALS-Kurs zu belegen",
+        "fr": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. Profil:\n• Infirmier/ère instrumentiste ou TSO\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n• Au moins 2 ans d'expérience professionnelle\n• Capacité à fixer des priorités et conscience de ses responsabilités\n• Personnalité flexible et résistante au stress\n• Prêt/e à s'engager en cas de situation extraordinaire\n• Volonté de maintenir ses compétences via la formation\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. Offre:\n• 2 jours de formation continue par an\n• 4 jours de formation théorique et pratique initiale\n• 1 indemnité annuelle de disponibilité\n• 1 indemnité par jour de formation\n• Possibilité de suivre le cours ALS"
       },
       "location": "Sion",
       "canton": "VS",
@@ -202,7 +203,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:20.808Z",
+      "crawledAt": "2026-06-10T12:14:59.942Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -229,6 +230,7 @@
         "contatto-del-team-personale-di-ricerca-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -286,7 +288,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:20.452Z",
+      "crawledAt": "2026-06-10T12:14:59.627Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -308,6 +310,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:29:28.600Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -365,7 +368,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/ATSANN0004595/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:20.120Z",
+      "crawledAt": "2026-06-10T12:14:59.312Z",
       "_hvsMeta": {
         "number": "ATSANN0004595",
         "sysId": "3e42908cc3488354a043be4c05013198",
@@ -454,7 +457,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:19.779Z",
+      "crawledAt": "2026-06-10T12:14:58.977Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -528,7 +531,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:19.447Z",
+      "crawledAt": "2026-06-10T12:14:58.660Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -608,7 +611,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:19.113Z",
+      "crawledAt": "2026-06-10T12:14:58.341Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -688,7 +691,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:18.781Z",
+      "crawledAt": "2026-06-10T12:14:58.004Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -705,6 +708,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.837Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -762,7 +766,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:18.441Z",
+      "crawledAt": "2026-06-10T12:14:57.686Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -771,6 +775,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:30.516Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -828,7 +833,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:18.107Z",
+      "crawledAt": "2026-06-10T12:14:57.349Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -845,6 +850,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.192Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -876,15 +882,15 @@
       "titleByLocale": {
         "it": "Infermieristica professionale 50%-100% (psicogeria)",
         "en": "Pflegefachperson 50%-100% (Psychogeriatrie)",
-        "de": "User Safety: safe",
+        "de": "Pflegefachperson 50%-100% (Psychogeriatrie)",
         "fr": "Professionnels des soins infirmiers 50% à 100% (psychogérie)"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine:\n\nPflegefachperson 50%-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
-        "it": "L'Ospedale Wallis ne sta cercando uno per il Centro Ospedale Oberwallis nel Centro Psichiatrico di Oberwallis per il Dipartimento di Psicogeria:\n\nCura professionale 50%-100 %\n\nMissione:\n• Garantire una cura professionale e orientata al cliente\n\n• Promuovano una buona cooperazione interdisciplinare e interprofessionale\n\n• Responsabilità personale e pensiero attivo\n\n• Accompagnamento e sostegno degli studenti durante la formazione\n\nProfilo:\n• Formazione completa in allattamento (FH, HF, DN II o AKP)\n\n• Apprezzamento nei rapporti quotidiani con i pazienti\n\n• Personalità comunicativa, di iniziativa e flessibile\n\n• Freight avanti e metodi di lavoro esatti\n\n• Buone competenze informatiche\n\nOfferta:\n• Lavoro variabile, responsabile e indipendente\n\n• Supporto da parte di team motivati e impegnati\n\n• Opportunità per l'ulteriore istruzione e formazione\n\n• Condizioni di lavoro interessanti",
-        "en": "The Wallis Hospital is looking for one for the Oberwallis Hospital Center in the Oberwallis Psychiatric Center for the Department of Psychogeriatry:\n\nCare professional 50%-100 %\n\nMission:\n• Ensuring professional and customer-oriented care\n\n• They promote good interdisciplinary and interprofessional cooperation\n\n• Personal responsibility and active thinking\n\n• Accompaniment and support of learners during training\n\nProfile:\n• Completed training in nursing (FH, HF, DN II or AKP)\n\n• Appreciation in daily dealings with patients\n\n• Communicative, initiative and flexible personality\n\n• Freight forward and exact working methods\n\n• Good computer skills\n\nOffer:\n• Varied, responsible and independent work\n\n• Support by motivated and committed team\n\n• Opportunity for further education and training\n\n• Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine:\n\nPflegefachperson 50%-100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Fort- und Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "fr": "L'hôpital Wallis en recherche un pour le centre hospitalier Oberwallis dans le centre psychiatrique Oberwallis pour le département de psychogériatrie:\n\nProfessionnel de soins 50%-100 %\n\nMission :\n• Assurer des soins professionnels et axés sur le client\n\n• Ils favorisent une bonne coopération interdisciplinaire et interprofessionnelle\n\n• Responsabilité personnelle et pensée active\n\n• Accompagnement et soutien des apprenants pendant la formation\n\nProfil :\n• Formation complète en soins infirmiers (FH, HF, DN II ou AKP)\n\n• Appréciation dans les rapports quotidiens avec les patients\n\n• Communication, initiative et personnalité flexible\n\n• Fret à l'avance et méthodes de travail exactes\n\n• Bonnes compétences en informatique\n\nOffre:\n• Travail varié, responsable et indépendant\n\n• Soutien d'une équipe motivée et engagée\n\n• Possibilité de poursuivre l'enseignement et la formation\n\n• Conditions d'emploi attrayantes"
+        "it": "L'Ospedale Wallis ne sta cercando uno per il Centro Ospedale Oberwallis nel Centro Psichiatrico di Oberwallis per il Dipartimento di Psicogeria: Cura professionale 50%-100 % Missione:\n• Garantire una cura professionale e orientata al cliente\n• Promuovano una buona cooperazione interdisciplinare e interprofessionale\n• Responsabilità personale e pensiero attivo\n• Accompagnamento e sostegno degli studenti durante la formazione Profilo:\n• Formazione completa in allattamento (FH, HF, DN II o AKP)\n• Apprezzamento nei rapporti quotidiani con i pazienti\n• Personalità comunicativa, di iniziativa e flessibile\n• Freight avanti e metodi di lavoro esatti\n• Buone competenze informatiche Offerta:\n• Lavoro variabile, responsabile e indipendente\n• Supporto da parte di team motivati e impegnati\n• Opportunità per l'ulteriore istruzione e formazione\n• Condizioni di lavoro interessanti",
+        "en": "The Wallis Hospital is looking for one for the Oberwallis Hospital Center in the Oberwallis Psychiatric Center for the Department of Psychogeriatry: Care professional 50%-100 % Mission:\n• Ensuring professional and customer-oriented care\n• They promote good interdisciplinary and interprofessional cooperation\n• Personal responsibility and active thinking\n• Accompaniment and support of learners during training Profile:\n• Completed training in nursing (FH, HF, DN II or AKP)\n• Appreciation in daily dealings with patients\n• Communicative, initiative and flexible personality\n• Freight forward and exact working methods\n• Good computer skills Offer:\n• Varied, responsible and independent work\n• Support by motivated and committed team\n• Opportunity for further education and training\n• Attractive employment conditions",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis für die Abteilung Psychogeriatrie eine: Pflegefachperson 50%-100% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n• Eigenverantwortung und aktives Mitdenken\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP)\n• Wertschätzung im täglichen Umgang mit Patientinnen und Patienten\n• Kommunikative, initiative und flexible Persönlichkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch motiviertes und engagiertes Team\n• Möglichkeit zur Fort- und Weiterbildung\n• Attraktive Anstellungsbedingungen",
+        "fr": "L'hôpital Wallis en recherche un pour le centre hospitalier Oberwallis dans le centre psychiatrique Oberwallis pour le département de psychogériatrie: Professionnel de soins 50%-100 % Mission :\n• Assurer des soins professionnels et axés sur le client\n• Ils favorisent une bonne coopération interdisciplinaire et interprofessionnelle\n• Responsabilité personnelle et pensée active\n• Accompagnement et soutien des apprenants pendant la formation Profil :\n• Formation complète en soins infirmiers (FH, HF, DN II ou AKP)\n• Appréciation dans les rapports quotidiens avec les patients\n• Communication, initiative et personnalité flexible\n• Fret à l'avance et méthodes de travail exactes\n• Bonnes compétences en informatique Offre:\n• Travail varié, responsable et indépendant\n• Soutien d'une équipe motivée et engagée\n• Possibilité de poursuivre l'enseignement et la formation\n• Conditions d'emploi attrayantes"
       },
       "location": "Brig",
       "canton": "VS",
@@ -902,7 +908,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:17.772Z",
+      "crawledAt": "2026-06-10T12:14:57.015Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -919,6 +925,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:36:37.068Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -976,7 +983,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:17.439Z",
+      "crawledAt": "2026-06-10T12:14:56.680Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -1053,7 +1060,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:17.101Z",
+      "crawledAt": "2026-06-10T12:14:56.364Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -1127,7 +1134,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:16.763Z",
+      "crawledAt": "2026-06-10T12:14:56.045Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -1150,6 +1157,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:29.209Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1207,7 +1215,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:16.430Z",
+      "crawledAt": "2026-06-10T12:14:55.728Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -1284,7 +1292,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c6e10fd973c07181b87322f2153af63/ATSANN0004668/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:16.095Z",
+      "crawledAt": "2026-06-10T12:14:55.410Z",
       "_hvsMeta": {
         "number": "ATSANN0004668",
         "sysId": "3c6e10fd973c07181b87322f2153af63",
@@ -1364,7 +1372,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:15.749Z",
+      "crawledAt": "2026-06-10T12:14:55.095Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -1384,6 +1392,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:14:12.660Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1441,7 +1450,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f2a0b45683b27a1017a39d20ceaad396/ATSANN0004517/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:15.413Z",
+      "crawledAt": "2026-06-10T12:14:54.751Z",
       "_hvsMeta": {
         "number": "ATSANN0004517",
         "sysId": "f2a0b45683b27a1017a39d20ceaad396",
@@ -1521,7 +1530,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8299376c97054350316bb0b71153af2c/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:15.076Z",
+      "crawledAt": "2026-06-10T12:14:54.430Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "8299376c97054350316bb0b71153af2c",
@@ -1541,6 +1550,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T22:41:43.801Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1598,7 +1608,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0a711d2297894f50e7ce346e2153afdb/ATSANN0004682/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:14.710Z",
+      "crawledAt": "2026-06-10T12:14:54.109Z",
       "_hvsMeta": {
         "number": "ATSANN0004682",
         "sysId": "0a711d2297894f50e7ce346e2153afdb",
@@ -1678,7 +1688,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45483162978d8f50e7ce346e2153af79/ATSANN0004684/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:14.377Z",
+      "crawledAt": "2026-06-10T12:14:53.794Z",
       "_hvsMeta": {
         "number": "ATSANN0004684",
         "sysId": "45483162978d8f50e7ce346e2153af79",
@@ -1758,7 +1768,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9463f5a697c98f50e7ce346e2153af48/ATSANN0004683/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:14.022Z",
+      "crawledAt": "2026-06-10T12:14:53.478Z",
       "_hvsMeta": {
         "number": "ATSANN0004683",
         "sysId": "9463f5a697c98f50e7ce346e2153af48",
@@ -1838,7 +1848,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/84aa626287814390dbd6ebd30cbb35af/ATSANN0004686/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:13.689Z",
+      "crawledAt": "2026-06-10T12:14:53.149Z",
       "_hvsMeta": {
         "number": "ATSANN0004686",
         "sysId": "84aa626287814390dbd6ebd30cbb35af",
@@ -1920,7 +1930,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6aef97ba83818b9017a39d20ceaad33b/ATSANN0004691/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:13.340Z",
+      "crawledAt": "2026-06-10T12:14:52.826Z",
       "_hvsMeta": {
         "number": "ATSANN0004691",
         "sysId": "6aef97ba83818b9017a39d20ceaad33b",
@@ -2000,7 +2010,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b26b9b3283418b9017a39d20ceaad364/ATSANN0004690/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:13.009Z",
+      "crawledAt": "2026-06-10T12:14:52.505Z",
       "_hvsMeta": {
         "number": "ATSANN0004690",
         "sysId": "b26b9b3283418b9017a39d20ceaad364",
@@ -2088,7 +2098,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4ef4a33a83058b9017a39d20ceaad348/ATSANN0004694/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:12.676Z",
+      "crawledAt": "2026-06-10T12:14:52.177Z",
       "_hvsMeta": {
         "number": "ATSANN0004694",
         "sysId": "4ef4a33a83058b9017a39d20ceaad348",
@@ -2168,7 +2178,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:12.343Z",
+      "crawledAt": "2026-06-10T12:14:51.850Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -2242,7 +2252,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e43eabe83090b9017a39d20ceaad372/ATSANN0004688/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:12.010Z",
+      "crawledAt": "2026-06-10T12:14:51.521Z",
       "_hvsMeta": {
         "number": "ATSANN0004688",
         "sysId": "3e43eabe83090b9017a39d20ceaad372",
@@ -2322,7 +2332,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/33432f3e83c18b9017a39d20ceaad376/ATSANN0004693/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:11.675Z",
+      "crawledAt": "2026-06-10T12:14:51.206Z",
       "_hvsMeta": {
         "number": "ATSANN0004693",
         "sysId": "33432f3e83c18b9017a39d20ceaad376",
@@ -2346,6 +2356,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:51:55.344Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2403,7 +2414,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8fc1ef3683c18b9017a39d20ceaad33b/ATSANN0004692/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:11.339Z",
+      "crawledAt": "2026-06-10T12:14:50.885Z",
       "_hvsMeta": {
         "number": "ATSANN0004692",
         "sysId": "8fc1ef3683c18b9017a39d20ceaad33b",
@@ -2484,7 +2495,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f3b2f3a83c58b9017a39d20ceaad307/ATSANN0004695/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:11.006Z",
+      "crawledAt": "2026-06-10T12:14:50.563Z",
       "_hvsMeta": {
         "number": "ATSANN0004695",
         "sysId": "8f3b2f3a83c58b9017a39d20ceaad307",
@@ -2564,7 +2575,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6599c15747010bd0339c9146736d431c/ATSANN0004697/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:10.674Z",
+      "crawledAt": "2026-06-10T12:14:50.248Z",
       "_hvsMeta": {
         "number": "ATSANN0004697",
         "sysId": "6599c15747010bd0339c9146736d431c",
@@ -2597,160 +2608,6 @@
           "@type": "QuantitativeValue",
           "minValue": 95000,
           "maxValue": 132500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
-    },
-    {
-      "id": "hopital-du-valais-99aee9f73762",
-      "slug": "assistenti-tecnici-specializzati-in-sala-operatoria-atsso-o-sale-operatorie-aiuti-80-100-per-la-sala-operatoria-hopital",
-      "slugByLocale": {
-        "it": "assistenti-tecnici-specializzati-in-sala-operatoria-atsso-o-sale-operatorie-aiuti-80-100-per-la-sala-operatoria-hopital",
-        "en": "technical-assistants-specialized-in-operating-room-atsso-or-operating-room-aids-80-100-for-the-operating-room-hopital-du",
-        "de": "technische-assistenten-spezialisiert-auf-operationssaal-atsso-oder-operationssaal-hilft-80-100-fur-den-operationssaal",
-        "fr": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire.",
-      "titleByLocale": {
-        "it": "Assistenti tecnici specializzati in sala operatoria (ATSSO) o sale operatorie aiuti 80-100% per la sala operatoria.",
-        "en": "Technical assistants specialized in operating room (ATSSO) or operating room aids 80-100% for the operating room.",
-        "de": "Technische Assistenten spezialisiert auf Operationssaal (ATSSO) oder Operationssaal hilft 80-100% für den Operationssaal.",
-        "fr": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire."
-      },
-      "description": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nAssistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100%\n pour le bloc opératoire.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux.\n\nProfil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n\n• Maîtrise orale et écrite de la langue française.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération de temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
-      "descriptionByLocale": {
-        "it": "Il primo datore di lavoro del cantone, l'Hôpital du Valais, ha 6.260 dipendenti. Ogni anno vengono curati 418.800 pazienti e sono previste circa 670 300 visite ambulatoriale. L'Ospedale Vallese sta cercando l'Ospedale Romano del Vallese Assistenti tecnici specializzati in sala operatoria (ATSSO) o in sala operatoria aiuti a 80-100% per la sala operatoria. Missione:\n• Assicurare un'adeguata cura di tutti i pazienti secondo la strategia dell'Ospedale Vallese, il modello di pratica di cura professionale e le regole operative dell'unità operativa.\n• Mastering tecniche di struttura del paziente e gestione e mantenimento dei vari dispositivi medici. Profilo:\n• Assistente tecnico specializzato in sala operatoria laureata (ATSSO) o esperienza di aiuto in camera.\n• L'esperienza in Svizzera di almeno 1 anno sarebbe un bene.\n• Sensibilizzazione professionale, senso di responsabilità, disciplina nel lavoro.\n• Disponibilità, flessibilità e alta adattabilità e gestione dello stress.\n• Capacità di lavorare come team, versatilità e dinamismo.\n• Conoscenza dei dispositivi medici attuali e interesse per le nuove tecnologie.\n• Conoscenza orale e scritta della lingua francese. Offerta:\n• Un ambiente di lavoro user-friendly all'interno di un team di persone e la gestione partecipativa.\n• Una politica salariale equa basata sul rispetto e sulla trasparenza.\n• Molti benefici del datore di lavoro, quali:\n• Il recupero del tempo trascorso nello spogliatoio\n• Deferimento delle festività pubbliche in giorni non lavorabili\n• Cinque settimane di congedo annuale, sei settimane da 40 anni o dopo 15 anni di servizio.",
-        "en": "The canton's first employer, the Hôpital du Valais, has 6,260 employees. Each year, 418,800 patients are cared for, and nearly 670 300 outpatient visits are provided. The Valais Hospital is looking for the Valais Romand Hospital Technical assistants specialized in operating room (ATSSO) or operating room aids at 80-100% for the operating room. Mission:\n• Ensure adequate care for all patients according to the strategy of the Valais Hospital, the model of professional care practice and the operating rules of the operating unit.\n• Mastering patient facility techniques and managing and maintaining the various medical devices. Profile:\n• Technical assistant specializing in graduate operating room (ATSSO) or experience of room help.\n• Experience in Switzerland of minimum 1 year would be an asset.\n• Professional awareness, sense of responsibility, discipline in work.\n• Availability, flexibility and high adaptability and stress management.\n• Ability to work as a team, versatility and dynamism.\n• Knowledge of current medical devices and interest in new technologies.\n• Oral and written knowledge of the French language. Offer:\n• A user-friendly working environment within a team of people and fostering participatory management.\n• A fair wage policy based on respect and transparency.\n• Many employer benefits, such as:\n• The recovery of time spent in the locker room\n• Deferral of public holidays falling on unworkable days\n• Five weeks of annual leave, six weeks from 40 years or after 15 years of service.",
-        "de": "Der erste Arbeitgeber des Kantons, das Hôpital du Wallais, beschäftigt 6,260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten betreut und fast 670 300 ambulante Besuche angeboten. Das Wallis-Krankenhaus ist auf der Suche nach dem römischen Walliser Krankenhaus Technische Assistenten spezialisiert auf Operationssaal (ATSSO) oder Operationssaalhilfen bei 80-100% für den Operationssaal. Mission:\n• Gewährleistung einer angemessenen Pflege für alle Patienten nach der Strategie des Walliser Krankenhauses, dem Modell der professionellen Pflegepraxis und den Betriebsregeln der Betriebseinheit.\n• Mastering Patient Facility Techniken und Verwaltung und Wartung der verschiedenen medizinischen Geräte. Profil:\n• Technischer Assistent, der sich auf den Absolvent-Betriebsraum (ATSSO) oder die Erfahrung der Zimmerhilfe spezialisiert hat.\n• Die Erfahrung in der Schweiz von mindestens 1 Jahr wäre ein Vermögenswert.\n• Berufsbewusstsein, Verantwortungsgefühl, Arbeitsdisziplin.\n• Verfügbarkeit, Flexibilität und hohe Anpassungsfähigkeit und Stressmanagement.\n• Fähigkeit, als Team, Vielseitigkeit und Dynamik zu arbeiten.\n• Kenntnis aktueller medizinischer Geräte und Interesse an neuen Technologien.\n• Orale und schriftliche Kenntnisse der französischen Sprache. Angebot:\n• Eine benutzerfreundliche Arbeitsumgebung innerhalb eines Teams von Menschen und die Förderung des partizipativen Managements.\n• Eine faire Lohnpolitik auf der Grundlage von Respekt und Transparenz.\n• Viele Arbeitgeberleistungen wie:\n• Die Erholung der Zeit im Schließfachraum verbracht\n• Verweigerung der Feiertage, die an unarbeitbaren Tagen fallen\n• Fünf Wochen Jahresurlaub, sechs Wochen ab 40 Jahren oder nach 15 Jahren Service.",
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux. Profil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n• Maîtrise orale et écrite de la langue française. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération de temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté."
-      },
-      "location": "Martigny",
-      "canton": "VS",
-      "addressLocality": "Martigny",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1920",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5ac264d4975187d0316bb0b71153afaf/ATSANN0004701/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5ac264d4975187d0316bb0b71153afaf/ATSANN0004701/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:10.339Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004701",
-        "sysId": "5ac264d4975187d0316bb0b71153afaf",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Soins",
-        "site": "MARTIGNY"
-      },
-      "previousSlugs": [
-        "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
-        ],
-        "en": [
-          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
-        ],
-        "de": [
-          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
-        ]
-      },
-      "firstSeenAt": "2026-06-01T14:51:57.329Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
-    },
-    {
-      "id": "hopital-du-valais-269eac877d08",
-      "slug": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
-        "en": "network-engineer-administrator-80-90-hopital-du-valais-sion",
-        "de": "network-engineer-administrator-80-90-hopital-du-valais-sion",
-        "fr": "network-engineer-administrator-80-90-hopital-du-valais-sion"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Network Engineer/Administrator 80% - 90%",
-      "titleByLocale": {
-        "it": "Ingegnere di rete/Amministratore 80% - 90%",
-        "en": "Network Engineer/Administrator 80% - 90%",
-        "de": "Network Ingenieur/Administrator 80% - 90%",
-        "fr": "Network Ingénieur/Administrator 80% - 90%"
-      },
-      "description": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Vallese sta cercando un: Ingegnere di rete/Amministratore 80% - 90% CDD di 18 mesi per servizi informatici, unità operativa Voi svolgete un ruolo essenziale nella modernizzazione e nella sicurezza delle infrastrutture IT, accompagnando progetti innovativi ad alto impatto umano e tecnologico. Pronto a rispondere a varie sfide tecniche e collaborare con team appassionati? Unisciti a noi presto! Missione:\n• Partecipare alla gestione e allo sviluppo delle infrastrutture IT, nonché progetti innovativi per nuovi ospedali e centri di calcolo;\n• implementare soluzioni efficienti, sicure e altamente disponibili;\n• garantire la sicurezza operativa dei sistemi;\n• monitoraggio degli sviluppi tecnologici e partecipazione all'innovazione dei servizi;\n• partecipare al servizio di supporto Livello 2 e 3;\n• attività automatizzate e orchestrate (infrastrutture come codice);\n• collaborare a progetti relativi al reparto IT e agli scambi. Profilo:\n• Formazione ES/HES in informatica o telecomunicazioni;\n• 1-2 anni di esperienza in una posizione simile;\n• eccellenti competenze nella gestione della rete informatica, compresi i progetti di migrazione e il funzionamento dell'infrastruttura LAN e W-LAN;\n• buona esperienza nella sostituzione fisica delle attrezzature e nel coordinamento dei lavori telematici (Layer1) con gli stakeholder;\n• padroneggiare i protocolli (L2-L7) e gli standard in vigore e una piattaforma NAC;\n• la conoscenza del sistema Linux, la scrittura e il mantenimento di Ansible playbook;\n• patente di guida categoria B o equivalente;\n• can-do, rigoroso e integrità;\n• buone capacità analitiche e organizzative;\n• Lingua madre francese con buona conoscenza della seconda lingua e inglese. Offerta: Un ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The Valais Hospital is looking for a: Network Engineer/Administrator 80% - 90% 18-month CDD for Computer Services, Operations Unit You play an essential role in the modernisation and security of IT infrastructures, while accompanying innovative projects with high human and technological impact. Ready to meet various technical challenges and collaborate with passionate teams? Join us soon! Mission:\n• Participate in the management and development of IT infrastructures, as well as innovative projects for new hospitals and computing centres;\n• implementing efficient, safe and highly available solutions;\n• ensuring the operational security of systems;\n• monitoring technological developments and participating in service innovation;\n• participating in the Level 2 and 3 support service;\n• automate and orchestrate activities (infrastructure as a code);\n• collaborate on projects related to the IT department and the trades. Profile:\n• ES/HES training in computer or telecommunications;\n• 1-2 years of experience in a similar position;\n• excellent skills in computer network management, including migration projects and the operation of LAN and W-LAN infrastructure;\n• good experience in physical replacement of equipment and coordination of telematics work (Layer1) with stakeholders;\n• mastering the protocols (L2-L7) and the standards in force and a NAC platform;\n• knowledge of the Linux system as well as writing and maintaining Ansible playbook;\n• driving licence category B or equivalent;\n• can-do, rigorous and integrity;\n• good analytical and organizational skills;\n• French mother tongue with good knowledge of the second language and English. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Das Wallis Hospital sucht nach: Network Engineer/Administrator 80% - 90% 18-monatige CDD für Computer Services, Operations Unit Sie spielen eine wesentliche Rolle bei der Modernisierung und Sicherheit von IT-Infrastrukturen und begleiten innovative Projekte mit hoher menschlicher und technologischer Wirkung. Bereit, verschiedene technische Herausforderungen zu erfüllen und mit leidenschaftlichen Teams zusammenzuarbeiten? Kommen Sie bald zu uns! Mission:\n• Erwarten Sie die Verwaltung und Entwicklung von IT-Infrastrukturen sowie innovative Projekte für neue Krankenhäuser und Rechenzentren;\n• die Umsetzung effizienter, sicherer und hochverfügbarer Lösungen;\n• Gewährleistung der Betriebssicherheit der Systeme;\n• Überwachung technologischer Entwicklungen und Beteiligung an der Innovation im Dienste;\n• Teilnahme am Support-Service Level 2 und 3;\n• automatisieren und orchestrieren (Infrastruktur als Code);\n• Zusammenarbeit bei Projekten im Zusammenhang mit der IT-Abteilung und dem Handel. Profil:\n• ES/HES-Ausbildung in Computer oder Telekommunikation;\n• 1-2 Jahre Erfahrung in einer ähnlichen Position;\n• hervorragende Fähigkeiten in der Verwaltung von Computernetzwerken, einschließlich Migrationsprojekten und dem Betrieb von LAN- und W-LAN-Infrastruktur;\n• gute Erfahrung beim physischen Austausch von Geräten und der Koordinierung der Telematikarbeit (Layer1) mit Interessenvertretern;\n• die Protokolle (L2-L7) und die geltenden Normen und eine NAC-Plattform zu beherrschen;\n• Kenntnisse des Linux-Systems sowie Schreiben und Aufrechterhalten von ansible playbook;\n• Führerscheinkategorie B oder gleichwertig;\n• can-do, rigorose und Integrität;\n• gute analytische und organisatorische Fähigkeiten;\n• Französische Muttersprache mit gutem Wissen über die zweite Sprache und Englisch. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten für Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "L’Hôpital du Valais cherche un-e : Network Engineer/Administrator 80% - 90% CDD de 18 mois pour le service Informatique, unité Opérations Vous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique. Prêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre ! Mission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n• veiller à la sécurité opérationnelle des systèmes ;\n• suivre l’évolution technologique et participer à l’innovation des services ;\n• participer au service de support niveau 2 et 3 ;\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n• collaborer aux projets en lien avec le service informatique et les métiers. Profil:\n• Formation ES/HES en informatique ou télécommunication ;\n• 1-2 ans d’expérience dans un poste similaire ;\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n• permis de conduire catégorie B ou équivalent ;\n• attitude can-do, rigoureux et intègre ;\n• bonnes capacités d'analyse et d'organisation ;\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "technology",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 90%",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:10.006Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004699",
-        "sysId": "73f1ff408315cbd017a39d20ceaad318",
-        "societe": "DG & Centre de Services",
-        "famille": "Informatique",
-        "site": "SION"
-      },
-      "previousSlugs": [
-        "network-engineer-administrator-80-90-hopital-du-valais-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "network-engineer-administrator-80-90-hopital-du-valais-sion"
-        ]
-      },
-      "firstSeenAt": "2026-06-01T14:51:57.681Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -2798,7 +2655,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d7b4201097d187d0316bb0b71153af69/ATSANN0004702/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:09.670Z",
+      "crawledAt": "2026-06-10T12:14:49.927Z",
       "_hvsMeta": {
         "number": "ATSANN0004702",
         "sysId": "d7b4201097d187d0316bb0b71153af69",
@@ -2878,7 +2735,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1292a7c4835d8bd017a39d20ceaad3f5/ATSANN0004698/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:09.337Z",
+      "crawledAt": "2026-06-10T12:14:49.606Z",
       "_hvsMeta": {
         "number": "ATSANN0004698",
         "sysId": "1292a7c4835d8bd017a39d20ceaad3f5",
@@ -2887,6 +2744,162 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-06-01T14:51:58.054Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS"
+    },
+    {
+      "id": "hopital-du-valais-99aee9f73762",
+      "slug": "assistenti-tecnici-specializzati-in-sala-operatoria-atsso-o-sale-operatorie-aiuti-80-100-per-la-sala-operatoria-hopital",
+      "slugByLocale": {
+        "it": "assistenti-tecnici-specializzati-in-sala-operatoria-atsso-o-sale-operatorie-aiuti-80-100-per-la-sala-operatoria-hopital",
+        "en": "technical-assistants-specialized-in-operating-room-atsso-or-operating-room-aids-80-100-for-the-operating-room-hopital-du",
+        "de": "technische-assistenten-spezialisiert-auf-operationssaal-atsso-oder-operationssaal-hilft-80-100-fur-den-operationssaal",
+        "fr": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire.",
+      "titleByLocale": {
+        "it": "Assistenti tecnici specializzati in sala operatoria (ATSSO) o sale operatorie aiuti 80-100% per la sala operatoria.",
+        "en": "Technical assistants specialized in operating room (ATSSO) or operating room aids 80-100% for the operating room.",
+        "de": "Technische Assistenten spezialisiert auf Operationssaal (ATSSO) oder Operationssaal hilft 80-100% für den Operationssaal.",
+        "fr": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire."
+      },
+      "description": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nAssistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100%\n pour le bloc opératoire.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux.\n\nProfil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n\n• Maîtrise orale et écrite de la langue française.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération de temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
+      "descriptionByLocale": {
+        "it": "Il primo datore di lavoro del cantone, l'Hôpital du Valais, ha 6.260 dipendenti. Ogni anno vengono curati 418.800 pazienti e sono previste circa 670 300 visite ambulatoriale. L'Ospedale Vallese sta cercando l'Ospedale Romano del Vallese Assistenti tecnici specializzati in sala operatoria (ATSSO) o in sala operatoria aiuti a 80-100% per la sala operatoria. Missione:\n• Assicurare un'adeguata cura di tutti i pazienti secondo la strategia dell'Ospedale Vallese, il modello di pratica di cura professionale e le regole operative dell'unità operativa.\n• Mastering tecniche di struttura del paziente e gestione e mantenimento dei vari dispositivi medici. Profilo:\n• Assistente tecnico specializzato in sala operatoria laureata (ATSSO) o esperienza di aiuto in camera.\n• L'esperienza in Svizzera di almeno 1 anno sarebbe un bene.\n• Sensibilizzazione professionale, senso di responsabilità, disciplina nel lavoro.\n• Disponibilità, flessibilità e alta adattabilità e gestione dello stress.\n• Capacità di lavorare come team, versatilità e dinamismo.\n• Conoscenza dei dispositivi medici attuali e interesse per le nuove tecnologie.\n• Conoscenza orale e scritta della lingua francese. Offerta:\n• Un ambiente di lavoro user-friendly all'interno di un team di persone e la gestione partecipativa.\n• Una politica salariale equa basata sul rispetto e sulla trasparenza.\n• Molti benefici del datore di lavoro, quali:\n• Il recupero del tempo trascorso nello spogliatoio\n• Deferimento delle festività pubbliche in giorni non lavorabili\n• Cinque settimane di congedo annuale, sei settimane da 40 anni o dopo 15 anni di servizio.",
+        "en": "The canton's first employer, the Hôpital du Valais, has 6,260 employees. Each year, 418,800 patients are cared for, and nearly 670 300 outpatient visits are provided. The Valais Hospital is looking for the Valais Romand Hospital Technical assistants specialized in operating room (ATSSO) or operating room aids at 80-100% for the operating room. Mission:\n• Ensure adequate care for all patients according to the strategy of the Valais Hospital, the model of professional care practice and the operating rules of the operating unit.\n• Mastering patient facility techniques and managing and maintaining the various medical devices. Profile:\n• Technical assistant specializing in graduate operating room (ATSSO) or experience of room help.\n• Experience in Switzerland of minimum 1 year would be an asset.\n• Professional awareness, sense of responsibility, discipline in work.\n• Availability, flexibility and high adaptability and stress management.\n• Ability to work as a team, versatility and dynamism.\n• Knowledge of current medical devices and interest in new technologies.\n• Oral and written knowledge of the French language. Offer:\n• A user-friendly working environment within a team of people and fostering participatory management.\n• A fair wage policy based on respect and transparency.\n• Many employer benefits, such as:\n• The recovery of time spent in the locker room\n• Deferral of public holidays falling on unworkable days\n• Five weeks of annual leave, six weeks from 40 years or after 15 years of service.",
+        "de": "Der erste Arbeitgeber des Kantons, das Hôpital du Wallais, beschäftigt 6,260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten betreut und fast 670 300 ambulante Besuche angeboten. Das Wallis-Krankenhaus ist auf der Suche nach dem römischen Walliser Krankenhaus Technische Assistenten spezialisiert auf Operationssaal (ATSSO) oder Operationssaalhilfen bei 80-100% für den Operationssaal. Mission:\n• Gewährleistung einer angemessenen Pflege für alle Patienten nach der Strategie des Walliser Krankenhauses, dem Modell der professionellen Pflegepraxis und den Betriebsregeln der Betriebseinheit.\n• Mastering Patient Facility Techniken und Verwaltung und Wartung der verschiedenen medizinischen Geräte. Profil:\n• Technischer Assistent, der sich auf den Absolvent-Betriebsraum (ATSSO) oder die Erfahrung der Zimmerhilfe spezialisiert hat.\n• Die Erfahrung in der Schweiz von mindestens 1 Jahr wäre ein Vermögenswert.\n• Berufsbewusstsein, Verantwortungsgefühl, Arbeitsdisziplin.\n• Verfügbarkeit, Flexibilität und hohe Anpassungsfähigkeit und Stressmanagement.\n• Fähigkeit, als Team, Vielseitigkeit und Dynamik zu arbeiten.\n• Kenntnis aktueller medizinischer Geräte und Interesse an neuen Technologien.\n• Orale und schriftliche Kenntnisse der französischen Sprache. Angebot:\n• Eine benutzerfreundliche Arbeitsumgebung innerhalb eines Teams von Menschen und die Förderung des partizipativen Managements.\n• Eine faire Lohnpolitik auf der Grundlage von Respekt und Transparenz.\n• Viele Arbeitgeberleistungen wie:\n• Die Erholung der Zeit im Schließfachraum verbracht\n• Verweigerung der Feiertage, die an unarbeitbaren Tagen fallen\n• Fünf Wochen Jahresurlaub, sechs Wochen ab 40 Jahren oder nach 15 Jahren Service.",
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux. Profil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n• Maîtrise orale et écrite de la langue française. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération de temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté."
+      },
+      "location": "Martigny",
+      "canton": "VS",
+      "addressLocality": "Martigny",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1920",
+      "category": "healthcare-nursing",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80 - 100%",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5ac264d4975187d0316bb0b71153afaf/ATSANN0004701/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5ac264d4975187d0316bb0b71153afaf/ATSANN0004701/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T12:14:49.289Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004701",
+        "sysId": "5ac264d4975187d0316bb0b71153afaf",
+        "societe": "Centre Hospitalier du Valais romand",
+        "famille": "Soins",
+        "site": "MARTIGNY"
+      },
+      "previousSlugs": [
+        "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+        ],
+        "en": [
+          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+        ],
+        "de": [
+          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+        ]
+      },
+      "firstSeenAt": "2026-06-01T14:51:57.329Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS"
+    },
+    {
+      "id": "hopital-du-valais-269eac877d08",
+      "slug": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
+      "slugByLocale": {
+        "it": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
+        "en": "network-engineer-administrator-80-90-hopital-du-valais-sion",
+        "de": "network-engineer-administrator-80-90-hopital-du-valais-sion",
+        "fr": "network-engineer-administrator-80-90-hopital-du-valais-sion"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Network Engineer/Administrator 80% - 90%",
+      "titleByLocale": {
+        "it": "Ingegnere di rete/Amministratore 80% - 90%",
+        "en": "Network Engineer/Administrator 80% - 90%",
+        "de": "Network Ingenieur/Administrator 80% - 90%",
+        "fr": "Network Ingénieur/Administrator 80% - 90%"
+      },
+      "description": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+      "descriptionByLocale": {
+        "it": "L'Ospedale Vallese sta cercando un: Ingegnere di rete/Amministratore 80% - 90% CDD di 18 mesi per servizi informatici, unità operativa Voi svolgete un ruolo essenziale nella modernizzazione e nella sicurezza delle infrastrutture IT, accompagnando progetti innovativi ad alto impatto umano e tecnologico. Pronto a rispondere a varie sfide tecniche e collaborare con team appassionati? Unisciti a noi presto! Missione:\n• Partecipare alla gestione e allo sviluppo delle infrastrutture IT, nonché progetti innovativi per nuovi ospedali e centri di calcolo;\n• implementare soluzioni efficienti, sicure e altamente disponibili;\n• garantire la sicurezza operativa dei sistemi;\n• monitoraggio degli sviluppi tecnologici e partecipazione all'innovazione dei servizi;\n• partecipare al servizio di supporto Livello 2 e 3;\n• attività automatizzate e orchestrate (infrastrutture come codice);\n• collaborare a progetti relativi al reparto IT e agli scambi. Profilo:\n• Formazione ES/HES in informatica o telecomunicazioni;\n• 1-2 anni di esperienza in una posizione simile;\n• eccellenti competenze nella gestione della rete informatica, compresi i progetti di migrazione e il funzionamento dell'infrastruttura LAN e W-LAN;\n• buona esperienza nella sostituzione fisica delle attrezzature e nel coordinamento dei lavori telematici (Layer1) con gli stakeholder;\n• padroneggiare i protocolli (L2-L7) e gli standard in vigore e una piattaforma NAC;\n• la conoscenza del sistema Linux, la scrittura e il mantenimento di Ansible playbook;\n• patente di guida categoria B o equivalente;\n• can-do, rigoroso e integrità;\n• buone capacità analitiche e organizzative;\n• Lingua madre francese con buona conoscenza della seconda lingua e inglese. Offerta: Un ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
+        "en": "The Valais Hospital is looking for a: Network Engineer/Administrator 80% - 90% 18-month CDD for Computer Services, Operations Unit You play an essential role in the modernisation and security of IT infrastructures, while accompanying innovative projects with high human and technological impact. Ready to meet various technical challenges and collaborate with passionate teams? Join us soon! Mission:\n• Participate in the management and development of IT infrastructures, as well as innovative projects for new hospitals and computing centres;\n• implementing efficient, safe and highly available solutions;\n• ensuring the operational security of systems;\n• monitoring technological developments and participating in service innovation;\n• participating in the Level 2 and 3 support service;\n• automate and orchestrate activities (infrastructure as a code);\n• collaborate on projects related to the IT department and the trades. Profile:\n• ES/HES training in computer or telecommunications;\n• 1-2 years of experience in a similar position;\n• excellent skills in computer network management, including migration projects and the operation of LAN and W-LAN infrastructure;\n• good experience in physical replacement of equipment and coordination of telematics work (Layer1) with stakeholders;\n• mastering the protocols (L2-L7) and the standards in force and a NAC platform;\n• knowledge of the Linux system as well as writing and maintaining Ansible playbook;\n• driving licence category B or equivalent;\n• can-do, rigorous and integrity;\n• good analytical and organizational skills;\n• French mother tongue with good knowledge of the second language and English. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
+        "de": "Das Wallis Hospital sucht nach: Network Engineer/Administrator 80% - 90% 18-monatige CDD für Computer Services, Operations Unit Sie spielen eine wesentliche Rolle bei der Modernisierung und Sicherheit von IT-Infrastrukturen und begleiten innovative Projekte mit hoher menschlicher und technologischer Wirkung. Bereit, verschiedene technische Herausforderungen zu erfüllen und mit leidenschaftlichen Teams zusammenzuarbeiten? Kommen Sie bald zu uns! Mission:\n• Erwarten Sie die Verwaltung und Entwicklung von IT-Infrastrukturen sowie innovative Projekte für neue Krankenhäuser und Rechenzentren;\n• die Umsetzung effizienter, sicherer und hochverfügbarer Lösungen;\n• Gewährleistung der Betriebssicherheit der Systeme;\n• Überwachung technologischer Entwicklungen und Beteiligung an der Innovation im Dienste;\n• Teilnahme am Support-Service Level 2 und 3;\n• automatisieren und orchestrieren (Infrastruktur als Code);\n• Zusammenarbeit bei Projekten im Zusammenhang mit der IT-Abteilung und dem Handel. Profil:\n• ES/HES-Ausbildung in Computer oder Telekommunikation;\n• 1-2 Jahre Erfahrung in einer ähnlichen Position;\n• hervorragende Fähigkeiten in der Verwaltung von Computernetzwerken, einschließlich Migrationsprojekten und dem Betrieb von LAN- und W-LAN-Infrastruktur;\n• gute Erfahrung beim physischen Austausch von Geräten und der Koordinierung der Telematikarbeit (Layer1) mit Interessenvertretern;\n• die Protokolle (L2-L7) und die geltenden Normen und eine NAC-Plattform zu beherrschen;\n• Kenntnisse des Linux-Systems sowie Schreiben und Aufrechterhalten von ansible playbook;\n• Führerscheinkategorie B oder gleichwertig;\n• can-do, rigorose und Integrität;\n• gute analytische und organisatorische Fähigkeiten;\n• Französische Muttersprache mit gutem Wissen über die zweite Sprache und Englisch. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten für Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
+        "fr": "L’Hôpital du Valais cherche un-e : Network Engineer/Administrator 80% - 90% CDD de 18 mois pour le service Informatique, unité Opérations Vous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique. Prêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre ! Mission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n• veiller à la sécurité opérationnelle des systèmes ;\n• suivre l’évolution technologique et participer à l’innovation des services ;\n• participer au service de support niveau 2 et 3 ;\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n• collaborer aux projets en lien avec le service informatique et les métiers. Profil:\n• Formation ES/HES en informatique ou télécommunication ;\n• 1-2 ans d’expérience dans un poste similaire ;\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n• permis de conduire catégorie B ou équivalent ;\n• attitude can-do, rigoureux et intègre ;\n• bonnes capacités d'analyse et d'organisation ;\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "technology",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80 - 90%",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T12:14:48.975Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004699",
+        "sysId": "73f1ff408315cbd017a39d20ceaad318",
+        "societe": "DG & Centre de Services",
+        "famille": "Informatique",
+        "site": "SION"
+      },
+      "previousSlugs": [
+        "network-engineer-administrator-80-90-hopital-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "network-engineer-administrator-80-90-hopital-du-valais-sion"
+        ]
+      },
+      "firstSeenAt": "2026-06-01T14:51:57.681Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2944,7 +2957,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e5eadda8971103d0e7ce346e2153af5f/ATSANN0004706/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:09.003Z",
+      "crawledAt": "2026-06-10T12:14:48.631Z",
       "_hvsMeta": {
         "number": "ATSANN0004706",
         "sysId": "e5eadda8971103d0e7ce346e2153af5f",
@@ -2967,72 +2980,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:19.422Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
-    },
-    {
-      "id": "hopital-du-valais-d750c6090040",
-      "slug": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
-      "slugByLocale": {
-        "it": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
-        "en": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
-        "de": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
-        "fr": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
-      "titleByLocale": {
-        "it": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
-        "en": "Career 80 - 100%, IMC (Intermediate Care)",
-        "de": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
-        "fr": "Carrière 80 - 100%, IMC (Intermediate Care)"
-      },
-      "description": "Das Spital Wallis sucht für sein Spitalzentrum Oberwallis in der Abteilung IMC (Intermediate Care) eine:\n\nPflegefachperson 80 - 100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Förderung einer guten interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP) mit mind. 2 Jahren Berufserfahrung\n\n• NDS IPS, IMC Ausbildung oder Bereitschaft eine IMC-Ausbildung zu absolvieren\n\n• Wertschätzung im Umgang mit den Patienten\n\n• Belastbare und flexible Persönlichkeit sowie die Fähigkeit, offen auf Neues zuzugehen\n\n• Gute Kommunikationsfähigkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-      "descriptionByLocale": {
-        "it": "Lo Spital Wallis è alla ricerca di uno per il suo centro ospedaliero Oberwallis nel dipartimento IMC (Intermediate Care): Oggetto di cura 80 - 100% Missione:\n• Garantire assistenza professionale e orientata al cliente insieme ad altri membri del team\n• Promuovere una buona cooperazione interdisciplinare e interprofessionale\n• Responsabilità e partecipazione attiva\n• Accompagnare e sostenere gli studenti durante la formazione Profilo:\n• Formazione completa nell'assistenza (FH, HF, DN II o ACP) con almeno 2 anni di esperienza professionale\n• NDS IPS, formazione IMC o volontà di completare un training IMC\n• Stima nel trattamento dei pazienti\n• Alleviare e flessibile personalità e la capacità di aprire nuove cose\n• Buone capacità di comunicazione\n• Funzionamento speditivo ed esatto\n• Buone competenze informatiche Offerte:\n• Attività varie, responsabili e indipendenti\n• Supporto da un team motivato e impegnato\n• Possibilità di formazione continua\n• Condizioni di lavoro interessanti",
-        "en": "The Spital Wallis is looking for one for his hospital center Oberwallis in the department IMC (Intermediate Care): Care subject 80 - 100% Mission:\n• Ensuring professional and customer-oriented care together with other team members\n• Promoting good interdisciplinary and interprofessional cooperation\n• Own responsibility and active participation\n• Accompanying and supporting learners during training Profile:\n• Completed training in care (FH, HF, DN II or ACP) with at least 2 years of professional experience\n• NDS IPS, IMC training or willingness to complete an IMC training\n• Estimate in handling patients\n• Relieving and flexible personality as well as the ability to open up new things\n• Good communication skills\n• Speditive and exact operation\n• Good computer skills Offre:\n• Varied, responsible and independent activities\n• Support by a motivated and committed team\n• Possibility of continuing training\n• Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für sein Spitalzentrum Oberwallis in der Abteilung IMC (Intermediate Care) eine: Pflegefachperson 80 - 100% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n• Förderung einer guten interdisziplinären und interprofessionellen Zusammenarbeit\n• Eigenverantwortung und aktives Mitdenken\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP) mit mind. 2 Jahren Berufserfahrung\n• NDS IPS, IMC Ausbildung oder Bereitschaft eine IMC-Ausbildung zu absolvieren\n• Wertschätzung im Umgang mit den Patienten\n• Belastbare und flexible Persönlichkeit sowie die Fähigkeit, offen auf Neues zuzugehen\n• Gute Kommunikationsfähigkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch ein motiviertes und engagiertes Team\n• Möglichkeit zur Weiterbildung\n• Attraktive Anstellungsbedingungen",
-        "fr": "Le Spital Wallis en recherche un pour son centre hospitalier Oberwallis dans le département IMC (Intermediate Care): Sujet de soins 80 - 100% Mission :\n• Assurer des soins professionnels et axés sur le client avec d'autres membres de l'équipe\n• Promouvoir une bonne coopération interdisciplinaire et interprofessionnelle\n• Responsabilité et participation active\n• Accompagner et soutenir les apprenants pendant la formation Profil :\n• Formation complète en soins (FH, HF, DN II ou ACP) avec au moins 2 ans d'expérience professionnelle\n• NDS IPS, formation IMC ou volonté de compléter une formation IMC\n• Estimation du traitement des patients\n• Soulagement et flexibilité de la personnalité ainsi que la capacité d'ouvrir de nouvelles choses\n• Bonnes compétences en communication\n• Fonctionnement rapide et précis\n• Bonnes compétences en informatique Offre:\n• Activités variées, responsables et indépendantes\n• Soutien d'une équipe motivée et engagée\n• Possibilité de formation continue\n• Conditions d'emploi attrayantes"
-      },
-      "location": "Brig",
-      "canton": "VS",
-      "addressLocality": "Brig",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3900",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:33:08.643Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004704",
-        "sysId": "a05ddcac9711cf90e7ce346e2153af1c",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Soins",
-        "site": "BRIG"
-      },
-      "firstSeenAt": "2026-06-02T13:22:19.092Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3090,7 +3037,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7438a050875dcf90dbd6ebd30cbb35ad/ATSANN0004703/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:08.290Z",
+      "crawledAt": "2026-06-10T12:14:48.308Z",
       "_hvsMeta": {
         "number": "ATSANN0004703",
         "sysId": "7438a050875dcf90dbd6ebd30cbb35ad",
@@ -3129,72 +3076,57 @@
       "addressRegion": "VS"
     },
     {
-      "id": "hopital-du-valais-47cdde9e836d",
-      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+      "id": "hopital-du-valais-d750c6090040",
+      "slug": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-        "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
-        "de": "apotheker-in-der-krankenhausapotheke-80-100-hopital-du-valais-sion",
-        "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+        "it": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
+        "en": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
+        "de": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig",
+        "fr": "pflegefachperson-80-100-imc-intermediate-care-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
-      "title": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100%",
+      "title": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
       "titleByLocale": {
-        "it": "Specialista di farmacia in farmacia ospedaliera 80%-100%",
-        "en": "Pharmacy specialist in hospital pharmacy 80%-100%",
-        "de": "Apotheker in der Krankenhausapotheke 80%-100%",
-        "fr": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100%"
+        "it": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
+        "en": "Career 80 - 100%, IMC (Intermediate Care)",
+        "de": "Pflegefachperson 80 - 100%, IMC (Intermediate Care)",
+        "fr": "Carrière 80 - 100%, IMC (Intermediate Care)"
       },
-      "description": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un :\n\nPharmacien-ne spécialiste en pharmacie hospitalière 80%-100%\n\nMission:\nAu sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet.\n\nProfil:\nVous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+      "description": "Das Spital Wallis sucht für sein Spitalzentrum Oberwallis in der Abteilung IMC (Intermediate Care) eine:\n\nPflegefachperson 80 - 100%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Förderung einer guten interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP) mit mind. 2 Jahren Berufserfahrung\n\n• NDS IPS, IMC Ausbildung oder Bereitschaft eine IMC-Ausbildung zu absolvieren\n\n• Wertschätzung im Umgang mit den Patienten\n\n• Belastbare und flexible Persönlichkeit sowie die Fähigkeit, offen auf Neues zuzugehen\n\n• Gute Kommunikationsfähigkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
-        "it": "Mansioni\n- Specialista di farmacia in farmacia ospedaliera 80%-100%\n\nDescrizione\nNel team di farmacia clinica, si partecipa a visite cliniche alle unità di cura dell'Ospedale Vallese o degli stabilimenti clienti e si collabora con il centro informazioni sulla droga. Stai partecipando al progetto per implementare la nuova IPR. Fai parte del servizio di picket.\n\nObbligo\n- Diploma di farmacista-ne\n- Specialista in farmacia ospedaliera (o formazione equivalente)\n- Interessi nell'informatica clinica\n- Valutazione del lavoro di squadra\n- Approccio orientato al paziente\n- Buone capacità di comunicazione\n- Lingua madre francese o tedesca, con buona conoscenza della seconda lingua\n\nCosa fare\n- Un ambiente stimolante e diversificato\n- Possibilità di mise per usare la vostra conoscenza ed esperienza\n- Condizioni di lavoro interessanti\n- Opportunità di ulteriore formazione e formazione\n- Trova qui tutti i vantaggi per i nostri dipendenti\n\nContatto",
-        "en": "Mansioni\n- Pharmacy specialist in hospital pharmacy 80%-100%\n\nDescrizione\nIn the clinical pharmacy team, you participate in clinical visits to the care units of the Valais Hospital or client establishments and you collaborate with the drug information centre. You are participating in the project to implement the new IPR. You're part of the picket service.\n\nRequired\n- Diploma of pharmacist-ne\n- Specialist in hospital pharmacy (or equivalent training)\n- Interest in clinical computing\n- Assessment of teamwork\n- Patient-oriented approach\n- Good communication skills\n- French or German mother tongue, with good knowledge of the second language\n\nCosa offeriamo\n- A stimulating and diverse environment\n- Possibilità di mise to use your knowledge and experience\n- Attractive conditions of employment\n- Opportunities for further training and further training\n- Find here all the advantages for our employees\n\nContatto",
-        "de": "Mansioni\n- Apotheker in der Krankenhausapotheke 80%-100%\n\nDescrizion\nIm klinischen Apothekenteam nehmen Sie an klinischen Besuchen der Pflegeeinheiten des Walliser Krankenhauses oder der Kundeneinrichtungen teil und arbeiten mit dem Arzneimittelinformationszentrum zusammen. Sie beteiligen sich an dem Projekt zur Umsetzung des neuen IPR. Sie sind Teil des Streikpostendienstes.\n\nerforderlich\n- Diplom des Apothekers-ne\n- Spezialist für Krankenhausapotheke (oder gleichwertige Ausbildung)\nInteresse am Clinical Computing\n- Bewertung der Teamarbeit\nPatientenorientierter Ansatz\n- Gute Kommunikationsfähigkeiten\n- Französische oder deutsche Muttersprache, mit guten Kenntnissen der zweiten Sprache\n\nCosa offeriamo\n- Eine anregende und vielfältige Umgebung\n- Possibilità di mise, um Ihr Wissen und Ihre Erfahrung zu nutzen\n- Attraktive Beschäftigungsbedingungen\n- Möglichkeiten zur Weiterbildung und Weiterbildung\n- Hier finden Sie alle Vorteile für unsere Mitarbeiter\n\nContatto",
-        "fr": "## Mansioni\n- Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100%\n\n## Descrizione\nAu sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet.\n\n## Requisiti\n- Diplôme de pharmacien-ne\n- Titre de spécialiste en pharmacie hospitalière (ou formation équivalente)\n- Intérêt pour l’informatique clinique\n- Appréciation du travail en équipe\n- Approche orientée patient\n- Bonnes capacités de communication\n- De langue maternelle française ou allemande, avec de bonnes connaissances de la deuxième langue\n\n## Cosa offriamo\n- Un environnement stimulant et diversifié\n- Possibilità di mettere a profit vos connaissances et votre expérience\n- Conditions d’emploi attrayantes\n- Possibilità de formation continue et de perfectionnement\n- Retrouvez ici tous les avantages pour nos collaborateurs-trices\n\n## Contatto"
+        "it": "Lo Spital Wallis è alla ricerca di uno per il suo centro ospedaliero Oberwallis nel dipartimento IMC (Intermediate Care): Oggetto di cura 80 - 100% Missione:\n• Garantire assistenza professionale e orientata al cliente insieme ad altri membri del team\n• Promuovere una buona cooperazione interdisciplinare e interprofessionale\n• Responsabilità e partecipazione attiva\n• Accompagnare e sostenere gli studenti durante la formazione Profilo:\n• Formazione completa nell'assistenza (FH, HF, DN II o ACP) con almeno 2 anni di esperienza professionale\n• NDS IPS, formazione IMC o volontà di completare un training IMC\n• Stima nel trattamento dei pazienti\n• Alleviare e flessibile personalità e la capacità di aprire nuove cose\n• Buone capacità di comunicazione\n• Funzionamento speditivo ed esatto\n• Buone competenze informatiche Offerte:\n• Attività varie, responsabili e indipendenti\n• Supporto da un team motivato e impegnato\n• Possibilità di formazione continua\n• Condizioni di lavoro interessanti",
+        "en": "The Spital Wallis is looking for one for his hospital center Oberwallis in the department IMC (Intermediate Care): Care subject 80 - 100% Mission:\n• Ensuring professional and customer-oriented care together with other team members\n• Promoting good interdisciplinary and interprofessional cooperation\n• Own responsibility and active participation\n• Accompanying and supporting learners during training Profile:\n• Completed training in care (FH, HF, DN II or ACP) with at least 2 years of professional experience\n• NDS IPS, IMC training or willingness to complete an IMC training\n• Estimate in handling patients\n• Relieving and flexible personality as well as the ability to open up new things\n• Good communication skills\n• Speditive and exact operation\n• Good computer skills Offre:\n• Varied, responsible and independent activities\n• Support by a motivated and committed team\n• Possibility of continuing training\n• Attractive employment conditions",
+        "de": "Das Spital Wallis sucht für sein Spitalzentrum Oberwallis in der Abteilung IMC (Intermediate Care) eine: Pflegefachperson 80 - 100% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n• Förderung einer guten interdisziplinären und interprofessionellen Zusammenarbeit\n• Eigenverantwortung und aktives Mitdenken\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF, DN II oder AKP) mit mind. 2 Jahren Berufserfahrung\n• NDS IPS, IMC Ausbildung oder Bereitschaft eine IMC-Ausbildung zu absolvieren\n• Wertschätzung im Umgang mit den Patienten\n• Belastbare und flexible Persönlichkeit sowie die Fähigkeit, offen auf Neues zuzugehen\n• Gute Kommunikationsfähigkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch ein motiviertes und engagiertes Team\n• Möglichkeit zur Weiterbildung\n• Attraktive Anstellungsbedingungen",
+        "fr": "Le Spital Wallis en recherche un pour son centre hospitalier Oberwallis dans le département IMC (Intermediate Care): Sujet de soins 80 - 100% Mission :\n• Assurer des soins professionnels et axés sur le client avec d'autres membres de l'équipe\n• Promouvoir une bonne coopération interdisciplinaire et interprofessionnelle\n• Responsabilité et participation active\n• Accompagner et soutenir les apprenants pendant la formation Profil :\n• Formation complète en soins (FH, HF, DN II ou ACP) avec au moins 2 ans d'expérience professionnelle\n• NDS IPS, formation IMC ou volonté de compléter une formation IMC\n• Estimation du traitement des patients\n• Soulagement et flexibilité de la personnalité ainsi que la capacité d'ouvrir de nouvelles choses\n• Bonnes compétences en communication\n• Fonctionnement rapide et précis\n• Bonnes compétences en informatique Offre:\n• Activités variées, responsables et indépendantes\n• Soutien d'une équipe motivée et engagée\n• Possibilité de formation continue\n• Conditions d'emploi attrayantes"
       },
-      "location": "Sion",
+      "location": "Brig",
       "canton": "VS",
-      "addressLocality": "Sion",
+      "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1950",
-      "category": "logistics",
+      "postalCode": "3900",
+      "category": "healthcare-nursing",
       "sector": "Santé / Hôpital",
       "contract": "full-time",
       "employmentType": "80 - 100%",
       "featured": false,
-      "postedDate": "2026-06-03",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0ca3c3b047918714339c9146736d43a4/ATSANN0004709/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0ca3c3b047918714339c9146736d43a4/ATSANN0004709/params/language/fr",
+      "postedDate": "2026-06-02",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:07.960Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T12:14:47.989Z",
       "_hvsMeta": {
-        "number": "ATSANN0004709",
-        "sysId": "0ca3c3b047918714339c9146736d43a4",
-        "societe": "Institut central des hôpitaux",
-        "famille": "Médico-technique",
-        "site": "SION"
+        "number": "ATSANN0004704",
+        "sysId": "a05ddcac9711cf90e7ce346e2153af1c",
+        "societe": "Spitalzentrum Oberwallis",
+        "famille": "Soins",
+        "site": "BRIG"
       },
-      "previousSlugs": [
-        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
-        "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
-        ],
-        "de": [
-          "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion",
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
-        ],
-        "en": [
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
-        ]
-      },
-      "firstSeenAt": "2026-06-03T23:52:48.467Z",
+      "firstSeenAt": "2026-06-02T13:22:19.092Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3212,9 +3144,9 @@
     },
     {
       "id": "hopital-du-valais-c8e757d35e02",
-      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
         "de": "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
@@ -3224,17 +3156,17 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%",
       "titleByLocale": {
-        "it": "Specialista di farmacia in farmacia ospedaliera 80%",
+        "it": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%",
         "en": "Pharmacy specialist in hospital pharmacy 80%",
         "de": "Apotheker in der Krankenhausapotheke 80%",
         "fr": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%"
       },
       "description": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un :\n\nPharmacien-ne spécialiste en pharmacie hospitalière à 80%.\n\nMission:\nAu sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet.\n\nProfil:\nVous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
-        "it": "L'Ospedale Vallese è alla ricerca della farmacia dell'Istituto ospedaliero centrale uno:\n\nSpecialista di farmacia in farmacia ospedaliera all'80%.\n\nMissione:\nNel team di farmacia clinica, si partecipa a visite cliniche alle unità di cura dell'Ospedale Vallese o degli stabilimenti clienti e si collabora con il centro informazioni sulla droga. Stai partecipando al progetto per implementare la nuova IPR. Fai parte del servizio di picket.\n\nProfilo:\nHai un diploma di farmacista-ne e una laurea specialistica in farmacia ospedaliera (o formazione equivalente). Hai un interesse per l'informatica clinica. Apprezzi il lavoro di squadra, concentrati su approccio orientato al paziente e avere buone capacità di comunicazione. Lingua madre francese o tedesca hai una buona conoscenza della seconda lingua.\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The Valais Hospital is looking for the pharmacy of the Central Hospital Institute one:\n\nPharmacy specialist in hospital pharmacy at 80%.\n\nMission:\nIn the clinical pharmacy team, you participate in clinical visits to the care units of the Valais Hospital or client establishments and you collaborate with the drug information centre. You are participating in the project to implement the new IPR. You're part of the picket service.\n\nProfile:\nYou have a diploma of pharmacist-ne and a specialist degree in hospital pharmacy (or equivalent training). You have an interest in clinical computing. You appreciate teamwork, focus on patient-oriented approach and have good communication skills. French or German native language you have good knowledge of the second language.\n\nOffer:\nA stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Das Walliser Krankenhaus sucht die Apotheke des Central Hospital Institute one:\n\nApotheke Spezialist in Krankenhaus Apotheke bei 80%.\n\nMission:\nIm klinischen Apothekenteam nehmen Sie an klinischen Besuchen der Pflegeeinheiten des Walliser Krankenhauses oder der Kundeneinrichtungen teil und arbeiten mit dem Arzneimittelinformationszentrum zusammen. Sie beteiligen sich an dem Projekt zur Umsetzung des neuen IPR. Sie sind Teil des Streikpostendienstes.\n\nProfil:\nSie haben ein Apotheker-Diplom und einen Fachabschluss in Krankenhausapotheke (oder eine gleichwertige Ausbildung). Sie interessieren sich für Clinical Computing. Sie schätzen Teamwork, konzentrieren sich auf patientenorientiertes Vorgehen und verfügen über gute Kommunikationsfähigkeiten. Französische oder deutsche Muttersprache Sie haben gute Kenntnisse der zweiten Sprache.\n\nAngebot:\nEin anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un :\n\nPharmacien-ne spécialiste en pharmacie hospitalière à 80%.\n\nMission:\nAu sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet.\n\nProfil:\nVous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
+        "it": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un : Pharmacien-ne spécialiste en pharmacie hospitalière à 80%. Mission: Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. Profil: Vous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "en": "The Valais Hospital is looking for the pharmacy of the Central Hospital Institute one: Pharmacy specialist in hospital pharmacy at 80%. Mission: In the clinical pharmacy team, you participate in clinical visits to the care units of the Valais Hospital or client establishments and you collaborate with the drug information centre. You are participating in the project to implement the new IPR. You're part of the picket service. \n• Profile: You have a diploma of pharmacist-ne and a specialist degree in hospital pharmacy (or equivalent training). You have an interest in clinical computing. You appreciate teamwork, focus on patient-oriented approach and have good communication skills. French or German native language you have good knowledge of the second language. Offer: A stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
+        "de": "Das Walliser Krankenhaus sucht die Apotheke des Central Hospital Institute one: Apotheke Spezialist in Krankenhaus Apotheke bei 80%. Mission: Im klinischen Apothekenteam nehmen Sie an klinischen Besuchen der Pflegeeinheiten des Walliser Krankenhauses oder der Kundeneinrichtungen teil und arbeiten mit dem Arzneimittelinformationszentrum zusammen. Sie beteiligen sich an dem Projekt zur Umsetzung des neuen IPR. Sie sind Teil des Streikpostendienstes. Profil: Sie haben ein Apotheker-Diplom und einen Fachabschluss in Krankenhausapotheke (oder eine gleichwertige Ausbildung). Sie interessieren sich für Clinical Computing. Sie schätzen Teamwork, konzentrieren sich auf patientenorientiertes Vorgehen und verfügen über gute Kommunikationsfähigkeiten. Französische oder deutsche Muttersprache Sie haben gute Kenntnisse der zweiten Sprache. Angebot: Ein anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
+        "fr": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un : Pharmacien-ne spécialiste en pharmacie hospitalière à 80%. Mission: Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. Profil: Vous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Sion",
       "canton": "VS",
@@ -3252,7 +3184,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/16954f7847918714339c9146736d43ed/ATSANN0004710/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:07.628Z",
+      "crawledAt": "2026-06-10T12:14:47.670Z",
       "_hvsMeta": {
         "number": "ATSANN0004710",
         "sysId": "16954f7847918714339c9146736d43ed",
@@ -3260,12 +3192,9 @@
         "famille": "Médico-technique",
         "site": "SION"
       },
-      "previousSlugs": [
-        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
-        "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion"
-      ],
       "previousSlugsByLocale": {
         "it": [
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ],
         "de": [
@@ -3276,7 +3205,96 @@
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ]
       },
+      "previousSlugs": [
+        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+        "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion"
+      ],
       "firstSeenAt": "2026-06-03T23:52:48.116Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS"
+    },
+    {
+      "id": "hopital-du-valais-47cdde9e836d",
+      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+      "slugByLocale": {
+        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+        "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
+        "de": "apotheker-in-der-krankenhausapotheke-80-100-hopital-du-valais-sion",
+        "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100%",
+      "titleByLocale": {
+        "it": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100%",
+        "en": "Pharmacy specialist in hospital pharmacy 80%-100%",
+        "de": "Apotheker in der Krankenhausapotheke 80%-100%",
+        "fr": "Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100%"
+      },
+      "description": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un :\n\nPharmacien-ne spécialiste en pharmacie hospitalière 80%-100%\n\nMission:\nAu sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet.\n\nProfil:\nVous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+      "descriptionByLocale": {
+        "it": "L’Hôpital du Valais cherche pour la pharmacie de l'Institut Central des Hôpitaux un : Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100% Mission: Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. Profil: Vous avez un diplôme de pharmacien-ne et un titre de spécialiste en pharmacie hospitalière (ou formation équivalente). Vous avez un intérêt pour l’informatique clinique. Vous appréciez le travail en équipe, privilégiez l’approche orientée patient et avez de bonnes capacités de communication. De langue maternelle française ou allemande vous avez de bonnes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "en": "Mansioni - Pharmacy specialist in hospital pharmacy 80%-100% Descrizione In the clinical pharmacy team, you participate in clinical visits to the care units of the Valais Hospital or client establishments and you collaborate with the drug information centre. You are participating in the project to implement the new IPR. You're part of the picket service. Required - Diploma of pharmacist-ne - Specialist in hospital pharmacy (or equivalent training) - Interest in clinical computing - Assessment of teamwork - Patient-oriented approach - Good communication skills - French or German mother tongue, with good knowledge of the second language Cosa offeriamo - A stimulating and diverse environment - Possibilità di mise to use your knowledge and experience - Attractive conditions of employment - Opportunities for further training and further training - Find here all the advantages for our employees Contatto",
+        "de": "Mansioni - Apotheker in der Krankenhausapotheke 80%-100% Descrizion Im klinischen Apothekenteam nehmen Sie an klinischen Besuchen der Pflegeeinheiten des Walliser Krankenhauses oder der Kundeneinrichtungen teil und arbeiten mit dem Arzneimittelinformationszentrum zusammen. Sie beteiligen sich an dem Projekt zur Umsetzung des neuen IPR. Sie sind Teil des Streikpostendienstes. erforderlich - Diplom des Apothekers-ne - Spezialist für Krankenhausapotheke (oder gleichwertige Ausbildung) Interesse am Clinical Computing - Bewertung der Teamarbeit Patientenorientierter Ansatz - Gute Kommunikationsfähigkeiten - Französische oder deutsche Muttersprache, mit guten Kenntnissen der zweiten Sprache Cosa offeriamo - Eine anregende und vielfältige Umgebung - Possibilità di mise, um Ihr Wissen und Ihre Erfahrung zu nutzen - Attraktive Beschäftigungsbedingungen - Möglichkeiten zur Weiterbildung und Weiterbildung - Hier finden Sie alle Vorteile für unsere Mitarbeiter Contatto",
+        "fr": "## Mansioni - Pharmacien-ne spécialiste en pharmacie hospitalière 80%-100% ## Descrizione Au sein de l’équipe de pharmacie clinique, vous participez aux visites cliniques dans les unités de soins de l’Hôpital du Valais ou d’établissements clients et vous collaborez au centre d’information sur le médicament. Vous participez au projet de mise en place du nouveau DPI. Vous participez au service de piquet. ## \n• Requisiti - Diplôme de pharmacien-ne - Titre de spécialiste en pharmacie hospitalière (ou formation équivalente) - Intérêt pour l’informatique clinique - Appréciation du travail en équipe - Approche orientée patient - Bonnes capacités de communication - De langue maternelle française ou allemande, avec de bonnes connaissances de la deuxième langue ## \n• Cosa offriamo - Un environnement stimulant et diversifié - Possibilità di mettere a profit vos connaissances et votre expérience - Conditions d’emploi attrayantes - Possibilità de formation continue et de perfectionnement - Retrouvez ici tous les avantages pour nos collaborateurs-trices ## Contatto"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "logistics",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80 - 100%",
+      "featured": false,
+      "postedDate": "2026-06-03",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0ca3c3b047918714339c9146736d43a4/ATSANN0004709/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0ca3c3b047918714339c9146736d43a4/ATSANN0004709/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T12:14:47.355Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004709",
+        "sysId": "0ca3c3b047918714339c9146736d43a4",
+        "societe": "Institut central des hôpitaux",
+        "famille": "Médico-technique",
+        "site": "SION"
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion",
+          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+        "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
+      ],
+      "firstSeenAt": "2026-06-03T23:52:48.467Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3334,7 +3352,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a6a0f0ad979dc7d0e7ce346e2153af36/ATSANN0004711/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:07.295Z",
+      "crawledAt": "2026-06-10T12:14:47.037Z",
       "_hvsMeta": {
         "number": "ATSANN0004711",
         "sysId": "a6a0f0ad979dc7d0e7ce346e2153af36",
@@ -3414,7 +3432,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:06.625Z",
+      "crawledAt": "2026-06-10T12:14:46.435Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -3453,27 +3471,27 @@
       "id": "hopital-du-valais-eeea228ef2dc",
       "slug": "biologo-molecolare-60-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "fr": "biologiste-moleculaire-60-80-hopital-du-valais-sion",
         "it": "biologo-molecolare-60-80-hopital-du-valais-sion",
         "en": "molecular-biologist-60-80-hopital-du-valais-sion",
-        "de": "molekularbiologe-60-80-hopital-du-valais-sion"
+        "de": "molekularbiologe-60-80-hopital-du-valais-sion",
+        "fr": "biologiste-moleculaire-60-80-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Biologiste moléculaire 60%-80%",
       "titleByLocale": {
-        "fr": "Biologiste moléculaire 60%-80%",
         "it": "Biologo molecolare 60%-80%",
         "en": "Molecular biologist 60%-80%",
-        "de": "Molekularbiologe 60%-80%"
+        "de": "Molekularbiologe 60%-80%",
+        "fr": "Biologiste moléculaire 60%-80%"
       },
       "description": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e :\n\nBiologiste moléculaire 60%-80%\n\nMission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n\n• Aider à la formation continue du personnel\n\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189)\n\nProfil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage.\n\nOffre:\nUn climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
-        "fr": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e :\n\nBiologiste moléculaire 60%-80%\n\nMission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n\n• Aider à la formation continue du personnel\n\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189)\n\nProfil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage.\n\nOffre:\nUn climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "it": "L'Ospedale Vallese sta cercando il Laboratorio di Patologia Molecolare del Dipartimento di Istocitopatologia dell'Istituto Centrale dell'Ospedale:\n\nBiologo molecolare 60%-80%\n\nMissione:\n• Partecipare alle attività del laboratorio di patologia molecolare, tra cui effettuare e monitorare analisi, ottimizzare i flussi di lavoro e convalidare e comunicare i risultati\n\n• Sviluppare, implementare e convalidare nuove analisi (nuovi biomarcatori predittivi, diagnostici e prognostici)\n\n• Assistere alla formazione continua del personale\n\n• Partecipare al mantenimento della qualità per l’Hitocytopathology (elaborazione e aggiornamento delle SOP, accreditamento ISO 15189)\n\nProfilo:\n• Hai una laurea magistrale (o equivalente) in biologia con una solida esperienza nelle tecniche molecolari (PCR, microscopia di fluorescenza, preparazione della libreria NGS)\n\n• Hai esperienza nell'analisi bioinformatica del sequenziamento dei dati (pipeline, QC, chiamata variabile, ecc.).\n\n• Si beneficia di un'esperienza di almeno 3 anni in un laboratorio clinico o di ricerca.\n\n• Siete organizzati, coscienziosi, con eccellenti competenze analitiche, grande precisione nel vostro lavoro e spettacolo iniziativa.\n\n• Siete comodi nelle dinamiche di squadra e beneficiate di uno spirito collaborativo.\n\n• Un buon comando della lingua francese è essenziale, il tedesco è un vantaggio.\n\nOfferta:\nUn ambiente di lavoro piacevole e stimolante in stretta collaborazione con patologi e tecnici (determinazione dei biomarcatori, classificazione delle varianti, interazione con i team di istologia e citologia per garantire la rilevanza morfolecolare delle analisi). L'opportunità di partecipare allo sviluppo strategico della piattaforma molecolare. Prospettive per responsabilità più ampie. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The Valais Hospital is looking for the Molecular Pathology Laboratory of the Histocytopathology Department of the Central Hospital Institute:\n\nMolecular biologist 60%-80%\n\nMission:\n• Participate in the activities of the molecular pathology laboratory, including carrying out and monitoring analyses, optimising workflows and validating and communicating results\n\n• Develop, implement and validate new analyses (new predictive, diagnostic and prognostic biomarkers)\n\n• Assisting in the ongoing training of staff\n\n• Participate in the maintenance of quality for Histocytopathology (drafting and updating of SOPs, ISO 15189 accreditation)\n\nProfile:\n• You have a Master's degree (or deemed equivalent) in biology with a solid experience in molecular techniques (PCR, fluorescence microscopy, NGS library preparation)\n\n• You have expertise in bioinformatics analysis of sequencing data (pipeline, QC, varying calling, etc.).\n\n• You benefit from an experience of at least 3 years in a clinical or research laboratory.\n\n• You are organized, conscientious, with excellent analytical skills, great precision in your work and show initiative.\n\n• You are comfortable in team dynamics and benefit from a collaborative spirit.\n\n• A good command of the French language is essential, German is an advantage.\n\nOffer:\nA pleasant and stimulating working environment in close collaboration with pathologists and technicians (determination of biomarkers, classification of variants, interaction with histology teams and cytology to ensure the morphomolecular relevance of analyses). The opportunity to participate in the strategic development of the molecular platform. Prospects for wider responsibilities. Find here all the advantages for our employees.",
-        "de": "Das Walliser Krankenhaus sucht das Molekularpathologielabor der Abteilung Histocytopathologie des Zentralen Krankenhausinstituts:\n\nMolekularbiologe 60%-80%\n\nMission:\n• Beteiligen Sie sich an den Aktivitäten des Labors für molekulare Pathologie, einschließlich der Durchführung und Überwachung von Analysen, der Optimierung von Workflows und der Validierung und Kommunikation von Ergebnissen\n\n• Entwicklung, Implementierung und Validierung neuer Analysen (neue prädiktive, diagnostische und prognostische Biomarker)\n\n• Unterstützung bei der laufenden Schulung des Personals\n\n• Beteiligen Sie sich an der Aufrechterhaltung der Qualität für die Histocytopathologie (Entwurf und Aktualisierung von SOPs, ISO 15189 Akkreditierung)\n\nProfil:\n• Sie haben einen Master-Abschluss (oder als gleichwertig angesehen) in Biologie mit einer soliden Erfahrung in molekularen Techniken (PCR, Fluoreszenzmikroskopie, NGS-Bibliotheksvorbereitung)\n\n• Sie haben Fachwissen in der Bioinformatik-Analyse von Sequenzierungsdaten (Pipeline, QC, unterschiedliche Aufrufe usw.).\n\n• Sie profitieren von einer Erfahrung von mindestens 3 Jahren in einem klinischen oder Forschungslabor.\n\n• Sie sind organisiert, gewissenhaft, mit hervorragenden analytischen Fähigkeiten, großer Präzision in Ihrer Arbeit und zeigen Initiative.\n\n• Sie fühlen sich wohl in der Teamdynamik und profitieren von einem kooperativen Geist.\n\n• Eine gute Beherrschung der französischen Sprache ist unerlässlich, Deutsch ist ein Vorteil.\n\nAngebot:\nEin angenehmes und anregendes Arbeitsumfeld in enger Zusammenarbeit mit Pathologen und Technikern (Bestimmung von Biomarkern, Klassifizierung von Varianten, Interaktion mit histologischen Teams und Zytologie zur Sicherstellung der morphomolekularen Relevanz von Analysen). Die Möglichkeit, an der strategischen Entwicklung der molekularen Plattform teilzunehmen. Perspektiven für breitere Verantwortlichkeiten. Hier finden Sie alle Vorteile für unsere Mitarbeiter."
+        "it": "L'Ospedale Vallese sta cercando il Laboratorio di Patologia Molecolare del Dipartimento di Istocitopatologia dell'Istituto Centrale dell'Ospedale: Biologo molecolare 60%-80% Missione:\n• Partecipare alle attività del laboratorio di patologia molecolare, tra cui effettuare e monitorare analisi, ottimizzare i flussi di lavoro e convalidare e comunicare i risultati\n• Sviluppare, implementare e convalidare nuove analisi (nuovi biomarcatori predittivi, diagnostici e prognostici)\n• Assistere alla formazione continua del personale\n• Partecipare al mantenimento della qualità per l’Hitocytopathology (elaborazione e aggiornamento delle SOP, accreditamento ISO 15189) Profilo:\n• Hai una laurea magistrale (o equivalente) in biologia con una solida esperienza nelle tecniche molecolari (PCR, microscopia di fluorescenza, preparazione della libreria NGS)\n• Hai esperienza nell'analisi bioinformatica del sequenziamento dei dati (pipeline, QC, chiamata variabile, ecc.).\n• Si beneficia di un'esperienza di almeno 3 anni in un laboratorio clinico o di ricerca.\n• Siete organizzati, coscienziosi, con eccellenti competenze analitiche, grande precisione nel vostro lavoro e spettacolo iniziativa.\n• Siete comodi nelle dinamiche di squadra e beneficiate di uno spirito collaborativo.\n• Un buon comando della lingua francese è essenziale, il tedesco è un vantaggio. Offerta: Un ambiente di lavoro piacevole e stimolante in stretta collaborazione con patologi e tecnici (determinazione dei biomarcatori, classificazione delle varianti, interazione con i team di istologia e citologia per garantire la rilevanza morfolecolare delle analisi). L'opportunità di partecipare allo sviluppo strategico della piattaforma molecolare. Prospettive per responsabilità più ampie. Trova qui tutti i vantaggi per i nostri dipendenti.",
+        "en": "The Valais Hospital is looking for the Molecular Pathology Laboratory of the Histocytopathology Department of the Central Hospital Institute: Molecular biologist 60%-80% Mission:\n• Participate in the activities of the molecular pathology laboratory, including carrying out and monitoring analyses, optimising workflows and validating and communicating results\n• Develop, implement and validate new analyses (new predictive, diagnostic and prognostic biomarkers)\n• Assisting in the ongoing training of staff\n• Participate in the maintenance of quality for Histocytopathology (drafting and updating of SOPs, ISO 15189 accreditation) Profile:\n• You have a Master's degree (or deemed equivalent) in biology with a solid experience in molecular techniques (PCR, fluorescence microscopy, NGS library preparation)\n• You have expertise in bioinformatics analysis of sequencing data (pipeline, QC, varying calling, etc.).\n• You benefit from an experience of at least 3 years in a clinical or research laboratory.\n• You are organized, conscientious, with excellent analytical skills, great precision in your work and show initiative.\n• You are comfortable in team dynamics and benefit from a collaborative spirit.\n• A good command of the French language is essential, German is an advantage. Offer: A pleasant and stimulating working environment in close collaboration with pathologists and technicians (determination of biomarkers, classification of variants, interaction with histology teams and cytology to ensure the morphomolecular relevance of analyses). The opportunity to participate in the strategic development of the molecular platform. Prospects for wider responsibilities. Find here all the advantages for our employees.",
+        "de": "Das Walliser Krankenhaus sucht das Molekularpathologielabor der Abteilung Histocytopathologie des Zentralen Krankenhausinstituts: Molekularbiologe 60%-80% Mission:\n• Beteiligen Sie sich an den Aktivitäten des Labors für molekulare Pathologie, einschließlich der Durchführung und Überwachung von Analysen, der Optimierung von Workflows und der Validierung und Kommunikation von Ergebnissen\n• Entwicklung, Implementierung und Validierung neuer Analysen (neue prädiktive, diagnostische und prognostische Biomarker)\n• Unterstützung bei der laufenden Schulung des Personals\n• Beteiligen Sie sich an der Aufrechterhaltung der Qualität für die Histocytopathologie (Entwurf und Aktualisierung von SOPs, ISO 15189 Akkreditierung) Profil:\n• Sie haben einen Master-Abschluss (oder als gleichwertig angesehen) in Biologie mit einer soliden Erfahrung in molekularen Techniken (PCR, Fluoreszenzmikroskopie, NGS-Bibliotheksvorbereitung)\n• Sie haben Fachwissen in der Bioinformatik-Analyse von Sequenzierungsdaten (Pipeline, QC, unterschiedliche Aufrufe usw.).\n• Sie profitieren von einer Erfahrung von mindestens 3 Jahren in einem klinischen oder Forschungslabor.\n• Sie sind organisiert, gewissenhaft, mit hervorragenden analytischen Fähigkeiten, großer Präzision in Ihrer Arbeit und zeigen Initiative.\n• Sie fühlen sich wohl in der Teamdynamik und profitieren von einem kooperativen Geist.\n• Eine gute Beherrschung der französischen Sprache ist unerlässlich, Deutsch ist ein Vorteil. Angebot: Ein angenehmes und anregendes Arbeitsumfeld in enger Zusammenarbeit mit Pathologen und Technikern (Bestimmung von Biomarkern, Klassifizierung von Varianten, Interaktion mit histologischen Teams und Zytologie zur Sicherstellung der morphomolekularen Relevanz von Analysen). Die Möglichkeit, an der strategischen Entwicklung der molekularen Plattform teilzunehmen. Perspektiven für breitere Verantwortlichkeiten. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
+        "fr": "L’Hôpital du Valais cherche pour le laboratoire de pathologie moléculaire du service d’Histocytopathologie de l'Institut Central des Hôpitaux un-e : Biologiste moléculaire 60%-80% Mission:\n• Participer aux activités du laboratoire de pathologie moléculaire, incluant la réalisation et le suivi des analyses, l’optimisation des flux de travail ainsi que la validation et la communication des résultats\n• Développer, implémenter et valider de nouvelles analyses (nouveaux biomarqueurs prédictifs, diagnostiques et pronostiques)\n• Aider à la formation continue du personnel\n• Participer au maintien de la qualité pour le service d'Histocytopathologie (rédaction et mise à jour des SOP, accréditation ISO 15189) Profil:\n• Vous avez un diplôme de Master (ou jugé équivalent) en biologie avec une expérience solide en techniques moléculaires (PCR, microscopie fluorescence, préparation libraires NGS)\n• Vous possédez des compétences en analyse bio-informatique des données de séquençage (pipeline, QC, variant calling, etc.).\n• Vous bénéficiez d’une expérience d’au moins 3 ans dans un laboratoire clinique ou de recherche.\n• Vous êtes organisé-e, consciencieux-se, avec d'excellentes capacités analytiques, une grande précision dans votre travail et faites preuve d'initiative.\n• Vous êtes à l'aise dans les dynamiques d'équipes et bénéficiez d'un esprit collaboratif.\n• Une bonne maîtrise de la langue française est indispensable, l'allemand est un avantage. Offre: Un climat de travail agréable et stimulant en collaboration étroite avec les médecins pathologistes et les techniciens (détermination des biomarqueurs, classification des variants, interaction avec les équipes d’histologie et cytologie pour assurer la pertinence morpho-moléculaire des analyses). La possibilité de participer au développement stratégique de la plateforme moléculaire. Des perspectives d’évolution vers des responsabilités élargies. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Sion",
       "canton": "VS",
@@ -3491,7 +3509,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6058dfa97590350316bb0b71153af23/ATSANN0004713/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-09T22:33:06.292Z",
+      "crawledAt": "2026-06-10T12:14:46.114Z",
       "_hvsMeta": {
         "number": "ATSANN0004713",
         "sysId": "c6058dfa97590350316bb0b71153af23",
@@ -3499,6 +3517,87 @@
         "famille": "Médico-technique",
         "site": "SION"
       },
+      "previousSlugs": [
+        "biologiste-moleculaire-60-80-hopital-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "biologiste-moleculaire-60-80-hopital-du-valais-sion"
+        ],
+        "en": [
+          "biologiste-moleculaire-60-80-hopital-du-valais-sion"
+        ],
+        "de": [
+          "biologiste-moleculaire-60-80-hopital-du-valais-sion"
+        ]
+      },
+      "firstSeenAt": "2026-06-09T22:33:06.292Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS"
+    },
+    {
+      "id": "hopital-du-valais-265947c675f5",
+      "slug": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
+      "slugByLocale": {
+        "fr": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
+        "it": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
+        "en": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
+        "de": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie"
+      },
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Infirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte.",
+      "titleByLocale": {
+        "fr": "Infirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte.",
+        "it": "Infirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte.",
+        "en": "Infirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte.",
+        "de": "Infirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte."
+      },
+      "description": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e\n\nInfirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte\n\nMission:\nAssurer la prise en charge des patients en proie à des difficultés psychiques, en respectant le Modèle de Pratique Professionnelle (MPP) en vigueur au sein de l’Hôpital du Valais.\n\nProfil:\nDiplôme en soins infirmiers suisse ou diplôme reconnu par la Croix-Rouge\n\nExpérience professionnelle confirmée\n\nCapacité à collaborer avec des intervenants pluridisciplinaires\n\nDynamisme, ouverture d’esprit, empathie\n\nMaitrise de soi, résistance au stress\n\nSeules les offres répondant au profil seront traitées.",
+      "descriptionByLocale": {
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e\n\nInfirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte\n\nMission:\nAssurer la prise en charge des patients en proie à des difficultés psychiques, en respectant le Modèle de Pratique Professionnelle (MPP) en vigueur au sein de l’Hôpital du Valais.\n\nProfil:\nDiplôme en soins infirmiers suisse ou diplôme reconnu par la Croix-Rouge\n\nExpérience professionnelle confirmée\n\nCapacité à collaborer avec des intervenants pluridisciplinaires\n\nDynamisme, ouverture d’esprit, empathie\n\nMaitrise de soi, résistance au stress\n\nSeules les offres répondant au profil seront traitées.",
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e\n\nInfirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte\n\nMission:\nAssurer la prise en charge des patients en proie à des difficultés psychiques, en respectant le Modèle de Pratique Professionnelle (MPP) en vigueur au sein de l’Hôpital du Valais.\n\nProfil:\nDiplôme en soins infirmiers suisse ou diplôme reconnu par la Croix-Rouge\n\nExpérience professionnelle confirmée\n\nCapacité à collaborer avec des intervenants pluridisciplinaires\n\nDynamisme, ouverture d’esprit, empathie\n\nMaitrise de soi, résistance au stress\n\nSeules les offres répondant au profil seront traitées.",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e\n\nInfirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte\n\nMission:\nAssurer la prise en charge des patients en proie à des difficultés psychiques, en respectant le Modèle de Pratique Professionnelle (MPP) en vigueur au sein de l’Hôpital du Valais.\n\nProfil:\nDiplôme en soins infirmiers suisse ou diplôme reconnu par la Croix-Rouge\n\nExpérience professionnelle confirmée\n\nCapacité à collaborer avec des intervenants pluridisciplinaires\n\nDynamisme, ouverture d’esprit, empathie\n\nMaitrise de soi, résistance au stress\n\nSeules les offres répondant au profil seront traitées.",
+        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e\n\nInfirmier-ère à 80% pour une mission déterminée de 10 mois pour son service de psychiatrie hospitalière adulte\n\nMission:\nAssurer la prise en charge des patients en proie à des difficultés psychiques, en respectant le Modèle de Pratique Professionnelle (MPP) en vigueur au sein de l’Hôpital du Valais.\n\nProfil:\nDiplôme en soins infirmiers suisse ou diplôme reconnu par la Croix-Rouge\n\nExpérience professionnelle confirmée\n\nCapacité à collaborer avec des intervenants pluridisciplinaires\n\nDynamisme, ouverture d’esprit, empathie\n\nMaitrise de soi, résistance au stress\n\nSeules les offres répondant au profil seront traitées."
+      },
+      "location": "Monthey",
+      "canton": "VS",
+      "addressLocality": "Monthey",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1870",
+      "category": "healthcare-nursing",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80%",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d59e50b83d18b5417a39d20ceaad3b1/ATSANN0004715/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d59e50b83d18b5417a39d20ceaad3b1/ATSANN0004715/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T12:14:45.791Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004715",
+        "sysId": "4d59e50b83d18b5417a39d20ceaad3b1",
+        "societe": "Centre Hospitalier du Valais romand",
+        "famille": "Soins",
+        "site": "MONTHEY"
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3513,21 +3612,7 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-09T22:33:06.292Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "biologiste-moleculaire-60-80-hopital-du-valais-sion"
-        ],
-        "en": [
-          "biologiste-moleculaire-60-80-hopital-du-valais-sion"
-        ],
-        "de": [
-          "biologiste-moleculaire-60-80-hopital-du-valais-sion"
-        ]
-      },
-      "previousSlugs": [
-        "biologiste-moleculaire-60-80-hopital-du-valais-sion"
-      ]
+      "firstSeenAt": "2026-06-10T12:14:45.791Z"
     }
   ]
 }
