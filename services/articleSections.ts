@@ -40,6 +40,12 @@ export interface ArticleSectionConfig {
   readonly registryFile: string;
   /** Repo-relative path of the slug-data module read by build plugins. */
   readonly slugDataFile: string;
+  /**
+   * Name of the `const … = { … }` slug map exported by {@link slugDataFile}
+   * (`BLOG_SLUGS` for frontaliere, `SWISS_SLUGS` for svizzera). Build plugins
+   * parse this block to map `BlogArticleId → per-locale URL slug`.
+   */
+  readonly slugConst: string;
 }
 
 export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> = {
@@ -55,6 +61,7 @@ export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> = {
     metaPrefix: 'blog-meta',
     registryFile: 'data/blog-articles-data.ts',
     slugDataFile: 'services/routerBlogData.ts',
+    slugConst: 'BLOG_SLUGS',
   },
   svizzera: {
     section: 'svizzera',
@@ -68,6 +75,7 @@ export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> = {
     metaPrefix: 'blog-meta-ch',
     registryFile: 'data/swiss-articles-data.ts',
     slugDataFile: 'services/routerSwissData.ts',
+    slugConst: 'SWISS_SLUGS',
   },
 };
 
