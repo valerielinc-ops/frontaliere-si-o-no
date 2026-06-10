@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-10T16:11:16.369Z",
+  "generatedAt": "2026-06-10T18:47:44.883Z",
   "cities": {
     "lugano": {
       "cityId": "lugano",
       "current": {
-        "temperature": 20.6,
-        "weatherCode": 1,
+        "temperature": 18.7,
+        "weatherCode": 0,
         "isDay": true,
-        "windSpeedKmh": 17.3,
-        "humidity": 48,
-        "apparentTemp": 17.3
+        "windSpeedKmh": 17.7,
+        "humidity": 49,
+        "apparentTemp": 14.7
       },
       "hourly24": [
         {
@@ -115,21 +115,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 20.1,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 20.7,
           "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 19.5,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -299,12 +287,24 @@
           "temp": 17,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 16.4,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 18.7,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 20.8,
+          "tempMax": 19.85,
           "tempMin": 14.8,
           "weatherCode": 96,
           "precipProb": 100,
@@ -372,17 +372,17 @@
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:10:58.528Z"
+      "generatedAt": "2026-06-10T18:47:24.815Z"
     },
     "bellinzona": {
       "cityId": "bellinzona",
       "current": {
-        "temperature": 18.3,
-        "weatherCode": 2,
+        "temperature": 16.3,
+        "weatherCode": 0,
         "isDay": true,
-        "windSpeedKmh": 13.8,
-        "humidity": 57,
-        "apparentTemp": 15.3
+        "windSpeedKmh": 14.3,
+        "humidity": 53,
+        "apparentTemp": 12.6
       },
       "hourly24": [
         {
@@ -488,21 +488,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 18.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 18.2,
           "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 17.6,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -672,12 +660,24 @@
           "temp": 16.1,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 14.8,
+          "weatherCode": 0,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 17.5,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 20.700000000000003,
+          "tempMax": 19.6,
           "tempMin": 13,
           "weatherCode": 96,
           "precipProb": 98,
@@ -745,17 +745,17 @@
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:11:00.357Z"
+      "generatedAt": "2026-06-10T18:47:26.842Z"
     },
     "mendrisio": {
       "cityId": "mendrisio",
       "current": {
-        "temperature": 19.5,
+        "temperature": 17.3,
         "weatherCode": 1,
         "isDay": true,
-        "windSpeedKmh": 21.8,
-        "humidity": 48,
-        "apparentTemp": 16.3
+        "windSpeedKmh": 20.1,
+        "humidity": 46,
+        "apparentTemp": 12.6
       },
       "hourly24": [
         {
@@ -861,21 +861,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 19.5,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 19.3,
           "weatherCode": 80,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 18.6,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -1045,12 +1033,24 @@
           "temp": 16,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 16.9,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 17.7,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 20.6,
+          "tempMax": 19.5,
           "tempMin": 14.55,
           "weatherCode": 99,
           "precipProb": 100,
@@ -1118,17 +1118,17 @@
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:11:02.189Z"
+      "generatedAt": "2026-06-10T18:47:28.852Z"
     },
     "locarno": {
       "cityId": "locarno",
       "current": {
-        "temperature": 19.5,
+        "temperature": 17.6,
         "weatherCode": 0,
         "isDay": true,
-        "windSpeedKmh": 17.6,
-        "humidity": 49,
-        "apparentTemp": 17.8
+        "windSpeedKmh": 13.6,
+        "humidity": 48,
+        "apparentTemp": 17
       },
       "hourly24": [
         {
@@ -1234,21 +1234,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 19.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 21,
           "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 18.7,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -1418,12 +1406,24 @@
           "temp": 17.6,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 16.6,
+          "weatherCode": 0,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 19.2,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 20.95,
+          "tempMax": 19.95,
           "tempMin": 15.05,
           "weatherCode": 96,
           "precipProb": 85,
@@ -1491,17 +1491,17 @@
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:11:03.873Z"
+      "generatedAt": "2026-06-10T18:47:30.543Z"
     },
     "chiasso": {
       "cityId": "chiasso",
       "current": {
-        "temperature": 21,
-        "weatherCode": 1,
+        "temperature": 18.3,
+        "weatherCode": 0,
         "isDay": true,
-        "windSpeedKmh": 12.8,
-        "humidity": 50,
-        "apparentTemp": 21.1
+        "windSpeedKmh": 13.2,
+        "humidity": 44,
+        "apparentTemp": 15.7
       },
       "hourly24": [
         {
@@ -1607,21 +1607,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 21,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 21.8,
           "weatherCode": 80,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 20.4,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -1791,12 +1779,24 @@
           "temp": 17.7,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 15.1,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 19.4,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 21.65,
+          "tempMax": 20.700000000000003,
           "tempMin": 16.25,
           "weatherCode": 96,
           "precipProb": 100,
@@ -1864,17 +1864,17 @@
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:11:05.539Z"
+      "generatedAt": "2026-06-10T18:47:32.232Z"
     },
     "como": {
       "cityId": "como",
       "current": {
-        "temperature": 21.5,
-        "weatherCode": 1,
+        "temperature": 19.7,
+        "weatherCode": 0,
         "isDay": true,
-        "windSpeedKmh": 12.6,
-        "humidity": 61,
-        "apparentTemp": 20.9
+        "windSpeedKmh": 13.9,
+        "humidity": 45,
+        "apparentTemp": 17.1
       },
       "hourly24": [
         {
@@ -1980,21 +1980,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 21.1,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 21.1,
           "weatherCode": 80,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 20.6,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -2164,12 +2152,24 @@
           "temp": 18,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 16.6,
+          "weatherCode": 3,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 19.6,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 22.05,
+          "tempMax": 21.2,
           "tempMin": 16.7,
           "weatherCode": 96,
           "precipProb": 100,
@@ -2236,17 +2236,17 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:11:07.208Z"
+      "generatedAt": "2026-06-10T18:47:33.918Z"
     },
     "varese": {
       "cityId": "varese",
       "current": {
-        "temperature": 20.45,
+        "temperature": 18.45,
         "weatherCode": 1,
         "isDay": true,
-        "windSpeedKmh": 19.8,
-        "humidity": 43,
-        "apparentTemp": 17.6
+        "windSpeedKmh": 18.8,
+        "humidity": 40,
+        "apparentTemp": 14.7
       },
       "hourly24": [
         {
@@ -2352,21 +2352,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 20,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 20.3,
           "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 19.5,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -2536,12 +2524,24 @@
           "temp": 17,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 17.3,
+          "weatherCode": 0,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 18.5,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 20.55,
+          "tempMax": 19.65,
           "tempMin": 15.600000000000001,
           "weatherCode": 95,
           "precipProb": 100,
@@ -2608,17 +2608,17 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:11:08.868Z"
+      "generatedAt": "2026-06-10T18:47:35.606Z"
     },
     "lecco": {
       "cityId": "lecco",
       "current": {
-        "temperature": 21.05,
-        "weatherCode": 2,
+        "temperature": 19.3,
+        "weatherCode": 0,
         "isDay": true,
-        "windSpeedKmh": 10.7,
-        "humidity": 61,
-        "apparentTemp": 21.3
+        "windSpeedKmh": 11.8,
+        "humidity": 46,
+        "apparentTemp": 17.3
       },
       "hourly24": [
         {
@@ -2724,21 +2724,9 @@
           "isDay": true
         },
         {
-          "hour": "2026-06-10T16:00:00Z",
-          "temp": 20,
-          "weatherCode": 2,
-          "isDay": true
-        },
-        {
           "hour": "2026-06-10T17:00",
           "temp": 20.5,
           "weatherCode": 80,
-          "isDay": true
-        },
-        {
-          "hour": "2026-06-10T17:00:00Z",
-          "temp": 18.9,
-          "weatherCode": 0,
           "isDay": true
         },
         {
@@ -2908,12 +2896,24 @@
           "temp": 17.2,
           "weatherCode": 0,
           "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00",
+          "temp": 17.3,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-06-11T08:00:00Z",
+          "temp": 18.8,
+          "weatherCode": 0,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-06-10",
-          "tempMax": 21.75,
+          "tempMax": 20.75,
           "tempMin": 15.45,
           "weatherCode": 95,
           "precipProb": 100,
@@ -2980,7 +2980,7 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-06-10T16:11:10.533Z"
+      "generatedAt": "2026-06-10T18:47:37.293Z"
     }
   },
   "alerts": {
