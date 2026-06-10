@@ -3177,6 +3177,7 @@ Règles :
  'publisherDashboard.status.published': 'Publié',
  'publisherDashboard.status.expired': 'Expiré',
  'publisherDashboard.status.rejected': 'Rejeté',
+ 'jobBoard.sponsored': 'Sponsorisé',
  'publisher.error': 'Une erreur s\'est produite. Veuillez réessayer.',
  'publisher.error.description': 'La description doit contenir au moins 50 mots.',
  'publisher.error.locations': 'Ajoutez au moins un lieu de travail.',

@@ -3174,6 +3174,7 @@ Rules:
  'publisherDashboard.status.published': 'Published',
  'publisherDashboard.status.expired': 'Expired',
  'publisherDashboard.status.rejected': 'Rejected',
+ 'jobBoard.sponsored': 'Sponsored',
  'publisher.error': 'Something went wrong. Please try again.',
  'publisher.error.description': 'The description must contain at least 50 words.',
  'publisher.error.locations': 'Add at least one work location.',

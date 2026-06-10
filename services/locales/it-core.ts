@@ -3264,6 +3264,7 @@ Regole:
  'publisherDashboard.status.published': 'Pubblicato',
  'publisherDashboard.status.expired': 'Scaduto',
  'publisherDashboard.status.rejected': 'Rifiutato',
+ 'jobBoard.sponsored': 'Sponsorizzato',
  'publisher.error': 'Si è verificato un errore. Riprova.',
  'publisher.error.description': 'La descrizione deve contenere almeno 50 parole.',
  'publisher.error.locations': 'Aggiungi almeno una sede di lavoro.',

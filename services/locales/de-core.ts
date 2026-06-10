@@ -3177,6 +3177,7 @@ Regeln:
  'publisherDashboard.status.published': 'Veröffentlicht',
  'publisherDashboard.status.expired': 'Abgelaufen',
  'publisherDashboard.status.rejected': 'Abgelehnt',
+ 'jobBoard.sponsored': 'Gesponsert',
  'publisher.error': 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',
  'publisher.error.description': 'Die Beschreibung muss mindestens 50 Wörter enthalten.',
  'publisher.error.locations': 'Fügen Sie mindestens einen Arbeitsort hinzu.',
