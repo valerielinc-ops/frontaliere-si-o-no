@@ -110,11 +110,18 @@ const LIBRETRANSLATE_PUBLIC = [
 // Self-hosted LibreTranslate — runs as a service container in CI (translate-pending.yml).
 // Unlimited capacity, no API key, no rate limits. Set via LIBRETRANSLATE_SELF_HOSTED_URL env.
 const LIBRETRANSLATE_SELF_HOSTED = (process.env.LIBRETRANSLATE_SELF_HOSTED_URL || '').trim();
-// Bounded timeout for the self-hosted fetch. Default 5s protects the hot path if the
-// endpoint is reachable-but-slow (hung, not fast-fail). Override in CI via
-// LIBRETRANSLATE_TIMEOUT_MS (e.g. set to 35000 to cover the ~30s first model-load).
+// Bounded timeout for the self-hosted fetch. Default 30s matches the prior hardcoded bound
+// and covers the ~30s first-call model-load in CI: translate-pending.yml's readiness probe
+// (/languages) is distinct from model-in-memory, so the first /translate still pays the
+// warmup. Lowering the default below ~30s here would abort CI's first call mid-load → '' →
+// next tier → the self-hosted tier never warms up (the workflow callers don't set
+// LIBRETRANSLATE_TIMEOUT_MS, so the default is the effective value there). Override via
+// LIBRETRANSLATE_TIMEOUT_MS only for reachable-but-hung REMOTE endpoints where a fast-fail
+// is wanted. A non-numeric or ≤0 override falls back to the default instead of
+// AbortSignal.timeout(NaN) (coerces to 0ms → immediate abort of every self-hosted call).
 // AbortError is caught by the try/catch in translateWithLibreTranslateSelfHosted → '' → next tier.
-const LIBRETRANSLATE_TIMEOUT_MS = parseInt(process.env.LIBRETRANSLATE_TIMEOUT_MS || '5000', 10);
+const _ltTimeoutRaw = parseInt(process.env.LIBRETRANSLATE_TIMEOUT_MS || '', 10);
+const LIBRETRANSLATE_TIMEOUT_MS = Number.isFinite(_ltTimeoutRaw) && _ltTimeoutRaw > 0 ? _ltTimeoutRaw : 30000;
 
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 
