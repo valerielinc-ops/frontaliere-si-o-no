@@ -363,7 +363,15 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-06-09T12:03:43.610Z"
+      "firstSeenAt": "2026-06-09T12:03:43.610Z",
+      "previousSlugs": [
+        "tin-makers-pemsa-locarno-oah52n",
+        "sheet-metal-worker-pemsa-locarno-oah52n",
+        "sheet-metal-worker-pemsa-lugano",
+        "lattoniere-pemsa-lugano",
+        "spengler-pemsa-lugano",
+        "ferblantier-pemsa-lugano"
+      ]
     },
     {
       "title": "IDRAULICO",
@@ -1337,7 +1345,9 @@
       "previousSlugs": [
         "construction-worker-pemsa-bellinzona",
         "manovale-edile-pemsa-chiasso"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "QUADRISTA CABALTORE",

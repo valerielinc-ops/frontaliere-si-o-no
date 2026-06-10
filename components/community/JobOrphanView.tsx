@@ -20,6 +20,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -198,7 +199,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const companyLogoUrl = useMemo(() => {
  const keys = Object.keys(CRAWLED_COMPANY_LOGOS).sort((a, b) => b.length - a.length);
  const derivedKey = keys.find((k) => slug.includes(k)) || '';
- return resolveCompanyLogoUrl({ company: slugParts.company || undefined, companyKey: derivedKey });
+ return cdnImageUrl(resolveCompanyLogoUrl({ company: slugParts.company || undefined, companyKey: derivedKey }));
  }, [slug, slugParts.company]);
  const activeJobLinks = useMemo(
  () => staticBodyHtml ? extractActiveJobLinks(staticBodyHtml) : [],
