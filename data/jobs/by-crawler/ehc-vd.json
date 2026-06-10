@@ -3926,11 +3926,11 @@
     },
     {
       "id": "ehc-vd-5e763e272ad7",
-      "slug": "agent-de-proprete-f-h-ehc-vd-morges",
+      "slug": "agente-di-pulizia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "agent-de-proprete-f-h-ehc-vd-morges",
-        "en": "agent-de-proprete-f-h-ehc-vd-morges",
-        "de": "agent-de-proprete-f-h-ehc-vd-morges",
+        "it": "agente-di-pulizia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "cleaning-agent-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "agent-de-proprete-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3984,7 +3984,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-de-proprete-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "agent-de-proprete-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "agent-de-proprete-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "agent-de-proprete-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-43079c9f9852",

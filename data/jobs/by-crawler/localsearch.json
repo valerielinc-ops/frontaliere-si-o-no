@@ -2625,7 +2625,7 @@
       "id": "localsearch-b500d24cb4f7",
       "slug": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22",
       "slugByLocale": {
-        "it": "venditore-venditrice-in-servizio-esterno-localsearch-st-gallen",
+        "it": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22",
         "en": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22",
         "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22"
@@ -2683,9 +2683,13 @@
       "postalCode": "3001",
       "addressRegion": "BE",
       "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch"
-      ]
+        "venditore-venditrice-in-servizio-esterno-localsearch-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "venditore-venditrice-in-servizio-esterno-localsearch-st-gallen"
+        ]
+      }
     },
     {
       "id": "localsearch-71cbc07d963c",
