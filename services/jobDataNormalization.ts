@@ -371,7 +371,6 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'ruag-ag': 'https://www.ruag.com/assets/img/icon/apple-icon-144x144.png',
  'salina-reha': cLogo('salina-reha.ch'),
  'sanatorium-kilchberg': cLogo('sanatorium-kilchberg.ch'),
- 'sbb': cLogo('sbb.ch'),
  'schindler': gFavicon('schindler.com'),
  'see-spital': cLogo('see-spital.ch'),
  'senevita': cLogo('senevita.ch'),

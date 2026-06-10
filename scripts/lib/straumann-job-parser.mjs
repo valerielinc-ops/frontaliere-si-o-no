@@ -165,6 +165,7 @@ function buildRefineSearchBody(from) {
 function buildJobUrl(job) {
   const id = job.jobId || job.reqId;
   const titleSlug = slugify(job.title || '');
+  // locale-segment-ok: external Straumann careers ATS URL, not a site locale route
   return `https://careers.straumann.com/global/en/job/${id}/${titleSlug}`;
 }
 

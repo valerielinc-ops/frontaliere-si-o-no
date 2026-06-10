@@ -453,7 +453,6 @@ export const COMPANY_HQ = {
   'trumpf-schweiz':                { city: 'Grüsch',              canton: 'GR', postalCode: '7214', addressRegion: 'GR' },
   'ermenegildo-zegna-logistica':   { city: 'Stabio',              canton: 'TI', postalCode: '6855', addressRegion: 'TI' },
   // ── New Swiss dedicated crawlers (LinkedIn top-volume, 2026-06-10) ──
-  'sbb': { city: 'Bern', canton: 'BE', postalCode: '3000', addressRegion: 'BE' },
   'rolex': { city: 'Genève', canton: 'GE', postalCode: '1211', addressRegion: 'GE' },
   'emil-frey': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
   'emmi': { city: 'Luzern', canton: 'LU', postalCode: '6005', addressRegion: 'LU' },

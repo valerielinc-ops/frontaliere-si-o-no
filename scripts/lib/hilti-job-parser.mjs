@@ -46,6 +46,7 @@ const ATS_HOST = 'careers.hilti.group';
 const BASE_URL = `https://${ATS_HOST}`;
 // `country=20000532` is the Switzerland country facet value, captured directly
 // from the live filter <option> elements. Applied client-side after hydration.
+// locale-segment-ok: '/en/' is Hilti's external ATS path, not a site locale route
 const CAREER_URL = `${BASE_URL}/en/jobs/?country=20000532`;
 
 const HILTI_SECTOR = 'Construction tools & fastening technology (manufacturing)';
