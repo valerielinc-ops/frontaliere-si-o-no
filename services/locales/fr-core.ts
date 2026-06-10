@@ -3181,6 +3181,7 @@ Règles :
  'publisherDashboard.manageBilling': 'Gérer l\'abonnement',
  'publisherDashboard.applications.title': 'Candidatures reçues',
  'publisherDashboard.applications.empty': 'Aucune candidature reçue pour le moment.',
+ 'publisherDashboard.col.applications': 'Candidatures',
  'jobBoard.sponsored': 'Sponsorisé',
  'publisherApply.title': 'Postuler à ce poste',
  'publisherApply.name': 'Nom et prénom',

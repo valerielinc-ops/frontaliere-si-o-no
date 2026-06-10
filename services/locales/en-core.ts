@@ -3178,6 +3178,7 @@ Rules:
  'publisherDashboard.manageBilling': 'Manage subscription',
  'publisherDashboard.applications.title': 'Applications received',
  'publisherDashboard.applications.empty': 'No applications received yet.',
+ 'publisherDashboard.col.applications': 'Applications',
  'jobBoard.sponsored': 'Sponsored',
  'publisherApply.title': 'Apply for this position',
  'publisherApply.name': 'Full name',

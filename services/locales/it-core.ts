@@ -3268,6 +3268,7 @@ Regole:
  'publisherDashboard.manageBilling': 'Gestisci abbonamento',
  'publisherDashboard.applications.title': 'Candidature ricevute',
  'publisherDashboard.applications.empty': 'Nessuna candidatura ricevuta finora.',
+ 'publisherDashboard.col.applications': 'Candidature',
  'jobBoard.sponsored': 'Sponsorizzato',
  'publisherApply.title': 'Candidati per questa posizione',
  'publisherApply.name': 'Nome e cognome',
