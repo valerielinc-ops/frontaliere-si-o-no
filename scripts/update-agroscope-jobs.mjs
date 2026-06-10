@@ -5,8 +5,11 @@
  * Crawls Swiss federal job portal via Prospective.ch API:
  *   https://ohws.prospective.ch/public/v1/medium/1000626/jobs?lang=it&offset=0&limit=100&f=verwaltungseinheit:1083812
  *
- * 1. Fetches all Agroscope job listings via JSON API (verwaltungseinheit 1083812)
- * 2. Filters Ticino/Grigioni relevant jobs by region/city
+ * 1. Fetches ALL Agroscope job listings via JSON API (verwaltungseinheit 1083812).
+ *    The verwaltungseinheit facet scopes to the Agroscope org unit, NOT a canton —
+ *    the listing is already national (CH-wide, all 26 cantons).
+ * 2. Keeps every job whose location resolves to a Swiss canton (inferAnyCanton);
+ *    drops foreign "Estero" postings. Agroscope is a national federal research org.
  * 3. All data is in the API response (no detail page fetching needed)
  * 4. Merges into data/jobs.json
  */
@@ -40,7 +43,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAgroscopeApiResponse,
-  isAgroscopeTicinoRelevant,
+  isAgroscopeSwissRelevant,
   inferAgroscopeCanton,
   inferAgroscopeCategory,
   buildAgroscopeLocalizedContent,
@@ -151,11 +154,12 @@ async function fetchAllListings() {
 
   console.log(`API returned ${total} Agroscope jobs total`);
 
-  // Filter for Ticino/Grigioni relevance
-  const ticinoJobs = allItems.filter(isAgroscopeTicinoRelevant);
-  console.log(`Ticino/Grigioni relevant: ${ticinoJobs.length}`);
+  // Keep every job that resolves to a Swiss canton (CH-wide, all 26); drop
+  // foreign "Estero" postings. The fetch is already national — no canton facet.
+  const swissJobs = allItems.filter(isAgroscopeSwissRelevant);
+  console.log(`Swiss (CH-wide) jobs: ${swissJobs.length}`);
 
-  return ticinoJobs;
+  return swissJobs;
 }
 
 function buildAgroscopeJob(row) {
@@ -170,8 +174,8 @@ function buildAgroscopeJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || 'Ticino',
-    addressLocality: row.city || row.location || 'Ticino',
+    location: row.location || row.city || 'Svizzera',
+    addressLocality: row.city || row.location || 'Svizzera',
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
@@ -251,7 +255,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['api'],
     seedUrls: [`${API_BASE}?lang=it&f=verwaltungseinheit:${VERWALTUNGSEINHEIT}`],
-    notes: 'Dedicated Agroscope crawler. Uses Prospective.ch API (medium 1000626, verwaltungseinheit 1083812). Swiss federal center of competence for agricultural research, part of DEFR. HQ in Bern-Liebefeld, research site in Cadenazzo (TI). Full job data in API response, no detail page fetching needed.',
+    notes: 'Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000626, verwaltungseinheit 1083812 — the Agroscope org unit, NOT a canton facet, so the listing is already national). Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign "Estero" postings. Full job data in API response, no detail page fetching needed.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -267,7 +271,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_admin_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Agroscope Ticino/GR jobs found after dedicated crawl.',
+    noJobsMessage: 'No Agroscope CH-wide jobs found after dedicated crawl.',
     detectSourceLang: (job) => job.sourceLang || 'it',
   });
 }
@@ -283,7 +287,7 @@ async function main() {
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('No Ticino/GR Agroscope jobs found — skipping.');
+    console.log('No Swiss Agroscope jobs found — skipping.');
     return;
   }
 
@@ -301,7 +305,7 @@ async function main() {
   validateLocales();
 
   console.log('\n=== Agroscope Job Stats ===');
-  console.log(`  Total Agroscope Ticino/GR jobs: ${total}`);
+  console.log(`  Total Agroscope CH-wide jobs: ${total}`);
   console.log(`  Added: ${added}`);
   console.log(`  Updated: ${updated}`);
 

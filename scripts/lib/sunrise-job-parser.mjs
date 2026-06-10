@@ -1,24 +1,5 @@
 import { JSDOM } from 'jsdom';
-
-const TICINO_OR_GRIGIONI_TOKENS = [
-  'ticino',
-  'grigioni',
-  'grisons',
-  'graubunden',
-  'graubuenden',
-  'manno',
-  'lugano',
-  'locarno',
-  'bellinzona',
-  'mendrisio',
-  'chiasso',
-  'ascona',
-  'bioggio',
-  'stabio',
-  'agno',
-  'landquart',
-  'chur',
-];
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -62,30 +43,38 @@ export function extractSunriseDdo(html = '') {
   }
 }
 
-export function isSunriseTargetLocation(job = {}) {
-  const haystack = normalize([
-    job?.state,
-    job?.city,
-    job?.cityState,
-    job?.cityStateCountry,
-    job?.address,
-    job?.location,
-  ].filter(Boolean).join(' '));
-  return TICINO_OR_GRIGIONI_TOKENS.some((token) => haystack.includes(token));
+/**
+ * Extract the cleanest single city signal from a Sunrise job/listing.
+ * Sunrise is a national telecom (HQ Zürich): the `cityState` field often
+ * leaks the HQ ("Zurich") even for jobs in other cantons (e.g. a Basel job
+ * shows cityState "Zurich"), so canton inference must use the per-job `city`
+ * value ALONE — never a combined "city + region" string, which makes
+ * inferAnyCanton return the wrong canton.
+ */
+function sunriseCitySignal(job = {}) {
+  const raw = String(job?.city || job?.location || '').trim();
+  return raw
+    .replace(/\s*\([^)]*\)\s*/g, ' ') // drop parentheticals e.g. "(Headquarter)"
+    .replace(/,\s*CH$/i, '') // drop trailing ", CH" country suffix
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
+/**
+ * Resolve a Sunrise job to a Swiss canton (all 26 cantons via inferAnyCanton).
+ * Returns the 2-letter code, or '' when the city does not resolve to any
+ * Swiss canton — such jobs are foreign/unresolved and dropped by the crawler.
+ */
 export function inferSunriseCanton(job = {}) {
-  const haystack = normalize([
-    job?.standardisedStateCode,
-    job?.standardisedState,
-    job?.state,
-    job?.cityState,
-    job?.cityStateCountry,
-    job?.address,
-    job?.city,
-  ].filter(Boolean).join(' '));
-  if (haystack.includes('grigioni') || haystack.includes('grisons') || haystack.includes('graub')) return 'GR';
-  return '';
+  return inferAnyCanton(sunriseCitySignal(job));
+}
+
+/**
+ * CH-wide location gate: keep a Sunrise job only when its clean city signal
+ * resolves to one of the 26 Swiss cantons. Drops non-CH / unresolved postings.
+ */
+export function isSunriseTargetLocation(job = {}) {
+  return inferSunriseCanton(job) !== '';
 }
 
 export function parseSunriseSearchPage(html = '') {

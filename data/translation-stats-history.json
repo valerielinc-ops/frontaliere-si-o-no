@@ -11313,5 +11313,119 @@
         "pending": 27
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-10T15:48:56.346Z",
+    "label": "before",
+    "total": 12618,
+    "needsRetranslation": 8697,
+    "suppressed": 40,
+    "incomplete": 1812,
+    "complete": 10806,
+    "missingByLocale": {
+      "it": 1479,
+      "en": 1360,
+      "de": 582,
+      "fr": 1409
+    },
+    "topPending": [
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 105
+      },
+      {
+        "company": "Richemont",
+        "pending": 95
+      },
+      {
+        "company": "Liebherr",
+        "pending": 88
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 73
+      },
+      {
+        "company": "Decathlon",
+        "pending": 68
+      },
+      {
+        "company": "Implenia",
+        "pending": 66
+      },
+      {
+        "company": "Psychiatrische Universitätsklinik Zürich",
+        "pending": 64
+      },
+      {
+        "company": "Spital Limmattal",
+        "pending": 56
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-10T18:22:12.242Z",
+    "label": "after",
+    "total": 12618,
+    "needsRetranslation": 3991,
+    "suppressed": 40,
+    "incomplete": 1675,
+    "complete": 10943,
+    "missingByLocale": {
+      "it": 1342,
+      "en": 1223,
+      "de": 582,
+      "fr": 1272
+    },
+    "topPending": [
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 105
+      },
+      {
+        "company": "Richemont",
+        "pending": 95
+      },
+      {
+        "company": "Liebherr",
+        "pending": 88
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 73
+      },
+      {
+        "company": "Decathlon",
+        "pending": 68
+      },
+      {
+        "company": "Implenia",
+        "pending": 66
+      },
+      {
+        "company": "The Swatch Group S.E.A. (S) Pte Ltd",
+        "pending": 28
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 27
+      }
+    ]
   }
 ]

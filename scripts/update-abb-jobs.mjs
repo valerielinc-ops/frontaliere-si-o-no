@@ -1,19 +1,23 @@
 #!/usr/bin/env node
 /**
- * Dedicated ABB Svizzera (Ticino + Grigioni) crawler runner.
+ * Dedicated ABB Svizzera (CH-wide) crawler runner.
  *
  * Source:
- *   https://careers.abb/global/en/search-results
- *   Keywords: ticino, graubünden, grisons, chur, davos, engadin
+ *   POST https://careers.abb/widgets (Phenom refineSearch API)
+ *   Filter: selected_fields.country = ["Switzerland"] (all 26 cantons)
  *
  * This script:
- *   1. Reads ABB search pages for multiple TI/GR keywords and extracts
- *      jobs from embedded phApp.ddo JSON.
- *   2. Keeps only CH jobs in Ticino / Grigioni.
+ *   1. Pages the ABB Phenom search API filtered to country=Switzerland and
+ *      extracts jobs from the refineSearch JSON payload.
+ *   2. Keeps only jobs that resolve to a Swiss canton (inferAnyCanton, CH-wide);
+ *      drops non-CH / foreign-only rows. Never defaults unresolved jobs to TI.
  *   3. Builds canonical ABB detail URLs (careers.abb/.../job/:jobSeqNo/:title).
  *   4. Updates ABB adapter seed URLs + seedMetaByUrl.
  *   5. Runs base crawler for detail parsing/localization.
  *   6. Post-processes ABB rows for canonical consistency + dedupe.
+ *
+ * Note: the crawler key/company-name keep the legacy '-sede-ticino' suffix
+ * intentionally (SEO URL/slug stability) — only the fetch scope is CH-wide.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -55,8 +59,11 @@ const DEFAULT_CANTON = getCompanyDefaults(ABB_KEY)?.canton || 'TI';
 const ABB_COMPANY_NAME = 'ABB Svizzera (sede Ticino)';
 const ABB_HOST = 'careers.abb';
 const ABB_COMPANY_DOMAIN = 'abb.ch';
-// Search queries covering both Ticino and Grigioni ABB locations
-const ABB_SEARCH_KEYWORDS = ['ticino', 'graubünden', 'grisons', 'chur', 'davos', 'engadin'];
+// Phenom refineSearch widget API + country facet covering ALL of Switzerland
+// (CH-wide: every canton, not just TI/GR). The Phenom careers SSR page ignores
+// URL facet params, so we POST the widgets endpoint with the country facet.
+const ABB_SEARCH_API = 'https://careers.abb/widgets';
+const ABB_SEARCH_COUNTRY = 'Switzerland';
 
 function normalizeKey(value = '') {
   return String(value || '')
@@ -118,52 +125,21 @@ function isAbbJob(job) {
   );
 }
 
-function extractPhAppDdo(html = '') {
-  const source = String(html || '');
-  const startMarker = 'phApp.ddo = ';
-  const start = source.indexOf(startMarker);
-  if (start === -1) return null;
-
-  const endCandidates = [
-    '; phApp.experimentData',
-    ';phApp.experimentData',
-    'phApp.experimentData =',
-  ];
-  let end = -1;
-  for (const marker of endCandidates) {
-    end = source.indexOf(marker, start);
-    if (end !== -1) break;
-  }
-  if (end === -1) return null;
-
-  try {
-    const json = source.slice(start + startMarker.length, end).trim();
-    return JSON.parse(json);
-  } catch {
-    return null;
-  }
-}
-
-function isSwissCountry(raw = '') {
-  const value = normalize(String(raw || ''));
-  return value.includes('switzerland') || value === 'ch' || value.includes('schweiz');
-}
-
 function inferCantonFromJob(job) {
-  const bucket = [
-    job?.state,
-    job?.location,
-    job?.cityState,
-    job?.cityStateCountry,
-    job?.address,
-    Array.isArray(job?.multi_location) ? job.multi_location.join(' ') : '',
-    Array.isArray(job?.multi_location_array)
-      ? job.multi_location_array.map((entry) => entry?.location || '').join(' ')
-      : '',
-  ]
-    .filter(Boolean)
-    .join(' ');
-  return inferAnyCanton(bucket);
+  // Resolve from the cleanest SINGLE signal in priority order — NEVER a combined
+  // multi-field string. inferAnyCanton scans TARGET_CANTONS in array order, so a
+  // concatenation of a multi-site job ("Genève + Zürich") returns the canton
+  // highest in the array (GE), not the primary site. Use the primary location.
+  const primaryMulti = Array.isArray(job?.multi_location_array) && job.multi_location_array[0]?.location
+    ? job.multi_location_array[0].location
+    : (Array.isArray(job?.multi_location) ? job.multi_location[0] : '');
+  const signals = [job?.cityState, job?.location, primaryMulti, job?.state, job?.cityStateCountry, job?.address];
+  for (const sig of signals) {
+    if (!sig) continue;
+    const c = inferAnyCanton(String(sig));
+    if (c) return c;
+  }
+  return '';
 }
 
 function normalizeAbbContract(raw = '') {
@@ -221,7 +197,7 @@ function buildSeedMetaFromJob(job, canton) {
     String(job?.cityStateCountry || '').trim() ||
     String(job?.cityState || '').trim() ||
     String(job?.city || '').trim() ||
-    (canton === 'GR' ? 'Grigioni' : 'Ticino');
+    'Svizzera';
 
   const contract = normalizeAbbContract(job?.jobType || job?.type || job?.contractType || '');
   return {
@@ -234,32 +210,59 @@ function buildSeedMetaFromJob(job, canton) {
   };
 }
 
-async function fetchAbbSearchPage(pageUrl, timeoutMs, userAgent) {
+async function fetchAbbSearchPage(from, size, timeoutMs, userAgent) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(pageUrl, {
+    // Phenom refineSearch widget API: filter by the country facet (CH-wide).
+    // The SSR search-results page ignores URL facet params, so we POST here.
+    const body = {
+      lang: 'en_global',
+      deviceType: 'desktop',
+      country: 'global',
+      pageName: 'search-results',
+      ddoKey: 'refineSearch',
+      stateInfo: {
+        sortBy: '',
+        cmsTypeOverride: 'ExternalJobSearch',
+        pageType: 'search-results',
+        keywords: '',
+        jobs: true,
+        showFacets: true,
+        location: [],
+      },
+      jobs: true,
+      all_fields: ['country', 'state', 'city'],
+      from,
+      size,
+      clientName: 'undefined',
+      locationData: {},
+      keywords: '',
+      global: true,
+      selected_fields: { country: [ABB_SEARCH_COUNTRY] },
+      locationType: '',
+    };
+
+    const res = await fetch(ABB_SEARCH_API, {
       signal: controller.signal,
+      method: 'POST',
       headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
         'User-Agent': userAgent,
       },
+      body: JSON.stringify(body),
     });
-    const html = await res.text();
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}`);
     }
+    const payload = await res.json();
 
-    const ddo = extractPhAppDdo(html);
-    if (!ddo) {
-      throw new Error('phApp.ddo not found');
-    }
-
-    const refine = ddo?.eagerLoadRefineSearch || {};
+    const refine = payload?.refineSearch || payload?.eagerLoadRefineSearch || {};
     const data = refine?.data || {};
     const jobs = assertJsonListShape(data, { key: 'jobs', source: 'abb' });
-    const hits = Number(refine?.hits || jobs.length || 0);
-    const totalHits = Number(refine?.totalHits || jobs.length || 0);
+    const hits = Number(refine?.hits ?? data?.hits ?? jobs.length ?? 0);
+    const totalHits = Number(refine?.totalHits ?? data?.totalHits ?? jobs.length ?? 0);
     return { jobs, hits, totalHits };
   } finally {
     clearTimeout(timer);
@@ -275,67 +278,58 @@ async function fetchAbbJobDetailUrls() {
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
   const maxPages = Math.max(1, Number(process.env.JOBS_ABB_MAX_PAGES || 100000)); // uncapped — loop breaks on offset>=totalHits / empty page
+  const pageSize = Math.max(1, Number(process.env.JOBS_ABB_PAGE_SIZE || 50));
 
-  console.log('🔍 Fetching ABB jobs from careers.abb search-results...');
-  console.log(`   Keywords: ${ABB_SEARCH_KEYWORDS.join(', ')}`);
+  console.log('🔍 Fetching ABB jobs from careers.abb Phenom refineSearch API...');
+  console.log(`   Filter: country=${ABB_SEARCH_COUNTRY} (CH-wide, all cantons)`);
 
-  for (const keyword of ABB_SEARCH_KEYWORDS) {
-    console.log(`\n🔎 Searching keyword: "${keyword}"`);
-    const baseUrl = new URL('https://careers.abb/global/en/search-results');
-    baseUrl.searchParams.set('keywords', keyword);
+  let totalHits = null;
+  let offset = 0;
 
-    let totalHits = null;
-    let offset = 0;
+  for (let page = 0; page < maxPages; page += 1) {
+    if (totalHits !== null && offset >= totalHits) break;
 
-    for (let page = 0; page < maxPages; page += 1) {
-      if (totalHits !== null && offset >= totalHits) break;
+    console.log(`  📡 Page ${page + 1}: from=${offset} size=${pageSize}`);
 
-      const pageUrl = new URL(baseUrl.toString());
-      if (offset > 0) pageUrl.searchParams.set('from', String(offset));
-
-      console.log(`  📡 Page ${page + 1}: ${pageUrl.toString()}`);
-
-      let payload;
-      try {
-        payload = await fetchAbbSearchPage(pageUrl.toString(), timeoutMs, userAgent);
-      } catch (err) {
-        console.warn(`    ⚠️ ABB page fetch failed: ${err?.message || err}`);
-        break;
-      }
-
-      const jobs = payload.jobs;
-      if (!Array.isArray(jobs) || jobs.length === 0) break;
-      totalHits = Number.isFinite(payload.totalHits) ? payload.totalHits : totalHits;
-      const stepSize = Number(payload.hits || jobs.length || 0);
-      if (stepSize <= 0) break;
-
-      console.log(`    📦 jobs: ${jobs.length} (totalHits=${totalHits ?? '?'})`);
-
-      for (const job of jobs) {
-        if (!isSwissCountry(job?.country || '')) continue;
-
-        const canton = inferCantonFromJob(job);
-        if (!isTargetCanton(canton)) continue;
-
-        const detailUrl = toAbsoluteAbbUrl(buildAbbDetailUrl(job));
-        if (!detailUrl || !detailUrl.includes('/global/en/job/')) continue;
-
-        const reqId = extractReqId(job);
-        const seq = String(job?.jobSeqNo || '').trim();
-        const key = reqId ? `req:${reqId}` : (seq ? `seq:${seq}` : `url:${detailUrl.toLowerCase()}`);
-        const score =
-          String(job?.descriptionTeaser || '').length +
-          (canton === 'TI' ? 400 : 200) +
-          String(job?.title || '').length;
-
-        const prev = selectedByKey.get(key);
-        if (!prev || score > prev.score) {
-          selectedByKey.set(key, { score, detailUrl, job, canton });
-        }
-      }
-
-      offset += stepSize;
+    let payload;
+    try {
+      payload = await fetchAbbSearchPage(offset, pageSize, timeoutMs, userAgent);
+    } catch (err) {
+      console.warn(`    ⚠️ ABB page fetch failed: ${err?.message || err}`);
+      break;
     }
+
+    const jobs = payload.jobs;
+    if (!Array.isArray(jobs) || jobs.length === 0) break;
+    totalHits = Number.isFinite(payload.totalHits) && payload.totalHits > 0 ? payload.totalHits : totalHits;
+
+    console.log(`    📦 jobs: ${jobs.length} (totalHits=${totalHits ?? '?'})`);
+
+    for (const job of jobs) {
+      // Canton resolution is CH-wide via inferAnyCanton; foreign-only rows
+      // (no Swiss location in their signal) resolve to '' and are dropped.
+      // We do NOT gate on job.country here because multi-location CH jobs may
+      // carry a foreign primary country while still having a Swiss location.
+      const canton = inferCantonFromJob(job);
+      if (!isTargetCanton(canton)) continue;
+
+      const detailUrl = toAbsoluteAbbUrl(buildAbbDetailUrl(job));
+      if (!detailUrl || !detailUrl.includes('/global/en/job/')) continue;
+
+      const reqId = extractReqId(job);
+      const seq = String(job?.jobSeqNo || '').trim();
+      const key = reqId ? `req:${reqId}` : (seq ? `seq:${seq}` : `url:${detailUrl.toLowerCase()}`);
+      const score =
+        String(job?.descriptionTeaser || '').length +
+        String(job?.title || '').length;
+
+      const prev = selectedByKey.get(key);
+      if (!prev || score > prev.score) {
+        selectedByKey.set(key, { score, detailUrl, job, canton });
+      }
+    }
+
+    offset += jobs.length;
   }
 
   const urls = [];
@@ -345,14 +339,14 @@ async function fetchAbbJobDetailUrls() {
   }
   urls.sort((a, b) => a.localeCompare(b));
 
-  console.log(`\n✅ Total unique ABB detail URLs discovered (TI/GR): ${urls.length}`);
+  console.log(`\n✅ Total unique ABB detail URLs discovered (CH-wide): ${urls.length}`);
   return { urls, seedMetaByUrl };
 }
 
 function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
   const adapterPath = path.join(ADAPTERS_DIR, `${ABB_KEY}.json`);
   const notes =
-    'Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.';
+    'Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.';
 
   if (!fs.existsSync(adapterPath)) {
     console.log(`⚠️ Adapter ${ABB_KEY}.json not found — creating it.`);
@@ -524,16 +518,20 @@ function logAbbJobStats(beforeSnapshot = new Map()) {
   const allJobs = Array.isArray(raw) ? raw : [];
   const abbJobs = allJobs.filter(isAbbJob);
   const ticinoJobs = abbJobs.filter((job) => normalize(job?.canton) === 'ti');
-  const grJobs = abbJobs.filter((job) => normalize(job?.canton) === 'gr');
-  const otherJobs = abbJobs.length - ticinoJobs.length - grJobs.length;
 
-  console.log('\n📊 === ABB Svizzera Job Stats ===');
-  console.log(`  ⚡ Job totali trovati (ABB): ${abbJobs.length}`);
-  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
-  console.log(`  ✅ Job in Grigioni (canton=GR): ${grJobs.length}`);
-  if (otherJobs > 0) {
-    console.log(`  ℹ️ Job in altri cantoni: ${otherJobs}`);
+  const byCanton = new Map();
+  for (const job of abbJobs) {
+    const c = String(job?.canton || '').trim().toUpperCase() || '??';
+    byCanton.set(c, (byCanton.get(c) || 0) + 1);
   }
+  const cantonBreakdown = [...byCanton.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([c, n]) => `${c}:${n}`)
+    .join(', ');
+
+  console.log('\n📊 === ABB Svizzera Job Stats (CH-wide) ===');
+  console.log(`  ⚡ Job totali trovati (ABB): ${abbJobs.length}`);
+  console.log(`  🗺️ Distribuzione per cantone: ${cantonBreakdown || '—'}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(abbJobs);
@@ -562,9 +560,9 @@ async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(ABB_KEY, 'ABB');
   console.log('⚡ Running dedicated ABB Svizzera jobs crawler...');
-  console.log(`   Source: careers.abb search-results`);
-  console.log(`   Keywords: ${ABB_SEARCH_KEYWORDS.join(', ')}`);
-  console.log('   Scope: CH jobs in Ticino + Grigioni');
+  console.log(`   Source: careers.abb Phenom refineSearch API`);
+  console.log(`   Filter: country=${ABB_SEARCH_COUNTRY}`);
+  console.log('   Scope: CH jobs in all cantons (CH-wide)');
   console.log('');
 
   const discovery = await fetchAbbJobDetailUrls();

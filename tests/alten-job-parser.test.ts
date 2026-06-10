@@ -2,21 +2,23 @@ import { describe, expect, it } from 'vitest';
 import {
   parseAltenListingHtml,
   parseAltenDetailHtml,
-  isAltenTicinoLocation,
+  isAltenSwissLocation,
 } from '../scripts/lib/alten-job-parser.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from '../scripts/lib/swiss-locality-sentence-split.mjs';
 
 describe('alten-job-parser', () => {
-  it('recognizes ticino locations', () => {
-    expect(isAltenTicinoLocation('Ticino')).toBe(true);
-    expect(isAltenTicinoLocation('Switzerland Ticino')).toBe(true);
-    // Cathedral 2026-05-10: TARGET_CANTONS expanded to all 26 CH cantons;
-    // Bern (BE) is now a target, only truly foreign locations are false.
-    expect(isAltenTicinoLocation('Bern')).toBe(true);
-    expect(isAltenTicinoLocation('Tokyo')).toBe(false); // foreign city, not CH
+  it('recognizes Swiss locations CH-wide', () => {
+    expect(isAltenSwissLocation('Ticino')).toBe(true);
+    expect(isAltenSwissLocation('Switzerland Ticino')).toBe(true);
+    // ALTEN is a national consultancy: any of the 26 cantons is kept (CH-wide),
+    // only truly foreign locations are false.
+    expect(isAltenSwissLocation('Bern')).toBe(true);
+    expect(isAltenSwissLocation('Zürich')).toBe(true);
+    expect(isAltenSwissLocation('Lausanne')).toBe(true);
+    expect(isAltenSwissLocation('Tokyo')).toBe(false); // foreign city, not CH
   });
 
-  it('parses ticino listing cards', () => {
+  it('parses Swiss listing cards CH-wide', () => {
     const html = `
       <div class="wp-block-webfactory-card">
         <div class="card-inner row align-items-center justify-content-between offer-item offer-list-item h-100 px-3 px-md-1">
@@ -48,7 +50,7 @@ describe('alten-job-parser', () => {
           <div class="wp-block-jobboard-offer-meta"><div class="block--inner" title="tasks"><span><p><strong>Responsibilities</strong></p><ul><li>Build APIs</li></ul></span></div></div>
           <div class="wp-block-jobboard-offer-meta"><div class="block--inner" title="requirements"><span><p><strong>Requirements</strong></p><ul><li>.NET</li></ul><p><strong>What we offer you</strong></p><p>Permanent contract.</p></span></div></div>
           <a href="https://www.alten.ch/jobs/875-it-generic-net-software-developer/apply">APPLY</a>
-          <div>Job info <div>Location Ticino</div><div>03/03/2026</div></div>
+          <div>Job info <div class="card-location">Location Ticino</div><div>03/03/2026</div></div>
         </div>
       </div>`;
     const parsed = parseAltenDetailHtml(html, 'https://www.alten.ch/jobs/875-it-generic-net-software-developer/');
