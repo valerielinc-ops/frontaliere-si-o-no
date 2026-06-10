@@ -29,6 +29,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BASE_URL = 'https://frontaliereticino.ch';
+// Brand logos were offloaded to the CDN (#1705) — the origin `/images/brands`
+// path now 404s, and email clients strip JS so there is no onerror fallback,
+// leaving the icon blank. Canonical CDN host (mirrors blogImageCdn CDN_BLOG_BASE).
+const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
@@ -115,7 +119,7 @@ function trySlug(slug) {
   if (!slug) return null;
   const aliased = BRAND_ALIASES.get(slug) || slug;
   const filename = BRAND_LOGO_BY_SLUG.get(aliased);
-  return filename ? `${BASE_URL}/images/brands/${filename}` : null;
+  return filename ? `${IMAGE_CDN_BASE}/images/brands/${filename}` : null;
 }
 
 function brandLogoUrl(companyName, companyKey) {

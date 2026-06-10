@@ -315,7 +315,8 @@ describe('job alert email — brand logo + salary chip', () => {
     const job = fixtureJob({ company: 'EOC \u2013 Ente Ospedaliero Cantonale' });
     const result = buildAlertEmail(fixtureAlert('it'), [job], true);
     // Slug = eoc-ente-ospedaliero-cantonale; bundle is public/images/brands/eoc-ente-ospedaliero-cantonale.png
-    expect(result.html).toMatch(/<img\s+src="https:\/\/frontaliereticino\.ch\/images\/brands\/eoc-ente-ospedaliero-cantonale\.png"/);
+    // Brand logos are served from the CDN (offloaded #1705), not the origin.
+    expect(result.html).toMatch(/<img\s+src="https:\/\/cdn\.frontaliereticino\.ch\/images\/brands\/eoc-ente-ospedaliero-cantonale\.png"/);
   });
 
   it('falls back to an initial-letter avatar when no logo bundle matches', () => {

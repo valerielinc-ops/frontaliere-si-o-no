@@ -211,13 +211,20 @@ function toRfc822(isoDate) {
 
 // ── Image URL resolution ──────────────────────────────────────────────
 
+// Blog hero images were offloaded to the CDN (#1705/#1354) — the origin
+// `/images/blog` path now 404s, and RSS readers have no JS fallback, so the
+// enclosure thumbnail breaks. `/images/places` and `/icons` stay same-origin
+// (not offloaded). Canonical CDN host (mirrors blogImageCdn CDN_BLOG_BASE).
+const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+
 function resolveImageUrl(imageFile, articleId) {
   // Check common image locations
   for (const dir of ['images/blog', 'images/places']) {
     for (const ext of ['.jpg', '.png', '.webp']) {
       const candidate = path.join(PUBLIC_DIR, dir, `${imageFile}${ext}`);
       if (fs.existsSync(candidate)) {
-        return `${BASE_URL}/${dir}/${imageFile}${ext}`;
+        const host = dir === 'images/blog' ? IMAGE_CDN_BASE : BASE_URL;
+        return `${host}/${dir}/${imageFile}${ext}`;
       }
     }
   }
@@ -226,7 +233,7 @@ function resolveImageUrl(imageFile, articleId) {
   if (fs.existsSync(blogDir)) {
     const files = fs.readdirSync(blogDir);
     const match = files.find(f => f.startsWith(articleId) || f.startsWith(imageFile));
-    if (match) return `${BASE_URL}/images/blog/${match}`;
+    if (match) return `${IMAGE_CDN_BASE}/images/blog/${match}`;
   }
   return `${BASE_URL}/icons/icon-512x512.png`;
 }
