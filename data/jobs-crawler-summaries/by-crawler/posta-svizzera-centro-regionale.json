@@ -1,18 +1,87 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-06-09T22:56:33.634Z",
-  "total": 16,
-  "newCount": 0,
+  "generatedAt": "2026-06-10T12:43:10.812Z",
+  "total": 18,
+  "newCount": 2,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 34375,
-  "avgDurationMs": 34375,
+  "durationMs": 44997,
+  "avgDurationMs": 44997,
   "durationHistory": [
-    34375
+    44997
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Senior-Microsoft-365-Engineer-Senior-Microsoft-365-Engineer/73727-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Senior-Microsoft-365-Engineer-Senior-Microsoft-365-Engineer/73727-de_DE",
+      "title": "Senior Microsoft 365 Engineer Senior Microsoft 365 Engineer",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "senior-microsoft-365-engineer-senior-microsoft-365-engineer-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-10",
+      "validThrough": "2026-07-01",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "60-100%",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Senior-Digital-Employee-Experience-Spezialistin/73833-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Senior-Digital-Employee-Experience-Spezialistin/73833-de_DE",
+      "title": "Senior Digital Employee Experience Spezialist:in",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "senior-digital-employee-experience-spezialist-in-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-10",
+      "validThrough": "2026-07-01",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "70-100%",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Logistik/73787-de_DE",
