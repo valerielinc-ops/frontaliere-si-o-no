@@ -156,5 +156,67 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+
+    // ─── Publisher portal (paid job postings) ───────────────────────────────
+    // Status machine: a client may create/edit an ad as 'draft' or
+    // 'pending_payment' but may NEVER self-promote it to 'paid'/'active' — that
+    // flip happens only via the Stripe webhook running with the Admin SDK
+    // (which bypasses these rules). This prevents free self-publishing.
+    function isSignedIn() { return request.auth != null; }
+    function clientSettableStatus(s) {
+      return s == 'draft' || s == 'pending_payment';
+    }
+
+    // Publisher accounts / company profile — owner-only (billing data is private;
+    // public company info is mirrored into the job slice, not read from here).
+    match /publishers/{uid} {
+      allow read: if isSignedIn() && request.auth.uid == uid;
+      allow create: if isSignedIn() && request.auth.uid == uid;
+      allow update: if isSignedIn() && request.auth.uid == uid;
+      // No client delete — account closure handled by a Cloud Function.
+    }
+
+    // Publisher job ads. Read = owner (dashboard); the public surface is the
+    // CDN-offloaded overlay file, not a live Firestore read.
+    match /publisher_jobs/{jobId} {
+      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      allow create: if isSignedIn()
+        && request.auth.uid == request.resource.data.publisherUid
+        && clientSettableStatus(request.resource.data.status);
+      // Owner may edit content while unpaid, but cannot change status to paid/active
+      // nor reassign ownership.
+      allow update: if isSignedIn()
+        && request.auth.uid == resource.data.publisherUid
+        && request.resource.data.publisherUid == resource.data.publisherUid
+        && clientSettableStatus(request.resource.data.status);
+      allow delete: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+    }
+
+    // Orders / subscription mirror — owner read; create on checkout init; all
+    // state transitions (paid, renewed, cancelled, refunded) written by the
+    // Stripe webhook via Admin SDK (bypasses rules).
+    match /orders/{orderId} {
+      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      allow create: if isSignedIn() && request.auth.uid == request.resource.data.publisherUid;
+      // No client update/delete — Admin SDK only.
+    }
+
+    // Per-ad analytics counters (views, apply clicks). Public increment like
+    // job_views/article_views; owner reads aggregates in the dashboard.
+    match /publisher_job_events/{jobId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Candidate applications (in-house / forward modes). Contains PII, so reads
+    // are restricted to the publisher who owns the target job (denormalized
+    // publisherUid) — never public. Create is open (candidate submits) but the
+    // explicit-consent flag is required (GDPR: forwarding PII to a third-party
+    // employer is a distinct processing purpose from the site's silent consent).
+    match /applications/{appId} {
+      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      allow create: if request.resource.data.consentGiven == true;
+      // No client update/delete — retention purge handled by a Cloud Function.
+    }
   }
 }
