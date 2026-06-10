@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-06-10T11:40:54.451Z",
+  "assembledAt": "2026-06-10T22:16:17.295Z",
   "jobs": [
     {
       "id": "bls-e310036fa7f0",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/89fcd35e-8e59-4e80-a59f-e559eed14465",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:51.914Z",
+      "crawledAt": "2026-06-10T22:16:14.763Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:43.687Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -131,7 +132,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/projektleiter-in-rollmaterial-flottenmanagement/443db38e-ac6c-40b7-b846-98fdad74395a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:51.178Z",
+      "crawledAt": "2026-06-10T22:16:13.986Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -178,6 +179,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:42.203Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -223,7 +225,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/zugverkehrsleiter-in-zweitausbildung/7c8772d1-6e5a-461c-9237-4b5df9b677a4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:50.438Z",
+      "crawledAt": "2026-06-10T22:16:13.214Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -266,6 +268,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.769Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -311,7 +314,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operator-in-bahntechnik-quereinstieg/6439d8d0-c9b5-4568-b026-37a7264fe008",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:49.693Z",
+      "crawledAt": "2026-06-10T22:16:12.421Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -360,6 +363,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:01:37.323Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -405,7 +409,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/business-controller-in/a7a4ffa3-9a42-4583-b084-53649b04abe5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:48.998Z",
+      "crawledAt": "2026-06-10T22:16:11.737Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -454,6 +458,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.044Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -499,7 +504,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:48.124Z",
+      "crawledAt": "2026-06-10T22:16:10.957Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,6 +538,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -578,7 +584,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:47.444Z",
+      "crawledAt": "2026-06-10T22:16:10.272Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -627,99 +633,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-d1fd27e775c7",
-      "slug": "teamleiter-in-oberflachenbearbeitung-e-lackierung-bls-ag-bonigen",
-      "slugByLocale": {
-        "it": "teamleiter-in-oberflachenbearbeitung-e-lackierung-bls-ag-bonigen",
-        "en": "team-leader-in-surface-treatment-and-painting-bls-ag-bonigen",
-        "de": "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch",
-        "fr": "chef-d-equipe-en-traitement-de-surface-et-peinture-bls-ag-bonigen"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Teamleiter:in Oberflächenbearbeitung und Lackierung",
-      "titleByLocale": {
-        "it": "Teamleiter:in Oberflächenbearbeitung e Lackierung",
-        "en": "Team leader:in surface treatment and painting",
-        "de": "Teamleiter:in Oberflächenbearbeitung und Lackierung",
-        "fr": "Chef d'équipe:en traitement de surface et peinture"
-      },
-      "description": "Wenn ein Zug glänzt, spürt man das schon beim Einsteigen.\nFrisch lackiert rollt er aus der Werkstatt und fährt Richtung Bern – ein Moment, der bleibt. Dein Team hat ihn möglich gemacht. Mit ruhiger Hand, Stolz und einem Blick fürs Detail gebt ihr jedem Fahrzeug sein Gesicht zurück. So wird aus Technik ein Erlebnis, das Fahrgäste täglich begleitet und Vertrauen schafft.\n\nDas wartet auf dich:\n\n• Lackier-, Reparatur- und Klebearbeiten wirtschaftlich steuern und in hoher Qualität sicherstellen, auch an Bauteilen aus glasfaserverstärktem Kunststoff\n\n• Ein Team von rund 20 Mitarbeitenden führen, fördern und gezielt weiterentwickeln\n\n• Prozessoptimierungen planen, umsetzen und nachhaltig im Alltag verankern\n\n• Zusammenarbeit mit internen und externen Partnern aktiv gestalten und Abläufe abstimmen\n\n• Innovative Prozesse in modernen Werkstätten weiterentwickeln und mitprägen\n\nDas bringst du mit:\n\n• Ausbildung als Lackierer:in EFZ, ideal ergänzt durch eine Weiterbildung in Führung\n\n• Erfahrung in industrieller Lackierung, Kenntnisse in glasfaserverstärktem Kunststoff und Klebetechnik von Vorteil\n\n• Führungserfahrung mit einem klaren, motivierenden und wertschätzenden Stil\n\n• Hoher Qualitätsanspruch – saubere Arbeit ist für dich selbstverständlich\n\n• Auch in hektischen Situationen bleibst du ruhig und triffst klare Entscheide\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Quando un treno splende, puoi sentirlo quando entri. Rotola appena dipinto dal laboratorio e corre verso Berna – un momento che rimane. La tua squadra lo ha reso possibile. Con una mano calma, orgoglio e un look per i dettagli, si restituisce la faccia a ogni veicolo. Questo creerà un'esperienza che accompagna i passeggeri ogni giorno e creerà fiducia. Questo ti aspetta:\n• Controllo automatico della pittura, riparazione e lavoro adesivo e garantire alta qualità, anche su componenti in plastica rinforzata con fibra di vetro\n• Un team di circa 20 dipendenti guida, promuovere e sviluppare in modo mirato\n• Pianificare, implementare e ancorare in modo sostenibile le ottimizzazioni del processo nella vita quotidiana\n• Per modellare e coordinare attivamente la cooperazione con i partner interni ed esterni\n• • Formazione come pittore: in EFZ, idealmente completato da una ulteriore formazione nella leadership\n• Esperienza nella pittura industriale, conoscenza della plastica rinforzata in fibra di vetro e tecnologia adesiva di vantaggio\n• Esperienza di leadership con uno stile chiaro, motivante e a valore aggiunto\n• Standard di alta qualità – lavoro pulito è auto-evidente per voi\n• Anche in situazioni frenetiche si rimane calma e soddisfare decisioni chiare Con quasi 4000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "When a train shines, you can feel it when you get in. He rolls freshly painted from the workshop and runs towards Bern – a moment that remains. Your team made him possible. With a calm hand, pride and a look for the detail, you give your face back to every vehicle. This will create an experience that accompanies passengers every day and creates confidence. This is waiting for you:\n• Automatically control painting, repair and adhesive work and ensure high quality, even on components made of glass fiber reinforced plastic\n• A team of around 20 employees lead, promote and develop\n• Plan, implement and sustainably anchor in everyday life\n• actively shape cooperation with internal and external partners and coordinate processes\n• Develop and contribute innovative processes in modern workshops That's what you bring:\n• Training as a painter:in EFZ, ideally complemented by a further training\n• Experience in industrial painting, knowledge of glass fiber reinforced plastic and adhesive technology of advantage\n• Leadership experience with a clear, motivating and value-adding style\n• High quality standards – clean work is of course for you\n• Also in hectic situations you stay calm and meet clear decisions About the BLS With nearly 4000 employees, BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
-        "de": "Wenn ein Zug glänzt, spürt man das schon beim Einsteigen. Frisch lackiert rollt er aus der Werkstatt und fährt Richtung Bern – ein Moment, der bleibt. Dein Team hat ihn möglich gemacht. Mit ruhiger Hand, Stolz und einem Blick fürs Detail gebt ihr jedem Fahrzeug sein Gesicht zurück. So wird aus Technik ein Erlebnis, das Fahrgäste täglich begleitet und Vertrauen schafft. Das wartet auf dich:\n• Lackier-, Reparatur- und Klebearbeiten wirtschaftlich steuern und in hoher Qualität sicherstellen, auch an Bauteilen aus glasfaserverstärktem Kunststoff\n• Ein Team von rund 20 Mitarbeitenden führen, fördern und gezielt weiterentwickeln\n• Prozessoptimierungen planen, umsetzen und nachhaltig im Alltag verankern\n• Zusammenarbeit mit internen und externen Partnern aktiv gestalten und Abläufe abstimmen\n• Innovative Prozesse in modernen Werkstätten weiterentwickeln und mitprägen Das bringst du mit:\n• Ausbildung als Lackierer:in EFZ, ideal ergänzt durch eine Weiterbildung in Führung\n• Erfahrung in industrieller Lackierung, Kenntnisse in glasfaserverstärktem Kunststoff und Klebetechnik von Vorteil\n• Führungserfahrung mit einem klaren, motivierenden und wertschätzenden Stil\n• Hoher Qualitätsanspruch – saubere Arbeit ist für dich selbstverständlich\n• Auch in hektischen Situationen bleibst du ruhig und triffst klare Entscheide Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Quand un train brille, vous pouvez le sentir quand vous entrez. Il roule fraîchement peint de l'atelier et court vers Berne – un moment qui reste. Votre équipe l'a rendu possible. Avec une main calme, une fierté et un regard pour le détail, vous rendez votre visage à chaque véhicule. Cela créera une expérience qui accompagne les passagers chaque jour et crée la confiance. Ceci vous attend:\n• Contrôler automatiquement la peinture, la réparation et le travail d'adhésif et assurer une qualité élevée, même sur les composants en plastique renforcé de fibre de verre\n• Une équipe d'environ 20 employés dirige, promeut et développe de manière ciblée\n• Planifier, mettre en œuvre et ancrer durablement les optimisations de processus dans la vie quotidienne\n• Former activement et coordonner la coopération avec les partenaires internes et externes\n• Formation en tant que peintre: dans EFZ, idéalement complétée par une formation continue en leadership\n• Expérience en peinture industrielle, connaissance de la technologie plastique renforcée par la fibre de verre et de l'adhésif d'avantage\n• Expérience de leadership avec un style clair, motivant et valorisant\n• Des normes de qualité élevées – un travail propre est évident pour vous\n• Aussi dans des situations agitées, vous restez calme et répondez à des décisions claires Avec près de 4000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons chaque jour. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bönigen",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-oberflaechenbearbeitung-und-lackierung/33fbbf6c-3136-4ed1-96c7-2ae02b3e93c0",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:46.707Z",
-      "addressLocality": "Bönigen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3806",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "validThrough": "2026-06-10",
-      "pensum": "80-100%",
-      "salary": "95057",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/33fbbf6c-3136-4ed1-96c7-2ae02b3e93c0",
-      "requirements": [
-        "Ausbildung als Lackierer:in EFZ, ideal ergänzt durch eine Weiterbildung in Führung",
-        "Erfahrung in industrieller Lackierung, Kenntnisse in glasfaserverstärktem Kunststoff und Klebetechnik von Vorteil",
-        "Führungserfahrung mit einem klaren, motivierenden und wertschätzenden Stil",
-        "Hoher Qualitätsanspruch – saubere Arbeit ist für dich selbstverständlich",
-        "Auch in hektischen Situationen bleibst du ruhig und triffst klare Entscheide"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Ausbildung als Lackierer:in EFZ, ideal ergänzt durch eine Weiterbildung in Führung",
-          "Erfahrung in industrieller Lackierung, Kenntnisse in glasfaserverstärktem Kunststoff und Klebetechnik von Vorteil",
-          "Führungserfahrung mit einem klaren, motivierenden und wertschätzenden Stil",
-          "Hoher Qualitätsanspruch – saubere Arbeit ist für dich selbstverständlich",
-          "Auch in hektischen Situationen bleibst du ruhig und triffst klare Entscheide"
-        ]
-      },
-      "previousSlugs": [
-        "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
-        ],
-        "en": [
-          "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
-        ],
-        "fr": [
-          "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T22:46:35.993Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -765,7 +679,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:46.042Z",
+      "crawledAt": "2026-06-10T22:16:08.958Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -814,6 +728,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -859,7 +774,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/dbd67d58-b838-4e01-a0e1-91de615b02a6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:45.299Z",
+      "crawledAt": "2026-06-10T22:16:08.179Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -909,6 +824,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:34.611Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -954,7 +870,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-instandhaltung-schienenfahrzeuge/2560f7be-3020-453c-8dac-0650df731afd",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:44.556Z",
+      "crawledAt": "2026-06-10T22:16:07.488Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1000,6 +916,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.941Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1045,7 +962,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in/b902f38a-e2ae-46be-a6f8-d05911ff6585",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:43.773Z",
+      "crawledAt": "2026-06-10T22:16:06.696Z",
       "addressLocality": "Langnau im Emmental",
       "addressCountry": "CH",
       "country": "CH",
@@ -1093,6 +1010,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.211Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1138,7 +1056,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:43.104Z",
+      "crawledAt": "2026-06-10T22:16:06.010Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1178,6 +1096,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1223,7 +1142,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:42.420Z",
+      "crawledAt": "2026-06-10T22:16:05.315Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1269,6 +1188,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1314,7 +1234,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-abap-virtuos-in/fa0faeac-0e3f-4bd1-a519-b222357e1bdc",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:41.610Z",
+      "crawledAt": "2026-06-10T22:16:04.521Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1353,6 +1273,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:32.553Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1398,7 +1319,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-fahrzeugreinigung/5cf9faa7-4e3c-4951-9b69-e921365abdce",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:40.870Z",
+      "crawledAt": "2026-06-10T22:16:03.743Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1439,6 +1360,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:31.813Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1484,7 +1406,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-operations/d5657b12-dcf7-40a8-8ce5-7c96ddd10f9f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:40.200Z",
+      "crawledAt": "2026-06-10T22:16:03.057Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1534,6 +1456,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:30.223Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1579,7 +1502,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-gaesteservice-schifffahrt/0c8b7bfd-ec27-448b-8270-bf05c95ee2ae",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:39.445Z",
+      "crawledAt": "2026-06-10T22:16:02.279Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1615,6 +1538,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:38:31.757Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1660,7 +1584,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/rechtsanwaelt-in/ae1169b1-dec0-48b7-86f1-30f03c81044f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:38.726Z",
+      "crawledAt": "2026-06-10T22:16:01.444Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1708,6 +1632,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:37.982Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1753,7 +1678,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/key-account-manager-in-industrie-mit-teamleitung/09f4bd5b-b798-4f50-bd20-484cfcfd63ee",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T11:40:38.010Z",
+      "crawledAt": "2026-06-10T22:16:00.734Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1804,6 +1729,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:29.457Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
