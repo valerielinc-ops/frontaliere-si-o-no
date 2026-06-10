@@ -1,10 +1,10 @@
-name: Update SBB Jobs (Dedicated)
+name: Update undefined Jobs (Dedicated)
 
 on:
   workflow_dispatch:
     inputs:
       strict_localization:
-        description: 'Fail if any SBB locale is missing/untranslated (1=yes, 0=no)'
+        description: 'Fail if any locale is missing/untranslated (1=yes, 0=no)'
         required: false
         default: '1'
         type: string
@@ -64,14 +64,14 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      - name: Run dedicated SBB crawler
+      - name: Run dedicated undefined crawler
         env:
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           JOBS_SBB_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: '1'
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: npm run jobs:update:sbb
+        run: node scripts/update-sbb-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)
         env:
@@ -84,9 +84,9 @@ jobs:
         id: changes
         env:
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SBB jobs (dedicated crawler)"
+        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update undefined jobs (dedicated crawler)" data/jobs-crawler-adapters/
 
-      - name: Report failure to GitHub Issues
+      - name: Report failure to Linear
         if: failure()
         continue-on-error: true
         env:

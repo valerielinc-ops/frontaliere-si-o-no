@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated Stadler Rail crawler runner.
+ * Dedicated undefined crawler runner.
  *
- * Uses the standard crawler template with the Stadler Rail parser.
+ * Uses the standard crawler template with the undefined parser.
  * All fetch/parse logic lives in ./lib/stadler-rail-job-parser.mjs.
  */
 import path from 'node:path';
@@ -28,6 +28,6 @@ runStandardCrawlerPipeline({
   isTrustedDomain,
   defaultSourceLang: 'de',
 }).catch((err) => {
-  console.error(`❌ Stadler Rail crawler failed: ${err?.message || err}`);
+  console.error(`❌ undefined crawler failed: ${err?.message || err}`);
   process.exit(1);
 });

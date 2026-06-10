@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated IKEA Svizzera crawler runner.
+ * Dedicated undefined crawler runner.
  *
- * Uses the standard crawler template with the IKEA Svizzera parser.
+ * Uses the standard crawler template with the undefined parser.
  * All fetch/parse logic lives in ./lib/ikea-job-parser.mjs.
  */
 import path from 'node:path';
@@ -26,8 +26,8 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllIkeaJobs,
   isCompanyJob: isIkeaJob,
   isTrustedDomain,
-  defaultSourceLang: 'en',
+  defaultSourceLang: 'de',
 }).catch((err) => {
-  console.error(`❌ IKEA Svizzera crawler failed: ${err?.message || err}`);
+  console.error(`❌ undefined crawler failed: ${err?.message || err}`);
   process.exit(1);
 });

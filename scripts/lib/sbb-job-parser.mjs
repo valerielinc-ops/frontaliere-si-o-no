@@ -1,312 +1,266 @@
+#!/usr/bin/env node
 /**
- * SBB (FFS – Ferrovie Federali Svizzere) detail page parser
+ * SBB CFF FFS job parser — Fetcher and job builder.
  *
- * jobs.sbb.ch/v2/offene-stellen/{slug}/{uuid} pages are SSR pages backed by
- * SAP SuccessFactors. They contain both:
+ * Source: https://company.sbb.ch/de/jobs-karriere/jobs/offene-stellen.html
  *
- *   1. A schema.org/JobPosting JSON-LD block — description field is a short
- *      teaser (intro paragraph only), not the full vacancy body.
- *   2. Rich structured HTML — the actual vacancy body with named sections
- *      (h2/h3 headings) for "Il tuo compito", "Il tuo profilo", etc.
- *
- * Regression case: "Dirigente Team Controllo Qualità (M/F/D)"
- *   https://jobs.sbb.ch/v2/offene-stellen/dirigente-team-controllo-qualita-m-f-d/f40a8456-69e6-4d3f-ad9a-8b7803d10227
- *   — published description was shorter than the source vacancy because only
- *     the JSON-LD `description` teaser was used; HTML sections were ignored.
- *   — fix: extract structured HTML sections and prefer them when longer.
+ * Exports the 4 required functions for the crawler template:
+ *   - fetchAllSbbJobs()  — Fetch and parse all jobs
+ *   - isSbbJob()         — Match jobs belonging to this company
+ *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { createHash } from 'node:crypto';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
-/** Minimum accepted description length (characters). */
-export const MIN_SBB_DESC_LENGTH = 400;
+/* ── Constants ─────────────────────────────────────────────── */
 
-// ─── HTML helpers ─────────────────────────────────────────────────────────────
+export const SBB_KEY = 'sbb';
+export const SBB_COMPANY_NAME = 'SBB CFF FFS';
+export const SBB_COMPANY_DOMAIN = 'sbb.ch';
 
-function decodeHtmlEntities(input = '') {
-  const NAMED = {
-    amp: '&', lt: '<', gt: '>', quot: '"', apos: "'",
-    nbsp: ' ', rsquo: "'", lsquo: "'", rdquo: '"', ldquo: '"',
-    ndash: '-', mdash: '-', hellip: '...', raquo: '»', laquo: '«',
-    agrave: 'à', egrave: 'è', igrave: 'ì', ograve: 'ò', ugrave: 'ù',
-    aacute: 'á', eacute: 'é', iacute: 'í', oacute: 'ó', uacute: 'ú',
-    auml: 'ä', ouml: 'ö', uuml: 'ü', szlig: 'ß',
-  };
-  return String(input || '').replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (full, code) => {
-    const raw = String(code || '').toLowerCase();
-    if (raw.startsWith('#x')) {
-      const cp = Number.parseInt(raw.slice(2), 16);
-      return Number.isFinite(cp) ? String.fromCodePoint(cp) : full;
-    }
-    if (raw.startsWith('#')) {
-      const cp = Number.parseInt(raw.slice(1), 10);
-      return Number.isFinite(cp) ? String.fromCodePoint(cp) : full;
-    }
-    return NAMED[raw] || full;
-  });
+const CAREER_URL = 'https://company.sbb.ch/de/jobs-karriere/jobs/offene-stellen.html';
+
+// Custom AEM job-filter endpoint: returns a flat JSON array of ALL open jobs in
+// one response (no pagination — offset/keyword params are ignored, filtering is
+// client-side). The entire feed is Switzerland-only, so no CH filter is needed.
+const JOBS_API_URL =
+  'https://company.sbb.ch/content/internet/corporate/de/jobs-karriere/jobs/job-suche/jcr:content/parmain/jobfilter.results.json';
+
+// Real job-posting host (from links.directlink, e.g.
+// https://jobs.sbb.ch/v2/offene-stellen/{slug}/{viewkey}).
+const JOBS_POSTING_HOST = 'jobs.sbb.ch';
+
+/* ── Helpers ───────────────────────────────────────────────── */
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
 }
 
-export function stripHtml(value = '') {
-  const raw = String(value || '');
-  if (!raw) return '';
-  const text = raw
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/(p|div|section|article|h[1-6]|tr)>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ');
-  const decoded = decodeHtmlEntities(text).replace(/\r/g, '');
-  return decoded
-    .split('\n')
-    .map((line) => line.replace(/\s+/g, ' ').trim())
-    .filter(Boolean)
-    .join('\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
+function normalizeSpace(s = '') {
+  return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-// ─── JSON-LD extraction ────────────────────────────────────────────────────────
+/* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Extract the schema.org/JobPosting node from inline JSON-LD scripts.
- *
- * @param {string} html
- * @returns {object|null}
+ * Check if a job belongs to SBB CFF FFS.
+ * Used by the template to filter this company's jobs from the global dataset.
  */
-export function extractSbbJsonLd(html = '') {
-  const scripts = [...String(html || '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)];
-  for (const match of scripts) {
-    const raw = String(match[1] || '').trim();
-    if (!raw) continue;
-    let parsed;
-    try { parsed = JSON.parse(raw); } catch { continue; }
-    const nodes = (Array.isArray(parsed) ? parsed : [parsed]).flatMap((node) => {
-      if (!node || typeof node !== 'object') return [];
-      if (Array.isArray(node['@graph'])) return node['@graph'];
-      return [node];
-    });
-    for (const node of nodes) {
-      const type = node?.['@type'];
-      const matchType = Array.isArray(type)
-        ? type.some((t) => String(t || '').toLowerCase() === 'jobposting')
-        : String(type || '').toLowerCase() === 'jobposting';
-      if (matchType) return node;
-    }
-  }
-  return null;
+export function isSbbJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === SBB_KEY ||
+    key.startsWith('sbb') ||
+    company.includes('sbb cff ffs') ||
+    url.includes('sbb.ch')
+  );
 }
 
 /**
- * Build a plain-text description from JSON-LD JobPosting fields.
- * Combines description + responsibilities + qualifications, deduplicates.
- *
- * @param {object|null} jobPosting
- * @returns {string}
+ * Validate that a URL belongs to SBB CFF FFS's domain.
  */
-export function buildJsonLdDescription(jobPosting) {
-  if (!jobPosting) return '';
-  const blocks = [
-    jobPosting?.description,
-    jobPosting?.responsibilities,
-    jobPosting?.qualifications,
-  ]
-    .map((raw) => stripHtml(String(raw || '')).trim())
-    .filter((b) => b.length >= 40);
-
-  // Deduplicate: drop block if it's already contained in another
-  const deduped = [];
-  for (const block of blocks) {
-    const normalized = block.toLowerCase();
-    const isDupe = deduped.some((existing) => {
-      const n = existing.toLowerCase();
-      return n === normalized || n.includes(normalized) || normalized.includes(n);
-    });
-    if (!isDupe) deduped.push(block);
-  }
-
-  return deduped.join('\n\n').replace(/\n{3,}/g, '\n\n').trim();
-}
-
-// ─── HTML section extraction ───────────────────────────────────────────────────
-
-/**
- * Extract structured sections from the jobs.sbb.ch HTML body.
- *
- * The vacancy body on jobs.sbb.ch v2 pages is structured as:
- *   - An intro paragraph (before the first heading)
- *   - Named sections with <h2> or <h3> headings (e.g. "Il tuo compito",
- *     "Il tuo profilo", "Cosa offriamo")
- *
- * Headings that are part of navigation/header/footer (very short, or matching
- * known site-chrome patterns) are skipped.
- *
- * @param {string} html
- * @returns {string} plain-text combined sections
- */
-export function extractSbbHtmlSections(html = '') {
-  if (!html) return '';
-
-  // Strip scripts and styles first to avoid false matches
-  const cleaned = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-    .replace(/<footer[\s\S]*?<\/footer>/gi, '')
-    .replace(/<header[\s\S]*?<\/header>/gi, '');
-
-  const sections = [];
-
-  // Split on h2/h3 boundaries to extract heading + body pairs
-  // Pattern: find a heading tag, capture its text, then capture everything until
-  // the next h2/h3 or end of a known container.
-  const sectionPattern = /<(h[23])[^>]*>([\s\S]*?)<\/\1>([\s\S]*?)(?=<h[23][^>]*>|$)/gi;
-  let match;
-  while ((match = sectionPattern.exec(cleaned)) !== null) {
-    const heading = stripHtml(match[2]).trim();
-    const bodyHtml = match[3];
-    if (!heading || heading.length > 100) continue;
-
-    // Skip navigation-like headings (very short single-word headings, or known site chrome)
-    const headingLower = heading.toLowerCase();
-    if (/^(menu|home|jobs|career|karriere|offerte|cerca|search|login|iscriviti|contatti?|news|impostazioni?|cookie)$/.test(headingLower)) continue;
-
-    const body = stripHtml(bodyHtml).trim();
-    if (!body || body.length < 20) continue;
-
-    sections.push(`## ${heading}\n${body}`);
-  }
-
-  return sections.join('\n\n').replace(/\n{3,}/g, '\n\n').trim();
-}
-
-/**
- * Extract the intro text that appears before the first h2/h3 heading.
- * This is typically the teaser/intro paragraph of the vacancy.
- *
- * @param {string} html
- * @returns {string}
- */
-export function extractSbbIntroText(html = '') {
-  if (!html) return '';
-  const cleaned = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-    .replace(/<footer[\s\S]*?<\/footer>/gi, '')
-    .replace(/<header[\s\S]*?<\/header>/gi, '');
-
-  // Find the first h2/h3 and take everything before it inside main/article/section
-  const beforeFirstHeading = cleaned.match(/^([\s\S]*?)(?=<h[23][^>]*>)/i)?.[1] || '';
-  return stripHtml(beforeFirstHeading).trim();
-}
-
-/**
- * Extract a concrete workplace city from the rendered vacancy body.
- *
- * Some SBB detail pages expose a generic/legal `jobLocation` in JSON-LD
- * (for example Bern HQ), while the actual operational base is only present
- * in the visible intro line such as "Chur, 01.12.2026, 100%".
- */
-export function extractSbbBodyLocation(html = '') {
-  const intro = extractSbbIntroText(html);
-  const lines = intro
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  for (const line of lines) {
-    const datedPrefix = line.match(/^([^,]{2,80}),\s*\d{1,2}\.\d{1,2}\.\d{4}\s*,\s*\d{1,3}%/);
-    if (datedPrefix?.[1]) return datedPrefix[1].trim();
-    const percentPrefix = line.match(/^([^,]{2,80}),\s*\d{1,3}(?:-\d{1,3})?%/);
-    if (percentPrefix?.[1]) return percentPrefix[1].trim();
-  }
-
-  return '';
-}
-
-// ─── Main parser ───────────────────────────────────────────────────────────────
-
-/**
- * Parse a jobs.sbb.ch detail page HTML into a structured job record fragment.
- *
- * Combines JSON-LD (for metadata) with HTML section extraction (for full body).
- * The HTML sections are preferred over JSON-LD description when they yield
- * more content, since the JSON-LD description is typically a short teaser.
- *
- * @param {string} html - Raw HTML of a jobs.sbb.ch detail page
- * @returns {{ title: string, description: string, requirements: string[], location: string, warnings: string[] }}
- */
-export function parseSbbDetailPage(html = '') {
-  if (!html) return { title: '', description: '', requirements: [], location: '', warnings: [] };
-
-  const jobPosting = extractSbbJsonLd(html);
-
-  // Title: prefer JSON-LD, fall back to <h1>
-  const title = (() => {
-    const jsonLdTitle = String(jobPosting?.title || '').trim();
-    if (jsonLdTitle) return jsonLdTitle;
-    return stripHtml(String(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '')).trim();
-  })();
-
-  // Build JSON-LD description (teaser + qualifications)
-  const jsonLdDesc = buildJsonLdDescription(jobPosting);
-
-  // Build HTML section description (full vacancy body)
-  const htmlSections = extractSbbHtmlSections(html);
-  const htmlIntro = extractSbbIntroText(html);
-
-  // Combine intro + sections, deduplicate against JSON-LD teaser
-  const htmlParts = [htmlIntro, htmlSections].map((s) => s.trim()).filter(Boolean);
-  const htmlDesc = htmlParts.join('\n\n').replace(/\n{3,}/g, '\n\n').trim();
-
-  // Prefer HTML content if it's meaningfully longer than JSON-LD
-  // (accounts for the common case where JSON-LD has a teaser and HTML has the full body)
-  const description = htmlDesc.length > jsonLdDesc.length + 100
-    ? htmlDesc
-    : jsonLdDesc || htmlDesc;
-
-  // Requirements from JSON-LD qualifications
-  const requirements = (() => {
-    const raw = String(jobPosting?.qualifications || '');
-    if (!raw) return [];
-    return [...String(raw).matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
-      .map((m) => stripHtml(m[1]).trim())
-      .filter((item) => item.length >= 6);
-  })();
-
-  // Location from JSON-LD
-  const location = (() => {
-    const bodyLocation = extractSbbBodyLocation(html);
-    if (bodyLocation) return bodyLocation;
-
-    const locations = Array.isArray(jobPosting?.jobLocation)
-      ? jobPosting.jobLocation
-      : [jobPosting?.jobLocation];
-    for (const place of locations) {
-      const locality = String(place?.address?.addressLocality || '').trim();
-      if (locality) return locality;
-    }
-    // Fall back to last comma-part of title (e.g. "Job Title, Bellinzona")
-    if (title.includes(',')) {
-      const candidate = title.split(',').pop()?.trim() || '';
-      if (candidate.length <= 60) return candidate;
-    }
-    return '';
-  })();
-
-  const warnings = [];
-  if (description.length < MIN_SBB_DESC_LENGTH) {
-    warnings.push(
-      `SBB description too short for "${title}" (${description.length} chars < ${MIN_SBB_DESC_LENGTH}) — ` +
-      `HTML sections may be missing or vacancy has no body content`
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return (
+      host === 'sbb.ch' ||
+      host.endsWith('.sbb.ch') || // covers company.sbb.ch + jobs.sbb.ch (real posting host)
+      host === JOBS_POSTING_HOST
     );
+  } catch {
+    return false;
+  }
+}
+
+/* ── Category Detection ────────────────────────────────────── */
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
+  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
+  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
+  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
+  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
+  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
+  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
+  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
+  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  return 'Altro';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(junior|jr)/.test(t)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  return 'mid';
+}
+
+function detectEmploymentType(text = '') {
+  const t = normalize(text);
+  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
+  return 'OTHER';
+}
+
+/* ── Fetch + Parse ─────────────────────────────────────────── */
+
+const REQUEST_HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  Accept: 'application/json, text/plain, */*',
+  'Accept-Language': 'de-CH,de;q=0.9',
+  Referer: CAREER_URL,
+};
+
+/**
+ * Pull the first 2-letter canton code out of an SBB region label such as
+ * 'Tessin (TI)' or 'Zürich (ZH/AG/SH/ZG)' → 'TI' / 'ZH'.
+ */
+function cantonFromRegionLabel(label = '') {
+  const m = String(label).match(/\(([A-Z]{2})(?:[/)]|\s)/);
+  return m ? m[1] : null;
+}
+
+/**
+ * Fetch the SBB job-filter JSON feed (flat array of all open CH jobs).
+ * Returns raw listing objects normalized to {title, location, url, postedAt, description, jobReqId}.
+ */
+async function fetchJobListings() {
+  console.log(`   Fetching from: ${JOBS_API_URL}`);
+
+  const data = await fetchJson(JOBS_API_URL, { headers: REQUEST_HEADERS });
+  const rows = Array.isArray(data) ? data : data?.jobs || data?.results || [];
+
+  const listings = [];
+  for (const row of rows) {
+    const attrs = row?.attributes || {};
+    const cities = Array.isArray(attrs['100']) ? attrs['100'] : [];
+    const regions = Array.isArray(attrs['110']) ? attrs['110'] : [];
+    const pensum = Array.isArray(attrs['50']) ? attrs['50'].join(' ') : '';
+    const workload = Array.isArray(attrs['160']) ? attrs['160'][0] : '';
+
+    const city = cities.find(Boolean) || '';
+    const regionLabel = regions.find(Boolean) || '';
+    const url = row?.links?.directlink || '';
+
+    listings.push({
+      title: row?.title || '',
+      location: city || regionLabel,
+      regionCanton: cantonFromRegionLabel(regionLabel),
+      url,
+      postedAt: row?.start_date || row?.last_modification_timestamp || '',
+      // The feed has no real description body (`text` is keyword soup); the AI
+      // localization pipeline enriches downstream. Seed with title context.
+      description: '',
+      employmentHint: `${pensum} ${workload}`.trim(),
+      jobReqId: row?.id || row?.viewkey || '',
+    });
   }
 
-  return {
-    title: title.trim(),
-    description: description.trim(),
-    requirements,
-    location: location.trim(),
-    warnings,
-  };
+  return listings;
+}
+
+/**
+ * Fetch all SBB CFF FFS jobs.
+ * Returns an array of ParsedJob objects (source-locale only).
+ *
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
+ */
+export async function fetchAllSbbJobs() {
+  console.log(`🔍 Fetching SBB CFF FFS jobs`);
+  console.log(`   Source: ${CAREER_URL}\n`);
+
+  const listings = await fetchJobListings();
+  if (!listings || listings.length === 0) {
+    console.warn('⚠️ No job listings returned.');
+    return [];
+  }
+
+  console.log(`  📋 Listings found: ${listings.length}`);
+
+  const jobs = [];
+  const seen = new Set();
+  for (const listing of listings) {
+    const title = normalizeSpace(listing.title || '');
+    if (!title || title.length < 3) continue;
+
+    const publicUrl = listing.url || CAREER_URL;
+    if (publicUrl !== CAREER_URL && !isTrustedDomain(publicUrl)) continue;
+    if (seen.has(publicUrl)) continue;
+    seen.add(publicUrl);
+
+    const location = normalizeSpace(listing.location) || 'Bern';
+    // City first (more precise), then the 2-letter code from the region label,
+    // finally the HQ canton (Bern / BE). Whole feed is CH-only per recon.
+    const canton =
+      inferSwissTargetCanton(location) || listing.regionCanton || 'BE';
+
+    const descriptionText = stripHtml(listing.description || '');
+    const sourceLang = detectLang(descriptionText || title, 'de');
+    const jobSlug = slugify(`${title} sbb ch`);
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+    const description = descriptionText || `${title} — SBB / CFF / FFS, ${location}`;
+
+    const job = {
+      // ── Required fields ──
+      id: `sbb-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: SBB_COMPANY_NAME,
+      companyKey: SBB_KEY,
+      companyDomain: SBB_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
+      location,
+      canton,
+      url: publicUrl,
+      source: 'SBB CFF FFS Dedicated Parser',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+
+      // ── Recommended fields ──
+      addressLocality: location,
+      // Postal code / region only reliable for the HQ canton; otherwise leave to
+      // the geocoding/normalization step.
+      ...(canton === 'BE' ? { postalCode: '3000', addressRegion: 'Bern' } : {}),
+      addressCountry: 'CH',
+      country: 'CH',
+      category: detectCategory(title),
+      contract: 'full-time',
+      employmentType: detectEmploymentType(listing.employmentHint || title),
+      experienceLevel: detectExperienceLevel(title),
+      sector: 'Public transport / Rail',
+      currency: 'CHF',
+      featured: false,
+      postedDate: listing.postedAt
+        ? new Date(listing.postedAt).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
+      applyUrl: publicUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    };
+
+    jobs.push(job);
+  }
+
+  console.log(`\n📋 Total SBB CFF FFS jobs discovered: ${jobs.length}`);
+  return jobs;
 }
