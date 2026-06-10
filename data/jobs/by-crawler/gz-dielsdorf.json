@@ -296,8 +296,7 @@
         ],
         "en": [
           "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-          "assistant-physician-adult-psychiatry-ambulatory-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "fachperson-gesundheit-40-100-br-medizin-palliativ-care-sro-langenthal"
+          "assistant-physician-adult-psychiatry-ambulatory-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
@@ -1497,7 +1496,7 @@
         "de": "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf",
         "it": "collaboratore-trice-hauswirtschaft-service-gesundheitszentrum-dielsdorf",
         "en": "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf",
-        "fr": "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf"
+        "fr": "collaborateur-trice-hauswirtschaft-service-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1543,6 +1542,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf"
         ]
       },

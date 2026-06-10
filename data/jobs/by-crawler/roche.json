@@ -14370,7 +14370,7 @@
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
         "de": "strategic-account-executive-pathology-lab-roche-ch",
-        "fr": "strategic-account-executive-pathology-lab-roche-ch"
+        "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -14411,8 +14411,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+        "strategischer-account-executive-pathologielabor-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14422,7 +14421,6 @@
           "strategischer-account-executive-pathologielabor-roche-basel"
         ],
         "fr": [
-          "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ]
       },
@@ -61083,12 +61081,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -61128,16 +61126,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -83856,8 +83851,7 @@
       "previousSlugsByLocale": {
         "it": [
           "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
-          "strategic-account-executive-pathology-lab-roche-basel",
-          "strategic-account-executive-pathology-lab-roche-ch"
+          "strategic-account-executive-pathology-lab-roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-09T23:04:52.947Z",
@@ -84403,8 +84397,8 @@
       "slugByLocale": {
         "it": "capo-ispezione-visiva-e-imballaggio-msat-roche-shanghai",
         "en": "associate-manager-msat-visual-inspection-packaging-roche-ch",
-        "de": "msat-visual-inspection-packaging-lead-roche-ch",
-        "fr": "msat-visual-inspection-packaging-lead-roche-ch"
+        "de": "leiter-msat-qualification-validation-roche-shanghai",
+        "fr": "responsable-msat-qualification-validation-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84452,6 +84446,12 @@
           "msat-visual-inspection-packaging-lead-roche-ch",
           "head-of-msat-qualification-validation-roche-ch",
           "associate-manager-msat-visual-inspection-packaging-roche-ch"
+        ],
+        "de": [
+          "msat-visual-inspection-packaging-lead-roche-ch"
+        ],
+        "fr": [
+          "msat-visual-inspection-packaging-lead-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -85138,12 +85138,12 @@
     },
     {
       "id": "roche-365ce424f70f",
-      "slug": "seo-specialist-roche-ch-2",
+      "slug": "seo-specialista-roche-san-jose-costa-rica",
       "slugByLocale": {
         "en": "seo-specialist-roche-ch",
-        "it": "seo-specialist-roche-ch-2",
-        "de": "seo-specialist-roche-ch-2",
-        "fr": "seo-specialist-roche-ch-2"
+        "it": "seo-specialista-roche-san-jose-costa-rica",
+        "de": "seo-spezialist-roche-san-jose-costa-rica",
+        "fr": "seo-specialiste-roche-san-jose-costa-rica"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85199,7 +85199,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-10T12:51:59.562Z"
+      "firstSeenAt": "2026-06-10T12:51:59.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "seo-specialist-roche-ch-2"
+        ],
+        "de": [
+          "seo-specialist-roche-ch-2"
+        ],
+        "fr": [
+          "seo-specialist-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "seo-specialist-roche-ch-2"
+      ]
     },
     {
       "id": "roche-31b16337adb1",
@@ -85993,7 +86007,7 @@
         "en": "supply-chain-lead-asia-pacific-roche-ch",
         "it": "supply-chain-lead-asia-pacific-roche-ch",
         "de": "supply-chain-lead-asia-pacific-roche-ch",
-        "fr": "supply-chain-lead-asia-pacific-roche-ch"
+        "fr": "chaine-d-approvisionnement-lead-asia-pacific-roche-singapore"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -86248,12 +86262,12 @@
     },
     {
       "id": "roche-2d7ced0e9a8a",
-      "slug": "ra-specialist-roche-ch",
+      "slug": "ra-specialista-roche-seoul",
       "slugByLocale": {
         "en": "ra-specialist-roche-ch",
-        "it": "ra-specialist-roche-ch",
-        "de": "ra-specialist-roche-ch",
-        "fr": "ra-specialist-roche-ch"
+        "it": "ra-specialista-roche-seoul",
+        "de": "ra-spezialist-roche-seoul",
+        "fr": "ra-specialiste-roche-seoul"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -86309,7 +86323,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-10T12:51:42.120Z"
+      "firstSeenAt": "2026-06-10T12:51:42.120Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ra-specialist-roche-ch"
+        ],
+        "de": [
+          "ra-specialist-roche-ch"
+        ],
+        "fr": [
+          "ra-specialist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ra-specialist-roche-ch"
+      ]
     },
     {
       "id": "roche-3ef1c1d20d23",
@@ -87390,12 +87418,12 @@
     },
     {
       "id": "roche-78ba87b96247",
-      "slug": "medical-intern-roche-ch",
+      "slug": "medical-tirocinante-roche-istanbul",
       "slugByLocale": {
         "en": "medical-intern-roche-ch",
-        "it": "medical-intern-roche-ch",
-        "de": "medical-intern-roche-ch",
-        "fr": "medical-intern-roche-ch"
+        "it": "medical-tirocinante-roche-istanbul",
+        "de": "medical-praktikant-roche-istanbul",
+        "fr": "medical-stagiaire-roche-istanbul"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87451,7 +87479,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-10T12:51:26.558Z"
+      "firstSeenAt": "2026-06-10T12:51:26.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-intern-roche-ch"
+        ],
+        "de": [
+          "medical-intern-roche-ch"
+        ],
+        "fr": [
+          "medical-intern-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-intern-roche-ch"
+      ]
     },
     {
       "id": "roche-6496a44efa5d",
