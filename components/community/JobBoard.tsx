@@ -8,6 +8,7 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -505,7 +506,10 @@ function companyLogoUrl(job: JobListing): string | null {
  companyDomain: job.companyDomain,
  url: job.url,
  });
- if (explicitLogo) return explicitLogo;
+ // cdnImageUrl rewrites a same-origin /images/{brands,…} logo path to the CDN
+ // at runtime when offloaded (#1360); external favicon/clearbit URLs pass through
+ // unchanged. CDN-down degrades via the <img onError> chain (handleCompanyLogoError).
+ if (explicitLogo) return cdnImageUrl(explicitLogo);
 
  const host = resolveCompanyWebsiteHost({
  company: job.company,
@@ -5848,7 +5852,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateContract = t(contractTranslationKey(selectedJob));
  const gatePosted = daysSincePosted(selectedJob.postedDate);
  const gateIsNew = isNewJob(selectedJob);
- const logoUrl = resolveCompanyLogoUrl(selectedJob);
+ const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
  const descriptionPreview = String(
  selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
  ).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220);

@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft, Linkedin, Twitter, Mail, Award, Globe } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { getAuthorBySlug, type Author } from '@/data/authors';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 import { buildAuthorSeo } from '@/services/seo/seo-authors';
 
 /**
@@ -71,7 +72,7 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
       <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-lg mb-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
           <img
-            src={author.photoPath}
+            src={cdnImageUrl(author.photoPath)}
             alt={`Foto di ${author.name}`}
             width={160}
             height={160}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch, UserCircle, DollarSign, Award, Mail, Linkedin, ExternalLink } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { AUTHORS } from '@/data/authors';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 
 /**
  * ChiSiamo — /chi-siamo/ About page.
@@ -158,7 +159,7 @@ export const ChiSiamo: React.FC = () => {
  className="flex items-center gap-3 p-3 rounded-xl bg-info/10 hover:bg-info/20 transition-colors no-underline"
  >
  <img
- src={author.photoPath}
+ src={cdnImageUrl(author.photoPath)}
  alt={`Foto di ${author.name}`}
  width={48}
  height={48}
@@ -305,7 +306,7 @@ export const ChiSiamo: React.FC = () => {
  aria-label={`Pagina autore di ${author.name}`}
  >
  <img
- src={author.photoPath}
+ src={cdnImageUrl(author.photoPath)}
  alt={`Foto di ${author.name}`}
  width={64}
  height={64}
