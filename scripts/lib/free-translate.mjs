@@ -957,12 +957,15 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   });
   if (t2) return balanceMarkdownMarkers(t2);
 
-  // Tier 4a: LibreTranslate self-hosted — for IT targets this is the FIRST LT
-  // attempt (kept below MyMemory by the EN/DE/FR gate above, preserving pre-PR IT
-  // order); for EN/DE/FR it's a harmless second chance if the promoted attempt
-  // (Tier 3b) and MyMemory both failed. No-op when self-hosted URL is unset.
-  const t3bFallback = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-  if (t3bFallback) return balanceMarkdownMarkers(t3bFallback);
+  // Tier 4a: LibreTranslate self-hosted — IT-target ONLY. For IT this is the
+  // first (and only) self-hosted attempt, kept below MyMemory by the EN/DE/FR
+  // gate at Tier 3b, preserving pre-PR IT order. EN/DE/FR already tried it at
+  // Tier 3b, so re-running it here would pay a second (up to 30s) timeout on a
+  // hung endpoint for no benefit — skip. No-op when self-hosted URL is unset.
+  if (targetLang === 'it') {
+    const t3bFallback = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
+    if (t3bFallback) return balanceMarkdownMarkers(t3bFallback);
+  }
 
   // Tier 4b: LibreTranslate public instances (raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
