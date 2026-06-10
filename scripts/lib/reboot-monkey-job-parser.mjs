@@ -20,6 +20,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -182,13 +183,13 @@ async function fetchJobListings() {
 
   if (total === 0) return [];
 
-  const allListings = [...(firstPage.results || [])];
+  const allListings = [...assertJsonListShape(firstPage, { key: 'results', source: REBOOT_MONKEY_KEY })];
   console.log(`   Page 1: ${firstPage.count} jobs`);
 
   for (let page = 2; page <= totalPages; page++) {
     await new Promise((r) => setTimeout(r, 400));
     const data = await fetchJobPage(page);
-    const results = data.results || [];
+    const results = assertJsonListShape(data, { key: 'results', source: REBOOT_MONKEY_KEY });
     allListings.push(...results);
     console.log(`   Page ${page}: ${results.length} jobs (total so far: ${allListings.length})`);
     if (results.length === 0) break;

@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -187,7 +188,7 @@ async function fetchJobListings() {
     const url = `${SR_API_BASE}/postings?limit=${PAGE_SIZE}&offset=${offset}&country=CH`;
     console.log(`  📄 Fetching SmartRecruiters listings (offset=${offset})...`);
     const data = await fetchJson(url);
-    const items = data?.content || [];
+    const items = assertJsonListShape(data, { key: 'content', source: KONE_KEY });
     const total = data?.totalFound ?? '?';
 
     console.log(`  📦 Got ${items.length} postings (API total: ${total})`);

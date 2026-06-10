@@ -1,6 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
-// @ts-expect-error — plain .mjs crawler lib, no type declarations
-import { assertJsonListShape, describeJsonShape } from '../scripts/lib/assert-json-list-shape.mjs';
+import {
+  assertJsonListShape,
+  assertJsonListShapeMultiKey,
+  describeJsonShape,
+  // @ts-expect-error — plain .mjs crawler lib, no type declarations
+} from '../scripts/lib/assert-json-list-shape.mjs';
 
 /**
  * Locks the shared non-silent guard extracted per #1666 (swept across ~12
@@ -138,6 +142,111 @@ describe('assertJsonListShape — shared non-silent JSON-envelope guard (#1666)'
     assertJsonListShape({ nope: [] }, { key: 'jobs', source: 'x' });
     expect(spy).toHaveBeenCalledTimes(1);
     spy.mockRestore();
+  });
+
+  describe('assertJsonListShapeMultiKey — OR-chain / multi-key variant (#1700)', () => {
+    const captureWarnMK = () => {
+      const calls: string[] = [];
+      return { warn: (m: string) => calls.push(m), calls };
+    };
+
+    it('resolves the FIRST candidate key that is an array (no warn)', () => {
+      const { warn, calls } = captureWarnMK();
+      const list = [{ id: 1 }];
+      const out = assertJsonListShapeMultiKey(
+        { result: list, jobs: [], data: [] },
+        { keys: ['result', 'jobs', 'data'], source: 'canton-valais', warn },
+      );
+      expect(out).toBe(list);
+      expect(calls).toHaveLength(0);
+    });
+
+    it('skips a non-array candidate and resolves the next array key (the `||` truthy-non-array bug)', () => {
+      const { warn, calls } = captureWarnMK();
+      // `result` is a truthy NON-array (error object) — the raw `||` chain would
+      // have returned it as the "list"; the helper skips it and uses `jobs`.
+      const list = [{ id: 2 }];
+      const out = assertJsonListShapeMultiKey(
+        { result: { error: 'rate limited' }, jobs: list },
+        { keys: ['result', 'jobs'], source: 'x', warn },
+      );
+      expect(out).toBe(list);
+      expect(calls).toHaveLength(0);
+    });
+
+    it('accepts a bare top-level array when allowBareArray (Lever-style API)', () => {
+      const { warn, calls } = captureWarnMK();
+      const list = [{ id: 1 }, { id: 2 }];
+      const out = assertJsonListShapeMultiKey(list, { keys: [], allowBareArray: true, source: 'lever:acme', warn });
+      expect(out).toBe(list);
+      expect(calls).toHaveLength(0);
+    });
+
+    it('resolves a dotted candidate path (OData `d.results`)', () => {
+      const { warn, calls } = captureWarnMK();
+      const list = [{ id: 1 }];
+      const out = assertJsonListShapeMultiKey(
+        { d: { results: list }, value: [] },
+        { keys: ['d.results', 'value'], source: 'successfactors:acme', warn },
+      );
+      expect(out).toBe(list);
+      expect(calls).toHaveLength(0);
+    });
+
+    it('valid EMPTY board (a candidate key IS an empty array) returns [] SILENTLY', () => {
+      const { warn, calls } = captureWarnMK();
+      const out = assertJsonListShapeMultiKey(
+        { jobs: [], total: 0 },
+        { keys: ['result', 'jobs', 'data'], allowBareArray: true, source: 'x', warn },
+      );
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(0); // matched key wins before the none-match branch
+    });
+
+    it('warns LOUDLY + returns [] when NO candidate key matches and not a bare array (total drift)', () => {
+      const { warn, calls } = captureWarnMK();
+      const out = assertJsonListShapeMultiKey(
+        { page: 1, payload: { renamed: [] } },
+        { keys: ['result', 'jobs', 'data'], allowBareArray: true, source: 'canton-valais', warn },
+      );
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(1);
+      expect(calls[0]).toContain('JSON list shape mismatch for canton-valais');
+      expect(calls[0]).toContain('data.result'); // lists the candidate keys
+      expect(calls[0]).toContain('data.jobs');
+      expect(calls[0]).toContain('or a bare top-level array');
+      expect(calls[0]).toContain('envelope keys: page, payload'); // actual shape
+      expect(calls[0]).toContain('NOT a genuinely-empty board');
+    });
+
+    it('warns for an error-string / primitive body', () => {
+      const { warn, calls } = captureWarnMK();
+      const out = assertJsonListShapeMultiKey('<html>403</html>', { keys: ['jobs'], source: 'x', warn });
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(1);
+      expect(calls[0]).toContain('got string');
+    });
+
+    it('does NOT accept a bare array when allowBareArray is false (drift → warn)', () => {
+      const { warn, calls } = captureWarnMK();
+      const out = assertJsonListShapeMultiKey([1, 2], { keys: ['jobs'], allowBareArray: false, source: 'x', warn });
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(1);
+      expect(calls[0]).not.toContain('or a bare top-level array');
+    });
+
+    it('NEVER throws — invariant return contract preserved', () => {
+      expect(() => assertJsonListShapeMultiKey(42, { keys: ['jobs'], source: 'x', warn: () => {} })).not.toThrow();
+      expect(() => assertJsonListShapeMultiKey(null, { keys: ['jobs'], source: 'x', warn: () => {} })).not.toThrow();
+      expect(() => assertJsonListShapeMultiKey(undefined, { keys: [], allowBareArray: true, source: 'x', warn: () => {} })).not.toThrow();
+    });
+
+    it('defaults to console.warn when no warn sink injected (drop-in safe)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      assertJsonListShapeMultiKey({ nope: [] }, { keys: ['jobs'], source: 'x' });
+      expect(spy).toHaveBeenCalledTimes(1);
+      spy.mockRestore();
+    });
   });
 
   describe('describeJsonShape', () => {

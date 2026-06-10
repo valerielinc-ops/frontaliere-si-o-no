@@ -10,6 +10,7 @@
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const BASE_URL = 'https://afry.com';
 
@@ -55,7 +56,7 @@ function slugify(value = '') {
  * @returns {{ items: Array }}
  */
 export function parseAfryApiResponse(data = {}) {
-  const adverts = data.Adverts || [];
+  const adverts = assertJsonListShape(data, { key: 'Adverts', source: 'afry' });
   const swissJobs = adverts.filter((a) =>
     (a.Countries || []).some((c) => String(c.Id).toLowerCase() === 'ch'),
   );

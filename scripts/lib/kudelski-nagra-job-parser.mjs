@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -129,7 +130,11 @@ async function tryGreenhouseApi() {
     try {
       console.log(`   Trying Greenhouse API: ${apiUrl}`);
       const data = await fetchJson(apiUrl, { timeoutMs: 15000 });
-      const items = data?.jobs || (Array.isArray(data) ? data : []);
+      const items = assertJsonListShapeMultiKey(data, {
+        keys: ['jobs'],
+        allowBareArray: true,
+        source: KUDELSKI_NAGRA_KEY,
+      });
       if (items.length > 0) {
         console.log(`   Greenhouse API (board: ${board}) returned ${items.length} jobs`);
         return { items, board };

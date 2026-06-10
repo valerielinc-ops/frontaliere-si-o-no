@@ -67,6 +67,33 @@ export function describeJsonShape(value) {
 }
 
 /**
+ * Emit the loud (non-throwing) "JSON list shape mismatch" warn shared by the
+ * single-key {@link assertJsonListShape} and the multi-key
+ * {@link assertJsonListShapeMultiKey}. Centralised so the message wording, the
+ * `describeJsonShape` rendering, and the "this is NOT a genuinely-empty board"
+ * clarification cannot drift between the two entry points (AGENTS.md #6).
+ *
+ * @param {string} expectation - what was expected, e.g. ``expected an array at
+ *   `data.jobs` `` — phrasing the caller controls so single-key vs OR-chain read
+ *   correctly.
+ * @param {unknown} data - the actual envelope received (rendered via
+ *   {@link describeJsonShape}).
+ * @param {object} ctx
+ * @param {string} ctx.source - crawler/source id
+ * @param {string} [ctx.lang] - optional lang/locale segment
+ * @param {(msg: string) => void} [ctx.warn=console.warn]
+ */
+export function warnJsonListShapeMismatch(expectation, data, { source, lang, warn = console.warn } = {}) {
+  const langSuffix = lang ? ` (${lang})` : '';
+  warn(
+    `⚠️ JSON list shape mismatch for ${source}${langSuffix}: ${expectation}, ` +
+      `got ${describeJsonShape(data)} — the upstream JSON envelope may have changed shape, lang, ` +
+      `paginated, or returned an error/empty body (this is NOT a genuinely-empty board, which would ` +
+      `still expose the list as an empty array).`,
+  );
+}
+
+/**
  * Validate that `data[key]` is an array and return it; warn loudly (without
  * throwing) when it is not. Drop-in replacement for
  * `Array.isArray(data?.[key]) ? data[key] : []`.
@@ -91,12 +118,7 @@ export function assertJsonListShape(data, { key = 'jobs', source, lang, rowShape
   const langSuffix = lang ? ` (${lang})` : '';
 
   if (!Array.isArray(list)) {
-    warn(
-      `⚠️ JSON list shape mismatch for ${source}${langSuffix}: expected an array at \`data.${key}\`, ` +
-        `got ${describeJsonShape(data)} — the upstream JSON envelope may have changed shape, lang, ` +
-        `paginated, or returned an error/empty body (this is NOT a genuinely-empty board, which would ` +
-        `still expose \`data.${key}\` as an empty array).`,
-    );
+    warnJsonListShapeMismatch(`expected an array at \`data.${key}\``, data, { source, lang, warn });
     return [];
   }
 
@@ -129,6 +151,91 @@ export function assertJsonListShape(data, { key = 'jobs', source, lang, rowShape
   }
 
   return list;
+}
+
+/**
+ * Multi-key / OR-chain variant of {@link assertJsonListShape}.
+ *
+ * ## The idiom this kills
+ *
+ * The other half of the silent-`[]` class (the single-key ternary is killed by
+ * {@link assertJsonListShape}) is the **multi-key OR-chain** a parser uses when
+ * the upstream ATS exposes the list under one of several candidate keys, with a
+ * bare-array fallthrough:
+ *
+ *     const items = data?.result || data?.jobs || data?.data
+ *       || (Array.isArray(data) ? data : []);
+ *
+ * This degrades IDENTICALLY to the single-key ternary: if the envelope drifts
+ * (key renamed, paginated wrapper, lang switch, error body) so that NONE of the
+ * candidate keys is an array and `data` is not itself a bare array, the whole
+ * chain collapses to `[]` — silently, indistinguishable from a genuinely-empty
+ * board → 0 jobs → source silently emptied (#1347 / #1324 class).
+ *
+ * Worse, `||` resolves the first *truthy* operand, so a non-empty NON-array at a
+ * candidate key (`{ jobs: { error: 'rate limited' } }`, `{ jobs: '<html>' }`)
+ * would be returned AS the "list" and then iterated as if it were rows. This
+ * variant resolves only the first candidate key whose value is a genuine ARRAY,
+ * so such a malformed value is skipped (and warned) rather than mis-iterated.
+ *
+ * ## Contract (drop-in for the OR-chain, behaviour-invariant on valid envelopes)
+ *
+ *   - Resolves the FIRST candidate key in `keys` whose value is an array →
+ *     returns it (no warn). Same resolved value as the `||` chain on a
+ *     well-formed envelope where exactly one key holds the list.
+ *   - If `allowBareArray` and `data` itself is a bare array → returns it
+ *     (no warn). Covers the `(Array.isArray(data) ? data : [])` tail.
+ *   - If NONE of the above match → returns `[]` (invariant return contract,
+ *     never throws) and WARNS loudly, describing the actual envelope keys /
+ *     shape received, exactly like the single-key path. This is the only added
+ *     behaviour: total drift now surfaces in the logs instead of decaying to a
+ *     silent zero-job crawl.
+ *
+ * A genuinely-empty board still passes SILENTLY: an envelope that exposes one of
+ * the candidate keys as an EMPTY array resolves to `[]` with no warn (the
+ * matched key wins before the "none match" branch).
+ *
+ * The warn logic is shared with {@link assertJsonListShape} via
+ * {@link warnJsonListShapeMismatch} — no duplication (AGENTS.md #6).
+ *
+ * @template T
+ * @param {unknown} data - the parsed JSON envelope
+ * @param {object} opts
+ * @param {string[]} opts.keys - candidate envelope keys, in priority order
+ *   (first array-valued one wins). May be empty when only `allowBareArray`
+ *   applies (pure bare-array API, à la Lever).
+ * @param {boolean} [opts.allowBareArray=false] - accept a bare top-level array
+ *   for `data` itself (mirrors the `(Array.isArray(data) ? data : [])` tail).
+ * @param {string} opts.source - crawler/source id for the warn
+ * @param {string} [opts.lang] - optional lang/locale segment for the warn
+ * @param {(msg: string) => void} [opts.warn=console.warn] - injectable for tests
+ * @returns {T[]} the resolved array (possibly empty); never throws
+ */
+export function assertJsonListShapeMultiKey(
+  data,
+  { keys = [], allowBareArray = false, source, lang, warn = console.warn } = {},
+) {
+  if (data != null && typeof data === 'object' && !Array.isArray(data)) {
+    for (const key of keys) {
+      // Support dotted candidate paths (e.g. OData's `d.results`) so a nested
+      // wrapper is resolved without a bespoke ternary at the call site.
+      const candidate = key.includes('.')
+        ? key.split('.').reduce((acc, seg) => (acc == null ? undefined : acc[seg]), data)
+        : data[key];
+      if (Array.isArray(candidate)) return candidate;
+    }
+  }
+
+  if (allowBareArray && Array.isArray(data)) return data;
+
+  const keyList = keys.length ? `\`data.${keys.join('` / `data.')}\`` : '(none)';
+  const bareNote = allowBareArray ? ' or a bare top-level array' : '';
+  warnJsonListShapeMismatch(
+    `expected an array at one of ${keyList}${bareNote}`,
+    data,
+    { source, lang, warn },
+  );
+  return [];
 }
 
 export default assertJsonListShape;

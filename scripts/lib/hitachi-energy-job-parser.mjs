@@ -15,6 +15,7 @@
 
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const PAGE_SIZE = 20;
 
@@ -56,7 +57,7 @@ function slugify(value = '') {
  *   jobType, contractType, experience, jobFunction, publicationDate }
  */
 export function parseHitachiEnergyListingJson(json) {
-  const items = json?.items || [];
+  const items = assertJsonListShape(json, { key: 'items', source: 'hitachi-energy' });
   const results = [];
   const seen = new Set();
 

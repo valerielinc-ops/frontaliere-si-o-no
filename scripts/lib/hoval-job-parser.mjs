@@ -11,6 +11,7 @@
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const BASE_URL = 'https://www.hoval.it';
 
@@ -55,7 +56,7 @@ function slugify(value = '') {
  * @returns {{ items: Array, totalResults: number }}
  */
 export function parseHovalListingJson(json = {}) {
-  const results = json?.results || [];
+  const results = assertJsonListShape(json, { key: 'results', source: 'hoval' });
   const totalResults = json?.pagination?.totalNumberOfResults || results.length;
 
   const items = results

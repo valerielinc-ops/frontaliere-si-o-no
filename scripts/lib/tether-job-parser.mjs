@@ -19,6 +19,7 @@ import { detectLang, isLocationExplicitlyForeign, geocodeCountry } from './dedic
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -167,7 +168,7 @@ async function fetchJobListings() {
       return [];
     }
     const data = await res.json();
-    const offers = data?.offers || [];
+    const offers = assertJsonListShape(data, { key: 'offers', source: TETHER_KEY });
     // Include ALL offers (remote company registered in Lugano) — filter only generic placeholders
     return offers.filter((o) => !isGenericOffer(o));
   } catch (err) {

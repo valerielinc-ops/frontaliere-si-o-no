@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
-import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
@@ -3373,7 +3373,14 @@ async function crawlLeverJobs(company, source) {
   } catch {
     return [];
   }
-  const jobs = Array.isArray(payload) ? payload : [];
+  // Lever's postings API returns a bare top-level array; a non-array here is an
+  // error/challenge body, not an empty board → warn loudly rather than silently
+  // yielding 0 jobs.
+  const jobs = assertJsonListShapeMultiKey(payload, {
+    keys: [],
+    allowBareArray: true,
+    source: `lever:${company?.name || source?.endpoint || 'unknown'}`,
+  });
   const out = [];
   for (const j of jobs) {
     const title = normalizeSpace(j?.text || j?.title || '');

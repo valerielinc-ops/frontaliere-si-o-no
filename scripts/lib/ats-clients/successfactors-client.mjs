@@ -77,6 +77,7 @@
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { rescueHtmlIfChallenged } from '../jina-proxy.mjs';
+import { assertJsonListShapeMultiKey } from '../assert-json-list-shape.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -601,12 +602,35 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
           { url }
         );
       }
-      const items =
-        body?.d?.results ||
-        body?.value ||
-        (Array.isArray(body) ? body : []) ||
-        [];
-      if (!items.length) break;
+      // OData exposes the page under `d.results` (v2) or `value` (v4); a bare
+      // array is the degenerate error/proxy body. Resolve via the shared
+      // multi-key guard so a TOTAL envelope drift (key renamed, error body,
+      // pagination wrapper) WARNS loudly instead of collapsing to a silent `[]`
+      // that the break below would misread as "reached the last page".
+      let envelopeDrifted = false;
+      const items = assertJsonListShapeMultiKey(body, {
+        keys: ['d.results', 'value'],
+        allowBareArray: true,
+        source: `successfactors:${tenant}`,
+        warn: (msg) => {
+          envelopeDrifted = true;
+          console.warn(msg);
+        },
+      });
+      // Distinguish a legit last page (envelope present, array empty) from a
+      // malformed/renamed envelope (drift → `[]`). On drift we still break (the
+      // contract-invariant degrade), but the warn above makes the cause legible
+      // rather than silently truncating discovery at page 0.
+      if (!items.length) {
+        if (envelopeDrifted) {
+          console.warn(
+            `[successfactors-client] stopping pagination for ${tenant} at page ${page} ` +
+              `due to a malformed/renamed OData envelope (see shape-mismatch warn above), ` +
+              `not a genuine last page.`,
+          );
+        }
+        break;
+      }
       for (const raw of items) {
         const job = extractSuccessFactorsJobIdentity(raw, { company, tenant });
         if (matchesLocation(job.location)) yield job;

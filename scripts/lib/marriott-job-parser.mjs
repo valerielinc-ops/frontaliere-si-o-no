@@ -22,6 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -284,7 +285,7 @@ async function fetchJobListings() {
     console.log(`  📄 Fetching page ${pageNumber}...`);
     const data = await callSearchApi(cookie, pageNumber);
     totalJob = data.totalJob || totalJob;
-    const jobs = data.jobs || [];
+    const jobs = assertJsonListShape(data, { key: 'jobs', source: MARRIOTT_KEY });
 
     if (jobs.length === 0) break;
     allListings.push(...jobs);
