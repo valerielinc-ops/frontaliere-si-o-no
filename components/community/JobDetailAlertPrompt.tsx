@@ -3,6 +3,7 @@ import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 
 export type JobDetailAlertPromptStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -116,15 +117,12 @@ export default function JobDetailAlertPrompt({
   const closeAriaLabel = t('common.close', 'Chiudi');
 
   return (
-    // Sit above the mobile bottom nav (App.tsx: fixed bottom-0 z-50 h-14 md:hidden
-    // + safe-area). At bottom-4 the toast's CTA buttons were hidden behind that bar
-    // on phones; clear the 3.5rem nav + safe-area + 1rem gap on <md, keep bottom-4
-    // on md+ where the nav is hidden.
+    // ABOVE_MOBILE_NAV_BOTTOM keeps the CTA buttons clear of the mobile bottom nav.
     <div
       role="dialog"
       aria-modal="false"
       aria-labelledby={TITLE_ID}
-      className="fixed bottom-[calc(3.5rem+1rem+env(safe-area-inset-bottom,0px))] right-4 z-40 w-[calc(100%-2rem)] max-w-sm animate-slide-up md:bottom-4"
+      className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} right-4 z-40 w-[calc(100%-2rem)] max-w-sm animate-slide-up`}
     >
       <div className="relative p-4 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
         <button
