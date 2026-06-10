@@ -803,5 +803,10 @@ input[type=number] { -moz-appearance: textfield; }
    where the nav is hidden. Used via ABOVE_MOBILE_NAV_BOTTOM
    (components/shared/mobileNavClearance.ts) by JobDetailAlertPrompt,
    JobAlertStickyBanner and the JobAlertForm toast. */
-.above-mobile-nav { bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+/* env() carries a `0px` fallback: if safe-area-inset-bottom were undefined the
+   calc() would be invalid and `bottom` would collapse to `auto` — re-triggering
+   the exact off-screen failure this class fixes. The comma fallback is plain,
+   valid CSS here (the earlier Tailwind-arbitrary-value scanning caveat does not
+   apply to a hand-written rule in this stylesheet). */
+.above-mobile-nav { bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
 @media (min-width: 768px) { .above-mobile-nav { bottom: 1rem; } }
