@@ -96,11 +96,24 @@ function isPlausibleRate(n) {
 }
 
 function extractRate(text) {
-  const match = text.match(/(tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage)[^%]{0,180}?([0-9]+(?:[.,][0-9]+)?)\s*%/i);
-  if (!match) return null;
-  const n = Number.parseFloat(match[2].replace(',', '.'));
-  if (!isPlausibleRate(n)) return null;
-  return n;
+  const phraseRe = /tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage/i;
+  const pm = phraseRe.exec(text);
+  if (!pm) return null;
+  // Anchor on the rate RESULT, not the first figure after the phrase. When the
+  // rate MOVES, SECO writes two percentages in one sentence — e.g. "…è salito
+  // dal 2,9% al 3,0%" / "…rose from 2.9% to 3.0%" — where the FIRST figure is the
+  // PREVIOUS month's rate. Take the LAST plausible "N,N%" in the same sentence;
+  // on an unchanged month ("…invariato al 3,0%") there is only one figure.
+  const window = text.slice(pm.index + pm[0].length, pm.index + pm[0].length + 180);
+  const figRe = /([0-9]+(?:[.,][0-9]+)?)\s*%/g;
+  let last = null;
+  let fm;
+  // eslint-disable-next-line no-cond-assign
+  while ((fm = figRe.exec(window)) !== null) {
+    const n = Number.parseFloat(fm[1].replace(',', '.'));
+    if (isPlausibleRate(n)) last = n;
+  }
+  return last;
 }
 
 function absolutize(url) {
@@ -167,7 +180,11 @@ function parseLatestUnemployment(html) {
 
   // Match a sentence-sized fragment (bounded by . ; or sentence-ish breaks)
   // that contains the unemployment-rate phrase followed by a "N,N%" figure.
-  const sentenceRe = /[^.;”"]*?(?:tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage)[^.;”"%]{0,180}?[0-9]+(?:[.,][0-9]+)?\s*%/gi;
+  // The trailing `[^.;”"]*` consumes the REST of the sentence past the first `%`
+  // so a changed-month sentence ("…dal 2,9% al 3,0%") reaches extractRate intact
+  // — stopping at the first `%` here would truncate before the rate result and
+  // hand extractRate only the previous month's figure.
+  const sentenceRe = /[^.;”"]*?(?:tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage)[^.;”"]{0,180}?[0-9]+(?:[.,][0-9]+)?\s*%[^.;”"]*/gi;
   let sm;
   while ((sm = sentenceRe.exec(plain)) !== null) {
     const frag = sm[0].trim();

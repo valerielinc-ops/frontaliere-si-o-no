@@ -19,6 +19,8 @@ import {
 import {
   SECO_UNEMPLOYMENT_HOME_HTML,
   SECO_UNEMPLOYMENT_EXPECTED,
+  SECO_UNEMPLOYMENT_CHANGED_MONTH_HTML,
+  SECO_UNEMPLOYMENT_CHANGED_MONTH_EXPECTED,
 } from './__fixtures__/seco-unemployment-home';
 
 describe('switzerland unemployment parser', () => {
@@ -37,6 +39,24 @@ describe('switzerland unemployment parser', () => {
     const parsed = parseLatestUnemployment(SECO_UNEMPLOYMENT_HOME_HTML);
     expect(parsed.period).toBe('2026-05');
     expect(parsed.period).not.toBe('2026-06');
+  });
+
+  it('binds to the rate RESULT on a changed-month sentence with two percentages', () => {
+    // "…è salito dal 2,9% al 3,0%": the FIRST figure (2,9%) is the previous
+    // month's rate. The extractor must persist the RESULT (3,0%), not 2,9%.
+    const parsed = parseLatestUnemployment(SECO_UNEMPLOYMENT_CHANGED_MONTH_HTML);
+    expect(parsed).not.toBeNull();
+    expect(parsed.rate).toBe(SECO_UNEMPLOYMENT_CHANGED_MONTH_EXPECTED.rate);
+    expect(parsed.rate).not.toBe(2.9);
+    expect(parsed.period).toBe(SECO_UNEMPLOYMENT_CHANGED_MONTH_EXPECTED.period);
+  });
+
+  it('extractRate takes the last figure when a sentence carries from→to rates', () => {
+    expect(extractRate('il tasso di disoccupazione è salito dal 2,9% al 3,0%')).toBe(3);
+    expect(extractRate('il tasso di disoccupazione è sceso dal 3,1% al 3,0%')).toBe(3);
+    expect(extractRate('the unemployment rate rose from 2.8% to 3.0%')).toBe(3);
+    expect(extractRate('le taux de chômage est passé de 2,9% à 3,1%')).toBe(3.1);
+    expect(extractRate('die Arbeitslosenquote stieg von 2,9% auf 3,0%')).toBe(3);
   });
 
   it('returns null on genuinely broken markup (fail-loud, no silent default)', () => {

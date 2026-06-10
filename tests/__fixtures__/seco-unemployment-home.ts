@@ -50,3 +50,32 @@ export const SECO_UNEMPLOYMENT_EXPECTED = {
   period: '2026-05',
   href: 'https://www.admin.ch/it/newnsb/GJB5uJRiX3qu8TRWGlPLr',
 };
+
+/**
+ * Changed-month variant (#1732). When the rate MOVES, SECO writes TWO
+ * percentages in the SAME sentence ("…è salito dal 2,9% al 3,0%"). The extractor
+ * must bind to the rate RESULT (the last figure, 3,0%), NOT the previous month's
+ * rate (2,9%) — anchoring on the first `%` would persist 2,9% under the new
+ * 2026-05 period and put a wrong headline figure on the SEO pages. Same markup
+ * shape as the snapshot above, only the rate sentence differs.
+ */
+export const SECO_UNEMPLOYMENT_CHANGED_MONTH_HTML = `
+<!doctype html><html lang="it"><head><title>SECO</title></head><body>
+<div id="__nuxt">
+  <div class="u-base-card u-teaser-card u-teaser-card--list"><!--[--><!--]-->
+    <div class="u-base-card__body__text"><!--[--><!--]-->
+      <h5 class="u-heading"><span>La situazione sul mercato del lavoro nel mese di maggio 2026</span></h5>
+      <span class="u-teaser-card__description">Nel mese di maggio 2026 il numero dei disoccupati &#232; aumentato di 4&#8217;512 unit&#224; (+3,3%) rispetto al mese precedente. Nel mese di maggio 2026 il tasso di disoccupazione &#232; salito dal 2,9% al 3,0%.</span><!--]-->
+    </div>
+  </div>
+</div>
+<script>window.__NUXT__=(function(){return {data:[{"lead":"Nel mese di maggio 2026 il tasso di disoccupazione è salito dal 2,9% al 3,0%.","https://www.admin.ch/it/newnsb/GJB5uJRiX3qu8TRWGlPLr",{"component":7424}]}}})()</script>
+</body></html>
+`;
+
+/** Expected extraction from the changed-month fixture above. */
+export const SECO_UNEMPLOYMENT_CHANGED_MONTH_EXPECTED = {
+  rate: 3,
+  period: '2026-05',
+  href: 'https://www.admin.ch/it/newnsb/GJB5uJRiX3qu8TRWGlPLr',
+};
