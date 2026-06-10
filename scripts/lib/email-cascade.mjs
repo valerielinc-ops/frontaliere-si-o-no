@@ -535,26 +535,29 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs) {
   const nextProvider = providers.find(p => isProviderConfigured(p.id) && remainingQuota(p.id) > 0);
 
   if (nextProvider) {
-    const lastTs = lastSendMap[nextProvider.id] || 0;
-    const elapsed = Date.now() - lastTs;
-    if (elapsed < delayMs) {
-      await new Promise(r => setTimeout(r, delayMs - elapsed));
+    // Reserve a delay-spaced slot SYNCHRONOUSLY (read + write lastSendMap with no
+    // await in between) so concurrent sends to the same provider each get a
+    // distinct slot instead of all reading the same timestamp, waiting the same
+    // delta, and firing as a burst. The reservation advances the clock up-front,
+    // so spacing holds even when the send FAILS — the failure mode behind the
+    // "258 Mailtrap 403s in 5s" incident, now concurrency-safe for any future
+    // concurrency>1 caller (was latent at the default concurrency=1).
+    const now = Date.now();
+    const slot = Math.max(now, lastSendMap[nextProvider.id] || 0);
+    lastSendMap[nextProvider.id] = slot + delayMs;
+    const wait = slot - now;
+    if (wait > 0) {
+      await new Promise(r => setTimeout(r, wait));
     }
   }
 
-  let result;
-  try {
-    result = await sendSingle(email, forceProvider);
-  } finally {
-    // Advance the throttle clock for the attempted provider even when the send
-    // FAILS. Otherwise a run of consecutive failures fires as an unthrottled
-    // burst (the timestamp was previously set only on success), which is exactly
-    // what produced 258 Mailtrap 403s in 5 seconds.
-    if (nextProvider) lastSendMap[nextProvider.id] = Date.now();
-  }
-  // If a different provider ended up sending, track its timestamp too.
+  // Slot already reserved above (advances even on throw), so no post-hoc clock
+  // bump is needed — the worker's try/catch handles a thrown send.
+  const result = await sendSingle(email, forceProvider);
+  // If a different provider ended up sending, reserve its slot too.
   if (result?.provider && result.provider !== nextProvider?.id) {
-    lastSendMap[result.provider] = Date.now();
+    const now = Date.now();
+    lastSendMap[result.provider] = Math.max(now, lastSendMap[result.provider] || 0) + delayMs;
   }
   return result;
 }

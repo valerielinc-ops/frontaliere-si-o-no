@@ -916,6 +916,21 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t2c = await tryTier('googleCloud', () => translateWithGoogleCloud(clean, sourceLang, targetLang));
   if (t2c) return balanceMarkdownMarkers(t2c);
 
+  // Tier 3b: LibreTranslate self-hosted (CI service container — unlimited, no
+  // rate limits, no shared throttle). Promoted ABOVE MyMemory ONLY for EN/DE/FR
+  // targets: once the premium tiers (DeepL/Azure/Google Cloud) are exhausted, the
+  // self-hosted instance carries the parallel load instead of MyMemory's
+  // 1-call/sec throttle, so the localization queue's concurrency delivers
+  // throughput. Gated to non-IT because LibreTranslate's IT quality is documented
+  // as weaker (typos in compounds) and IT is the funnel's primary indexed locale —
+  // for IT, MyMemory ("best EU quality") stays ahead and self-hosted LT remains a
+  // post-MyMemory fallback (Tier 4a below), preserving pre-PR IT behaviour. No-op
+  // when LIBRETRANSLATE_SELF_HOSTED_URL is unset (returns '').
+  if (targetLang !== 'it') {
+    const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
+    if (t3b) return balanceMarkdownMarkers(t3b);
+  }
+
   // Tier 4: MyMemory (best EU language quality, 50K chars/day with email param)
   // Short text (≤5000 chars): single call. Long text: chunk at sentence boundaries.
   const t2 = await tryTier('myMemory', async () => {
@@ -942,9 +957,15 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   });
   if (t2) return balanceMarkdownMarkers(t2);
 
-  // Tier 4a: LibreTranslate self-hosted (CI service container — unlimited, no rate limits)
-  const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-  if (t3b) return balanceMarkdownMarkers(t3b);
+  // Tier 4a: LibreTranslate self-hosted — IT-target ONLY. For IT this is the
+  // first (and only) self-hosted attempt, kept below MyMemory by the EN/DE/FR
+  // gate at Tier 3b, preserving pre-PR IT order. EN/DE/FR already tried it at
+  // Tier 3b, so re-running it here would pay a second (up to 30s) timeout on a
+  // hung endpoint for no benefit — skip. No-op when self-hosted URL is unset.
+  if (targetLang === 'it') {
+    const t3bFallback = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
+    if (t3bFallback) return balanceMarkdownMarkers(t3bFallback);
+  }
 
   // Tier 4b: LibreTranslate public instances (raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
