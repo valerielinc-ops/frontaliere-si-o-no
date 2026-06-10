@@ -350,6 +350,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-di-cassa-malati-ticino',
+    category: 'fiscale',
+    date: '2026-06-10T00:23:35.890Z',
+    image: '/images/blog/premi-di-cassa-malati-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'soggiorno-estero-avs-evitare-lacuna',
+    category: 'fiscale',
+    date: '2026-06-10T00:49:47.680Z',
+    image: '/images/blog/soggiorno-estero-avs-evitare-lacuna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'avs-finanziamento-13esima',
+    category: 'pensione',
+    date: '2026-06-10T02:13:58.179Z',
+    image: '/images/blog/avs-finanziamento-13esima.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1,0 +1,18 @@
+{
+  "id": "avs-finanziamento-13esima",
+  "slug": "avs-finanziamento-13esima",
+  "publishedAt": "2026-06-10T02:13:59.647Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3,
+    "confidence": 0.3,
+    "finalScore": 0.8999999999999999,
+    "cluster": "pensioni",
+    "score": 0.8999999999999999,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

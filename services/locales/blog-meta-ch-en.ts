@@ -116,6 +116,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carenza-manodopera-gr-2024.title': 'Labour shortage in Graubünden: impact on businesses',
     'blog.article.carenza-manodopera-gr-2024.excerpt': '44% of Graubünden companies report serious difficulty finding qualified staff, while 75% rate their economic situation as good or very good.',
     'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Alpine view of Graubünden with traditional villages and industrial zones',
+    'blog.article.premi-di-cassa-malati-ticino.title': 'Parliament Splits Sick Pay Bonuses',
+    'blog.article.premi-di-cassa-malati-ticino.excerpt': 'The Ticino Parliament has decided to split the application of the two measures promoted by Lega and PS and voted by the people last September.',
+    'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'a Swiss hospital scene',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Staying abroad: how to avoid a gap in the AVS',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Learn how to properly plan your stay abroad to avoid gaps in the AVS and ensure pension continuity.',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Swiss alpine landscape with lake and city, realistic DSLR scene.',
+    'blog.article.avs-finanziamento-13esima.title': '13th AHV goes to conciliation conference',
+    'blog.article.avs-finanziamento-13esima.excerpt': 'No agreement between National Council and States on financing the 13th AHV',
+    'blog.article.avs-finanziamento-13esima.imageAlt': 'Swiss Parliament building in Bern with AVS logo',
 };
 
 export default blogMetaChEn;

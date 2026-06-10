@@ -60,6 +60,9 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ritmi-insostenibili-logistica-dpd': { it: 'ritmi-insostenibili-logistica-dpd', en: 'unsustainable-pace-pressure-logistics-workers', de: 'untragbare-tempo-druck-logistikarbeiter', fr: 'rythmes-intenables-pression-travailleurs-logistique' },
  'hotel-flaz-pontresina-2028': { it: 'hotel-flaz-pontresina-2028', en: 'hotel-flaz-pontresina-2028', de: 'hotel-flaz-pontresina-2028', fr: 'hotel-flaz-pontresina-2028' },
  'carenza-manodopera-gr-2024': { it: 'carenza-manodopera-gr-2024', en: 'labour-shortage-graubuenden', de: 'arbeitskraeftemangel-graubuenden', fr: 'penurie-main-d-oeuvre-grisons' },
+ 'premi-di-cassa-malati-ticino': { it: 'premi-di-cassa-malati-ticino', en: 'treatment-fee-premiums-ticino', de: 'kassenservice-pramien-tessin', fr: 'primes-maladie-ticino' },
+ 'soggiorno-estero-avs-evitare-lacuna': { it: 'soggiorno-estero-avs-evitare-lacuna', en: 'living-abroad-avoid-avs-gap', de: 'ausland-aufenthalt-vermeiden-avs-luecke', fr: 'sejour-etranger-eviter-lacune-avs' },
+ 'avs-finanziamento-13esima': { it: 'avs-finanziamento-13esima', en: 'ahv-financing-13th', de: 'ahv-finanzierung-13', fr: 'avs-financement-13e' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
