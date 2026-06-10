@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-24T18:07:33.205Z",
-    "label": "after",
-    "total": 8484,
-    "needsRetranslation": 1600,
-    "incomplete": 382,
-    "complete": 8102,
-    "missingByLocale": {
-      "it": 299,
-      "en": 235,
-      "de": 152,
-      "fr": 280
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 69
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 21
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 17
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      },
-      {
-        "company": "UBS",
-        "pending": 10
-      },
-      {
-        "company": "PostFinance",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-24T23:54:41.610Z",
-    "label": "before",
-    "total": 8477,
-    "needsRetranslation": 6290,
-    "incomplete": 534,
-    "complete": 7943,
-    "missingByLocale": {
-      "it": 348,
-      "en": 259,
-      "de": 179,
-      "fr": 332
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 114
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "Roche",
-        "pending": 31
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 14
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 12
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-25T02:25:36.725Z",
     "label": "after",
     "total": 8477,
@@ -11309,6 +11197,120 @@
       {
         "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
         "pending": 20
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-10T13:18:34.150Z",
+    "label": "before",
+    "total": 12598,
+    "needsRetranslation": 8509,
+    "suppressed": 40,
+    "incomplete": 1781,
+    "complete": 10817,
+    "missingByLocale": {
+      "it": 1457,
+      "en": 1359,
+      "de": 562,
+      "fr": 1386
+    },
+    "topPending": [
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 105
+      },
+      {
+        "company": "Richemont",
+        "pending": 95
+      },
+      {
+        "company": "Liebherr",
+        "pending": 88
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 76
+      },
+      {
+        "company": "Decathlon",
+        "pending": 68
+      },
+      {
+        "company": "Implenia",
+        "pending": 66
+      },
+      {
+        "company": "Psychiatrische Universitätsklinik Zürich",
+        "pending": 64
+      },
+      {
+        "company": "Spital Limmattal",
+        "pending": 56
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-10T15:44:27.079Z",
+    "label": "after",
+    "total": 12598,
+    "needsRetranslation": 3970,
+    "suppressed": 40,
+    "incomplete": 1644,
+    "complete": 10954,
+    "missingByLocale": {
+      "it": 1320,
+      "en": 1222,
+      "de": 562,
+      "fr": 1249
+    },
+    "topPending": [
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 105
+      },
+      {
+        "company": "Richemont",
+        "pending": 95
+      },
+      {
+        "company": "Liebherr",
+        "pending": 88
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 76
+      },
+      {
+        "company": "Decathlon",
+        "pending": 68
+      },
+      {
+        "company": "Implenia",
+        "pending": 66
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "The Swatch Group S.E.A. (S) Pte Ltd",
+        "pending": 28
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 27
       }
     ]
   }
