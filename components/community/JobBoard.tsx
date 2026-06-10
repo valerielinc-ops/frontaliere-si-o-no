@@ -2439,7 +2439,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  cancelled = true;
  if (timerId !== null) window.clearTimeout(timerId);
  };
- }, [isJobDetailView, selectedJob, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
+ // Depend on selectedJob?.id, not the object: the detail enrichment fetch
+ // replaces selectedJob with a new ref for the SAME job, which re-ran this
+ // effect and cancelled the reveal timer before it could fire — the residual
+ // flake after the 0 s change. A real navigation changes the id and still
+ // re-runs / re-arms.
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
 
  // Auto-unmount the prompt if the user logs out or leaves the detail view.
  useEffect(() => {
