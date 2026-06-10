@@ -8026,6 +8026,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Summer jobs, here are the rules to know',
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Salaries, insurance and age limits for young cross-border workers in Ticino.',
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Summer jobs for cross-border workers in Ticino',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.title': 'Lugano: Via Mazzini closed for works',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.excerpt': 'On Saturday, June 13, Via Mazzini will be closed to vehicular traffic to allow for the dismantling of a construction crane.',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.imageAlt': 'Road closed to traffic with diversion signs in Lugano',
 };
 
 export default blogMetaEn;
