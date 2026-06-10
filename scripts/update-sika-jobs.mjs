@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Dedicated Sika AG crawler runner.
+ * Dedicated Sika crawler runner.
  *
- * Uses the standard crawler template with the Sika AG parser.
+ * Uses the standard crawler template with the Sika parser.
  * All fetch/parse logic lives in ./lib/sika-job-parser.mjs.
  */
 import path from 'node:path';
@@ -26,8 +26,8 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllSikaJobs,
   isCompanyJob: isSikaJob,
   isTrustedDomain,
-  defaultSourceLang: 'de',
+  defaultSourceLang: 'en',
 }).catch((err) => {
-  console.error(`❌ Sika AG crawler failed: ${err?.message || err}`);
+  console.error(`❌ Sika crawler failed: ${err?.message || err}`);
   process.exit(1);
 });
