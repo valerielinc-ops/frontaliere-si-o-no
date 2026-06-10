@@ -1502,6 +1502,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-finanziamento-13esima': {
+    title: 'La 13esima AVS va in conferenza di conciliazione',
+    description: 'Nessun accordo tra Consiglio Nazionale e Stati sul finanziamento della 13esima AVS. Il dossier passa in conferenza di conciliazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, conferenza, conciliazione, nessun',
+    ogTitle: '13esima AVS: disaccordo tra Consiglio Nazionale e Stati',
+    ogDescription: 'Il Consiglio Nazionale e il Consiglio degli Stati non raggiungono un accordo sul finanziamento della 13esima AVS. Il dossier è stato inviato alla conferenza di',
+    canonicalPath: '/articoli-svizzera/avs-finanziamento-13esima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La 13esima AVS va in conferenza di conciliazione",
+      "description": "Nessun accordo tra Consiglio Nazionale e Stati sul finanziamento della 13esima AVS. Il dossier passa in conferenza di conciliazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-finanziamento-13esima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del Parlamento svizzero a Berna con logo AVS"
+      },
+      "datePublished": "2026-06-10T02:13:58+00:00",
+      "dateModified": "2026-06-10T02:13:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-finanziamento-13esima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

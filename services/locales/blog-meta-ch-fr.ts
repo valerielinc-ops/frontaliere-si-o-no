@@ -122,6 +122,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Séjour à l\'étranger: comment éviter une lacune dans l\'AVS',
     'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Découvrez comment planifier correctement votre séjour à l\'étranger pour éviter les lacunes dans l\'AVS et garantir la continuité de votre pension. 📊💡⚠️',
     'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Paysage alpin suisse avec lac et ville, scène DSLR réaliste.',
+    'blog.article.avs-finanziamento-13esima.title': 'La 13e AVS en conférence de conciliation',
+    'blog.article.avs-finanziamento-13esima.excerpt': 'Pas d\'accord entre le Conseil national et les États sur le financement de la 13e AVS',
+    'blog.article.avs-finanziamento-13esima.imageAlt': 'Bâtiment du Parlement suisse à Berne avec logo AVS',
 };
 
 export default blogMetaChFr;

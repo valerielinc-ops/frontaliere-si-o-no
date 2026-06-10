@@ -122,6 +122,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Auslandsaufenthalt: So vermeiden Sie Lücken in der AHV',
     'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Erfahren Sie, wie Sie Ihren Auslandsaufenthalt richtig planen, um Lücken in der AHV zu vermeiden und die Kontinuität Ihrer Rente sicherzustellen.',
     'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Schweizer Alpenlandschaft mit See und Stadt, realistische DSLR Szene.',
+    'blog.article.avs-finanziamento-13esima.title': 'Die 13. AHV kommt in die Schlichtungskonferenz',
+    'blog.article.avs-finanziamento-13esima.excerpt': 'Keine Einigung zwischen Nationalrat und Ständerat über die Finanzierung der 13. AHV',
+    'blog.article.avs-finanziamento-13esima.imageAlt': 'Gebäude des Schweizer Parlaments in Bern mit AHV-Logo',
 };
 
 export default blogMetaChDe;
