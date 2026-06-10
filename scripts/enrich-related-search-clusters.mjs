@@ -34,6 +34,9 @@ import {
   printRunSummary,
 } from './lib/ai-models.mjs';
 import { lineDelimitedObjectMap, serializeWithLineDelimited } from './lib/related-search-serialize.mjs';
+// Push-safety ceiling for the writer's `enriched` output — single source of
+// truth shared with the commit gate (scripts/lib/assert-file-size-ceiling.mjs)
+// so the in-writer check and the CI staging check can never drift (#1576, #1651, #1658).
 import { OUTPUT_SIZE_LIMIT_BYTES } from './lib/related-search-output-limit.mjs';
 
 // ── Paths ──────────────────────────────────────────────────────────────
@@ -45,9 +48,6 @@ const OUTPUT_PATH = resolve(ROOT, 'data', 'related-search-enriched.json');
 
 // ── Constants ──────────────────────────────────────────────────────────
 const SUPPORTED_LOCALES = ['it', 'en', 'de', 'fr'];
-// Push-safety ceiling — single source of truth shared with the commit gate
-// (scripts/lib/assert-file-size-ceiling.mjs) so the in-writer check and the
-// CI staging check can never drift (#1576, #1651, #1658).
 const CONCURRENCY = 5;
 const MIN_WORDS = 80;
 const MAX_WORDS = 130; // 120 target + small tolerance
