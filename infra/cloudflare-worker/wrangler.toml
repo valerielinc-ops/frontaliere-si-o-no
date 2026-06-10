@@ -21,7 +21,10 @@ routes = [
   { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/assets/*", zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/data/*",   zone_name = "frontaliereticino.ch" },
-  { pattern = "frontaliereticino.ch/og/*",     zone_name = "frontaliereticino.ch" },
+  # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
+  # Since #1665 the shard locale HTML references those static paths CDN-absolute
+  # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the
+  # CDN — they no longer hit the apex and need no Worker proxy. Keeping the routes
+  # only burned ~10 needless Worker subrequests per shard pageview against the
+  # free-tier 100k/day cap (the in-code CDN_PATHS branch was already dropped).
 ]
