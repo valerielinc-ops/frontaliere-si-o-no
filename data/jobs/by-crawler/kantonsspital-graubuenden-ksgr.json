@@ -23,15 +23,24 @@
       "employmentType": "50 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-09T22:41:44.027Z",
-      "slug": "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur",
+      "slug": "dipendente-in-cucina-di-pulizia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur"
+        "de": "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur",
+        "it": "dipendente-in-cucina-di-pulizia-kantonsspital-graubunden-chur",
+        "en": "employee-in-cleaning-kitchen-kantonsspital-graubunden-chur",
+        "fr": "employe-dans-la-cuisine-de-nettoyage-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Mitarbeiter:in Reinigung Küche"
+        "de": "Mitarbeiter:in Reinigung Küche",
+        "it": "Dipendente: in cucina di pulizia",
+        "en": "Employee: in cleaning kitchen",
+        "fr": "Employé: dans la cuisine de nettoyage"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. Juli 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Allgemeine Reinigungsarbeiten in der Küche und den Warenlagern sowie partieller Einsatz im Office-Bereich\n\n• Die zugewiesenen Aufgaben erledigst du eigenverantwortlich in den definierten Arbeitsprozessen\n\n• Als flexible:r Mitarbeiter:in übernimmst du eine wichtige Rolle im Team\n\nAnforderungen:\n• Du konntest bereits Erfahrungen in der Küche sammeln und hast dabei gelernt, dass Sauberkeit und Hygiene einen wichtigen Stellenwert hat\n\n• Du bist ein:e Teamplayer:in, welche:r gerne in einem dynamischen Umfeld arbeitet\n\n• Du verfügst über gute Deutschkenntnisse, mündlich und beim Lesen, sowie einer schnellen Auffassungsgabe\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. Juli 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Allgemeine Reinigungsarbeiten in der Küche und den Warenlagern sowie partieller Einsatz im Office-Bereich\n\n• Die zugewiesenen Aufgaben erledigst du eigenverantwortlich in den definierten Arbeitsprozessen\n\n• Als flexible:r Mitarbeiter:in übernimmst du eine wichtige Rolle im Team\n\nAnforderungen:\n• Du konntest bereits Erfahrungen in der Küche sammeln und hast dabei gelernt, dass Sauberkeit und Hygiene einen wichtigen Stellenwert hat\n\n• Du bist ein:e Teamplayer:in, welche:r gerne in einem dynamischen Umfeld arbeitet\n\n• Du verfügst über gute Deutschkenntnisse, mündlich und beim Lesen, sowie einer schnellen Auffassungsgabe\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare su 1. Luglio 2026 o per accordo\n\nCompiti:\n• Lavori di pulizia generale in cucina e magazzini e uso parziale nella zona ufficio\n\n• Eseguire i compiti assegnati in modo indipendente nei processi di lavoro definiti\n\n• Come flessibile: r dipendente: si assume un ruolo importante nel team\n\nRequisiti\n• Hai già acquisito esperienza in cucina e hai imparato che la pulizia e l'igiene è una priorità importante\n\n• Sei un:e giocatore di squadra: in cui:r ama lavorare in un ambiente dinamico\n\n• Hai una buona conoscenza del tedesco, orale e lettura, nonché una rapida comprensione\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on 1. July 2026 or by arrangement as\n\nTasks:\n• General cleaning work in the kitchen and warehouses as well as partial use in the office area\n\n• You perform the assigned tasks independently in the defined work processes\n\n• As a flexible: r employee: you take on an important role in the team\n\nRequirements\n• You have already gained experience in the kitchen and have learned that cleanliness and hygiene is an important priority\n\n• You are a:e team player:in which:r likes to work in a dynamic environment\n\n• You have good knowledge of German, oral and reading, as well as a quick understanding\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencez par 1. Juillet 2026 ou par arrangement\n\nTâches :\n• Nettoyage général dans la cuisine et les entrepôts ainsi qu'utilisation partielle dans le bureau\n\n• Vous exécutez les tâches assignées indépendamment dans les processus de travail définis\n\n• En tant qu'employé flexible: vous assumez un rôle important dans l'équipe\n\nExigences\n• Vous avez déjà acquis de l'expérience dans la cuisine et avez appris que la propreté et l'hygiène sont une priorité importante\n\n• Vous êtes un:e joueur d'équipe:dans lequel:r aime travailler dans un environnement dynamique\n\n• Vous avez une bonne connaissance de l'allemand, de l'oral et de la lecture, ainsi qu'une compréhension rapide\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,13 +53,20 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-09T22:41:44.027Z"
+      "firstSeenAt": "2026-06-09T22:41:44.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10067024",
@@ -140,15 +156,24 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-09T22:41:44.027Z",
-      "slug": "mitarbeiter-in-dispostion-empfang-und-patientenadministration-kantonsspital-graubunden-chur",
+      "slug": "dipendente-a-disposizione-accoglienza-e-amministrazione-del-paziente-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-dispostion-empfang-und-patientenadministration-kantonsspital-graubunden-chur"
+        "de": "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur",
+        "it": "dipendente-a-disposizione-accoglienza-e-amministrazione-del-paziente-kantonsspital-graubunden-chur",
+        "en": "employee-in-disposition-reception-and-patient-administration-kantonsspital-graubunden-chur",
+        "fr": "employe-disposition-accueil-et-administration-du-patient-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Mitarbeiter:in Dispostion, Empfang und Patientenadministration"
+        "de": "Mitarbeiter:in Dispostion, Empfang und Patientenadministration",
+        "it": "Dipendente: a disposizione, accoglienza e amministrazione del paziente",
+        "en": "Employee: in disposition, reception and patient administration",
+        "fr": "Employé : disposition, accueil et administration du patient"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du bist das Herzstück unseres Empfangs und begrüsst unsere Patientinnen und Patienten\n\n• Du übernimmst den Telefondienst, koordinierst Termine und kümmerst dich um die Disposition\n\n• Du verfasst Berichte und erledigst verschiedene allgemeine Sekretariatsaufgaben\n\nAnforderungen:\n• Du hast eine Ausbildung als Arztsekretär:in, Medizinische:r Praxisassistent:in oder Fachangestellte:r Gesundheit\n\n• Du bringst eine hohe Sozialkompetenz mit, die sich durch Geduld, Empathie und Freude im Umgang mit komplexen Patientinnen und Patienten auszeichnet\n\n• Du bist sattelfest im Umgang mit den gängigen Computer-Programmen\n\n• Solltest du ergänzend über Fremdsprachenkenntnisse wie Italienisch oder Portugiesisch verfügen, wäre das ein grosser Pluspunkt\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. August 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du bist das Herzstück unseres Empfangs und begrüsst unsere Patientinnen und Patienten\n\n• Du übernimmst den Telefondienst, koordinierst Termine und kümmerst dich um die Disposition\n\n• Du verfasst Berichte und erledigst verschiedene allgemeine Sekretariatsaufgaben\n\nAnforderungen:\n• Du hast eine Ausbildung als Arztsekretär:in, Medizinische:r Praxisassistent:in oder Fachangestellte:r Gesundheit\n\n• Du bringst eine hohe Sozialkompetenz mit, die sich durch Geduld, Empathie und Freude im Umgang mit komplexen Patientinnen und Patienten auszeichnet\n\n• Du bist sattelfest im Umgang mit den gängigen Computer-Programmen\n\n• Solltest du ergänzend über Fremdsprachenkenntnisse wie Italienisch oder Portugiesisch verfügen, wäre das ein grosser Pluspunkt\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare su 1. agosto 2026 o per accordo\n\nCompiti:\n• Siete il cuore della nostra accoglienza e accogliete i nostri pazienti\n\n• Prendere il controllo del servizio telefonico, coordinare gli appuntamenti e prendersi cura della disposizione\n\n• Scrivere rapporti e svolgere vari compiti di segretariato generale\n\nRequisiti\n• Hai una formazione come segretaria medica:in, medico:r assistente di pratica:in o dipendente specializzato:r salute\n\n• Hai un alto livello di competenza sociale, che è caratterizzato da pazienza, empatia e gioia nel trattare con pazienti complessi\n\n• Sei a prova di sella nel trattare con i programmi comuni del computer\n\n• Se hai anche competenze linguistiche straniere come l'italiano o il portoghese, questo sarebbe un grande punto più\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on 1. August 2026 or by arrangement as\n\nTasks:\n• You are the heart of our reception and welcome our patients\n\n• You take over the telephone service, coordinate appointments and take care of the disposition\n\n• You write reports and perform various general secretarial tasks\n\nRequirements\n• You have an education as a medical secretary:in, medical:r practice assistant:in or specialist employee:r health\n\n• You have a high level of social competence, which is characterized by patience, empathy and joy in dealing with complex patients\n\n• You are saddle-proof in dealing with the common computer programs\n\n• If you additionally have foreign language skills such as Italian or Portuguese, this would be a big plus point\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencez par 1. août 2026 ou par arrangement\n\nTâches :\n• Vous êtes le cœur de notre réception et accueillez nos patients\n\n• Vous prenez le service téléphonique, coordonnez les rendez-vous et prenez soin de la disposition\n\n• Vous rédigez des rapports et exécutez diverses tâches générales de secrétariat\n\nExigences\n• Vous avez une formation de secrétaire médical:en, assistant médical:r pratique:en ou employé spécialisé:r santé\n\n• Vous avez un haut niveau de compétence sociale, qui se caractérise par la patience, l'empathie et la joie de traiter avec des patients complexes\n\n• Vous êtes à l'épreuve des selles dans le traitement des programmes informatiques communs\n\n• Si vous avez en outre des compétences en langues étrangères comme l'italien ou le portugais, ce serait un grand point plus\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -161,13 +186,20 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-09T22:41:44.027Z"
+      "firstSeenAt": "2026-06-09T22:41:44.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-dispostion-empfang-und-patientenadministration-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-dispostion-empfang-und-patientenadministration-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10054272",
@@ -496,7 +528,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -975,7 +1006,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -1109,7 +1139,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -2777,7 +2806,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -3812,7 +3840,6 @@
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -3946,7 +3973,6 @@
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -5821,7 +5847,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -6444,7 +6469,6 @@
           "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -7045,7 +7069,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
