@@ -20,6 +20,7 @@ import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
+import { handleCreatePublisherCheckout, handleStripeWebhook } from './src/stripePublisherCore.js';
 
 ensureAdminApp();
 
@@ -650,6 +651,53 @@ export const verifyRecaptcha = onRequest(
  } catch (error) {
  console.error('[verifyRecaptcha] Unhandled error:', error);
  res.status(500).json({ ok: false, error: 'internal_error', code: 'INTERNAL' });
+ }
+ },
+);
+
+// ── Publisher portal (paid job postings) ──────────────────────────────────
+// Create a Stripe Checkout Session (subscription mode, 30-day auto-renew).
+// Authenticated publisher only; price is recomputed server-side from the
+// referenced publisher_jobs (client amount is never trusted).
+export const createPublisherCheckout = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleCreatePublisherCheckout(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[createPublisherCheckout]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Stripe webhook — the ONLY path that flips a job to 'paid'. Needs the raw body
+// for signature verification (cors:false; Firebase provides req.rawBody).
+export const stripeWebhook = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 60,
+ cors: false,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleStripeWebhook(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[stripeWebhook]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },
 );
