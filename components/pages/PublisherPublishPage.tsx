@@ -111,6 +111,7 @@ interface CartItem {
  contractType: string;
  salaryMin: string;
  salaryMax: string;
+ featured: boolean;
  locations: LocationRow[];
  apply: ApplySpec;
 }
@@ -248,6 +249,10 @@ const PublisherPublishPage: React.FC = () => {
  const [contractType, setContractType] = useState<string>('permanent');
  const [salaryMin, setSalaryMin] = useState('');
  const [salaryMax, setSalaryMax] = useState('');
+ // Featured = top-of-listing + newsletter boost. Sponsored-only benefit
+ // (Firestore rules reject featured on free); slot-capped per canton by the
+ // projection. No extra Stripe charge — included in the sponsored plan.
+ const [featured, setFeatured] = useState(false);
 
  const [locations, setLocations] = useState<LocationRow[]>([emptyLocationRow()]);
 
@@ -377,6 +382,7 @@ const PublisherPublishPage: React.FC = () => {
  if (d.contractType) setContractType(String(d.contractType));
  setSalaryMin(d.salaryMin != null ? String(d.salaryMin) : '');
  setSalaryMax(d.salaryMax != null ? String(d.salaryMax) : '');
+ setFeatured(Boolean(d.featured));
 
  const docLocations = Array.isArray(d.locations) ? (d.locations as PublisherJobLocation[]) : [];
  const rows: LocationRow[] = docLocations.map(loc => ({
@@ -486,6 +492,7 @@ const PublisherPublishPage: React.FC = () => {
  contractType,
  salaryMin,
  salaryMax,
+ featured,
  locations: locations.map(loc => ({ ...loc })),
  apply: { mode: applyMode, url: applyUrl, email: applyEmail, privacyPolicyUrl },
  });
@@ -500,6 +507,7 @@ const PublisherPublishPage: React.FC = () => {
  setContractType('permanent');
  setSalaryMin('');
  setSalaryMax('');
+ setFeatured(false);
  setLocations([emptyLocationRow()]);
  setApplyMode(isFree ? 'external_url' : applyMode);
  setApplyUrl('');
@@ -599,6 +607,8 @@ const PublisherPublishPage: React.FC = () => {
  ...(ad.contractType.trim() ? { contractType: ad.contractType.trim() } : {}),
  ...(parsedMin != null && Number.isFinite(parsedMin) ? { salaryMin: parsedMin } : {}),
  ...(parsedMax != null && Number.isFinite(parsedMax) ? { salaryMax: parsedMax } : {}),
+ // Featured is a sponsored-only benefit; never persist it on free ads.
+ ...(!isFree && ad.featured ? { featured: true } : { featured: false }),
  currency: 'CHF',
  apply: {
  mode: ad.apply.mode,
@@ -652,6 +662,8 @@ const PublisherPublishPage: React.FC = () => {
  ...(ad.contractType.trim() ? { contractType: ad.contractType.trim() } : {}),
  ...(parsedSalaryMin != null && Number.isFinite(parsedSalaryMin) ? { salaryMin: parsedSalaryMin } : {}),
  ...(parsedSalaryMax != null && Number.isFinite(parsedSalaryMax) ? { salaryMax: parsedSalaryMax } : {}),
+ // Featured is a sponsored-only benefit; never persist it on free ads.
+ ...(!isFree && ad.featured ? { featured: true } : { featured: false }),
  currency: 'CHF',
  apply: {
  mode: ad.apply.mode,
@@ -1071,6 +1083,22 @@ const PublisherPublishPage: React.FC = () => {
  />
  </div>
  </div>
+ {!isFree && (
+ <div className="rounded-xl border border-accent/40 bg-accent-subtle p-4">
+ <label className="flex items-start gap-2 cursor-pointer">
+ <input
+ type="checkbox"
+ checked={featured}
+ onChange={e => setFeatured(e.target.checked)}
+ className="mt-1 flex-shrink-0"
+ />
+ <span>
+ <span className="block text-sm font-medium text-strong">{t('publisher.featured.label')}</span>
+ <span className="block text-xs text-muted mt-0.5">{t('publisher.featured.hint')}</span>
+ </span>
+ </label>
+ </div>
+ )}
  </div>
  </section>
 

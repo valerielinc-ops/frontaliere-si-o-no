@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// Firebase Storage security rules.
+// Default-deny everything; only the explicitly allowed paths below are reachable.
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Candidate CV uploads from the publisher apply form.
+    // - create (write): anyone may upload a small (<5MB) document/text file.
+    //   The download URL is then written into the application's Firestore doc
+    //   (firestore.rules guards that), and forwarded to the publisher via the
+    //   forwardPublisherApplication Cloud Function.
+    // - read: denied for clients — the CV is private and only reachable by the
+    //   forward Cloud Function (Admin SDK) or the publisher via a signed URL.
+    match /cv-uploads/{jobId}/{file} {
+      allow create: if request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('application/.*|text/.*');
+      allow read: if false;
+    }
+
+    // Default deny: any path not matched above is inaccessible.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
