@@ -43168,9 +43168,9 @@
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-in-formazione-denner-chur",
-        "en": "stv-branch-manager-in-training-denner-ag-chur",
+        "en": "stv-branch-manager-in-training-denner-oensingen",
         "de": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
-        "fr": "directeur-de-branche-stv-en-formation-denner-ag-chur"
+        "fr": "directeur-de-branche-stv-en-formation-denner-oensingen"
       },
       "titleByLocale": {
         "de": "Stv. Filialleiter*in in Ausbildung",
@@ -43201,17 +43201,21 @@
       "previousSlugsByLocale": {
         "en": [
           "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
-          "stv-branch-manager-in-education-denner-ag-chur"
+          "stv-branch-manager-in-education-denner-ag-chur",
+          "stv-branch-manager-in-training-denner-ag-chur"
         ],
         "fr": [
           "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
-          "directeur-adjoint-de-succursale-en-formation-denner-ag-chur"
+          "directeur-adjoint-de-succursale-en-formation-denner-ag-chur",
+          "directeur-de-branche-stv-en-formation-denner-ag-chur"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
         "stv-branch-manager-in-education-denner-ag-chur",
-        "directeur-adjoint-de-succursale-en-formation-denner-ag-chur"
+        "directeur-adjoint-de-succursale-en-formation-denner-ag-chur",
+        "stv-branch-manager-in-training-denner-ag-chur",
+        "directeur-de-branche-stv-en-formation-denner-ag-chur"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
