@@ -195,9 +195,13 @@ const MANOR_CITY_MAX_SEGMENTS = 4;
  * is tolerated. Returns the matched city string, or null when no Swiss city is
  * recognisable (the downstream isTargetSwissLocation gate then drops the row).
  */
+// Returns { city, segments }: the resolved city and the NUMBER OF DASH-PARTS it
+// consumed from the slug. Callers need `segments` (not the rendered city's word
+// count) to strip the city prefix from the title — a district-stripped city
+// ("Genève-1" → "Genève") consumes 2 dash-parts but renders as 1 word.
 function extractCityFromUrl(url) {
   const match = url.match(/\/job\/([^/]+)\//);
-  if (!match) return null;
+  if (!match) return { city: null, segments: 0 };
   let slug;
   try { slug = decodeURIComponent(match[1]); } catch { slug = match[1]; }
   const parts = slug.split('-');
@@ -209,10 +213,10 @@ function extractCityFromUrl(url) {
     const candidateNoDistrict = candidate.replace(/\s+\d+$/, '').trim();
     for (const c of [candidate, candidateNoDistrict]) {
       if (!c) continue;
-      if (isKnownSwissCity(c) || isTargetSwissLocation(c)) return c;
+      if (isKnownSwissCity(c) || isTargetSwissLocation(c)) return { city: c, segments: n };
     }
   }
-  return null;
+  return { city: null, segments: 0 };
 }
 
 /**
@@ -271,7 +275,7 @@ async function fetchManorJobs() {
   // Keep every store URL whose city resolves to a target Swiss canton (CH-wide).
   const targetUrls = [];
   for (const url of allUrls) {
-    const city = extractCityFromUrl(url);
+    const { city } = extractCityFromUrl(url);
     if (city && isTargetSwissLocation(city)) {
       targetUrls.push({ url, city });
     }
@@ -384,8 +388,9 @@ function extractTitleFromUrl(url) {
   try { slug = decodeURIComponent(match[1]); } catch { slug = match[1]; }
   const parts = slug.split('-');
   // Strip the leading city prefix (CH-wide, possibly multi-word) when present.
-  const city = extractCityFromUrl(url);
-  const citySegments = city ? city.split(/[ .]+/).filter(Boolean).length : 0;
+  // Use the dash-part count the matcher consumed — NOT the rendered city's word
+  // count — so a district-stripped city ("Genève-1") doesn't leave "1" in the title.
+  const { segments: citySegments } = extractCityFromUrl(url);
   const titleParts = citySegments > 0 ? parts.slice(citySegments) : parts;
   return titleParts.join(' ').replace(/_/g, '.').trim();
 }

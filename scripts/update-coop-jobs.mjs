@@ -257,6 +257,7 @@ async function fetchCoopJobDetailUrls() {
   const cantonCounts = {};
   let apiTotal = null;
   let fetched = 0;
+  let droppedNonCh = 0;
 
   for (let page = 0; page < API_MAX_PAGES; page += 1) {
     const offset = page * API_LIMIT;
@@ -301,13 +302,17 @@ async function fetchCoopJobDetailUrls() {
     for (const job of jobs) {
       const directLink = String(job?.links?.directlink || '').trim();
       if (directLink && directLink.startsWith('http') && !allUrls.has(directLink)) {
+        const meta = buildSeedMetaFromApiJob(job);
+        // CH-only gate: drop foreign postings (e.g. "Principato del Liechtenstein")
+        // whose label doesn't resolve to a Swiss canton — mirrors confederazione's
+        // Boolean(job.canton) filter. Keeps JobPosting structured data complete
+        // (addressRegion present) and the dataset on-target for a CH site.
+        if (!meta.canton) { droppedNonCh += 1; continue; }
         const discoveredHost = hostOf(directLink);
         if (discoveredHost) DISCOVERED_COOP_HOSTS.add(discoveredHost);
         allUrls.add(directLink);
-        const meta = buildSeedMetaFromApiJob(job);
         seedMetaByUrl[directLink] = meta;
-        const code = meta.canton || '??';
-        cantonCounts[code] = (cantonCounts[code] || 0) + 1;
+        cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
       }
     }
 
@@ -318,9 +323,14 @@ async function fetchCoopJobDetailUrls() {
     if (jobs.length < API_LIMIT) break;
   }
 
+  // Surface the safety-ceiling so a silent stop ≠ a fully drained feed.
+  if (apiTotal !== null && fetched < apiTotal) {
+    console.warn(`  ⚠️ Pagination stopped at ${fetched}/${apiTotal} jobs (API_MAX_PAGES=${API_MAX_PAGES} ceiling) — raise the ceiling if Coop's national listing has grown.`);
+  }
+
   // Summary log
   console.log(`\n📋 Coop API Discovery Summary (CH-wide):`);
-  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · unique detail URLs: ${allUrls.size}`);
+  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-CH (e.g. Liechtenstein): ${droppedNonCh} · unique detail URLs: ${allUrls.size}`);
   const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
   console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   if (DISCOVERED_COOP_HOSTS.size > 0) {
