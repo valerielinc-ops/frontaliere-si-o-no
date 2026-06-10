@@ -14695,9 +14695,9 @@
       "slug": "roche-basel",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "locale-registrati-locali-roche-basel",
-        "de": "klassisch-eingehalten-roche-basel",
-        "fr": "c-est-pas-vrai-roche-basel"
+        "it": "roche-basel",
+        "de": "roche-basel",
+        "fr": "roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -14740,13 +14740,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch"
+          "roche-ch",
+          "locale-registrati-locali-roche-basel"
+        ],
+        "de": [
+          "klassisch-eingehalten-roche-basel"
+        ],
+        "fr": [
+          "c-est-pas-vrai-roche-basel"
         ]
       },
       "previousSlugs": [
         "roche-ch",
-        "roche-ch-6",
-        "roche-basel"
+        "locale-registrati-locali-roche-basel",
+        "klassisch-eingehalten-roche-basel",
+        "c-est-pas-vrai-roche-basel",
+        "roche-ch-6"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -22675,7 +22684,7 @@
       "id": "roche-6d705c37327b",
       "slug": "roche-hangzhou",
       "slugByLocale": {
-        "it": "roche-basel",
+        "it": "roche-hangzhou",
         "en": "mce-roche-ch",
         "de": "eine-neue-technologie-roche-hangzhou",
         "fr": "les-roche-hangzhou"
@@ -22737,21 +22746,7 @@
         "roche-guangzhou-4mww96",
         "roche-ch-138",
         "roche-basel",
-        "roche-ch",
-        "roche-ch-6",
-        "locale-registrati-locali-roche-basel",
-        "klassisch-eingehalten-roche-basel",
-        "c-est-pas-vrai-roche-basel",
-        "roche-ch-149",
-        "roche-basel-xgl5tl",
-        "roche-ch-161",
-        "roche-shanghai-xgl6mx",
-        "roche-ch-168",
-        "roche-shanghai",
-        "roche-shanghai-l6hd8k",
-        "roche-hangzhou-xgl6pj",
-        "roche-ch-175",
-        "roche-hangzhou"
+        "roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22772,7 +22767,8 @@
           "roche-zhengzhou-4mwu80",
           "roche-ch-64",
           "roche-guangzhou-4mww96",
-          "roche-ch-138"
+          "roche-ch-138",
+          "roche-basel"
         ],
         "en": [
           "roche-ch"
@@ -40333,9 +40329,7 @@
         "field-engineering-specialist-albuquerque-nm-roche-ch",
         "field-engineering-spezialist-albuquerque-nm-roche-albuquerque",
         "field-engineering-specialiste-albuquerque-nm-roche-albuquerque",
-        "field-engineering-spezialist-los-angeles-ca-roche-basel",
-        "field-engineering-specialist-roche-ch",
-        "field-engineering-specialist-roche-ch-4"
+        "field-engineering-spezialist-los-angeles-ca-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -44036,7 +44030,7 @@
       "id": "roche-61c948c56d8a",
       "slug": "key-account-manager-conti-pubblici-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "gestione-account-chiave-m-w-d-roche-basel",
+        "it": "key-account-manager-conti-pubblici-d-f-m-roche-france",
         "en": "key-account-manager-m-w-d-roche-ch",
         "de": "sachbearbeiter-m-w-d-roche-france",
         "fr": "key-account-manager-m-w-d-roche-ch"
@@ -44081,6 +44075,7 @@
       "previousSlugs": [
         "key-account-manager-comptes-publics-d-f-m-roche-ch",
         "key-account-manager-m-w-d-roche-ch",
+        "gestione-account-chiave-m-w-d-roche-basel",
         "key-account-manager-istologia-e-sequenziamento-roche-basel",
         "key-account-manager-histology-sequencing-roche-ch",
         "key-account-manager-histologie-und-sequenzierung-roche-basel",
@@ -44089,13 +44084,13 @@
         "account-manager-roche-ch",
         "gestione-account-chiave-roche-sao-paulo",
         "key-account-manager-roche-ch",
-        "key-account-manager-roche-ch-2",
-        "key-account-manager-conti-pubblici-d-f-m-roche-france"
+        "key-account-manager-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch",
-          "key-account-manager-m-w-d-roche-ch"
+          "key-account-manager-m-w-d-roche-ch",
+          "gestione-account-chiave-m-w-d-roche-basel"
         ],
         "en": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch"
@@ -52391,10 +52386,10 @@
       "id": "roche-a2bed5c4d644",
       "slug": "regulatory-operation-intern-roche-ch-2",
       "slugByLocale": {
-        "it": "interno-di-funzionamento-del-regolatore-roche-basel",
+        "it": "regulatory-operation-intern-roche-ch-2",
         "en": "regulatory-operation-intern-roche-ch",
-        "de": "regulatory-operation-praktikant-roche-basel",
-        "fr": "operation-de-reglementation-interne-roche-basel"
+        "de": "regulatory-operation-intern-roche-ch-2",
+        "fr": "regulatory-operation-intern-roche-ch-2"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52436,20 +52431,27 @@
       "previousSlugs": [
         "regulatory-operation-intern-roche-ch",
         "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
+        "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel-74ec59",
+        "operation-de-reglementation-interne-roche-basel",
+        "regulatory-operation-praktikant-roche-basel",
         "regulatorische-operation-intern-roche-basel",
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
-        "regulatory-operation-tirocinante-roche-basel",
-        "regulatory-operation-intern-roche-ch-2"
+        "regulatory-operation-tirocinante-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regulatory-operation-intern-roche-ch",
-          "interno-di-funzionamento-del-regolatore-roche-basel-74ec59"
+          "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
+          "interno-di-funzionamento-del-regolatore-roche-basel"
         ],
         "fr": [
-          "operation-de-reglementation-interne-roche-basel-74ec59"
+          "operation-de-reglementation-interne-roche-basel-74ec59",
+          "operation-de-reglementation-interne-roche-basel"
+        ],
+        "de": [
+          "regulatory-operation-praktikant-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-31T23:31:26.567Z",
@@ -54496,7 +54498,7 @@
       "id": "roche-068ae58bc6ef",
       "slug": "analytics-intelligence-senior-analista-roche-basel",
       "slugByLocale": {
-        "it": "analisi-e-intelligenza-senior-analyst-roche-basel",
+        "it": "analytics-intelligence-senior-analista-roche-basel",
         "en": "analytics-intelligence-senior-analyst-roche-ch",
         "de": "analytik-und-intelligenz-senior-analyst-roche-basel-9be580",
         "fr": "analytics-intelligence-senior-analyste-roche-basel"
@@ -54540,16 +54542,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "analytics-intelligence-senior-analyst-roche-ch",
+        "analisi-e-intelligenza-senior-analyst-roche-basel",
         "analytik-und-intelligenz-senior-analyst-roche-basel",
         "analytics-intelligence-senior-analista-roche-basel-377zv8",
         "analytics-intelligence-analista-senior-analisi-medica-roche-basel",
         "analytics-intelligence-senior-analyst-medical-analytics-roche-ch",
-        "analytics-intelligence-senior-analyste-medical-analytics-roche-basel",
-        "analytics-intelligence-senior-analista-roche-basel"
+        "analytics-intelligence-senior-analyste-medical-analytics-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytics-intelligence-senior-analyst-roche-ch"
+          "analytics-intelligence-senior-analyst-roche-ch",
+          "analisi-e-intelligenza-senior-analyst-roche-basel"
         ],
         "de": [
           "analytik-und-intelligenz-senior-analyst-roche-basel"
@@ -66915,7 +66918,7 @@
       "id": "roche-9577d2aaa132",
       "slug": "piombo-di-studio-globale-roche-basel",
       "slugByLocale": {
-        "it": "piombo-di-studio-globale-laboratorio-molecolare-roche-basel",
+        "it": "piombo-di-studio-globale-roche-basel",
         "en": "global-study-lead-roche-ch",
         "de": "globaler-studienleiter-roche-basel",
         "fr": "etude-mondiale-chef-de-file-roche-basel"
@@ -66959,16 +66962,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-study-lead-roche-ch",
+        "piombo-di-studio-globale-laboratorio-molecolare-roche-basel",
         "global-study-lead-molecular-lab-roche-ch",
         "global-study-lead-molekularlabor-roche-basel",
-        "etude-mondiale-de-plomb-lab-moleculaire-roche-basel",
-        "piombo-di-studio-globale-roche-basel",
-        "globaler-studienleiter-roche-basel",
-        "etude-mondiale-chef-de-file-roche-basel"
+        "etude-mondiale-de-plomb-lab-moleculaire-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-study-lead-roche-ch"
+          "global-study-lead-roche-ch",
+          "piombo-di-studio-globale-laboratorio-molecolare-roche-basel"
         ],
         "en": [
           "global-study-lead-molecular-lab-roche-ch"
@@ -86482,10 +86484,10 @@
     },
     {
       "id": "roche-7739ca3465dd",
-      "slug": "strategic-account-executive-pathology-lab-roche-ch",
+      "slug": "strategic-account-executive-pathology-lab-roche-basel",
       "slugByLocale": {
         "en": "strategic-account-executive-pathology-lab-roche-ch",
-        "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
+        "it": "strategic-account-executive-pathology-lab-roche-basel",
         "de": "strategic-account-executive-pathology-lab-roche-ch",
         "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel-3c99d0"
       },
@@ -86544,10 +86546,17 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-06-09T23:04:52.947Z",
       "previousSlugs": [
+        "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
+        "strategic-account-executive-pathology-lab-roche-ch",
         "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
-        "strategic-account-executive-pathology-lab-roche-ch"
-      ]
+        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
+          "strategic-account-executive-pathology-lab-roche-ch"
+        ]
+      }
     }
   ]
 }

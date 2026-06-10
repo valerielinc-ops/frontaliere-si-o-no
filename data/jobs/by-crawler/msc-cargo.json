@@ -81,12 +81,12 @@
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -142,7 +142,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-09T22:57:17.760Z"
+      "firstSeenAt": "2026-06-09T22:57:17.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "de": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "fr": [
+          "travelling-destination-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-destination-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -647,7 +661,7 @@
         "it": "gestione-multimediale-e-av-msc-group-geneva",
         "en": "multimedia-and-av-manager-msc-geneva",
         "de": "gestione-multimediale-e-av-msc-group-geneva",
-        "fr": "gestione-multimediale-e-av-msc-group-geneva"
+        "fr": "gestionnaire-multimedia-et-av-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",

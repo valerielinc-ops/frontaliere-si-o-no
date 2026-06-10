@@ -765,7 +765,7 @@
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -811,6 +811,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        ],
+        "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
@@ -1298,7 +1301,7 @@
       "id": "schindler-c861aa791f7a",
       "slug": "manager-per-cookie-einwilligungen-schindler-st-gallen",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "it": "manager-per-cookie-einwilligungen-schindler-st-gallen",
         "en": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "de": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-st-gallen"
@@ -1345,17 +1348,18 @@
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "manager-for-cookie-permissions-schindler-st-gallen",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern",
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen"
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-          "manager-fur-cookie-einwilligungen-schindler-st-gallen-2"
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "en": [
           "manager-for-cookie-permissions-schindler-st-gallen"
@@ -2530,7 +2534,7 @@
         "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "en": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "fr": "manager-per-cookie-einwilligungen-schindler-oberentfelden"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3833,7 +3837,7 @@
         "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
         "en": "manager-per-cookie-einwilligungen-schindler-winterthur-2",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "fr": "manager-per-cookie-einwilligungen-schindler-winterthur-2"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-winterthur"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3881,6 +3885,9 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-winterthur",
+          "manager-per-cookie-einwilligungen-schindler-winterthur-2"
+        ],
+        "fr": [
           "manager-per-cookie-einwilligungen-schindler-winterthur-2"
         ]
       },
@@ -4956,7 +4963,7 @@
       "id": "schindler-654f5a32cbca",
       "slug": "manager-per-cookie-einwilligungen-schindler-bern",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "it": "manager-per-cookie-einwilligungen-schindler-bern",
         "en": "manager-for-cookie-permissions-schindler-st-gallen",
         "de": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
@@ -5002,14 +5009,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bern",
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-st-gallen",
-        "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-bern"
+          "manager-fur-cookie-einwilligungen-schindler-bern",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "de": [
           "manager-fur-cookie-einwilligungen-schindler-bern"
@@ -5269,7 +5276,7 @@
       "id": "schindler-d84cc69f600f",
       "slug": "ammodernamento-degli-impianti-di-risalita-professionali-di-berna-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "marketing-manager-m-w-d-80-100-schindler-bern",
+        "it": "ammodernamento-degli-impianti-di-risalita-professionali-di-berna-m-f-d-80-100-schindler-bern",
         "en": "sales-professional-lift-modernization-in-bern-m-f-d-80-100-schindler-bern",
         "de": "verkaufsprofi-liftmodernisierung-in-bern-m-w-d-80-100-schindler-bern",
         "fr": "directeur-marketing-m-p-p-80-100-schindler-bern-1cb988"
@@ -5318,14 +5325,13 @@
         "marketing-manager-m-w-d-80-100-schindler-bern-1cb988",
         "marketing-manager-m-w-d-80-100-schindler-bern",
         "directeur-marketing-m-w-d-80-100-schindler-bern",
-        "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
-        "ammodernamento-degli-impianti-di-risalita-professionali-di-berna-m-f-d-80-100-schindler-bern",
-        "sales-professional-lift-modernization-in-bern-m-f-d-80-100-schindler-bern"
+        "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsprofi-liftmodernisierung-in-bern-m-w-d-80-100-schindler-bern",
-          "marketing-manager-m-w-d-80-100-schindler-bern-1cb988"
+          "marketing-manager-m-w-d-80-100-schindler-bern-1cb988",
+          "marketing-manager-m-w-d-80-100-schindler-bern"
         ],
         "en": [
           "verkaufsprofi-liftmodernisierung-in-bern-m-w-d-80-100-schindler-bern",

@@ -154,7 +154,7 @@
       "slugByLocale": {
         "en": "platform-engineer-duferco-lugano",
         "it": "ingegnere-della-piattaforma-duferco-lugano",
-        "de": "plattformingenieur-duferco-lugano",
+        "de": "platform-ingenieur-duferco-lugano",
         "fr": "ingenieur-plate-forme-duferco-lugano"
       },
       "company": "Duferco",
@@ -205,10 +205,14 @@
       "previousSlugsByLocale": {
         "it": [
           "platform-engineer-duferco-lugano"
+        ],
+        "de": [
+          "plattformingenieur-duferco-lugano"
         ]
       },
       "previousSlugs": [
-        "platform-engineer-duferco-lugano"
+        "platform-engineer-duferco-lugano",
+        "plattformingenieur-duferco-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
