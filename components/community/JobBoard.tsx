@@ -4749,6 +4749,56 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  ) : null;
 
+ // Job-detail alert prompt (fixed-position toast). Extracted to a variable so
+ // it can be rendered in ALL JobBoard return branches — the component uses an
+ // early-return chain, and the detail-view returns previously did not include
+ // it, so the prompt effect fired on the detail view but had no render slot and
+ // the toast never appeared. Rendered in the list + both detail returns below.
+ const jobDetailPromptJsx = (jobDetailPromptVisible && jobDetailPromptCategory && userEmail && userId) ? (
+ <Suspense fallback={null}>
+ <JobDetailAlertPrompt
+ category={jobDetailPromptCategory}
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ onClose={() => {
+ setJobDetailPromptVisible(false);
+ setJobDetailPromptCategory(null);
+ }}
+ onAccepted={() => {
+ const category = jobDetailPromptCategory;
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'accept', category);
+ // Mirror inline-form behaviour: fire job_alert_created on successful
+ // one-tap subscribe so Firestore writes and PostHog counts reconcile.
+ Analytics.trackJobAlertCreated({
+ keywords: category || '',
+ location: '',
+ frequency: 'weekly',
+ surface: 'job_detail_prompt',
+ });
+ import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordAccept, normalizeKeyword }) => {
+ const next = recordAccept(loadGatingState(), new Date(), normalizeKeyword(category));
+ saveGatingState(next);
+ }).catch(() => {});
+ }}
+ onDismissed={() => {
+ const category = jobDetailPromptCategory;
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'dismiss', category);
+ import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordDismiss, normalizeKeyword }) => {
+ const next = recordDismiss(loadGatingState(), new Date(), normalizeKeyword(category));
+ saveGatingState(next);
+ }).catch(() => {});
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'error', jobDetailPromptCategory);
+ }}
+ onManage={() => {
+ window.dispatchEvent(new CustomEvent('openJobAlert'));
+ }}
+ />
+ </Suspense>
+ ) : null;
+
  const authGateModalJsx = authGateOpen ? (
  <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
  <div aria-hidden="true" className="absolute inset-0 bg-black/45 backdrop-blur-sm" />
@@ -6461,6 +6511,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="mt-3">{sectorContextWidget}</div>
  )}
  </article>
+ {jobDetailPromptJsx}
  </div>
  );
  }
@@ -6820,6 +6871,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('jobBoard.allJobsCta', cantonI18n)}
  </a>
  </nav>
+ {jobDetailPromptJsx}
  </div>
  );
  }
@@ -7457,52 +7509,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  )}
 
- {jobDetailPromptVisible && jobDetailPromptCategory && userEmail && userId && (
- <Suspense fallback={null}>
- <JobDetailAlertPrompt
- category={jobDetailPromptCategory}
- userId={userId}
- email={userEmail}
- locale={locale}
- onClose={() => {
- setJobDetailPromptVisible(false);
- setJobDetailPromptCategory(null);
- }}
- onAccepted={() => {
- const category = jobDetailPromptCategory;
- Analytics.trackJobAlertCtaClick('job_detail_prompt', 'accept', category);
- // Mirror inline-form behaviour: fire job_alert_created on successful
- // one-tap subscribe so Firestore writes and PostHog counts reconcile.
- // Pre-fix, only the inline form fired this event → 17 PostHog
- // job_alert_created events vs 8 Firestore alerts (telemetry mismatch).
- Analytics.trackJobAlertCreated({
- keywords: category || '',
- location: '',
- frequency: 'weekly',
- surface: 'job_detail_prompt',
- });
- import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordAccept, normalizeKeyword }) => {
- const next = recordAccept(loadGatingState(), new Date(), normalizeKeyword(category));
- saveGatingState(next);
- }).catch(() => {});
- }}
- onDismissed={() => {
- const category = jobDetailPromptCategory;
- Analytics.trackJobAlertCtaClick('job_detail_prompt', 'dismiss', category);
- import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordDismiss, normalizeKeyword }) => {
- const next = recordDismiss(loadGatingState(), new Date(), normalizeKeyword(category));
- saveGatingState(next);
- }).catch(() => {});
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick('job_detail_prompt', 'error', jobDetailPromptCategory);
- }}
- onManage={() => {
- window.dispatchEvent(new CustomEvent('openJobAlert'));
- }}
- />
- </Suspense>
- )}
+ {jobDetailPromptJsx}
 
  {authGateModalJsx}
 
