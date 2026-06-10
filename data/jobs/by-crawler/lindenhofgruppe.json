@@ -1973,10 +1973,10 @@
       "id": "lindenhofgruppe-4564d8b2ed81",
       "slug": "pflegeassistent-in-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "assistente-infermieristico-lindenhofgruppe-bern",
-        "en": "nursing-assistant-lindenhofgruppe-bern",
+        "it": "pflegeassistent-in-lindenhofgruppe-bern",
+        "en": "pflegeassistent-in-lindenhofgruppe-bern",
         "de": "pflegeassistent-in-lindenhofgruppe-ch",
-        "fr": "assistant-infirmier-lindenhofgruppe-bern"
+        "fr": "pflegeassistent-in-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2021,27 +2021,32 @@
         "pflegeassistent-in-lindenhofgruppe-ch-2",
         "pflegeassistent-in-lindenhofgruppe-ch",
         "assistente-di-cura-lindenhofgruppe-bern",
+        "assistente-infermieristico-lindenhofgruppe-bern",
         "care-assistant-lindenhofgruppe-bern",
+        "nursing-assistant-lindenhofgruppe-bern",
         "assistant-de-soins-lindenhofgruppe-bern",
+        "assistant-infirmier-lindenhofgruppe-bern",
         "assistente-farmaceutico-lindenhofgruppe-bern",
         "pharma-assistent-in-lindenhofgruppe-bern",
         "pharma-assistent-in-lindenhofgruppe-ch",
         "assistente-nella-cura-lindenhofgruppe-bern",
         "assistent-in-pflege-lindenhofgruppe-bern",
-        "assistent-in-pflege-lindenhofgruppe-ch",
-        "pflegeassistent-in-lindenhofgruppe-bern"
+        "assistent-in-pflege-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegeassistent-in-lindenhofgruppe-ch-2",
           "pflegeassistent-in-lindenhofgruppe-ch",
-          "assistente-di-cura-lindenhofgruppe-bern"
+          "assistente-di-cura-lindenhofgruppe-bern",
+          "assistente-infermieristico-lindenhofgruppe-bern"
         ],
         "en": [
-          "care-assistant-lindenhofgruppe-bern"
+          "care-assistant-lindenhofgruppe-bern",
+          "nursing-assistant-lindenhofgruppe-bern"
         ],
         "fr": [
-          "assistant-de-soins-lindenhofgruppe-bern"
+          "assistant-de-soins-lindenhofgruppe-bern",
+          "assistant-infirmier-lindenhofgruppe-bern"
         ]
       },
       "firstSeenAt": "2026-06-02T13:50:22.913Z",
