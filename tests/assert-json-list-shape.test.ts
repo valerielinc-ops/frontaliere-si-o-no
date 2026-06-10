@@ -301,6 +301,26 @@ describe('assertJsonListShape — shared non-silent JSON-envelope guard (#1666)'
       expect(calls).toHaveLength(0);
     });
 
+    it('multi-channel feed (rss.channel is an array): aggregates items across ALL channels + WARNS', () => {
+      const { warn, calls } = captureWarn();
+      // Without the multi-channel guard, `channel.item` is `undefined` here →
+      // the source silently empties (the silent-`[]` class this module kills).
+      const parsed = {
+        rss: {
+          channel: [
+            { item: [{ title: 'a' }, { title: 'b' }] }, // multi-item channel → kept as array
+            { item: { title: 'c' } }, // single bare item → normalised to [c]
+            { title: 'empty channel' }, // no items → contributes nothing
+          ],
+        },
+      };
+      const out = assertRssChannelItems(parsed, { source: 'x', warn });
+      expect(out).toEqual([{ title: 'a' }, { title: 'b' }, { title: 'c' }]); // no listing dropped
+      expect(calls).toHaveLength(1); // drift surfaces loudly
+      expect(calls[0]).toContain('multi-channel');
+      expect(calls[0]).toContain('3 channels');
+    });
+
     it('WARNS when the rss>channel envelope itself is missing/malformed (real drift)', () => {
       const { warn, calls } = captureWarn();
       const out = assertRssChannelItems({ feed: { entry: [] } }, { source: 'x', warn });
