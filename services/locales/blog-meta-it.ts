@@ -8027,6 +8027,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.title': 'Lavoretti estivi, ecco le regole da conoscere',
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.excerpt': 'Salari, assicurazioni e limiti d\'età per i giovani frontalieri in Ticino.',
     'blog.article.lavoretti-estivi-2026-regole-frontaliere.imageAlt': 'Lavori estivi per frontalieri in Ticino',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.title': 'Via Mazzini a Lugano chiusa per lavori: orari e viabilità alternativa',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.excerpt': 'Sabato 13 giugno via Mazzini sarà chiusa al traffico veicolare per consentire lo smontaggio di una gru di cantiere.',
+    'blog.article.via-mazzini-lugano-chiusura-lavori.imageAlt': 'Strada chiusa al traffico con segnaletica di deviazione a Lugano',
+    'blog.article.economia-sociale-lavoro-valore.title': 'Economia sociale e imprese: sinergie per il mercato',
+    'blog.article.economia-sociale-lavoro-valore.excerpt': 'Il dialogo tra profit e non profit per affrontare la carenza di manodopera: le opportunità di inserimento lavorativo tra cooperazione e aziende.',
+    'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Incontro professionale in un ufficio moderno con vista sul lago di Lugano',
 };
 
 export default blogMetaIt;

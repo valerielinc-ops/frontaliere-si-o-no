@@ -1424,6 +1424,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-di-cassa-malati-ticino': {
+    title: 'Parlamento spacchetta premi di cassa malati | Frontaliere Ticino',
+    description: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, spacchetta, premi, cassa',
+    ogTitle: 'Il Parlamento spacchetta le iniziative sui premi di cassa malati: ecco le tempistiche',
+    ogDescription: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre.',
+    canonicalPath: '/articoli-svizzera/premi-di-cassa-malati-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento spacchetta premi di cassa malati",
+      "description": "Il Parlamento ticinese ha deciso di dividere l'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-di-cassa-malati-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "una scena di lavoro al pronto soccorso in Svizzera"
+      },
+      "datePublished": "2026-06-10T00:23:35+00:00",
+      "dateModified": "2026-06-10T00:23:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-di-cassa-malati-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-soggiorno-estero-avs-evitare-lacuna': {
+    title: 'Soggiorno all’estero: come evitare una lacuna nell’AVS',
+    description: 'Scopri come pianificare il soggiorno all’estero per evitare lacune nell’AVS e garantire la pensione, con procedure e strumenti pratici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, soggiorno, estero, evitare, lacuna',
+    ogTitle: 'Soggiorno all’estero: come evitare una lacuna nell’AVS',
+    ogDescription: 'Guida pratica su come gestire i soggiorni all’estero e mantenere la copertura AVS senza rischi di lacune.',
+    canonicalPath: '/articoli-svizzera/soggiorno-estero-avs-evitare-lacuna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Soggiorno all’estero: come evitare una lacuna nell’AVS",
+      "description": "Scopri come pianificare il soggiorno all’estero per evitare lacune nell’AVS e garantire la pensione, con procedure e strumenti pratici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soggiorno-estero-avs-evitare-lacuna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero con lago e città, in luce naturale."
+      },
+      "datePublished": "2026-06-10T00:49:47+00:00",
+      "dateModified": "2026-06-10T00:49:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soggiorno-estero-avs-evitare-lacuna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-finanziamento-13esima': {
+    title: 'La 13esima AVS va in conferenza di conciliazione',
+    description: 'Nessun accordo tra Consiglio Nazionale e Stati sul finanziamento della 13esima AVS. Il dossier passa in conferenza di conciliazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, conferenza, conciliazione, nessun',
+    ogTitle: '13esima AVS: disaccordo tra Consiglio Nazionale e Stati',
+    ogDescription: 'Il Consiglio Nazionale e il Consiglio degli Stati non raggiungono un accordo sul finanziamento della 13esima AVS. Il dossier è stato inviato alla conferenza di',
+    canonicalPath: '/articoli-svizzera/avs-finanziamento-13esima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La 13esima AVS va in conferenza di conciliazione",
+      "description": "Nessun accordo tra Consiglio Nazionale e Stati sul finanziamento della 13esima AVS. Il dossier passa in conferenza di conciliazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-finanziamento-13esima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del Parlamento svizzero a Berna con logo AVS"
+      },
+      "datePublished": "2026-06-10T02:13:58+00:00",
+      "dateModified": "2026-06-10T02:13:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-finanziamento-13esima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
