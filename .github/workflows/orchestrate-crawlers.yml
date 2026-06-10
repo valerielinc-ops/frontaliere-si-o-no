@@ -62,10 +62,18 @@ jobs:
       SHARD_TOTAL: '2'
 
     steps:
-      - name: Checkout (workflow files only)
+      - name: Checkout (workflow files + failure-report script)
         uses: actions/checkout@v5
         with:
-          sparse-checkout: .github/workflows
+          # Non-cone sparse patterns (gitignore-style). `.github/workflows`
+          # feeds the `find` discovery; `scripts` materializes
+          # scripts/lib/github-issue-creator.mjs (its only import is the Node
+          # built-in node:child_process) so the `Report failure` step can
+          # actually create the alert issue instead of `Cannot find module`
+          # being swallowed by continue-on-error (no issue ever created — FRO #1409).
+          sparse-checkout: |
+            .github/workflows
+            scripts
           sparse-checkout-cone-mode: false
           fetch-depth: 1
 
@@ -87,11 +95,24 @@ jobs:
           # "no-op" or causing false-failure cascades. Cancel anything queued >30 min
           # before starting the new wave.
           cutoff=$(date -u -d '-30 minutes' '+%Y-%m-%dT%H:%M:%SZ')
-          mapfile -t zombies < <(
+          # Capture the discovery into a variable first so a non-zero exit from
+          # `gh api` (rate-limit / API error) aborts the shard instead of being
+          # swallowed: process substitution (`mapfile < <(...)`) does NOT
+          # propagate the subshell exit to set -e/pipefail, so on API failure the
+          # reap would silently no-op (empty zombies) while the step stays green,
+          # contradicting the "a reap error fails the shard" guarantee (FRO #1409).
+          if ! queued_json=$(
             gh api --paginate \
               "/repos/${GITHUB_REPOSITORY}/actions/runs?status=queued&per_page=100" \
               --jq ".workflow_runs[] | select(.created_at < \"${cutoff}\") | .id"
-          )
+          ); then
+            echo "🧟 reap: gh api error enumerating queued runs — aborting shard."
+            exit 1
+          fi
+          mapfile -t zombies <<<"$queued_json"
+          # `<<<` of an empty string yields a single empty element; drop it so the
+          # count check below is accurate.
+          [ "${#zombies[@]}" -eq 1 ] && [ -z "${zombies[0]}" ] && zombies=()
           if [ ${#zombies[@]} -eq 0 ]; then
             echo "🧟 No zombie queued runs."
           else
@@ -176,8 +197,11 @@ jobs:
           }
 
           # Discover all crawler workflow files (stable alphabetical order so the
-          # interleave below is deterministic across shards).
-          mapfile -t all_workflows < <(find .github/workflows -name 'update-jobs-*.yml' -type f | sort)
+          # interleave below is deterministic across shards). LC_ALL=C pins a
+          # byte-wise collation so both concurrent shards see an identical order
+          # regardless of runner locale — a divergent LC_COLLATE could otherwise
+          # drop a crawler from both shards or double-dispatch it (FRO #1409).
+          mapfile -t all_workflows < <(find .github/workflows -name 'update-jobs-*.yml' -type f | LC_ALL=C sort)
           grand_total=${#all_workflows[@]}
 
           if [ "$grand_total" -eq 0 ]; then
