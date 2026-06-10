@@ -116,6 +116,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carenza-manodopera-gr-2024.title': 'Fachkräftemangel in Graubünden: Auswirkungen auf Unternehmen',
     'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % der Unternehmen in Graubünden melden schwere Schwierigkeiten, qualifiziertes Personal zu finden, während 75 % ihre wirtschaftliche Lage als gut oder sehr gut einschätzen.',
     'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Alpenblick auf Graubünden mit traditionellen Dörfern und Industriegebieten',
+    'blog.article.premi-di-cassa-malati-ticino.title': 'Parlament teilt Krankengeldprämien',
+    'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Das Tessiner Parlament hat beschlossen, die Anwendung der beiden von Lega und PS vorgeschlagenen und im letzten September vom Volk abgestimmten Massnahmen zu teilen.',
+    'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'ein Schweizer Krankenhaus-Szene',
 };
 
 export default blogMetaChDe;

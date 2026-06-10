@@ -116,6 +116,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carenza-manodopera-gr-2024.title': 'Labour shortage in Graubünden: impact on businesses',
     'blog.article.carenza-manodopera-gr-2024.excerpt': '44% of Graubünden companies report serious difficulty finding qualified staff, while 75% rate their economic situation as good or very good.',
     'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Alpine view of Graubünden with traditional villages and industrial zones',
+    'blog.article.premi-di-cassa-malati-ticino.title': 'Parliament Splits Sick Pay Bonuses',
+    'blog.article.premi-di-cassa-malati-ticino.excerpt': 'The Ticino Parliament has decided to split the application of the two measures promoted by Lega and PS and voted by the people last September.',
+    'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'a Swiss hospital scene',
 };
 
 export default blogMetaChEn;
