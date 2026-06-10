@@ -14,7 +14,6 @@ import {
   discountRateForUnits as jsRate,
   netChfForUnits as jsNet,
   countDistinctLocations as jsCount,
-  // @ts-expect-error JS module, no type declarations
 } from '../functions/src/publisherPricingMirror.js';
 
 describe('publisher pricing mirror parity (TS ⇄ functions JS)', () => {

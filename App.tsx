@@ -44,6 +44,7 @@ const NewsletterPreferences = lazyRetry(() => import('@/components/pages/Newslet
 const GamificationPage = lazyRetry(() => import('@/components/community/GamificationPage'));
 const CommunityForum = lazyRetry(() => import('@/components/community/CommunityForum'));
 const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
+const PublisherPublishPage = lazyRetry(() => import('@/components/pages/PublisherPublishPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
 const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
@@ -2379,6 +2380,10 @@ const App: React.FC = () => {
  ) : activeTab === 'contact' ? (
  <div className="max-w-7xl mx-auto">
  <ContactPage prefill={contactPrefill} onPrefillConsumed={() => setContactPrefill(null)} />
+ </div>
+ ) : activeTab === 'publish' ? (
+ <div className="max-w-7xl mx-auto">
+ <PublisherPublishPage />
  </div>
  ) : activeTab === 'partners' ? (
  <div className="max-w-7xl mx-auto">
