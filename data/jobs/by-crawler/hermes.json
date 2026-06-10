@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-06-10T12:12:07.982Z",
+  "assembledAt": "2026-06-10T22:46:28.164Z",
   "jobs": [
     {
       "id": "hermes-dea5392486ce",
@@ -30,7 +30,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/19709/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:12:05.793Z",
+      "crawledAt": "2026-06-10T22:46:25.992Z",
       "addressLocality": "Gstaad, Bern, Switzerland",
       "addressRegion": "Gstaad, Bern, Switzerland",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/20217/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:12:05.492Z",
+      "crawledAt": "2026-06-10T22:46:25.691Z",
       "addressLocality": "Basel-Stadt, Switzerland",
       "addressRegion": "Basel-Stadt, Switzerland",
       "addressCountry": "CH",
@@ -106,8 +106,9 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/20217/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:25.390Z",
+      "previousSlugs": [
+        "cdi-sales-advisor-basel-60-w-m-hermes-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "cdi-sales-advisor-basel-60-w-m-hermes-ch"
@@ -116,9 +117,8 @@
           "cdi-sales-advisor-basel-60-w-m-hermes-ch"
         ]
       },
-      "previousSlugs": [
-        "cdi-sales-advisor-basel-60-w-m-hermes-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:25.390Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -161,7 +161,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21420/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:12:05.191Z",
+      "crawledAt": "2026-06-10T22:46:25.389Z",
       "addressLocality": "Gstaad, Bern, Switzerland",
       "addressRegion": "Gstaad, Bern, Switzerland",
       "addressCountry": "CH",
@@ -221,7 +221,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21845/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:12:04.587Z",
+      "crawledAt": "2026-06-10T22:46:24.786Z",
       "addressLocality": "Brügg BE, Bern, Switzerland",
       "addressRegion": "Brügg BE, Bern, Switzerland",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21867/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:12:04.286Z",
+      "crawledAt": "2026-06-10T22:46:24.485Z",
       "addressLocality": "Brügg BE, Bern, Switzerland",
       "addressRegion": "Brügg BE, Bern, Switzerland",
       "addressCountry": "CH",
@@ -341,7 +341,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21861/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T12:12:03.683Z",
+      "crawledAt": "2026-06-10T22:46:23.882Z",
       "addressLocality": "Crans-Montana, Valais, Switzerland",
       "addressRegion": "Crans-Montana, Valais, Switzerland",
       "addressCountry": "CH",
@@ -401,7 +401,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:12:03.381Z",
+      "crawledAt": "2026-06-10T22:46:23.579Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -469,7 +469,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22205/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T12:12:02.771Z",
+      "crawledAt": "2026-06-10T22:46:22.969Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "Lugano, Ticino, Switzerland",
       "addressCountry": "CH",
@@ -529,7 +529,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22355/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:12:02.464Z",
+      "crawledAt": "2026-06-10T22:46:22.662Z",
       "addressLocality": "St. Moritz, Graubuenden, Switzerland",
       "addressRegion": "St. Moritz, Graubuenden, Switzerland",
       "addressCountry": "CH",
@@ -589,7 +589,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21860/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:12:02.161Z",
+      "crawledAt": "2026-06-10T22:46:22.359Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -649,7 +649,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22031/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-10T12:12:01.842Z",
+      "crawledAt": "2026-06-10T22:46:22.037Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
