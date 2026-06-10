@@ -64,6 +64,12 @@ describe('normalizeKeyword', () => {
     expect(normalizeKeyword('Tecnologia')).toBe('tecnologia');
     expect(normalizeKeyword('🏥 Sanità')).toBe('sanita');
   });
+
+  it('strips emoji outside the legacy BMP ranges (⭐, ❤️, ⚙️ compound)', () => {
+    expect(normalizeKeyword('⭐ Premium')).toBe('premium');
+    expect(normalizeKeyword('❤️ Cura')).toBe('cura');
+    expect(normalizeKeyword('⚙️ Ingegneria')).toBe('ingegneria');
+  });
 });
 
 describe('findMatchingAlertForCategory', () => {

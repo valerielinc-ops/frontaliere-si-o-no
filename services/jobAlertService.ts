@@ -274,8 +274,13 @@ export async function deleteAlert(email: string, alertId: string): Promise<void>
  * emoji-prefixed keyword would match zero jobs and the alert would never fire.
  */
 export function stripKeywordEmoji(s: string): string {
+  // `\p{Extended_Pictographic}` covers every emoji pictograph (future-proof vs
+  // hand-maintained codepoint ranges, which missed e.g. ⭐ U+2B50, ❤️ U+2764) —
+  // plus variation selectors (U+FE0F) and the ZWJ (U+200D) that glue compound
+  // emoji. A category label gaining a new emoji must never re-introduce the
+  // zero-match failure this strip prevents.
   return (s || '')
-    .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
+    .replace(/[\p{Extended_Pictographic}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
     .replace(/\s+/g, ' ')
     .trim();
 }
