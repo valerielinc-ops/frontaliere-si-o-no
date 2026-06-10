@@ -103,7 +103,19 @@ export function assertJsonListShape(data, { key = 'jobs', source, lang, rowShape
   // A non-empty list whose rows all fail the parser's structural predicate is a
   // per-row rename drift — silent in the same way (every row gets skipped).
   if (list.length > 0 && typeof rowShapeOk === 'function') {
-    const firstBad = list.find((row) => !rowShapeOk(row));
+    // The predicate is caller-supplied; if it THROWS on an unexpected row shape
+    // (e.g. reads a nested field off a primitive), that throw must NOT propagate
+    // out of this helper — the docblock guarantees it never throws. A throwing
+    // predicate is itself evidence the row shape drifted, so treat a throw as a
+    // failed (malformed) row.
+    const safeRowShapeOk = (row) => {
+      try {
+        return rowShapeOk(row);
+      } catch {
+        return false;
+      }
+    };
+    const firstBad = list.find((row) => !safeRowShapeOk(row));
     if (firstBad !== undefined) {
       const rowDesc =
         firstBad != null && typeof firstBad === 'object'

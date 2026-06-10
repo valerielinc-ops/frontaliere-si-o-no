@@ -115,6 +115,22 @@ describe('assertJsonListShape — shared non-silent JSON-envelope guard (#1666)'
       assertJsonListShape({ jobs: [] }, { key: 'jobs', source: 'x', rowShapeOk: rowOk, warn });
       expect(calls).toHaveLength(0);
     });
+
+    it('a THROWING rowShapeOk does NOT propagate — caught, treated as a malformed row + warns', () => {
+      const { warn, calls } = captureWarn();
+      // A predicate that reads a nested field off whatever it gets will throw on
+      // a primitive/null row. The helper must catch it (never-throws contract)
+      // and treat the throwing row as malformed.
+      const throwing = (row: unknown) => (row as { meta: { ok: boolean } }).meta.ok;
+      expect(() =>
+        assertJsonListShape(
+          { jobs: [{ meta: { ok: true } }, null] },
+          { key: 'jobs', source: 'x', rowShapeOk: throwing, warn },
+        ),
+      ).not.toThrow();
+      expect(calls).toHaveLength(1);
+      expect(calls[0]).toContain('row shape mismatch');
+    });
   });
 
   it('defaults to console.warn when no warn sink is injected (drop-in safe)', () => {
