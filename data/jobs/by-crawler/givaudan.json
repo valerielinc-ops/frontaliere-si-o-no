@@ -1,6 +1,6 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-06-10T08:00:00.101Z",
+  "assembledAt": "2026-06-10T09:54:46.931Z",
   "jobs": [
     {
       "id": "givaudan-846cabb7d6b3",
@@ -1587,78 +1587,6 @@
       },
       "previousSlugs": [
         "ehs-specialist-m-w-d-your-next-role-givaudan-ch"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-10T07:51:49.817Z"
-    },
-    {
-      "id": "givaudan-bcab33284a35",
-      "slug": "supervisore-di-produzione-ingredienti-m-f-d-givaudan-vernier",
-      "slugByLocale": {
-        "fr": "superviseur-en-production-ingredients-h-f-d-givaudan-ch",
-        "it": "supervisore-di-produzione-ingredienti-m-f-d-givaudan-vernier",
-        "en": "production-ingredients-supervisor-m-f-d-givaudan-vernier",
-        "de": "produktionsleiter-inhaltsstoffe-m-w-d-givaudan-vernier"
-      },
-      "company": "Givaudan",
-      "companyKey": "givaudan",
-      "companyDomain": "givaudan.com",
-      "title": "Superviseur en production ingrédients (h/f/d)",
-      "titleByLocale": {
-        "fr": "Superviseur en production ingrédients (h/f/d)",
-        "it": "Supervisore di produzione ingredienti (M/F/D)",
-        "en": "Production Ingredients Supervisor (M/F/D)",
-        "de": "Produktionsleiter Inhaltsstoffe (m/w/d)"
-      },
-      "description": "## Descrizione\n\n- C’est l’opportunité parfaite si, comme pour nous, votre objectif est de toujours répondre aux besoins des clients et de toucher les émotions du monde qui vous entoure...",
-      "descriptionByLocale": {
-        "fr": "Descrizione\n\n- C’est l’opportunité parfaite si, comme pour nous, votre objectif est de toujours répondre aux besoins des clients et de toucher les émotions du monde qui vous entoure...",
-        "it": "Descrizione - C’est l’opportunité parfaite si, comme pour nous, votre objectif est de toujours répondre aux besoins des clients et de toucher les émotions du monde qui vous entoure...",
-        "en": "Description - It’s the perfect opportunity if, like us, your goal is always to meet customer needs and touch the world’s emotions...",
-        "de": "Beschreibung - Wenn Sie, wie wir, immer danach streben, die Bedürfnisse der Kunden zu erfüllen und die Emotionen der Welt zu berühren..."
-      },
-      "location": "Vernier, Switzerland",
-      "canton": "GE",
-      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118513EXTERNALENGLOBAL/superviseur-en-production-ingredients-h-f-d",
-      "source": "Givaudan Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:51:49.817Z",
-      "addressLocality": "Vernier",
-      "postalCode": "1214",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118513EXTERNALENGLOBAL/superviseur-en-production-ingredients-h-f-d",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "superviseur-en-production-ingredients-h-f-d-givaudan-ch"
-        ]
-      },
-      "previousSlugs": [
-        "superviseur-en-production-ingredients-h-f-d-givaudan-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
