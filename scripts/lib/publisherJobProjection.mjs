@@ -135,6 +135,11 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       firstSeenAt: firstSeenIso,
       featured: !isFree && pubJob.featured === true,
       tier: isFree ? 'free' : 'sponsored',
+      // Apply mode drives the candidate-side UI: 'external_url' → link out (free
+      // tier is always this); 'forward_email' / 'in_house' → in-house apply form
+      // that writes an `applications` doc (a CF forwards it). The publisher's
+      // forward email is NEVER projected (PII) — the CF reads it server-side.
+      applyMode: isFree ? 'external_url' : (apply.mode || 'external_url'),
       // Provenance — distinguishes self-published ads from crawled jobs downstream.
       publisherUid: pubJob.publisherUid || null,
       publisherJobId: pubJob.id || null,

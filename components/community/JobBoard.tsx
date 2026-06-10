@@ -16,6 +16,7 @@ const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobD
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
 import { trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
+import PublisherApplyForm from '@/components/community/PublisherApplyForm';
 import {
  fetchAggregatedJobs,
  fetchAllJobs,
@@ -6507,6 +6508,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ))}
  </div>
 
+ {((selectedJob as { applyMode?: string }).applyMode === 'in_house'
+ || (selectedJob as { applyMode?: string }).applyMode === 'forward_email') ? (
+ <PublisherApplyForm
+ jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
+ publisherUid={String((selectedJob as { publisherUid?: string }).publisherUid || '')}
+ jobTitle={String(selectedJob.title || '')}
+ />
+ ) : (
  <a
  className="hybrid-ab-cta"
  href={applyUrl}
@@ -6519,6 +6528,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {t('jobBoard.apply')}
  </a>
+ )}
 
  {salaryEstimateWidget && (
  <div className="mt-4">{salaryEstimateWidget}</div>

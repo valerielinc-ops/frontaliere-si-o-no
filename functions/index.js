@@ -21,6 +21,9 @@ import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
 import { handleCreatePublisherCheckout, handleStripeWebhook } from './src/stripePublisherCore.js';
+import { onDocumentCreated } from 'firebase-functions/v2/firestore';
+import { onSchedule } from 'firebase-functions/v2/scheduler';
+import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
 
 ensureAdminApp();
 
@@ -698,6 +701,36 @@ export const stripeWebhook = onRequest(
  } catch (error) {
  console.error('[stripeWebhook]', error instanceof Error ? error.message : String(error));
  res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Forward a candidate application to the publisher's chosen email (read
+// server-side; never exposed to the client). Fires on application create —
+// firestore.rules guarantees consentGiven == true for every created doc.
+export const forwardPublisherApplication = onDocumentCreated(
+ { region: 'europe-west6', memory: '256MiB', document: 'applications/{appId}' },
+ async (event) => {
+ const snap = event.data;
+ if (!snap) return;
+ try {
+ const result = await handleForwardApplication(snap.data(), event.params.appId);
+ if (!result.ok) console.error('[forwardPublisherApplication]', result.error);
+ } catch (error) {
+ console.error('[forwardPublisherApplication]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// GDPR retention: purge applications older than the retention window, daily.
+export const purgePublisherApplications = onSchedule(
+ { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
+ async () => {
+ try {
+ const deleted = await purgeOldApplications();
+ if (deleted > 0) console.log(`[purgePublisherApplications] deleted ${deleted} expired application(s)`);
+ } catch (error) {
+ console.error('[purgePublisherApplications]', error instanceof Error ? error.message : String(error));
  }
  },
 );

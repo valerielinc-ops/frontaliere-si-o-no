@@ -173,3 +173,21 @@ describe('slug helpers', () => {
     expect(truncatePublisherSlug(long, 120).length).toBeLessThanOrEqual(120);
   });
 });
+
+describe('applyMode projection', () => {
+  it('emits the sponsored apply mode', () => {
+    const [r] = publisherJobToRecords(
+      paidJob({ tier: 'sponsored', apply: { mode: 'forward_email', email: 'hr@x.ch' } }),
+      { nowIso: NOW },
+    );
+    expect(r.applyMode).toBe('forward_email');
+  });
+
+  it('forces external_url for free tier regardless of stored mode', () => {
+    const [r] = publisherJobToRecords(
+      paidJob({ tier: 'free', status: 'published', apply: { mode: 'in_house', email: 'x@y.ch' }, locations: [{ label: 'Lugano' }] }),
+      { nowIso: NOW },
+    );
+    expect(r.applyMode).toBe('external_url');
+  });
+});
