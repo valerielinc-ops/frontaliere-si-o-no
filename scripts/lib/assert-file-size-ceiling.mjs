@@ -13,7 +13,7 @@
  * (nothing to stage).
  */
 import { statSync } from 'node:fs';
-import { OUTPUT_SIZE_LIMIT_BYTES } from './related-search-output-limit.mjs';
+import { sizeLimitForPath } from './related-search-output-limit.mjs';
 
 const paths = process.argv.slice(2);
 if (paths.length === 0) {
@@ -21,7 +21,6 @@ if (paths.length === 0) {
   process.exit(2);
 }
 
-const limitMb = OUTPUT_SIZE_LIMIT_BYTES / 1024 / 1024;
 let oversize = false;
 
 for (const path of paths) {
@@ -31,9 +30,10 @@ for (const path of paths) {
   } catch {
     continue; // absent → nothing to stage, not an error
   }
-  if (size > OUTPUT_SIZE_LIMIT_BYTES) {
+  const limit = sizeLimitForPath(path);
+  if (size > limit) {
     console.error(
-      `❌ ${path} is ${(size / 1024 / 1024).toFixed(1)} MB, exceeding the ${limitMb} MB ` +
+      `❌ ${path} is ${(size / 1024 / 1024).toFixed(1)} MB, exceeding the ${limit / 1024 / 1024} MB ` +
       `push-safety ceiling (GitHub hard limit: 100 MB — #1576). Refusing to stage. ` +
       `Prune stale entries or re-run the writer with reduced scope.`,
     );
