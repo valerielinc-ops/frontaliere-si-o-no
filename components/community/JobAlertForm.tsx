@@ -10,6 +10,7 @@ import { useTranslation } from '@/services/i18n';
 import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2, Pencil } from 'lucide-react';
 import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, type CantonLocale } from '@/services/cantonList';
+import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -623,7 +624,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  {/* Toast */}
  {toast && (
- <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-heading text-heading text-sm shadow-lg animate-fade-in">
+ <div className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-heading text-heading text-sm shadow-lg animate-fade-in`}>
  {toast}
  </div>
  )}
