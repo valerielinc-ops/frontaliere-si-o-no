@@ -54,7 +54,7 @@ import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -722,7 +722,26 @@ function extractLocationFromJobPosting(jobPosting, html, apiMeta) {
     const candidate = h1.split(',').pop()?.trim();
     if (candidate && candidate.length <= 60) return candidate;
   }
-  return 'Ticino';
+  // No concrete city: return '' so the literal 'Ticino' never pollutes the
+  // canton inference (inferAnyCanton scans TARGET_CANTONS in order and 'ticino'
+  // would win over the real region for a city-less non-TI posting). The caller
+  // derives the canton from apiMeta.region and uses the canton display name as
+  // the locality when no city is available.
+  return '';
+}
+
+/**
+ * Resolve the canton from an SBB region label like "Zurigo (ZH/AG/SH/ZG)" or
+ * "Berna Mittelland (BE/SO/AG)". The FIRST parenthesised 2-letter code is the
+ * primary canton; the rest are the region's other cantons. We must NOT feed the
+ * raw label to inferAnyCanton — it scans TARGET_CANTONS in order and matches a
+ * bare code like "AG" inside the parens before the real canton ("Zurigo" → ZH).
+ * Falls back to the parens-stripped region NAME, then '' (caller defaults).
+ */
+function cantonFromSbbRegion(regionLabel = '') {
+  const m = String(regionLabel).match(/\(([A-Z]{2})\b/);
+  if (m && isTargetCanton(m[1])) return m[1];
+  return inferAnyCanton(String(regionLabel).replace(/\([^)]*\)/g, '')) || '';
 }
 
 function inferCategory(title = '', description = '', apiMeta = null) {
@@ -824,12 +843,22 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
       ? sbbParsed.requirements
       : parseBullets(jobPosting?.qualifications, 14));
   const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, apiMeta);
-  const location = String(
+  let location = String(
     sourceLoginData.location ||
     resolvedDetailLocation ||
-    sbbParsed?.location
+    sbbParsed?.location ||
+    ''
   ).trim();
-  const canton = inferAnyCanton(`${location} ${apiMeta?.region || ''}`) || DEFAULT_CANTON;
+  // Canton: prefer the concrete city, else the region label's PRIMARY canton
+  // (cantonFromSbbRegion avoids the parens-code mis-match), else the default.
+  // location is '' for city-less postings so it can't force a TI default.
+  const canton =
+    (location ? inferAnyCanton(location) : '') ||
+    cantonFromSbbRegion(apiMeta?.region || '') ||
+    DEFAULT_CANTON;
+  // City-less posting → use the (localized) canton display name as the locality
+  // instead of leaving it empty or emitting a misleading 'Ticino' literal.
+  if (!location) location = getCantonDisplayName(canton, 'it');
   // Slug-only guard: `location` is `String(...).trim()`, so all-undefined sources
   // collapse to the literal "undefined"/"null" string → `-undefined` in an active
   // slug (#952, class #900/#901). Keep `location`/`addressLocality` untouched
