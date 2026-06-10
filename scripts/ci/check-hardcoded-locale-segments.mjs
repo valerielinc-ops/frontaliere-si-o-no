@@ -119,24 +119,49 @@ function isDynamic(literal, line) {
  * commento `// locale-segment-ok:` su questa riga o sulla precedente.
  * Funzione PURA (esportata) → testabile senza filesystem.
  */
-export function lineHasViolation(line, prevLine = '') {
+/**
+ * Estrae i literal URL/path con segmento lingua hardcoded da una riga (array,
+ * vuoto se nessuno o se disinnescato da `// locale-segment-ok:`). Il literal —
+ * la stringa offendente, es. `${base}/de/job/${hash}` — è l'IDENTITÀ stabile
+ * della violazione: non cambia se la riga viene spostata o reindentata. Funzione
+ * PURA (esportata) → testabile senza filesystem.
+ */
+export function lineViolationLiterals(line, prevLine = '') {
   STRING_WITH_SEG.lastIndex = 0;
   let m;
-  let matched = false;
+  const literals = [];
   while ((m = STRING_WITH_SEG.exec(line))) {
     const literal = m[2];
     if (!isDynamic(literal, line)) continue;
     // Path-likeness: scarta prose / HTML-blob / log dove `/de/` è incidentale.
     if (!URLISH.test(literal.trim())) continue;
     if (!PATH_SEG.test(literal)) continue;
-    matched = true;
+    literals.push(literal);
   }
-  if (!matched) return false;
-  if (INLINE_OK.test(line) || INLINE_OK.test(prevLine)) return false;
-  return true;
+  if (literals.length === 0) return [];
+  if (INLINE_OK.test(line) || INLINE_OK.test(prevLine)) return [];
+  return literals;
 }
 
-export function collect() {
+/** Compat booleana (predicate) per i test e i call-site legacy. */
+export function lineHasViolation(line, prevLine = '') {
+  return lineViolationLiterals(line, prevLine).length > 0;
+}
+
+/**
+ * Signature stabile di una violazione: `file\tliteral`. NON include il numero
+ * di riga — così un edit che sposta la riga (import aggiunto in testa, sweep di
+ * un parser, reindent) NON trasforma un'occorrenza legittima già in baseline in
+ * un falso "nuova violazione". Solo un literal NUOVO (path per-locale hardcodato
+ * ex-novo) produce una signature non in baseline → CI rossa. Multiset (con
+ * conteggi) così l'(N+1)-esima copia di un literal baselinato N volte è "nuova".
+ */
+function sigOf(rel, literal) {
+  return `${rel}\t${literal}`;
+}
+
+/** Findings grezzi `{ rel, line, literal, sig }`, ordine deterministico. */
+export function collectRaw() {
   const files = [];
   for (const d of SCAN_DIRS) walk(path.join(ROOT, d), files);
   files.sort();
@@ -151,55 +176,87 @@ export function collect() {
     const lines = src.split('\n');
     for (let i = 0; i < lines.length; i++) {
       const prev = i > 0 ? lines[i - 1] : '';
-      if (lineHasViolation(lines[i], prev)) findings.push(`${rel}:${i + 1}`);
+      for (const literal of lineViolationLiterals(lines[i], prev)) {
+        findings.push({ rel, line: i + 1, literal, sig: sigOf(rel, literal) });
+      }
     }
   }
   return findings;
 }
 
+/** Signature delle violazioni correnti (con duplicati per il conteggio multiset). */
+export function collect() {
+  return collectRaw().map((f) => f.sig);
+}
+
+/** Baseline come array di signature (con duplicati → multiset). */
 function loadBaseline() {
   try {
     const raw = JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf8'));
-    return new Set(Array.isArray(raw.allowed) ? raw.allowed : []);
+    return Array.isArray(raw.allowed) ? raw.allowed : [];
   } catch {
-    return new Set();
+    return [];
   }
+}
+
+function countMap(arr) {
+  const m = new Map();
+  for (const k of arr) m.set(k, (m.get(k) || 0) + 1);
+  return m;
 }
 
 export function main() {
   const args = process.argv.slice(2);
-  const findings = collect();
+  const raw = collectRaw();
 
   if (args.includes('--list')) {
-    process.stdout.write(findings.join('\n') + (findings.length ? '\n' : ''));
+    const out = raw.map((f) => `${f.rel}:${f.line}\t${f.literal}`).join('\n');
+    process.stdout.write(out + (raw.length ? '\n' : ''));
     return 0;
   }
 
   if (args.includes('--write-baseline')) {
+    // Signature ordinate (file\tliteral) per diff stabile; duplicati preservati
+    // (un literal legittimo che ricorre N volte → N voci → multiset corretto).
+    const allowed = collect().sort();
     const payload = {
       _comment:
-        'Occorrenze NOTE di segmenti lingua (/de|fr|it|en/) in URL/path dinamiche, ' +
-        'già revisionate come legittime (portali esterni, liste hreflang, branch per-locale). ' +
+        'Signature NOTE (file\\tliteral) di segmenti lingua (/de|fr|it|en/) in URL/path ' +
+        'dinamiche, già revisionate come legittime (portali esterni, liste hreflang, ' +
+        'branch per-locale). La chiave è il LITERAL, non il numero di riga: spostare/ ' +
+        'reindentare una riga legittima non rompe il gate; solo un literal NUOVO lo fa. ' +
         'Il guard fallisce la CI su NUOVE occorrenze non in questa lista. ' +
         'Rigenera SOLO dopo review umana: node scripts/ci/check-hardcoded-locale-segments.mjs --write-baseline',
-      allowed: findings,
+      allowed,
     };
     fs.writeFileSync(BASELINE_PATH, JSON.stringify(payload, null, 2) + '\n');
-    process.stderr.write(`baseline scritta: ${findings.length} occorrenze → ${path.relative(ROOT, BASELINE_PATH)}\n`);
+    process.stderr.write(`baseline scritta: ${allowed.length} signature → ${path.relative(ROOT, BASELINE_PATH)}\n`);
     return 0;
   }
 
-  const baseline = loadBaseline();
-  const newViolations = findings.filter((f) => !baseline.has(f));
-  // Stale baseline entries (occorrenza rimossa/spostata): non sono un errore,
-  // ma le segnaliamo come warning così la baseline si può ripulire.
-  const stale = [...baseline].filter((b) => !findings.includes(b));
+  // Match multiset: ogni finding consuma una "quota" della sua signature in
+  // baseline; oltre la quota (literal nuovo, o copia in più) → nuova violazione.
+  const blCount = countMap(loadBaseline());
+  const used = new Map();
+  const newViolations = [];
+  for (const f of raw) {
+    const avail = blCount.get(f.sig) || 0;
+    const u = used.get(f.sig) || 0;
+    if (u < avail) used.set(f.sig, u + 1);
+    else newViolations.push(f);
+  }
+
+  // Stale: signature in baseline con conteggio superiore alle occorrenze reali
+  // (literal rimosso/spostato-fuori-scope). Warning, non errore.
+  const rawCount = countMap(raw.map((f) => f.sig));
+  let staleN = 0;
+  for (const [sig, c] of blCount) staleN += Math.max(0, c - (rawCount.get(sig) || 0));
 
   if (newViolations.length === 0) {
-    if (stale.length) {
+    if (staleN) {
       process.stderr.write(
-        `::warning::check-hardcoded-locale-segments: ${stale.length} voci baseline stantie ` +
-          `(occorrenza rimossa/spostata). Rigenera con --write-baseline per ripulire.\n`
+        `::warning::check-hardcoded-locale-segments: ${staleN} voci baseline stantie ` +
+          `(literal rimosso/spostato fuori scope). Rigenera con --write-baseline per ripulire.\n`
       );
     }
     return 0;
@@ -214,7 +271,7 @@ export function main() {
       'esplicita, branch per-locale), annota la riga con `// locale-segment-ok: <motivo>`.\n\n' +
       'Violazioni:\n'
   );
-  for (const v of newViolations) process.stderr.write(`  ${v}\n`);
+  for (const v of newViolations) process.stderr.write(`  ${v.rel}:${v.line}\t${v.literal}\n`);
   process.stderr.write(`\n${newViolations.length} nuova/e violazione/i.\n`);
   return 1;
 }
