@@ -1,20 +1,20 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-06-09T22:56:51.777Z",
+  "generatedAt": "2026-06-10T12:43:03.779Z",
   "total": 3,
   "newCount": 2,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3756,
-  "avgDurationMs": 3756,
+  "durationMs": 3623,
+  "avgDurationMs": 3623,
   "durationHistory": [
-    3756
+    3623
   ],
   "newJobs": [
     {
-      "id": "privatklinik-hohenegg-7be8cb70eb70",
+      "id": "privatklinik-hohenegg-85d3502fdbb6",
       "slug": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -26,7 +26,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/12/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:56:48.859Z",
+      "crawledAt": "2026-06-10T12:43:00.781Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -39,22 +39,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-06-10",
       "applyUrl": "https://apply.refline.ch/640332/0038/pub/12/index.html",
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "firstSeenAt": "2026-05-19T14:37:00.548Z",
-      "_qualityScore": 85,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 17
       }
     },
     {
-      "id": "privatklinik-hohenegg-7be8cb70eb70",
+      "id": "privatklinik-hohenegg-34de0aba3a15",
       "slug": "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -66,7 +65,7 @@
       "url": "https://apply.refline.ch/640332/0053/pub/4/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:56:49.300Z",
+      "crawledAt": "2026-06-10T12:43:01.245Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,17 +78,16 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-06-10",
       "applyUrl": "https://apply.refline.ch/640332/0053/pub/4/index.html",
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "firstSeenAt": "2026-05-19T14:37:00.548Z",
-      "_qualityScore": 85,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 17
       }
     }
@@ -108,7 +106,7 @@
       "url": "https://apply.refline.ch/640332/0061/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:56:49.720Z",
+      "crawledAt": "2026-06-10T12:43:01.685Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
