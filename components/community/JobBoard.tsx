@@ -2356,6 +2356,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  useEffect(() => {
+ try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
  if (!isJobDetailView || !selectedJob) return;
  if (!enableJobAlerts) return;
  if (!userId || !userEmail) {
@@ -2427,8 +2428,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // never fires (observed: hasUser:true at +4 s, then no toast). They clicked a
  // job in an email = peak intent, so treat them like an in-app post-auth unlock.
  const showImmediately = justAuthed || wasNewsletterAutologinAttempted();
+ try { console.log('[AlertDebug] arm timer', { delayMs: showImmediately ? 0 : 1500, existing: existing.length, category: localizedCategory }); } catch { /* noop */ }
  timerId = window.setTimeout(() => {
- if (cancelled) return;
+ if (cancelled) { try { console.log('[AlertDebug] timer cancelled before fire'); } catch { /* noop */ } return; }
+ try { console.log('[AlertDebug] FIRE — prompt visible'); } catch { /* noop */ }
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
  Analytics.trackJobAlertCtaShown('job_detail_prompt', localizedCategory);
@@ -2439,7 +2442,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  cancelled = true;
  if (timerId !== null) window.clearTimeout(timerId);
  };
- }, [isJobDetailView, selectedJob, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
+ // Depend on selectedJob?.id, not the object: the detail enrichment fetch
+ // replaces selectedJob with a new ref for the SAME job, which re-ran this
+ // effect and cancelled the reveal timer before it could fire — the residual
+ // flake after the 0 s change. A real navigation changes the id and still
+ // re-runs / re-arms.
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
 
  // Auto-unmount the prompt if the user logs out or leaves the detail view.
  useEffect(() => {

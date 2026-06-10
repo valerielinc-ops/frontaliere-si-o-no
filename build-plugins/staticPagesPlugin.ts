@@ -12,6 +12,7 @@ import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK } fr
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
+import { CRITICAL_CSS } from './shared/criticalCss';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
@@ -24,7 +25,11 @@ import {
  type JobBoardLocale,
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
-import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import { JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import {
+  countSvizzeraArticleArchivePages,
+  countFrontaliereArticleArchivePages,
+} from './shared/articleArchiveUnion';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
@@ -1043,18 +1048,19 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   * navigator covering every paginated archive page (page-1..page-N) so
   * crawlers don't have to follow the "next" chain to reach articles on
   * later pages. Closes the Ahrefs "orphan page (no incoming internal
-  * links)" report for the blog bucket — see CLAUDE.md SEO content gate. */
- let articlesTotalPages = 1;
- try {
- const blogMetaSrc = fs.readFileSync(np.resolve(rootDir, 'services/locales/blog-meta-it.ts'), 'utf-8');
- const titleKeys = new Set<string>();
- const titleRx = /'blog\.article\.([^']+?)\.title'/g;
- let tm: RegExpExecArray | null;
- while ((tm = titleRx.exec(blogMetaSrc)) !== null) titleKeys.add(tm[1]);
- articlesTotalPages = Math.max(1, Math.ceil(titleKeys.size / ARTICLES_PAGE_SIZE));
- } catch (e) {
- console.warn('[static-pages] Could not compute articlesTotalPages from blog-meta-it.ts:', e);
- }
+  * links)" report for the blog bucket — see CLAUDE.md SEO content gate.
+  *
+  * Page count is derived from the SAME union the `articles` hub emitter
+  * (`seoHubsPlugin.ts` `emitHub`) paginates — meta `blog-meta-it.ts` slugs
+  * ∪ `BLOG_SLUGS` keys (`routerBlogData.ts`), via the shared
+  * `countFrontaliereArticleArchivePages` helper — NOT the meta-only count.
+  * The two DIVERGE today: `BLOG_SLUGS` carries entries with no meta title
+  * (e.g. `iniziativa-salari-ticino`, `cantieri-traffico-a9-ticino`), so the
+  * meta-only count under-counts the emitter's union and would orphan the
+  * trailing `/articoli-frontaliere/tutti/page-N/` pages once the excess
+  * crosses a 100-article boundary (same bug class as #1486/#1497). Single
+  * source of truth makes the drift impossible by construction (AGENTS.md #6). */
+ const articlesTotalPages = countFrontaliereArticleArchivePages(fs, np, rootDir);
 
  /* ── 0ter. Same for the svizzera (Switzerland-wide) article section ──
   * The svizzera bare index (`/articoli-svizzera/` + locale variants) needs
@@ -1063,20 +1069,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   * and a page-N navigator. Without it the entire sitemap-blog-ch.xml shard
   * ships orphan at BFS depth > 4 (audit-bfs-depth hard-fails a brand-new
   * shard that buries an entire tier — no `noindex`, no baseline flooring;
-  * the fix is internal links per CLAUDE.md non-negotiable #5). Slug source
-  * mirrors emitSvizzeraArticlesHub: blog-meta-ch-it.ts title keys. */
+  * the fix is internal links per CLAUDE.md non-negotiable #5).
+  *
+  * Page count is derived from the SAME union source `emitSvizzeraArticlesHub`
+  * paginates (meta `blog-meta-ch-it.ts` slugs ∪ `SWISS_SLUGS` keys), via the
+  * shared `countSvizzeraArticleArchivePages` helper — NOT the meta-only count.
+  * The two sources coincide today (both → 1 page, navigator not emitted) but
+  * the meta-only count silently under-counts the emitter once the registries
+  * diverge past 100 articles, orphaning the trailing `/tutti/page-N/` pages
+  * (the regression PR #1486 closed; see issue #1497). Single source of truth
+  * makes the drift impossible by construction (AGENTS.md #6). */
  const svizzeraArchiveBases = svizzeraArticlesArchiveBasePaths();
- let svizzeraArticlesTotalPages = 1;
- try {
- const chMetaSrc = fs.readFileSync(np.resolve(rootDir, 'services/locales/blog-meta-ch-it.ts'), 'utf-8');
- const chTitleKeys = new Set<string>();
- const chTitleRx = /'blog\.article\.([^']+?)\.title'/g;
- let cm: RegExpExecArray | null;
- while ((cm = chTitleRx.exec(chMetaSrc)) !== null) chTitleKeys.add(cm[1]);
- svizzeraArticlesTotalPages = Math.max(1, Math.ceil(chTitleKeys.size / ARTICLES_PAGE_SIZE));
- } catch (e) {
- console.warn('[static-pages] Could not compute svizzeraArticlesTotalPages from blog-meta-ch-it.ts:', e);
- }
+ const svizzeraArticlesTotalPages = countSvizzeraArticleArchivePages(fs, np, rootDir);
 
  // Same for the jobs hub: emit a deep-link navigator on /cerca-lavoro-ticino/
  // so every /tutti/page-K/ archive page is at depth 2 from `/`. With ~30k
@@ -1636,8 +1640,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return tags.length ? '\n ' + tags.join('\n ') : '';
  };
 
- // Critical CSS (same as asyncCssPlugin) for non-render-blocking loading
- const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}';
+ // Critical CSS (first-paint, non-render-blocking) — single source of truth in
+ // shared/criticalCss.ts, shared with ogPagesPlugin. See that module for why it
+ // stays inline (render-blocking-by-design) rather than externalized (#1586).
+ const criticalCSS = CRITICAL_CSS;
 
  /* ── 1. Parse sitemap sub-files for all URLs with hreflang ── */
  let sitemapSrc: string;

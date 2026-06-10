@@ -33,6 +33,7 @@ import {
   type HubLocale,
 } from './seoHubsData';
 import { ARTICLE_SECTIONS } from '../services/articleSections';
+import { readSvizzeraArticleUnionSlugs } from './shared/articleArchiveUnion';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
@@ -2167,6 +2168,11 @@ function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
   const cfg = ARTICLE_SECTIONS.svizzera;
   const archiveBases = svizzeraArticlesArchiveBasePaths();
   const pageSize = ARTICLES_PAGE_SIZE;
+  // Canonical union slug set (meta `blog-meta-ch-it.ts` ∪ `SWISS_SLUGS`),
+  // computed once via the SHARED helper that `staticPagesPlugin.ts`'s
+  // page-N navigator also uses — so the emitted page count and the navigator
+  // link count can never drift (single source of truth; issue #1497).
+  const unionSlugs = readSvizzeraArticleUnionSlugs(fs, np, rootDir);
 
   for (const locale of HUB_LOCALES) {
     const basePath = archiveBases[locale];
@@ -2183,6 +2189,10 @@ function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
     const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
     const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, 'SWISS_SLUGS');
 
+    // Same union the shared helper reproduces: meta `itArticles` slugs ∪
+    // `SWISS_SLUGS` keys. Kept as a local rebuild because the per-slug render
+    // below needs the titles/excerpts/url-slugs (which the count-only helper
+    // doesn't carry); `unionSlugs.size` above is the parity anchor.
     const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
     for (const slug of Object.keys(blogUrlSlugs)) masterSlugs.add(slug);
 
@@ -2198,7 +2208,10 @@ function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
     }
 
     const total = items.length;
-    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    // Page count from the shared union size — identical to `total` while the
+    // two reads agree, but routing through one source of truth means the
+    // navigator (staticPagesPlugin.ts) and this emitter cannot disagree on N.
+    const totalPages = Math.max(1, Math.ceil(unionSlugs.size / pageSize));
     const copy = SVIZZERA_ARTICLES_COPY[locale];
     const sectionOverride: ArticleSectionOverride = {
       title: copy.title,

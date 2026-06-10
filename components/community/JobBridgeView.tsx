@@ -9,7 +9,7 @@
  * Google Sign-In → AdSense → related jobs → CTA
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, Building2, CheckCircle2, Clock, Euro, Loader2, Mail, MapPin, Shield } from 'lucide-react';
 import { useLocale } from '@/services/i18n';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
@@ -18,6 +18,7 @@ import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
+import { Analytics } from '@/services/analytics';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
 
@@ -219,6 +220,27 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
  const redirectCopy = (REDIRECT_COPY[locale] ?? REDIRECT_COPY.it).replace('{n}', String(countdown));
 
+ // Bridge views route the company link through SPA in-app navigation (a
+ // <button>, never an <a href>): bridge pages are isActive:false (the old slug
+ // is indexed but the job moved), so the company may have rotated out of the
+ // current build (zero active jobs → no static hub emitted). A full-nav to the
+ // hub URL would 404 → 404.html saves the URL → location.replace('/') → SPA
+ // restore → staticOverlay:true → BLANK PAGE (the burkhalter-group incident,
+ // build-plugins/staticPagesPlugin.ts:~1341). SPA nav resolves to an
+ // empty-but-browsable board (HTTP 200) — strictly safer. A <button> (no href)
+ // makes this fail-safe by construction: middle-click / cmd-click / "open in
+ // new tab" cannot bypass the handler into a possible-404 full-nav, which an
+ // <a href> would allow. See issue #1183 / PR #1156 Non implementato.
+ const handleCompanyClick = (e: MouseEvent<HTMLButtonElement>, companySlug: string, companyHref: string) => {
+ e.preventDefault();
+ e.stopPropagation();
+ e.nativeEvent.stopImmediatePropagation?.();
+ Analytics.trackSelectContent('job_board_company_filter_open', jobData?.company ?? companySlug);
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySlug } }, '', companyHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ };
+
  const handleEmailSubmit = async (e: { preventDefault(): void }) => {
  e.preventDefault();
  const email = emailInput.trim();
@@ -292,10 +314,14 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(jobData.company)}`;
  const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
  return (
- <a href={companyHref} className="flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors">
- <Building2 size={14} />
- {jobData.company}
- </a>
+ <button
+  type="button"
+  onClick={(e) => handleCompanyClick(e, companySlug, companyHref)}
+  className="flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ >
+  <Building2 size={14} />
+  {jobData.company}
+ </button>
  );
  })()}
  {jobData?.location && (() => {
@@ -380,9 +406,10 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
  const companyLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: jobData.company }));
  return (
- <a
- href={companyHref}
- className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
+ <button
+  type="button"
+  onClick={(e) => handleCompanyClick(e, companySlug, companyHref)}
+  className="block w-full text-left rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
  <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
@@ -400,7 +427,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  </p>
  </div>
  </div>
- </a>
+ </button>
  );
  })()}
 

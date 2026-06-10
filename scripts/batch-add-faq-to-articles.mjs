@@ -414,15 +414,22 @@ const FAQ_MODELS = [
   AI_MODELS.GEMINI_FLASH_LITE,
 ];
 
-// Rate limiter: space out calls to avoid 503 on Gemini free tier (15 RPM)
-let _lastCallMs = 0;
+// Rate limiter: space out calls to avoid 503 on Gemini free tier (15 RPM).
+// Reserve a slot SYNCHRONOUSLY (read + write _nextSlotMs with no await between)
+// so the parallel workers (runWithConcurrency, --concurrency up to 5) each get a
+// distinct minGapMs-spaced slot instead of all reading the same timestamp,
+// waiting the same delta, and bursting → 503 on Gemini's free tier, which would
+// degrade the FAQPage JSON-LD on indexed article pages.
+let _nextSlotMs = 0;
 async function rateLimitedDelay() {
   const minGapMs = 4500; // ~13 RPM max, safe for Gemini free tier
-  const elapsed = Date.now() - _lastCallMs;
-  if (elapsed < minGapMs) {
-    await new Promise((r) => setTimeout(r, minGapMs - elapsed));
+  const now = Date.now();
+  const slot = Math.max(now, _nextSlotMs);
+  _nextSlotMs = slot + minGapMs;
+  const wait = slot - now;
+  if (wait > 0) {
+    await new Promise((r) => setTimeout(r, wait));
   }
-  _lastCallMs = Date.now();
 }
 
 async function callFaqModel(messages, opts = {}) {

@@ -19,7 +19,10 @@ const LANG_MAP = {
   fr: 'fr-FR',
 };
 
-let lastCallMs = 0;
+// Monotonic "next free slot" timestamp for rate-limit spacing. Reserved
+// synchronously (no await between read and write) so concurrent callers each
+// get a distinct 1s-spaced slot — see the rate-limit block below.
+let nextSlotMs = 0;
 let dailyChars = 0;
 // With email param: 50K chars/day. Without: 5K chars/day.
 // Default email for the project — gives 10x quota boost for free.
@@ -46,13 +49,19 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     return null;
   }
 
-  // Rate limit: wait at least 1s between calls
+  // Rate limit: max 5 concurrent, 1s between calls. Reserve a 1s-spaced slot
+  // SYNCHRONOUSLY (read + write nextSlotMs with no await in between) so N
+  // concurrent callers each get their own slot instead of all reading the same
+  // lastCallMs, waiting the same delta, and firing in a burst. The old
+  // read-then-await-then-write collapsed the spacing under the localization
+  // queue's concurrency → burst 429s → cascade fell through to slower tiers.
   const now = Date.now();
-  const elapsed = now - lastCallMs;
-  if (elapsed < 1000) {
-    await new Promise((r) => setTimeout(r, 1000 - elapsed));
+  const slot = Math.max(now, nextSlotMs);
+  nextSlotMs = slot + 1000;
+  const wait = slot - now;
+  if (wait > 0) {
+    await new Promise((r) => setTimeout(r, wait));
   }
-  lastCallMs = Date.now();
 
   try {
     const params = new URLSearchParams({

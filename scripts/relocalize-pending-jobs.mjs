@@ -392,14 +392,17 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     SKIP_AI_TRANSLATION: '0',
     // Translation throughput knob. The backfill-localization queue defaults to
     // concurrency=2 in localize-existing mode (shared-jobs-crawler.mjs ~5045),
-    // which is the dominant wall-time cost of translate-pending: a measured run
-    // spent ~240min translating ~100 jobs at ~47s/job, while the per-company
-    // crawler boot was only ~1.2s. Raising concurrency to the sanctioned clamp
-    // ceiling (6) parallelises the provider cascade ~3× without changing per-job
-    // quota consumption (MyMemory/Google caps are daily, not per-request) or
-    // touching cascade order (quality unchanged). Env-overridable so the workflow
-    // can dial it back if a provider rate-limits under parallelism.
-    JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '6',
+    // the dominant wall-time cost of translate-pending (~240min for ~100 jobs at
+    // ~47s/job; per-company crawler boot is only ~1.2s). A live run at
+    // concurrency=6 measured FLAT throughput (~53s/job) because MyMemory's
+    // module-level rate-limit throttle serialised the workers — concurrency alone
+    // is not the lever. Set to 5 to respect MyMemory's documented "max 5
+    // concurrent" ceiling; the real gains come from the cascade-level fixes
+    // shipped alongside: (a) a race-free 1s-spaced slot in mymemory-translate.mjs
+    // and (b) promoting the unlimited self-hosted LibreTranslate above MyMemory
+    // in free-translate.mjs so the parallel load lands on a no-throttle tier.
+    // Env-overridable so the workflow can dial it back under provider rate-limit.
+    JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '5',
   };
 
   console.log(`\n🚀 Running shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process)...`);
