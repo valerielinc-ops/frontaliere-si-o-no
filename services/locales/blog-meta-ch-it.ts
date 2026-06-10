@@ -116,6 +116,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carenza-manodopera-gr-2024.title': 'Carenza di manodopera in Graubünden: impatto sulle imprese',
     'blog.article.carenza-manodopera-gr-2024.excerpt': 'Il 44% delle aziende grigionesi segnala grave difficoltà a trovare personale qualificato, mentre il 75% valuta la propria situazione economica buona o molto buona.',
     'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Veduta alpina dei Grigioni con villaggi tradizionali e aree industriali',
+    'blog.article.premi-di-cassa-malati-ticino.title': 'Parlamento spacchetta premi di cassa malati',
+    'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre.',
+    'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'una scena di lavoro al pronto soccorso in Svizzera',
 };
 
 export default blogMetaChIt;

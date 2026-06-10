@@ -116,6 +116,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carenza-manodopera-gr-2024.title': 'Pénurie de main-d\'œuvre dans le Grisons : impact sur les entreprises',
     'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % des entreprises grisonnes signalent de graves difficultés à trouver du personnel qualifié, tandis que 75 % évaluent leur situation économique bonne ou très bonne.',
     'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Vue alpine des Grisons avec villages traditionnels et zones industrielles',
+    'blog.article.premi-di-cassa-malati-ticino.title': 'Parlement sépare les primes de maladie',
+    'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Le Parlement tessinois a décidé de diviser l\'application des deux mesures promues par Lega et PS et votées par le peuple il y a quelques mois.',
+    'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'une scène de travail à l\'hôpital en Suisse',
 };
 
 export default blogMetaChFr;
