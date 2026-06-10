@@ -84,7 +84,7 @@ jobs:
         id: changes
         env:
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
-        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Duferco jobs (dedicated crawler)" data/jobs-crawler-adapters/
+        run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Duferco jobs (dedicated crawler)"
 
       - name: Report failure to Linear
         if: failure()

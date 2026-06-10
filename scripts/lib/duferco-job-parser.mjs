@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton, findSwissCityInText } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -26,10 +26,6 @@ const CAREER_URL = 'https://duferco.talentics.ai/api/public/t/duferco/jobs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
-}
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -172,15 +168,23 @@ export async function fetchAllDufercoJobs() {
     const visibility = normalize(listing.visibility || 'public_main');
     if (visibility && !visibility.startsWith('public')) continue;
 
-    // Duferco's board mixes Swiss (Lugano) and Italian (Milan) postings. We only
-    // index roles with a Swiss target canton — drop Milan-only / non-CH roles.
+    // Duferco's board mixes Swiss (Lugano) and Italian (Milan) postings. Index
+    // only roles with a REAL Swiss municipality in the location string.
+    //
+    // We require BOTH a target canton AND a resolved Swiss city — never a
+    // fallback to the raw location. `inferSwissTargetCanton` alone is not
+    // CH-only: its border-proximity keywords (como/varese/novara/…) return a
+    // canton for Italian border cities too. Without a genuine CH municipality
+    // from `findSwissCityInText`, the row would emit an Italian addressLocality
+    // under addressCountry:CH — geographically contradictory JSON-LD (de-index
+    // risk). Milan/Remote/Switzerland-only postings are dropped here as well.
     const rawLocation = normalizeSpace(listing.location || '');
     const canton = inferSwissTargetCanton(rawLocation);
-    if (!canton) {
+    const swissCity = titleCaseCity(findSwissCityInText(rawLocation));
+    if (!canton || !swissCity) {
       skippedNonSwiss += 1;
       continue;
     }
-    const swissCity = titleCaseCity(findSwissCityInText(rawLocation)) || rawLocation;
 
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -195,6 +199,10 @@ export async function fetchAllDufercoJobs() {
     const category = detectCategory(title);
     const postedDate = String(listing.created_at || '').slice(0, 10) ||
       new Date().toISOString().split('T')[0];
+    // Derive `contract` from `employmentType` so the two never diverge —
+    // jobsSeoPagesPlugin/mobileActionBlock read `job.contract` directly.
+    const employmentType = detectEmploymentType(listing.type || title);
+    const contract = employmentType === 'PART_TIME' ? 'part-time' : 'full-time';
 
     const job = {
       // ── Required fields ──
@@ -221,8 +229,8 @@ export async function fetchAllDufercoJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category,
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.type || title),
+      contract,
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: detectSector(listing.department, category),
       department: normalizeSpace(listing.department || ''),
