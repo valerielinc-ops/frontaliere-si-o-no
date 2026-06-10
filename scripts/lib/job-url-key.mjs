@@ -39,6 +39,35 @@ const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 const NUM_ID_RE = /\b\d{6,}\b/;
 const HEX_TOKEN_RE = /\b[0-9a-f]{10,}\b/i;
 
+// A path leaf that is a generic directory-index page (apply.refline.ch ends
+// every job at `…/<companyId>/<jobId>/pub/1/index.html`) — the only extractable
+// token is the shared companyId, so the per-job identity is the whole URL.
+const GENERIC_LEAF_RE = /^(?:index|default)\.(?:html?|php|aspx?)$/i;
+// A path leaf that is a downloadable document (Weebly/Drupal upload folders host
+// every PDF under one shared numeric site/folder id, e.g.
+// `…/146598773/segretaria_legale_.pdf`). `%20`-encoded spaces next to a year can
+// even synthesise a fake ≥6-digit "id" (`…EFZ%202027.pdf` → `202027`). Identity
+// is the whole URL (the distinct filename), never the ancestor folder token.
+const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
+
+/**
+ * Legacy leftmost-token scan: the first UUID → first ≥6-digit run → first ≥10
+ * hex run anywhere in the normalized URL, else the full URL. Retained verbatim
+ * as the Rule C fallback so every key whose id lives in the query, fragment, or
+ * an ancestor segment (and whose leaf carries no token) is preserved byte-for-byte.
+ * @param {string} u - already-normalized URL string
+ * @returns {string}
+ */
+function legacyMergeToken(u) {
+  const uuid = u.match(UUID_RE);
+  if (uuid) return `uuid:${uuid[0]}`;
+  const num = u.match(NUM_ID_RE);
+  if (num) return `num:${num[0]}`;
+  const hex = u.match(HEX_TOKEN_RE);
+  if (hex) return `hex:${hex[0]}`;
+  return `url:${u}`;
+}
+
 /**
  * Shared low-level normalizer: trim → strip trailing slashes → lowercase.
  * Slash-strip and lowercase commute, so callers may compose in either order.
@@ -57,6 +86,21 @@ export function lowerStripTrailingSlash(url) {
  *   UUID → long numeric (≥6 digits) → long hex (≥10 chars) → full URL.
  * Empty input returns '' so callers can fall back to slug-keyed matching.
  *
+ * The extraction is LEAF-SCOPED to avoid latching onto a token shared across an
+ * entire crawler. Vendors put the per-job reference in the most-specific
+ * (rightmost) path component; board/company/site/upload-folder ids live in
+ * ANCESTOR segments. A blind leftmost scan grabs the ancestor id and collapses
+ * every sibling job onto ONE key — `mergePreserveLocaleData` then merges them all
+ * onto a single stable id, cross-contaminating titleByLocale/slugByLocale and
+ * leaving 1 job-detail file for N distinct postings (observed: lwphr/cseb/refline/
+ * flury/caritas/spital-limmattal, ~55 jobs). The three rules below fix the whole
+ * class while preserving every key whose id already lives in the leaf:
+ *   A. generic-index / document-file leaf + numeric/hex legacy token → full URL
+ *      (the only token is a shared folder/company id or a `%20`+year artifact).
+ *   B. leaf carries its own UUID/num/hex token → use it (per-job id beats the
+ *      shared ancestor id, e.g. cseb's second UUID, hotelcareer's trailing job id).
+ *   C. legacy leftmost whole-URL scan (unchanged) — id in query/fragment/ancestor.
+ *
  * @param {string} url
  * @returns {string}
  */
@@ -65,16 +109,31 @@ export function mergeUrlKey(url) {
   const u = String(url).trim().replace(/&amp;/g, '&').replace(/\/+$/, '').toLowerCase();
   if (!u) return '';
 
-  const uuid = u.match(UUID_RE);
-  if (uuid) return `uuid:${uuid[0]}`;
+  const leaf = u.split(/[?#]/)[0].split('/').filter(Boolean).pop() || '';
+  const legacy = legacyMergeToken(u);
 
-  const num = u.match(NUM_ID_RE);
-  if (num) return `num:${num[0]}`;
+  // Rule A — generic-page / document-file leaf whose only token is a shared
+  // ancestor numeric/hex id (or `%20`+digits artifact): identity is the whole
+  // URL. UUID legacy keys are left intact — they are globally-unique node ids.
+  if (leaf && (GENERIC_LEAF_RE.test(leaf) || FILE_LEAF_RE.test(leaf))
+      && (legacy.startsWith('num:') || legacy.startsWith('hex:'))) {
+    return `url:${u}`;
+  }
 
-  const hex = u.match(HEX_TOKEN_RE);
-  if (hex) return `hex:${hex[0]}`;
+  // Rule B — the leaf segment carries its own stable token (leftmost-in-leaf,
+  // consistent with the legacy class priority). Distinguishes siblings sharing
+  // an ancestor board/company id.
+  if (leaf) {
+    const lu = leaf.match(UUID_RE);
+    if (lu) return `uuid:${lu[0]}`;
+    const ln = leaf.match(NUM_ID_RE);
+    if (ln) return `num:${ln[0]}`;
+    const lh = leaf.match(HEX_TOKEN_RE);
+    if (lh) return `hex:${lh[0]}`;
+  }
 
-  return `url:${u}`;
+  // Rule C — legacy leftmost whole-URL scan (unchanged).
+  return legacy;
 }
 
 /**

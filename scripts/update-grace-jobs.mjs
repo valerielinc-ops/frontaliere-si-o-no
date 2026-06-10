@@ -85,20 +85,15 @@ export function jobMatchKey(job) {
   // hotelcareer.com URLs have shape
   //   /jobs/{companySlug}-{companyId}/{titleSlug}-{jobId}
   // where companyId is a 6-digit number (120155 for Grace La Margna) and
-  // jobId is the 7-digit identifier we want to key on. The shared
-  // extractStableJobId helper matches the FIRST 6+ digit run in the URL,
-  // which lands on the companyId and collapses every Grace job onto the
-  // same key — mergeJobs then merges all new jobs into the same prev,
-  // pulling Sommelier's titleByLocale/slugByLocale onto every job and
-  // triggering an 8-of-9 within-slice duplicate-slug archive in
-  // cleanup-jobs. Prefer the trailing-digit token of the URL's last path
-  // segment for hotelcareer jobs; fall back to extractStableJobId for
-  // any other URL shape so PwC UUID rename detection stays intact.
-  const url = String(job?.url || '').toLowerCase().replace(/[?#].*$/, '').replace(/\/+$/, '');
-  const lastSeg = url.split('/').pop() || '';
-  const trailing = lastSeg.match(/(\d{6,})$/);
-  if (trailing) return `num:${trailing[1]}`;
-  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
+  // jobId is the 7-digit identifier we want to key on. Previously the shared
+  // extractStableJobId latched onto the FIRST 6+ digit run (the companyId),
+  // collapsing every Grace job onto one key, so this used to extract the
+  // trailing-digit token of the last path segment locally. That special case
+  // is now subsumed by the leaf-scoped extraction in mergeUrlKey (Rule B picks
+  // the leaf's own token, i.e. the trailing jobId), so the shared helper is
+  // correct for hotelcareer URLs too — output is byte-identical for every Grace
+  // URL (pinned by tests/grace-crawler-merge-key.test.ts).
+  return extractStableJobId(job?.url) || String(job?.slug || '').trim().toLowerCase();
 }
 
 function isTargetJob(job) {
