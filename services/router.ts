@@ -169,7 +169,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -707,6 +707,7 @@ interface SlugTable {
  forum: string;
  contact: string;
  publish: string;
+ publisherDashboard: string;
  partners: string;
  consulting: string;
  pressKit: string;
@@ -1058,6 +1059,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  forum: 'community',
  contact: 'contattaci',
  publish: 'pubblica-offerta',
+ publisherDashboard: 'i-miei-annunci',
  partners: 'servizi-partner',
  consulting: 'consulenza',
  pressKit: 'stampa',
@@ -1161,6 +1163,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  forum: 'community',
  contact: 'contact-us',
  publish: 'post-a-job',
+ publisherDashboard: 'my-listings',
  partners: 'partner-services',
  consulting: 'consulting',
  pressKit: 'press-kit',
@@ -1264,6 +1267,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  forum: 'gemeinschaft',
  contact: 'kontakt',
  publish: 'stelle-aufgeben',
+ publisherDashboard: 'meine-anzeigen',
  partners: 'partner-dienste',
  consulting: 'beratung',
  pressKit: 'pressekit',
@@ -1367,6 +1371,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  forum: 'communaute',
  contact: 'contactez-nous',
  publish: 'publier-une-offre',
+ publisherDashboard: 'mes-annonces',
  partners: 'services-partenaires',
  consulting: 'consultation',
  pressKit: 'kit-presse',
@@ -1993,6 +1998,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.forum]: { tab: 'forum' },
  [table.contact]: { tab: 'contact' },
  [table.publish]: { tab: 'publish' },
+ [table.publisherDashboard]: { tab: 'publisher-dashboard' },
  [table.partners]: { tab: 'partners' },
  [table.consulting]: { tab: 'consulting' },
  [table.pressKit]: { tab: 'press-kit' as const },
@@ -3271,6 +3277,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.contact}${hashSuffix}`);
  case 'publish':
  return finish(`${prefix}/${table.publish}${hashSuffix}`);
+ case 'publisher-dashboard':
+ return finish(`${prefix}/${table.publisherDashboard}${hashSuffix}`);
  case 'partners':
  return finish(`${prefix}/${table.partners}${hashSuffix}`);
  case 'consulting':

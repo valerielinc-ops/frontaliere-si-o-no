@@ -45,6 +45,7 @@ const GamificationPage = lazyRetry(() => import('@/components/community/Gamifica
 const CommunityForum = lazyRetry(() => import('@/components/community/CommunityForum'));
 const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
 const PublisherPublishPage = lazyRetry(() => import('@/components/pages/PublisherPublishPage'));
+const PublisherDashboardPage = lazyRetry(() => import('@/components/pages/PublisherDashboardPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
 const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
@@ -2384,6 +2385,10 @@ const App: React.FC = () => {
  ) : activeTab === 'publish' ? (
  <div className="max-w-7xl mx-auto">
  <PublisherPublishPage />
+ </div>
+ ) : activeTab === 'publisher-dashboard' ? (
+ <div className="max-w-7xl mx-auto">
+ <PublisherDashboardPage />
  </div>
  ) : activeTab === 'partners' ? (
  <div className="max-w-7xl mx-auto">

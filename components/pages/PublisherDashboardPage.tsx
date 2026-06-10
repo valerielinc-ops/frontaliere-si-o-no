@@ -1,0 +1,229 @@
+/**
+ * PublisherDashboardPage — a publisher's own ads with per-ad metrics.
+ *
+ * Reads `publisher_jobs` where publisherUid == current user, then the matching
+ * `publisher_job_events/{adId}` counters (views, apply-clicks) written by
+ * services/publisherAnalyticsService.ts.
+ */
+
+import React, { useEffect, useState } from 'react';
+import { Briefcase, LogIn, Plus, Eye, MousePointerClick } from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
+import { useAuth } from '@/services/authService';
+import { buildPath } from '@/services/router';
+import { Analytics } from '@/services/analytics';
+import { reportCaughtError } from '@/services/errorReporter';
+import { getApp } from '@/services/firebase';
+import type { PublisherJobStatus, PublisherTier } from '@/services/publisherTypes';
+
+interface DashboardRow {
+  id: string;
+  title: string;
+  tier: PublisherTier;
+  status: PublisherJobStatus;
+  locations: number;
+  views: number;
+  applyClicks: number;
+  createdAt: number | null;
+}
+
+function tsToMillis(value: unknown): number | null {
+  if (value == null) return null;
+  if (typeof value === 'number') return value;
+  if (typeof value === 'object' && value !== null && typeof (value as { toMillis?: unknown }).toMillis === 'function') {
+    return (value as { toMillis: () => number }).toMillis();
+  }
+  return null;
+}
+
+const PublisherDashboardPage: React.FC = () => {
+  const { t, locale } = useTranslation();
+  const { user, loading, signIn } = useAuth();
+  const [rows, setRows] = useState<DashboardRow[]>([]);
+  const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
+
+  useEffect(() => {
+    Analytics.trackPageView('/i-miei-annunci', 'Publisher Dashboard');
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    (async () => {
+      setState('loading');
+      try {
+        const db = (await import('firebase/firestore')).getFirestore(await getApp());
+        const { collection, query, where, orderBy, getDocs, getDoc, doc } = await import('firebase/firestore');
+
+        let snap;
+        try {
+          snap = await getDocs(
+            query(collection(db, 'publisher_jobs'), where('publisherUid', '==', user.uid), orderBy('createdAt', 'desc')),
+          );
+        } catch {
+          // Missing composite index → fall back to unordered, sort client-side.
+          snap = await getDocs(query(collection(db, 'publisher_jobs'), where('publisherUid', '==', user.uid)));
+        }
+
+        const result: DashboardRow[] = await Promise.all(
+          snap.docs.map(async (d) => {
+            const j = d.data() as Record<string, unknown>;
+            let views = 0;
+            let applyClicks = 0;
+            try {
+              const ev = await getDoc(doc(db, 'publisher_job_events', d.id));
+              if (ev.exists()) {
+                const e = ev.data() as Record<string, unknown>;
+                views = Number(e.views) || 0;
+                applyClicks = Number(e.applyClicks) || 0;
+              }
+            } catch {
+              // counters optional
+            }
+            return {
+              id: d.id,
+              title: String(j.title || ''),
+              tier: (j.tier as PublisherTier) || 'sponsored',
+              status: (j.status as PublisherJobStatus) || 'draft',
+              locations: Array.isArray(j.locations) ? j.locations.length : 0,
+              views,
+              applyClicks,
+              createdAt: tsToMillis(j.createdAt),
+            };
+          }),
+        );
+        result.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
+        if (!cancelled) {
+          setRows(result);
+          setState('ready');
+        }
+      } catch (error) {
+        if (!cancelled) setState('error');
+        reportCaughtError(error, 'publisherDashboard.load');
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
+  // ── Auth gate ───────────────────────────────────────────────
+  if (!loading && !user) {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-12">
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-subtle mb-2">
+            <Briefcase className="w-7 h-7 text-link" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">
+            {t('publisherDashboard.title')}
+          </h1>
+          <p className="text-subtle max-w-md mx-auto">{t('publisher.loginRequired')}</p>
+          <button
+            type="button"
+            onClick={() => { void signIn(); }}
+            className="mt-2 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+          >
+            <LogIn className="w-4 h-4" />
+            {t('publisher.loginCta')}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const statusLabel = (s: PublisherJobStatus) => t(`publisherDashboard.status.${s}`);
+  const tierLabel = (tier: PublisherTier) =>
+    tier === 'free' ? t('publisherDashboard.tier.free') : t('publisherDashboard.tier.sponsored');
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">{t('publisherDashboard.title')}</h1>
+          <p className="text-subtle mt-1">{t('publisherDashboard.subtitle')}</p>
+        </div>
+        <a
+          href={buildPath({ activeTab: 'publish' }, locale)}
+          className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors shrink-0"
+        >
+          <Plus className="w-4 h-4" />
+          {t('publisherDashboard.createCta')}
+        </a>
+      </div>
+
+      {state === 'loading' && (
+        <div className="flex justify-center py-12">
+          <div className="animate-spin rounded-full h-8 w-8 border-2 border-accent border-t-transparent" />
+        </div>
+      )}
+
+      {state === 'error' && (
+        <p className="text-sm text-danger py-8 text-center">{t('publisherDashboard.error')}</p>
+      )}
+
+      {state === 'ready' && rows.length === 0 && (
+        <div className="text-center py-12 space-y-3">
+          <p className="text-subtle">{t('publisherDashboard.empty')}</p>
+          <a
+            href={buildPath({ activeTab: 'publish' }, locale)}
+            className="inline-flex items-center gap-1.5 text-link font-medium hover:underline"
+          >
+            <Plus className="w-4 h-4" />
+            {t('publisherDashboard.emptyCta')}
+          </a>
+        </div>
+      )}
+
+      {state === 'ready' && rows.length > 0 && (
+        <>
+          {/* Desktop table */}
+          <div className="hidden sm:block overflow-x-auto rounded-2xl border border-edge">
+            <table className="w-full text-sm">
+              <thead className="bg-surface-alt text-subtle">
+                <tr>
+                  <th scope="col" className="text-left font-medium px-4 py-3">{t('publisherDashboard.col.title')}</th>
+                  <th scope="col" className="text-left font-medium px-3 py-3">{t('publisherDashboard.col.tier')}</th>
+                  <th scope="col" className="text-left font-medium px-3 py-3">{t('publisherDashboard.col.status')}</th>
+                  <th scope="col" className="text-right font-medium px-3 py-3">{t('publisherDashboard.col.locations')}</th>
+                  <th scope="col" className="text-right font-medium px-3 py-3">{t('publisherDashboard.col.views')}</th>
+                  <th scope="col" className="text-right font-medium px-4 py-3">{t('publisherDashboard.col.applyClicks')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r) => (
+                  <tr key={r.id} className="border-t border-edge">
+                    <td className="px-4 py-3 text-strong font-medium">{r.title}</td>
+                    <td className="px-3 py-3 text-subtle">{tierLabel(r.tier)}</td>
+                    <td className="px-3 py-3 text-subtle">{statusLabel(r.status)}</td>
+                    <td className="px-3 py-3 text-right text-body">{r.locations}</td>
+                    <td className="px-3 py-3 text-right text-body">{r.views}</td>
+                    <td className="px-4 py-3 text-right text-body">{r.applyClicks}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile cards */}
+          <div className="sm:hidden space-y-3">
+            {rows.map((r) => (
+              <div key={r.id} className="rounded-2xl border border-edge bg-surface-alt p-4">
+                <div className="font-semibold text-strong">{r.title}</div>
+                <div className="text-xs text-subtle mt-1">
+                  {tierLabel(r.tier)} · {statusLabel(r.status)} · {r.locations} {t('publisherDashboard.col.locations')}
+                </div>
+                <div className="flex gap-4 mt-3 text-sm text-body">
+                  <span className="inline-flex items-center gap-1"><Eye className="w-4 h-4 text-subtle" />{r.views}</span>
+                  <span className="inline-flex items-center gap-1"><MousePointerClick className="w-4 h-4 text-subtle" />{r.applyClicks}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default PublisherDashboardPage;

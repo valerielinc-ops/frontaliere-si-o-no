@@ -15,6 +15,7 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
+import { trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 import {
  fetchAggregatedJobs,
  fetchAllJobs,
@@ -4088,6 +4089,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (!selectedJob?.slug) return;
  trackJobView(selectedJob);
+ // Per-ad publisher analytics (no-op unless this is a publisher-submitted ad).
+ trackPublisherJobView(selectedJob as { publisherJobId?: string | null });
  // Personalization: track behavior for scoring (uses locale slug, fine here)
  if (enablePersonalization && selectedJob) {
  trackJobViewBehavior({
@@ -6499,7 +6502,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  href={applyUrl}
  target="_blank"
  rel="nofollow noopener noreferrer"
- onClick={() => Analytics.trackSelectContent('job_board_apply', `${selectedJob.company}_${selectedJob.title}`)}
+ onClick={() => {
+ Analytics.trackSelectContent('job_board_apply', `${selectedJob.company}_${selectedJob.title}`);
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
+ }}
  >
  {t('jobBoard.apply')}
  </a>
