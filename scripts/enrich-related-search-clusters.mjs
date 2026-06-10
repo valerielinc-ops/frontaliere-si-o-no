@@ -21,7 +21,7 @@
  *   node scripts/enrich-related-search-clusters.mjs --verbose    # log each call
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -34,6 +34,10 @@ import {
   printRunSummary,
 } from './lib/ai-models.mjs';
 import { lineDelimitedObjectMap, serializeWithLineDelimited } from './lib/related-search-serialize.mjs';
+// Push-safety ceiling for the writer's `enriched` output — single source of
+// truth shared with the commit gate (scripts/lib/assert-file-size-ceiling.mjs)
+// so the in-writer check and the CI staging check can never drift (#1576, #1651, #1658).
+import { OUTPUT_SIZE_LIMIT_BYTES } from './lib/related-search-output-limit.mjs';
 
 // ── Paths ──────────────────────────────────────────────────────────────
 const __filename = fileURLToPath(import.meta.url);
@@ -394,6 +398,20 @@ function saveEnriched(state) {
   );
 }
 
+function assertOutputSize(path) {
+  const { size } = statSync(path);
+  if (size > OUTPUT_SIZE_LIMIT_BYTES) {
+    console.error(
+      `❌ ${path} is ${(size / 1024 / 1024).toFixed(1)} MB, ` +
+      `exceeding the ${OUTPUT_SIZE_LIMIT_BYTES / 1024 / 1024} MB push-safety ceiling ` +
+      `(GitHub hard limit: 100 MB — issue #1576). ` +
+      `Run with --locale=<locale> or --limit=N to reduce scope, ` +
+      `or prune stale entries first.`,
+    );
+    process.exit(1);
+  }
+}
+
 // ── Main ───────────────────────────────────────────────────────────────
 async function main() {
   const args = parseArgs(process.argv);
@@ -473,6 +491,7 @@ async function main() {
       const evicted = pruneEnrichedEntries(state, eligibleKeys, prunableLocales);
       if (evicted > 0) {
         saveEnriched(state);
+        assertOutputSize(OUTPUT_PATH);
         console.log(`🧹 Evicted ${evicted} stale enriched entries; rewrote ${OUTPUT_PATH}`);
       }
     }
@@ -516,6 +535,7 @@ async function main() {
     // Periodic flush so a crash doesn't lose all progress.
     if (enrichedCount % 50 === 0) {
       try { saveEnriched(state); } catch (err) { console.warn(`  ⚠️  partial save failed: ${err.message}`); }
+      assertOutputSize(OUTPUT_PATH); // process.exit bypasses the catch above
     }
   });
 
@@ -527,6 +547,7 @@ async function main() {
     evicted = pruneEnrichedEntries(state, eligibleKeys, prunableLocales);
   }
   saveEnriched(state);
+  assertOutputSize(OUTPUT_PATH);
 
   // ── Summary ──────────────────────────────────────────────────────────
   const elapsedSec = ((Date.now() - startedAt) / 1000).toFixed(1);
