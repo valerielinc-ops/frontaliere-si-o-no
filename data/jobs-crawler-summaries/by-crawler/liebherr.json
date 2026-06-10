@@ -1,21 +1,58 @@
 {
   "key": "liebherr",
   "label": "Liebherr",
-  "generatedAt": "2026-06-10T09:03:10.890Z",
-  "total": 87,
-  "newCount": 87,
-  "updatedCount": 0,
+  "generatedAt": "2026-06-10T12:32:55.998Z",
+  "total": 88,
+  "newCount": 1,
+  "updatedCount": 87,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8625,
-  "avgDurationMs": 8625,
+  "durationMs": 216552,
+  "avgDurationMs": 216552,
   "durationHistory": [
-    8625
+    216552
   ],
   "newJobs": [
     {
+      "id": "liebherr-314533df6441",
+      "slug": "hr-business-partner-m-w-d-liebherr-nussbaumen",
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "HR Business Partner (m/w/d)",
+      "location": "Nussbaumen",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Nussbaumen-HR-Business-Partner-%28mwd%29/1402823133/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T12:32:53.595Z",
+      "addressLocality": "Nussbaumen",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Nussbaumen-HR-Business-Partner-%28mwd%29/1402823133/",
+      "jobReqId": "1402823133",
+      "_qualityScore": 43,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
       "id": "liebherr-fc754261391a",
-      "slug": "serrurier-constructeur-metallique-h-f-x-liebherr-bulle",
+      "slug": "serrurier-constructeur-metallique-h-f-x-liebherr-bulle-2",
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
@@ -25,7 +62,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Serrurier-Constructeur-M%C3%A9tallique-%28hfx%29/1381776933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.317Z",
+      "crawledAt": "2026-06-10T12:32:53.484Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -40,11 +77,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Serrurier-Constructeur-M%C3%A9tallique-%28hfx%29/1381776933/",
       "jobReqId": "1381776933",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.317Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -60,7 +99,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28wmx%29-Software-Engineering/1392233433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.326Z",
+      "crawledAt": "2026-06-10T12:32:53.494Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -75,17 +114,19 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28wmx%29-Software-Engineering/1392233433/",
       "jobReqId": "1392233433",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.326Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
     {
       "id": "liebherr-907dde86c03b",
-      "slug": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
+      "slug": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2",
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
@@ -95,7 +136,7 @@
       "url": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T09:03:08.362Z",
+      "crawledAt": "2026-06-10T12:32:53.531Z",
       "addressLocality": "Abuja",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -110,11 +151,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Abuja-Service-Manager-Earthmoving-&-Mining%2C-location-Nigeria/1385035733/",
       "jobReqId": "1385035733",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.362Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -130,7 +173,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28mfx%29-Predevelopment/1392681433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.363Z",
+      "crawledAt": "2026-06-10T12:32:53.533Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -145,11 +188,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28mfx%29-Predevelopment/1392681433/",
       "jobReqId": "1392681433",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.363Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -165,7 +210,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28wmx%29-Inline-Engines-Product-Management/1392711433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.364Z",
+      "crawledAt": "2026-06-10T12:32:53.534Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -180,11 +225,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28wmx%29-Inline-Engines-Product-Management/1392711433/",
       "jobReqId": "1392711433",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.364Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -200,7 +247,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-HR-Talent-Management-%28mfx%29/1397738233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.365Z",
+      "crawledAt": "2026-06-10T12:32:53.535Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -215,11 +262,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-HR-Talent-Management-%28mfx%29/1397738233/",
       "jobReqId": "1397738233",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.365Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -235,7 +284,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-Business-Analyst-Spare-Parts-%28mfx%29/1397651833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.365Z",
+      "crawledAt": "2026-06-10T12:32:53.535Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -250,11 +299,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-Business-Analyst-Spare-Parts-%28mfx%29/1397651833/",
       "jobReqId": "1397651833",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.365Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -270,7 +321,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Technical-Specialist-%28mfx%29-Defence-Product-Safety-Temporary/1394653733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.366Z",
+      "crawledAt": "2026-06-10T12:32:53.536Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -285,17 +336,19 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Technical-Specialist-%28mfx%29-Defence-Product-Safety-Temporary/1394653733/",
       "jobReqId": "1394653733",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.366Z",
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
     {
       "id": "liebherr-89865a05af47",
-      "slug": "specialiste-technique-h-f-x-securite-produits-defense-temporaire-liebherr-bulle",
+      "slug": "specialiste-technique-m-w-d-securite-produits-defense-temporaire-liebherr-bulle",
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
@@ -305,7 +358,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Sp%C3%A9cialiste-Technique-%28hfx%29-S%C3%A9curit%C3%A9-Produits-Defense-Temporaire/1394653833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.367Z",
+      "crawledAt": "2026-06-10T12:32:53.536Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -320,11 +373,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Sp%C3%A9cialiste-Technique-%28hfx%29-S%C3%A9curit%C3%A9-Produits-Defense-Temporaire/1394653833/",
       "jobReqId": "1394653833",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.367Z",
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -340,7 +395,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-IT-Business-Analysis%E2%80%8B-%28mwx%29/1394654633/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.367Z",
+      "crawledAt": "2026-06-10T12:32:53.537Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -355,11 +410,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Young-Talent-IT-Business-Analysis%E2%80%8B-%28mwx%29/1394654633/",
       "jobReqId": "1394654633",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.367Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -375,7 +432,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Control-Systems-Engineer-%28mfx%29/1395958333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.368Z",
+      "crawledAt": "2026-06-10T12:32:53.537Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -390,11 +447,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Control-Systems-Engineer-%28mfx%29/1395958333/",
       "jobReqId": "1395958333",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.368Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -410,7 +469,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Engine-Remanufacturing-Design-Engineer-%28mfx%29/1395958433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.368Z",
+      "crawledAt": "2026-06-10T12:32:53.538Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -425,11 +484,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Engine-Remanufacturing-Design-Engineer-%28mfx%29/1395958433/",
       "jobReqId": "1395958433",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.368Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -445,7 +506,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.369Z",
+      "crawledAt": "2026-06-10T12:32:53.538Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -460,17 +521,19 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Team-Leader-Claim-Management-%28mfx%29/1380260233/",
       "jobReqId": "1380260233",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.369Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
     {
       "id": "liebherr-ef97b87d3ca2",
-      "slug": "collaborateur-specialise-h-f-x-tarifications-douanieres-temporaire-liebherr-bulle",
+      "slug": "collaborateur-specialise-m-w-d-tarifications-douanieres-temporaire-liebherr-bulle",
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
@@ -480,7 +543,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Collaborateur-sp%C3%A9cialis%C3%A9-%28hfx%29-Tarifications-douani%C3%A8res-Temporaire/1373578533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.369Z",
+      "crawledAt": "2026-06-10T12:32:53.539Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -495,11 +558,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Collaborateur-sp%C3%A9cialis%C3%A9-%28hfx%29-Tarifications-douani%C3%A8res-Temporaire/1373578533/",
       "jobReqId": "1373578533",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.369Z",
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -515,7 +580,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Customer-quality-engineer-%28mfx%29-&-field-quality/1371388433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.370Z",
+      "crawledAt": "2026-06-10T12:32:53.540Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -530,11 +595,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Customer-quality-engineer-%28mfx%29-&-field-quality/1371388433/",
       "jobReqId": "1371388433",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.370Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -550,7 +617,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Customer-quality-engineer-%28mfx%29-&-problem-solving/1371388533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T09:03:08.370Z",
+      "crawledAt": "2026-06-10T12:32:53.540Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -565,11 +632,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Customer-quality-engineer-%28mfx%29-&-problem-solving/1371388533/",
       "jobReqId": "1371388533",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.370Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -585,7 +654,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Engine-Subsystem-Owner-Crank-Case-&-Cylinder-Head-%28mwx%29/1375459233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.371Z",
+      "crawledAt": "2026-06-10T12:32:53.541Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -600,11 +669,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Engine-Subsystem-Owner-Crank-Case-&-Cylinder-Head-%28mwx%29/1375459233/",
       "jobReqId": "1375459233",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.371Z",
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -620,7 +691,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Warranty-Investigation-Technician-%28mwd%29/1364834733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.371Z",
+      "crawledAt": "2026-06-10T12:32:53.541Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -635,11 +706,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Warranty-Investigation-Technician-%28mwd%29/1364834733/",
       "jobReqId": "1364834733",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.371Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -655,7 +728,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Warranty-Investigation-Technician-%28mfx%29/1364834833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.371Z",
+      "crawledAt": "2026-06-10T12:32:53.542Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -670,11 +743,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Warranty-Investigation-Technician-%28mfx%29/1364834833/",
       "jobReqId": "1364834833",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.371Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -690,7 +765,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Teamleader-%28mfx%29-Production-assemblage-hydraulique/1289043901/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.372Z",
+      "crawledAt": "2026-06-10T12:32:53.542Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -705,11 +780,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Teamleader-%28mfx%29-Production-assemblage-hydraulique/1289043901/",
       "jobReqId": "1289043901",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.372Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -725,7 +802,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Ing%C3%A9nieur-Process-%28hfx%29-Methods-Time-Measurement/1203700001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.372Z",
+      "crawledAt": "2026-06-10T12:32:53.543Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -740,11 +817,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Ing%C3%A9nieur-Process-%28hfx%29-Methods-Time-Measurement/1203700001/",
       "jobReqId": "1203700001",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.372Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -760,7 +839,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Application-Security-%28mwd%29/1181279601/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.373Z",
+      "crawledAt": "2026-06-10T12:32:53.543Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -775,11 +854,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Head-of-Application-Security-%28mwd%29/1181279601/",
       "jobReqId": "1181279601",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.373Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -795,7 +876,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Data-Security-%28mwd%29/1181280201/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.373Z",
+      "crawledAt": "2026-06-10T12:32:53.544Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -810,17 +891,19 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Head-of-Data-Security-%28mwd%29/1181280201/",
       "jobReqId": "1181280201",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.373Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
     {
       "id": "liebherr-3d7faf0c2e7e",
-      "slug": "mecatronicien-h-f-x-bancs-d-essai-moteurs-a-combustion-temporaire-liebherr-bulle",
+      "slug": "mecatronicien-m-w-d-bancs-d-essai-moteurs-a-combustion-temporaire-liebherr-bulle",
       "company": "Liebherr",
       "companyKey": "liebherr",
       "companyDomain": "liebherr.com",
@@ -830,7 +913,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-M%C3%A9catronicien-%28hfx%29-bancs-d'essai-moteurs-%C3%A0-combustion-Temporaire/1226522001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T09:03:08.374Z",
+      "crawledAt": "2026-06-10T12:32:53.544Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -845,11 +928,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-M%C3%A9catronicien-%28hfx%29-bancs-d'essai-moteurs-%C3%A0-combustion-Temporaire/1226522001/",
       "jobReqId": "1226522001",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.374Z",
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -865,7 +950,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Product-Manager-Defense-%28mfx%29/1225254001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.374Z",
+      "crawledAt": "2026-06-10T12:32:53.545Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -880,11 +965,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Product-Manager-Defense-%28mfx%29/1225254001/",
       "jobReqId": "1225254001",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.374Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -900,7 +987,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Cyber-Security-Consulting-%28mwd%29/1148682301/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.375Z",
+      "crawledAt": "2026-06-10T12:32:53.545Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -915,11 +1002,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Head-of-Cyber-Security-Consulting-%28mwd%29/1148682301/",
       "jobReqId": "1148682301",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.375Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -935,7 +1024,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Initativbewerbung/724771801/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.375Z",
+      "crawledAt": "2026-06-10T12:32:53.546Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -950,11 +1039,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Initativbewerbung/724771801/",
       "jobReqId": "724771801",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.375Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -970,7 +1061,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Candidature-spontan%C3%A9e/724771901/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T09:03:08.376Z",
+      "crawledAt": "2026-06-10T12:32:53.546Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -985,11 +1076,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Candidature-spontan%C3%A9e/724771901/",
       "jobReqId": "724771901",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.376Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -1005,7 +1098,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Speculative-application/724772001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.376Z",
+      "crawledAt": "2026-06-10T12:32:53.547Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1020,11 +1113,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Speculative-application/724772001/",
       "jobReqId": "724772001",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.376Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -1040,7 +1135,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28hfx%29/1278614001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T09:03:08.376Z",
+      "crawledAt": "2026-06-10T12:32:53.547Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1055,16 +1150,17 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.liebherr.com/job/Bulle-Customer-Claim-Manager-%28hfx%29/1278614001/",
       "jobReqId": "1278614001",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.376Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
