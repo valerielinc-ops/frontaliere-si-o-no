@@ -1,18 +1,49 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-10T13:13:38.117Z",
-  "total": 18,
-  "newCount": 0,
+  "generatedAt": "2026-06-10T23:42:26.389Z",
+  "total": 19,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 17,
-  "durationMs": 24683,
-  "avgDurationMs": 24683,
+  "durationMs": 22733,
+  "avgDurationMs": 22733,
   "durationHistory": [
-    24683
+    22733
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213hqy",
+      "slug": "segretari-e-giudiziari-e-i-oppure-segretari-e-giudiziari-e-ii-a-tempo-pieno-100-presso-il-ministero-pubblico-lugano-o-bellinzona-orario-di-l",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Ministero pubblico",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4204",
+      "source": "Company Careers Crawler",
+      "salaryMin": 93625,
+      "salaryMax": 150736,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-06-10T23:42:20.205Z",
+      "firstSeenAt": "2026-06-10T23:42:20.205Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213j37",
