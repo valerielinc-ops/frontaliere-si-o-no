@@ -19,6 +19,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { buildPath } from '@/services/router';
@@ -182,7 +183,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
  : null;
 
- const logoUrl = resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey });
+ const logoUrl = cdnImageUrl(resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey }));
  const jobLocation = job.addressLocality ?? job.location ?? '';
  const newsletterJobContext = {
  slug: job.slug || null,
@@ -419,7 +420,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const rjSlug = rj.slug;
  const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
- const rjLogo = resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url });
+ const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
  const rjSalary = formatRelatedSalary(rj);
  const rjContract = formatContractLabel(rj.contract, locale);
  const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
