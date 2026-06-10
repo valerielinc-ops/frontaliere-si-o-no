@@ -33,7 +33,7 @@ import {
   type HubLocale,
 } from './seoHubsData';
 import { ARTICLE_SECTIONS } from '../services/articleSections';
-import { readSvizzeraArticleUnionSlugs } from './shared/svizzeraArticleUnion';
+import { readSvizzeraArticleUnionSlugs } from './shared/articleArchiveUnion';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {

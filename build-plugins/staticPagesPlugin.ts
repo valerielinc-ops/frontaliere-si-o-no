@@ -25,8 +25,11 @@ import {
  type JobBoardLocale,
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
-import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
-import { countSvizzeraArticleArchivePages } from './shared/svizzeraArticleUnion';
+import { JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import {
+  countSvizzeraArticleArchivePages,
+  countFrontaliereArticleArchivePages,
+} from './shared/articleArchiveUnion';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
@@ -1045,18 +1048,19 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   * navigator covering every paginated archive page (page-1..page-N) so
   * crawlers don't have to follow the "next" chain to reach articles on
   * later pages. Closes the Ahrefs "orphan page (no incoming internal
-  * links)" report for the blog bucket — see CLAUDE.md SEO content gate. */
- let articlesTotalPages = 1;
- try {
- const blogMetaSrc = fs.readFileSync(np.resolve(rootDir, 'services/locales/blog-meta-it.ts'), 'utf-8');
- const titleKeys = new Set<string>();
- const titleRx = /'blog\.article\.([^']+?)\.title'/g;
- let tm: RegExpExecArray | null;
- while ((tm = titleRx.exec(blogMetaSrc)) !== null) titleKeys.add(tm[1]);
- articlesTotalPages = Math.max(1, Math.ceil(titleKeys.size / ARTICLES_PAGE_SIZE));
- } catch (e) {
- console.warn('[static-pages] Could not compute articlesTotalPages from blog-meta-it.ts:', e);
- }
+  * links)" report for the blog bucket — see CLAUDE.md SEO content gate.
+  *
+  * Page count is derived from the SAME union the `articles` hub emitter
+  * (`seoHubsPlugin.ts` `emitHub`) paginates — meta `blog-meta-it.ts` slugs
+  * ∪ `BLOG_SLUGS` keys (`routerBlogData.ts`), via the shared
+  * `countFrontaliereArticleArchivePages` helper — NOT the meta-only count.
+  * The two DIVERGE today: `BLOG_SLUGS` carries entries with no meta title
+  * (e.g. `iniziativa-salari-ticino`, `cantieri-traffico-a9-ticino`), so the
+  * meta-only count under-counts the emitter's union and would orphan the
+  * trailing `/articoli-frontaliere/tutti/page-N/` pages once the excess
+  * crosses a 100-article boundary (same bug class as #1486/#1497). Single
+  * source of truth makes the drift impossible by construction (AGENTS.md #6). */
+ const articlesTotalPages = countFrontaliereArticleArchivePages(fs, np, rootDir);
 
  /* ── 0ter. Same for the svizzera (Switzerland-wide) article section ──
   * The svizzera bare index (`/articoli-svizzera/` + locale variants) needs
