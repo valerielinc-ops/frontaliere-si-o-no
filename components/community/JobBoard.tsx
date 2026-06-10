@@ -9,6 +9,7 @@ import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useSt
 import { lazyRetry } from '@/services/lazyRetry';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
+import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -4770,6 +4771,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  userId={userId}
  email={userEmail}
  locale={locale}
+ sourceJobSlug={selectedJob?.slug ?? null}
+ sourceJobUrl={selectedJob?.url ?? null}
+ sourceJobTitle={selectedJob?.title ?? null}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
@@ -4802,7 +4806,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Analytics.trackJobAlertCtaClick('job_detail_prompt', 'error', jobDetailPromptCategory);
  }}
  onManage={() => {
- window.dispatchEvent(new CustomEvent('openJobAlert'));
+ // The manager (JobAlertForm) only mounts on the job-board LIST view, not
+ // on this detail page — so leaving the detail first is required, then the
+ // freshly-mounted form picks up the queued request (consumeJobAlertOpen)
+ // even though it mounts lazily. Dispatching the DOM event here alone hit no
+ // listener and went nowhere.
+ requestJobAlertOpen();
+ setJobDetailPromptVisible(false);
+ setJobDetailPromptCategory(null);
+ backToList();
  }}
  />
  </Suspense>

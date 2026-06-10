@@ -11,6 +11,7 @@ import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2, Pencil } from 
 import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
+import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -124,6 +125,21 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  };
  window.addEventListener('openJobAlert', handler);
  return () => window.removeEventListener('openJobAlert', handler);
+ }, []);
+
+ // Cross-view open request (job-detail "Gestisci alert" → backToList → here).
+ // The DOM event above can fire before this lazily-mounted form attaches its
+ // listener, so the request is queued in a module signal and consumed once on
+ // mount instead — guarantees the manager opens after navigating from detail.
+ useEffect(() => {
+ const req = consumeJobAlertOpen();
+ if (!req) return;
+ if (req.keyword) setKeyword(req.keyword);
+ setExpanded(true);
+ const id = window.setTimeout(() => {
+ document.getElementById('job-alert-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+ }, 60);
+ return () => window.clearTimeout(id);
  }, []);
 
  // Load user's existing alerts

@@ -58,6 +58,18 @@ describe('normalizeKeyword', () => {
     expect(normalizeKeyword(undefined as unknown as string)).toBe('');
     expect(normalizeKeyword(null as unknown as string)).toBe('');
   });
+
+  it('strips the category emoji so "💻 Tecnologia" and "Tecnologia" compare equal', () => {
+    expect(normalizeKeyword('💻 Tecnologia')).toBe('tecnologia');
+    expect(normalizeKeyword('Tecnologia')).toBe('tecnologia');
+    expect(normalizeKeyword('🏥 Sanità')).toBe('sanita');
+  });
+
+  it('strips emoji outside the legacy BMP ranges (⭐, ❤️, ⚙️ compound)', () => {
+    expect(normalizeKeyword('⭐ Premium')).toBe('premium');
+    expect(normalizeKeyword('❤️ Cura')).toBe('cura');
+    expect(normalizeKeyword('⚙️ Ingegneria')).toBe('ingegneria');
+  });
 });
 
 describe('findMatchingAlertForCategory', () => {
@@ -160,6 +172,40 @@ describe('subscribeJobAlertOneTap', () => {
     };
     expect(alertPayload.keywords).toEqual(['Marketing']);
     expect(alertPayload.locale).toBe('en');
+  });
+
+  it('strips the leading emoji from the stored keyword (so it can match job text)', async () => {
+    await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it');
+    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as { keywords: string[] };
+    expect(alertPayload.keywords).toEqual(['Tecnologia']);
+  });
+
+  it('records the source job provenance when provided', async () => {
+    await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it', {
+      slug: 'ingegnere-software-duferco-lugano',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-software-duferco-lugano/',
+      title: 'Ingegnere di software senior',
+    });
+    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+      sourceJobSlug: string | null;
+      sourceJobUrl: string | null;
+      sourceJobTitle: string | null;
+    };
+    expect(alertPayload.sourceJobSlug).toBe('ingegnere-software-duferco-lugano');
+    expect(alertPayload.sourceJobUrl).toContain('/cerca-lavoro-ticino/');
+    expect(alertPayload.sourceJobTitle).toBe('Ingegnere di software senior');
+  });
+
+  it('defaults source provenance to null when omitted', async () => {
+    await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it');
+    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+      sourceJobSlug: string | null;
+      sourceJobUrl: string | null;
+      sourceJobTitle: string | null;
+    };
+    expect(alertPayload.sourceJobSlug).toBeNull();
+    expect(alertPayload.sourceJobUrl).toBeNull();
+    expect(alertPayload.sourceJobTitle).toBeNull();
   });
 
   it('propagates the max-3-alerts cap from createAlert', async () => {
