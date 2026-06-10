@@ -12,7 +12,7 @@
  */
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, normalizeSpace } from './crawler-template.mjs';
-import { inferSwissTargetCanton, findSwissCityInText } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -110,15 +110,6 @@ function detectSector(department = '', category = '') {
   return 'Altro';
 }
 
-/** Title-case a Swiss city token returned lower-cased by findSwissCityInText. */
-function titleCaseCity(value = '') {
-  return String(value || '')
-    .split(/\s+/)
-    .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w))
-    .join(' ')
-    .trim();
-}
-
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
@@ -187,7 +178,10 @@ export async function fetchAllDufercoJobs() {
     // risk). Milan/Remote/Switzerland-only postings are dropped here as well.
     const rawLocation = normalizeSpace(listing.location || '');
     const canton = inferSwissTargetCanton(rawLocation);
-    const swissCity = titleCaseCity(findSwissCityInText(rawLocation));
+    // Canonical BFS display name — preserves hyphens for composite municipalities
+    // (e.g. "La Chaux-de-Fonds"), which the space-normalized token from
+    // findSwissCityInText would otherwise drop, malforming the addressLocality.
+    const swissCity = canonicalSwissCityName(findSwissCityInText(rawLocation));
     if (!canton || !swissCity) {
       skippedNonSwiss += 1;
       continue;
