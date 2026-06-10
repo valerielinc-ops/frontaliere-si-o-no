@@ -1,0 +1,100 @@
+name: Publisher Jobs Sync (paid ads → slice → deploy)
+
+# Projects paid publisher_jobs (Firestore) into the by-crawler slice
+# data/jobs/by-crawler/publisher-submitted.json, commits it to main (test-gated),
+# and triggers a deploy so the static SEO page is emitted — the "disponibile tra
+# 1–2 ore" path. The Stripe webhook is what flips a job to status:'paid'; this
+# workflow only publishes what is already paid.
+
+on:
+  schedule:
+    # Every 30 minutes — picks up newly-paid ads + drops expired ones.
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  # Serialize: never two concurrent commits of the same slice to main.
+  group: publisher-jobs-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  publisher-jobs-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"; exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Build publisher-submitted slice from paid ads
+        run: node scripts/build-publisher-jobs.mjs --stats
+
+      # Data-refresh-to-main gate (AGENTS: a bot commit to main must validate the
+      # invariant it touches BEFORE committing). The slice must assemble cleanly
+      # into the full dataset; a corrupt record fails here → no poisoned commit.
+      - name: Validate — dataset assembles with the new slice
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Commit slice (test-gated) + push with rebase-retry
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f data/jobs/by-crawler/publisher-submitted.json
+          if git diff --cached --quiet; then
+            echo "No publisher-jobs changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "🧑‍💼 Publisher jobs sync — paid ads → slice"
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd 'node scripts/build-publisher-jobs.mjs && git add -f data/jobs/by-crawler/publisher-submitted.json'
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Load secrets from Remote Config
+        if: steps.commit.outputs.has_changes == 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.has_changes == 'true'
+        run: bash scripts/lib/trigger-deploy.sh || true
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
