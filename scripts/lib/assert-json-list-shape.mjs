@@ -265,6 +265,12 @@ export function assertJsonListShapeMultiKey(
  *   - `channel.item` is an array → returns it (no warn).
  *   - `channel.item` is a single bare object → returns `[item]` (no warn — the
  *     legitimate one-listing feed).
+ *   - `rss.channel` is itself an ARRAY (multi-channel feed) → the single-channel
+ *     access `channel.item` would be `undefined`, silently emptying the source.
+ *     Instead we aggregate `item` across EVERY channel (preserving all listings)
+ *     and **warn** — a feed turning multi-channel is a shape drift the crawler
+ *     must see, but dropping the jobs would be the very silent-`[]` loss this
+ *     module exists to kill.
  *   - `channel.item` is absent/null:
  *       - if the `rss > channel` envelope is itself missing/malformed → **warn**
  *         (the feed shape drifted) and return `[]`.
@@ -284,6 +290,29 @@ export function assertJsonListShapeMultiKey(
 export function assertRssChannelItems(parsed, { source, lang, warn = console.warn } = {}) {
   const rss = parsed == null ? undefined : parsed.rss;
   const channel = rss == null ? undefined : rss.channel;
+
+  // Multi-channel feed: `rss.channel` is an ARRAY of channels rather than a
+  // single channel object. The single-channel `channel.item` access below would
+  // be `undefined` → the source would silently empty out (the exact silent-`[]`
+  // class this module kills). Aggregate `item` across every channel, normalising
+  // each (array stays, single bare object → `[obj]`), so no listing is dropped,
+  // and warn so the shape drift surfaces in the crawler logs.
+  if (Array.isArray(channel)) {
+    const items = channel.flatMap((ch) => {
+      const it = ch == null ? undefined : ch.item;
+      if (Array.isArray(it)) return it;
+      if (it != null && typeof it === 'object') return [it];
+      return [];
+    });
+    warn(
+      `⚠️ JSON list shape mismatch for ${source}${lang ? ` (${lang})` : ''}: expected a single ` +
+        `\`rss.channel\` but the RSS feed is multi-channel (${channel.length} channels) — ` +
+        `aggregated ${items.length} item(s) across all channels. The feed shape may have drifted ` +
+        `(this is NOT a genuinely-empty board, which would still expose a single channel).`,
+    );
+    return items;
+  }
+
   const item = channel == null ? undefined : channel.item;
 
   if (Array.isArray(item)) return item;
