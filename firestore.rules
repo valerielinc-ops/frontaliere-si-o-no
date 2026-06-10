@@ -156,5 +156,111 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+
+    // ─── Publisher portal (paid job postings) ───────────────────────────────
+    // Status machine: a client may create/edit an ad as 'draft' or
+    // 'pending_payment' but may NEVER self-promote it to 'paid'/'active' — that
+    // flip happens only via the Stripe webhook running with the Admin SDK
+    // (which bypasses these rules). This prevents free self-publishing.
+    function isSignedIn() { return request.auth != null; }
+    // Free tier may self-publish (status 'published') but ONLY as a plain crawler-
+    // style job: never featured, apply must be an external link. Sponsored tier
+    // may only reach 'draft'/'pending_payment' from the client — the Stripe webhook
+    // (Admin SDK) is the only thing that sets 'paid'.
+    function freeJobOk(d) {
+      return d.tier == 'free'
+        && (d.status == 'draft' || d.status == 'published')
+        && d.featured != true
+        && d.apply.mode == 'external_url';
+    }
+    function sponsoredJobOk(d) {
+      return d.tier == 'sponsored'
+        && (d.status == 'draft' || d.status == 'pending_payment');
+    }
+    function clientJobWriteOk(d) {
+      return freeJobOk(d) || sponsoredJobOk(d);
+    }
+    // Pure CONTENT edit on ANY status (fix a typo, update the description on an
+    // already-paid ad). Allowed only when status / tier / owner are UNCHANGED —
+    // status transitions stay gated by clientJobWriteOk, and the webhook/Admin SDK
+    // still owns paid/expired flips. A free ad still cannot become featured here.
+    function contentEditOk(prev, next) {
+      return next.publisherUid == prev.publisherUid
+        && next.tier == prev.tier
+        && next.status == prev.status
+        && (next.tier != 'free' || next.featured != true)
+        // Billing is per-location and the Stripe subscription quantity is fixed at
+        // checkout. A content edit must NOT change the location count (would emit
+        // unbilled per-location pages). Adding locations requires a new checkout.
+        && next.locations.size() == prev.locations.size();
+    }
+
+    // Publisher accounts / company profile — owner-only (billing data is private;
+    // public company info is mirrored into the job slice, not read from here).
+    match /publishers/{uid} {
+      allow read: if isSignedIn() && request.auth.uid == uid;
+      allow create: if isSignedIn() && request.auth.uid == uid;
+      allow update: if isSignedIn() && request.auth.uid == uid;
+      // No client delete — account closure handled by a Cloud Function.
+    }
+
+    // Publisher job ads. Read = owner (dashboard); the public surface is the
+    // CDN-offloaded overlay file, not a live Firestore read.
+    match /publisher_jobs/{jobId} {
+      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      allow create: if isSignedIn()
+        && request.auth.uid == request.resource.data.publisherUid
+        && clientJobWriteOk(request.resource.data);
+      // Owner may either (a) drive a status transition while not sponsored-paid
+      // (draft → pending_payment etc., via clientJobWriteOk), or (b) make a pure
+      // content edit (typo / description fix) on ANY status as long as it does
+      // NOT change owner / tier / status (contentEditOk). Neither path can
+      // reassign ownership, flip a sponsored ad to paid, nor turn a free ad into
+      // a featured one — those remain Admin-SDK-only.
+      allow update: if isSignedIn()
+        && request.auth.uid == resource.data.publisherUid
+        && request.resource.data.publisherUid == resource.data.publisherUid
+        && (
+          (request.resource.data.tier == resource.data.tier
+            && clientJobWriteOk(request.resource.data))
+          || contentEditOk(resource.data, request.resource.data)
+        );
+      allow delete: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+    }
+
+    // Orders / subscription mirror — owner read; create on checkout init; all
+    // state transitions (paid, renewed, cancelled, refunded) written by the
+    // Stripe webhook via Admin SDK (bypasses rules).
+    match /orders/{orderId} {
+      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      allow create: if isSignedIn() && request.auth.uid == request.resource.data.publisherUid;
+      // No client update/delete — Admin SDK only.
+    }
+
+    // Per-ad analytics counters (views, apply clicks). Public increment like
+    // job_views/article_views; owner reads aggregates in the dashboard.
+    match /publisher_job_events/{jobId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Candidate applications (in-house / forward modes). Contains PII, so reads
+    // are restricted to the publisher who owns the target job (denormalized
+    // publisherUid) — never public. Create is open (candidate submits) but the
+    // explicit-consent flag is required (GDPR: forwarding PII to a third-party
+    // employer is a distinct processing purpose from the site's silent consent).
+    match /applications/{appId} {
+      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      // Anonymous candidates may submit, but only a well-formed, consented payload:
+      // required fields present + explicit consent. (Volume/abuse throttling is
+      // enforced upstream by reCAPTCHA on the form, not expressible in rules.)
+      allow create: if request.resource.data.consentGiven == true
+        && request.resource.data.consentText is string
+        && request.resource.data.jobId is string
+        && request.resource.data.publisherUid is string
+        && request.resource.data.candidateEmail is string
+        && request.resource.data.candidateName is string;
+      // No client update/delete — retention purge handled by a Cloud Function.
+    }
   }
 }

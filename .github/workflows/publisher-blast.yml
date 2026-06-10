@@ -1,0 +1,77 @@
+name: Publisher Ad Blast (targeted newsletter)
+
+# Sends a targeted newsletter blast for newly-paid SPONSORED ads to matching
+# subscribers (idempotent via blastSentAt). Free ads are never blasted.
+# Manual + daily; the script enforces per-ad + per-run caps (free-tier ESP safety).
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry-run (log audience, do not send)'
+        type: boolean
+        default: true
+  schedule:
+    - cron: '17 7 * * *' # daily 07:17 UTC
+
+concurrency:
+  group: publisher-blast
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  publisher-blast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"; exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config (RESEND_API_KEY)
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run blast
+        run: |
+          # Scheduled runs always send; manual runs honor the dry_run input (default true).
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.dry_run }}" = "false" ]; then
+            node scripts/blast-publisher-ads.mjs --send
+          else
+            node scripts/blast-publisher-ads.mjs
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

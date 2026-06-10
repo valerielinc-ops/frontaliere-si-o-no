@@ -20,6 +20,13 @@ import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
+import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal } from './src/stripePublisherCore.js';
+import { onDocumentCreated } from 'firebase-functions/v2/firestore';
+import { onSchedule } from 'firebase-functions/v2/scheduler';
+import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
+import { sendRenewalReminders } from './src/publisherRenewalCore.js';
+import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
+import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 
 ensureAdminApp();
 
@@ -650,6 +657,162 @@ export const verifyRecaptcha = onRequest(
  } catch (error) {
  console.error('[verifyRecaptcha] Unhandled error:', error);
  res.status(500).json({ ok: false, error: 'internal_error', code: 'INTERNAL' });
+ }
+ },
+);
+
+// ── Publisher portal (paid job postings) ──────────────────────────────────
+// Create a Stripe Checkout Session (subscription mode, 30-day auto-renew).
+// Authenticated publisher only; price is recomputed server-side from the
+// referenced publisher_jobs (client amount is never trusted).
+export const createPublisherCheckout = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleCreatePublisherCheckout(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[createPublisherCheckout]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Self-serve subscription management (cancel / payment method / invoices) via
+// Stripe's hosted Billing Portal.
+export const createPublisherBillingPortal = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleCreateBillingPortal(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[createPublisherBillingPortal]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Stripe webhook — the ONLY path that flips a job to 'paid'. Needs the raw body
+// for signature verification (cors:false; Firebase provides req.rawBody).
+export const stripeWebhook = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 60,
+ cors: false,
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleStripeWebhook(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[stripeWebhook]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Anti-spam: cap free-tier self-published ads per publisher per day; over the
+// cap the new ad is flipped to 'rejected' (kept out of the slice).
+export const enforcePublisherFreeCap = onDocumentCreated(
+ { region: 'europe-west6', memory: '256MiB', document: 'publisher_jobs/{jobId}' },
+ async (event) => {
+ const snap = event.data;
+ if (!snap) return;
+ try {
+ await enforceFreeTierCap(snap.data(), event.params.jobId);
+ } catch (error) {
+ console.error('[enforcePublisherFreeCap]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Forward a candidate application to the publisher's chosen email (read
+// server-side; never exposed to the client). Fires on application create —
+// firestore.rules guarantees consentGiven == true for every created doc.
+export const forwardPublisherApplication = onDocumentCreated(
+ { region: 'europe-west6', memory: '256MiB', document: 'applications/{appId}' },
+ async (event) => {
+ const snap = event.data;
+ if (!snap) return;
+ try {
+ const result = await handleForwardApplication(snap.data(), event.params.appId);
+ if (!result.ok) console.error('[forwardPublisherApplication]', result.error);
+ } catch (error) {
+ console.error('[forwardPublisherApplication]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Publisher domain ownership verification (DNS TXT). Authenticated; returns the
+// TXT record to add, and on a follow-up call flips domainVerified once present.
+export const verifyPublisherDomain = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleVerifyPublisherDomain(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[verifyPublisherDomain]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// GDPR retention: purge applications older than the retention window, daily.
+export const purgePublisherApplications = onSchedule(
+ { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
+ async () => {
+ try {
+ const deleted = await purgeOldApplications();
+ if (deleted > 0) console.log(`[purgePublisherApplications] deleted ${deleted} expired application(s)`);
+ } catch (error) {
+ console.error('[purgePublisherApplications]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Retention: remind publishers whose paid ad renews within 3 days, daily.
+// Idempotent (renewalReminderSentAt) → one email per publisher per renewal.
+export const sendPublisherRenewalReminders = onSchedule(
+ { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
+ async () => {
+ try {
+ const sent = await sendRenewalReminders();
+ if (sent > 0) console.log(`[sendPublisherRenewalReminders] sent ${sent} renewal reminder(s)`);
+ } catch (error) {
+ console.error('[sendPublisherRenewalReminders]', error instanceof Error ? error.message : String(error));
  }
  },
 );

@@ -15,6 +15,8 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
+import { trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
+import PublisherApplyForm from '@/components/community/PublisherApplyForm';
 import {
  fetchAggregatedJobs,
  fetchAllJobs,
@@ -1650,6 +1652,11 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  <h2 className="text-sm sm:text-base font-bold font-display text-heading leading-tight">
  {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
  {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" />}
+ {job.featured && (
+ <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-accent-subtle text-link align-middle">
+ {t('jobBoard.sponsored')}
+ </span>
+ )}
  {isNew && (
  <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-success-subtle text-success">
  <Sparkles className="w-2.5 h-2.5" />
@@ -4088,6 +4095,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (!selectedJob?.slug) return;
  trackJobView(selectedJob);
+ // Per-ad publisher analytics (no-op unless this is a publisher-submitted ad).
+ trackPublisherJobView(selectedJob as { publisherJobId?: string | null });
  // Personalization: track behavior for scoring (uses locale slug, fine here)
  if (enablePersonalization && selectedJob) {
  trackJobViewBehavior({
@@ -6463,6 +6472,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <h1 className="hybrid-ab-title">
  {selectedJobTitle}
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
+ {selectedJob.featured && (
+ <span className="ml-2 inline-flex items-center px-2 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-accent-subtle text-link align-middle">
+ {t('jobBoard.sponsored')}
+ </span>
+ )}
  </h1>
  <p className="hybrid-ab-sub">{selectedJob.company} · {selectedJob.location} ({selectedJob.canton})</p>
  <div className="hybrid-ab-meta">
@@ -6494,15 +6508,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ))}
  </div>
 
+ {((selectedJob as { applyMode?: string }).applyMode === 'in_house'
+ || (selectedJob as { applyMode?: string }).applyMode === 'forward_email') ? (
+ <PublisherApplyForm
+ jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
+ publisherUid={String((selectedJob as { publisherUid?: string }).publisherUid || '')}
+ jobTitle={String(selectedJob.title || '')}
+ />
+ ) : (
  <a
  className="hybrid-ab-cta"
  href={applyUrl}
  target="_blank"
  rel="nofollow noopener noreferrer"
- onClick={() => Analytics.trackSelectContent('job_board_apply', `${selectedJob.company}_${selectedJob.title}`)}
+ onClick={() => {
+ Analytics.trackSelectContent('job_board_apply', `${selectedJob.company}_${selectedJob.title}`);
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
+ }}
  >
  {t('jobBoard.apply')}
  </a>
+ )}
 
  {salaryEstimateWidget && (
  <div className="mt-4">{salaryEstimateWidget}</div>
