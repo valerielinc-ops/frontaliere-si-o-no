@@ -9,7 +9,7 @@
         "de": "fachperson-hr-administration-stadler-rail-ch",
         "it": "professionista-hr-amministrazione-stadler-rail-wallisellen",
         "en": "fachperson-hr-administration-stadler-rail-ch",
-        "fr": "professionnel-rh-administration-stadler-rail-wallisellen"
+        "fr": "fachperson-ressources-humaines-administration-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -55,10 +55,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-hr-administration-stadler-rail-ch"
+        ],
+        "fr": [
+          "professionnel-rh-administration-stadler-rail-wallisellen"
         ]
       },
       "previousSlugs": [
-        "fachperson-hr-administration-stadler-rail-ch"
+        "fachperson-hr-administration-stadler-rail-ch",
+        "professionnel-rh-administration-stadler-rail-wallisellen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -221,10 +225,10 @@
     },
     {
       "id": "stadler-rail-c6ae49605c04",
-      "slug": "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld",
+      "slug": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
       "slugByLocale": {
         "de": "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
-        "it": "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld",
+        "it": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
         "en": "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
         "fr": "ingenieur-en-chef-des-systemes-d-information-des-passagers-et-de-la-technologie-de-reseau-stadler-rail-frauenfeld"
       },
@@ -271,11 +275,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch"
+          "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
+          "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch"
+        "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
+        "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -683,10 +689,10 @@
     },
     {
       "id": "stadler-rail-110e94231742",
-      "slug": "apprendistato-montatore-automatico-in-afc-stadler-rail-bussnang",
+      "slug": "apprendistato-automatikmonteur-in-cfc-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "lehrstelle-automatikmonteur-in-efz-stadler-rail-ch",
-        "it": "apprendistato-montatore-automatico-in-afc-stadler-rail-bussnang",
+        "it": "apprendistato-automatikmonteur-in-cfc-stadler-rail-bussnang",
         "en": "automatic-mechanic-apprenticeship-stadler-rail-bussnang",
         "fr": "poste-d-apprentissage-de-monteur-automatique-cfc-stadler-rail-bussnang"
       },
@@ -733,11 +739,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-automatikmonteur-in-efz-stadler-rail-ch"
+          "lehrstelle-automatikmonteur-in-efz-stadler-rail-ch",
+          "apprendistato-montatore-automatico-in-afc-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-automatikmonteur-in-efz-stadler-rail-ch"
+        "lehrstelle-automatikmonteur-in-efz-stadler-rail-ch",
+        "apprendistato-montatore-automatico-in-afc-stadler-rail-bussnang"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -755,10 +763,10 @@
     },
     {
       "id": "stadler-rail-f7a1491a0bba",
-      "slug": "apprendistato-polimeccanico-in-afc-stadler-rail-bussnang",
+      "slug": "apprendistato-polymechaniker-in-cfc-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "lehrstelle-polymechaniker-in-efz-stadler-rail-ch",
-        "it": "apprendistato-polimeccanico-in-afc-stadler-rail-bussnang",
+        "it": "apprendistato-polymechaniker-in-cfc-stadler-rail-bussnang",
         "en": "apprenticeship-as-a-polymechanic-efz-stadler-rail-bussnang",
         "fr": "place-d-apprentissage-de-polymecanicien-ne-cfc-stadler-rail-bussnang"
       },
@@ -805,11 +813,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-in-efz-stadler-rail-ch"
+          "lehrstelle-polymechaniker-in-efz-stadler-rail-ch",
+          "apprendistato-polimeccanico-in-afc-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-polymechaniker-in-efz-stadler-rail-ch"
+        "lehrstelle-polymechaniker-in-efz-stadler-rail-ch",
+        "apprendistato-polimeccanico-in-afc-stadler-rail-bussnang"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -929,10 +939,10 @@
     },
     {
       "id": "stadler-rail-68fab4616d19",
-      "slug": "apprendistato-costruttore-di-apparecchiature-per-impianti-in-afc-stadler-rail-bussnang",
+      "slug": "apprendistato-anlagen-apparatebauer-in-cfc-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "lehrstelle-anlagen-apparatebauer-in-efz-stadler-rail-ch",
-        "it": "apprendistato-costruttore-di-apparecchiature-per-impianti-in-afc-stadler-rail-bussnang",
+        "it": "apprendistato-anlagen-apparatebauer-in-cfc-stadler-rail-bussnang",
         "en": "apprenticeship-in-facility-appliance-builder-efz-stadler-rail-bussnang",
         "fr": "poste-d-apprentissage-de-constructeur-d-appareils-d-installation-cfc-stadler-rail-bussnang"
       },
@@ -979,11 +989,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-anlagen-apparatebauer-in-efz-stadler-rail-ch"
+          "lehrstelle-anlagen-apparatebauer-in-efz-stadler-rail-ch",
+          "apprendistato-costruttore-di-apparecchiature-per-impianti-in-afc-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-anlagen-apparatebauer-in-efz-stadler-rail-ch"
+        "lehrstelle-anlagen-apparatebauer-in-efz-stadler-rail-ch",
+        "apprendistato-costruttore-di-apparecchiature-per-impianti-in-afc-stadler-rail-bussnang"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1001,10 +1013,10 @@
     },
     {
       "id": "stadler-rail-61d84f561ebf",
-      "slug": "apprendistato-automatizzatore-essa-efz-stadler-rail-bussnang",
+      "slug": "apprendistato-automatiker-in-cfc-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "lehrstelle-automatiker-in-efz-stadler-rail-ch",
-        "it": "apprendistato-automatizzatore-essa-efz-stadler-rail-bussnang",
+        "it": "apprendistato-automatiker-in-cfc-stadler-rail-bussnang",
         "en": "apprenticeship-automation-specialist-efz-stadler-rail-bussnang",
         "fr": "apprentissage-automaticien-ienne-cfc-stadler-rail-bussnang"
       },
@@ -1076,11 +1088,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-automatiker-in-efz-stadler-rail-ch"
+          "lehrstelle-automatiker-in-efz-stadler-rail-ch",
+          "apprendistato-automatizzatore-essa-efz-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-automatiker-in-efz-stadler-rail-ch"
+        "lehrstelle-automatiker-in-efz-stadler-rail-ch",
+        "apprendistato-automatizzatore-essa-efz-stadler-rail-bussnang"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -2292,11 +2306,11 @@
     },
     {
       "id": "stadler-rail-2b054ea261b4",
-      "slug": "dipendente-elettrico-stadler-rail-frauenfeld",
+      "slug": "collaboratore-trice-elektrik-stadler-rail-frauenfeld",
       "slugByLocale": {
         "de": "mitarbeiter-in-elektrik-stadler-rail-ch",
-        "it": "dipendente-elettrico-stadler-rail-frauenfeld",
-        "en": "employees-in-electric-stadler-rail-frauenfeld",
+        "it": "collaboratore-trice-elektrik-stadler-rail-frauenfeld",
+        "en": "associate-elektrik-stadler-rail-frauenfeld",
         "fr": "employes-en-electric-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
@@ -2342,11 +2356,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-elektrik-stadler-rail-ch"
+          "mitarbeiter-in-elektrik-stadler-rail-ch",
+          "dipendente-elettrico-stadler-rail-frauenfeld"
+        ],
+        "en": [
+          "employees-in-electric-stadler-rail-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-elektrik-stadler-rail-ch"
+        "mitarbeiter-in-elektrik-stadler-rail-ch",
+        "dipendente-elettrico-stadler-rail-frauenfeld",
+        "employees-in-electric-stadler-rail-frauenfeld"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2610,10 +2630,10 @@
     },
     {
       "id": "stadler-rail-b0df4492e916",
-      "slug": "project-manager-in-ingegneria-stadler-rail-bussnang",
+      "slug": "responsabile-di-progetto-engineering-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "projektleiter-in-engineering-stadler-rail-ch",
-        "it": "project-manager-in-ingegneria-stadler-rail-bussnang",
+        "it": "responsabile-di-progetto-engineering-stadler-rail-bussnang",
         "en": "project-manager-engineering-stadler-rail-bussnang",
         "fr": "chef-de-projet-ingenierie-stadler-rail-bussnang"
       },
@@ -2660,11 +2680,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-engineering-stadler-rail-ch"
+          "projektleiter-in-engineering-stadler-rail-ch",
+          "project-manager-in-ingegneria-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-engineering-stadler-rail-ch"
+        "projektleiter-in-engineering-stadler-rail-ch",
+        "project-manager-in-ingegneria-stadler-rail-bussnang"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2945,10 +2967,10 @@
     },
     {
       "id": "stadler-rail-b24a03e733b0",
-      "slug": "apprendistato-logistico-efz-2026-stadler-rail-bussnang",
+      "slug": "apprendistato-impiegata-impiegato-in-logistica-cfc-2026-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "lehrstelle-logistiker-in-efz-2026-stadler-rail-ch",
-        "it": "apprendistato-logistico-efz-2026-stadler-rail-bussnang",
+        "it": "apprendistato-impiegata-impiegato-in-logistica-cfc-2026-stadler-rail-bussnang",
         "en": "logistics-apprentice-efz-2026-stadler-rail-bussnang",
         "fr": "apprentissage-de-logisticien-ne-cfc-2026-stadler-rail-bussnang"
       },
@@ -3025,11 +3047,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-2026-stadler-rail-ch"
+          "lehrstelle-logistiker-in-efz-2026-stadler-rail-ch",
+          "apprendistato-logistico-efz-2026-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-2026-stadler-rail-ch"
+        "lehrstelle-logistiker-in-efz-2026-stadler-rail-ch",
+        "apprendistato-logistico-efz-2026-stadler-rail-bussnang"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -3682,10 +3706,10 @@
     },
     {
       "id": "stadler-rail-fd658c3cb936",
-      "slug": "tirocinio-automatizzatore-efz-2026-stadler-rail-st-margrethen",
+      "slug": "apprendistato-automatiker-in-cfc-2026-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "lehrstelle-automatiker-in-efz-2026-stadler-rail-ch",
-        "it": "tirocinio-automatizzatore-efz-2026-stadler-rail-st-margrethen",
+        "it": "apprendistato-automatiker-in-cfc-2026-stadler-rail-st-margrethen",
         "en": "apprenticeship-automation-technician-efz-2026-stadler-rail-st-margrethen",
         "fr": "stage-d-automatiste-efz-2026-stadler-rail-st-margrethen"
       },
@@ -3756,11 +3780,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-automatiker-in-efz-2026-stadler-rail-ch"
+          "lehrstelle-automatiker-in-efz-2026-stadler-rail-ch",
+          "tirocinio-automatizzatore-efz-2026-stadler-rail-st-margrethen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-automatiker-in-efz-2026-stadler-rail-ch"
+        "lehrstelle-automatiker-in-efz-2026-stadler-rail-ch",
+        "tirocinio-automatizzatore-efz-2026-stadler-rail-st-margrethen"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -6639,10 +6665,10 @@
     },
     {
       "id": "stadler-rail-2c64e1dcc180",
-      "slug": "vendite-trainee-stadler-rail-bussnang",
+      "slug": "sales-apprendista-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "sales-trainee-stadler-rail-ch",
-        "it": "vendite-trainee-stadler-rail-bussnang",
+        "it": "sales-apprendista-stadler-rail-bussnang",
         "en": "sales-trainee-stadler-rail-ch",
         "fr": "stagiaire-en-vente-stadler-rail-bussnang"
       },
@@ -6689,11 +6715,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sales-trainee-stadler-rail-ch"
+          "sales-trainee-stadler-rail-ch",
+          "vendite-trainee-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "sales-trainee-stadler-rail-ch"
+        "sales-trainee-stadler-rail-ch",
+        "vendite-trainee-stadler-rail-bussnang"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -7143,10 +7171,10 @@
     },
     {
       "id": "stadler-rail-59e9c2c910f3",
-      "slug": "nucleo-per-ingegneri-del-software-stadler-rail-olten",
+      "slug": "software-ingegnere-core-stadler-rail-olten",
       "slugByLocale": {
         "de": "software-engineer-core-stadler-rail-ch",
-        "it": "nucleo-per-ingegneri-del-software-stadler-rail-olten",
+        "it": "software-ingegnere-core-stadler-rail-olten",
         "en": "software-engineer-core-stadler-rail-ch",
         "fr": "noyau-d-ingenieur-logiciel-stadler-rail-olten"
       },
@@ -7193,11 +7221,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-core-stadler-rail-ch"
+          "software-engineer-core-stadler-rail-ch",
+          "nucleo-per-ingegneri-del-software-stadler-rail-olten"
         ]
       },
       "previousSlugs": [
-        "software-engineer-core-stadler-rail-ch"
+        "software-engineer-core-stadler-rail-ch",
+        "nucleo-per-ingegneri-del-software-stadler-rail-olten"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7219,8 +7249,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-technische-dienste-stadler-rail-ch",
         "it": "employee-technical-services-stadler-rail-frauenfeld",
-        "en": "employee-technical-services-stadler-rail-frauenfeld",
-        "fr": "employee-technical-services-stadler-rail-frauenfeld"
+        "en": "associate-technische-dienste-stadler-rail-frauenfeld",
+        "fr": "collaborateur-trice-technische-dienste-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -7575,10 +7605,10 @@
     },
     {
       "id": "stadler-rail-b6a17303274e",
-      "slug": "testa-in-qehs-stadler-rail-st-margrethen",
+      "slug": "responsabile-qehs-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "leiter-in-qehs-stadler-rail-ch",
-        "it": "testa-in-qehs-stadler-rail-st-margrethen",
+        "it": "responsabile-qehs-stadler-rail-st-margrethen",
         "en": "head-in-qehs-stadler-rail-st-margrethen",
         "fr": "tete-en-qehs-stadler-rail-st-margrethen"
       },
@@ -7625,11 +7655,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-qehs-stadler-rail-ch"
+          "leiter-in-qehs-stadler-rail-ch",
+          "testa-in-qehs-stadler-rail-st-margrethen"
         ]
       },
       "previousSlugs": [
-        "leiter-in-qehs-stadler-rail-ch"
+        "leiter-in-qehs-stadler-rail-ch",
+        "testa-in-qehs-stadler-rail-st-margrethen"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -8309,10 +8341,10 @@
     },
     {
       "id": "stadler-rail-5d8382977fa0",
-      "slug": "apprendistato-come-costruttore-in-efz-2026-stadler-rail-st-margrethen",
+      "slug": "apprendistato-come-konstrukteur-in-cfc-2026-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "lehrstelle-als-konstrukteur-in-efz-2026-stadler-rail-ch",
-        "it": "apprendistato-come-costruttore-in-efz-2026-stadler-rail-st-margrethen",
+        "it": "apprendistato-come-konstrukteur-in-cfc-2026-stadler-rail-st-margrethen",
         "en": "apprenticeship-as-a-constructor-in-efz-2026-stadler-rail-st-margrethen",
         "fr": "apprentissage-en-tant-que-constructeur-en-efz-2026-stadler-rail-st-margrethen"
       },
@@ -8363,11 +8395,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-konstrukteur-in-efz-2026-stadler-rail-ch"
+          "lehrstelle-als-konstrukteur-in-efz-2026-stadler-rail-ch",
+          "apprendistato-come-costruttore-in-efz-2026-stadler-rail-st-margrethen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-konstrukteur-in-efz-2026-stadler-rail-ch"
+        "lehrstelle-als-konstrukteur-in-efz-2026-stadler-rail-ch",
+        "apprendistato-come-costruttore-in-efz-2026-stadler-rail-st-margrethen"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -8762,7 +8796,7 @@
       "slugByLocale": {
         "en": "security-operations-engineer-stadler-rail-ch",
         "it": "ingegnere-delle-operazioni-di-sicurezza-stadler-rail-bussnang",
-        "de": "sicherheitsoperationsingenieur-stadler-rail-bussnang",
+        "de": "security-operations-ingenieur-stadler-rail-bussnang",
         "fr": "ingenieur-des-operations-de-securite-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
@@ -8809,10 +8843,14 @@
       "previousSlugsByLocale": {
         "it": [
           "security-operations-engineer-stadler-rail-ch"
+        ],
+        "de": [
+          "sicherheitsoperationsingenieur-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "security-operations-engineer-stadler-rail-ch"
+        "security-operations-engineer-stadler-rail-ch",
+        "sicherheitsoperationsingenieur-stadler-rail-bussnang"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -8906,7 +8944,7 @@
       "slugByLocale": {
         "en": "it-operation-engineer-stadler-rail-ch",
         "it": "ingegnere-operativo-it-stadler-rail-bussnang",
-        "de": "it-betriebsingenieur-stadler-rail-bussnang",
+        "de": "it-operation-ingenieur-stadler-rail-bussnang",
         "fr": "ingenieur-des-operations-informatiques-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
@@ -8953,10 +8991,14 @@
       "previousSlugsByLocale": {
         "it": [
           "it-operation-engineer-stadler-rail-ch"
+        ],
+        "de": [
+          "it-betriebsingenieur-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "it-operation-engineer-stadler-rail-ch"
+        "it-operation-engineer-stadler-rail-ch",
+        "it-betriebsingenieur-stadler-rail-bussnang"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -8974,10 +9016,10 @@
     },
     {
       "id": "stadler-rail-f3d676c0a9e4",
-      "slug": "technical-r-project-manager-in-stadler-rail-st-margrethen",
+      "slug": "technische-r-responsabile-di-progetto-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "technische-r-projektleiter-in-stadler-rail-ch",
-        "it": "technical-r-project-manager-in-stadler-rail-st-margrethen",
+        "it": "technische-r-responsabile-di-progetto-stadler-rail-st-margrethen",
         "en": "technical-project-manager-stadler-rail-st-margrethen",
         "fr": "chef-de-projet-technique-stadler-rail-st-margrethen"
       },
@@ -9024,11 +9066,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-projektleiter-in-stadler-rail-ch-2"
+          "technische-r-projektleiter-in-stadler-rail-ch-2",
+          "technical-r-project-manager-in-stadler-rail-st-margrethen"
         ]
       },
       "previousSlugs": [
-        "technische-r-projektleiter-in-stadler-rail-ch-2"
+        "technische-r-projektleiter-in-stadler-rail-ch-2",
+        "technical-r-project-manager-in-stadler-rail-st-margrethen"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -9046,10 +9090,10 @@
     },
     {
       "id": "stadler-rail-84b7d0d372be",
-      "slug": "cloud-virtualizzazione-engineer-stadler-rail-st-margrethen",
+      "slug": "clound-virtualization-ingegnere-stadler-rail-st-margrethen",
       "slugByLocale": {
         "en": "clound-virtualization-engineer-stadler-rail-ch",
-        "it": "cloud-virtualizzazione-engineer-stadler-rail-st-margrethen",
+        "it": "clound-virtualization-ingegnere-stadler-rail-st-margrethen",
         "de": "cloud-virtualisierungstechniker-stadler-rail-st-margrethen",
         "fr": "ingenieur-cloud-virtualisation-stadler-rail-st-margrethen"
       },
@@ -9096,11 +9140,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "clound-virtualization-engineer-stadler-rail-ch"
+          "clound-virtualization-engineer-stadler-rail-ch",
+          "cloud-virtualizzazione-engineer-stadler-rail-st-margrethen"
         ]
       },
       "previousSlugs": [
-        "clound-virtualization-engineer-stadler-rail-ch"
+        "clound-virtualization-engineer-stadler-rail-ch",
+        "cloud-virtualizzazione-engineer-stadler-rail-st-margrethen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10064,10 +10110,10 @@
     },
     {
       "id": "stadler-rail-708a5ce6f002",
-      "slug": "project-manager-elaborazione-della-garanzia-stadler-rail-st-margrethen",
+      "slug": "responsabile-di-progetto-garantieabwicklung-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "projektleiter-in-garantieabwicklung-stadler-rail-ch",
-        "it": "project-manager-elaborazione-della-garanzia-stadler-rail-st-margrethen",
+        "it": "responsabile-di-progetto-garantieabwicklung-stadler-rail-st-margrethen",
         "en": "project-manager-in-guarantee-handling-stadler-rail-st-margrethen",
         "fr": "gestionnaire-de-projet-traitement-de-la-garantie-stadler-rail-st-margrethen"
       },
@@ -10118,11 +10164,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-garantieabwicklung-stadler-rail-ch"
+          "projektleiter-in-garantieabwicklung-stadler-rail-ch",
+          "project-manager-elaborazione-della-garanzia-stadler-rail-st-margrethen"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-garantieabwicklung-stadler-rail-ch"
+        "projektleiter-in-garantieabwicklung-stadler-rail-ch",
+        "project-manager-elaborazione-della-garanzia-stadler-rail-st-margrethen"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -10500,10 +10548,10 @@
     },
     {
       "id": "stadler-rail-dca83855a6a7",
-      "slug": "project-manager-ingegnere-manutenzione-dei-carrelli-stadler-rail-frauenfeld",
+      "slug": "project-manager-ingegnere-bogie-maintenance-engineering-stadler-rail-frauenfeld",
       "slugByLocale": {
         "de": "project-manager-engineer-bogie-maintenance-engineering-stadler-rail-ch",
-        "it": "project-manager-ingegnere-manutenzione-dei-carrelli-stadler-rail-frauenfeld",
+        "it": "project-manager-ingegnere-bogie-maintenance-engineering-stadler-rail-frauenfeld",
         "en": "project-manager-engineer-bogie-maintenance-engineering-stadler-rail-ch",
         "fr": "gestionnaire-de-projet-ingenieur-bogie-maintenance-engineering-stadler-rail-frauenfeld"
       },
@@ -10550,11 +10598,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-engineer-bogie-maintenance-engineering-stadler-rail-ch"
+          "project-manager-engineer-bogie-maintenance-engineering-stadler-rail-ch",
+          "project-manager-ingegnere-manutenzione-dei-carrelli-stadler-rail-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "project-manager-engineer-bogie-maintenance-engineering-stadler-rail-ch"
+        "project-manager-engineer-bogie-maintenance-engineering-stadler-rail-ch",
+        "project-manager-ingegnere-manutenzione-dei-carrelli-stadler-rail-frauenfeld"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -10716,11 +10766,11 @@
     },
     {
       "id": "stadler-rail-7933578b1a3d",
-      "slug": "dipendenti-nel-campo-di-test-preassembly-elettrico-stadler-rail-st-margrethen",
+      "slug": "collaboratore-trice-elektrovormontage-pruffeld-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "mitarbeiter-in-elektrovormontage-pruffeld-stadler-rail-ch",
-        "it": "dipendenti-nel-campo-di-test-preassembly-elettrico-stadler-rail-st-margrethen",
-        "en": "employees-in-electrical-preassembly-test-field-stadler-rail-st-margrethen",
+        "it": "collaboratore-trice-elektrovormontage-pruffeld-stadler-rail-st-margrethen",
+        "en": "associate-elektrovormontage-pruffeld-stadler-rail-st-margrethen",
         "fr": "employes-dans-le-champ-de-preassemblage-electrique-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
@@ -10766,11 +10816,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-elektrovormontage-pruffeld-stadler-rail-ch"
+          "mitarbeiter-in-elektrovormontage-pruffeld-stadler-rail-ch",
+          "dipendenti-nel-campo-di-test-preassembly-elettrico-stadler-rail-st-margrethen"
+        ],
+        "en": [
+          "employees-in-electrical-preassembly-test-field-stadler-rail-st-margrethen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-elektrovormontage-pruffeld-stadler-rail-ch"
+        "mitarbeiter-in-elektrovormontage-pruffeld-stadler-rail-ch",
+        "dipendenti-nel-campo-di-test-preassembly-elettrico-stadler-rail-st-margrethen",
+        "employees-in-electrical-preassembly-test-field-stadler-rail-st-margrethen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -11865,10 +11921,10 @@
     },
     {
       "id": "stadler-rail-3ca0e71bedf7",
-      "slug": "logistico-stadler-rail-weinfelden",
+      "slug": "impiegata-impiegato-in-logistica-stadler-rail-weinfelden",
       "slugByLocale": {
         "de": "logistiker-in-stadler-rail-ch",
-        "it": "logistico-stadler-rail-weinfelden",
+        "it": "impiegata-impiegato-in-logistica-stadler-rail-weinfelden",
         "en": "logistician-stadler-rail-weinfelden",
         "fr": "logisticien-stadler-rail-weinfelden"
       },
@@ -11915,11 +11971,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-stadler-rail-ch"
+          "logistiker-in-stadler-rail-ch",
+          "logistico-stadler-rail-weinfelden"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-stadler-rail-ch"
+        "logistiker-in-stadler-rail-ch",
+        "logistico-stadler-rail-weinfelden"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -12229,7 +12287,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-zollabwicklung-stadler-rail-ch",
         "it": "dipendente-del-dogano-stadler-rail-altenrhein",
-        "en": "customs-clearance-employee-stadler-rail-altenrhein",
+        "en": "associate-zollabwicklung-stadler-rail-altenrhein",
         "fr": "employe-du-dedouanement-stadler-rail-altenrhein"
       },
       "company": "Stadler Rail",
@@ -12276,10 +12334,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-zollabwicklung-stadler-rail-ch"
+        ],
+        "en": [
+          "customs-clearance-employee-stadler-rail-altenrhein"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-zollabwicklung-stadler-rail-ch"
+        "mitarbeiter-in-zollabwicklung-stadler-rail-ch",
+        "customs-clearance-employee-stadler-rail-altenrhein"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -12730,10 +12792,10 @@
     },
     {
       "id": "stadler-rail-3e3114dd2481",
-      "slug": "project-manager-intercompany-stadler-rail-bussnang",
+      "slug": "responsabile-di-progetto-intercompany-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "projektleiter-in-intercompany-stadler-rail-ch",
-        "it": "project-manager-intercompany-stadler-rail-bussnang",
+        "it": "responsabile-di-progetto-intercompany-stadler-rail-bussnang",
         "en": "project-manager-intercompany-stadler-rail-bussnang",
         "fr": "chef-de-projet-interentreprises-stadler-rail-bussnang"
       },
@@ -12780,11 +12842,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-intercompany-stadler-rail-ch"
+          "projektleiter-in-intercompany-stadler-rail-ch",
+          "project-manager-intercompany-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-intercompany-stadler-rail-ch"
+        "projektleiter-in-intercompany-stadler-rail-ch",
+        "project-manager-intercompany-stadler-rail-bussnang"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -13018,10 +13082,10 @@
     },
     {
       "id": "stadler-rail-1c209a7d9c8a",
-      "slug": "project-manager-per-veicoli-speciali-nel-mercato-italiano-stadler-rail-bussnang",
+      "slug": "responsabile-di-progetto-per-spezialfahrzeuge-im-italienischen-markt-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "projektleiter-in-fur-spezialfahrzeuge-im-italienischen-markt-stadler-rail-ch",
-        "it": "project-manager-per-veicoli-speciali-nel-mercato-italiano-stadler-rail-bussnang",
+        "it": "responsabile-di-progetto-per-spezialfahrzeuge-im-italienischen-markt-stadler-rail-bussnang",
         "en": "project-manager-for-special-vehicles-in-the-italian-market-stadler-rail-bussnang",
         "fr": "chef-de-projet-pour-vehicules-speciaux-sur-le-marche-italien-stadler-rail-bussnang"
       },
@@ -13068,11 +13132,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-fur-spezialfahrzeuge-im-italienischen-markt-stadler-rail-ch"
+          "projektleiter-in-fur-spezialfahrzeuge-im-italienischen-markt-stadler-rail-ch",
+          "project-manager-per-veicoli-speciali-nel-mercato-italiano-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-fur-spezialfahrzeuge-im-italienischen-markt-stadler-rail-ch"
+        "projektleiter-in-fur-spezialfahrzeuge-im-italienischen-markt-stadler-rail-ch",
+        "project-manager-per-veicoli-speciali-nel-mercato-italiano-stadler-rail-bussnang"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -13090,10 +13156,10 @@
     },
     {
       "id": "stadler-rail-5aafbb4909e4",
-      "slug": "project-manager-per-la-gestione-di-veicoli-speciali-stadler-rail-bussnang",
+      "slug": "responsabile-di-progetto-auftragsabwicklung-spezialfahrzeuge-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "projektleiter-in-auftragsabwicklung-spezialfahrzeuge-stadler-rail-ch",
-        "it": "project-manager-per-la-gestione-di-veicoli-speciali-stadler-rail-bussnang",
+        "it": "responsabile-di-progetto-auftragsabwicklung-spezialfahrzeuge-stadler-rail-bussnang",
         "en": "project-manager-order-processing-special-vehicles-stadler-rail-bussnang",
         "fr": "chef-de-projet-traitement-des-commandes-vehicules-speciaux-stadler-rail-bussnang"
       },
@@ -13140,11 +13206,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-auftragsabwicklung-spezialfahrzeuge-stadler-rail-ch"
+          "projektleiter-in-auftragsabwicklung-spezialfahrzeuge-stadler-rail-ch",
+          "project-manager-per-la-gestione-di-veicoli-speciali-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-auftragsabwicklung-spezialfahrzeuge-stadler-rail-ch"
+        "projektleiter-in-auftragsabwicklung-spezialfahrzeuge-stadler-rail-ch",
+        "project-manager-per-la-gestione-di-veicoli-speciali-stadler-rail-bussnang"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -13162,11 +13230,11 @@
     },
     {
       "id": "stadler-rail-264ae021a6d8",
-      "slug": "commissionamento-meccanico-per-i-dipendenti-stadler-rail-altenrhein",
+      "slug": "collaboratore-trice-mechanische-inbetriebsetzung-stadler-rail-altenrhein",
       "slugByLocale": {
         "de": "mitarbeiter-in-mechanische-inbetriebsetzung-stadler-rail-ch",
-        "it": "commissionamento-meccanico-per-i-dipendenti-stadler-rail-altenrhein",
-        "en": "employee-mechanical-commissioning-stadler-rail-altenrhein",
+        "it": "collaboratore-trice-mechanische-inbetriebsetzung-stadler-rail-altenrhein",
+        "en": "associate-mechanische-inbetriebsetzung-stadler-rail-altenrhein",
         "fr": "commissionnement-mecanique-des-employes-stadler-rail-altenrhein"
       },
       "company": "Stadler Rail",
@@ -13212,11 +13280,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-mechanische-inbetriebsetzung-stadler-rail-ch"
+          "mitarbeiter-in-mechanische-inbetriebsetzung-stadler-rail-ch",
+          "commissionamento-meccanico-per-i-dipendenti-stadler-rail-altenrhein"
+        ],
+        "en": [
+          "employee-mechanical-commissioning-stadler-rail-altenrhein"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-mechanische-inbetriebsetzung-stadler-rail-ch"
+        "mitarbeiter-in-mechanische-inbetriebsetzung-stadler-rail-ch",
+        "commissionamento-meccanico-per-i-dipendenti-stadler-rail-altenrhein",
+        "employee-mechanical-commissioning-stadler-rail-altenrhein"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -13818,10 +13892,10 @@
     },
     {
       "id": "stadler-rail-f219ab88db58",
-      "slug": "project-managergestione-del-ciclo-di-vita-stadler-rail-frauenfeld",
+      "slug": "responsabile-di-progetto-lifecycle-management-stadler-rail-frauenfeld",
       "slugByLocale": {
         "de": "projektleiter-in-lifecycle-management-stadler-rail-ch",
-        "it": "project-managergestione-del-ciclo-di-vita-stadler-rail-frauenfeld",
+        "it": "responsabile-di-progetto-lifecycle-management-stadler-rail-frauenfeld",
         "en": "project-manager-lifecycle-management-stadler-rail-frauenfeld",
         "fr": "chef-de-projet-gestion-du-cycle-de-vie-stadler-rail-frauenfeld"
       },
@@ -13868,11 +13942,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-lifecycle-management-stadler-rail-ch"
+          "projektleiter-in-lifecycle-management-stadler-rail-ch",
+          "project-managergestione-del-ciclo-di-vita-stadler-rail-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-lifecycle-management-stadler-rail-ch"
+        "projektleiter-in-lifecycle-management-stadler-rail-ch",
+        "project-managergestione-del-ciclo-di-vita-stadler-rail-frauenfeld"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
