@@ -145,18 +145,21 @@ export function parseListingPage(html = '') {
   const entries = [];
 
   // Match job links: jobs.bls.ch/offene-stellen/{slug}/{uuid}
-  // Accept BOTH absolute (`https://jobs.bls.ch/offene-stellen/…`) and root-relative
-  // (`/offene-stellen/…`) hrefs — this is the same Swiss Medical Network board template
-  // as the spital-zofingen/pbl parsers, which can switch between the two on a template
-  // update; absolute-only pinning would silently drop all jobs. The trailing detail
-  // segment is a 36-char UUID today but is relaxed to any single slug-like segment so a
-  // non-UUID detail path still resolves; the two-segment `/offene-stellen/{slug}/{segment}`
-  // shape keeps it from matching the listing index. Relative hits are normalized below.
-  const linkPattern = /href="((?:https?:\/\/jobs\.bls\.ch)?\/offene-stellen\/([^/"]+)\/([^/"]+))"/gi;
+  // Host stays ABSOLUTE-pinned (NOT relative-tolerant like spital-zofingen/pbl):
+  // the bls listing is fetched CROSS-DOMAIN from `www.bls.ch` (LISTING_URL), while
+  // the detail pages live on `jobs.bls.ch`. A root-relative `/offene-stellen/…` href
+  // on `www.bls.ch` would resolve to the corporate host, NOT `jobs.bls.ch`, so
+  // normalizing it to JOBS_BASE would mint a wrong URL — the same cross-domain
+  // carve-out applied to the soH parser. spital-zofingen/pbl are same-host (their
+  // jobs.* subdomain hosts its own listing), so relative tolerance is correct there
+  // but not here. The detail segment is a 36-char UUID today but is relaxed to any
+  // single slug-like token so a non-UUID detail path still resolves; the two-segment
+  // `/offene-stellen/{slug}/{segment}` shape keeps it from matching the listing index.
+  const linkPattern = /href="(https?:\/\/jobs\.bls\.ch\/offene-stellen\/([^/"]+)\/([^/"]+))"/gi;
   let match;
 
   while ((match = linkPattern.exec(html)) !== null) {
-    const fullUrl = match[1].startsWith('http') ? match[1] : `${JOBS_BASE}${match[1]}`;
+    const fullUrl = match[1];
     const slug = decodeURIComponent(match[2]);
     const uuid = match[3];
 

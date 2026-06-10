@@ -7,17 +7,22 @@
  * immediately after it. A markup variant emitting root-relative hrefs or a
  * non-UUID (slug-like) detail segment → 0 matches → all jobs silently dropped.
  *
- * These two boards share the exact same SMN template, so both were hardened to:
- *   - accept absolute AND root-relative hrefs (relative normalized to absolute)
- *   - relax the strict trailing UUID to any single slug-like segment
+ * These boards share the exact same SMN template, so all were hardened to relax
+ * the strict trailing UUID to any single slug-like segment. Host handling splits
+ * by topology:
+ *   - same-host boards (spital-zofingen, pbl: the jobs.* subdomain serves its own
+ *     listing) also accept root-relative hrefs, normalized to absolute.
+ *   - cross-domain boards (bls: listing on www.bls.ch → details on jobs.bls.ch;
+ *     soH: listing on www.solothurnerspitaeler.ch → details on jobs.so-h.ch) stay
+ *     ABSOLUTE-pinned, because a root-relative href would resolve to the corporate
+ *     host, not the jobs subdomain.
  *
  * Covered:
- *   - scripts/lib/spital-zofingen-job-parser.mjs (34 jobs)
- *   - scripts/lib/pbl-job-parser.mjs (PBL board)
- *   - scripts/lib/bls-job-parser.mjs (jobs.bls.ch — same SMN template)
- *   - scripts/lib/soh-solothurner-spitaeler-job-parser.mjs (jobs.so-h.ch — same
- *     SMN template; detail-segment relaxed only, host kept absolute because the
- *     listing is scraped cross-domain from www.solothurnerspitaeler.ch)
+ *   - scripts/lib/spital-zofingen-job-parser.mjs (34 jobs — same-host)
+ *   - scripts/lib/pbl-job-parser.mjs (PBL board — same-host)
+ *   - scripts/lib/bls-job-parser.mjs (jobs.bls.ch — cross-domain, absolute-pinned)
+ *   - scripts/lib/soh-solothurner-spitaeler-job-parser.mjs (jobs.so-h.ch —
+ *     cross-domain, absolute-pinned, detail-segment relaxed only)
  */
 import { describe, it, expect } from 'vitest';
 import { parseSpitalZofingenListing } from '../../scripts/lib/spital-zofingen-job-parser.mjs';
@@ -94,12 +99,15 @@ describe('BLS listing — href hardening', () => {
     expect(out[0].slug).toBe('lokfuehrer');
   });
 
-  it('parses root-relative hrefs and normalizes them to absolute', () => {
+  it('does NOT match root-relative hrefs (cross-domain: listing on www.bls.ch, details on jobs.bls.ch)', () => {
+    // Unlike spital-zofingen/pbl (same-host), the bls listing is fetched from
+    // www.bls.ch while details live on jobs.bls.ch. A root-relative href on the
+    // corporate page would resolve to the wrong host, so the parser stays
+    // absolute-pinned — the same cross-domain carve-out as soH.
     const out = parseBlsListing(
       '<a href="/offene-stellen/lokfuehrer/0123abcd-4567-89ef-0123-456789abcdef">Lokführer</a>'
     );
-    expect(out).toHaveLength(1);
-    expect(out[0].url).toBe('https://jobs.bls.ch/offene-stellen/lokfuehrer/0123abcd-4567-89ef-0123-456789abcdef');
+    expect(out).toHaveLength(0);
   });
 
   it('parses a non-UUID (slug-like) detail segment', () => {
