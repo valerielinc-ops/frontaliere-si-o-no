@@ -1,18 +1,53 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-06-10T13:12:08.215Z",
-  "total": 35,
+  "generatedAt": "2026-06-10T23:42:25.653Z",
+  "total": 36,
   "newCount": 1,
-  "updatedCount": 5,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 29,
-  "durationMs": 89117,
-  "avgDurationMs": 89117,
+  "durationMs": 65432,
+  "avgDurationMs": 65432,
   "durationHistory": [
-    89117
+    65432
   ],
   "newJobs": [
+    {
+      "id": "company-leyl0q",
+      "slug": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.admin.ch/offene-stellen/flugsicherungstechniker-in-support-flugsicherungssysteme-sufs/535d3aaf-7aed-4325-a325-c5e588921e77",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Emmen",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-10T23:42:23.994Z",
+      "firstSeenAt": "2026-06-10T23:42:23.994Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-jhv13s",
       "slug": "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-jhv13s",
@@ -33,16 +68,20 @@
       "firstSeenAt": "2026-06-10T13:12:05.728Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 81,
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 18,
-        "completeness": 14
+        "translation": 16,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-ca0gyo",
       "slug": "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern",
