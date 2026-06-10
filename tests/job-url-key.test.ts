@@ -43,6 +43,61 @@ describe('mergeUrlKey (crawl-time merge key — was extractStableJobId)', () => 
   });
 });
 
+describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', () => {
+  // Regression guard for the bug where the legacy leftmost-token scan latched
+  // onto a token shared across a whole crawler (board/company/upload-folder id
+  // or a `%20`+year artifact) and collapsed every sibling posting onto ONE merge
+  // key — `mergePreserveLocaleData` then merged them onto a single id, leaving
+  // N-1 of N postings rendering the SPA "annuncio non più disponibile" orphan
+  // view. Each pair below MUST key distinctly so siblings stay separate.
+
+  it('cseb: keys on the per-job (leaf) UUID, not the shared board UUID', () => {
+    const a = 'https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/534b2d31-8165-2902-d3c2-b3657eb7c07c';
+    const b = 'https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844';
+    expect(mergeUrlKey(a)).toBe('uuid:534b2d31-8165-2902-d3c2-b3657eb7c07c');
+    expect(mergeUrlKey(b)).toBe('uuid:439cb41c-0371-94c9-6c59-909203c12844');
+    expect(mergeUrlKey(a)).not.toBe(mergeUrlKey(b));
+  });
+
+  it('refline: generic index.html leaf → full URL (companyId is shared)', () => {
+    const a = 'https://apply.refline.ch/514915/2643/pub/1/index.html';
+    const b = 'https://apply.refline.ch/514915/2438/pub/1/index.html';
+    expect(mergeUrlKey(a)).toBe('url:https://apply.refline.ch/514915/2643/pub/1/index.html');
+    expect(mergeUrlKey(a)).not.toBe(mergeUrlKey(b));
+  });
+
+  it('lwphr: document (.pdf) leaf → full URL (upload-folder id is shared)', () => {
+    const a = 'https://www.lwphr.ch/uploads/1/4/6/5/146598773/segretaria_legale_.pdf';
+    const b = 'https://www.lwphr.ch/uploads/1/4/6/5/146598773/esperta_fiscale.pdf';
+    expect(mergeUrlKey(a)).toBe('url:https://www.lwphr.ch/uploads/1/4/6/5/146598773/segretaria_legale_.pdf');
+    expect(mergeUrlKey(a)).not.toBe(mergeUrlKey(b));
+  });
+
+  it('flury: %20-encoded year is NOT a job id (.pdf leaf → full URL)', () => {
+    const a = 'https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Gesundheit%20EFZ%202027.pdf';
+    const b = 'https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Betreuung%202027.pdf';
+    expect(mergeUrlKey(a)).not.toBe('num:202027');
+    expect(mergeUrlKey(a)).not.toBe(mergeUrlKey(b));
+  });
+
+  it('grace/hotelcareer: keys on the trailing leaf jobId, not the companyId', () => {
+    const a = 'https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-outlet-manager-3957038';
+    const b = 'https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-waiter-3639754';
+    expect(mergeUrlKey(a)).toBe('num:3957038');
+    expect(mergeUrlKey(b)).toBe('num:3639754');
+  });
+
+  it('Rule C preserved — id in query/fragment, leaf carries no token', () => {
+    // pi-asp.de: distinct UUID lives in the fragment; leaf `bewerber-web` has no
+    // token, so the legacy leftmost scan still wins (must NOT regress).
+    expect(mergeUrlKey('https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID#position,id=1f4b718d-4377-49f4-b52e-de560a2e1b30'))
+      .toBe('uuid:1f4b718d-4377-49f4-b52e-de560a2e1b30');
+    // Workday-style ?JobID=NNN in the query, generic leaf.
+    expect(mergeUrlKey('https://careers.zegnagroup.com/jobs/job-details?JobID=267802502&Team=231361275'))
+      .toBe('num:267802502');
+  });
+});
+
 describe('extractStableJobId output is pinned (real regression guard)', () => {
   // Pinned expected VALUES, not a comparison to mergeUrlKey — extractStableJobId
   // now delegates to mergeUrlKey, so `extractStableJobId(u) === mergeUrlKey(u)`
