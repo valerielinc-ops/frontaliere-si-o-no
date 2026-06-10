@@ -61,10 +61,19 @@ export function isTrustedDomain(rawUrl = '') {
 export function parseSpitalZofingenListing(html) {
   const seen = new Set();
   const out = [];
-  const rx = /href="(https?:\/\/jobs\.spitalzofingen\.ch\/offene-stellen\/[^"]+\/[0-9a-f-]{36})"/gi;
+  // Accept BOTH absolute (`https://jobs.spitalzofingen.ch/offene-stellen/…`) and
+  // root-relative (`/offene-stellen/…`) hrefs: the Swiss Medical Network board
+  // can switch between the two across template updates, and pinning to
+  // absolute-only would silently drop all jobs on such a switch. The trailing
+  // detail segment is a 36-char UUID today, but we accept any single non-empty
+  // slug-like segment so a non-UUID detail path still resolves — the
+  // `/offene-stellen/{slug}/{segment}` two-segment shape keeps it from matching
+  // the listing index itself. Relative hits are normalized to absolute below.
+  const rx = /href="((?:https?:\/\/jobs\.spitalzofingen\.ch)?\/offene-stellen\/[^"/]+\/[^"/]+\/?)"/gi;
   let m;
   while ((m = rx.exec(html))) {
-    const url = m[1];
+    const raw = m[1];
+    const url = raw.startsWith('http') ? raw : `https://${BOARD_HOST}${raw}`;
     if (seen.has(url)) continue;
     seen.add(url);
     out.push(url);

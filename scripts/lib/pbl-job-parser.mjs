@@ -93,10 +93,16 @@ export function parseJobListHtml(html = '') {
   // Match each `<a class="job-title" href=".../offene-stellen/{slug}/{uuid}"` anchor.
   // The listing markup is bare HTML; we don't need the surrounding `<div>` because
   // every job row contains exactly one such anchor.
-  const rx = /<a\s+class="job-title"\s+href="(https:\/\/jobs\.pbl\.ch\/offene-stellen\/([a-z0-9-]+)\/([a-f0-9-]{36}))"[\s\S]*?title="([^"]*)"[\s\S]*?>([\s\S]*?)<\/a>/g;
+  // Accept BOTH absolute (`https://jobs.pbl.ch/offene-stellen/…`) and root-relative
+  // (`/offene-stellen/…`) hrefs — the Swiss Medical Network board can switch between
+  // the two on a template update, and absolute-only pinning would silently drop all
+  // jobs. The trailing detail segment is a UUID today but is relaxed to any slug-like
+  // segment so a non-UUID detail path still resolves. Relative hits are normalized
+  // to absolute below.
+  const rx = /<a\s+class="job-title"\s+href="((?:https?:\/\/jobs\.pbl\.ch)?\/offene-stellen\/([a-z0-9-]+)\/([a-z0-9-]+))"[\s\S]*?title="([^"]*)"[\s\S]*?>([\s\S]*?)<\/a>/g;
   let m;
   while ((m = rx.exec(html))) {
-    const detailUrl = m[1];
+    const detailUrl = m[1].startsWith('http') ? m[1] : `https://jobs.pbl.ch${m[1]}`;
     const slug = m[2];
     const uuid = m[3];
     const titleAttr = decodeEntities(m[4]).replace(/\s*%\s*$/, '').trim();
