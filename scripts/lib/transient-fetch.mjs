@@ -138,3 +138,88 @@ export async function fetchWithRetry(attemptFn, opts = {}) {
   }
   throw lastErr;
 }
+
+/**
+ * Resilient `fetch` wrapper for one-shot data-refresh downloads (BAG/SECO/ISTAT/
+ * FSO/PostHog/exchange-history…). A SINGLE transient network blip (DNS hiccup,
+ * `UND_ERR_CONNECT_TIMEOUT`, `fetch failed`, socket reset) or a retryable HTTP
+ * status (429/408/425/5xx) used to crash the whole scheduled run and auto-file a
+ * priority:high "Workflow Failure" issue. This wraps the native `fetch` in the
+ * shared exponential-backoff-with-jitter loop so transient failures self-heal,
+ * while persistent errors (4xx other than 408/425/429, parse errors, a source
+ * that is genuinely unreachable after all retries) still fail loudly.
+ *
+ * Behaviour preserved vs a raw `fetch(url, options)`:
+ *   - returns the same `Response` object (caller still does `.text()`/`.json()`/
+ *     `.arrayBuffer()`, inspects `.ok`/`.status`/`.headers` as before);
+ *   - does NOT throw on a non-retryable non-ok status — the caller keeps its own
+ *     `if (!res.ok) …` handling (e.g. graceful-degradation paths);
+ *   - bounds the CONNECTION/HEADER phase with a per-attempt timeout (a stalled
+ *     DNS/TLS/handshake aborts instead of blocking the run forever, and the
+ *     abort is treated as transient) — but clears the timer the instant the
+ *     response headers arrive, so the body read the caller runs afterwards
+ *     (`.text()`/`.arrayBuffer()` on a multi-MB ZIP/XLSX) is NOT aborted
+ *     mid-stream. Keeping an `AbortSignal.timeout` armed through the body read
+ *     would abort a slow-but-healthy large download and throw an `AbortError`
+ *     at the caller's `.arrayBuffer()` (outside its try/catch) → the very
+ *     "Workflow Failure" crash this helper exists to prevent.
+ *
+ * Retryable HTTP statuses are surfaced as a thrown tagged error so the backoff
+ * loop sees them; after the final attempt the real `Response` is returned so the
+ * caller's own status handling runs unchanged.
+ *
+ * Env overrides (shared with fetchWithRetry):
+ *   JOBS_CRAWLER_RETRIES, JOBS_CRAWLER_RETRY_BASE_MS
+ *
+ * @param {string|URL} url
+ * @param {RequestInit} [options]  native fetch options (headers, method, body…)
+ * @param {Object} [opts] — { retries, retryBaseMs, timeout, label }
+ *   timeout: per-attempt abort timeout in ms (default 30000)
+ * @returns {Promise<Response>}
+ */
+export async function httpFetchWithRetry(url, options = {}, opts = {}) {
+  const timeout = Number.isFinite(opts.timeout) ? opts.timeout : 30000;
+  const label = opts.label || String(url);
+  return fetchWithRetry(
+    async () => {
+      // Bound ONLY the connection/header phase, never the body read. We use a
+      // manual AbortController + a timer we clear the instant `fetch` resolves
+      // (response headers received) so a slow-but-healthy body stream — the
+      // multi-MB BAG archive ZIP / regions XLSX read later via
+      // `.arrayBuffer()`/`.text()` at the call site — is never aborted
+      // mid-stream. `AbortSignal.timeout(timeout)` would stay armed through the
+      // body read and crash the run on a legit large download. A caller-supplied
+      // signal still takes precedence (left as-is, no extra timer).
+      let res;
+      if (options.signal || !(timeout > 0)) {
+        res = await fetch(url, options);
+      } else {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeout);
+        try {
+          res = await fetch(url, { ...options, signal: controller.signal });
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+      // Retryable HTTP status → throw a tagged transient error so the backoff
+      // loop retries it. On the FINAL attempt fetchWithRetry re-throws this, so
+      // we attach the Response to let the caller still inspect it if it catches.
+      if (RETRYABLE_STATUS.has(res.status)) {
+        const err = new Error(`HTTP ${res.status} ${res.statusText} for ${label}`);
+        err.status = res.status;
+        err.retryable = true;
+        err.response = res;
+        throw err;
+      }
+      return res;
+    },
+    { ...opts, label },
+  ).catch((err) => {
+    // If the last failure was a retryable HTTP status, hand the real Response
+    // back so the caller's own `if (!res.ok)` logic runs unchanged instead of
+    // forcing every call site to special-case our thrown error.
+    if (err && err.retryable === true && err.response) return err.response;
+    throw err;
+  });
+}

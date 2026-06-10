@@ -28,6 +28,8 @@
  * Flags mirror env: --dry-run, --keep N, --max-delete N.
  */
 
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+
 const API_BASE = 'https://api.mailjet.com';
 const PAGE_SIZE = 1000; // Mailjet max Limit per page
 
@@ -73,7 +75,7 @@ async function fetchAllContacts(auth) {
   // be more"; a short page is the last one.
   for (;;) {
     const url = `${API_BASE}/v3/REST/contact?Limit=${PAGE_SIZE}&Offset=${offset}`;
-    const res = await fetchWithRetry(url, { headers: { Authorization: auth } });
+    const res = await httpFetchWithRetry(url, { headers: { Authorization: auth } }, { label: 'mailjet list contacts' });
     if (!res.ok) {
       const body = await res.text().catch(() => '');
       throw new Error(`List contacts failed ${res.status}: ${body.slice(0, 200)}`);
@@ -100,23 +102,11 @@ async function fetchAllContacts(auth) {
   return all;
 }
 
-/** fetch with exponential backoff on 429 / 5xx. */
-async function fetchWithRetry(url, opts, attempt = 0) {
-  const res = await fetch(url, opts);
-  if ((res.status === 429 || res.status >= 500) && attempt < 5) {
-    const wait = Math.min(30000, 1000 * 2 ** attempt);
-    console.warn(`   ⏳ ${res.status} on ${opts.method || 'GET'} — backoff ${wait}ms (retry ${attempt + 1}/5)`);
-    await sleep(wait);
-    return fetchWithRetry(url, opts, attempt + 1);
-  }
-  return res;
-}
-
 async function deleteContact(auth, id) {
-  const res = await fetchWithRetry(`${API_BASE}/v4/contacts/${id}`, {
+  const res = await httpFetchWithRetry(`${API_BASE}/v4/contacts/${id}`, {
     method: 'DELETE',
     headers: { Authorization: auth },
-  });
+  }, { label: `mailjet delete ${id}` });
   return res;
 }
 
