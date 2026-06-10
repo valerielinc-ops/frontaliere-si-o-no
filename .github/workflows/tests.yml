@@ -79,6 +79,17 @@ jobs:
         # the deploy. Catch the regression here instead of reactively (#779).
         run: npm run lint:gha-node-runtime
 
+      - name: Lint hardcoded locale segments
+        # Deterministic guard (escalation #1529, reviewer-finding/i18n-naming):
+        # fails if a language segment (/de/, /fr/, /it/, /en/) is hardcoded as a
+        # string LITERAL inside a dynamically-built URL/path in scripts/**,
+        # build-plugins/** or components/** — instead of using the locale var
+        # (`${locale}` / `perLocaleSlug[locale]`). The reviewer flagged this 🔴
+        # 11×/14d because the path breaks on every locale != the hardcoded one.
+        # Catch it BEFORE the PR reaches review (zero-Claude). New legit cases:
+        # annotate with `// locale-segment-ok: <reason>` or rebaseline post-review.
+        run: npm run lint:hardcoded-locale-segments
+
       - name: Assemble data/jobs.json
         # Several tests read data/jobs.json (job-locale-completeness,
         # job-cross-locale-guard, sitemap-slug-integrity, search-console-compat,
