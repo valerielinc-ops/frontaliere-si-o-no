@@ -116,6 +116,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carenza-manodopera-gr-2024.title': 'Pénurie de main-d\'œuvre dans le Grisons : impact sur les entreprises',
     'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % des entreprises grisonnes signalent de graves difficultés à trouver du personnel qualifié, tandis que 75 % évaluent leur situation économique bonne ou très bonne.',
     'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Vue alpine des Grisons avec villages traditionnels et zones industrielles',
+    'blog.article.premi-di-cassa-malati-ticino.title': 'Parlement sépare les primes de maladie',
+    'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Le Parlement tessinois a décidé de diviser l\'application des deux mesures promues par Lega et PS et votées par le peuple il y a quelques mois.',
+    'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'une scène de travail à l\'hôpital en Suisse',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Séjour à l\'étranger: comment éviter une lacune dans l\'AVS',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Découvrez comment planifier correctement votre séjour à l\'étranger pour éviter les lacunes dans l\'AVS et garantir la continuité de votre pension. 📊💡⚠️',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Paysage alpin suisse avec lac et ville, scène DSLR réaliste.',
+    'blog.article.avs-finanziamento-13esima.title': 'La 13e AVS en conférence de conciliation',
+    'blog.article.avs-finanziamento-13esima.excerpt': 'Pas d\'accord entre le Conseil national et les États sur le financement de la 13e AVS',
+    'blog.article.avs-finanziamento-13esima.imageAlt': 'Bâtiment du Parlement suisse à Berne avec logo AVS',
 };
 
 export default blogMetaChFr;

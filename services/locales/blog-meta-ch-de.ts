@@ -116,6 +116,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carenza-manodopera-gr-2024.title': 'Fachkräftemangel in Graubünden: Auswirkungen auf Unternehmen',
     'blog.article.carenza-manodopera-gr-2024.excerpt': '44 % der Unternehmen in Graubünden melden schwere Schwierigkeiten, qualifiziertes Personal zu finden, während 75 % ihre wirtschaftliche Lage als gut oder sehr gut einschätzen.',
     'blog.article.carenza-manodopera-gr-2024.imageAlt': 'Alpenblick auf Graubünden mit traditionellen Dörfern und Industriegebieten',
+    'blog.article.premi-di-cassa-malati-ticino.title': 'Parlament teilt Krankengeldprämien',
+    'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Das Tessiner Parlament hat beschlossen, die Anwendung der beiden von Lega und PS vorgeschlagenen und im letzten September vom Volk abgestimmten Massnahmen zu teilen.',
+    'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'ein Schweizer Krankenhaus-Szene',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Auslandsaufenthalt: So vermeiden Sie Lücken in der AHV',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Erfahren Sie, wie Sie Ihren Auslandsaufenthalt richtig planen, um Lücken in der AHV zu vermeiden und die Kontinuität Ihrer Rente sicherzustellen.',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Schweizer Alpenlandschaft mit See und Stadt, realistische DSLR Szene.',
+    'blog.article.avs-finanziamento-13esima.title': 'Die 13. AHV kommt in die Schlichtungskonferenz',
+    'blog.article.avs-finanziamento-13esima.excerpt': 'Keine Einigung zwischen Nationalrat und Ständerat über die Finanzierung der 13. AHV',
+    'blog.article.avs-finanziamento-13esima.imageAlt': 'Gebäude des Schweizer Parlaments in Bern mit AHV-Logo',
 };
 
 export default blogMetaChDe;
