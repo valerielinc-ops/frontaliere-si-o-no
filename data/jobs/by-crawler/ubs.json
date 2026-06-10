@@ -452,12 +452,12 @@
     },
     {
       "id": "ubs-693833ce1769",
-      "slug": "director-tech-cyber-security-specialist-ubs",
+      "slug": "direttore-tech-cyber-security-specialista-ubs-ticino",
       "slugByLocale": {
         "en": "director-tech-cyber-security-specialist-ubs",
-        "it": "director-tech-cyber-security-specialist-ubs",
-        "de": "director-tech-cyber-security-specialist-ubs",
-        "fr": "director-tech-cyber-security-specialist-ubs"
+        "it": "direttore-tech-cyber-security-specialista-ubs-ticino",
+        "de": "direktor-tech-cyber-security-spezialist-ubs-ticino",
+        "fr": "directeur-tech-cyber-security-specialiste-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -520,7 +520,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T13:06:31.970Z"
+      "firstSeenAt": "2026-06-10T13:06:31.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-tech-cyber-security-specialist-ubs"
+        ],
+        "de": [
+          "director-tech-cyber-security-specialist-ubs"
+        ],
+        "fr": [
+          "director-tech-cyber-security-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "director-tech-cyber-security-specialist-ubs"
+      ]
     },
     {
       "id": "ubs-d0499f6d9b49",
