@@ -24,6 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -222,7 +223,7 @@ async function fetchJobListings() {
     console.log(`  📄 Fetching Interdiscount Wallis jobs (offset=${offset})...`);
 
     const data = await callApi(apiUrl);
-    const items = data?.jobs || [];
+    const items = assertJsonListShape(data, { key: 'jobs', source: INTERDISCOUNT_KEY });
     const total = data?.total ?? '?';
 
     console.log(`  📦 Got ${items.length} jobs (API total: ${total})`);

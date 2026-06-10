@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -145,7 +146,11 @@ async function tryServiceNowApi() {
       if (res.ok) {
         const data = await res.json();
         // ServiceNow returns { result: [...] } for table API
-        const items = data?.result || data?.jobs || data?.data || (Array.isArray(data) ? data : []);
+        const items = assertJsonListShapeMultiKey(data, {
+          keys: ['result', 'jobs', 'data'],
+          allowBareArray: true,
+          source: CANTON_VALAIS_KEY,
+        });
         if (items.length > 0) {
           console.log(`   ServiceNow API returned ${items.length} items`);
           return items;

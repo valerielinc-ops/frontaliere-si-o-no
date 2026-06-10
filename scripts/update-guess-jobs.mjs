@@ -51,6 +51,7 @@ import {
 } from './lib/guess-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -194,7 +195,7 @@ async function fetchGuessListings() {
   console.log(`  📡 ${WORKABLE_WIDGET_URL}`);
   const jsonp = await fetchText(WORKABLE_WIDGET_URL, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
   const payload = parseGuessWidgetJsonp(jsonp);
-  const jobs = Array.isArray(payload?.jobs) ? payload.jobs : [];
+  const jobs = assertJsonListShape(payload, { key: 'jobs', source: 'guess' });
   const ticino = jobs.filter(isGuessTicinoWidgetJob);
   console.log(`  📦 Total widget jobs: ${jobs.length}`);
   console.log(`  🎯 Ticino jobs found: ${ticino.length}`);

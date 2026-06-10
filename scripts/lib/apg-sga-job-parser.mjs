@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, findSwissCityInText } from './target-swiss-locations.mjs';
@@ -131,7 +132,11 @@ async function tryOstendisApi() {
     // Ostendis may return HTML or JSON depending on the endpoint
     if (html.trim().startsWith('[') || html.trim().startsWith('{')) {
       const data = JSON.parse(html);
-      const items = Array.isArray(data) ? data : data?.jobs || data?.results || [];
+      const items = assertJsonListShapeMultiKey(data, {
+        keys: ['jobs', 'results'],
+        allowBareArray: true,
+        source: APG_SGA_KEY,
+      });
       if (items.length > 0) {
         console.log(`   Ostendis API returned ${items.length} jobs`);
         return items;

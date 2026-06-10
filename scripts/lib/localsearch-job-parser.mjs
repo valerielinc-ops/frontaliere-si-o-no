@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -141,13 +142,21 @@ async function fetchPage(url) {
  */
 function parseJobylonEmbed(html) {
   const match = html.match(/JBL\.embed_v2\['jobs'\]\s*=\s*(\[[\s\S]*?\]);/);
-  if (!match) return [];
+  if (!match) {
+    console.warn(
+      '⚠️ localsearch: embedded `JBL.embed_v2[\'jobs\']` array not found in the Jobylon embed page — ' +
+        'the embed markup may have changed (a genuinely-empty board would still embed `jobs = []`).',
+    );
+    return [];
+  }
 
   try {
     // Jobylon uses JS object notation (unquoted keys), so we use Function() to parse
     // eslint-disable-next-line no-new-func
     const jobs = new Function(`return ${match[1]}`)();
-    return Array.isArray(jobs) ? jobs : [];
+    // Decoded embedded array: warn (non-throw) if the decode yielded a non-array
+    // instead of silently dropping to [] (same class as the fetched-envelope drift).
+    return assertJsonListShapeMultiKey(jobs, { keys: [], allowBareArray: true, source: 'localsearch' });
   } catch {
     return [];
   }

@@ -16,6 +16,7 @@
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -59,7 +60,7 @@ function slugify(value = '') {
  * @returns {{ items: Array, total: number }}
  */
 export function parseAgroscopeApiResponse(data = {}) {
-  const rawJobs = data.jobs || [];
+  const rawJobs = assertJsonListShape(data, { key: 'jobs', source: 'agroscope' });
   const items = rawJobs.map((j) => {
     const attrs = j.attributes || {};
     const szas = j.szas || {};

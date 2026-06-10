@@ -34,6 +34,7 @@ import {
   normalizeSpace,
   fetchJson,
 } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -277,7 +278,7 @@ export async function fetchAllGholJobs() {
     console.warn(`⚠️ Beehire API unreachable: ${err?.message || err}`);
     return [];
   }
-  const campaigns = Array.isArray(payload?.campaigns) ? payload.campaigns : [];
+  const campaigns = assertJsonListShape(payload, { key: 'campaigns', source: 'ghol' });
   console.log(`   Beehire returned ${campaigns.length} campaign(s)\n`);
 
   const jobs = [];

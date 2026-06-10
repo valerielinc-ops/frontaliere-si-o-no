@@ -23,6 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
@@ -256,7 +257,7 @@ export function createProspectiveChParser(config) {
         console.warn(`  ⚠️  Prospective fetch failed at offset=${offset}: ${err && err.message || err}. Returning ${all.length} jobs collected so far.`);
         break;
       }
-      const items = Array.isArray(data?.jobs) ? data.jobs : [];
+      const items = assertJsonListShape(data, { key: 'jobs', source: companyName, lang: apiLang });
       if (Number.isFinite(Number(data?.total))) total = Number(data.total);
       if (items.length === 0) break;
       all.push(...items);

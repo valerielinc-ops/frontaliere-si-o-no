@@ -43,6 +43,7 @@ import {
   normalizeSpace,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -65,7 +66,7 @@ export async function fetchBeehireCampaigns(slug) {
         throw err;
       }
       const data = await res.json();
-      return Array.isArray(data?.campaigns) ? data.campaigns : [];
+      return assertJsonListShape(data, { key: 'campaigns', source: 'beehire' });
     } finally {
       clearTimeout(timer);
     }

@@ -35,6 +35,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
@@ -174,7 +175,7 @@ async function fetchVtgJobUrls() {
       }
 
       const data = await res.json();
-      const jobs = data?.jobs || [];
+      const jobs = assertJsonListShape(data, { key: 'jobs', source: 'vtg', lang: regionKey });
       console.log(`  📦 ${regionKey}: ${jobs.length} VTG jobs in this region`);
 
       let addedCount = 0;

@@ -43,6 +43,7 @@
  *   - GZO_WETZIKON_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { fetchHtml, htmlToText } from './hospital-custom-html-helpers.mjs';
 
@@ -244,7 +245,7 @@ async function fetchAllPastaHrJobs() {
   for (let page = 1; page <= MAX_PAGES; page++) {
     console.log(`  📄 Fetching page=${page} (limit=${PAGE_SIZE})...`);
     const data = await fetchPastaHrPage(page);
-    const items = Array.isArray(data?.data) ? data.data : [];
+    const items = assertJsonListShape(data, { key: 'data', source: 'gzo-wetzikon' });
     if (items.length === 0) break;
     all.push(...items);
     if (items.length < PAGE_SIZE) break;

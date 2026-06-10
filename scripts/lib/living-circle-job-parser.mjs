@@ -1,3 +1,5 @@
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
+
 function stripHtml(html = '') {
   return String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
@@ -97,7 +99,7 @@ function slugify(value = '') {
 }
 
 export function parseLivingCircleFeed(feed) {
-  const rawItems = Array.isArray(feed?.dataFeedElement) ? feed.dataFeedElement : [];
+  const rawItems = assertJsonListShape(feed, { key: 'dataFeedElement', source: 'living-circle' });
   return rawItems
     .map((entry) => entry?.item)
     .filter(Boolean)

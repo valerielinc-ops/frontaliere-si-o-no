@@ -35,6 +35,7 @@ import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -391,7 +392,7 @@ export function createJobupChFeedParser(config) {
     console.log();
 
     const payload = await fetchFeed(FEED_URL);
-    const items = Array.isArray(payload?.jobs) ? payload.jobs : [];
+    const items = assertJsonListShape(payload, { key: 'jobs', source: `jobup:${companyName}` });
     const totalReported = parseInt(String(payload?.jobcount || items.length), 10) || items.length;
     console.log(`  ✓ ${items.length} jobs (jobcount=${totalReported})`);
     if (items.length > 0) console.log(`  📄 Fetching jobup.ch detail pages for rich descriptions...`);

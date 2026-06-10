@@ -23,6 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -146,7 +147,7 @@ async function fetchJobListings() {
   while (offset < total) {
     console.log(`  📄 Fetching offset=${offset} (limit=${PAGE_SIZE})...`);
     const data = await fetchProspectivePage(offset);
-    const items = Array.isArray(data?.jobs) ? data.jobs : [];
+    const items = assertJsonListShape(data, { key: 'jobs', source: 'spital-uster' });
     if (Number.isFinite(Number(data?.total))) total = Number(data.total);
     if (items.length === 0) break;
     all.push(...items);

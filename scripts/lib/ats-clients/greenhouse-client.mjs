@@ -48,6 +48,7 @@
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
+import { assertJsonListShapeMultiKey } from '../assert-json-list-shape.mjs';
 
 /* ── Error class ─────────────────────────────────────────────── */
 
@@ -249,11 +250,14 @@ export async function fetchGreenhouseJobs(boardToken, options = {}) {
     },
   );
 
-  const rawJobs = Array.isArray(payload?.jobs)
-    ? payload.jobs
-    : Array.isArray(payload)
-      ? payload
-      : [];
+  // Greenhouse exposes the list under `jobs`, or as a bare top-level array on
+  // some board variants; a total drift (renamed key, error body) now warns
+  // loudly instead of silently collapsing to [] (#1666 silent-`[]` class).
+  const rawJobs = assertJsonListShapeMultiKey(payload, {
+    keys: ['jobs'],
+    allowBareArray: true,
+    source: 'greenhouse',
+  });
 
   const filtered = rawJobs.filter((j) => j && j.id && j.title && passesLocationFilter(j, locationContains));
 

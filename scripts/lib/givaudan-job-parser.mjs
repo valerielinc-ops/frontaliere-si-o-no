@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -188,7 +189,7 @@ async function fetchJobListings() {
     });
 
     const refine = payload?.refineSearch;
-    const rawJobs = Array.isArray(refine?.data?.jobs) ? refine.data.jobs : [];
+    const rawJobs = assertJsonListShape(refine?.data, { key: 'jobs', source: 'givaudan' });
     if (Number.isFinite(Number(refine?.totalHits))) totalHits = Number(refine.totalHits);
 
     if (rawJobs.length === 0) break;

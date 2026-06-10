@@ -23,6 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -299,7 +300,7 @@ async function fetchJobListings(apiKey) {
     const results = data?.results?.[0];
     if (!results) throw new Error('No results in Typesense response');
 
-    const hits = results.hits || [];
+    const hits = assertJsonListShape(results, { key: 'hits', source: HOCHGEBIRGSKLINIK_DAVOS_KEY });
     console.log(`  📊 Typesense found: ${results.found} jobs, returned: ${hits.length}`);
     return hits.map((h) => h.document);
   } catch (err) {

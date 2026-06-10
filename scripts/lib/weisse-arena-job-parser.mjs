@@ -27,6 +27,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -204,7 +205,7 @@ async function fetchJobListings() {
     const url = `${API_BASE}?firstResult=${offset}&maxResults=${PAGE_SIZE}&sortBy=DPOSTINGSTART&sortOrder=desc`;
     const data = await callTalentLinkApi(url, { searchCriteria: {} });
 
-    const jobs = data?.jobs || [];
+    const jobs = assertJsonListShape(data, { key: 'jobs', source: WEISSE_ARENA_KEY });
     if (jobs.length === 0) break;
 
     allJobs.push(...jobs);

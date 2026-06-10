@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   SPITAL_THURGAU_KEY,
   SPITAL_THURGAU_COMPANY_NAME,
   isSpitalThurgauJob,
   isTrustedDomain,
+  parseStgagEmbeddedJson,
 } from '../scripts/lib/spital-thurgau-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +125,59 @@ describe('Spital Thurgau (STGAG) crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── parseStgagEmbeddedJson — JSON-envelope shape guard (#1666) ──
+  // STGAG double-encodes: the `<script data-name="jobs">` block is JSON whose
+  // `jobs` field is itself a JSON STRING of the job array. A drift in either
+  // layer must surface as a LOUD warn, not a silent drop-to-0.
+  describe('parseStgagEmbeddedJson — shape guard', () => {
+    const wrap = (inner: string) =>
+      `<html><body><script data-name="jobs" type="application/json" class="embedded-json-data">${inner}</script></body></html>`;
+
+    it('parses the double-encoded jobs string into the array (happy path, no warn)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const jobsArr = [{ id: '1', title: 'Pflegefachperson' }];
+      const html = wrap(JSON.stringify({ count: 1, jobs: JSON.stringify(jobsArr) }));
+      expect(parseStgagEmbeddedJson(html)).toEqual(jobsArr);
+      expect(spy).not.toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
+    it('handles a plain (non-double-encoded) jobs array too (no warn)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const jobsArr = [{ id: '2', title: 'Arzt' }];
+      const html = wrap(JSON.stringify({ count: 1, jobs: jobsArr }));
+      expect(parseStgagEmbeddedJson(html)).toEqual(jobsArr);
+      expect(spy).not.toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
+    it('warns LOUDLY when the embed block is missing (markup drift, not empty board)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      expect(parseStgagEmbeddedJson('<html><body>no jobs widget</body></html>')).toEqual([]);
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(String(spy.mock.calls[0][0])).toContain('spital-thurgau');
+      spy.mockRestore();
+    });
+
+    it('warns when the embedded jobs string no longer parses as JSON', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const html = wrap(JSON.stringify({ count: 1, jobs: '{not json' }));
+      expect(parseStgagEmbeddedJson(html)).toEqual([]);
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(String(spy.mock.calls[0][0])).toContain('spital-thurgau');
+      spy.mockRestore();
+    });
+
+    it('warns when jobs is neither a string nor an array (renamed/error envelope)', () => {
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const html = wrap(JSON.stringify({ count: 0, postings: [] }));
+      expect(parseStgagEmbeddedJson(html)).toEqual([]);
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(String(spy.mock.calls[0][0])).toContain('spital-thurgau');
+      spy.mockRestore();
     });
   });
 });

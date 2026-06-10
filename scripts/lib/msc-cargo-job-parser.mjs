@@ -26,6 +26,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 
@@ -255,7 +256,7 @@ function extractPhenomEagerLoad(html) {
     const totalMatch = html.slice(anchor, dataStart).match(/"totalHits":(\d+)/);
     return {
       totalHits: totalMatch ? Number(totalMatch[1]) : data?.jobs?.length || 0,
-      jobs: Array.isArray(data?.jobs) ? data.jobs : [],
+      jobs: assertJsonListShape(data, { key: 'jobs', source: 'msc-cargo' }),
     };
   } catch {
     return null;

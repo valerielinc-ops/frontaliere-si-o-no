@@ -12,6 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
@@ -209,7 +210,7 @@ async function fetchOracleRequisitions() {
         console.log(`   📊 Total jobs reported by Oracle API: ${totalCount}`);
       }
 
-      const requisitions = searchItem.requisitionList || [];
+      const requisitions = assertJsonListShape(searchItem, { key: 'requisitionList', source: UBP_KEY });
       if (requisitions.length === 0) break;
 
       for (const req of requisitions) {

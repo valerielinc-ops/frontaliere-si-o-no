@@ -58,6 +58,7 @@ import {
 import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -356,7 +357,7 @@ async function fetchRegionListings(regionId, regionLabel) {
     console.log(`  API: ${url}`);
 
     const data = await fetchJson(url);
-    const items = (data.jobs || []).map(parseApiJob);
+    const items = assertJsonListShape(data, { key: 'jobs', source: `confederazione:${regionLabel}` }).map(parseApiJob);
     total = data.total || 0;
     allItems.push(...items);
     offset += limit;

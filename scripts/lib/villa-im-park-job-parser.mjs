@@ -30,6 +30,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 
 export const VILLA_IM_PARK_KEY = 'villa-im-park';
@@ -253,7 +254,7 @@ export async function fetchAllVillaImParkJobs() {
       break;
     }
     totalFound = Number(data?.totalFound) || 0;
-    const content = Array.isArray(data?.content) ? data.content : [];
+    const content = assertJsonListShape(data, { key: 'content', source: 'villa-im-park' });
     if (content.length === 0) break;
     all.push(...content);
     offset += content.length;

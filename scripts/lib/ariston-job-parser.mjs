@@ -1,6 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation, TARGET_CANTONS  } from './target-swiss-locations.mjs';
+import { assertRssChannelItems } from './assert-json-list-shape.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -71,8 +72,7 @@ export function parseAristonSitemapFeed(xml = '') {
     trimValues: false,
   });
   const parsed = parser.parse(xml);
-  const items = parsed?.rss?.channel?.item || [];
-  const normalizedItems = Array.isArray(items) ? items : [items];
+  const normalizedItems = assertRssChannelItems(parsed, { source: 'ariston' });
   return normalizedItems
     .map((item) => ({
       title: normalizeSpace(item?.title || ''),

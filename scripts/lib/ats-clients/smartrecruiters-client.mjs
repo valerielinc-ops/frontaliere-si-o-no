@@ -87,6 +87,7 @@
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
+import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 
 /* ── Constants ───────────────────────────────────────────────── */
 
@@ -223,7 +224,7 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
       });
       if (res.ok) {
         const json = await res.json();
-        const content = Array.isArray(json?.content) ? json.content : [];
+        const content = assertJsonListShape(json, { key: 'content', source: 'smartrecruiters' });
         const totalFound = Number.isFinite(json?.totalFound) ? Number(json.totalFound) : content.length;
         return { content, totalFound };
       }
