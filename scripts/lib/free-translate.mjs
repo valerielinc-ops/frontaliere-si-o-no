@@ -916,6 +916,16 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t2c = await tryTier('googleCloud', () => translateWithGoogleCloud(clean, sourceLang, targetLang));
   if (t2c) return balanceMarkdownMarkers(t2c);
 
+  // Tier 3b: LibreTranslate self-hosted (CI service container — unlimited, no
+  // rate limits, no shared throttle). Promoted ABOVE MyMemory: once the premium
+  // tiers (DeepL/Azure/Google Cloud) are exhausted, the self-hosted instance
+  // carries the parallel load instead of MyMemory's 1-call/sec throttle, so the
+  // localization queue's concurrency actually delivers throughput. No-op when
+  // LIBRETRANSLATE_SELF_HOSTED_URL is unset (returns ''), so non-CI cascades are
+  // unchanged. Quality: endorsed as a high-priority tier for EN/DE/FR.
+  const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
+  if (t3b) return balanceMarkdownMarkers(t3b);
+
   // Tier 4: MyMemory (best EU language quality, 50K chars/day with email param)
   // Short text (≤5000 chars): single call. Long text: chunk at sentence boundaries.
   const t2 = await tryTier('myMemory', async () => {
@@ -941,10 +951,6 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     return '';
   });
   if (t2) return balanceMarkdownMarkers(t2);
-
-  // Tier 4a: LibreTranslate self-hosted (CI service container — unlimited, no rate limits)
-  const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-  if (t3b) return balanceMarkdownMarkers(t3b);
 
   // Tier 4b: LibreTranslate public instances (raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
