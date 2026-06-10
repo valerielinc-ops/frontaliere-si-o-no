@@ -26,6 +26,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -319,7 +320,7 @@ export async function fetchAllLeukerbadClinicJobs() {
       console.warn(`⚠️ Prismic search page ${page} failed: ${err?.message || err}`);
       break;
     }
-    const results = Array.isArray(payload?.results) ? payload.results : [];
+    const results = assertJsonListShape(payload, { key: 'results', source: 'leukerbad-clinic', lang: `page ${page}` });
     allDocs.push(...results);
     const totalPages = Number(payload?.total_pages || 1);
     console.log(`   📄 Page ${page}/${totalPages}: ${results.length} job docs`);

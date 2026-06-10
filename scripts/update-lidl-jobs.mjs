@@ -41,6 +41,7 @@ import {
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
 import { hasListContent, MIN_LIDL_FULL_DESC } from './lib/lidl-job-parser.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -326,7 +327,9 @@ async function fetchLidlJobDetailUrls() {
       }
 
       const payload = await res.json();
-      const hits = Array.isArray(payload?.result?.hits) ? payload.result.hits : [];
+      // `result.hits` is nested; the helper validates a top-level key, so pass
+      // the already-resolved `result` sub-object as `data` and `hits` as the leaf key.
+      const hits = assertJsonListShape(payload?.result, { key: 'hits', source: `lidl:${source.name}` });
       console.log(`    📦 ${source.name}: ${hits.length} hit(s)`);
 
       for (const hit of hits) {

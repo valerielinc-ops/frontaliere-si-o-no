@@ -3149,7 +3149,7 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
     } catch {
       break;
     }
-    const postings = Array.isArray(payload?.jobPostings) ? payload.jobPostings : [];
+    const postings = assertJsonListShape(payload, { key: 'jobPostings', source: `workday:${company?.name || source?.endpoint || ''}` });
     total = Number(payload?.total || postings.length || 0);
     for (const p of postings) {
       const title = normalizeSpace(p?.title || '');
@@ -3324,7 +3324,7 @@ async function crawlGreenhouseJobs(company, source) {
   } catch {
     return [];
   }
-  const jobs = Array.isArray(payload?.jobs) ? payload.jobs : [];
+  const jobs = assertJsonListShape(payload, { key: 'jobs', source: `greenhouse:${company?.name || source?.endpoint || ''}` });
   const out = [];
   for (const j of jobs) {
     const title = normalizeSpace(j?.title || j?.name || '');
@@ -3422,7 +3422,7 @@ async function crawlSmartRecruitersJobs(company, source) {
   } catch {
     return [];
   }
-  const jobs = Array.isArray(payload?.content) ? payload.content : [];
+  const jobs = assertJsonListShape(payload, { key: 'content', source: `smartrecruiters:${company?.name || source?.endpoint || ''}` });
   const out = [];
   for (const j of jobs) {
     const title = normalizeSpace(j?.name || '');
@@ -3581,7 +3581,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
   } catch {
     return [];
   }
-  const rows = Array.isArray(payload?.results) ? payload.results : [];
+  const rows = assertJsonListShape(payload, { key: 'results', source: `teaser-api:${company?.name || apiUrl || ''}` });
   const out = [];
   for (const row of rows) {
     const title = normalizeSpace(row?.title || '');
