@@ -45,6 +45,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -145,7 +146,7 @@ async function fetchFustJobUrls() {
       }
 
       const data = await res.json();
-      const jobs = data?.jobs || [];
+      const jobs = assertJsonListShape(data, { key: 'jobs', source: 'fust', lang: canton });
       console.log(`  📦 ${canton}: ${jobs.length} total Coop Group jobs`);
 
       let fustCount = 0;

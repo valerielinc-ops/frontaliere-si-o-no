@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -167,7 +168,7 @@ async function fetchAllPostings() {
     clearTimeout(timer);
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
     const json = await res.json();
-    return json.data || [];
+    return assertJsonListShape(json, { key: 'data', source: 'kempinski' });
   } catch (err) {
     clearTimeout(timer);
     throw err;

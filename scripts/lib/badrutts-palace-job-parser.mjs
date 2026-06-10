@@ -20,6 +20,7 @@ import { XMLParser } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { assertRssChannelItems } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -152,8 +153,7 @@ export function parseRssItems(xml = '') {
   });
 
   const parsed = parser.parse(xml);
-  const items = parsed?.rss?.channel?.item || [];
-  const normalizedItems = Array.isArray(items) ? items : [items];
+  const normalizedItems = assertRssChannelItems(parsed, { source: 'badrutts-palace' });
 
   return normalizedItems
     .map((item) => ({

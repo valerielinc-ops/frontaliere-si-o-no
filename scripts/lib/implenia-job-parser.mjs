@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -224,7 +225,7 @@ async function fetchJobListings() {
     const data = await res.json();
     if (Number.isFinite(data.totalJobs)) totalJobs = data.totalJobs;
 
-    const results = Array.isArray(data.jobSearchResult) ? data.jobSearchResult : [];
+    const results = assertJsonListShape(data, { key: 'jobSearchResult', source: 'implenia' });
     if (results.length === 0) break;
 
     for (const item of results) {

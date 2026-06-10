@@ -50,6 +50,7 @@ import {
 import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
 import { isSlugStable } from './lib/dedicated-crawler-common.mjs';
+import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -324,8 +325,23 @@ async function searchJobs(token, cookies, cloudApiBase = 'https://eu-fra.api.cso
 
     // New CSOD API: { status, data: { totalCount, requisitions[] } }
     const innerData = data?.data || data;
-    const jobs = innerData?.requisitions || innerData?.data || data?.jobPostings || data?.results || data?.items || [];
+    // Multi-key OR-chain across both the inner (`data.data`) and outer (`data`)
+    // envelopes — the dotted candidates reproduce the exact priority of the
+    // previous `innerData?.requisitions || innerData?.data || data?.jobPostings
+    // || data?.results || data?.items`, so a TOTAL drift (all keys absent) now
+    // WARNS loudly instead of silently collapsing to [] (the old `|| []` made the
+    // `!Array.isArray` guard below unreachable on total drift — #1666 class).
+    const jobs = assertJsonListShapeMultiKey(data, {
+      keys: [
+        'data.requisitions', 'requisitions',
+        'data.data.data', 'data.data',
+        'jobPostings', 'results', 'items',
+      ],
+      source: 'groupe-mutuel',
+    });
     if (!Array.isArray(jobs)) {
+      // Unreachable (helper invariant: always returns an array) — kept as a
+      // defensive belt; the helper's warn already described the drifted shape.
       console.warn('⚠️ Unexpected response format — no job array found');
       console.warn(`   Response keys: ${Object.keys(data || {}).join(', ')}`);
       if (data?.data) console.warn(`   data keys: ${Object.keys(data.data).join(', ')}`);

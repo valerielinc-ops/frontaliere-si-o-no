@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -143,7 +144,7 @@ async function fetchJobListings() {
       break;
     }
 
-    const items = Array.isArray(data?.items) ? data.items : [];
+    const items = assertJsonListShape(data, { key: 'items', source: 'sika' });
     for (const item of items) {
       const jobUrl = item?.url || '';
       if (!jobUrl || seen.has(jobUrl) || !isTrustedDomain(jobUrl)) continue;

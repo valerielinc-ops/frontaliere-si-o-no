@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -156,7 +157,7 @@ async function fetchJobListings() {
       body: { filters: {}, searchParameters: {} },
     });
 
-    const items = Array.isArray(data?.items) ? data.items : [];
+    const items = assertJsonListShape(data, { key: 'items', source: 'decathlon' });
     if (typeof data?.count === 'number') total = data.count;
     if (items.length === 0) break;
 

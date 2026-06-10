@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import {
   assertJsonListShape,
   assertJsonListShapeMultiKey,
+  assertRssChannelItems,
   describeJsonShape,
   // @ts-expect-error — plain .mjs crawler lib, no type declarations
 } from '../scripts/lib/assert-json-list-shape.mjs';
@@ -258,6 +259,67 @@ describe('assertJsonListShape — shared non-silent JSON-envelope guard (#1666)'
       expect(describeJsonShape(7)).toBe('number');
       expect(describeJsonShape({ a: 1, b: 2 })).toContain('envelope keys: a, b');
       expect(describeJsonShape({})).toContain('envelope keys: none');
+    });
+  });
+
+  describe('assertRssChannelItems (RSS/XML parsed-object feeds)', () => {
+    const captureWarn = () => {
+      const calls: string[] = [];
+      return { warn: (m: string) => calls.push(m), calls };
+    };
+
+    it('returns the item array when channel.item is an array (multi-listing feed)', () => {
+      const { warn, calls } = captureWarn();
+      const parsed = { rss: { channel: { item: [{ title: 'a' }, { title: 'b' }] } } };
+      const out = assertRssChannelItems(parsed, { source: 'x', warn });
+      expect(out).toHaveLength(2);
+      expect(calls).toHaveLength(0);
+    });
+
+    it('wraps a single bare item object into [item] WITHOUT warning (one-listing feed)', () => {
+      const { warn, calls } = captureWarn();
+      const parsed = { rss: { channel: { item: { title: 'solo' } } } };
+      const out = assertRssChannelItems(parsed, { source: 'x', warn });
+      expect(out).toEqual([{ title: 'solo' }]);
+      expect(calls).toHaveLength(0); // single-item is NOT drift — must not false-warn
+    });
+
+    it('returns [] WITHOUT warning when the channel is present but has no items (empty board)', () => {
+      const { warn, calls } = captureWarn();
+      const parsed = { rss: { channel: { title: 'Jobs', item: undefined } } };
+      const out = assertRssChannelItems(parsed, { source: 'x', warn });
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(0); // a genuinely-empty feed is silent
+    });
+
+    it('returns [] WITHOUT warning for a bare `<channel></channel>` (parsed to channel:"")', () => {
+      const { warn, calls } = captureWarn();
+      // fast-xml-parser renders an empty channel element as an empty string;
+      // the rss root is still present → legit closed board, must not warn.
+      const out = assertRssChannelItems({ rss: { channel: '' } }, { source: 'x', warn });
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(0);
+    });
+
+    it('WARNS when the rss>channel envelope itself is missing/malformed (real drift)', () => {
+      const { warn, calls } = captureWarn();
+      const out = assertRssChannelItems({ feed: { entry: [] } }, { source: 'x', warn });
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(1);
+      expect(calls[0]).toContain('rss.channel.item');
+    });
+
+    it('WARNS on an error/HTML body (no rss envelope at all)', () => {
+      const { warn, calls } = captureWarn();
+      const out = assertRssChannelItems('<html>503</html>', { source: 'x', warn });
+      expect(out).toEqual([]);
+      expect(calls).toHaveLength(1);
+    });
+
+    it('NEVER throws on null/undefined/primitive input', () => {
+      expect(() => assertRssChannelItems(null, { source: 'x', warn: () => {} })).not.toThrow();
+      expect(() => assertRssChannelItems(undefined, { source: 'x', warn: () => {} })).not.toThrow();
+      expect(() => assertRssChannelItems(42, { source: 'x', warn: () => {} })).not.toThrow();
     });
   });
 });

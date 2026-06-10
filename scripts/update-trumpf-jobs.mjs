@@ -41,6 +41,7 @@ import {
 import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -191,7 +192,7 @@ async function fetchPortalJobs(portal) {
     if (!res.ok) throw new Error(`Workday API error for ${portal}: ${res.status}`);
     const data = await res.json();
     total = data.total || 0;
-    const postings = data.jobPostings || [];
+    const postings = assertJsonListShape(data, { key: 'jobPostings', source: `trumpf:${portal}` });
     allJobs.push(...postings.map((p) => ({ ...p, portal })));
 
     if (postings.length === 0) break;

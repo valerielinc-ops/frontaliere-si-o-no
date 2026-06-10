@@ -238,4 +238,71 @@ export function assertJsonListShapeMultiKey(
   return [];
 }
 
+/**
+ * RSS/XML-feed variant of {@link assertJsonListShape} for parsed-object RSS
+ * envelopes (`parser.parse(xml)?.rss?.channel?.item`).
+ *
+ * ## Why RSS needs its own guard (and `assertJsonListShape` does NOT fit)
+ *
+ * An XML-to-object parser (e.g. `fast-xml-parser`) collapses a repeated element
+ * to a **bare object** when there is exactly ONE `<item>`, and to an **array**
+ * only when there are several. So `channel.item` being a non-array is the NORMAL,
+ * legitimate single-job case — feeding it through {@link assertJsonListShape}
+ * (which warns on any non-array) would FALSE-WARN every single-listing feed. The
+ * established call-site idiom already normalises this:
+ *
+ *     const items = parsed?.rss?.channel?.item || [];
+ *     const normalizedItems = Array.isArray(items) ? items : [items];
+ *
+ * The genuine silent-`[]` drift for RSS is therefore narrower than the JSON case:
+ * the channel envelope is present but `item` is **entirely absent** (`undefined`/
+ * `null`) — feed renamed the element, switched namespace, returned an error page,
+ * or the `rss > channel` wrapper itself drifted. That collapses to `[]` and is
+ * indistinguishable from a genuinely-empty board (no `<item>` at all).
+ *
+ * ## Contract (drop-in, returns the same normalised array the call sites built)
+ *
+ *   - `channel.item` is an array → returns it (no warn).
+ *   - `channel.item` is a single bare object → returns `[item]` (no warn — the
+ *     legitimate one-listing feed).
+ *   - `channel.item` is absent/null:
+ *       - if the `rss > channel` envelope is itself missing/malformed → **warn**
+ *         (the feed shape drifted) and return `[]`.
+ *       - if the channel IS present but simply has no `item` → return `[]`
+ *         **without warn** (a genuinely-empty feed still parses to a channel with
+ *         no items; warning here would be noise on every closed board).
+ *
+ * Never throws. Warn wording is shared via {@link warnJsonListShapeMismatch}.
+ *
+ * @param {unknown} parsed - the object returned by the XML parser
+ * @param {object} opts
+ * @param {string} opts.source - crawler/source id for the warn
+ * @param {string} [opts.lang]
+ * @param {(msg: string) => void} [opts.warn=console.warn]
+ * @returns {object[]} the normalised item array (possibly empty); never throws
+ */
+export function assertRssChannelItems(parsed, { source, lang, warn = console.warn } = {}) {
+  const rss = parsed == null ? undefined : parsed.rss;
+  const channel = rss == null ? undefined : rss.channel;
+  const item = channel == null ? undefined : channel.item;
+
+  if (Array.isArray(item)) return item;
+  if (item != null && typeof item === 'object') return [item]; // single-listing feed
+
+  // No items. Warn ONLY when the `rss` root envelope itself is missing (the real
+  // drift: an error page / HTML body / renamed root parsed to something with no
+  // `rss`). A present `rss` whose channel is empty (`<channel></channel>` →
+  // `channel: ""`, or a channel with metadata but zero `<item>`) is a legit
+  // closed board and must stay SILENT — warning there would be noise on every
+  // source with no current openings.
+  if (rss == null) {
+    warnJsonListShapeMismatch(
+      'expected an `rss.channel.item` array (or single item) in the RSS feed',
+      parsed,
+      { source, lang, warn },
+    );
+  }
+  return [];
+}
+
 export default assertJsonListShape;

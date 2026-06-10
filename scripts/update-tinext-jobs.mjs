@@ -42,6 +42,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -232,8 +233,22 @@ async function discoverListings() {
   console.log('🔍 Fetching Tinext positions from Kenjo API...');
   const data = await fetchJson(LISTING_API);
 
-  const positions = data?.activePositions || data?.positions || [];
-  if (!Array.isArray(positions)) {
+  // The old `data?.activePositions || data?.positions || []` collapsed a TOTAL
+  // drift (both keys absent) to `[]` — an array — so the `!Array.isArray` throw
+  // below was unreachable on the silent-drift case (#1666 class). Resolve via the
+  // shared multi-key guard, which warns on drift; a drift here is a hard failure
+  // for this single-source crawler, so we still throw (preserving the original
+  // loud-fail intent) but now it actually fires on a renamed/missing envelope.
+  let envelopeDrifted = false;
+  const positions = assertJsonListShapeMultiKey(data, {
+    keys: ['activePositions', 'positions'],
+    source: 'tinext',
+    warn: (msg) => {
+      envelopeDrifted = true;
+      console.warn(msg);
+    },
+  });
+  if (envelopeDrifted) {
     throw new Error(`Unexpected Kenjo API response shape: missing activePositions array`);
   }
 

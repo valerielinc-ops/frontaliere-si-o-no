@@ -28,6 +28,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -201,7 +202,7 @@ async function fetchAllSwissJobs() {
   while (true) {
     console.log(`   📄 Fetching offset=${offset}...`);
     const data = await fetchJobsPage(offset);
-    const postings = data.jobPostings || [];
+    const postings = assertJsonListShape(data, { key: 'jobPostings', source: 'hamilton' });
 
     if (total === null) {
       total = data.total || 0;

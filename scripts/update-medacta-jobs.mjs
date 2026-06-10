@@ -40,6 +40,7 @@ import {
   buildMedactaLocalizedDescriptions,
 } from './lib/medacta-job-enrichment.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -635,7 +636,10 @@ function extractAlliboEmbeddedData(html = '') {
   if (dataMatch) {
     try {
       const data = JSON.parse(dataMatch[1]);
-      const adsList = data?.WidgetData?.AdsList || data?.Content?.WidgetData?.AdsList || [];
+      const adsList = assertJsonListShapeMultiKey(data, {
+        keys: ['WidgetData.AdsList', 'Content.WidgetData.AdsList'],
+        source: 'medacta:embedded',
+      });
       for (const ad of adsList) {
         if (ad?.Title) {
           jobs.push({
@@ -752,7 +756,10 @@ async function fetchAlliboJobsForCategory(category) {
     return [];
   }
 
-  const adsList = payload?.Content?.WidgetData?.AdsList || payload?.WidgetData?.AdsList || [];
+  const adsList = assertJsonListShapeMultiKey(payload, {
+    keys: ['Content.WidgetData.AdsList', 'WidgetData.AdsList'],
+    source: `medacta:${category}`,
+  });
   if (!Array.isArray(adsList) || adsList.length === 0) return [];
 
   const mapped = [];

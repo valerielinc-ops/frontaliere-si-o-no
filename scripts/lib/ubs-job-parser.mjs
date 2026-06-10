@@ -25,6 +25,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -365,7 +366,11 @@ async function searchJobs(cookies, rft, { startRow = 0, endRow = 25 } = {}) {
     }
 
     const data = await res.json();
-    const jobList = data?.Jobs?.Job || [];
+    // Taleo MatchedJobs envelope nests the list at `Jobs.Job`; a drift (renamed
+    // wrapper, error body, single non-array object) now warns instead of silently
+    // yielding []. The `|| []` also returned a truthy non-array as-is — the helper
+    // skips that and warns.
+    const jobList = assertJsonListShapeMultiKey(data, { keys: ['Jobs.Job'], source: 'ubs' });
     const totalCount = data?.JobsCount || 0;
 
     return { jobs: jobList, totalCount };
