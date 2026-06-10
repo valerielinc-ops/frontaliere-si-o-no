@@ -23,9 +23,12 @@
       "employmentType": "50 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-09T22:41:44.027Z",
-      "slug": "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur",
+      "slug": "dipendente-in-cucina-di-pulizia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur"
+        "de": "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur",
+        "it": "dipendente-in-cucina-di-pulizia-kantonsspital-graubunden-chur",
+        "en": "employee-in-cleaning-kitchen-kantonsspital-graubunden-chur",
+        "fr": "employe-dans-la-cuisine-de-nettoyage-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Reinigung Küche",
@@ -55,7 +58,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-09T22:41:44.027Z"
+      "firstSeenAt": "2026-06-09T22:41:44.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-reinigung-kuche-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10067024",
@@ -145,9 +156,12 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-09T22:41:44.027Z",
-      "slug": "mitarbeiter-in-dispostion-empfang-und-patientenadministration-kantonsspital-graubunden-chur",
+      "slug": "dipendente-a-disposizione-accoglienza-e-amministrazione-del-paziente-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur"
+        "de": "dispostion-empfang-patient-innenadministration-kantonsspital-graubunden-chur",
+        "it": "dipendente-a-disposizione-accoglienza-e-amministrazione-del-paziente-kantonsspital-graubunden-chur",
+        "en": "employee-in-disposition-reception-and-patient-administration-kantonsspital-graubunden-chur",
+        "fr": "employe-disposition-accueil-et-administration-du-patient-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Dispostion, Empfang und Patientenadministration",
@@ -177,7 +191,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-09T22:41:44.027Z"
+      "firstSeenAt": "2026-06-09T22:41:44.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-dispostion-empfang-und-patientenadministration-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-dispostion-empfang-und-patientenadministration-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10054272",
@@ -6228,7 +6250,6 @@
         "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur",
-        "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {

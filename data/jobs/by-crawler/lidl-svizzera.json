@@ -106,8 +106,8 @@
       "slugByLocale": {
         "it": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
         "en": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno",
-        "de": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
-        "fr": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k"
+        "de": "verkaufer-verkaufer-m-w-d-40-lidl-svizzera-locarno",
+        "fr": "vendeur-vendeur-m-f-d-40-lidl-svizzera-locarno"
       },
       "titleByLocale": {
         "en": "Venditore / Venditrice (m/f/d) 40%",
@@ -148,18 +148,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "verkaufer-verkaufer-m-w-d-40-lidl-svizzera-locarno",
-        "vendeur-vendeur-m-f-d-40-lidl-svizzera-locarno",
         "venditore-venditrice-lun-f-d-40-lidl-svizzera-locarno"
       ],
-      "previousSlugsByLocale": {
-        "de": [
-          "verkaufer-verkaufer-m-w-d-40-lidl-svizzera-locarno"
-        ],
-        "fr": [
-          "vendeur-vendeur-m-f-d-40-lidl-svizzera-locarno"
-        ]
-      },
       "salaryMin": 59000,
       "salaryMax": 90500
     },
@@ -522,9 +512,6 @@
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-3t5gz5",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-kscbfg",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-tyv50x"
-        ],
-        "de": [
-          "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano-ixk693"
         ]
       },
       "salaryMin": 41600,
@@ -842,8 +829,7 @@
           "retail-apprenticeship-vet-or-federal-vet-diploma-starting-2026-lidl-svizzera-biasca"
         ],
         "de": [
-          "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-biasca-3t5gz5",
-          "lernen-im-einzelhandel-cfp-oder-afc-start-2026-biasca-lidl-svizzera-biasca-3t5gz5"
+          "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-biasca-3t5gz5"
         ]
       },
       "previousSlugs": [

@@ -1912,12 +1912,12 @@
     },
     {
       "id": "ksgl-d6040d8c7c11",
-      "slug": "apotheker-in-ksgl-glarus",
+      "slug": "farmacista-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "de": "apotheker-in-ksgl-glarus",
-        "it": "apotheker-in-ksgl-glarus",
-        "en": "apotheker-in-ksgl-glarus",
-        "fr": "apotheker-in-ksgl-glarus"
+        "it": "farmacista-kantonsspital-glarus-ksgl-glarus",
+        "en": "pharmacist-kantonsspital-glarus-ksgl-glarus",
+        "fr": "pharmacienne-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1972,7 +1972,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T22:43:43.233Z"
+      "firstSeenAt": "2026-06-09T22:43:43.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-ksgl-glarus"
+        ],
+        "en": [
+          "apotheker-in-ksgl-glarus"
+        ],
+        "fr": [
+          "apotheker-in-ksgl-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-ksgl-glarus"
+      ]
     }
   ]
 }

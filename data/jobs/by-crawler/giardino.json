@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "giardino-0b33b9c1e8d8",
-      "slug": "chef-de-rang-giardino-group-ascona",
+      "slug": "capo-di-grado-giardino-group-ascona",
       "slugByLocale": {
         "de": "chef-de-rang-giardino-group-ascona",
-        "it": "chef-de-rang-giardino-group-ascona",
-        "en": "chef-de-rang-giardino-group-ascona",
-        "fr": "chef-de-rang-giardino-group-ascona"
+        "it": "capo-di-grado-giardino-group-ascona",
+        "en": "chief-of-rank-giardino-group-ascona",
+        "fr": "user-safety-safe-giardino-group-ascona"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -84,15 +84,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T22:25:38.938Z"
+      "firstSeenAt": "2026-06-09T22:25:38.938Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-giardino-group-ascona"
+        ],
+        "en": [
+          "chef-de-rang-giardino-group-ascona"
+        ],
+        "fr": [
+          "chef-de-rang-giardino-group-ascona"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-giardino-group-ascona"
+      ]
     },
     {
       "id": "giardino-90b1cef0d97d",
-      "slug": "commis-de-rang-giardino-group-ascona",
+      "slug": "commissione-di-rang-giardino-group-ascona",
       "slugByLocale": {
         "de": "commis-de-rang-giardino-group-ascona",
-        "it": "commis-de-rang-giardino-group-ascona",
-        "en": "commis-de-rang-giardino-group-ascona",
+        "it": "commissione-di-rang-giardino-group-ascona",
+        "en": "rang-clerk-giardino-group-ascona",
         "fr": "commis-de-rang-giardino-group-ascona"
       },
       "company": "Giardino Group",
@@ -166,7 +180,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T22:25:38.937Z"
+      "firstSeenAt": "2026-06-09T22:25:38.937Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-rang-giardino-group-ascona"
+        ],
+        "en": [
+          "commis-de-rang-giardino-group-ascona"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-rang-giardino-group-ascona"
+      ]
     }
   ]
 }

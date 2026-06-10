@@ -1796,11 +1796,11 @@
     },
     {
       "id": "ksbl-8a1b83e37c11",
-      "slug": "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal",
+      "slug": "techn-assistente-di-sterilizzazione-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal",
-        "it": "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal",
-        "en": "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal",
+        "it": "techn-assistente-di-sterilizzazione-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "techn-sterilisation-assistant-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
@@ -1856,7 +1856,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T22:41:53.579Z"
+      "firstSeenAt": "2026-06-09T22:41:53.579Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal"
+        ],
+        "en": [
+          "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "techn-sterilisationsassistentin-sterilisationsassistent-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-537df2297fe4",
@@ -4902,8 +4913,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
         "it": "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
+        "en": "employee-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -4952,7 +4963,6 @@
           "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
-          "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
           "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal"
         ],
         "en": [
@@ -4964,12 +4974,11 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
-        "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
         "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal"
+        "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
+        "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
+        "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -6583,8 +6592,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-warme-a-ksbl-liestal",
         "it": "mitarbeiterin-collaboratore-trice-gebaudetechnik-hlkks-fokus-warme-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-warme-a-ksbl-liestal",
-        "fr": "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-warme-a-ksbl-liestal"
+        "en": "employee-building-technology-hlkks-focus-heat-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "technologie-du-batiment-des-employes-hlkks-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6629,6 +6638,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-warme-a-ksbl-liestal"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-warme-a-ksbl-liestal"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-warme-a-ksbl-liestal"
         ]
       },

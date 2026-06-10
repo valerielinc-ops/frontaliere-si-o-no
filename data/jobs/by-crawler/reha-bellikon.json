@@ -1180,9 +1180,6 @@
         ],
         "fr": [
           "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
-        ],
-        "de": [
-          "koch-kochin-efz-reha-bellikon-bellikon"
         ]
       },
       "previousSlugs": [
@@ -1793,8 +1790,8 @@
       "slugByLocale": {
         "de": "kreativ-koordinatorin-koordinator-reha-bellikon-bellikon",
         "it": "kreativ-koordinatorin-koordinator-rehaklinik-bellikon-bellikon",
-        "en": "kreativ-koordinatorin-koordinator-reha-bellikon-bellikon",
-        "fr": "kreativ-koordinatorin-koordinator-reha-bellikon-bellikon"
+        "en": "creative-coordinator-coordinator-rehaklinik-bellikon-bellikon",
+        "fr": "coordinateur-coordinateur-creatif-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1845,6 +1842,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kreativ-koordinatorin-koordinator-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "kreativ-koordinatorin-koordinator-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "kreativ-koordinatorin-koordinator-reha-bellikon-bellikon"
         ]
       },
       "previousSlugs": [
@@ -1870,8 +1873,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon",
         "it": "pflegefachfrau-pflegefachmann-hf-fh-rehaklinik-bellikon-bellikon",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon"
+        "en": "nurse-nurse-specialist-hf-fh-rehaklinik-bellikon-bellikon",
+        "fr": "infirmiere-infirmiere-specialiste-hf-fh-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1922,6 +1925,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-fh-reha-bellikon-bellikon"
         ]
       },
       "previousSlugs": [
@@ -1943,12 +1952,12 @@
     },
     {
       "id": "reha-bellikon-298b2226106a",
-      "slug": "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon",
+      "slug": "luogo-di-integrazione-professionale-professionale-chur-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon",
-        "it": "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon",
-        "en": "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon",
-        "fr": "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon"
+        "it": "luogo-di-integrazione-professionale-professionale-chur-rehaklinik-bellikon-bellikon",
+        "en": "professional-professional-integration-location-chur-rehaklinik-bellikon-bellikon",
+        "fr": "lieu-d-integration-professionnelle-professionnelle-chur-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -2008,7 +2017,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-09T23:03:19.088Z"
+      "firstSeenAt": "2026-06-09T23:03:19.088Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-fachfrau-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon"
+      ]
     }
   ]
 }
