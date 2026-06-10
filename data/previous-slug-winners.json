@@ -1178,6 +1178,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::en::staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal": {
+    "winnerJobIdentifier": "ksbl-641e243a52bd",
+    "winnerCanonical": "employee-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::en::teamleiterin-teamleiter-workplace-management-a-ksbl-liestal": {
     "winnerJobIdentifier": "ksbl-6f896ef5218d",
     "winnerCanonical": "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
@@ -1566,12 +1575,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::field-engineering-specialist-los-angeles-ca-roche-ch": {
-    "winnerJobIdentifier": "roche-f9a90a786b14",
-    "winnerCanonical": "field-engineering-specialiste-los-angeles-ca-roche-basel",
+    "winnerJobIdentifier": "roche-2bcda5fc87b6",
+    "winnerCanonical": "field-engineering-specialist-roche-ch-3",
     "decidedAt": "2026-06-10T00:00:00.000Z",
     "lastSeenAt": "2026-06-10T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "score": 0.5556,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::fr::field-service-engineer-laboratory-diagnostics-roche-ch": {
@@ -1590,6 +1599,15 @@
     "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal": {
+    "winnerJobIdentifier": "ksbl-641e243a52bd",
+    "winnerCanonical": "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::fr::global-study-lead-roche-ch": {
@@ -7722,11 +7740,11 @@
     "canton": "GE"
   },
   "GE::it::group-l-d-tirocinante-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-d9664a82260d",
-    "winnerCanonical": "retail-partner-retail-excellence-tirocinante-piaget-plan-les-ouates",
-    "decidedAt": "2026-05-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
-    "score": 0.0769,
+    "winnerJobIdentifier": "richemont-c4a05a134548",
+    "winnerCanonical": "gruppo-l-d-intern-richemont-bellevue",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "GE"
   },
@@ -7788,7 +7806,7 @@
     "winnerJobIdentifier": "richemont-31697e54915b",
     "winnerCanonical": "ospitalita-interno-richemont-meyrin",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "GE"
@@ -8796,7 +8814,7 @@
     "winnerJobIdentifier": "company-qfd5dq",
     "winnerCanonical": "verkaufer-in-food-coop-schiers-graubunden-qfd5dq",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.2727,
     "candidatesCount": 1,
     "canton": "GR"
@@ -8994,7 +9012,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "verkaufer-in-food-coop-disentis-muster-graubunden-i9zwq6",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 2,
     "canton": "GR"
@@ -9786,7 +9804,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "seller-in-food-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 2,
     "canton": "GR"
@@ -9810,11 +9828,11 @@
     "canton": "GR"
   },
   "GR::en::seller-in-food-coop-genossenschaft-felsberg-9fezrn": {
-    "winnerJobIdentifier": "company-b0fgse",
-    "winnerCanonical": "seller-in-food-coop-genossenschaft-felsberg-b0fgse",
-    "decidedAt": "2026-06-09T00:00:00.000Z",
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-schiers",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
     "lastSeenAt": "2026-06-10T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -10029,7 +10047,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "seller-in-food-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 2,
     "canton": "GR"
@@ -10848,7 +10866,7 @@
     "winnerJobIdentifier": "company-qfd5dq",
     "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-schiers",
     "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
     "canton": "GR"
@@ -10947,7 +10965,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 2,
     "canton": "GR"
@@ -11064,7 +11082,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 2,
     "canton": "GR"
@@ -12396,7 +12414,7 @@
     "winnerJobIdentifier": "company-qfd5dq",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-schiers",
     "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
@@ -12774,7 +12792,7 @@
     "winnerJobIdentifier": "company-i9zwq6",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-disentis-muster",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 2,
     "canton": "GR"
@@ -14355,10 +14373,10 @@
     "canton": "NE"
   },
   "NE::en::stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-9df2f76334dc",
+    "winnerJobIdentifier": "richemont-444be947b48e",
     "winnerCanonical": "trainee-progress-procedures-procadrans-la-chaux-de-fonds",
-    "decidedAt": "2026-06-01T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "NE"
@@ -26202,7 +26220,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.2273,
     "candidatesCount": 1,
     "canton": "VD"
@@ -26220,7 +26238,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 1,
     "canton": "VD"
@@ -27369,11 +27387,11 @@
     "canton": "ZG"
   },
   "ZG::de::associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-h2npx8": {
-    "winnerJobIdentifier": "pwc-ce6b3ed8a76d",
-    "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
-    "decidedAt": "2026-05-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-01T00:00:00.000Z",
-    "score": 0.5294,
+    "winnerJobIdentifier": "pwc-1902c8b10636",
+    "winnerCanonical": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
+    "score": 0.05,
     "candidatesCount": 1,
     "canton": "ZG"
   },
@@ -27414,11 +27432,11 @@
     "canton": "ZG"
   },
   "ZG::en::associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-h2npx8": {
-    "winnerJobIdentifier": "pwc-ce6b3ed8a76d",
-    "winnerCanonical": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-zug",
-    "decidedAt": "2026-05-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-01T00:00:00.000Z",
-    "score": 0.0476,
+    "winnerJobIdentifier": "pwc-1902c8b10636",
+    "winnerCanonical": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
+    "score": 0.05,
     "candidatesCount": 1,
     "canton": "ZG"
   },
@@ -27459,11 +27477,11 @@
     "canton": "ZG"
   },
   "ZG::fr::associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-h2npx8": {
-    "winnerJobIdentifier": "pwc-ce6b3ed8a76d",
-    "winnerCanonical": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug",
-    "decidedAt": "2026-05-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-01T00:00:00.000Z",
-    "score": 0.0455,
+    "winnerJobIdentifier": "pwc-1902c8b10636",
+    "winnerCanonical": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
+    "score": 0.05,
     "candidatesCount": 1,
     "canton": "ZG"
   },
@@ -27504,11 +27522,11 @@
     "canton": "ZG"
   },
   "ZG::it::associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-h2npx8": {
-    "winnerJobIdentifier": "pwc-ce6b3ed8a76d",
-    "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
-    "decidedAt": "2026-05-30T00:00:00.000Z",
-    "lastSeenAt": "2026-06-01T00:00:00.000Z",
-    "score": 0.5294,
+    "winnerJobIdentifier": "pwc-1902c8b10636",
+    "winnerCanonical": "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
+    "decidedAt": "2026-06-10T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "ZG"
   },
@@ -27543,7 +27561,7 @@
     "winnerJobIdentifier": "pwc-1902c8b10636",
     "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
     "decidedAt": "2026-06-05T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.1364,
     "candidatesCount": 1,
     "canton": "ZG"
@@ -30567,7 +30585,7 @@
     "winnerJobIdentifier": "richemont-d18cb38a5c91",
     "winnerCanonical": "associe-de-vente-temps-partiel-20-cartier-zurich",
     "decidedAt": "2026-05-23T00:00:00.000Z",
-    "lastSeenAt": "2026-06-09T00:00:00.000Z",
+    "lastSeenAt": "2026-06-10T00:00:00.000Z",
     "score": 0.1538,
     "candidatesCount": 1,
     "canton": "ZH"
