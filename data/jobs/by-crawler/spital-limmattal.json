@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-bf680dcf4b42",
-      "slug": "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
+      "slug": "vice-direttore-della-stazione-centro-di-assistenza-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
-        "it": "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
-        "en": "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
-        "fr": "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+        "it": "vice-direttore-della-stazione-centro-di-assistenza-spital-limmattal-schlieren",
+        "en": "deputy-r-station-manager-in-care-center-spital-limmattal-schlieren",
+        "fr": "directeur-adjoint-centre-de-soins-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -52,15 +52,22 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
-          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
         ],
         "it": [
-          "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren"
+          "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+        ],
+        "en": [
+          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+        ],
+        "fr": [
+          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
         "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
+        "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
         "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
         "direttore-della-stazione-nel-centro-di-cura-spital-limmattal-schlieren",
         "station-manager-in-the-nursing-centre-spital-limmattal-schlieren",
@@ -87,8 +94,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch",
         "it": "dipl-pflegefachperson-hf-o-fh-pflegezentrum-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch"
+        "en": "dipl-care-professional-hf-or-fh-care-centre-spital-limmattal-schlieren",
+        "fr": "dipl-centre-de-soins-professionnel-hf-ou-fh-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -134,6 +141,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-oder-fh-pflegezentrum-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
@@ -155,12 +168,12 @@
     },
     {
       "id": "spital-limmattal-c8bbcf7ed7f7",
-      "slug": "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch",
+      "slug": "contabilita-del-personale-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch",
-        "it": "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch",
-        "en": "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch",
-        "fr": "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch"
+        "it": "contabilita-del-personale-spital-limmattal-schlieren",
+        "en": "personnel-patient-accounting-spital-limmattal-schlieren",
+        "fr": "comptabilite-du-personnel-patient-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -215,7 +228,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:50.211Z"
+      "firstSeenAt": "2026-06-10T12:55:50.211Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-5d657ed287b8",
@@ -223,7 +250,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m",
         "it": "collaboratore-trice-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m-u00f6glichkeit-zur-unbefristeten-u00dcbernahme-spital-limmattal-schlieren",
-        "en": "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m",
+        "en": "employee-in-patient-service-60-temporary-from-01-07-2026-to-31-12-2026-u2013-m-u00f6glichkeit-for-permanent-u00dcabnahme",
         "fr": "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m"
       },
       "company": "Spital Limmattal",
@@ -273,6 +300,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m"
+        ],
+        "en": [
+          "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m"
         ]
       },
       "previousSlugs": [
@@ -299,7 +329,7 @@
         "de": "fachperson-op-lagerung-spital-limmattal-ch",
         "it": "fachperson-op-lagerung-spital-limmattal-ch",
         "en": "fachperson-op-lagerung-spital-limmattal-ch",
-        "fr": "fachperson-op-lagerung-spital-limmattal-ch"
+        "fr": "prepose-a-la-vente-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -362,8 +392,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-w-u00e4scherei-befristet-f-u00fcr-6-monate-mit-der-m-u00f6glichkeit-einer",
         "it": "collaboratore-trice-w-u00e4scherei-befristet-f-u00fcr-6-monate-con-der-m-u00f6glichkeit-einer-festanstellung-spital-limmattal-schlieren",
-        "en": "mitarbeiter-in-w-u00e4scherei-befristet-f-u00fcr-6-monate-mit-der-m-u00f6glichkeit-einer",
-        "fr": "mitarbeiter-in-w-u00e4scherei-befristet-f-u00fcr-6-monate-mit-der-m-u00f6glichkeit-einer"
+        "en": "employee-in-w-u00e4scherei-temporary-f-u00fcr-6-months-with-the-m-u00f6glichkeit-of-a-permanent-job-spital-limmattal",
+        "fr": "employe-a-w-u00e4scherei-temporaire-f-u00fcr-6-mois-avec-le-m-u00f6glichkeit-d-un-emploi-permanent-spital-limmattal"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -409,6 +439,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-w-u00e4scherei-befristet-f-u00fcr-6-monate-mit-der-m-u00f6glichkeit-einer"
+        ],
+        "en": [
+          "mitarbeiter-in-w-u00e4scherei-befristet-f-u00fcr-6-monate-mit-der-m-u00f6glichkeit-einer"
+        ],
+        "fr": [
+          "mitarbeiter-in-w-u00e4scherei-befristet-f-u00fcr-6-monate-mit-der-m-u00f6glichkeit-einer"
         ]
       },
       "previousSlugs": [
@@ -434,8 +470,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch",
         "it": "collaboratore-trice-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-schlieren",
-        "en": "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch",
-        "fr": "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch"
+        "en": "employee-in-performance-pr-u00fcfung-20-100-hourly-wage-spital-limmattal-schlieren",
+        "fr": "salarie-dans-la-performance-pr-u00fcfung-20-100-salaire-horaire-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -484,6 +520,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
@@ -505,12 +547,12 @@
     },
     {
       "id": "spital-limmattal-14f279c27234",
-      "slug": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet",
+      "slug": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-con-specializzazione-in-terapia-di-obesita-centro-di-obesita-60-80",
       "slugByLocale": {
         "de": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet",
-        "it": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet",
-        "en": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet",
-        "fr": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet"
+        "it": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-con-specializzazione-in-terapia-di-obesita-centro-di-obesita-60-80",
+        "en": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-with-specialization-in-obesity-therapy-obesity-center-60-80-spital",
+        "fr": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-avec-specialisation-en-therapie-contre-l-obesite-centre-d-obesite-60-80"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -568,16 +610,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:48.110Z"
+      "firstSeenAt": "2026-06-10T12:55:48.110Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet"
+        ],
+        "en": [
+          "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet"
+        ],
+        "fr": [
+          "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet"
+        ]
+      },
+      "previousSlugs": [
+        "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet"
+      ]
     },
     {
       "id": "spital-limmattal-7f09db8197bd",
-      "slug": "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch",
+      "slug": "segreteria-medica-u00e4rin-emergenza-40-60-lunedi-mercoledi-e-venerdi-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch",
-        "it": "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch",
-        "en": "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch",
-        "fr": "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch"
+        "it": "segreteria-medica-u00e4rin-emergenza-40-60-lunedi-mercoledi-e-venerdi-spital-limmattal-schlieren",
+        "en": "medical-secretariat-u00e4rin-emergency-40-60-monday-wednesday-friday-spital-limmattal-schlieren",
+        "fr": "secretariat-medical-u00e4rin-urgence-40-60-lundi-mercredi-et-vendredi-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -635,16 +691,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:47.692Z"
+      "firstSeenAt": "2026-06-10T12:55:47.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch"
+        ],
+        "en": [
+          "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch"
+        ],
+        "fr": [
+          "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-c7adc3d42b3f",
-      "slug": "teamleitung-patientenaufnahme-spital-limmattal-ch",
+      "slug": "team-management-paziente-accoglienza-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "teamleitung-patientenaufnahme-spital-limmattal-ch",
-        "it": "teamleitung-patientenaufnahme-spital-limmattal-ch",
-        "en": "teamleitung-patientenaufnahme-spital-limmattal-ch",
-        "fr": "teamleitung-patientenaufnahme-spital-limmattal-ch"
+        "it": "team-management-paziente-accoglienza-spital-limmattal-schlieren",
+        "en": "team-management-patient-reception-spital-limmattal-schlieren",
+        "fr": "gestion-d-equipe-reception-du-patient-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -699,7 +769,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:47.276Z"
+      "firstSeenAt": "2026-06-10T12:55:47.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-patientenaufnahme-spital-limmattal-ch"
+        ],
+        "en": [
+          "teamleitung-patientenaufnahme-spital-limmattal-ch"
+        ],
+        "fr": [
+          "teamleitung-patientenaufnahme-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-patientenaufnahme-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-82939dd170fb",
@@ -707,8 +791,8 @@
       "slugByLocale": {
         "de": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr",
         "it": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren",
-        "en": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr",
-        "fr": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr"
+        "en": "nursing-assistance-srk-assistant-in-health-and-social-care-emergency-temporary-f-u00fcr-1-year-spital-limmattal",
+        "fr": "aide-aux-soins-infirmiers-srk-assistant-en-sante-et-en-soins-sociaux-urgence-temporaire-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -754,6 +838,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr"
+        ],
+        "en": [
+          "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr"
+        ],
+        "fr": [
+          "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr"
         ]
       },
       "previousSlugs": [
@@ -779,8 +869,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-spital-limmattal-ch",
         "it": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-spital-limmattal-ch",
-        "fr": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-spital-limmattal-ch"
+        "en": "dipl-nursing-specialist-mann-mpa-endoscopy-in-gastroenterology-spital-limmattal-schlieren",
+        "fr": "dipl-specialiste-des-soins-infirmiers-mann-mpa-endoscopie-en-gastroenterologie-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -826,6 +916,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-spital-limmattal-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
@@ -850,12 +946,12 @@
     },
     {
       "id": "spital-limmattal-f812b6f32cbf",
-      "slug": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch",
+      "slug": "infermiera-hf-fh-f-u00fcr-oncologia-h-u00e4matologia-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch",
-        "it": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch",
-        "en": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch"
+        "it": "infermiera-hf-fh-f-u00fcr-oncologia-h-u00e4matologia-spital-limmattal-schlieren",
+        "en": "dipl-nurse-hf-fh-f-u00fcr-oncology-h-u00e4matology-spital-limmattal-schlieren",
+        "fr": "dipl-infirmiere-hf-fh-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -910,7 +1006,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:46.021Z"
+      "firstSeenAt": "2026-06-10T12:55:46.021Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-a59e6135b776",
@@ -978,12 +1088,12 @@
     },
     {
       "id": "spital-limmattal-a96083380134",
-      "slug": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+      "slug": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
-        "it": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+        "it": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
         "en": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
-        "fr": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
+        "fr": "chef-de-la-hand-therapy-ergotherapie-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1038,15 +1148,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:45.188Z"
+      "firstSeenAt": "2026-06-10T12:55:45.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
+        ],
+        "fr": [
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-45e3d97507f8",
-      "slug": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch",
+      "slug": "segreteria-medica-u00e4r-in-radiologia-con-esperienza-disposizione-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch",
-        "it": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch",
-        "en": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch",
+        "it": "segreteria-medica-u00e4r-in-radiologia-con-esperienza-disposizione-spital-limmattal-schlieren",
+        "en": "medical-secretariat-u00e4r-in-radiology-with-dispositional-experience-spital-limmattal-schlieren",
         "fr": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
       },
       "company": "Spital Limmattal",
@@ -1102,16 +1223,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:44.773Z"
+      "firstSeenAt": "2026-06-10T12:55:44.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
+        ],
+        "en": [
+          "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-ee247af6827c",
-      "slug": "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
+      "slug": "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-u00e4rztliche",
       "slugByLocale": {
         "de": "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
-        "it": "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
-        "en": "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
-        "fr": "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche"
+        "it": "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-u00e4rztliche",
+        "en": "head-of-administration-department-of-operative-clinics-project-management-spital-u00e4rztliche-departments-spital",
+        "fr": "chef-de-l-administration-departement-des-cliniques-operationnelles-et-de-la-gestion-de-projets-spital-limmattal"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1166,7 +1298,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:44.356Z"
+      "firstSeenAt": "2026-06-10T12:55:44.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche"
+        ],
+        "en": [
+          "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche"
+        ],
+        "fr": [
+          "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche"
+      ]
     },
     {
       "id": "spital-limmattal-f4451ebc34c8",
@@ -1175,7 +1321,7 @@
         "de": "mitarbeiter-in-servicepoint-facility-management-70-spital-limmattal-ch",
         "it": "collaboratore-trice-servicepoint-facility-management-70-spital-limmattal-schlieren",
         "en": "mitarbeiter-in-servicepoint-facility-management-70-spital-limmattal-ch",
-        "fr": "mitarbeiter-in-servicepoint-facility-management-70-spital-limmattal-ch"
+        "fr": "gestion-des-installations-des-employes-et-des-points-de-service-70-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1223,6 +1369,9 @@
       "pensum": "70%",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-servicepoint-facility-management-70-spital-limmattal-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-servicepoint-facility-management-70-spital-limmattal-ch"
         ]
       },
@@ -1318,12 +1467,12 @@
     },
     {
       "id": "spital-limmattal-dc1b8aed6ae1",
-      "slug": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
+      "slug": "specialista-in-contabilita-aziendale-60-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
-        "it": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
-        "en": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
-        "fr": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
+        "it": "specialista-in-contabilita-aziendale-60-100-spital-limmattal-schlieren",
+        "en": "specialist-in-company-accounting-60-100-spital-limmattal-schlieren",
+        "fr": "specialiste-en-comptabilite-d-entreprise-60-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1383,26 +1532,29 @@
       },
       "firstSeenAt": "2026-06-10T12:55:43.104Z",
       "previousSlugs": [
+        "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
         "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
         "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
         "direttore-della-stazione-nel-centro-di-cura-spital-limmattal-schlieren",
         "station-manager-in-the-nursing-centre-spital-limmattal-schlieren",
         "stationsleiter-in-im-pflegezentrum-spital-limmattal-ch",
-        "gestionnaire-de-poste-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren",
-        "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+        "gestionnaire-de-poste-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
+          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
         ],
         "en": [
-          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
+          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
         ],
         "de": [
           "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
         ],
         "fr": [
-          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch"
+          "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch",
+          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
         ]
       }
     },
@@ -1412,8 +1564,8 @@
       "slugByLocale": {
         "it": "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren",
         "de": "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch",
-        "en": "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren",
-        "fr": "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren"
+        "en": "student-in-pharmaceutical-sciences-or-pharmacy-spital-limmattal-schlieren",
+        "fr": "etudiant-en-sciences-pharmaceutiques-ou-en-pharmacie-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1474,8 +1626,8 @@
       "slugByLocale": {
         "de": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch",
         "it": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch",
-        "en": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch",
-        "fr": "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch"
+        "en": "certificate-of-care-cas-mas-apn-focusing-on-long-term-care-geriatrics-spital-limmattal-schlieren",
+        "fr": "certificat-de-soins-cas-mas-apn-axe-sur-les-soins-de-longue-duree-geriatrie-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1538,12 +1690,12 @@
     },
     {
       "id": "spital-limmattal-693313e42b59",
-      "slug": "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch",
+      "slug": "direttore-della-stazione-nel-centro-di-assistenza-f-u00fcr-il-reparto-demenza-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch",
-        "it": "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch",
-        "en": "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch",
-        "fr": "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch"
+        "it": "direttore-della-stazione-nel-centro-di-assistenza-f-u00fcr-il-reparto-demenza-spital-limmattal-schlieren",
+        "en": "station-manager-in-the-care-center-f-u00fcr-the-dementia-department-spital-limmattal-schlieren",
+        "fr": "gestionnaire-de-station-dans-le-centre-de-soins-f-u00fcr-le-departement-de-demence-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1600,10 +1752,22 @@
       },
       "firstSeenAt": "2026-06-10T12:55:41.853Z",
       "previousSlugs": [
+        "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch",
         "capo-stazione-nel-centro-di-cura-spital-limmattal-schlieren",
         "head-of-station-in-the-nursing-centre-spital-limmattal-schlieren",
         "chef-de-poste-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch"
+        ],
+        "en": [
+          "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch"
+        ],
+        "fr": [
+          "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-831e994604f2",
@@ -1611,8 +1775,8 @@
       "slugByLocale": {
         "it": "mpa-adipositaszentrum-60-montag-mittwoch-e-donnerstag-spital-limmattal-schlieren",
         "de": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
-        "en": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
-        "fr": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
+        "en": "mpa-obesity-center-60-80-spital-limmattal-schlieren",
+        "fr": "amp-adipositaszentrum-60-80-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1668,7 +1832,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
+        ],
+        "fr": [
+          "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-c23863f456d7",
@@ -1676,8 +1851,8 @@
       "slugByLocale": {
         "it": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-o-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren",
         "de": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-chirurgie-oder-notfall-befristet-f-u0",
-        "en": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-o-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren",
-        "fr": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-o-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren"
+        "en": "nursing-assistance-srk-assistant-in-health-and-social-care-surgery-temporary-f-u00fcr-1-year-spital-limmattal-schlieren",
+        "fr": "aide-aux-soins-infirmiers-srk-assistant-en-sante-et-soins-sociaux-chirurgie-temporaire-f-u00fcr-1-an-spital-limmattal"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1818,8 +1993,8 @@
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren",
         "de": "fachfrau-mann-gesundheit-efz-notfallstation-spital-limmattal-ch",
-        "en": "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren",
-        "fr": "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren"
+        "en": "professional-efz-emergency-department-spital-limmattal-schlieren",
+        "fr": "professionnel-efz-service-des-urgences-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1888,8 +2063,8 @@
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
         "de": "fachfrau-mann-gesundheit-efz-f-u00fcr-eine-medizinische-oder-chirurgische-bettenstation-sp",
-        "en": "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
-        "fr": "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren"
+        "en": "professional-mann-health-efz-f-u00fcr-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
+        "fr": "professionnel-sante-efz-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1954,10 +2129,10 @@
     },
     {
       "id": "spital-limmattal-f86b7cf3a941",
-      "slug": "teamleitung-mpa-mpk-angiologie-spital-limmattal-ch",
+      "slug": "team-leader-mpa-mpk-angiology-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "teamleitung-mpa-mpk-angiologie-spital-limmattal-ch",
-        "it": "teamleitung-mpa-mpk-angiologie-spital-limmattal-ch",
+        "it": "team-leader-mpa-mpk-angiology-spital-limmattal-schlieren",
         "en": "teamleitung-mpa-mpk-angiologie-spital-limmattal-ch",
         "fr": "teamleitung-mpa-mpk-angiologie-spital-limmattal-ch"
       },
@@ -2016,19 +2191,25 @@
       },
       "firstSeenAt": "2026-06-10T12:55:39.351Z",
       "previousSlugs": [
+        "teamleitung-mpa-mpk-angiologie-spital-limmattal-ch",
         "gestione-squadra-mpa-mpk-angiologie-spital-limmattal-schlieren",
         "team-management-mpa-mpk-angiologie-spital-limmattal-schlieren",
         "gestion-d-equipe-mpa-mpk-angiologie-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-mpa-mpk-angiologie-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-82a7b75ee3db",
-      "slug": "mpa-frauenklinik-spital-limmattal-ch",
+      "slug": "mpa-clinica-femminile-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "mpa-frauenklinik-spital-limmattal-ch",
-        "it": "mpa-frauenklinik-spital-limmattal-ch",
-        "en": "mpa-frauenklinik-spital-limmattal-ch",
-        "fr": "mpa-frauenklinik-spital-limmattal-ch"
+        "it": "mpa-clinica-femminile-spital-limmattal-schlieren",
+        "en": "mpa-women-s-clinic-spital-limmattal-schlieren",
+        "fr": "mpa-clinique-pour-femmes-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2085,19 +2266,30 @@
       },
       "firstSeenAt": "2026-06-10T12:55:38.932Z",
       "previousSlugs": [
+        "mpa-frauenklinik-spital-limmattal-ch",
         "mpa-ospedale-ginecologico-spital-limmattal-schlieren",
-        "mpa-women-s-clinic-spital-limmattal-schlieren",
         "mpa-clinique-gynecologique-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-frauenklinik-spital-limmattal-ch"
+        ],
+        "en": [
+          "mpa-frauenklinik-spital-limmattal-ch"
+        ],
+        "fr": [
+          "mpa-frauenklinik-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-e3f5ba9caf14",
-      "slug": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
+      "slug": "hf-studio-luogo-di-cura-a-lungo-termine-3j-u00e4hr-formazione-da-fr-u00fchling-2027-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
-        "it": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
-        "en": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
-        "fr": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        "it": "hf-studio-luogo-di-cura-a-lungo-termine-3j-u00e4hr-formazione-da-fr-u00fchling-2027-spital-limmattal-schlieren",
+        "en": "hf-study-place-long-term-care-3-j-u00e4hr-training-from-fr-u00fchling-2027-spital-limmattal-schlieren",
+        "fr": "l-etude-hf-place-les-soins-de-longue-duree-3-j-u00e4h-formation-du-fr-u00fchling-2027-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2154,11 +2346,23 @@
       },
       "firstSeenAt": "2026-06-10T12:55:38.513Z",
       "previousSlugs": [
+        "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
         "hf-studienplatz-assistenza-a-lungo-termine-3j-u00e4h-istruzione-di-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-long-term-care-3-j-u00e4h-education-from-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-soins-de-longue-duree-3-j-u00e4h-education-du-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limm"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        ],
+        "en": [
+          "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        ],
+        "fr": [
+          "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-61d637c3a223",
@@ -2166,8 +2370,8 @@
       "slugByLocale": {
         "it": "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-e-1-wochenende-im-monat-spital-limmattal-schlieren",
         "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren",
-        "en": "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-e-1-wochenende-im-monat-spital-limmattal-schlieren",
-        "fr": "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-e-1-wochenende-im-monat-spital-limmattal-schlieren"
+        "en": "vocational-trainers-in-dipl-nurse-hf-fh-mo-fr-and-1-weekend-a-month-spital-limmattal-schlieren",
+        "fr": "infirmiere-hf-fh-mo-fr-et-1-week-end-par-mois-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2224,12 +2428,12 @@
     },
     {
       "id": "spital-limmattal-9da6a7540851",
-      "slug": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
+      "slug": "responsabile-dell-istruzione-r-ltt-hf-cura-e-conseguente-occupazione-dipl-cura-professionale-hf-fh-spital-limmattal",
       "slugByLocale": {
         "de": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl-pflegefachperson-hf-fh-spital-limmattal-sc",
-        "it": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
-        "en": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
-        "fr": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        "it": "responsabile-dell-istruzione-r-ltt-hf-cura-e-conseguente-occupazione-dipl-cura-professionale-hf-fh-spital-limmattal",
+        "en": "responsible-for-education-r-ltt-hf-care-and-resulting-employment-dipl-care-professional-hf-fh-spital-limmattal-schlieren",
+        "fr": "responsable-de-l-education-soins-et-emploi-soins-professionnels-hf-fh-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2286,20 +2490,32 @@
       },
       "firstSeenAt": "2026-06-10T12:55:37.679Z",
       "previousSlugs": [
+        "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
         "direttori-educativi-ltt-hf-care-e-guadagnare-lavoro-dipl-specialista-di-cura-hf-fh-spital-limmattal-schlieren",
         "educational-directors-ltt-hf-care-as-well-as-earning-employment-dipl-care-specialist-hf-fh-spital-limmattal-schlieren",
         "directeurs-de-l-education-ltt-hf-care-ainsi-que-gagner-un-emploi-dipl-specialiste-des-soins-hf-fh-spital-limmattal-schli",
         "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl-pflegefachpe"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        ],
+        "en": [
+          "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        ],
+        "fr": [
+          "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-effd8102ce7e",
-      "slug": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
+      "slug": "ingegneria-operativa-professionale-specialistica-hf-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
-        "it": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
-        "en": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
-        "fr": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        "it": "ingegneria-operativa-professionale-specialistica-hf-spital-limmattal-schlieren",
+        "en": "professional-specialist-operational-engineering-hf-spital-limmattal-schlieren",
+        "fr": "professional-specialiste-genie-operationnel-hf-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2356,10 +2572,22 @@
       },
       "firstSeenAt": "2026-06-10T12:55:37.263Z",
       "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
         "specialista-in-ingegneria-operativa-hf-spital-limmattal-schlieren",
         "specialist-in-operations-engineering-hf-spital-limmattal-schlieren",
         "specialiste-en-ingenierie-des-operations-hf-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-988486301752",
@@ -2368,7 +2596,7 @@
         "it": "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
         "de": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
         "en": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
-        "fr": "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren"
+        "fr": "dipl-expert-ou-expert-en-soins-intensifs-nds-hf-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2425,11 +2653,11 @@
     },
     {
       "id": "spital-limmattal-41bea20178e8",
-      "slug": "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch",
+      "slug": "ober-u00e4rztin-medico-senior-h-u00e4matology-60-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch",
-        "it": "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch",
-        "en": "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch",
+        "it": "ober-u00e4rztin-medico-senior-h-u00e4matology-60-spital-limmattal-schlieren",
+        "en": "ober-u00e4rztin-senior-physician-h-u00e4matology-60-spital-limmattal-schlieren",
         "fr": "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch"
       },
       "company": "Spital Limmattal",
@@ -2490,19 +2718,28 @@
       },
       "firstSeenAt": "2026-06-10T12:55:36.415Z",
       "previousSlugs": [
+        "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch",
         "medico-senior-h-u00e4matology-60-spital-limmattal-schlieren",
         "senior-physician-h-u00e4matology-60-spital-limmattal-schlieren",
         "medecin-principal-h-u00e4matologie-60-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch"
+        ],
+        "en": [
+          "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-4914a08cc209",
-      "slug": "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch",
+      "slug": "dipl-cura-professionale-hf-fh-nel-salario-orario-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch",
-        "it": "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch",
-        "en": "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch"
+        "it": "dipl-cura-professionale-hf-fh-nel-salario-orario-spital-limmattal-schlieren",
+        "en": "dipl-care-professional-hf-fh-in-hourly-wage-spital-limmattal-schlieren",
+        "fr": "dipl-soins-professionnels-hf-fh-en-salaire-horaire-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2559,19 +2796,31 @@
       },
       "firstSeenAt": "2026-06-10T12:55:35.999Z",
       "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch",
         "dipl-carriera-hf-fh-in-salario-orario-spital-limmattal-schlieren",
         "dipl-career-hf-fh-in-hourly-wage-spital-limmattal-schlieren",
         "dipl-carriere-hf-fh-en-salaire-horaire-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-im-stundenlohn-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-57ce8a946a10",
-      "slug": "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
+      "slug": "dipl-infermiera-hf-fh-nella-piscina-flex-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
-        "it": "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
+        "it": "dipl-infermiera-hf-fh-nella-piscina-flex-spital-limmattal-schlieren",
         "en": "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch"
+        "fr": "dipl-infirmiere-hf-fh-dans-le-bassin-flexible-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2628,9 +2877,18 @@
       },
       "firstSeenAt": "2026-06-10T12:55:35.583Z",
       "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch",
         "dipl-carriera-hf-fh-in-flex-pool-spital-limmattal-schlieren",
         "dipl-carriere-hf-fh-en-flex-pool-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-im-flex-pool-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-99cd4c9eda39",
@@ -2639,7 +2897,7 @@
         "it": "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren",
         "de": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
         "en": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
-        "fr": "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren"
+        "fr": "dipl-expert-ou-expert-nds-hf-soins-d-urgence-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2696,12 +2954,12 @@
     },
     {
       "id": "spital-limmattal-a8e3a1553c37",
-      "slug": "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch",
+      "slug": "fh-studio-bachelor-of-science-in-nursing-stage-pl-u00e4tze-2026-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch",
-        "it": "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch",
-        "en": "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch",
-        "fr": "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch"
+        "it": "fh-studio-bachelor-of-science-in-nursing-stage-pl-u00e4tze-2026-spital-limmattal-schlieren",
+        "en": "fh-study-bachelor-of-science-in-nursing-internship-pl-u00e4tze-2026-spital-limmattal-schlieren",
+        "fr": "etudes-fh-baccalaureat-en-sciences-infirmieres-stage-pl-u00e4tze-2026-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2758,18 +3016,30 @@
       },
       "firstSeenAt": "2026-06-10T12:55:34.748Z",
       "previousSlugs": [
+        "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch",
         "fh-bachelor-of-science-in-care-stagespl-u00e4tze-2026-spital-limmattal-schlieren",
         "fh-bachelor-of-science-in-care-internshipspl-u00e4tze-2026-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch"
+        ],
+        "en": [
+          "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch"
+        ],
+        "fr": [
+          "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-396cc7193bf5",
-      "slug": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal",
+      "slug": "hf-luogo-di-studio-assistenza-a-lungo-termine-3j-u00e4hr-formazione-dall-autunno-2026-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-c",
-        "it": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal",
-        "en": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal",
-        "fr": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal"
+        "it": "hf-luogo-di-studio-assistenza-a-lungo-termine-3j-u00e4hr-formazione-dall-autunno-2026-spital-limmattal-schlieren",
+        "en": "hf-study-place-long-term-care-3-j-u00e4hr-training-from-autumn-2026-spital-limmattal-schlieren",
+        "fr": "l-etude-hf-place-les-soins-de-longue-duree-3-j-u00e4h-formation-a-partir-de-l-automne-2026-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2826,19 +3096,31 @@
       },
       "firstSeenAt": "2026-06-10T12:55:34.331Z",
       "previousSlugs": [
+        "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal",
         "hf-studienplatz-assistenza-a-lungo-termine-3j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren",
         "hf-studienplatz-long-term-care-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren",
         "hf-studienplatz-soins-de-longue-duree-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal"
+        ],
+        "en": [
+          "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal"
+        ],
+        "fr": [
+          "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-4c71dab0514c",
-      "slug": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch",
+      "slug": "hf-luogo-di-studio-acute-somatics-3-j-u00e4hr-istruzione-dall-autunno-2026-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch",
-        "it": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch",
-        "en": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch",
-        "fr": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch"
+        "it": "hf-luogo-di-studio-acute-somatics-3-j-u00e4hr-istruzione-dall-autunno-2026-spital-limmattal-schlieren",
+        "en": "hf-study-place-acute-somatics-3-j-u00e4hr-education-from-autumn-2026-spital-limmattal-schlieren",
+        "fr": "etude-hf-place-somatique-aigue-3-j-u00e4hr-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2895,19 +3177,31 @@
       },
       "firstSeenAt": "2026-06-10T12:55:33.914Z",
       "previousSlugs": [
+        "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch",
         "hf-studienplatz-akutsomatik-3-j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch"
+        ],
+        "en": [
+          "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch"
+        ],
+        "fr": [
+          "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-3f14c63c0f9a",
-      "slug": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026",
+      "slug": "hf-studio-area-acute-somatics-2-j-u00e4hre-apprendistato-pre-formazione-fage-dall-autunno-2026-spital-limmattal",
       "slugByLocale": {
         "de": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026-spital-limmattal-schlieren",
-        "it": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026",
-        "en": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026",
-        "fr": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026"
+        "it": "hf-studio-area-acute-somatics-2-j-u00e4hre-apprendistato-pre-formazione-fage-dall-autunno-2026-spital-limmattal",
+        "en": "hf-study-area-acute-somatics-2-j-u00e4hre-apprenticeship-pre-training-fage-from-autumn-2026-spital-limmattal-schlieren",
+        "fr": "hf-zone-d-etude-somatique-aigue-2-j-u00e4hre-apprentissage-preformation-fage-a-partir-de-l-automne-2026-spital-limmattal"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -2964,18 +3258,30 @@
       },
       "firstSeenAt": "2026-06-10T12:55:33.496Z",
       "previousSlugs": [
+        "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026",
         "hf-studienplatz-akutsomatik-2-j-u00e4hige-ausbildung-form-fage-ab-herbst-2026-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026-spita"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026"
+        ],
+        "en": [
+          "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026"
+        ],
+        "fr": [
+          "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-407e03fb0a6e",
-      "slug": "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch",
+      "slug": "formazione-professionale-in-dipl-esperto-nell-assistenza-di-emergenza-nds-hf-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch",
-        "it": "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch",
-        "en": "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch",
-        "fr": "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+        "it": "formazione-professionale-in-dipl-esperto-nell-assistenza-di-emergenza-nds-hf-spital-limmattal-schlieren",
+        "en": "vocational-trainer-in-dipl-nds-hf-emergency-care-expert-spital-limmattal-schlieren",
+        "fr": "formateurs-professionnels-en-dipl-expert-en-soins-d-urgence-nds-hf-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3030,16 +3336,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:55:33.078Z"
+      "firstSeenAt": "2026-06-10T12:55:33.078Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+        ],
+        "en": [
+          "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+        ],
+        "fr": [
+          "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-90333e91e7bb",
-      "slug": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
+      "slug": "dipl-rettungssanitater-in-hf-per-la-nostra-notfallstation-40-70-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
-        "it": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
+        "it": "dipl-rettungssanitater-in-hf-per-la-nostra-notfallstation-40-70-spital-limmattal-schlieren",
         "en": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
-        "fr": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
+        "fr": "dipl-sain-de-sauvetage-u00e4ter-en-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3099,18 +3419,27 @@
       },
       "firstSeenAt": "2026-06-10T12:55:32.660Z",
       "previousSlugs": [
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
         "dipl-rescue-suit-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
         "dipl-rescue-suit-u00e4ter-in-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-8bf54a67f953",
-      "slug": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+      "slug": "infermiere-qualificato-per-il-reparto-di-emergenza-hf-fh-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
-        "it": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+        "it": "infermiere-qualificato-per-il-reparto-di-emergenza-hf-fh-spital-limmattal-schlieren",
         "en": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        "fr": "dipl-specialiste-des-soins-hf-fh-service-d-urgence-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3167,9 +3496,18 @@
       },
       "firstSeenAt": "2026-06-10T12:55:32.244Z",
       "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
         "dipl-assistenza-specialistica-hf-fh-stazione-di-emergenza-spital-limmattal-schlieren",
         "dipl-station-d-urgence-hf-fh-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-f3841fe87585",
@@ -3327,12 +3665,12 @@
     },
     {
       "id": "spital-limmattal-cdadb338c283",
-      "slug": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital",
+      "slug": "formazione-professionale-dipl-infermiere-hf-fh-f-u00fcr-stazione-di-letto-chirurgico-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital-li",
-        "it": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital",
-        "en": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital",
-        "fr": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital"
+        "it": "formazione-professionale-dipl-infermiere-hf-fh-f-u00fcr-stazione-di-letto-chirurgico-spital-limmattal-schlieren",
+        "en": "vocational-trainer-dipl-nurse-hf-fh-f-u00fcr-surgical-bed-station-spital-limmattal-schlieren",
+        "fr": "entraineur-professionnel-infirmiere-diplomee-hf-fh-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3389,10 +3727,22 @@
       },
       "firstSeenAt": "2026-06-10T12:55:30.988Z",
       "previousSlugs": [
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital",
         "professional-in-dipl-infermieristico-hf-fh-f-u00fcr-stazione-di-letto-chirurgico-spital-limmattal-schlieren",
         "professional-in-dipl-nursing-specialist-hf-fh-f-u00fcr-surgical-bed-station-spital-limmattal-schlieren",
         "professionnel-in-dipl-specialiste-des-soins-infirmiers-hf-fh-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital"
+        ],
+        "en": [
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital"
+        ],
+        "fr": [
+          "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-03544d431961",
@@ -3466,12 +3816,12 @@
     },
     {
       "id": "spital-limmattal-697fa64a50fc",
-      "slug": "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
+      "slug": "hf-studio-luogo-di-cura-a-lungo-termine-2-j-u00e4hrige-istruzione-preformazione-fage-da-fr-u00fchling-2027-spital",
       "slugByLocale": {
         "de": "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling-",
-        "it": "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
-        "en": "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
-        "fr": "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        "it": "hf-studio-luogo-di-cura-a-lungo-termine-2-j-u00e4hrige-istruzione-preformazione-fage-da-fr-u00fchling-2027-spital",
+        "en": "hf-study-place-long-term-care-2-j-u00e4hrige-education-pre-training-fage-from-fr-u00fchling-2027-spital-limmattal",
+        "fr": "l-etude-hf-place-les-soins-de-longue-duree-2-j-u00e4hrige-education-preformation-fage-de-fr-u00fchling-2027-spital"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3528,19 +3878,31 @@
       },
       "firstSeenAt": "2026-06-10T12:55:30.153Z",
       "previousSlugs": [
+        "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
         "hf-studienplatz-cura-a-lungo-termine-2-j-u00e4hige-ausbildung-form-fage-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-long-term-care-2-j-u00e4hige-ausbildung-form-fage-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-soins-de-longue-duree-2-j-u00e4hige-ausbildung-forme-fage-ab-fr-u00fchling-2027-spital-limmattal-schlier"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        ],
+        "en": [
+          "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        ],
+        "fr": [
+          "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-b89075272c02",
-      "slug": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
+      "slug": "hf-luogo-di-studio-acute-somatics-3-j-u00e4hr-istruzione-da-fr-u00fchling-2027-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
-        "it": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
-        "en": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
-        "fr": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        "it": "hf-luogo-di-studio-acute-somatics-3-j-u00e4hr-istruzione-da-fr-u00fchling-2027-spital-limmattal-schlieren",
+        "en": "hf-study-place-acute-somatics-3-j-u00e4hr-education-from-fr-u00fchling-2027-spital-limmattal-schlieren",
+        "fr": "etude-hf-place-somatique-aigue-3-j-u00e4hr-education-de-fr-u00fchling-2027-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3597,20 +3959,32 @@
       },
       "firstSeenAt": "2026-06-10T12:55:29.735Z",
       "previousSlugs": [
+        "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital",
         "hf-studienplatz-akutsomatik-3-j-u00e4h-istruzione-di-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-3-j-u00e4h-education-from-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-3-j-u00e4h-education-de-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limmatt"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        ],
+        "en": [
+          "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        ],
+        "fr": [
+          "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-11f9b0ecc8ae",
-      "slug": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
+      "slug": "hf-study-place-acute-somatics-2-j-u00e4hre-education-pre-training-fage-da-fr-u00fchling-2027-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
-        "it": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
-        "en": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
-        "fr": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        "it": "hf-study-place-acute-somatics-2-j-u00e4hre-education-pre-training-fage-da-fr-u00fchling-2027-spital-limmattal-schlieren",
+        "en": "hf-study-place-acute-somatics-2-j-u00e4hre-education-pre-training-fage-from-fr-u00fchling-2027-spital-limmattal",
+        "fr": "etude-sur-les-somatiques-aigus-en-milieu-hospitalier-2-j-u00e4hre-education-fage-pre-formation-a-partir-de-fr-u00fchling"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3667,19 +4041,31 @@
       },
       "firstSeenAt": "2026-06-10T12:55:29.316Z",
       "previousSlugs": [
+        "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling",
         "hf-studienplatz-akutsomatik-2-j-u00e4hige-ausbildung-form-fage-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-2-j-u00e4hige-ausbildung-forme-fage-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
         "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling-202"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        ],
+        "en": [
+          "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        ],
+        "fr": [
+          "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-5ac0c89b718d",
-      "slug": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital",
+      "slug": "hf-posto-di-studio-3-j-u00e4hre-formazione-studenti-r-in-tecnica-chirurgica-hf-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital",
-        "it": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital",
-        "en": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital",
-        "fr": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital"
+        "it": "hf-posto-di-studio-3-j-u00e4hre-formazione-studenti-r-in-tecnica-chirurgica-hf-spital-limmattal-schlieren",
+        "en": "hf-study-place-3-j-u00e4hre-training-students-r-in-surgical-technique-hf-spital-limmattal-schlieren",
+        "fr": "hf-place-d-etude-3-j-u00e4hre-formation-etudiants-r-en-technique-chirurgicale-hf-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -3736,18 +4122,30 @@
       },
       "firstSeenAt": "2026-06-10T12:55:28.897Z",
       "previousSlugs": [
+        "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital",
         "hf-studienplatz-3-j-u00e4hrige-ausbildung-studenti-r-in-operationstechnik-hf-spital-limmattal-schlieren",
         "hf-studienplatz-3-j-u00e4hrige-ausbildung-students-r-in-operationstechnik-hf-spital-limmattal-schlieren",
         "hf-studienplatz-3-j-u00e4hrige-ausbildung-etudiants-r-en-operationstechnik-hf-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital"
+        ],
+        "en": [
+          "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital"
+        ],
+        "fr": [
+          "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-cc23fdf84eac",
-      "slug": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital",
+      "slug": "hf-posto-di-studio-3-j-u00e4hrige-istruzione-studenti-r-med-tecnica-radiologia-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l",
-        "it": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital",
-        "en": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital",
+        "it": "hf-posto-di-studio-3-j-u00e4hrige-istruzione-studenti-r-med-tecnica-radiologia-spital-limmattal-schlieren",
+        "en": "hf-study-place-3-j-u00e4hrige-education-students-r-med-technical-radiology-spital-limmattal-schlieren",
         "fr": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l"
       },
       "company": "Spital Limmattal",
@@ -3805,9 +4203,18 @@
       },
       "firstSeenAt": "2026-06-10T12:55:28.478Z",
       "previousSlugs": [
+        "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital",
         "hf-studienplatz-3-j-u00e4hige-ausbildung-studenti-r-med-technische-radiologie-spital-limmattal-schlieren",
         "hf-studienplatz-3-j-u00e4hige-ausbildung-students-r-med-technische-radiologie-spital-limmattal-schlieren"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital"
+        ],
+        "en": [
+          "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital"
+        ]
+      }
     },
     {
       "id": "spital-limmattal-99dc82dcb950",
@@ -3815,8 +4222,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
         "it": "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren",
-        "en": "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren",
-        "fr": "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren"
+        "en": "apprenticeship-professional-hotel-industry-efz-spital-limmattal-schlieren",
+        "fr": "apprentissage-professionnel-industrie-hoteliere-efz-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
