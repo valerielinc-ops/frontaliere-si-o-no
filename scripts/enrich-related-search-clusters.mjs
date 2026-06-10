@@ -34,6 +34,7 @@ import {
   printRunSummary,
 } from './lib/ai-models.mjs';
 import { lineDelimitedObjectMap, serializeWithLineDelimited } from './lib/related-search-serialize.mjs';
+import { OUTPUT_SIZE_LIMIT_BYTES } from './lib/related-search-output-limit.mjs';
 
 // ── Paths ──────────────────────────────────────────────────────────────
 const __filename = fileURLToPath(import.meta.url);
@@ -44,11 +45,9 @@ const OUTPUT_PATH = resolve(ROOT, 'data', 'related-search-enriched.json');
 
 // ── Constants ──────────────────────────────────────────────────────────
 const SUPPORTED_LOCALES = ['it', 'en', 'de', 'fr'];
-// Push-safety ceiling for data/related-search-enriched.json.
-// GitHub's hard push limit is 100 MB; we abort at 50 MB to leave headroom and
-// catch runaway growth (e.g. a full --force re-enrich on a bloated candidates
-// set) before it reaches the hard limit (#1576, #1651).
-const OUTPUT_SIZE_LIMIT_BYTES = 50 * 1024 * 1024; // 50 MB
+// Push-safety ceiling — single source of truth shared with the commit gate
+// (scripts/lib/assert-file-size-ceiling.mjs) so the in-writer check and the
+// CI staging check can never drift (#1576, #1651, #1658).
 const CONCURRENCY = 5;
 const MIN_WORDS = 80;
 const MAX_WORDS = 130; // 120 target + small tolerance
