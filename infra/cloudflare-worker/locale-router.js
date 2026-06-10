@@ -36,10 +36,16 @@ const SHARD_ORIGIN = {
 // to these prefixes; this regex is the in-code guard.)
 const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 
-// TTL for locale pages cached in the Workers Cache API. Short enough that a
-// fresh deploy (new asset fingerprints) is visible within 5 min without manual
-// cache purge.
-const CACHE_MAX_AGE = 300; // 5 min
+// TTL for locale pages cached in the Workers Cache API + Cloudflare edge
+// (s-maxage). Raised 300s -> 3600s (2026-06-10) to absorb far more repeat/
+// overlapping hits as cf HITs that DON'T re-invoke the Worker — the lever that
+// keeps frontaliere-locale-router under the free-tier 100k/day cap once the
+// asset fan-out is gone (#1665 + route drop). Safe against stale-HTML 404s:
+// superseded CDN asset hashes are retained GRACE_DAYS=7 (prune-cdn-assets.mjs),
+// far longer than this TTL, so HTML served up to 1h stale still resolves every
+// referenced /assets hash. Live job data is client-fetched fresh from the CDN at
+// runtime (not baked into this cached HTML), so a 1h-stale SEO shell is fine.
+const CACHE_MAX_AGE = 3600; // 1 h
 
 export default {
   async fetch(request, _env, ctx) {
