@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 /**
- * Confederazione Svizzera — TI + GR Federal Jobs Crawler
+ * Confederazione Svizzera — CH-wide Federal Jobs Crawler
  *
- * Crawls Swiss federal government jobs for Ticino and Graubünden via the
+ * Crawls Swiss federal government jobs across ALL 26 cantons via the
  * Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch).
  *
- * Filters:
- *   - region:1083341 (Ticino / TI) — all jobs kept
- *   - region:1083334 (Ostschweiz / AI, AR, GL, GR, SG, SH, TG) — only GR kept
+ * The Confederazione Svizzera (federal government) is a national CH-wide
+ * employer, so this crawler fetches the unfiltered national listing (no
+ * region facet) and keeps every job whose location resolves to a Swiss
+ * canton via inferAnyCanton (all 26 cantons). Foreign postings ("Estero")
+ * and jobs with no resolvable Swiss canton are dropped.
  *
  * This crawler fills the gap left by the department-specific VTG and Agroscope
  * crawlers. It captures federal jobs from ALL departments (DATEC, DEFR, DFGP,
@@ -21,11 +23,12 @@
  * any job whose direct link URL already exists in jobs.json under a
  * different company key.
  *
- * 1. Fetches all TI listings via API (region:1083341)
- * 2. Fetches Ostschweiz listings (region:1083334) and filters to GR only
- * 3. All data is in the API response (no detail page fetching needed)
- * 4. Skips jobs already covered by VTG / Agroscope crawlers
- * 5. Merges into data/jobs.json
+ * 1. Fetches the unfiltered national listing via API (no region filter)
+ * 2. Infers per-job canton from the location text (inferAnyCanton, 26 cantons)
+ * 3. Keeps only jobs that resolve to a Swiss canton (drops "Estero"/foreign)
+ * 4. All data is in the API response (no detail page fetching needed)
+ * 5. Skips jobs already covered by VTG / Agroscope crawlers
+ * 6. Merges into data/jobs.json
  */
 
 import fs from 'node:fs';
@@ -55,7 +58,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
@@ -72,8 +75,9 @@ const COMPANY_NAME = 'Confederazione Svizzera';
 const COMPANY_HOST = 'jobs.admin.ch';
 const COMPANY_DOMAIN = 'admin.ch';
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000624/jobs';
-const REGION_TICINO = '1083341';
-const REGION_OSTSCHWEIZ = '1083334'; // Ostschweiz (AI, AR, GL, GR, SG, SH, TG) — we filter to GR only
+// CH-wide: the federal government is a national employer, so we fetch the
+// unfiltered national listing (no `f=region:` facet) and keep every job whose
+// location resolves to a Swiss canton via inferAnyCanton (all 26 cantons).
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
@@ -204,11 +208,14 @@ function parseApiJob(j = {}) {
     locationRaw.match(/^\d{4}\s+(.+)$/)?.[1]?.trim() ||
     locationRaw.replace(/,\s*Schweiz$/i, '').trim();
 
-  // Extract canton from region label: "Ticino (TI)" → "TI", "Ostschweiz (AI, AR, GL, GR, SG, SH, TG)" → use inferSwissTargetCanton
+  // Per-job canton (CH-wide). Prefer the normalized location canton, then infer
+  // from the location text via inferAnyCanton (all 26 cantons). Most federal
+  // region labels are composite (e.g. "Espace Mittelland (BE, FR, JU, NE, SO)"),
+  // so we infer from the actual arbeitsort/city rather than trust the label.
+  // A single-canton region label like "Ticino (TI)" is used only as last resort.
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = cantonMatch ? cantonMatch[1] : '';
-  // For composite regions (Ostschweiz), infer canton from location text
-  const canton = normalizedLocation.canton || cantonFromRegion || inferAnyCanton(`${locationRaw} ${regionRaw}`) || DEFAULT_CANTON;
+  const canton = normalizedLocation.canton || inferAnyCanton(`${locationRaw} ${normalizedLocation.location || ''} ${normalizedLocation.addressLocality || ''}`) || cantonFromRegion || '';
 
   // Department info
   const department = (attrs.verwaltungseinheit || [])[0] || '';
@@ -289,7 +296,10 @@ const GERMAN_SLUG_WORDS = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehr
 function buildLocalizedContent(job = {}, sourceLang = 'it') {
   const title = String(job.title || '').trim();
   const canton = job.canton || DEFAULT_CANTON;
-  const regionLabel = canton === 'GR' ? 'Grigioni' : 'Ticino';
+  // CH-wide: when the API has no city, fall back to the 2-letter canton code so
+  // the slug/description stays region-correct for any of the 26 cantons (the
+  // city is virtually always present, so this is a rare last-resort token).
+  const regionLabel = canton;
   const city = String(job.city || regionLabel).trim();
   const dept = String(job.subDepartment || job.department || 'Confederazione Svizzera').trim();
   const description = String(job.description || '').trim();
@@ -340,12 +350,11 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
 /* ── Fetching ─────────────────────────────────────────────── */
 
 /**
- * Fetch all jobs for a given Prospective region ID.
- * @param {string} regionId – region filter value (e.g. '1083341')
- * @param {string} regionLabel – human-readable label for logging
+ * Fetch the unfiltered national federal listing (all 26 cantons).
+ * No `f=region:` facet → the API returns every Swiss federal job.
  */
-async function fetchRegionListings(regionId, regionLabel) {
-  console.log(`\nFetching ${regionLabel} federal jobs (region:${regionId})...`);
+async function fetchNationalListings() {
+  console.log('\nFetching CH-wide federal jobs (national, unfiltered)...');
 
   const allItems = [];
   let offset = 0;
@@ -353,49 +362,39 @@ async function fetchRegionListings(regionId, regionLabel) {
   let total = 0;
 
   do {
-    const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}&f=region:${regionId}`;
+    const url = `${API_BASE}?lang=it&offset=${offset}&limit=${limit}`;
     console.log(`  API: ${url}`);
 
     const data = await fetchJson(url);
-    const items = assertJsonListShape(data, { key: 'jobs', source: `confederazione:${regionLabel}` }).map(parseApiJob);
+    const items = assertJsonListShape(data, { key: 'jobs', source: 'confederazione:CH' }).map(parseApiJob);
     total = data.total || 0;
     allItems.push(...items);
     offset += limit;
   } while (offset < total);
 
-  console.log(`  ${regionLabel}: ${total} jobs from API`);
+  console.log(`  CH: ${total} jobs from API`);
   return allItems;
 }
 
 async function fetchAllListings() {
-  // 1. Fetch TI region (all jobs kept)
-  const tiJobs = await fetchRegionListings(REGION_TICINO, 'Ticino');
+  // Fetch the national listing and keep only jobs that resolve to a Swiss
+  // canton (parseApiJob already inferred per-job canton via inferAnyCanton).
+  // Jobs with no resolvable Swiss canton ("Estero"/foreign postings) are dropped.
+  const nationalJobs = await fetchNationalListings();
+  const swissJobs = nationalJobs.filter((job) => Boolean(job.canton));
+  console.log(`  CH-wide → kept ${swissJobs.length} jobs with a Swiss canton (discarded ${nationalJobs.length - swissJobs.length} foreign/unresolved)`);
 
-  // 2. Fetch Ostschweiz region and filter to GR only
-  const ostschweizJobs = await fetchRegionListings(REGION_OSTSCHWEIZ, 'Ostschweiz');
-  const grJobs = ostschweizJobs.filter((job) => {
-    // Only use location/city for canton inference — not region label (it always contains "GR")
-    const locationText = `${job.location} ${job.city}`;
-    const canton = inferAnyCanton(locationText);
-    if (canton === 'GR') {
-      job.canton = 'GR';
-      return true;
-    }
-    return false;
-  });
-  console.log(`  Ostschweiz → filtered to ${grJobs.length} GR jobs (discarded ${ostschweizJobs.length - grJobs.length} non-GR)`);
-
-  // 3. Merge and deduplicate by viewkey
+  // Deduplicate by viewkey
   const seenViewkeys = new Set();
   const allJobs = [];
-  for (const job of [...tiJobs, ...grJobs]) {
+  for (const job of swissJobs) {
     const vk = job.viewkey || job.id;
     if (seenViewkeys.has(vk)) continue;
     seenViewkeys.add(vk);
     allJobs.push(job);
   }
 
-  console.log(`\nTotal: ${allJobs.length} unique jobs (${tiJobs.length} TI + ${grJobs.length} GR, ${tiJobs.length + grJobs.length - allJobs.length} duplicates)`);
+  console.log(`\nTotal: ${allJobs.length} unique CH jobs (${swissJobs.length - allJobs.length} duplicates)`);
   return allJobs;
 }
 
@@ -405,8 +404,10 @@ function buildJob(row) {
   const sourceLang = detectLang(`${row.title} ${row.description}`, row.language || 'it');
   const localized = buildLocalizedContent(row, sourceLang);
   const canton = row.canton || DEFAULT_CANTON;
-  const regionLabel = canton === 'GR' ? 'Graubünden' : 'Ticino';
-  const detailUrl = row.directLink || `https://jobs.admin.ch/?lang=it&f=region:${canton === 'GR' ? REGION_OSTSCHWEIZ : REGION_TICINO}`;
+  // Region label fallback (used only when row.location/city is empty): the
+  // 2-letter canton code is region-correct for any of the 26 CH cantons.
+  const regionLabel = canton;
+  const detailUrl = row.directLink || 'https://jobs.admin.ch/?lang=it';
   const empType = inferEmploymentType(row);
 
   // Canonical slug: use Italian if available, otherwise fall back to source-lang slug.
@@ -519,10 +520,10 @@ function mergeJobs(discoveredJobs) {
 
   const afterSnapshot = snapshotJobSlugs(mergedTarget);
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-  printCrawlChangeSummary(diff, 'Confederazione TI+GR');
-  writeCrawlChangeSummaryToGH(diff, 'Confederazione TI+GR');
-  writeJobsSummary(mergedTarget, 'Confederazione TI+GR');
-  printPublishedJobUrls(mergedTarget, 'Confederazione TI+GR');
+  printCrawlChangeSummary(diff, 'Confederazione CH');
+  writeCrawlChangeSummaryToGH(diff, 'Confederazione CH');
+  writeJobsSummary(mergedTarget, 'Confederazione CH');
+  printPublishedJobUrls(mergedTarget, 'Confederazione CH');
   return { total: mergedTarget.length, added, updated, diff };
 }
 
@@ -546,10 +547,9 @@ function updateAdapterConfig(jobs) {
     priority: 15,
     crawlerModes: ['api'],
     seedUrls: [
-      `${API_BASE}?lang=it&f=region:${REGION_TICINO}`,
-      `${API_BASE}?lang=it&f=region:${REGION_OSTSCHWEIZ}`,
+      `${API_BASE}?lang=it`,
     ],
-    notes: 'Confederazione Svizzera — federal jobs in Ticino (region 1083341) + Graubünden (filtered from Ostschweiz region 1083334). Uses Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch). Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.',
+    notes: 'Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign "Estero" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -560,7 +560,7 @@ function updateAdapterConfig(jobs) {
 function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_CONFEDERAZIONE_STRICT',
-    label: 'Confederazione TI+GR',
+    label: 'Confederazione CH',
     dataJobsPath: DATA_JOBS,
     isTargetJob,
     locales: LOCALES,
@@ -584,16 +584,16 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Confederazione TI+GR');
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Confederazione CH');
   console.log('===============================================');
-  console.log('  Confederazione Svizzera — TI + GR Federal Jobs');
+  console.log('  Confederazione Svizzera — CH-wide Federal Jobs');
   console.log('===============================================');
   console.log(`  API: ${API_BASE}`);
-  console.log(`  Filters: region:${REGION_TICINO} (Ticino) + region:${REGION_OSTSCHWEIZ} (Ostschweiz→GR)\n`);
+  console.log('  Scope: national (unfiltered) — keep all 26 Swiss cantons\n');
 
   const listings = await fetchAllListings();
   if (listings.length === 0) {
-    console.log('No federal jobs found for TI/GR — skipping.');
+    console.log('No CH federal jobs found — skipping.');
     return;
   }
 
@@ -632,11 +632,18 @@ async function main() {
 
   validateLocales();
 
-  const tiCount = jobs.filter((j) => j.canton === 'TI').length;
-  const grCount = jobs.filter((j) => j.canton === 'GR').length;
-  console.log('\n=== Confederazione Federal Job Stats ===');
-  console.log(`  Total federal jobs (TI+GR): ${total}`);
-  console.log(`  TI: ${tiCount} | GR: ${grCount}`);
+  const cantonCounts = {};
+  for (const j of jobs) {
+    const c = j.canton || DEFAULT_CANTON;
+    cantonCounts[c] = (cantonCounts[c] || 0) + 1;
+  }
+  const cantonSummary = Object.entries(cantonCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([c, n]) => `${c}:${n}`)
+    .join(' | ');
+  console.log('\n=== Confederazione Federal Job Stats (CH-wide) ===');
+  console.log(`  Total federal jobs (CH): ${total}`);
+  console.log(`  By canton: ${cantonSummary}`);
   console.log(`  Added: ${added}`);
   console.log(`  Updated: ${updated}`);
 
@@ -647,7 +654,7 @@ async function main() {
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
-    label: 'Confederazione TI+GR',
+    label: 'Confederazione CH',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
     newCount: diff.newJobs.length,
