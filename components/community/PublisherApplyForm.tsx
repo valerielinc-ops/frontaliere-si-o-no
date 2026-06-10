@@ -38,6 +38,41 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
   const [cvUrl, setCvUrl] = useState('');
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  // CV file upload (optional, either-or with the manual URL field above).
+  const [cvUploading, setCvUploading] = useState(false);
+  const [cvUploadError, setCvUploadError] = useState(false);
+
+  // Validate type/size, upload to Firebase Storage, then set cvUrl to the
+  // download URL so the existing applications-doc write carries it through.
+  const handleCvFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const okType =
+      file.type === 'application/pdf' ||
+      /\.(pdf|docx?)$/i.test(file.name) ||
+      /^application\/(pdf|msword|vnd\.openxmlformats-officedocument\.wordprocessingml\.document)$/.test(file.type);
+    const okSize = file.size <= 5 * 1024 * 1024;
+    if (!okType || !okSize) {
+      setCvUploadError(true);
+      return;
+    }
+    setCvUploadError(false);
+    setCvUploading(true);
+    try {
+      const { getStorage, ref, uploadBytes, getDownloadURL } = await import('firebase/storage');
+      const storage = getStorage(await getApp());
+      const safeName = file.name.replace(/[^\w.\-]+/g, '_').slice(-100);
+      const path = `cv-uploads/${jobId}/${Date.now()}-${safeName}`;
+      const snap = await uploadBytes(ref(storage, path), file, { contentType: file.type || 'application/octet-stream' });
+      const url = await getDownloadURL(snap.ref);
+      setCvUrl(url);
+    } catch (error) {
+      setCvUploadError(true);
+      reportCaughtError(error, 'publisherApply.cvUpload');
+    } finally {
+      setCvUploading(false);
+    }
+  };
 
   const valid =
     name.trim() && validateEmailStrict(email).valid && consent && jobId && publisherUid;
@@ -100,6 +135,28 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
       <div>
         <label htmlFor="apply-cv" className={labelClass}>{t('publisherApply.cv')}</label>
         <input id="apply-cv" type="url" value={cvUrl} onChange={e => setCvUrl(e.target.value)} placeholder={t('publisherApply.cvPlaceholder')} className={inputClass} />
+        <div className="mt-2">
+          <label htmlFor="apply-cv-file" className="inline-flex items-center gap-2 text-sm text-link cursor-pointer">
+            <input
+              id="apply-cv-file"
+              type="file"
+              accept=".pdf,.doc,.docx,application/pdf"
+              onChange={e => { void handleCvFile(e); }}
+              disabled={cvUploading}
+              className="block text-sm text-body file:mr-3 file:rounded-xl file:border file:border-edge file:bg-surface file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-link hover:file:bg-surface-alt file:cursor-pointer disabled:opacity-60"
+            />
+            {cvUploading && (
+              <span className="inline-flex items-center gap-1.5 text-xs text-subtle" role="status" aria-live="polite">
+                <span className="animate-spin rounded-full h-3.5 w-3.5 border-2 border-edge border-t-accent" />
+                {t('publisherApply.cvUploading')}
+              </span>
+            )}
+          </label>
+          <p className="mt-1 text-xs text-muted">{t('publisherApply.cvUpload')}</p>
+          {cvUploadError && (
+            <p className="mt-1 text-xs text-danger">{t('publisherApply.cvError')}</p>
+          )}
+        </div>
       </div>
       <div>
         <label htmlFor="apply-message" className={labelClass}>{t('publisherApply.message')}</label>
