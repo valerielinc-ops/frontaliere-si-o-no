@@ -88,7 +88,17 @@ export function isTrustedDomain(rawUrl = '') {
 export function parseSohListing(html) {
   const out = [];
   const seen = new Set();
-  const linkRe = /href="(https:\/\/jobs\.so-h\.ch\/offene-stellen\/[a-z0-9\-]+\/[a-f0-9\-]{8,})"/gi;
+  // Same Swiss Medical Network `/offene-stellen/{slug}/{detail}` board template as the
+  // spital-zofingen / pbl / bls parsers. The trailing detail segment is a 36-char UUID
+  // today, but pin it to a generic slug-like token (`[^"/]+`, not hex-only `[a-f0-9-]{8,}`)
+  // so a non-UUID detail path (e.g. `…/{slug}/job-42`) still matches instead of silently
+  // dropping every job on a template switch — the exact zero-match failure class this PR
+  // hardens. The two-segment `/offene-stellen/{slug}/{detail}` shape keeps it from matching
+  // the listing index. Host stays absolute-pinned (NOT optional like the siblings): this
+  // listing is scraped cross-domain from `www.solothurnerspitaeler.ch`, where a root-relative
+  // `/offene-stellen/…` href would resolve to the corporate host, not `jobs.so-h.ch`, so
+  // relative-tolerant normalization would mint wrong URLs here.
+  const linkRe = /href="(https:\/\/jobs\.so-h\.ch\/offene-stellen\/[^"/]+\/[^"/]+)"/gi;
   let m;
   while ((m = linkRe.exec(html))) {
     const url = m[1];
