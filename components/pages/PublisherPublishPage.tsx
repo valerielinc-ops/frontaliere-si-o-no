@@ -248,6 +248,29 @@ const PublisherPublishPage: React.FC = () => {
  if (isFree && applyMode !== 'external_url') setApplyMode('external_url');
  }, [isFree, applyMode]);
 
+ // Prefill the company section from a saved publisher profile (repeat posters
+ // shouldn't re-type their company on every ad).
+ useEffect(() => {
+ if (!user) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const { getFirestore: gf, doc: fDoc, getDoc: fGet } = await import('firebase/firestore');
+ const snap = await fGet(fDoc(gf(await getApp()), 'publishers', user.uid));
+ if (cancelled || !snap.exists()) return;
+ const c = (snap.data() as { company?: Record<string, unknown> }).company;
+ if (!c) return;
+ if (c.name) setCompanyName((v) => v || String(c.name));
+ if (c.legalForm) setLegalForm(c.legalForm as PublisherLegalForm);
+ if (c.domain) setDomain((v) => v || String(c.domain));
+ if (c.logoUrl) setLogoUrl((v) => v || String(c.logoUrl));
+ } catch {
+ // best-effort prefill
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [user]);
+
  // ── Live price preview ──────────────────────────────────────
  // Billing counts DISTINCT non-empty location labels (one ad × location unit each).
  const distinctLocations = useMemo(() => {
@@ -387,6 +410,27 @@ const PublisherPublishPage: React.FC = () => {
  createdAt: serverTimestamp(),
  updatedAt: serverTimestamp(),
  });
+
+ // Save the company profile so the next ad prefills (best-effort, non-blocking).
+ try {
+ const { doc: fDoc, setDoc: fSet } = await import('firebase/firestore');
+ await fSet(
+ fDoc(db, 'publishers', user.uid),
+ {
+ email: user.email || null,
+ company: {
+ name: companyName.trim(),
+ legalForm,
+ ...(domain.trim() ? { domain: domain.trim() } : {}),
+ ...(logoUrl.trim() ? { logoUrl: logoUrl.trim() } : {}),
+ },
+ updatedAt: serverTimestamp(),
+ },
+ { merge: true },
+ );
+ } catch {
+ // non-fatal — the ad is already created
+ }
 
  // Free tier: no payment — the ad is already 'published' and the sync
  // workflow will pick it up into the crawler slice. Done.
