@@ -1,4 +1,4 @@
-name: Deploy Firestore Rules
+name: Deploy Firestore Rules & Indexes
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'firestore.rules'
+      - 'firestore.indexes.json'
   workflow_dispatch:
 
 permissions:
@@ -49,8 +50,14 @@ jobs:
       - name: Load Remote Config secrets
         run: node scripts/load-rc-env.mjs
 
-      - name: Deploy Firestore security rules
-        run: firebase deploy --only firestore:rules --project frontaliere-ticino
+      # Deploy rules AND composite indexes together. Before this, indexes in
+      # firestore.indexes.json were never shipped (only firestore:rules was),
+      # so the file was dead config and prod indexes drifted from it — a query
+      # relying on an undeployed index failed with FAILED_PRECONDITION at
+      # runtime. Index deploy is additive: in non-interactive CI the CLI creates
+      # missing indexes and does not delete backend indexes absent from the file.
+      - name: Deploy Firestore security rules and indexes
+        run: firebase deploy --only firestore:rules,firestore:indexes --project frontaliere-ticino
 
       - name: Report failure to GitHub Issues
         if: failure()
