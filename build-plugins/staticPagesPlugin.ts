@@ -12,6 +12,7 @@ import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK } fr
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
+import { CRITICAL_CSS } from './shared/criticalCss';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
@@ -1635,8 +1636,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return tags.length ? '\n ' + tags.join('\n ') : '';
  };
 
- // Critical CSS (same as asyncCssPlugin) for non-render-blocking loading
- const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}';
+ // Critical CSS (first-paint, non-render-blocking) — single source of truth in
+ // shared/criticalCss.ts, shared with ogPagesPlugin. See that module for why it
+ // stays inline (render-blocking-by-design) rather than externalized (#1586).
+ const criticalCSS = CRITICAL_CSS;
 
  /* ── 1. Parse sitemap sub-files for all URLs with hreflang ── */
  let sitemapSrc: string;
