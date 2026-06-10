@@ -56,6 +56,7 @@ import {
   ensureMinimumDescriptionWordCount,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -608,8 +609,17 @@ const CITY_POSTAL_CH = {
   'Giubiasco': '6512', Locarno: '6600', Lugano: '6900', Mendrisio: '6850',
 };
 
-// Canton-specific fallback postal codes when city is not in the lookup table.
-const CANTON_POSTAL_FALLBACK = { GR: '7000', VS: '3900', TI: '6900', LU: '6000' };
+// Canton-specific fallback postal codes (canton capital / representative PLZ)
+// when the city is not in the lookup table. CH-wide now (Volg is national), so
+// every canton needs a sane fallback — '0000' would emit a bogus postalCode in
+// the JobPosting structured data on hundreds of pages.
+const CANTON_POSTAL_FALLBACK = {
+  AG: '5000', AI: '9050', AR: '9100', BE: '3000', BL: '4410', BS: '4000',
+  FR: '1700', GE: '1200', GL: '8750', GR: '7000', JU: '2800', LU: '6000',
+  NE: '2000', NW: '6370', OW: '6060', SG: '9000', SH: '8200', SO: '4500',
+  SZ: '6430', TG: '8500', TI: '6900', UR: '6460', VD: '1000', VS: '3900',
+  ZG: '6300', ZH: '8000',
+};
 
 function getPostalCode(city = '', canton = '') {
   return CITY_POSTAL_CH[city] || CANTON_POSTAL_FALLBACK[canton] || '0000';
@@ -624,7 +634,7 @@ function buildJob(raw) {
   const postalCode = getPostalCode(city, canton);
 
   const metaLine = [
-    `${title} — ${company}, ${city} (${canton}).`,
+    `${title} — ${company}, ${city} (${getCantonDisplayName(canton, 'de') || canton}).`,
     workload ? `Pensum: ${workload}.` : '',
     contractTerms ? `Vertrag: ${contractTerms}.` : '',
     `Bewerbung über ${JOBS_PORTAL}`,

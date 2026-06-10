@@ -126,20 +126,20 @@ function isAbbJob(job) {
 }
 
 function inferCantonFromJob(job) {
-  const bucket = [
-    job?.state,
-    job?.location,
-    job?.cityState,
-    job?.cityStateCountry,
-    job?.address,
-    Array.isArray(job?.multi_location) ? job.multi_location.join(' ') : '',
-    Array.isArray(job?.multi_location_array)
-      ? job.multi_location_array.map((entry) => entry?.location || '').join(' ')
-      : '',
-  ]
-    .filter(Boolean)
-    .join(' ');
-  return inferAnyCanton(bucket);
+  // Resolve from the cleanest SINGLE signal in priority order — NEVER a combined
+  // multi-field string. inferAnyCanton scans TARGET_CANTONS in array order, so a
+  // concatenation of a multi-site job ("Genève + Zürich") returns the canton
+  // highest in the array (GE), not the primary site. Use the primary location.
+  const primaryMulti = Array.isArray(job?.multi_location_array) && job.multi_location_array[0]?.location
+    ? job.multi_location_array[0].location
+    : (Array.isArray(job?.multi_location) ? job.multi_location[0] : '');
+  const signals = [job?.cityState, job?.location, primaryMulti, job?.state, job?.cityStateCountry, job?.address];
+  for (const sig of signals) {
+    if (!sig) continue;
+    const c = inferAnyCanton(String(sig));
+    if (c) return c;
+  }
+  return '';
 }
 
 function normalizeAbbContract(raw = '') {

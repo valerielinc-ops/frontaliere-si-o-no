@@ -74,9 +74,21 @@ export function cleanAgroscopeCity(rawLocation = '') {
  * for Agroscope research stations missing from the BFS dataset. Returns '' for
  * locations that resolve to no Swiss canton (foreign / "Estero").
  */
+const AGROSCOPE_STATION_CANTON = {
+  posieux: 'FR', changins: 'VD', nyon: 'VD', reckenholz: 'ZH', 'wädenswil': 'ZH',
+  waedenswil: 'ZH', 'tänikon': 'TG', taenikon: 'TG', ettenhausen: 'TG',
+  liebefeld: 'BE', conthey: 'VS', cadenazzo: 'TI',
+};
+
 export function resolveAgroscopeCanton({ city = '', region = '' } = {}) {
-  const fromCity = String(inferAnyCanton(cleanAgroscopeCity(city)) || '').toUpperCase();
+  const cleanCity = cleanAgroscopeCity(city);
+  const fromCity = String(inferAnyCanton(cleanCity) || '').toUpperCase();
   if (isTargetCanton(fromCity)) return fromCity;
+  // Known Agroscope station whose town is absent from the BFS dataset — map to
+  // its real canton BEFORE the macro-region first-code fallback (which would
+  // mislabel e.g. Posieux→BE).
+  const stationCanton = AGROSCOPE_STATION_CANTON[String(cleanCity || '').toLowerCase().trim()];
+  if (stationCanton && isTargetCanton(stationCanton)) return stationCanton;
   const regionCanton = [...String(region || '').matchAll(/\b([A-Z]{2})\b/g)]
     .map((m) => m[1].toUpperCase())
     .find((code) => isTargetCanton(code));

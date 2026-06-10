@@ -35,7 +35,9 @@ function normalizeSpace(value = '') {
  * region or multiple cities makes inferAnyCanton resolve the wrong canton.
  */
 export function cleanAgieCharmillesCity(rawLocation = '') {
-  let s = String(rawLocation || '').replace(/\bCH-?/i, '').trim();
+  // Strip a "CH-" / "CH " country prefix ONLY when followed by a separator, so
+  // real cities starting with "Ch" (Chur, Chiasso, Cham, Chêne) are NOT mangled.
+  let s = String(rawLocation || '').replace(/\bCH[-\s]+/i, '').trim();
   s = s.split(/,| or /i)[0].trim(); // first city only
   s = s.replace(/^\d{4}\s+/, '').trim(); // strip leading 4-digit PLZ
   return s;
