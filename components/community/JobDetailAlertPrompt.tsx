@@ -16,6 +16,12 @@ export interface JobDetailAlertPromptProps {
   email: string;
   /** Active locale — passed straight to the alert config. */
   locale: Locale;
+  /** Slug of the job the user is viewing — stored as subscription provenance. */
+  sourceJobSlug?: string | null;
+  /** Full canonical URL of that job — stored as subscription provenance. */
+  sourceJobUrl?: string | null;
+  /** Title of that job — stored as subscription provenance. */
+  sourceJobTitle?: string | null;
   /** Called once the toast should disappear (any reason). */
   onClose: () => void;
   /** Called when the user clicks "Sì, attiva" and the create succeeds. */
@@ -38,6 +44,9 @@ export default function JobDetailAlertPrompt({
   userId,
   email,
   locale,
+  sourceJobSlug,
+  sourceJobUrl,
+  sourceJobTitle,
   onClose,
   onAccepted,
   onDismissed,
@@ -51,14 +60,18 @@ export default function JobDetailAlertPrompt({
   const handleAccept = useCallback(async () => {
     setStatus('submitting');
     try {
-      await subscribe(userId, email, category, locale);
+      await subscribe(userId, email, category, locale, {
+        slug: sourceJobSlug ?? null,
+        url: sourceJobUrl ?? null,
+        title: sourceJobTitle ?? null,
+      });
       setStatus('success');
       onAccepted();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [category, email, locale, onAccepted, onErrored, subscribe, userId]);
+  }, [category, email, locale, onAccepted, onErrored, subscribe, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();

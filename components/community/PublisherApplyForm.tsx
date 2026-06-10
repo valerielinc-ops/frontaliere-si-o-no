@@ -51,7 +51,7 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
       file.type === 'application/pdf' ||
       /\.(pdf|docx?)$/i.test(file.name) ||
       /^application\/(pdf|msword|vnd\.openxmlformats-officedocument\.wordprocessingml\.document)$/.test(file.type);
-    const okSize = file.size <= 5 * 1024 * 1024;
+    const okSize = file.size < 5 * 1024 * 1024; // align with storage.rules (rejects exactly 5 MB)
     if (!okType || !okSize) {
       setCvUploadError(true);
       return;
