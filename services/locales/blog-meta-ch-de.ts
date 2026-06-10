@@ -119,6 +119,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-di-cassa-malati-ticino.title': 'Parlament teilt Krankengeldprämien',
     'blog.article.premi-di-cassa-malati-ticino.excerpt': 'Das Tessiner Parlament hat beschlossen, die Anwendung der beiden von Lega und PS vorgeschlagenen und im letzten September vom Volk abgestimmten Massnahmen zu teilen.',
     'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'ein Schweizer Krankenhaus-Szene',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Auslandsaufenthalt: So vermeiden Sie Lücken in der AHV',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Erfahren Sie, wie Sie Ihren Auslandsaufenthalt richtig planen, um Lücken in der AHV zu vermeiden und die Kontinuität Ihrer Rente sicherzustellen.',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Schweizer Alpenlandschaft mit See und Stadt, realistische DSLR Szene.',
 };
 
 export default blogMetaChDe;

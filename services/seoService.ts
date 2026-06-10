@@ -3964,6 +3964,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-carenza-manodopera-gr-2024': { name: 'Carenza manodopera', path: '/articoli-svizzera/carenza-manodopera-gr-2024/', parent: 'blog' },
     'blog-premi-di-cassa-malati-ticino': { name: 'Il Parlamento spacchetta le iniziative sui', path: '/articoli-svizzera/premi-di-cassa-malati-ticino/', parent: 'blog' },
     'blog-via-mazzini-lugano-chiusura-lavori': { name: 'Via Mazzini', path: '/articoli-frontaliere/via-mazzini-lugano-chiusura-lavori', parent: 'blog' },
+    'blog-soggiorno-estero-avs-evitare-lacuna': { name: 'Soggiorno all’estero', path: '/articoli-svizzera/soggiorno-estero-avs-evitare-lacuna/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

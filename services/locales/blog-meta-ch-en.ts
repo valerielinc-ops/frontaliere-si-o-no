@@ -119,6 +119,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-di-cassa-malati-ticino.title': 'Parliament Splits Sick Pay Bonuses',
     'blog.article.premi-di-cassa-malati-ticino.excerpt': 'The Ticino Parliament has decided to split the application of the two measures promoted by Lega and PS and voted by the people last September.',
     'blog.article.premi-di-cassa-malati-ticino.imageAlt': 'a Swiss hospital scene',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.title': 'Staying abroad: how to avoid a gap in the AVS',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.excerpt': 'Learn how to properly plan your stay abroad to avoid gaps in the AVS and ensure pension continuity.',
+    'blog.article.soggiorno-estero-avs-evitare-lacuna.imageAlt': 'Swiss alpine landscape with lake and city, realistic DSLR scene.',
 };
 
 export default blogMetaChEn;
