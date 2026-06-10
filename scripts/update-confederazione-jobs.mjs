@@ -60,7 +60,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -296,10 +296,11 @@ const GERMAN_SLUG_WORDS = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehr
 function buildLocalizedContent(job = {}, sourceLang = 'it') {
   const title = String(job.title || '').trim();
   const canton = job.canton || DEFAULT_CANTON;
-  // CH-wide: when the API has no city, fall back to the 2-letter canton code so
-  // the slug/description stays region-correct for any of the 26 cantons (the
-  // city is virtually always present, so this is a rare last-resort token).
-  const regionLabel = canton;
+  // CH-wide: when the API has no city, fall back to the localized canton display
+  // name (e.g. 'Zurigo'/'Berna', not the bare 'ZH'/'BE' code) so the
+  // slug/description/addressLocality stays region-correct for any of the 26
+  // cantons (the city is virtually always present; rare last-resort token).
+  const regionLabel = getCantonDisplayName(canton, 'it') || canton;
   const city = String(job.city || regionLabel).trim();
   const dept = String(job.subDepartment || job.department || 'Confederazione Svizzera').trim();
   const description = String(job.description || '').trim();
@@ -406,7 +407,7 @@ function buildJob(row) {
   const canton = row.canton || DEFAULT_CANTON;
   // Region label fallback (used only when row.location/city is empty): the
   // 2-letter canton code is region-correct for any of the 26 CH cantons.
-  const regionLabel = canton;
+  const regionLabel = getCantonDisplayName(canton, 'it') || canton;
   const detailUrl = row.directLink || 'https://jobs.admin.ch/?lang=it';
   const empType = inferEmploymentType(row);
 
