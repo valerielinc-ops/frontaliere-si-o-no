@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 
 const SOURCE_URL = 'https://www.arbeit.swiss/secoalv/it/home.html';
@@ -87,11 +88,18 @@ function extractPeriod(text) {
   return `${m[2]}-${mm}`;
 }
 
+// Plausible registered-unemployment band for Switzerland (historic min ~1.7%,
+// COVID peak ~3.7%). Anything outside 0–15% is almost certainly a mis-parse
+// (a count, a delta, a year) rather than a rate.
+function isPlausibleRate(n) {
+  return Number.isFinite(n) && n >= 0 && n <= 15;
+}
+
 function extractRate(text) {
   const match = text.match(/(tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage)[^%]{0,180}?([0-9]+(?:[.,][0-9]+)?)\s*%/i);
   if (!match) return null;
   const n = Number.parseFloat(match[2].replace(',', '.'));
-  if (!Number.isFinite(n)) return null;
+  if (!isPlausibleRate(n)) return null;
   return n;
 }
 
@@ -101,27 +109,103 @@ function absolutize(url) {
   return new URL(url, SOURCE_URL).toString();
 }
 
-function parseLatestUnemployment(html) {
-  const blockRegex = /<div class="slide">[\s\S]*?<a href="([^"]+)"[\s\S]*?<span class="title">([\s\S]*?)<\/span>[\s\S]*?<p class="focusleaddescription">([\s\S]*?)<\/p>/gi;
-  let match;
-  let best = null;
+const LABOUR_NEWS_RE = /mercato del lavoro|labour market|labor market|arbeitsmarktlage|situation sur le march[eé] du travail|marche du travail/i;
 
-  while ((match = blockRegex.exec(html)) !== null) {
-    const href = absolutize(match[1]);
-    const title = decodeHtml(match[2]);
-    const desc = decodeHtml(match[3]);
-    const merged = `${title} ${desc}`;
-    const rate = extractRate(merged);
-    const period = extractPeriod(merged);
-    const isLabourNews = /mercato del lavoro|labour market|arbeitsmarktlage|marche du travail/i.test(merged);
+// Resolve the canonical SECO labour-market press-release URL for a given rate
+// sentence. On the current arbeit.swiss (Nuxt SPA) the release link lives in the
+// embedded JSON immediately AFTER the rate sentence, e.g.
+//   "…disoccupazione è rimasto invariato al 3,0%.","https://www.admin.ch/it/newnsb/…"
+// The HTML-rendered teaser button carries no resolved href, so we anchor on the
+// rate sentence itself and take the next admin.ch / arbeit.swiss URL after it.
+function findReleaseHref(html, rateSentence) {
+  // The rate sentence appears more than once in the document: once as rendered
+  // HTML (whose teaser button has no resolved href) and once in the embedded
+  // JSON, where it is immediately followed by the canonical press URL. Scan
+  // every occurrence of the distinctive rate-phrase prefix and return the first
+  // admin.ch / arbeit.swiss press link that follows within a short window.
+  const prefix = (rateSentence.match(/tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage/i) || [])[0];
+  const adminRe = /https?:\/\/www\.admin\.ch\/[a-zA-Z0-9/_-]+/;
+  const localRe = /https?:\/\/www\.arbeit\.swiss\/[a-zA-Z0-9/_.-]*(?:comunicat|press|medien|communiqu|news)[a-zA-Z0-9/_.-]*/i;
 
-    if (!rate || !period || !isLabourNews) continue;
-    if (!best || period > best.period) {
-      best = { href, title, desc, rate, period };
+  if (prefix) {
+    let from = 0;
+    let idx;
+    let localHit = '';
+    // eslint-disable-next-line no-cond-assign
+    while ((idx = html.indexOf(prefix, from)) >= 0) {
+      const window = html.slice(idx, idx + 600);
+      const admin = window.match(adminRe);
+      if (admin) return admin[0];
+      if (!localHit) {
+        const local = window.match(localRe);
+        if (local) localHit = absolutize(local[0]);
+      }
+      from = idx + prefix.length;
     }
+    if (localHit) return localHit;
+  }
+  // Last resort: the home page itself (still a valid, stable SECO source).
+  return SOURCE_URL;
+}
+
+// Robust extractor for the SECO/arbeit.swiss home page.
+//
+// The page is a Nuxt single-page app. Its labour-market teaser renders the rate
+// in a single self-contained sentence that names BOTH the period and the rate,
+// e.g. "Nel mese di maggio 2026 il tasso di disoccupazione è rimasto invariato
+// al 3,0%." (the same text also appears in the embedded JSON payload, alongside
+// the canonical admin.ch press-release URL). Rather than bind to one fragile
+// selector/`<div class="slide">` block (the old markup, now gone), we decode the
+// whole document to plain text and scan for that sentence — requiring the rate
+// AND the month+year period to occur in the SAME sentence so unrelated headings
+// (e.g. "Portale lavoro.swiss – nuova veste da giugno 2026") cannot bleed their
+// month into the rate. The newest such period wins. This survives markup churn
+// as long as the rate sentence itself stays in the page text.
+function parseLatestUnemployment(html) {
+  const plain = decodeHtml(html);
+  const candidates = [];
+
+  // Match a sentence-sized fragment (bounded by . ; or sentence-ish breaks)
+  // that contains the unemployment-rate phrase followed by a "N,N%" figure.
+  const sentenceRe = /[^.;”"]*?(?:tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage)[^.;”"%]{0,180}?[0-9]+(?:[.,][0-9]+)?\s*%/gi;
+  let sm;
+  while ((sm = sentenceRe.exec(plain)) !== null) {
+    const frag = sm[0].trim();
+    const rate = extractRate(frag);
+    // Period MUST come from the same sentence as the rate — no cross-block reuse
+    // (prevents an unrelated heading like "…nuova veste da giugno 2026" from
+    // donating its month to the rate figure).
+    const period = extractPeriod(frag);
+    if (rate == null || !period) continue;
+    // Labour-market keyword is a soft corroboration: it usually lives in the
+    // teaser heading next to the sentence, not inside the sentence itself, so we
+    // check a wider window. The rate phrase + same-sentence period are already
+    // unemployment-specific, so a missing keyword is allowed but de-prioritised.
+    const start = Math.max(0, sm.index - 220);
+    const around = plain.slice(start, sm.index + frag.length + 60);
+    const corroborated = LABOUR_NEWS_RE.test(around);
+    candidates.push({ text: frag, rate, period, corroborated });
   }
 
-  return best;
+  if (candidates.length === 0) return null;
+
+  // Prefer labour-market-corroborated candidates; among those, the newest period
+  // wins (ISO YYYY-MM compares lexicographically). Fall back to the newest
+  // uncorroborated candidate only if nothing is corroborated.
+  const corroborated = candidates.filter((c) => c.corroborated);
+  const pool = corroborated.length > 0 ? corroborated : candidates;
+  let best = null;
+  for (const c of pool) {
+    if (!best || c.period > best.period) best = c;
+  }
+
+  return {
+    href: findReleaseHref(html, best.text),
+    title: best.text.slice(0, 200),
+    desc: best.text,
+    rate: best.rate,
+    period: best.period,
+  };
 }
 
 function safeReadJson(filePath) {
@@ -254,7 +338,17 @@ async function main() {
   const html = await fetchSecoHtml();
   const parsed = parseLatestUnemployment(html);
   if (!parsed) {
-    throw new Error('Unable to parse unemployment rate from SECO page');
+    // Fail loud (no silent default): the page is a Nuxt SPA whose labour-market
+    // teaser carries the rate in a sentence like "…tasso di disoccupazione …
+    // al N,N%". If this throws, the SECO source markup/wording drifted and the
+    // extractor in parseLatestUnemployment() needs re-pointing.
+    throw new Error(
+      `Unable to parse unemployment rate from SECO page (${SOURCE_URL}). ` +
+        'Tried: rate sentence ("tasso di disoccupazione/unemployment rate/' +
+        'Arbeitslosenquote/taux de chômage … N,N%") with a same-sentence ' +
+        'month+year period and a labour-market keyword. Source markup likely ' +
+        'changed — update parseLatestUnemployment().',
+    );
   }
 
   const previous = safeReadJson(OUT_FILE);
@@ -290,7 +384,12 @@ async function main() {
   console.log(`[unemployment] Updated ${OUT_FILE}: ${payload.period} -> ${payload.rate}%`);
 }
 
-main().catch((err) => {
-  console.error('[unemployment] ERROR', err);
-  process.exit(1);
-});
+export { parseLatestUnemployment, extractRate, extractPeriod, isPlausibleRate };
+
+// Only fetch + write when run directly (not when imported by tests).
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error('[unemployment] ERROR', err);
+    process.exit(1);
+  });
+}
