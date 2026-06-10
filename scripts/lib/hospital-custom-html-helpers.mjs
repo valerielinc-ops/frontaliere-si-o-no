@@ -82,6 +82,15 @@ export function stripInlineJsCode(text = '') {
     /(?:\n|^)\s*(?:\/\/\s*<!\[CDATA\[|\$\(|jQuery\(|function\s+\w*\s*\(|\(function\s*\()/,
     // Orphan `var X = window.` / `var X = document.` declarations.
     /(?:\n|^)\s*var\s+\w+\s*=\s*(?:window|document|new\s+Object|\{)/,
+    // Bare DOM/BOM-API calls leaked WITHOUT a `function(`/`$(`/`jQuery(`/`var X=`
+    // wrapper — e.g. a SuccessFactors job-share widget that inlines
+    // `document.getElementById(…)`, `window.location = …`, `.addEventListener('click', …)`
+    // or `new Array(…)` as plain text. The deploy gate (validate-jobs-quality.mjs
+    // CODE_PATTERNS) flags each of these independently of any wrapper, so the
+    // stripper must too: a wrapper-less JS leak otherwise survives stripping yet
+    // trips the gate → permanent CI fail / deploy blocked (#1765). Mirrors the
+    // gate's DOM-API / window-API / addEventListener / JS-constructor patterns.
+    /(?:\n|^|\s)(?:document\.(?:getElementById|querySelector|cookie|write)\b|window\.(?:location|addEventListener|onload)\b|\.addEventListener\s*\(\s*['"]|new\s+(?:Array|Object|Map|Set)\s*\()/,
     // Inline CSS: a class/id rule block carrying a real declaration, optionally
     // preceded by a `/* … */` build marker. Selector must start with `.`/`#`
     // so prose like "version 2.0 {note}" can't trip it.

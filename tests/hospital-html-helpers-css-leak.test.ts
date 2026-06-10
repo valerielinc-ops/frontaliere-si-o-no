@@ -49,4 +49,26 @@ describe('stripInlineJsCode — leaked CSS', () => {
     const clean = 'Stelle 80-100% in St. Gallen. Eintritt: per sofort. Lohn nach Vereinbarung (Stufe 2.0).';
     expect(stripInlineJsCode(clean)).toBe(clean);
   });
+
+  // Regression #1765: the deploy gate flags bare DOM-API calls (document.getElementById,
+  // window.location, .addEventListener(', new Array() independently of a function()/$()/
+  // var X= wrapper, but the stripper previously anchored only on the wrapper signature —
+  // a wrapper-less JS leak survived stripping yet tripped the gate (permanent CI fail).
+  it('truncates a wrapper-less DOM-API JS leak (job-share widget, no function wrapper)', () => {
+    const leaked =
+      REAL_PROSE +
+      "\n\ndocument.getElementById('share-btn').addEventListener('click', sendMail);" +
+      "\nwindow.location = '/apply';";
+    const out = stripInlineJsCode(leaked);
+    expect(out).toBe(REAL_PROSE);
+    expect(out).not.toMatch(/document\.getElementById/i);
+    expect(out).not.toMatch(/addEventListener/i);
+  });
+
+  it('truncates a leaked `new Array(...)` / window.location block without a wrapper', () => {
+    const leaked = REAL_PROSE + '\n\nwindow.location.href = base; var rows = new Array(10);';
+    const out = stripInlineJsCode(leaked);
+    expect(out).toBe(REAL_PROSE);
+    expect(out).not.toMatch(/window\.location/i);
+  });
 });
