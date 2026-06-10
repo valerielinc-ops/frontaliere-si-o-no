@@ -52,7 +52,7 @@ import {
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
-import { GRIGIONI_CITIES, TICINO_CITIES, inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -496,43 +496,18 @@ async function fetchSbbJobDetailUrls() {
 
   console.log(`  📦 Total jobs in API: ${allJobs.length}`);
 
-  const TARGET_CITY_NAMES = new Set(
-    [...TICINO_CITIES, ...GRIGIONI_CITIES].map((city) => normalize(city))
-  );
-
-  function isSbbTargetCity(job) {
-    const cities = job?.attributes?.['100'] || [];
-    return cities.some((c) => TARGET_CITY_NAMES.has(normalize(c)));
-  }
-
-  // Filter for target-area jobs: require BOTH region and city match.
-  // If city attribute is missing/empty, accept based on region alone (conservative).
+  // CH-wide: the company.sbb.ch AEM feed is national. Accept every job whose
+  // region (attributes['110']) resolves to a target Swiss canton — all 26 are
+  // targets now (Cathedral CH-wide). No Ticino/Grigioni city restriction: SBB
+  // is a national railway and posts across every canton (HQ Bern). Per-job
+  // canton is inferred downstream via inferAnyCanton.
   const targetJobs = allJobs.filter((job) => {
     const regions = job?.attributes?.['110'] || [];
-    const hasRegion = regions.some((r) => isTargetSwissLocation(r));
-    if (!hasRegion) return false;
-    const cities = job?.attributes?.['100'] || [];
-    if (cities.length === 0) return true; // no city data → trust region
-    return isSbbTargetCity(job);
+    if (regions.length === 0) return true; // no region data → keep (country attr already CH)
+    return regions.some((r) => isTargetSwissLocation(r));
   });
 
-  console.log(`  🎯 Target jobs (TI/GR region + city filter): ${targetJobs.length}`);
-
-  // Also log jobs excluded by city filter for debugging
-  const regionOnlyJobs = allJobs.filter((job) => {
-    const regions = job?.attributes?.['110'] || [];
-    const hasRegion = regions.some((r) => isTargetSwissLocation(r));
-    if (!hasRegion) return false;
-    const cities = job?.attributes?.['100'] || [];
-    return cities.length > 0 && !isSbbTargetCity(job);
-  });
-  if (regionOnlyJobs.length > 0) {
-    console.log(`  ⚠️ Excluded ${regionOnlyJobs.length} job(s) with TI/GR region but non-target city:`);
-    for (const job of regionOnlyJobs) {
-      const city = (job?.attributes?.['100'] || []).join(', ') || '?';
-      console.log(`     - ${job.title} — ${city}`);
-    }
-  }
+  console.log(`  🎯 Target jobs (CH-wide region filter): ${targetJobs.length}`);
 
   // Extract detail URLs + metadata
   const detailUrls = [];
