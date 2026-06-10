@@ -734,6 +734,16 @@ jobs:
           [ -d dist/data ]         && cp -r dist/data         "$stage/data"
           [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
           [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
+          # Self-hosted brand/logo/author images (#1360): push from the git-tracked
+          # public/images/<dir> source to ${CDN}/images/<dir>, so the offload script
+          # (offload-generated-images-cdn.mjs IMAGE TARGETS) can rewrite the static
+          # HTML refs + the SPA's cdnImageUrl() runtime refs to the CDN and then
+          # delete the dist copies. MUST stay in sync with that script's TARGETS and
+          # services/cdnImageBase.ts CDN_OFFLOADED_IMAGE_PREFIXES. (/images/places is
+          # intentionally excluded — it stays same-origin.)
+          for d in brands insurers providers logos authors publisher; do
+            [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
+          done
           if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ]; then
             echo "no offloadable assets present — skipping CDN push"; exit 0
           fi
