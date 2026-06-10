@@ -95,9 +95,12 @@ function isPlausibleRate(n) {
   return Number.isFinite(n) && n >= 0 && n <= 15;
 }
 
+// Shared rate-phrase alternation (IT/EN/DE/FR). Stateless (no `g` flag) so it is
+// safe to reuse across extractRate / findReleaseHref without lastIndex carryover.
+const RATE_PHRASE_RE = /tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage/i;
+
 function extractRate(text) {
-  const phraseRe = /tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage/i;
-  const pm = phraseRe.exec(text);
+  const pm = RATE_PHRASE_RE.exec(text);
   if (!pm) return null;
   // Anchor on the rate RESULT, not the first figure after the phrase. When the
   // rate MOVES, SECO writes two percentages in one sentence — e.g. "…è salito
@@ -122,38 +125,47 @@ function absolutize(url) {
   return new URL(url, SOURCE_URL).toString();
 }
 
-const LABOUR_NEWS_RE = /mercato del lavoro|labour market|labor market|arbeitsmarktlage|situation sur le march[eé] du travail|marche du travail/i;
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
-// Resolve the canonical SECO labour-market press-release URL for a given rate
+// Resolve the canonical SECO labour-market press-release URL for the WINNING rate
 // sentence. On the current arbeit.swiss (Nuxt SPA) the release link lives in the
-// embedded JSON immediately AFTER the rate sentence, e.g.
+// embedded JSON as the value IMMEDIATELY following the rate sentence, e.g.
 //   "…disoccupazione è rimasto invariato al 3,0%.","https://www.admin.ch/it/newnsb/…"
-// The HTML-rendered teaser button carries no resolved href, so we anchor on the
-// rate sentence itself and take the next admin.ch / arbeit.swiss URL after it.
 function findReleaseHref(html, rateSentence) {
-  // The rate sentence appears more than once in the document: once as rendered
-  // HTML (whose teaser button has no resolved href) and once in the embedded
-  // JSON, where it is immediately followed by the canonical press URL. Scan
-  // every occurrence of the distinctive rate-phrase prefix and return the first
-  // admin.ch / arbeit.swiss press link that follows within a short window.
-  const prefix = (rateSentence.match(/tasso di disoccupazione|unemployment rate|arbeitslosenquote|taux de ch[oô]mage/i) || [])[0];
-  const adminRe = /https?:\/\/www\.admin\.ch\/[a-zA-Z0-9/_-]+/;
-  const localRe = /https?:\/\/www\.arbeit\.swiss\/[a-zA-Z0-9/_.-]*(?:comunicat|press|medien|communiqu|news)[a-zA-Z0-9/_.-]*/i;
+  const adminRe = /^https?:\/\/www\.admin\.ch\//;
+  const localRe = /^https?:\/\/www\.arbeit\.swiss\/[a-zA-Z0-9/_.-]*(?:comunicat|press|medien|communiqu|news)/i;
 
-  if (prefix) {
-    let from = 0;
-    let idx;
+  // Bind to the SAME occurrence that produced the winning rate/period — NOT the
+  // first rate-phrase prefix anywhere in the doc (#1732 review #1: the page
+  // carries several rate sentences — multiple teasers each with their OWN
+  // admin.ch link, plus an unrelated "alto tasso di disoccupazione" professions
+  // block — so a loose "first admin within N chars" scan could cite an unrelated
+  // teaser's link; with two teasers the rendered-HTML copy of the winner even
+  // picked up the EARLIER teaser's JSON link). We require the link to be the JSON
+  // value DIRECTLY after the winning sentence: rate phrase + the RESULT figure
+  // (last "N,N%"), then the sentence's closing `."` and the JSON `,"URL"`. The
+  // gap class `[^.;"<>]*?` may cross an earlier in-sentence percentage (the
+  // previous-month figure of a changed-month "…dal 2,9% al 3,0%") to reach the
+  // result, but stops at the sentence terminator before the next teaser. The
+  // adjacency requirement makes the rendered-HTML copy (no quoted URL after it)
+  // non-matching, so only the JSON copy of the winner can bind.
+  const resultFig = [...rateSentence.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*%/g)].pop();
+  if (resultFig) {
+    const figRx = escapeRegExp(resultFig[1]).replace(/[.,]/g, '[.,]');
+    const anchorRe = new RegExp(
+      `(?:${RATE_PHRASE_RE.source})[^.;"<>]*?${figRx}\\s*%[.\\s]*"\\s*,\\s*"(https?:\\/\\/[^"]+)"`,
+      'gi',
+    );
+    let m;
     let localHit = '';
     // eslint-disable-next-line no-cond-assign
-    while ((idx = html.indexOf(prefix, from)) >= 0) {
-      const window = html.slice(idx, idx + 600);
-      const admin = window.match(adminRe);
-      if (admin) return admin[0];
-      if (!localHit) {
-        const local = window.match(localRe);
-        if (local) localHit = absolutize(local[0]);
-      }
-      from = idx + prefix.length;
+    while ((m = anchorRe.exec(html)) !== null) {
+      const url = m[1];
+      if (adminRe.test(url)) return url;
+      if (!localHit && localRe.test(url)) localHit = absolutize(url);
+      if (anchorRe.lastIndex === m.index) anchorRe.lastIndex += 1;
     }
     if (localHit) return localHit;
   }
@@ -194,25 +206,23 @@ function parseLatestUnemployment(html) {
     // donating its month to the rate figure).
     const period = extractPeriod(frag);
     if (rate == null || !period) continue;
-    // Labour-market keyword is a soft corroboration: it usually lives in the
-    // teaser heading next to the sentence, not inside the sentence itself, so we
-    // check a wider window. The rate phrase + same-sentence period are already
-    // unemployment-specific, so a missing keyword is allowed but de-prioritised.
-    const start = Math.max(0, sm.index - 220);
-    const around = plain.slice(start, sm.index + frag.length + 60);
-    const corroborated = LABOUR_NEWS_RE.test(around);
-    candidates.push({ text: frag, rate, period, corroborated });
+    candidates.push({ text: frag, rate, period });
   }
 
   if (candidates.length === 0) return null;
 
-  // Prefer labour-market-corroborated candidates; among those, the newest period
-  // wins (ISO YYYY-MM compares lexicographically). Fall back to the newest
-  // uncorroborated candidate only if nothing is corroborated.
-  const corroborated = candidates.filter((c) => c.corroborated);
-  const pool = corroborated.length > 0 ? corroborated : candidates;
+  // Selection: the rate phrase + a SAME-SENTENCE month+year period is already
+  // unemployment-specific — the only other rate-phrase occurrences on the page
+  // (an "alto tasso di disoccupazione" professions block) carry no period in
+  // their own sentence and are dropped above. A previous "labour-market keyword
+  // within 220 chars" corroboration gate was DEAD on the live page (#1732 review
+  // #2): the heading "La situazione sul mercato del lavoro…" sits ~329 chars
+  // before the rate sentence (the disoccupati paragraph intervenes), so it never
+  // matched and the gate silently degraded to newest-period-only while implying
+  // a guarantee it didn't provide. It is removed rather than left as dead code.
+  // The newest period wins (ISO YYYY-MM compares lexicographically).
   let best = null;
-  for (const c of pool) {
+  for (const c of candidates) {
     if (!best || c.period > best.period) best = c;
   }
 

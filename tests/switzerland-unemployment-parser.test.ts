@@ -49,6 +49,33 @@ describe('switzerland unemployment parser', () => {
     expect(parsed.rate).toBe(SECO_UNEMPLOYMENT_CHANGED_MONTH_EXPECTED.rate);
     expect(parsed.rate).not.toBe(2.9);
     expect(parsed.period).toBe(SECO_UNEMPLOYMENT_CHANGED_MONTH_EXPECTED.period);
+    // #1732 review #1: the release URL must still bind to the winning sentence's
+    // own admin.ch link even when the anchor has to cross the previous-month %.
+    expect(parsed.href).toBe(SECO_UNEMPLOYMENT_CHANGED_MONTH_EXPECTED.href);
+  });
+
+  it('cites the WINNING sentence\'s own release URL, not an earlier teaser\'s link (#1732 review #1)', () => {
+    // Two teasers: an OLDER aprile teaser carries an unrelated admin.ch link
+    // first in document order; the NEWER maggio teaser (the winner) carries the
+    // canonical one. A loose "first admin after any rate phrase" scan would cite
+    // the older link. The binding must follow the winning sentence's own result
+    // figure to its adjacent URL.
+    const html = `
+<!doctype html><html lang="it"><body><div id="__nuxt">
+<div class="u-teaser-card"><h5><span>nel mese di aprile 2026</span></h5>
+<span>Nel mese di aprile 2026 il tasso di disoccupazione è rimasto invariato al 2,9%.</span></div>
+<div class="u-teaser-card"><h5><span>nel mese di maggio 2026</span></h5>
+<span>Nel mese di maggio 2026 il tasso di disoccupazione è salito dal 2,9% al 3,0%.</span></div>
+</div>
+<script>window.__NUXT__=(function(){return {data:[
+{"lead":"Nel mese di aprile 2026 il tasso di disoccupazione è rimasto invariato al 2,9%.","https://www.admin.ch/it/newnsb/OLD-aprile-do-not-cite",{"x":1}},
+{"lead":"Nel mese di maggio 2026 il tasso di disoccupazione è salito dal 2,9% al 3,0%.","https://www.admin.ch/it/newnsb/NEW-maggio-winner",{"x":2}}]}}})()</script>
+</body></html>`;
+    const parsed = parseLatestUnemployment(html);
+    expect(parsed.period).toBe('2026-05');
+    expect(parsed.rate).toBe(3);
+    expect(parsed.href).toBe('https://www.admin.ch/it/newnsb/NEW-maggio-winner');
+    expect(parsed.href).not.toContain('OLD-aprile');
   });
 
   it('extractRate takes the last figure when a sentence carries from→to rates', () => {
