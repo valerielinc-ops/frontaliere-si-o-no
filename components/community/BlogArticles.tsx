@@ -23,6 +23,7 @@ const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const InlineFuelPriceTable = lazyRetry(() => import('@/components/blog/InlineFuelPriceTable'));
@@ -855,7 +856,7 @@ interface JobPreview {
 
 function jobLogoUrl(job: JobPreview): string | null {
  const explicit = resolveCompanyLogoUrl(job);
- if (explicit) return explicit;
+ if (explicit) return cdnImageUrl(explicit);
  const host = resolveCompanyWebsiteHost(job);
  if (!host) return null;
  // Prefer Clearbit (returns 404 for unknown, not grey globe); Google favicon is onError backup

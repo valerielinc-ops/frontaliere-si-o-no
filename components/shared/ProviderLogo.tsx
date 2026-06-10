@@ -1,6 +1,7 @@
 import type { SyntheticEvent } from 'react';
 import { handleCompanyLogoError, COMPANY_LOGO_PLACEHOLDER } from '@/services/logoService';
 import { getProviderLogoUrl, getInsurerLogoUrl, PROVIDER_LOGOS } from '@/services/brandLogos';
+import { cdnImageUrl } from '@/services/cdnImageBase';
 
 type Props = (
   | { slug: string; domain?: string }
@@ -16,12 +17,16 @@ export default function ProviderLogo({ slug, domain, name, size = 32, className 
     domain ??
     (slug ? PROVIDER_LOGOS[slug]?.domain : undefined);
 
-  // Priority: slug localPath → domain localPath (insurer map) → Clearbit → placeholder
-  const src =
+  // Priority: slug localPath → domain localPath (insurer map) → Clearbit → placeholder.
+  // cdnImageUrl rewrites the same-origin /images/{providers,insurers}/ localPath to
+  // the CDN at runtime when offloaded (#1360); Clearbit/placeholder pass through.
+  // CDN-down degrades via onError (→ Clearbit → placeholder) below.
+  const src = cdnImageUrl(
     (slug ? getProviderLogoUrl(slug) : null) ??
     (resolvedDomain ? getInsurerLogoUrl(resolvedDomain) : null) ??
     (resolvedDomain ? `https://logo.clearbit.com/${resolvedDomain}` : null) ??
-    COMPANY_LOGO_PLACEHOLDER;
+    COMPANY_LOGO_PLACEHOLDER
+  );
 
   const clearbitUrl = resolvedDomain
     ? `https://logo.clearbit.com/${resolvedDomain}`

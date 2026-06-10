@@ -41,7 +41,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -234,22 +234,16 @@ async function parseXLSX(buffer, sheetName) {
 // diagnosability. Returns the successful Response (body still unread).
 async function download(url, label, timeoutMs = 30000) {
   console.log(`📥 Downloading ${label}...`);
-  return fetchWithRetry(async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, { signal: controller.signal });
-      if (!res.ok) {
-        const err = new Error(`Failed to download ${label}: ${res.status} ${res.statusText} (${url})`);
-        err.status = res.status;
-        err.retryable = RETRYABLE_STATUS.has(res.status);
-        throw err;
-      }
-      return res;
-    } finally {
-      clearTimeout(timer);
-    }
-  }, { label: `health-premiums ${label}` });
+  const res = await httpFetchWithRetry(url, {}, {
+    timeout: timeoutMs,
+    label: `health-premiums ${label}`,
+  });
+  // Transient statuses (429/5xx) are retried inside the helper; a persistent
+  // non-ok (e.g. 404 source moved) still fails fast here.
+  if (!res.ok) {
+    throw new Error(`Failed to download ${label}: ${res.status} ${res.statusText} (${url})`);
+  }
+  return res;
 }
 
 /**
@@ -279,29 +273,18 @@ async function fetchPremiumsCsv(targetYear) {
   const archiveUrl = buildHistoricalArchiveUrl(targetYear);
   let res;
   try {
-    res = await fetchWithRetry(async () => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 30000);
-      try {
-        const r = await fetch(archiveUrl, { signal: controller.signal });
-        if (!r.ok) {
-          const err = new Error(`${archiveUrl} responded ${r.status} ${r.statusText}`);
-          err.status = r.status;
-          err.retryable = RETRYABLE_STATUS.has(r.status);
-          throw err;
-        }
-        return r;
-      } finally {
-        clearTimeout(timer);
-      }
-    }, { label: `health-premiums archive ${targetYear}` });
+    res = await httpFetchWithRetry(archiveUrl, {}, {
+      timeout: 30000,
+      label: `health-premiums archive ${targetYear}`,
+    });
   } catch (err) {
-    // Persistent HTTP error (server responded non-ok) vs connection-level
-    // failure both degrade to NoArchiveError; the message keeps the detail.
-    if (Number.isFinite(err.status)) {
-      throw new NoArchiveError(targetYear, `${archiveUrl} responded ${err.status}`);
-    }
+    // Connection-level failure persisting after all retries → NoArchiveError.
     throw new NoArchiveError(targetYear, `network error fetching ${archiveUrl}: ${err.message}`);
+  }
+  // Persistent non-ok HTTP (e.g. 404 archive missing) → NoArchiveError. Transient
+  // 429/5xx were already retried inside the helper.
+  if (!res.ok) {
+    throw new NoArchiveError(targetYear, `${archiveUrl} responded ${res.status}`);
   }
   const contentType = res.headers.get('content-type') || '';
   if (!/zip/i.test(contentType)) {

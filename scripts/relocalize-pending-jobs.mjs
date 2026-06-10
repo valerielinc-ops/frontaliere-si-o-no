@@ -390,6 +390,16 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     JOBS_SKIP_CRAWL_CHANGE_SUMMARY: '1',
     // Ensure AI translation is NOT skipped in the translation pipeline
     SKIP_AI_TRANSLATION: '0',
+    // Translation throughput knob. The backfill-localization queue defaults to
+    // concurrency=2 in localize-existing mode (shared-jobs-crawler.mjs ~5045),
+    // which is the dominant wall-time cost of translate-pending: a measured run
+    // spent ~240min translating ~100 jobs at ~47s/job, while the per-company
+    // crawler boot was only ~1.2s. Raising concurrency to the sanctioned clamp
+    // ceiling (6) parallelises the provider cascade ~3× without changing per-job
+    // quota consumption (MyMemory/Google caps are daily, not per-request) or
+    // touching cascade order (quality unchanged). Env-overridable so the workflow
+    // can dial it back if a provider rate-limits under parallelism.
+    JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '6',
   };
 
   console.log(`\n🚀 Running shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process)...`);

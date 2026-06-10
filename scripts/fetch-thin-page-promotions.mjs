@@ -37,6 +37,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { appendFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -79,11 +80,11 @@ async function fetchPosthog(windowHours) {
     GROUP BY path
     LIMIT 100000
   `;
-  const r = await fetch(`${HOST}/api/projects/${PID}/query/`, {
+  const r = await httpFetchWithRetry(`${HOST}/api/projects/${PID}/query/`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
+  }, { label: 'posthog thin-page query' });
   if (!r.ok) throw new Error(`posthog ${r.status}: ${(await r.text()).slice(0, 200)}`);
   const data = await r.json();
   const urls = new Set();
@@ -138,11 +139,11 @@ async function fetchGa4(windowHours) {
     },
     limit: 100000,
   };
-  const r = await fetch(url, {
+  const r = await httpFetchWithRetry(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
-  });
+  }, { label: 'ga4 runReport' });
   if (r.status === 403) {
     throw new Error(`ga4 access denied (SA needs Viewer on property): ${(await r.text()).slice(0, 200)}`);
   }
