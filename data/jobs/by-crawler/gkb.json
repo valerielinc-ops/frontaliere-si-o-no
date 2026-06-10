@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-06-10T12:09:37.185Z",
+  "assembledAt": "2026-06-10T22:43:32.715Z",
   "jobs": [
     {
       "id": "gkb-eff66a406cb8",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:34.777Z",
+      "crawledAt": "2026-06-10T22:43:30.408Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1907/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:33.833Z",
+      "crawledAt": "2026-06-10T22:43:29.566Z",
       "addressLocality": "Davos, Klosters",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1903/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:32.890Z",
+      "crawledAt": "2026-06-10T22:43:28.715Z",
       "addressLocality": "Ilanz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:31.921Z",
+      "crawledAt": "2026-06-10T22:43:27.842Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -333,7 +333,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:30.980Z",
+      "crawledAt": "2026-06-10T22:43:26.993Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -365,6 +365,7 @@
         "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-01T23:46:30.584Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -410,7 +411,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:30.034Z",
+      "crawledAt": "2026-06-10T22:43:26.160Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -453,7 +454,7 @@
         "it": "befristet-legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "en": "befristet-legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "de": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "fr": "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
+        "fr": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -477,7 +478,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1938/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:29.084Z",
+      "crawledAt": "2026-06-10T22:43:25.332Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -498,17 +499,20 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
+        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
+        "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ],
         "fr": [
+          "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur",
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T13:43:28.315Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -554,7 +558,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:28.137Z",
+      "crawledAt": "2026-06-10T22:43:24.494Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -586,6 +590,7 @@
         "it-controlling-und-governance-manager-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -631,7 +636,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:27.182Z",
+      "crawledAt": "2026-06-10T22:43:23.657Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -678,9 +683,9 @@
       "id": "gkb-1158f5d0e0c1",
       "slug": "berater-in-digital-business-80-100-gkb-ch",
       "slugByLocale": {
-        "de": "berater-in-digital-business-80-100-gkb-ch",
         "it": "berater-in-digital-business-80-100-gkb-ch",
         "en": "berater-in-digital-business-80-100-gkb-ch",
+        "de": "berater-in-digital-business-80-100-gkb-ch",
         "fr": "berater-in-digital-business-80-100-gkb-ch"
       },
       "company": "Graubündner Kantonalbank",
@@ -688,16 +693,16 @@
       "companyDomain": "gkb.ch",
       "title": "Berater:in Digital Business (80-100%)",
       "titleByLocale": {
-        "de": "Berater:in Digital Business (80-100%)",
         "it": "Berater:in Digital Business (80-100%)",
         "en": "Berater:in Digital Business (80-100%)",
+        "de": "Berater:in Digital Business (80-100%)",
         "fr": "Berater:in Digital Business (80-100%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 10.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst digitale Trends und verstehst die Bedürfnisse unserer Kundschaft? Werde das Bindeglied zwischen innovativen Lösungen und der Praxis. Gemeinsam begleiten wir Geschäftskunden, institutionelle Anleger und externe Vermögensverwaltende (EVV) in die digitale Zukunft. | ab sofort oder nach Vereinbarung |\n• Du unterstützt unsere Kundschaft bei der Digitalisierung ihrer Finanzprozesse und Payment-Lösungen und stellst dabei den Kundennutzen stets ins Zentrum\n• Du analysierst die individuellen Bedürfnisse unserer Kundschaft und bietest massgeschneiderte Beratung, unabhängig von den eingesetzten Systemen wie PMS oder ERP\n• Du begleitest unsere Kunden beim Onboarding auf unsere digitalen Kanäle – von modernen Portallösungen bis hin zu Schnittstellen wie EBICS oder bLink\n• Du befähigst unsere Kundenberatenden durch gezielte Schulungen für die digitale Welt und stehst bei komplexen digitalen Fragestellungen als Ansprechperson zur Verfügung\n• Du bringst wertvolles Feedback aus der Praxis ein und unterstützt die Weiterentwicklung unserer digitalen Lösungen |\n• Abgeschlossene Weiterbildung in Betriebswirtschaft oder Bankfach mit Erfahrung in der Kundenberatung\n• Vertrautheit mit Begriffen wie EBICS, APIs, PMS-Systemen und Multibanking\n• Kenntnisse in Buchhaltung (Finanzen, Debitoren, Kreditoren) sind ein Plus\n• Freude an der Arbeit vor Ort in unseren Regionen – ein eigenes Auto ist von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
-        "de": "Graubündner Kantonalbank | online seit: 10.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst digitale Trends und verstehst die Bedürfnisse unserer Kundschaft? Werde das Bindeglied zwischen innovativen Lösungen und der Praxis. Gemeinsam begleiten wir Geschäftskunden, institutionelle Anleger und externe Vermögensverwaltende (EVV) in die digitale Zukunft. | ab sofort oder nach Vereinbarung |\n• Du unterstützt unsere Kundschaft bei der Digitalisierung ihrer Finanzprozesse und Payment-Lösungen und stellst dabei den Kundennutzen stets ins Zentrum\n• Du analysierst die individuellen Bedürfnisse unserer Kundschaft und bietest massgeschneiderte Beratung, unabhängig von den eingesetzten Systemen wie PMS oder ERP\n• Du begleitest unsere Kunden beim Onboarding auf unsere digitalen Kanäle – von modernen Portallösungen bis hin zu Schnittstellen wie EBICS oder bLink\n• Du befähigst unsere Kundenberatenden durch gezielte Schulungen für die digitale Welt und stehst bei komplexen digitalen Fragestellungen als Ansprechperson zur Verfügung\n• Du bringst wertvolles Feedback aus der Praxis ein und unterstützt die Weiterentwicklung unserer digitalen Lösungen |\n• Abgeschlossene Weiterbildung in Betriebswirtschaft oder Bankfach mit Erfahrung in der Kundenberatung\n• Vertrautheit mit Begriffen wie EBICS, APIs, PMS-Systemen und Multibanking\n• Kenntnisse in Buchhaltung (Finanzen, Debitoren, Kreditoren) sind ein Plus\n• Freude an der Arbeit vor Ort in unseren Regionen – ein eigenes Auto ist von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "it": "Graubündner Kantonalbank | online seit: 10.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst digitale Trends und verstehst die Bedürfnisse unserer Kundschaft? Werde das Bindeglied zwischen innovativen Lösungen und der Praxis. Gemeinsam begleiten wir Geschäftskunden, institutionelle Anleger und externe Vermögensverwaltende (EVV) in die digitale Zukunft. | ab sofort oder nach Vereinbarung |\n• Du unterstützt unsere Kundschaft bei der Digitalisierung ihrer Finanzprozesse und Payment-Lösungen und stellst dabei den Kundennutzen stets ins Zentrum\n• Du analysierst die individuellen Bedürfnisse unserer Kundschaft und bietest massgeschneiderte Beratung, unabhängig von den eingesetzten Systemen wie PMS oder ERP\n• Du begleitest unsere Kunden beim Onboarding auf unsere digitalen Kanäle – von modernen Portallösungen bis hin zu Schnittstellen wie EBICS oder bLink\n• Du befähigst unsere Kundenberatenden durch gezielte Schulungen für die digitale Welt und stehst bei komplexen digitalen Fragestellungen als Ansprechperson zur Verfügung\n• Du bringst wertvolles Feedback aus der Praxis ein und unterstützt die Weiterentwicklung unserer digitalen Lösungen |\n• Abgeschlossene Weiterbildung in Betriebswirtschaft oder Bankfach mit Erfahrung in der Kundenberatung\n• Vertrautheit mit Begriffen wie EBICS, APIs, PMS-Systemen und Multibanking\n• Kenntnisse in Buchhaltung (Finanzen, Debitoren, Kreditoren) sind ein Plus\n• Freude an der Arbeit vor Ort in unseren Regionen – ein eigenes Auto ist von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "en": "Graubündner Kantonalbank | online seit: 10.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst digitale Trends und verstehst die Bedürfnisse unserer Kundschaft? Werde das Bindeglied zwischen innovativen Lösungen und der Praxis. Gemeinsam begleiten wir Geschäftskunden, institutionelle Anleger und externe Vermögensverwaltende (EVV) in die digitale Zukunft. | ab sofort oder nach Vereinbarung |\n• Du unterstützt unsere Kundschaft bei der Digitalisierung ihrer Finanzprozesse und Payment-Lösungen und stellst dabei den Kundennutzen stets ins Zentrum\n• Du analysierst die individuellen Bedürfnisse unserer Kundschaft und bietest massgeschneiderte Beratung, unabhängig von den eingesetzten Systemen wie PMS oder ERP\n• Du begleitest unsere Kunden beim Onboarding auf unsere digitalen Kanäle – von modernen Portallösungen bis hin zu Schnittstellen wie EBICS oder bLink\n• Du befähigst unsere Kundenberatenden durch gezielte Schulungen für die digitale Welt und stehst bei komplexen digitalen Fragestellungen als Ansprechperson zur Verfügung\n• Du bringst wertvolles Feedback aus der Praxis ein und unterstützt die Weiterentwicklung unserer digitalen Lösungen |\n• Abgeschlossene Weiterbildung in Betriebswirtschaft oder Bankfach mit Erfahrung in der Kundenberatung\n• Vertrautheit mit Begriffen wie EBICS, APIs, PMS-Systemen und Multibanking\n• Kenntnisse in Buchhaltung (Finanzen, Debitoren, Kreditoren) sind ein Plus\n• Freude an der Arbeit vor Ort in unseren Regionen – ein eigenes Auto ist von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+        "de": "Graubündner Kantonalbank | online seit: 10.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst digitale Trends und verstehst die Bedürfnisse unserer Kundschaft? Werde das Bindeglied zwischen innovativen Lösungen und der Praxis. Gemeinsam begleiten wir Geschäftskunden, institutionelle Anleger und externe Vermögensverwaltende (EVV) in die digitale Zukunft. | ab sofort oder nach Vereinbarung |\n• Du unterstützt unsere Kundschaft bei der Digitalisierung ihrer Finanzprozesse und Payment-Lösungen und stellst dabei den Kundennutzen stets ins Zentrum\n• Du analysierst die individuellen Bedürfnisse unserer Kundschaft und bietest massgeschneiderte Beratung, unabhängig von den eingesetzten Systemen wie PMS oder ERP\n• Du begleitest unsere Kunden beim Onboarding auf unsere digitalen Kanäle – von modernen Portallösungen bis hin zu Schnittstellen wie EBICS oder bLink\n• Du befähigst unsere Kundenberatenden durch gezielte Schulungen für die digitale Welt und stehst bei komplexen digitalen Fragestellungen als Ansprechperson zur Verfügung\n• Du bringst wertvolles Feedback aus der Praxis ein und unterstützt die Weiterentwicklung unserer digitalen Lösungen |\n• Abgeschlossene Weiterbildung in Betriebswirtschaft oder Bankfach mit Erfahrung in der Kundenberatung\n• Vertrautheit mit Begriffen wie EBICS, APIs, PMS-Systemen und Multibanking\n• Kenntnisse in Buchhaltung (Finanzen, Debitoren, Kreditoren) sind ein Plus\n• Freude an der Arbeit vor Ort in unseren Regionen – ein eigenes Auto ist von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank | online seit: 10.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du liebst digitale Trends und verstehst die Bedürfnisse unserer Kundschaft? Werde das Bindeglied zwischen innovativen Lösungen und der Praxis. Gemeinsam begleiten wir Geschäftskunden, institutionelle Anleger und externe Vermögensverwaltende (EVV) in die digitale Zukunft. | ab sofort oder nach Vereinbarung |\n• Du unterstützt unsere Kundschaft bei der Digitalisierung ihrer Finanzprozesse und Payment-Lösungen und stellst dabei den Kundennutzen stets ins Zentrum\n• Du analysierst die individuellen Bedürfnisse unserer Kundschaft und bietest massgeschneiderte Beratung, unabhängig von den eingesetzten Systemen wie PMS oder ERP\n• Du begleitest unsere Kunden beim Onboarding auf unsere digitalen Kanäle – von modernen Portallösungen bis hin zu Schnittstellen wie EBICS oder bLink\n• Du befähigst unsere Kundenberatenden durch gezielte Schulungen für die digitale Welt und stehst bei komplexen digitalen Fragestellungen als Ansprechperson zur Verfügung\n• Du bringst wertvolles Feedback aus der Praxis ein und unterstützt die Weiterentwicklung unserer digitalen Lösungen |\n• Abgeschlossene Weiterbildung in Betriebswirtschaft oder Bankfach mit Erfahrung in der Kundenberatung\n• Vertrautheit mit Begriffen wie EBICS, APIs, PMS-Systemen und Multibanking\n• Kenntnisse in Buchhaltung (Finanzen, Debitoren, Kreditoren) sind ein Plus\n• Freude an der Arbeit vor Ort in unseren Regionen – ein eigenes Auto ist von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben"
       },
       "location": "Chur",
@@ -705,7 +710,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T12:09:26.227Z",
+      "crawledAt": "2026-06-10T22:43:22.797Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -720,14 +725,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "GE Märkte / DPDI",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T12:09:26.227Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -740,8 +744,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-10T12:09:26.227Z"
+      "addressRegion": "GR"
     }
   ]
 }
