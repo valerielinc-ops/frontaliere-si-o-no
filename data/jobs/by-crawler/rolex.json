@@ -2300,7 +2300,7 @@
       "id": "rolex-2a6c03166469",
       "slug": "polisher-h-f-rolex-bienne",
       "slugByLocale": {
-        "fr": "termineur-h-f-rolex-ch",
+        "fr": "echeancier-h-f-rolex-bienne",
         "it": "polisher-h-f-rolex-bienne",
         "en": "polisher-h-f-rolex-bienne",
         "de": "termineur-h-f-rolex-bienne"
@@ -2377,6 +2377,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "termineur-h-f-rolex-ch"
+        ],
+        "fr": [
           "termineur-h-f-rolex-ch"
         ]
       },
@@ -5089,7 +5092,7 @@
         "fr": "manager-d-equipe-en-supply-chain-h-f-rolex-ch",
         "it": "responsabile-di-team-supply-chain-h-f-rolex-geneve",
         "en": "manager-d-equipe-en-supply-chain-h-f-rolex-ch",
-        "de": "supply-chain-team-manager-m-f-rolex-geneve"
+        "de": "manager-d-equipe-en-lieferkette-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -5158,10 +5161,14 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-d-equipe-en-supply-chain-h-f-rolex-ch"
+        ],
+        "de": [
+          "supply-chain-team-manager-m-f-rolex-geneve"
         ]
       },
       "previousSlugs": [
-        "manager-d-equipe-en-supply-chain-h-f-rolex-ch"
+        "manager-d-equipe-en-supply-chain-h-f-rolex-ch",
+        "supply-chain-team-manager-m-f-rolex-geneve"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -9019,10 +9026,10 @@
     },
     {
       "id": "rolex-14717ae8a1b2",
-      "slug": "business-analyst-hris-m-f-rolex-geneve",
+      "slug": "business-analista-sirh-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "business-analyst-sirh-h-f-rolex-ch",
-        "it": "business-analyst-hris-m-f-rolex-geneve",
+        "it": "business-analista-sirh-h-f-rolex-geneve",
         "en": "business-analyst-sirh-h-f-rolex-ch",
         "de": "business-analyst-hris-m-w-rolex-geneve"
       },
@@ -9068,11 +9075,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-sirh-h-f-rolex-ch"
+          "business-analyst-sirh-h-f-rolex-ch",
+          "business-analyst-hris-m-f-rolex-geneve"
         ]
       },
       "previousSlugs": [
-        "business-analyst-sirh-h-f-rolex-ch"
+        "business-analyst-sirh-h-f-rolex-ch",
+        "business-analyst-hris-m-f-rolex-geneve"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10517,10 +10526,10 @@
     },
     {
       "id": "rolex-4a9331a560f9",
-      "slug": "data-analyst-m-f-rolex-bienne",
+      "slug": "data-analista-h-f-rolex-bienne",
       "slugByLocale": {
         "fr": "data-analyst-h-f-rolex-ch",
-        "it": "data-analyst-m-f-rolex-bienne",
+        "it": "data-analista-h-f-rolex-bienne",
         "en": "data-analyst-h-f-rolex-bienne",
         "de": "datenanalytiker-h-f-rolex-bienne"
       },
@@ -10565,11 +10574,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "data-analyst-h-f-rolex-ch"
+          "data-analyst-h-f-rolex-ch",
+          "data-analyst-m-f-rolex-bienne"
         ]
       },
       "previousSlugs": [
-        "data-analyst-h-f-rolex-ch"
+        "data-analyst-h-f-rolex-ch",
+        "data-analyst-m-f-rolex-bienne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10939,10 +10950,10 @@
     },
     {
       "id": "rolex-a8c7342992b0",
-      "slug": "business-analyst-dati-master-h-f-rolex-geneve",
+      "slug": "business-analista-master-data-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "business-analyst-master-data-h-f-rolex-ch",
-        "it": "business-analyst-dati-master-h-f-rolex-geneve",
+        "it": "business-analista-master-data-h-f-rolex-geneve",
         "en": "business-analyst-master-data-h-f-rolex-ch",
         "de": "business-analyst-stammdaten-h-f-rolex-geneve"
       },
@@ -10991,11 +11002,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-master-data-h-f-rolex-ch"
+          "business-analyst-master-data-h-f-rolex-ch",
+          "business-analyst-dati-master-h-f-rolex-geneve"
         ]
       },
       "previousSlugs": [
-        "business-analyst-master-data-h-f-rolex-ch"
+        "business-analyst-master-data-h-f-rolex-ch",
+        "business-analyst-dati-master-h-f-rolex-geneve"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

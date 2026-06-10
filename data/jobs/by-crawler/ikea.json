@@ -319,11 +319,11 @@
     },
     {
       "id": "ikea-2e6d36078e1e",
-      "slug": "dipendenti-in-negozio-100-ikea-rothenburg",
+      "slug": "collaboratore-trice-warenausgang-100-ikea-rothenburg-luzern-switzerland",
       "slugByLocale": {
         "de": "mitarbeiter-in-warenausgang-100-ikea-ch",
-        "it": "dipendenti-in-negozio-100-ikea-rothenburg",
-        "en": "employee-in-goods-outlet-100-ikea-rothenburg",
+        "it": "collaboratore-trice-warenausgang-100-ikea-rothenburg-luzern-switzerland",
+        "en": "associate-warenausgang-100-ikea-rothenburg-luzern-switzerland",
         "fr": "salaries-dans-le-point-de-vente-des-marchandises-100-ikea-rothenburg"
       },
       "company": "IKEA",
@@ -379,11 +379,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-warenausgang-100-ikea-ch"
+          "mitarbeiter-in-warenausgang-100-ikea-ch",
+          "dipendenti-in-negozio-100-ikea-rothenburg"
+        ],
+        "en": [
+          "employee-in-goods-outlet-100-ikea-rothenburg"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-warenausgang-100-ikea-ch"
+        "mitarbeiter-in-warenausgang-100-ikea-ch",
+        "dipendenti-in-negozio-100-ikea-rothenburg",
+        "employee-in-goods-outlet-100-ikea-rothenburg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1335,11 +1341,11 @@
     },
     {
       "id": "ikea-2d7354b3146e",
-      "slug": "dipendenti-in-vendita-springer-in-market-hall-40-50-ikea-lyssach",
+      "slug": "addetto-a-alle-vendite-springer-in-markthalle-40-50-ikea-lyssach-bern-switzerland",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-springer-in-markthalle-40-50-ikea-ch",
-        "it": "dipendenti-in-vendita-springer-in-market-hall-40-50-ikea-lyssach",
-        "en": "employees-in-sales-springer-in-market-hall-40-50-ikea-lyssach",
+        "it": "addetto-a-alle-vendite-springer-in-markthalle-40-50-ikea-lyssach-bern-switzerland",
+        "en": "associate-sales-springer-in-markthalle-40-50-ikea-lyssach-bern-switzerland",
         "fr": "salaries-dans-les-ventes-springer-dans-la-market-hall-40-50-ikea-lyssach"
       },
       "company": "IKEA",
@@ -1385,11 +1391,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-springer-in-markthalle-40-50-ikea-ch"
+          "mitarbeiter-in-verkauf-springer-in-markthalle-40-50-ikea-ch",
+          "dipendenti-in-vendita-springer-in-market-hall-40-50-ikea-lyssach"
+        ],
+        "en": [
+          "employees-in-sales-springer-in-market-hall-40-50-ikea-lyssach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-springer-in-markthalle-40-50-ikea-ch"
+        "mitarbeiter-in-verkauf-springer-in-markthalle-40-50-ikea-ch",
+        "dipendenti-in-vendita-springer-in-market-hall-40-50-ikea-lyssach",
+        "employees-in-sales-springer-in-market-hall-40-50-ikea-lyssach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1411,8 +1423,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch",
         "it": "venditore-a-in-halla-market-80-90-ikea-lyssach",
-        "en": "salesperson-market-hall-80-90-ikea-lyssach",
-        "fr": "vendeur-trice-marche-80-90-ikea-lyssach"
+        "en": "associate-sales-springer-in-markthalle-80-90-ikea-lyssach-bern-switzerland",
+        "fr": "collaborateur-trice-vente-springer-in-markthalle-80-90-ikea-lyssach-bern-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1488,10 +1500,18 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch"
+        ],
+        "en": [
+          "salesperson-market-hall-80-90-ikea-lyssach"
+        ],
+        "fr": [
+          "vendeur-trice-marche-80-90-ikea-lyssach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch"
+        "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch",
+        "salesperson-market-hall-80-90-ikea-lyssach",
+        "vendeur-trice-marche-80-90-ikea-lyssach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1509,10 +1529,10 @@
     },
     {
       "id": "ikea-9c2391f17dfc",
-      "slug": "vendite-per-dipendenti-dipartimento-bambini-e-uffici-20-ikea-dietlikon",
+      "slug": "addetto-a-alle-vendite-kinder-e-buroabteilung-20-ikea-dietlikon-zurich-switzerland",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-kinder-und-buroabteilung-20-ikea-ch",
-        "it": "vendite-per-dipendenti-dipartimento-bambini-e-uffici-20-ikea-dietlikon",
+        "it": "addetto-a-alle-vendite-kinder-e-buroabteilung-20-ikea-dietlikon-zurich-switzerland",
         "en": "employee-sales-children-s-and-office-department-20-ikea-dietlikon",
         "fr": "ventes-pour-employes-departement-enfants-et-bureau-20-ikea-dietlikon"
       },
@@ -1559,11 +1579,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-kinder-und-buroabteilung-20-ikea-ch"
+          "mitarbeiter-in-verkauf-kinder-und-buroabteilung-20-ikea-ch",
+          "vendite-per-dipendenti-dipartimento-bambini-e-uffici-20-ikea-dietlikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kinder-und-buroabteilung-20-ikea-ch"
+        "mitarbeiter-in-verkauf-kinder-und-buroabteilung-20-ikea-ch",
+        "vendite-per-dipendenti-dipartimento-bambini-e-uffici-20-ikea-dietlikon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1581,10 +1603,10 @@
     },
     {
       "id": "ikea-d112ad412906",
-      "slug": "sala-self-service-per-le-vendite-dei-dipendenti-40-ikea-dietlikon",
+      "slug": "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
-        "it": "sala-self-service-per-le-vendite-dei-dipendenti-40-ikea-dietlikon",
+        "it": "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
         "en": "employee-sales-self-service-hall-40-ikea-dietlikon",
         "fr": "salle-de-vente-libre-service-des-employes-40-ikea-dietlikon"
       },
@@ -1631,11 +1653,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch"
+          "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+          "sala-self-service-per-le-vendite-dei-dipendenti-40-ikea-dietlikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch"
+        "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
+        "sala-self-service-per-le-vendite-dei-dipendenti-40-ikea-dietlikon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1746,10 +1770,10 @@
     },
     {
       "id": "ikea-f5ee8046a81a",
-      "slug": "giorni-di-prova-per-un-apprendistato-nella-logistica-eba-efz-ikea-spreitenbach",
+      "slug": "schnuppertage-per-eine-apprendistato-in-der-logistik-afp-cfc-ikea-spreitenbach-aargau-switzerland",
       "slugByLocale": {
         "de": "schnuppertage-fur-eine-lehrstelle-in-der-logistik-eba-efz-ikea-ch",
-        "it": "giorni-di-prova-per-un-apprendistato-nella-logistica-eba-efz-ikea-spreitenbach",
+        "it": "schnuppertage-per-eine-apprendistato-in-der-logistik-afp-cfc-ikea-spreitenbach-aargau-switzerland",
         "en": "trial-days-for-an-apprenticeship-in-logistics-eba-efz-ikea-spreitenbach",
         "fr": "jours-de-stage-pour-un-apprentissage-en-logistique-eba-efz-ikea-spreitenbach"
       },
@@ -1797,11 +1821,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schnuppertage-fur-eine-lehrstelle-in-der-logistik-eba-efz-ikea-ch"
+          "schnuppertage-fur-eine-lehrstelle-in-der-logistik-eba-efz-ikea-ch",
+          "giorni-di-prova-per-un-apprendistato-nella-logistica-eba-efz-ikea-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "schnuppertage-fur-eine-lehrstelle-in-der-logistik-eba-efz-ikea-ch"
+        "schnuppertage-fur-eine-lehrstelle-in-der-logistik-eba-efz-ikea-ch",
+        "giorni-di-prova-per-un-apprendistato-nella-logistica-eba-efz-ikea-spreitenbach"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1888,10 +1914,10 @@
     },
     {
       "id": "ikea-b15ea684758f",
-      "slug": "dipendente-nel-reparto-vendite-soggiorno-40-ikea-spreitenbach",
+      "slug": "addetto-a-alle-vendite-wohnzimmerabteilung-40-ikea-spreitenbach-aargau-switzerland",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-wohnzimmerabteilung-40-ikea-ch",
-        "it": "dipendente-nel-reparto-vendite-soggiorno-40-ikea-spreitenbach",
+        "it": "addetto-a-alle-vendite-wohnzimmerabteilung-40-ikea-spreitenbach-aargau-switzerland",
         "en": "employee-in-sales-living-room-department-40-ikea-spreitenbach",
         "fr": "ventes-des-employes-salon-du-salon-40-ikea-spreitenbach"
       },
@@ -1938,11 +1964,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-wohnzimmerabteilung-40-ikea-ch"
+          "mitarbeiter-in-verkauf-wohnzimmerabteilung-40-ikea-ch",
+          "dipendente-nel-reparto-vendite-soggiorno-40-ikea-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-wohnzimmerabteilung-40-ikea-ch"
+        "mitarbeiter-in-verkauf-wohnzimmerabteilung-40-ikea-ch",
+        "dipendente-nel-reparto-vendite-soggiorno-40-ikea-spreitenbach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2029,10 +2057,10 @@
     },
     {
       "id": "ikea-1777baba7c20",
-      "slug": "vendite-per-dipendenti-e-assemblaggio-di-mobili-mercato-della-seconda-possibilita-100-ikea-spreitenbach",
+      "slug": "addetto-a-alle-vendite-e-mobelmontage-zweite-chance-markt-100-ikea-spreitenbach-aargau-switzerland",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
-        "it": "vendite-per-dipendenti-e-assemblaggio-di-mobili-mercato-della-seconda-possibilita-100-ikea-spreitenbach",
+        "it": "addetto-a-alle-vendite-e-mobelmontage-zweite-chance-markt-100-ikea-spreitenbach-aargau-switzerland",
         "en": "employee-sales-and-furniture-assembly-second-chance-market-100-ikea-spreitenbach",
         "fr": "marche-des-ventes-par-employes-et-de-l-assemblage-de-meubles-second-chance-100-ikea-spreitenbach"
       },
@@ -2076,11 +2104,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch"
+          "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
+          "vendite-per-dipendenti-e-assemblaggio-di-mobili-mercato-della-seconda-possibilita-100-ikea-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch"
+        "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
+        "vendite-per-dipendenti-e-assemblaggio-di-mobili-mercato-della-seconda-possibilita-100-ikea-spreitenbach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2102,7 +2132,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-kuche-20-40-ikea-ch",
         "it": "dipendenti-in-cucina-ikea-20-40-ikea-st-gallen",
-        "en": "employees-in-ikea-kitchen-20-40-ikea-st-gallen",
+        "en": "associate-ikea-kuche-20-40-ikea-st-gallen-sankt-gallen-switzerland",
         "fr": "employe-ikea-kitchen-20-40-ikea-st-gallen"
       },
       "company": "IKEA",
@@ -2149,10 +2179,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-kuche-20-40-ikea-ch"
+        ],
+        "en": [
+          "employees-in-ikea-kitchen-20-40-ikea-st-gallen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-ikea-kuche-20-40-ikea-ch"
+        "mitarbeiter-in-ikea-kuche-20-40-ikea-ch",
+        "employees-in-ikea-kitchen-20-40-ikea-st-gallen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2960,7 +2994,7 @@
         "de": "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
         "it": "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
         "en": "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
-        "fr": "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach"
+        "fr": "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3036,10 +3070,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch"
+        ],
+        "fr": [
+          "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch"
+        "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
+        "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3062,7 +3100,7 @@
         "de": "mitarbeiter-in-logistik-auffullteam-fruhschicht-50-ikea-ch",
         "it": "membro-del-team-di-logistica-auffull-50-turno-matutino-ikea-rothenburg",
         "en": "logistics-team-member-50-morning-shift-ikea-rothenburg",
-        "fr": "membre-du-team-de-logistique-auffull-50-tour-matinal-ikea-rothenburg"
+        "fr": "collaborateur-trice-logistik-auffullteam-fruhschicht-50-ikea-rothenburg-luzern-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3138,10 +3176,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-auffullteam-fruhschicht-50-ikea-ch"
+        ],
+        "fr": [
+          "membre-du-team-de-logistique-auffull-50-tour-matinal-ikea-rothenburg"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-logistik-auffullteam-fruhschicht-50-ikea-ch"
+        "mitarbeiter-in-logistik-auffullteam-fruhschicht-50-ikea-ch",
+        "membre-du-team-de-logistique-auffull-50-tour-matinal-ikea-rothenburg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -1963,12 +1963,12 @@
     },
     {
       "id": "globus-7f43b6f5e782",
-      "slug": "miglioratore-in-del-servizio-interno-tutore-80-w-m-d-globus-bern",
+      "slug": "collaboratore-trice-hausdienst-allrounder-80-w-m-d-globus-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch",
-        "it": "miglioratore-in-del-servizio-interno-tutore-80-w-m-d-globus-bern",
+        "it": "collaboratore-trice-hausdienst-allrounder-80-w-m-d-globus-bern",
         "en": "housekeeping-all-rounder-80-w-m-d-globus-bern",
-        "fr": "membre-du-personnel-de-maintenance-tuteur-80-w-m-d-globus-bern"
+        "fr": "collaborateur-trice-hausdienst-allrounder-80-w-m-d-globus-bern"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -2037,11 +2037,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch"
+          "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch",
+          "miglioratore-in-del-servizio-interno-tutore-80-w-m-d-globus-bern"
+        ],
+        "fr": [
+          "membre-du-personnel-de-maintenance-tuteur-80-w-m-d-globus-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch"
+        "mitarbeiter-in-hausdienst-allrounder-80-w-m-d-globus-ch",
+        "miglioratore-in-del-servizio-interno-tutore-80-w-m-d-globus-bern",
+        "membre-du-personnel-de-maintenance-tuteur-80-w-m-d-globus-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
