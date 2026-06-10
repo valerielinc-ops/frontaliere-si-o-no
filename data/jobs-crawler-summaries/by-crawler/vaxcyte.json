@@ -1,18 +1,59 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-06-10T13:09:54.973Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-06-10T23:39:45.056Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2720,
-  "avgDurationMs": 2720,
+  "durationMs": 2525,
+  "avgDurationMs": 2525,
   "durationHistory": [
-    2720
+    2525
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "vaxcyte-27b9ca402283",
+      "slug": "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Quality Assurance Specialist III, External Manufacturing",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-10T23:39:42.886Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
+      "department": "Quality",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "vaxcyte-c9c634d0bcbe",
@@ -26,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T13:09:53.106Z",
+      "crawledAt": "2026-06-10T23:39:42.957Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
