@@ -146,9 +146,16 @@ Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta
 
 ## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-Claude)
 
-**2026-06-04:** la supersede detection è stata RIMOSSA dal prompt Claude di `post-merge-followup.yml`. Il flag grossolano su file-touch (comment-only, advisory) bruciava turni Claude + un `gh issue list --search` per-file a ogni merge, per una segnalazione che l'autore raramente azionava. La copertura è ora di `followup-reconcile.yml` (`scripts/ci/reconcile-followups.mjs`, cron daily, **zero-Claude**): per ogni issue `follow-up` aperta estrae i file/token citati e verifica se la fix è **presente verbatim** nel file → label `maybe-resolved` (check di risoluzione reale, più preciso del flag file-touch). La chiusura finale resta umana / `Closes #N`.
+**2026-06-04:** la supersede detection è stata RIMOSSA dal prompt Claude di `post-merge-followup.yml`. Il flag grossolano su file-touch (comment-only, advisory) bruciava turni Claude + un `gh issue list --search` per-file a ogni merge, per una segnalazione che l'autore raramente azionava. La copertura è ora di `followup-reconcile.yml` (`scripts/ci/reconcile-followups.mjs`, cron daily, **zero-Claude**): per ogni issue `follow-up` aperta estrae i file/token citati e verifica se la fix è **presente verbatim** nel file.
 
-Gap residuo accettato: un refactor che rende moot un item SENZA aggiungere i token citati non viene flaggato da nessuno dei due (reconcile cerca i token verbatim). Trade-off scelto per ridurre la spesa Claude per-merge.
+**2026-06-10 — auto-close a due tier (drena la pila `maybe-resolved` senza perdere qualità).** Il vecchio "la chiusura resta umana" lasciava i `maybe-resolved` deterministicamente-rilevati a un umano che non arrivava → la coda non convergeva mai (driver #1 del treadmill). Ora `reconcile` chiude in autonomia, ma SOLO con **doppia conferma separata nel tempo** + più veti di sicurezza:
+
+1. **1ª detection** (issue non ancora `maybe-resolved`) → commento advisory + label `maybe-resolved`. **Finestra di grazia**: l'umano ha fino al run successivo per obiettare (rimuovere la label, aggiungere `keep-open`/`pinned`, riaprire lo scope).
+2. **2ª conferma** (la issue porta GIÀ `maybe-resolved` da un run precedente, è ANCORA risolta, ha il nostro commento-marker, è **single-item**, **non** ha label keep-open/strategica, e l'evidenza è **forte**) → **auto-close** `--reason completed` + label `fu-resolved-auto`.
+
+Veti all'auto-close (restano flag→umano): **multi-item aggregati** (`N item`, N≥2 — un sub-item prose-only non contribuisce token, "tutti i token presenti" non prova che ogni item sia fatto); label **keep-open/pinned/revenue/tracker/do-not-close**; **evidenza debole** (singolo token poco specifico tipo `meta.model`, 1 solo segno di punteggiatura — `isStrongAutoCloseEvidence` esige ≥2 token distinti OPPURE 1 token "ricco" con ≥2 segni). Rimozione della label dopo il flag = **obiezione umana** → il bot tace. La chiusura è **reversibile** (si riapre da sola se il segnale ricorre, titoli monitor dedup-stabili). Kill-switch: repo-var `RECONCILE_NO_AUTOCLOSE=1` o input `no_autoclose` → torna flag-only. Logica pura testata in `tests/reconcile-followups-decision.test.ts`; matcher condiviso con il pre-flight di `issue-fix` (`followup-resolution-match.mjs`, AGENTS.md #6).
+
+Gap residuo accettato: un refactor che rende moot un item SENZA aggiungere i token citati non viene flaggato (reconcile cerca i token verbatim). Trade-off scelto per ridurre la spesa Claude per-merge.
 
 ## Constraint
 
