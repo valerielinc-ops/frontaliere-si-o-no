@@ -12,6 +12,7 @@
  */
 
 import admin from 'firebase-admin';
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
@@ -59,7 +60,7 @@ async function fetchFromFrankfurter(startStr, endStr) {
         const cs = chunkStart.toISOString().slice(0, 10);
         const ce = chunkEnd.toISOString().slice(0, 10);
         const url = `${base}/v2/rates?base=CHF&quotes=EUR&from=${cs}&to=${ce}`;
-        const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+        const res = await httpFetchWithRetry(url, {}, { timeout: 15000, label: `exchange ${cs}..${ce}` });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (Array.isArray(data)) {
