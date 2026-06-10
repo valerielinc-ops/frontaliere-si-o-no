@@ -45,6 +45,14 @@
       "collectionGroup": "publisher_jobs",
       "queryScope": "COLLECTION",
       "fields": [
+        { "fieldPath": "tier", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "publisher_jobs",
+      "queryScope": "COLLECTION",
+      "fields": [
         { "fieldPath": "publisherUid", "order": "ASCENDING" },
         { "fieldPath": "status", "order": "ASCENDING" }
       ]
