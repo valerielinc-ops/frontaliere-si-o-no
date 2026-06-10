@@ -8,10 +8,15 @@
  * controls. This clears the 3.5rem (h-14) nav + safe-area + a 1rem gap on `<md`,
  * and falls back to `bottom-4` at `md+` where the nav is hidden.
  *
- * Single source of truth: the `3.5rem` mirrors the nav's `h-14`. If the nav
- * height changes, update it here once instead of in each toast/banner.
+ * This is a real CSS class defined in `index.css` (`.above-mobile-nav`), NOT a
+ * Tailwind arbitrary-value utility. An earlier attempt put
+ * `bottom-[calc(...)] md:bottom-4` in this const, but the production Tailwind
+ * source scan did not pick up class literals living only in this shared `.ts`
+ * file, so the utility was never generated and the toast dropped to its in-flow
+ * position off-screen. A class defined in the entry stylesheet always ships, so
+ * referencing it by name here is scan-proof. The actual offsets (4.5rem mobile,
+ * 1rem at md+) live in index.css.
  *
  * Used by JobDetailAlertPrompt, JobAlertStickyBanner and the JobAlertForm toast.
  */
-export const ABOVE_MOBILE_NAV_BOTTOM =
-  'bottom-[calc(3.5rem+1rem+env(safe-area-inset-bottom,0px))] md:bottom-4';
+export const ABOVE_MOBILE_NAV_BOTTOM = 'above-mobile-nav';

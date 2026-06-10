@@ -792,3 +792,16 @@ input[type=number] { -moz-appearance: textfield; }
   .ec-meta { @apply min-w-0 flex-1; }
   .ec-cmpct { @apply flex items-center gap-2.5 rounded-xl border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-inherit no-underline; }
 }
+
+/* Lift a `fixed` bottom-anchored toast/banner above the mobile bottom nav
+   (App.tsx: <nav> fixed bottom-0 z-50 h-14 md:hidden + safe-area pad). Defined
+   as a real CSS class in this entry stylesheet — NOT a Tailwind arbitrary class
+   in a shared .ts const — because that const file was not picked up by the
+   production Tailwind source scan, so `bottom-[calc(...)]` never reached the CSS
+   and the toast dropped to its in-flow position off-screen. A plain class here
+   always ships. 4.5rem = 3.5rem nav (h-14) + 1rem gap; md+ falls back to 1rem
+   where the nav is hidden. Used via ABOVE_MOBILE_NAV_BOTTOM
+   (components/shared/mobileNavClearance.ts) by JobDetailAlertPrompt,
+   JobAlertStickyBanner and the JobAlertForm toast. */
+.above-mobile-nav { bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+@media (min-width: 768px) { .above-mobile-nav { bottom: 1rem; } }
