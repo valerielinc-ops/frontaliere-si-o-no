@@ -28,6 +28,7 @@ import {
 } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { priceForCart } from '@/services/publisherPricing';
+import { listCantonOptions } from '@/services/cantonList';
 import type {
  ApplyMode,
  PublisherLegalForm,
@@ -42,12 +43,54 @@ const GEMINI_ENDPOINT =
 
 const VALID_EMPLOYMENT_TYPES = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY', 'INTERN'];
 
+/** Minimum words required in the description (mirrors the projection content gate). */
+const DESCRIPTION_MIN_WORDS = 50;
+
+/** Job-category slugs offered in the form (value = stable slug, label = i18n). */
+const CATEGORY_SLUGS = [
+ 'health',
+ 'it',
+ 'construction',
+ 'hospitality',
+ 'retail',
+ 'finance',
+ 'education',
+ 'logistics',
+ 'manufacturing',
+ 'admin',
+ 'sales',
+ 'engineering',
+ 'other',
+] as const;
+type CategorySlug = (typeof CATEGORY_SLUGS)[number];
+const VALID_CATEGORY_SLUGS = new Set<string>(CATEGORY_SLUGS);
+
+/** Contract-type values (persisted as `contractType`). */
+const CONTRACT_TYPES: { value: string; labelKey: string }[] = [
+ { value: 'permanent', labelKey: 'publisher.ad.contractType.permanent' },
+ { value: 'fixed-term', labelKey: 'publisher.ad.contractType.fixedTerm' },
+ { value: 'temporary', labelKey: 'publisher.ad.contractType.temporary' },
+ { value: 'internship', labelKey: 'publisher.ad.contractType.internship' },
+ { value: 'apprenticeship', labelKey: 'publisher.ad.contractType.apprenticeship' },
+];
+
+/** Per-location form row: human label + optional structured address fields. */
+interface LocationRow {
+ label: string;
+ postalCode: string;
+ canton: string;
+ street: string;
+}
+
+const emptyLocationRow = (): LocationRow => ({ label: '', postalCode: '', canton: 'TI', street: '' });
+
 /** Parse the model's reply (may be fenced ```json) into a job-post object. */
 function parseAiJobPost(text: string): {
  title?: string;
  description?: string;
  employmentType?: string;
  sector?: string;
+ category?: string;
 } | null {
  if (!text) return null;
  const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
@@ -104,7 +147,7 @@ function isValidEmail(value: string): boolean {
 type SubmitStatus = 'idle' | 'submitting' | 'redirecting' | 'published' | 'error';
 
 const PublisherPublishPage: React.FC = () => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const { user, loading, signIn } = useAuth();
 
  // ── Tier ────────────────────────────────────────────────────
@@ -121,11 +164,14 @@ const PublisherPublishPage: React.FC = () => {
 
  const [title, setTitle] = useState('');
  const [description, setDescription] = useState('');
+ const [category, setCategory] = useState<string>('');
+ const [sector, setSector] = useState('');
  const [employmentType, setEmploymentType] = useState<string>('FULL_TIME');
+ const [contractType, setContractType] = useState<string>('permanent');
  const [salaryMin, setSalaryMin] = useState('');
  const [salaryMax, setSalaryMax] = useState('');
 
- const [locations, setLocations] = useState<string[]>(['']);
+ const [locations, setLocations] = useState<LocationRow[]>([emptyLocationRow()]);
 
  const [applyMode, setApplyMode] = useState<ApplyMode>('external_url');
  const [applyUrl, setApplyUrl] = useState('');
@@ -151,7 +197,8 @@ const PublisherPublishPage: React.FC = () => {
  `Rispondi SOLO con JSON valido, senza testo extra, con queste chiavi: ` +
  `"title" (titolo conciso), "description" (almeno 70 parole, professionale, con responsabilità e requisiti), ` +
  `"employmentType" (uno tra ${VALID_EMPLOYMENT_TYPES.join(', ')}), ` +
- `"sector" (settore breve, es. "sanità", "edilizia", "IT").`;
+ `"sector" (settore breve, es. "sanità", "edilizia", "IT"), ` +
+ `"category" (uno tra ${CATEGORY_SLUGS.join(', ')}).`;
  const res = await fetch(GEMINI_ENDPOINT, {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
@@ -164,6 +211,10 @@ const PublisherPublishPage: React.FC = () => {
  if (parsed.description) setDescription(String(parsed.description));
  if (parsed.employmentType && VALID_EMPLOYMENT_TYPES.includes(parsed.employmentType)) {
  setEmploymentType(parsed.employmentType);
+ }
+ if (parsed.sector) setSector(String(parsed.sector).slice(0, 80));
+ if (parsed.category && VALID_CATEGORY_SLUGS.has(String(parsed.category))) {
+ setCategory(String(parsed.category) as CategorySlug);
  }
  setAiStatus('idle');
  Analytics.trackUIInteraction('publisher', 'ai', 'autofill', 'success');
@@ -179,35 +230,61 @@ const PublisherPublishPage: React.FC = () => {
  Analytics.trackUIInteraction('publisher', 'page', 'publish_page', 'view');
  }, []);
 
+ // ── SEO meta (title + description) ──────────────────────────
+ useEffect(() => {
+ const prevTitle = document.title;
+ document.title = t('publisher.metaTitle');
+ const meta = document.querySelector('meta[name="description"]');
+ const prevDesc = meta?.getAttribute('content') ?? null;
+ if (meta) meta.setAttribute('content', t('publisher.metaDescription'));
+ return () => {
+ document.title = prevTitle;
+ if (meta && prevDesc != null) meta.setAttribute('content', prevDesc);
+ };
+ }, [t]);
+
  // Free tier is external-apply only — force the mode when switching to free.
  useEffect(() => {
  if (isFree && applyMode !== 'external_url') setApplyMode('external_url');
  }, [isFree, applyMode]);
 
  // ── Live price preview ──────────────────────────────────────
- const distinctLocations = useMemo(
- () => locations.map(l => l.trim()).filter(Boolean),
- [locations],
- );
+ // Billing counts DISTINCT non-empty location labels (one ad × location unit each).
+ const distinctLocations = useMemo(() => {
+ const seen = new Set<string>();
+ const out: string[] = [];
+ for (const loc of locations) {
+ const label = loc.label.trim();
+ const key = label.toLowerCase();
+ if (label && !seen.has(key)) {
+ seen.add(key);
+ out.push(label);
+ }
+ }
+ return out;
+ }, [locations]);
  const price = useMemo(
  () => priceForCart([{ id: 'ad', locations: distinctLocations }]),
  [distinctLocations],
  );
 
  // ── Location helpers ────────────────────────────────────────
- const updateLocation = (index: number, value: string) => {
- setLocations(prev => prev.map((loc, i) => (i === index ? value : loc)));
+ const updateLocation = (index: number, patch: Partial<LocationRow>) => {
+ setLocations(prev => prev.map((loc, i) => (i === index ? { ...loc, ...patch } : loc)));
  };
- const addLocation = () => setLocations(prev => [...prev, '']);
+ const addLocation = () => setLocations(prev => [...prev, emptyLocationRow()]);
  const removeLocation = (index: number) =>
  setLocations(prev => (prev.length <= 1 ? prev : prev.filter((_, i) => i !== index)));
+
+ const cantonOptions = useMemo(() => listCantonOptions(locale), [locale]);
+ const descriptionWords = useMemo(() => countWords(description), [description]);
 
  // ── Client-side validation ──────────────────────────────────
  const validate = (): string[] => {
  const found: string[] = [];
  if (!companyName.trim()) found.push(t('publisher.error.companyName'));
  if (!title.trim()) found.push(t('publisher.error.title'));
- if (countWords(description) < 50) found.push(t('publisher.error.description'));
+ if (countWords(description) < DESCRIPTION_MIN_WORDS) found.push(t('publisher.error.description'));
  if (distinctLocations.length < 1) found.push(t('publisher.error.locations'));
  if (applyMode === 'external_url' && !isValidUrl(applyUrl)) {
  found.push(t('publisher.error.applyUrl'));
@@ -248,7 +325,31 @@ const PublisherPublishPage: React.FC = () => {
  const firebaseApp = await getApp();
  const db = getFirestore(firebaseApp);
 
- const jobLocations: PublisherJobLocation[] = distinctLocations.map(label => ({ label }));
+ // Build PublisherJobLocation[] from distinct labels, attaching the structured
+ // address the projection reads (raw.canton + raw.address.*). Empty address
+ // subfields are omitted so the projection's `|| fallback` logic stays clean.
+ const seenLocations = new Set<string>();
+ const jobLocations: PublisherJobLocation[] = [];
+ for (const row of locations) {
+ const label = row.label.trim();
+ const key = label.toLowerCase();
+ if (!label || seenLocations.has(key)) continue;
+ seenLocations.add(key);
+ const canton = row.canton.trim() || 'TI';
+ const postalCode = row.postalCode.trim();
+ const streetAddress = row.street.trim();
+ jobLocations.push({
+ label,
+ canton,
+ address: {
+ addressLocality: label,
+ addressRegion: canton,
+ addressCountry: 'CH',
+ ...(postalCode ? { postalCode } : {}),
+ ...(streetAddress ? { streetAddress } : {}),
+ },
+ });
+ }
  const parsedSalaryMin = salaryMin.trim() ? Number(salaryMin) : undefined;
  const parsedSalaryMax = salaryMax.trim() ? Number(salaryMax) : undefined;
 
@@ -271,6 +372,9 @@ const PublisherPublishPage: React.FC = () => {
  },
  locations: jobLocations,
  employmentType,
+ ...(category.trim() ? { category: category.trim() } : {}),
+ ...(sector.trim() ? { sector: sector.trim() } : {}),
+ ...(contractType.trim() ? { contractType: contractType.trim() } : {}),
  ...(parsedSalaryMin != null && Number.isFinite(parsedSalaryMin) ? { salaryMin: parsedSalaryMin } : {}),
  ...(parsedSalaryMax != null && Number.isFinite(parsedSalaryMax) ? { salaryMax: parsedSalaryMax } : {}),
  currency: 'CHF',
@@ -325,6 +429,20 @@ const PublisherPublishPage: React.FC = () => {
  };
 
  // ── Auth gate ───────────────────────────────────────────────
+ // While auth resolves, show a spinner — NEVER flash the form for an
+ // as-yet-unauthenticated visitor (the form is authenticated-only).
+ if (loading && !user) {
+ return (
+ <div className="max-w-2xl mx-auto px-4 py-24 flex flex-col items-center justify-center text-center">
+ <div
+ className="animate-spin rounded-full h-8 w-8 border-2 border-edge border-t-accent"
+ role="status"
+ aria-label={t('publisher.loadingAuth')}
+ />
+ <span className="sr-only">{t('publisher.loadingAuth')}</span>
+ </div>
+ );
+ }
  if (!loading && !user) {
  return (
  <div className="max-w-2xl mx-auto px-4 py-12">
@@ -531,10 +649,70 @@ const PublisherPublishPage: React.FC = () => {
  value={description}
  onChange={e => setDescription(e.target.value)}
  spellCheck={true}
+ aria-describedby="pub-description-count"
  className={`${inputClass} resize-y min-h-[140px]`}
  placeholder={t('publisher.ad.descriptionPlaceholder')}
  />
- <p className="mt-1 text-xs text-muted">{t('publisher.ad.descriptionHint')}</p>
+ <div className="mt-1 flex items-center justify-between gap-2">
+ <p className="text-xs text-muted">{t('publisher.ad.descriptionHint')}</p>
+ <p
+ id="pub-description-count"
+ className={`text-xs font-medium tabular-nums ${descriptionWords < DESCRIPTION_MIN_WORDS ? 'text-danger' : 'text-success'}`}
+ aria-live="polite"
+ >
+ {t('publisher.ad.descriptionWordCount', { current: descriptionWords, min: DESCRIPTION_MIN_WORDS })}
+ </p>
+ </div>
+ </div>
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+ <div>
+ <label htmlFor="pub-category" className={labelClass}>
+ {t('publisher.ad.category')}
+ </label>
+ <select
+ id="pub-category"
+ value={category}
+ onChange={e => setCategory(e.target.value)}
+ className={inputClass}
+ >
+ <option value="">{t('publisher.ad.category.placeholder')}</option>
+ {CATEGORY_SLUGS.map(slug => (
+ <option key={slug} value={slug}>
+ {t(`publisher.ad.category.${slug}`)}
+ </option>
+ ))}
+ </select>
+ </div>
+ <div>
+ <label htmlFor="pub-contract-type" className={labelClass}>
+ {t('publisher.ad.contractType')}
+ </label>
+ <select
+ id="pub-contract-type"
+ value={contractType}
+ onChange={e => setContractType(e.target.value)}
+ className={inputClass}
+ >
+ {CONTRACT_TYPES.map(opt => (
+ <option key={opt.value} value={opt.value}>
+ {t(opt.labelKey)}
+ </option>
+ ))}
+ </select>
+ </div>
+ </div>
+ <div>
+ <label htmlFor="pub-sector" className={labelClass}>
+ {t('publisher.ad.sector')}
+ </label>
+ <input
+ id="pub-sector"
+ type="text"
+ value={sector}
+ onChange={e => setSector(e.target.value)}
+ className={inputClass}
+ placeholder={t('publisher.ad.sector.placeholder')}
+ />
  </div>
  <div>
  <label htmlFor="pub-employment" className={labelClass}>
@@ -590,20 +768,23 @@ const PublisherPublishPage: React.FC = () => {
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.locations.section')}</h2>
  <p className="text-xs text-muted mb-3">{t('publisher.locations.hint')}</p>
- <div className="space-y-3">
+ <div className="space-y-4">
  {locations.map((loc, index) => (
- <div key={index} className="flex items-center gap-2">
- <label htmlFor={`pub-location-${index}`} className="sr-only">
- {t('publisher.locations.label')} {index + 1}
+ <div key={index} className="rounded-2xl border border-edge bg-surface-alt p-4 space-y-3">
+ <div className="flex items-end gap-2">
+ <div className="flex-1">
+ <label htmlFor={`pub-location-${index}`} className={labelClass}>
+ {t('publisher.locations.label')} {index + 1} *
  </label>
  <input
  id={`pub-location-${index}`}
  type="text"
- value={loc}
- onChange={e => updateLocation(index, e.target.value)}
+ value={loc.label}
+ onChange={e => updateLocation(index, { label: e.target.value })}
  className={inputClass}
  placeholder={t('publisher.locations.placeholder')}
  />
+ </div>
  {locations.length > 1 && (
  <button
  type="button"
@@ -614,6 +795,55 @@ const PublisherPublishPage: React.FC = () => {
  <Trash2 className="w-4 h-4" />
  </button>
  )}
+ </div>
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+ <div>
+ <label htmlFor={`pub-location-postal-${index}`} className={labelClass}>
+ {t('publisher.locations.postalCode')}
+ </label>
+ <input
+ id={`pub-location-postal-${index}`}
+ type="text"
+ inputMode="numeric"
+ autoComplete="postal-code"
+ value={loc.postalCode}
+ onChange={e => updateLocation(index, { postalCode: e.target.value })}
+ className={inputClass}
+ placeholder="6900"
+ />
+ </div>
+ <div>
+ <label htmlFor={`pub-location-canton-${index}`} className={labelClass}>
+ {t('publisher.locations.canton')}
+ </label>
+ <select
+ id={`pub-location-canton-${index}`}
+ value={loc.canton}
+ onChange={e => updateLocation(index, { canton: e.target.value })}
+ className={inputClass}
+ >
+ {cantonOptions.map(opt => (
+ <option key={opt.code} value={opt.code}>
+ {opt.label} ({opt.code})
+ </option>
+ ))}
+ </select>
+ </div>
+ </div>
+ <div>
+ <label htmlFor={`pub-location-street-${index}`} className={labelClass}>
+ {t('publisher.locations.street')}
+ </label>
+ <input
+ id={`pub-location-street-${index}`}
+ type="text"
+ autoComplete="street-address"
+ value={loc.street}
+ onChange={e => updateLocation(index, { street: e.target.value })}
+ className={inputClass}
+ placeholder="Via Nassa 5"
+ />
+ </div>
  </div>
  ))}
  </div>
