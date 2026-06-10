@@ -87,7 +87,7 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-4 space-y-4 rounded-2xl border border-edge bg-surface-alt p-4 sm:p-5">
+    <form onSubmit={handleSubmit} className="mt-4 space-y-4 rounded-2xl border border-edge bg-surface-alt p-4 sm:p-5 min-h-[420px] [contain:layout]">
       <h3 className="text-base font-semibold font-display text-strong">{t('publisherApply.title')}</h3>
       <div>
         <label htmlFor="apply-name" className={labelClass}>{t('publisherApply.name')} *</label>

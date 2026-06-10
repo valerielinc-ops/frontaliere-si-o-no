@@ -26,6 +26,7 @@ import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
 import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
+import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 
 ensureAdminApp();
 
@@ -728,6 +729,21 @@ export const stripeWebhook = onRequest(
  } catch (error) {
  console.error('[stripeWebhook]', error instanceof Error ? error.message : String(error));
  res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Anti-spam: cap free-tier self-published ads per publisher per day; over the
+// cap the new ad is flipped to 'rejected' (kept out of the slice).
+export const enforcePublisherFreeCap = onDocumentCreated(
+ { region: 'europe-west6', memory: '256MiB', document: 'publisher_jobs/{jobId}' },
+ async (event) => {
+ const snap = event.data;
+ if (!snap) return;
+ try {
+ await enforceFreeTierCap(snap.data(), event.params.jobId);
+ } catch (error) {
+ console.error('[enforcePublisherFreeCap]', error instanceof Error ? error.message : String(error));
  }
  },
 );
