@@ -1,10 +1,14 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   isTransientFetchError,
   isConnectionLevelFetchError,
   fetchWithRetry,
+  httpFetchWithRetry,
   RETRYABLE_STATUS,
 } from '../scripts/lib/transient-fetch.mjs';
+
+const mkResponse = (status: number) =>
+  ({ ok: status >= 200 && status < 300, status, statusText: `S${status}` }) as Response;
 
 describe('isTransientFetchError', () => {
   it('classifies node "fetch failed" TypeError as transient', () => {
@@ -111,5 +115,59 @@ describe('fetchWithRetry', () => {
       fetchWithRetry(attempt, { retries: 1, retryBaseMs: 0, isTransient: () => true }),
     ).rejects.toThrow();
     expect(attempt).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('httpFetchWithRetry', () => {
+  const realFetch = global.fetch;
+  afterEach(() => {
+    global.fetch = realFetch;
+    vi.restoreAllMocks();
+  });
+
+  it('retries a transient network throw then returns the Response', async () => {
+    global.fetch = vi
+      .fn()
+      .mockRejectedValueOnce(
+        Object.assign(new TypeError('fetch failed'), { cause: { code: 'UND_ERR_CONNECT_TIMEOUT' } }),
+      )
+      .mockResolvedValueOnce(mkResponse(200)) as unknown as typeof fetch;
+    const res = await httpFetchWithRetry('https://x.test', {}, { retryBaseMs: 0 });
+    expect(res.status).toBe(200);
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+  });
+
+  it('retries a retryable HTTP status (503) then returns the recovered Response', async () => {
+    global.fetch = vi
+      .fn()
+      .mockResolvedValueOnce(mkResponse(503))
+      .mockResolvedValueOnce(mkResponse(200)) as unknown as typeof fetch;
+    const res = await httpFetchWithRetry('https://x.test', {}, { retryBaseMs: 0 });
+    expect(res.status).toBe(200);
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+  });
+
+  it('returns the final retryable Response (no throw) after exhausting retries', async () => {
+    global.fetch = vi.fn().mockResolvedValue(mkResponse(503)) as unknown as typeof fetch;
+    // Caller keeps its own res.ok handling — the helper must hand back the
+    // Response rather than throwing so graceful-degradation paths run.
+    const res = await httpFetchWithRetry('https://x.test', {}, { retries: 2, retryBaseMs: 0 });
+    expect(res.status).toBe(503);
+    expect(res.ok).toBe(false);
+    expect(global.fetch).toHaveBeenCalledTimes(3); // 1 + 2 retries
+  });
+
+  it('does NOT retry a persistent non-ok status (404) and returns it once', async () => {
+    global.fetch = vi.fn().mockResolvedValue(mkResponse(404)) as unknown as typeof fetch;
+    const res = await httpFetchWithRetry('https://x.test', {}, { retryBaseMs: 0 });
+    expect(res.status).toBe(404);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('returns a 2xx Response on the first try without retrying', async () => {
+    global.fetch = vi.fn().mockResolvedValue(mkResponse(200)) as unknown as typeof fetch;
+    const res = await httpFetchWithRetry('https://x.test', {}, { retryBaseMs: 0 });
+    expect(res.status).toBe(200);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 });
