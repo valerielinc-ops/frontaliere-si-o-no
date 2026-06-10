@@ -44,6 +44,7 @@ import {
   applyCoopJsonLdToJob,
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -283,7 +284,7 @@ async function fetchCoopJobDetailUrls() {
         }
 
         const data = await res.json();
-        const jobs = data?.jobs || [];
+        const jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: label });
         const total = data?.total ?? '?';
         stats[label] = { found: jobs.length, total };
         console.log(`  📦 ${label}: ${jobs.length} jobs (API total: ${total})`);

@@ -22,6 +22,7 @@
  */
 
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
+import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -294,7 +295,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
       return;
     }
 
-    const postings = Array.isArray(data?.jobPostings) ? data.jobPostings : [];
+    const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
     // Some Workday tenants (e.g. logitech.wd5) return `total: 0` on every
     // page after the first, which would otherwise trip the
     // `yielded >= total` early-exit below after page 1. Trust only the

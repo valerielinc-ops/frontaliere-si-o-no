@@ -41,6 +41,7 @@ import {
   getCantonForLocation,
 } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -271,7 +272,7 @@ async function fetchJobListings() {
     throw new Error(`API returned ${res.status}`);
   }
   const data = await res.json();
-  const results = Array.isArray(data?.results) ? data.results : [];
+  const results = assertJsonListShape(data, { key: 'results', source: 'cler' });
   console.log(`  📋 API returned ${results.length} listings`);
   return results;
 }

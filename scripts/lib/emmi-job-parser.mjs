@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -157,7 +158,7 @@ async function fetchJobListings() {
   for (let page = 0; page < 50; page += 1) {
     const url = `${OHWS_JOBS_URL}?lang=${SOURCE_LANG}&offset=${offset}&limit=${limit}`;
     const data = await fetchJson(url);
-    const batch = Array.isArray(data?.jobs) ? data.jobs : [];
+    const batch = assertJsonListShape(data, { key: 'jobs', source: 'emmi' });
     collected.push(...batch);
 
     const total = Number(data?.total) || collected.length;

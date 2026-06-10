@@ -13,6 +13,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const CASALE_RECRUITEE_DOMAIN = 'casale.recruitee.com';
 const CASALE_CAREERS_DOMAIN = 'recruit.casale.ch';
@@ -206,7 +207,7 @@ export function isGenericOffer(offer = {}) {
  * @returns {Array<object>} Filtered offer objects
  */
 export function parseApiResponse(apiResponse = {}) {
-  const offers = apiResponse?.offers || [];
+  const offers = assertJsonListShape(apiResponse, { key: 'offers', source: 'casale' });
   return offers.filter((o) => isCasaleSwissOffer(o) && !isGenericOffer(o));
 }
 

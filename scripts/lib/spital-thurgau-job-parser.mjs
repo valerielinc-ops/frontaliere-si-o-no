@@ -29,6 +29,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, normalizeSpace } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -180,23 +181,35 @@ export function parseStgagEmbeddedJson(html = '') {
   const m = html.match(
     /<script[^>]*data-name="jobs"[^>]*type="application\/json"[^>]*>([\s\S]*?)<\/script>/i
   );
-  if (!m) return [];
+  if (!m) {
+    console.warn(
+      '⚠️ spital-thurgau: embedded <script data-name="jobs"> block not found in the page — the Typo3/Angular markup may have changed (a genuinely-empty board would still embed `jobs: []`).',
+    );
+    return [];
+  }
   let outer;
   try {
     outer = JSON.parse(m[1]);
   } catch {
+    console.warn(
+      '⚠️ spital-thurgau: embedded <script data-name="jobs"> block is not valid JSON — the source markup may have changed.',
+    );
     return [];
   }
-  // STGAG double-encodes: outer.jobs is a JSON string, not an array.
+  // STGAG double-encodes: outer.jobs is a JSON string, not an array. Decode it
+  // in place so the shared shape guard below validates the real list whether the
+  // source double-encodes (string) or emits `jobs` as a direct array.
   if (typeof outer?.jobs === 'string') {
     try {
-      const arr = JSON.parse(outer.jobs);
-      return Array.isArray(arr) ? arr : [];
+      outer.jobs = JSON.parse(outer.jobs);
     } catch {
+      console.warn(
+        '⚠️ spital-thurgau: double-encoded `jobs` string failed to JSON-parse — the source markup may have changed.',
+      );
       return [];
     }
   }
-  return Array.isArray(outer?.jobs) ? outer.jobs : [];
+  return assertJsonListShape(outer, { key: 'jobs', source: 'spital-thurgau' });
 }
 
 /* ── HTTP Fetch ───────────────────────────────────────────── */

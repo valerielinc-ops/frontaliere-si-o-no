@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -146,7 +147,11 @@ async function trySuccessFactorsApi() {
     try {
       console.log(`   Trying SuccessFactors API: ${apiUrl}`);
       const data = await fetchJson(apiUrl, { timeoutMs: 15000 });
-      const items = data?.jobs || data?.results || data?.d?.results || data?.requisitions || (Array.isArray(data) ? data : []);
+      const items = assertJsonListShapeMultiKey(data, {
+        keys: ['jobs', 'results', 'd.results', 'requisitions'],
+        allowBareArray: true,
+        source: BENTELER_KEY,
+      });
       if (items.length > 0) {
         console.log(`   API returned ${items.length} jobs`);
         return items;

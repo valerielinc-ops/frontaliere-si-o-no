@@ -15,6 +15,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -154,7 +155,12 @@ async function callDatabroker(definitionSysId, inputValues, pipelineId) {
     }
 
     const data = await res.json();
-    return data?.result?.[0]?.executionResult?.output || [];
+    // ServiceNow Databroker envelope: result[0].executionResult.output holds the
+    // list. Resolve the sub-object then single-key on `output` so a drift in the
+    // ServiceNow wrapper (renamed `executionResult`/`output`, error body, missing
+    // first `result` row) warns loudly instead of silently yielding [].
+    const executionResult = data?.result?.[0]?.executionResult;
+    return assertJsonListShape(executionResult, { key: 'output', source: 'hopital-du-valais' });
   } catch (err) {
     clearTimeout(timer);
     throw err;

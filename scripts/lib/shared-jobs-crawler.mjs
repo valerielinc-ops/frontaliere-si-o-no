@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
+import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
@@ -2388,7 +2389,7 @@ async function searchGoogleCse(query, limit = 8) {
     const res = await fetchWithTimeout(url, { headers: { Accept: 'application/json' } });
     if (!res.ok) return [];
     const data = await res.json();
-    const items = Array.isArray(data?.items) ? data.items : [];
+    const items = assertJsonListShape(data, { key: 'items', source: 'shared-jobs-crawler:google-cse' });
     return items
       .map((x) => tryUrl(x?.link || ''))
       .filter(Boolean);
@@ -3148,7 +3149,7 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
     } catch {
       break;
     }
-    const postings = Array.isArray(payload?.jobPostings) ? payload.jobPostings : [];
+    const postings = assertJsonListShape(payload, { key: 'jobPostings', source: `workday:${company?.name || source?.endpoint || ''}` });
     total = Number(payload?.total || postings.length || 0);
     for (const p of postings) {
       const title = normalizeSpace(p?.title || '');
@@ -3323,7 +3324,7 @@ async function crawlGreenhouseJobs(company, source) {
   } catch {
     return [];
   }
-  const jobs = Array.isArray(payload?.jobs) ? payload.jobs : [];
+  const jobs = assertJsonListShape(payload, { key: 'jobs', source: `greenhouse:${company?.name || source?.endpoint || ''}` });
   const out = [];
   for (const j of jobs) {
     const title = normalizeSpace(j?.title || j?.name || '');
@@ -3372,7 +3373,14 @@ async function crawlLeverJobs(company, source) {
   } catch {
     return [];
   }
-  const jobs = Array.isArray(payload) ? payload : [];
+  // Lever's postings API returns a bare top-level array; a non-array here is an
+  // error/challenge body, not an empty board → warn loudly rather than silently
+  // yielding 0 jobs.
+  const jobs = assertJsonListShapeMultiKey(payload, {
+    keys: [],
+    allowBareArray: true,
+    source: `lever:${company?.name || source?.endpoint || 'unknown'}`,
+  });
   const out = [];
   for (const j of jobs) {
     const title = normalizeSpace(j?.text || j?.title || '');
@@ -3421,7 +3429,7 @@ async function crawlSmartRecruitersJobs(company, source) {
   } catch {
     return [];
   }
-  const jobs = Array.isArray(payload?.content) ? payload.content : [];
+  const jobs = assertJsonListShape(payload, { key: 'content', source: `smartrecruiters:${company?.name || source?.endpoint || ''}` });
   const out = [];
   for (const j of jobs) {
     const title = normalizeSpace(j?.name || '');
@@ -3580,7 +3588,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
   } catch {
     return [];
   }
-  const rows = Array.isArray(payload?.results) ? payload.results : [];
+  const rows = assertJsonListShape(payload, { key: 'results', source: `teaser-api:${company?.name || apiUrl || ''}` });
   const out = [];
   for (const row of rows) {
     const title = normalizeSpace(row?.title || '');

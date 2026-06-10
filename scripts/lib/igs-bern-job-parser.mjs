@@ -21,6 +21,7 @@
  * description is fetched from there.
  */
 import { createHash } from 'node:crypto';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   decodeEntities,
@@ -139,7 +140,7 @@ async function fetchAllPastaHrJobs() {
   for (let page = 1; page <= MAX_PAGES; page++) {
     console.log(`  📄 Fetching page=${page} (limit=${PAGE_SIZE})...`);
     const data = await fetchPastaHrPage(page);
-    const items = Array.isArray(data?.data) ? data.data : [];
+    const items = assertJsonListShape(data, { key: 'data', source: 'igs-bern' });
     if (items.length === 0) break;
     all.push(...items);
     if (items.length < PAGE_SIZE) break;

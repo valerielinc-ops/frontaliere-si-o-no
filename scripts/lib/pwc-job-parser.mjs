@@ -23,6 +23,7 @@
  */
 
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -169,7 +170,7 @@ export function inferPwcCategory(title = '', description = '') {
  */
 export function parsePwcJobs(data = {}) {
   if (!data) return { items: [], total: 0 };
-  const rawJobs = data.jobs || [];
+  const rawJobs = assertJsonListShape(data, { key: 'jobs', source: 'pwc' });
   const items = rawJobs.map((j) => {
     const attrs = j.attributes || {};
     const szas = j.szas || {};

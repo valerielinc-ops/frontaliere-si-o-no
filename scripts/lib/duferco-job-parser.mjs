@@ -13,6 +13,7 @@
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton, findSwissCityInText } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -133,7 +134,13 @@ async function fetchJobListings() {
   const data = await fetchJson(CAREER_URL, {
     headers: { Accept: 'application/json' },
   });
-  return Array.isArray(data) ? data : [];
+  // The endpoint returns a flat top-level array (no envelope); a non-array is an
+  // error/challenge body → warn loudly rather than silently yielding 0 jobs.
+  return assertJsonListShapeMultiKey(data, {
+    keys: [],
+    allowBareArray: true,
+    source: DUFERCO_KEY,
+  });
 }
 
 /**

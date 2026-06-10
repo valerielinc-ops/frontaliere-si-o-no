@@ -35,6 +35,7 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './lib/postch-job-parser.mjs';
+import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -191,9 +192,9 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
       return { totalJobs: 0, jobs: [] };
     }
     const data = await res.json();
-    const jobs = Array.isArray(data?.jobSearchResult)
-      ? data.jobSearchResult.map(r => r?.response).filter(Boolean)
-      : [];
+    const jobs = assertJsonListShape(data, { key: 'jobSearchResult', source: 'postch', lang: locale })
+      .map(r => r?.response)
+      .filter(Boolean);
     return { totalJobs: Number(data?.totalJobs ?? 0), jobs };
   } catch (err) {
     clearTimeout(timer);

@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -192,7 +193,7 @@ async function fetchJobListings() {
     if (!data) break;
 
     if (Number.isFinite(data.TotalJobsCount)) total = data.TotalJobsCount;
-    const reqs = Array.isArray(data.requisitionList) ? data.requisitionList : [];
+    const reqs = assertJsonListShape(data, { key: 'requisitionList', source: 'hermes' });
     if (reqs.length === 0) break;
 
     for (const req of reqs) {

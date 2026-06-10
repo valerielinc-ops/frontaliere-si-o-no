@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -126,7 +127,11 @@ async function trySmartRecruitersApi() {
   try {
     console.log(`   Trying SmartRecruiters API: ${apiUrl}`);
     const data = await fetchJson(apiUrl, { timeoutMs: 20000 });
-    const items = data?.content || data?.results || data?.jobs || (Array.isArray(data) ? data : []);
+    const items = assertJsonListShapeMultiKey(data, {
+      keys: ['content', 'results', 'jobs'],
+      allowBareArray: true,
+      source: IMERYS_KEY,
+    });
     if (items.length > 0) {
       console.log(`   SmartRecruiters API returned ${items.length} Swiss jobs`);
       return items;
