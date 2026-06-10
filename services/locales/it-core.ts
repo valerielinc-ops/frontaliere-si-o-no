@@ -3269,6 +3269,7 @@ Regole:
  'publisherDashboard.applications.title': 'Candidature ricevute',
  'publisherDashboard.applications.empty': 'Nessuna candidatura ricevuta finora.',
  'publisherDashboard.col.applications': 'Candidature',
+ 'publisherDashboard.renewsIn': 'Rinnovo tra {days} g.',
  'jobBoard.sponsored': 'Sponsorizzato',
  'publisherApply.title': 'Candidati per questa posizione',
  'publisherApply.name': 'Nome e cognome',

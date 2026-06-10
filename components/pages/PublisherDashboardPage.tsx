@@ -25,6 +25,7 @@ interface DashboardRow {
   views: number;
   applyClicks: number;
   createdAt: number | null;
+  renewsAt: number | null;
 }
 
 interface ApplicationRow {
@@ -122,6 +123,7 @@ const PublisherDashboardPage: React.FC = () => {
               views,
               applyClicks,
               createdAt: tsToMillis(j.createdAt),
+              renewsAt: tsToMillis(j.renewsAt),
             };
           }),
         );
@@ -191,6 +193,14 @@ const PublisherDashboardPage: React.FC = () => {
   const statusLabel = (s: PublisherJobStatus) => t(`publisherDashboard.status.${s}`);
   const tierLabel = (tier: PublisherTier) =>
     tier === 'free' ? t('publisherDashboard.tier.free') : t('publisherDashboard.tier.sponsored');
+
+  // "Renews in N days" — only for sponsored+paid ads with a future renewsAt.
+  const renewalLabel = (r: DashboardRow): string | null => {
+    if (r.tier !== 'sponsored' || r.status !== 'paid' || r.renewsAt == null) return null;
+    const days = Math.ceil((r.renewsAt - Date.now()) / 86400000);
+    if (days <= 0) return null;
+    return t('publisherDashboard.renewsIn', { days });
+  };
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -265,7 +275,12 @@ const PublisherDashboardPage: React.FC = () => {
                   <tr key={r.id} className="border-t border-edge">
                     <td className="px-4 py-3 text-strong font-medium">{r.title}</td>
                     <td className="px-3 py-3 text-subtle">{tierLabel(r.tier)}</td>
-                    <td className="px-3 py-3 text-subtle">{statusLabel(r.status)}</td>
+                    <td className="px-3 py-3 text-subtle">
+                      {statusLabel(r.status)}
+                      {renewalLabel(r) && (
+                        <span className="block text-xs text-muted mt-0.5">{renewalLabel(r)}</span>
+                      )}
+                    </td>
                     <td className="px-3 py-3 text-right text-body">{r.locations}</td>
                     <td className="px-3 py-3 text-right text-body">{r.views}</td>
                     <td className="px-3 py-3 text-right text-body">{r.applyClicks}</td>
@@ -284,6 +299,9 @@ const PublisherDashboardPage: React.FC = () => {
                 <div className="text-xs text-subtle mt-1">
                   {tierLabel(r.tier)} · {statusLabel(r.status)} · {r.locations} {t('publisherDashboard.col.locations')}
                 </div>
+                {renewalLabel(r) && (
+                  <div className="text-xs text-muted mt-1">{renewalLabel(r)}</div>
+                )}
                 <div className="flex gap-4 mt-3 text-sm text-body">
                   <span className="inline-flex items-center gap-1"><Eye className="w-4 h-4 text-subtle" />{r.views}</span>
                   <span className="inline-flex items-center gap-1"><MousePointerClick className="w-4 h-4 text-subtle" />{r.applyClicks}</span>

@@ -3182,6 +3182,7 @@ Regeln:
  'publisherDashboard.applications.title': 'Eingegangene Bewerbungen',
  'publisherDashboard.applications.empty': 'Noch keine Bewerbungen eingegangen.',
  'publisherDashboard.col.applications': 'Bewerbungen',
+ 'publisherDashboard.renewsIn': 'Verlängerung in {days} T.',
  'jobBoard.sponsored': 'Gesponsert',
  'publisherApply.title': 'Auf diese Stelle bewerben',
  'publisherApply.name': 'Vor- und Nachname',

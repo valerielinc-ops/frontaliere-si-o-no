@@ -3179,6 +3179,7 @@ Rules:
  'publisherDashboard.applications.title': 'Applications received',
  'publisherDashboard.applications.empty': 'No applications received yet.',
  'publisherDashboard.col.applications': 'Applications',
+ 'publisherDashboard.renewsIn': 'Renews in {days}d',
  'jobBoard.sponsored': 'Sponsored',
  'publisherApply.title': 'Apply for this position',
  'publisherApply.name': 'Full name',

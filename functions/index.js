@@ -24,6 +24,7 @@ import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBilling
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
+import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 
 ensureAdminApp();
@@ -782,6 +783,20 @@ export const purgePublisherApplications = onSchedule(
  if (deleted > 0) console.log(`[purgePublisherApplications] deleted ${deleted} expired application(s)`);
  } catch (error) {
  console.error('[purgePublisherApplications]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Retention: remind publishers whose paid ad renews within 3 days, daily.
+// Idempotent (renewalReminderSentAt) → one email per publisher per renewal.
+export const sendPublisherRenewalReminders = onSchedule(
+ { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
+ async () => {
+ try {
+ const sent = await sendRenewalReminders();
+ if (sent > 0) console.log(`[sendPublisherRenewalReminders] sent ${sent} renewal reminder(s)`);
+ } catch (error) {
+ console.error('[sendPublisherRenewalReminders]', error instanceof Error ? error.message : String(error));
  }
  },
 );

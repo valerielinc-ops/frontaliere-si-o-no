@@ -240,6 +240,39 @@ async function sendPublisherConfirmation(publisherUid, jobCount) {
   }
 }
 
+/**
+ * Persist the subscription's next renewal date onto the order + each job, so the
+ * dashboard can surface "renews in N days" and the daily reminder CF can query it.
+ * Non-fatal: any failure (Stripe lookup, missing period) is swallowed by the caller.
+ *
+ * @param {import('stripe').Stripe} stripe
+ * @param {string} subscriptionId  Stripe subscription id
+ * @param {string[]} jobIds        publisher_jobs ids on the order
+ * @param {string} orderRef        order doc id
+ */
+async function storeRenewal(stripe, subscriptionId, jobIds, orderRef) {
+  if (!subscriptionId) return;
+  const sub = await stripe.subscriptions.retrieve(subscriptionId);
+  const periodEnd = sub?.current_period_end; // unix seconds
+  if (!periodEnd) return;
+  const renewsAt = admin.firestore.Timestamp.fromMillis(periodEnd * 1000);
+  const ts = admin.firestore.FieldValue.serverTimestamp();
+  if (orderRef) {
+    await db().collection('orders').doc(String(orderRef)).set({ renewsAt, updatedAt: ts }, { merge: true });
+  }
+  if (Array.isArray(jobIds) && jobIds.length) {
+    const batch = db().batch();
+    for (const jobId of jobIds) {
+      batch.set(
+        db().collection('publisher_jobs').doc(String(jobId)),
+        { renewsAt, updatedAt: ts },
+        { merge: true },
+      );
+    }
+    await batch.commit();
+  }
+}
+
 async function orderByStripeRef({ sessionId, subscriptionId, orderId }) {
   const col = db().collection('orders');
   if (orderId) {
@@ -304,6 +337,9 @@ export async function handleStripeWebhook(req) {
           updatedAt: ts,
         });
         await setJobsStatus(order.jobIds, 'paid', { paidAt: ts, subscriptionId: obj.subscription || null });
+        try {
+          await storeRenewal(stripe, obj.subscription, order.jobIds, orderSnap.id);
+        } catch { /* non-fatal: renewal date is best-effort */ }
         await sendPublisherConfirmation(order.publisherUid, (order.jobIds || []).length);
       }
       break;
@@ -314,6 +350,9 @@ export async function handleStripeWebhook(req) {
       if (orderSnap) {
         await orderSnap.ref.update({ status: 'active', updatedAt: ts });
         await setJobsStatus(orderSnap.data().jobIds, 'paid');
+        try {
+          await storeRenewal(stripe, obj.subscription, orderSnap.data().jobIds, orderSnap.id);
+        } catch { /* non-fatal: renewal date is best-effort */ }
       }
       break;
     }
