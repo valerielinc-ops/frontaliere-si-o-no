@@ -257,15 +257,24 @@ const NON_PHYSICAL_LOCALITIES = new Set([
 function resolveRecordCanton(record) {
   const locs = Array.isArray(record?.jobLocationShort) ? record.jobLocationShort : [];
   for (const loc of locs) {
-    const parts = String(loc || '').split('|').map(p => p.trim()).filter(Boolean);
+    // The canton code is POSITIONAL (index 2 in the standard 5-token CH form).
+    // Keep the unfiltered split for that read: filter(Boolean) would shift the
+    // code off index 2 when the localized canton-name token (index 1) is empty
+    // ("City||CC|Country|CCC") and drop the length below 5, skipping the code
+    // path entirely → valid CH jobs in small municipalities (absent from the
+    // city index, e.g. Emmenbrücke/Nänikon) silently dropped. Use the filtered
+    // view only for the city/empty-record/country guards.
+    const raw = String(loc || '').split('|').map(p => p.trim());
+    const parts = raw.filter(Boolean);
     if (parts.length === 0) continue;
     const city = parts[0];
     if (!city || NON_PHYSICAL_LOCALITIES.has(city.toLowerCase())) continue;
     // Reject foreign locations: the trailing token is the ISO-3 country code.
     const countryCode = String(parts[parts.length - 1] || '').toUpperCase();
     if (/^[A-Z]{3}$/.test(countryCode) && countryCode !== 'CHE') continue;
-    // Canonical 2-letter canton code (standard 5-token CH form: index 2).
-    const cc = parts.length >= 5 ? normalizeCantonCode(parts[2]) : '';
+    // Canonical 2-letter canton code (standard 5-token CH form: positional
+    // index 2 in the UNFILTERED split — see note above).
+    const cc = raw.length >= 5 ? normalizeCantonCode(raw[2]) : '';
     if (cc) return { canton: cc, city };
     // Fall back to inferring from the city string ALONE (clean signal).
     const inferred = inferAnyCanton(city);
