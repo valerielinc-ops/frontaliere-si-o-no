@@ -15,11 +15,15 @@
  *   - scripts/lib/spital-zofingen-job-parser.mjs (34 jobs)
  *   - scripts/lib/pbl-job-parser.mjs (PBL board)
  *   - scripts/lib/bls-job-parser.mjs (jobs.bls.ch — same SMN template)
+ *   - scripts/lib/soh-solothurner-spitaeler-job-parser.mjs (jobs.so-h.ch — same
+ *     SMN template; detail-segment relaxed only, host kept absolute because the
+ *     listing is scraped cross-domain from www.solothurnerspitaeler.ch)
  */
 import { describe, it, expect } from 'vitest';
 import { parseSpitalZofingenListing } from '../../scripts/lib/spital-zofingen-job-parser.mjs';
 import { parseJobListHtml as parsePblListing } from '../../scripts/lib/pbl-job-parser.mjs';
 import { parseListingPage as parseBlsListing } from '../../scripts/lib/bls-job-parser.mjs';
+import { parseSohListing } from '../../scripts/lib/soh-solothurner-spitaeler-job-parser.mjs';
 
 describe('Spital Zofingen listing — href hardening', () => {
   it('parses absolute UUID hrefs (today’s markup)', () => {
@@ -104,5 +108,32 @@ describe('BLS listing — href hardening', () => {
     );
     expect(out).toHaveLength(1);
     expect(out[0].url).toBe('https://jobs.bls.ch/offene-stellen/lokfuehrer/job-42');
+  });
+});
+
+describe('soH (Solothurner Spitäler) listing — href hardening', () => {
+  // Same SMN `/offene-stellen/{slug}/{detail}` template, but the host stays
+  // absolute-pinned: this listing is scraped cross-domain from
+  // www.solothurnerspitaeler.ch, so root-relative hrefs are intentionally NOT
+  // accepted (they would resolve to the wrong host). Only the strict hex-UUID
+  // detail segment is relaxed to a slug-like token.
+  it('parses absolute UUID hrefs (today’s markup)', () => {
+    const u = 'https://jobs.so-h.ch/offene-stellen/pflegefachperson/0123abcd-4567-89ef-0123-456789abcdef';
+    expect(parseSohListing(`<a href="${u}">Job</a>`)).toEqual([u]);
+  });
+
+  it('parses a non-UUID (slug-like) detail segment', () => {
+    const u = 'https://jobs.so-h.ch/offene-stellen/pflege/job-42-pflegefachperson';
+    expect(parseSohListing(`<a href="${u}">Job</a>`)).toEqual([u]);
+  });
+
+  it('dedupes the ≥2 anchors emitted per card', () => {
+    const u = 'https://jobs.so-h.ch/offene-stellen/pflege/0123abcd-4567-89ef-0123-456789abcdef';
+    expect(parseSohListing(`<a href="${u}">Titel</a><a href="${u}">Zur Stellenanzeige</a>`)).toEqual([u]);
+  });
+
+  it('does not match the listing index page itself', () => {
+    expect(parseSohListing('<a href="https://jobs.so-h.ch/offene-stellen/">All</a>')).toEqual([]);
+    expect(parseSohListing('<a href="https://jobs.so-h.ch/offene-stellen/pflege">Category</a>')).toEqual([]);
   });
 });
