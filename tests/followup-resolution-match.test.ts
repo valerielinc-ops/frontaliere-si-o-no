@@ -38,6 +38,36 @@ describe('isDistinctiveToken', () => {
     expect(isDistinctiveToken('scripts/foo.mjs')).toBe(false);
     expect(isDistinctiveToken('build-plugins/bar.ts')).toBe(false);
   });
+
+  it('rejects bare funnel field/helper names — they occur in cited files independent of any fix (#1647)', () => {
+    // A bare field name lives in a slug/redirect builder regardless of whether the
+    // prescribed fix landed; promoting it to "distinctive" would silently short-circuit a
+    // still-pending funnel-critical fix. Only its real punctuated form is distinctive.
+    expect(isDistinctiveToken('previousSlugs')).toBe(false);
+    expect(isDistinctiveToken('mergedCount')).toBe(false);
+    expect(isDistinctiveToken('getList')).toBe(false);
+    expect(isDistinctiveToken('markStale')).toBe(false);
+    expect(isDistinctiveToken('expect')).toBe(false); // bare vitest matcher name
+    // …but the punctuated forms still qualify:
+    expect(isDistinctiveToken('previousSlugs.push(')).toBe(true);
+    expect(isDistinctiveToken('getList()')).toBe(true);
+  });
+
+  it('does NOT short-circuit on a bare funnel field present for unrelated reasons (#1647 false-positive)', () => {
+    // Issue prescribes a real (absent) fix AND happens to mention the bare field name.
+    // The bare field must not produce evidence; with the prescribed token absent → proceed.
+    const body = [
+      '- Original text:',
+      '  > redirect bridge for renamed jobs not persisted',
+      '- Suggested action: call `writeRedirectBridge()` so `previousSlugs` is persisted',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/lib/slug-history-journal.mjs',
+      // file references previousSlugs (it is a slug builder) but lacks the prescribed call
+      readFile: () => 'export function build(job) { return job.previousSlugs ?? []; }',
+    };
+    expect(detectAlreadyResolved(body, io).resolved).toBe(false);
+  });
 });
 
 describe('citedFiles', () => {

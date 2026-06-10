@@ -33,7 +33,15 @@ export function isDistinctiveToken(s) {
   if (s.length < 6 || s.length > 80) return false;
   if (/^[\w./-]+$/.test(s) && /\.[a-z]{2,4}$/i.test(s)) return false; // bare file path
   if (/\s/.test(s.trim()) && !/[(){}'"`:=<>]|\.\w/.test(s)) return false; // prose phrase
-  return /[(){}'"`]|::|=>|\.\w|:\d|>=|<=|\b(toContain|toBe|toEqual|expect|describe|getList|markStale|mergedCount|previousSlugs)\b/.test(s);
+  // ONLY code punctuation qualifies. A bare identifier (even a familiar field/helper name
+  // like `previousSlugs` / `mergedCount` / `getList` / a vitest matcher) is NOT distinctive:
+  // it occurs in a cited file independently of any fix (e.g. `previousSlugs` lives in every
+  // slug/redirect builder), so allowlisting bare words would let a still-pending
+  // funnel-critical fix (redirect/canonical/previousSlugs) be short-circuited and silently
+  // dropped — the exact false-positive the gate must never produce (#1647, REVIEW.md L92).
+  // Such names still qualify in their real form (`previousSlugs.push(`, `getList()`) via the
+  // dot-member/paren branches below.
+  return /[(){}'"`]|::|=>|\.\w|:\d|>=|<=/.test(s);
 }
 
 /**
