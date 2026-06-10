@@ -4,8 +4,9 @@
  * The assemble pipeline (scripts/assemble-jobs-dataset.mjs) is source-agnostic:
  * a publisher ad becomes ONE record PER LOCATION in
  * `data/jobs/by-crawler/publisher-submitted.json`, then it is emitted as a static
- * SEO page exactly like a crawled job. The same records (filtered to paid) also
- * feed the runtime overlay so the ad is visible in the SPA before the next build.
+ * SEO page exactly like a crawled job. Per the locked decision, the ad goes live
+ * at the next deploy ("disponibile tra 1-2 ore" = deploy/SSG latency); there is
+ * no instant runtime overlay in Phase 1.
  *
  * Pure + self-contained (no heavy imports) so it is trivially unit-testable and
  * usable from a plain Node build script. Canonical slug stabilization is left to
