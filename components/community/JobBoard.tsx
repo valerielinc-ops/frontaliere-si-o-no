@@ -2359,6 +2359,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // still anonymous here means the autologin never completed — the exact
  // failure that silently drops the prompt. Scoped to that cohort (not every
  // anonymous SEO view) so it stays a low-volume, high-signal event.
+ // Guard: if the CF exchange is still in flight, defer — user may authenticate
+ // shortly. Without this, the effect fires with userId=null before the exchange
+ // settles, emitting a false no_auth for sessions that later succeed.
+ if (newsletterAutologinInFlight) return;
  if (wasNewsletterAutologinAttempted()) {
  Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'no_auth');
  }
@@ -2431,7 +2435,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  cancelled = true;
  if (timerId !== null) window.clearTimeout(timerId);
  };
- }, [isJobDetailView, selectedJob, enableJobAlerts, userId, userEmail, t]);
+ }, [isJobDetailView, selectedJob, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
 
  // Auto-unmount the prompt if the user logs out or leaves the detail view.
  useEffect(() => {
