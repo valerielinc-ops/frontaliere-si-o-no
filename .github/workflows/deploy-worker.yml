@@ -10,10 +10,14 @@
 # HTML pushed to the frontaliere-{loc} repos) is deployed separately by
 # deploy.yml on every site deploy — unchanged.
 #
-# Secrets (already configured as repo Actions secrets):
-#   CLOUDFLARE_API_TOKEN   — token scoped Account→Workers Scripts:Edit
-#                            + Zone→Workers Routes:Edit on frontaliereticino.ch
-#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare account id
+# Credentials come from Firebase Remote Config (repo convention — same as
+# deploy.yml), hydrated by scripts/load-rc-env.mjs:
+#   CF_API_TOKEN   — Cloudflare API token. MUST carry, beyond the existing
+#                    Zone→Analytics:Read used by cf-status-report.mjs, the scopes
+#                    Account→Workers Scripts:Edit + Zone→Workers Routes:Edit
+#                    (frontaliereticino.ch) or this deploy fails on auth.
+#   CF_ACCOUNT_ID  — Cloudflare account id.
+# FIREBASE_SERVICE_ACCOUNT_JSON (repo secret) authenticates the RC read.
 name: Deploy Cloudflare Worker
 
 on:
@@ -36,13 +40,46 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # load-rc-env.mjs only needs firebase-admin — install it standalone
+      # instead of a full `npm ci` (the repo's install is heavy and unneeded
+      # for a Worker deploy).
+      - name: Install firebase-admin (for RC read)
+        run: npm install --no-save firebase-admin
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON not set — cannot read CF creds from Remote Config."
+            exit 1
+          fi
+
+      - name: Load Cloudflare creds from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Verify creds present
+        run: |
+          if [ -z "$CF_API_TOKEN" ] || [ -z "$CF_ACCOUNT_ID" ]; then
+            echo "::error::CF_API_TOKEN / CF_ACCOUNT_ID not hydrated from Remote Config."
+            exit 1
+          fi
 
       - name: Deploy locale-router Worker
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ env.CF_API_TOKEN }}
+          accountId: ${{ env.CF_ACCOUNT_ID }}
           workingDirectory: infra/cloudflare-worker
           command: deploy
 
