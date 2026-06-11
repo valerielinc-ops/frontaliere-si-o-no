@@ -1,10 +1,18 @@
 /**
- * geminiGenerate.js — generic single-shot Gemini text generation, server-side.
+ * geminiGenerate.js — generic single-shot text generation, server-side.
  *
- * Keeps GEMINI_API_KEY off the browser. Used by the feedback "AI optimize"
- * button and the newsletter preview generator (both previously called Gemini
- * directly with a browser-held key). The chatbot has its own richer endpoint
- * (chatbotInference); this is for simple prompt → text uses.
+ * Keeps provider API keys off the browser. Used by the publisher "Compila con AI"
+ * button, the feedback "AI optimize" button and the newsletter preview generator
+ * (all previously called Gemini directly with a browser-held key). The chatbot
+ * has its own richer endpoint (chatbotInference); this is for simple
+ * prompt → text uses.
+ *
+ * Provider chain (free-first): Gemini is primary, but its free tier exhausts
+ * quota daily (HTTP 429). When Gemini fails for ANY reason we fall through a
+ * chain of free OpenAI-compatible providers whose keys already live in Remote
+ * Config (same keys the translation/article AI model chain uses). The endpoint
+ * only surfaces an error when EVERY provider fails — so a single exhausted
+ * quota no longer breaks the feature.
  */
 
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
@@ -12,6 +20,69 @@ import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const DEFAULT_MODEL = 'gemini-2.0-flash-lite';
 const MAX_PROMPT_CHARS = 8000;
+const PROVIDER_TIMEOUT_MS = 18000;
+
+// Free OpenAI-compatible fallbacks, tried in order when Gemini fails. Keys are
+// already present in Remote Config (hydrated into CI via load-rc-env.mjs).
+// Diversity across providers matters: a per-key 429 on one provider must not
+// take down its sibling, so Groq → NVIDIA → Groq orders by provider, not model.
+const OPENAI_FALLBACKS = [
+  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.3-70b-versatile', label: 'groq-70b' },
+  { rcKey: 'NVIDIA_API_KEY', base: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'meta/llama-3.1-70b-instruct', label: 'nvidia-70b' },
+  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.1-8b-instant', label: 'groq-8b' },
+];
+
+/** Single-shot Gemini call. Returns trimmed text on success, throws on failure. */
+async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, temperature }) {
+  const payload = {
+    contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
+    generationConfig: { maxOutputTokens: maxTokens, temperature },
+  };
+  if (systemPrompt.trim()) {
+    payload.systemInstruction = { parts: [{ text: systemPrompt }] };
+  }
+
+  const res = await fetch(`${GEMINI_BASE}/${model}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
+  });
+
+  if (!res.ok) {
+    const detail = await res.text().catch(() => '');
+    throw new Error(`gemini_error_${res.status}: ${detail.slice(0, 120)}`);
+  }
+
+  const data = await res.json().catch(() => ({}));
+  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
+  if (!text) throw new Error('gemini_empty');
+  return text;
+}
+
+/** Single-shot OpenAI-compatible chat call. Returns trimmed text, throws on failure. */
+async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPrompt, maxTokens, temperature }) {
+  const messages = [];
+  if (systemPrompt.trim()) messages.push({ role: 'system', content: systemPrompt });
+  messages.push({ role: 'user', content: userPrompt });
+
+  const res = await fetch(base, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({ model, messages, max_tokens: maxTokens, temperature }),
+    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
+  });
+
+  if (!res.ok) {
+    const detail = await res.text().catch(() => '');
+    throw new Error(`http_${res.status}: ${detail.slice(0, 120)}`);
+  }
+
+  const data = await res.json().catch(() => ({}));
+  const text = data?.choices?.[0]?.message?.content?.trim() || '';
+  if (!text) throw new Error('empty');
+  return text;
+}
 
 export async function handleGeminiGenerate(req) {
   if (req.method !== 'POST') {
@@ -28,31 +99,38 @@ export async function handleGeminiGenerate(req) {
     return { status: 400, body: { ok: false, error: 'missing_prompt' } };
   }
 
-  const apiKey = await getRemoteConfigValue('GEMINI_API_KEY');
-  if (!apiKey) {
-    return { status: 503, body: { ok: false, error: 'gemini_not_configured' } };
+  const failures = [];
+
+  // 1. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
+  const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
+  if (geminiKey) {
+    try {
+      const text = await callGemini({ apiKey: geminiKey, model, systemPrompt, userPrompt, maxTokens, temperature });
+      return { status: 200, body: { ok: true, text, provider: 'gemini' } };
+    } catch (err) {
+      failures.push(`gemini: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  } else {
+    failures.push('gemini: not_configured');
   }
 
-  const payload = {
-    contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
-    generationConfig: { maxOutputTokens: maxTokens, temperature },
-  };
-  if (systemPrompt.trim()) {
-    payload.systemInstruction = { parts: [{ text: systemPrompt }] };
+  // 2. Fallbacks: free OpenAI-compatible providers (keys already in Remote Config).
+  for (const fb of OPENAI_FALLBACKS) {
+    const key = await getRemoteConfigValue(fb.rcKey);
+    if (!key) {
+      failures.push(`${fb.label}: no_key`);
+      continue;
+    }
+    try {
+      const text = await callOpenAiCompatible({ base: fb.base, apiKey: key, model: fb.model, systemPrompt, userPrompt, maxTokens, temperature });
+      console.log(`[geminiGenerate] served by fallback ${fb.label}`);
+      return { status: 200, body: { ok: true, text, provider: fb.label } };
+    } catch (err) {
+      failures.push(`${fb.label}: ${err instanceof Error ? err.message : String(err)}`);
+    }
   }
 
-  const res = await fetch(`${GEMINI_BASE}/${model}:generateContent?key=${encodeURIComponent(apiKey)}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
-
-  if (!res.ok) {
-    const detail = await res.text().catch(() => '');
-    return { status: 502, body: { ok: false, error: `gemini_error_${res.status}`, detail: detail.slice(0, 200) } };
-  }
-
-  const data = await res.json().catch(() => ({}));
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
-  return { status: 200, body: { ok: true, text } };
+  // Every provider failed.
+  console.error('[geminiGenerate] all providers failed —', failures.join(' | '));
+  return { status: 502, body: { ok: false, error: 'all_providers_failed', detail: failures.join(' | ').slice(0, 300) } };
 }
