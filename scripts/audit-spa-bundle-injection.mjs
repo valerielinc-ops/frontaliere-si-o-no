@@ -58,6 +58,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
+
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const DIST = path.resolve(process.cwd(), 'dist');
 const BASELINE_PATH = path.resolve(ROOT, 'data', 'spa-bundle-injection-baseline.json');
@@ -165,7 +167,12 @@ for (const { absPath, relDir } of walkIndexHtml(DIST)) {
   // shape is a deliberate redirect (no SPA needed by design). Counted
   // separately so a regression that adds redirects in unexpected places
   // is still visible in the breakdown.
-  if (REDIRECT_SHAPE_RX.test(html)) {
+  // Deliberate redirect stubs built by buildCanonicalBridgePage embed the
+  // REDIRECT_STUB_MARKER comment: their redirect behaviour lives in the
+  // externalised /assets/early-boot-{hash}.js, so the inline
+  // location.replace( sniff above never matches them (run 27371848400:
+  // +32k false "missing bundle" regressions, all "Pagina spostata" stubs).
+  if (REDIRECT_SHAPE_RX.test(html) || html.includes(REDIRECT_STUB_MARKER)) {
     skippedRedirect++;
     continue;
   }

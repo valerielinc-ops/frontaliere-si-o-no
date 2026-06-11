@@ -15,6 +15,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
+import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 
 export const BUILD_ID = String(Date.now());
 
@@ -194,7 +195,7 @@ export function buildCanonicalBridgePage(options: {
 
  return `<!DOCTYPE html>
 <html lang="${lang}">
- <head>
+ <head>${REDIRECT_STUB_MARKER}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>
