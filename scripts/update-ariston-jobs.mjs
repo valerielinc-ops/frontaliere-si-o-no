@@ -114,6 +114,15 @@ async function fetchAristonListings() {
   console.log('🔍 Fetching Ariston jobs from sitemap feed...');
   const xml = await fetchHtml(FEED_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
   const discovered = parseAristonSitemapFeed(xml);
+  // Zero-feed guard: fetchHtml's connection-level Jina fallback can return a
+  // parseable-but-`<loc>`-less body (proxy hiccup, rendered XML tree) instead of
+  // throwing like the old fetchText did. An empty feed must NOT flow into
+  // mergeJobs([]) → writeJson, which would silently wipe every Ariston TI/GR job
+  // from the indexed dataset (de-index). Abort before any write so prior data is
+  // preserved (safe-fail), mirroring Skyguide's fetchListings throw.
+  if (discovered.length === 0) {
+    throw new Error(`Ariston sitemap feed parsed to 0 entries (${FEED_URL}) — aborting to preserve existing dataset.`);
+  }
   const target = discovered.filter((row) => isAristonTargetLocation(`${row.location} ${row.title}`));
   console.log(`📋 Feed items: ${discovered.length}`);
   console.log(`📋 Ticino/Grigioni rows: ${target.length}`);
