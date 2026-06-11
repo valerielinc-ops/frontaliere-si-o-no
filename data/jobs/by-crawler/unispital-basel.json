@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-06-10T23:39:29.661Z",
+  "assembledAt": "2026-06-11T12:38:06.771Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -1685,89 +1685,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.685Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-b5e0d6fdaa07",
-      "slug": "koordinator-in-ict-e-technik-universitatsspital-basel",
-      "slugByLocale": {
-        "it": "koordinator-in-ict-e-technik-universitatsspital-basel",
-        "en": "koordinator-in-ict-und-technik-unispital-basel-ch",
-        "de": "koordinator-in-ict-und-technik-universitatsspital-basel-basel",
-        "fr": "koordinator-in-ict-und-technik-unispital-basel-ch"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Koordinator*in ICT und Technik",
-      "titleByLocale": {
-        "it": "Coordinatore* nelle TIC e nella tecnologia",
-        "en": "Coordinator*in ICT and Technology",
-        "de": "Koordinator*in ICT und Technik",
-        "fr": "Coordonnateur* des TIC et de la technologie"
-      },
-      "description": "Aufgaben:\n• Verantwortung für den Betrieb und die Funktionsfähigkeit von Simulatoren, ICT-, VR/AR-Technik sowie der AV-Anlage\n\n• Vor- und Nachbereitung der Schulungsräume\n\n• Sicherstellung eines reibungslosen technischen Ablaufs (Einweisung der Nutzergruppen, Ressourcenmanagement)\n\n• Verwaltung und Pflege von Geräten und technischem Material\n\n• Unterstützung bei administrativen Aufgaben (z. B. Online-Kursbuchungen)\n\n• Mitwirkung bei der Weiterentwicklung und Optimierung der Trainingsumgebung sowie bei kontinuierlichen Qualitätsverbesserungen\n\nAnforderungen:\n• Abgeschlossene Ausbildung im Bereich Veranstaltungstechnik, ICT-Systemtechnik, Elektro- oder Medizintechnik oder eine vergleichbare Qualifikation\n\n• Fundierte Kenntnisse im Umgang mit technischen Geräten, Softwaresystemen, AV- und Netzwerktechnik sowie VR/AR\n\n• Erfahrung im technischen Support, idealerweise im klinischen, medizintechnischen oder hochschulischen Umfeld\n\n• Freude an interdisziplinärer Zusammenarbeit und Kommunikation mit unterschiedlichen Nutzergruppen\n\n• Hohe Serviceorientierung sowie gute Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Responsabilità per il funzionamento e il funzionamento di simulatori, tecnologie ICT, VR/AR e sistemi AV\n• Pre- e post-elaborazione di sale di formazione\n• Assicurare un processo tecnico regolare (istruzioni di gruppi utenti, gestione delle risorse)\n• Gestione e manutenzione di attrezzature e materiale tecnico\n• Supporto per compiti amministrativi (ad es. prenotazioni di corsi online)\n• Partecipazione all'ulteriore sviluppo e ottimizzazione dell'ambiente di formazione e ai continui miglioramenti della qualità Requisiti:\n• Formazione completa nel settore della tecnologia degli eventi, della tecnologia del sistema ICT, della tecnologia elettrica o medica o di una qualificazione comparabile\n• Conoscenza di come utilizzare dispositivi tecnici, sistemi software, AV e tecnologia di rete, nonché VR/ ARTICOLI\n• Esperienza nel supporto tecnico, ideale in ambienti clinici, medici o liceali\n• Gioia della cooperazione interdisciplinare e della comunicazione con diversi gruppi di utenti\n• Alto orientamento al servizio e buone competenze in inglese Offriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n• Vantaggi nello shopping, nello sport e nel tempo libero\n• Supporto per spostamento e alloggiamento\n• 25 giorni festivi più 5 anche free flexitage\n• Sostegno alla formazione continua e alla pianificazione della carriera\n• Campus nel cuore di Basilea e il Dreiländereck\n• Servizi per l'infanzia completi\n• Programma di sport e di esercizio gratuito",
-        "en": "Tasks:\n• Responsibility for the operation and functioning of simulators, ICT, VR/AR technology and AV systems\n• Pre- and post-processing of training rooms\n• Ensuring a smooth technical process (instruction of user groups, resource management)\n• Management and maintenance of equipment and technical material\n• Support for administrative tasks (e.g. online course bookings)\n• Participation in the further development and optimization of the training environment and in continuous quality improvements Requirements:\n• Complete training in the field of event technology, ICT system technology, electrical or medical technology or a comparable qualification\n• Knowledge of how to use technical devices, software systems, AV and network technology as well as VR/AR\n• Experience in technical support, ideal in clinical, medical or high school environments\n• Joy of interdisciplinary cooperation and communication with different user groups\n• High service orientation and good English skills We offer:\n• Attractive wage policy and excellent social benefits\n• Benefits in shopping, sports and leisure\n• Support for moving and housing\n• 25 Holiday days plus 5 also free flexitage\n• Support for continuing and continuing training and career planning\n• Campus in the heart of Basel and the Dreiländereck\n• Comprehensive childcare facilities\n• Free sports and exercise program",
-        "de": "Aufgaben:\n• Verantwortung für den Betrieb und die Funktionsfähigkeit von Simulatoren, ICT-, VR/AR-Technik sowie der AV-Anlage\n• Vor- und Nachbereitung der Schulungsräume\n• Sicherstellung eines reibungslosen technischen Ablaufs (Einweisung der Nutzergruppen, Ressourcenmanagement)\n• Verwaltung und Pflege von Geräten und technischem Material\n• Unterstützung bei administrativen Aufgaben (z. B. Online-Kursbuchungen)\n• Mitwirkung bei der Weiterentwicklung und Optimierung der Trainingsumgebung sowie bei kontinuierlichen Qualitätsverbesserungen Anforderungen:\n• Abgeschlossene Ausbildung im Bereich Veranstaltungstechnik, ICT-Systemtechnik, Elektro- oder Medizintechnik oder eine vergleichbare Qualifikation\n• Fundierte Kenntnisse im Umgang mit technischen Geräten, Softwaresystemen, AV- und Netzwerktechnik sowie VR/AR\n• Erfahrung im technischen Support, idealerweise im klinischen, medizintechnischen oder hochschulischen Umfeld\n• Freude an interdisziplinärer Zusammenarbeit und Kommunikation mit unterschiedlichen Nutzergruppen\n• Hohe Serviceorientierung sowie gute Englischkenntnisse Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Responsabilité du fonctionnement des simulateurs, des TIC, de la technologie VR/AR et des systèmes AV\n• Pré-traitement et post-traitement des salles de formation\n• Assurer un processus technique sans heurt (instruction des groupes d'utilisateurs, gestion des ressources)\n• Gestion et entretien du matériel et du matériel technique\n• Soutien aux tâches administratives (par exemple, réservations de cours en ligne)\n• Participation au développement et à l'optimisation de l'environnement de formation et à l'amélioration continue de la qualité Exigences:\n• Formation complète dans le domaine de la technologie événementielle, de la technologie des systèmes TIC, de la technologie électrique ou médicale ou d'une qualification comparable\n• Connaissance de la manière d'utiliser les dispositifs techniques, les systèmes logiciels, les technologies AV et réseau ainsi que les VR/ AR\n• Expérience en support technique, idéal en milieu clinique, médical ou secondaire\n• Joy de coopération interdisciplinaire et de communication avec différents groupes d'utilisateurs\n• Orientation au service élevé et bonnes compétences en anglais Nous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n• Avantages dans le shopping, le sport et les loisirs\n• Appui au déménagement et au logement\n• 25 jours fériés plus 5 flexitage gratuit\n• Soutien à la formation continue et à la planification des carrières\n• Campus au cœur de Bâle et de la Dreiländereck\n• Établissements de garde d'enfants complets\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/koordinator-in-ict-und-technik/79fa8566-7ee8-4a7a-b3f2-07968bbfd34e",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T23:38:35.803Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27397",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "koordinator-in-ict-und-technik-unispital-basel-ch"
-        ],
-        "it": [
-          "koordinator-in-ict-und-technik-unispital-basel-ch",
-          "coordinatore-nelle-tic-e-nella-tecnologia-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "coordinator-in-ict-and-technology-universitatsspital-basel-basel"
-        ],
-        "fr": [
-          "coordonnateur-des-tic-et-de-la-technologie-universitatsspital-basel-basel"
-        ]
-      },
-      "previousSlugs": [
-        "koordinator-in-ict-und-technik-unispital-basel-ch",
-        "coordinatore-nelle-tic-e-nella-tecnologia-universitatsspital-basel-basel",
-        "coordinator-in-ict-and-technology-universitatsspital-basel-basel",
-        "coordonnateur-des-tic-et-de-la-technologie-universitatsspital-basel-basel"
-      ],
-      "firstSeenAt": "2026-05-10T22:38:59.319Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
