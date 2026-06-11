@@ -5946,8 +5946,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220);
  // True while the slim index gave us no description but the per-job detail
  // fetch hasn't settled yet (cache miss on first render, or in flight).
- // Drives an equal-height teaser skeleton so the late-arriving text doesn't
- // push the auth gate down (~92px, measured 0.054 CLS per detail view).
+ // Switches the always-mounted teaser box from static bars to a pulsing
+ // skeleton; the box itself never mounts/unmounts after first paint (its
+ // height is fixed by the svh clamp), so neither the text arriving late
+ // (~92px push, 0.054 CLS/view) nor a detail that settles WITHOUT a
+ // description (reverse ~80px collapse) can shift the auth gate.
  const teaserPending = !descriptionPreview
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
@@ -6027,29 +6030,42 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Readable description teaser — shows first ~200 chars to create information
  scent and an "open loop" that motivates signup. Fades out at the bottom.
  On very short viewports (landscape phones) we hide it entirely so the gate CTAs
- land above the fold; on normal phones the clamp still bounds it to ≤80px.
+ land above the fold.
  CLS guards: (a) svh, NOT dvh — dvh re-resolves every time the mobile URL bar
- collapses/expands, oscillating maxHeight 0↔80px and shifting the gate and
+ collapses/expands, oscillating the box 0↔80px and shifting the gate and
  everything below it on every scroll direction change; svh is static.
- (b) While the slim index has no description yet but the per-job detail
- enrichment is in flight, render an equal-height skeleton so the gate isn't
- pushed down ~92px when the teaser text arrives (measured 0.054/view). */}
- {(descriptionPreview || teaserPending) && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ maxHeight: 'clamp(0px, calc(100svh - 540px), 80px)' }}>
+ (b) The box is ALWAYS mounted at a FIXED clamp height (height, not
+ maxHeight, so short text / skeleton / settled-empty all produce the exact
+ same container height frame-to-frame). Contents only cross-fade between
+ text, a pulsing skeleton (detail fetch pending) and static redacted bars
+ (detail settled with no description — keeping the reserve, never
+ collapsing). This kills both the ~92px gate push when the late teaser
+ text arrived (0.054 CLS/view) and the reverse collapse for
+ description-less jobs. */}
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ height: 'clamp(0px, calc(100svh - 540px), 80px)' }}>
  {descriptionPreview ? (
  <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
  </p>
- ) : (
+ ) : teaserPending ? (
  <div className="px-3 py-2 sm:py-3 space-y-2" aria-hidden="true">
  <SkeletonLine height="h-4" />
  <SkeletonLine height="h-4" />
  <SkeletonLine height="h-4" width="w-3/4" />
  </div>
+ ) : (
+ // Detail settled with no description: static redacted-style bars (no
+ // pulse — nothing is loading) keep the reserved height instead of
+ // collapsing the box, which would yank the gate up by the same ~80px
+ // the late-teaser push used to move it down.
+ <div className="px-3 py-2 sm:py-3 space-y-2 opacity-60" aria-hidden="true">
+ <div className="bg-surface-raised rounded-lg w-full h-4" />
+ <div className="bg-surface-raised rounded-lg w-full h-4" />
+ <div className="bg-surface-raised rounded-lg w-3/4 h-4" />
+ </div>
  )}
  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
  </div>
- )}
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
