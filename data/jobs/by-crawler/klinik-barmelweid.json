@@ -2798,9 +2798,9 @@
     },
     {
       "id": "klinik-barmelweid-118cbed4affa",
-      "slug": "terapeuta-delle-risorse-m-f-per-servizi-del-sabato-e-festivita-klinik-barmelweid-barmelweid",
+      "slug": "terapista-delle-risorse-terapista-delle-risorse-a-servizi-del-sabato-e-festivi-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "terapeuta-delle-risorse-m-f-per-servizi-del-sabato-e-festivita-klinik-barmelweid-barmelweid",
+        "it": "terapista-delle-risorse-terapista-delle-risorse-a-servizi-del-sabato-e-festivi-klinik-barmelweid-barmelweid",
         "en": "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik",
         "de": "ressourcentherapeuten-ressourcentherapeuten-a-samstagsdienste-und-feiertage-klinik-barmelweid-barmelweid",
         "fr": "therapeute-des-ressources-h-f-pour-les-services-du-samedi-et-les-jours-feries-klinik-barmelweid-barmelweid"
@@ -2869,15 +2869,16 @@
         ]
       },
       "previousSlugs": [
-        "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik"
+        "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik",
+        "terapeuta-delle-risorse-m-f-per-servizi-del-sabato-e-festivita-klinik-barmelweid-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik"
+          "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik",
+          "terapeuta-delle-risorse-m-f-per-servizi-del-sabato-e-festivita-klinik-barmelweid-barmelweid"
         ],
         "de": [
-          "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik",
-          "ressourcentherapeuten-ressourcentherapeuten-a-samstagsdienste-und-feiertage-klinik-barmelweid-barmelweid"
+          "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:04.481Z",
@@ -3098,7 +3099,7 @@
       "slug": "musicoterapeuta-temporaneo-per-sostituzione-materna-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
         "it": "musicoterapeuta-temporaneo-per-sostituzione-materna-a-klinik-barmelweid-barmelweid",
-        "en": "music-therapist-fixed-term-for-maternity-leave-replacement-klinik-barmelweid-barmelweid",
+        "en": "music-therapist-temporary-for-maternity-representation-a-klinik-barmelweid-barmelweid",
         "de": "musiktherapeutin-musiktherapeut-befristet-fur-mutterschaftsvertretung-a-klinik-barmelweid",
         "fr": "musicotherapeute-temporaire-pour-remplacement-de-maternite-a-klinik-barmelweid-barmelweid"
       },
@@ -3167,7 +3168,8 @@
         "musiktherapeutin-musiktherapeut-befristet-fur-mutterschaftsvertretung-a-klinik-barmelweid",
         "musicoterapista-a-tempo-determinato-per-sostituzione-maternita-a-klinik-barmelweid-barmelweid",
         "musiktherapeutin-musiktherapeut-befristet-per-mutterschaftsvertretung-a-klinik-barmelweid",
-        "therapeute-musical-cdd-pour-remplacer-une-maternite-klinik-barmelweid-barmelweid"
+        "therapeute-musical-cdd-pour-remplacer-une-maternite-klinik-barmelweid-barmelweid",
+        "music-therapist-fixed-term-for-maternity-leave-replacement-klinik-barmelweid-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3177,6 +3179,9 @@
         ],
         "fr": [
           "therapeute-musical-cdd-pour-remplacer-une-maternite-klinik-barmelweid-barmelweid"
+        ],
+        "en": [
+          "music-therapist-fixed-term-for-maternity-leave-replacement-klinik-barmelweid-barmelweid"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:28.675Z",
@@ -3483,9 +3488,9 @@
     },
     {
       "id": "klinik-barmelweid-8ec1860bd63f",
-      "slug": "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-e-psychotherapie-ambulatorium-aarau-klinik-barmelweid",
+      "slug": "psicologa-assistente-psicologo-assistente-a-in-medicina-psicosomatica-e-psicoterapia-ambulatorio-aarau-klinik-barmelweid",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-e-psychotherapie-ambulatorium-aarau-klinik-barmelweid",
+        "it": "psicologa-assistente-psicologo-assistente-a-in-medicina-psicosomatica-e-psicoterapia-ambulatorio-aarau-klinik-barmelweid",
         "en": "assistant-psychologist-a-in-psychosomatic-medicine-and-psychotherapy-outpatient-clinic-aarau-klinik-barmelweid",
         "de": "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-und",
         "fr": "psychologue-assistant-psychologue-assistant-a-en-medecine-psychosomatique-et-psychotherapie-a-l-hopital-ambulatoire-d"
@@ -3531,11 +3536,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-und"
+        "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-und",
+        "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-e-psychotherapie-ambulatorium-aarau-klinik-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-und"
+          "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-und",
+          "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-e-psychotherapie-ambulatorium-aarau-klinik-barmelweid"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-a-in-der-psychosomatischen-medizin-und"
@@ -3633,9 +3640,9 @@
     },
     {
       "id": "klinik-barmelweid-e24fa0b0c214",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-o-dipl-sozialpadagogin-dipl-sozialpadagoge-con-stv-teamleiterin-teamleiter-funktion-a-klinik-barmelweid",
+      "slug": "infermiere-dipl-infermiere-dipl-o-infermiere-dipl-pedagogista-sociale-dipl-pedagogo-sociale-con-supplente-team-leader",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-o-dipl-sozialpadagogin-dipl-sozialpadagoge-con-stv-teamleiterin-teamleiter-funktion-a-klinik-barmelweid",
+        "it": "infermiere-dipl-infermiere-dipl-o-infermiere-dipl-pedagogista-sociale-dipl-pedagogo-sociale-con-supplente-team-leader",
         "en": "dipl-nurse-dipl-nursing-specialist-or-dipl-social-pedagogue-dipl-social-pedagogue-with-deputy-team-leader-function-a",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-oder-dipl-sozialpadagogin-dipl-sozialpadagoge-mit",
         "fr": "infirmiere-ou-infirmier-diplome-e-ou-infirmiere-diplome-e-pedagogue-sociale-diplomee-en-pedagogie-sociale-avec-suppleant"
@@ -3681,11 +3688,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-oder-dipl-sozialpadagogin-dipl-sozialpadagoge-mit"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-oder-dipl-sozialpadagogin-dipl-sozialpadagoge-mit",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-o-dipl-sozialpadagogin-dipl-sozialpadagoge-con-stv-teamleiterin-teamleiter-funktion-a-klinik-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-oder-dipl-sozialpadagogin-dipl-sozialpadagoge-mit"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-oder-dipl-sozialpadagogin-dipl-sozialpadagoge-mit",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-o-dipl-sozialpadagogin-dipl-sozialpadagoge-con-stv-teamleiterin-teamleiter-funktion-a-klinik-barmelweid"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-oder-dipl-sozialpadagogin-dipl-sozialpadagoge-mit"
@@ -3710,12 +3719,12 @@
     },
     {
       "id": "klinik-barmelweid-1a2ad060006a",
-      "slug": "educatore-educatrice-sociale-dipl-sss-a-klinik-barmelweid-barmelweid",
+      "slug": "dipl-social-pedagogue-dipl-educatore-sociale-hf-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "educatore-educatrice-sociale-dipl-sss-a-klinik-barmelweid-barmelweid",
+        "it": "dipl-social-pedagogue-dipl-educatore-sociale-hf-a-klinik-barmelweid-barmelweid",
         "en": "social-pedagogue-hf-a-klinik-barmelweid-barmelweid",
         "de": "dipl-sozialpadagogin-dipl-sozialpadagoge-hf-a-klinik-barmelweid-barmelweid",
-        "fr": "educateur-educatrice-social-e-es-a-klinik-barmelweid-barmelweid"
+        "fr": "pedagogue-social-diplome-es-a-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -3787,11 +3796,17 @@
         ]
       },
       "previousSlugs": [
-        "dipl-sozialpadagogin-dipl-sozialpadagoge-hf-a-klinik-barmelweid-barmelweid"
+        "dipl-sozialpadagogin-dipl-sozialpadagoge-hf-a-klinik-barmelweid-barmelweid",
+        "educatore-educatrice-sociale-dipl-sss-a-klinik-barmelweid-barmelweid",
+        "educateur-educatrice-social-e-es-a-klinik-barmelweid-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-sozialpadagogin-dipl-sozialpadagoge-hf-a-klinik-barmelweid-barmelweid"
+          "dipl-sozialpadagogin-dipl-sozialpadagoge-hf-a-klinik-barmelweid-barmelweid",
+          "educatore-educatrice-sociale-dipl-sss-a-klinik-barmelweid-barmelweid"
+        ],
+        "fr": [
+          "educateur-educatrice-social-e-es-a-klinik-barmelweid-barmelweid"
         ]
       },
       "firstSeenAt": "2026-06-04T05:22:51.051Z",

@@ -807,7 +807,7 @@
       "slugByLocale": {
         "it": "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
         "en": "tower-crane-technician-h-f-liebherr-daillens",
-        "de": "turmkrantechniker-h-f-liebherr-daillens",
+        "de": "drehkrantechniker-h-f-liebherr-daillens",
         "fr": "technicien-grues-a-tour-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -850,7 +850,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-grues-a-tour-h-f-liebherr-daillens"
+        "technicien-grues-a-tour-h-f-liebherr-daillens",
+        "turmkrantechniker-h-f-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -860,7 +861,8 @@
           "technicien-grues-a-tour-h-f-liebherr-daillens"
         ],
         "de": [
-          "technicien-grues-a-tour-h-f-liebherr-daillens"
+          "technicien-grues-a-tour-h-f-liebherr-daillens",
+          "turmkrantechniker-h-f-liebherr-daillens"
         ]
       },
       "needsRetranslation": true,
@@ -881,9 +883,9 @@
     },
     {
       "id": "liebherr-d144c8d23b43",
-      "slug": "armadio-produttore-metallico-h-f-x-liebherr-bulle",
+      "slug": "fabbro-costruttore-di-metalli-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "armadio-produttore-metallico-h-f-x-liebherr-bulle",
+        "it": "fabbro-costruttore-di-metalli-m-f-x-liebherr-bulle",
         "en": "locker-metallic-constructor-h-f-x-liebherr-bulle",
         "de": "schlie-fach-metallkonstruktor-h-f-x-liebherr-bulle",
         "fr": "serrurier-constructeur-metallique-h-f-x-liebherr-bulle"
@@ -936,11 +938,13 @@
         ]
       },
       "previousSlugs": [
-        "serrurier-constructeur-metallique-h-f-x-liebherr-bulle"
+        "serrurier-constructeur-metallique-h-f-x-liebherr-bulle",
+        "armadio-produttore-metallico-h-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "serrurier-constructeur-metallique-h-f-x-liebherr-bulle"
+          "serrurier-constructeur-metallique-h-f-x-liebherr-bulle",
+          "armadio-produttore-metallico-h-f-x-liebherr-bulle"
         ],
         "en": [
           "serrurier-constructeur-metallique-h-f-x-liebherr-bulle"
@@ -1045,12 +1049,12 @@
     },
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+      "slug": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "it": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
         "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
         "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        "fr": "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1105,16 +1109,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "previousSlugsByLocale": {
+        "it": [
+          "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        ],
+        "fr": [
+          "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        ]
+      },
+      "previousSlugs": [
+        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+      ]
     },
     {
       "id": "liebherr-6b7a719db81e",
-      "slug": "gru-a-torre-di-servizio-m-f-liebherr-reiden",
+      "slug": "noleggio-service-tower-gru-m-f-liebherr-reiden",
       "slugByLocale": {
-        "it": "gru-a-torre-di-servizio-m-f-liebherr-reiden",
+        "it": "noleggio-service-tower-gru-m-f-liebherr-reiden",
         "en": "hiring-and-service-tower-cranes-m-f-liebherr-reiden",
         "de": "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden",
-        "fr": "grues-d-embauche-et-de-service-m-f-liebherr-reiden"
+        "fr": "grues-a-tour-de-location-et-de-service-m-f-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1166,17 +1181,21 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden"
+        "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden",
+        "gru-a-torre-di-servizio-m-f-liebherr-reiden",
+        "grues-d-embauche-et-de-service-m-f-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden"
+          "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden",
+          "gru-a-torre-di-servizio-m-f-liebherr-reiden"
         ],
         "en": [
           "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden"
         ],
         "fr": [
-          "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden"
+          "sachbearbeiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden",
+          "grues-d-embauche-et-de-service-m-f-liebherr-reiden"
         ]
       },
       "needsRetranslation": true,
@@ -1296,7 +1315,7 @@
         "it": "meccanico-di-ingegneria-del-calcestruzzo-miscelatore-del-camion-m-w-liebherr-reiden",
         "en": "mechanic-concrete-engineering-truck-mixer-m-w-liebherr-reiden",
         "de": "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden",
-        "fr": "mecanicien-genie-du-beton-melangeur-de-camions-m-p-liebherr-reiden"
+        "fr": "mecanique-genie-du-beton-melangeur-de-camion-m-p-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1347,7 +1366,8 @@
         ]
       },
       "previousSlugs": [
-        "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden"
+        "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden",
+        "mecanicien-genie-du-beton-melangeur-de-camions-m-p-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1357,7 +1377,8 @@
           "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden"
         ],
         "fr": [
-          "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden"
+          "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden",
+          "mecanicien-genie-du-beton-melangeur-de-camions-m-p-liebherr-reiden"
         ]
       },
       "needsRetranslation": true,
@@ -1548,11 +1569,11 @@
     },
     {
       "id": "liebherr-a3988dfe96a4",
-      "slug": "gru-sav-manager-h-f-liebherr-daillens",
+      "slug": "responsabile-assistenza-post-vendita-per-gru-m-f-d-liebherr-daillens",
       "slugByLocale": {
-        "it": "gru-sav-manager-h-f-liebherr-daillens",
-        "en": "sav-manager-cranes-h-f-liebherr-daillens",
-        "de": "sav-managerkrane-h-f-liebherr-daillens",
+        "it": "responsabile-assistenza-post-vendita-per-gru-m-f-d-liebherr-daillens",
+        "en": "crane-after-sales-service-manager-m-f-d-liebherr-daillens",
+        "de": "kran-nachverkaufs-serviceleiter-m-f-d-liebherr-daillens",
         "fr": "responsable-sav-grues-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -1606,17 +1627,23 @@
         ]
       },
       "previousSlugs": [
-        "responsable-sav-grues-h-f-liebherr-daillens"
+        "responsable-sav-grues-h-f-liebherr-daillens",
+        "gru-sav-manager-h-f-liebherr-daillens",
+        "sav-manager-cranes-h-f-liebherr-daillens",
+        "sav-managerkrane-h-f-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-sav-grues-h-f-liebherr-daillens"
+          "responsable-sav-grues-h-f-liebherr-daillens",
+          "gru-sav-manager-h-f-liebherr-daillens"
         ],
         "en": [
-          "responsable-sav-grues-h-f-liebherr-daillens"
+          "responsable-sav-grues-h-f-liebherr-daillens",
+          "sav-manager-cranes-h-f-liebherr-daillens"
         ],
         "de": [
-          "responsable-sav-grues-h-f-liebherr-daillens"
+          "responsable-sav-grues-h-f-liebherr-daillens",
+          "sav-managerkrane-h-f-liebherr-daillens"
         ]
       },
       "needsRetranslation": true,
@@ -1734,7 +1761,7 @@
         "it": "capo-squadra-claim-management-m-f-x-liebherr-bulle",
         "en": "team-leader-claim-management-m-f-x-liebherr-bulle",
         "de": "team-leader-claim-management-m-f-x-liebherr-bulle",
-        "fr": "team-leader-claim-management-m-f-x-liebherr-bulle"
+        "fr": "chef-d-equipe-gestion-des-reclamations-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1797,6 +1824,9 @@
       "previousSlugsByLocale": {
         "it": [
           "team-leader-claim-management-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "team-leader-claim-management-m-f-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -1817,9 +1847,9 @@
     },
     {
       "id": "liebherr-153853dea3d5",
-      "slug": "young-talent-ottimizzazione-dei-processi-di-lavorazione-liebherr-bulle",
+      "slug": "giovani-talenti-ottimizzazione-dei-processi-di-lavorazione-meccanica-liebherr-bulle",
       "slugByLocale": {
-        "it": "young-talent-ottimizzazione-dei-processi-di-lavorazione-liebherr-bulle",
+        "it": "giovani-talenti-ottimizzazione-dei-processi-di-lavorazione-meccanica-liebherr-bulle",
         "en": "young-talent-optimization-of-machining-processes-liebherr-bulle",
         "de": "young-talent-optimierung-von-bearbeitungsprozessen-liebherr-bulle",
         "fr": "young-talent-optimisation-des-processus-d-usinage-liebherr-bulle"
@@ -1874,11 +1904,13 @@
         ]
       },
       "previousSlugs": [
-        "young-talent-optimisation-des-processus-d-usinage-liebherr-bulle"
+        "young-talent-optimisation-des-processus-d-usinage-liebherr-bulle",
+        "young-talent-ottimizzazione-dei-processi-di-lavorazione-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "young-talent-optimisation-des-processus-d-usinage-liebherr-bulle"
+          "young-talent-optimisation-des-processus-d-usinage-liebherr-bulle",
+          "young-talent-ottimizzazione-dei-processi-di-lavorazione-liebherr-bulle"
         ],
         "en": [
           "young-talent-optimisation-des-processus-d-usinage-liebherr-bulle"
@@ -1909,8 +1941,8 @@
       "slugByLocale": {
         "it": "development-ingegnere-m-w-x-liebherr-bulle",
         "en": "development-engineer-m-w-x-liebherr-bulle",
-        "de": "development-engineer-m-w-x-liebherr-bulle",
-        "fr": "development-engineer-m-w-x-liebherr-bulle"
+        "de": "entwicklungsingenieur-m-w-x-liebherr-bulle",
+        "fr": "ingenieur-en-developpement-l-mer-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1968,6 +2000,12 @@
       "previousSlugsByLocale": {
         "it": [
           "development-engineer-m-w-x-liebherr-bulle"
+        ],
+        "de": [
+          "development-engineer-m-w-x-liebherr-bulle"
+        ],
+        "fr": [
+          "development-engineer-m-w-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -1992,8 +2030,8 @@
       "slugByLocale": {
         "it": "project-purchasing-manager-m-w-d-temporaire-liebherr-bulle",
         "en": "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle",
-        "de": "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle",
-        "fr": "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle"
+        "de": "projekt-einkaufsleiter-m-f-x-temporaire-liebherr-bulle",
+        "fr": "gestionnaire-des-achats-de-projets-m-f-x-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2049,13 +2087,18 @@
         ]
       },
       "previousSlugs": [
-        "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle"
+        "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle",
+        "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle"
         ],
         "de": [
+          "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle",
+          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle"
+        ],
+        "fr": [
           "project-purchasing-manager-m-f-x-temporaire-liebherr-bulle"
         ]
       },
@@ -2081,7 +2124,7 @@
       "slugByLocale": {
         "it": "project-purchasing-leader-m-w-d-temporaire-liebherr-bulle",
         "en": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
-        "de": "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
+        "de": "projektbeschaffungsleiter-m-w-x-vorubergehend-liebherr-bulle",
         "fr": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -2141,14 +2184,16 @@
         ]
       },
       "previousSlugs": [
-        "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
+        "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
+        "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
         ],
         "de": [
-          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
+          "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
+          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10"
         ]
       },
       "needsRetranslation": true,
@@ -2781,7 +2826,7 @@
         "it": "group-co-specialista-m-w-d-liebherr-bulle",
         "en": "group-co-specialist-m-w-d-liebherr-bulle",
         "de": "group-co-spezialist-m-w-d-liebherr-bulle",
-        "fr": "group-co-specialist-m-w-d-liebherr-bulle"
+        "fr": "specialiste-du-groupe-co2-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2848,7 +2893,8 @@
           "group-co-specialist-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "group-co-specialiste-m-w-d-liebherr-bulle"
+          "group-co-specialiste-m-w-d-liebherr-bulle",
+          "group-co-specialist-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -2869,10 +2915,10 @@
     },
     {
       "id": "liebherr-0c9658736c19",
-      "slug": "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
+      "slug": "young-talent-motore-di-montaggio-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
-        "en": "user-safety-safe-liebherr-bulle-59c43e",
+        "it": "young-talent-motore-di-montaggio-m-f-x-liebherr-bulle",
+        "en": "young-talent-assembly-engine-m-f-x-liebherr-bulle",
         "de": "young-talent-engine-assembly-m-f-x-liebherr-bulle",
         "fr": "jeune-talent-assemblage-de-moteurs-m-f-x-liebherr-bulle"
       },
@@ -2932,15 +2978,19 @@
           "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle"
         ],
         "it": [
-          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+          "young-talent-engine-assembly-m-f-x-liebherr-bulle",
+          "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle"
         ],
         "en": [
-          "young-talent-engine-assembly-m-f-x-liebherr-bulle"
+          "young-talent-engine-assembly-m-f-x-liebherr-bulle",
+          "user-safety-safe-liebherr-bulle-59c43e"
         ]
       },
       "previousSlugs": [
         "young-talent-engine-assembly-m-f-x-liebherr-bulle",
-        "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle"
+        "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle",
+        "giovani-talenti-montaggio-motore-m-f-x-liebherr-bulle",
+        "user-safety-safe-liebherr-bulle-59c43e"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.397Z",
@@ -2960,9 +3010,9 @@
     },
     {
       "id": "liebherr-7ff60d1d1366",
-      "slug": "giovani-talenti-acquisizione-di-motori-di-combustione-m-w-x-liebherr-bulle",
+      "slug": "young-talent-acquisisci-motori-di-combustione-m-w-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "giovani-talenti-acquisizione-di-motori-di-combustione-m-w-x-liebherr-bulle",
+        "it": "young-talent-acquisisci-motori-di-combustione-m-w-x-liebherr-bulle",
         "en": "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle",
         "de": "young-talent-einkauf-von-verbrennungsmotoren-m-w-x-liebherr-bulle",
         "fr": "jeunes-talents-achat-de-moteurs-a-combustion-m-w-x-liebherr-bulle"
@@ -3021,14 +3071,16 @@
           "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle"
         ],
         "it": [
-          "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle"
+          "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle",
+          "giovani-talenti-acquisizione-di-motori-di-combustione-m-w-x-liebherr-bulle"
         ],
         "de": [
           "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle"
         ]
       },
       "previousSlugs": [
-        "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle"
+        "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle",
+        "giovani-talenti-acquisizione-di-motori-di-combustione-m-w-x-liebherr-bulle"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.397Z",
@@ -3116,8 +3168,7 @@
           "young-talent-process-agent-m-w-x-liebherr-bulle"
         ],
         "fr": [
-          "young-talent-process-agent-m-w-x-liebherr-bulle",
-          "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
+          "young-talent-process-agent-m-w-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -3138,9 +3189,9 @@
     },
     {
       "id": "liebherr-b8ab946a0d26",
-      "slug": "change-management-specialista-m-f-x-liebherr-bulle",
+      "slug": "specialista-nella-gestione-del-cambiamento-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "change-management-specialista-m-f-x-liebherr-bulle",
+        "it": "specialista-nella-gestione-del-cambiamento-m-f-x-liebherr-bulle",
         "en": "change-management-specialist-m-f-x-liebherr-bulle",
         "de": "change-management-spezialist-m-f-x-liebherr-bulle",
         "fr": "specialiste-en-gestion-du-changement-m-f-x-liebherr-bulle"
@@ -3190,11 +3241,13 @@
         ]
       },
       "previousSlugs": [
-        "change-management-specialist-m-f-x-liebherr-bulle"
+        "change-management-specialist-m-f-x-liebherr-bulle",
+        "change-management-specialista-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "change-management-specialist-m-f-x-liebherr-bulle"
+          "change-management-specialist-m-f-x-liebherr-bulle",
+          "change-management-specialista-m-f-x-liebherr-bulle"
         ],
         "de": [
           "change-management-specialist-m-f-x-liebherr-bulle"
@@ -3674,11 +3727,11 @@
     },
     {
       "id": "liebherr-26847d1cfaac",
-      "slug": "divisione-controller-m-w-d-liebherr-baden",
+      "slug": "controllore-di-divisione-m-w-d-liebherr-baden",
       "slugByLocale": {
-        "it": "divisione-controller-m-w-d-liebherr-baden",
+        "it": "controllore-di-divisione-m-w-d-liebherr-baden",
         "en": "division-controller-m-w-d-liebherr-baden",
-        "de": "reglerbereich-m-w-d-liebherr-baden",
+        "de": "teilungsregler-m-w-d-liebherr-baden",
         "fr": "controleur-de-division-m-w-d-liebherr-baden"
       },
       "company": "Liebherr",
@@ -3737,14 +3790,18 @@
         ]
       },
       "previousSlugs": [
-        "division-controller-m-w-d-liebherr-baden"
+        "division-controller-m-w-d-liebherr-baden",
+        "divisione-controller-m-w-d-liebherr-baden",
+        "reglerbereich-m-w-d-liebherr-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "division-controller-m-w-d-liebherr-baden"
+          "division-controller-m-w-d-liebherr-baden",
+          "divisione-controller-m-w-d-liebherr-baden"
         ],
         "de": [
-          "division-controller-m-w-d-liebherr-baden"
+          "division-controller-m-w-d-liebherr-baden",
+          "reglerbereich-m-w-d-liebherr-baden"
         ],
         "fr": [
           "division-controller-m-w-d-liebherr-baden"
@@ -4022,7 +4079,7 @@
       "slugByLocale": {
         "it": "controleur-financier-m-w-d-temporaire-liebherr-bulle",
         "en": "financial-controller-h-f-x-temporary-liebherr-bulle",
-        "de": "finanzkontrolleur-h-f-x-vorubergehend-liebherr-bulle",
+        "de": "finanzcontroller-m-f-x-vorubergehend-liebherr-bulle",
         "fr": "controleur-financier-h-f-x-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4081,7 +4138,8 @@
         ]
       },
       "previousSlugs": [
-        "controleur-financier-h-f-x-temporaire-liebherr-bulle"
+        "controleur-financier-h-f-x-temporaire-liebherr-bulle",
+        "finanzkontrolleur-h-f-x-vorubergehend-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4091,7 +4149,8 @@
           "controleur-financier-h-f-x-temporaire-liebherr-bulle"
         ],
         "de": [
-          "controleur-financier-h-f-x-temporaire-liebherr-bulle"
+          "controleur-financier-h-f-x-temporaire-liebherr-bulle",
+          "finanzkontrolleur-h-f-x-vorubergehend-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4116,7 +4175,7 @@
       "slugByLocale": {
         "it": "controllore-finanziario-m-f-x-temporaneo-liebherr-bulle",
         "en": "financial-controller-m-f-x-temporary-liebherr-bulle",
-        "de": "finanzkontrolleur-m-w-x-vorubergehend-liebherr-bulle",
+        "de": "finanzcontroller-m-f-x-vorubergehend-liebherr-bulle-da80fe",
         "fr": "financial-controller-m-f-x-temporary-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4172,19 +4231,20 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "user-safety-safe-liebherr-bulle-da80fe",
-          "financial-controller-m-f-x-temporary-liebherr-bulle"
+          "user-safety-safe-liebherr-bulle-da80fe"
         ],
         "it": [
           "financial-controller-m-f-x-temporary-liebherr-bulle"
         ],
         "de": [
-          "financial-controller-m-f-x-temporary-liebherr-bulle"
+          "financial-controller-m-f-x-temporary-liebherr-bulle",
+          "finanzkontrolleur-m-w-x-vorubergehend-liebherr-bulle"
         ]
       },
       "previousSlugs": [
+        "user-safety-safe-liebherr-bulle-da80fe",
         "financial-controller-m-f-x-temporary-liebherr-bulle",
-        "user-safety-safe-liebherr-bulle-da80fe"
+        "finanzkontrolleur-m-w-x-vorubergehend-liebherr-bulle"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.381Z",
@@ -4562,7 +4622,7 @@
       "slugByLocale": {
         "it": "production-ingegnere-dmu-m-w-d-liebherr-bulle",
         "en": "production-engineer-dmu-m-w-d-liebherr-bulle",
-        "de": "produktionsingenieur-dmu-m-w-d-liebherr-bulle",
+        "de": "production-ingenieur-dmu-m-w-d-liebherr-bulle",
         "fr": "ingenieur-de-production-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4618,7 +4678,8 @@
       },
       "previousSlugs": [
         "production-engineer-dmu-m-w-d-liebherr-bulle",
-        "production-ingenieur-dmu-m-w-d-liebherr-bulle"
+        "production-ingenieur-dmu-m-w-d-liebherr-bulle",
+        "produktionsingenieur-dmu-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4629,7 +4690,8 @@
           "production-engineer-dmu-m-w-d-liebherr-bulle"
         ],
         "de": [
-          "production-engineer-dmu-m-w-d-liebherr-bulle"
+          "production-engineer-dmu-m-w-d-liebherr-bulle",
+          "produktionsingenieur-dmu-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4650,9 +4712,9 @@
     },
     {
       "id": "liebherr-a89c9c0dd436",
-      "slug": "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle",
+      "slug": "responsabile-prodotto-senior-genset-diesel-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle",
+        "it": "responsabile-prodotto-senior-genset-diesel-m-f-x-liebherr-bulle",
         "en": "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
         "de": "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
         "fr": "gestionnaire-principal-de-produits-genset-diesel-m-f-x-liebherr-bulle"
@@ -4709,11 +4771,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
+        "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
+        "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
+          "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle",
+          "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4734,11 +4798,11 @@
     },
     {
       "id": "liebherr-533047aad11f",
-      "slug": "coordinatore-procurement-parti-di-serie-m-f-x-liebherr-bulle",
+      "slug": "procurement-coordinatore-serial-parts-h-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "coordinatore-procurement-parti-di-serie-m-f-x-liebherr-bulle",
+        "it": "procurement-coordinatore-serial-parts-h-f-x-liebherr-bulle",
         "en": "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle",
-        "de": "beschaffungskoordinator-serienaktien-h-f-x-liebherr-bulle",
+        "de": "procurement-koordinator-serial-parts-h-f-x-liebherr-bulle",
         "fr": "coordinateur-des-achats-pieces-de-serie-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4798,17 +4862,21 @@
       "firstSeenAt": "2026-06-10T09:03:08.378Z",
       "previousSlugsByLocale": {
         "it": [
-          "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle"
+          "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle",
+          "coordinatore-procurement-parti-di-serie-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle"
+          "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle",
+          "beschaffungskoordinator-serienaktien-h-f-x-liebherr-bulle"
         ],
         "fr": [
           "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle"
         ]
       },
       "previousSlugs": [
-        "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle"
+        "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle",
+        "coordinatore-procurement-parti-di-serie-m-f-x-liebherr-bulle",
+        "beschaffungskoordinator-serienaktien-h-f-x-liebherr-bulle"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4826,9 +4894,9 @@
     },
     {
       "id": "liebherr-84ea1bc04b31",
-      "slug": "responsabile-product-security-m-w-d-liebherr-bulle",
+      "slug": "responsabile-della-sicurezza-del-prodotto-lun-mercredo-d-liebherr-bulle",
       "slugByLocale": {
-        "it": "responsabile-product-security-m-w-d-liebherr-bulle",
+        "it": "responsabile-della-sicurezza-del-prodotto-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-product-security-m-w-d-liebherr-bulle",
         "de": "leiter-produktsicherheit-m-w-d-liebherr-bulle",
         "fr": "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
@@ -4890,11 +4958,13 @@
       },
       "previousSlugs": [
         "head-of-product-security-m-w-d-liebherr-bulle",
+        "responsabile-product-security-m-w-d-liebherr-bulle",
         "responsable-product-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-product-security-m-w-d-liebherr-bulle"
+          "head-of-product-security-m-w-d-liebherr-bulle",
+          "responsabile-product-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "responsable-product-security-m-w-d-liebherr-bulle",
@@ -4922,9 +4992,9 @@
     },
     {
       "id": "liebherr-4902476df46e",
-      "slug": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
+      "slug": "responsabile-sinistri-clienti-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
+        "it": "responsabile-sinistri-clienti-m-f-x-liebherr-bulle",
         "en": "customer-claim-manager-m-w-x-liebherr-bulle",
         "de": "kundenschadensmanager-m-w-x-liebherr-bulle",
         "fr": "gestionnaire-des-reclamations-du-client-m-f-x-liebherr-bulle"
@@ -4986,7 +5056,8 @@
           "customer-claim-manager-m-w-x-liebherr-bulle"
         ],
         "it": [
-          "customer-claim-manager-m-w-x-liebherr-bulle"
+          "customer-claim-manager-m-w-x-liebherr-bulle",
+          "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle",
@@ -4995,6 +5066,7 @@
       },
       "previousSlugs": [
         "customer-claim-manager-m-w-x-liebherr-bulle",
+        "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
         "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
       ],
       "needsRetranslation": true,
@@ -5103,9 +5175,9 @@
     },
     {
       "id": "liebherr-14e740ab6e31",
-      "slug": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
+      "slug": "responsabile-sinistri-clienti-m-f-x-liebherr-bulle-6a2f95",
       "slugByLocale": {
-        "it": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
+        "it": "responsabile-sinistri-clienti-m-f-x-liebherr-bulle-6a2f95",
         "en": "customer-claim-manager-h-f-x-liebherr-bulle",
         "de": "kundenschadensmanager-h-f-x-liebherr-bulle",
         "fr": "gestionnaire-de-reclamation-client-h-f-x-liebherr-bulle"
@@ -5164,12 +5236,14 @@
       },
       "previousSlugs": [
         "customer-claim-manager-h-f-x-liebherr-bulle",
+        "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
         "kundenreklamationsmanager-h-w-x-liebherr-bulle",
         "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-claim-manager-h-f-x-liebherr-bulle"
+          "customer-claim-manager-h-f-x-liebherr-bulle",
+          "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle"
         ],
         "de": [
           "kundenreklamationsmanager-h-w-x-liebherr-bulle",
@@ -5273,11 +5347,11 @@
     },
     {
       "id": "liebherr-3815bfb757b4",
-      "slug": "applicazione-non-richiesta-liebherr-bulle",
+      "slug": "applicazione-spontanea-liebherr-bulle",
       "slugByLocale": {
-        "it": "applicazione-non-richiesta-liebherr-bulle",
+        "it": "applicazione-spontanea-liebherr-bulle",
         "en": "spontaneous-application-liebherr-bulle",
-        "de": "unerbetene-anwendung-liebherr-bulle",
+        "de": "spontane-anwendung-liebherr-bulle",
         "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -5320,14 +5394,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "candidature-spontanee-liebherr-bulle"
+        "candidature-spontanee-liebherr-bulle",
+        "applicazione-non-richiesta-liebherr-bulle",
+        "unerbetene-anwendung-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidature-spontanee-liebherr-bulle"
+          "candidature-spontanee-liebherr-bulle",
+          "applicazione-non-richiesta-liebherr-bulle"
         ],
         "de": [
-          "candidature-spontanee-liebherr-bulle"
+          "candidature-spontanee-liebherr-bulle",
+          "unerbetene-anwendung-liebherr-bulle"
         ],
         "en": [
           "candidature-spontanee-liebherr-bulle"
@@ -5692,9 +5770,9 @@
     },
     {
       "id": "liebherr-b6fc7f90abdd",
-      "slug": "responsabile-data-security-m-w-d-liebherr-bulle",
+      "slug": "responsabile-della-sicurezza-dei-dati-lun-mercredo-d-liebherr-bulle",
       "slugByLocale": {
-        "it": "responsabile-data-security-m-w-d-liebherr-bulle",
+        "it": "responsabile-della-sicurezza-dei-dati-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-data-security-m-w-d-liebherr-bulle",
         "de": "leiter-der-datensicherheit-m-w-d-liebherr-bulle",
         "fr": "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
@@ -5752,11 +5830,13 @@
       },
       "previousSlugs": [
         "head-of-data-security-m-w-d-liebherr-bulle",
+        "responsabile-data-security-m-w-d-liebherr-bulle",
         "responsable-data-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-data-security-m-w-d-liebherr-bulle"
+          "head-of-data-security-m-w-d-liebherr-bulle",
+          "responsabile-data-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "responsable-data-security-m-w-d-liebherr-bulle",
@@ -5784,9 +5864,9 @@
     },
     {
       "id": "liebherr-7c9af3d12898",
-      "slug": "responsabile-application-security-m-w-d-liebherr-bulle",
+      "slug": "testa-di-sicurezza-delle-applicazioni-m-w-d-liebherr-bulle",
       "slugByLocale": {
-        "it": "responsabile-application-security-m-w-d-liebherr-bulle",
+        "it": "testa-di-sicurezza-delle-applicazioni-m-w-d-liebherr-bulle",
         "en": "head-of-application-security-m-w-d-liebherr-bulle",
         "de": "leiter-der-anwendungssicherheit-m-w-d-liebherr-bulle",
         "fr": "responsable-de-la-securite-des-applications-lun-merdi-d-liebherr-bulle"
@@ -5843,11 +5923,13 @@
       },
       "previousSlugs": [
         "head-of-application-security-m-w-d-liebherr-bulle",
+        "responsabile-application-security-m-w-d-liebherr-bulle",
         "responsable-application-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-application-security-m-w-d-liebherr-bulle"
+          "head-of-application-security-m-w-d-liebherr-bulle",
+          "responsabile-application-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "responsable-application-security-m-w-d-liebherr-bulle",
@@ -6046,11 +6128,11 @@
     },
     {
       "id": "liebherr-4237aa09f0c9",
-      "slug": "technician-m-f-x-liebherr-bulle",
+      "slug": "tecnico-per-l-indagine-in-garanzia-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "technician-m-f-x-liebherr-bulle",
+        "it": "tecnico-per-l-indagine-in-garanzia-m-f-x-liebherr-bulle",
         "en": "warranty-investigation-technician-m-f-x-liebherr-bulle",
-        "de": "warranty-investigation-techniker-m-f-x-liebherr-bulle",
+        "de": "sicherheitsuntersuchungstechniker-m-w-x-liebherr-bulle",
         "fr": "technicien-en-enquete-sur-la-garantie-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -6105,14 +6187,18 @@
         ]
       },
       "previousSlugs": [
-        "warranty-investigation-technician-m-f-x-liebherr-bulle"
+        "warranty-investigation-technician-m-f-x-liebherr-bulle",
+        "technician-m-f-x-liebherr-bulle",
+        "warranty-investigation-techniker-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "warranty-investigation-technician-m-f-x-liebherr-bulle"
+          "warranty-investigation-technician-m-f-x-liebherr-bulle",
+          "technician-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "warranty-investigation-technician-m-f-x-liebherr-bulle"
+          "warranty-investigation-technician-m-f-x-liebherr-bulle",
+          "warranty-investigation-techniker-m-f-x-liebherr-bulle"
         ],
         "fr": [
           "warranty-investigation-technician-m-f-x-liebherr-bulle"
@@ -6559,7 +6645,7 @@
         "it": "capo-squadra-claim-management-m-f-x-liebherr-bulle-8f8f0b",
         "en": "team-leader-claim-management-m-f-x-liebherr-bulle-3",
         "de": "team-leader-claim-management-m-f-x-liebherr-bulle",
-        "fr": "team-leader-claim-management-m-f-x-liebherr-bulle-3"
+        "fr": "chef-d-equipe-gestion-des-reclamations-m-f-x-liebherr-bulle-8f8f0b"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6622,6 +6708,9 @@
         "it": [
           "team-leader-claim-management-m-f-x-liebherr-bulle-3",
           "team-leader-claim-management-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "team-leader-claim-management-m-f-x-liebherr-bulle-3"
         ]
       },
       "needsRetranslation": true,
@@ -6785,8 +6874,7 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "jeunes-talents-analyse-des-affaires-informatiques-m-f-x-liebherr-bulle",
-          "young-talent-it-business-analysis-m-w-x-liebherr-bulle"
+          "jeunes-talents-analyse-des-affaires-informatiques-m-f-x-liebherr-bulle"
         ],
         "it": [
           "young-talent-it-business-analysis-m-w-x-liebherr-bulle"
@@ -7163,9 +7251,9 @@
     },
     {
       "id": "liebherr-b8371a0c23b9",
-      "slug": "control-systems-ingegnere-m-f-x-liebherr-bulle",
+      "slug": "ingegnere-dei-sistemi-di-controllo-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "control-systems-ingegnere-m-f-x-liebherr-bulle",
+        "it": "ingegnere-dei-sistemi-di-controllo-m-f-x-liebherr-bulle",
         "en": "control-systems-engineer-m-f-x-liebherr-bulle",
         "de": "regelungssystemingenieur-m-f-x-liebherr-bulle",
         "fr": "ingenieur-systemes-de-controle-m-f-x-liebherr-bulle"
@@ -7211,11 +7299,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "control-systems-engineer-m-f-x-liebherr-bulle",
+        "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "control-systems-ingenieur-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "control-systems-engineer-m-f-x-liebherr-bulle"
+          "control-systems-engineer-m-f-x-liebherr-bulle",
+          "control-systems-ingegnere-m-f-x-liebherr-bulle"
         ],
         "fr": [
           "control-systems-ingenieur-m-f-x-liebherr-bulle",
@@ -7305,12 +7395,10 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleader-h-f-x-commodita-liebherr-bulle-8c8003",
-          "teamleader-h-f-x-commodities-liebherr-bulle",
-          "teamleader-h-f-x-commodities-liebherr-bulle-2"
+          "teamleader-h-f-x-commodities-liebherr-bulle"
         ],
         "de": [
-          "teamleader-h-f-x-rohstoffe-liebherr-bulle-8c8003",
-          "teamleader-h-f-x-commodities-liebherr-bulle-2"
+          "teamleader-h-f-x-rohstoffe-liebherr-bulle-8c8003"
         ]
       },
       "needsRetranslation": true,
@@ -7473,8 +7561,7 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "young-talent-m-f-x-pre-development-liebherr-bulle",
-          "young-talent-m-f-x-predevelopment-liebherr-bulle"
+          "young-talent-m-f-x-pre-development-liebherr-bulle"
         ],
         "it": [
           "young-talent-m-f-x-predevelopment-liebherr-bulle"
@@ -7508,12 +7595,12 @@
     },
     {
       "id": "liebherr-907dde86c03b",
-      "slug": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2",
+      "slug": "responsabile-del-servizio-movimento-terrapiena-e-miniere-sede-nigeria-liebherr-abuja",
       "slugByLocale": {
-        "it": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2",
+        "it": "responsabile-del-servizio-movimento-terrapiena-e-miniere-sede-nigeria-liebherr-abuja",
         "en": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja",
-        "de": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2",
-        "fr": "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2"
+        "de": "serviceleiter-erdbewegung-bergbau-standort-nigeria-liebherr-abuja",
+        "fr": "responsable-du-service-terrassement-et-mines-localisation-nigeria-liebherr-abuja"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -7575,7 +7662,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1700"
+      "postalCode": "1700",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2"
+        ],
+        "de": [
+          "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2"
+        ],
+        "fr": [
+          "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2"
+        ]
+      },
+      "previousSlugs": [
+        "service-manager-earthmoving-mining-location-nigeria-liebherr-abuja-2"
+      ]
     },
     {
       "id": "liebherr-649244dd13c3",
@@ -7584,7 +7685,7 @@
         "it": "giovani-talenti-w-m-x-ingegneria-del-software-liebherr-bulle",
         "en": "young-talent-w-m-x-software-engineering-liebherr-bulle",
         "de": "junge-talente-w-m-x-softwareentwicklung-liebherr-bulle",
-        "fr": "jeunes-talents-w-m-x-genie-logiciel-liebherr-bulle"
+        "fr": "jeune-talent-avec-femmes-hommes-genie-logiciel-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -7638,7 +7739,8 @@
         ]
       },
       "previousSlugs": [
-        "young-talent-w-m-x-software-engineering-liebherr-bulle"
+        "young-talent-w-m-x-software-engineering-liebherr-bulle",
+        "jeunes-talents-w-m-x-genie-logiciel-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -7646,6 +7748,9 @@
         ],
         "it": [
           "young-talent-w-m-x-software-engineering-liebherr-bulle"
+        ],
+        "fr": [
+          "jeunes-talents-w-m-x-genie-logiciel-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
