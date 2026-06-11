@@ -34,6 +34,7 @@ import {
   parseAristonJobDetail,
   parseAristonSitemapFeed,
 } from './lib/ariston-job-parser.mjs';
+import { fetchHtml } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -88,38 +89,10 @@ function absoluteUrl(raw = '') {
   return new URL(raw, DETAIL_BASE).toString();
 }
 
-// Retry policy: 4 total attempts (initial + 3 retries) with exponential backoff
-// 3s → 6s → 12s → 20s between attempts (~41s total wait) to survive transient
-// upstream outages of 45–60s seen in CI on 2026-04-18 (Skyguide) / 2026-04-19 (Ariston).
-const FETCH_RETRY_DELAYS_MS = [3000, 6000, 12000, 20000];
-
-async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000, retries = 3) {
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        signal: controller.signal,
-        headers: {
-          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-          'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        },
-      });
-      clearTimeout(timer);
-      if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-      return await res.text();
-    } catch (err) {
-      clearTimeout(timer);
-      if (attempt < retries) {
-        const delay = FETCH_RETRY_DELAYS_MS[attempt] ?? 20000;
-        console.log(`  ⚠️ Retry ${attempt + 1}/${retries} for ${url} in ${delay}ms: ${err.message}`);
-        await new Promise((r) => setTimeout(r, delay));
-      } else {
-        throw err;
-      }
-    }
-  }
-}
+// fetchText removed: replaced by shared fetchHtml from crawler-template.mjs,
+// which adds connection-level Jina fallback for datacenter egress blocks
+// (the root cause of #1678: careers.aristongroup.com unreachable from CI IP).
+// fetchHtml already includes retry+backoff via fetchWithRetry; no local loop needed.
 
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
@@ -139,7 +112,7 @@ function isTrustedDomain(rawUrl = '') {
 
 async function fetchAristonListings() {
   console.log('🔍 Fetching Ariston jobs from sitemap feed...');
-  const xml = await fetchText(FEED_URL);
+  const xml = await fetchHtml(FEED_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
   const discovered = parseAristonSitemapFeed(xml);
   const target = discovered.filter((row) => isAristonTargetLocation(`${row.location} ${row.title}`));
   console.log(`📋 Feed items: ${discovered.length}`);
@@ -155,7 +128,7 @@ async function fetchAristonListings() {
 
 async function buildAristonJob(listing) {
   const detailUrl = absoluteUrl(listing.url);
-  const html = await fetchText(detailUrl);
+  const html = await fetchHtml(detailUrl);
   const detail = parseAristonJobDetail(html);
   const region = inferAristonRegion(detail.location || listing.location);
   const localized = buildAristonLocalizedContent(detail);
