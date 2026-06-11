@@ -100,6 +100,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -161,9 +162,12 @@ function hasJobPostingSchema(html) {
   return html.includes('"JobPosting"') || html.includes("'JobPosting'");
 }
 
-/** validate-content-quality.isIndividualJobPage — preserved verbatim. */
+/** Mirror of validate-content-quality.isJobPage — shared canton-aware matcher
+ *  (TI legacy + every canton + svizzera aggregator). Both downstream uses
+ *  (jobsNoSchema warning, thin-bridge exemption) are non-blocking for the
+ *  newly-covered non-TI canton pages, so broadening cannot turn the gate red. */
 function isJobPage(path) {
-  return /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test('/' + path);
+  return JOB_BOARD_SECTION_RX.test('/' + path);
 }
 
 const EDITORIAL_JOB_SLUGS = new Set([
