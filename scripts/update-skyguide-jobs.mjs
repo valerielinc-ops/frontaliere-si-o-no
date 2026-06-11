@@ -84,6 +84,18 @@ function normalizeKey(value = '') {
 // which adds connection-level Jina fallback for datacenter egress blocks (the
 // root cause of the 2026-04-18 Skyguide CI outage). fetchHtml already includes
 // retry+backoff via fetchWithRetry; no local loop needed.
+//
+// Skyguide's WAF gates on a realistic browser fingerprint, so we MUST keep the
+// Chrome User-Agent + Accept-Language this crawler always sent (the bot DEFAULT_UA
+// risks a 403, which is an HTTP error → NOT proxied via Jina → hard fail every wave).
+// options.headers override DEFAULT_UA; 30s timeout preserved.
+const SKYGUIDE_FETCH_HEADERS = {
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8,de;q=0.7,fr;q=0.6',
+  'User-Agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+};
+const SKYGUIDE_FETCH_OPTS = { headers: SKYGUIDE_FETCH_HEADERS, timeoutMs: 30000 };
 
 function absoluteUrl(raw = '') {
   if (!raw) return '';
@@ -124,7 +136,7 @@ async function fetchListings() {
   const seen = new Set();
 
   for (const listingUrl of LISTING_URLS) {
-    const html = await fetchHtml(listingUrl);
+    const html = await fetchHtml(listingUrl, SKYGUIDE_FETCH_OPTS);
     const rows = parseSkyguideListings(html);
     console.log(`📋 Rows from filter ${listingUrl}: ${rows.length}`);
     for (const row of rows) {
@@ -157,7 +169,7 @@ function normalizePostedDate(raw = '') {
 
 async function buildSkyguideJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
-  const html = await fetchHtml(detailUrl);
+  const html = await fetchHtml(detailUrl, SKYGUIDE_FETCH_OPTS);
   const detail = parseSkyguideJobDetail(html);
   const localized = buildSkyguideLocalizedContent(detail, COMPANY_NAME);
   const location = normalizeLocation(detail.location || listing.location);
