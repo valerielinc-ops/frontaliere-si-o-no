@@ -56,6 +56,11 @@ const ARCHIVE_ENDPOINT =
 const RESTORE_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/restorePublisherAd';
 
+// How long after a content edit the "changes pending publication (~1–2h)" hint
+// stays visible. The slice sync (~hourly) + deploy propagates the edit within
+// this window; past it the hint would be a stale, false claim, so it self-clears.
+const MODIFIED_HINT_WINDOW_MS = 3 * 60 * 60 * 1000;
+
 const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
   const { user, loading, signIn } = useAuth();
@@ -263,9 +268,13 @@ const PublisherDashboardPage: React.FC = () => {
   };
 
   // "Edits pending publication" — a content edit on a LIVE ad isn't visible on the
-  // site until the next slice sync (~1–2h). Surfaces that the change is in-flight.
+  // site until the next slice sync (~1–2h). Surfaces that the change is in-flight,
+  // but ONLY within a recency window: `contentEditedAt` is stamped on every edit
+  // and never cleared, so without this gate the "online entro 1–2 ore" claim would
+  // stay (falsely) forever. After the window the edit has long since gone live.
   const modifiedLabel = (r: DashboardRow): string | null => {
     if (!isLiveStatus(r.status) || r.contentEditedAt == null) return null;
+    if (Date.now() - r.contentEditedAt > MODIFIED_HINT_WINDOW_MS) return null;
     return t('publisherDashboard.modifiedPending');
   };
 
