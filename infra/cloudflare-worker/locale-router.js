@@ -17,9 +17,25 @@
  * sends `Host: origin-{loc}.frontaliereticino.ch` upstream, which is what makes
  * GitHub Pages match the shard repo's custom domain.
  *
- * Locale responses are cached via caches.default (5-min TTL) to cut repeated
- * shard round-trips. Asset/data/og refs in shard HTML are CDN-absolute (since
- * #1665), so those requests bypass this Worker entirely.
+ * Caching: shard responses are cached by Cloudflare's NATIVE edge cache via
+ * `cf: { cacheEverything, cacheTtl }` on the origin fetch — NOT the Workers
+ * Cache API. The previous caches.default/last-known-good machinery was removed
+ * (2026-06-11) because:
+ *   1. Every Cache API operation is logged in zone analytics as a synthetic
+ *      `requestSource: edgeWorkerCacheAPI` row — cache.match() MISSes show up
+ *      as edgeResponseStatus **504** (~124k/day) and cache.put()s as 204
+ *      (~80k/day). Those phantom 504s (User-Agent empty, protocol UNK,
+ *      originResponseDurationMs 0, zero eyeball rows) were repeatedly misread
+ *      as a real outage ("26% of requests fail") and burned three PR cycles
+ *      (#1791 regression, #1814 hotfix, #1830 no-op). Real client traffic on
+ *      the shards is clean: zero eyeball 504s/day, ~50×503/day zone-wide.
+ *   2. caches.default is per-colo and ephemeral; cf-native caching is tiered
+ *      (upper-tier colos shared), so origin fetches drop further.
+ * Do NOT reintroduce caches.default here without filtering monitoring to
+ * `requestSource: "eyeball"` first (scripts/lib/cf-analytics.mjs does this).
+ *
+ * Asset/data/og refs in shard HTML are CDN-absolute (since #1665), so those
+ * requests bypass this Worker entirely.
  *
  *   /rss-en.xml, /sitemap-*  -> tiny root files kept in the main repo (passthrough)
  */
@@ -36,66 +52,44 @@ const SHARD_ORIGIN = {
 // to these prefixes; this regex is the in-code guard.)
 const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 
-// TTL for locale pages cached in the Workers Cache API + Cloudflare edge
-// (s-maxage). Raised 300s -> 3600s (2026-06-10) to absorb far more repeat/
-// overlapping hits as cf HITs that DON'T re-invoke the Worker — the lever that
-// keeps frontaliere-locale-router under the free-tier 100k/day cap once the
-// asset fan-out is gone (#1665 + route drop). Safe against stale-HTML 404s:
-// superseded CDN asset hashes are retained GRACE_DAYS=7 (prune-cdn-assets.mjs),
-// far longer than this TTL, so HTML served up to 2h stale still resolves every
-// referenced /assets hash. Live job data is client-fetched fresh from the CDN at
-// runtime (not baked into this cached HTML), so a 2h-stale SEO shell is fine.
-// Bumped 3600->7200 (2026-06-10): on the free plan the Worker is mandatory for
-// the shard Host rewrite (Origin Rules' Host-header override is paid-only), so
-// edge caching is the only lever left to cut invocations under the 100k/day cap.
+// Edge-cache TTL for shard pages, applied twice: as `cf.cacheTtl` on the
+// origin fetch (CF caches the ORIGIN response, tiered/cross-colo, so repeat
+// misses don't re-contact GitHub Pages) and as `s-maxage` on the response we
+// return (CF caches the WORKER response eyeball-side, so repeat hits don't
+// re-invoke the Worker at all — the lever that keeps frontaliere-locale-router
+// under the free-tier 100k/day cap). Safe against stale-HTML 404s: superseded
+// CDN asset hashes are retained GRACE_DAYS=7 (prune-cdn-assets.mjs), far
+// longer than this TTL, so HTML served up to 2h stale still resolves every
+// referenced /assets hash. Live job data is client-fetched fresh from the CDN
+// at runtime (not baked into this cached HTML), so a 2h-stale SEO shell is
+// fine. Tradeoff accepted: with cacheEverything a shard 404 can also be edge-
+// cached up to 2h, so a page that flips 404→200 on deploy may serve a cached
+// 404 from an already-poisoned colo for up to 2h — negligible for crawlers,
+// which revisit on a much longer cadence.
 const CACHE_MAX_AGE = 7200; // 2 h
 
-// Per-attempt upstream timeout + one retry. The shard origins are gray-cloud
-// GitHub Pages; under the Worker's aggregate cache-miss fan-out they
-// intermittently drop/stall the connection, so a single naked fetch surfaces a
-// user-facing 504 (originResponseStatus=0 = no origin response).
-//
-// 6s (was 12s): a healthy shard origin answers in ~0.2s, so 6s is generous for
-// a slow-but-ok fetch yet fails a HUNG connection FAST. The 12s×2=24s ceiling
-// was the real bug behind the persistent 504s — Cloudflare's gateway killed the
-// invocation with its own 504 before our graceful fallback (serve last-known-
-// good, else 503) could run, so analytics showed 504 not our 503. 6s×2=12s
-// leaves comfortable margin under the gateway timeout for the LKG/503 path to
-// execute. Measured impact this fix targets: ~1-in-3 (27–34%) of requests to
-// the HOT funnel pages (/en/calculate-salary, /en/, /fr/trouver-emploi-tessin…)
-// were 504 — real users, not just crawler long-tail.
+// Per-attempt upstream timeout + one retry. A healthy shard origin answers in
+// ~0.1-0.2s, so 6s is generous for a slow-but-ok fetch yet fails a hung
+// connection fast; 6s×2=12s stays comfortably under Cloudflare's gateway
+// timeout so our graceful 503 path can run. Measured (2026-06-11): origin
+// fetches succeed first-try (~zero retries — Worker subrequests/day ≈
+// cache-miss invocations/day), so this is a safety net, not a hot path.
 const ORIGIN_TIMEOUT_MS = 6000;
 const ORIGIN_RETRIES = 1; // total attempts = ORIGIN_RETRIES + 1
 
-// Last-known-good retention. On EVERY successful 200 we also stash a copy under
-// a private cache key with a long TTL; when a later origin fetch fails or 5xxes
-// we serve that copy (stale-while-error) instead of a 504. Shard pages are SEO
-// shells whose live job data is client-fetched fresh at runtime, so a stale
-// shell served only during an origin outage is strictly better than an error.
-const LKG_MAX_AGE = 604800; // 7 d
-
-// Cache key for the last-known-good copy of a URL. It MUST live on a hostname
-// inside this zone: the Workers Cache API silently no-ops cache.put() for keys
-// whose host the zone doesn't own, so the previous off-zone `lkg.invalid` host
-// meant the LKG copy was NEVER stored — and therefore never served on origin
-// failure. That is the root reason the stale-while-error fallback failed to
-// mask the 504s (analytics showed 504, never the LKG 200). On-zone, cache.put
-// actually persists. The `/__lkg/` path is synthetic: the Worker's routes only
-// cover /en /de /fr, so a request to /__lkg/… never reaches this Worker, and the
-// encoded keys are non-guessable, unlinked, and not in any sitemap. (In theory a
-// direct hit on the exact synthetic URL could serve the cached shell from edge —
-// harmless: it's the same public SEO HTML, non-indexable. The off-zone host
-// would dodge even that but at the cost of LKG never working, so on-zone wins.)
-function lkgKey(publicUrl) {
-  return new Request(`https://frontaliereticino.ch/__lkg/${encodeURIComponent(publicUrl)}`);
-}
-
-// Single upstream attempt bounded by an AbortController timeout.
-async function fetchOriginOnce(upstream, request) {
+// Single upstream attempt bounded by an AbortController timeout. `cfOpts`
+// carries the cf-native caching directives for shard fetches (tiered edge
+// cache keyed on the upstream origin-{loc} URL — unique per locale+path, so
+// locales can never collide). NOTE: do not add `cf.cacheKey` — custom cache
+// keys are Enterprise-only and would be silently ignored or rejected.
+async function fetchOriginOnce(upstream, request, cfOpts) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ORIGIN_TIMEOUT_MS);
   try {
-    return await fetch(new Request(upstream, request), { signal: controller.signal });
+    return await fetch(new Request(upstream, request), {
+      signal: controller.signal,
+      ...(cfOpts ? { cf: cfOpts } : {}),
+    });
   } finally {
     clearTimeout(timer);
   }
@@ -104,11 +98,11 @@ async function fetchOriginOnce(upstream, request) {
 // Fetch the shard origin with one retry. Retries only on a thrown error
 // (timeout/network) or a 5xx — a 4xx (e.g. a real Pages 404) is returned as-is.
 // Throws only if every attempt threw.
-async function fetchOriginWithRetry(upstream, request) {
+async function fetchOriginWithRetry(upstream, request, cfOpts) {
   let lastErr;
   for (let attempt = 0; attempt <= ORIGIN_RETRIES; attempt++) {
     try {
-      const resp = await fetchOriginOnce(upstream, request);
+      const resp = await fetchOriginOnce(upstream, request, cfOpts);
       if (resp.status < 500 || attempt === ORIGIN_RETRIES) return resp;
     } catch (err) {
       lastErr = err;
@@ -119,7 +113,7 @@ async function fetchOriginWithRetry(upstream, request) {
 }
 
 export default {
-  async fetch(request, _env, ctx) {
+  async fetch(request) {
     const url = new URL(request.url);
     const match = url.pathname.match(LOCALE_RE);
 
@@ -129,22 +123,13 @@ export default {
       // locale routes only (/en, /de, /fr) so IT traffic bypasses the Worker
       // entirely as a pure CF passthrough and never reaches this branch.  The
       // timeout+retry guard mirrors the shard-origin layer and is ready if the
-      // route scope is ever expanded to cover IT traffic.
+      // route scope is ever expanded to cover IT traffic. No cf caching opts:
+      // IT passthrough must respect the zone's own cache rules.
       try {
         return await fetchOriginWithRetry(url, request);
       } catch {
         return new Response('Origin unavailable', { status: 503 });
       }
-    }
-
-    const cache = caches.default;
-    // Strip per-request headers from the cache key so all users share the same
-    // cached entry for a given URL.
-    const cacheKey = new Request(url.toString());
-
-    if (request.method === 'GET') {
-      const cached = await cache.match(cacheKey);
-      if (cached) return cached;
     }
 
     const origin = SHARD_ORIGIN[match[1]];
@@ -153,33 +138,18 @@ export default {
 
     let resp;
     try {
-      resp = await fetchOriginWithRetry(upstream, request);
+      resp = await fetchOriginWithRetry(upstream, request, {
+        cacheEverything: true,
+        cacheTtl: CACHE_MAX_AGE,
+      });
     } catch {
-      resp = null; // every attempt timed out / threw — no origin response
-    }
-
-    // Origin produced nothing usable (timeout/network) or a 5xx → fall back to
-    // the last-known-good copy so the user gets a stale page, not a 504.
-    if (!resp || resp.status >= 500) {
-      if (request.method === 'GET') {
-        const lkg = await cache.match(lkgKey(url.toString()));
-        if (lkg) {
-          const headers = new Headers(lkg.headers);
-          headers.set('X-Shard-Fallback', 'lkg'); // stale-while-error marker
-          // The stored LKG copy carries Cache-Control: max-age=LKG_MAX_AGE (7d)
-          // — that governs ITS retention in caches.default. We must NOT leak that
-          // TTL to the CDN edge on the served fallback: otherwise Cloudflare would
-          // cache the stale shell edge-side for 7d, never re-invoke the Worker
-          // after the origin recovers, and the shard would stay stale for a week.
-          // no-store keeps the fallback out of the edge so every request during
-          // the outage re-enters the Worker and recovers the instant origin heals.
-          headers.set('Cache-Control', 'no-store');
-          return new Response(lkg.body, { status: 200, statusText: 'OK', headers });
-        }
-      }
-      // No fallback available. Surface 503 if we never got a response at all,
-      // otherwise let the genuine origin 5xx through unchanged.
-      if (!resp) return new Response('Shard origin unavailable', { status: 503 });
+      // Every attempt timed out / threw — no origin response. Short Retry-After:
+      // measured failure rate at this layer is ~0.02% (50×503/day zone-wide),
+      // and CF's tiered cache absorbs repeats, so a transient blip self-heals.
+      return new Response('Shard origin unavailable', {
+        status: 503,
+        headers: { 'Retry-After': '30' },
+      });
     }
 
     // GitHub Pages 301s a dir path without trailing slash (e.g. /en/lavoro ->
@@ -208,40 +178,15 @@ export default {
       }
     }
 
-    // Cache successful GET responses and stamp Cache-Control so Cloudflare CDN
-    // can also serve from edge without re-entering the Worker.
+    // Stamp Cache-Control on successful GETs so browsers and Cloudflare's
+    // eyeball-side edge cache (s-maxage) can serve repeats without re-invoking
+    // the Worker. Single body consumer — no buffering or stream tee needed
+    // (the multi-consumer tee deadlock of #1791/#1814 is structurally gone
+    // along with the Cache API writes that required it).
     if (request.method === 'GET' && resp.status === 200) {
-      // Buffer the body ONCE, then build independent Responses from the bytes:
-      // the serving copy + the two cache entries (short-TTL cacheKey + long-TTL
-      // last-known-good). Do NOT tee/clone the live stream. A nested resp.clone()
-      // feeding two `ctx.waitUntil(cache.put(...))` consumers plus the client
-      // deadlocked on backpressure — the CF runtime never drained the 3-way tee,
-      // stalling the client ~30s on EVERY shard page and never completing
-      // cache.put (edge cache dead → every hit re-invoked the Worker and
-      // re-stalled). Regression from PR #1791; fixed here. These SEO shells are
-      // ~9–100 KB so buffering is trivial (Worker has 128 MB) and removes the
-      // stream — and therefore the backpressure — entirely. Reusing one
-      // ArrayBuffer across `new Response(buf, …)` is safe: the constructor copies
-      // the bytes, it doesn't detach the buffer.
-      const bodyBuf = await resp.arrayBuffer();
-
       const headers = new Headers(resp.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
-      const servingInit = { status: 200, statusText: resp.statusText, headers };
-
-      ctx.waitUntil(cache.put(cacheKey, new Response(bodyBuf, servingInit)));
-
-      // Refresh the long-lived fallback copy on every successful fetch.
-      const lkgHeaders = new Headers(resp.headers);
-      lkgHeaders.set('Cache-Control', `public, max-age=${LKG_MAX_AGE}`);
-      ctx.waitUntil(
-        cache.put(
-          lkgKey(url.toString()),
-          new Response(bodyBuf, { status: 200, statusText: 'OK', headers: lkgHeaders }),
-        ),
-      );
-
-      return new Response(bodyBuf, servingInit);
+      return new Response(resp.body, { status: 200, statusText: resp.statusText, headers });
     }
 
     return resp;

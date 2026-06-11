@@ -44,6 +44,15 @@
  *   node scripts/cf-status-report.mjs --host=frontaliereticino.ch
  *   node scripts/cf-status-report.mjs --limit=50       # rows per detail query
  *   node scripts/cf-status-report.mjs --json           # machine-readable
+ *   node scripts/cf-status-report.mjs --all-sources    # include Worker-internal rows
+ *
+ * By default only `requestSource: eyeball` rows (real client requests) are
+ * counted. Worker-internal rows are excluded because the locale-router's
+ * former Cache API usage logged every cache.match() MISS as a synthetic
+ * `edgeWorkerCacheAPI` 504 (~124k/day, empty UA, originResponseDurationMs 0)
+ * and every cache.put() as a 204 — phantom traffic that was misread as a real
+ * outage three PRs in a row (#1791/#1814/#1830). `--all-sources` restores the
+ * raw view if you explicitly need to see Worker-internal cache/fetch rows.
  *
  * Exit codes: 0 = ran OK (even if errors found — it's a report, not a gate);
  *             1 = bad config / API error.
@@ -63,6 +72,7 @@ function parseArgs(argv) {
     host: null,
     limit: 30,
     json: false,
+    allSources: false,
   };
   for (const arg of argv) {
     const m = arg.match(/^--([^=]+)(?:=(.*))?$/);
@@ -75,6 +85,7 @@ function parseArgs(argv) {
       case 'host': opts.host = val; break;
       case 'limit': opts.limit = Number(val); break;
       case 'json': opts.json = true; break;
+      case 'all-sources': opts.allSources = true; break;
       case 'help':
         console.log('See header comment for usage.');
         process.exit(0);
@@ -157,6 +168,7 @@ async function main() {
     datetime_leq: untilISO,
     ...statusFilter(opts),
   };
+  if (!opts.allSources) baseFilter.requestSource = 'eyeball';
   if (opts.host) baseFilter.clientRequestHTTPHost = opts.host;
 
   const vars = { zone: zoneId, since: sinceISO, until: untilISO, filter: baseFilter };
@@ -205,6 +217,11 @@ async function main() {
     `Window: ${sinceISO} → ${untilISO} (${opts.hours}h)${clampedNote}`,
   );
   if (opts.host) console.log(`Host filter: ${opts.host}`);
+  console.log(
+    opts.allSources
+      ? 'Sources: ALL (includes Worker-internal cache/fetch rows — beware phantom 504/204)'
+      : 'Sources: eyeball only (real client requests)',
+  );
   console.log(
     `Filter: ${opts.statusClass ? `${opts.statusClass}xx only` : `status >= ${opts.minStatus}`}`,
   );

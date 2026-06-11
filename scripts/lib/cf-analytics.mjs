@@ -84,6 +84,19 @@ query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_Inp
  * @param {string} [opts.host]             filter to one clientRequestHTTPHost
  * @param {number} [opts.limit=10000]      max distinct rows
  * @param {Date|string} [opts.until=now]   window end (for day-by-day looping)
+ * @param {string|null} [opts.requestSource='eyeball']  filter on requestSource.
+ *                                         Default 'eyeball' = real client
+ *                                         requests ONLY. Pass null to include
+ *                                         Worker-internal rows — almost never
+ *                                         what you want: the locale-router's
+ *                                         former Cache API usage logged every
+ *                                         cache.match() MISS as a synthetic
+ *                                         `edgeWorkerCacheAPI` 504 (~124k/day,
+ *                                         empty UA, originResponseDurationMs 0)
+ *                                         and every cache.put() as a 204 —
+ *                                         phantom rows misread as a real
+ *                                         outage three PRs in a row
+ *                                         (#1791/#1814/#1830).
  * @returns {Promise<Array<{status:number,host:string,path:string,count:number}>>}
  */
 export async function fetchErrorPaths(token, zoneId, opts = {}) {
@@ -92,11 +105,13 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
   const limit = opts.limit ?? 10000;
   const until = opts.until ? new Date(opts.until) : new Date();
   const sinceISO = new Date(until.getTime() - hours * 3600 * 1000).toISOString();
+  const requestSource = opts.requestSource === undefined ? 'eyeball' : opts.requestSource;
   const filter = {
     datetime_geq: sinceISO,
     datetime_leq: until.toISOString(),
     edgeResponseStatus_geq: minStatus,
   };
+  if (requestSource) filter.requestSource = requestSource;
   if (opts.maxStatus != null) filter.edgeResponseStatus_leq = opts.maxStatus;
   if (opts.host) filter.clientRequestHTTPHost = opts.host;
 

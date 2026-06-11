@@ -1,7 +1,9 @@
-# Handoff: Cloudflare Worker shard 504s
+# Caso chiuso: i "504" Cloudflare sulle pagine shard erano un artefatto di analytics
 
-> Brief tecnico self-contained per chi riprende il caso dei `504` sulle pagine
-> locale-shard (`/en /de /fr`). Aggiornato 2026-06-11.
+> Post-mortem self-contained del caso `504` sulle pagine locale-shard
+> (`/en /de /fr`). Diagnosi definitiva 2026-06-11, basata su query CF GraphQL
+> verificabili (riportate sotto). Sostituisce il brief precedente (PR #1839),
+> la cui diagnosi era errata.
 
 ## 1. Architettura (contesto)
 
@@ -12,141 +14,110 @@ Troppo grande per un repo GitHub Pages (cap 10 GB) → **locale sharding**:
   puro** Cloudflare (no Worker).
 - **`/en` `/de` `/fr`**: repo separati (`frontaliere-en/de/fr`), serviti da
   sotto-domini gray-cloud `origin-{loc}.frontaliereticino.ch` (GitHub Pages),
-  fronteggiati da un **Cloudflare Worker** `infra/cloudflare-worker/locale-router.js`
-  che riscrive l'`Host` mantenendo l'URL pubblico identico.
+  fronteggiati dal Worker `infra/cloudflare-worker/locale-router.js` che
+  riscrive l'`Host` mantenendo l'URL pubblico identico.
 - Worker routes (`infra/cloudflare-worker/wrangler.toml`): **solo** `/en* /de* /fr*`.
   Deploy via `.github/workflows/deploy-worker.yml` (auto su push a
-  `infra/cloudflare-worker/**`); credenziali `CF_API_TOKEN`+`CF_ACCOUNT_ID` da
-  Firebase Remote Config (`scripts/load-rc-env.mjs`).
+  `infra/cloudflare-worker/**`, con check timing post-deploy + auto-rollback);
+  credenziali `CF_API_TOKEN`+`CF_ACCOUNT_ID` da Firebase Remote Config
+  (`scripts/load-rc-env.mjs`).
 
-## 2. Il problema
+## 2. Il sintomo riportato
 
-**~26% delle richieste apex sono `504`** (concentrate sui cache-MISS delle pagine
-shard), `cache=miss originResponseStatus=0` = **l'origin GitHub Pages non
-risponde** sotto il fan-out aggregato di cache-miss. Baseline storica ~104k
-504/giorno.
+Le zone analytics mostravano **~124k risposte 504/giorno (~26% delle richieste
+apex)**, `cache=miss originResponseStatus=0`, interpretate come "GitHub Pages
+non risponde sotto il fan-out dei cache-miss" con impatto SEO (Googlebot in
+crawl-error sui locale).
 
-## 3. Cosa è stato implementato (tutto MERGED, 2026-06-10/11)
+## 3. La diagnosi vera: nessun 504 reale — righe interne della Cache API
 
-| PR | Cosa | Esito |
+Le righe 504 hanno TUTTE `requestSource: edgeWorkerCacheAPI` (verificato su 24h:
+125.040/125.040). **Non sono richieste di client**: sono le operazioni interne
+`caches.default` del Worker, loggate da Cloudflare nelle zone analytics:
+
+- `cache.match()` MISS → riga sintetica **504** (~124k/giorno: una per ogni
+  invocation cache-miss del Worker — il conteggio combacia con le ~126k
+  invocations/giorno meno i ~2k HIT)
+- `cache.put()` OK → riga **204** (~78k/giorno, l'altro "mistero" del grafico)
+- UA vuoto, protocol `UNK`, `originResponseDurationMs: 0`, country ~USA (metal
+  CF, non client) — tutte firme di righe non-eyeball.
+
+**Traffico reale (filtro `requestSource: "eyeball"`), stesse 24h:**
+
+| path | 200 | 404 | 301 | 503 | **504** |
+|---|---|---|---|---|---|
+| `/en%` | 32.507 | 15.347 | 502 | 7 | **0** |
+| `/de%` | 21.957 | 14.747 | 542 | 10 | **0** |
+| `/fr%` | 25.568 | 16.605 | 297 | 5 | **0** |
+
+**Zero 504 eyeball. 5xx reali su tutto l'apex: 51×503 + 1×500/giorno (~0,02%).**
+Googlebot riceve 200 puliti (5,2k/24h in `userAgentBrowser: GoogleBot`). I fetch
+Worker→origin (host `origin-*`, `requestSource: edgeWorkerFetch`) sono sani:
+200/404/301 regolari, ~34×503/giorno totali, **~zero retry** (subrequests/giorno
+≈ invocations cache-miss ⇒ il primo tentativo riesce quasi sempre). Probe live
+(cache-busted, anche con UA Googlebot, da colo ZRH): 45/45 → 200 in ~0,1s.
+GitHub Pages risponde 200 in ~0,1s anche in diretta su tutti e 4 gli IP anycast.
+
+**Falsificazioni della vecchia teoria** ("origin overwhelmed dal fan-out"):
+il fan-out aggregato è ~1,4 req/s di media — nulla per Fastly/GitHub Pages;
+il "504-rate" era piatto 21-32% su tutte le 24h (un overload sarebbe correlato
+al volume); e l'unica fonte 504 era `edgeWorkerCacheAPI`, che un fetch origin
+non genera.
+
+## 4. Storia degli interventi (che cosa è successo davvero)
+
+| PR | Cosa | Senno di poi |
 |---|---|---|
-| **#1791** | 1° fix 504: timeout 12s + 1 retry + last-known-good (LKG) stale-while-error | merged — **ha introdotto una regressione** |
-| **#1814** | 🚨 hotfix: la `resp.clone()` di #1791 creava un **triple-tee** → deadlock backpressure → **stallo 30s su TUTTE le pagine shard** + edge-cache morta. Fix **buffer-once** (`await resp.arrayBuffer()`, poi 3 Response indipendenti) | merged, stallo risolto (curl 0.3s) |
-| **#1830** | LKG key **on-zone** (`https://frontaliereticino.ch/__lkg/<enc>` invece di `lkg.invalid` che la Cache API CF no-oppava) + **timeout 12s→6s** | merged, deployato |
-| **#1812** | `[observability]` in `wrangler.toml` → Workers Logs (free) | merged |
-| **#1820** | `deploy-worker.yml`: check live **timing+origin** post-deploy con **auto-rollback** (becca regressioni-stallo che lo status-check non vedeva) | merged |
-| #1795 (altro agent) | timeout+retry anche sul passthrough IT | merged |
-| #1798 | apple-touch-icon ai path root (404→200) | merged, **live 200** |
-| #1803 | CF edge analytics come sorgente 404 per il reconciler (`scripts/discover-404s-via-cloudflare.mjs` + lib `scripts/lib/cf-analytics.mjs` + workflow) | merged |
-| #1810 | CSS entry stabile `assets/index.css` (no più hash → no 404 su hash ruotato) | merged |
+| #1791 | timeout 12s + retry + last-known-good (LKG) stale-while-error | inseguiva il fantasma; introdusse il triple-tee |
+| #1814 | 🚨 hotfix: buffer-once al posto del tee → risolto lo stallo 30s | **regressione reale, fix reale** — l'unico danno utente di tutta la vicenda è stato auto-inflitto |
+| #1830 | LKG key on-zone + timeout 12s→6s | no-op sul "504-rate" (ovvio col senno di poi: il rate non misurava errori) |
+| #1812 | observability Workers Logs | utile |
+| #1820 | check timing+origin post-deploy con auto-rollback | utile (safety net per il punto 5) |
+| #1803 | CF edge analytics come fonte 404 per il reconciler | utile (i 404 sono eyeball al 99,97%, non inquinati) |
 
-**Stato Worker deployato ora:** buffer-once + LKG on-zone `/__lkg/` + timeout 6s +
-observability. Verificabile: `GET /accounts/{acct}/workers/scripts/frontaliere-locale-router`.
+## 5. Risoluzione (2026-06-11)
 
-## 4. Risultato: i 3 fix Worker NON hanno mosso il 504-rate
+1. **Worker**: rimossa TUTTA la macchineria `caches.default`/LKG; il fetch
+   origin usa la cache nativa CF (`cf: { cacheEverything: true, cacheTtl: 7200 }`,
+   tiered/cross-colo). Restano timeout 6s + 1 retry + 503 graceful con
+   `Retry-After`. → Le righe fantasma 504/204 cessano alla radice; il grafico
+   zone analytics torna a riflettere il traffico reale.
+2. **Monitoring**: `scripts/lib/cf-analytics.mjs` (`fetchErrorPaths`) e
+   `scripts/cf-status-report.mjs` filtrano di default `requestSource: "eyeball"`
+   (`--all-sources` per la vista raw). Nessun agente futuro deve ri-diagnosticare
+   questo artefatto.
+3. I problemi reali residui sui shard sono i **404 eyeball** (~46k/giorno sui
+   tre locale: URL morti crawlerati) — workstream separato già attivo
+   (reconciler #1803 + `discover-404s`), NON un problema di disponibilità.
 
-Misure CF GraphQL (`httpRequestsAdaptiveGroups`) **post-#1830**: apex 504 ancora
-**25.8%** (era 24.5-27.5%). **ZERO `503`** nelle analytics.
+## 6. Tooling
 
-**Diagnosi del perché (chiave):**
-
-- Zero 503 = **Cloudflare genera il 504 PRIMA che il codice Worker ritorni** il suo
-  fallback graceful. Quando il `fetch()` del Worker verso l'origin gray-cloud
-  hanga/fallisce, **CF ritorna una Response 504 sintetica al `fetch()` (non un
-  throw)**; il codice, con LKG assente, la rilancia tale e quale. Timeout / retry
-  / LKG / 503 non intercettano questi casi.
-- **L'LKG via `caches.default` è per-colo ed effimero** → non condivide tra
-  data-center → non copre i fallimenti cross-colo → non maschera i 504.
-
-## 5. Analisi human-vs-bot (completata)
-
-- **UA non classificabile sui 504**: artefatto CF — i 504 hanno **100%
-  User-Agent vuoto**, mentre 404/301 (stesso traffico reale) hanno **0%** vuoto.
-  CF non logga l'UA sulle risposte 504.
-- **Proxy via paese (`clientCountryName`, popolato):** traffico shard sia 200 che
-  504 = **~80-86% USA**. Per un sito frontalieri-Ticino, l'80% USA = **traffico
-  automatico**: Googlebot crawla dagli USA (confermato dal campione 200-miss pieno
-  di `Googlebot smartphone Nexus 5X`) + Ahrefs/Yandex/Semrush + datacenter.
-  Pubblico umano europeo sullo shard **~3-5%**; gli utenti reali frontalieri usano
-  le pagine **IT**.
-
-**Verdetto:**
-
-- **Impatto UX umano: trascurabile** — lo shard /en /de /fr è una superficie SEO,
-  non dove stanno gli utenti veri.
-- **Impatto SEO: REALE** — **Googlebot crawla lo shard al ~26% di 504** →
-  crawl-error sui locale multilingua → spreco crawl-budget + rischio
-  de-indicizzazione (che è lo scopo stesso dello shard).
-
-## 6. Fix raccomandato (NON ancora implementato) — Opzione A
-
-**Usare la cache tiered nativa di Cloudflare** sul fetch origin invece del
-`caches.default` per-colo:
-
-```js
-const resp = await fetch(new Request(upstream, request), {
-  signal,                                          // mantieni l'AbortController 6s
-  cf: { cacheEverything: true, cacheTtl: 7200 },   // 2h, come l'attuale s-maxage
-});
-```
-
-**Perché funziona dove gli altri no:** `cf:{cacheEverything}` mette la risposta
-origin nella **cache tiered persistente e cross-colo** di CF (non il
-`caches.default` per-colo). Un miss in un colo popola la cache condivisa → tutti i
-colo successivi fanno HIT → **l'origin riceve pochissimi fetch** → meno overwhelm
-→ i 504 crollano → Googlebot crawla pulito.
-
-**Caveat da verificare:**
-
-- Confermare che `cf:{cacheEverything}` rispetti la riscrittura Host gray-cloud
-  (`upstream.hostname = origin-{loc}...`) e non cachi in modo errato tra locale
-  diversi. La cache key CF deve includere l'**URL pubblico**, non l'host origin
-  riscritto → valutare `cf.cacheKey` esplicita sull'URL pubblico.
-- Decidere se mantenere il fallback LKG come backup (con buffer-once) o affidarsi
-  al serve-stale di CF.
-- `deploy-worker.yml` ha già **auto-rollback su stallo** → un deploy che regredisce
-  si auto-reverte.
-
-**Verifica post-deploy:** ri-eseguire l'analisi 504-rate (per-pagina + per-paese) e
-confermare il crollo, specie sul traffico US/Googlebot.
-
-## 7. Tooling creato
-
-- **`scripts/cf-status-report.mjs`** — report status code CF per-pagina. Es:
+- **`scripts/cf-status-report.mjs`** — report status code per-pagina (eyeball-only
+  di default). Es:
   ```bash
   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json node scripts/load-rc-env.mjs)" \
     && node scripts/cf-status-report.mjs --class=5 --host=frontaliereticino.ch
   ```
-- **`scripts/lib/cf-analytics.mjs`** — primitivi CF GraphQL condivisi (`cfGraphQL`,
-  `resolveZoneId`, `fetchErrorPaths`, `MAX_HOURS`).
+- **`scripts/lib/cf-analytics.mjs`** — primitivi CF GraphQL condivisi.
 - Zone tag: `435c32ec15993fe826d2bb5eb62d3d43`. Free-plan: max 1 giorno/query,
-  retention ~3 giorni.
-- Dataset raw `httpRequestsAdaptive`: ha `userAgent`, `verifiedBotCategory`,
-  `clientCountryName`, `clientRequestPath` (UA **vuoto sui 504** — artefatto;
-  `botScore` enterprise-gated, no accesso).
+  retention ~3 giorni; molte dimensioni sono gated (`coloCode`, `clientAsn`,
+  `originIP`, `botManagementDecision` → "does not have access to the field"),
+  ma `requestSource`, `userAgentBrowser`, `clientRequestHTTPProtocol` e i
+  filtri relativi funzionano — e bastavano a chiudere il caso.
 
-## 8. Gotchas / lezioni
+## 7. Lezioni
 
+- **Prima di diagnosticare un 5xx da zone analytics, SEMPRE segmentare per
+  `requestSource`.** Le operazioni Cache API dei Worker appaiono come righe
+  504/204/499 sintetiche (`edgeWorkerCacheAPI`) mischiate al traffico reale.
+- Un "error rate" piatto h24, con UA vuoto al 100% e durata origin 0ms, è la
+  firma di righe sintetiche, non di un outage.
 - **Mai** tee/clone lo stream della Response con più consumer
-  `ctx.waitUntil(cache.put)` → deadlock backpressure CF (causa dello stallo 30s).
-  Usa **buffer-once** (`arrayBuffer`).
-- Worker **non ha test** (`infra/cloudflare-worker/` zero test in `tests/`). Un test
-  miniflare/`unstable_dev` (no-stall + 2°-hit-HIT) è **follow-up dichiarato**
-  (#1814/#1820) — un unit-test Node non riproduce il deadlock CF-specifico.
-- **Autorebase churn**: main si muove veloce → cancella i vitest shard delle PR →
-  l'aggregatore segna RED su `'cancelled'` (non un fallimento reale). Per PR
-  Worker-only (nessun test le copre) può servire merge manuale
-  `gh pr merge --squash --admin --delete-branch`.
-- **Token `CF_API_TOKEN`** (Remote Config): Analytics:Read + Workers Scripts:Edit +
-  Workers Routes:Edit + Zone Settings:Read. **"Account Analytics" è solo-Read** →
-  Web Analytics/RUM si configura **solo da dashboard** (già fatto: RUM "Enable",
-  `/cdn-cgi/rum` ritorna 204).
-- **Verifica deploy live**: `commit-hash.txt` o ispezione Worker via API.
-  `deploy-worker.yml` ridepoloya su ogni push a `infra/cloudflare-worker/**`.
-
-## 9. Decisione aperta
-
-Procedere con **A** (cf-native-cache, giustificato da crawlability SEO/Googlebot)
-oppure **B** (accettare i 504 — impatto umano nullo, fermarsi). Raccomandazione
-corrente: **A**, perché proteggere la crawlability dei locale è il motivo per cui
-lo shard esiste.
+  `ctx.waitUntil(cache.put)` → deadlock backpressure CF (lo stallo 30s di #1791,
+  fixato in #1814 col buffer-once; ora strutturalmente impossibile: un solo
+  consumer).
+- Worker senza test: un test miniflare/`unstable_dev` resta follow-up dichiarato
+  (#1814/#1820); il check timing+auto-rollback di `deploy-worker.yml` è la rete
+  di sicurezza operativa.
+- Verifica deploy live: `commit-hash.txt` o ispezione Worker via API
+  (`GET /accounts/{acct}/workers/scripts/frontaliere-locale-router`).
