@@ -1,0 +1,151 @@
+name: Discover 404s via Cloudflare
+
+# Third producer for data/seo-404-compat-paths.json (beside the two GSC-based
+# sweeps). Cloudflare edge analytics records EVERY real 404 hit — including the
+# zero-impression long tail GSC never surfaces — with no GSC quota. Paths the
+# resolver can map get a reconciled soft-landing/bridge page at the next build.
+#
+# Only status-404 is read (the producer bounds min=max=404) so the intermittent
+# shard 5xx on LIVE /en /de /fr pages can never leak into the 404 reconciler.
+# Same prune-before-commit gate as discover-404s.yml keeps the committed-snapshot
+# test green.
+
+on:
+  schedule:
+    # Daily at 03:40 UTC — off-peak, after discover-404s (02:15) so the two
+    # 404 producers don't race on the same accumulator file.
+    - cron: '40 3 * * *'
+  workflow_dispatch:
+    inputs:
+      min_count:
+        description: 'Skip 404 paths hit fewer than this many times (noise floor)'
+        required: false
+        type: string
+        default: '2'
+      dry_run:
+        description: 'Dry run (no file writes, just report)'
+        required: false
+        type: boolean
+        default: false
+
+# Serialize this workflow's own runs. Cross-workflow races with the other
+# compat-file writers (discover-404s.yml, sync-gsc-orphans.yml) are handled by
+# the git-push-with-retry 3-way set-merge below, matching the existing pattern
+# (each writer keeps its own concurrency group; the merge reconciles the file).
+concurrency:
+  group: discover-404s-cloudflare
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run Cloudflare 404 sweep
+        env:
+          # CF_API_TOKEN (Zone→Analytics→Read) + CF_ACCOUNT_ID are hydrated from
+          # Remote Config by the previous step.
+          MIN_COUNT: ${{ inputs.min_count || '2' }}
+        run: |
+          node scripts/discover-404s-via-cloudflare.mjs \
+            --min-count="$MIN_COUNT" \
+            ${{ inputs.dry_run == true && '--dry-run' || '' }}
+
+      - name: Prune non-resolving 404-compat paths (keep test invariant green)
+        if: ${{ inputs.dry_run != true }}
+        # Same gate as discover-404s.yml: the sweep appends raw 404 URLs; any the
+        # resolver can't map (bot-probe junk like /wp-admin/install.php) would
+        # break tests/search-console-compat.test.ts → main red. Assemble jobs
+        # first (resolver statically needs data/jobs.json), then drop
+        # non-resolving paths before commit.
+        run: |
+          node scripts/assemble-jobs-dataset.mjs
+          npx tsx scripts/prune-404-compat-paths.ts
+
+      - name: Commit and push
+        if: ${{ inputs.dry_run != true }}
+        id: commit
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          # Stage only the file this workflow owns.
+          git add data/seo-404-compat-paths.json || true
+
+          if git diff --cached --quiet; then
+            echo "📭 No changes to commit"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git commit -m "chore: discover 404s via Cloudflare edge analytics
+
+          Automated sweep of real status-404 hits from Cloudflare's
+          httpRequestsAdaptiveGroups. Recurring 404 paths the resolver can map
+          are added to seo-404-compat-paths.json so the next build generates a
+          soft-landing/bridge page at those URLs."
+
+          # data/seo-404-compat-paths.json is shared with discover-404s.yml and
+          # sync-gsc-orphans.yml; the rebase-retry helper 3-way set-merges the
+          # `paths` array so concurrent appends never clobber each other.
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-404-compat-conflict.mjs && git add -A"
+
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger deploy if compat changed
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        env:
+          # GITHUB_PAT is loaded into $GITHUB_ENV by load-rc-env (Firebase RC,
+          # not an Actions secret). Do NOT shadow with secrets.* or
+          # trigger-deploy.sh runs with an empty PAT and no deploy fires (#878).
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: bash scripts/lib/trigger-deploy.sh
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

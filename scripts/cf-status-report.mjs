@@ -49,12 +49,9 @@
  *             1 = bad config / API error.
  */
 
-const GRAPHQL_ENDPOINT = 'https://api.cloudflare.com/client/v4/graphql';
-const REST_BASE = 'https://api.cloudflare.com/client/v4';
-const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
-// Free plan hard-caps the adaptive-groups window at 1 day. Stay safely under
-// it (clock skew once tripped "1d96ms > 1d") and leave headroom.
-const MAX_HOURS = 23.9;
+import { cfGraphQL, resolveZoneId, MAX_HOURS, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
+
+const ZONE_NAME = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 
 function parseArgs(argv) {
   const opts = {
@@ -93,35 +90,6 @@ function bail(msg) {
   process.exit(1);
 }
 
-async function cfGraphQL(token, query, variables) {
-  const res = await fetch(GRAPHQL_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ query, variables }),
-  });
-  const json = await res.json().catch(() => null);
-  if (!json) bail(`GraphQL returned non-JSON (HTTP ${res.status}).`);
-  if (json.errors && json.errors.length) {
-    bail(`GraphQL error: ${json.errors.map((e) => e.message).join('; ')}`);
-  }
-  return json.data;
-}
-
-async function resolveZoneId(token) {
-  if (process.env.CF_ZONE_ID) return process.env.CF_ZONE_ID;
-  const res = await fetch(
-    `${REST_BASE}/zones?name=${encodeURIComponent(ZONE_NAME)}`,
-    { headers: { Authorization: `Bearer ${token}` } },
-  );
-  const json = await res.json().catch(() => null);
-  if (!json || !json.success || !json.result?.length) {
-    bail(`Could not resolve zone id for ${ZONE_NAME} (check token scope).`);
-  }
-  return json.result[0].id;
-}
 
 // Build the edgeResponseStatus filter from --min-status / --class.
 function statusFilter(opts) {
@@ -182,7 +150,7 @@ async function main() {
   const sinceISO = since.toISOString();
   const untilISO = until.toISOString();
 
-  const zoneId = await resolveZoneId(token);
+  const zoneId = await resolveZoneId(token, ZONE_NAME, process.env.CF_ZONE_ID);
 
   const baseFilter = {
     datetime_geq: sinceISO,
