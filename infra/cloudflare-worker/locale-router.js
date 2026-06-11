@@ -108,8 +108,17 @@ export default {
     const match = url.pathname.match(LOCALE_RE);
 
     if (!match) {
-      // IT + shared (sitemaps, robots, rss, favicon, /...) — straight passthrough.
-      return fetch(request);
+      // IT + shared (sitemaps, robots, rss, favicon, /...) — passthrough.
+      // DEFENSIVE / CURRENTLY UNREACHABLE: wrangler.toml scopes the Worker to
+      // locale routes only (/en, /de, /fr) so IT traffic bypasses the Worker
+      // entirely as a pure CF passthrough and never reaches this branch.  The
+      // timeout+retry guard mirrors the shard-origin layer and is ready if the
+      // route scope is ever expanded to cover IT traffic.
+      try {
+        return await fetchOriginWithRetry(url, request);
+      } catch {
+        return new Response('Origin unavailable', { status: 503 });
+      }
     }
 
     const cache = caches.default;
