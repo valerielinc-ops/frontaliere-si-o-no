@@ -83,12 +83,62 @@ jobs:
           workingDirectory: infra/cloudflare-worker
           command: deploy
 
-      # Smoke-check the three locale roots through the public apex. Informative
-      # only (|| true): a transient non-200 here must not red the deploy job —
-      # the Worker itself already deployed in the step above.
-      - name: Smoke-check locale roots
+      # Live regression check: status AND timing. The previous 30s tee-deadlock
+      # (introduced in #1791, fixed in #1814) returned HTTP 200 but stalled
+      # ~30s, so a status-only smoke missed it entirely and it sat live ~1 day.
+      # Here each locale root is cache-busted (forcing a MISS so the
+      # cache-population path that deadlocked is exercised), timed, and compared
+      # to the DIRECT origin time. apex-via-Worker slow + origin fast = a Worker
+      # regression (the exact discriminator from the #1814 diagnosis) →
+      # auto-rollback. Both slow = an origin problem, not the Worker → warn only.
+      - name: Live regression check (status + timing)
+        id: regression
+        env:
+          STALL_THRESHOLD_S: '10'  # healthy ~0.3s; the deadlock was a constant ~30s
+          ORIGIN_FAST_S: '4'       # the gray-cloud shard origin normally answers in ~0.2s
         run: |
+          set -uo pipefail
+          regression=0
           for loc in en de fr; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://frontaliereticino.ch/$loc/" || echo "ERR")
-            echo "/$loc/ -> $code"
-          done || true
+            apex="https://frontaliereticino.ch/$loc/"
+            origin="https://origin-$loc.frontaliereticino.ch/$loc/"
+            # Two cache-busted apex attempts → take the FASTER, so a one-off cold
+            # fetch is ignored; a real deadlock is constant across both.
+            best=99; code=000
+            for n in 1 2; do
+              out=$(curl -s -o /dev/null -w '%{time_total} %{http_code}' --max-time 35 "${apex}?dwcheck=${RANDOM}${n}" || echo "99 000")
+              t=$(printf '%s' "$out" | awk '{print $1}')
+              code=$(printf '%s' "$out" | awk '{print $2}')
+              if awk "BEGIN{exit !($t < $best)}"; then best=$t; fi
+            done
+            otime=$(curl -s -o /dev/null -w '%{time_total}' --max-time 35 "$origin" || echo "99")
+            echo "/$loc/ apex=${best}s (http $code) | origin=${otime}s"
+            [ "$code" != "200" ] && echo "::warning::/$loc/ returned HTTP $code"
+            apex_slow=$(awk "BEGIN{print ($best > $STALL_THRESHOLD_S)?1:0}")
+            origin_fast=$(awk "BEGIN{print ($otime < $ORIGIN_FAST_S)?1:0}")
+            if [ "$apex_slow" = "1" ] && [ "$origin_fast" = "1" ]; then
+              echo "::error::/$loc/ via Worker ${best}s but origin ${otime}s — WORKER STALL REGRESSION"
+              regression=1
+            elif [ "$apex_slow" = "1" ]; then
+              echo "::warning::/$loc/ slow (${best}s) AND origin slow (${otime}s) — origin issue, not the Worker"
+            fi
+          done
+          echo "regression=$regression" >> "$GITHUB_OUTPUT"
+
+      # Auto-recover: roll the Worker back to the previous (good) deployment the
+      # moment a stall regression is detected, so prod doesn't sit broken waiting
+      # for a human. Only fires on the apex-slow + origin-fast verdict above.
+      - name: Auto-rollback Worker on stall regression
+        if: steps.regression.outputs.regression == '1'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ env.CF_API_TOKEN }}
+          accountId: ${{ env.CF_ACCOUNT_ID }}
+          workingDirectory: infra/cloudflare-worker
+          command: 'rollback --message "auto-rollback - deploy regression check detected a shard stall"'
+
+      - name: Fail the job on regression
+        if: steps.regression.outputs.regression == '1'
+        run: |
+          echo "::error::Worker rolled back — a shard stall regression was detected post-deploy. Investigate the diff before redeploying."
+          exit 1
