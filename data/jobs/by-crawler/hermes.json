@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-06-11T12:44:38.282Z",
+  "assembledAt": "2026-06-11T22:46:47.328Z",
   "jobs": [
     {
       "id": "hermes-dea5392486ce",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/19709/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:44:36.040Z",
+      "crawledAt": "2026-06-11T22:46:44.635Z",
       "addressLocality": "Gstaad, Bern, Switzerland",
       "addressRegion": "Gstaad, Bern, Switzerland",
       "addressCountry": "CH",
@@ -67,8 +67,8 @@
           "cdi-sales-associate-gstaad-w-m-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:25.691Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:25.691Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -114,7 +114,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/20217/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:44:35.442Z",
+      "crawledAt": "2026-06-11T22:46:43.993Z",
       "addressLocality": "Basel-Stadt, Switzerland",
       "addressRegion": "Basel-Stadt, Switzerland",
       "addressCountry": "CH",
@@ -137,24 +137,24 @@
           "Work with and support the team to ensure a harmonious customer experience and shared success."
         ]
       },
+      "previousSlugs": [
+        "cdi-sales-advisor-basel-60-w-m-hermes-ch",
+        "cdi-sales-berater-basel-60-w-m-hermes-basel-stadt-switzerland",
+        "cdi-vertriebsberater-basel-60-w-m-hermes-basel-stadt-switzerland"
+      ],
       "previousSlugsByLocale": {
+        "it": [
+          "cdi-sales-advisor-basel-60-w-m-hermes-ch"
+        ],
         "de": [
           "cdi-sales-berater-basel-60-w-m-hermes-basel-stadt-switzerland",
           "cdi-vertriebsberater-basel-60-w-m-hermes-basel-stadt-switzerland",
-          "cdi-sales-advisor-basel-60-w-m-hermes-ch"
-        ],
-        "it": [
           "cdi-sales-advisor-basel-60-w-m-hermes-ch"
         ],
         "fr": [
           "cdi-sales-advisor-basel-60-w-m-hermes-ch"
         ]
       },
-      "previousSlugs": [
-        "cdi-sales-advisor-basel-60-w-m-hermes-ch",
-        "cdi-sales-berater-basel-60-w-m-hermes-basel-stadt-switzerland",
-        "cdi-vertriebsberater-basel-60-w-m-hermes-basel-stadt-switzerland"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:25.390Z",
       "salaryMin": 49500,
@@ -202,7 +202,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21420/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:44:34.842Z",
+      "crawledAt": "2026-06-11T22:46:43.368Z",
       "addressLocality": "Gstaad, Bern, Switzerland",
       "addressRegion": "Gstaad, Bern, Switzerland",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:44:34.279Z",
+      "crawledAt": "2026-06-11T22:46:42.744Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -346,7 +346,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21845/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:44:33.680Z",
+      "crawledAt": "2026-06-11T22:46:42.102Z",
       "addressLocality": "Brügg BE, Bern, Switzerland",
       "addressRegion": "Brügg BE, Bern, Switzerland",
       "addressCountry": "CH",
@@ -387,8 +387,8 @@
           "cdi-directeur-de-la-communication-h-f-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:24.484Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:24.484Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -434,7 +434,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21867/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:44:33.069Z",
+      "crawledAt": "2026-06-11T22:46:41.468Z",
       "addressLocality": "Brügg BE, Bern, Switzerland",
       "addressRegion": "Brügg BE, Bern, Switzerland",
       "addressCountry": "CH",
@@ -472,8 +472,8 @@
           "cdi-responsable-de-collection-h-f-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:24.183Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:24.183Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -519,7 +519,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21898/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-11T12:44:32.497Z",
+      "crawledAt": "2026-06-11T22:46:40.816Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "Lugano, Ticino, Switzerland",
       "addressCountry": "CH",
@@ -581,7 +581,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21861/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:44:31.919Z",
+      "crawledAt": "2026-06-11T22:46:40.129Z",
       "addressLocality": "Crans-Montana, Valais, Switzerland",
       "addressRegion": "Crans-Montana, Valais, Switzerland",
       "addressCountry": "CH",
@@ -624,8 +624,8 @@
           "cdi-conseiller-de-vente-crans-montana-80-f-h-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:23.580Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:23.580Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -671,7 +671,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:44:31.328Z",
+      "crawledAt": "2026-06-11T22:46:39.488Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -717,8 +717,8 @@
           "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -764,7 +764,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22036/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:44:30.754Z",
+      "crawledAt": "2026-06-11T22:46:38.822Z",
       "addressLocality": "Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -789,8 +789,8 @@
           "cdd-renfort-comptable-f-h-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-11T07:53:02.258Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T07:53:02.258Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -835,7 +835,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22205/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:44:30.187Z",
+      "crawledAt": "2026-06-11T22:46:38.187Z",
       "addressLocality": "Lugano, Ticino, Switzerland",
       "addressRegion": "Lugano, Ticino, Switzerland",
       "addressCountry": "CH",
@@ -879,8 +879,8 @@
           "cdi-floor-manager-lugano-w-m-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:22.668Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:22.668Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -926,7 +926,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22355/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:44:29.590Z",
+      "crawledAt": "2026-06-11T22:46:37.537Z",
       "addressLocality": "St. Moritz, Graubuenden, Switzerland",
       "addressRegion": "St. Moritz, Graubuenden, Switzerland",
       "addressCountry": "CH",
@@ -966,8 +966,8 @@
           "cdd-summer-support-st-mortiz-f-h-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:22.360Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:22.360Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1013,7 +1013,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21860/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:44:29.011Z",
+      "crawledAt": "2026-06-11T22:46:36.881Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "Zurich, Switzerland",
       "addressCountry": "CH",
@@ -1060,8 +1060,8 @@
           "cdi-verkaufsberater-experte-art-de-vivre-f-h-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:22.058Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:22.058Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1107,7 +1107,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22031/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:44:28.398Z",
+      "crawledAt": "2026-06-11T22:46:35.958Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -1149,8 +1149,8 @@
           "cdd-maintenance-project-coordinateur-f-h-hermes-geneve-geneva-switzerland"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:21.737Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:21.737Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1195,7 +1195,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:44:27.821Z",
+      "crawledAt": "2026-06-11T22:46:35.309Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
