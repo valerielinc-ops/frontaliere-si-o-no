@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -236,6 +236,33 @@ async function fetchJobListings() {
 }
 
 /**
+ * Fetch the full schema.org JobPosting description (HTML) from a Straumann
+ * detail page. The Phenom listing widget only returns a short `descriptionTeaser`;
+ * the SSR detail page carries the full description in a JSON-LD <script>. Returns
+ * '' on any failure so the caller falls back to the teaser.
+ */
+async function fetchStraumannDetailDescription(url) {
+  if (!url || !/^https?:\/\//.test(url)) return '';
+  try {
+    const html = await fetchHtml(url, { timeoutMs: 15000 });
+    if (!html) return '';
+    const blocks = [...html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => m[1]);
+    for (const block of blocks) {
+      try {
+        const data = JSON.parse(block);
+        const arr = Array.isArray(data) ? data : [data];
+        for (const o of arr) {
+          if (String(o?.['@type'] || '').includes('JobPosting') && o.description) {
+            return String(o.description);
+          }
+        }
+      } catch { /* skip malformed JSON-LD block */ }
+    }
+  } catch { /* network/timeout → caller falls back to the teaser */ }
+  return '';
+}
+
+/**
  * Fetch all Straumann jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -261,9 +288,13 @@ export async function fetchAllStraumannJobs() {
 
     const location = normalizeSpace(listing.location || listing.city || '') || HQ.city;
     const canton = inferSwissTargetCanton(location) || HQ.canton;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
     const publicUrl = listing.url || CAREER_URL;
+    // The Phenom listing only carries a short `descriptionTeaser`; fetch the FULL
+    // schema.org JobPosting description from the detail page (verified ~400 words)
+    // so jobs aren't thin → boilerplate-padded → boilerplate-guard failures.
+    const detailDescHtml = await fetchStraumannDetailDescription(publicUrl);
+    const descriptionHtml = detailDescHtml || listing.description || '';
+    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} straumann ch`);

@@ -1,18 +1,19 @@
 {
   "key": "emmi",
   "label": "Emmi",
-  "generatedAt": "2026-06-10T08:25:11.624Z",
-  "total": 63,
-  "newCount": 63,
-  "updatedCount": 0,
+  "generatedAt": "2026-06-10T22:34:50.876Z",
+  "total": 61,
+  "newCount": 0,
+  "updatedCount": 61,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2013558,
-  "avgDurationMs": 2013558,
+  "durationMs": 3551,
+  "avgDurationMs": 3551,
   "durationHistory": [
-    2013558
+    3551
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "emmi-689f37e21ec8",
       "slug": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/39379c6c-1d78-47fc-934a-b516eb0ad3de",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.161Z",
+      "crawledAt": "2026-06-10T22:34:48.280Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -40,11 +41,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19507",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.161Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -60,7 +62,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/leiter-in-produktionsplanung-warendisposition/fc719719-8f8f-4313-be08-b2d59d40030a",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.164Z",
+      "crawledAt": "2026-06-10T22:34:48.283Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -75,11 +77,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19486",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.164Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -95,7 +98,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-uht-past/4663aedb-fe6b-467a-99c5-77c61e81dc47",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.165Z",
+      "crawledAt": "2026-06-10T22:34:48.284Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -110,11 +113,13 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19480",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T07:51:39.165Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -130,7 +135,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-in-der-einmischung/753948d8-ad04-4bde-954a-8a624f3e990f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.171Z",
+      "crawledAt": "2026-06-10T22:34:48.292Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -145,11 +150,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19447",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.171Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -165,7 +171,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/speditionsmitarbeiter-in/e1008e10-bf78-4390-8319-b98f666c548b",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.173Z",
+      "crawledAt": "2026-06-10T22:34:48.294Z",
       "addressLocality": "Kaltbach",
       "postalCode": "6212",
       "addressRegion": "Luzern",
@@ -180,11 +186,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19435",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.173Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -200,7 +207,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-kaesereiberei/3775b760-9faa-41b6-8390-8928540ae0c1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.174Z",
+      "crawledAt": "2026-06-10T22:34:48.295Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -215,11 +222,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19421",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.174Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -235,7 +243,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin/f101bfd9-ad40-4ae8-9f24-7b64118bdc87",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.176Z",
+      "crawledAt": "2026-06-10T22:34:48.296Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -250,11 +258,13 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=18919",
-      "_qualityScore": 70,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T07:51:39.176Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -270,7 +280,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-oder-milchtechnologe/537438de-a408-407a-a9c5-2b40051c5521",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.176Z",
+      "crawledAt": "2026-06-10T22:34:48.297Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressRegion": "Graubünden",
@@ -285,11 +295,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19382",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.176Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -305,7 +316,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/automatiker-in-betriebselektriker-in/2ff4ff6e-ef59-44f7-a5d3-67b4897ce106",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.177Z",
+      "crawledAt": "2026-06-10T22:34:48.298Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -320,11 +331,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19253",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.177Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -340,7 +352,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/transportdisponent-in/aed43a16-f315-41f3-8d40-bf7468a4d649",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.177Z",
+      "crawledAt": "2026-06-10T22:34:48.300Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -355,11 +367,12 @@
       "featured": false,
       "postedDate": "2026-06-03",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19196",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.177Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -375,7 +388,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/teamleiter-in-empfang/690289a4-f1f9-4167-a005-21feefb40986",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.178Z",
+      "crawledAt": "2026-06-10T22:34:48.301Z",
       "addressLocality": "Ostermundigen",
       "postalCode": "3072",
       "addressRegion": "Bern",
@@ -390,11 +403,12 @@
       "featured": false,
       "postedDate": "2026-06-02",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19474",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.178Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -410,7 +424,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-abfuellung/d5784236-a64c-470e-8e84-4545873702b8",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.178Z",
+      "crawledAt": "2026-06-10T22:34:48.301Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -425,11 +439,12 @@
       "featured": false,
       "postedDate": "2026-06-02",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19440",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.178Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -445,7 +460,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/kundenberater-aussendienst-foodservice/4e7be1a8-09c6-45c1-903e-7fc310386902",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.179Z",
+      "crawledAt": "2026-06-10T22:34:48.302Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -460,11 +475,12 @@
       "featured": false,
       "postedDate": "2026-06-01",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19468",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.179Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -480,7 +496,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/hr-business-partner/fad5cb13-0727-4e10-b014-69dff72f8dbe",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.183Z",
+      "crawledAt": "2026-06-10T22:34:48.307Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -495,11 +511,12 @@
       "featured": false,
       "postedDate": "2026-06-01",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19300",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.183Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -515,7 +532,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/verkaeufer-in-emmi-shop-befristet/15faf3bc-7ec4-40aa-8647-e598357ca181",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.184Z",
+      "crawledAt": "2026-06-10T22:34:48.307Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -530,11 +547,12 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19472",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.184Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -550,7 +568,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/chauffeuse-oder-chauffeur-kategorie-c-e/d3f4a5a5-b32f-4783-a18e-b25461e981fb",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.184Z",
+      "crawledAt": "2026-06-10T22:34:48.308Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -565,11 +583,12 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19405",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.184Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -585,7 +604,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/c5bccc70-53fd-437e-ada5-fc7f125a0172",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.184Z",
+      "crawledAt": "2026-06-10T22:34:48.308Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -600,11 +619,12 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19366",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.184Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -620,7 +640,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/hr-digital-solutions-mit-fokus-talent-management/7dd000d0-bb1c-4c60-a3eb-0a02ad6285c1",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.185Z",
+      "crawledAt": "2026-06-10T22:34:48.309Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -635,11 +655,12 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19425",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.185Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -655,7 +676,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/milchtechnologin-milchtechnologe/a51d1937-08a4-4d3f-a74c-4068d84e9d37",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.186Z",
+      "crawledAt": "2026-06-10T22:34:48.310Z",
       "addressLocality": "Frenkendorf",
       "postalCode": "4402",
       "addressRegion": "Basel-Landschaft",
@@ -670,11 +691,12 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19424",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.186Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -690,7 +712,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/rohstoffvorbereiter-in/55e15cc7-f2a3-40da-bdef-9b17f4ff6a2e",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.187Z",
+      "crawledAt": "2026-06-10T22:34:48.310Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -705,11 +727,12 @@
       "featured": false,
       "postedDate": "2026-05-26",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19317",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.187Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -725,7 +748,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/techniker-in-heizung-lueftung-klima-sanitaer-hlks/2e34c8ca-3ee6-4cb8-8069-d5bd266878af",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.188Z",
+      "crawledAt": "2026-06-10T22:34:48.311Z",
       "addressLocality": "Dagmersellen",
       "postalCode": "6252",
       "addressRegion": "Luzern",
@@ -740,46 +763,12 @@
       "featured": false,
       "postedDate": "2026-05-26",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19214",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.188Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "emmi-c5b0c6ab43af",
-      "slug": "vendeur-vendeuse-crissier-40-emmi-ch",
-      "company": "Emmi",
-      "companyKey": "emmi",
-      "companyDomain": "emmi.com",
-      "title": "Vendeur / Vendeuse -Crissier - 40%",
-      "location": "Crissier, Vaud",
-      "canton": "VD",
-      "url": "https://jobs.emmi.com/postes-vacants/vendeur-vendeuse-crissier/9c102a8e-3159-4800-a17f-bf97761ee686",
-      "source": "Emmi Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:51:39.191Z",
-      "addressLocality": "Crissier",
-      "postalCode": "1023",
-      "addressRegion": "Vaud",
-      "streetAddress": "Chemin de Saugy 1",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Food & Beverage (dairy)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/fr/apply?id=19351",
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -795,7 +784,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/fachmitarbeiter-in-produktionslogistik/2a8c4fd5-fd37-41eb-b0cb-af72d3efdd01",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.191Z",
+      "crawledAt": "2026-06-10T22:34:48.311Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -810,11 +799,12 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19312",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.191Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -830,7 +820,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/35574ad9-df02-4c3a-8b5b-93457d599926",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.192Z",
+      "crawledAt": "2026-06-10T22:34:48.313Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -845,11 +835,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19350",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.192Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -865,7 +856,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-abfuellung/b3153e36-3f16-484e-b776-972d79cfc7d7",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.193Z",
+      "crawledAt": "2026-06-10T22:34:48.314Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -880,11 +871,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19360",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.193Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -900,7 +892,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-aufbereitung/2dbc0cd7-8b54-40d6-8f34-121cf6aab49f",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.194Z",
+      "crawledAt": "2026-06-10T22:34:48.315Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -915,11 +907,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19339",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.194Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -935,7 +928,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/maschinenfuehrer-in-spezialitaeten/24bb88d3-8866-4d23-8caa-e2df8bf8caf0",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.195Z",
+      "crawledAt": "2026-06-10T22:34:48.316Z",
       "addressLocality": "Bischofszell",
       "postalCode": "9220",
       "addressRegion": "Thurgau",
@@ -950,11 +943,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19334",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.195Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -970,7 +964,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-weiterverpackung/51eda6e6-5b57-4396-8b4b-db7523b5a140",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.195Z",
+      "crawledAt": "2026-06-10T22:34:48.317Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "Aargau",
@@ -985,11 +979,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19185",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.195Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1005,7 +1000,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-kaeserei/32013d8d-c3d8-4d21-9824-0322e5b1586d",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.196Z",
+      "crawledAt": "2026-06-10T22:34:48.318Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "Luzern",
@@ -1020,11 +1015,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19188",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.196Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1040,7 +1036,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/linienfuehrer-in-kaeserei/4ae09229-db45-4d29-a34a-56eacaa58742",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:51:39.196Z",
+      "crawledAt": "2026-06-10T22:34:48.319Z",
       "addressLocality": "Kaltbach",
       "postalCode": "6212",
       "addressRegion": "Luzern",
@@ -1055,16 +1051,52 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19136",
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-06-10T07:51:39.196Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "emmi-8b683314dab2",
+      "slug": "anlagenfuhrer-in-team-butter-emmi-ch",
+      "company": "Emmi",
+      "companyKey": "emmi",
+      "companyDomain": "emmi.com",
+      "title": "Anlagenführer:in Team Butter",
+      "location": "Suhr, Aargau",
+      "canton": "AG",
+      "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-team-butter/ef778268-626d-44ea-8535-c71336e604c3",
+      "source": "Emmi Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T22:34:48.319Z",
+      "addressLocality": "Suhr",
+      "postalCode": "5034",
+      "addressRegion": "Aargau",
+      "streetAddress": "Obertelweg 2",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Food & Beverage (dairy)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-17",
+      "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_ROT/ProdEmmi/de/apply?id=19088",
+      "firstSeenAt": "2026-06-10T07:51:39.196Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

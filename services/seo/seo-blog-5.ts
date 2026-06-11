@@ -43286,6 +43286,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-fonte-ticino-calcolatore-2026': {
+    title: 'Imposte alla fonte Ticino: calcolatore e aliquote 2026',
+    description: 'Guida pratica al calcolo dell\'imposta alla fonte in Ticino per il 2026. Scopri come funzionano le aliquote, le deduzioni e la procedura di rettifica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, alla, fonte, calcolatore',
+    ogTitle: 'Imposte alla fonte Ticino 2026: Calcolatore e Guida Fiscale',
+    ogDescription: 'Guida pratica al calcolo dell\'imposta alla fonte in Ticino per il 2026. Scopri come funzionano le aliquote, le deduzioni e la procedura di rettifica.',
+    canonicalPath: '/articoli-frontaliere/imposta-fonte-ticino-calcolatore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte alla fonte Ticino: calcolatore e aliquote 2026",
+      "description": "Guida pratica al calcolo dell'imposta alla fonte in Ticino per il 2026. Scopri come funzionano le aliquote, le deduzioni e la procedura di rettifica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-fonte-ticino-calcolatore-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con ufficio in primo piano"
+      },
+      "datePublished": "2026-06-11T00:28:57+00:00",
+      "dateModified": "2026-06-11T00:28:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposta-fonte-ticino-calcolatore-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cargo-chiasso-lavoro-saperi': {
+    title: 'Cargo taglia, ma a Chiasso ci sono i saperi per creare lavoro',
+    description: 'Il settore merci ferroviario a Chiasso affronta tagli, ma le competenze locali possono sostenere la ripresa occupazionale. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cargo, taglia, chiasso, sono',
+    ogTitle: 'Cargo a Chiasso: i saperi per creare lavoro',
+    ogDescription: 'Situazione settore merci a Chiasso, manifestazioni e opportunità di rilancio nel Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/cargo-chiasso-lavoro-saperi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cargo taglia, ma a Chiasso ci sono i saperi per creare lavoro",
+      "description": "Il settore merci ferroviario a Chiasso affronta tagli, ma le competenze locali possono sostenere la ripresa occupazionale. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cargo-chiasso-lavoro-saperi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori e treni nel settore merci a Chiasso, Ticino"
+      },
+      "datePublished": "2026-06-11T00:53:37+00:00",
+      "dateModified": "2026-06-11T00:53:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cargo-chiasso-lavoro-saperi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-richiesta-permesso-g-step-by-step-2026': {
+    title: 'Richiesta Permesso G Step by Step 2026 | Frontaliere Ticino',
+    description: 'Procedura completa per richiedere il Permesso G nel 2026: documenti, datore di lavoro, ufficio cantonale, tempi e costi per frontalieri Italia-Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiesta, permesso, step, completa',
+    ogTitle: 'Richiesta Permesso G Step by Step 2026',
+    ogDescription: 'Tutti i dettagli sulla procedura di richiesta del Permesso G per frontalieri nel Canton Ticino nel 2026: documenti, requisiti, tempi e costi.',
+    canonicalPath: '/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiesta Permesso G Step by Step 2026",
+      "description": "Procedura completa per richiedere il Permesso G nel 2026: documenti, datore di lavoro, ufficio cantonale, tempi e costi per frontalieri Italia-Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiesta-permesso-g-step-by-step-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale per la gestione dei permessi di lavoro per frontalieri in Ticino"
+      },
+      "datePublished": "2026-06-11T02:18:14+00:00",
+      "dateModified": "2026-06-11T02:18:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

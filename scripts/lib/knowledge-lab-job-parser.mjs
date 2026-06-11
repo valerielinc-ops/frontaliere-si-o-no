@@ -9,7 +9,7 @@
  * No detail page fetching needed — all data in one API response.
  */
 
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -108,17 +108,20 @@ export function buildKnowledgeLabLocalizedContent(job = {}) {
 }
 
 /**
- * Check whether a job is relevant to any target Swiss canton.
- */
-export function isKnowledgeLabTicinoRelevant(job = {}) {
-  const loc = normalizeSpace(`${job.location} ${job.state}`);
-  if (!loc) return false;
-  return isTargetSwissLocation(loc);
-}
-
-/**
- * Infer canton code from a job's branch info via the BFS municipality dataset.
+ * Infer canton code (2-letter) from a job's branch city via the BFS
+ * municipality dataset, CH-wide across all 26 cantons.
+ *
+ * Resolves on the CLEANEST single signal — the city string ALONE. A
+ * combined "city + state" string can make inferAnyCanton return the wrong
+ * canton because TARGET_CANTONS are checked first (array order). Falls back
+ * to the state label only when the city alone does not resolve.
+ *
+ * Returns '' for non-CH / unresolved locations (caller drops these).
  */
 export function inferKnowledgeLabCanton(job = {}) {
-  return inferAnyCanton(normalizeSpace(`${job.location} ${job.state}`)) || 'CH';
+  const city = normalizeSpace(job.location);
+  const fromCity = city ? inferAnyCanton(city) : '';
+  if (fromCity) return fromCity;
+  const state = normalizeSpace(job.state);
+  return state ? inferAnyCanton(state) : '';
 }

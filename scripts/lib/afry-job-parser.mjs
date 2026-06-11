@@ -5,11 +5,16 @@
  *   Returns all global jobs as JSON: { Adverts: [...] }
  *   Each advert: { Id, Title, CompetenceAreas, Language, Location, Cities, Countries, LastApplyDate, DetailUrl }
  *
+ * AFRY is a national engineering/consulting firm: we keep ALL Swiss jobs
+ * (country=CH) across every canton, resolving the canton per job from the
+ * cleanest single city signal. No Ticino/Grigioni pre-filter.
+ *
  * Detail pages: https://afry.com{DetailUrl}
  *   Description in HTML, apply link via SmartRecruiters
  */
 
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 const BASE_URL = 'https://afry.com';
@@ -206,22 +211,31 @@ export function parseSmartRecruitersPage(html = '') {
 }
 
 /**
- * Check if an AFRY Swiss job is in any target canton.
- */
-export function isAfryTicinoRelevant(job = {}) {
-  const cities = job.cities || [];
-  const title = String(job.title || '').toLowerCase();
-  const location = String(job.location || '').toLowerCase();
-  return isTargetSwissLocation(`${title} ${location} ${cities.join(' ')}`);
-}
-
-/**
- * Infer canton from city name via the BFS municipality dataset.
+ * Infer a Swiss canton (2-letter) for an AFRY job from its cleanest single
+ * city signal. AFRY is a national engineering firm, so jobs span all 26
+ * cantons. We resolve the canton from the FIRST Swiss city alone — never a
+ * "city + region/location" combined string — because feeding multiple tokens
+ * to inferAnyCanton can match the wrong canton via the TARGET_CANTONS array
+ * order. Falls back to the joined location only when no city is present.
+ * Returns '' if the signal does not resolve to a Swiss canton.
  */
 export function inferAfryCanton(job = {}) {
   const cities = job.cities || [];
-  const location = String(job.location || '').toLowerCase();
-  return inferAnyCanton(`${location} ${cities.join(' ')}`);
+  const cleanCity = String(cities[0] || '').trim();
+  if (cleanCity) {
+    const canton = inferAnyCanton(cleanCity);
+    if (canton) return canton;
+  }
+  return inferAnyCanton(String(job.location || '').toLowerCase());
+}
+
+/**
+ * Check if an AFRY Swiss job resolves to a real Swiss canton (CH-wide).
+ * Drops non-CH / unresolved jobs. Never defaults unresolved jobs to TI.
+ */
+export function isAfrySwissCanton(job = {}) {
+  const canton = inferAfryCanton(job);
+  return Boolean(canton) && isTargetCanton(canton);
 }
 
 /**

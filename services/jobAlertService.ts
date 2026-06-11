@@ -30,6 +30,16 @@ export interface JobAlertConfig {
   cantonFilter?: string[] | null;
   frequency: 'daily' | 'weekly';
   locale: 'it' | 'en' | 'de' | 'fr';
+  /**
+   * Provenance of a one-tap subscription: the job-detail page the user was on
+   * when they subscribed. Optional — only set by `subscribeJobAlertOneTap` (the
+   * job-detail prompt). Stored for later funnel analysis (which job / category
+   * drives subscriptions), NOT used for matching. `sourceJobSlug` is the URL
+   * slug, `sourceJobUrl` the full canonical URL, `sourceJobTitle` the job title.
+   */
+  sourceJobSlug?: string | null;
+  sourceJobUrl?: string | null;
+  sourceJobTitle?: string | null;
 }
 
 export interface JobAlert extends JobAlertConfig {
@@ -112,6 +122,7 @@ export async function createAlert(
     setDoc,
     query,
     where,
+    orderBy,
     getDocs,
     serverTimestamp,
   } = await import('firebase/firestore');
@@ -119,10 +130,20 @@ export async function createAlert(
   const normalizedEmail = normalizeEmail(email);
 
   // Enforce per-user limit across all subscriber docs.
+  // NOTE: the `orderBy('createdAt', 'desc')` is REQUIRED, not cosmetic — it makes
+  // this collectionGroup query reuse the deployed composite index
+  // (userId ASC, active ASC, createdAt DESC), identical to getUserAlerts below.
+  // Without it the equality-only query needs a separate (userId, active) index
+  // that was never deployed (firestore.indexes.json is not applied by CI —
+  // deploy-firestore-rules.yml ships `firestore:rules` only), so getDocs threw
+  // FAILED_PRECONDITION ("query requires an index") and createAlert aborted
+  // before writing — surfacing as the "Non sono riuscito a creare l'alert" toast
+  // for every newsletter/autologin user (the exact target of the job-detail prompt).
   const existingQ = query(
     collectionGroup(db, ALERTS_SUBCOLLECTION),
     where('userId', '==', userId),
     where('active', '==', true),
+    orderBy('createdAt', 'desc'),
   );
   const existing = await getDocs(existingQ);
   if (existing.size >= MAX_ALERTS_PER_USER) {
@@ -160,6 +181,11 @@ export async function createAlert(
     cantonFilter,
     frequency: config.frequency,
     locale: config.locale || 'it',
+    // Provenance (one-tap subscriptions from the job-detail prompt). Only
+    // written when provided — Firestore rejects `undefined`, so default to null.
+    sourceJobSlug: config.sourceJobSlug ?? null,
+    sourceJobUrl: config.sourceJobUrl ?? null,
+    sourceJobTitle: config.sourceJobTitle ?? null,
     // State.
     active: true,
     createdAt: serverTimestamp(),
@@ -240,16 +266,40 @@ export async function deleteAlert(email: string, alertId: string): Promise<void>
 }
 
 /**
+ * Strip emoji / pictographs (and their variation selectors + ZWJ) from a
+ * keyword, preserving case and the textual label. Category labels surface as
+ * e.g. "💻 Tecnologia"; the emoji must NOT end up in the stored keyword because
+ * `matchJobToAlert` (scripts/send-job-alerts.mjs) matches keywords as a
+ * substring of the job title/description — and no job text contains "💻", so an
+ * emoji-prefixed keyword would match zero jobs and the alert would never fire.
+ */
+export function stripKeywordEmoji(s: string): string {
+  // `\p{Extended_Pictographic}` covers every emoji pictograph (future-proof vs
+  // hand-maintained codepoint ranges, which missed e.g. ⭐ U+2B50, ❤️ U+2764) —
+  // plus variation selectors (U+FE0F) and the ZWJ (U+200D) that glue compound
+  // emoji. A category label gaining a new emoji must never re-introduce the
+  // zero-match failure this strip prevents.
+  return (s || '')
+    .replace(/[\p{Extended_Pictographic}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
  * Normalize a free-form keyword/category string for stable comparison.
- * Lowercases, trims, strips combining diacritics (NFD), and collapses
- * internal whitespace to a single space.
+ * Strips emoji, lowercases, trims, strips combining diacritics (NFD), and
+ * collapses internal whitespace to a single space.
+ *
+ * Emoji stripping keeps comparison consistent with the stored (emoji-free)
+ * keyword: dedupe (`findMatchingAlertForCategory`) and the per-category gating
+ * key must treat "💻 Tecnologia" and "Tecnologia" as the same category.
  *
  * Used by:
  *  - `findMatchingAlertForCategory` (dedupe across surfaces).
  *  - `jobDetailAlertGating` (per-category cooldown key).
  */
 export function normalizeKeyword(s: string): string {
-  return (s || '')
+  return stripKeywordEmoji(s)
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
@@ -278,26 +328,44 @@ export function findMatchingAlertForCategory(
 }
 
 /**
+ * Provenance of a one-tap subscription — the job the user was viewing when they
+ * tapped "Sì, attiva" on the job-detail prompt. Stored for funnel analysis.
+ */
+export interface JobAlertSource {
+  slug?: string | null;
+  url?: string | null;
+  title?: string | null;
+}
+
+/**
  * 1-tap subscribe helper for the job-detail prompt.
  *
- * Builds a canonical `JobAlertConfig` (keyword = localized category, weekly
+ * Builds a canonical `JobAlertConfig` (keyword = emoji-stripped category, weekly
  * frequency, no other filters) and forwards to `createAlert`. The max-3
  * active-alerts limit enforced by `createAlert` propagates to the caller.
+ *
+ * The category label carries a leading emoji (e.g. "💻 Tecnologia"); it is
+ * stripped via `stripKeywordEmoji` so the stored keyword can actually match job
+ * text (see that helper). `source` records which job drove the subscription.
  */
 export async function subscribeJobAlertOneTap(
   userId: string,
   email: string,
   category: string,
   locale: 'it' | 'en' | 'de' | 'fr',
+  source?: JobAlertSource,
 ): Promise<JobAlert> {
   const config: JobAlertConfig = {
-    keywords: [category.trim()],
+    keywords: [stripKeywordEmoji(category)],
     locations: [],
     contractTypes: [],
     sectors: [],
     cantonFilter: null,
     frequency: 'weekly',
     locale,
+    sourceJobSlug: source?.slug ?? null,
+    sourceJobUrl: source?.url ?? null,
+    sourceJobTitle: source?.title ?? null,
   };
   return createAlert(userId, email, config);
 }

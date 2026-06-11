@@ -1,8 +1,11 @@
 name: Reconcile done-but-open follow-ups
 
-# Zero-Claude. Flags `follow-up` issues whose cited code tokens already exist in the
-# cited file (satisfied by a later PR with no `Closes #N`) → advisory comment +
-# `maybe-resolved` label. NEVER closes; human does the final close. See
+# Zero-Claude. Two-tier, double-confirm-across-time. First sight of a `follow-up` whose
+# cited code tokens already exist in the cited file (satisfied by a later PR with no
+# `Closes #N`) → advisory comment + `maybe-resolved` label (grace window). If a LATER run
+# still finds it resolved AND it already carries `maybe-resolved` AND it's single-item AND
+# unblocked → AUTO-CLOSE (`fu-resolved-auto`, reason completed). Reversible; reopens on
+# recurrence. Set repo/env `NO_AUTOCLOSE=1` to fall back to flag-only. See
 # scripts/ci/reconcile-followups.mjs + FOLLOWUP.md § Supersede detection.
 
 on:
@@ -11,7 +14,12 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Detect + print only, no comment/label writes.'
+        description: 'Detect + print only, no comment/label/close writes.'
+        required: false
+        default: 'false'
+        type: string
+      no_autoclose:
+        description: 'Force tier-1 only (flag, never auto-close).'
         required: false
         default: 'false'
         type: string
@@ -44,4 +52,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
+          # Repo-var kill switch (set vars.RECONCILE_NO_AUTOCLOSE=1) OR per-run input → flag-only.
+          NO_AUTOCLOSE: ${{ (github.event.inputs.no_autoclose == 'true' || vars.RECONCILE_NO_AUTOCLOSE == '1') && '1' || '' }}
         run: node scripts/ci/reconcile-followups.mjs

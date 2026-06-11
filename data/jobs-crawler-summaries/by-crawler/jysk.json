@@ -1,18 +1,46 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-06-09T22:37:55.508Z",
-  "total": 14,
-  "newCount": 0,
+  "generatedAt": "2026-06-10T22:53:45.485Z",
+  "total": 16,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 39661,
-  "avgDurationMs": 39661,
+  "unchangedCount": 13,
+  "durationMs": 40715,
+  "avgDurationMs": 40715,
   "durationHistory": [
-    39661
+    40715
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-t9nhwx",
+      "slug": "facility-coordinatore-a-80-jysk-zofingen-t9nhwx",
+      "company": "JYSK",
+      "title": "Facility Coordinator (a) 80%",
+      "location": "Zofingen",
+      "canton": "AG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/facility-coordinator-80",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-06-10T22:53:44.975Z",
+      "firstSeenAt": "2026-06-10T22:53:44.975Z",
+      "sourceLang": "de",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-qrsmyr",
@@ -81,6 +109,40 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-7v3b0u",
+      "slug": "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-basel-jysk-pratteln-7v3b0u",
+      "company": "JYSK",
+      "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Basel",
+      "location": "Pratteln",
+      "canton": "BL",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-basel",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-06-10T12:19:00.859Z",
+      "firstSeenAt": "2026-06-10T12:19:00.859Z",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Pratteln",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "BL",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 19
+      }
+    },
     {
       "id": "company-p6s7zm",
       "slug": "venditore-a-20-aiuto-di-sabato-nel-ramo-davos-jysk-davos",

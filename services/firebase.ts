@@ -43,10 +43,7 @@ const firebaseConfig = {
 const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  GOOGLE_MAPS_API_KEY: '',
  GA_MEASUREMENT_ID: '',
- GITHUB_PAT: '',
- GEMINI_API_KEY: '',
  RECAPTCHA_SITE_KEY: '',
- TWELVEDATA_API_KEY: '',
  GOOGLE_OAUTH_CLIENT_ID: '',
  RESEND_API_KEY: '',
  NEWSLETTER_SECRET: '',

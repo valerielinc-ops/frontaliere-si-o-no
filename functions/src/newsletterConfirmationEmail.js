@@ -103,7 +103,12 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') 
 </html>`;
 }
 
-export async function sendNewsletterConfirmationEmail({ email, locale, sourcePath, resendApiKey, secret, db: injectedDb }) {
+export async function sendNewsletterConfirmationEmail({ email, locale, sourcePath, resendApiKey, secret, db: injectedDb, purpose }) {
+ // purpose 'login' → send the confirm link even to an already-confirmed
+ // subscriber (used as a passwordless sign-in link; the confirm action is a
+ // no-op for them but still mints a custom token for auto-login). The cooldown
+ // guard below still applies to prevent abuse.
+ const isLoginLink = purpose === 'login';
  if (!email || !email.includes('@')) {
  return { success: false, error: 'invalid_email' };
  }
@@ -127,7 +132,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
 
  const data = subscriberDoc.data();
 
- if (data.status === 'confirmed' && data.isActive) {
+ if (data.status === 'confirmed' && data.isActive && !isLoginLink) {
  return { success: false, error: 'already_confirmed' };
  }
 

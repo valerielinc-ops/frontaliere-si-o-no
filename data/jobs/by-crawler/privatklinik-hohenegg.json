@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-06-09T22:56:52.670Z",
+  "assembledAt": "2026-06-10T23:15:18.201Z",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-7be8cb70eb70",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/640332/0061/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:56:49.720Z",
+      "crawledAt": "2026-06-10T23:15:15.759Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -95,6 +95,178 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "privatklinik-hohenegg-34de0aba3a15",
+      "slug": "collaboratore-trice-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-meilen",
+      "slugByLocale": {
+        "it": "collaboratore-trice-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-meilen",
+        "en": "employee-management-disposition-60-100-privatklinik-hohenegg-meilen",
+        "de": "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
+        "fr": "gestion-et-disposition-des-employes-60-100-privatklinik-hohenegg-meilen"
+      },
+      "company": "Privatklinik Hohenegg",
+      "companyKey": "privatklinik-hohenegg",
+      "companyDomain": "hohenegg.ch",
+      "title": "Mitarbeiter/in Eintrittsmanagement & Disposition (60-100%)",
+      "titleByLocale": {
+        "it": "Gestione e smaltimento dei dipendenti (60-100%)",
+        "en": "Employee Management & Disposition (60-100%)",
+        "de": "Mitarbeiter/in Eintrittsmanagement & Disposition (60-100%)",
+        "fr": "Gestion et disposition des employés (60-100%)"
+      },
+      "description": "Mitarbeiter/in Eintrittsmanagement & Disposition (60-100%) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
+      "descriptionByLocale": {
+        "it": "Descrizione\n- Gestione dei dipendenti & Disposition (60-100%) presso la Hohenegg Private Clinic di Meilen, Cantone di Zurigo.\n- Privatklinik Hohenegg AG è un moderno centro di competenza per la psichiatria inpatia, la psicosomatica e la psicoterapia sul lago di Zurigo. Trattiamo adulti con burnout, depressione, ansia, trauma e crisi di vita in un ambiente tranquillo.\n\nCosa offre la Hohenegg\n- Moderno ambiente ospedaliero con alta qualità professionale\nCollaborazione interdisciplinare in un team dedicato\n- Condizioni di lavoro interessanti e opportunità di formazione\n- Bella posizione sul lago di Zurigo in miglia",
+        "en": "Descrizione\n- Employee Management & Disposition (60-100%) at the Hohenegg Private Clinic in Meilen, Canton of Zurich.\n- Privatklinik Hohenegg AG is a modern competence center for inpatient psychiatry, psychosomatics and psychotherapy on Lake Zurich. We treat adults with burnout, depression, anxiety, trauma and life crises in a quiet environment.\n\nCosa offre la Hohenegg\n- Modern hospital environment with high professional quality\nInterdisciplinary collaboration in a dedicated team\n- Attractive employment conditions and training opportunities\n- Beautiful location on Lake Zurich in miles",
+        "de": "Descrizione\n- Mitarbeiter/in Eintrittsmanagement & Disposition (60-100%) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n- Die Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nCosa offre la Hohenegg\n- Modernes Klinikumfeld mit hoher fachlicher Qualität\n- Interdisziplinäre Zusammenarbeit in einem engagierten Team\n- Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n- Wunderschöne Lage am Zürichsee in Meilen",
+        "fr": "Descrizione\n- Gestion et disposition des employés (60-100%) à la clinique privée Hohenegg à Meilen, Canton de Zurich.\n- Privatklinik Hohenegg AG est un centre de compétence moderne pour la psychiatrie, la psychosomatique et la psychothérapie des patients hospitalisés sur le lac Zurich. Nous traitons les adultes avec épuisement, dépression, anxiété, traumatisme et crises de vie dans un environnement calme.\n\nCosa offre la Hohenegg\n- Un environnement hospitalier moderne de haute qualité professionnelle\nCollaboration interdisciplinaire dans une équipe dédiée\n- Des conditions d'emploi attractives et des possibilités de formation\n- Magnifique emplacement sur le lac de Zurich en miles"
+      },
+      "location": "Meilen",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/640332/0053/pub/4/index.html",
+      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:15:15.278Z",
+      "addressLocality": "Meilen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8706",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://apply.refline.ch/640332/0053/pub/4/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "previousSlugs": [
+        "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T12:43:01.245Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "privatklinik-hohenegg-85d3502fdbb6",
+      "slug": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
+      "slugByLocale": {
+        "it": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
+        "en": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+        "de": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+        "fr": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+      },
+      "company": "Privatklinik Hohenegg",
+      "companyKey": "privatklinik-hohenegg",
+      "companyDomain": "hohenegg.ch",
+      "title": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
+      "titleByLocale": {
+        "it": "HF infermiera con un focus sulla psichiatria (60-100%)",
+        "en": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
+        "de": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100 %)",
+        "fr": "Pflegefachperson HF avec Schwerpunkt Psychiatrie (60-100 %)"
+      },
+      "description": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
+      "descriptionByLocale": {
+        "it": "Descrizione\n\nInfermiere HF con un focus sulla psichiatria (60-100%) presso la clinica privata Hohenegg a Meilen, Canton di Zurigo.\n\nPrivatklinik Hohenegg AG è un moderno centro di competenza per la psichiatria inpatia, la psicosomatica e la psicoterapia sul lago di Zurigo. Trattiamo adulti con burnout, depressione, ansia, trauma e crisi di vita in un ambiente tranquillo.\n\nMansioni\n\n- Cura per i pazienti con burnout, depressione, ansia, trauma e crisi di vita\nCollaborazione con un team dedicato in un ambiente clinico moderno\nAttuazione dei piani di trattamento e monitoraggio dei pazienti\nDocumentazione dei trattamenti e della storia dei pazienti\n- Partecipazione agli eventi formativi e sviluppo delle competenze\n\nRequisiti\n\n- Laurea universitaria in psicologia, lavoro sociale o soggetto correlato\nEsperienza professionale in psichiatria o psicosomatica\n- Capacità di lavorare in un team e comunicare con diversi gruppi specializzati\n- Conoscenza della psichiatria, della psicosomatica e della psicoterapia\n- Capacità di documentare e inserire i dati\nImpegno alla formazione e allo sviluppo\n\nCosa di Friamo\n\n- Moderno ambiente ospedaliero con alta qualità professionale\nCollaborazione interdisciplinare in un team dedicato\n- Condizioni di lavoro interessanti e opportunità di formazione\n- Bella posizione sul lago di Zurigo in miglia\n\nContatto\n\nPer favorire e inviare il vostro CV e una breve motivazione alla persona di contatto indicato di seguito:\n\n[Inserisci il nome, il cognome e il numero di Telefono della persona di contatto, nonché la sua posizione all'interno dell'azienda]",
+        "en": "Descrizione\n\nHF nurse with a focus on psychiatry (60-100%) at the Hohenegg private clinic in Meilen, Canton of Zurich.\n\nPrivatklinik Hohenegg AG is a modern competence center for inpatient psychiatry, psychosomatics and psychotherapy on Lake Zurich. We treat adults with burnout, depression, anxiety, trauma and life crises in a quiet environment.\n\nMansioni\n\n- Caring for patients with burnout, depression, anxiety, trauma and life crises\nCollaboration with a dedicated team in a modern clinic environment\nImplementation of treatment plans and monitoring of patients\nDocumentation of treatments and patient history\n- Participation in training events and further development of skills\n\nRequirements\n\n- University degree in psychology, social work or a related subject\nProfessional experience in psychiatry or psychosomatics\n- Ability to work in a team and communicate with different specialist groups\n- Knowledge of psychiatry, psychosomatics and psychotherapy\n- Ability to document and enter data\nCommitment to training and development\n\nCosa of Friamo\n\n- Modern hospital environment with high professional quality\nInterdisciplinary collaboration in a dedicated team\n- Attractive employment conditions and training opportunities\n- Beautiful location on Lake Zurich in miles\n\nContatto\n\nPer favoure mandare il vostro CV e una breve motivazione alla persona di contatto indicata di seguito:\n\n[Inserisci il nome, il cognome e il numero di Telefono della persona di contatto, nonché la sua posizione all'interno dell'azienda]",
+        "de": "## Descrizione\n\nPflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\n## Mansioni\n\n- Pflege von Patienten mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen\n- Zusammenarbeit mit einem engagierten Team in einem modernen Klinikumfeld\n- Umsetzung von Behandlungsplänen und Überwachung von Patienten\n- Dokumentation von Behandlungen und Patientenverläufen\n- Teilnahme an Fortbildungsveranstaltungen und Weiterentwicklung von Fähigkeiten\n\n## Requisiti\n\n- Hochschulabschluss in Psychologie, Sozialarbeit oder einem verwandten Fach\n- Berufserfahrung in der Psychiatrie oder Psychosomatik\n- Fähigkeit zur Arbeit in einem Team und zur Kommunikation mit verschiedenen Fachgruppen\n- Kenntnisse in Psychiatrie, Psychosomatik und Psychotherapie\n- Fähigkeit zur Dokumentation und Dateneingabe\n- Verpflichtung zur Fortbildung und Weiterentwicklung\n\n## Cosa offriamo\n\n- Modernes Klinikumfeld mit hoher fachlicher Qualität\n- Interdisziplinäre Zusammenarbeit in einem engagierten Team\n- Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n- Wunderschöne Lage am Zürichsee in Meilen\n\n## Contatto\n\nPer favore mandare il vostro CV e una breve motivazione alla persona di contatto indicata di seguito:\n\n[Inserisci il nome, il cognome e il numero di telefono della persona di contatto, nonché la sua posizione all'interno dell'azienda]",
+        "fr": "Descrizione\n\nInfirmière HF en psychiatrie (60-100%) à la clinique privée Hohenegg à Meilen, Canton de Zurich.\n\nPrivatklinik Hohenegg AG est un centre de compétence moderne pour la psychiatrie, la psychosomatique et la psychothérapie des patients hospitalisés sur le lac de Zurich. Nous traitons les adultes avec épuisement, dépression, anxiété, traumatisme et crises de vie dans un environnement calme.\n\nMansioni\n\n- S'occuper des patients avec épuisement, dépression, anxiété, traumatismes et crises de vie\nCollaboration avec une équipe dédiée dans un environnement clinique moderne\nMise en œuvre des plans de traitement et suivi des patients\nDocumentation des traitements et des antécédents des patients\n- Participation à des manifestations de formation et développement des compétences\n\nExigences\n\n- Diplôme universitaire en psychologie, travail social ou matière connexe\nExpérience professionnelle en psychiatrie ou psychosomatique\n- Capacité de travailler en équipe et de communiquer avec différents groupes spécialisés\n- Connaissance de la psychiatrie, psychosomatique et psychothérapie\n- Capacité de documenter et d'entrer les données\nEngagement en matière de formation et de développement\n\nCosa de Friamo\n\n- Un environnement hospitalier moderne de haute qualité professionnelle\nCollaboration interdisciplinaire dans une équipe dédiée\n- Des conditions d'emploi attractives et des possibilités de formation\n- Magnifique emplacement sur le lac de Zurich en miles\n\nContatto\n\nPar favori mandare il vostro CV e una breve motivazione alla persona di contatto indicata di seguito:\n\n[Inserisci il nome, il cognome e il numero di Telefono della persona di contatto, nonché la sua posizione all'interno dell'azienda]"
+      },
+      "location": "Meilen",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/640332/0038/pub/12/index.html",
+      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-10T23:15:14.771Z",
+      "addressLocality": "Meilen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8706",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://apply.refline.ch/640332/0038/pub/12/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "firstSeenAt": "2026-06-10T12:43:00.781Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugs": [
+        "dipl-infermiere-a-sup-in-formazione-privatklinik-hohenegg-meilen",
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-meilen",
+        "leitung-human-resources-90-100-privatklinik-hohenegg-ch",
+        "dipl-infirmier-ere-es-en-formation-privatklinik-hohenegg-meilen",
+        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+        "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
+        "diploma-in-nursing-hf-in-training-privatklinik-hohenegg-meilen",
+        "head-of-human-resources-90-100-privatklinik-hohenegg-meilen",
+        "infirmier-specialise-en-psychiatrie-60-100-privatklinik-hohenegg-meilen",
+        "pflegefachperson-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-infermiere-a-sup-in-formazione-privatklinik-hohenegg-meilen",
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-meilen"
+        ],
+        "de": [
+          "leitung-human-resources-90-100-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "dipl-infirmier-ere-es-en-formation-privatklinik-hohenegg-meilen"
+        ]
       }
     }
   ]

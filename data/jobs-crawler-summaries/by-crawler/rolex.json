@@ -1,18 +1,19 @@
 {
   "key": "rolex",
   "label": "Rolex",
-  "generatedAt": "2026-06-10T09:02:52.286Z",
-  "total": 151,
-  "newCount": 151,
-  "updatedCount": 0,
+  "generatedAt": "2026-06-10T23:26:20.501Z",
+  "total": 152,
+  "newCount": 0,
+  "updatedCount": 152,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4268274,
-  "avgDurationMs": 4268274,
+  "durationMs": 234951,
+  "avgDurationMs": 234951,
   "durationHistory": [
-    4268274
+    234951
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rolex-5a877611d254",
       "slug": "controleur-de-gestion-h-f-rolex-ch",
@@ -25,7 +26,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Contr%C3%B4leur-de-gestion-%28HF%29-Gen%C3%A8/1230050101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:51:56.149Z",
+      "crawledAt": "2026-06-10T23:22:39.448Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -39,11 +40,49 @@
       "featured": false,
       "postedDate": "2026-06-10",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Contr%C3%B4leur-de-gestion-%28HF%29-Gen%C3%A8/1230050101/",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T07:51:56.149Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "rolex-0e4de73fbc07",
+      "slug": "technicien-r-d-h-f-prototypes-cadran-rolex-ch",
+      "company": "Rolex",
+      "companyKey": "rolex",
+      "companyDomain": "rolex.com",
+      "title": "Technicien R&D (H/F) - Prototypes Cadran",
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-R&D-%28HF%29-Prototypes-Cadran-Gen%C3%A8/1402842133/",
+      "source": "Rolex Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-10T23:22:40.853Z",
+      "addressLocality": "Genève",
+      "postalCode": "1211",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-R&D-%28HF%29-Prototypes-Cadran-Gen%C3%A8/1402842133/",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T12:51:01.032Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -59,7 +98,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Qualit%C3%A9-Nouveaux-Produits-%28HF%29-Gen%C3%A8/1173042001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:51:57.316Z",
+      "crawledAt": "2026-06-10T23:22:42.271Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -73,11 +112,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Qualit%C3%A9-Nouveaux-Produits-%28HF%29-Gen%C3%A8/1173042001/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:51:57.316Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -93,7 +133,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-BIM-CVSE-%28HF%29-Gen%C3%A8/1392156633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:51:58.486Z",
+      "crawledAt": "2026-06-10T23:22:43.657Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -107,11 +147,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-BIM-CVSE-%28HF%29-Gen%C3%A8/1392156633/",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-06-10T07:51:58.486Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -127,7 +168,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Programme-jeunes-dipl%C3%B4m%C3%A9s-syst%C3%A8mes-d'information-Business-Analyst-PLM-%28HF%29-Gen%C3%A8/1392200533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:51:59.688Z",
+      "crawledAt": "2026-06-10T23:22:45.044Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -141,11 +182,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Programme-jeunes-dipl%C3%B4m%C3%A9s-syst%C3%A8mes-d'information-Business-Analyst-PLM-%28HF%29-Gen%C3%A8/1392200533/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:51:59.688Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -161,7 +203,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-Logistique-%28HF%29-Gen%C3%A8/1392209733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:00.867Z",
+      "crawledAt": "2026-06-10T23:22:46.438Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -175,11 +217,13 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-Logistique-%28HF%29-Gen%C3%A8/1392209733/",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T12:51:05.558Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -195,7 +239,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-technique-%28HF%29-Gen%C3%A8/1402468733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:02.027Z",
+      "crawledAt": "2026-06-10T23:22:47.833Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -209,11 +253,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-technique-%28HF%29-Gen%C3%A8/1402468733/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:02.027Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -229,7 +274,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-M%C3%A9thodes-R%C3%A9pondant-Maintenance-%C3%A0-l'investissement-%28HF%29-Gen%C3%A8/1402421333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:03.185Z",
+      "crawledAt": "2026-06-10T23:22:49.235Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -243,11 +288,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-M%C3%A9thodes-R%C3%A9pondant-Maintenance-%C3%A0-l'investissement-%28HF%29-Gen%C3%A8/1402421333/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:03.185Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -263,7 +309,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Transitaire-CDM-%28HF%29-Gen%C3%A8/1402446233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:04.399Z",
+      "crawledAt": "2026-06-10T23:22:50.625Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -277,17 +323,18 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Transitaire-CDM-%28HF%29-Gen%C3%A8/1402446233/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:04.399Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "rolex-166065149c80",
-      "slug": "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch",
+      "slug": "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch-2",
       "company": "Rolex",
       "companyKey": "rolex",
       "companyDomain": "rolex.com",
@@ -297,7 +344,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Equipements-et-Infrastructures-%28HF%29-Gen%C3%A8/1402214033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:05.583Z",
+      "crawledAt": "2026-06-10T23:22:52.032Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -311,11 +358,13 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Equipements-et-Infrastructures-%28HF%29-Gen%C3%A8/1402214033/",
-      "_qualityScore": 66,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T12:51:10.034Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -331,7 +380,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Metteur-au-point-en-outillage-et-%C3%A9tampage-%28HF%29-Gen%C3%A8/1293386101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:06.732Z",
+      "crawledAt": "2026-06-10T23:22:53.434Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -345,17 +394,18 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Metteur-au-point-en-outillage-et-%C3%A9tampage-%28HF%29-Gen%C3%A8/1293386101/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:06.732Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "rolex-4616ff09b908",
-      "slug": "charge-de-projets-qualite-h-f-rolex-ch",
+      "slug": "charge-de-projets-qualite-h-f-rolex-ch-2",
       "company": "Rolex",
       "companyKey": "rolex",
       "companyDomain": "rolex.com",
@@ -365,7 +415,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-qualit%C3%A9-%28HF%29-Gen%C3%A8/1293359401/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:07.905Z",
+      "crawledAt": "2026-06-10T23:22:54.832Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -379,11 +429,13 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-qualit%C3%A9-%28HF%29-Gen%C3%A8/1293359401/",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-10T12:51:12.258Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -399,7 +451,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Equipements-et-Infrastructures-%28HF%29-Gen%C3%A8/1373651833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:09.086Z",
+      "crawledAt": "2026-06-10T23:22:56.240Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -413,11 +465,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Equipements-et-Infrastructures-%28HF%29-Gen%C3%A8/1373651833/",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-06-10T07:52:09.086Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -433,7 +486,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-Analyst-Master-Data-%28HF%29-Gen%C3%A8/1373533433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:10.252Z",
+      "crawledAt": "2026-06-10T23:22:57.643Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -447,11 +500,13 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-Analyst-Master-Data-%28HF%29-Gen%C3%A8/1373533433/",
-      "_qualityScore": 66,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:52:10.252Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -467,7 +522,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-m%C3%A9tier-R%C3%A9f%C3%A9rentiel-de-donn%C3%A9es-PLMSAPMES-%28HF%29-Gen%C3%A8/1373589133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:11.404Z",
+      "crawledAt": "2026-06-10T23:22:59.048Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -481,11 +536,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-m%C3%A9tier-R%C3%A9f%C3%A9rentiel-de-donn%C3%A9es-PLMSAPMES-%28HF%29-Gen%C3%A8/1373589133/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:11.404Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -501,7 +557,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-Proximit%C3%A9-Formation-nouvelle-g%C3%A9n%C3%A9ration-Gen%C3%A8/1373590033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:12.560Z",
+      "crawledAt": "2026-06-10T23:23:00.447Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -515,11 +571,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-Proximit%C3%A9-Formation-nouvelle-g%C3%A9n%C3%A9ration-Gen%C3%A8/1373590033/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:12.560Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -535,7 +592,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Employ%C3%A9-intendance-%28HF%29-Frib/1401645033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:13.729Z",
+      "crawledAt": "2026-06-10T23:23:01.852Z",
       "addressLocality": "Fribourg",
       "addressRegion": "Fribourg",
       "addressCountry": "CH",
@@ -548,11 +605,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Employ%C3%A9-intendance-%28HF%29-Frib/1401645033/",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-10T07:52:13.729Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -568,7 +626,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-Relations-Presse-&-Projets-RP-%28HF%29-CDM-Gen%C3%A8/1401785033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:14.906Z",
+      "crawledAt": "2026-06-10T23:23:03.288Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -582,11 +640,12 @@
       "featured": false,
       "postedDate": "2026-06-08",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-Relations-Presse-&-Projets-RP-%28HF%29-CDM-Gen%C3%A8/1401785033/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:14.906Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -602,7 +661,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Chef-de-Projets-Nouveaux-Produits-%28HF%29-Gen%C3%A8/1382751133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:16.126Z",
+      "crawledAt": "2026-06-10T23:23:04.723Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -616,11 +675,12 @@
       "featured": false,
       "postedDate": "2026-06-07",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Chef-de-Projets-Nouveaux-Produits-%28HF%29-Gen%C3%A8/1382751133/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:16.126Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -636,7 +696,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Data-Analyst-%28HF%29-Bien/1287069501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:17.295Z",
+      "crawledAt": "2026-06-10T23:23:06.144Z",
       "addressLocality": "Bienne",
       "addressRegion": "Bienne",
       "addressCountry": "CH",
@@ -649,11 +709,12 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Data-Analyst-%28HF%29-Bien/1287069501/",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-10T07:52:17.295Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -669,7 +730,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-IAM-%28HF%29-Gen%C3%A8/1391795233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:18.514Z",
+      "crawledAt": "2026-06-10T23:23:07.699Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -683,11 +744,12 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-IAM-%28HF%29-Gen%C3%A8/1391795233/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:18.514Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -703,7 +765,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/1391839333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:19.722Z",
+      "crawledAt": "2026-06-10T23:23:09.107Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -717,11 +779,12 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/1391839333/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:19.722Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -737,7 +800,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Mod%C3%A9liste-%28HF%29-Gen%C3%A8/1382328833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:20.893Z",
+      "crawledAt": "2026-06-10T23:23:10.511Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -751,11 +814,12 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Mod%C3%A9liste-%28HF%29-Gen%C3%A8/1382328833/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:20.893Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -771,7 +835,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-PMO-Bien/1110919501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:22.055Z",
+      "crawledAt": "2026-06-10T23:23:11.889Z",
       "addressLocality": "Bienne",
       "addressRegion": "Bienne",
       "addressCountry": "CH",
@@ -784,11 +848,12 @@
       "featured": false,
       "postedDate": "2026-06-06",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-PMO-Bien/1110919501/",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-10T07:52:22.055Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -804,7 +869,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Business-Analyst-CFAO-%28HF%29-Bien/1371878233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:23.238Z",
+      "crawledAt": "2026-06-10T23:23:13.266Z",
       "addressLocality": "Bienne",
       "addressRegion": "Bienne",
       "addressCountry": "CH",
@@ -817,11 +882,12 @@
       "featured": false,
       "postedDate": "2026-06-05",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Business-Analyst-CFAO-%28HF%29-Bien/1371878233/",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-10T07:52:23.238Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -837,7 +903,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Mat%C3%A9riaux-%28HF%29-Gen%C3%A8/1370916533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:24.405Z",
+      "crawledAt": "2026-06-10T23:23:14.533Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -851,11 +917,12 @@
       "featured": false,
       "postedDate": "2026-06-05",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Mat%C3%A9riaux-%28HF%29-Gen%C3%A8/1370916533/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:24.405Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -871,7 +938,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-R%C3%A9pondant-m%C3%A9thodes-%28HF%29-Bien/1401299833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:25.551Z",
+      "crawledAt": "2026-06-10T23:23:15.925Z",
       "addressLocality": "Bienne",
       "addressRegion": "Bienne",
       "addressCountry": "CH",
@@ -884,11 +951,12 @@
       "featured": false,
       "postedDate": "2026-06-05",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-R%C3%A9pondant-m%C3%A9thodes-%28HF%29-Bien/1401299833/",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-10T07:52:25.551Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -904,7 +972,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Formateur-m%C3%A9canicien-%28HF%29-Bien/1401098733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:26.743Z",
+      "crawledAt": "2026-06-10T23:23:17.358Z",
       "addressLocality": "Bienne",
       "addressRegion": "Bienne",
       "addressCountry": "CH",
@@ -917,11 +985,12 @@
       "featured": false,
       "postedDate": "2026-06-05",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Formateur-m%C3%A9canicien-%28HF%29-Bien/1401098733/",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-10T07:52:26.743Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -937,7 +1006,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-M%C3%A9canicien-R%C3%A9gleur-d'Assemblage-%28HF%29-Gen%C3%A8/1401294033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:27.898Z",
+      "crawledAt": "2026-06-10T23:23:18.750Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -951,11 +1020,12 @@
       "featured": false,
       "postedDate": "2026-06-05",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-M%C3%A9canicien-R%C3%A9gleur-d'Assemblage-%28HF%29-Gen%C3%A8/1401294033/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-10T07:52:27.898Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -971,7 +1041,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Horloger-analyste-qualit%C3%A9-%28HF%29-Bien/1162868001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:29.049Z",
+      "crawledAt": "2026-06-10T23:23:20.140Z",
       "addressLocality": "Bienne",
       "addressRegion": "Bienne",
       "addressCountry": "CH",
@@ -984,50 +1054,16 @@
       "featured": false,
       "postedDate": "2026-06-04",
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Horloger-analyste-qualit%C3%A9-%28HF%29-Bien/1162868001/",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-10T07:52:29.049Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
-      }
-    },
-    {
-      "id": "rolex-65109ebda46e",
-      "slug": "charge-de-projets-en-supply-chain-h-f-rolex-ch",
-      "company": "Rolex",
-      "companyKey": "rolex",
-      "companyDomain": "rolex.com",
-      "title": "Chargé de projets en Supply Chain (H/F)",
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-en-Supply-Chain-%28HF%29-Gen%C3%A8/1272521701/",
-      "source": "Rolex Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:52:30.213Z",
-      "addressLocality": "Genève",
-      "postalCode": "1211",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-en-Supply-Chain-%28HF%29-Gen%C3%A8/1272521701/",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

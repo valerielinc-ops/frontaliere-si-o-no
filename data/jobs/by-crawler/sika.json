@@ -1,14 +1,14 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-06-10T07:53:07.524Z",
+  "assembledAt": "2026-06-10T23:24:17.072Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
       "slug": "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich",
       "slugByLocale": {
-        "de": "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch",
         "it": "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich",
         "en": "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich",
+        "de": "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch",
         "fr": "stage-en-r-d-chimie-uni-eth-fh-sika-zurich"
       },
       "company": "Sika",
@@ -16,16 +16,16 @@
       "companyDomain": "sika.com",
       "title": "Praktikum in der F&E (Chemie Uni/ETH/FH) 6 - 12 Monate",
       "titleByLocale": {
-        "de": "Praktikum in der F&E (Chemie Uni/ETH/FH) 6 - 12 Monate",
         "it": "Internship in R&D (Chemistry Uni/ETH/FH)",
         "en": "Internship in R&D (Chemistry Uni/ETH/FH)",
+        "de": "Praktikum in der F&E (Chemie Uni/ETH/FH) 6 - 12 Monate",
         "fr": "Stage en R&D (Chimie Uni/ETH/FH)"
       },
       "description": "An unseren Standorten in Zürich-Altstetten und Widen bieten wir in verschiedenen Bereichen der Forschung & Entwicklung Praktika an. Einblick in die Tätigkeiten eines Entwicklungschemiker erhalten Nach entsprechender Einführung selbständig in Projekten mitwirken Die Zusammenhänge zwischen Chemie und Materialeigenschaften kennenlernen Eigene Ideen entwickeln, im Labor prüfen und dokumentieren",
       "descriptionByLocale": {
-        "de": "An unseren Standorten in Zürich-Altstetten und Widen bieten wir in verschiedenen Bereichen der Forschung & Entwicklung Praktika an. Einblick in die Tätigkeiten eines Entwicklungschemiker erhalten Nach entsprechender Einführung selbständig in Projekten mitwirken Die Zusammenhänge zwischen Chemie und Materialeigenschaften kennenlernen Eigene Ideen entwickeln, im Labor prüfen und dokumentieren",
         "it": "Presso le nostre sedi di Zurigo-Altstetten e Widen offriamo stage in diversi settori della ricerca e dello sviluppo. Ottenere una panoramica delle attività di un chimico dello sviluppo Dopo un'introduzione adeguata Partecipare in modo indipendente ai progetti Conoscere le relazioni tra chimica e proprietà dei materiali Sviluppare le proprie idee, verificarle e documentarle in laboratorio",
         "en": "At our locations in Zurich-Altstetten and Widen, we offer internships in various areas of research and development. Gain insight into the activities of a development chemist After appropriate introduction, participate independently in projects Get to know the relationships between chemistry and material properties Develop your own ideas, test and document them in the laboratory",
+        "de": "An unseren Standorten in Zürich-Altstetten und Widen bieten wir in verschiedenen Bereichen der Forschung & Entwicklung Praktika an. Einblick in die Tätigkeiten eines Entwicklungschemiker erhalten Nach entsprechender Einführung selbständig in Projekten mitwirken Die Zusammenhänge zwischen Chemie und Materialeigenschaften kennenlernen Eigene Ideen entwickeln, im Labor prüfen und dokumentieren",
         "fr": "Sur nos sites de Zurich-Altstetten et de Widen, nous proposons des stages dans différents domaines de la recherche et du développement. Obtenir un aperçu des activités d'un chimiste du développement Après une introduction appropriée, participer de manière indépendante à des projets Apprendre à connaître les liens entre la chimie et les propriétés des matériaux Développer ses propres idées, les vérifier et les documenter en laboratoire"
       },
       "location": "Zürich, Zurich, Switzerland",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:52:50.424Z",
+      "crawledAt": "2026-06-10T23:24:15.088Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -50,17 +50,16 @@
       "postedDate": "2024-04-09",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-10T07:52:50.424Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -72,8 +71,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T07:52:50.424Z"
+      }
     }
   ]
 }

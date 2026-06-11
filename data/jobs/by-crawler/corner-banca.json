@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-06-09T22:14:34.777Z",
+  "assembledAt": "2026-06-10T22:29:58.954Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-09T22:14:32.611Z",
+      "crawledAt": "2026-06-10T22:29:56.937Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -146,7 +146,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.610Z",
+      "crawledAt": "2026-06-10T22:29:56.936Z",
       "previousSlugs": [
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
@@ -257,7 +257,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-09T22:14:32.609Z",
+      "crawledAt": "2026-06-10T22:29:56.935Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -374,7 +374,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.609Z",
+      "crawledAt": "2026-06-10T22:29:56.935Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -409,51 +409,49 @@
       "country": "CH"
     },
     {
-      "id": "corner-banca-55e210fc5d83",
-      "slug": "gestione-del-rischio-di-mercato-corner-banca-lugano",
+      "id": "corner-banca-9238ccb59915",
+      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
       "slugByLocale": {
-        "it": "gestione-del-rischio-di-mercato-corner-banca-lugano",
-        "en": "market-risk-manager-corner-banca-lugano",
-        "de": "marktrisikomanager-corner-banca-lugano",
-        "fr": "gestionnaire-des-risques-de-marche-corner-banca-lugano"
+        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Market Risk Manager",
+      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
       "titleByLocale": {
-        "it": "Gestione del rischio di mercato",
-        "en": "Market Risk Manager",
-        "de": "Marktrisikomanager",
-        "fr": "Gestionnaire des risques de marché"
+        "it": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "de": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "fr": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk"
       },
-      "description": "We are looking for a motivated, dynamic, and results-oriented professional to join our team. The successful candidate will play a key role in supporting business activities and actively contributing to the achievement of the company’s objectives within an international, collaborative, and fast-paced environment.\n\nKey Responsibilities:\n\n•  Implement and monitor market risk models and methodologies across all asset classes (equity, forex, commodities) to manage trading limits, exposures and margin requirements for derivative instruments.\n\n• Monitor key market indicators such as volatility, Value at risk, Expected shortfall, liquidity, credit spreads, portfolio concentration, and macroeconomic signals to detect potential systemic or specific risks.\n\n• Perform daily controls on client portfolios, margin usage, leverage, diversification and liquidation orders, including conducting systematic stress testing analyses.\n\n• Monitor, together with the front office trading department, the investable universe restrictions of instruments (e.g. illiquid, sanctioned, or low-price instruments).\n\n• Perform controls on hedging activities with counterparties, verifying hedge effectiveness, analyzing collateral requirements, credit line consumption and conducting stress testing analyses on market risk.\n\n• Monitor portfolio-level exposure limits and key risk indicators (KRIs) set by the Board of Directors, Executive Management, etc., activating escalation procedures in case of breaches.\n\n• Prepare detailed and accurate reports for senior management, Committee, Regulators, providing clear analysis and recommendations.\n\n• Excellent analytical skills and strong attention to detail, with the ability to interpret and synthesize large volumes of data using programming skills (Python, R, SQL), develop dynamic dashboards (e.g., Power BI) and generate valuable reports to support decision-making processes\n\n• Ability to create clear and engaging PowerPoint presentations, effectively communicating analyses to decision-making audiences (e.g., executive committees).\n\n• Enthusiastic about enhancing and streamlining processes with precision and strong attention to detail.\n\n• Ability to collaborate continuously with other departments, such as front office trading, relationship managers and other control functions (e.g Compliance).\n\n• Languages: Italian – English (Advanced/Professional) – French/Deutsch (plus).\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines.\n\n• Resident in Ticino or willing to relocate",
+      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
       "descriptionByLocale": {
-        "it": "Descrizione\n• Stiamo cercando un professionista motivato, dinamico e orientato ai risultati per unirsi al nostro team. Il candidato di successo svolgerà un ruolo chiave nel sostenere le attività aziendali e contribuire attivamente al raggiungimento degli obiettivi dell’azienda all’interno di un ambiente internazionale, collaborativo e veloce. Mansioni - Implementare e monitorare modelli e metodologie di rischio di mercato in tutte le classi di attività (equità, forex, materie prime) per gestire limiti di trading, esposizioni e requisiti di margine per strumenti derivati. - Monitorare gli indicatori chiave del mercato come la volatilità, il valore a rischio, la mancanza prevista, la liquidità, gli spread di credito, la concentrazione di portafoglio e i segnali macroeconomici per rilevare potenziali rischi sistemici o specifici. - Eseguire controlli giornalieri su portafogli client, utilizzo dei margini, leva, diversificazione e liquidazione ordini, tra cui condurre analisi sistematiche di test di stress. - Monitorare, insieme al reparto di trading dell'ufficio anteriore, le restrizioni dell'universo investibili degli strumenti (ad esempio strumenti illiquidi, sanzionati o a basso prezzo). - Eseguire i controlli sulle attività di copertura con le controparti, verificare l'efficacia delle siepi, analizzare i requisiti collaterali, il consumo della linea di credito e condurre analisi dei test di stress sul rischio di mercato. - Monitorare i limiti di esposizione a livello di portafoglio e gli indicatori chiave di rischio (KRIs) fissati dal Consiglio di Amministrazione, dalla Direzione esecutiva, ecc., attivando procedure di escalation in caso di violazioni. - Preparare relazioni dettagliate e accurate per la gestione senior, Comitato, Regolatori, fornendo un'analisi chiara e raccomandazioni. - Eccellente capacità analitiche e forte attenzione ai dettagli, con la capacità di interpretare e sintetizzare grandi volumi di dati utilizzando competenze di programmazione (Python, R, SQL), sviluppare dashboard dinamiche (ad esempio, Power BI) e generare report preziosi per supportare i processi decisionali. - Capacità di creare presentazioni di PowerPoint chiare e coinvolgenti, di comunicare efficacemente analisi al pubblico decisionale (ad esempio, comitati esecutivi). - Enthusiastic su come migliorare e snellire i processi con precisione e forte attenzione ai dettagli. - Capacità di collaborare continuamente con altri dipartimenti, come il commercio di uffici di fronte, i responsabili delle relazioni e altre funzioni di controllo (ad esempio Compliance).\n• Requisiti - Lingue: Italiano – Inglese (Advanced/Professional) – Francese/Deutsch (plus). - Capacità di lavorare sotto pressione in un ambiente dinamico che fissa le priorità e soddisfa piccole scadenze. - Residente in Ticino o disposto a trasferirsi. Cosa? *(Se presente, inserire qui i relativi dettagli ai beneficiari e alle condizioni di lavoro)* Contatto *(Se presente, inserire qui le modalità di contatto o invio candidature)*",
-        "en": "We are looking for a motivated, dynamic, and results-oriented professional to join our team. The successful candidate will play a key role in supporting business activities and actively contributing to the achievement of the company’s objectives within an international, collaborative, and fast-paced environment. Key Responsibilities:\n• Implement and monitor market risk models and methodologies across all asset classes (equity, forex, commodities) to manage trading limits, exposures and margin requirements for derivative instruments.\n• Monitor key market indicators such as volatility, Value at risk, Expected shortfall, liquidity, credit spreads, portfolio concentration, and macroeconomic signals to detect potential systemic or specific risks.\n• Perform daily controls on client portfolios, margin usage, leverage, diversification and liquidation orders, including conducting systematic stress testing analyses.\n• Monitor, together with the front office trading department, the investable universe restrictions of instruments (e.g. illiquid, sanctioned, or low-price instruments).\n• Perform controls on hedging activities with counterparties, verifying hedge effectiveness, analyzing collateral requirements, credit line consumption and conducting stress testing analyses on market risk.\n• Monitor portfolio-level exposure limits and key risk indicators (KRIs) set by the Board of Directors, Executive Management, etc., activating escalation procedures in case of breaches.\n• Prepare detailed and accurate reports for senior management, Committee, Regulators, providing clear analysis and recommendations.\n• Excellent analytical skills and strong attention to detail, with the ability to interpret and synthesize large volumes of data using programming skills (Python, R, SQL), develop dynamic dashboards (e.g., Power BI) and generate valuable reports to support decision-making processes\n• Ability to create clear and engaging PowerPoint presentations, effectively communicating analyses to decision-making audiences (e.g., executive committees).\n• Enthusiastic about enhancing and streamlining processes with precision and strong attention to detail.\n• Ability to collaborate continuously with other departments, such as front office trading, relationship managers and other control functions (e.g Compliance).\n• Languages: Italian – English (Advanced/Professional) – French/Deutsch (plus).\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines.\n• Resident in Ticino or willing to relocate",
-        "de": "Beschreibung Wir suchen einen motivierten, dynamischen und ergebnisorientierten Profi, der sich unserem Team anschließt. Der erfolgreiche Kandidat wird eine Schlüsselrolle bei der Unterstützung von Geschäftsaktivitäten spielen und aktiv zur Erreichung der Ziele des Unternehmens in einem internationalen, kollaborativen und schnelllebigen Umfeld beitragen. Mansion - Implementierung und Überwachung von Marktrisikomodellen und -methoden in allen Anlageklassen (Equity, Forex, Waren) zur Verwaltung von Handelsgrenzen, Risikopositionen und Margenanforderungen für Derivateinstrumente. - Überwachen Sie wichtige Marktindikatoren wie Volatilität, Risikowert, erwartete Mängel, Liquidität, Kreditausbreitung, Portfoliokonzentration und makroökonomische Signale, um potenzielle systemische oder spezifische Risiken zu erkennen. - Führen Sie tägliche Kontrollen auf Kundenportfolios, Margennutzung, Hebel-, Diversifizierungs- und Liquidationsaufträge durch, einschließlich systematischer Stresstests. - Überwachen Sie zusammen mit der Front Office-Handelsabteilung die investierbaren Universe-Einschränkungen von Instrumenten (z.B. illiquid, sanctioned oder Low-price-Instrumente). - Kontrollen bei Sicherungsgeschäften mit Gegenparteien, Überprüfung der Sicherungswirkung, Analyse der Sicherheitenanforderungen, des Kreditlinienverbrauchs und der Durchführung von Stresstests auf dem Marktrisiko. - Überwachen Sie die vom Board of Directors, Executive Management usw. festgelegten Expositionsgrenzen auf Portfolioebene und die wichtigsten Risikoindikatoren (KRIs) und aktivieren Sie bei Verstößen die Eskalationsverfahren. - Bereiten Sie detaillierte und genaue Berichte für leitende Management, Ausschuss, Regulierungsbehörden, klare Analyse und Empfehlungen vor. - Ausgezeichnete analytische Fähigkeiten und starke Liebe zum Detail, mit der Fähigkeit, große Datenmengen mit Programmierkenntnissen (Python, R, SQL) zu interpretieren und zu synthetisieren, entwickeln dynamische Dashboards (z.B. Power BI) und erstellen wertvolle Berichte zur Unterstützung von Entscheidungsprozessen. - Fähigkeit, klare und ansprechende PowerPoint-Präsentationen zu erstellen, effektiv Analysen an Entscheidungsträger (z.B. Executive Committees) zu kommunizieren. - Enthusiasmus, Prozesse mit Präzision und viel Liebe zum Detail zu verbessern und zu optimieren. - Fähigkeit, kontinuierlich mit anderen Abteilungen zusammenzuarbeiten, wie z.B. Front Office Trading, Beziehungsmanager und andere Kontrollfunktionen (z.B. Compliance). Voraussetzungen - Sprachen: Italienisch – Englisch (Advanced/Professional) – Französisch/Deutsch (plus). - Fähigkeit, in einem dynamischen Umfeld unter Druck zu arbeiten und Prioritäten zu setzen und winzige Fristen zu erfüllen. - Wohnsitz in Tessin oder bereit, sich zu verlagern.\n• Cosa offriamo *(Se presente, inserire qui i dettagli relativi ai benefici e alle condizioni di lavoro)* Contattoo *(Se presente, inserire qui le modalità di contatto o invio candidature)*",
-        "fr": "Descrizione Nous recherchons un professionnel motivé, dynamique et axé sur les résultats pour rejoindre notre équipe. Le candidat retenu jouera un rôle clé en soutenant les activités commerciales et en contribuant activement à la réalisation des objectifs de l'entreprise dans un environnement international, collaboratif et accéléré. Mansioni - Mettre en œuvre et suivre des modèles et des méthodologies de risque de marché pour toutes les catégories d'actifs (fonds propres, devises, produits de base) afin de gérer les limites de négociation, les expositions et les exigences de marge pour les instruments dérivés. - Surveiller les principaux indicateurs du marché tels que la volatilité, la valeur à risque, le déficit prévu, la liquidité, les écarts de crédit, la concentration du portefeuille et les signaux macroéconomiques pour détecter les risques systémiques ou spécifiques potentiels. - Effectuer des contrôles quotidiens sur les portefeuilles de clients, l'utilisation de la marge, l'effet de levier, la diversification et les ordres de liquidation, y compris la réalisation systématique d'analyses de stress. - Surveiller, en collaboration avec le service commercial du front office, les restrictions universelles des instruments (par exemple, les instruments illiquides, sanctionnés ou à bas prix). - Effectuer des contrôles sur les activités de couverture auprès des contreparties, vérifier l'efficacité des couvertures, analyser les exigences en matière de garanties, la consommation de lignes de crédit et effectuer des analyses de stress sur le risque de marché. - Surveiller les limites d'exposition au niveau du portefeuille et les principaux indicateurs de risque (ICR) fixés par le conseil d'administration, la direction exécutive, etc., en activant les procédures d'escalade en cas d'infraction. - Préparer des rapports détaillés et exacts à l'intention de la haute direction, du comité et des organismes de réglementation, en fournissant des analyses et des recommandations claires. - Excellentes compétences analytiques et une forte attention aux détails, avec la capacité d'interpréter et de synthétiser de grands volumes de données en utilisant des compétences de programmation (Python, R, SQL), de développer des tableaux de bord dynamiques (p. ex. Power BI) et de générer des rapports précieux pour soutenir les processus décisionnels. - Capacité de créer des présentations PowerPoint claires et stimulantes, en communiquant efficacement les analyses aux publics décisionnels (p. ex., comités exécutifs). - Enthousiasmant d'améliorer et de rationaliser les processus avec précision et une grande attention aux détails. - Capacité de collaborer en permanence avec d'autres ministères, comme le commerce des services centraux, les gestionnaires de relations et d'autres fonctions de contrôle (p. ex., conformité).\n• Requisiti - Langues: italien – anglais (professionnel) – français/deutsch (plus). - Capacité de travailler sous pression dans un environnement dynamique fixant des priorités et respectant de minuscules délais. - Résident au Tessin ou prêt à déménager.\n• Cosa offriamo *(Se présente, insère qui i dettagli relativi ai benefici e alle condizioni di lavoro)* Contatto *(Se présente, insère qui le modalità di contatto o invio candidature)*"
+        "it": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively. Key Responsibilities:\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n• Languages: Italian / English native proficiency / French / German is a plus\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n• Resident in Ticino or willing to relocate",
+        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively. Key Responsibilities:\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n• Languages: Italian / English native proficiency / French / German is a plus\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n• Resident in Ticino or willing to relocate",
+        "de": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively. Key Responsibilities:\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n• Languages: Italian / English native proficiency / French / German is a plus\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n• Resident in Ticino or willing to relocate",
+        "fr": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively. Key Responsibilities:\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n• Languages: Italian / English native proficiency / French / German is a plus\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n• Resident in Ticino or willing to relocate"
       },
       "requirements": [
-        "Excellent analytical skills and strong attention to detail, with the ability to interpret and synthesize large volumes of data using programming skills (Python, R, SQL), develop dynamic dashboards (e.g., Power BI) and generate valuable reports to support decision-making processes",
-        "Ability to create clear and engaging PowerPoint presentations, effectively communicating analyses to decision-making audiences (e.g., executive committees).",
-        "Enthusiastic about enhancing and streamlining processes with precision and strong attention to detail.",
-        "Ability to collaborate continuously with other departments, such as front office trading, relationship managers and other control functions (e.g Compliance).",
-        "Languages: Italian – English (Advanced/Professional) – French/Deutsch (plus).",
-        "Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines.",
+        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+        "Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+        "Languages: Italian / English native proficiency / French / German is a plus",
+        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
         "Resident in Ticino or willing to relocate"
       ],
       "requirementsByLocale": {
         "it": [
-          "Enthusiastic about enhancing and streamlining processes with precision and strong attention to detail.",
-          "Languages: Italian – English (Advanced/Professional) – French/Deutsch (plus).",
-          "Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines.",
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
           "Resident in Ticino or willing to relocate"
         ],
         "en": [
-          "Enthusiastic about enhancing and streamlining processes with precision and strong attention to detail.",
-          "Languages: Italian – English (Advanced/Professional) – French/Deutsch (plus).",
-          "Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines.",
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
           "Resident in Ticino or willing to relocate"
         ]
       },
@@ -466,42 +464,12 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-13",
-      "url": "https://jobs.corner.ch/o/market-risk-manager",
+      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.608Z",
-      "previousSlugs": [
-        "market-risk-manager-corner-banca-lugano",
-        "employee-card-onboarding-corner-banca-lugano",
-        "kartenaufnahme-corner-banca-lugano",
-        "addetto-all-emission-carte-cliente-corner-banca-lugano",
-        "employee-card-onboarding-corner-banca-lugano-a3j84m",
-        "onboarding-de-la-carte-de-paiement-corner-banca-lugano",
-        "kundenberater-corner-banca-lugano",
-        "mitarbeiterkarten-einrichtung-corner-banca-lugano",
-        "mitarbeiterkarten-onboarding-corner-banca-lugano",
-        "onboarding-carta-dipendente-corner-banca-lugano",
-        "onboarding-carte-dipendenti-corner-banca-lugano",
-        "onboarding-della-carta-dei-dipendenti-corner-banca-lugano",
-        "onboarding-della-carta-di-credito-corner-banca-lugano",
-        "onboarding-delle-carte-di-pagamento-corner-banca-lugano",
-        "onboarding-mitarbeiterkarte-corner-banca-lugano",
-        "onboarding-von-mitarbeiterkarten-corner-banca-lugano",
-        "kundenberater-100-corner-banca-lugano",
-        "mitarbeiter-fur-karten-onboarding-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "market-risk-manager-corner-banca-lugano"
-        ],
-        "de": [
-          "market-risk-manager-corner-banca-lugano"
-        ],
-        "fr": [
-          "market-risk-manager-corner-banca-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-05-13T10:51:00.114Z",
+      "crawledAt": "2026-06-10T22:29:56.934Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T11:54:50.675Z",
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -589,7 +557,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.607Z",
+      "crawledAt": "2026-06-10T22:29:56.933Z",
       "previousSlugs": [
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
         "compliance-officer-senior-corner-banca-lugano",
@@ -638,6 +606,104 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH"
+    },
+    {
+      "id": "corner-banca-9a08d15ac96b",
+      "slug": "employee-collection-team-zurich-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "en": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "de": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "fr": "employee-collection-team-zurich-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Collection Team Zürich",
+      "titleByLocale": {
+        "it": "Employee Collection Team Zürich",
+        "en": "Employee Collection Team Zürich",
+        "de": "Employee Collection Team Zürich",
+        "fr": "Employee Collection Team Zürich"
+      },
+      "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+      "descriptionByLocale": {
+        "it": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+        "en": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+        "de": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+        "fr": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset"
+      },
+      "requirements": [
+        "Commercial training (commercial apprenticeship or equivalent qualification)",
+        "Native German and good knowledge of English",
+        "Excellent communication skills and strong customer listening abilities",
+        "Aptitude for managing customer relationships over the phone",
+        "Empathy, mediation skills, and solution-oriented mindset",
+        "Attention to detail and organizational skills",
+        "Team spirit and reliability\n\nIdeal profile",
+        "Young, motivated person eager to grow professionally",
+        "Ability to remain calm and professional even in difficult conversations",
+        "Team-oriented attitude and collaborative mindset"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability\n\nIdeal profile",
+          "Young, motivated person eager to grow professionally",
+          "Ability to remain calm and professional even in difficult conversations",
+          "Team-oriented attitude and collaborative mindset"
+        ],
+        "en": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability\n\nIdeal profile",
+          "Young, motivated person eager to grow professionally",
+          "Ability to remain calm and professional even in difficult conversations",
+          "Team-oriented attitude and collaborative mindset"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-10T22:29:56.932Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH",
+      "firstSeenAt": "2026-06-10T22:29:56.932Z"
     },
     {
       "id": "corner-banca-4b9d1c5b215f",
@@ -708,7 +774,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.606Z",
+      "crawledAt": "2026-06-10T22:29:56.929Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen",
         "employee-front-office-corner-banca-wallisellen"
@@ -813,7 +879,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.603Z",
+      "crawledAt": "2026-06-10T22:29:56.928Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "consulente-e-cliente-m-f-corner-banca-lugano",
@@ -924,7 +990,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.602Z",
+      "crawledAt": "2026-06-10T22:29:56.927Z",
       "previousSlugs": [
         "customer-advisor-60-team-zurich-corner-banca-wallisellen"
       ],
@@ -1023,7 +1089,7 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.600Z",
+      "crawledAt": "2026-06-10T22:29:56.926Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1105,7 +1171,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.598Z",
+      "crawledAt": "2026-06-10T22:29:56.924Z",
       "previousSlugs": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
@@ -1130,94 +1196,6 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-f52a05ad44cc",
-      "slug": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
-        "en": "litigation-office-associate-corner-banca-wallisellen",
-        "de": "haftungsausschluss-corner-banca-wallisellen",
-        "fr": "bureau-du-contentieux-associe-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Litigation Office Associate",
-      "titleByLocale": {
-        "it": "Ufficio delle pubblicazioni",
-        "en": "Litigation Office Associate",
-        "de": "Haftungsausschluss",
-        "fr": "Bureau du contentieux Associé"
-      },
-      "description": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office.\n\nKey Responsibilities:\n\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un individuo professionale e motivato per unirsi al nostro team specializzato nella raccolta dei debiti. Il ruolo riguarda la gestione di casi complessi e la collaborazione con varie funzioni aziendali, operando con un alto grado di autonomia dal nostro ufficio di Zurigo – Wallisellen. Responsabilità chiave:\n• Posizione permanente in un ambiente di lavoro dinamico, con condizioni salariali commisurate con esperienza.\n• Posto di lavoro: Zurigo – Wallisellen, con la possibilità di lavorare in parte da remoto (home office).\n• Viene fornito un primo programma di onboarding e formazione di 3 mesi presso l'ufficio di Lugano.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Competenze linguistiche: comando eccellente del francese (livello C1, scritto e parlato) e buona conoscenza dell'italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• competenze morbide: forte mentalità orientata agli obiettivi, capacità organizzative e capacità di problem solving. La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con il team alla sede centrale, nonostante lavorando da un ufficio di ramo remoto.\n• Diploma commerciale o qualifica equivalente (ad esempio laurea in diritto svizzero o scienze politiche).\n• Residente in Ticino o disposto a trasferirsi",
-        "en": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office. Key Responsibilities:\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n• Resident in Ticino or willing to relocate",
-        "de": "Wir sind auf der Suche nach einem professionellen und motivierten Individuum zu unserem Team spezialisiert auf die Schuldensammlung. Die Rolle umfasst die Verwaltung komplexer Fälle und die Zusammenarbeit mit verschiedenen Geschäftsfunktionen, die mit einem hohen Maß an Autonomie von unserem Büro in Zürich – Wallisellen arbeiten. Hauptverantwortlichkeiten:\n• Ständige Position in einem dynamischen Arbeitsumfeld, mit Gehaltsverhältnissen mit Erfahrung.\n• Arbeitsplatz: Zürich – Wallisellen, mit der Möglichkeit der teilweisen Fernarbeit (Haussitz).\n• Ein erstes Bord- und Schulungsprogramm von 3 Monaten im Büro von Lugano wird zur Verfügung gestellt.\n• Mindestens 3 Jahre solide Erfahrung im Bereich der Schuldenerhebung im Rahmen des Schweizer Durchsetzungs- und Justizsystems (Gesetzsammlung) ist erforderlich.\n• Sprachkenntnisse: Ausgezeichneter Befehl von Französisch (C1-Ebene, geschrieben und gesprochen) und gute Kenntnisse von Italienisch (B2-Ebene, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Soft Skills: Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten. Die Fähigkeit, unabhängig zu arbeiten, ist essentiell, aber auch einen starken Teamgeist und eine ausgezeichnete Kommunikation mit dem Team im Hauptbüro, trotz der Arbeit von einer Remote-Niederlassung.\n• Handelsdiplom oder gleichwertige Qualifikation (z.B. Abschluss in Schweizer Recht oder Politikwissenschaft).\n• Wohnsitz in Tessin oder willigen Umzug",
-        "fr": "Nous cherchons une personne professionnelle et motivée pour rejoindre notre équipe spécialisée dans le recouvrement des dettes. Le rôle consiste à gérer des dossiers complexes et à collaborer avec diverses fonctions commerciales, fonctionnant avec une grande autonomie de notre bureau de Zurich – Wallisellen. Principales responsabilités :\n• Position permanente dans un environnement de travail dynamique, avec des conditions salariales proportionnelles à l'expérience.\n• Lieu de travail : Zurich – Wallisellen, avec la possibilité de travailler partiellement à distance (bureau d'accueil).\n• Un programme initial d'embarquement et de formation de 3 mois est offert au bureau de Lugano.\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire suisse (recouvrement légal) sont nécessaires.\n• Compétences linguistiques : excellente maîtrise du français (niveau C1, écrit et parlé) et bonne connaissance de l'italien (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Compétences douces : Forte mentalité orientée vers l'objectif, capacités organisationnelles et compétences en résolution de problèmes. La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec l'équipe au siège social, malgré le travail d'une succursale éloignée.\n• Diplôme commercial ou diplôme équivalent (par exemple diplôme en droit suisse ou en sciences politiques).\n• Résident au Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
-        "Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.",
-        "Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.",
-        "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://jobs.corner.ch/o/litigation-office-associate",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.597Z",
-      "previousSlugs": [
-        "litigation-office-associate-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ],
-        "de": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ],
-        "fr": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T12:11:07.107Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -1294,7 +1272,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.596Z",
+      "crawledAt": "2026-06-10T22:29:56.923Z",
       "previousSlugs": [
         "fi-administration-e-business-support-corner-banca-lugano"
       ],
@@ -1323,6 +1301,94 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-f52a05ad44cc",
+      "slug": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
+        "en": "litigation-office-associate-corner-banca-wallisellen",
+        "de": "haftungsausschluss-corner-banca-wallisellen",
+        "fr": "bureau-du-contentieux-associe-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Litigation Office Associate",
+      "titleByLocale": {
+        "it": "Ufficio delle pubblicazioni",
+        "en": "Litigation Office Associate",
+        "de": "Haftungsausschluss",
+        "fr": "Bureau du contentieux Associé"
+      },
+      "description": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office.\n\nKey Responsibilities:\n\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un individuo professionale e motivato per unirsi al nostro team specializzato nella raccolta dei debiti. Il ruolo riguarda la gestione di casi complessi e la collaborazione con varie funzioni aziendali, operando con un alto grado di autonomia dal nostro ufficio di Zurigo – Wallisellen. Responsabilità chiave:\n• Posizione permanente in un ambiente di lavoro dinamico, con condizioni salariali commisurate con esperienza.\n• Posto di lavoro: Zurigo – Wallisellen, con la possibilità di lavorare in parte da remoto (home office).\n• Viene fornito un primo programma di onboarding e formazione di 3 mesi presso l'ufficio di Lugano.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Competenze linguistiche: comando eccellente del francese (livello C1, scritto e parlato) e buona conoscenza dell'italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• competenze morbide: forte mentalità orientata agli obiettivi, capacità organizzative e capacità di problem solving. La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con il team alla sede centrale, nonostante lavorando da un ufficio di ramo remoto.\n• Diploma commerciale o qualifica equivalente (ad esempio laurea in diritto svizzero o scienze politiche).\n• Residente in Ticino o disposto a trasferirsi",
+        "en": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office. Key Responsibilities:\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n• Resident in Ticino or willing to relocate",
+        "de": "Wir sind auf der Suche nach einem professionellen und motivierten Individuum zu unserem Team spezialisiert auf die Schuldensammlung. Die Rolle umfasst die Verwaltung komplexer Fälle und die Zusammenarbeit mit verschiedenen Geschäftsfunktionen, die mit einem hohen Maß an Autonomie von unserem Büro in Zürich – Wallisellen arbeiten. Hauptverantwortlichkeiten:\n• Ständige Position in einem dynamischen Arbeitsumfeld, mit Gehaltsverhältnissen mit Erfahrung.\n• Arbeitsplatz: Zürich – Wallisellen, mit der Möglichkeit der teilweisen Fernarbeit (Haussitz).\n• Ein erstes Bord- und Schulungsprogramm von 3 Monaten im Büro von Lugano wird zur Verfügung gestellt.\n• Mindestens 3 Jahre solide Erfahrung im Bereich der Schuldenerhebung im Rahmen des Schweizer Durchsetzungs- und Justizsystems (Gesetzsammlung) ist erforderlich.\n• Sprachkenntnisse: Ausgezeichneter Befehl von Französisch (C1-Ebene, geschrieben und gesprochen) und gute Kenntnisse von Italienisch (B2-Ebene, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Soft Skills: Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten. Die Fähigkeit, unabhängig zu arbeiten, ist essentiell, aber auch einen starken Teamgeist und eine ausgezeichnete Kommunikation mit dem Team im Hauptbüro, trotz der Arbeit von einer Remote-Niederlassung.\n• Handelsdiplom oder gleichwertige Qualifikation (z.B. Abschluss in Schweizer Recht oder Politikwissenschaft).\n• Wohnsitz in Tessin oder willigen Umzug",
+        "fr": "Nous cherchons une personne professionnelle et motivée pour rejoindre notre équipe spécialisée dans le recouvrement des dettes. Le rôle consiste à gérer des dossiers complexes et à collaborer avec diverses fonctions commerciales, fonctionnant avec une grande autonomie de notre bureau de Zurich – Wallisellen. Principales responsabilités :\n• Position permanente dans un environnement de travail dynamique, avec des conditions salariales proportionnelles à l'expérience.\n• Lieu de travail : Zurich – Wallisellen, avec la possibilité de travailler partiellement à distance (bureau d'accueil).\n• Un programme initial d'embarquement et de formation de 3 mois est offert au bureau de Lugano.\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire suisse (recouvrement légal) sont nécessaires.\n• Compétences linguistiques : excellente maîtrise du français (niveau C1, écrit et parlé) et bonne connaissance de l'italien (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Compétences douces : Forte mentalité orientée vers l'objectif, capacités organisationnelles et compétences en résolution de problèmes. La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec l'équipe au siège social, malgré le travail d'une succursale éloignée.\n• Diplôme commercial ou diplôme équivalent (par exemple diplôme en droit suisse ou en sciences politiques).\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
+        "Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.",
+        "Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.",
+        "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "url": "https://jobs.corner.ch/o/litigation-office-associate",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-10T22:29:56.923Z",
+      "previousSlugs": [
+        "litigation-office-associate-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "de": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-05-18T12:11:07.107Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
       "country": "CH"
     },
     {
@@ -1399,7 +1465,7 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-09T22:14:32.594Z",
+      "crawledAt": "2026-06-10T22:29:56.921Z",
       "firstSeenAt": "2026-06-02T23:12:26.649Z",
       "salaryMin": 142000,
       "salaryMax": 249500,

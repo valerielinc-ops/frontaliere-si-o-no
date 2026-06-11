@@ -34,6 +34,7 @@ import {
 } from './seoHubsData';
 import { ARTICLE_SECTIONS } from '../services/articleSections';
 import { readSvizzeraArticleUnionSlugs } from './shared/articleArchiveUnion';
+import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
@@ -907,41 +908,6 @@ function readCompanySlugs(fs: typeof fsT, np: typeof npT, rootDir: string): stri
 }
 
 /**
- * Read article slugs from blog-meta-{lang}.ts. Each line keyed
- * `'blog.article.<slug>.title'` is one article. The `slug` returned is
- * the canonical {@link BlogArticleId} key (matches `BLOG_SLUGS` keys in
- * `routerBlogData.ts`) — NOT the URL slug. Use {@link readBlogUrlSlugs}
- * to get the locale-specific URL slug for hub anchor construction.
- */
-function readArticleSlugs(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-  locale: HubLocale,
-  metaPrefix = 'blog-meta',
-): Array<{ slug: string; title: string }> {
-  const file = np.resolve(rootDir, 'services/locales', `${metaPrefix}-${locale}.ts`);
-  const out: Array<{ slug: string; title: string }> = [];
-  try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const seen = new Set<string>();
-    const rx = /'blog\.article\.([^']+?)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
-      if (seen.has(slug)) continue;
-      seen.add(slug);
-      const title = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
-      out.push({ slug, title });
-    }
-  } catch (err) {
-    console.warn(`[seo-hubs] failed to read ${metaPrefix}-${locale}.ts`, err);
-  }
-  return out;
-}
-
-/**
  * Read per-article excerpts from `services/locales/blog-meta-{locale}.ts`.
  * Used to render the articles hub items as cards (rule #17 step 6 — actual
  * data area carries 1-line previews instead of plain anchors).
@@ -967,48 +933,6 @@ function readArticleExcerpts(
     }
   } catch (err) {
     console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
-  }
-  return out;
-}
-
-/**
- * Read the {@link BlogArticleId} → per-locale URL-slug map from
- * `services/routerBlogData.ts` (the `BLOG_SLUGS` constant). Mirrors the
- * parser in {@link ogPagesPlugin}.
- *
- * **Why this exists.** `blog-meta-{lang}.ts` keys are `BlogArticleId`s
- * (e.g. `stipendio-netto-2026`), but the canonical sitemap URL uses the
- * locale-specific slug (`stipendio-netto-frontaliere-2026` in IT). When the
- * paginated articles archive at `/articoli-frontaliere/tutti/page-N/` lists
- * articles by `BlogArticleId`, the resulting `<a href>` does NOT match the
- * sitemap URL — and the BFS reachability audit flags ~174 articles as
- * "orphans in sitemap" even though the archive renders them.
- *
- * This map is the source of truth for `BlogArticleId → URL slug`. Returns
- * `{}` if the file is missing or unparseable (callers fall back to the
- * `BlogArticleId` as URL slug, preserving prior behaviour for tests).
- */
-function readBlogUrlSlugs(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-  slugDataFile = 'services/routerBlogData.ts',
-  slugConst = 'BLOG_SLUGS',
-): Record<string, Record<HubLocale, string>> {
-  const file = np.resolve(rootDir, slugDataFile);
-  const out: Record<string, Record<HubLocale, string>> = {};
-  try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-    if (!block) return out;
-    const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
-    let bm: RegExpExecArray | null;
-    while ((bm = rx.exec(block)) !== null) {
-      out[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
-    }
-  } catch (err) {
-    console.warn(`[seo-hubs] failed to read ${slugConst} from ${slugDataFile}`, err);
   }
   return out;
 }

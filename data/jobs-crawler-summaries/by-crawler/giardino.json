@@ -1,18 +1,19 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-06-09T22:25:41.154Z",
+  "generatedAt": "2026-06-10T22:41:45.586Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5848,
-  "avgDurationMs": 5848,
+  "durationMs": 6096,
+  "avgDurationMs": 6096,
   "durationHistory": [
-    5848
+    6096
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "giardino-90b1cef0d97d",
       "slug": "commis-de-rang-giardino-group-ascona",
@@ -25,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-commis-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:25:38.937Z",
+      "crawledAt": "2026-06-10T22:41:43.349Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -40,11 +41,12 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://giardinohotels.ch/en/jobs/ga-commis-de-rang/",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-06-09T22:25:38.937Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -60,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-09T22:25:38.938Z",
+      "crawledAt": "2026-06-10T22:41:43.350Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -75,55 +77,16 @@
       "featured": false,
       "postedDate": "2026-06-09",
       "applyUrl": "https://giardinohotels.ch/en/jobs/ga-chef-de-rang/",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "giardino-a4c1442fdca3",
-      "slug": "assistente-per-la-cura-dei-bambini-giardino-group-ascona",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Child Care Attendant",
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://giardinohotels.ch/en/jobs/ga-child-care-attendant/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-04T22:18:43.252Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Kinderbetreuung",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-child-care-attendant/",
-      "firstSeenAt": "2026-05-18T21:58:11.724Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 97,
+      "firstSeenAt": "2026-06-09T22:25:38.938Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

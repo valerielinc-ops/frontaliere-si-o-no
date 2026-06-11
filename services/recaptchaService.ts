@@ -29,7 +29,9 @@ export type RecaptchaAction =
   | 'FEEDBACK_SUBMIT'
   | 'API_TEST'
   | 'PAGE_LOAD'
-  | 'CONTACT_FORM';
+  | 'CONTACT_FORM'
+  | 'PUBLISH_JOB'
+  | 'PUBLISHER_APPLY';
 
 const VERIFY_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/verifyRecaptcha';
 

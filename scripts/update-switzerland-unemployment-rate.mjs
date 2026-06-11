@@ -153,7 +153,7 @@ function findReleaseHref(html, rateSentence) {
   // non-matching, so only the JSON copy of the winner can bind.
   const resultFig = [...rateSentence.matchAll(/([0-9]+(?:[.,][0-9]+)?)\s*%/g)].pop();
   if (resultFig) {
-    const figRx = escapeRegExp(resultFig[1]).replace(/[.,]/g, '[.,]');
+    const figRx = resultFig[1].replace(/[.,]/g, '[.,]');
     const anchorRe = new RegExp(
       `(?:${RATE_PHRASE_RE.source})[^.;"<>]*?${figRx}\\s*%[.\\s]*"\\s*,\\s*"(https?:\\/\\/[^"]+)"`,
       'gi',

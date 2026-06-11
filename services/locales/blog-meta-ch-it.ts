@@ -125,6 +125,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-finanziamento-13esima.title': 'La 13esima AVS va in conferenza di conciliazione',
     'blog.article.avs-finanziamento-13esima.excerpt': 'Nessun accordo tra Consiglio Nazionale e Stati sul finanziamento della 13esima AVS',
     'blog.article.avs-finanziamento-13esima.imageAlt': 'Edificio del Parlamento svizzero a Berna con logo AVS',
+    'blog.article.givaudan-licenziamenti.title': 'Givaudan licenza dipendenti',
+    'blog.article.givaudan-licenziamenti.excerpt': 'Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze.',
+    'blog.article.givaudan-licenziamenti.imageAlt': 'Industria chimica in Svizzera',
+    'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi cambia ai vertici e cerca nuovi soci',
+    'blog.article.agefi-nuovi-vertici.excerpt': 'Frédéric Lelièvre lascia L\'Agefi per Le Temps; Jonas Follonier diventa redattore capo e Olivier Bloch direttore',
+    'blog.article.agefi-nuovi-vertici.imageAlt': 'Un giornale economico svizzero letto in un caffè di Lugano',
 };
 
 export default blogMetaChIt;

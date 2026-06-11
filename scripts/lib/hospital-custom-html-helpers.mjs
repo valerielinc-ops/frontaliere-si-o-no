@@ -63,27 +63,45 @@ export function htmlToText(html = '') {
 
 /**
  * Some ATS pages (SAP SF, Stripe Freeform forms) inline JavaScript widget
- * code right inside the description container, NOT wrapped in `<script>`
- * tags — typically a job-share/email widget. The HTML stripper above
- * removes script tags but cannot reach JS that was already plain-text in
- * the source. Truncate at the first inline `function NAME(...)` signature
- * (these widgets always appear at the bottom, after real content).
+ * code OR a trailing stylesheet right inside the description container, NOT
+ * wrapped in `<script>`/`<style>` tags — typically a job-share/email widget
+ * or a CSS theme dump (SuccessFactors CSB appends `.Job.benefits{display:flex}…`
+ * as plain text, sometimes when `readPropertyBlock` truncates the opening
+ * `<style>` tag so the `<style>…</style>` stripper above can't reach it).
+ * Both always appear at the bottom, after real content — truncate at the
+ * first such signature.
  */
 export function stripInlineJsCode(text = '') {
   if (!text) return text;
-  // Match: optional leading whitespace + `function NAME(...)`, with at least
-  // one alphanumeric name. Anchored against a newline to avoid mid-sentence
-  // false positives like "the function `lookupX(...)` returns".
-  const m = text.match(/(?:\n|^)\s*(?:\/\/\s*<!\[CDATA\[|\$\(|jQuery\(|function\s+\w*\s*\(|\(function\s*\()/);
-  if (m && m.index > 0) {
-    return text.slice(0, m.index).trimEnd();
+  // Each probe matches the *start* of a leaked code/style block. Truncate at
+  // the earliest match so a JS widget followed by a CSS dump (or vice-versa)
+  // is removed in full.
+  const probes = [
+    // Inline JS: `function NAME(...)`, `$(`, `jQuery(`, CDATA. Anchored against
+    // a newline to avoid mid-sentence false positives like "the function `x()`".
+    /(?:\n|^)\s*(?:\/\/\s*<!\[CDATA\[|\$\(|jQuery\(|function\s+\w*\s*\(|\(function\s*\()/,
+    // Orphan `var X = window.` / `var X = document.` declarations.
+    /(?:\n|^)\s*var\s+\w+\s*=\s*(?:window|document|new\s+Object|\{)/,
+    // Bare DOM/BOM-API calls leaked WITHOUT a `function(`/`$(`/`jQuery(`/`var X=`
+    // wrapper — e.g. a SuccessFactors job-share widget that inlines
+    // `document.getElementById(…)`, `window.location = …`, `.addEventListener('click', …)`
+    // or `new Array(…)` as plain text. The deploy gate (validate-jobs-quality.mjs
+    // CODE_PATTERNS) flags each of these independently of any wrapper, so the
+    // stripper must too: a wrapper-less JS leak otherwise survives stripping yet
+    // trips the gate → permanent CI fail / deploy blocked (#1765). Mirrors the
+    // gate's DOM-API / window-API / addEventListener / JS-constructor patterns.
+    /(?:\n|^|\s)(?:document\.(?:getElementById|querySelector|cookie|write)\b|window\.(?:location|addEventListener|onload)\b|\.addEventListener\s*\(\s*['"]|new\s+(?:Array|Object|Map|Set)\s*\()/,
+    // Inline CSS: a class/id rule block carrying a real declaration, optionally
+    // preceded by a `/* … */` build marker. Selector must start with `.`/`#`
+    // so prose like "version 2.0 {note}" can't trip it.
+    /(?:\n|^|\s)(?:\/\*[^*]{0,80}\*\/\s*)?[.#][\w-][\w.\-,#:>[\]='"\s]*?\{[^{}]{0,300}?(?:display|background(?:-image)?|margin|padding|grid(?:-\w+)?|flex(?:-\w+)?|width|height|font(?:-\w+)?|color|border|filter)\s*:[^{}]*\}/i,
+  ];
+  let cut = -1;
+  for (const re of probes) {
+    const m = text.match(re);
+    if (m && m.index > 0 && (cut === -1 || m.index < cut)) cut = m.index;
   }
-  // Fallback: orphan `var X = window.` / `var X = document.` declarations
-  const m2 = text.match(/(?:\n|^)\s*var\s+\w+\s*=\s*(?:window|document|new\s+Object|\{)/);
-  if (m2 && m2.index > 0) {
-    return text.slice(0, m2.index).trimEnd();
-  }
-  return text;
+  return cut > 0 ? text.slice(0, cut).trimEnd() : text;
 }
 
 export async function fetchHtml(url, { timeoutMs } = {}) {

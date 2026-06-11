@@ -377,6 +377,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'givaudan-licenziamenti',
+    category: 'novita',
+    date: '2026-06-11T00:48:43.497Z',
+    image: '/images/blog/givaudan-licenziamenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'agefi-nuovi-vertici',
+    category: 'novita',
+    date: '2026-06-11T01:04:25.665Z',
+    image: '/images/blog/agefi-nuovi-vertici.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
