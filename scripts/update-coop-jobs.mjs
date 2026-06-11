@@ -508,10 +508,35 @@ async function postProcessCoopJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   let repaired = 0;
 
+  // Detail-page fetch resilience at national scale: jobs.coopjobs.ch throttles
+  // bulk requests (1900+ jobs/run on one CI IP), so a single fetch returns empty
+  // for many jobs → the description stays blank and the pipeline then pads it
+  // with generic company boilerplate, which hard-fails the assemble
+  // boilerplate-guard. Retry with backoff + a small inter-request delay recovers
+  // the real JSON-LD description (the SSR detail page always carries the full
+  // 250-350-word text — verified live). Jobs that still resolve no real
+  // description are quarantined below (dropped, never published as boilerplate).
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  async function fetchCoopJsonLdResilient(url) {
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+      const ld = await fetchCoopJsonLd(url, timeoutMs);
+      if (ld) return ld; // got JSON-LD (description handled downstream)
+      await sleep(400 * (attempt + 1)); // backoff only when the fetch itself failed
+    }
+    return null;
+  }
+  const quarantineUrls = new Set();
+
   for (const job of coopJobs) {
     const descLen = (job.description || '').length;
-    const jsonLd = await fetchCoopJsonLd(job.url, timeoutMs);
-    if (!jsonLd) continue;
+    const jsonLd = await fetchCoopJsonLdResilient(job.url);
+    await sleep(60); // polite throttle to avoid tripping the bulk rate-limit
+    if (!jsonLd || String(jsonLd.description || '').trim().length < 80) {
+      // No real source description available → quarantine (don't publish a
+      // boilerplate-padded thin page).
+      if (descLen < 250) quarantineUrls.add(job.url);
+      if (!jsonLd) continue;
+    }
 
     let changed = false;
 
@@ -601,10 +626,23 @@ async function postProcessCoopJobs() {
     await new Promise((r) => setTimeout(r, 200));
   }
 
-  if (repaired > 0) {
+  // Quarantine: drop Coop jobs for which no real source description could be
+  // fetched (after retries) and whose own description is too thin — publishing a
+  // boilerplate-padded thin page violates the <50-word / boilerplate-guard
+  // contract. Better to ship fewer, well-described jobs than to fail the whole
+  // crawler (fail-per-record, not fail-the-batch).
+  let dropped = 0;
+  if (quarantineUrls.size > 0) {
+    const kept = allJobs.filter((j) => !(isCoopJob(j) && quarantineUrls.has(j.url)));
+    dropped = allJobs.length - kept.length;
+    allJobs.length = 0;
+    allJobs.push(...kept);
+  }
+
+  if (repaired > 0 || dropped > 0) {
     fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
     fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
-    console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs`);
+    console.log(`  ✅ Repaired ${repaired}/${coopJobs.length} Coop jobs` + (dropped ? ` · quarantined ${dropped} without a real source description` : ''));
   } else {
     console.log(`  ✅ All ${coopJobs.length} Coop jobs passed validation`);
   }
