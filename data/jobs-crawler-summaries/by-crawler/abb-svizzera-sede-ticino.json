@@ -1,60 +1,19 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-06-11T12:04:23.555Z",
-  "total": 53,
+  "generatedAt": "2026-06-11T22:06:15.361Z",
+  "total": 52,
   "newCount": 0,
-  "updatedCount": 40,
+  "updatedCount": 36,
   "removedCount": 0,
-  "unchangedCount": 13,
-  "durationMs": 67362,
-  "avgDurationMs": 67362,
+  "unchangedCount": 16,
+  "durationMs": 61987,
+  "avgDurationMs": 61987,
   "durationHistory": [
-    67362
+    61987
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "company-4cpni3",
-      "slug": "area-sales-manager-europe-linea-di-business-ad-alta-potenza-posizione-flessibile-abb-svizzera-sede-ticino-ticino",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Area Sales Manager Europe, High Power Solution Business Line (flexible location)",
-      "location": "Ticino",
-      "canton": "FR",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00036103EXTERNALENGLOBAL/Area-Sales-Manager-Europe--High-Power-Solution-Business-Line--flexible-location",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Untersiggenthal, Aargau, Switzerland",
-        "canton": "AG"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-06-10T22:07:02.928Z",
-      "firstSeenAt": "2026-06-10T22:07:02.928Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-xdtqkr",
       "slug": "r-d-senior-testing-lab-ingegnere-abb-svizzera-sede-ticino-baden-daettwil-aargau-xdtqkr",
@@ -98,7 +57,7 @@
     },
     {
       "id": "company-axtjqa",
-      "slug": "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-axtjqa",
+      "slug": "stage-in-computer-vision-per-marine-e-porti-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Internship in Computer Vision for Marine and Ports (80-100%)",
       "location": "Baden-Daettwil, Aargau",
@@ -129,57 +88,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-gzgcmy",
-      "slug": "internship-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen-gzgcmy",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Internship - strategischer Einkauf (80-100%)",
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-09",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00034494EXTERNALENGLOBAL/Internship-Procurement",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Schaffhausen, Schaffhausen, Switzerland",
-        "canton": "SH"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-06-10T22:07:02.928Z",
-      "firstSeenAt": "2026-06-10T22:07:02.928Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8200",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
+        "translation": 9,
         "completeness": 22
       }
     },
     {
       "id": "company-bhfqnq",
-      "slug": "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq",
+      "slug": "r-d-senior-scientist-magnetici-ad-alta-potenza-a-media-tensione-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "R&D (Senior) Scientist - Medium Voltage High Power Magnetics",
       "location": "Baden-Daettwil, Aargau",
@@ -210,17 +129,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
     {
       "id": "company-fahghi",
-      "slug": "is-solution-architekt-m-w-d-lernendenubernahme-abb-svizzera-sede-ticino-untersiggenthal-aargau-fahghi",
+      "slug": "architetto-di-soluzioni-is-f-m-d-assunzione-di-un-tirocinante-abb-svizzera-sede-ticino-untersiggenthal-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "IS Solution-Architekt f/m/d (Lernendenübernahme)",
       "location": "Untersiggenthal, Aargau",
@@ -251,17 +170,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
     {
       "id": "company-1rq6c4",
-      "slug": "technical-product-owner-service-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-1rq6c4",
+      "slug": "proprietario-di-prodotto-tecnico-servizio-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Technical Product Owner Service MV Drives (80-100%)",
       "location": "Untersiggenthal, Aargau",
@@ -292,11 +211,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
@@ -423,7 +342,7 @@
     },
     {
       "id": "company-adhojs",
-      "slug": "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-adhojs",
+      "slug": "assemblatore-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Assembler m/w/d (80-100%)",
       "location": "Untersiggenthal, Aargau",
@@ -454,11 +373,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "_qualityScore": 67,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 10,
+        "translation": 13,
         "completeness": 22
       }
     },
@@ -495,52 +414,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8610",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-ihaiu3",
-      "slug": "service-sales-specialista-abb-svizzera-sede-ticino-remote-zurich-ihaiu3",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Service Sales Specialist",
-      "location": "Remote, Zurich",
-      "canton": "FR",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBAL95033692EXTERNALENGLOBAL/Service-Sales-Specialist_95033692",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Remote, Switzerland",
-        "canton": "ZH"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-06-10T22:07:02.928Z",
-      "firstSeenAt": "2026-06-10T22:07:02.928Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "addressLocality": "Remote, Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 21,
-        "translation": 15,
+        "translation": 9,
         "completeness": 22
       }
     },
@@ -710,7 +588,7 @@
     },
     {
       "id": "company-ennqvo",
-      "slug": "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ennqvo",
+      "slug": "senior-scienziato-nei-sistemi-di-distribuzione-basati-su-convertitori-80-100-abb-svizzera-sede-ticino-baden-daettwil",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(Senior) Scientist in Converter-Based Distribution Systems (80 - 100%)",
       "location": "Baden-Daettwil, Aargau",
@@ -741,11 +619,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
@@ -833,7 +711,7 @@
     },
     {
       "id": "company-pzt0y1",
-      "slug": "sales-manager-abb-svizzera-sede-ticino-baden-aargau-pzt0y1",
+      "slug": "responsabile-vendite-abb-svizzera-sede-ticino-baden-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Sales Manager",
       "location": "Baden, Aargau",
@@ -864,17 +742,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 67,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 10,
+        "translation": 13,
         "completeness": 22
       }
     },
     {
       "id": "company-ei3vxb",
-      "slug": "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ei3vxb",
+      "slug": "r-d-senior-scienziato-convertitori-elettronici-di-potenza-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "R&D (Senior) Scientist - Power Electronic Converters (80-100%)",
       "location": "Baden-Daettwil, Aargau",
@@ -905,17 +783,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
     {
       "id": "company-an9xi3",
-      "slug": "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-an9xi3",
+      "slug": "stage-in-materiali-polimerici-sostenibili-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Internship in Sustainable Polymer Materials (80-100%)",
       "location": "Baden-Daettwil, Aargau",
@@ -946,17 +824,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
     {
       "id": "company-14m0p6",
-      "slug": "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6",
+      "slug": "stage-in-metalli-e-compositi-per-applicazioni-di-commutazione-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Internship in Metals and Composites for Switching Applications (80-100%)",
       "location": "Baden-Daettwil, Aargau",
@@ -987,11 +865,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
@@ -1078,47 +956,6 @@
       }
     },
     {
-      "id": "company-5a3q5d",
-      "slug": "salesforce-solution-architetto-for-marketing-sales-abb-svizzera-sede-ticino-5a3q5d",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Salesforce Solution Architect for Marketing & Sales",
-      "location": "Ticino",
-      "canton": "FR",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-31",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBAL93008285EXTERNALENGLOBAL/IS-Solution-Architect_93008285",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Remote, Switzerland",
-        "canton": "ZH"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-06-10T22:07:02.928Z",
-      "firstSeenAt": "2026-06-10T22:07:02.928Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-6ipf1f",
       "slug": "sales-service-project-execution-leader-critical-power-switzerland-austria-80-100-abb-svizzera-sede-ticino-baden-aargau-6ipf1f",
       "company": "ABB Svizzera (sede Ticino)",
@@ -1151,17 +988,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 63,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
     {
       "id": "company-9s903e",
-      "slug": "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-9s903e",
+      "slug": "internship-in-tecnologia-della-batteria-supporto-prototipante-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Internship in Battery Technology & Prototyping Support (80-100%)",
       "location": "Baden-Daettwil, Aargau",
@@ -1192,11 +1029,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
-      "_qualityScore": 61,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 9,
         "completeness": 22
       }
     },
@@ -1241,10 +1078,219 @@
         "translation": 15,
         "completeness": 25
       }
+    },
+    {
+      "id": "company-j6oli2",
+      "slug": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "(80 - 100%) Senior Power Electronics Engineer",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00027707EXTERNALENGLOBAL/XMLNAME--80---100---Senior-Power-Electronics-Engineer",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-29T21:55:01.928Z",
+      "firstSeenAt": "2026-05-29T21:55:01.928Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 15,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-l4n7mk",
+      "slug": "position-76059728-production-engineering-technician-abb-svizzera-sede-ticino-quartino-ticino-l4n7mk",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Position 76059728 Production Engineering Technician",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-26",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-26T21:52:20.160Z",
+      "firstSeenAt": "2026-05-26T21:52:20.160Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 13,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-ujl61l",
+      "slug": "customer-quality-specialista-abb-svizzera-sede-ticino-quartino-ticino-ujl61l",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Customer Quality Specialist",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-22",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00034241EXTERNALENGLOBAL/Customer-Quality-Specialist",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-22T21:15:09.640Z",
+      "firstSeenAt": "2026-05-22T21:15:09.640Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 15,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-6a4mil",
+      "slug": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Quality Technician (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00027039EXTERNALENGLOBAL/Quality-Technician--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-21T21:30:15.418Z",
+      "firstSeenAt": "2026-05-21T21:30:15.418Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 13,
+        "completeness": 25
+      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-4cpni3",
+      "slug": "area-sales-manager-europe-linea-di-business-ad-alta-potenza-posizione-flessibile-abb-svizzera-sede-ticino-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Area Sales Manager Europe, High Power Solution Business Line (flexible location)",
+      "location": "Ticino",
+      "canton": "FR",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00036103EXTERNALENGLOBAL/Area-Sales-Manager-Europe--High-Power-Solution-Business-Line--flexible-location",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Untersiggenthal, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-10T22:07:02.928Z",
+      "firstSeenAt": "2026-06-10T22:07:02.928Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "",
+      "postalCode": "6500",
+      "addressLocality": "Ticino",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "id": "company-e383th",
       "slug": "gestione-delle-relazioni-pubbliche-e-degli-affari-pubblici-abb-svizzera-sede-ticino-zurich",
@@ -1281,6 +1327,46 @@
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "company-gzgcmy",
+      "slug": "stage-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Internship - strategischer Einkauf (80-100%)",
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-09",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00034494EXTERNALENGLOBAL/Internship-Procurement",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Schaffhausen, Schaffhausen, Switzerland",
+        "canton": "SH"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-10T22:07:02.928Z",
+      "firstSeenAt": "2026-06-10T22:07:02.928Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8200",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
         "translation": 25,
         "completeness": 22
       }
@@ -1730,6 +1816,47 @@
         "richness": 18,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "company-5a3q5d",
+      "slug": "salesforce-solution-architetto-for-marketing-sales-abb-svizzera-sede-ticino-5a3q5d",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Salesforce Solution Architect for Marketing & Sales",
+      "location": "Ticino",
+      "canton": "FR",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-31",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBAL93008285EXTERNALENGLOBAL/IS-Solution-Architect_93008285",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Remote, Switzerland",
+        "canton": "ZH"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-10T22:07:02.928Z",
+      "firstSeenAt": "2026-06-10T22:07:02.928Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "",
+      "postalCode": "6500",
+      "addressLocality": "Ticino",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
