@@ -171,26 +171,45 @@ jobs:
           STDERR_LOG="${RUNNER_TEMP:-/tmp}/dispatch-stderr.log"
           : >"$STDERR_LOG"
 
+          # Retry the fire+verify up to DISPATCH_ATTEMPTS times. The dispatches
+          # endpoint occasionally returns a transient 5xx (HTTP 500 observed
+          # 2026-06-10 on a single crawler — `thurklinik` — out of 219, failing
+          # the whole shard and opening a noisy false-positive issue, FRO #1786).
+          # A transient API error leaves no run behind, so re-firing is safe and
+          # almost always succeeds on the next attempt. We only re-fire when the
+          # previous attempt produced NO run (verified via the runs API), so a
+          # slow-but-successful dispatch is not double-fired.
+          DISPATCH_ATTEMPTS=3
           dispatch_and_verify() {
             local filename="$1"
-            local before_iso
-            before_iso=$(date -u -d '-5 seconds' '+%Y-%m-%dT%H:%M:%SZ')
+            local attempt
+            for attempt in $(seq 1 "$DISPATCH_ATTEMPTS"); do
+              local before_iso
+              before_iso=$(date -u -d '-5 seconds' '+%Y-%m-%dT%H:%M:%SZ')
 
-            # Fire-and-forget. Stderr is captured for post-mortem; exit code ignored.
-            gh workflow run "$filename" --ref main -f skip_ai_translation=1 \
-              >/dev/null 2>>"$STDERR_LOG" || true
+              # Fire-and-forget. Stderr is captured for post-mortem; exit code ignored.
+              gh workflow run "$filename" --ref main -f skip_ai_translation=1 \
+                >/dev/null 2>>"$STDERR_LOG" || true
 
-            # Poll for up to ~15s for a new workflow_dispatch run created after t0.
-            # GitHub normally registers dispatches within 1-3s.
-            local deadline=$(( $(date +%s) + 15 ))
-            while [ "$(date +%s)" -lt "$deadline" ]; do
-              sleep 2
-              local newest
-              newest=$(gh api \
-                "/repos/${GITHUB_REPOSITORY}/actions/workflows/${filename}/runs?per_page=1&event=workflow_dispatch" \
-                --jq '.workflow_runs[0].created_at // ""' 2>/dev/null || echo "")
-              if [ -n "$newest" ] && [[ "$newest" > "$before_iso" ]]; then
-                return 0
+              # Poll for up to ~15s for a new workflow_dispatch run created after t0.
+              # GitHub normally registers dispatches within 1-3s.
+              local deadline=$(( $(date +%s) + 15 ))
+              while [ "$(date +%s)" -lt "$deadline" ]; do
+                sleep 2
+                local newest
+                newest=$(gh api \
+                  "/repos/${GITHUB_REPOSITORY}/actions/workflows/${filename}/runs?per_page=1&event=workflow_dispatch" \
+                  --jq '.workflow_runs[0].created_at // ""' 2>/dev/null || echo "")
+                if [ -n "$newest" ] && [[ "$newest" > "$before_iso" ]]; then
+                  return 0
+                fi
+              done
+
+              # No run appeared — likely a transient dispatch error. Back off and
+              # re-fire (unless this was the last attempt).
+              if [ "$attempt" -lt "$DISPATCH_ATTEMPTS" ]; then
+                echo -n " ↻retry$attempt"
+                sleep 5
               fi
             done
             return 1
