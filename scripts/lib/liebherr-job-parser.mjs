@@ -22,10 +22,13 @@
  *   Reiden LU, Daillens VD, Baden AG — which all recruit through this one
  *   tenant). Pagination is `startrow += 25`.
  *
- *   The detail pages (`/job/{slug}/{id}/`) are client-rendered (description +
- *   posted date fill via XHR after load), so we DON'T fetch them: the listing
- *   already yields every required field (title, location, url, id). Description
- *   falls back to a brand blurb; the AI-localization pipeline enriches locales.
+ *   The detail pages (`/job/{slug}/{id}/`) ARE server-rendered plain HTML on
+ *   `careers.liebherr.com` (verified 2026-06-11: the page carries the full job
+ *   body in an `itemprop="description"` schema.org/JobPosting microdata block,
+ *   ~2.5k chars / ~385 words). We fetch each detail page to recover the REAL
+ *   description (the previous title-only stub failed the assemble
+ *   boilerplate-guard, #1722). Falls back to a brand blurb on fetch failure;
+ *   the AI-localization pipeline enriches locales.
  *
  * Liebherr Swiss HQ: Rue Hans-Liebherr 7, 1630 Bulle (FR) — default canton when
  * location extraction can't resolve one.
@@ -40,6 +43,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -260,6 +264,26 @@ async function fetchJobListings() {
 /* ── Job assembly ──────────────────────────────────────────── */
 
 /**
+ * Fetch the full job-body description from a Liebherr jobs2web detail page.
+ * The page is server-rendered plain HTML carrying the body in an
+ * `itemprop="description"` schema.org/JobPosting microdata block. Returns the
+ * inner HTML (caller strips tags) or '' on any failure → caller falls back to
+ * a brand blurb. fetchHtml follows the 302 to the canonical detail URL.
+ */
+async function fetchLiebherrDetailDescription(url) {
+  if (!url || !/^https?:\/\//.test(url)) return '';
+  try {
+    const html = await fetchHtml(url, {
+      timeoutMs: 15000,
+      headers: { 'User-Agent': USER_AGENT },
+    });
+    return extractMicrodataDescription(html);
+  } catch {
+    return ''; // network/timeout → caller falls back to the brand blurb
+  }
+}
+
+/**
  * Fetch all Liebherr jobs.
  * Returns an array of ParsedJob objects (source-locale only). Other locales
  * are filled by the AI localization step and translate-pending pipeline.
@@ -290,9 +314,18 @@ export async function fetchAllLiebherrJobs() {
       'FR'; // HQ canton (Bulle, Fribourg)
 
     const publicUrl = listing.url || SEARCH_URL;
-    const descriptionText = `${title} — Liebherr (${city}, CH)`;
+    // The jobs2web detail page is server-rendered: recover the REAL job body
+    // from the itemprop="description" microdata block. Fall back to a brand
+    // blurb on any fetch failure (fail-per-record, never fake content). This
+    // replaces the previous title-only stub that 100%-failed the boilerplate
+    // guard (#1722).
+    const detailDescHtml = await fetchLiebherrDetailDescription(publicUrl);
+    const detailDescText = detailDescHtml
+      ? normalizeSpace(stripHtml(detailDescHtml))
+      : '';
+    const descriptionText = detailDescText || `${title} — Liebherr (${city}, CH)`;
 
-    const sourceLang = detectLang(title, 'de');
+    const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} liebherr ${city}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 

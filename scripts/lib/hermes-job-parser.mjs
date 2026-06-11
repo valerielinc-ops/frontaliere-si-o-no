@@ -27,6 +27,9 @@ const CAREER_URL = 'https://talents.hermes.com/en/sites/CX/jobs';
 // Oracle Recruiting Cloud (ORC / HCM Fusion) REST endpoint for site CX_12001.
 const ORC_HOST = 'fa-eoic-saasfaprod1.fa.ocs.oraclecloud.com';
 const ORC_BASE = `https://${ORC_HOST}/hcmRestApi/resources/latest/recruitingCEJobRequisitions`;
+// Per-requisition detail endpoint — carries the full ExternalDescriptionStr
+// body (the list endpoint above returns it empty). Finder: ById;Id="…".
+const ORC_DETAIL_BASE = `https://${ORC_HOST}/hcmRestApi/resources/latest/recruitingCEJobRequisitionDetails`;
 const ORC_SITE_NUMBER = 'CX_12001';
 const ORC_PAGE_SIZE = 200;
 const ORC_MAX_PAGES = 12; // safety cap (~2400 reqs); current global total ~956
@@ -220,6 +223,37 @@ async function fetchJobListings() {
 }
 
 /**
+ * Fetch the full external description for a single requisition from the Oracle
+ * ORC detail endpoint. The list endpoint returns ShortDescriptionStr /
+ * ExternalDescriptionStr EMPTY; the detail endpoint carries the full
+ * ExternalDescriptionStr body (HTML, verified live ~6k chars). Concatenates the
+ * responsibilities + qualifications sections when present. Returns '' on any
+ * failure so the caller falls back to a title-only lede.
+ */
+async function fetchHermesDetailDescription(jobReqId) {
+  if (!jobReqId) return '';
+  const finder = `ById;Id="${jobReqId}",siteNumber=${ORC_SITE_NUMBER}`;
+  const params = new URLSearchParams({ onlyData: 'true', expand: 'all', finder });
+  const url = `${ORC_DETAIL_BASE}?${params.toString()}`;
+  try {
+    const payload = await fetchJson(url, {
+      headers: { Accept: 'application/json', 'User-Agent': DESKTOP_UA },
+      timeoutMs: 15000,
+    });
+    const item = Array.isArray(payload?.items) ? payload.items[0] : null;
+    if (!item) return '';
+    const parts = [
+      item.ExternalDescriptionStr,
+      item.ExternalResponsibilitiesStr,
+      item.ExternalQualificationsStr,
+    ].filter(Boolean);
+    return parts.join('\n');
+  } catch {
+    return ''; // network/timeout → caller falls back to the title lede
+  }
+}
+
+/**
  * Fetch all Hermès jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -248,7 +282,10 @@ export async function fetchAllHermesJobs() {
     const location = normalizeSpace(listing.location || '') || 'Genève';
     // Canton from the job location; fall back to HQ canton (Genève / GE).
     const canton = inferSwissTargetCanton(location) || 'GE';
-    const descriptionHtml = listing.description || '';
+    // The list endpoint carries no body; fetch the full ExternalDescriptionStr
+    // from the ORC detail endpoint so jobs aren't thin → boilerplate-padded →
+    // boilerplate-guard failure (#1718). Falls back to '' (then a title lede).
+    const descriptionHtml = await fetchHermesDetailDescription(listing.jobReqId) || listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
 
