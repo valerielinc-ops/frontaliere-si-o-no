@@ -515,6 +515,19 @@ export function collapsifySeoBlock(html: string): string {
  return out;
 }
 
+/**
+ * Extracts the prerendered `#root` body from a buildPage() artifact so it can
+ * be injected into Vite's otherwise-empty homepage `index.html`. The `<script`
+ * end anchor pins the correct `</main></div>` (rootHtml may itself contain stray
+ * tags). The buildPage body now emits `<div id="footer-root"></div>` as a sibling
+ * between `#root` and the module script (lite-shell footer portal), so the anchor
+ * must tolerate that optional div — without it the match silently fails and the
+ * homepage ships with no injected SEO block (regression source for #1804 item 1).
+ * Exported for regression coverage in collapsifySeoBlock.test.ts.
+ */
+export const HOMEPAGE_ROOT_CONTENT_RX =
+ /<div id="root"><main id="main-content">([\s\S]*?)<\/main><\/div>\s*(?:<div id="footer-root"><\/div>\s*)?<script/;
+
 function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // Inject only once: skip if already present.
  if (html.includes('id="hp-seo-block"')) return html;
@@ -4705,10 +4718,9 @@ ${hrefTags}
  if (url.path === '/' && seo) {
  try {
  const generatedPage = buildPage('it', url.path, seo, url.hreflangs);
- const rootMatch = generatedPage.match(/<div id="root"><main id="main-content">([\s\S]*?)<\/main><\/div>\s*<script/);
- if (rootMatch?.[1]) {
+ const rootMatch = generatedPage.match(HOMEPAGE_ROOT_CONTENT_RX);
  let existingHtml = fs.readFileSync(filePath, 'utf-8');
- if (existingHtml.includes('<div id="root"><main id="main-content"></main></div>')) {
+ if (rootMatch?.[1] && existingHtml.includes('<div id="root"><main id="main-content"></main></div>')) {
  existingHtml = existingHtml.replace(
  '<div id="root"><main id="main-content"></main></div>',
  `<div id="root"><main id="main-content">${rootMatch[1]}</main></div>`,
@@ -4716,11 +4728,12 @@ ${hrefTags}
  }
  // Always inject the homepage SEO block (sibling to #root) so the page
  // carries substantive prose for the Semrush low-text/HTML gate. It
- // sits AFTER #root so React hydration leaves it untouched.
+ // sits AFTER #root so React hydration leaves it untouched. Decoupled from
+ // the rootMatch gate above so a body-structure change that breaks the
+ // content-extraction regex can never again silently drop the SEO block.
  existingHtml = injectHomepageSeoContent(existingHtml, 'it');
  _qw(filePath, existingHtml);
  console.log('[static-pages] Injected static content + SEO block into homepage');
- }
  } catch (e) {
  console.warn('[static-pages] Could not inject into homepage:', (e as Error).message);
  }
