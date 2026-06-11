@@ -1,0 +1,57 @@
+# Deploy the Cloudflare locale-router Worker.
+#
+# Until now the Worker (infra/cloudflare-worker/locale-router.js) was a manual
+# `npx wrangler deploy` from the runbook (LOCALE-SHARD-CLOUDFLARE-RUNBOOK §2.4) —
+# no workflow re-deployed it, so any edit to the Worker sat in the repo without
+# going live. This closes that gap: every push to main that touches the Worker
+# directory deploys it via cloudflare/wrangler-action.
+#
+# Note: only the WORKER SCRIPT is deployed here. The shard *content* (en/de/fr
+# HTML pushed to the frontaliere-{loc} repos) is deployed separately by
+# deploy.yml on every site deploy — unchanged.
+#
+# Secrets (already configured as repo Actions secrets):
+#   CLOUDFLARE_API_TOKEN   — token scoped Account→Workers Scripts:Edit
+#                            + Zone→Workers Routes:Edit on frontaliereticino.ch
+#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare account id
+name: Deploy Cloudflare Worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'infra/cloudflare-worker/**'
+  workflow_dispatch: {}
+
+# Never cancel an in-flight deploy: a half-applied Worker/route change is worse
+# than waiting. Serialize so concurrent merges deploy in order.
+concurrency:
+  group: deploy-cloudflare-worker
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy locale-router Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: infra/cloudflare-worker
+          command: deploy
+
+      # Smoke-check the three locale roots through the public apex. Informative
+      # only (|| true): a transient non-200 here must not red the deploy job —
+      # the Worker itself already deployed in the step above.
+      - name: Smoke-check locale roots
+        run: |
+          for loc in en de fr; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://frontaliereticino.ch/$loc/" || echo "ERR")
+            echo "/$loc/ -> $code"
+          done || true
