@@ -1747,6 +1747,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Build a map: canonicalPath → { title, desc, ogTitle, ogDesc, structuredData }
  interface SeoEntry { title: string; desc: string; ogT: string; ogD: string; h1?: string; sd?: string }
  const seoMap = new Map<string, SeoEntry>();
+ // Canonical key form for seoMap: always WITH trailing slash. Hand-written
+ // entries use '/path/', dynamic glossary/border entries used '/path', and
+ // the emit loop looked up url.path (no slash) — so ~3.8k hand-written
+ // entries were silently shadowed by the URL-derived fallback meta.
+ // Normalize at every set/get/has so the key form can never diverge again.
+ const seoKey = (p: string): string => {
+ const clean = p.replace(/\/+$/, '');
+ return clean ? `${clean}/` : '/';
+ };
 
  // Helper: extract balanced braces/brackets from a string starting at `pos`
  const extractBalanced = (src: string, pos: number): string | null => {
@@ -1866,7 +1875,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'target', 'offers', 'logo', 'creator', 'spatialCoverage', 'step',
  'itemListElement', 'mainEntity', 'author', 'publisher', 'image',
  ]);
- const entryStartRx = /^\s{2,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
+ // Indent range starts at 1: the seo source files are stored space-compressed
+ // (1-space indentation at every nesting level). Requiring >=2 spaces silently
+ // dropped EVERY entry in seo-pages.ts / seo-landing.ts, so ~200 curated pages
+ // shipped with the URL-derived fallback title/description (GSC CTR ~0.2%).
+ const entryStartRx = /^\s{1,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
  const entryStarts: { key: string; pos: number }[] = [];
  let esm: RegExpExecArray | null;
  while ((esm = entryStartRx.exec(seoSrc)) !== null) {
@@ -1956,7 +1969,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  }
  }
- seoMap.set(cp, { title, desc, ogT, ogD, h1: h1 || undefined, sd });
+ seoMap.set(seoKey(cp), { title, desc, ogT, ogD, h1: h1 || undefined, sd });
  }
  }
 
@@ -2003,7 +2016,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  for (const termId of glossaryIds) {
  const slug = itOverrides[termId] || defaultSlug(termId);
  const cp = `/glossario-frontaliere/${slug}`;
- if (seoMap.has(cp)) continue; // hand-written entry wins
+ if (seoMap.has(seoKey(cp))) continue; // hand-written entry wins
  const label = titleize(termId);
  const termDesc = `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
  const termUrl = `${BASE_URL}${cp}/`;
@@ -2019,7 +2032,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  url: `${BASE_URL}/glossario-frontaliere/`,
  },
  });
- seoMap.set(cp, {
+ seoMap.set(seoKey(cp), {
  title: `${label} (Glossario) | Frontaliere Ticino`,
  desc: termDesc,
  ogT: `${label} (Glossario) | Frontaliere Ticino`,
@@ -2035,9 +2048,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const crossingIds = crossingIdsMatch[1].match(/'([^']+)'/g)?.map(s => s.replace(/'/g, '')) ?? [];
  for (const crossingId of crossingIds) {
  const cp = `/guida-frontaliere/tempi-attesa-dogana/${crossingId}`;
- if (seoMap.has(cp)) continue;
+ if (seoMap.has(seoKey(cp))) continue;
  const label = crossingId.replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
- seoMap.set(cp, {
+ seoMap.set(seoKey(cp), {
  title: `Traffico dogana ${label} | Tempi attesa valico`,
  desc: `Traffico dogana ${label} in tempo reale: tempi di attesa, orari apertura e consigli pratici per frontalieri al valico.`,
  ogT: `Traffico dogana ${label} | Tempi attesa valico`,
@@ -2410,7 +2423,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
- let seo = seoMap.get(url.path);
+ let seo = seoMap.get(seoKey(url.path));
  if (!seo) {
  // Derive a basic page from URL path so every sitemap URL gets a static HTML file
  const pathLabel = url.path.split('/').filter(Boolean).pop() || url.path;
@@ -4403,7 +4416,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const articleCardsHtml = topArticles.map((art, idx) => {
  const artSlug = articleIdToSlug[cardLocale]?.[art.id] ?? art.id;
  const artPath = localePrefix ? `/${localePrefix}/${blogListSlug}/${artSlug}` : `/${blogListSlug}/${artSlug}`;
- const artSeo = seoMap.get(artPath);
+ const artSeo = seoMap.get(seoKey(artPath));
  const title = artSeo ? esc(artSeo.ogT) : art.id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
  const desc = artSeo ? esc(artSeo.desc).substring(0, 150) : '';
  const catColor = CATEGORY_COLORS[art.category] ?? CATEGORY_COLORS.fiscale;
@@ -4787,7 +4800,7 @@ ${hrefTags}
  // variants, so always regenerate so JSON-LD reflects current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
- const locSeo = seoMap.get(locPath) ?? deriveLocaleSeo(locPath, hl.lang, seo);
+ const locSeo = seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo);
 
  // Dynamic override for per-locale job-board landings (en/de/fr): inject
  // live active-job count + fire emoji so each locale ships a unique title
