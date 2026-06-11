@@ -145,53 +145,13 @@ function brandLogoUrl(companyName, companyKey) {
   return null;
 }
 
-// Job-board aggregator domains — when an alert pulls from these, the URL
-// host is NOT the company site, so the favicon would be wrong (LinkedIn /
-// Indeed / Jobup logo instead of the actual employer). Skip the favicon
-// fallback for these and let the initial-letter avatar render instead.
-const AGGREGATOR_HOSTS = new Set([
-  'linkedin.com', 'indeed.com', 'indeed.ch', 'glassdoor.com',
-  'jobs.ch', 'jobup.ch', 'jobscout24.ch', 'monster.ch', 'monster.com',
-  'stepstone.ch', 'stepstone.com', 'jobagent.ch', 'job-room.ch',
-  'arbeit.swiss', 'work.swiss', 'topjobs.ch',
-]);
-
-function extractCompanyDomain(rawUrl) {
-  if (!rawUrl) return null;
-  try {
-    const host = new URL(rawUrl).hostname.replace(/^www\./, '').toLowerCase();
-    if (!host) return null;
-    // Reject our own domain (job board on frontaliereticino.ch) and aggregators.
-    if (host === 'frontaliereticino.ch' || host.endsWith('.frontaliereticino.ch')) return null;
-    if (AGGREGATOR_HOSTS.has(host)) return null;
-    // For subdomains like jobs.companysite.com / careers.companysite.com,
-    // strip the leading subdomain so the favicon comes from the parent.
-    if (/^(?:careers?|jobs?|recruiting|hr|werkenbij|emplois|stellen|carriere)\./.test(host)) {
-      return host.split('.').slice(1).join('.');
-    }
-    return host;
-  } catch {
-    return null;
-  }
-}
-
-// Universal logo fallback via Google's S2 favicons CDN. ALWAYS returns an icon
-// for any reachable domain (lower quality than bundled logos — usually 32–128px
-// favicons — but covers every long-tail employer not in our 72-brand bundle).
-function faviconUrl(domain) {
-  if (!domain) return null;
-  return `https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(domain)}`;
-}
-
 function resolveAvatarSrc(job) {
-  // Tier 1: bundled, high-quality brand logo.
+  // Bundled, high-quality brand logo only. No Google-favicon tier: it serves a
+  // grey globe for domains it can't resolve (and the wrong logo for aggregator
+  // hosts), both of which look broken in an inbox. A null result renders the
+  // coloured initial-letter avatar instead.
   const bundled = brandLogoUrl(job.company, job.companyKey);
   if (bundled) return { src: bundled, kind: 'bundled' };
-  // Tier 2: site favicon for the company's own domain.
-  const sourceUrl = job.url || job.applyUrl || job.urlByLocale?.it || null;
-  const domain = extractCompanyDomain(sourceUrl);
-  const fav = faviconUrl(domain);
-  if (fav) return { src: fav, kind: 'favicon' };
   return null;
 }
 
@@ -611,11 +571,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const initial = (company || '?')[0].toUpperCase();
     const avatar = resolveAvatarSrc(job);
     const logoSrc = avatar?.src || null;
-    // Bundled logos render contained on white, favicons render edge-to-edge
-    // on a dark surface (favicons are usually transparent or have their own bg).
-    const logoStyle = avatar?.kind === 'favicon'
-      ? 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:cover;'
-      : 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
+    // Bundled logos render contained on white.
+    const logoStyle = 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
     const tags = [];
     // "NEW" badge for jobs first seen within 48 hours.
     const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;

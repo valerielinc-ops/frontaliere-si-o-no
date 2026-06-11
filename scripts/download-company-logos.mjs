@@ -366,6 +366,15 @@ async function main() {
   const baseManifest = opts.slug ? await readManifestFromDisk() : {};
   const merged = { ...baseManifest };
   for (const r of results) {
+    // Never mirror a grey-globe favicon into the manifest: doing so would
+    // serve Google's generic grey globe as if it were a real logo. Skipping it
+    // lets the runtime resolver fall through to the coloured-initials badge
+    // (resolveCompanyLogoUrl returns null when no real asset exists). Single-
+    // slug runs also drop any stale grey-globe entry that was mirrored before.
+    if (r.status === 'grey-globe') {
+      delete merged[r.slug];
+      continue;
+    }
     if (r.path) merged[r.slug] = r.path;
   }
   const sorted = Object.fromEntries(Object.entries(merged).sort(([a], [b]) => a.localeCompare(b)));

@@ -136,7 +136,7 @@ import {
 // Re-export for tests/consumers that imported the helper from this file
 // (e.g. tests/jobboard-italian-lowercase-list-parsing.test.ts).
 export { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
-import { handleCompanyLogoError } from '@/services/logoService';
+import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoService';
 import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
@@ -514,14 +514,17 @@ function companyLogoUrl(job: JobListing): string | null {
  // unchanged. CDN-down degrades via the <img onError> chain (handleCompanyLogoError).
  if (explicitLogo) return cdnImageUrl(explicitLogo);
 
- const host = resolveCompanyWebsiteHost({
- company: job.company,
- companyKey: job.companyKey,
- companyDomain: job.companyDomain,
- url: job.url,
- });
- if (!host) return null;
- return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=128`;
+ // No curated logo. We deliberately do NOT fall back to a Google favicon
+ // (`s2/favicons`): it serves a generic grey-globe PNG for domains Google
+ // can't resolve (e.g. crawled companies on ATS sub-domains) which browsers
+ // render even on a 404, so onError never fires and the user sees the
+ // broken-looking grey globe. Use the deterministic coloured-initials badge
+ // instead — same data URI the static SEO renderer emits, so SPA and
+ // pre-rendered HTML match.
+ if (job.company && job.company.trim().length > 0) {
+ return generateInitialsLogo(job.company);
+ }
+ return null;
 }
 
 function normalizeIncomingJob(raw: any): JobListing {
@@ -3698,7 +3701,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
  `${localizedTitle} ${description || ''} ${job.location || ''}`
  );
- const logo = companyLogoUrl(job) || 'https://frontaliereticino.ch/icons/icon-512x512.png';
+ // JSON-LD hiringOrganization.logo needs a fetchable URL — companyLogoUrl can
+ // now return an inlined initials data: URI (fine for <img>, not for schema),
+ // so fall back to the site icon for those rather than emitting a data URI.
+ const rawLogo = companyLogoUrl(job);
+ const logo = rawLogo && !rawLogo.startsWith('data:')
+ ? rawLogo
+ : 'https://frontaliereticino.ch/icons/icon-512x512.png';
  const salaryMin = Number.isFinite(Number(job.salaryMin))
  ? Number(job.salaryMin)
  : Number(job.baseSalary?.value?.minValue);

@@ -1,5 +1,5 @@
 import type { SyntheticEvent } from 'react';
-import { handleCompanyLogoError, COMPANY_LOGO_PLACEHOLDER } from '@/services/logoService';
+import { generateInitialsLogo } from '@/services/logoService';
 import { getProviderLogoUrl, getInsurerLogoUrl, PROVIDER_LOGOS } from '@/services/brandLogos';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 
@@ -17,35 +17,27 @@ export default function ProviderLogo({ slug, domain, name, size = 32, className 
     domain ??
     (slug ? PROVIDER_LOGOS[slug]?.domain : undefined);
 
-  // Priority: slug localPath → domain localPath (insurer map) → Clearbit → placeholder.
-  // cdnImageUrl rewrites the same-origin /images/{providers,insurers}/ localPath to
-  // the CDN at runtime when offloaded (#1360); Clearbit/placeholder pass through.
-  // CDN-down degrades via onError (→ Clearbit → placeholder) below.
-  const src = cdnImageUrl(
+  // Priority: slug localPath → domain localPath (insurer map) → coloured-initials
+  // badge. cdnImageUrl rewrites the same-origin /images/{providers,insurers}/
+  // localPath to the CDN at runtime when offloaded (#1360). There is no Clearbit
+  // or Google-favicon hop: Clearbit's CDN is defunct and Google's s2/favicons
+  // serves a grey globe — both only ever produced a broken-looking logo. A null
+  // local lookup falls through to the deterministic initials badge, and a CDN
+  // load error degrades to the same badge via onError.
+  const localLogo = cdnImageUrl(
     (slug ? getProviderLogoUrl(slug) : null) ??
-    (resolvedDomain ? getInsurerLogoUrl(resolvedDomain) : null) ??
-    (resolvedDomain ? `https://logo.clearbit.com/${resolvedDomain}` : null) ??
-    COMPANY_LOGO_PLACEHOLDER
+    (resolvedDomain ? getInsurerLogoUrl(resolvedDomain) : null)
   );
-
-  const clearbitUrl = resolvedDomain
-    ? `https://logo.clearbit.com/${resolvedDomain}`
-    : null;
+  const initialsLogo = generateInitialsLogo(name);
+  const src = localLogo || initialsLogo;
 
   function onError(e: SyntheticEvent<HTMLImageElement>) {
     const el = e.currentTarget;
-    if (el.dataset.logoFallback === 'placeholder') return;
-
-    const currentSrc = el.src;
-    // localPath failed → try Clearbit before falling through to placeholder.
-    if (clearbitUrl && !currentSrc.includes('clearbit.com')) {
-      el.src = clearbitUrl;
-      el.dataset.logoFallback = 'clearbit';
-      return;
-    }
-    // Clearbit (or any other) failure → local SVG placeholder.
-    // The old Google favicons step was removed (gray-globe).
-    handleCompanyLogoError(e);
+    if (el.dataset.logoFallback === 'initials') return;
+    // Any load failure (e.g. CDN down) → coloured-initials badge.
+    el.src = initialsLogo;
+    el.dataset.logoFallback = 'initials';
+    el.style.visibility = 'visible';
   }
 
   return (

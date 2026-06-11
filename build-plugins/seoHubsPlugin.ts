@@ -37,6 +37,7 @@ import { readSvizzeraArticleUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 import {
   resolveBrandLogoUrl,
   renderEntityCard,
@@ -861,7 +862,14 @@ function readJobSlugsMap(
 
 /**
  * Parse CRAWLED_COMPANY_LOGOS from services/jobDataNormalization.ts source.
- * Returns slug → URL map for use as fallback when local manifest has no entry.
+ * Returns slug → URL map for use as fallback when the local manifest has no
+ * entry. Only self-hosted paths and direct http(s) URLs are surfaced:
+ * `gFavicon(...)` and `cLogo(...)` entries are deliberately skipped because the
+ * Google favicon serves a grey globe for domains it can't resolve and Clearbit's
+ * CDN is defunct — both render as a broken logo. Those companies are already
+ * mirrored locally via company-logos-manifest.json (the primary lookup); on a
+ * manifest miss the page falls through to the placeholder instead of a grey
+ * globe.
  */
 function readCrawledCompanyLogos(fs: typeof fsT, np: typeof npT, rootDir: string): Record<string, string> {
   const out: Record<string, string> = {};
@@ -875,13 +883,8 @@ function readCrawledCompanyLogos(fs: typeof fsT, np: typeof npT, rootDir: string
     while ((m = lineRx.exec(block)) !== null) {
       const slug = m[1];
       const val = m[2].trim().replace(/,$/, '');
-      if (val.startsWith("gFavicon('")) {
-        const domain = val.match(/gFavicon\('([^']+)'\)/)?.[1];
-        if (domain) out[slug] = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
-      } else if (val.startsWith('cLogo(')) {
-        const domain = val.match(/cLogo\('([^']+)'\)/)?.[1];
-        if (domain) out[slug] = `https://logo.clearbit.com/${domain}`;
-      } else if (val.startsWith("'") && val.endsWith("'")) {
+      // Skip gFavicon(...) / cLogo(...): unreliable (grey globe / defunct CDN).
+      if (val.startsWith("'") && val.endsWith("'")) {
         out[slug] = val.slice(1, -1);
       }
     }
@@ -891,9 +894,6 @@ function readCrawledCompanyLogos(fs: typeof fsT, np: typeof npT, rootDir: string
   return out;
 }
 
-/** Fallback chain: Clearbit → Google favicon → placeholder SVG. */
-const LOGO_ONERROR =
-  `if(this.dataset.lf==='ph')return;if(this.src.indexOf('logo.clearbit.com')>-1){var d=this.src.replace(/^https?:\\/\\/logo\\.clearbit\\.com\\//,'').split(/[\\/?#]/)[0];if(d){this.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128';this.dataset.lf='gf';return;}}this.src='/icons/company-placeholder.svg';this.dataset.lf='ph';this.style.visibility='visible';`;
 
 function readCompanySlugs(fs: typeof fsT, np: typeof npT, rootDir: string): string[] {
   const file = np.resolve(rootDir, 'data/known-company-slugs.json');
@@ -1097,7 +1097,7 @@ function buildHtml(args: BuildHtmlArgs): string {
                 href: it.href,
                 logoUrl: it.logo ?? undefined,
                 iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
-                logoOnerror: it.logo ? LOGO_ONERROR : undefined,
+                logoOnerror: it.logo ? LOGO_IMG_ONERROR : undefined,
                 title: it.label,
                 subtitle: it.jobCount ? jobsActiveLabel(locale, it.jobCount) : undefined,
                 metric: it.jobCount ? String(it.jobCount) : undefined,
@@ -1644,7 +1644,7 @@ function buildThinCantonHubHtml(args: {
                 href: it.href,
                 logoUrl: it.logo ?? undefined,
                 iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
-                logoOnerror: it.logo ? LOGO_ONERROR : undefined,
+                logoOnerror: it.logo ? LOGO_IMG_ONERROR : undefined,
                 title: it.label,
                 subtitle: it.sub,
                 metric: it.metric,

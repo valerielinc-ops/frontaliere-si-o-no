@@ -415,14 +415,15 @@ describe('job alert dedup — per-company cap', () => {
   });
 });
 
-describe('job alert email — universal favicon fallback', () => {
-  // When no bundled brand file matches, derive the company domain from the
-  // job URL and fall back to Google's favicon CDN. Covers long-tail employers
-  // not in our 72-brand bundle (Tether Operations, Ticino Premium Properties, …).
-  it('falls back to a Google Favicons URL when no bundled logo exists, using job.url host', () => {
-    // Pick a long-tail employer that is NOT in our 72-brand bundle and has no
-    // alias mapping in scripts/send-job-alerts.mjs — so tier 1 (bundled) fails
-    // and tier 2 (favicon) must kick in.
+describe('job alert email — initial-letter avatar fallback (no grey globe)', () => {
+  // When no bundled brand file matches, the email renders a coloured
+  // initial-letter avatar. We deliberately do NOT fall back to a Google favicon
+  // (grey globe for unknown domains, wrong logo for aggregator hosts) — both
+  // look broken in an inbox.
+  it('renders an initial-letter avatar (never a Google favicon) when no bundled logo exists', () => {
+    // A long-tail employer NOT in our 72-brand bundle and with no alias mapping
+    // in scripts/send-job-alerts.mjs — so tier 1 (bundled) fails and the avatar
+    // must fall through to the initial letter, never the grey globe.
     const job = {
       ...fixtureJob(),
       company: 'Nonsense Long Tail Employer XYZ',
@@ -430,20 +431,19 @@ describe('job alert email — universal favicon fallback', () => {
       url: 'https://nonsense-long-tail-employer-xyz.example/careers/job-1',
     };
     const result = buildAlertEmail(fixtureAlert('it'), [job], true);
-    expect(result.html).toMatch(/google\.com\/s2\/favicons\?sz=128&domain=nonsense-long-tail-employer-xyz\.example/);
-    // No initial-letter fallback when a favicon URL was produced.
-    expect(result.html).not.toMatch(/font-size:18px;font-weight:800;color:#f97316;">N<\/div>/);
+    expect(result.html).not.toMatch(/google\.com\/s2\/favicons/);
+    expect(result.html).toMatch(/font-size:18px;font-weight:800;color:#f97316;">N<\/div>/);
   });
 
-  it('strips a leading "careers." subdomain so favicon comes from the parent', () => {
+  it('renders the initial letter (no favicon) even when the job URL has a company subdomain', () => {
     const job = {
       ...fixtureJob(),
       company: 'Ticino Premium Properties SA',
       url: 'https://careers.ticinopremium.ch/jobs/consulente-100',
     };
     const result = buildAlertEmail(fixtureAlert('it'), [job], true);
-    expect(result.html).toMatch(/google\.com\/s2\/favicons\?sz=128&domain=ticinopremium\.ch/);
-    expect(result.html).not.toMatch(/domain=careers\.ticinopremium/);
+    expect(result.html).not.toMatch(/google\.com\/s2\/favicons/);
+    expect(result.html).toMatch(/font-size:18px;font-weight:800;color:#f97316;">T<\/div>/);
   });
 
   it('does NOT fall back to a favicon when the job URL is on a job-board aggregator', () => {
