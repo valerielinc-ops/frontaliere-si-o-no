@@ -50,6 +50,35 @@ const GENERIC_LEAF_RE = /^(?:index|default)\.(?:html?|php|aspx?)$/i;
 // is the whole URL (the distinct filename), never the ancestor folder token.
 const FILE_LEAF_RE = /\.(?:pdf|docx?|xlsx?|pptx?|rtf|txt|odt)$/i;
 
+// A per-job id carried in the QUERY string behind a generic/file leaf
+// (`…/index.html?id=NNN`, `…/apply.php?jobId=ABC123`). Anchored to a query-param
+// boundary (`[?&]`) so a SHARED ancestor param — `cid=`/`companyId=` (refline
+// keys every job under one `?cid=101`) — is never mistaken for the per-job id:
+// `[?&]id=` cannot match `cid=` (the `c` breaks the `?`/`&` adjacency). Capturing
+// `jobId`/`offerId`/`positionId`/bare `id` only; `cid`/`companyId`/`team` are NOT
+// per-job tokens and must fall through to the whole-URL identity.
+const QUERY_JOB_ID_RE = /[?&](?:job[_-]?id|offer[_-]?id|position[_-]?id|id)=([^&#]+)/i;
+
+/**
+ * Per-job token extracted from a query `id=`/`jobId=` param, classified with the
+ * same UUID → ≥6-digit → ≥10-hex priority as the rest of the module. Returns ''
+ * when the query carries no per-job id param or its value holds no stable token.
+ * @param {string} u - already-normalized URL string
+ * @returns {string}
+ */
+function queryJobToken(u) {
+  const m = u.match(QUERY_JOB_ID_RE);
+  if (!m) return '';
+  const val = m[1];
+  const uuid = val.match(UUID_RE);
+  if (uuid) return `uuid:${uuid[0]}`;
+  const num = val.match(NUM_ID_RE);
+  if (num) return `num:${num[0]}`;
+  const hex = val.match(HEX_TOKEN_RE);
+  if (hex) return `hex:${hex[0]}`;
+  return '';
+}
+
 /**
  * Legacy leftmost-token scan: the first UUID → first ≥6-digit run → first ≥10
  * hex run anywhere in the normalized URL, else the full URL. Retained verbatim
@@ -95,8 +124,9 @@ export function lowerStripTrailingSlash(url) {
  * leaving 1 job-detail file for N distinct postings (observed: lwphr/cseb/refline/
  * flury/caritas/spital-limmattal, ~55 jobs). The three rules below fix the whole
  * class while preserving every key whose id already lives in the leaf:
- *   A. generic-index / document-file leaf + numeric/hex legacy token → full URL
- *      (the only token is a shared folder/company id or a `%20`+year artifact).
+ *   A. generic-index / document-file leaf + numeric/hex legacy token → per-job
+ *      query id if present (`…/index.html?id=NNN`), else full URL (the only token
+ *      is a shared folder/company id or a `%20`+year artifact).
  *   B. leaf carries its own UUID/num/hex token → use it (per-job id beats the
  *      shared ancestor id, e.g. cseb's second UUID, hotelcareer's trailing job id).
  *   C. legacy leftmost whole-URL scan (unchanged) — id in query/fragment/ancestor.
@@ -112,11 +142,19 @@ export function mergeUrlKey(url) {
   const leaf = u.split(/[?#]/)[0].split('/').filter(Boolean).pop() || '';
   const legacy = legacyMergeToken(u);
 
-  // Rule A — generic-page / document-file leaf whose only token is a shared
+  // Rule A — generic-page / document-file leaf whose only PATH token is a shared
   // ancestor numeric/hex id (or `%20`+digits artifact): identity is the whole
   // URL. UUID legacy keys are left intact — they are globally-unique node ids.
   if (leaf && (GENERIC_LEAF_RE.test(leaf) || FILE_LEAF_RE.test(leaf))
       && (legacy.startsWith('num:') || legacy.startsWith('hex:'))) {
+    // A genuine per-job id can still live in the QUERY behind a generic leaf
+    // (`…/index.html?id=NNN`, `…/apply.php?jobId=NNN`). Keying on the full URL
+    // there lets a varying tracking param (`&utm=…`, session token) fragment the
+    // same job into duplicate postings — extract the per-job query token first.
+    // No per-job query id → the leaf carries only a shared folder/company id, so
+    // the whole URL is the identity (refline `?cid=101` falls through here).
+    const queryToken = queryJobToken(u);
+    if (queryToken) return queryToken;
     return `url:${u}`;
   }
 

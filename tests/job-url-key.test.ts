@@ -87,6 +87,30 @@ describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', (
     expect(mergeUrlKey(b)).toBe('num:3639754');
   });
 
+  it('Rule A query-id: generic leaf + per-job ?id= keys on the id, not the full URL', () => {
+    // `…/index.html?id=NNN` behind a generic leaf: the per-job id lives in the
+    // query, so a varying tracking param must NOT fragment the same job into
+    // duplicate postings. Both URLs below are the SAME job re-crawled with a
+    // different tracking param → must collapse to one key.
+    const a = 'https://jobs.example.com/index.html?id=987654&utm_source=newsletter';
+    const b = 'https://jobs.example.com/index.html?id=987654&utm_source=linkedin';
+    expect(mergeUrlKey(a)).toBe('num:987654');
+    expect(mergeUrlKey(a)).toBe(mergeUrlKey(b));
+    // jobId variant behind a .php leaf, hex token.
+    expect(mergeUrlKey('https://recruit.example.com/apply.php?jobId=abcdef0123&ref=x'))
+      .toBe('hex:abcdef0123');
+  });
+
+  it('Rule A no-op: refline generic leaf with shared ?cid= still keys on full URL', () => {
+    // `cid=101` is a SHARED company id, not a per-job token (`[?&]id=` must not
+    // match `cid=`). Sibling jobs differ only in the path number → full URL keeps
+    // them distinct; the query-id extraction must NOT collapse them.
+    const a = 'https://apply.refline.ch/245893/0050/index.html?cid=101&lang=de';
+    const b = 'https://apply.refline.ch/245893/0051/index.html?cid=101&lang=de';
+    expect(mergeUrlKey(a)).toBe('url:https://apply.refline.ch/245893/0050/index.html?cid=101&lang=de');
+    expect(mergeUrlKey(a)).not.toBe(mergeUrlKey(b));
+  });
+
   it('Rule C preserved — id in query/fragment, leaf carries no token', () => {
     // pi-asp.de: distinct UUID lives in the fragment; leaf `bewerber-web` has no
     // token, so the legacy leftmost scan still wins (must NOT regress).
