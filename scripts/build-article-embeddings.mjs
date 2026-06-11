@@ -148,10 +148,19 @@ async function main() {
   // store's meta.model, discard the preserved vectors and re-embed the whole
   // corpus with the active provider so the store stays single-model.
   let existingStoreModel = null;
+  // Carry-forward of the committed hash→slug map. The degraded "meta-only"
+  // exit paths below leave the existing .bin store untouched but used to write
+  // a meta WITHOUT `perArticle` — which silently breaks hash→slug resolution
+  // for the still-present vectors (embeddingMatcher.findTopK returns slug=null
+  // → tests/scripts/lib/scoring/embeddingStoreBinary.test.ts goes red, main-red
+  // with no culprit PR). Preserve the existing perArticle so the meta stays
+  // consistent with the unchanged .bin.
+  let existingPerArticle = null;
   if (!isFullRebuild && existsSync(OUTPUT_META)) {
     try {
       const m = JSON.parse(readFileSync(OUTPUT_META, 'utf8'));
       if (m && typeof m.model === 'string') existingStoreModel = m.model;
+      if (m && m.perArticle && typeof m.perArticle === 'object') existingPerArticle = m.perArticle;
     } catch { /* unreadable meta → treat as unknown, no drift forcing */ }
   }
   let forceFullReembed = isFullRebuild;
@@ -210,6 +219,9 @@ async function main() {
         count: existingStore.count,
         builtAt: new Date().toISOString(),
         skipped: 'no provider key in env',
+        // Keep the hash→slug map of the untouched .bin so slug resolution
+        // (and the binary-store regression test) stays green on a degraded run.
+        ...(existingPerArticle ? { perArticle: existingPerArticle } : {}),
       };
       writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2) + '\n');
       console.error(`EMBEDDINGS_BUILD wrote meta-only sidecar at ${OUTPUT_META}`);
@@ -248,6 +260,9 @@ async function main() {
         count: existingStore.count,
         builtAt: new Date().toISOString(),
         skipped: 'provider chain exhausted at request time',
+        // Keep the hash→slug map of the untouched .bin so slug resolution
+        // (and the binary-store regression test) stays green on a degraded run.
+        ...(existingPerArticle ? { perArticle: existingPerArticle } : {}),
       };
       writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2) + '\n');
       console.error(`EMBEDDINGS_BUILD wrote meta-only sidecar at ${OUTPUT_META}`);
