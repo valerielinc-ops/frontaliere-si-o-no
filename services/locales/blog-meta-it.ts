@@ -8033,6 +8033,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.economia-sociale-lavoro-valore.title': 'Economia sociale e imprese: sinergie per il mercato',
     'blog.article.economia-sociale-lavoro-valore.excerpt': 'Il dialogo tra profit e non profit per affrontare la carenza di manodopera: le opportunità di inserimento lavorativo tra cooperazione e aziende.',
     'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Incontro professionale in un ufficio moderno con vista sul lago di Lugano',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Imposte alla fonte Ticino: calcolatore e aliquote 2026',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Scopri come funziona il calcolo dell\'imposta alla fonte in Ticino per il 2026 con le nuove aliquote, gli scaglioni e la gestione del prelievo fiscale.',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Vista panoramica di Lugano con ufficio in primo piano',
 };
 
 export default blogMetaIt;

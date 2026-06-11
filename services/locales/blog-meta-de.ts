@@ -8031,6 +8031,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.economia-sociale-lavoro-valore.title': 'Soziale Ökonomie',
     'blog.article.economia-sociale-lavoro-valore.excerpt': 'Der Dialog zwischen Profit und Non-Profit, um den Mangel an Arbeitskräften zu bekämpfen: die Chancen der beruflichen Integration zwischen Kooperation und Unternehmen.',
     'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Professionelles Geschäftstreffen in einem modernen Büro mit Blick auf den Luganersee',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Quellensteuer Tessin: Rechner und Tarife 2026',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Erfahren Sie, wie die Quellensteuerberechnung im Tessin für 2026 mit den neuen Tarifen, Stufen und der Steuerabwicklung funktioniert.',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Panoramablick auf Lugano mit Büro im Vordergrund',
 };
 
 export default blogMetaDe;

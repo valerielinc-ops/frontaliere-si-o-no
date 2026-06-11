@@ -8032,6 +8032,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.economia-sociale-lavoro-valore.title': 'Social economy',
     'blog.article.economia-sociale-lavoro-valore.excerpt': 'The dialogue between profit and non-profit to address the labor shortage: job placement opportunities between cooperation and companies.',
     'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Professional business meeting in a modern office with a view of Lake Lugano',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Ticino Withholding Tax: 2026 Calculator and Rates',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Discover how the withholding tax calculation works in Ticino for 2026, including new rates, tax brackets, and levy management.',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Panoramic view of Lugano with office in the foreground',
 };
 
 export default blogMetaEn;
