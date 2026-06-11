@@ -431,6 +431,21 @@ export default defineConfig(({ mode }) => {
  // - CDN offload (deploy.yml) cp -r's all of dist/assets, and prune-cdn-assets
  //   never prunes a file present in dist/assets → the stable entry ships + persists.
  entryFileNames: 'assets/index-entry.js',
+ // STABLE entry stylesheet (no content-hash), same rationale as the JS entry
+ // above. When the CSS was content-hashed (index-<hash>.css, Vite default for
+ // assets), a rotated hash 404'd from any HTML still cached referencing the
+ // superseded name (old browser/CDN copy) → unstyled page. Pinning it to
+ // assets/index.css makes the reference always resolve. ONLY the entry sheet
+ // is stabilized; every other asset keeps [hash] for cache-busting.
+ // - Matches build-plugins/shared/spaBundleRx.ts SPA_ENTRY_CSS_RX (hash now
+ //   optional) → resolver/seoPageShell pick up `index.css` unchanged.
+ // - CACHE: index.css bytes change on real style changes → it must REVALIDATE,
+ //   not be served immutable — see public/_headers (mirrors index-entry.js).
+ assetFileNames: (assetInfo) => {
+ const n = assetInfo.name || (assetInfo.names && assetInfo.names[0]) || '';
+ if (n === 'index.css') return 'assets/index.css';
+ return 'assets/[name]-[hash][extname]';
+ },
  manualChunks(id) {
  // Vendor chunks for node_modules
  if (id.includes('node_modules')) {
