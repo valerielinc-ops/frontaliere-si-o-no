@@ -1,18 +1,164 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-06-10T22:45:23.549Z",
-  "total": 47,
-  "newCount": 46,
+  "generatedAt": "2026-06-11T12:46:09.944Z",
+  "total": 52,
+  "newCount": 5,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 283619,
-  "avgDurationMs": 283619,
+  "unchangedCount": 47,
+  "durationMs": 297661,
+  "avgDurationMs": 297661,
   "durationHistory": [
-    283619
+    297661
   ],
   "newJobs": [
+    {
+      "id": "company-ip7pkh",
+      "slug": "verkaufsberater-in-coop-genossenschaft-zurich-ip7pkh",
+      "company": "Coop Genossenschaft",
+      "title": "Verkaufsberater:in",
+      "location": "Zürich",
+      "canton": "ZH",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/e4ce5c79-bce5-43d3-bd3f-bdd7ef1f0e83",
+      "source": "Company Careers Crawler",
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-06-11T12:46:04.763Z",
+      "firstSeenAt": "2026-06-11T12:46:04.763Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 18,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-eurz3f",
+      "slug": "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-eurz3f",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Kassen/Services Studentenaushilfe",
+      "location": "Zürich",
+      "canton": "ZH",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services-studentenaushilfe/65b5f474-b3da-444a-9947-a5fe0ea435b4",
+      "source": "Company Careers Crawler",
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-06-11T12:46:04.763Z",
+      "firstSeenAt": "2026-06-11T12:46:04.763Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 18,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-l8dpfj",
+      "slug": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-division-der-coop-genossenschaft-freienbach-schwyz-l8dpfj",
+      "company": "Jumbo, Division der Coop Genossenschaft",
+      "title": "Mitarbeiter:in Verkauf, Administration und Kundendienst",
+      "location": "Freienbach, Schwyz",
+      "canton": "SZ",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-verkauf-administration-und-kundendienst/83e76b17-c21a-494b-bbe9-8fea7fdc8036",
+      "source": "Company Careers Crawler",
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-06-11T12:46:04.763Z",
+      "firstSeenAt": "2026-06-11T12:46:04.763Z",
+      "sourceLang": "de",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 23,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-p4uoid",
+      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-80-100-fust-swiss-household-services-ag-oftringen-aargau-p4uoid",
+      "company": "Fust | Swiss Household Services AG",
+      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia 80% - 100%",
+      "location": "Oftringen, Aargau",
+      "canton": "AG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/e71d852a-c528-4e8a-9342-c854efb8e682",
+      "source": "Company Careers Crawler",
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-06-11T12:46:04.763Z",
+      "firstSeenAt": "2026-06-11T12:46:04.763Z",
+      "sourceLang": "de",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 19,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-prdsyg",
+      "slug": "collaboratore-trice-intralogistik-bereich-warenausgang-fust-oberburen-sankt-gallen-prdsyg",
+      "company": "Fust",
+      "title": "Mitarbeiter:in Intralogistik - Bereich Warenausgang",
+      "location": "Oberbüren, Sankt Gallen",
+      "canton": "SG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-warenausgang/994f2a7f-3f51-4956-869b-75253df4b495",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "San Gallo",
+        "canton": "SG"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-06-11T12:46:04.763Z",
+      "firstSeenAt": "2026-06-11T12:46:04.763Z",
+      "sourceLang": "de",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-s52w6o",
       "slug": "magaziner-in-vendita-coop-genossenschaft-brugg-aargau-s52w6o",
@@ -32,12 +178,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 87,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Brugg, Aargau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "5200",
+      "country": "CH",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -59,12 +213,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 87,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Hinwil, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -87,20 +249,28 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "addressLocality": "Schafisheim, Aargau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "5000",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 18,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
       "id": "company-el8wme",
-      "slug": "erfolgreich-durch-einen-cambio-carriera-bei-coop-fust-2026-coop-genossenschaft-basel-unternehmen-jobs-datenschutz-impressum-agb-cookie-el8wme",
+      "slug": "erfolgreich-durch-einen-cambio-carriera-bei-coop-fust-ticino",
       "company": "Fust",
       "title": "Erfolgreich durch einen Quereinstieg bei Coop",
-      "location": "2026 Coop Genossenschaft Basel Unternehmen Jobs Datenschutz Impressum AGB Cookie",
+      "location": "Ticino",
       "canton": "BS",
       "category": "other",
       "contract": "full-time",
@@ -114,12 +284,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 55,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Ticino",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "",
+      "country": "CH",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
         "translation": 13,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -142,12 +320,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Aarau, Aargau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "5000",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 18,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -156,7 +342,7 @@
       "company": "Coop Genossenschaft",
       "title": "Franchising Partner:in Coop Pronto mit oder ohne Tankstelle",
       "location": "Allschwil",
-      "canton": "AG",
+      "canton": "BL",
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
@@ -169,12 +355,19 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "addressLocality": "Allschwil",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -197,12 +390,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Rümlang, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 18,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -224,12 +425,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 87,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Dietlikon, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8305",
+      "country": "CH",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -256,12 +465,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -284,12 +501,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Rümlang",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -311,12 +536,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "addressLocality": "Winterthur, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8400",
+      "country": "CH",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -344,12 +577,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Steg-Hohtenn, Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1950",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -376,12 +617,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -408,12 +657,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Wallisellen, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -440,12 +697,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -472,12 +737,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -504,12 +777,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "addressLocality": "Otelfingen, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -536,12 +817,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -568,12 +857,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -600,12 +897,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Biel, Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2501",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -632,12 +937,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 85,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 21,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -664,12 +977,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Heimberg, Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -696,12 +1017,20 @@
       "crawledAt": "2026-06-10T22:45:03.941Z",
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "country": "CH",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -729,12 +1058,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Köniz, Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -762,12 +1099,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Burgdorf, Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3400",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -795,12 +1140,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Oberbüren, Sankt Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -809,7 +1162,7 @@
       "company": "Fust",
       "title": "Schreinermonteur:in Küchen & Bäder",
       "location": "Oberbüren",
-      "canton": "VS",
+      "canton": "SG",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -828,12 +1181,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -861,12 +1222,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Burgdorf, Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3400",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -894,12 +1263,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "6003",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -927,57 +1304,20 @@
       "firstSeenAt": "2026-06-10T22:45:03.941Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Lenzburg, Aargau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "5600",
+      "country": "CH",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-lesziv",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-lesziv",
-      "company": "Fust",
-      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-      "location": "Bellinzona, Ticino",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-05-18T21:57:21.831Z",
-      "firstSeenAt": "2026-05-18T21:57:21.831Z",
-      "sourceLang": "it",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
-      "addressLocality": "Bellinzona, Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 19,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ]
