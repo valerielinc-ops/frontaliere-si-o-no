@@ -13,7 +13,7 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-06-10T23:32:48.957Z",
+  "updatedAt": "2026-06-11T13:40:33.295Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/bando26_2006",
     "https://www.supsi.ch/bando26_1013",
@@ -26,9 +26,12 @@
     "https://www.supsi.ch/bando26_2004",
     "https://www.supsi.ch/bando26_2005",
     "https://www.supsi.ch/bando26_5020",
+    "https://www.supsi.ch/bando26_5028",
     "https://www.supsi.ch/bando26_5021",
     "https://www.supsi.ch/bando26_5022",
     "https://www.supsi.ch/bando26_5023",
+    "https://www.supsi.ch/bando26_5027",
+    "https://www.supsi.ch/bando26_5029",
     "https://www.supsi.ch/bando26_4001"
   ],
   "seedMetaByUrl": {
@@ -129,6 +132,15 @@
       "contract": "Part-time",
       "expiresAt": "2026-08-31"
     },
+    "https://www.supsi.ch/bando26_5028": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-31"
+    },
     "https://www.supsi.ch/bando26_5021": {
       "location": "Lugano",
       "canton": "TI",
@@ -154,6 +166,24 @@
       "company": "SUPSI / DTI",
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
+      "expiresAt": "2026-08-31"
+    },
+    "https://www.supsi.ch/bando26_5027": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-31"
+    },
+    "https://www.supsi.ch/bando26_5029": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
       "expiresAt": "2026-08-31"
     },
     "https://www.supsi.ch/bando26_4001": {
