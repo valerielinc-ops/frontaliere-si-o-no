@@ -3969,6 +3969,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-avs-finanziamento-13esima': { name: 'Pensione AVS', path: '/articoli-svizzera/avs-finanziamento-13esima/', parent: 'blog' },
     'blog-imposta-fonte-ticino-calcolatore-2026': { name: 'Imposta fonte Ticino', path: '/articoli-frontaliere/imposta-fonte-ticino-calcolatore-2026', parent: 'blog' },
     'blog-givaudan-licenziamenti': { name: 'Givaudan licenziamenti', path: '/articoli-svizzera/givaudan-licenziamenti/', parent: 'blog' },
+    'blog-cargo-chiasso-lavoro-saperi': { name: 'Lavoro', path: '/articoli-frontaliere/cargo-chiasso-lavoro-saperi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

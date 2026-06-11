@@ -8035,6 +8035,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Ticino Withholding Tax: 2026 Calculator and Rates',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Discover how the withholding tax calculation works in Ticino for 2026, including new rates, tax brackets, and levy management.',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Panoramic view of Lugano with office in the foreground',
+    'blog.article.cargo-chiasso-lavoro-saperi.title': 'Cargo cuts, but Chiasso has the knowledge to create jobs',
+    'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'The cross-border rail freight sector in Chiasso is facing cuts, but local skills can support employment recovery.',
+    'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Workers and trains in Ticino freight sector, Chiasso',
 };
 
 export default blogMetaEn;

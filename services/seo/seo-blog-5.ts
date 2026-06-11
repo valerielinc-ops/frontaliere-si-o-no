@@ -43325,6 +43325,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cargo-chiasso-lavoro-saperi': {
+    title: 'Cargo taglia, ma a Chiasso ci sono i saperi per creare lavoro',
+    description: 'Il settore merci ferroviario a Chiasso affronta tagli, ma le competenze locali possono sostenere la ripresa occupazionale. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cargo, taglia, chiasso, sono',
+    ogTitle: 'Cargo a Chiasso: i saperi per creare lavoro',
+    ogDescription: 'Situazione settore merci a Chiasso, manifestazioni e opportunità di rilancio nel Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/cargo-chiasso-lavoro-saperi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cargo taglia, ma a Chiasso ci sono i saperi per creare lavoro",
+      "description": "Il settore merci ferroviario a Chiasso affronta tagli, ma le competenze locali possono sostenere la ripresa occupazionale. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cargo-chiasso-lavoro-saperi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori e treni nel settore merci a Chiasso, Ticino"
+      },
+      "datePublished": "2026-06-11T00:53:37+00:00",
+      "dateModified": "2026-06-11T00:53:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cargo-chiasso-lavoro-saperi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
