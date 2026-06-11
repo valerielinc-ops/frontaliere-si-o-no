@@ -12,8 +12,13 @@
  *   - Pagination: ?startrow=N (25 per page)
  *
  * Detail pages: /Hirslanden/job/{Klinik}-{Title}-{Location}-{PostalCode}/{jobId}/
- *   - Title in <h2>
- *   - Description in <div id="content"> section
+ *   - Title in <span itemprop="title"> (inside the page <h1>)
+ *   - Real per-job description in <span itemprop="description"> (microdata):
+ *     <p> intro + <h2><b>DEINE AUFGABEN</b></h2> / <ul><li> blocks. NOTE the
+ *     page-level <div id="content"> is the SF main wrapper (it holds the search/
+ *     job-alert widget, NOT the role body) — scraping it yielded the same chrome
+ *     for every job, so 96% of descriptions collapsed onto the boilerplate
+ *     fallback (the duplicate-listings audit critical, #1752).
  *   - Apply link: /talentcommunity/apply/{jobId}/?locale=de_DE
  *
  * Hirslanden operates 17+ private clinics across Switzerland — each job's
@@ -22,10 +27,12 @@
  * Source: https://careers.mediclinic.com/Hirslanden/search
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { isConnectionLevelFetchError } from './transient-fetch.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { stripContactPII } from './strip-contact-pii.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -253,36 +260,104 @@ export function extractTotalResults(html) {
 /* ── Detail page parser ──────────────────────────────────── */
 
 /**
+ * Convert a SuccessFactors job-body HTML fragment into structured markdown.
+ *
+ * The `itemprop="description"` body wraps its `<h2>`/`<ul><li>` content in
+ * deeply-nested style `<div>`s. A flat inline-flatten converter (axpo's
+ * `htmlToMarkdown`) collapses those lists into one paragraph, so this walker
+ * recurses through containers and handles `<ul>/<ol>/<li>` and `<h*>` explicitly
+ * — `- ` bullets and `## ` headings survive (keeps the audit "structured
+ * content" check green). PII (recruiter phone) is stripped downstream.
+ */
+export function descriptionBodyToMarkdown(bodyHtml = '') {
+  if (!bodyHtml || !bodyHtml.trim()) return '';
+  const doc = new JSDOM(`<body>${bodyHtml}</body>`).window.document;
+  const body = doc.body;
+  body.querySelectorAll('script,style,noscript').forEach((n) => n.remove());
+
+  const lines = [];
+  const inlineText = (node) =>
+    (node.textContent || '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+
+  const walk = (node) => {
+    if (node.nodeType === 3) {
+      const t = inlineText(node);
+      if (t) lines.push(t);
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName.toLowerCase();
+
+    if (tag === 'ul' || tag === 'ol') {
+      let idx = 0;
+      for (const li of node.children) {
+        if (li.tagName.toLowerCase() !== 'li') continue;
+        idx += 1;
+        const t = inlineText(li);
+        if (t) lines.push(tag === 'ol' ? `${idx}. ${t}` : `- ${t}`);
+      }
+      return;
+    }
+
+    if (/^h[1-6]$/.test(tag)) {
+      const t = inlineText(node);
+      if (t) lines.push('', `## ${t}`, '');
+      return;
+    }
+
+    if (tag === 'p') {
+      const t = inlineText(node);
+      if (t) lines.push('', t, '');
+      return;
+    }
+
+    // Containers (div/section/span/etc): recurse so nested lists/headings are reached.
+    for (const child of node.childNodes) walk(child);
+  };
+
+  for (const child of body.childNodes) walk(child);
+
+  // De-dup consecutive identical lines, collapse blank runs.
+  const out = [];
+  for (const raw of lines) {
+    const l = raw.replace(/\s+$/, '');
+    if (l === '' && out[out.length - 1] === '') continue;
+    if (l !== '' && out[out.length - 1] === l) continue;
+    out.push(l);
+  }
+  return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+/**
  * Parse a Hirslanden job detail page (SuccessFactors j2w).
  * Returns { title, description, location, applyUrl }.
+ *
+ * Title + description come from the SF microdata (`itemprop="title"` /
+ * `itemprop="description"`) which carries the REAL per-job content. The old
+ * `<div id="content">` selector matched the page main-wrapper (search widget),
+ * so every job got the same chrome → boilerplate fallback → 96% duplicates.
  */
 export function parseDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
-  const titleMatch = html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+  const doc = new JSDOM(html).window.document;
 
-  let descriptionHtml = '';
-  const contentMatch = html.match(/<div[^>]*id="content"[^>]*>([\s\S]*?)<\/div>\s*(?:<div[^>]*id="(?:footer|sidebar)|<footer)/i);
-  if (contentMatch) descriptionHtml = contentMatch[1];
+  // Title: SF microdata first, then page <h1>, then <h2> (last — <h2> on the
+  // detail page are SECTION headings like "DEINE AUFGABEN", never the role title).
+  const titleEl =
+    doc.querySelector('[itemprop="title"]') ||
+    doc.querySelector('h1') ||
+    doc.querySelector('h2');
+  const title = titleEl ? normalizeSpace(titleEl.textContent || '') : '';
 
-  if (!descriptionHtml) {
-    const parts = [];
-    const blockRe = /<(?:p|ul|ol|li|div)[^>]*>([\s\S]*?)<\/(?:p|ul|ol|li|div)>/gi;
-    let blockMatch;
-    while ((blockMatch = blockRe.exec(html)) !== null) {
-      const text = normalizeDescriptionSpace(stripHtml(blockMatch[1]));
-      if (text.length > 40 && !/cookie|datenschutz|privacy|navigation|login/i.test(text)) {
-        parts.push(text);
-      }
-    }
-    if (parts.length > 0) descriptionHtml = parts.join('\n\n');
+  // Description: the real per-job body lives in <span itemprop="description">.
+  let description = '';
+  const descEl = doc.querySelector('[itemprop="description"]');
+  if (descEl) {
+    description = descriptionBodyToMarkdown(descEl.innerHTML);
   }
 
-  let description = normalizeDescriptionSpace(stripHtml(descriptionHtml));
-
-  // Reject SF widget garbage that occasionally bleeds into the description
+  // Reject SF widget garbage that occasionally bleeds into the description.
   const GARBAGE = [
     /Suche nach Stichwort/i,
     /Benachrichtigung erstellen/i,
@@ -293,16 +368,22 @@ export function parseDetailPage(html) {
   ];
   if (GARBAGE.some((re) => re.test(description))) description = '';
 
+  // Strip recruiter-contact PII (direct phone numbers) per the Privacy policy.
+  if (description) description = stripContactPII(description);
+
   const applyMatch = html.match(/href="([^"]*talentcommunity\/apply\/\d+[^"]*)"/i);
   const applyUrl = applyMatch
     ? (applyMatch[1].startsWith('http') ? applyMatch[1] : `${BASE_URL}${applyMatch[1]}`)
     : '';
 
-  // Extract canonical location ("Ort:", "Standort:", "Location:")
-  const stripped = html.replace(/<[^>]*>/g, '\n').replace(/[^\S\n]+/g, ' ');
-  const locMatch = stripped.match(/(?:Ort|Standort|Location)\s*:?\s*([A-ZÀ-Ü][A-Za-zÀ-ÿ\s\-/]{2,40}?)(?:\s*(?:,|\n|$))/i);
-  let location = locMatch ? normalizeSpace(locMatch[1]).replace(/^"|"$/g, '').trim() : '';
-  if (location && /[<="']|viewport|content|width/i.test(location)) location = '';
+  // Canonical location: prefer the SF "Arbeitsort: <Klinik> | <City>" line that
+  // opens the description body, else the customfield microdata.
+  let location = '';
+  const arbeitsort = description.match(/Arbeitsort:\s*[^|\n]*\|\s*([^|\n]+)/i);
+  if (arbeitsort) {
+    location = normalizeSpace(arbeitsort[1]).replace(/^"|"$/g, '').trim();
+  }
+  if (location && /[<="']|viewport|content|width|home-?office/i.test(location)) location = '';
 
   return { title, description, location, applyUrl };
 }
