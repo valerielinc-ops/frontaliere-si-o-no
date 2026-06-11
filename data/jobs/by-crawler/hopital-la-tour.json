@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-06-11T12:47:10.168Z",
+  "assembledAt": "2026-06-11T22:49:00.134Z",
   "jobs": [
     {
       "id": "hopital-la-tour-b60d18ec196d",
@@ -34,7 +34,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/chef.fe-de-clinique-medecin-praticien-hospitalier",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.970Z",
+      "crawledAt": "2026-06-11T22:48:57.750Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-de-nuit-a-lunite-cardio-pulmonaire-cdm-6-mois-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.969Z",
+      "crawledAt": "2026-06-11T22:48:57.748Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/stagiaire-en-business-intelligence",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.968Z",
+      "crawledAt": "2026-06-11T22:48:57.747Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -301,7 +301,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/physiotherapeute-orientee-sport-football-feminin-40-a-60-cdi-40-au-servette-fc-feminin-equipe-professionnelle",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.967Z",
+      "crawledAt": "2026-06-11T22:48:57.746Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -378,7 +378,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-ere-de-nuit-en-medecine-1-cdm-7-mois-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.965Z",
+      "crawledAt": "2026-06-11T22:48:57.744Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -455,7 +455,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/medecin-urgentiste-senior",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.964Z",
+      "crawledAt": "2026-06-11T22:48:57.743Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -532,7 +532,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-au-service-des-urgences-cdm-4-mois-70",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.963Z",
+      "crawledAt": "2026-06-11T22:48:57.741Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -609,7 +609,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/secretaire-medicale-au-service-des-urgences-cdi-70",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.961Z",
+      "crawledAt": "2026-06-11T22:48:57.739Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -626,6 +626,14 @@
       "applyUrl": "https://recrutement.latour.ch/nos-offres/secretaire-medicale-au-service-des-urgences-cdi-70",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
+        ]
+      },
       "firstSeenAt": "2026-06-10T22:49:02.297Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -638,15 +646,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
-      ]
+      }
     },
     {
       "id": "hopital-la-tour-8031a34200ce",
@@ -680,7 +680,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.959Z",
+      "crawledAt": "2026-06-11T22:48:57.737Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -697,6 +697,14 @@
       "applyUrl": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
+        ]
+      },
       "firstSeenAt": "2026-06-10T22:49:02.296Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -709,15 +717,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
-      ]
+      }
     },
     {
       "id": "hopital-la-tour-bbd968138a17",
@@ -751,7 +751,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdi-50",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.958Z",
+      "crawledAt": "2026-06-11T22:48:57.736Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -768,6 +768,14 @@
       "applyUrl": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdi-50",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
+        ]
+      },
       "firstSeenAt": "2026-06-10T22:49:02.287Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -780,41 +788,33 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
-      ]
+      }
     },
     {
       "id": "hopital-la-tour-81ab730d13f0",
       "slug": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
       "slugByLocale": {
-        "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
         "it": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
         "en": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
-        "de": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+        "de": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
+        "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
       "companyDomain": "la-tour.ch",
       "title": "Diététicien(-ne) en CDI 80%",
       "titleByLocale": {
-        "fr": "Diététicien(-ne) en CDI 80%",
         "it": "Dietician in CDI 80%",
         "en": "Diététicien(-ne) en CDI 80%",
-        "de": "Diététicien(-ne) en CDI 80%"
+        "de": "Diététicien(-ne) en CDI 80%",
+        "fr": "Diététicien(-ne) en CDI 80%"
       },
       "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 1945)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: dès que possible /à convenir",
       "descriptionByLocale": {
-        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 1945)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: dès que possible /à convenir",
-        "it": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 1945)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: dès que possible /à convenir",
-        "en": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 1945)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: dès que possible /à convenir",
-        "de": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités.\n\nAfin de compléter nos équipes, nous recrutons un(-e)\n\nDiététicien(-ne) en CDI 80% (ref : 1945)\n\nVotre mission :\n\nVous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires.\n\nA ce titre vous êtes en charge de :\n\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n\n• CAS de Praticien(ne) Formateur(-trice), un atout\n\n• Communication fluide en anglais\n\nEnvie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie.\n\nNous vous proposons:\n\nContrat : CDI à 80%\n Date d'entrée en fonction: dès que possible /à convenir"
+        "it": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités. Afin de compléter nos équipes, nous recrutons un(-e) Diététicien(-ne) en CDI 80% (ref : 1945) Votre mission : Vous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires. A ce titre vous êtes en charge de :\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général Nous recherchons un profil répondant aux critères suivants :\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n• CAS de Praticien(ne) Formateur(-trice), un atout\n• Communication fluide en anglais Envie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie. Nous vous proposons: Contrat : CDI à 80% Date d'entrée en fonction: dès que possible /à convenir",
+        "en": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités. Afin de compléter nos équipes, nous recrutons un(-e) Diététicien(-ne) en CDI 80% (ref : 1945) Votre mission : Vous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires. A ce titre vous êtes en charge de :\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général Nous recherchons un profil répondant aux critères suivants :\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n• CAS de Praticien(ne) Formateur(-trice), un atout\n• Communication fluide en anglais Envie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie. Nous vous proposons: Contrat : CDI à 80% Date d'entrée en fonction: dès que possible /à convenir",
+        "de": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités. Afin de compléter nos équipes, nous recrutons un(-e) Diététicien(-ne) en CDI 80% (ref : 1945) Votre mission : Vous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires. A ce titre vous êtes en charge de :\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général Nous recherchons un profil répondant aux critères suivants :\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n• CAS de Praticien(ne) Formateur(-trice), un atout\n• Communication fluide en anglais Envie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie. Nous vous proposons: Contrat : CDI à 80% Date d'entrée en fonction: dès que possible /à convenir",
+        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible de ses patients, l’Hôpital de La Tour a placé l’amélioration continue et le développement de l’excellence médicale au cœur de ses priorités. Afin de compléter nos équipes, nous recrutons un(-e) Diététicien(-ne) en CDI 80% (ref : 1945) Votre mission : Vous devrez contribuer au maintien ou à la réhabilitation de l'état de santé de nos patients en les accompagnant dans la mise en place des bonnes pratiques alimentaires. A ce titre vous êtes en charge de :\n• Collaborer avec les médecins aux projets en cours et nécessaires à l'Institution\n• Assurer des consultations ambulatoires pour les patients souffrant d'obésité (traitement chirurgical, pharmacologique ou conservateur), de troubles du métabolisme et pédiatrie.\n• Animer des ateliers de prévention et/ou d’information auprès de patient en recherche d’éducation thérapeutique pour l’amélioration de leur qualité de vie\n• Assurer des consultations d'évaluation et de suivi nutritionnel auprès des patients hospitalisés aux soins intensifs, en chirurgie, en médecine.\n• Participer à l'élaboration de notre plateforme digitale Engage pour les patients, à visée d'éducation thérapeutique\n• Favoriser une communication prospère auprès des différents acteurs du Centre et de l'Institution en général Nous recherchons un profil répondant aux critères suivants :\n• Diététicien(ne) HES ou au bénéfice d'une reconnaissance CRS (pour les diplômes étrangers)\n• Une première expérience préalable, idéalement dans le domaine hospitalier\n• Ayant pratiqué en Obésité (chirurgie bariatrique) et pédiatrie\n• CAS de Praticien(ne) Formateur(-trice), un atout\n• Communication fluide en anglais Envie d'allier richesse professionnelle et flexibilité ? Notre hôpital privé vous propose un poste de diététicien (-ne) à temps partiel au sein d'une équipe pluridisciplinaire stimulante. Découvrez une grande diversité de spécialités tout en profitant d'un rythme de travail adapté à votre équilibre de vie. Nous vous proposons: Contrat : CDI à 80% Date d'entrée en fonction: dès que possible /à convenir"
       },
       "needsRetranslation": true,
       "location": "Meyrin",
@@ -822,7 +822,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/dieteticien-ne-en-cdi-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:47:07.951Z",
+      "crawledAt": "2026-06-11T22:48:57.726Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -838,9 +838,16 @@
       "postedDate": "2026-06-11",
       "applyUrl": "https://recrutement.latour.ch/nos-offres/dieteticien-ne-en-cdi-80",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+        ]
       },
+      "firstSeenAt": "2026-06-11T12:47:07.951Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -852,16 +859,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-11T12:47:07.951Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-        ]
-      },
-      "previousSlugs": [
-        "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
-      ]
+      }
     }
   ]
 }
