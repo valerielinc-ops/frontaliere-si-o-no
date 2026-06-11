@@ -20,7 +20,7 @@ import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
-import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal } from './src/stripePublisherCore.js';
+import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd } from './src/stripePublisherCore.js';
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
@@ -710,6 +710,31 @@ export const createPublisherBillingPortal = onRequest(
  res.status(status).json(body);
  } catch (error) {
  console.error('[createPublisherBillingPortal]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Publisher-initiated archive of one of their own ads. Removes it from the live
+// slice without touching the Stripe subscription (the paid slot stays reusable).
+export const archivePublisherAd = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleArchivePublisherAd(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[archivePublisherAd]', error instanceof Error ? error.message : String(error));
  res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },

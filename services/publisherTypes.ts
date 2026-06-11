@@ -83,6 +83,10 @@ export type PublisherTier = 'free' | 'sponsored';
  *   published       — free: live in the slice (client-settable, gated; free tier only)
  *   expired         — subscription cancelled / lapsed (webhook)
  *   rejected        — failed an automatic gate (thin content / dedup)
+ *   archived        — publisher-archived from the dashboard. Removed from the
+ *                     live slice, but the Stripe subscription stays ACTIVE: the
+ *                     publisher paid for a slot/credit and can reuse it for a
+ *                     new ad. Distinct from `expired` (which means billing died).
  *
  * "Live" (projected into the slice) = `paid` (sponsored) OR `published` (free).
  */
@@ -92,7 +96,8 @@ export type PublisherJobStatus =
   | 'paid'
   | 'published'
   | 'expired'
-  | 'rejected';
+  | 'rejected'
+  | 'archived';
 
 /** Status values that mean the ad is live and should be projected into the slice. */
 export const LIVE_JOB_STATUSES: readonly PublisherJobStatus[] = ['paid', 'published'];

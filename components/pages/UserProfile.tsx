@@ -22,6 +22,7 @@ import {
  Clock, FileCheck, Mail,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
+import { buildPath } from '@/services/router';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
 import { useAuth, getUserDisplayName, getUserPhotoURL, promptOneTap, renderGoogleButton, cancelOneTap, deleteCurrentUser, signInWithFacebook, reAuthFacebook, getLinkedProviders, getAuthEmail, consumeFacebookProfilePrefill, eagerAuth, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { Analytics } from '@/services/analytics';
@@ -431,6 +432,26 @@ const UserProfile: React.FC = () => {
  const { user, loading: authLoading, signIn, signInFacebook, logout } = useAuth();
  // Profile page needs auth immediately — skip the interaction-deferred loading
  useEffect(() => { eagerAuth(); }, []);
+ // Show a "I miei annunci" shortcut only when the user has created publisher ads.
+ const [hasPublisherAds, setHasPublisherAds] = useState(false);
+ useEffect(() => {
+   if (!user) { setHasPublisherAds(false); return; }
+   let cancelled = false;
+   (async () => {
+     try {
+       const db = await initFirestore();
+       if (!db) return;
+       const { collection, query, where, limit, getDocs } = await import('firebase/firestore');
+       const snap = await getDocs(
+         query(collection(db, 'publisher_jobs'), where('publisherUid', '==', user.uid), limit(1)),
+       );
+       if (!cancelled) setHasPublisherAds(!snap.empty);
+     } catch {
+       // best-effort: no shortcut if the lookup fails
+     }
+   })();
+   return () => { cancelled = true; };
+ }, [user]);
  const [profile, setProfile] = useState<UserProfileData>(DEFAULT_PROFILE);
  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
  const [showFamily, setShowFamily] = useState(false);
@@ -1028,6 +1049,15 @@ const UserProfile: React.FC = () => {
  {a.label}
  </button>
  ))}
+ {hasPublisherAds && (
+ <a
+ href={buildPath({ activeTab: 'publisher-dashboard' }, locale)}
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-info-border hover:text-info transition-[color,border-color] whitespace-nowrap"
+ >
+ <Briefcase size={13} />
+ {t('profile.action.myListings')}
+ </a>
+ )}
  </div>
  </div>
 
