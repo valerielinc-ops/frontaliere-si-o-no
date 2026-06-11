@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-06-11T12:11:53.525Z",
+  "assembledAt": "2026-06-11T22:14:06.430Z",
   "jobs": [
     {
       "id": "bcvs-3b0c960c56d3",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-dagence-conseiller-ere-en-gestion-de-fortune-2524",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:11:51.076Z",
+      "crawledAt": "2026-06-11T22:14:04.151Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -83,6 +83,7 @@
         "leiter-der-agentur-assistant-im-kapitalmanagement-banque-cantonale-du-valais-crans-montana"
       ],
       "firstSeenAt": "2026-04-14T09:26:21.120Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -128,7 +129,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:11:50.618Z",
+      "crawledAt": "2026-06-11T22:14:03.625Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -179,6 +180,7 @@
         "specialiste-en-investissement-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -224,7 +226,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-en-gestion-de-fortune-2552",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:11:50.027Z",
+      "crawledAt": "2026-06-11T22:14:03.197Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -274,6 +276,7 @@
         "berater-fur-das-management-von-kapital-banque-cantonale-du-valais-martigny"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.966Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -319,7 +322,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-economat-courrier-et-ged-2555",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:11:49.433Z",
+      "crawledAt": "2026-06-11T22:14:02.772Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -368,6 +371,7 @@
         "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -413,7 +417,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/assistant-e-asset-management-2568",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:11:48.839Z",
+      "crawledAt": "2026-06-11T22:14:02.268Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -454,6 +458,7 @@
         "assistentin-des-managements-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-29T11:37:18.594Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -470,11 +475,11 @@
     },
     {
       "id": "bcvs-a529502ccd83",
-      "slug": "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
+      "slug": "expert-e-immobilier-senior-bcvs-sion",
       "slugByLocale": {
-        "it": "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
+        "it": "expert-e-immobilier-senior-bcvs-sion",
         "en": "expert-e-immobilier-senior-banque-cantonale-du-valais-sion",
-        "de": "senior-immobilienexperte-banque-cantonale-du-valais-sion",
+        "de": "expert-e-immobilier-senior-bcvs-sion",
         "fr": "expert-e-immobilier-senior-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -499,7 +504,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-immobilier-senior-2570",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:11:48.382Z",
+      "crawledAt": "2026-06-11T22:14:01.849Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -522,17 +527,21 @@
       ],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expert-e-immobilier-senior-bcvs-sion"
+        "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
+        "senior-immobilienexperte-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
           "expert-e-immobilier-senior-bcvs-sion"
         ],
         "de": [
+          "senior-immobilienexperte-banque-cantonale-du-valais-sion",
           "expert-e-immobilier-senior-bcvs-sion"
         ]
       },
       "firstSeenAt": "2026-05-26T22:08:31.768Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -549,12 +558,12 @@
     },
     {
       "id": "bcvs-15772aec343d",
-      "slug": "consulente-centro-clienti-banque-cantonale-du-valais-sion",
+      "slug": "berater-in-customer-center-bcvs-sion",
       "slugByLocale": {
-        "it": "consulente-centro-clienti-banque-cantonale-du-valais-sion",
+        "it": "berater-in-customer-center-bcvs-sion",
         "en": "berater-in-customer-center-banque-cantonale-du-valais-sion",
         "de": "berater-in-customer-center-bcvs-sion",
-        "fr": "conseiller-conseillere-centre-client-banque-cantonale-du-valais-sion"
+        "fr": "berater-in-customer-center-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -578,7 +587,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:11:47.926Z",
+      "crawledAt": "2026-06-11T22:14:01.438Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -596,7 +605,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-customer-center-bcvs-sion",
+        "consulente-centro-clienti-banque-cantonale-du-valais-sion",
+        "conseiller-conseillere-centre-client-banque-cantonale-du-valais-sion",
         "consulente-clienti-valorizzazione-banque-cantonale-du-valais-sion",
         "customer-advisor-for-credit-recovery-banque-cantonale-du-valais-sion",
         "kundenberaterin-fur-kreditwiederherstellung-banque-cantonale-du-valais-sion",
@@ -610,13 +620,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "consulente-centro-clienti-banque-cantonale-du-valais-sion",
           "berater-in-customer-center-bcvs-sion"
         ],
         "fr": [
+          "conseiller-conseillere-centre-client-banque-cantonale-du-valais-sion",
           "berater-in-customer-center-bcvs-sion"
         ]
       },
       "firstSeenAt": "2026-05-27T22:15:42.716Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -632,37 +645,37 @@
       "postalCode": "1950"
     },
     {
-      "id": "bcvs-9887e8d5b2a3",
-      "slug": "back-office-manager-credits-banque-cantonale-du-valais-sion",
+      "id": "bcvs-8ddcea45e662",
+      "slug": "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "back-office-manager-credits-banque-cantonale-du-valais-sion",
-        "en": "gestionnaire-back-office-credits-bcvs-sion",
-        "de": "gestionnaire-back-office-credits-bcvs-sion",
-        "fr": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
+        "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
+        "it": "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+        "en": "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+        "fr": "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
-      "title": "Gestionnaire Back-office Crédits",
+      "title": "Sachbearbeiter/in Kredit-Backoffice",
       "titleByLocale": {
-        "it": "Back-office Manager Credits",
-        "en": "Back-office Manager Credits",
-        "de": "Back-office Manager Credits",
-        "fr": "Gestionnaire Back-office Crédits"
+        "de": "Sachbearbeiter/in Kredit-Backoffice",
+        "it": "Sachbearbeiter/in Kredit-Backoffice",
+        "en": "Sachbearbeiter/in Kredit-Backoffice",
+        "fr": "Sachbearbeiter/in Kredit-Backoffice"
       },
-      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nGestionnaire Back-office Crédits\n\n• Sion\n\n• 80-100%\n\nVous êtes formé-e aux sciences commerciales et savez conjuguer la rigueur technique à la souplesse relationnelle afin d’optimiser le traitement des dossiers crédits ? Rejoignez l’équipe Back-office Crédits qui soutient la gestion interne des crédits octroyés aux clients.\n\nEn tant que Gestionnaire Back-office Crédits, vous déploierez vos compétences d’analyse et de contrôle tout en garantissant une parfaite coordination avec les différents services de la BCVS. Votre curiosité pertinente dans la lecture des dossiers vous permettra d’améliorer la gestion globale des dossiers crédits.\n\nConcrètement ?\n\n• Vos responsabilités vous mèneront à traiter, contrôler et gérer les demandes de crédits pour la clientèle des particuliers et des entreprises.\n\n• Vous contribuerez activement à la bonne tenue des dossiers client (d’un point de vue délai-qualité-respect des réglementations) par un traitement irréprochable des données et prendrez les mesures adéquates en cas de risques potentiels ou avérés.\n\n• Vous collaborerez aux tâches de SCI (systèmes de contrôles internes) et contribuerez au respect de la politique de crédits.\n\n• Enfin vous soutiendrez les conseillers à la clientèle et favoriserez des échanges constructifs pour atteindre des résultats win-win.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires.\n\n• Vous avez un sens aigu des priorités et du respect des délais.\n\n• Ayant une parfaite maîtrise du français, vous possédez également de bonnes connaissances orales et écrites de l’allemand, votre bilinguisme serait un fort atout.\n\n• Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses.\n\n• Vos belles compétences sociales se complètent par votre esprit positif.\n\n• Personne rigoureuse, vous travaillez de manière autonome.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nSachbearbeiter/in Kredit-Backoffice\n\n• Sion\n\n• 80-100%\n\nSie verfügen über eine kaufmännische Ausbildung und können technische Genauigkeit mit zwischenmenschlicher Flexibilität verbinden, um die Bearbeitung von Kreditdossiers zu optimieren? Werden Sie Teil des Teams Kredit-Backoffice, welches die interne Verwaltung der an Kunden vergebenen Kredite unterstützt.\n\nAls Sachbearbeiter/in Kredit-Backoffice setzen Sie Ihre Analyse- und Kontrollkompetenzen ein und sorgen gleichzeitig für eine reibungslose Koordination mit den verschiedenen Abteilungen der WKB. Ihre scharfsinnige Herangehensweise bei der Durchsicht der Dossiers ermöglicht es Ihnen, die Gesamtbetreuung der Kreditdossiers zu verbessern.\n\nWas heisst das konkret?\n\n• Zu Ihren Verantwortlichkeiten gehören die Bearbeitung, Kontrolle und Verwaltung von Kreditanträgen für Privat- und Firmenkunden.\n\n• Sie tragen aktiv zur ordnungsgemässen Führung der Kundendossiers (hinsichtlich Fristen, Qualität und Einhaltung der Vorschriften) durch eine einwandfreie Datenverarbeitung bei und ergreifen bei potenziellen oder tatsächlichen Risiken die entsprechenden Massnahmen.\n\n• Sie wirken an den Aufgaben des internen Kontrollsystems (IKS) mit und tragen zur Einhaltung der Kreditpolitik bei.\n\n• Schliesslich unterstützen Sie die Kundenberater und -beraterinnen und fördern einen konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, Matura oder gleichwertig) verfügen und mehrere Jahre einschlägige Erfahrung im Backoffice-Bereich für Bankkredite mitbringen.\n\n• Sie einen ausgeprägten Sinn für die Einhaltung von Prioritäten und Fristen haben.\n\n• Sie nicht nur ausgezeichnete Französischkenntnisse besitzen, sondern auch gute mündliche und schriftliche Deutschkenntnisse; Zweisprachigkeit wäre ein grosses Plus.\n\n• Sie beherrschen den Umgang mit IT-Tools und verfügen über gute analytische Fähigkeiten.\n\n• Ihre hohen Sozialkompetenzen durch Ihre positive Einstellung ergänzt werden.\n\n• Sie eine disziplinierte und selbstständig arbeitende Person sind.\n\nMöchten Sie Teil unseres Teams werden?\n Dann sollten wir uns kennenlernen!\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen an Marisa Berclaz, unsere HR-Business-Partnerin, an die Adresse: recrutement@WKB.ch .",
       "descriptionByLocale": {
-        "it": "Contatta un consulente Chat Manager Back-office Credits Sion 80-100% Sei addestrato in scienze commerciali e sai come combinare rigore tecnico con flessibilità relazionale al fine di ottimizzare il trattamento dei file di credito? Unisciti al team Back-office Credits che supporta la gestione interna del credito ai clienti. Come Back-office Credit Manager, distribuirai le tue abilità analitiche e di controllo, garantendo un perfetto coordinamento con i vari servizi BCVS. La vostra curiosità rilevante nella lettura dei file vi permetterà di migliorare la gestione complessiva dei file di credito. In particolare? Le tue responsabilità ti condurranno a elaborare, monitorare e gestire richieste di credito per i clienti di individui e aziende. Contribuirai attivamente alla corretta manutenzione dei record dei clienti (da un punto di vista di qualità- conformità con le normative) attraverso l'irreprensibile elaborazione dei dati e agire in caso di potenziali o comprovati rischi. Collaborerai sui compiti di ICS (sistemi di controlli interni) e contribuirai al rispetto della politica di credito. Infine, supporterete i consulenti dei clienti e incoraggerete gli scambi costruttivi per ottenere risultati win-win. La sfida ti sta tentando? Questo post è per voi se... Hai una formazione commerciale (CFC, Maturity o equivalente), e hanno diversi anni di esperienza simile in un settore di credito bancario back office. Hai un forte senso di priorità e tempestività. Avendo un perfetto comando del francese, hai anche una buona conoscenza orale e scritta del tedesco, il tuo bilinguismo sarebbe una grande risorsa. Si padroneggiano gli strumenti informatici e hanno buone capacità analitiche. Le tue belle abilità sociali si integrano a vicenda con il tuo spirito positivo. Una persona rigorosa, tu lavori in modo indipendente. Vuoi unirti a noi? Incontriamoci! Non vediamo l'ora di scoprire la tua applicazione. Per fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch .",
-        "en": "No results No results Contact an advisor Contact an advisor Chat Manager Back-office Credits Sion 80-100% You are trained in commercial sciences and know how to combine technical rigour with relational flexibility in order to optimize the processing of credit files? Join the Back-office Credits team that supports the internal management of credit to clients. As Back-office Credit Manager, you will deploy your analytical and control skills while ensuring perfect coordination with the various BCVS services. Your relevant curiosity in reading files will allow you to improve the overall management of credit files. Specifically?\n• Your responsibilities will lead you to process, monitor and manage credit requests for the clients of individuals and businesses. You will actively contribute to the proper maintenance of client records (from a time-scale point of view-quality-compliance with regulations) through the irreproachable processing of data and take appropriate action in case of potential or proven risks. You will collaborate on the tasks of ICS (systems of internal controls) and contribute to compliance with the credit policy. Finally, you will support customer advisors and encourage constructive exchanges to achieve win-win results. The challenge is tempting you? This post is for you if... You have commercial training (CFC, Maturity or equivalent), and have several years of similar experience in a back office banking credit sector. You have a strong sense of priority and timeliness. Having a perfect command of French, you also have good oral and written knowledge of German, your bilingualism would be a great asset. You master computer tools and have good analytical skills. Your beautiful social skills complement each other with your positive spirit. A rigorous person, you work independently. Would you like to join us? Let's meet! We look forward to discovering your application. To do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch .",
-        "de": "Keine Ergebnisse Keine Ergebnisse Kontaktieren Sie einen Berater Kontaktieren Sie einen Berater Chat Manager Back-office Credits Sion 80-100% Sie sind in kommerziellen Wissenschaften ausgebildet und wissen, wie man technische Rigour mit relationaler Flexibilität kombiniert, um die Verarbeitung von Kreditdateien zu optimieren? Begleiten Sie das Back-office Credits Team, das die interne Verwaltung von Kredit an Kunden unterstützt. Als Back-office Credit Manager setzen Sie Ihre analytischen und steuernden Fähigkeiten ein und gewährleisten eine perfekte Abstimmung mit den verschiedenen BCVS-Diensten. Ihre relevante Neugier beim Lesen von Dateien ermöglicht es Ihnen, das Gesamtmanagement von Kreditdateien zu verbessern. Konkret?\n• Ihre Verantwortung führt Sie dazu, Kreditanfragen für die Kunden von Einzelpersonen und Unternehmen zu bearbeiten, zu überwachen und zu verwalten. Sie werden aktiv zur ordnungsgemäßen Wartung von Kundendaten (aus zeitlicher Sicht-Qualitätsanforderungen) durch die unvorhersehbare Verarbeitung von Daten beitragen und bei potenziellen oder nachgewiesenen Risiken angemessene Maßnahmen ergreifen. Sie werden an den\n• Aufgaben der ICS (Systeme der internen Kontrollen) zusammenarbeiten und zur Einhaltung der Kreditpolitik beitragen. Schließlich unterstützen Sie Kundenberater und fördern konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen. Die Herausforderung verlockt dich? Dieser Beitrag ist für Sie, wenn... Sie haben eine kommerzielle Ausbildung (CFC, Maturity oder Äquivalent), und haben mehrere Jahre ähnliche Erfahrung in einem Back-Office-Banking-Kreditsektor. Sie haben ein starkes Gefühl von Priorität und Zeitlichkeit. Mit einem perfekten Befehl von Französisch, Sie haben auch gute mündliche und schriftliche Kenntnis von Deutsch, Ihre Zweisprachigkeit wäre ein großer Vorteil. Sie meistern Computer-Tools und haben gute analytische Fähigkeiten. Ihre schönen sozialen Fähigkeiten ergänzen sich mit Ihrem positiven Geist. Eine strenge Person, Sie arbeiten unabhängig. Möchten Sie mitkommen? Treffen wir uns! Wir freuen uns auf Ihre Anwendung zu entdecken. Senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, unter rekrutierungs@bcvs.ch .",
-        "fr": "Pas de résultats\n• Pas de résultats\n• Contacter un conseiller Contacter un conseiller Chat Gestionnaire Back-office Crédits\n• Sion\n• 80-100% Vous êtes formé-e aux sciences commerciales et savez conjuguer la rigueur technique à la souplesse relationnelle afin d’optimiser le traitement des dossiers crédits ? Rejoignez l’équipe Back-office Crédits qui soutient la gestion interne des crédits octroyés aux clients. En tant que Gestionnaire Back-office Crédits, vous déploierez vos compétences d’analyse et de contrôle tout en garantissant une parfaite coordination avec les différents services de la BCVS. Votre curiosité pertinente dans la lecture des dossiers vous permettra d’améliorer la gestion globale des dossiers crédits. Concrètement ?\n• Vos responsabilités vous mèneront à traiter, contrôler et gérer les demandes de crédits pour la clientèle des particuliers et des entreprises.\n• Vous contribuerez activement à la bonne tenue des dossiers client (d’un point de vue délai-qualité-respect des réglementations) par un traitement irréprochable des données et prendrez les mesures adéquates en cas de risques potentiels ou avérés.\n• Vous collaborerez aux tâches de SCI (systèmes de contrôles internes) et contribuerez au respect de la politique de crédits.\n• Enfin vous soutiendrez les conseillers à la clientèle et favoriserez des échanges constructifs pour atteindre des résultats win-win. Le défi vous tente ? Ce poste est fait pour vous si…\n• Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires.\n• Vous avez un sens aigu des priorités et du respect des délais.\n• Ayant une parfaite maîtrise du français, vous possédez également de bonnes connaissances orales et écrites de l’allemand, votre bilinguisme serait un fort atout.\n• Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses.\n• Vos belles compétences sociales se complètent par votre esprit positif.\n• Personne rigoureuse, vous travaillez de manière autonome. Vous souhaitez nous rejoindre ? Rencontrons-nous ! Nous nous réjouissons de découvrir votre candidature. Pour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch ."
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nSachbearbeiter/in Kredit-Backoffice\n\n• Sion\n\n• 80-100%\n\nSie verfügen über eine kaufmännische Ausbildung und können technische Genauigkeit mit zwischenmenschlicher Flexibilität verbinden, um die Bearbeitung von Kreditdossiers zu optimieren? Werden Sie Teil des Teams Kredit-Backoffice, welches die interne Verwaltung der an Kunden vergebenen Kredite unterstützt.\n\nAls Sachbearbeiter/in Kredit-Backoffice setzen Sie Ihre Analyse- und Kontrollkompetenzen ein und sorgen gleichzeitig für eine reibungslose Koordination mit den verschiedenen Abteilungen der WKB. Ihre scharfsinnige Herangehensweise bei der Durchsicht der Dossiers ermöglicht es Ihnen, die Gesamtbetreuung der Kreditdossiers zu verbessern.\n\nWas heisst das konkret?\n\n• Zu Ihren Verantwortlichkeiten gehören die Bearbeitung, Kontrolle und Verwaltung von Kreditanträgen für Privat- und Firmenkunden.\n\n• Sie tragen aktiv zur ordnungsgemässen Führung der Kundendossiers (hinsichtlich Fristen, Qualität und Einhaltung der Vorschriften) durch eine einwandfreie Datenverarbeitung bei und ergreifen bei potenziellen oder tatsächlichen Risiken die entsprechenden Massnahmen.\n\n• Sie wirken an den Aufgaben des internen Kontrollsystems (IKS) mit und tragen zur Einhaltung der Kreditpolitik bei.\n\n• Schliesslich unterstützen Sie die Kundenberater und -beraterinnen und fördern einen konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, Matura oder gleichwertig) verfügen und mehrere Jahre einschlägige Erfahrung im Backoffice-Bereich für Bankkredite mitbringen.\n\n• Sie einen ausgeprägten Sinn für die Einhaltung von Prioritäten und Fristen haben.\n\n• Sie nicht nur ausgezeichnete Französischkenntnisse besitzen, sondern auch gute mündliche und schriftliche Deutschkenntnisse; Zweisprachigkeit wäre ein grosses Plus.\n\n• Sie beherrschen den Umgang mit IT-Tools und verfügen über gute analytische Fähigkeiten.\n\n• Ihre hohen Sozialkompetenzen durch Ihre positive Einstellung ergänzt werden.\n\n• Sie eine disziplinierte und selbstständig arbeitende Person sind.\n\nMöchten Sie Teil unseres Teams werden?\n Dann sollten wir uns kennenlernen!\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen an Marisa Berclaz, unsere HR-Business-Partnerin, an die Adresse: recrutement@WKB.ch .",
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nSachbearbeiter/in Kredit-Backoffice\n\n• Sion\n\n• 80-100%\n\nSie verfügen über eine kaufmännische Ausbildung und können technische Genauigkeit mit zwischenmenschlicher Flexibilität verbinden, um die Bearbeitung von Kreditdossiers zu optimieren? Werden Sie Teil des Teams Kredit-Backoffice, welches die interne Verwaltung der an Kunden vergebenen Kredite unterstützt.\n\nAls Sachbearbeiter/in Kredit-Backoffice setzen Sie Ihre Analyse- und Kontrollkompetenzen ein und sorgen gleichzeitig für eine reibungslose Koordination mit den verschiedenen Abteilungen der WKB. Ihre scharfsinnige Herangehensweise bei der Durchsicht der Dossiers ermöglicht es Ihnen, die Gesamtbetreuung der Kreditdossiers zu verbessern.\n\nWas heisst das konkret?\n\n• Zu Ihren Verantwortlichkeiten gehören die Bearbeitung, Kontrolle und Verwaltung von Kreditanträgen für Privat- und Firmenkunden.\n\n• Sie tragen aktiv zur ordnungsgemässen Führung der Kundendossiers (hinsichtlich Fristen, Qualität und Einhaltung der Vorschriften) durch eine einwandfreie Datenverarbeitung bei und ergreifen bei potenziellen oder tatsächlichen Risiken die entsprechenden Massnahmen.\n\n• Sie wirken an den Aufgaben des internen Kontrollsystems (IKS) mit und tragen zur Einhaltung der Kreditpolitik bei.\n\n• Schliesslich unterstützen Sie die Kundenberater und -beraterinnen und fördern einen konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, Matura oder gleichwertig) verfügen und mehrere Jahre einschlägige Erfahrung im Backoffice-Bereich für Bankkredite mitbringen.\n\n• Sie einen ausgeprägten Sinn für die Einhaltung von Prioritäten und Fristen haben.\n\n• Sie nicht nur ausgezeichnete Französischkenntnisse besitzen, sondern auch gute mündliche und schriftliche Deutschkenntnisse; Zweisprachigkeit wäre ein grosses Plus.\n\n• Sie beherrschen den Umgang mit IT-Tools und verfügen über gute analytische Fähigkeiten.\n\n• Ihre hohen Sozialkompetenzen durch Ihre positive Einstellung ergänzt werden.\n\n• Sie eine disziplinierte und selbstständig arbeitende Person sind.\n\nMöchten Sie Teil unseres Teams werden?\n Dann sollten wir uns kennenlernen!\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen an Marisa Berclaz, unsere HR-Business-Partnerin, an die Adresse: recrutement@WKB.ch .",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nSachbearbeiter/in Kredit-Backoffice\n\n• Sion\n\n• 80-100%\n\nSie verfügen über eine kaufmännische Ausbildung und können technische Genauigkeit mit zwischenmenschlicher Flexibilität verbinden, um die Bearbeitung von Kreditdossiers zu optimieren? Werden Sie Teil des Teams Kredit-Backoffice, welches die interne Verwaltung der an Kunden vergebenen Kredite unterstützt.\n\nAls Sachbearbeiter/in Kredit-Backoffice setzen Sie Ihre Analyse- und Kontrollkompetenzen ein und sorgen gleichzeitig für eine reibungslose Koordination mit den verschiedenen Abteilungen der WKB. Ihre scharfsinnige Herangehensweise bei der Durchsicht der Dossiers ermöglicht es Ihnen, die Gesamtbetreuung der Kreditdossiers zu verbessern.\n\nWas heisst das konkret?\n\n• Zu Ihren Verantwortlichkeiten gehören die Bearbeitung, Kontrolle und Verwaltung von Kreditanträgen für Privat- und Firmenkunden.\n\n• Sie tragen aktiv zur ordnungsgemässen Führung der Kundendossiers (hinsichtlich Fristen, Qualität und Einhaltung der Vorschriften) durch eine einwandfreie Datenverarbeitung bei und ergreifen bei potenziellen oder tatsächlichen Risiken die entsprechenden Massnahmen.\n\n• Sie wirken an den Aufgaben des internen Kontrollsystems (IKS) mit und tragen zur Einhaltung der Kreditpolitik bei.\n\n• Schliesslich unterstützen Sie die Kundenberater und -beraterinnen und fördern einen konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, Matura oder gleichwertig) verfügen und mehrere Jahre einschlägige Erfahrung im Backoffice-Bereich für Bankkredite mitbringen.\n\n• Sie einen ausgeprägten Sinn für die Einhaltung von Prioritäten und Fristen haben.\n\n• Sie nicht nur ausgezeichnete Französischkenntnisse besitzen, sondern auch gute mündliche und schriftliche Deutschkenntnisse; Zweisprachigkeit wäre ein grosses Plus.\n\n• Sie beherrschen den Umgang mit IT-Tools und verfügen über gute analytische Fähigkeiten.\n\n• Ihre hohen Sozialkompetenzen durch Ihre positive Einstellung ergänzt werden.\n\n• Sie eine disziplinierte und selbstständig arbeitende Person sind.\n\nMöchten Sie Teil unseres Teams werden?\n Dann sollten wir uns kennenlernen!\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen an Marisa Berclaz, unsere HR-Business-Partnerin, an die Adresse: recrutement@WKB.ch .",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nSachbearbeiter/in Kredit-Backoffice\n\n• Sion\n\n• 80-100%\n\nSie verfügen über eine kaufmännische Ausbildung und können technische Genauigkeit mit zwischenmenschlicher Flexibilität verbinden, um die Bearbeitung von Kreditdossiers zu optimieren? Werden Sie Teil des Teams Kredit-Backoffice, welches die interne Verwaltung der an Kunden vergebenen Kredite unterstützt.\n\nAls Sachbearbeiter/in Kredit-Backoffice setzen Sie Ihre Analyse- und Kontrollkompetenzen ein und sorgen gleichzeitig für eine reibungslose Koordination mit den verschiedenen Abteilungen der WKB. Ihre scharfsinnige Herangehensweise bei der Durchsicht der Dossiers ermöglicht es Ihnen, die Gesamtbetreuung der Kreditdossiers zu verbessern.\n\nWas heisst das konkret?\n\n• Zu Ihren Verantwortlichkeiten gehören die Bearbeitung, Kontrolle und Verwaltung von Kreditanträgen für Privat- und Firmenkunden.\n\n• Sie tragen aktiv zur ordnungsgemässen Führung der Kundendossiers (hinsichtlich Fristen, Qualität und Einhaltung der Vorschriften) durch eine einwandfreie Datenverarbeitung bei und ergreifen bei potenziellen oder tatsächlichen Risiken die entsprechenden Massnahmen.\n\n• Sie wirken an den Aufgaben des internen Kontrollsystems (IKS) mit und tragen zur Einhaltung der Kreditpolitik bei.\n\n• Schliesslich unterstützen Sie die Kundenberater und -beraterinnen und fördern einen konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, Matura oder gleichwertig) verfügen und mehrere Jahre einschlägige Erfahrung im Backoffice-Bereich für Bankkredite mitbringen.\n\n• Sie einen ausgeprägten Sinn für die Einhaltung von Prioritäten und Fristen haben.\n\n• Sie nicht nur ausgezeichnete Französischkenntnisse besitzen, sondern auch gute mündliche und schriftliche Deutschkenntnisse; Zweisprachigkeit wäre ein grosses Plus.\n\n• Sie beherrschen den Umgang mit IT-Tools und verfügen über gute analytische Fähigkeiten.\n\n• Ihre hohen Sozialkompetenzen durch Ihre positive Einstellung ergänzt werden.\n\n• Sie eine disziplinierte und selbstständig arbeitende Person sind.\n\nMöchten Sie Teil unseres Teams werden?\n Dann sollten wir uns kennenlernen!\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen an Marisa Berclaz, unsere HR-Business-Partnerin, an die Adresse: recrutement@WKB.ch ."
       },
       "location": "Sion",
       "canton": "VS",
-      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:11:47.468Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-11T22:14:01.011Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -675,51 +688,35 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
-      "requirements": [
-        "Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires.",
-        "Vous avez un sens aigu des priorités et du respect des délais.",
-        "Ayant une parfaite maîtrise du français, vous possédez également de bonnes connaissances orales et écrites de l’allemand, votre bilinguisme serait un fort atout.",
-        "Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses.",
-        "Vos belles compétences sociales se complètent par votre esprit positif.",
-        "Personne rigoureuse, vous travaillez de manière autonome."
-      ],
+      "postedDate": "2026-06-11",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
+      "requirements": [],
       "requirementsByLocale": {
-        "fr": [
-          "Vous avez un sens aigu des priorités et du respect des délais.",
-          "Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses.",
-          "Vos belles compétences sociales se complètent par votre esprit positif.",
-          "Personne rigoureuse, vous travaillez de manière autonome."
-        ]
+        "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
-          "gestionnaire-back-office-credits-bcvs-sion"
-        ],
-        "fr": [
-          "gestionnaire-back-office-credits-bcvs-sion"
+          "sachbearbeiter-in-kredit-backoffice-bcvs-sion"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
-        "gestionnaire-back-office-credits-bcvs-sion"
+        "sachbearbeiter-in-kredit-backoffice-bcvs-sion"
       ],
-      "firstSeenAt": "2026-04-13T10:04:10.904Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "firstSeenAt": "2026-06-11T22:14:01.011Z"
     }
   ]
 }
