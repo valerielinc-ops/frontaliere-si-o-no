@@ -180,7 +180,7 @@ export default function AdSenseBanner({
  // Force anchor/overlay ads to bottom only — prevents covering navbar on mobile
  script.setAttribute('data-overlays', 'bottom');
  // Reduce vignette/interstitial frequency — SPA triggers on every pushState
- script.setAttribute('data-ad-frequency-hint', '120s');
+ script.setAttribute('data-ad-frequency-hint', '60s');
  script.addEventListener('load', () => {
  script.setAttribute('data-loaded', '1');
  setScriptReady(true);
@@ -266,9 +266,9 @@ export default function AdSenseBanner({
  requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
  }).requestIdleCallback;
  if (typeof ric === 'function') {
- idleHandle = ric(() => loadAdSenseScript(), { timeout: 3000 });
+ idleHandle = ric(() => loadAdSenseScript(), { timeout: 1500 });
  } else {
- idleTimer = setTimeout(() => loadAdSenseScript(), 2500);
+ idleTimer = setTimeout(() => loadAdSenseScript(), 1500);
  }
  }
 
