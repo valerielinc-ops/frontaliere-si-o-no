@@ -8,6 +8,10 @@ import {
   PUBLISHER_SOURCE_KEY,
   // @ts-expect-error mjs module, no type declarations
 } from '../scripts/lib/publisherJobProjection.mjs';
+import {
+  detectBoilerplateDescriptions,
+  // @ts-expect-error mjs module, no type declarations
+} from '../scripts/assemble-jobs-dataset.mjs';
 
 const NOW = '2026-06-10T10:00:00.000Z';
 
@@ -47,6 +51,22 @@ describe('publisherJobToRecords', () => {
     expect(r.source).toBe(PUBLISHER_SOURCE_KEY);
     expect(r.publisherUid).toBe('pub1');
     expect(r.publisherJobId).toBe('job1');
+  });
+
+  it('mirrors the flat description into descriptionByLocale.it (boilerplate-guard input)', () => {
+    const desc = 'parola '.repeat(60).trim();
+    const [r] = publisherJobToRecords(paidJob({ description: desc }), { nowIso: NOW });
+    expect(r.descriptionByLocale).toBeDefined();
+    expect(r.descriptionByLocale.it).toBe(desc);
+  });
+
+  it('preserves an existing descriptionByLocale.it instead of overwriting it', () => {
+    const existing = 'testo italiano gia tradotto con tante parole diverse qui '.repeat(4).trim();
+    const [r] = publisherJobToRecords(
+      paidJob({ descriptionByLocale: { it: existing } }),
+      { nowIso: NOW },
+    );
+    expect(r.descriptionByLocale.it).toBe(existing);
   });
 
   it('produces stable deterministic ids per (job, location)', () => {
@@ -237,5 +257,30 @@ describe('applyMode projection', () => {
       { nowIso: NOW },
     );
     expect(r.applyMode).toBe('external_url');
+  });
+});
+
+describe('publisher slice does not trip the boilerplate guard', () => {
+  // Regression for the publisher-jobs-sync FATAL: publisher ads store only the
+  // flat `description`, so before the descriptionByLocale.it mirror the guard
+  // read an empty IT description and flagged every paid ad as boilerplate
+  // (`empty_description`) → 100% ratio → the whole sync aborted and the paid ad
+  // never reached the live slice.
+  it('flags 0 records as boilerplate when ads have real ≥50-word descriptions', () => {
+    const realDesc =
+      'Cerchiamo una figura motivata e qualificata da inserire stabilmente nel nostro ' +
+      'team clinico multidisciplinare in forte crescita. COMPITI: gestione quotidiana ' +
+      'dei pazienti, valutazione funzionale completa, redazione dei piani di trattamento ' +
+      'personalizzati, monitoraggio dei progressi e stretta collaborazione con il ' +
+      'personale medico e amministrativo della struttura. PROFILO: diploma riconosciuto, ' +
+      'esperienza pregressa nel settore, ottime capacita relazionali e comunicative, ' +
+      'autonomia organizzativa, precisione e disponibilita al lavoro su turni flessibili. ' +
+      'Offriamo un ambiente moderno e ben attrezzato, formazione continua, possibilita ' +
+      'concrete di crescita professionale e un pacchetto retributivo competitivo.';
+    const recs = publisherJobsToSlice([paidJob({ description: realDesc })], { nowIso: NOW });
+    expect(recs.length).toBeGreaterThan(0);
+    const report = detectBoilerplateDescriptions(recs, PUBLISHER_SOURCE_KEY);
+    expect(report.boilerplateCount).toBe(0);
+    expect(report.ratio).toBe(0);
   });
 });
