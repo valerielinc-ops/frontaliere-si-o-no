@@ -8037,6 +8037,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cargo-chiasso-lavoro-saperi.title': 'Güterverkehr in Chiasso: Einbrüche, aber Know-how für neue Jobs',
     'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'Der Güterverkehr auf der Schiene in Chiasso erlebt Einbrüche, aber die lokalen Kompetenzen können den Beschäftigungsaufschwung unterstützen.',
     'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Arbeiter und Züge im Frachtsektor in Ticino, Chiasso',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'G-Bewilligung beantragen 2026 Schritt für Schritt',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Vollständige Anleitung zum Beantragungsverfahren der G-Bewilligung für Grenzgänger im Jahr 2026: erforderliche Dokumente, Rolle des Arbeitgebers, kantonales Amt, Fristen und Kosten.',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Kantonales Amt für die Verwaltung von Grenzarbeitsgenehmigungen im Tessin',
 };
 
 export default blogMetaDe;

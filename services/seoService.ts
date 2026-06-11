@@ -3971,6 +3971,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-givaudan-licenziamenti': { name: 'Givaudan licenziamenti', path: '/articoli-svizzera/givaudan-licenziamenti/', parent: 'blog' },
     'blog-cargo-chiasso-lavoro-saperi': { name: 'Lavoro', path: '/articoli-frontaliere/cargo-chiasso-lavoro-saperi', parent: 'blog' },
     'blog-agefi-nuovi-vertici': { name: 'Novità economiche', path: '/articoli-svizzera/agefi-nuovi-vertici/', parent: 'blog' },
+    'blog-richiesta-permesso-g-step-by-step-2026': { name: 'Permesso G', path: '/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
