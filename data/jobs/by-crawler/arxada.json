@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arxada",
-  "assembledAt": "2026-06-11T12:09:08.740Z",
+  "assembledAt": "2026-06-11T22:11:02.176Z",
   "jobs": [
     {
       "id": "arxada-2d3fbc013a5c",
@@ -47,7 +47,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Senior-Chemical-Engineer--R-D_R53157-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:06.127Z",
+      "crawledAt": "2026-06-11T22:10:59.516Z",
       "jobReqId": "R53157",
       "previousSlugsByLocale": {
         "de": [
@@ -61,6 +61,7 @@
         "senior-chemical-engineer-r-d-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:01.951Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -78,12 +79,12 @@
     },
     {
       "id": "arxada-1894b3c6cfcb",
-      "slug": "coordinatore-della-formazione-arxada-visp",
+      "slug": "training-coordinator-in-arxada-ch",
       "slugByLocale": {
-        "it": "coordinatore-della-formazione-arxada-visp",
+        "it": "training-coordinator-in-arxada-ch",
         "en": "training-coordinator-in-arxada-visp",
         "de": "training-coordinator-in-arxada-ch",
-        "fr": "training-coordinateur-in-arxada-visp"
+        "fr": "training-coordinator-in-arxada-ch"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -121,22 +122,26 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Training-Coordinator-in_R53631",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:05.362Z",
+      "crawledAt": "2026-06-11T22:10:58.782Z",
       "jobReqId": "R53631",
       "previousSlugs": [
-        "training-coordinator-in-arxada-ch",
-        "coordonnateur-de-la-formation-arxada-visp"
+        "coordinatore-della-formazione-arxada-visp",
+        "coordonnateur-de-la-formation-arxada-visp",
+        "training-coordinateur-in-arxada-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "coordinatore-della-formazione-arxada-visp",
           "training-coordinator-in-arxada-ch"
         ],
         "fr": [
           "coordonnateur-de-la-formation-arxada-visp",
+          "training-coordinateur-in-arxada-visp",
           "training-coordinator-in-arxada-ch"
         ]
       },
       "firstSeenAt": "2026-05-15T10:24:57.988Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -219,7 +224,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:04.517Z",
+      "crawledAt": "2026-06-11T22:10:58.058Z",
       "jobReqId": "R53358",
       "previousSlugsByLocale": {
         "de": [
@@ -233,6 +238,7 @@
         "rangierdienst-spezialist-in-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -321,7 +327,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Prozessanalytiker-in_R52966",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:03.698Z",
+      "crawledAt": "2026-06-11T22:10:57.302Z",
       "jobReqId": "R52966",
       "previousSlugsByLocale": {
         "de": [
@@ -335,6 +341,7 @@
         "laborant-in-online-prozessanalytik-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:03.161Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -395,7 +402,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lehrstelle-Elektroinstallateur-in-EFZ_R52727",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:02.889Z",
+      "crawledAt": "2026-06-11T22:10:56.567Z",
       "jobReqId": "R52727",
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
@@ -476,7 +483,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Assistant-in---Junior-Chemist-R-T_R53576",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:02.032Z",
+      "crawledAt": "2026-06-11T22:10:55.834Z",
       "jobReqId": "R53576",
       "previousSlugs": [
         "lab-assistant-in-junior-chemist-r-t-arxada-ch"
@@ -490,6 +497,7 @@
         ]
       },
       "firstSeenAt": "2026-04-29T21:17:43.554Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -578,7 +586,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Elektroinstallateur-Automatiker--in-ab-August-2026_R53286",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:01.261Z",
+      "crawledAt": "2026-06-11T22:10:55.102Z",
       "jobReqId": "R53286",
       "previousSlugs": [
         "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch",
@@ -591,6 +599,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:07.022Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -651,7 +660,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:09:00.287Z",
+      "crawledAt": "2026-06-11T22:10:54.294Z",
       "jobReqId": "R50117",
       "previousSlugsByLocale": {
         "de": [
@@ -665,6 +674,7 @@
         "operator-in-80-100-arxada-ch"
       ],
       "firstSeenAt": "2026-05-06T10:21:39.223Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -725,7 +735,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in-2-Schicht_R53499",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:08:59.464Z",
+      "crawledAt": "2026-06-11T22:10:53.521Z",
       "jobReqId": "R53499",
       "previousSlugsByLocale": {
         "de": [
@@ -837,7 +847,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Anlage-Ingenieur-in_R53335",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:08:58.565Z",
+      "crawledAt": "2026-06-11T22:10:52.782Z",
       "jobReqId": "R53335",
       "previousSlugsByLocale": {
         "de": [
@@ -865,6 +875,7 @@
         "metallbauer-in-cfc-arxada-visp"
       ],
       "firstSeenAt": "2026-04-13T09:58:58.686Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -925,7 +936,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Head-of-Site-Logistics---Projects-Visp_R53685",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:08:57.775Z",
+      "crawledAt": "2026-06-11T22:10:52.062Z",
       "jobReqId": "R53685",
       "previousSlugs": [
         "head-of-site-logistics-projects-visp-arxada-ch"
@@ -959,34 +970,32 @@
     },
     {
       "id": "arxada-5f917b111b34",
-      "slug": "managing-production-engineer-arxada-ch",
+      "slug": "managing-production-ingegnere-arxada-visp",
       "slugByLocale": {
-        "de": "managing-production-engineer-arxada-ch",
-        "it": "managing-production-engineer-arxada-ch",
+        "it": "managing-production-ingegnere-arxada-visp",
         "en": "managing-production-engineer-arxada-ch",
-        "fr": "managing-production-engineer-arxada-ch"
+        "de": "managing-production-engineer-arxada-ch",
+        "fr": "managing-production-ingenieur-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
       "companyDomain": "arxada.com",
       "title": "Managing Production Engineer",
       "titleByLocale": {
-        "de": "Managing Production Ingenieur",
-        "en": "Managing Production Engineer",
         "it": "Managing Production Ingegnere",
+        "en": "Managing Production Engineer",
+        "de": "Managing Production Ingenieur",
         "fr": "Managing Production Ingénieur"
       },
       "description": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n\nWir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz .\n\nMit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind.\n\nFür unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran.\n\nDeine Aufgaben\n\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n\n• Leitung von Verbesserungs- und Investitionsprojekten\n\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen\n\nDein Profil\n\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit\n\nDas bieten wir dir\n\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace\n\nArxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n\nMicrobial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz .\n\nNutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen .\n\nArxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n\n#LI-JB1\n\nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
       "descriptionByLocale": {
-        "de": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n\nWir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz .\n\nMit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind.\n\nFür unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran.\n\nDeine Aufgaben\n\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n\n• Leitung von Verbesserungs- und Investitionsprojekten\n\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen\n\nDein Profil\n\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit\n\nDas bieten wir dir\n\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace\n\nArxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n\nMicrobial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz .\n\nNutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen .\n\nArxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n\n#LI-JB1\n\nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "it": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n\nWir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz .\n\nMit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind.\n\nFür unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran.\n\nDeine Aufgaben\n\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n\n• Leitung von Verbesserungs- und Investitionsprojekten\n\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen\n\nDein Profil\n\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit\n\nDas bieten wir dir\n\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace\n\nArxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n\nMicrobial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz .\n\nNutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen .\n\nArxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n\n#LI-JB1\n\nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "en": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n\nWir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz .\n\nMit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind.\n\nFür unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran.\n\nDeine Aufgaben\n\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n\n• Leitung von Verbesserungs- und Investitionsprojekten\n\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen\n\nDein Profil\n\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit\n\nDas bieten wir dir\n\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace\n\nArxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n\nMicrobial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz .\n\nNutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen .\n\nArxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n\n#LI-JB1\n\nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
-        "fr": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern.\n\nWir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz .\n\nMit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind.\n\nFür unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran.\n\nDeine Aufgaben\n\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n\n• Leitung von Verbesserungs- und Investitionsprojekten\n\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen\n\nDein Profil\n\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit\n\nDas bieten wir dir\n\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace\n\nArxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen:\n\nMicrobial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz .\n\nNutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen .\n\nArxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt.\n\n#LI-JB1\n\nCH15\n\nArxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications."
+        "it": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz . Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind. Für unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran. Deine Aufgaben\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n• Leitung von Verbesserungs- und Investitionsprojekten\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen Dein Profil\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit Das bieten wir dir\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz . Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen . Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-JB1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
+        "en": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz . Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind. Für unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran. Deine Aufgaben\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n• Leitung von Verbesserungs- und Investitionsprojekten\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen Dein Profil\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit Das bieten wir dir\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz . Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen . Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-JB1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
+        "de": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz . Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind. Für unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran. Deine Aufgaben\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n• Leitung von Verbesserungs- und Investitionsprojekten\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen Dein Profil\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit Das bieten wir dir\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz . Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen . Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-JB1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications.",
+        "fr": "Arxada ist ein weltweit führendes Unternehmen für innovative Lösungen zum Schutz unserer Welt. Unsere bahnbrechenden Technologien, umfassende regulatorische Expertise sowie unsere Kompetenz in der Produktion und Prozessentwicklung unterstützen unsere Kunden dabei, Ernährung, Gesundheit und Infrastruktur auf effiziente Weise zu schützen – durch Chemie und Biotechnologie, die Nachhaltigkeit fördern. Wir bieten ein breites Portfolio an Inhaltsstoffen und Dienstleistungen für verschiedene Endmärkte, darunter Gesundheit & Ernährung , Haushalts- und Körperpflege , Professionelle Hygiene , Lacke & Beschichtungen sowie Holzschutz . Mit Kunden in über 100 Ländern erzielte das Unternehmen im Jahr 2024 einen Umsatz von 2 Milliarden CHF . Der Hauptsitz von Arxada befindet sich in Basel (Schweiz) . Weltweit beschäftigt das Unternehmen 3.200 Mitarbeitende an 24 Produktionsstandorten und in 14 F&E-Zentren , die alle dem Erfolg unserer Kunden verpflichtet sind. Für unseren Standort Visp im C2-Verbund suchen wir eine erfahrene Führungspersönlichkeit als Manufacturing Manager & Production Engineer Gasbetriebe Visp. In dieser Schlüsselrolle verantwortest du die sichere, effiziente und qualitativ hochwertige Produktion entlang einer Wertschöpfungskette für die Feed- & Food-Industrie (Vitamine, Duft- und Aromastoffe) und treibst Innovation sowie kontinuierliche Verbesserung aktiv voran. Deine Aufgaben\n• Führung und Weiterentwicklung eines Teams von Production- und Shift Supervisors\n• Gesamtverantwortung für Sicherheit, Qualität, Anlagenverfügbarkeit und Lieferfähigkeit\n• Sicherstellung stabiler und effizienter Produktionsprozesse\n• Steuerung und kontinuierliche Optimierung von Produktionsprozessen und Ressourceneinsatz\n• Nachhaltige Lösung operativer Herausforderungen und Ursachenanalysen (z. B. RCA)\n• Leitung von Verbesserungs- und Investitionsprojekten\n• Förderung einer starken Teamkultur und kontinuierlichen Weiterentwicklung der Mitarbeitenden\n• Sicherstellung der Einhaltung von HSE-, Qualitäts- und Compliance-Anforderungen\n• Enge Zusammenarbeit mit Engineering, Qualität, Supply Chain sowie weiteren Schnittstellen Dein Profil\n• Abgeschlossenes Studium in Verfahrenstechnik, Chemieingenieurwesen, Industrieingenieurwesen oder vergleichbar\n• Mehrjährige Erfahrung in der chemischen Produktion oder Prozessindustrie\n• Erste Führungserfahrung sowie ausgeprägte Leadership-Kompetenzen\n• Fundierte Kenntnisse in Prozess- und Produktionstechnologie\n• Erfahrung mit HSE-, Qualitäts- und Produktionssystemen (z. B. HAZOP, RCA)\n• Strukturierte, lösungsorientierte und pragmatische Arbeitsweise\n• Unternehmerisches Denken sowie hohe Eigeninitiative\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Belastbare, teamorientierte Persönlichkeit mit starker Kommunikationsfähigkeit Das bieten wir dir\n• Eine Schlüsselrolle mit echtem Gestaltungsspielraum und Verantwortung\n• Ein Umfeld, das Sicherheit, Innovation und kontinuierliche Verbesserung lebt\n• Entwicklungsmöglichkeiten in einem technologisch anspruchsvollen Produktionsumfeld\n• Internationale Zusammenarbeit und Beitrag zu Industrien wie Food, Feed und Aerospace Arxada bietet erstklassige Lösungen in zwei klar abgegrenzten Bereichen: Microbial Control Solutions (MCS) konzentriert sich auf Bedrohungen durch Mikroorganismen für Mensch und Umwelt. Dieser Bereich umfasst fünf eigenständige Geschäftsbereiche: Professionelle Hygiene , Haushalts- und Körperpflege , Holzschutz , Lacke & Beschichtungen sowie Materialschutz . Nutrition, Care & Environmental (NCE) liefert Materialien für die Herstellung von Verbundstoffen in der Elektronik , Luft- und Raumfahrt und anderen Branchen. Darüber hinaus umfasst das Portfolio Vitamine und Nährstoffkomponenten , chemische Zwischenprodukte mit hoher Leistungsfähigkeit sowie Rohstoffe für eine Vielzahl anspruchsvoller Anwendungen . Arxada ist ein Arbeitgeber, der Chancengleichheit fördert. Alle qualifizierten Bewerberinnen und Bewerber werden unabhängig von Hautfarbe, Religion, ethnischer Herkunft, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Alter, Behinderung, Status als geschützte/r Veteran/in oder anderen gesetzlich geschützten Merkmalen gleichermaßen berücksichtigt. #LI-JB1 CH15 Arxada is a global specialty chemicals company with major production facilities in Visp (Valais), Switzerland. The company develops innovative solutions for microbial control, nutrition, care, and environmental applications."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Visp",
       "canton": "VS",
       "addressLocality": "Visp",
@@ -1004,9 +1013,21 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Managing-Production-Engineer_R53715",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:08:56.895Z",
+      "crawledAt": "2026-06-11T22:10:51.320Z",
       "jobReqId": "R53715",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T12:08:56.895Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "managing-production-engineer-arxada-ch"
+        ],
+        "fr": [
+          "managing-production-engineer-arxada-ch"
+        ]
+      },
+      "previousSlugs": [
+        "managing-production-engineer-arxada-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1020,8 +1041,7 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-11T12:08:56.895Z"
+      "addressRegion": "VS"
     }
   ]
 }
