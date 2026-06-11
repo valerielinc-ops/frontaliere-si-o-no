@@ -32,7 +32,7 @@ import {
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
-import { fetchPastaHrWidgetPage } from './pastahr-widget-client.mjs';
+import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
