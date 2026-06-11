@@ -377,3 +377,67 @@ describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
     expect(updated.location).toBe('Bellinzona');
   });
 });
+
+// ──────────────────────────────────────────────────────────────
+// applyCoopJsonLdToJob — concurrency safety (follow-up #1883 item 2)
+//
+// The Coop post-process pass fetches/repairs jobs from a bounded pool of
+// up to 12 concurrent workers (JOBS_COOP_DETAIL_CONCURRENCY in
+// scripts/update-coop-jobs.mjs). That is only safe if applyCoopJsonLdToJob
+// holds NO module-level mutable state (Map/Set/cache) and NEVER mutates the
+// caller's `job` object — otherwise two workers could corrupt each other's
+// jobs → wrong description/location assigned to the wrong listing across
+// ~2200 pages. The function is currently a pure transform (shallow-copies via
+// `{...job}` and returns `{ job, changed }`); these tests lock that invariant
+// so a future refactor that introduces a shared cache fails loudly.
+// ──────────────────────────────────────────────────────────────
+
+describe('applyCoopJsonLdToJob — concurrency safety', () => {
+  it('does not mutate the input job (returns a distinct object)', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Castione',
+      addressLocality: 'Castione',
+      canton: 'TI',
+      addressRegion: 'TI',
+      company: 'Coop',
+    };
+    const snapshot = JSON.parse(JSON.stringify(job));
+    const jsonLd = {
+      jobLocation: { address: { addressLocality: 'Chur', addressRegion: 'Graubünden' } },
+      hiringOrganization: { name: 'Coop City' },
+    };
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+    // Original is untouched…
+    expect(job).toEqual(snapshot);
+    // …and the returned object is a different reference carrying the changes.
+    expect(updated).not.toBe(job);
+    expect(updated.addressLocality).toBe('Chur');
+    expect(updated.company).toBe('Coop City');
+  });
+
+  it('keeps interleaved calls independent (no cross-call state leakage)', () => {
+    // Simulate two pool workers whose calls interleave: build both inputs,
+    // apply in alternating order, and assert neither result bleeds into the
+    // other. A module-level cache keyed by anything shared would fail here.
+    const jobA = { title: 'A', location: 'Lugano', addressLocality: 'Lugano', canton: 'TI', addressRegion: 'TI', company: 'Coop' };
+    const jobB = { title: 'B', location: 'Bellinzona', addressLocality: 'Bellinzona', canton: 'TI', addressRegion: 'TI', company: 'Coop' };
+    const ldA = { jobLocation: { address: { addressLocality: 'Chur', addressRegion: 'Graubünden' } }, hiringOrganization: { name: 'Coop City' } };
+    const ldB = { jobLocation: { address: { addressLocality: 'Canobbio', addressRegion: 'Ticino' } }, hiringOrganization: { name: 'Coop Pronto' } };
+
+    const r1 = applyCoopJsonLdToJob(jobA, ldA);
+    const r2 = applyCoopJsonLdToJob(jobB, ldB);
+    const r3 = applyCoopJsonLdToJob(jobA, ldA); // re-run A after B ran
+
+    expect(r1.job.addressLocality).toBe('Chur');
+    expect(r1.job.canton).toBe('GR');
+    expect(r1.job.company).toBe('Coop City');
+
+    expect(r2.job.addressLocality).toBe('Canobbio');
+    expect(r2.job.canton).toBe('TI');
+    expect(r2.job.company).toBe('Coop Pronto');
+
+    // Deterministic: A produces the same result regardless of B running between.
+    expect(r3.job).toEqual(r1.job);
+  });
+});
