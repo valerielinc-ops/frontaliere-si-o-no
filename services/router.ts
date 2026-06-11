@@ -2288,6 +2288,22 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Publisher ad detail pages — /lavoro/<slug>/ + /en|/de|/fr variants
+ // (build-plugins/publisherAdPagesPlugin.ts). Original paid-content pages
+ // emitted with full JobPosting structured data, OUTSIDE the SPA job dataset
+ // (source: data/jobs/by-crawler/publisher-submitted.json). Without
+ // staticOverlay the bare `lavoro` alias routes the second segment to a
+ // job-board jobSlug lookup that misses → SPA renders "Annuncio non trovato"
+ // and the static page is wiped on hydrate (and the in_house "Candidati ora"
+ // CTA self-links to this same URL, so a click would trigger the same wipe).
+ // The slug is always a single locale-agnostic segment (detailPath uses a
+ // literal `/lavoro/` for every locale); bare `/lavoro/` (the job-board alias)
+ // and `/lavoro-…/` SEO landings are NOT matched.
+ if (/^\/lavoro\/[a-z0-9][a-z0-9-]*\/?$/.test(path) ||
+     /^\/(en|de|fr)\/lavoro\/[a-z0-9][a-z0-9-]*\/?$/.test(path)) {
+   return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
+ }
+
  // Job-market snapshot static SEO pages (F4) — /mercato-lavoro-ticino/, weekly + monthly archives.
  // staticOverlay keeps the per-snapshot/per-sector page content visible.
  if (JOB_MARKET_SNAPSHOT_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isJobMarketSnapshotPath(pathname)) {
