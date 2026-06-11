@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-11T13:48:26.642Z",
+  "generatedAt": "2026-06-11T23:41:52.131Z",
   "total": 18,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 16,
-  "durationMs": 19497,
-  "avgDurationMs": 19497,
+  "durationMs": 19325,
+  "avgDurationMs": 19325,
   "durationHistory": [
-    19497
+    19325
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,11 +43,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "_qualityScore": 95,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -192,6 +192,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
