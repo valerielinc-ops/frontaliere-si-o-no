@@ -43286,6 +43286,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-fonte-ticino-calcolatore-2026': {
+    title: 'Imposte alla fonte Ticino: calcolatore e aliquote 2026',
+    description: 'Guida pratica al calcolo dell\'imposta alla fonte in Ticino per il 2026. Scopri come funzionano le aliquote, le deduzioni e la procedura di rettifica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, alla, fonte, calcolatore',
+    ogTitle: 'Imposte alla fonte Ticino 2026: Calcolatore e Guida Fiscale',
+    ogDescription: 'Guida pratica al calcolo dell\'imposta alla fonte in Ticino per il 2026. Scopri come funzionano le aliquote, le deduzioni e la procedura di rettifica.',
+    canonicalPath: '/articoli-frontaliere/imposta-fonte-ticino-calcolatore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte alla fonte Ticino: calcolatore e aliquote 2026",
+      "description": "Guida pratica al calcolo dell'imposta alla fonte in Ticino per il 2026. Scopri come funzionano le aliquote, le deduzioni e la procedura di rettifica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-fonte-ticino-calcolatore-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con ufficio in primo piano"
+      },
+      "datePublished": "2026-06-11T00:28:57+00:00",
+      "dateModified": "2026-06-11T00:28:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposta-fonte-ticino-calcolatore-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

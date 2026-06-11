@@ -8033,6 +8033,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.economia-sociale-lavoro-valore.title': 'Économie sociale et entreprises : synergies sur le marché',
     'blog.article.economia-sociale-lavoro-valore.excerpt': 'Le dialogue entre secteur lucratif et non lucratif pour répondre à la pénurie de main-d\'œuvre : les opportunités d\'intégration professionnelle entre coopération et entreprises.',
     'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Réunion d\'affaires professionnelle dans un bureau moderne avec vue sur le lac de Lugano',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Impôt à la source Ticino: calculatrice et taux 2026',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Découvrez comment fonctionne le calcul de l\'impôt à la source en Ticino pour 2026 avec les nouvelles taux, tranches et gestion des prélèvements fiscaux.',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Vue panoramique sur Lugano avec bureau au premier plan',
 };
 
 export default blogMetaFr;
