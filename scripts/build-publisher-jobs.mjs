@@ -22,6 +22,7 @@
 
 import { writeJobsCrawlerSlice } from './assemble-jobs-dataset.mjs';
 import { publisherJobsToSlice, PUBLISHER_SOURCE_KEY } from './lib/publisherJobProjection.mjs';
+import { commitInChunks } from './lib/firestore-batch.mjs';
 
 async function initDb() {
   const admin = await import('firebase-admin');
@@ -66,16 +67,17 @@ async function main() {
       }
     }
     if (firstUrlByAd.size) {
-      const batch = db.batch();
-      for (const [jobId, publicUrl] of firstUrlByAd) {
+      // Chunk the writeback so it scales past the Firestore 500-op batch cap:
+      // a single batch.commit() over >500 ads throws (caught non-fatal below),
+      // which would leave every paid ad stuck on "In revisione" that run.
+      const stamped = await commitInChunks(db, [...firstUrlByAd], (batch, [jobId, publicUrl]) =>
         batch.set(
           db.collection('publisher_jobs').doc(jobId),
           { publicUrl, projectedAt: FieldValue.serverTimestamp() },
           { merge: true },
-        );
-      }
-      await batch.commit();
-      console.log(`[build-publisher-jobs] stamped publicUrl + projectedAt on ${firstUrlByAd.size} ad(s).`);
+        ),
+      );
+      console.log(`[build-publisher-jobs] stamped publicUrl + projectedAt on ${stamped} ad(s).`);
     }
   } catch (err) {
     console.warn('[build-publisher-jobs] writeback (publicUrl/projectedAt) failed (non-fatal):', err instanceof Error ? err.message : String(err));
