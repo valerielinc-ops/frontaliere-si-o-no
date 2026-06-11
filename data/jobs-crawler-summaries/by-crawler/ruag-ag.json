@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-11T13:29:08.051Z",
+  "generatedAt": "2026-06-11T23:20:38.610Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 9298,
-  "avgDurationMs": 9298,
+  "unchangedCount": 3,
+  "durationMs": 10972,
+  "avgDurationMs": 10972,
   "durationHistory": [
-    9298
+    10972
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -124,43 +124,6 @@
         "richness": 24,
         "translation": 21,
         "completeness": 25
-      }
-    },
-    {
-      "title": "FlugzeugmechanikerIn - Technician Mechanical F/A-18 80-100 (w/m/d)",
-      "slug": "flugzeugmechanikerin-technician-mechanical-f-a-18-80-100-w-m-d-ruag-ag-emmen",
-      "url": "https://jobs.ruag.ch/offene-stellen/flugzeugmechanikerin-technician-mechanical-f-a-18/99995919-5a40-4025-a0d7-d912997a8388",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/99995919-5a40-4025-a0d7-d912997a8388",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Emmen",
-      "addressLocality": "Emmen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-01-06",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "2053-05-23",
-      "id": "ruag-ag-6253f286f919",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "6003",
-      "firstSeenAt": "2026-06-10T12:56:01.964Z",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 19,
-        "completeness": 22
       }
     }
   ]
