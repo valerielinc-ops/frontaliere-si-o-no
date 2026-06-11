@@ -768,6 +768,26 @@ describe('Router — legacy bare English slugs', () => {
     const { route, locale } = parsePath('/lavoro');
     expect(route.activeTab).toBe('job-board');
     expect(locale).toBe('it');
+    // Bare alias is the live SPA job board — must NOT be staticOverlay, else
+    // the publisher-ad detail branch would shadow it and wipe the SPA listing.
+    expect(route.staticOverlay).toBeFalsy();
+  });
+
+  it('parsePath("/lavoro/<slug>/") keeps staticOverlay (publisher ad detail)', () => {
+    // build-plugins/publisherAdPagesPlugin emits a static page per publisher ad
+    // at /lavoro/<slug>/ (+ locale variants). Without staticOverlay the SPA
+    // routes the slug to a missing job-board lookup → "Annuncio non trovato".
+    for (const url of [
+      '/lavoro/fisioterapista-diplomato-lugano/',
+      '/en/lavoro/fisioterapista-diplomato-lugano/',
+      '/de/lavoro/fisioterapista-diplomato-lugano/',
+      '/fr/lavoro/fisioterapista-diplomato-lugano/',
+    ]) {
+      const { route } = parsePath(url);
+      expect(route.activeTab, url).toBe('job-board');
+      expect(route.staticOverlay, url).toBe(true);
+    }
+    expect(parsePath('/en/lavoro/test-slug/').locale).toBe('en');
   });
 
   it('parsePath("/en/jobs") resolves to job-board tab (EN intuitive alias)', () => {
