@@ -17,6 +17,10 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import { fetchHtml as hospitalFetchHtml } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 import { fetchGreenhouseJobs, GreenhouseApiError } from '../scripts/lib/ats-clients/greenhouse-client.mjs';
 import { fetchLeverJobs } from '../scripts/lib/ats-clients/lever-client.mjs';
+import {
+  fetchPostWidgetWithAntiBotHardening,
+  fetchPastaHrWidgetPage,
+} from '../scripts/lib/pastahr-widget-client.mjs';
 
 function htmlResponse(status: number, body: string) {
   return {
@@ -134,6 +138,79 @@ describe('lever-client.fetchLeverJobs', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     await expect(fetchLeverJobs('gone')).rejects.toThrow();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+// The anti-bot widget client (Phenom/Straumann #1751, PastaHR/IGS/GZO) was
+// extracted off the old `fetchJson` path, which dropped its 429/5xx
+// backoff-retry (#1846 follow-up of #1827). Pin that the transient retry is
+// restored on BOTH exported fetchers, while anti-bot 403/429-vs-5xx routing is
+// unchanged (5xx/429 retry, 4xx fail fast). The Playwright fallback only fires
+// on 403/401/406, so the 5xx/4xx cases below never launch a browser.
+describe('pastahr-widget-client.fetchPostWidgetWithAntiBotHardening (Phenom JSON POST)', () => {
+  const OPTS = { referer: 'https://careers.straumann.com/', origin: 'https://careers.straumann.com' };
+
+  it('retries a transient 503 then returns the parsed widget JSON', async () => {
+    withFastRetry();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse(503, {}))
+      .mockResolvedValueOnce(jsonResponse(200, { refineSearch: { data: { jobs: [{ jobId: 1 }] } } }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const data = await fetchPostWidgetWithAntiBotHardening({ from: 0 }, 'https://careers.straumann.com/widgets', OPTS);
+    expect(data.refineSearch.data.jobs).toHaveLength(1);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('retries a transient 429 (rate-limit) then succeeds', async () => {
+    withFastRetry();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse(429, {}))
+      .mockResolvedValueOnce(jsonResponse(200, { ok: true }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const data = await fetchPostWidgetWithAntiBotHardening({ from: 0 }, 'https://careers.straumann.com/widgets', OPTS);
+    expect(data).toEqual({ ok: true });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails fast on a persistent 404 without retrying (endpoint moved)', async () => {
+    withFastRetry();
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(404, {}));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(
+      fetchPostWidgetWithAntiBotHardening({ from: 0 }, 'https://careers.straumann.com/widgets', OPTS),
+    ).rejects.toThrow(/HTTP 404/);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('pastahr-widget-client.fetchPastaHrWidgetPage (PastaHR URL-encoded POST)', () => {
+  const OPTS = { referer: 'https://www.igsbern.ch/jobs/', origin: 'https://www.igsbern.ch' };
+
+  it('retries a transient 502 then returns the parsed widget JSON', async () => {
+    withFastRetry();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse(502, {}))
+      .mockResolvedValueOnce(jsonResponse(200, { jobs: [{ id: 1 }] }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const data = await fetchPastaHrWidgetPage(new URLSearchParams({ page: '0' }), OPTS);
+    expect(data.jobs).toHaveLength(1);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails fast on a persistent 404 without retrying', async () => {
+    withFastRetry();
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(404, {}));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchPastaHrWidgetPage(new URLSearchParams({ page: '0' }), OPTS)).rejects.toThrow(/HTTP 404/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });

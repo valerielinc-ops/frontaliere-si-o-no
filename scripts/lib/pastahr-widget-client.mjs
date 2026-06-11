@@ -39,6 +39,7 @@
  *                                             — generic POST widget fetch (Phenom etc.)
  */
 import { launchChromium } from './ensure-chromium.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 /* ── Browser UA pool (within the publicjobs.ch / Cloudflare accepted window) ── */
 
@@ -204,12 +205,15 @@ function fetchPastaHrPageViaPlaywright(params, opts) {
  * Fetch one page from the publicjobs.ch widget API with full anti-bot
  * hardening.
  *
- * Steps:
+ * Steps (the whole sequence runs inside the shared transient-retry loop, so a
+ * transient 429/5xx or network blip self-heals with exponential backoff):
  *   1. Attempt a plain Node fetch with realistic Chrome 131 headers.
  *   2. On 403 / 401 / 406 anti-bot fence: replay via a real headless Chromium
  *      (the browser's TLS fingerprint + JS context clears IP-reputation blocks).
  *   3. On null from Playwright (unavailable / timed out): re-throw the original
  *      error so the caller's safe-fail / prior-data-preserved path runs.
+ *   4. On a transient 429/5xx (not an anti-bot status): backoff + retry; a
+ *      persistent failure throws after retries are exhausted.
  *
  * @param {URLSearchParams} params   — POST body (caller builds the full payload)
  * @param {Object} opts
@@ -224,35 +228,43 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
     || PASTAHR_BROWSER_USER_AGENTS[attempt % PASTAHR_BROWSER_USER_AGENTS.length];
   const headers = makePastaHrBrowserHeaders(referer, origin, { ua, attempt });
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  let firstStatus = null;
-  try {
-    const res = await fetch(PASTAHR_ENDPOINT, {
-      method: 'POST',
-      headers,
-      body: params.toString(),
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (res.ok) return await res.json();
-    firstStatus = res.status;
-    const err = new Error(`HTTP ${res.status} from ${PASTAHR_ENDPOINT}`);
-    err.status = res.status;
-    throw err;
-  } catch (err) {
-    clearTimeout(timer);
-    // Anti-bot fence (403/401/406): retry once via headless browser, which
-    // the WAF treats as a genuine visitor.
-    const status = firstStatus ?? err?.status;
-    if (isAntiBotStatus(status)) {
-      console.warn(`[pastahr] HTTP ${status} from ${PASTAHR_ENDPOINT} — trying Playwright anti-bot fallback`);
-      const result = await fetchPastaHrPageViaPlaywright(params, { referer, origin, ua, timeoutMs: 45000 });
-      if (result !== null) return result;
-      // Playwright unavailable or also blocked — re-throw original HTTP error.
+  // Wrap the attempt in the shared transient-retry loop so a transient 429/5xx
+  // or network blip self-heals with exponential backoff (the behaviour the old
+  // `fetchJson` path provided before this client was extracted, #1846). The
+  // anti-bot fence (403/401/406) is NOT retryable — it routes to Playwright once
+  // per attempt and re-throws (IP-reputation will not change on a bare retry).
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    let firstStatus = null;
+    try {
+      const res = await fetch(PASTAHR_ENDPOINT, {
+        method: 'POST',
+        headers,
+        body: params.toString(),
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (res.ok) return await res.json();
+      firstStatus = res.status;
+      const err = new Error(`HTTP ${res.status} from ${PASTAHR_ENDPOINT}`);
+      err.status = res.status;
+      err.retryable = RETRYABLE_STATUS.has(res.status);
+      throw err;
+    } catch (err) {
+      clearTimeout(timer);
+      // Anti-bot fence (403/401/406): retry once via headless browser, which
+      // the WAF treats as a genuine visitor.
+      const status = firstStatus ?? err?.status;
+      if (isAntiBotStatus(status)) {
+        console.warn(`[pastahr] HTTP ${status} from ${PASTAHR_ENDPOINT} — trying Playwright anti-bot fallback`);
+        const result = await fetchPastaHrPageViaPlaywright(params, { referer, origin, ua, timeoutMs: 45000 });
+        if (result !== null) return result;
+        // Playwright unavailable or also blocked — re-throw original HTTP error.
+      }
+      throw err;
     }
-    throw err;
-  }
+  }, { label: `pastahr ${PASTAHR_ENDPOINT}` });
 }
 
 /**
@@ -267,10 +279,12 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
  * using the same JSON body and content-type, giving the WAF an authentic TLS
  * fingerprint that clears IP-reputation blocks.
  *
- * Steps:
+ * Steps (wrapped in the shared transient-retry loop — 429/5xx/network blips
+ * self-heal with exponential backoff before any error surfaces):
  *   1. Plain Node fetch with Chrome 131 UA + full client-hint headers.
  *   2. On 403 / 401 / 406: Playwright browser POST fallback.
  *   3. Playwright null → re-throw original error.
+ *   4. Transient 429/5xx (non-anti-bot) → backoff + retry; throw on exhaustion.
  *
  * @param {string|object} body       — request body; objects are JSON-serialised automatically
  * @param {string}        endpoint   — full widget API URL
@@ -302,35 +316,43 @@ export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { refe
   // but it is cleaner to delete it explicitly).
   delete headers['X-Requested-With'];
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  let firstStatus = null;
-  try {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers,
-      body: bodyString,
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (res.ok) return await res.json();
-    firstStatus = res.status;
-    const err = new Error(`HTTP ${res.status} from ${endpoint}`);
-    err.status = res.status;
-    throw err;
-  } catch (err) {
-    clearTimeout(timer);
-    const status = firstStatus ?? err?.status;
-    if (isAntiBotStatus(status)) {
-      console.warn(`[widget] HTTP ${status} from ${endpoint} — trying Playwright anti-bot fallback`);
-      const result = await fetchWidgetViaPlaywright(bodyString, contentType, endpoint, {
-        referer,
-        origin,
-        ua,
-        timeoutMs: 45000,
+  // Wrap the attempt in the shared transient-retry loop so a transient 429/5xx
+  // or network blip self-heals with exponential backoff — restoring the
+  // behaviour the old `fetchJson` path provided before Straumann was wired
+  // through this client (#1846). The anti-bot fence (403/401/406) is NOT
+  // retryable: it routes to Playwright once per attempt and re-throws.
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    let firstStatus = null;
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers,
+        body: bodyString,
+        signal: controller.signal,
       });
-      if (result !== null) return result;
+      clearTimeout(timer);
+      if (res.ok) return await res.json();
+      firstStatus = res.status;
+      const err = new Error(`HTTP ${res.status} from ${endpoint}`);
+      err.status = res.status;
+      err.retryable = RETRYABLE_STATUS.has(res.status);
+      throw err;
+    } catch (err) {
+      clearTimeout(timer);
+      const status = firstStatus ?? err?.status;
+      if (isAntiBotStatus(status)) {
+        console.warn(`[widget] HTTP ${status} from ${endpoint} — trying Playwright anti-bot fallback`);
+        const result = await fetchWidgetViaPlaywright(bodyString, contentType, endpoint, {
+          referer,
+          origin,
+          ua,
+          timeoutMs: 45000,
+        });
+        if (result !== null) return result;
+      }
+      throw err;
     }
-    throw err;
-  }
+  }, { label: `widget ${endpoint}` });
 }
