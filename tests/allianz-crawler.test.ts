@@ -16,7 +16,57 @@ import {
   parseAllianzDetailPage,
   parseAllianzListingPage,
   inferAllianzCanton,
+  extractAllianzBodyHtml,
+  allianzBodyToMarkdown,
 } from '@/scripts/lib/allianz-job-parser.mjs';
+
+// New `.container.page-width` template (Umantis migration, tenant 2872): the
+// real role body lives in nested `.content` divs with <ul><li> bullets, and the
+// page also carries chrome (skip-links, frame notice, Kontakt/Aktionen sidebar).
+const FIXTURE_DETAIL_NEW_TEMPLATE = `<!DOCTYPE html>
+<html lang="de">
+<head><title>Kundenberater/in für die Agentur Murten 100% -- Allianz Bewerbermanagement</title></head>
+<body>
+  <div class="skip_navigation_links"><a href="#main">Zum Hauptinhalt springen</a> Springe zur Aktionsleiste</div>
+  <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>
+  <div class="container page-width">
+    <main>
+      <h1>Kundenberater/in für die Agentur Murten 100%</h1>
+      <div class="content">
+        <h2>Ihre Aufgaben</h2>
+        <ul>
+          <li>Du betreust und baust den dir anvertrauten Kundenstamm in der Region Murten aus.</li>
+          <li>Du berätst Privatkunden umfassend in allen Versicherungs- und Vorsorgefragen.</li>
+        </ul>
+      </div>
+      <div class="content">
+        <h2>Was Sie erwarten dürfen</h2>
+        <ul>
+          <li>Eine praxisnahe Grundausbildung und eine sorgfältige Einarbeitung in der Generalagentur.</li>
+          <li>Ein leistungsorientiertes Vergütungsmodell mit attraktiven Verdienstmöglichkeiten.</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  <div class="container_login"><span>Kontakt</span><span>Keine Details erfasst</span><span>Aktionen</span><span>Ich bin interessiert und möchte mich bewerben</span></div>
+</body>
+</html>`;
+
+// Wrong-language SHELL page: the Italian /Description/4 URL of a German job
+// renders ONLY chrome (no role body). MUST yield an empty description so the
+// caller keeps probing language codes (root cause of the duplicate-listings bug).
+const FIXTURE_DETAIL_SHELL = `<!DOCTYPE html>
+<html lang="it">
+<head><title>  | Allianz | Bewerbermanagement</title>
+  <meta property="og:site_name" content="Allianz Bewerbermanagement" /></head>
+<body>
+  <div class="skip_navigation_links">Zum Hauptinhalt springen Springe zur Aktionsleiste</div>
+  <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>
+  <div class="showblock_textblock">Generalagentur Fribourg, Daniel Eltschinger |</div>
+  <div class="showblock_textblock">Kontakt Keine Details erfasst</div>
+  <div class="showblock_textblock">Aktionen Ich bin interessiert und möchte mich bewerben</div>
+</body>
+</html>`;
 
 // ─── Fixtures: detail pages ────────────────────────────────────────────────
 
@@ -303,5 +353,48 @@ describe('inferAllianzCanton', () => {
 
   it('returns correct canton for non-TI/GR Swiss locations', () => {
     expect(inferAllianzCanton('Agenzia Berna', 'Bern')).toBe('BE');
+  });
+});
+
+// ─── New template + shell handling (duplicate-listings audit fix) ──────────
+
+describe('extractAllianzBodyHtml — new .container.page-width template', () => {
+  it('extracts the role body and preserves <ul><li> structure', () => {
+    const body = extractAllianzBodyHtml(FIXTURE_DETAIL_NEW_TEMPLATE);
+    expect(body).toContain('<li>');
+    expect(body).toContain('anvertrauten Kundenstamm');
+  });
+
+  it('returns empty string for a wrong-language shell page (chrome only)', () => {
+    // Required so fetchBestDetail keeps probing other language codes instead of
+    // publishing the shell chrome (which made every job a duplicate).
+    expect(extractAllianzBodyHtml(FIXTURE_DETAIL_SHELL).trim()).toBe('');
+  });
+});
+
+describe('allianzBodyToMarkdown', () => {
+  it('converts <ul><li> to "- " bullet lines (structured content)', () => {
+    const md = allianzBodyToMarkdown(extractAllianzBodyHtml(FIXTURE_DETAIL_NEW_TEMPLATE));
+    expect(/^- /m.test(md)).toBe(true);
+    expect(md).toContain('## Ihre Aufgaben');
+  });
+
+  it('drops chrome lines (skip-links, frame notice, Kontakt/Aktionen)', () => {
+    const md = allianzBodyToMarkdown(extractAllianzBodyHtml(FIXTURE_DETAIL_NEW_TEMPLATE));
+    expect(md).not.toMatch(/Zum Hauptinhalt|Ich bin interessiert|Keine Details erfasst/i);
+  });
+});
+
+describe('parseAllianzDetailPage — new template + shell', () => {
+  it('produces a bulleted description from the new template', () => {
+    const { description, title } = parseAllianzDetailPage(FIXTURE_DETAIL_NEW_TEMPLATE);
+    expect(title).toBe('Kundenberater/in für die Agentur Murten 100%');
+    expect(/^- /m.test(description)).toBe(true);
+    expect(description).toContain('anvertrauten Kundenstamm');
+  });
+
+  it('returns an empty description for the wrong-language shell page', () => {
+    const { description } = parseAllianzDetailPage(FIXTURE_DETAIL_SHELL, 'Listing fallback title');
+    expect(description.trim()).toBe('');
   });
 });

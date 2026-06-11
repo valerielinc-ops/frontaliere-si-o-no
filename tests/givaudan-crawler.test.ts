@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/givaudan-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { htmlToMarkdown } from '../scripts/lib/axpo-job-parser.mjs';
 
 describe('Givaudan crawler parser', () => {
   // ── Constants ──
@@ -56,6 +57,36 @@ describe('Givaudan crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── detail-page description → structured markdown ──
+  // The fix replaces the flat listing `descriptionTeaser` with the full
+  // schema.org JobPosting description from the detail page. That description is
+  // entity-encoded HTML (&lt;ul&gt;&lt;li&gt;…) and is converted via the shared
+  // htmlToMarkdown so bullets/headings survive — otherwise the parser-quality
+  // audit flags the crawler "no structured content (no bullets/lists)".
+  describe('detail description → structured markdown (no-structure audit fix)', () => {
+    // Mirrors the entity-encoded JSON-LD JobPosting.description Givaudan serves.
+    const JSONLD_DESC =
+      '&lt;p&gt;Join us and celebrate the beauty of human experience.&lt;/p&gt;' +
+      '&lt;p&gt;&lt;strong&gt;Your responsibilities&lt;/strong&gt;&lt;/p&gt;' +
+      '&lt;ul&gt;&lt;li&gt;Drive continuous improvement initiatives across production.&lt;/li&gt;' +
+      '&lt;li&gt;Analyse processes and propose data-driven optimisations.&lt;/li&gt;&lt;/ul&gt;';
+
+    it('decodes entities and preserves list structure as "- " bullets', () => {
+      const { markdown, bulletCount } = htmlToMarkdown(JSONLD_DESC);
+      expect(bulletCount).toBeGreaterThanOrEqual(2);
+      expect(/^- /m.test(markdown)).toBe(true);
+      expect(markdown).toContain('continuous improvement');
+    });
+
+    it('produces content the parser-quality structure check accepts', () => {
+      const { markdown } = htmlToMarkdown(JSONLD_DESC);
+      // Mirrors hasStructuredContent() in scripts/audit-parser-quality.mjs.
+      const hasStructure =
+        /<li[\s>]/i.test(markdown) || /^\s*[-•*]\s/m.test(markdown) || /^\s*\d+[.)]\s/m.test(markdown);
+      expect(hasStructure).toBe(true);
     });
   });
 
