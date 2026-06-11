@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-06-11T12:33:46.702Z",
+  "generatedAt": "2026-06-11T22:35:38.876Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18947,
-  "avgDurationMs": 18947,
+  "durationMs": 19618,
+  "avgDurationMs": 19618,
   "durationHistory": [
-    18947
+    19618
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -298,11 +298,11 @@
       "currency": "CHF",
       "postalCode": "8200",
       "firstSeenAt": "2026-06-10T22:36:11.167Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -335,11 +335,11 @@
       "currency": "CHF",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-10T22:36:11.167Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     }
