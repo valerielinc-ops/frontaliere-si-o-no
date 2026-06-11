@@ -118,7 +118,11 @@ function parseSeoEntries(rootDir: string, fs: typeof import('node:fs')): Map<str
  ? descMatches[descMatches.length - 1][1].replace(/\\'/g, "'").trim().slice(0, 160)
  : '';
 
- if (title) map.set(cp, { title, desc });
+ // Key form must match parseSitemapUrls output, which strips trailing
+ // slashes — hand-written canonicalPath values are stored WITH a trailing
+ // slash, so keying the raw cp made every curated entry miss at lookup
+ // (same slash-divergence class fixed in staticPagesPlugin's seoMap).
+ if (title) map.set(cp.replace(/\/+$/, '') || '/', { title, desc });
  }
  return map;
 }
