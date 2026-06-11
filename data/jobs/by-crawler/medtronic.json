@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medtronic",
-  "assembledAt": "2026-06-11T13:07:25.155Z",
+  "assembledAt": "2026-06-11T23:05:39.152Z",
   "jobs": [
     {
       "id": "medtronic-2a411d7c404c",
@@ -34,7 +34,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Service-Specialist--m-w-d-_R58182-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T13:07:23.192Z",
+      "crawledAt": "2026-06-11T23:05:36.974Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Representative-Neurovascular--m-w-d-_R63231-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:07:22.387Z",
+      "crawledAt": "2026-06-11T23:05:36.151Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -210,12 +210,12 @@
     },
     {
       "id": "medtronic-f78f692e009a",
-      "slug": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
+      "slug": "sales-representative-ii-medtronic-ch",
       "slugByLocale": {
-        "it": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
+        "it": "sales-representative-ii-medtronic-ch",
         "en": "sales-representative-ii-medtronic-tolochenaz",
         "de": "sales-representative-ii-medtronic-ch",
-        "fr": "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
+        "fr": "sales-representative-ii-medtronic-ch"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -240,7 +240,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Zurich-Zurich-Switzerland/Business-Development-Sales-Representative---Ablation-Interventional-Schweiz_R67468-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:07:21.560Z",
+      "crawledAt": "2026-06-11T23:05:35.491Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -258,13 +258,16 @@
       "requirementsByLocale": {},
       "jobReqId": "R67468",
       "previousSlugs": [
-        "sales-representative-ii-medtronic-ch"
+        "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
+        "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ],
         "fr": [
+          "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ]
       },
@@ -285,12 +288,12 @@
     },
     {
       "id": "medtronic-d5d16714c6c7",
-      "slug": "consulente-tecnico-medtronic-bern",
+      "slug": "tech-consultant-medtronic-ch",
       "slugByLocale": {
-        "it": "consulente-tecnico-medtronic-bern",
+        "it": "tech-consultant-medtronic-ch",
         "en": "tech-consultant-medtronic-bern",
         "de": "tech-consultant-medtronic-ch",
-        "fr": "conseiller-technique-medtronic-bern"
+        "fr": "tech-consultant-medtronic-ch"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -315,7 +318,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Consultant-Cardiac-Rhythm-management--m-w-d-_R65639-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:07:20.437Z",
+      "crawledAt": "2026-06-11T23:05:34.791Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -333,13 +336,16 @@
       "requirementsByLocale": {},
       "jobReqId": "R65639",
       "previousSlugs": [
-        "tech-consultant-medtronic-ch"
+        "consulente-tecnico-medtronic-bern",
+        "conseiller-technique-medtronic-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "consulente-tecnico-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ],
         "fr": [
+          "conseiller-technique-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ]
       },
@@ -390,7 +396,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Specialist-Operating-Room-Essentials---Surgical-Innovations--h-f-d-_R65064-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T13:07:19.693Z",
+      "crawledAt": "2026-06-11T23:05:33.971Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -465,7 +471,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/ENT-International-Strategic-Marketing-Program-Manager---Rhinology-Therapies_R66343-2",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T13:07:18.840Z",
+      "crawledAt": "2026-06-11T23:05:33.122Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
