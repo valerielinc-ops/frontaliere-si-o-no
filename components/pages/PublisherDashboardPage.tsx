@@ -26,6 +26,7 @@ import {
   TrendingUp,
   Inbox,
   Sparkles,
+  Archive,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -69,6 +70,12 @@ function tsToMillis(value: unknown): number | null {
 
 const BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
+const ARCHIVE_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/archivePublisherAd';
+
+// Statuses for which the publisher can still archive the ad (live or in-flight).
+// Already-terminal states (expired/rejected/archived) get no archive action.
+const ARCHIVABLE_STATUSES = new Set(['paid', 'published', 'pending_payment', 'draft']);
 
 /** Status → semantic pill colours (same meaning everywhere). */
 const STATUS_PILL: Record<PublisherJobStatus, string> = {
@@ -78,6 +85,7 @@ const STATUS_PILL: Record<PublisherJobStatus, string> = {
   published: 'bg-success-subtle text-success border-success-border',
   expired: 'bg-surface-raised text-muted border-edge',
   rejected: 'bg-danger-subtle text-danger border-danger-border',
+  archived: 'bg-surface-raised text-muted border-edge',
 };
 
 /** A single count-up KPI used in the overview band. */
@@ -139,9 +147,10 @@ const PublisherDashboardPage: React.FC = () => {
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
   const [barsMounted, setBarsMounted] = useState(false);
+  const [archivingId, setArchivingId] = useState<string | null>(null);
 
   useEffect(() => {
-    Analytics.trackPageView('/i-miei-annunci', 'Publisher Dashboard');
+    Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
   }, []);
 
   const handleManageBilling = async () => {
@@ -159,6 +168,32 @@ const PublisherDashboardPage: React.FC = () => {
       else setBillingBusy(false);
     } catch {
       setBillingBusy(false);
+    }
+  };
+
+  const handleArchive = async (jobId: string) => {
+    if (!user || archivingId) return;
+    if (typeof window !== 'undefined' && !window.confirm(t('publisherDashboard.archiveConfirm'))) return;
+    setArchivingId(jobId);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch(ARCHIVE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({ jobId }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean };
+      if (!res.ok || !data.ok) throw new Error('archive_failed');
+      // Reflect the new state locally without a full reload — the slice rebuild
+      // (and removal from the live site) follows on the next publisher-jobs sync.
+      setRows((prev) => prev.map((r) => (r.id === jobId ? { ...r, status: 'archived' } : r)));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'archive', 'success');
+    } catch (error) {
+      reportCaughtError(error, 'publisherDashboard.archive');
+      if (typeof window !== 'undefined') window.alert(t('publisherDashboard.archiveError'));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'archive', 'error');
+    } finally {
+      setArchivingId(null);
     }
   };
 
@@ -488,13 +523,26 @@ const PublisherDashboardPage: React.FC = () => {
 
                     <div className="flex items-center justify-between gap-3 mt-4 pt-3 border-t border-edge">
                       <span className="text-xs text-muted">{renewalLabel(r) ?? ' '}</span>
-                      <a
-                        href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
-                        className="inline-flex items-center gap-1 text-sm font-medium text-link hover:underline"
-                      >
-                        <Pencil className="w-3.5 h-3.5" />
-                        {t('publisherDashboard.edit')}
-                      </a>
+                      <div className="flex items-center gap-3">
+                        <a
+                          href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
+                          className="inline-flex items-center gap-1 text-sm font-medium text-link hover:underline"
+                        >
+                          <Pencil className="w-3.5 h-3.5" />
+                          {t('publisherDashboard.edit')}
+                        </a>
+                        {ARCHIVABLE_STATUSES.has(r.status) && (
+                          <button
+                            type="button"
+                            onClick={() => { void handleArchive(r.id); }}
+                            disabled={archivingId === r.id}
+                            className="inline-flex items-center gap-1 text-sm font-medium text-subtle hover:text-danger disabled:opacity-60 transition-colors"
+                          >
+                            <Archive className="w-3.5 h-3.5" />
+                            {t('publisherDashboard.archive')}
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </article>
                 );

@@ -248,6 +248,7 @@ const translations: Record<string, string> = {
  'profile.action.pension': 'Pensione',
  'profile.action.exchange': 'Cambio',
  'profile.action.guide': 'Guida',
+ 'profile.action.myListings': 'I miei annunci',
  'profile.family.title': 'Nucleo familiare',
  'profile.family.relationship': 'Relazione',
  'profile.family.spouse': 'Coniuge',
