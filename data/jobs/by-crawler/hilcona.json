@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hilcona",
-  "assembledAt": "2026-06-11T12:45:44.221Z",
+  "assembledAt": "2026-06-11T22:47:38.326Z",
   "jobs": [
     {
       "id": "hilcona-ffdbb5c291fc",
@@ -42,8 +42,16 @@
       "postedDate": "2026-06-10",
       "url": "https://career.bellfoodgroup.com/de/stelle/assistenz-im-einkauf-m-w-d-4953",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:41.457Z",
+      "crawledAt": "2026-06-11T22:47:35.823Z",
       "sourceLang": "de",
+      "previousSlugs": [
+        "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:14:23.296Z",
       "salaryMin": 55500,
@@ -60,15 +68,7 @@
       },
       "postalCode": "7000",
       "country": "CH",
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
-        ]
-      },
-      "previousSlugs": [
-        "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "hilcona-ea1d4969f94e",
@@ -110,7 +110,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-logistiker-in-efz-4952",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:41.163Z",
+      "crawledAt": "2026-06-11T22:47:35.585Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-logistiker-in-efz-hilcona-steinach"
@@ -120,8 +120,8 @@
           "lehrstelle-2027-logistiker-in-efz-hilcona-steinach"
         ]
       },
-      "firstSeenAt": "2026-06-05T22:07:08.478Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-05T22:07:08.478Z",
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -178,7 +178,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-kauffrau-oder-kaufmann-efz-4951",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:40.895Z",
+      "crawledAt": "2026-06-11T22:47:35.353Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach"
@@ -188,8 +188,8 @@
           "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach"
         ]
       },
-      "firstSeenAt": "2026-06-05T22:07:08.240Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-05T22:07:08.240Z",
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -246,7 +246,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-lebensmitteltechnologe-login-efz-4950",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:40.635Z",
+      "crawledAt": "2026-06-11T22:47:35.119Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-lebensmitteltechnologe-login-efz-hilcona-steinach",
@@ -321,7 +321,7 @@
       "postedDate": "2026-06-03",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-reinigung-4949",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:40.367Z",
+      "crawledAt": "2026-06-11T22:47:34.895Z",
       "sourceLang": "de",
       "previousSlugs": [
         "teamleiter-teamleiterin-reinigung-hilcona-basel",
@@ -352,10 +352,10 @@
     },
     {
       "id": "hilcona-250b4c062f49",
-      "slug": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
+      "slug": "laborant-in-60-100-hilcona-dallikon",
       "slugByLocale": {
-        "it": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
-        "en": "laboratory-technician-60-100-eisberg-ag-dallikon",
+        "it": "laborant-in-60-100-hilcona-dallikon",
+        "en": "laborant-in-60-100-hilcona-dallikon",
         "de": "laborant-in-60-100-hilcona-dallikon",
         "fr": "laborant-in-60-100-eisberg-ag-dallikon"
       },
@@ -390,25 +390,28 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/laborant-in-60-100-4948",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:40.100Z",
+      "crawledAt": "2026-06-11T22:47:34.659Z",
       "sourceLang": "de",
       "previousSlugs": [
         "laboratorio-nel-60-100-eisberg-ag-dallikon",
-        "laborant-in-60-100-hilcona-dallikon",
-        "laboratory-in-60-100-eisberg-ag-dallikon"
+        "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
+        "laboratory-in-60-100-eisberg-ag-dallikon",
+        "laboratory-technician-60-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laboratorio-nel-60-100-eisberg-ag-dallikon",
+          "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ],
         "en": [
           "laboratory-in-60-100-eisberg-ag-dallikon",
+          "laboratory-technician-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ]
       },
-      "firstSeenAt": "2026-06-02T13:21:44.131Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T13:21:44.131Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -430,9 +433,9 @@
       "slug": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
       "slugByLocale": {
         "it": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
-        "en": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
+        "en": "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
         "de": "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
-        "fr": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel"
+        "fr": "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -465,12 +468,10 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/interne-r-revisorin-revisor-alle-senioritaetsstufen-4947",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:39.804Z",
+      "crawledAt": "2026-06-11T22:47:34.426Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
-        "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
-        "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
+        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -483,8 +484,8 @@
           "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-06-02T13:21:43.890Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T13:21:43.890Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -541,7 +542,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechatroniker-m-w-d-4946",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:39.496Z",
+      "crawledAt": "2026-06-11T22:47:34.174Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mechatroniker-m-w-d-hilcona-bad-wunnenberg"
@@ -609,7 +610,7 @@
       "postedDate": "2026-06-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/sicherheitsassistent-in-und-lehrlingsbeauftragte-r-zu-100-4945",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:39.230Z",
+      "crawledAt": "2026-06-11T22:47:33.936Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sicherheitsassistent-in-und-lehrlingsbeauftragte-r-zu-100-hilcona-essert-s-champvent",
@@ -684,7 +685,7 @@
       "postedDate": "2026-06-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-elektrotechnik-m-w-d-4944",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:38.964Z",
+      "crawledAt": "2026-06-11T22:47:33.705Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt"
@@ -752,7 +753,7 @@
       "postedDate": "2026-06-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-metallbearbeiter-m-w-d-4943",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:38.693Z",
+      "crawledAt": "2026-06-11T22:47:33.468Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrling-metallbearbeiter-m-w-d-hilcona-pfaffstatt",
@@ -822,7 +823,7 @@
       "postedDate": "2026-05-28",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsplaner-in-disponent-in-4941",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:38.423Z",
+      "crawledAt": "2026-06-11T22:47:33.226Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -900,7 +901,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-4940",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:38.079Z",
+      "crawledAt": "2026-06-11T22:47:32.991Z",
       "sourceLang": "de",
       "previousSlugs": [
         "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hilcona-radolfzell",
@@ -973,7 +974,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/linienfuehrer-maschinenfuehrer-m-w-d-4939",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:37.793Z",
+      "crawledAt": "2026-06-11T22:47:32.758Z",
       "sourceLang": "de",
       "previousSlugs": [
         "linienfuehrer-maschinenfuehrer-m-w-d-hilcona-bad-wunnenberg",
@@ -1046,7 +1047,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-qulitaetskontrolle-m-w-d-4938",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:37.527Z",
+      "crawledAt": "2026-06-11T22:47:32.511Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -1125,7 +1126,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/abteilungsleiter-lebensmittelproduktion-m-w-d-4937",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:37.232Z",
+      "crawledAt": "2026-06-11T22:47:32.278Z",
       "sourceLang": "de",
       "previousSlugs": [
         "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
@@ -1198,7 +1199,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-m-w-d-4936",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:36.959Z",
+      "crawledAt": "2026-06-11T22:47:32.044Z",
       "sourceLang": "de",
       "previousSlugs": [
         "einkaeufer-m-w-d-hilcona-pfaffstatt",
@@ -1270,7 +1271,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-in-produktionsplanung-pps-administration-60-4935",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:36.695Z",
+      "crawledAt": "2026-06-11T22:47:31.795Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeiter-in-produktionsplanung-pps-administration-60-hilcona-zell",
@@ -1302,9 +1303,9 @@
     },
     {
       "id": "hilcona-2db3448de281",
-      "slug": "ot-ingegnere-80-100-eisberg-ag-dallikon",
+      "slug": "ot-engineer-80-100-hilcona-dallikon",
       "slugByLocale": {
-        "it": "ot-ingegnere-80-100-eisberg-ag-dallikon",
+        "it": "ot-engineer-80-100-hilcona-dallikon",
         "en": "ot-engineer-80-100-eisberg-ag-dallikon",
         "de": "ot-engineer-80-100-hilcona-dallikon",
         "fr": "ot-engineer-80-100-hilcona-dallikon"
@@ -1340,22 +1341,23 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/ot-engineer-80-100-4934",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:36.417Z",
+      "crawledAt": "2026-06-11T22:47:31.535Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ot-engineer-80-100-hilcona-dallikon",
+        "ot-ingegnere-80-100-eisberg-ag-dallikon",
         "ingenieur-80-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ot-ingegnere-80-100-eisberg-ag-dallikon",
           "ot-engineer-80-100-hilcona-dallikon"
         ],
         "fr": [
           "ingenieur-80-100-eisberg-ag-dallikon"
         ]
       },
-      "firstSeenAt": "2026-05-20T23:07:42.400Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-20T23:07:42.400Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1412,7 +1414,7 @@
       "postedDate": "2026-05-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-4933",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:36.147Z",
+      "crawledAt": "2026-06-11T22:47:31.297Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -1490,7 +1492,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/schichtleiter-produktion-m-w-d-4932",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:35.880Z",
+      "crawledAt": "2026-06-11T22:47:31.060Z",
       "sourceLang": "de",
       "previousSlugs": [
         "schichtleiter-produktion-m-w-d-hilcona-marchtrenk",
@@ -1569,7 +1571,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/gruppenleiter-produktion-m-w-d-4931",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:35.605Z",
+      "crawledAt": "2026-06-11T22:47:30.820Z",
       "sourceLang": "de",
       "previousSlugs": [
         "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
@@ -1641,7 +1643,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeitung-kreditoren-debitorenbuchhaltung-m-w-d-80-100-4927",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:35.329Z",
+      "crawledAt": "2026-06-11T22:47:30.586Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeitung-kreditoren-debitorenbuchhaltung-m-w-d-80-100-hilcona-radolfzell",
@@ -1678,10 +1680,10 @@
       "id": "hilcona-3e7e02ff1b7a",
       "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
+        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "fr": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        "fr": "electricien-d-installation-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -1714,22 +1716,24 @@
       "postedDate": "2026-05-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4926",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:35.054Z",
+      "crawledAt": "2026-06-11T22:47:30.337Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "electricien-d-installation-geiser-ag-schlieren"
+        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
         ],
         "fr": [
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
           "electricien-d-installation-geiser-ag-schlieren"
         ]
       },
-      "firstSeenAt": "2026-05-11T22:14:05.649Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-11T22:14:05.649Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1786,7 +1790,7 @@
       "postedDate": "2026-05-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-gruppenleiter-stv-gruppenleiterin-ruesterei-4925",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:34.789Z",
+      "crawledAt": "2026-06-11T22:47:30.090Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren"
@@ -1859,7 +1863,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretender-leiter-packerei-m-w-d-4924",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:34.513Z",
+      "crawledAt": "2026-06-11T22:47:29.855Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stellvertretender-leiter-packerei-m-w-d-hilcona-neuburg",
@@ -1932,7 +1936,7 @@
       "postedDate": "2026-05-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktentwickler-m-w-d-4923",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:34.249Z",
+      "crawledAt": "2026-06-11T22:47:29.626Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -1984,7 +1988,7 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Betriebsinstallateur Betriebsinstallateurin",
       "titleByLocale": {
-        "it": "Installatore business Installer Business",
+        "it": "Betriebsinstallateur Betriebsinstallateurin",
         "en": "Betriebsinstallateur Betriebsinstallateurin",
         "de": "Betriebsinstallateur Betriebsinstallateurin",
         "fr": "Betriebsinstallateur Betriebsinstallateurin"
@@ -2010,7 +2014,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsinstallateur-betriebsinstallateurin-4919",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:33.970Z",
+      "crawledAt": "2026-06-11T22:47:29.397Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
@@ -2086,7 +2090,7 @@
       "postedDate": "2026-05-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-operational-technology-4918",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:33.692Z",
+      "crawledAt": "2026-06-11T22:47:29.157Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
@@ -2126,9 +2130,9 @@
       "id": "hilcona-1d26fa833085",
       "slug": "produzione-responsabile-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
       "slugByLocale": {
-        "de": "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
         "it": "produzione-responsabile-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
         "en": "verantwortlicher-produktion-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "de": "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
         "fr": "verantwortlicher-produktion-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
       },
       "company": "Bell Suisse SA",
@@ -2136,22 +2140,20 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Verantwortlicher Produktion Charcuterie Cheseaux",
       "titleByLocale": {
-        "de": "Verantwortlicher Produktion Charcuterie Cheseaux",
         "it": "Produzione responsabile Charcuterie Cheseaux",
         "en": "Verantwortlicher Produktion Charcuterie Cheseaux",
+        "de": "Verantwortlicher Produktion Charcuterie Cheseaux",
         "fr": "Verantwortlicher Produktion Charcuterie Cheseaux"
       },
       "description": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
       "descriptionByLocale": {
-        "de": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
         "it": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
         "en": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
+        "de": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
         "fr": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Cheseaux-sur-Lausanne",
       "canton": "VD",
       "addressLocality": "Cheseaux-sur-Lausanne",
@@ -2164,35 +2166,35 @@
       "postedDate": "2026-06-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/verantwortlicher-produktion-charcuterie-cheseaux-4917",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:33.418Z",
+      "crawledAt": "2026-06-11T22:47:28.922Z",
       "sourceLang": "de",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
+        "verantwortlicher-produktion-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
           "verantwortlicher-produktion-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
         ]
       },
-      "previousSlugs": [
-        "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "verantwortlicher-produktion-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
-      ],
-      "salaryMin": 55500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T12:45:33.418Z",
+      "salaryMin": 98000,
+      "salaryMax": 132000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
+          "minValue": 98000,
+          "maxValue": 132000,
           "unitText": "YEAR"
         }
       },
       "postalCode": "1003",
       "country": "CH",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-06-11T12:45:33.418Z"
+      "addressRegion": "VD"
     },
     {
       "id": "hilcona-723aa50101ac",
@@ -2234,7 +2236,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-4915",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:33.148Z",
+      "crawledAt": "2026-06-11T22:47:28.677Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
@@ -2306,7 +2308,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/linienleiter-lebensmittelproduktion-m-w-d-4914",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:32.863Z",
+      "crawledAt": "2026-06-11T22:47:28.446Z",
       "sourceLang": "de",
       "previousSlugs": [
         "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
@@ -2376,7 +2378,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-4912",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:32.600Z",
+      "crawledAt": "2026-06-11T22:47:28.196Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -2447,7 +2449,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachspezialist-rechnungswesen-80-m-w-d-4909",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:32.330Z",
+      "crawledAt": "2026-06-11T22:47:27.956Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachspezialist-rechnungswesen-80-m-w-d-hilcona-steinach"
@@ -2482,9 +2484,9 @@
     },
     {
       "id": "hilcona-6cb4fe707991",
-      "slug": "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "it-admin-client-management-m-w-d-hilcona-radolfzell",
       "slugByLocale": {
-        "it": "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "it-admin-client-management-m-w-d-hilcona-radolfzell",
         "en": "it-admin-client-management-m-w-d-hilcona-radolfzell",
         "de": "it-admin-client-management-m-w-d-hilcona-radolfzell",
         "fr": "it-admin-client-management-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
@@ -2520,13 +2522,14 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/it-admin-client-management-m-w-d-4908",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:32.062Z",
+      "crawledAt": "2026-06-11T22:47:27.683Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "it-admin-client-management-m-w-d-hilcona-radolfzell"
+        "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "it-admin-client-management-m-w-d-hilcona-radolfzell"
         ]
       },
@@ -2588,7 +2591,7 @@
       "postedDate": "2026-04-28",
       "url": "https://career.bellfoodgroup.com/de/stelle/aushilfe-outlet-im-stundenlohn-4906",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:31.795Z",
+      "crawledAt": "2026-06-11T22:47:27.426Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -2663,7 +2666,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-schlussdienst-30-std-m-w-d-4903",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:31.523Z",
+      "crawledAt": "2026-06-11T22:47:27.187Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -2734,7 +2737,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-instandhaltungsfachmann-m-w-d-4901",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:31.257Z",
+      "crawledAt": "2026-06-11T22:47:26.936Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -2755,8 +2758,8 @@
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
       ],
-      "firstSeenAt": "2026-04-24T21:45:49.790Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-24T21:45:49.790Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2777,10 +2780,10 @@
       "id": "hilcona-277ed76f4a2e",
       "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "fr": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+        "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -2813,11 +2816,11 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4900",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:30.994Z",
+      "crawledAt": "2026-06-11T22:47:26.701Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "electricien-en-service-bell-schweiz-ag-oensingen",
+        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
@@ -2826,14 +2829,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ],
         "fr": [
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
           "electricien-en-service-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-05-19T22:27:14.053Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T22:27:14.053Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2890,7 +2895,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretender-produktionsleiter-m-w-d-4898",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:30.726Z",
+      "crawledAt": "2026-06-11T22:47:26.451Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -2963,7 +2968,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/kaeltetechniker-m-w-d-4897",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:30.451Z",
+      "crawledAt": "2026-06-11T22:47:26.214Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3036,7 +3041,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-instandhaltung-m-w-d-4896",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:30.189Z",
+      "crawledAt": "2026-06-11T22:47:25.966Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3083,7 +3088,7 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Installateur M W D",
       "titleByLocale": {
-        "it": "Installatore M W D",
+        "it": "Installateur M W D",
         "en": "Installateur M W D",
         "de": "Installateur M W D",
         "fr": "Installateur M W D"
@@ -3109,7 +3114,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/installateur-m-w-d-4895",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:29.913Z",
+      "crawledAt": "2026-06-11T22:47:25.688Z",
       "sourceLang": "de",
       "previousSlugs": [
         "installateur-m-w-d-hilcona-pfaffstatt",
@@ -3179,7 +3184,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechatroniker-m-w-d-4893",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:29.639Z",
+      "crawledAt": "2026-06-11T22:47:25.430Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3247,7 +3252,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-4891",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:29.374Z",
+      "crawledAt": "2026-06-11T22:47:25.195Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -3322,7 +3327,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/jungkoch-koch-m-w-d-4886",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:29.106Z",
+      "crawledAt": "2026-06-11T22:47:24.961Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3390,7 +3395,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/leiter-vertriebsinnendienst-m-w-d-4885",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:28.846Z",
+      "crawledAt": "2026-06-11T22:47:24.725Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3463,7 +3468,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/schlosser-mitarbeiter-technik-m-w-d-4884",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:28.578Z",
+      "crawledAt": "2026-06-11T22:47:24.484Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -3534,7 +3539,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/elektriker-m-w-d-4883",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:28.315Z",
+      "crawledAt": "2026-06-11T22:47:24.237Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3564,9 +3569,9 @@
     },
     {
       "id": "hilcona-dbec66286e58",
-      "slug": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
         "en": "werkstudent-m-w-d-projekte-bereich-operations-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
         "fr": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
@@ -3602,13 +3607,14 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/werkstudent-m-w-d-projekte-bereich-operations-4882",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:28.045Z",
+      "crawledAt": "2026-06-11T22:47:24.000Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
+        "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
           "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
         ]
       },
@@ -3670,7 +3676,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-in-100-4869",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:27.774Z",
+      "crawledAt": "2026-06-11T22:47:23.764Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3684,8 +3690,8 @@
         "in-100-eisberg-ag-dallikon",
         "dans-100-eisberg-ag-dallikon"
       ],
-      "firstSeenAt": "2026-04-13T21:51:20.728Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:51:20.728Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3742,7 +3748,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-planung-m-w-d-4721",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:27.507Z",
+      "crawledAt": "2026-06-11T22:47:23.528Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3815,7 +3821,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-foerdertechnik-4699",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:27.233Z",
+      "crawledAt": "2026-06-11T22:47:23.292Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3857,7 +3863,7 @@
       "id": "hilcona-4f5850ccc7a5",
       "slug": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
       "slugByLocale": {
-        "it": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
+        "it": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
         "en": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
         "de": "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
         "fr": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
@@ -3893,14 +3899,16 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/area-sales-marktentwickler-food-service-suedtirol-4634",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:26.946Z",
+      "crawledAt": "2026-06-11T22:47:23.053Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard"
+        "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
+        "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard"
+          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
+          "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
         ]
       },
       "needsRetranslation": true,
@@ -3961,7 +3969,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachspezialist-fachspezialistin-lean-management-4632",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:26.684Z",
+      "crawledAt": "2026-06-11T22:47:22.819Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4039,7 +4047,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zum-industriemechaniker-m-w-d-4614",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:26.415Z",
+      "crawledAt": "2026-06-11T22:47:22.580Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4112,7 +4120,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-4613",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:26.124Z",
+      "crawledAt": "2026-06-11T22:47:22.355Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4185,7 +4193,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-4612",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:25.850Z",
+      "crawledAt": "2026-06-11T22:47:22.122Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4258,7 +4266,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-4602",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:25.583Z",
+      "crawledAt": "2026-06-11T22:47:21.886Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4331,7 +4339,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/geschaeftsfuehrer-geschaeftsfuehrerin-dorfmetzgerei-thaler-metzg-4586",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:25.282Z",
+      "crawledAt": "2026-06-11T22:47:21.628Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4411,7 +4419,7 @@
       "postedDate": "2026-05-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagenbetreuer-anlagenbetreuerin-neubau-oensingen-4584",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:24.956Z",
+      "crawledAt": "2026-06-11T22:47:21.382Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4486,7 +4494,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/bilanzbuchhalter-80-100-m-w-d-4460",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:24.677Z",
+      "crawledAt": "2026-06-11T22:47:21.146Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -4568,7 +4576,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-wareneingang-m-w-d-4459",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:24.408Z",
+      "crawledAt": "2026-06-11T22:47:20.912Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-wareneingang-m-w-d-hilcona-pfaffstatt",
@@ -4640,7 +4648,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/kuechenhilfe-teilzeit-m-w-d-f-samstag-4456",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:24.132Z",
+      "crawledAt": "2026-06-11T22:47:20.670Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -4721,7 +4729,7 @@
       "postedDate": "2026-05-26",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-kueche-4454",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:23.841Z",
+      "crawledAt": "2026-06-11T22:47:20.441Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -4751,8 +4759,8 @@
         "collaboratore-trice-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart",
         "mitarbeiter-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart"
       ],
-      "firstSeenAt": "2026-05-26T23:03:17.579Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-26T23:03:17.579Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4809,7 +4817,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/berufsbildner-berufsbildnerin-technik-4452",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:23.533Z",
+      "crawledAt": "2026-06-11T22:47:20.193Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4894,7 +4902,7 @@
       "postedDate": "2026-05-17",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-schlussdienst-m-w-d-4451",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:23.267Z",
+      "crawledAt": "2026-06-11T22:47:19.964Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -4975,7 +4983,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/culinary-advisor-im-foodservice-deutschland-m-w-d-4445",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:23.001Z",
+      "crawledAt": "2026-06-11T22:47:19.736Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5057,7 +5065,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-beschaffung-eu-rohwaren-m-w-d-4442",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:22.743Z",
+      "crawledAt": "2026-06-11T22:47:19.507Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5100,9 +5108,9 @@
     },
     {
       "id": "hilcona-9ddf5cc57bc3",
-      "slug": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
         "en": "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
         "fr": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
@@ -5138,7 +5146,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/sap-sd-inhouse-consultant-m-w-d-4440",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:22.479Z",
+      "crawledAt": "2026-06-11T22:47:19.274Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5147,6 +5155,7 @@
         ],
         "it": [
           "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
+          "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -5160,7 +5169,7 @@
         "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-berater-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
-        "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
+        "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:49.178Z",
@@ -5220,7 +5229,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/leiter-entwicklung-m-w-d-4438",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:22.216Z",
+      "crawledAt": "2026-06-11T22:47:19.048Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5302,7 +5311,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/sprachcoach-deutsch-franzoesisch-und-englisch-4435",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:21.950Z",
+      "crawledAt": "2026-06-11T22:47:18.821Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5328,8 +5337,8 @@
         "coach-linguistico-tedesco-francese-e-inglese-bell-schweiz-ag-oensingen",
         "sprachcoach-deutsch-franzoesisch-e-englisch-bell-schweiz-ag-oensingen"
       ],
-      "firstSeenAt": "2026-04-13T10:42:51.182Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:42:51.182Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5386,7 +5395,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/berufsbildner-berufsbildnerin-logistik-4427",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:21.676Z",
+      "crawledAt": "2026-06-11T22:47:18.593Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -5464,7 +5473,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-sdm-projekte-und-support-4406",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:21.392Z",
+      "crawledAt": "2026-06-11T22:47:18.362Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5544,7 +5553,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-sachbearbeiterin-sdm-business-4405",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:21.102Z",
+      "crawledAt": "2026-06-11T22:47:18.118Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -5622,7 +5631,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/bezirksleitung-im-aussendienst-food-service-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-4378",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:20.835Z",
+      "crawledAt": "2026-06-11T22:47:17.879Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5704,7 +5713,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-schlachthaus-4370",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:20.540Z",
+      "crawledAt": "2026-06-11T22:47:17.651Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5787,7 +5796,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-elektrotechnik-und-automation-4362",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:20.278Z",
+      "crawledAt": "2026-06-11T22:47:17.416Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5861,7 +5870,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/metzger-portionierung-metzgerin-portionierung-4358",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:20.011Z",
+      "crawledAt": "2026-06-11T22:47:17.172Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5945,7 +5954,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-4357",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:19.752Z",
+      "crawledAt": "2026-06-11T22:47:16.897Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5972,8 +5981,8 @@
         "staff-technology-and-material-management-staff-technology-and-material-management-geiser-ag-schlieren",
         "technologie-du-personnel-et-gestion-du-materiel-geiser-ag-schlieren"
       ],
-      "firstSeenAt": "2026-05-22T11:51:42.428Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T11:51:42.428Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6030,7 +6039,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/kaufmaennischer-sachbearbeiter-m-w-d-4327",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:19.482Z",
+      "crawledAt": "2026-06-11T22:47:16.658Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6112,7 +6121,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-verladung-versand-m-w-d-4314",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:19.213Z",
+      "crawledAt": "2026-06-11T22:47:16.418Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6193,7 +6202,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/vorarbeiter-standort-edewecht-m-w-d-4313",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:18.923Z",
+      "crawledAt": "2026-06-11T22:47:16.159Z",
       "sourceLang": "de",
       "previousSlugs": [
         "vorarbeiter-standort-edewecht-m-w-d-hilcona-edewecht",
@@ -6236,9 +6245,9 @@
     },
     {
       "id": "hilcona-9215a6e64f54",
-      "slug": "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
+      "slug": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
+        "it": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
         "en": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
         "fr": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
@@ -6248,7 +6257,7 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Duales Studium Industriekaufleute Bachelor Bwl M W D",
       "titleByLocale": {
-        "it": "Doppio studio industriale uomini d'affari Bachelor Bwl M W D",
+        "it": "Duales Studium Industriekaufleute Bachelor Bwl M W D",
         "en": "Duales Studium Industriekaufleute Bachelor Bwl M W D",
         "de": "Duales Studium Industriekaufleute Bachelor Bwl M W D",
         "fr": "Duales Studium Industriekaufleute Bachelor Bwl M W D"
@@ -6274,7 +6283,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/duales-studium-industriekaufleute-bachelor-bwl-m-w-d-3678",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:18.651Z",
+      "crawledAt": "2026-06-11T22:47:15.918Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -6284,6 +6293,7 @@
           "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
           "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
+          "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
         ]
       },
@@ -6294,7 +6304,7 @@
         "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
         "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
-        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
+        "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:44.562Z",
@@ -6354,7 +6364,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-als-industriekaufmann-m-w-d-3677",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:18.382Z",
+      "crawledAt": "2026-06-11T22:47:15.668Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6436,7 +6446,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/projektleiter-technik-m-w-d-3044",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:18.116Z",
+      "crawledAt": "2026-06-11T22:47:15.433Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6518,7 +6528,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriemechaniker-3034",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:17.846Z",
+      "crawledAt": "2026-06-11T22:47:15.203Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6600,7 +6610,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagefuehrer-fluessigproduktion-m-w-d-3027",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:17.582Z",
+      "crawledAt": "2026-06-11T22:47:14.975Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6682,7 +6692,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/rangierer-lkw-2976",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:17.320Z",
+      "crawledAt": "2026-06-11T22:47:14.745Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6763,7 +6773,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-2845",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:17.056Z",
+      "crawledAt": "2026-06-11T22:47:14.513Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6845,7 +6855,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-2844",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:16.792Z",
+      "crawledAt": "2026-06-11T22:47:14.286Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6891,9 +6901,9 @@
     },
     {
       "id": "hilcona-b27ee66cce78",
-      "slug": "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
         "en": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
         "fr": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
@@ -6903,7 +6913,7 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Auszubildende Fachkraft Fuer Lagerlogistik Fachlagerist M W D",
       "titleByLocale": {
-        "it": "Trainee Fuer Lagerlogistik magazzino specializzato è M W D",
+        "it": "Auszubildende Fachkraft Fuer Lagerlogistik Fachlagerist M W D",
         "en": "Auszubildende Fachkraft Fuer Lagerlogistik Fachlagerist M W D",
         "de": "Auszubildende Fachkraft Fuer Lagerlogistik Fachlagerist M W D",
         "fr": "Auszubildende Fachkraft Fuer Lagerlogistik Fachlagerist M W D"
@@ -6929,7 +6939,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-2843",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:16.518Z",
+      "crawledAt": "2026-06-11T22:47:14.059Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -6940,6 +6950,7 @@
           "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
           "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
+          "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
         ]
       },
@@ -6951,7 +6962,7 @@
         "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
         "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
-        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
+        "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:42.342Z",
@@ -6975,10 +6986,10 @@
       "id": "hilcona-19a6b73a6fa0",
       "slug": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
       "slugByLocale": {
-        "it": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
+        "it": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
         "en": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektrikerin-betriebselektriker-100-hilcona-undefined",
-        "fr": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
+        "fr": "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -7011,7 +7022,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektrikerin-betriebselektriker-100-2835",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:16.256Z",
+      "crawledAt": "2026-06-11T22:47:13.828Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7020,18 +7031,21 @@
         ],
         "it": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
-          "betriebselektrikerin-betriebselektriker-100-hilcona-zell"
+          "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
+          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
         ],
         "fr": [
+          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
         "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
-        "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
+        "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
+        "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:41.802Z",
@@ -7091,7 +7105,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/wartungstechnikerin-automatikerin-wartungstechniker-automatiker-2830",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:15.927Z",
+      "crawledAt": "2026-06-11T22:47:13.592Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7179,7 +7193,7 @@
       "postedDate": "2026-05-17",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-personal-mit-ungarisch-kenntnissen-m-w-d-2762",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:15.631Z",
+      "crawledAt": "2026-06-11T22:47:13.359Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7261,7 +7275,7 @@
       "postedDate": "2026-05-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-operational-technology-2719",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:15.352Z",
+      "crawledAt": "2026-06-11T22:47:13.123Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7286,8 +7300,8 @@
         "technologie-operationnelle-bell-schweiz-ag-basel",
         "operational-technology-bell-schweiz-ag-basel"
       ],
-      "firstSeenAt": "2026-05-29T12:38:10.738Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-29T12:38:10.738Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7308,10 +7322,10 @@
       "id": "hilcona-80e821500dab",
       "slug": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-lebensmitteltechnik-m-w-d-hilcona-undefined",
-        "fr": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -7344,7 +7358,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-lebensmitteltechnik-m-w-d-2697",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:15.079Z",
+      "crawledAt": "2026-06-11T22:47:12.889Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7353,18 +7367,21 @@
         ],
         "it": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt"
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "fr": [
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
         "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
-        "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:40.470Z",
@@ -7424,7 +7441,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/leiter-leiterin-reinigung-slicer-center-neubau-oensingen-2681",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:14.812Z",
+      "crawledAt": "2026-06-11T22:47:12.661Z",
       "sourceLang": "de",
       "previousSlugs": [
         "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-oensingen",
@@ -7505,7 +7522,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-2617",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:14.542Z",
+      "crawledAt": "2026-06-11T22:47:12.413Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-oensingen",
@@ -7527,8 +7544,8 @@
           "mecanicien-de-maintenance-mecanicienne-de-maintenance-nouveau-batiment-oensingen-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:42:40.250Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:42:40.250Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7585,7 +7602,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachkraft-lagerlogistik-m-w-d-2595",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:14.278Z",
+      "crawledAt": "2026-06-11T22:47:12.177Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge",
@@ -7657,7 +7674,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/praktikum-waehrend-des-studiums-30-1-jahr-befristet-2574",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:14.016Z",
+      "crawledAt": "2026-06-11T22:47:11.950Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7733,7 +7750,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-m-w-d-2517",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:13.753Z",
+      "crawledAt": "2026-06-11T22:47:11.719Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -7806,7 +7823,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/instandhaltungstechniker-m-w-d-2515",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:13.487Z",
+      "crawledAt": "2026-06-11T22:47:11.493Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -7879,7 +7896,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/elektriker-m-w-d-2514",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:13.218Z",
+      "crawledAt": "2026-06-11T22:47:11.263Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -7947,7 +7964,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lager-kommissionierung-m-w-d-2513",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:12.925Z",
+      "crawledAt": "2026-06-11T22:47:11.031Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lager-kommissionierung-m-w-d-hilcona-marchtrenk"
@@ -8015,7 +8032,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/vertriebsinnendienst-mitarbeiter-m-w-d-2455",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:12.647Z",
+      "crawledAt": "2026-06-11T22:47:10.797Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8097,7 +8114,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-2435",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:12.382Z",
+      "crawledAt": "2026-06-11T22:47:10.557Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8179,7 +8196,7 @@
       "postedDate": "2026-05-17",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-betriebskalkulation-100-2420",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:12.102Z",
+      "crawledAt": "2026-06-11T22:47:10.313Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8262,7 +8279,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-in-produktmanagement-2391",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:11.814Z",
+      "crawledAt": "2026-06-11T22:47:10.073Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8344,7 +8361,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-portionierung-2341",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:11.540Z",
+      "crawledAt": "2026-06-11T22:47:09.837Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -8374,8 +8391,8 @@
         "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-ag-bell-food-group-landquart",
         "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-oensingen"
       ],
-      "firstSeenAt": "2026-05-20T23:07:14.638Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-20T23:07:14.638Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8432,7 +8449,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-zerlegerei-2340",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:11.257Z",
+      "crawledAt": "2026-06-11T22:47:09.600Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -8453,8 +8470,8 @@
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-ag-bell-food-group-landquart",
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
       ],
-      "firstSeenAt": "2026-05-20T23:07:14.371Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-20T23:07:14.371Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8511,7 +8528,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriereiniger-m-w-d-2280",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:10.966Z",
+      "crawledAt": "2026-06-11T22:47:09.366Z",
       "sourceLang": "de",
       "previousSlugs": [
         "industriereiniger-m-w-d-hilcona-bad-wunnenberg",
@@ -8581,7 +8598,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-reklamation-m-w-d-2260",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:10.678Z",
+      "crawledAt": "2026-06-11T22:47:09.138Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8627,9 +8644,9 @@
       "id": "hilcona-144354f5d394",
       "slug": "collaboratore-trice-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
-        "de": "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing",
         "it": "collaboratore-trice-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "mitarbeiter-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "de": "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing",
         "fr": "mitarbeiter-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
@@ -8637,22 +8654,20 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Mitarbeiter Qualitaetssicherheit M W D",
       "titleByLocale": {
-        "de": "Mitarbeiter Qualitaetssicherheit M W D",
         "it": "Collaboratore/trice Qualitaetssicherheit M W D",
         "en": "Mitarbeiter Qualitaetssicherheit M W D",
+        "de": "Mitarbeiter Qualitaetssicherheit M W D",
         "fr": "Mitarbeiter Qualitaetssicherheit M W D"
       },
       "description": "Die Süddeutsche Truthahn AG ist einer der führenden deutschen Produzenten von hochwertigen Putenprodukten. Zugehörig zum Schweizer Nahrungsmittelkonzern Bell Food Group ist die Süddeutsche Truthahn AG Teil eines internationalen, stark expandierenden Lebensmittelkonzerns mit rund 13.000 Mitarbeitern. Aufgaben:\n• Durchführung von Qualitätskontrollen an fertigen Produkten (z.B. Zuschnitt, Gewicht, Aussehen, Geruch)\n• Kontrolle des Reinigungs- und Desinfektionserfolges\n• Hygienekontrollen während des Betriebes\n• Überprüfung der Betriebshygiene\n• Schulung der Kollegen zu Hygiene und Qualität\n• Überwachung der Produktionsprozesse hinsichtlich Einhaltung der Hygienevorschriften, Rezepturen und Prozessparameter.\n• Durchführung von visuellen Kontrollen und Messungen.\n• Identifizierung und Meldung von Abweichungen.\n• Bereitstellen der Arbeitschemie an Waschanlagen\n• Unterstützung bei der Ursachenforschung und der Entwicklung von Korrekturmaßnahmen.\n• Dokumentation der Ergebnisse\n• Erstellung und Pflege von Qualitätskontrollprotokollen, Berichten und Dokumenten Anforderungen:\n• Vorzugsweise abgeschlossene Berufsausbildung oder vergleichbare Berufserfahrung in der Lebensmittelindustrie\n• Technisches Verständnis\n• Bereitschaft für Schichtarbeit sowie unterschiedliche Temperaturbereiche\n• Belastbarkeit, Teamfähigkeit, hohe Einsatzbereitschaft\n• Selbstständige, zielorientierte und zuverlässige, genaue Arbeitsweise sowie Dokumentationen",
       "descriptionByLocale": {
-        "de": "Die Süddeutsche Truthahn AG ist einer der führenden deutschen Produzenten von hochwertigen Putenprodukten. Zugehörig zum Schweizer Nahrungsmittelkonzern Bell Food Group ist die Süddeutsche Truthahn AG Teil eines internationalen, stark expandierenden Lebensmittelkonzerns mit rund 13.000 Mitarbeitern. Aufgaben:\n• Durchführung von Qualitätskontrollen an fertigen Produkten (z.B. Zuschnitt, Gewicht, Aussehen, Geruch)\n• Kontrolle des Reinigungs- und Desinfektionserfolges\n• Hygienekontrollen während des Betriebes\n• Überprüfung der Betriebshygiene\n• Schulung der Kollegen zu Hygiene und Qualität\n• Überwachung der Produktionsprozesse hinsichtlich Einhaltung der Hygienevorschriften, Rezepturen und Prozessparameter.\n• Durchführung von visuellen Kontrollen und Messungen.\n• Identifizierung und Meldung von Abweichungen.\n• Bereitstellen der Arbeitschemie an Waschanlagen\n• Unterstützung bei der Ursachenforschung und der Entwicklung von Korrekturmaßnahmen.\n• Dokumentation der Ergebnisse\n• Erstellung und Pflege von Qualitätskontrollprotokollen, Berichten und Dokumenten Anforderungen:\n• Vorzugsweise abgeschlossene Berufsausbildung oder vergleichbare Berufserfahrung in der Lebensmittelindustrie\n• Technisches Verständnis\n• Bereitschaft für Schichtarbeit sowie unterschiedliche Temperaturbereiche\n• Belastbarkeit, Teamfähigkeit, hohe Einsatzbereitschaft\n• Selbstständige, zielorientierte und zuverlässige, genaue Arbeitsweise sowie Dokumentationen",
         "it": "Die Süddeutsche Truthahn AG ist einer der führenden deutschen Produzenten von hochwertigen Putenprodukten. Zugehörig zum Schweizer Nahrungsmittelkonzern Bell Food Group ist die Süddeutsche Truthahn AG Teil eines internationalen, stark expandierenden Lebensmittelkonzerns mit rund 13.000 Mitarbeitern. Aufgaben:\n• Durchführung von Qualitätskontrollen an fertigen Produkten (z.B. Zuschnitt, Gewicht, Aussehen, Geruch)\n• Kontrolle des Reinigungs- und Desinfektionserfolges\n• Hygienekontrollen während des Betriebes\n• Überprüfung der Betriebshygiene\n• Schulung der Kollegen zu Hygiene und Qualität\n• Überwachung der Produktionsprozesse hinsichtlich Einhaltung der Hygienevorschriften, Rezepturen und Prozessparameter.\n• Durchführung von visuellen Kontrollen und Messungen.\n• Identifizierung und Meldung von Abweichungen.\n• Bereitstellen der Arbeitschemie an Waschanlagen\n• Unterstützung bei der Ursachenforschung und der Entwicklung von Korrekturmaßnahmen.\n• Dokumentation der Ergebnisse\n• Erstellung und Pflege von Qualitätskontrollprotokollen, Berichten und Dokumenten Anforderungen:\n• Vorzugsweise abgeschlossene Berufsausbildung oder vergleichbare Berufserfahrung in der Lebensmittelindustrie\n• Technisches Verständnis\n• Bereitschaft für Schichtarbeit sowie unterschiedliche Temperaturbereiche\n• Belastbarkeit, Teamfähigkeit, hohe Einsatzbereitschaft\n• Selbstständige, zielorientierte und zuverlässige, genaue Arbeitsweise sowie Dokumentationen",
         "en": "Die Süddeutsche Truthahn AG ist einer der führenden deutschen Produzenten von hochwertigen Putenprodukten. Zugehörig zum Schweizer Nahrungsmittelkonzern Bell Food Group ist die Süddeutsche Truthahn AG Teil eines internationalen, stark expandierenden Lebensmittelkonzerns mit rund 13.000 Mitarbeitern. Aufgaben:\n• Durchführung von Qualitätskontrollen an fertigen Produkten (z.B. Zuschnitt, Gewicht, Aussehen, Geruch)\n• Kontrolle des Reinigungs- und Desinfektionserfolges\n• Hygienekontrollen während des Betriebes\n• Überprüfung der Betriebshygiene\n• Schulung der Kollegen zu Hygiene und Qualität\n• Überwachung der Produktionsprozesse hinsichtlich Einhaltung der Hygienevorschriften, Rezepturen und Prozessparameter.\n• Durchführung von visuellen Kontrollen und Messungen.\n• Identifizierung und Meldung von Abweichungen.\n• Bereitstellen der Arbeitschemie an Waschanlagen\n• Unterstützung bei der Ursachenforschung und der Entwicklung von Korrekturmaßnahmen.\n• Dokumentation der Ergebnisse\n• Erstellung und Pflege von Qualitätskontrollprotokollen, Berichten und Dokumenten Anforderungen:\n• Vorzugsweise abgeschlossene Berufsausbildung oder vergleichbare Berufserfahrung in der Lebensmittelindustrie\n• Technisches Verständnis\n• Bereitschaft für Schichtarbeit sowie unterschiedliche Temperaturbereiche\n• Belastbarkeit, Teamfähigkeit, hohe Einsatzbereitschaft\n• Selbstständige, zielorientierte und zuverlässige, genaue Arbeitsweise sowie Dokumentationen",
+        "de": "Die Süddeutsche Truthahn AG ist einer der führenden deutschen Produzenten von hochwertigen Putenprodukten. Zugehörig zum Schweizer Nahrungsmittelkonzern Bell Food Group ist die Süddeutsche Truthahn AG Teil eines internationalen, stark expandierenden Lebensmittelkonzerns mit rund 13.000 Mitarbeitern. Aufgaben:\n• Durchführung von Qualitätskontrollen an fertigen Produkten (z.B. Zuschnitt, Gewicht, Aussehen, Geruch)\n• Kontrolle des Reinigungs- und Desinfektionserfolges\n• Hygienekontrollen während des Betriebes\n• Überprüfung der Betriebshygiene\n• Schulung der Kollegen zu Hygiene und Qualität\n• Überwachung der Produktionsprozesse hinsichtlich Einhaltung der Hygienevorschriften, Rezepturen und Prozessparameter.\n• Durchführung von visuellen Kontrollen und Messungen.\n• Identifizierung und Meldung von Abweichungen.\n• Bereitstellen der Arbeitschemie an Waschanlagen\n• Unterstützung bei der Ursachenforschung und der Entwicklung von Korrekturmaßnahmen.\n• Dokumentation der Ergebnisse\n• Erstellung und Pflege von Qualitätskontrollprotokollen, Berichten und Dokumenten Anforderungen:\n• Vorzugsweise abgeschlossene Berufsausbildung oder vergleichbare Berufserfahrung in der Lebensmittelindustrie\n• Technisches Verständnis\n• Bereitschaft für Schichtarbeit sowie unterschiedliche Temperaturbereiche\n• Belastbarkeit, Teamfähigkeit, hohe Einsatzbereitschaft\n• Selbstständige, zielorientierte und zuverlässige, genaue Arbeitsweise sowie Dokumentationen",
         "fr": "Die Süddeutsche Truthahn AG ist einer der führenden deutschen Produzenten von hochwertigen Putenprodukten. Zugehörig zum Schweizer Nahrungsmittelkonzern Bell Food Group ist die Süddeutsche Truthahn AG Teil eines internationalen, stark expandierenden Lebensmittelkonzerns mit rund 13.000 Mitarbeitern. Aufgaben:\n• Durchführung von Qualitätskontrollen an fertigen Produkten (z.B. Zuschnitt, Gewicht, Aussehen, Geruch)\n• Kontrolle des Reinigungs- und Desinfektionserfolges\n• Hygienekontrollen während des Betriebes\n• Überprüfung der Betriebshygiene\n• Schulung der Kollegen zu Hygiene und Qualität\n• Überwachung der Produktionsprozesse hinsichtlich Einhaltung der Hygienevorschriften, Rezepturen und Prozessparameter.\n• Durchführung von visuellen Kontrollen und Messungen.\n• Identifizierung und Meldung von Abweichungen.\n• Bereitstellen der Arbeitschemie an Waschanlagen\n• Unterstützung bei der Ursachenforschung und der Entwicklung von Korrekturmaßnahmen.\n• Dokumentation der Ergebnisse\n• Erstellung und Pflege von Qualitätskontrollprotokollen, Berichten und Dokumenten Anforderungen:\n• Vorzugsweise abgeschlossene Berufsausbildung oder vergleichbare Berufserfahrung in der Lebensmittelindustrie\n• Technisches Verständnis\n• Bereitschaft für Schichtarbeit sowie unterschiedliche Temperaturbereiche\n• Belastbarkeit, Teamfähigkeit, hohe Einsatzbereitschaft\n• Selbstständige, zielorientierte und zuverlässige, genaue Arbeitsweise sowie Dokumentationen"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Ampfing",
       "canton": "GR",
       "addressLocality": "Ampfing",
@@ -8665,17 +8680,18 @@
       "postedDate": "2026-06-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-qualitaetssicherheit-m-w-d-2259",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:10.398Z",
+      "crawledAt": "2026-06-11T22:47:08.908Z",
       "sourceLang": "de",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T12:45:10.398Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8690,8 +8706,7 @@
       },
       "postalCode": "7000",
       "country": "CH",
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-11T12:45:10.398Z"
+      "addressRegion": "GR"
     },
     {
       "id": "hilcona-528b72fd2c93",
@@ -8733,7 +8748,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-2258",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:10.116Z",
+      "crawledAt": "2026-06-11T22:47:08.657Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -8801,7 +8816,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriemechaniker-schlosser-m-w-d-2256",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:09.841Z",
+      "crawledAt": "2026-06-11T22:47:08.419Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8883,7 +8898,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/hausmeister-m-w-d-2255",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:09.536Z",
+      "crawledAt": "2026-06-11T22:47:08.188Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8928,10 +8943,10 @@
       "id": "hilcona-4828f718a67f",
       "slug": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
-        "it": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektriker-m-w-d-hilcona-undefined",
-        "fr": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8964,7 +8979,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-m-w-d-2253",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:09.242Z",
+      "crawledAt": "2026-06-11T22:47:07.954Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8973,18 +8988,21 @@
         ],
         "it": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "betriebselektriker-m-w-d-hilcona-ampfing"
+          "betriebselektriker-m-w-d-hilcona-ampfing",
+          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
+          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "betriebselektriker-m-w-d-hilcona-ampfing",
-        "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
@@ -9044,7 +9062,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-m-w-d-2180",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:08.701Z",
+      "crawledAt": "2026-06-11T22:47:07.478Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -9088,9 +9106,9 @@
     },
     {
       "id": "hilcona-f556aafc2126",
-      "slug": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "lehrling-mechatronik-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "it": "lehrling-mechatronik-m-w-d-hilcona-undefined",
         "en": "lehrling-mechatronik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-mechatronik-m-w-d-hilcona-undefined",
         "fr": "lehrling-mechatronik-m-w-d-hilcona-undefined"
@@ -9126,7 +9144,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-mechatronik-m-w-d-2175",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-11T12:45:08.404Z",
+      "crawledAt": "2026-06-11T22:47:07.219Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -9134,6 +9152,7 @@
         ],
         "it": [
           "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
+          "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
           "lehrling-mechatronik-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -9146,7 +9165,7 @@
       "previousSlugs": [
         "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
-        "lehrling-mechatronik-m-w-d-hilcona-undefined"
+        "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:33.933Z",
