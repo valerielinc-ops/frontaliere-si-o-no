@@ -69,7 +69,7 @@ const ForEmployersPage: React.FC = () => {
  const contactPath = buildPath({ activeTab: 'contact' }, locale);
 
  useEffect(() => {
- Analytics.trackPageView('/per-le-aziende', 'For Employers Landing');
+ Analytics.trackPageView('/per-le-aziende/', 'For Employers Landing');
  Analytics.trackUIInteraction('publisher', 'page', 'for_employers', 'view');
  }, []);
 

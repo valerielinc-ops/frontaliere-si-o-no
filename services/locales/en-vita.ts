@@ -241,6 +241,7 @@ const enVita: Record<string, string> = {
  'profile.action.pension': 'Pension',
  'profile.action.exchange': 'Exchange',
  'profile.action.guide': 'Guide',
+ 'profile.action.myListings': 'My ads',
  'profile.family.title': 'Family members',
  'profile.family.relationship': 'Relationship',
  'profile.family.spouse': 'Spouse',
