@@ -53,11 +53,18 @@ const CACHE_MAX_AGE = 7200; // 2 h
 // Per-attempt upstream timeout + one retry. The shard origins are gray-cloud
 // GitHub Pages; under the Worker's aggregate cache-miss fan-out they
 // intermittently drop/stall the connection, so a single naked fetch surfaces a
-// user-facing 504 (observed ~107k/day, edgeResponseStatus=504 with
-// originResponseStatus=0 = no origin response). An AbortController bounds each
-// attempt; one retry rides out a transient stall without hanging toward CF's
-// 100s gateway ceiling.
-const ORIGIN_TIMEOUT_MS = 12000;
+// user-facing 504 (originResponseStatus=0 = no origin response).
+//
+// 6s (was 12s): a healthy shard origin answers in ~0.2s, so 6s is generous for
+// a slow-but-ok fetch yet fails a HUNG connection FAST. The 12s×2=24s ceiling
+// was the real bug behind the persistent 504s — Cloudflare's gateway killed the
+// invocation with its own 504 before our graceful fallback (serve last-known-
+// good, else 503) could run, so analytics showed 504 not our 503. 6s×2=12s
+// leaves comfortable margin under the gateway timeout for the LKG/503 path to
+// execute. Measured impact this fix targets: ~1-in-3 (27–34%) of requests to
+// the HOT funnel pages (/en/calculate-salary, /en/, /fr/trouver-emploi-tessin…)
+// were 504 — real users, not just crawler long-tail.
+const ORIGIN_TIMEOUT_MS = 6000;
 const ORIGIN_RETRIES = 1; // total attempts = ORIGIN_RETRIES + 1
 
 // Last-known-good retention. On EVERY successful 200 we also stash a copy under
@@ -67,11 +74,20 @@ const ORIGIN_RETRIES = 1; // total attempts = ORIGIN_RETRIES + 1
 // shell served only during an origin outage is strictly better than an error.
 const LKG_MAX_AGE = 604800; // 7 d
 
-// Private cache key for the last-known-good copy of a URL. A synthetic host
-// keeps it from ever colliding with real request URLs (incl. look-alike query
-// strings), so genuine traffic can neither read nor poison the fallback slot.
+// Cache key for the last-known-good copy of a URL. It MUST live on a hostname
+// inside this zone: the Workers Cache API silently no-ops cache.put() for keys
+// whose host the zone doesn't own, so the previous off-zone `lkg.invalid` host
+// meant the LKG copy was NEVER stored — and therefore never served on origin
+// failure. That is the root reason the stale-while-error fallback failed to
+// mask the 504s (analytics showed 504, never the LKG 200). On-zone, cache.put
+// actually persists. The `/__lkg/` path is synthetic: the Worker's routes only
+// cover /en /de /fr, so a request to /__lkg/… never reaches this Worker, and the
+// encoded keys are non-guessable, unlinked, and not in any sitemap. (In theory a
+// direct hit on the exact synthetic URL could serve the cached shell from edge —
+// harmless: it's the same public SEO HTML, non-indexable. The off-zone host
+// would dodge even that but at the cost of LKG never working, so on-zone wins.)
 function lkgKey(publicUrl) {
-  return new Request(`https://lkg.invalid/${encodeURIComponent(publicUrl)}`);
+  return new Request(`https://frontaliereticino.ch/__lkg/${encodeURIComponent(publicUrl)}`);
 }
 
 // Single upstream attempt bounded by an AbortController timeout.
