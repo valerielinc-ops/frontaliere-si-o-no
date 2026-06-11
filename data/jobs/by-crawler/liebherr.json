@@ -944,7 +944,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-energia-rinnovabile-energia-eolica-m-f-d-liebherr-baden"
+        ],
+        "de": [
+          "praktikant-im-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-energia-rinnovabile-energia-eolica-m-f-d-liebherr-baden",
+        "praktikant-im-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
+      ]
     },
     {
       "id": "liebherr-75b9ee526cec",
@@ -2899,7 +2911,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle"
+          "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle",
+          "jeunes-talents-moteurs-a-combustion-de-preparation-au-travail-m-f-x-liebherr-bulle"
         ],
         "it": [
           "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
@@ -2910,7 +2923,8 @@
       },
       "previousSlugs": [
         "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
-        "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle"
+        "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle",
+        "jeunes-talents-moteurs-a-combustion-de-preparation-au-travail-m-f-x-liebherr-bulle"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.399Z",
