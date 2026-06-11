@@ -48,6 +48,13 @@ const cases: ReadonlyArray<{ url: string; tab: string }> = [
   { url: '/en/living-in-ticino/border-municipalities/villadossola/', tab: 'vita' },
   { url: '/de/leben-im-tessin/grenzgemeinden/villadossola/', tab: 'vita' },
   { url: '/fr/vivre-au-tessin/communes-frontiere/villadossola/', tab: 'vita' },
+
+  // Publisher ad detail pages (publisherAdPagesPlugin) — /lavoro/<slug>/.
+  // Locale-agnostic `/lavoro/` segment in all 4 locales.
+  { url: '/lavoro/fisioterapista-diplomato-lugano/', tab: 'job-board' },
+  { url: '/en/lavoro/fisioterapista-diplomato-lugano/', tab: 'job-board' },
+  { url: '/de/lavoro/fisioterapista-diplomato-lugano/', tab: 'job-board' },
+  { url: '/fr/lavoro/fisioterapista-diplomato-lugano/', tab: 'job-board' },
 ];
 
 describe('static-overlay coverage — SEO shell URLs must be recognised by parsePath', () => {
