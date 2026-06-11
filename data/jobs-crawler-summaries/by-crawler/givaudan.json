@@ -1,18 +1,19 @@
 {
   "key": "givaudan",
   "label": "Givaudan",
-  "generatedAt": "2026-06-11T12:40:11.416Z",
+  "generatedAt": "2026-06-11T13:25:52.601Z",
   "total": 30,
-  "newCount": 1,
-  "updatedCount": 29,
+  "newCount": 0,
+  "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3125,
-  "avgDurationMs": 3125,
+  "durationMs": 998945,
+  "avgDurationMs": 998945,
   "durationHistory": [
-    3125
+    998945
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "givaudan-783dd874b6b8",
       "slug": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
@@ -25,7 +26,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:40:09.062Z",
+      "crawledAt": "2026-06-11T13:09:24.752Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "",
@@ -40,16 +41,16 @@
       "featured": false,
       "postedDate": "2026-06-11",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
-      "_qualityScore": 53,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T12:40:09.062Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 4,
+        "richness": 22,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "givaudan-6370a307a023",
       "slug": "operativer-einkaufer-60-80-m-w-d-givaudan-ch",
@@ -62,7 +63,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118947EXTERNALENGLOBAL/operativer-einkaufer-60-80-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:40:09.062Z",
+      "crawledAt": "2026-06-11T13:09:24.270Z",
       "addressLocality": "Volketswil",
       "postalCode": "",
       "addressRegion": "",
@@ -78,10 +79,10 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118947EXTERNALENGLOBAL/operativer-einkaufer-60-80-m-w-d",
       "firstSeenAt": "2026-06-10T12:08:28.181Z",
-      "_qualityScore": 74,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -98,7 +99,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118971EXTERNALENGLOBAL/betriebsmechaniker-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:40:09.061Z",
+      "crawledAt": "2026-06-11T13:09:24.009Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "",
@@ -114,10 +115,10 @@
       "postedDate": "2026-06-09",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118971EXTERNALENGLOBAL/betriebsmechaniker-m-w-d",
       "firstSeenAt": "2026-06-10T07:51:49.839Z",
-      "_qualityScore": 74,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -134,7 +135,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118833EXTERNALENGLOBAL/panelist-25-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:40:09.057Z",
+      "crawledAt": "2026-06-11T13:09:22.575Z",
       "addressLocality": "Kemptthal",
       "postalCode": "",
       "addressRegion": "Genève",
@@ -151,10 +152,10 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118833EXTERNALENGLOBAL/panelist-25-m-w-d",
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:51:49.836Z",
-      "_qualityScore": 74,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -171,7 +172,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.058Z",
+      "crawledAt": "2026-06-11T13:09:22.853Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -187,10 +188,10 @@
       "postedDate": "2026-06-05",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
       "firstSeenAt": "2026-06-10T07:51:49.837Z",
-      "_qualityScore": 81,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -207,7 +208,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118780EXTERNALENGLOBAL/environmental-lab-manager-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.058Z",
+      "crawledAt": "2026-06-11T13:09:23.053Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -223,10 +224,10 @@
       "postedDate": "2026-06-05",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118780EXTERNALENGLOBAL/environmental-lab-manager-m-w-d-your-next-role",
       "firstSeenAt": "2026-06-10T07:51:49.837Z",
-      "_qualityScore": 81,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -243,7 +244,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118901EXTERNALENGLOBAL/specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.060Z",
+      "crawledAt": "2026-06-11T13:09:23.796Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -259,10 +260,10 @@
       "postedDate": "2026-06-05",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118901EXTERNALENGLOBAL/specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d",
       "firstSeenAt": "2026-06-10T07:51:49.839Z",
-      "_qualityScore": 77,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -279,7 +280,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118534EXTERNALENGLOBAL/chef-d-equipe-en-production-composition-3x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.055Z",
+      "crawledAt": "2026-06-11T13:09:21.871Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -295,10 +296,10 @@
       "postedDate": "2026-06-01",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118534EXTERNALENGLOBAL/chef-d-equipe-en-production-composition-3x8-h-f-d",
       "firstSeenAt": "2026-06-10T07:51:49.833Z",
-      "_qualityScore": 77,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -315,7 +316,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118688EXTERNALENGLOBAL/ehs-specialist-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.040Z",
+      "crawledAt": "2026-06-11T13:09:17.405Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -331,10 +332,10 @@
       "postedDate": "2026-05-29",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118688EXTERNALENGLOBAL/ehs-specialist-m-w-d-your-next-role",
       "firstSeenAt": "2026-06-10T07:51:49.817Z",
-      "_qualityScore": 81,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -351,7 +352,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118607EXTERNALENGLOBAL/head-digital-supply-chain-manufacturing",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.051Z",
+      "crawledAt": "2026-06-11T13:09:20.412Z",
       "addressLocality": "Kemptthal",
       "postalCode": "",
       "addressRegion": "Genève",
@@ -367,10 +368,10 @@
       "postedDate": "2026-05-25",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118607EXTERNALENGLOBAL/head-digital-supply-chain-manufacturing",
       "firstSeenAt": "2026-06-10T07:51:49.830Z",
-      "_qualityScore": 78,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -387,7 +388,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118713EXTERNALENGLOBAL/quality-control-technician-microbiology-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:40:09.045Z",
+      "crawledAt": "2026-06-11T13:09:18.567Z",
       "addressLocality": "Bischofszell",
       "postalCode": "",
       "addressRegion": "",
@@ -402,11 +403,12 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118713EXTERNALENGLOBAL/quality-control-technician-microbiology-m-w-d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:51:49.821Z",
-      "_qualityScore": 74,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -423,7 +425,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118475EXTERNALENGLOBAL/global-category-buyer-functional-ingredients",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.050Z",
+      "crawledAt": "2026-06-11T13:09:20.153Z",
       "addressLocality": "Kemptthal",
       "postalCode": "",
       "addressRegion": "Genève",
@@ -438,11 +440,12 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118475EXTERNALENGLOBAL/global-category-buyer-functional-ingredients",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:51:49.828Z",
-      "_qualityScore": 72,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 24,
         "translation": 23,
         "completeness": 14
       }
@@ -459,7 +462,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118338EXTERNALENGLOBAL/betriebselektriker-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:40:09.016Z",
+      "crawledAt": "2026-06-11T13:09:15.046Z",
       "addressLocality": "Dübendorf",
       "postalCode": "",
       "addressRegion": "",
@@ -474,11 +477,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118338EXTERNALENGLOBAL/betriebselektriker-m-w-d",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:51:49.792Z",
-      "_qualityScore": 74,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 24,
         "translation": 25,
         "completeness": 14
       }
@@ -495,7 +499,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB116426EXTERNALENGLOBAL/talent-pool-operations-internship-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.038Z",
+      "crawledAt": "2026-06-11T13:09:16.111Z",
       "addressLocality": "Kemptthal",
       "postalCode": "",
       "addressRegion": "Genève",
@@ -511,10 +515,10 @@
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.814Z",
-      "_qualityScore": 74,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 24,
         "translation": 25,
         "completeness": 14
       }
@@ -531,7 +535,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118517EXTERNALENGLOBAL/perfumery-lab-supervisor-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.043Z",
+      "crawledAt": "2026-06-11T13:09:18.346Z",
       "addressLocality": "Kemptthal",
       "postalCode": "",
       "addressRegion": "Genève",
@@ -546,11 +550,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118517EXTERNALENGLOBAL/perfumery-lab-supervisor-m-f-d",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:51:49.820Z",
-      "_qualityScore": 78,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -567,7 +572,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.045Z",
+      "crawledAt": "2026-06-11T13:09:19.012Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -583,10 +588,10 @@
       "postedDate": "2026-04-27",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
       "firstSeenAt": "2026-06-10T07:51:49.822Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -603,7 +608,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117638EXTERNALENGLOBAL/quality-assurance-food-safety-specialist-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T12:40:09.017Z",
+      "crawledAt": "2026-06-11T13:09:15.340Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "",
@@ -618,11 +623,12 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB117638EXTERNALENGLOBAL/quality-assurance-food-safety-specialist-m-w-d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:51:49.793Z",
-      "_qualityScore": 74,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -639,7 +645,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.038Z",
+      "crawledAt": "2026-06-11T13:09:16.559Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -654,11 +660,12 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:51:49.815Z",
-      "_qualityScore": 77,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -675,7 +682,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118226EXTERNALENGLOBAL/quality-control-analyst-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.060Z",
+      "crawledAt": "2026-06-11T13:09:23.368Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -690,11 +697,12 @@
       "featured": false,
       "postedDate": "2026-04-09",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118226EXTERNALENGLOBAL/quality-control-analyst-h-f-d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:51:49.838Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -711,7 +719,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117688EXTERNALENGLOBAL/legal-counsel-f-b",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.048Z",
+      "crawledAt": "2026-06-11T13:09:19.728Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -727,10 +735,10 @@
       "postedDate": "2026-04-01",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.825Z",
-      "_qualityScore": 81,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -747,7 +755,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117798EXTERNALENGLOBAL/product-manager-and-designer-sap-treasury",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.034Z",
+      "crawledAt": "2026-06-11T13:09:15.763Z",
       "addressLocality": "Kemptthal",
       "postalCode": "",
       "addressRegion": "Genève",
@@ -763,10 +771,10 @@
       "postedDate": "2026-03-26",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.809Z",
-      "_qualityScore": 74,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -783,7 +791,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117748EXTERNALENGLOBAL/senior-category-manager-aroma-chemicals",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.039Z",
+      "crawledAt": "2026-06-11T13:09:17.002Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -799,10 +807,10 @@
       "postedDate": "2026-03-26",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.815Z",
-      "_qualityScore": 81,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -819,7 +827,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117952EXTERNALENGLOBAL/procurement-biotech-manager",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-11T12:40:09.048Z",
+      "crawledAt": "2026-06-11T13:09:19.472Z",
       "addressLocality": "Kemptthal",
       "postalCode": "",
       "addressRegion": "Genève",
@@ -835,10 +843,10 @@
       "postedDate": "2026-03-26",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.824Z",
-      "_qualityScore": 78,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 22,
         "translation": 25,
         "completeness": 14
       }
@@ -855,7 +863,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118070EXTERNALENGLOBAL/stagiaire-ingenieur-process-en-logistique-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.056Z",
+      "crawledAt": "2026-06-11T13:09:22.328Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -871,10 +879,10 @@
       "postedDate": "2026-03-26",
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118070EXTERNALENGLOBAL/stagiaire-ingenieur-process-en-logistique-h-f-d",
       "firstSeenAt": "2026-06-10T07:51:49.834Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -891,7 +899,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117953EXTERNALENGLOBAL/continuous-improvement-specialist-h-f-d-90-a-100-departement-production-composition",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:08.986Z",
+      "crawledAt": "2026-06-11T13:09:14.574Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -906,11 +914,12 @@
       "featured": false,
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.givaudan.com/",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:51:49.767Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -927,7 +936,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117415EXTERNALENGLOBAL/apprentissage-logisticien-cfc-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.041Z",
+      "crawledAt": "2026-06-11T13:09:17.927Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -943,10 +952,10 @@
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.818Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -963,7 +972,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117411EXTERNALENGLOBAL/apprentissage-employe-de-commerce-cfc-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.046Z",
+      "crawledAt": "2026-06-11T13:09:19.251Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -979,10 +988,10 @@
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.822Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -999,7 +1008,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117850EXTERNALENGLOBAL/ingenieur-process-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.052Z",
+      "crawledAt": "2026-06-11T13:09:20.837Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1015,10 +1024,10 @@
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.givaudan.com/",
       "firstSeenAt": "2026-06-10T07:51:49.830Z",
-      "_qualityScore": 77,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 24,
         "translation": 25,
         "completeness": 17
       }
@@ -1035,7 +1044,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117704EXTERNALENGLOBAL/automation-engineer-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.054Z",
+      "crawledAt": "2026-06-11T13:09:21.225Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1050,11 +1059,12 @@
       "featured": false,
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.givaudan.com/",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:51:49.831Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
@@ -1071,7 +1081,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117951EXTERNALENGLOBAL/ingenieur-fiabilisation-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:40:09.054Z",
+      "crawledAt": "2026-06-11T13:09:21.456Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1086,11 +1096,12 @@
       "featured": false,
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.givaudan.com/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:51:49.832Z",
-      "_qualityScore": 77,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 22,
         "translation": 25,
         "completeness": 17
       }
