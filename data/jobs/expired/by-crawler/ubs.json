@@ -1,5 +1,834 @@
 [
   {
+    "slug": "data-engineer-python-pyspark-sql-databricks-ubs",
+    "title": "Data Engineer-Python, Pyspark, sql, Databricks",
+    "titleByLocale": {
+      "it": "Data Ingegnere-Python, Pyspark, sql, Databricks",
+      "en": "Data Engineer-Python, Pyspark, sql, Databricks",
+      "de": "Data Ingenieur-Python, Pyspark, sql, Databricks",
+      "fr": "Data Ingénieur-Python, Pyspark, sql, Databricks"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind.",
+      "en": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind.",
+      "de": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind.",
+      "fr": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind."
+    },
+    "slugByLocale": {
+      "it": "data-engineer-python-pyspark-sql-databricks-ubs",
+      "en": "data-engineer-python-pyspark-sql-databricks-ubs",
+      "de": "data-engineer-python-pyspark-sql-databricks-ubs",
+      "fr": "data-engineer-python-pyspark-sql-databricks-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "amministratore-delegato-ugm-otc-equity-solutions-ubs",
+    "title": "Managing Director, UGM OTC Equity Solutions",
+    "titleByLocale": {
+      "it": "Amministratore delegato, UGM OTC Equity Solutions",
+      "en": "Managing Director, UGM OTC Equity Solutions",
+      "de": "Geschäftsführender Direktor, UGM OTC Equity Solutions",
+      "fr": "Directeur général, UGM OTC Equity Solutions"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "UBS Financial Services INC cerca un amministratore delegato, UGM OTC Equity Solutions a New York, NY Sei un pensatore innovativo? Ti piace fornire funzionalità di cambiamento migliorate in una gamma di funzioni aziendali? Sai come coinvolgere diversi tipi di persone su una varietà di argomenti? Stiamo cercando un amministratore delegato, UGM OTC Equity Solutions per:\n• Progettare nuovi prodotti finanziari derivati dall'equità, utilizzando swap, mettere opzioni, opzioni di chiamata, opzioni asiatiche a lungo dipendente e esotici. Struttura dei prodotti finanziari con una sofisticata comprensione delle tecniche analitiche quantitative e matematiche fondamentali, compreso il calcolo, il prezzo e il commercio.\n• Sviluppare modelli utilizzando gli strumenti analitici e matematici ottenuti attraverso il lavoro in matematica. Analizzare le superfici di volatilità del singolo stock, le superfici di volatilità del mercato, gli ambienti dei tassi di interesse a livello globale e i tassi di cambio stranieri a livello globale.\n• Modifiche prevedibili dell’economia della strategia dal punto di vista del cliente e dalla prospettiva dell’UBS in base ai cambiamenti della volatilità delle scorte, dei tassi di interesse, dei tassi di cambio e alla correlazione dei tre. Assistere i professionisti non-quantitativi a comprendere pienamente tutti i rischi e i potenziali risultati delle strategie basate su cambiamenti e aspettative in questi mercati.\n• Interpretare gli obiettivi del cliente in prodotti azionari, derivati azionari per produrre risultati economici desiderabili per il cliente e parametri di rischio UBS accettabili Design prodotti azionari manipolando i dati per produrre vari risultati. Interpretare i risultati e modificare i driver di valore per produrre i risultati desiderati.\n• Scrivere interfacce user-friendly per i modelli di prezzi derivati azionari costruiti, che a loro volta sono utilizzati da altri membri del team per la determinazione dei prezzi e dei rischi da utilizzare per presentare soluzioni a varie parti internamente per l'approvazione, e per le presentazioni dei clienti. Adapt caratteristiche del prodotto, modelli e materiali di marketing per nuovi cambiamenti nella progettazione del prodotto, e progetta formule matematiche sull'implementazione del prodotto e della strategia. I candidati qualificati si applicano attraverso SH-ProfRecruitingcc@ubs.com. Si prega di fare riferimento 000461. Per favore. EOE/M/F/D/V Salary Range & Piano di lavoro: $350,000 a $500,000 /year, 40 ore/wk. Questo avviso è stato pubblicato in connessione con un'applicazione per la certificazione permanente del lavoro Alien. Qualsiasi persona può commentare o fornire prove documentali che portano a questa applicazione a: Dipartimento del Lavoro, l'Amministrazione del Lavoro e della Formazione, Ufficio di Certificazione del Lavoro Straniero, 200 Constitution Avenue NW, Camera N-5311, Washington, DC 20210. L'intervallo di stipendio previsto per questo ruolo a partire dalla data di questa pubblicazione è / sono basati su fattori tra cui, ma non solo, esperienza, qualifiche, istruzione, luogo e livello di abilità. Questo ruolo può anche essere idoneo per una compensazione discrezionale di incentivi. Per informazioni sui benefici, visitare ubs.com/usbenefits.",
+      "en": "UBS Financial Services INC is seeking a Managing Director, UGM OTC Equity Solutions in New York, NY Are you an innovative thinker? Do you enjoy delivering enhanced change capabilities across a range of business functions? Do you know how to engage different kinds of people on a variety of topics? We’re looking for a Managing Director, UGM OTC Equity Solutions to:\n• Design new equity derivative financial products, using swaps, put options, call options, path-dependent Asian options, and exotics. Structure financial products with a sophisticated understanding of fundamental quantitative and mathematic analytical techniques, including calculus, to price and trade.\n• Develop models using the analytical and mathematical tools gained through work in mathematics. Analyze single stock volatility surfaces, market volatility surfaces, interest rate environments globally, and foreign exchange rates globally.\n• Predict changes in the strategy’s economics from the client’s perspective and the UBS’s perspective based on changes in stock volatility, interest rates, exchange rates, and the correlation of the three. Assist non-quantitative professionals to fully understand all the risks and potential outcomes of strategies based on changes and expectations in these markets.\n• Interpret client goals into equity products, equity derivatives to produce desirable economic outcomes for the client and acceptable UBS risk parameters Design equity products by manipulating the data to produce various results. Interpret results and changes value drivers to produce desired results.\n• Write user-friendly interfaces for the equity derivative pricing models built, which in turn are used by other team members for pricing and risk determination for use in presenting solutions to various parties internally for approval, and for client presentations. Adapt product features, models, and marketing materials for new changes in product design, and designs mathematical formulas on product and strategy implementation. Qualified Applicants apply through SH-ProfRecruitingcc@ubs.com. Please reference 000461. NO CALLS PLEASE. EOE/M/F/D/V Salary Range & Work Schedule: $350,000 to $500,000 /year, 40 hrs/wk. This notice is being posted in connection with an application for permanent Alien Labor Certification. Any person may comment or provide documentary evidence bearing on this application to: U.S. Department of Labor, Employment and Training Administration, Office of Foreign Labor Certification, 200 Constitution Avenue NW, Room N-5311, Washington, DC 20210. The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits.",
+      "de": "UBS Financial Services INC sucht einen Managing Director, UGM OTC Equity Solutions in New York, NY Sind Sie ein innovativer Denker? Haben Sie Spaß daran, erweiterte Veränderungsfähigkeiten für eine Reihe von Geschäftsfunktionen bereitzustellen? Wissen Sie, wie man verschiedene Arten von Menschen auf eine Vielzahl von Themen zu engagieren? Wir suchen einen Managing Director, UGM OTC Equity Solutions für:\n• Entwerfen Sie neue Finanzprodukte für Aktienderivate mit Swaps, Put-Optionen, Call-Optionen, pfadabhängigen asiatischen Optionen und Exoten. Strukturieren Sie Finanzprodukte mit einem ausgeklügelten Verständnis der grundlegenden quantitativen und mathematischen Analysetechniken, einschließlich Kalkül, zu Preis und Handel.\n• Entwicklung von Modellen unter Verwendung der analytischen und mathematischen Werkzeuge, die durch die Arbeit in der Mathematik gewonnen wurden. Analysieren Sie einzelne Aktienvolatilitätsoberflächen, Marktvolatilitätsoberflächen, Zinsumgebungen weltweit und Wechselkurse weltweit.\n• Prognostizieren Sie Veränderungen in der Wirtschaftlichkeit der Strategie aus Sicht des Kunden und der UBS-Perspektive, basierend auf Veränderungen der Aktienvolatilität, der Zinssätze, der Wechselkurse und der Korrelation der drei. Unterstützen Sie nicht-quantitative Fachleute, um alle Risiken und potenziellen Ergebnisse von Strategien basierend auf Veränderungen und Erwartungen in diesen Märkten vollständig zu verstehen.\n• Interpretation der Kundenziele in Aktienprodukte, Aktienderivate zur Erzielung wünschenswerter wirtschaftlicher Ergebnisse für den Kunden und akzeptable UBS-Risikoparameter Gestaltung von Aktienprodukten durch Manipulation der Daten zur Erzielung verschiedener Ergebnisse. Interpretieren Sie Ergebnisse und ändern Sie Werttreiber, um gewünschte Ergebnisse zu erzielen.\n• Schreiben Sie benutzerfreundliche Schnittstellen für die erstellten Preismodelle für Aktienderivate, die wiederum von anderen Teammitgliedern zur Preisfindung und Risikoermittlung für die interne Präsentation von Lösungen für verschiedene Parteien zur Genehmigung und für Kundenpräsentationen verwendet werden. Passen Sie Produktmerkmale, Modelle und Marketingmaterialien an neue Änderungen im Produktdesign an und entwerfen Sie mathematische Formeln zur Produkt- und Strategieumsetzung. Qualifizierte Bewerber bewerben sich über SH-ProfRecruitingcc@ubs.com. Bitte geben Sie 000461 an. Bitte keine Anrufe. EOE/M/F/D/V Gehaltsbereich & Arbeitsplan: $ 350.000 bis $ 500.000 / Jahr, 40 Stunden / wk. Diese Mitteilung wird im Zusammenhang mit einem Antrag auf dauerhafte Alien Labor Certification veröffentlicht. Jede Person kann zu diesem Antrag Stellung nehmen oder dokumentarische Beweise vorlegen an: U.S. Department of Labor, Employment and Training Administration, Office of Foreign Labor Certification, 200 Constitution Avenue NW, Room N-5311, Washington, DC 20210. Die erwartete(n) Gehaltsspanne(n) für diese Rolle zum Zeitpunkt dieser Entsendung basieren auf Faktoren, einschließlich, aber nicht beschränkt auf, Erfahrung, Qualifikationen, Ausbildung, Standort und Qualifikationsniveau. Diese Rolle kann auch für einen diskretionären Anreizausgleich in Betracht kommen. Für Leistungsinformationen besuchen Sie bitte ubs.com/usbenefits.",
+      "fr": "UBS Financial Services INC cherche un directeur général, UGM OTC Equity Solutions à New York, NY Êtes-vous un penseur innovant ? Vous aimez offrir des capacités de changement améliorées pour une gamme de fonctions d'affaires? Savez-vous comment engager différents types de personnes sur une variété de sujets? Nous cherchons un directeur général, UGM OTC Equity Solutions:\n• Concevoir de nouveaux produits financiers dérivés d'actions, en utilisant des swaps, des options de mise, des options d'appel, des options asiatiques dépendantes de la trajectoire et des exotiques. Structurer les produits financiers avec une compréhension sophistiquée des techniques d'analyse quantitative et mathématique fondamentales, y compris le calcul, aux prix et au commerce.\n• Développer des modèles en utilisant les outils analytiques et mathématiques acquis par le travail en mathématiques. Analyser les surfaces de volatilité d'un seul stock, les surfaces de volatilité du marché, les environnements de taux d'intérêt à l'échelle mondiale et les taux de change à l'échelle mondiale.\n• Prévoir des changements dans l'économie stratégique du point de vue du client et de l'UBS en fonction de l'évolution de la volatilité des stocks, des taux d'intérêt, des taux de change et de la corrélation entre les trois. Aider les professionnels non quantitatifs à bien comprendre tous les risques et les résultats potentiels des stratégies en fonction des changements et des attentes sur ces marchés.\n• Interpréter les objectifs du client en produits d'actions, dérivés d'actions pour produire des résultats économiques souhaitables pour le client et paramètres de risque acceptables UBS Concevoir des produits d'actions en manipulant les données pour produire divers résultats. Interpréter les résultats et modifier les pilotes de valeur pour produire les résultats souhaités.\n• Rédiger des interfaces conviviales pour les modèles de prix dérivés de fonds propres construits, qui sont utilisés par d'autres membres de l'équipe pour la fixation des prix et la détermination des risques pour l'utilisation dans la présentation de solutions à diverses parties en interne pour l'approbation, et pour les présentations des clients. Adapter les caractéristiques du produit, les modèles et les matériaux de commercialisation aux nouveaux changements dans la conception du produit et concevoir des formules mathématiques sur la mise en oeuvre du produit et de la stratégie. Les candidats qualifiés présentent une demande par l'intermédiaire de SH-ProfRecruitingcc@ubs.com. Référence 000461. Pas d'appel, s'il vous plaît. EOE/M/F/D/V Échelle salariale et horaire de travail : 350 000 $ à 500 000 $/an, 40 heures/an. Cet avis est en cours d'affichage dans le cadre d'une demande de certification permanente du travail des étrangers. Toute personne peut commenter ou fournir des preuves documentaires concernant cette demande à l'adresse suivante : Department of Labor, Employment and Training Administration, Office of Foreign Labor Certification, 200 Constitution Avenue NW, bureau N-5311, Washington, DC 20210. Les échelles salariales prévues pour ce poste à la date de cette affectation sont fondées sur des facteurs tels que l'expérience, les qualifications, les études, l'emplacement et le niveau de compétence. Ce rôle peut également être admissible à une rémunération discrétionnaire incitative. Pour obtenir des renseignements sur les avantages, veuillez visiter ubs.com/usbénéfices."
+    },
+    "slugByLocale": {
+      "it": "amministratore-delegato-ugm-otc-equity-solutions-ubs",
+      "en": "managing-director-ugm-otc-equity-solutions-ubs",
+      "de": "geschaftsfuhrender-direktor-ugm-otc-equity-solutions-ubs",
+      "fr": "directeur-general-ugm-otc-equity-solutions-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "previousSlugs": [
+      "managing-director-ugm-otc-equity-solutions-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "managing-director-ugm-otc-equity-solutions-ubs"
+      ],
+      "de": [
+        "managing-director-ugm-otc-equity-solutions-ubs"
+      ],
+      "fr": [
+        "managing-director-ugm-otc-equity-solutions-ubs"
+      ]
+    },
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "data-scientist-ubs",
+    "title": "Data Scientist",
+    "titleByLocale": {
+      "it": "Data Scientist",
+      "en": "Data Scientist",
+      "de": "Data Scientist",
+      "fr": "Data Scientist"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you excited to work with a global team with diverse backgrounds and talents? Can you apply your technical skills to help quantify business risks? Do you enjoy the challenge of driving business impact through analytics and are looking for an opportunity to lead innovation? We’re looking for a Data Scientist to:\n• engage in audits to analyze data using traditional machine learning or Large Language Models to uncover trends, patterns, or anomalies for auditors to investigate further.\n• work collaboratively with stakeholders to assist in risk assessments and highlight high-risk areas for deep dives.\n• clearly communicate complex insights derived from analytics to senior stakeholders in a manner that is both engaging and impactful.\n• stay up to date with advancements in AI, ML, and NLP to implement cutting-edge solutions, such as working with the latest Large Language Models (LLMs).\n• provide auditors with training and support, as required, to effectively use data-driven tools and solutions.",
+      "en": "Are you excited to work with a global team with diverse backgrounds and talents? Can you apply your technical skills to help quantify business risks? Do you enjoy the challenge of driving business impact through analytics and are looking for an opportunity to lead innovation? We’re looking for a Data Scientist to:\n• engage in audits to analyze data using traditional machine learning or Large Language Models to uncover trends, patterns, or anomalies for auditors to investigate further.\n• work collaboratively with stakeholders to assist in risk assessments and highlight high-risk areas for deep dives.\n• clearly communicate complex insights derived from analytics to senior stakeholders in a manner that is both engaging and impactful.\n• stay up to date with advancements in AI, ML, and NLP to implement cutting-edge solutions, such as working with the latest Large Language Models (LLMs).\n• provide auditors with training and support, as required, to effectively use data-driven tools and solutions.",
+      "de": "Are you excited to work with a global team with diverse backgrounds and talents? Can you apply your technical skills to help quantify business risks? Do you enjoy the challenge of driving business impact through analytics and are looking for an opportunity to lead innovation? We’re looking for a Data Scientist to:\n• engage in audits to analyze data using traditional machine learning or Large Language Models to uncover trends, patterns, or anomalies for auditors to investigate further.\n• work collaboratively with stakeholders to assist in risk assessments and highlight high-risk areas for deep dives.\n• clearly communicate complex insights derived from analytics to senior stakeholders in a manner that is both engaging and impactful.\n• stay up to date with advancements in AI, ML, and NLP to implement cutting-edge solutions, such as working with the latest Large Language Models (LLMs).\n• provide auditors with training and support, as required, to effectively use data-driven tools and solutions.",
+      "fr": "Are you excited to work with a global team with diverse backgrounds and talents? Can you apply your technical skills to help quantify business risks? Do you enjoy the challenge of driving business impact through analytics and are looking for an opportunity to lead innovation? We’re looking for a Data Scientist to:\n• engage in audits to analyze data using traditional machine learning or Large Language Models to uncover trends, patterns, or anomalies for auditors to investigate further.\n• work collaboratively with stakeholders to assist in risk assessments and highlight high-risk areas for deep dives.\n• clearly communicate complex insights derived from analytics to senior stakeholders in a manner that is both engaging and impactful.\n• stay up to date with advancements in AI, ML, and NLP to implement cutting-edge solutions, such as working with the latest Large Language Models (LLMs).\n• provide auditors with training and support, as required, to effectively use data-driven tools and solutions."
+    },
+    "slugByLocale": {
+      "it": "data-scientist-ubs",
+      "en": "data-scientist-ubs",
+      "de": "data-scientist-ubs",
+      "fr": "data-scientist-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "salaryMin": 51500,
+    "salaryMax": 88000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "tirocinante-ubs",
+    "title": "Intern",
+    "titleByLocale": {
+      "en": "Intern",
+      "it": "Tirocinante",
+      "de": "Praktikant",
+      "fr": "Stagiaire"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model",
+      "it": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model",
+      "de": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model",
+      "fr": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model"
+    },
+    "slugByLocale": {
+      "en": "intern-ubs",
+      "it": "tirocinante-ubs",
+      "de": "praktikant-ubs",
+      "fr": "stagiaire-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "previousSlugs": [
+      "intern-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "intern-ubs"
+      ]
+    },
+    "salaryMin": 41600,
+    "salaryMax": 63000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "content-advisory-sales-ubs",
+    "title": "Content & Advisory Sales",
+    "titleByLocale": {
+      "en": "Content & Advisory Sales",
+      "it": "Content & Advisory Sales",
+      "de": "Content & Advisory Sales",
+      "fr": "Content & Advisory Sales"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "This is a unique opportunity to be on the ground floor as “Wall St. South” develops in South Florida. We're looking for an Institutional Equity Sales Coverage professional to:\n• provide day-to-day equities and research sales coverage for South Florida institutional clients, staying close to each client’s investment process and priorities\n• translate UBS research, market moves, and actionable themes into timely, high-conviction client dialogue and trade ideas\n• coordinate access to UBS analysts, strategists, economists, and corporate access to deliver the right expertise at the right time\n• deepen relationships with priority accounts and grow share of client activity through consistent coverage, disciplined follow-up, and high service standards\n• execute a high-touch, in-person coverage cadence across the region, including frequent client meetings, support for visits/events, and strong internal coordination across Global Markets",
+      "it": "This is a unique opportunity to be on the ground floor as “Wall St. South” develops in South Florida. We're looking for an Institutional Equity Sales Coverage professional to:\n• provide day-to-day equities and research sales coverage for South Florida institutional clients, staying close to each client’s investment process and priorities\n• translate UBS research, market moves, and actionable themes into timely, high-conviction client dialogue and trade ideas\n• coordinate access to UBS analysts, strategists, economists, and corporate access to deliver the right expertise at the right time\n• deepen relationships with priority accounts and grow share of client activity through consistent coverage, disciplined follow-up, and high service standards\n• execute a high-touch, in-person coverage cadence across the region, including frequent client meetings, support for visits/events, and strong internal coordination across Global Markets",
+      "de": "This is a unique opportunity to be on the ground floor as “Wall St. South” develops in South Florida. We're looking for an Institutional Equity Sales Coverage professional to:\n• provide day-to-day equities and research sales coverage for South Florida institutional clients, staying close to each client’s investment process and priorities\n• translate UBS research, market moves, and actionable themes into timely, high-conviction client dialogue and trade ideas\n• coordinate access to UBS analysts, strategists, economists, and corporate access to deliver the right expertise at the right time\n• deepen relationships with priority accounts and grow share of client activity through consistent coverage, disciplined follow-up, and high service standards\n• execute a high-touch, in-person coverage cadence across the region, including frequent client meetings, support for visits/events, and strong internal coordination across Global Markets",
+      "fr": "This is a unique opportunity to be on the ground floor as “Wall St. South” develops in South Florida. We're looking for an Institutional Equity Sales Coverage professional to:\n• provide day-to-day equities and research sales coverage for South Florida institutional clients, staying close to each client’s investment process and priorities\n• translate UBS research, market moves, and actionable themes into timely, high-conviction client dialogue and trade ideas\n• coordinate access to UBS analysts, strategists, economists, and corporate access to deliver the right expertise at the right time\n• deepen relationships with priority accounts and grow share of client activity through consistent coverage, disciplined follow-up, and high service standards\n• execute a high-touch, in-person coverage cadence across the region, including frequent client meetings, support for visits/events, and strong internal coordination across Global Markets"
+    },
+    "slugByLocale": {
+      "en": "content-advisory-sales-ubs",
+      "it": "content-advisory-sales-ubs",
+      "de": "content-advisory-sales-ubs",
+      "fr": "content-advisory-sales-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "senior-strategist-family-advisory-philanthropy-services-ubs",
+    "title": "Senior Strategist, Family Advisory & Philanthropy Services",
+    "titleByLocale": {
+      "en": "Senior Strategist, Family Advisory & Philanthropy Services",
+      "it": "Senior Strategist, Family Advisory & Philanthropy Services",
+      "de": "Senior Strategist, Family Advisory & Philanthropy Services",
+      "fr": "Senior Strategist, Family Advisory & Philanthropy Services"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you looking for role guiding families of exceptional financial success on matters related to doing good with wealth for loved ones and the communities they care about? Reporting to the Head of Family Advisory & Philanthropy Services, U.S., you’ll operate within the UHNW coverage and advisory model as an extension of the Financial Advisor team. You’ll support clients across the full lifecycle, from early liquidity and succession planning through ongoing multigenerational stewardship.\nYou’ll be deployed selectively where family complexity, scale, and opportunity require deeper engagement, and where early involvement can shape long term outcomes for both clients and UBS.\nYou’ll also work as part of the global Social Impact & Philanthropy team, collaborating across regions and with colleagues in sustainability, impact investing, and social finance to build and scale solutions that advance the impact economy.\n\nAs a Senior Strategist you will:\n• partner with Financial Advisors to identify opportunities for family advisory and philanthropy conversations and engage spouses, rising generations, and future decision makers early\n• design and lead client engagements across governance, decision making, succession, leadership transition, next generation development, and family culture\n• translate discovery discussions into practical outputs such as governance recommendations, decision frameworks, succession roadmaps, family meeting agendas, multigenerational engagement plans, and philanthropy strategies\n• maintain momentum after meetings by clarifying decisions, ownership, and next steps, helping families move from intent to action\n• increase adoption of the UBS Optimus Foundation as a platform for high-impact philanthropy where relevant\n• act as a thought leader through client events and content\n• track and report advisor and client activity in line with UHNW Advisory requirements, helping expand advisory scope, retention, and wallet share\n• contribute to the ongoing development of Social Impact & Philanthropy offerings\n• connect teams and capabilities across UBS",
+      "it": "Are you looking for role guiding families of exceptional financial success on matters related to doing good with wealth for loved ones and the communities they care about? Reporting to the Head of Family Advisory & Philanthropy Services, U.S., you’ll operate within the UHNW coverage and advisory model as an extension of the Financial Advisor team. You’ll support clients across the full lifecycle, from early liquidity and succession planning through ongoing multigenerational stewardship.\nYou’ll be deployed selectively where family complexity, scale, and opportunity require deeper engagement, and where early involvement can shape long term outcomes for both clients and UBS.\nYou’ll also work as part of the global Social Impact & Philanthropy team, collaborating across regions and with colleagues in sustainability, impact investing, and social finance to build and scale solutions that advance the impact economy.\n\nAs a Senior Strategist you will:\n• partner with Financial Advisors to identify opportunities for family advisory and philanthropy conversations and engage spouses, rising generations, and future decision makers early\n• design and lead client engagements across governance, decision making, succession, leadership transition, next generation development, and family culture\n• translate discovery discussions into practical outputs such as governance recommendations, decision frameworks, succession roadmaps, family meeting agendas, multigenerational engagement plans, and philanthropy strategies\n• maintain momentum after meetings by clarifying decisions, ownership, and next steps, helping families move from intent to action\n• increase adoption of the UBS Optimus Foundation as a platform for high-impact philanthropy where relevant\n• act as a thought leader through client events and content\n• track and report advisor and client activity in line with UHNW Advisory requirements, helping expand advisory scope, retention, and wallet share\n• contribute to the ongoing development of Social Impact & Philanthropy offerings\n• connect teams and capabilities across UBS",
+      "de": "Are you looking for role guiding families of exceptional financial success on matters related to doing good with wealth for loved ones and the communities they care about? Reporting to the Head of Family Advisory & Philanthropy Services, U.S., you’ll operate within the UHNW coverage and advisory model as an extension of the Financial Advisor team. You’ll support clients across the full lifecycle, from early liquidity and succession planning through ongoing multigenerational stewardship.\nYou’ll be deployed selectively where family complexity, scale, and opportunity require deeper engagement, and where early involvement can shape long term outcomes for both clients and UBS.\nYou’ll also work as part of the global Social Impact & Philanthropy team, collaborating across regions and with colleagues in sustainability, impact investing, and social finance to build and scale solutions that advance the impact economy.\n\nAs a Senior Strategist you will:\n• partner with Financial Advisors to identify opportunities for family advisory and philanthropy conversations and engage spouses, rising generations, and future decision makers early\n• design and lead client engagements across governance, decision making, succession, leadership transition, next generation development, and family culture\n• translate discovery discussions into practical outputs such as governance recommendations, decision frameworks, succession roadmaps, family meeting agendas, multigenerational engagement plans, and philanthropy strategies\n• maintain momentum after meetings by clarifying decisions, ownership, and next steps, helping families move from intent to action\n• increase adoption of the UBS Optimus Foundation as a platform for high-impact philanthropy where relevant\n• act as a thought leader through client events and content\n• track and report advisor and client activity in line with UHNW Advisory requirements, helping expand advisory scope, retention, and wallet share\n• contribute to the ongoing development of Social Impact & Philanthropy offerings\n• connect teams and capabilities across UBS",
+      "fr": "Are you looking for role guiding families of exceptional financial success on matters related to doing good with wealth for loved ones and the communities they care about? Reporting to the Head of Family Advisory & Philanthropy Services, U.S., you’ll operate within the UHNW coverage and advisory model as an extension of the Financial Advisor team. You’ll support clients across the full lifecycle, from early liquidity and succession planning through ongoing multigenerational stewardship.\nYou’ll be deployed selectively where family complexity, scale, and opportunity require deeper engagement, and where early involvement can shape long term outcomes for both clients and UBS.\nYou’ll also work as part of the global Social Impact & Philanthropy team, collaborating across regions and with colleagues in sustainability, impact investing, and social finance to build and scale solutions that advance the impact economy.\n\nAs a Senior Strategist you will:\n• partner with Financial Advisors to identify opportunities for family advisory and philanthropy conversations and engage spouses, rising generations, and future decision makers early\n• design and lead client engagements across governance, decision making, succession, leadership transition, next generation development, and family culture\n• translate discovery discussions into practical outputs such as governance recommendations, decision frameworks, succession roadmaps, family meeting agendas, multigenerational engagement plans, and philanthropy strategies\n• maintain momentum after meetings by clarifying decisions, ownership, and next steps, helping families move from intent to action\n• increase adoption of the UBS Optimus Foundation as a platform for high-impact philanthropy where relevant\n• act as a thought leader through client events and content\n• track and report advisor and client activity in line with UHNW Advisory requirements, helping expand advisory scope, retention, and wallet share\n• contribute to the ongoing development of Social Impact & Philanthropy offerings\n• connect teams and capabilities across UBS"
+    },
+    "slugByLocale": {
+      "en": "senior-strategist-family-advisory-philanthropy-services-ubs",
+      "it": "senior-strategist-family-advisory-philanthropy-services-ubs",
+      "de": "senior-strategist-family-advisory-philanthropy-services-ubs",
+      "fr": "senior-strategist-family-advisory-philanthropy-services-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "head-of-media-relations-corporate-communications-americas-ubs",
+    "title": "Head of Media Relations – Corporate Communications, Americas",
+    "titleByLocale": {
+      "en": "Head of Media Relations – Corporate Communications, Americas",
+      "it": "Responsabile Media Relations – Corporate Communications, Americas",
+      "de": "Leiter Media Relations – Corporate Communications, Americas",
+      "fr": "Responsable Media Relations – Corporate Communications, Americas"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Corporate Communications is charged with elevating, protecting and amplifying the reputation of UBS among internal and external audiences. To that end, Corporate Communications strives to position UBS as one of the world’s leading financial services providers, recognized thought leader, responsible corporate citizen, as well as employer, business partner, vendor, and investment of choice. In addition, Corporate Communications informs employees on strategy, performance and execution, and drives employee engagement to support revenue growth of UBS business divisions. Corporate Communications programs are geared towards influencing UBS’s primary audiences.\n\nWe’re looking for somebody to:\n\n• develop and execute media strategy for UBS's Wealth Management Americas, Investment Bank and Asset Management businesses in the US, Canada and Latin America\n• oversee social media strategy and planning for UBS’s Americas social channels\n• build and foster strong relationships with members of the financial and industry trade press\n• counsel members of the Firm's Americas senior leadership team on messaging, reputational risk, issues and crisis media management\n• collaborate closely with colleagues in internal communications, investor relations, executive communications, community affairs, branding and business marketing to ensure consistency of messages to the Firm's external audiences\n• manage a high performing media relations and social media team and direct external agency resources",
+      "it": "Corporate Communications is charged with elevating, protecting and amplifying the reputation of UBS among internal and external audiences. To that end, Corporate Communications strives to position UBS as one of the world’s leading financial services providers, recognized thought leader, responsible corporate citizen, as well as employer, business partner, vendor, and investment of choice. In addition, Corporate Communications informs employees on strategy, performance and execution, and drives employee engagement to support revenue growth of UBS business divisions. Corporate Communications programs are geared towards influencing UBS’s primary audiences.\n\nWe’re looking for somebody to:\n\n• develop and execute media strategy for UBS's Wealth Management Americas, Investment Bank and Asset Management businesses in the US, Canada and Latin America\n• oversee social media strategy and planning for UBS’s Americas social channels\n• build and foster strong relationships with members of the financial and industry trade press\n• counsel members of the Firm's Americas senior leadership team on messaging, reputational risk, issues and crisis media management\n• collaborate closely with colleagues in internal communications, investor relations, executive communications, community affairs, branding and business marketing to ensure consistency of messages to the Firm's external audiences\n• manage a high performing media relations and social media team and direct external agency resources",
+      "de": "Corporate Communications is charged with elevating, protecting and amplifying the reputation of UBS among internal and external audiences. To that end, Corporate Communications strives to position UBS as one of the world’s leading financial services providers, recognized thought leader, responsible corporate citizen, as well as employer, business partner, vendor, and investment of choice. In addition, Corporate Communications informs employees on strategy, performance and execution, and drives employee engagement to support revenue growth of UBS business divisions. Corporate Communications programs are geared towards influencing UBS’s primary audiences.\n\nWe’re looking for somebody to:\n\n• develop and execute media strategy for UBS's Wealth Management Americas, Investment Bank and Asset Management businesses in the US, Canada and Latin America\n• oversee social media strategy and planning for UBS’s Americas social channels\n• build and foster strong relationships with members of the financial and industry trade press\n• counsel members of the Firm's Americas senior leadership team on messaging, reputational risk, issues and crisis media management\n• collaborate closely with colleagues in internal communications, investor relations, executive communications, community affairs, branding and business marketing to ensure consistency of messages to the Firm's external audiences\n• manage a high performing media relations and social media team and direct external agency resources",
+      "fr": "Corporate Communications is charged with elevating, protecting and amplifying the reputation of UBS among internal and external audiences. To that end, Corporate Communications strives to position UBS as one of the world’s leading financial services providers, recognized thought leader, responsible corporate citizen, as well as employer, business partner, vendor, and investment of choice. In addition, Corporate Communications informs employees on strategy, performance and execution, and drives employee engagement to support revenue growth of UBS business divisions. Corporate Communications programs are geared towards influencing UBS’s primary audiences.\n\nWe’re looking for somebody to:\n\n• develop and execute media strategy for UBS's Wealth Management Americas, Investment Bank and Asset Management businesses in the US, Canada and Latin America\n• oversee social media strategy and planning for UBS’s Americas social channels\n• build and foster strong relationships with members of the financial and industry trade press\n• counsel members of the Firm's Americas senior leadership team on messaging, reputational risk, issues and crisis media management\n• collaborate closely with colleagues in internal communications, investor relations, executive communications, community affairs, branding and business marketing to ensure consistency of messages to the Firm's external audiences\n• manage a high performing media relations and social media team and direct external agency resources"
+    },
+    "slugByLocale": {
+      "en": "head-of-media-relations-corporate-communications-americas-ubs",
+      "it": "head-of-media-relations-corporate-communications-americas-ubs",
+      "de": "head-of-media-relations-corporate-communications-americas-ubs",
+      "fr": "head-of-media-relations-corporate-communications-americas-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "salaryMin": 75500,
+    "salaryMax": 133000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "assistant-market-executive-ubs",
+    "title": "Assistant Market Executive",
+    "titleByLocale": {
+      "en": "Assistant Market Executive",
+      "fr": "Assistant Market Executive",
+      "it": "Assistant Market Executive",
+      "de": "Assistent Market Executive"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Do you have a proven ability to create a business development strategy? Are you an expert when it comes to implementing sales growth plans?\n\nWe’re looking for an Assistant Market Head to:\n\n• act as a deputy to the Market Head in the daily management of the Market\n• develop a structured coaching program for financial advisors, helping them identify and achieve their growth needs\n• run regular sales meetings, assist with implementing growth initiatives, evaluate progress and create action plans to address underperformance\n• when appropriate, manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n• assist with selecting, hiring and on-boarding of financial advisors and oversee conversion of those transitioning\n• serve as financial advisor to personal clients while managing market responsibilities",
+      "it": "Do you have a proven ability to create a business development strategy? Are you an expert when it comes to implementing sales growth plans?\n\nWe’re looking for an Assistant Market Head to:\n\n• act as a deputy to the Market Head in the daily management of the Market\n• develop a structured coaching program for financial advisors, helping them identify and achieve their growth needs\n• run regular sales meetings, assist with implementing growth initiatives, evaluate progress and create action plans to address underperformance\n• when appropriate, manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n• assist with selecting, hiring and on-boarding of financial advisors and oversee conversion of those transitioning\n• serve as financial advisor to personal clients while managing market responsibilities",
+      "de": "Do you have a proven ability to create a business development strategy? Are you an expert when it comes to implementing sales growth plans?\n\nWe’re looking for an Assistant Market Head to:\n\n• act as a deputy to the Market Head in the daily management of the Market\n• develop a structured coaching program for financial advisors, helping them identify and achieve their growth needs\n• run regular sales meetings, assist with implementing growth initiatives, evaluate progress and create action plans to address underperformance\n• when appropriate, manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n• assist with selecting, hiring and on-boarding of financial advisors and oversee conversion of those transitioning\n• serve as financial advisor to personal clients while managing market responsibilities",
+      "fr": "Do you have a proven ability to create a business development strategy? Are you an expert when it comes to implementing sales growth plans?\n\nWe’re looking for an Assistant Market Head to:\n\n• act as a deputy to the Market Head in the daily management of the Market\n• develop a structured coaching program for financial advisors, helping them identify and achieve their growth needs\n• run regular sales meetings, assist with implementing growth initiatives, evaluate progress and create action plans to address underperformance\n• when appropriate, manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n• assist with selecting, hiring and on-boarding of financial advisors and oversee conversion of those transitioning\n• serve as financial advisor to personal clients while managing market responsibilities"
+    },
+    "slugByLocale": {
+      "en": "assistant-market-executive-ubs",
+      "it": "assistant-market-executive-ubs",
+      "de": "assistant-market-executive-ubs",
+      "fr": "assistant-market-executive-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "salaryMin": 51500,
+    "salaryMax": 88000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-onboarding-specialist-ubs",
+    "title": "Client Onboarding Specialist",
+    "titleByLocale": {
+      "en": "Client Onboarding Specialist",
+      "it": "Client Onboarding Specialista",
+      "de": "Client Onboarding Spezialist",
+      "fr": "Client Onboarding Spécialiste"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you a detail-oriented problem solver who thrives in a fast-paced, client-focused environment?\nAs a Client Onboarding Specialist, you will support Global Banking by executing the client onboarding process for clients involved in capital markets and corporate financing transactions. This includes completing the required Know Your Customer (KYC), regulatory, and tax onboarding requirements, and working with clients and internal stakeholders to gather, review, and validate the necessary information. Your work ensures clients are fully onboarded into our platform ahead of deal execution, and that all AML and regulatory obligations are satisfied in a timely and compliant manner.\nYour day-to-day responsibilities will include:\n• Owning the end-to-end request intake process – monitoring the shared inbox, triaging new onboarding requests, and conducting open-source research on clients and transactions to determine onboarding requirements\n• Conducting initial outreach to client counsel and internal business stakeholders to gather required documentation and information\n• Maintaining accurate and up-to-date client and transaction records in the case workflow tool to ensure full pipeline visibility and organized case tracking\n• Coordinating with client counsel and internal Global Banking deal teams throughout the onboarding lifecycle to obtain outstanding documentation and drive cases to completion\n• Keeping cases current in the workflow tool as they progress, reflecting changes to deal timelines, outreach status, and case stage to support accurate reporting and team awareness\n• Proactively communicating with deal teams to align on transaction scope or timeline changes, providing clear and timely onboarding progress updates\n• Performing screening on clients and related parties, reviewing adverse media, and escalating matters to Financial Crime Prevention when required\n• Preparing complete onboarding files, addressing feedback from the Quality Assurance team, and ensuring all documentation and data capture meet internal standards\n• Acting as a single point of contact for the deal teams to ensure the client onboarding process is completed ahead of transaction timelines",
+      "it": "Are you a detail-oriented problem solver who thrives in a fast-paced, client-focused environment?\nAs a Client Onboarding Specialist, you will support Global Banking by executing the client onboarding process for clients involved in capital markets and corporate financing transactions. This includes completing the required Know Your Customer (KYC), regulatory, and tax onboarding requirements, and working with clients and internal stakeholders to gather, review, and validate the necessary information. Your work ensures clients are fully onboarded into our platform ahead of deal execution, and that all AML and regulatory obligations are satisfied in a timely and compliant manner.\nYour day-to-day responsibilities will include:\n• Owning the end-to-end request intake process – monitoring the shared inbox, triaging new onboarding requests, and conducting open-source research on clients and transactions to determine onboarding requirements\n• Conducting initial outreach to client counsel and internal business stakeholders to gather required documentation and information\n• Maintaining accurate and up-to-date client and transaction records in the case workflow tool to ensure full pipeline visibility and organized case tracking\n• Coordinating with client counsel and internal Global Banking deal teams throughout the onboarding lifecycle to obtain outstanding documentation and drive cases to completion\n• Keeping cases current in the workflow tool as they progress, reflecting changes to deal timelines, outreach status, and case stage to support accurate reporting and team awareness\n• Proactively communicating with deal teams to align on transaction scope or timeline changes, providing clear and timely onboarding progress updates\n• Performing screening on clients and related parties, reviewing adverse media, and escalating matters to Financial Crime Prevention when required\n• Preparing complete onboarding files, addressing feedback from the Quality Assurance team, and ensuring all documentation and data capture meet internal standards\n• Acting as a single point of contact for the deal teams to ensure the client onboarding process is completed ahead of transaction timelines",
+      "de": "Are you a detail-oriented problem solver who thrives in a fast-paced, client-focused environment?\nAs a Client Onboarding Specialist, you will support Global Banking by executing the client onboarding process for clients involved in capital markets and corporate financing transactions. This includes completing the required Know Your Customer (KYC), regulatory, and tax onboarding requirements, and working with clients and internal stakeholders to gather, review, and validate the necessary information. Your work ensures clients are fully onboarded into our platform ahead of deal execution, and that all AML and regulatory obligations are satisfied in a timely and compliant manner.\nYour day-to-day responsibilities will include:\n• Owning the end-to-end request intake process – monitoring the shared inbox, triaging new onboarding requests, and conducting open-source research on clients and transactions to determine onboarding requirements\n• Conducting initial outreach to client counsel and internal business stakeholders to gather required documentation and information\n• Maintaining accurate and up-to-date client and transaction records in the case workflow tool to ensure full pipeline visibility and organized case tracking\n• Coordinating with client counsel and internal Global Banking deal teams throughout the onboarding lifecycle to obtain outstanding documentation and drive cases to completion\n• Keeping cases current in the workflow tool as they progress, reflecting changes to deal timelines, outreach status, and case stage to support accurate reporting and team awareness\n• Proactively communicating with deal teams to align on transaction scope or timeline changes, providing clear and timely onboarding progress updates\n• Performing screening on clients and related parties, reviewing adverse media, and escalating matters to Financial Crime Prevention when required\n• Preparing complete onboarding files, addressing feedback from the Quality Assurance team, and ensuring all documentation and data capture meet internal standards\n• Acting as a single point of contact for the deal teams to ensure the client onboarding process is completed ahead of transaction timelines",
+      "fr": "Are you a detail-oriented problem solver who thrives in a fast-paced, client-focused environment?\nAs a Client Onboarding Specialist, you will support Global Banking by executing the client onboarding process for clients involved in capital markets and corporate financing transactions. This includes completing the required Know Your Customer (KYC), regulatory, and tax onboarding requirements, and working with clients and internal stakeholders to gather, review, and validate the necessary information. Your work ensures clients are fully onboarded into our platform ahead of deal execution, and that all AML and regulatory obligations are satisfied in a timely and compliant manner.\nYour day-to-day responsibilities will include:\n• Owning the end-to-end request intake process – monitoring the shared inbox, triaging new onboarding requests, and conducting open-source research on clients and transactions to determine onboarding requirements\n• Conducting initial outreach to client counsel and internal business stakeholders to gather required documentation and information\n• Maintaining accurate and up-to-date client and transaction records in the case workflow tool to ensure full pipeline visibility and organized case tracking\n• Coordinating with client counsel and internal Global Banking deal teams throughout the onboarding lifecycle to obtain outstanding documentation and drive cases to completion\n• Keeping cases current in the workflow tool as they progress, reflecting changes to deal timelines, outreach status, and case stage to support accurate reporting and team awareness\n• Proactively communicating with deal teams to align on transaction scope or timeline changes, providing clear and timely onboarding progress updates\n• Performing screening on clients and related parties, reviewing adverse media, and escalating matters to Financial Crime Prevention when required\n• Preparing complete onboarding files, addressing feedback from the Quality Assurance team, and ensuring all documentation and data capture meet internal standards\n• Acting as a single point of contact for the deal teams to ensure the client onboarding process is completed ahead of transaction timelines"
+    },
+    "slugByLocale": {
+      "en": "client-onboarding-specialist-ubs",
+      "it": "client-onboarding-specialist-ubs",
+      "de": "client-onboarding-specialist-ubs",
+      "fr": "client-onboarding-specialist-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "reporting-and-automation-analista-ubs",
+    "title": "Reporting and Automation Analyst",
+    "titleByLocale": {
+      "it": "Reporting and Automation Analista",
+      "en": "Reporting and Automation Analyst",
+      "de": "Reporting und Automation Analyst",
+      "fr": "Analyste des rapports et de l'automatisation"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Sei appassionato di dati? Stai cercando di guidare i prodotti chiave e le iniziative regolamentari attraverso i prodotti bancari come SBL, Mortgages, Carte e Depositi? Stiamo cercando qualcuno come quello che analizzerà i dati del prodotto, del consulente finanziario e del cliente, supporterà lo sviluppo del prodotto, le iniziative di generazione di ricavi del supporto e lavorerà molto a stretto contatto con i partner di gestione del prodotto, controllo e supporto. Competenze e responsabilità chiave includono:\n• Sviluppare informazioni aziendali basate sui dati e analisi per guidare la crescita all'interno di Banking\n• Collaboratore chiave per iniziative strategiche e parte di un team che si occupa di iniziative di sviluppo aziendale\n• Fornire informazioni e segmentazione sfruttando vari dati interni ed esterni per aumentare la quota di mercato dei prodotti e servizi bancari e sostenere il processo decisionale strategico bancario\n• Utilizzare le PMI del prodotto/finanziario per dimostrare attraverso la segnalazione e l'analisi di come l'area del prodotto guida la redditività e il lavoro per sviluppare strategie per migliorare i ricavi\n• Sviluppare e assistere varie iniziative di reporting e analisi dei dati sulle iniziative bancarie\n• Assumere un ruolo di proprietà nelle capacità dei dati di prodotto e lavorare all'interno del team e con i partner per garantire un buon governance dei dati e dei framework di sviluppo\n• Analizzare problemi aziendali complessi e problemi utilizzando dati provenienti da fonti interne ed esterne per fornire informazioni ai decisori\n• Identificare e interpretare tendenze e modelli in dataset per costruire raccomandazioni per piani strategici/tattici di vendita",
+      "en": "Are you passionate about data? Are you looking to drive key product and regulatory initiatives across banking products such as SBL, Mortgages, Cards and Deposits? We are looking for someone like that who will analyze product, Financial Advisor and client data, support product development, drive/support revenue-generating initiatives and work very closely with product management, control and support partners. Key competencies and responsibilities include:\n• Develop data-driven business insights and analytics to drive growth within Banking\n• Key contributor to strategic initiatives and part of a team that works on business growth development initiatives\n• Deliver insights and segmentation by leveraging various internal and external data to grow market share of banking products and services and support strategic banking decision making\n• Use product/financial SME to demonstrate through reporting and analyses how the product area drives profitability and work to develop strategies to enhance revenues\n• Develop and assist in various reporting initiatives and data analytics on banking initiatives\n• Take an ownership role in product data capabilities and work within the team and with partners to ensure sound data governance and development frameworks\n• Analyze complex business problems and issues using data from internal and external sources to provide insight to decision-makers\n• Identify and interpret trends and patterns in datasets to construct recommendations for strategic/tactical sales plans",
+      "de": "Sie interessieren sich für Daten? Möchten Sie wichtige Produkt- und Regulierungsinitiativen für Bankprodukte wie SBL, Hypotheken, Karten und Einlagen vorantreiben? Wir suchen jemanden wie diesen, der Produkt-, Finanzberater- und Kundendaten analysiert, die Produktentwicklung unterstützt, Einnahmen generierende Initiativen vorantreibt und sehr eng mit Produktmanagement-, Kontroll- und Supportpartnern zusammenarbeitet. Zu den wichtigsten Kompetenzen und Verantwortlichkeiten gehören:\n• Entwicklung datengesteuerter Business Insights und Analysen, um das Wachstum im Banking voranzutreiben\n• Wichtiger Beitrag zu strategischen Initiativen und Teil eines Teams, das an Initiativen zur Entwicklung des Geschäftswachstums arbeitet\n• Bereitstellung von Erkenntnissen und Segmentierungen durch die Nutzung verschiedener interner und externer Daten, um den Marktanteil von Bankprodukten und -dienstleistungen zu erhöhen und die strategische Entscheidungsfindung im Bankwesen zu unterstützen\n• Verwenden Sie Produkt- / Finanz-KMU, um durch Reporting und Analysen zu demonstrieren, wie der Produktbereich die Rentabilität antreibt, und arbeiten Sie daran, Strategien zur Umsatzsteigerung zu entwickeln\n• Entwicklung und Unterstützung bei verschiedenen Berichtsinitiativen und Datenanalysen zu Bankinitiativen\n• Übernehmen Sie eine Eigenverantwortung bei den Produktdatenfunktionen und arbeiten Sie im Team und mit Partnern, um eine solide Datenverwaltung und -entwicklung zu gewährleisten\n• Analysieren Sie komplexe Geschäftsprobleme und Probleme mithilfe von Daten aus internen und externen Quellen, um Entscheidungsträgern einen Einblick zu geben\n• Identifizieren und interpretieren Sie Trends und Muster in Datensätzen, um Empfehlungen für strategische / taktische Verkaufspläne zu erstellen",
+      "fr": "Êtes-vous passionné par les données? Cherchez-vous à piloter des initiatives clés en matière de produits et de réglementation à travers des produits bancaires comme les SBL, les hypothèques, les cartes et les dépôts? Nous sommes à la recherche d'une personne comme celle-ci qui analysera les produits, les données des conseillers financiers et des clients, soutiendra le développement des produits, animera/appuiera des initiatives génératrices de revenus et travaillera en étroite collaboration avec les partenaires de gestion, de contrôle et de soutien des produits. Les principales compétences et responsabilités comprennent :\n• Développer des perspectives d'affaires et des analyses axées sur les données pour stimuler la croissance au sein des banques\n• Contribution essentielle aux initiatives stratégiques et à une équipe qui travaille sur les initiatives de développement des entreprises\n• Fournir des informations et une segmentation en tirant parti de diverses données internes et externes pour accroître la part de marché des produits et services bancaires et soutenir la prise de décisions stratégiques dans le domaine bancaire\n• Utiliser les PME de produits/financières pour démontrer par des rapports et des analyses comment le secteur de produits stimule la rentabilité et travaille à l'élaboration de stratégies visant à accroître les recettes\n• Élaborer et appuyer diverses initiatives de communication de l'information et d'analyse des données sur les initiatives bancaires;\n• Prendre en charge les capacités de données sur les produits et travailler au sein de l'équipe et avec les partenaires pour garantir une bonne gouvernance des données et des cadres de développement\n• Analyser les problèmes complexes et les problèmes d'affaires à l'aide de données provenant de sources internes et externes afin de fournir des informations aux décideurs\n• Identifier et interpréter les tendances et les tendances des ensembles de données pour formuler des recommandations concernant les plans stratégiques et tactiques de vente"
+    },
+    "slugByLocale": {
+      "it": "reporting-and-automation-analista-ubs",
+      "en": "reporting-and-automation-analyst-ubs",
+      "de": "reporting-und-automation-analyst-ubs",
+      "fr": "reporting-and-automation-analyste-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "previousSlugs": [
+      "reporting-and-automation-analyst-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "reporting-and-automation-analyst-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "fx-options-e-trading-quant-sviluppatore-ubs",
+    "title": "FX Options E-Trading Quant Developer",
+    "titleByLocale": {
+      "it": "FX Options E-Trading Quant Sviluppatore",
+      "en": "FX Options E-Trading Quant Developer",
+      "de": "FX Options E-Trading Quant Entwickler",
+      "fr": "FX Options E-Trading Quant Développeur"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you an experienced Quantitative Developer? Do you enjoy innovative thinking? We are seeking someone to join our FX Options Quantitative Development team within UBS Global Markets.\n• design and deliver next-generation algorithmic trading solutions within the FX Options e-trading environment\n• contribute directly to the Principal E-Trading business (covering FX, Precious Metals, Rates, Credit and Equities), building scalable and impactful trading functionality\n• work as part of a high-performing quantitative development team, closely aligned with front-office business objectives\n• develop and enhance systems that support electronic market making, with a strong focus on performance and reliability\n• take ownership across the full software development lifecycle, from analysis and design through to implementation and production support\n• collaborate closely with traders, quantitative analysts and global technology teams to deliver innovative trading capabilities\n• drive improvements that have a measurable impact on revenue generation and business growth",
+      "en": "Are you an experienced Quantitative Developer? Do you enjoy innovative thinking? We are seeking someone to join our FX Options Quantitative Development team within UBS Global Markets.\n• design and deliver next-generation algorithmic trading solutions within the FX Options e-trading environment\n• contribute directly to the Principal E-Trading business (covering FX, Precious Metals, Rates, Credit and Equities), building scalable and impactful trading functionality\n• work as part of a high-performing quantitative development team, closely aligned with front-office business objectives\n• develop and enhance systems that support electronic market making, with a strong focus on performance and reliability\n• take ownership across the full software development lifecycle, from analysis and design through to implementation and production support\n• collaborate closely with traders, quantitative analysts and global technology teams to deliver innovative trading capabilities\n• drive improvements that have a measurable impact on revenue generation and business growth",
+      "de": "Are you an experienced Quantitative Developer? Do you enjoy innovative thinking? We are seeking someone to join our FX Options Quantitative Development team within UBS Global Markets.\n• design and deliver next-generation algorithmic trading solutions within the FX Options e-trading environment\n• contribute directly to the Principal E-Trading business (covering FX, Precious Metals, Rates, Credit and Equities), building scalable and impactful trading functionality\n• work as part of a high-performing quantitative development team, closely aligned with front-office business objectives\n• develop and enhance systems that support electronic market making, with a strong focus on performance and reliability\n• take ownership across the full software development lifecycle, from analysis and design through to implementation and production support\n• collaborate closely with traders, quantitative analysts and global technology teams to deliver innovative trading capabilities\n• drive improvements that have a measurable impact on revenue generation and business growth",
+      "fr": "Are you an experienced Quantitative Developer? Do you enjoy innovative thinking? We are seeking someone to join our FX Options Quantitative Development team within UBS Global Markets.\n• design and deliver next-generation algorithmic trading solutions within the FX Options e-trading environment\n• contribute directly to the Principal E-Trading business (covering FX, Precious Metals, Rates, Credit and Equities), building scalable and impactful trading functionality\n• work as part of a high-performing quantitative development team, closely aligned with front-office business objectives\n• develop and enhance systems that support electronic market making, with a strong focus on performance and reliability\n• take ownership across the full software development lifecycle, from analysis and design through to implementation and production support\n• collaborate closely with traders, quantitative analysts and global technology teams to deliver innovative trading capabilities\n• drive improvements that have a measurable impact on revenue generation and business growth"
+    },
+    "slugByLocale": {
+      "it": "fx-options-e-trading-quant-sviluppatore-ubs",
+      "en": "fx-options-e-trading-quant-developer-ubs",
+      "de": "fx-options-e-trading-quant-entwickler-ubs",
+      "fr": "fx-options-e-trading-quant-developpeur-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "previousSlugs": [
+      "fx-options-e-trading-quant-developer-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fx-options-e-trading-quant-developer-ubs"
+      ],
+      "de": [
+        "fx-options-e-trading-quant-developer-ubs"
+      ],
+      "fr": [
+        "fx-options-e-trading-quant-developer-ubs"
+      ]
+    },
+    "salaryMin": 51500,
+    "salaryMax": 88000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "private-markets-specialista-ubs-ticino",
+    "title": "Private Markets Specialist",
+    "titleByLocale": {
+      "it": "Private Markets Specialista",
+      "en": "Private Markets Specialist",
+      "de": "Spezialist für Privatmärkte",
+      "fr": "Spécialiste des marchés privés"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Sei una persona del popolo? Sapete come diffondere il vostro entusiasmo sui mercati privati ad altri? Stiamo cercando qualcuno che possa aiutarci a:\n• concentrarsi sulla distribuzione dei mercati privati nella UBS Unified Global Alternatives (UGA) che copre la gestione della ricchezza nel sud-est asiatico\n• consigliare i clienti di Wealth Management sull'offerta di prodotti Private Markets e l'allocazione di Private Markets nei loro portafogli\n• impegnarsi direttamente con i clienti in collaborazione con i consulenti dei clienti per discutere e implementare la strategia preferita dei clienti in Private Markets\n• fornire servizio post-vendita per i clienti con gli investimenti Private Markets e preparare le recensioni dei clienti\n• guidare il business dei mercati privati e contribuire a sviluppare l'offerta di prodotti\n• lavorare a stretto contatto con il team Global Private Markets per sfruttare le capacità complete",
+      "en": "Are you a people person? Do you know how to spread your enthusiasm about Private Markets to others? We are looking for someone who can help us to:\n• focus on Private Markets distribution in the UBS Unified Global Alternatives (UGA) business covering Wealth Management in Southeast Asia\n• advise Wealth Management clients on the Private Markets product offering and the Private Markets allocation in their portfolios\n• directly engage with clients in collaboration with client advisors to discuss and implement the clients' preferred strategy in Private Markets\n• provide after-sales service for clients with Private Markets investments and prepare client reviews\n• drive the Private Markets business and contribute ideas to developing the product offering\n• work closely with the Global Private Markets team to leverage full capabilities",
+      "de": "Bist du ein Mensch? Wissen Sie, wie Sie Ihre Begeisterung für private Märkte auf andere übertragen können? Wir suchen jemanden, der uns helfen kann:\n• Fokus auf den Vertrieb von Privatmärkten im UBS Unified Global Alternatives (UGA)-Geschäft, das Wealth Management in Südostasien abdeckt\n• Wealth Management-Kunden beim Private Markets Produktangebot und der Private Markets Allokation in ihren Portfolios zu beraten\n• direkte Zusammenarbeit mit Kunden in Zusammenarbeit mit Kundenberatern, um die bevorzugte Strategie der Kunden in privaten Märkten zu diskutieren und umzusetzen\n• After-Sales-Service für Kunden mit Private Markets-Investitionen und Vorbereitung von Kundenbewertungen\n• das Private Markets-Geschäft vorantreiben und Ideen zur Entwicklung des Produktangebots beitragen\n• Eng mit dem Global Private Markets Team zusammenarbeiten, um die vollen Fähigkeiten zu nutzen",
+      "fr": "Êtes-vous une personne ? Savez-vous comment répandre votre enthousiasme à l'égard des marchés privés? Nous cherchons quelqu'un qui peut nous aider à :\n• mettre l'accent sur la distribution des marchés privés dans l'entreprise UBS Unified Global Alternatives (UGA) couvrant la gestion de patrimoine en Asie du Sud-Est\n• conseiller les clients de Gestion de patrimoine sur l'offre de produits Marchés Privés et la répartition des Marchés Privés dans leurs portefeuilles\n• collaborer directement avec les clients en collaboration avec les conseillers clients pour discuter et mettre en oeuvre la stratégie préférée des clients dans les marchés privés\n• fournir un service après-vente aux clients avec des investissements sur les marchés privés et préparer des avis clients\n• stimuler l'activité Marchés privés et contribuer à développer l'offre de produits\n• travailler en étroite collaboration avec l'équipe des marchés privés mondiaux pour tirer parti de toutes les capacités"
+    },
+    "slugByLocale": {
+      "it": "private-markets-specialista-ubs-ticino",
+      "en": "private-markets-specialist-ubs",
+      "de": "spezialist-fur-privatmarkte-ubs-ticino",
+      "fr": "specialiste-des-marches-prives-ubs-ticino"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.225Z",
+    "previousSlugs": [
+      "private-markets-specialist-ubs",
+      "specialista-dei-mercati-privati-ubs-ticino"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "private-markets-specialist-ubs",
+        "specialista-dei-mercati-privati-ubs-ticino"
+      ],
+      "de": [
+        "private-markets-specialist-ubs"
+      ],
+      "fr": [
+        "private-markets-specialist-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "registered-client-associate-ubs",
+    "title": "Registered Client Associate",
+    "titleByLocale": {
+      "it": "Registered Client Associate",
+      "en": "Registered Client Associate",
+      "de": "Registered Client Associate",
+      "fr": "Registered Client Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Registered Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "en": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Registered Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "de": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Registered Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "fr": "Are you truly service oriented? Do you know how to take care of people? We’re looking for a Registered Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
+    },
+    "slugByLocale": {
+      "it": "registered-client-associate-ubs",
+      "en": "registered-client-associate-ubs",
+      "de": "registered-client-associate-ubs",
+      "fr": "registered-client-associate-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-consulente-kazakhstan-ubs",
+    "title": "Client Advisor - Kazakhstan",
+    "titleByLocale": {
+      "it": "Client Consulente - Kazakhstan",
+      "en": "Client Advisor - Kazakhstan",
+      "de": "Client Berater - Kazakhstan",
+      "fr": "Client Conseiller - Kazakhstan"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Are you a passionate relationship manager who delivers an exceptional client experience? Are you a proven risk manager? We’re looking for a Client Advisor, in Doha, Qatar, covering Kazakhstan clients.\n• build, establish and grow your client relationships within the HWN/UHNW segment\n• extensive networker, proven acquisition talent and passionate knowledge of the HWN /UHNW field\n• provide trusted advice to clients in collaboration with colleagues in investment products and solutions teams.\n• extensive network in order to facilitate the acquisition of new HWN/UHNW clients\n• have a plan to develop the client book with measurable outcomes\n• experience in relationship management, asset gathering and investments, ideally 2-5+ years working in a client-facing role\n• firm grasp of financial markets and regulatory frameworks\n• ability to build strong client networks, with an entrepreneurial mind-set\n• resilient team player and truly service oriented\n• aptitude for digitization and technology\n• keep accurate and up-to-date records\n• comply with all regulations, policies and standards to be in line with our risk management culture",
+      "en": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Are you a passionate relationship manager who delivers an exceptional client experience? Are you a proven risk manager? We’re looking for a Client Advisor, in Doha, Qatar, covering Kazakhstan clients.\n• build, establish and grow your client relationships within the HWN/UHNW segment\n• extensive networker, proven acquisition talent and passionate knowledge of the HWN /UHNW field\n• provide trusted advice to clients in collaboration with colleagues in investment products and solutions teams.\n• extensive network in order to facilitate the acquisition of new HWN/UHNW clients\n• have a plan to develop the client book with measurable outcomes\n• experience in relationship management, asset gathering and investments, ideally 2-5+ years working in a client-facing role\n• firm grasp of financial markets and regulatory frameworks\n• ability to build strong client networks, with an entrepreneurial mind-set\n• resilient team player and truly service oriented\n• aptitude for digitization and technology\n• keep accurate and up-to-date records\n• comply with all regulations, policies and standards to be in line with our risk management culture",
+      "de": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Are you a passionate relationship manager who delivers an exceptional client experience? Are you a proven risk manager? We’re looking for a Client Advisor, in Doha, Qatar, covering Kazakhstan clients.\n• build, establish and grow your client relationships within the HWN/UHNW segment\n• extensive networker, proven acquisition talent and passionate knowledge of the HWN /UHNW field\n• provide trusted advice to clients in collaboration with colleagues in investment products and solutions teams.\n• extensive network in order to facilitate the acquisition of new HWN/UHNW clients\n• have a plan to develop the client book with measurable outcomes\n• experience in relationship management, asset gathering and investments, ideally 2-5+ years working in a client-facing role\n• firm grasp of financial markets and regulatory frameworks\n• ability to build strong client networks, with an entrepreneurial mind-set\n• resilient team player and truly service oriented\n• aptitude for digitization and technology\n• keep accurate and up-to-date records\n• comply with all regulations, policies and standards to be in line with our risk management culture",
+      "fr": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Are you a passionate relationship manager who delivers an exceptional client experience? Are you a proven risk manager? We’re looking for a Client Advisor, in Doha, Qatar, covering Kazakhstan clients.\n• build, establish and grow your client relationships within the HWN/UHNW segment\n• extensive networker, proven acquisition talent and passionate knowledge of the HWN /UHNW field\n• provide trusted advice to clients in collaboration with colleagues in investment products and solutions teams.\n• extensive network in order to facilitate the acquisition of new HWN/UHNW clients\n• have a plan to develop the client book with measurable outcomes\n• experience in relationship management, asset gathering and investments, ideally 2-5+ years working in a client-facing role\n• firm grasp of financial markets and regulatory frameworks\n• ability to build strong client networks, with an entrepreneurial mind-set\n• resilient team player and truly service oriented\n• aptitude for digitization and technology\n• keep accurate and up-to-date records\n• comply with all regulations, policies and standards to be in line with our risk management culture"
+    },
+    "slugByLocale": {
+      "it": "client-consulente-kazakhstan-ubs",
+      "en": "client-advisor-kazakhstan-ubs",
+      "de": "client-berater-kazakhstan-ubs",
+      "fr": "client-conseiller-kazakhstan-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "previousSlugs": [
+      "client-advisor-kazakhstan-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "client-advisor-kazakhstan-ubs"
+      ],
+      "de": [
+        "client-advisor-kazakhstan-ubs"
+      ],
+      "fr": [
+        "client-advisor-kazakhstan-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "programma-associato-client-advisor-wm-stoccarda-f-m-d-ubs-ticino",
+    "title": "Associate Program - Client Advisor WM - Stuttgart (f/m/d)",
+    "titleByLocale": {
+      "it": "Associate Program - Client Consulente WM - Stuttgart (f/m/d)",
+      "en": "Associate Program - Client Advisor WM - Stuttgart (f/m/d)",
+      "de": "Associate Program - Client Berater WM - Stuttgart (f/m/d)",
+      "fr": "Programme associé - Conseiller client WM - Stuttgart (f/m/j)"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Sei un vero networker che ama parlare con potenziali clienti? Puoi anche chiudere un accordo? Hai un forte record di consulenza e vendita? Se sì; il nostro 18 mesi Wealth Management Associate Program estende le vostre competenze, fornisce un'esperienza unica in Wealth Management e stabilisce una piattaforma per lo sviluppo di carriera accelerato in un ruolo di cliente. Parallela formazione off-the-job vi fornirà le conoscenze specifiche aziendali, ma l'obiettivo principale è on-the-job, lo sviluppo del vostro libro dei clienti. Al completamento del programma di successo, sarete dotati della base necessaria per intraprendere una carriera gratificante con UBS Wealth Management in una delle nostre sedi globali. Stiamo cercando qualcuno che possa:\n• svilupparsi per diventare un responsabile di relazioni di successo attraverso il nostro programma di formazione; raggiungere (o preferibilmente superando) sia gli obiettivi finanziari che educativi fissati nel programma\n• costruire un libro cliente dalla propria rete esistente di individui ricchi in Germania\n• stabilire rapporti reciprocamente vantaggiosi a lungo termine con i clienti\n• coltivare continuamente la rete tramite i referral e individuando nuove prospettive",
+      "en": "Are you a true networker who loves to talk to potential clients? Can you also close a deal? Do you have a strong track record in advising and sales? If yes; our 18 months Wealth Management Associate Program extends your skills, provides a unique experience in Wealth Management and establishes a platform for accelerated career development in a client facing role. Parallel off-the-job education will provide you with the business specific knowledge, but the main focus is on-the-job, developing your book of clients. Upon successful completion of the program, you will be equipped with the necessary foundation to embark upon a rewarding career with UBS Wealth Management in one of our global locations. We’re looking for someone who can:\n• develop to become a successful Relationship Manager through our training program; reaching (or preferably exceeding) both the financial and educational targets set within the program\n• build up a client book from your own existing network of wealthy individuals in Germany\n• establish long-term mutually beneficial relationships with clients\n• continuously grow your network by referrals and by identifying new prospects",
+      "de": "Sind Sie ein echter Netzwerker, der gerne mit potenziellen Kunden spricht? Können Sie auch einen Deal abschließen? Haben Sie eine starke Erfolgsbilanz in der Beratung und im Verkauf? Wenn ja, erweitert unser 18-monatiges Wealth Management Associate Program Ihre Fähigkeiten, bietet eine einzigartige Erfahrung im Wealth Management und schafft eine Plattform für eine beschleunigte Karriereentwicklung in einer Kundenrolle. Parallele Off-the-Job-Ausbildung wird Ihnen das unternehmensspezifische Wissen vermitteln, aber der Schwerpunkt liegt auf dem Job und der Entwicklung Ihres Kundenbuchs. Nach erfolgreichem Abschluss des Programms werden Sie mit der notwendigen Grundlage ausgestattet, um eine lohnende Karriere bei UBS Wealth Management an einem unserer globalen Standorte zu beginnen. Wir suchen jemanden, der kann:\n• Entwickeln Sie sich durch unser Trainingsprogramm zu einem erfolgreichen Relationship Manager; Erreichen (oder vorzugsweise Übertreffen) sowohl der finanziellen als auch der Bildungsziele, die innerhalb des Programms festgelegt wurden\n• Bauen Sie ein Kundenbuch aus Ihrem eigenen bestehenden Netzwerk wohlhabender Personen in Deutschland auf\n• langfristige für beide Seiten vorteilhafte Beziehungen zu Kunden aufzubauen\n• Wachsen Sie Ihr Netzwerk kontinuierlich durch Empfehlungen und durch die Identifizierung neuer Perspektiven",
+      "fr": "Êtes-vous un vrai réseauteur qui aime parler à des clients potentiels? Tu peux aussi conclure un marché ? Avez-vous de solides antécédents en conseil et en vente? Si oui, notre programme associé de gestion de patrimoine de 18 mois étend vos compétences, offre une expérience unique en gestion de patrimoine et établit une plateforme pour accélérer le perfectionnement professionnel dans un rôle de client. En parallèle, l'éducation hors emploi vous fournira les connaissances spécifiques à l'entreprise, mais l'accent est mis sur le travail, développant votre livre de clients. Une fois le programme mené à bien, vous serez doté des bases nécessaires pour entreprendre une carrière enrichissante avec UBS Wealth Management dans l'un de nos sites mondiaux. Nous cherchons quelqu'un qui peut:\n• se développer pour devenir un gestionnaire de relations réussi grâce à notre programme de formation; atteindre (ou de préférence dépasser) les objectifs financiers et éducatifs fixés dans le programme\n• construire un livre client à partir de votre propre réseau existant de personnes riches en Allemagne\n• établir des relations mutuellement avantageuses à long terme avec les clients;\n• développer continuellement votre réseau par des références et en identifiant de nouvelles perspectives"
+    },
+    "slugByLocale": {
+      "it": "programma-associato-client-advisor-wm-stoccarda-f-m-d-ubs-ticino",
+      "en": "associate-program-client-advisor-wm-stuttgart-f-m-d-ubs",
+      "de": "associate-program-client-advisor-wm-stuttgart-f-m-d-ubs",
+      "fr": "programme-associe-conseiller-client-wm-stuttgart-f-m-j-ubs-ticino"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "previousSlugs": [
+      "associate-program-client-advisor-wm-stuttgart-f-m-d-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "associate-program-client-advisor-wm-stuttgart-f-m-d-ubs"
+      ],
+      "fr": [
+        "associate-program-client-advisor-wm-stuttgart-f-m-d-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-account-manager-international-clients-ubs",
+    "title": "Client Account Manager - International Clients",
+    "titleByLocale": {
+      "it": "Client Account Manager - International Clients",
+      "en": "Client Account Manager - International Clients",
+      "de": "Client Account Manager - International Clients",
+      "fr": "Client Account Manager - International Clients"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings",
+      "en": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings",
+      "de": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings",
+      "fr": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? Do you want to proactively go the extra mile with us to help our sophisticated clients? Are you curious, proactive and always striving to bring positive impact to clients? We’re looking for someone to:\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client service and experience\n• support client advisors in administrative, risk and legal and compliance related tasks and duties\n• join client advisors occasionally in client meetings"
+    },
+    "slugByLocale": {
+      "it": "client-account-manager-international-clients-ubs",
+      "en": "client-account-manager-international-clients-ubs",
+      "de": "client-account-manager-international-clients-ubs",
+      "fr": "client-account-manager-international-clients-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "internship-in-finanza-team-ubs",
+    "title": "Internship in Finance Team",
+    "titleByLocale": {
+      "it": "Internship in Finanza Team",
+      "en": "Internship in Finance Team",
+      "de": "Internship in Finanzen Team",
+      "fr": "Internship in Finance Team"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you great with numbers? Do you enjoy analysing financial information and understanding how the numbers tell a story? Are you tech‑savvy and curious to learn how finance works in a global organisation? We’re looking for an intern to join our Finance team who will support day‑to‑day accounting and reporting activities and gain hands‑on experience in a corporate finance environment. In this role, you will:\n• Support accounting and financial activities within the Finance function\n• Prepare and deliver financial reports such as Profit & Loss, Balance Sheet, close packs, and other management reports in an accurate and timely manner\n• Analyse and investigate variances, ensuring required adjustments are accurately reflected in the general ledger\n• Perform reconciliations and analyse financial data to support financial reporting and controls\n• Collaborate with colleagues and contribute to improving the quality, efficiency, and effectiveness of financial processes and internal controls\n• Gain exposure to financial reporting processes in a global organization and develop practical finance and analytical skills",
+      "en": "Are you great with numbers? Do you enjoy analysing financial information and understanding how the numbers tell a story? Are you tech‑savvy and curious to learn how finance works in a global organisation? We’re looking for an intern to join our Finance team who will support day‑to‑day accounting and reporting activities and gain hands‑on experience in a corporate finance environment. In this role, you will:\n• Support accounting and financial activities within the Finance function\n• Prepare and deliver financial reports such as Profit & Loss, Balance Sheet, close packs, and other management reports in an accurate and timely manner\n• Analyse and investigate variances, ensuring required adjustments are accurately reflected in the general ledger\n• Perform reconciliations and analyse financial data to support financial reporting and controls\n• Collaborate with colleagues and contribute to improving the quality, efficiency, and effectiveness of financial processes and internal controls\n• Gain exposure to financial reporting processes in a global organization and develop practical finance and analytical skills",
+      "de": "Are you great with numbers? Do you enjoy analysing financial information and understanding how the numbers tell a story? Are you tech‑savvy and curious to learn how finance works in a global organisation? We’re looking for an intern to join our Finance team who will support day‑to‑day accounting and reporting activities and gain hands‑on experience in a corporate finance environment. In this role, you will:\n• Support accounting and financial activities within the Finance function\n• Prepare and deliver financial reports such as Profit & Loss, Balance Sheet, close packs, and other management reports in an accurate and timely manner\n• Analyse and investigate variances, ensuring required adjustments are accurately reflected in the general ledger\n• Perform reconciliations and analyse financial data to support financial reporting and controls\n• Collaborate with colleagues and contribute to improving the quality, efficiency, and effectiveness of financial processes and internal controls\n• Gain exposure to financial reporting processes in a global organization and develop practical finance and analytical skills",
+      "fr": "Are you great with numbers? Do you enjoy analysing financial information and understanding how the numbers tell a story? Are you tech‑savvy and curious to learn how finance works in a global organisation? We’re looking for an intern to join our Finance team who will support day‑to‑day accounting and reporting activities and gain hands‑on experience in a corporate finance environment. In this role, you will:\n• Support accounting and financial activities within the Finance function\n• Prepare and deliver financial reports such as Profit & Loss, Balance Sheet, close packs, and other management reports in an accurate and timely manner\n• Analyse and investigate variances, ensuring required adjustments are accurately reflected in the general ledger\n• Perform reconciliations and analyse financial data to support financial reporting and controls\n• Collaborate with colleagues and contribute to improving the quality, efficiency, and effectiveness of financial processes and internal controls\n• Gain exposure to financial reporting processes in a global organization and develop practical finance and analytical skills"
+    },
+    "slugByLocale": {
+      "it": "internship-in-finanza-team-ubs",
+      "en": "internship-in-finance-team-ubs",
+      "de": "internship-in-finanzen-team-ubs",
+      "fr": "internship-in-finance-team-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "previousSlugs": [
+      "internship-in-finance-team-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "internship-in-finance-team-ubs"
+      ],
+      "de": [
+        "internship-in-finance-team-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dcm-investment-banking-analyst-associate-ubs",
+    "title": "DCM - Investment Banking Analyst / Associate",
+    "titleByLocale": {
+      "it": "DCM - Investment Banking Analista / Associate",
+      "en": "DCM - Investment Banking Analyst / Associate",
+      "de": "DCM - Investment Banking Analyst / Associate",
+      "fr": "DCM - Investment Banking Analyste / Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "As a successful Debt Capital Markets (DCM) Analyst/Associate, your key responsibilities would include:\n• customary analyst/Associate responsibilities to support the team with data gathering, analysis and pitch preparation, as well as taking responsibility for managing internal transaction approval processes;\n• building and maintaining client relationships as part of the team. This role has significant client contact and you may be required to act as the key point of contact for some clients generally or specifically with respect to particular elements of a transaction;\n• work both independently, and with senior team members, in the origination and execution of transactions. The role will require execution expertise to be developed across all relevant global Debt Capital Markets;\n• work independently, and with other members of the team, in developing and managing a network of internal and external derivatives providers to facilitate the execution of cross-currency basis and other issuance related hedging;\n• develop relationships with peers and DCM colleagues both within UBS' Australian and offshore offices to develop market awareness and build a network;\n• apply research, business analysis and financial modelling skills, as well as your market knowledge in\n• identification of opportunities;\n• keep abreast of developments in the global markets; and\n• working knowledge of investment banking products more broadly",
+      "en": "As a successful Debt Capital Markets (DCM) Analyst/Associate, your key responsibilities would include:\n• customary analyst/Associate responsibilities to support the team with data gathering, analysis and pitch preparation, as well as taking responsibility for managing internal transaction approval processes;\n• building and maintaining client relationships as part of the team. This role has significant client contact and you may be required to act as the key point of contact for some clients generally or specifically with respect to particular elements of a transaction;\n• work both independently, and with senior team members, in the origination and execution of transactions. The role will require execution expertise to be developed across all relevant global Debt Capital Markets;\n• work independently, and with other members of the team, in developing and managing a network of internal and external derivatives providers to facilitate the execution of cross-currency basis and other issuance related hedging;\n• develop relationships with peers and DCM colleagues both within UBS' Australian and offshore offices to develop market awareness and build a network;\n• apply research, business analysis and financial modelling skills, as well as your market knowledge in\n• identification of opportunities;\n• keep abreast of developments in the global markets; and\n• working knowledge of investment banking products more broadly",
+      "de": "As a successful Debt Capital Markets (DCM) Analyst/Associate, your key responsibilities would include:\n• customary analyst/Associate responsibilities to support the team with data gathering, analysis and pitch preparation, as well as taking responsibility for managing internal transaction approval processes;\n• building and maintaining client relationships as part of the team. This role has significant client contact and you may be required to act as the key point of contact for some clients generally or specifically with respect to particular elements of a transaction;\n• work both independently, and with senior team members, in the origination and execution of transactions. The role will require execution expertise to be developed across all relevant global Debt Capital Markets;\n• work independently, and with other members of the team, in developing and managing a network of internal and external derivatives providers to facilitate the execution of cross-currency basis and other issuance related hedging;\n• develop relationships with peers and DCM colleagues both within UBS' Australian and offshore offices to develop market awareness and build a network;\n• apply research, business analysis and financial modelling skills, as well as your market knowledge in\n• identification of opportunities;\n• keep abreast of developments in the global markets; and\n• working knowledge of investment banking products more broadly",
+      "fr": "As a successful Debt Capital Markets (DCM) Analyst/Associate, your key responsibilities would include:\n• customary analyst/Associate responsibilities to support the team with data gathering, analysis and pitch preparation, as well as taking responsibility for managing internal transaction approval processes;\n• building and maintaining client relationships as part of the team. This role has significant client contact and you may be required to act as the key point of contact for some clients generally or specifically with respect to particular elements of a transaction;\n• work both independently, and with senior team members, in the origination and execution of transactions. The role will require execution expertise to be developed across all relevant global Debt Capital Markets;\n• work independently, and with other members of the team, in developing and managing a network of internal and external derivatives providers to facilitate the execution of cross-currency basis and other issuance related hedging;\n• develop relationships with peers and DCM colleagues both within UBS' Australian and offshore offices to develop market awareness and build a network;\n• apply research, business analysis and financial modelling skills, as well as your market knowledge in\n• identification of opportunities;\n• keep abreast of developments in the global markets; and\n• working knowledge of investment banking products more broadly"
+    },
+    "slugByLocale": {
+      "it": "dcm-investment-banking-analyst-associate-ubs",
+      "en": "dcm-investment-banking-analyst-associate-ubs",
+      "de": "dcm-investment-banking-analyst-associate-ubs",
+      "fr": "dcm-investment-banking-analyst-associate-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-account-manager-cst-dubai-ubs",
+    "title": "Client Account Manager CST Dubai",
+    "titleByLocale": {
+      "it": "Client Account Manager CST Dubai",
+      "en": "Client Account Manager CST Dubai",
+      "de": "Client Account Manager CST Dubai",
+      "fr": "Client Account Manager CST Dubai"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns",
+      "en": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns",
+      "de": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns",
+      "fr": "Do you look for a new challenge within the dynamic and fast paced Wealth Management environment? Do you want to be part of a high performing team? Do you have a \"can do\" mentality and want to be part of our growth story and create impact? We’re looking for a client account manager to:\n• manage daily business in client servicing and provide high quality service with focus on integration\n• be the point of entry for processing client orders, e.g. stock orders, foreign exchange, loans and deposits\n• perform account maintenance tasks and client-related processes; e.g. account opening and closing, suitability reviews, initial and recurring KYC and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner\n• support client advisors in delivering exceptional client services and with administrative legal and compliance related tasks and duties\n• mitigate risks and raise red flags and concerns"
+    },
+    "slugByLocale": {
+      "it": "client-account-manager-cst-dubai-ubs",
+      "en": "client-account-manager-cst-dubai-ubs",
+      "de": "client-account-manager-cst-dubai-ubs",
+      "fr": "client-account-manager-cst-dubai-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "associate-direttore-software-ingegnere-ubs-ticino",
+    "title": "Associate Director, Software Engineer",
+    "titleByLocale": {
+      "it": "Associate Direttore, Software Ingegnere",
+      "en": "Associate Director, Software Engineer",
+      "de": "Associate Direktor, Software Ingenieur",
+      "fr": "Associate Directeur, Software Ingénieur"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "UBS Business Solutions US LLC is seeking an Associate Director, Software Engineer in Morrisville, NC Are you an innovative thinker? Do you enjoy delivering enhanced change capabilities across a range of business functions? Are you passionate about IT process automation using cutting edge tooling platforms? We’re looking for an Associate Director, Software Engineer to:\n• Design, implement, and maintain a scalable CI/CD platform to automate code integration, testing, deployment, compliance verification and infrastructure provision for software development teams across all divisions. Embed security best practices into the software development lifecycle by automating vulnerability scans, compliance checks, and secure code deployment and meet UBS policies and standards.\n• Liaise between platform engineering and application development teams, promoting best practices and reusable solutions. Design platform monitoring and logging solutions to track performance, detect anomalies, and ensure system stability. Integrate machine learning models and services into the developer platforms, enabling intelligent automation and enhanced developer productivity.\n• Integrate observability tools to provide actionable insights and support proactive incident response. Provide documentation, training, and support to enable teams to effectively use developer platform tools and services. Develop and maintain operational infrastructure and tooling to support software artifact deployment, monitoring, and lifecycle management.\n• Reducing manual intervention and accelerating delivery cycles. Manage and provision infrastructure using tools like Terraform, Ansible, ensuring consistent, repeatable, and auditable infrastructure deployments. Collaborate with various teams to define standards and templates for bank wide adoption. Can work hybrid (In-office/remote). Qualified Applicants apply through SH-ProfRecruitingcc@ubs.com. Please reference 002681. NO CALLS PLEASE. EOE/M/F/D/V Salary & Work Schedule: $130,000/year, 40 hrs/wk. This notice is being posted in connection with an application for permanent Alien Labor Certification. Any person may comment or provide documentary evidence bearing on this application to: U.S. Department of Labor, Employment and Training Administration, Office of Foreign Labor Certification, 200 Constitution Avenue NW, Room N-5311, Washington, DC 20210. The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits.",
+      "en": "UBS Business Solutions US LLC is seeking an Associate Director, Software Engineer in Morrisville, NC Are you an innovative thinker? Do you enjoy delivering enhanced change capabilities across a range of business functions? Are you passionate about IT process automation using cutting edge tooling platforms? We’re looking for an Associate Director, Software Engineer to:\n• Design, implement, and maintain a scalable CI/CD platform to automate code integration, testing, deployment, compliance verification and infrastructure provision for software development teams across all divisions. Embed security best practices into the software development lifecycle by automating vulnerability scans, compliance checks, and secure code deployment and meet UBS policies and standards.\n• Liaise between platform engineering and application development teams, promoting best practices and reusable solutions. Design platform monitoring and logging solutions to track performance, detect anomalies, and ensure system stability. Integrate machine learning models and services into the developer platforms, enabling intelligent automation and enhanced developer productivity.\n• Integrate observability tools to provide actionable insights and support proactive incident response. Provide documentation, training, and support to enable teams to effectively use developer platform tools and services. Develop and maintain operational infrastructure and tooling to support software artifact deployment, monitoring, and lifecycle management.\n• Reducing manual intervention and accelerating delivery cycles. Manage and provision infrastructure using tools like Terraform, Ansible, ensuring consistent, repeatable, and auditable infrastructure deployments. Collaborate with various teams to define standards and templates for bank wide adoption. Can work hybrid (In-office/remote). Qualified Applicants apply through SH-ProfRecruitingcc@ubs.com. Please reference 002681. NO CALLS PLEASE. EOE/M/F/D/V Salary & Work Schedule: $130,000/year, 40 hrs/wk. This notice is being posted in connection with an application for permanent Alien Labor Certification. Any person may comment or provide documentary evidence bearing on this application to: U.S. Department of Labor, Employment and Training Administration, Office of Foreign Labor Certification, 200 Constitution Avenue NW, Room N-5311, Washington, DC 20210. The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits.",
+      "de": "UBS Business Solutions US LLC is seeking an Associate Director, Software Engineer in Morrisville, NC Are you an innovative thinker? Do you enjoy delivering enhanced change capabilities across a range of business functions? Are you passionate about IT process automation using cutting edge tooling platforms? We’re looking for an Associate Director, Software Engineer to:\n• Design, implement, and maintain a scalable CI/CD platform to automate code integration, testing, deployment, compliance verification and infrastructure provision for software development teams across all divisions. Embed security best practices into the software development lifecycle by automating vulnerability scans, compliance checks, and secure code deployment and meet UBS policies and standards.\n• Liaise between platform engineering and application development teams, promoting best practices and reusable solutions. Design platform monitoring and logging solutions to track performance, detect anomalies, and ensure system stability. Integrate machine learning models and services into the developer platforms, enabling intelligent automation and enhanced developer productivity.\n• Integrate observability tools to provide actionable insights and support proactive incident response. Provide documentation, training, and support to enable teams to effectively use developer platform tools and services. Develop and maintain operational infrastructure and tooling to support software artifact deployment, monitoring, and lifecycle management.\n• Reducing manual intervention and accelerating delivery cycles. Manage and provision infrastructure using tools like Terraform, Ansible, ensuring consistent, repeatable, and auditable infrastructure deployments. Collaborate with various teams to define standards and templates for bank wide adoption. Can work hybrid (In-office/remote). Qualified Applicants apply through SH-ProfRecruitingcc@ubs.com. Please reference 002681. NO CALLS PLEASE. EOE/M/F/D/V Salary & Work Schedule: $130,000/year, 40 hrs/wk. This notice is being posted in connection with an application for permanent Alien Labor Certification. Any person may comment or provide documentary evidence bearing on this application to: U.S. Department of Labor, Employment and Training Administration, Office of Foreign Labor Certification, 200 Constitution Avenue NW, Room N-5311, Washington, DC 20210. The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits.",
+      "fr": "UBS Business Solutions US LLC is seeking an Associate Director, Software Engineer in Morrisville, NC Are you an innovative thinker? Do you enjoy delivering enhanced change capabilities across a range of business functions? Are you passionate about IT process automation using cutting edge tooling platforms? We’re looking for an Associate Director, Software Engineer to:\n• Design, implement, and maintain a scalable CI/CD platform to automate code integration, testing, deployment, compliance verification and infrastructure provision for software development teams across all divisions. Embed security best practices into the software development lifecycle by automating vulnerability scans, compliance checks, and secure code deployment and meet UBS policies and standards.\n• Liaise between platform engineering and application development teams, promoting best practices and reusable solutions. Design platform monitoring and logging solutions to track performance, detect anomalies, and ensure system stability. Integrate machine learning models and services into the developer platforms, enabling intelligent automation and enhanced developer productivity.\n• Integrate observability tools to provide actionable insights and support proactive incident response. Provide documentation, training, and support to enable teams to effectively use developer platform tools and services. Develop and maintain operational infrastructure and tooling to support software artifact deployment, monitoring, and lifecycle management.\n• Reducing manual intervention and accelerating delivery cycles. Manage and provision infrastructure using tools like Terraform, Ansible, ensuring consistent, repeatable, and auditable infrastructure deployments. Collaborate with various teams to define standards and templates for bank wide adoption. Can work hybrid (In-office/remote). Qualified Applicants apply through SH-ProfRecruitingcc@ubs.com. Please reference 002681. NO CALLS PLEASE. EOE/M/F/D/V Salary & Work Schedule: $130,000/year, 40 hrs/wk. This notice is being posted in connection with an application for permanent Alien Labor Certification. Any person may comment or provide documentary evidence bearing on this application to: U.S. Department of Labor, Employment and Training Administration, Office of Foreign Labor Certification, 200 Constitution Avenue NW, Room N-5311, Washington, DC 20210. The expected salary range(s) for this role as of the date of this posting is/are based on factors including, but not limited to, experience, qualifications, education, location and skill level. This role may also be eligible for discretionary incentive compensation. For benefits information, please visit ubs.com/usbenefits."
+    },
+    "slugByLocale": {
+      "it": "associate-direttore-software-ingegnere-ubs-ticino",
+      "en": "associate-director-software-engineer-ubs",
+      "de": "associate-direktor-software-ingenieur-ubs-ticino",
+      "fr": "associate-directeur-software-ingenieur-ubs-ticino"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "previousSlugs": [
+      "associate-director-software-engineer-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "associate-director-software-engineer-ubs"
+      ],
+      "de": [
+        "associate-director-software-engineer-ubs"
+      ],
+      "fr": [
+        "associate-director-software-engineer-ubs"
+      ]
+    },
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "consulente-clienti-privato-in-affluent-thun-80-100-ubs-ticino",
+    "title": "Privatkundenberater/in Affluent Thun, 80 - 100%",
+    "titleByLocale": {
+      "it": "Consulente clienti privato in Affluent Thun, 80 - 100 %",
+      "en": "Private client advisor in Affluent Thun, 80 - 100 %",
+      "de": "Privatkundenberater/in Affluent Thun, 80 - 100%",
+      "fr": "Consultant client privé à Affluent Thun, 80 - 100 %"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Descrizione Sei un'iniziativa, personalità socievole? E sei al meglio quando consigli ai clienti con l'aiuto delle ultime tecnologie? Contattateci. Siamo alla ricerca di un collega che ha un tocco per le preoccupazioni del cliente e si sente a proprio agio nel mondo digitale. E questi sono i vostri compiti principali: Mansioni - Catturano le esigenze versatili dei nostri clienti con precisione e li consigliano con competenza. - Dopo un periodo di formazione completo, supporta e elabora il proprio portafoglio clienti con clienti di investimento e mutuo. - Hanno un forte senso di soluzioni ottimali. Questo garantisce rapporti e punteggi a lungo termine con nuovi clienti. - Nella tua consulenza, fai anche affidamento su strumenti e app innovativi. Questo è il modo di portare i vostri clienti nel nostro viaggio nel futuro: li incoraggiate a utilizzare i nostri prodotti digitali e supportarli in questo modo.",
+      "en": "Descrizione Are you an initiative, sociable personality? And are you at your best when you advise customers with the help of the latest technologies? Please contact us. We are looking for a colleague who has a flair for the concerns of the customer and feels comfortable in the digital world. And these are your core tasks: Mansioni - They capture the versatile needs of our customers precisely and advise them competently. - After a comprehensive training period, you support and process your own customer portfolio with investment and mortgage customers. - They have a strong sense of optimal solutions. This ensures long-term customer relationships and scores with new customers. - In your consulting, you also rely on innovative tools and apps. This is how you take your customers on our journey into the future: you encourage them to use our digital products and support them in doing so.",
+      "de": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
+      "fr": "Descrizione Êtes-vous une initiative, une personnalité sociable ? Et êtes-vous à votre meilleur quand vous conseillez les clients avec l'aide des dernières technologies? Veuillez nous contacter. Nous recherchons un collègue qui a un goût pour les préoccupations du client et qui se sent à l'aise dans le monde numérique. Et voici vos tâches principales : Mansioni - Ils saisissent précisément les besoins polyvalents de nos clients et les conseillent avec compétence. - Après une période de formation complète, vous aidez et traitez votre propre portefeuille client avec des clients d'investissement et d'hypothèque. - Ils ont un fort sens des solutions optimales. Cela garantit des relations client à long terme et des scores avec de nouveaux clients. - Dans votre consultation, vous comptez également sur des outils et des applications innovants. C'est ainsi que vous emmenez vos clients dans notre voyage à l'avenir : vous les encouragez à utiliser nos produits numériques et les aidez à le faire."
+    },
+    "slugByLocale": {
+      "it": "consulente-clienti-privato-in-affluent-thun-80-100-ubs-ticino",
+      "en": "private-client-advisor-in-affluent-thun-80-100-ubs-ticino",
+      "de": "privatkundenberater-in-affluent-thun-80-100-ubs",
+      "fr": "consultant-client-prive-a-affluent-thun-80-100-ubs-ticino"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "previousSlugs": [
+      "privatkundenberater-in-affluent-thun-80-100-ubs",
+      "privatkundenberater-in-affluent-langenthal-80-100-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "privatkundenberater-in-affluent-thun-80-100-ubs"
+      ],
+      "en": [
+        "privatkundenberater-in-affluent-thun-80-100-ubs"
+      ],
+      "fr": [
+        "privatkundenberater-in-affluent-thun-80-100-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-associate-ubs",
+    "title": "Client Associate",
+    "titleByLocale": {
+      "it": "Client Associate",
+      "en": "Client Associate",
+      "de": "Client Associate",
+      "fr": "Client Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Client Associate Your role Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "en": "Client Associate Your role Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "de": "Client Associate Your role Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "fr": "Client Associate Your role Are you truly service oriented? Do you know how to take care of people? We’re looking for a Client Associate to:\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
+    },
+    "slugByLocale": {
+      "it": "client-associate-ubs",
+      "en": "client-associate-ubs",
+      "de": "client-associate-ubs",
+      "fr": "client-associate-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-11T13:41:34.224Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "direttore-tech-cyber-security-specialista-ubs-ticino",
     "title": "Director, Tech Cyber Security Specialist",
     "titleByLocale": {
@@ -3743,38 +4572,6 @@
     },
     "salaryMin": 68000,
     "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "registered-client-associate-ubs",
-    "title": "Registered Client Associate",
-    "titleByLocale": {
-      "en": "Registered Client Associate",
-      "it": "Registered Client Associate",
-      "de": "Registered Client Associate",
-      "fr": "Registered Client Associate"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
-      "it": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
-      "de": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities",
-      "fr": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for a Registered Client Associate to:\n\n• Keep management systems up-to-date with client information\n• Educate clients on account services and capabilities\n• Help with the preparation of reports and other materials for client meetings\n• Collect the right documentation for opening new accounts and service requests\n• Plan team marketing events and maintain marketing materials\n• Provide the team with a detailed calendar of activities"
-    },
-    "slugByLocale": {
-      "en": "registered-client-associate-ubs",
-      "it": "registered-client-associate-ubs",
-      "de": "registered-client-associate-ubs",
-      "fr": "registered-client-associate-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-07T22:49:45.029Z",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -11886,38 +12683,6 @@
         "global-banking-investment-banking-associate-ubs"
       ]
     },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "data-engineer-python-pyspark-sql-databricks-ubs",
-    "title": "Data Engineer-Python, Pyspark, sql, Databricks",
-    "titleByLocale": {
-      "it": "Data Ingegnere-Python, Pyspark, sql, Databricks",
-      "en": "Data Engineer-Python, Pyspark, sql, Databricks",
-      "de": "Data Ingenieur-Python, Pyspark, sql, Databricks",
-      "fr": "Data Ingénieur-Python, Pyspark, sql, Databricks"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "",
-    "addressLocality": "",
-    "descriptionByLocale": {
-      "it": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind.",
-      "en": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind.",
-      "de": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind.",
-      "fr": "Are you passionate about data engineering? Are you keen to manage data that can materially help teams improve the way they work? You have the opportunity to join the team working on the new DevLens initiative, an ambitious data initiative to help our 40,000 IT employees organization accelerate value delivery to customers, improve organization efficiency and developer experience. Together with your team you will contribute to building and maintaining innovative data products spanning all engineering activities across UBS IT lines of business. You will work with large delta tables on Azure Databricks with Dagster, AKS, PySpark & SparkSQL, Confluent Kafka, REST APIs, database platforms, serving data products on Starburst/Trino data mesh. We’re looking for a passionate Data Engineer to:\n• Develop, support and improve data pipelines and data products with attention to governance including sourcing, lineage, modelling, security, quality, distribution and efficiency\n• Automate testing & deployment where possible using CI/CD pipelines\n• Build observability to monitor and resolve production issues\n• Analyse and organize raw data and be able to combine multiple datasets of varying quality\n• Take ownership and drive deliveries within a supportive team environment\n• Follow engineering best practices, and ensure bank & regulatory compliance across the lifecycle\n• Ensure the quality, security, reliability, and compliance of our solutions, promote re-use where possible.\n• Help manage the department data inventory and data products\n• Provide data support to internal & external stakeholders\n• Be comfortable within a geographically spread, fast-moving Agile team\n• Continuously up-skill, learn new technologies and practices, reuse strategic platforms and standards, evaluate options, and make decisions with long-term sustainability in mind."
-    },
-    "slugByLocale": {
-      "it": "data-engineer-python-pyspark-sql-databricks-ubs",
-      "en": "data-engineer-python-pyspark-sql-databricks-ubs",
-      "de": "data-engineer-python-pyspark-sql-databricks-ubs",
-      "fr": "data-engineer-python-pyspark-sql-databricks-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-05-14T11:59:02.412Z",
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
