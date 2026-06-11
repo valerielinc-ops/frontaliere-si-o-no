@@ -1,17 +1,12 @@
 {
   "key": "tertianum",
   "label": "Tertianum",
-  "generatedAt": "2026-06-11T13:56:58.758Z",
+  "generatedAt": "2026-06-11T14:00:36.860Z",
   "total": 228,
   "newCount": 14,
   "updatedCount": 214,
   "removedCount": 14,
   "unchangedCount": 0,
-  "durationMs": 157134,
-  "avgDurationMs": 157134,
-  "durationHistory": [
-    157134
-  ],
   "newJobs": [
     {
       "id": "tertianum-3caff6b3779d",
@@ -2176,5 +2171,10 @@
       }
     }
   ],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "durationMs": 157134,
+  "avgDurationMs": 157134,
+  "durationHistory": [
+    157134
+  ]
 }
