@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-05-25T02:25:36.725Z",
-    "label": "after",
-    "total": 8477,
-    "needsRetranslation": 1610,
-    "incomplete": 398,
-    "complete": 8079,
-    "missingByLocale": {
-      "it": 285,
-      "en": 222,
-      "de": 152,
-      "fr": 271
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Roche",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 14
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 10
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-25T04:47:31.910Z",
-    "label": "before",
-    "total": 8477,
-    "needsRetranslation": 1690,
-    "incomplete": 396,
-    "complete": 8081,
-    "missingByLocale": {
-      "it": 283,
-      "en": 221,
-      "de": 152,
-      "fr": 270
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Roche",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 14
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-25T05:40:32.628Z",
-    "label": "after",
-    "total": 8477,
-    "needsRetranslation": 1531,
-    "incomplete": 356,
-    "complete": 8121,
-    "missingByLocale": {
-      "it": 258,
-      "en": 209,
-      "de": 143,
-      "fr": 252
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 66
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Roche",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 14
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 9
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 7
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-25T05:46:58.194Z",
-    "label": "before",
-    "total": 8477,
-    "needsRetranslation": 1690,
-    "incomplete": 396,
-    "complete": 8081,
-    "missingByLocale": {
-      "it": 283,
-      "en": 221,
-      "de": 152,
-      "fr": 270
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Roche",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 14
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 9
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-25T06:43:02.954Z",
     "label": "after",
     "total": 8477,
@@ -11425,6 +11201,120 @@
       {
         "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
         "pending": 27
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-10T23:50:53.567Z",
+    "label": "before",
+    "total": 13870,
+    "needsRetranslation": 9522,
+    "suppressed": 40,
+    "incomplete": 2806,
+    "complete": 11064,
+    "missingByLocale": {
+      "it": 2177,
+      "en": 1984,
+      "de": 785,
+      "fr": 2076
+    },
+    "topPending": [
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 294
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 123
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 104
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 100
+      },
+      {
+        "company": "Richemont",
+        "pending": 98
+      },
+      {
+        "company": "Liebherr",
+        "pending": 90
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 86
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-11T02:03:19.880Z",
+    "label": "after",
+    "total": 13870,
+    "needsRetranslation": 5002,
+    "suppressed": 39,
+    "incomplete": 2750,
+    "complete": 11120,
+    "missingByLocale": {
+      "it": 2141,
+      "en": 1967,
+      "de": 763,
+      "fr": 2043
+    },
+    "topPending": [
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 294
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 123
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 104
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 100
+      },
+      {
+        "company": "Richemont",
+        "pending": 98
+      },
+      {
+        "company": "Liebherr",
+        "pending": 90
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 86
       }
     ]
   }

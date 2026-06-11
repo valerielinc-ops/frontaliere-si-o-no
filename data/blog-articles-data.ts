@@ -25479,6 +25479,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'imposta-fonte-ticino-calcolatore-2026',
+ category: 'fiscale',
+ date: '2026-06-11T00:28:57.426Z',
+ image: '/images/blog/imposta-fonte-ticino-calcolatore-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'cargo-chiasso-lavoro-saperi',
+ category: 'pratico',
+ date: '2026-06-11T00:53:37.884Z',
+ image: '/images/blog/cargo-chiasso-lavoro-saperi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'richiesta-permesso-g-step-by-step-2026',
+ category: 'pratico',
+ date: '2026-06-11T02:18:14.839Z',
+ image: '/images/blog/richiesta-permesso-g-step-by-step-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

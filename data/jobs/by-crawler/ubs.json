@@ -1364,7 +1364,7 @@
       "slugByLocale": {
         "en": "sales-assistant-ubs",
         "it": "sales-assistant-ubs",
-        "de": "sales-assistant-ubs",
+        "de": "sales-assistent-ubs-ticino",
         "fr": "sales-assistant-ubs"
       },
       "company": "UBS",
@@ -1648,11 +1648,11 @@
     },
     {
       "id": "ubs-eb0e54537087",
-      "slug": "market-director-ubs",
+      "slug": "market-direttore-ubs-ticino",
       "slugByLocale": {
         "en": "market-director-ubs",
-        "it": "market-director-ubs",
-        "de": "market-director-ubs",
+        "it": "market-direttore-ubs-ticino",
+        "de": "market-direktor-ubs-ticino",
         "fr": "market-director-ubs"
       },
       "company": "UBS",
@@ -1716,7 +1716,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T23:38:22.251Z"
+      "firstSeenAt": "2026-06-10T23:38:22.251Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-director-ubs"
+        ],
+        "de": [
+          "market-director-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "market-director-ubs"
+      ]
     },
     {
       "id": "ubs-b3adf7443264",

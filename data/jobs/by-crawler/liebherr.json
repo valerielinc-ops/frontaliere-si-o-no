@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "liebherr-f80ad8d2090f",
-      "slug": "teamleader-h-f-x-commodities-liebherr-bulle",
+      "slug": "teamleader-h-f-x-commodita-liebherr-bulle",
       "slugByLocale": {
         "en": "teamleader-h-f-x-commodities-liebherr-bulle",
-        "it": "teamleader-h-f-x-commodities-liebherr-bulle",
-        "de": "teamleader-h-f-x-commodities-liebherr-bulle",
+        "it": "teamleader-h-f-x-commodita-liebherr-bulle",
+        "de": "teamleader-h-f-x-rohstoffe-liebherr-bulle",
         "fr": "teamleader-h-f-x-commodities-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -17,9 +17,9 @@
       "title": "Teamleader (h/f/x) Commodities",
       "titleByLocale": {
         "en": "Teamleader (h/f/x) Commodities",
-        "fr": "Teamleader (h/f/x) Commodities",
-        "it": "Teamleader (h/f/x) Commodities",
-        "de": "Teamleader (h/f/x) Commodities"
+        "fr": "Chef d ' équipe (h/f/x)",
+        "it": "Teamleader (h/f/x) Commodità",
+        "de": "Teamleader (h/f/x) Rohstoffe"
       },
       "description": "Teamleader (h/f/x) Commodities — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
@@ -63,7 +63,19 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-10T23:02:06.674Z"
+      "firstSeenAt": "2026-06-10T23:02:06.674Z",
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-h-f-x-commodities-liebherr-bulle"
+        ],
+        "de": [
+          "teamleader-h-f-x-commodities-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-h-f-x-commodities-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-d828deca3d91",
@@ -208,7 +220,7 @@
         "it": "servizio-tecnico-torre-gru-m-w-liebherr-reiden",
         "en": "service-technician-tower-cranes-m-w-liebherr-reiden",
         "de": "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
-        "fr": "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
+        "fr": "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -218,7 +230,7 @@
         "it": "Servizio tecnico torre gru (m/w)",
         "en": "Service technician tower cranes (m/w)",
         "de": "Service-Techniker Turmdrehkrane (m/w)",
-        "fr": "Service-Techniker Turmdrehkrane (m/w)"
+        "fr": "Grues à tour de technicien de service (m/p)"
       },
       "description": "Service-Techniker Turmdrehkrane (m/w) — Liebherr (Reiden, CH)",
       "descriptionByLocale": {
@@ -247,8 +259,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
-        "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden"
+        "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -258,7 +269,6 @@
           "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
         ],
         "fr": [
-          "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden",
           "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
         ]
       },
@@ -276,7 +286,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-314533df6441",
@@ -566,12 +577,12 @@
       "titleByLocale": {
         "it": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (lunedì/mercredi)",
         "en": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
-        "de": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
+        "de": "Praktikant im Bereich Erneuerbare Energien/Windenergie (m/w/d)",
         "fr": "Directeur de compte principal Bereich Erneuerbare Energien/Windenergie (m/w/d)"
       },
       "description": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d) — Liebherr (Baden, CH)",
       "descriptionByLocale": {
-        "it": "Key Account Manager settore energie rinnovabili/energia eolica (m/f/d) — Liebherr (Baden, CH)",
+        "it": "Key Account Manager Settore Energie Rinnovabili/Energia Eolica (m/w/d) — Liebherr (Baden, CH)",
         "de": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d) — Liebherr (Baden, CH)",
         "fr": "Directeur de compte principal Énergie renouvelable/énergie éolienne (m/f/d) — Liebherr (Baden, CH)"
       },
@@ -611,7 +622,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-adf278f183eb",
@@ -1187,9 +1199,9 @@
     },
     {
       "id": "liebherr-5028cdbe91bf",
-      "slug": "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
+      "slug": "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden",
       "slugByLocale": {
-        "it": "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
+        "it": "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden",
         "en": "electrician-service-technician-concrete-technology-m-f-liebherr-reiden",
         "de": "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
         "fr": "technologie-du-beton-electricien-technicien-de-service-m-f-liebherr-reiden"
@@ -1199,7 +1211,7 @@
       "companyDomain": "liebherr.com",
       "title": "Elektriker/Service-Techniker Betontechnik (m/w)",
       "titleByLocale": {
-        "it": "Elektriker/Service-Techniker Betontechnik (m/w)",
+        "it": "Tecnico elettrico/servizio tecnologia di cemento (m/f)",
         "en": "Electrician/service technician concrete technology (m/f)",
         "de": "Elektriker/Service-Techniker Betontechnik (m/w)",
         "fr": "Technologie du béton électricien/technicien de service (m/f)"
@@ -1231,11 +1243,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+        "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden",
           "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden"
         ],
         "en": [
@@ -1259,7 +1270,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-7db5e3d3b09c",
@@ -1427,7 +1439,7 @@
       "titleByLocale": {
         "it": "Capo squadra Claim Management (m/f/x)",
         "en": "Team Leader Claims Management (m/f/x)",
-        "de": "Team Leader Claim Management (m/f/x)",
+        "de": "Team Leader Claims Management (m/w/x)",
         "fr": "Team Leader Claim Management (m/f/x)"
       },
       "description": "Team Leader Claim Management (m/f/x) — Liebherr (Bulle, CH)",
@@ -1478,7 +1490,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-fb1df27b7de1",
@@ -1496,7 +1509,7 @@
       "titleByLocale": {
         "it": "Capo squadra Claim Management (m/f/x)",
         "en": "Team Leader Claims Management (m/f/x)",
-        "de": "Team Leader Claim Management (m/f/x)",
+        "de": "Team Leader Claims Management (m/w/x)",
         "fr": "Team Leader Claim Management (m/f/x)"
       },
       "description": "Team Leader Claim Management (m/f/x) — Liebherr (Bulle, CH)",
@@ -1549,7 +1562,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-787a991bd070",
@@ -1701,7 +1715,7 @@
       "slugByLocale": {
         "it": "project-purchasing-leader-m-w-d-temporaire-liebherr-bulle",
         "en": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
-        "de": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
+        "de": "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
         "fr": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -1711,7 +1725,7 @@
       "titleByLocale": {
         "it": "Leader di acquisto del progetto(m/f/x) Temporaire",
         "en": "Project purchasing leader(m/f/x) Temporaire",
-        "de": "Project purchasing leader(m/f/x) Temporaire",
+        "de": "Projektbeschaffungsleiter(m/w/x) Temporaire",
         "fr": "Chef de projet (m/f/x) Temporaire"
       },
       "description": "Project purchasing leader(m/f/x) Temporaire — Liebherr (Bulle, CH)",
@@ -1741,15 +1755,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
-        "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10"
+        "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
         ],
         "de": [
-          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
           "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
         ]
       },
@@ -1767,7 +1779,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-d30d5565ea4a",
@@ -1922,7 +1935,7 @@
       "slugByLocale": {
         "it": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
         "en": "maintenance-technician-h-f-x-automation-liebherr-bulle",
-        "de": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
+        "de": "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
         "fr": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -1932,7 +1945,7 @@
       "titleByLocale": {
         "it": "Manutenzione Tecnica (h/f/x) Automazione",
         "en": "Maintenance Technician (h/f/x) Automation",
-        "de": "Technicien de maintenance (h/f/x) Automatisation",
+        "de": "Wartungstechniker (h/w/x) Automatisierung",
         "fr": "Technicien de maintenance (h/f/x) Automatisation"
       },
       "description": "Technicien de maintenance (h/f/x) Automatisation — Liebherr (Bulle, CH)",
@@ -1962,8 +1975,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
-        "wartungstechniker-h-w-x-automatisierung-liebherr-bulle"
+        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1973,7 +1985,6 @@
           "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
         ],
         "de": [
-          "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
           "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
         ]
       },
@@ -1991,7 +2002,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-e1e3964378d6",
@@ -2060,8 +2072,8 @@
       "slugByLocale": {
         "it": "senior-project-manager-m-w-x-liebherr-bulle",
         "en": "senior-project-manager-m-w-x-liebherr-bulle",
-        "de": "senior-project-manager-m-w-x-liebherr-bulle",
-        "fr": "directeur-principal-de-projet-m-m-x-liebherr-bulle"
+        "de": "senior-projektmanager-m-w-x-liebherr-bulle",
+        "fr": "senior-project-manager-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2070,7 +2082,7 @@
       "titleByLocale": {
         "it": "Senior Project Manager (m/p/x)",
         "en": "Senior Project Manager (m/w/x)",
-        "de": "Senior Project Manager (m/w/x)",
+        "de": "Senior Projektmanager (m/w/x)",
         "fr": "Directeur principal de projet (m/m/x)"
       },
       "description": "Senior Project Manager (m/w/x) — Liebherr (Bulle, CH)",
@@ -2100,11 +2112,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-projektmanager-m-w-x-liebherr-bulle"
+        "directeur-principal-de-projet-m-m-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "senior-projektmanager-m-w-x-liebherr-bulle"
+        "fr": [
+          "directeur-principal-de-projet-m-m-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -2121,7 +2133,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-ee26e5f1611c",
@@ -2217,7 +2230,7 @@
       "titleByLocale": {
         "it": "Giovani Talenti Pre-HEG - Ritorno 2026",
         "en": "Young Talent Pre-HEG - Return 2026",
-        "de": "Young Talent Pré-HEG - Rentrée 2026",
+        "de": "Young Talent Pre-HEG - Rückkehr 2026",
         "fr": "Young Talent Pré-HEG - Rentrée 2026"
       },
       "description": "Young Talent Pré-HEG - Rentrée 2026 — Liebherr (Bulle, CH)",
@@ -2268,7 +2281,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-556517386df0",
@@ -2277,7 +2291,7 @@
         "it": "group-co-specialista-m-w-d-liebherr-bulle",
         "en": "group-co-specialist-m-w-d-liebherr-bulle",
         "de": "group-co-spezialist-m-w-d-liebherr-bulle",
-        "fr": "group-co-specialiste-m-w-d-liebherr-bulle"
+        "fr": "group-co-specialist-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2317,7 +2331,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "group-co-specialist-m-w-d-liebherr-bulle"
+          "group-co-specialiste-m-w-d-liebherr-bulle"
         ],
         "it": [
           "group-co-specialist-m-w-d-liebherr-bulle"
@@ -2327,7 +2341,8 @@
         ]
       },
       "previousSlugs": [
-        "group-co-specialist-m-w-d-liebherr-bulle"
+        "group-co-specialist-m-w-d-liebherr-bulle",
+        "group-co-specialiste-m-w-d-liebherr-bulle"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.398Z",
@@ -2645,8 +2660,8 @@
       "slugByLocale": {
         "it": "giovani-talenti-agente-di-processo-m-w-x-liebherr-bulle",
         "en": "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "de": "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "fr": "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
+        "de": "junges-talent-prozessagent-m-w-x-liebherr-bulle",
+        "fr": "young-talent-process-agent-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2655,7 +2670,7 @@
       "titleByLocale": {
         "it": "Giovani Talenti - Agente di Processo (m/w/x)",
         "en": "Young Talent - Process Agent (m/w/x)",
-        "de": "Young Talent - Process Agent (m/w/x)",
+        "de": "Junges Talent – Prozessagent (m/w/x)",
         "fr": "Jeunes talents - Agent de traitement (m/m/x)"
       },
       "description": "Young Talent - Process Agent (m/w/x) — Liebherr (Bulle, CH)",
@@ -2686,18 +2701,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "junges-talent-prozessagent-m-w-x-liebherr-bulle"
+        "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "young-talent-process-agent-m-w-x-liebherr-bulle"
         ],
         "de": [
-          "junges-talent-prozessagent-m-w-x-liebherr-bulle",
           "young-talent-process-agent-m-w-x-liebherr-bulle"
         ],
         "fr": [
-          "young-talent-process-agent-m-w-x-liebherr-bulle"
+          "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -2714,7 +2728,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-b169f79450d5",
@@ -3232,7 +3247,7 @@
       "slugByLocale": {
         "it": "divisione-controller-m-w-d-liebherr-baden",
         "en": "division-controller-m-w-d-liebherr-baden",
-        "de": "division-controller-m-w-d-liebherr-baden",
+        "de": "reglerbereich-m-w-d-liebherr-baden",
         "fr": "division-controller-m-w-d-liebherr-baden"
       },
       "company": "Liebherr",
@@ -3242,7 +3257,7 @@
       "titleByLocale": {
         "it": "Divisione controller (m/w/d)",
         "en": "Controller Division (m/w/d)",
-        "de": "Division Controller (m/w/d)",
+        "de": "Reglerbereich (m/w/d)",
         "fr": "Division Controller (m/w/d)"
       },
       "description": "Division Controller (m/w/d) — Liebherr (Baden, CH)",
@@ -3272,15 +3287,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "division-controller-m-w-d-liebherr-baden",
-        "reglerbereich-m-w-d-liebherr-baden"
+        "division-controller-m-w-d-liebherr-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "division-controller-m-w-d-liebherr-baden"
         ],
         "de": [
-          "reglerbereich-m-w-d-liebherr-baden",
           "division-controller-m-w-d-liebherr-baden"
         ]
       },
@@ -3298,7 +3311,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-46d07e2246a4",
@@ -3654,7 +3668,7 @@
         "it": "production-ingegnere-dmu-m-w-d-liebherr-bulle",
         "en": "production-engineer-dmu-m-w-d-liebherr-bulle",
         "de": "production-engineer-dmu-m-w-d-liebherr-bulle",
-        "fr": "production-ingenieur-dmu-m-w-d-liebherr-bulle"
+        "fr": "production-engineer-dmu-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -3693,14 +3707,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-engineer-dmu-m-w-d-liebherr-bulle"
+        "production-engineer-dmu-m-w-d-liebherr-bulle",
+        "production-ingenieur-dmu-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "production-engineer-dmu-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "production-engineer-dmu-m-w-d-liebherr-bulle"
+          "production-ingenieur-dmu-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -3725,7 +3740,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle",
         "en": "production-engineer-dmu-h-f-x-liebherr-bulle",
-        "de": "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
+        "de": "produktionsingenieur-dmu-h-f-x-liebherr-bulle",
         "fr": "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -3735,7 +3750,7 @@
       "titleByLocale": {
         "it": "Ingegnere di produzione DMU (h/f/x)",
         "en": "Production Engineer DMU (h/f/x)",
-        "de": "Ingénieur de Production DMU (h/f/x)",
+        "de": "Produktionsingenieur DMU (h/f/x)",
         "fr": "Ingénieur de Production DMU (h/f/x)"
       },
       "description": "Ingénieur de Production DMU (h/f/x) — Liebherr (Bulle, CH)",
@@ -3765,8 +3780,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
-        "produktionsingenieur-dmu-h-f-x-liebherr-bulle"
+        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3776,7 +3790,6 @@
           "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
         ],
         "de": [
-          "produktionsingenieur-dmu-h-f-x-liebherr-bulle",
           "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
         ]
       },
@@ -3794,7 +3807,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-533047aad11f",
@@ -3873,7 +3887,7 @@
       "titleByLocale": {
         "it": "Senior Product Manager - Gruppo elettrogeno Diesel (m/f/x)",
         "en": "Senior Product Manager - Genset Diesel (m/f/x)",
-        "de": "Senior Product Manager - Genset Diesel (m/f/x)",
+        "de": "Senior Product Manager - Genset Diesel (m/w/x)",
         "fr": "Gestionnaire principal de produits - Genset Diesel (m/f/x)"
       },
       "description": "Senior Product Manager - Genset Diesel (m/f/x) — Liebherr (Bulle, CH)",
@@ -3924,7 +3938,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-4902476df46e",
@@ -3932,8 +3947,8 @@
       "slugByLocale": {
         "it": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
         "en": "customer-claim-manager-m-w-x-liebherr-bulle",
-        "de": "customer-claim-manager-m-w-x-liebherr-bulle",
-        "fr": "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
+        "de": "kundenschadensmanager-m-w-x-liebherr-bulle",
+        "fr": "customer-claim-manager-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -3942,7 +3957,7 @@
       "titleByLocale": {
         "it": "Responsabile del reclamo del cliente (m/w/x)",
         "en": "Customer Claim Manager (m/w/x)",
-        "de": "Customer Claim Manager (m/w/x)",
+        "de": "Kundenschadensmanager (m/w/x)",
         "fr": "Gestionnaire des réclamations du client (m/w/x)"
       },
       "description": "Customer Claim Manager (m/w/x) — Liebherr (Bulle, CH)",
@@ -3973,18 +3988,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "customer-claim-manager-m-w-x-liebherr-bulle",
-        "kundenschadensmanager-m-w-x-liebherr-bulle"
+        "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-claim-manager-m-w-x-liebherr-bulle"
         ],
         "de": [
-          "kundenschadensmanager-m-w-x-liebherr-bulle",
           "customer-claim-manager-m-w-x-liebherr-bulle"
         ],
         "fr": [
-          "customer-claim-manager-m-w-x-liebherr-bulle"
+          "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4001,7 +4015,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-84ea1bc04b31",
@@ -4010,7 +4025,7 @@
         "it": "responsabile-product-security-m-w-d-liebherr-bulle",
         "en": "head-of-product-security-m-w-d-liebherr-bulle",
         "de": "head-of-product-security-m-w-d-liebherr-bulle",
-        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
+        "fr": "head-of-product-security-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4049,14 +4064,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-product-security-m-w-d-liebherr-bulle"
+        "head-of-product-security-m-w-d-liebherr-bulle",
+        "responsable-product-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-product-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "head-of-product-security-m-w-d-liebherr-bulle"
+          "responsable-product-security-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4081,8 +4097,8 @@
       "slugByLocale": {
         "it": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
         "en": "customer-claim-manager-h-f-x-liebherr-bulle",
-        "de": "customer-claim-manager-h-f-x-liebherr-bulle",
-        "fr": "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle"
+        "de": "kundenschadensmanager-h-f-x-liebherr-bulle",
+        "fr": "customer-claim-manager-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4091,7 +4107,7 @@
       "titleByLocale": {
         "it": "Gestione dei reclami clienti (h/f/x)",
         "en": "Customer Claim Manager (h/f/x)",
-        "de": "Customer Claim Manager (h/f/x)",
+        "de": "Kundenschadensmanager (h/f/x)",
         "fr": "Gestionnaire des réclamations du client (h/f/x)"
       },
       "description": "Customer Claim Manager (h/f/x) — Liebherr (Bulle, CH)",
@@ -4122,7 +4138,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "customer-claim-manager-h-f-x-liebherr-bulle",
-        "kundenreklamationsmanager-h-w-x-liebherr-bulle"
+        "kundenreklamationsmanager-h-w-x-liebherr-bulle",
+        "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4133,7 +4150,7 @@
           "customer-claim-manager-h-f-x-liebherr-bulle"
         ],
         "fr": [
-          "customer-claim-manager-h-f-x-liebherr-bulle"
+          "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4150,7 +4167,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-a96e7e7f11c1",
@@ -4159,7 +4177,7 @@
         "it": "responsabile-del-reclamo-del-cliente-m-f-x-liebherr-bulle",
         "en": "customer-claim-manager-m-f-x-liebherr-bulle",
         "de": "customer-claim-manager-m-f-x-liebherr-bulle",
-        "fr": "gestionnaire-des-reclamations-des-clients-m-f-x-liebherr-bulle"
+        "fr": "customer-claim-manager-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4168,7 +4186,7 @@
       "titleByLocale": {
         "it": "Responsabile del reclamo del cliente (m/f/x)",
         "en": "Customer Claim Manager (m/f/x)",
-        "de": "Customer Claim Manager (m/f/x)",
+        "de": "Customer Claim Manager (m/w/x)",
         "fr": "Gestionnaire des réclamations des clients (m/f/x)"
       },
       "description": "Customer Claim Manager (m/f/x) — Liebherr (Bulle, CH)",
@@ -4198,14 +4216,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-claim-manager-m-f-x-liebherr-bulle"
+        "customer-claim-manager-m-f-x-liebherr-bulle",
+        "gestionnaire-des-reclamations-des-clients-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-claim-manager-m-f-x-liebherr-bulle"
         ],
         "fr": [
-          "customer-claim-manager-m-f-x-liebherr-bulle"
+          "gestionnaire-des-reclamations-des-clients-m-f-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4222,7 +4241,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-3815bfb757b4",
@@ -4239,7 +4259,7 @@
       "title": "Candidature spontanée",
       "titleByLocale": {
         "it": "Applicazione non richiesta",
-        "en": "Candidature spontanée",
+        "en": "Unsolicited application",
         "de": "Unerbetene Anwendung",
         "fr": "Candidature spontanée"
       },
@@ -4294,7 +4314,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "retranslationAttempts": 1
     },
     {
       "id": "liebherr-4b3e2fbf40ed",
@@ -4302,7 +4323,7 @@
       "slugByLocale": {
         "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "speculative-application-liebherr-bulle",
+        "de": "spekulative-anwendung-liebherr-bulle",
         "fr": "speculative-application-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4312,7 +4333,7 @@
       "titleByLocale": {
         "it": "Applicazione speculativa",
         "en": "Speculative application",
-        "de": "Speculative application",
+        "de": "Spekulative Anwendung",
         "fr": "Application spéculative"
       },
       "description": "Speculative application — Liebherr (Bulle, CH)",
@@ -4342,15 +4363,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "speculative-application-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle"
+        "speculative-application-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "speculative-application-liebherr-bulle"
         ],
         "de": [
-          "spekulative-anwendung-liebherr-bulle",
           "speculative-application-liebherr-bulle"
         ]
       },
@@ -4376,8 +4395,8 @@
       "slugByLocale": {
         "it": "product-manager-difesa-m-f-x-liebherr-bulle",
         "en": "product-manager-defense-m-f-x-liebherr-bulle",
-        "de": "product-manager-defense-m-f-x-liebherr-bulle",
-        "fr": "gestionnaire-de-produits-defense-m-f-x-liebherr-bulle"
+        "de": "produktmanager-verteidigung-m-w-x-liebherr-bulle",
+        "fr": "product-manager-defense-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4386,7 +4405,7 @@
       "titleByLocale": {
         "it": "Product Manager Difesa (m/f/x)",
         "en": "Product Manager Defense (m/f/x)",
-        "de": "Product Manager Defense (m/f/x)",
+        "de": "Produktmanager Verteidigung (m/w/x)",
         "fr": "Gestionnaire de produits Défense (m/f/x)"
       },
       "description": "Product Manager Defense (m/f/x) — Liebherr (Bulle, CH)",
@@ -4417,17 +4436,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "product-manager-defense-m-f-x-liebherr-bulle",
-        "produktmanager-verteidigung-m-w-x-liebherr-bulle"
+        "gestionnaire-de-produits-defense-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-defense-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "produktmanager-verteidigung-m-w-x-liebherr-bulle"
+          "product-manager-defense-m-f-x-liebherr-bulle"
         ],
         "fr": [
-          "product-manager-defense-m-f-x-liebherr-bulle"
+          "gestionnaire-de-produits-defense-m-f-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4523,7 +4542,7 @@
       "titleByLocale": {
         "it": "Initiativebewerbung",
         "en": "Initiativbewerbung",
-        "de": "Initativbewerbung",
+        "de": "Initiativebewerbung",
         "fr": "Initativbewerbung"
       },
       "description": "Initativbewerbung — Liebherr (Bulle, CH)",
@@ -4586,7 +4605,7 @@
         "it": "responsabile-data-security-m-w-d-liebherr-bulle",
         "en": "head-of-data-security-m-w-d-liebherr-bulle",
         "de": "head-of-data-security-m-w-d-liebherr-bulle",
-        "fr": "responsable-data-security-m-w-d-liebherr-bulle"
+        "fr": "head-of-data-security-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4625,14 +4644,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-data-security-m-w-d-liebherr-bulle"
+        "head-of-data-security-m-w-d-liebherr-bulle",
+        "responsable-data-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-data-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "head-of-data-security-m-w-d-liebherr-bulle"
+          "responsable-data-security-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -4811,7 +4831,7 @@
         "it": "responsabile-application-security-m-w-d-liebherr-bulle",
         "en": "head-of-application-security-m-w-d-liebherr-bulle",
         "de": "head-of-application-security-m-w-d-liebherr-bulle",
-        "fr": "responsable-application-security-m-w-d-liebherr-bulle"
+        "fr": "head-of-application-security-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4850,14 +4870,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-application-security-m-w-d-liebherr-bulle"
+        "head-of-application-security-m-w-d-liebherr-bulle",
+        "responsable-application-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-application-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "head-of-application-security-m-w-d-liebherr-bulle"
+          "responsable-application-security-m-w-d-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -5039,7 +5060,7 @@
       "titleByLocale": {
         "it": "Proprietario del sottosistema motore Crank Case & Cylinder Head (m/w/x)",
         "en": "Engine Subsystem Owner Crank Case & Cylinder Head (m/w/x)",
-        "de": "Engine Subsystem Owner Crank Case & Cylinder Head (m/w/x)",
+        "de": "Motorteilsystembesitzer Kurbelgehäuse und Zylinderkopf (m/w/x)",
         "fr": "Sous-système moteur Cas de cran et tête de cylindre (m/w/x)"
       },
       "description": "Engine Subsystem Owner Crank Case & Cylinder Head (m/w/x) — Liebherr (Bulle, CH)",
@@ -5177,7 +5198,7 @@
         "it": "customer-quality-engineer-m-f-x-field-quality-liebherr-bulle",
         "en": "customer-quality-engineer-m-f-x-field-quality-liebherr-bulle",
         "de": "customer-quality-engineer-m-f-x-field-quality-liebherr-bulle",
-        "fr": "customer-qualite-ingenieur-m-f-x-field-qualite-liebherr-bulle"
+        "fr": "customer-quality-engineer-m-f-x-field-quality-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5229,7 +5250,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "previousSlugsByLocale": {
+        "fr": [
+          "customer-qualite-ingenieur-m-f-x-field-qualite-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "customer-qualite-ingenieur-m-f-x-field-qualite-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-2a3659ea4d8f",
@@ -5308,7 +5337,7 @@
       "titleByLocale": {
         "it": "Capo squadra - Claim Management (m/f/x)",
         "en": "Team Leader - Claims Management (m/f/x)",
-        "de": "Team Leader - Claim Management (m/f/x)",
+        "de": "Teamleiter - Schadenmanagement (m/w/x)",
         "fr": "Team Leader - Claim Management (m/f/x)"
       },
       "description": "Team Leader - Claim Management (m/f/x) — Liebherr (Bulle, CH)",
@@ -5448,7 +5477,7 @@
         "it": "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "en": "control-systems-engineer-m-f-x-liebherr-bulle",
         "de": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "fr": "control-systems-ingenieur-m-f-x-liebherr-bulle"
+        "fr": "control-systems-engineer-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5487,14 +5516,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "control-systems-engineer-m-f-x-liebherr-bulle"
+        "control-systems-engineer-m-f-x-liebherr-bulle",
+        "control-systems-ingenieur-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "control-systems-engineer-m-f-x-liebherr-bulle"
         ],
         "fr": [
-          "control-systems-engineer-m-f-x-liebherr-bulle"
+          "control-systems-ingenieur-m-f-x-liebherr-bulle"
         ]
       },
       "needsRetranslation": true,
@@ -5740,7 +5770,7 @@
       "titleByLocale": {
         "it": "Young Talent Business Analista Spare Parts (m/f/x)",
         "en": "Young Talent Business Analyst Spare Parts (m/f/x)",
-        "de": "Young Talent Business Analyst Spare Parts (m/f/x)",
+        "de": "Young Talent Business Analyst Ersatzteile (m/w/x)",
         "fr": "Young Talent Business Analyste Spare Parts (m/f/x)"
       },
       "description": "Young Talent Business Analyst Spare Parts (m/f/x) — Liebherr (Bulle, CH)",
@@ -5851,11 +5881,11 @@
     },
     {
       "id": "liebherr-140b4103231d",
-      "slug": "teamleader-h-f-x-commodities-liebherr-bulle-2",
+      "slug": "teamleader-h-f-x-commodita-liebherr-bulle-8c8003",
       "slugByLocale": {
         "en": "teamleader-h-f-x-commodities-liebherr-bulle",
-        "it": "teamleader-h-f-x-commodities-liebherr-bulle-2",
-        "de": "teamleader-h-f-x-commodities-liebherr-bulle-2",
+        "it": "teamleader-h-f-x-commodita-liebherr-bulle-8c8003",
+        "de": "teamleader-h-f-x-rohstoffe-liebherr-bulle-8c8003",
         "fr": "teamleader-h-f-x-commodities-liebherr-bulle-2"
       },
       "company": "Liebherr",
@@ -5864,9 +5894,9 @@
       "title": "Teamleader (h/f/x) Commodities",
       "titleByLocale": {
         "en": "Teamleader (h/f/x) Commodities",
-        "fr": "Teamleader (h/f/x) Commodities",
-        "it": "Teamleader (h/f/x) Commodities",
-        "de": "Teamleader (h/f/x) Commodities"
+        "fr": "Chef d ' équipe (h/f/x)",
+        "it": "Teamleader (h/f/x) Commodità",
+        "de": "Teamleader (h/f/x) Rohstoffe"
       },
       "description": "Teamleader (h/f/x) Commodities — Liebherr (Bulle, CH)",
       "descriptionByLocale": {
@@ -5910,7 +5940,18 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-10T23:02:06.608Z"
+      "firstSeenAt": "2026-06-10T23:02:06.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-h-f-x-commodities-liebherr-bulle-2"
+        ],
+        "de": [
+          "teamleader-h-f-x-commodities-liebherr-bulle-2"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-h-f-x-commodities-liebherr-bulle-2"
+      ]
     },
     {
       "id": "liebherr-f74af63c25c9",
@@ -5980,7 +6021,7 @@
         "it": "young-talent-w-m-x-inline-engines-product-management-liebherr-bulle",
         "en": "young-talent-w-m-x-inline-engines-product-management-liebherr-bulle",
         "de": "young-talent-w-m-x-inline-engines-product-management-liebherr-bulle",
-        "fr": "young-talent-w-m-x-gestion-des-produits-des-moteurs-integres-liebherr-bulle"
+        "fr": "young-talent-w-m-x-inline-engines-product-management-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5989,7 +6030,7 @@
       "titleByLocale": {
         "it": "Giovane Talent (w/m/x) - Inline Engines Product Management",
         "en": "Young Talent (w/m/x) - Inline Engines Product Management",
-        "de": "Young Talent (w/m/x) - Inline Engines Product Management",
+        "de": "Young Talent (w/m/x) - Inline Engines Produktmanagement",
         "fr": "Young Talent (w/m/x) - Gestion des produits des moteurs intégrés"
       },
       "description": "Young Talent (w/m/x) - Inline Engines Product Management — Liebherr (Bulle, CH)",
@@ -6032,7 +6073,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "previousSlugsByLocale": {
+        "fr": [
+          "young-talent-w-m-x-gestion-des-produits-des-moteurs-integres-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "young-talent-w-m-x-gestion-des-produits-des-moteurs-integres-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-f012a41c9236",
@@ -6040,7 +6089,7 @@
       "slugByLocale": {
         "it": "giovani-talenti-m-f-x-presviluppo-liebherr-bulle",
         "en": "young-talent-m-f-x-pre-development-liebherr-bulle",
-        "de": "young-talent-m-f-x-predevelopment-liebherr-bulle",
+        "de": "junge-talente-m-w-x-vorentwicklung-liebherr-bulle",
         "fr": "young-talent-m-f-x-predevelopment-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -6050,7 +6099,7 @@
       "titleByLocale": {
         "it": "Giovani Talenti (m/f/x) - Presviluppo",
         "en": "Young Talent (m/f/x) - Pre-Development",
-        "de": "Young Talent (m/f/x) - Predevelopment",
+        "de": "Junge Talente (m/w/x) - Vorentwicklung",
         "fr": "Young Talent (m/f/x) - Predevelopment"
       },
       "description": "Young Talent (m/f/x) - Predevelopment — Liebherr (Bulle, CH)",
@@ -6080,8 +6129,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "young-talent-m-f-x-predevelopment-liebherr-bulle",
-        "junge-talente-m-w-x-vorentwicklung-liebherr-bulle"
+        "young-talent-m-f-x-predevelopment-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6091,7 +6139,6 @@
           "young-talent-m-f-x-predevelopment-liebherr-bulle"
         ],
         "de": [
-          "junge-talente-m-w-x-vorentwicklung-liebherr-bulle",
           "young-talent-m-f-x-predevelopment-liebherr-bulle"
         ]
       },
@@ -6176,9 +6223,9 @@
       "id": "liebherr-649244dd13c3",
       "slug": "giovani-talenti-w-m-x-ingegneria-del-software-liebherr-bulle",
       "slugByLocale": {
-        "it": "giovani-talenti-w-m-x-ingegneria-del-software-liebherr-bulle",
+        "it": "young-talent-w-m-x-software-engineering-liebherr-bulle",
         "en": "young-talent-w-m-x-software-engineering-liebherr-bulle",
-        "de": "young-talent-w-m-x-software-engineering-liebherr-bulle",
+        "de": "junge-talente-w-m-x-softwareentwicklung-liebherr-bulle",
         "fr": "jeunes-talents-w-m-x-genie-logiciel-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -6188,7 +6235,7 @@
       "titleByLocale": {
         "it": "Giovani Talenti (w/m/x) - Ingegneria del software",
         "en": "Young Talent (w/m/x) - Software Engineering",
-        "de": "Young Talent (w/m/x) - Software Engineering",
+        "de": "Junge Talente (w/m/x) – Softwareentwicklung",
         "fr": "Jeunes talents (w/m/x) - Génie logiciel"
       },
       "description": "Young Talent (w/m/x) - Software Engineering — Liebherr (Bulle, CH)",
@@ -6217,14 +6264,6 @@
       "jobReqId": "1392233433",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "young-talent-w-m-x-software-engineering-liebherr-bulle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "young-talent-w-m-x-software-engineering-liebherr-bulle"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.326Z",
       "salaryMin": 49500,
@@ -6239,7 +6278,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "previousSlugsByLocale": {
+        "de": [
+          "young-talent-w-m-x-software-engineering-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "young-talent-w-m-x-software-engineering-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-fc754261391a",

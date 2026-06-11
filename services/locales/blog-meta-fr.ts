@@ -8033,6 +8033,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.economia-sociale-lavoro-valore.title': 'Économie sociale et entreprises : synergies sur le marché',
     'blog.article.economia-sociale-lavoro-valore.excerpt': 'Le dialogue entre secteur lucratif et non lucratif pour répondre à la pénurie de main-d\'œuvre : les opportunités d\'intégration professionnelle entre coopération et entreprises.',
     'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Réunion d\'affaires professionnelle dans un bureau moderne avec vue sur le lac de Lugano',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Impôt à la source Ticino: calculatrice et taux 2026',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Découvrez comment fonctionne le calcul de l\'impôt à la source en Ticino pour 2026 avec les nouvelles taux, tranches et gestion des prélèvements fiscaux.',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Vue panoramique sur Lugano avec bureau au premier plan',
+    'blog.article.cargo-chiasso-lavoro-saperi.title': 'Coupe des marchandises, mais Chiasso crée des emplois',
+    'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'Le secteur ferroviaire des marchandises à Chiasso est en baisse, mais les compétences locales peuvent soutenir la reprise de l\'emploi.',
+    'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Travailleurs et trains dans le secteur fret à Chiasso, Ticino',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'Permis G 2026: Demande Étape par Étape',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Guide complet de la procédure de demande du permis G pour frontaliers en 2026 : documents requis, rôle de l\'employeur, office cantonal, délais et coûts.',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Bureau cantonal de gestion des permis de travail transfrontaliers au Tessin',
 };
 
 export default blogMetaFr;

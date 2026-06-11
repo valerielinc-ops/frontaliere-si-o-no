@@ -113,7 +113,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.478Z",
-      "needsRetranslation": true,
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -181,7 +180,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.240Z",
-      "needsRetranslation": true,
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -344,10 +342,10 @@
     },
     {
       "id": "hilcona-250b4c062f49",
-      "slug": "laborant-in-60-100-hilcona-dallikon",
+      "slug": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
       "slugByLocale": {
-        "it": "laborant-in-60-100-hilcona-dallikon",
-        "en": "laborant-in-60-100-hilcona-dallikon",
+        "it": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
+        "en": "laboratory-technician-60-100-eisberg-ag-dallikon",
         "de": "laborant-in-60-100-hilcona-dallikon",
         "fr": "laborant-in-60-100-eisberg-ag-dallikon"
       },
@@ -386,24 +384,20 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laboratorio-nel-60-100-eisberg-ag-dallikon",
-        "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
-        "laboratory-in-60-100-eisberg-ag-dallikon",
-        "laboratory-technician-60-100-eisberg-ag-dallikon"
+        "laborant-in-60-100-hilcona-dallikon",
+        "laboratory-in-60-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laboratorio-nel-60-100-eisberg-ag-dallikon",
-          "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ],
         "en": [
           "laboratory-in-60-100-eisberg-ag-dallikon",
-          "laboratory-technician-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:44.131Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -425,9 +419,9 @@
       "slug": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
       "slugByLocale": {
         "it": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
-        "en": "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
+        "en": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
         "de": "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
-        "fr": "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
+        "fr": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -463,7 +457,9 @@
       "crawledAt": "2026-06-10T22:48:07.202Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel"
+        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
+        "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
+        "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -477,7 +473,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:43.890Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1295,9 +1290,9 @@
     },
     {
       "id": "hilcona-2db3448de281",
-      "slug": "ot-engineer-80-100-hilcona-dallikon",
+      "slug": "ot-ingegnere-80-100-eisberg-ag-dallikon",
       "slugByLocale": {
-        "it": "ot-engineer-80-100-hilcona-dallikon",
+        "it": "ot-ingegnere-80-100-eisberg-ag-dallikon",
         "en": "ot-engineer-80-100-eisberg-ag-dallikon",
         "de": "ot-engineer-80-100-hilcona-dallikon",
         "fr": "ot-engineer-80-100-hilcona-dallikon"
@@ -1336,12 +1331,11 @@
       "crawledAt": "2026-06-10T22:48:04.505Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ot-ingegnere-80-100-eisberg-ag-dallikon",
+        "ot-engineer-80-100-hilcona-dallikon",
         "ingenieur-80-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ot-ingegnere-80-100-eisberg-ag-dallikon",
           "ot-engineer-80-100-hilcona-dallikon"
         ],
         "fr": [
@@ -1349,7 +1343,6 @@
         ]
       },
       "firstSeenAt": "2026-05-20T23:07:42.400Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1672,10 +1665,10 @@
       "id": "hilcona-3e7e02ff1b7a",
       "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
+        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "fr": "electricien-d-installation-geiser-ag-schlieren"
+        "fr": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -1712,20 +1705,17 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        "electricien-d-installation-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
           "electricien-d-installation-geiser-ag-schlieren"
         ]
       },
       "firstSeenAt": "2026-05-11T22:14:05.649Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2118,12 +2108,12 @@
     },
     {
       "id": "hilcona-cf0388a531ce",
-      "slug": "leiterin-produktion-hilcona-cheseaux-sur-lausanne",
+      "slug": "capo-della-produzione-bell-suisse-sa-cheseaux-sur-lausanne",
       "slugByLocale": {
         "de": "leiterin-produktion-hilcona-cheseaux-sur-lausanne",
-        "it": "leiterin-produktion-hilcona-cheseaux-sur-lausanne",
-        "en": "leiterin-produktion-hilcona-cheseaux-sur-lausanne",
-        "fr": "leiterin-produktion-hilcona-cheseaux-sur-lausanne"
+        "it": "capo-della-produzione-bell-suisse-sa-cheseaux-sur-lausanne",
+        "en": "head-of-production-bell-suisse-sa-cheseaux-sur-lausanne",
+        "fr": "chef-de-la-production-bell-suisse-sa-cheseaux-sur-lausanne"
       },
       "company": "Bell Suisse SA",
       "companyKey": "hilcona",
@@ -2131,16 +2121,16 @@
       "title": "Leiterin Produktion",
       "titleByLocale": {
         "de": "Leiterin Produktion",
-        "it": "Leiterin Produktion",
-        "en": "Leiterin Produktion",
-        "fr": "Leiterin Produktion"
+        "it": "Capo della produzione",
+        "en": "Head of Production",
+        "fr": "Chef de la production"
       },
       "description": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
       "descriptionByLocale": {
-        "de": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
-        "it": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
-        "en": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
-        "fr": "In dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten. Aufgaben:\n• Unterstützung der Leiter der untergeordneten Abteilungen\n• Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n• Überwachung und Optimierung von Produktionsprozessen\n• Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n• Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n• Mitarbeit in verschiedenen Projekten\n• Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n• Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n• Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten Anforderungen:\n• Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n• Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n• Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n• Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n• Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n• Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n• Sinn für Organisation und Prioritäten\n• Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n• Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt"
+        "de": "## Descrizione\nIn dieser verantwortungsvollen Position sind Sie für vier Produktionsabteilungen (Teigzubereitung, Pusher, Pökelwaren und Waadtländer Spezialitäten) verantwortlich und sorgen für einen reibungslosen Ablauf. Sie unterstützen den Betriebsleiter Charcuterie Cheseaux bei den täglichen Aufgaben und vertreten ihn während seiner Abwesenheiten.\n\n## Mansioni\n- Unterstützung der Leiter der untergeordneten Abteilungen\n- Koordination und Organisation der Arbeitsverteilung und Personalplanung zwischen den Abteilungen\n- Überwachung und Optimierung von Produktionsprozessen\n- Unterstützung bei der Ausbildung, Führung, Motivation und Entwicklung des Personals\n- Mitarbeit bei der Einführung und Einhaltung von Qualitäts- und Sicherheitsstandards nach HACCP\n- Mitarbeit in verschiedenen Projekten\n- Einhaltung und Umsetzung der Vorschriften zur Sicherheit am Arbeitsplatz\n- Gewährleistung der Einhaltung der von der Geschäftsleitung festgelegten Maßnahmen\n- Unterstützt den Betriebsleiter Charcuterie Cheseaux (Produktionsstätte mit ca. 200 Mitarbeitern) bei seinen Aufgaben und vertritt ihn während seiner Abwesenheiten\n\n## Requisiti\n- Abgeschlossene Ausbildung als Metzger/Metzgerin, idealerweise ergänzt durch eine höhere Ausbildung (Lebensmitteltechniker/in, Ingenieur/in für Lebensmitteltechnologie oder eidgenössisches Patent/Diplom in der Fleischwirtschaft - z.B. Betriebsleiter/in oder Metzgermeister/in)\n- Mehrjährige Erfahrung in einem Unternehmen der Lebensmittelbranche (hauptsächlich in der Zubereitung von Fleisch- und Wurstwaren)\n- Nachgewiesene Erfahrung in einer verantwortungsvollen Position und in der Personalführung\n- Sehr gute MS-Office-Kenntnisse; SAP-Kenntnisse wären ideal\n- Sie sind französischer Muttersprache und verfügen über gute Deutschkenntnisse (mind. B2)\n- Fähigkeit, ein Team zu führen, zu motivieren und zu bilden\n- Sinn für Organisation und Prioritäten\n- Fähigkeit, in einem Büro, aber auch in der Produktion zu arbeiten\n- Sie sind flexibel, selbstständig und stressresistent und werden sowohl durch Ihre motivierende Kommunikation als auch durch Ihre Professionalität als Führungspersönlichkeit anerkannt",
+        "it": "Descrizione\nIn questa posizione responsabile, siete responsabili di quattro dipartimenti di produzione (preparazione, pusher, prodotti curati e specialità Vaud) e garantire un processo regolare. Sostengono il direttore operativo Charcuterie Cheseaux nei compiti quotidiani e lo rappresentano durante le sue assenze.\n\nMansioni\nSostegno ai capi dipartimenti subordinati\n- Coordinamento e organizzazione della distribuzione del lavoro e pianificazione del personale tra i dipartimenti\n- Monitoraggio e ottimizzazione dei processi produttivi\nSupporto per formazione, leadership, motivazione e sviluppo del personale\nCooperazione nell'attuazione e nel rispetto delle norme di qualità e sicurezza secondo HACCP\n- Partecipazione a vari progetti\n- conformità e attuazione delle norme di sicurezza sul posto di lavoro\n- Assicurare il rispetto delle misure adottate dalla direzione\n- Supporta il direttore operativo Charcuterie Cheseaux (sito di produzione con circa 200 dipendenti) nei suoi compiti e lo rappresenta durante le sue assenze\n\nRequisiti\n- Formazione completata come macellaio, idealmente integrata da un'istruzione superiore (tecnico alimentare, ingegnere per la tecnologia alimentare o brevetto federale / diploma nell'industria della carne - ad esempio direttore o macellaio master)\n- Diversi anni di esperienza in un'azienda nell'industria alimentare (principalmente nella preparazione di prodotti di carne e salsiccia)\n- comprovata esperienza in una posizione responsabile e nella gestione del personale\n- Conoscenza MS-Office molto buona; la conoscenza SAP sarebbe ideale\n- Sono francesi e hanno una buona conoscenza del tedesco (minimo B2)\n- Capacità di guidare, motivare e formare un team\nSenso di organizzazione e priorità\n- Capacità di lavorare in un ufficio, ma anche in produzione\n- Sei flessibile, autosufficiente e resistente allo stress, e sei riconosciuto come leader sia attraverso la tua comunicazione motivazionale che la tua professionalità",
+        "en": "Descrizione\nIn this responsible position, you are responsible for four production departments (dough preparation, pushers, cured goods and Vaud specialties) and ensure a smooth process. They support the operations manager Charcuterie Cheseaux in the daily tasks and represent him during his absences.\n\nMansioni\nSupport for the heads of subordinate departments\n- Coordination and organization of work distribution and personnel planning between departments\n- Monitoring and optimization of production processes\nSupport for training, leadership, motivation and development of staff\nCooperation in the implementation and compliance with quality and safety standards according to HACCP\n- Participation in various projects\n- Compliance with and implementation of workplace safety regulations\n- Ensure compliance with the measures adopted by the management\n- Supports the operations manager Charcuterie Cheseaux (production site with about 200 employees) in his tasks and represents him during his absences\n\nRequirements\n- Completed training as a butcher, ideally supplemented by a higher education (food technician, engineer for food technology or federal patent / diploma in the meat industry - e.g. manager or master butcher)\n- Several years of experience in a company in the food industry (mainly in the preparation of meat and sausage products)\n- proven experience in a responsible position and in personnel management\n- Very good MS-Office knowledge; SAP knowledge would be ideal\n- They are French and have a good knowledge of German (minimum B2)\n- Ability to lead, motivate and form a team\nSense of organization and priorities\n- Ability to work in an office, but also in production\n- You are flexible, self-reliant and stress resistant, and are recognized as a leader both through your motivational communication and your professionalism",
+        "fr": "Descrizione\nDans ce poste responsable, vous êtes responsable de quatre départements de production (préparation dure, pousseurs, produits guéris et spécialités vaudoises) et vous assurer un processus en douceur. Ils soutiennent le directeur des opérations Charcuterie Cheseaux dans les tâches quotidiennes et le représentent pendant ses absences.\n\nMansioni\nAppui aux chefs des départements subordonnés\n- Coordination et organisation de la répartition du travail et planification du personnel entre les départements\n- Suivi et optimisation des processus de production\nAppui à la formation, au leadership, à la motivation et au perfectionnement du personnel\nCoopération dans la mise en œuvre et le respect des normes de qualité et de sécurité selon HACCP\n- Participation à divers projets\n- Respect et mise en œuvre des règlements de sécurité sur le lieu de travail\n- Assurer le respect des mesures adoptées par la direction\n- Soutient le responsable des opérations Charcuterie Cheseaux (site de production avec environ 200 employés) dans ses tâches et le représente pendant ses absences\n\nExigences\n- Formation complète en tant que boucher, idéalement complétée par un enseignement supérieur (technicien en alimentation, ingénieur en technologie alimentaire ou brevet / diplôme fédéral dans l'industrie de la viande - p.ex. gestionnaire ou maître boucher)\n- Plusieurs années d'expérience dans une entreprise de l'industrie alimentaire (principalement dans la préparation de viandes et de saucisses)\n- expérience prouvée dans un poste responsable et dans la gestion du personnel\n- Très bonne connaissance MS-Office; connaissance SAP serait idéal\n- Ils sont français et ont une bonne connaissance de l'allemand (minimum B2)\n- Capacité à diriger, motiver et former une équipe\nSens de l'organisation et priorités\n- Capacité de travailler dans un bureau, mais aussi en production\n- Vous êtes flexible, autonome et résistant au stress, et êtes reconnu comme un leader à la fois par votre communication motivationnelle et votre professionnalisme"
       },
       "requirements": [],
       "requirementsByLocale": {
@@ -2160,7 +2150,6 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-06-10T22:48:01.940Z",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2176,7 +2165,21 @@
       "postalCode": "1003",
       "country": "CH",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-10T22:48:01.940Z"
+      "firstSeenAt": "2026-06-10T22:48:01.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-produktion-hilcona-cheseaux-sur-lausanne"
+        ],
+        "en": [
+          "leiterin-produktion-hilcona-cheseaux-sur-lausanne"
+        ],
+        "fr": [
+          "leiterin-produktion-hilcona-cheseaux-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-produktion-hilcona-cheseaux-sur-lausanne"
+      ]
     },
     {
       "id": "hilcona-723aa50101ac",
@@ -2466,9 +2469,9 @@
     },
     {
       "id": "hilcona-6cb4fe707991",
-      "slug": "it-admin-client-management-m-w-d-hilcona-radolfzell",
+      "slug": "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
-        "it": "it-admin-client-management-m-w-d-hilcona-radolfzell",
+        "it": "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "it-admin-client-management-m-w-d-hilcona-radolfzell",
         "de": "it-admin-client-management-m-w-d-hilcona-radolfzell",
         "fr": "it-admin-client-management-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
@@ -2507,11 +2510,10 @@
       "crawledAt": "2026-06-10T22:48:00.751Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        "it-admin-client-management-m-w-d-hilcona-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "it-admin-client-management-m-w-d-hilcona-radolfzell"
         ]
       },
@@ -2741,7 +2743,6 @@
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
       ],
       "firstSeenAt": "2026-04-24T21:45:49.790Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2762,10 +2763,10 @@
       "id": "hilcona-277ed76f4a2e",
       "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
+        "fr": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -2802,7 +2803,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+        "electricien-en-service-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
@@ -2811,16 +2812,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
           "electricien-en-service-bell-schweiz-ag-oensingen"
         ]
       },
       "firstSeenAt": "2026-05-19T22:27:14.053Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3551,9 +3549,9 @@
     },
     {
       "id": "hilcona-dbec66286e58",
-      "slug": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
+      "slug": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
+        "it": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "werkstudent-m-w-d-projekte-bereich-operations-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
         "fr": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
@@ -3592,11 +3590,10 @@
       "crawledAt": "2026-06-10T22:47:57.409Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell"
+        "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
           "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
         ]
       },
@@ -3673,7 +3670,6 @@
         "dans-100-eisberg-ag-dallikon"
       ],
       "firstSeenAt": "2026-04-13T21:51:20.728Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3845,7 +3841,7 @@
       "id": "hilcona-4f5850ccc7a5",
       "slug": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
       "slugByLocale": {
-        "it": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
+        "it": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
         "en": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
         "de": "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
         "fr": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
@@ -3884,13 +3880,11 @@
       "crawledAt": "2026-06-10T22:47:56.508Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
-        "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
+        "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
-          "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
+          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard"
         ]
       },
       "needsRetranslation": true,
@@ -4742,7 +4736,6 @@
         "mitarbeiter-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-26T23:03:17.579Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5090,9 +5083,9 @@
     },
     {
       "id": "hilcona-9ddf5cc57bc3",
-      "slug": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
+      "slug": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
-        "it": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
+        "it": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
         "fr": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
@@ -5137,7 +5130,6 @@
         ],
         "it": [
           "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
-          "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -5151,7 +5143,7 @@
         "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-berater-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
-        "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:49.178Z",
@@ -5320,7 +5312,6 @@
         "sprachcoach-deutsch-franzoesisch-e-englisch-bell-schweiz-ag-oensingen"
       ],
       "firstSeenAt": "2026-04-13T10:42:51.182Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5964,7 +5955,6 @@
         "technologie-du-personnel-et-gestion-du-materiel-geiser-ag-schlieren"
       ],
       "firstSeenAt": "2026-05-22T11:51:42.428Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6962,10 +6952,10 @@
       "id": "hilcona-19a6b73a6fa0",
       "slug": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
       "slugByLocale": {
-        "it": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
+        "it": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
         "en": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektrikerin-betriebselektriker-100-hilcona-undefined",
-        "fr": "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
+        "fr": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -7007,21 +6997,18 @@
         ],
         "it": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
-          "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
-          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
+          "betriebselektrikerin-betriebselektriker-100-hilcona-zell"
         ],
         "en": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
         ],
         "fr": [
-          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
         "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
-        "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
-        "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
+        "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:41.802Z",
@@ -7277,7 +7264,6 @@
         "operational-technology-bell-schweiz-ag-basel"
       ],
       "firstSeenAt": "2026-05-29T12:38:10.738Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7298,10 +7284,10 @@
       "id": "hilcona-80e821500dab",
       "slug": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "it": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "en": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-lebensmitteltechnik-m-w-d-hilcona-undefined",
-        "fr": "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -7343,21 +7329,18 @@
         ],
         "it": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt"
         ],
         "en": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "fr": [
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
         "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
-        "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:40.470Z",
@@ -7521,7 +7504,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:42:40.250Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8524,7 +8506,6 @@
         "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.638Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8603,7 +8584,6 @@
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.371Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -9007,10 +8987,10 @@
       "id": "hilcona-4828f718a67f",
       "slug": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
-        "it": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "it": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
         "en": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektriker-m-w-d-hilcona-undefined",
-        "fr": "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -9052,21 +9032,18 @@
         ],
         "it": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "betriebselektriker-m-w-d-hilcona-ampfing",
-          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "betriebselektriker-m-w-d-hilcona-ampfing"
         ],
         "en": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
-          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "betriebselektriker-m-w-d-hilcona-ampfing",
-        "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
@@ -9170,9 +9147,9 @@
     },
     {
       "id": "hilcona-f556aafc2126",
-      "slug": "lehrling-mechatronik-m-w-d-hilcona-undefined",
+      "slug": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "lehrling-mechatronik-m-w-d-hilcona-undefined",
+        "it": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "lehrling-mechatronik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-mechatronik-m-w-d-hilcona-undefined",
         "fr": "lehrling-mechatronik-m-w-d-hilcona-undefined"
@@ -9216,7 +9193,6 @@
         ],
         "it": [
           "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
-          "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
           "lehrling-mechatronik-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -9229,7 +9205,7 @@
       "previousSlugs": [
         "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
-        "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "lehrling-mechatronik-m-w-d-hilcona-undefined"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:33.933Z",

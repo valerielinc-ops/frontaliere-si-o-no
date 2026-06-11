@@ -8033,6 +8033,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.economia-sociale-lavoro-valore.title': 'Economia sociale e imprese: sinergie per il mercato',
     'blog.article.economia-sociale-lavoro-valore.excerpt': 'Il dialogo tra profit e non profit per affrontare la carenza di manodopera: le opportunità di inserimento lavorativo tra cooperazione e aziende.',
     'blog.article.economia-sociale-lavoro-valore.imageAlt': 'Incontro professionale in un ufficio moderno con vista sul lago di Lugano',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Imposte alla fonte Ticino: calcolatore e aliquote 2026',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Scopri come funziona il calcolo dell\'imposta alla fonte in Ticino per il 2026 con le nuove aliquote, gli scaglioni e la gestione del prelievo fiscale.',
+    'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Vista panoramica di Lugano con ufficio in primo piano',
+    'blog.article.cargo-chiasso-lavoro-saperi.title': 'Cargo taglia, ma a Chiasso ci sono i saperi per creare lavoro',
+    'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'Il settore merci ferroviario a Chiasso affronta tagli, ma le competenze locali possono sostenere la ripresa occupazionale.',
+    'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Lavoratori e treni nel settore merci a Chiasso, Ticino',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'Richiesta Permesso G Step by Step 2026',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Guida completa alla procedura di richiesta del Permesso G per frontalieri nel 2026: documenti necessari, ruolo del datore di lavoro, ufficio cantonale, tempi e costi.',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Ufficio cantonale per la gestione dei permessi di lavoro per frontalieri in Ticino',
 };
 
 export default blogMetaIt;

@@ -627,7 +627,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T00:17:23.549Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1764,7 +1763,6 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:23:16.745Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2225,7 +2223,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T15:22:53.276Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2555,12 +2552,12 @@
     },
     {
       "id": "lonza-464ca02954d8",
-      "slug": "supervisor-manufacturing-lonza-ch",
+      "slug": "supervisore-manufacturing-lonza-ch",
       "slugByLocale": {
         "en": "supervisor-manufacturing-lonza-ch",
-        "it": "supervisor-manufacturing-lonza-ch",
-        "de": "supervisor-manufacturing-lonza-ch",
-        "fr": "supervisor-manufacturing-lonza-ch"
+        "it": "supervisore-manufacturing-lonza-ch",
+        "de": "vorgesetzter-manufacturing-lonza-ch",
+        "fr": "superviseur-manufacturing-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2615,16 +2612,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T23:04:24.453Z"
+      "firstSeenAt": "2026-06-10T23:04:24.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "supervisor-manufacturing-lonza-ch"
+        ],
+        "de": [
+          "supervisor-manufacturing-lonza-ch"
+        ],
+        "fr": [
+          "supervisor-manufacturing-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "supervisor-manufacturing-lonza-ch"
+      ]
     },
     {
       "id": "lonza-d96d48f89655",
-      "slug": "head-of-qa-bioatrium-lonza-ch",
+      "slug": "responsabile-qa-bioatrium-lonza-ch",
       "slugByLocale": {
         "en": "head-of-qa-bioatrium-lonza-ch",
-        "it": "head-of-qa-bioatrium-lonza-ch",
-        "de": "head-of-qa-bioatrium-lonza-ch",
-        "fr": "head-of-qa-bioatrium-lonza-ch"
+        "it": "responsabile-qa-bioatrium-lonza-ch",
+        "de": "leiter-qa-bioatrium-lonza-ch",
+        "fr": "responsable-qa-bioatrium-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2679,7 +2690,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T23:04:23.776Z"
+      "firstSeenAt": "2026-06-10T23:04:23.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-qa-bioatrium-lonza-ch"
+        ],
+        "de": [
+          "head-of-qa-bioatrium-lonza-ch"
+        ],
+        "fr": [
+          "head-of-qa-bioatrium-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-qa-bioatrium-lonza-ch"
+      ]
     }
   ]
 }

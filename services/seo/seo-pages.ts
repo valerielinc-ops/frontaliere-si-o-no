@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2770,
+ "numberOfItems": 2775,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7410,7 +7410,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2767, "name": "Via Mazzini a Lugano chiusa per lavori: orari e...", "url": `${BASE_URL}/articoli-frontaliere/via-mazzini-lugano-chiusura-lavori` },
           { "@type": "ListItem", "position": 2768, "name": "Soggiorno all’estero: come evitare una lacuna n...", "url": `${BASE_URL}/articoli-frontaliere/soggiorno-estero-avs-evitare-lacuna` },
           { "@type": "ListItem", "position": 2769, "name": "Economia sociale e imprese: sinergie per il mer...", "url": `${BASE_URL}/articoli-frontaliere/economia-sociale-lavoro-valore` },
-          { "@type": "ListItem", "position": 2770, "name": "La 13esima AVS va in conferenza di conciliazione", "url": `${BASE_URL}/articoli-frontaliere/avs-finanziamento-13esima` }
+          { "@type": "ListItem", "position": 2770, "name": "La 13esima AVS va in conferenza di conciliazione", "url": `${BASE_URL}/articoli-frontaliere/avs-finanziamento-13esima` },
+          { "@type": "ListItem", "position": 2771, "name": "Imposte alla fonte Ticino: calcolatore e aliquo...", "url": `${BASE_URL}/articoli-frontaliere/imposta-fonte-ticino-calcolatore-2026` },
+          { "@type": "ListItem", "position": 2772, "name": "Givaudan licenza dipendenti", "url": `${BASE_URL}/articoli-frontaliere/givaudan-licenziamenti` },
+          { "@type": "ListItem", "position": 2773, "name": "Cargo taglia, ma a Chiasso ci sono i saperi per...", "url": `${BASE_URL}/articoli-frontaliere/cargo-chiasso-lavoro-saperi` },
+          { "@type": "ListItem", "position": 2774, "name": "L'Agefi cambia ai vertici e cerca nuovi soci", "url": `${BASE_URL}/articoli-frontaliere/agefi-nuovi-vertici` },
+          { "@type": "ListItem", "position": 2775, "name": "Richiesta Permesso G Step by Step 2026", "url": `${BASE_URL}/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026` }
  ]
  },
  {

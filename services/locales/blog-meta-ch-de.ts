@@ -125,6 +125,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-finanziamento-13esima.title': 'Die 13. AHV kommt in die Schlichtungskonferenz',
     'blog.article.avs-finanziamento-13esima.excerpt': 'Keine Einigung zwischen Nationalrat und Ständerat über die Finanzierung der 13. AHV',
     'blog.article.avs-finanziamento-13esima.imageAlt': 'Gebäude des Schweizer Parlaments in Bern mit AHV-Logo',
+    'blog.article.givaudan-licenziamenti.title': 'Givaudan entlässt Mitarbeiter',
+    'blog.article.givaudan-licenziamenti.excerpt': 'Givaudan, Weltmarktführer bei Aromen und Düften, entlässt Mitarbeiter wegen Diebstahl von Essenzen.',
+    'blog.article.givaudan-licenziamenti.imageAlt': 'Chemische Industrie in der Schweiz',
+    'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi cambia vertici e cerca nuovi soci',
+    'blog.article.agefi-nuovi-vertici.excerpt': 'Frédéric Lelièvre lascia L\'Agefi per Le Temps; Jonas Follonier diventa redattore capo e Olivier Bloch direttore',
+    'blog.article.agefi-nuovi-vertici.imageAlt': 'Eine Schweizer Wirtschaftszeitung wird in einem Café in Lugano gelesen',
 };
 
 export default blogMetaChDe;
