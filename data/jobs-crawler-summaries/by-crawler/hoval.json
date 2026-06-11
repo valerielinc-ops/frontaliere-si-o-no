@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-11T12:49:15.618Z",
+  "generatedAt": "2026-06-11T22:49:52.859Z",
   "total": 12,
   "newCount": 0,
-  "updatedCount": 12,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 14429,
-  "avgDurationMs": 14429,
+  "unchangedCount": 2,
+  "durationMs": 14599,
+  "avgDurationMs": 14599,
   "durationHistory": [
-    14429
+    14599
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,8 +79,8 @@
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T22:49:41.999Z",
+      "needsRetranslation": true,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -384,7 +384,10 @@
         "translation": 21,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -459,7 +462,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
