@@ -248,6 +248,51 @@ describe('job alert email — subject truncation polish', () => {
   });
 });
 
+describe('job alert email — subject title noise (Pensum / gender markers)', () => {
+  // Live regression: "🔔 Senior Technical Product Manager - Portafogli (100%… (+48 altre offerte)"
+  // — the "(100%)" Pensum overflowed the cap and was truncated mid-token, leaving
+  // a dangling unbalanced "(100%…". The subject must drop the Pensum entirely.
+  it('strips a trailing workload "(100%)" from the subject title (no dangling paren)', () => {
+    const job = { ...fixtureJob(), title: 'Senior Technical Product Manager - Portafogli (100%)', company: 'Helvetia' };
+    const jobs = [job, ...Array.from({ length: 48 }, () => fixtureJob({ title: 'Filler' }))];
+    const result = buildAlertEmail(fixtureAlert('it'), jobs, true);
+    expect(result.subject.length).toBeLessThanOrEqual(78);
+    expect(result.subject).not.toContain('100%');
+    expect(result.subject).not.toContain('(100%');
+    // No unbalanced "(" left anywhere in the subject.
+    expect((result.subject.match(/\(/g) || []).length).toBe((result.subject.match(/\)/g) || []).length);
+    expect(result.subject).toContain('Senior Technical Product Manager - Portafogli');
+    expect(result.subject).toContain('(+48 altre offerte)');
+  });
+
+  it('strips range Pensum "(80-100%)" and gender markers "(m/w/d)"', () => {
+    const a = buildAlertEmail(fixtureAlert('de'), [{ ...fixtureJob(), title: 'Pflegefachfrau HF (80-100%)' }], true);
+    expect(a.subject).not.toContain('%');
+    expect(a.subject).toContain('Pflegefachfrau HF');
+    const b = buildAlertEmail(fixtureAlert('de'), [{ ...fixtureJob(), title: 'Projektleiter (m/w/d)' }], true);
+    expect(b.subject).not.toMatch(/\(m\/w\/d\)/i);
+    expect(b.subject).toContain('Projektleiter');
+  });
+
+  it('truncateAtWord never leaves an unbalanced bracket even without Pensum stripping', () => {
+    // A long parenthetical that is NOT a Pensum/gender marker (so stripTitleNoise
+    // leaves it) must still not be cut mid-paren into a dangling "(".
+    const job = {
+      ...fixtureJob(),
+      title: 'Responsabile Vendite Area Nord (Lombardia, Piemonte e Valle d Aosta region)',
+      company: 'Distribuzione SA',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job, fixtureJob()], true);
+    expect(result.subject.length).toBeLessThanOrEqual(78);
+    expect((result.subject.match(/\(/g) || []).length).toBe((result.subject.match(/\)/g) || []).length);
+  });
+
+  it('leaves a clean title untouched (no false positives)', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [{ ...fixtureJob(), title: 'Data Analyst', company: 'Tiny Co' }], true);
+    expect(result.subject).toBe('🔔 Data Analyst presso Tiny Co');
+  });
+});
+
 describe('job alert email — UTM hygiene', () => {
   it('utm_medium is "email" (not "job_alert" duplicating utm_source)', () => {
     const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
