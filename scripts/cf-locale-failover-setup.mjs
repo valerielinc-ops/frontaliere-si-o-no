@@ -112,6 +112,26 @@ async function assertFailOpenRoutes(zoneId) {
   console.log(`routes: ${routes.length} on ${WORKER_SCRIPT}, ${flipped} flipped to fail-open, ${routes.length - flipped} already ok`);
 }
 
+// Field-by-field canonical check instead of a JSON.stringify equality:
+// Cloudflare re-emits action_parameters with normalized key order and
+// API-added defaults, so a stringify comparison would flag drift on every
+// run and re-PUT the entrypoint forever (never converging to "in shape").
+// Extra/unknown fields CF adds are tolerated; only OUR contract is checked.
+function ruleInShape(current) {
+  if (!current || current.enabled === false) return false;
+  if (current.expression !== RULE_EXPRESSION) return false;
+  const p = current.action_parameters || {};
+  if (p.cache !== true) return false;
+  const e = p.edge_ttl || {};
+  if (e.mode !== 'override_origin' || e.default !== 7200) return false;
+  const noCache3xx5xx = (e.status_code_ttl || []).find(
+    (s) => s.status_code_range && s.status_code_range.from === 300 && s.status_code_range.to === 599,
+  );
+  if (!noCache3xx5xx || noCache3xx5xx.value !== 0) return false;
+  if ((p.browser_ttl || {}).mode !== 'respect_origin') return false;
+  return true;
+}
+
 async function assertCacheRule(zoneId) {
   // The entrypoint ruleset may not exist yet on a zone with no cache rules —
   // GET then answers 404; PUT below creates it.
@@ -129,13 +149,8 @@ async function assertCacheRule(zoneId) {
 
   const idx = existing.findIndex((r) => r.description === RULE_DESCRIPTION);
   const current = idx >= 0 ? existing[idx] : null;
-  const inShape =
-    current &&
-    current.enabled !== false &&
-    current.expression === RULE_EXPRESSION &&
-    JSON.stringify(current.action_parameters) === JSON.stringify(RULE_ACTION_PARAMETERS);
 
-  if (inShape) {
+  if (ruleInShape(current)) {
     console.log('cache rule: already in shape');
     return;
   }
