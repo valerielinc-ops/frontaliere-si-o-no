@@ -63,4 +63,25 @@ describe('skyguide-job-parser', () => {
     expect(localized.descriptionByLocale.it).toContain('## Descrizione');
     expect(localized.slugByLocale.it).toContain('formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch');
   });
+
+  it('reads the title from the body <span>, not a void <meta itemprop="title"> in <head>', () => {
+    // SF skins can ship a void `<meta itemprop="title" content="">` in <head>,
+    // which precedes <body> in document order. An unscoped first-match selector
+    // would pick that void node (empty textContent) → blank title (#1885 class).
+    const html = `
+      <html>
+        <head><meta itemprop="title" content=""></head>
+        <body>
+          <div class="jobDisplayShell">
+            <meta itemprop="streetAddress" content="Locarno, CH">
+            <span itemprop="title">Formazione controllore/a del traffico aereo - Locarno</span>
+            <span class="jobdescription"><div><p>Air navigation services.</p></div></span>
+          </div>
+        </body>
+      </html>
+    `;
+    const detail = parseSkyguideJobDetail(html);
+    expect(detail.title).toBe('Formazione controllore/a del traffico aereo - Locarno');
+    expect(detail.location).toBe('Locarno, CH');
+  });
 });
