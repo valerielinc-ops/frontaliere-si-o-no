@@ -1,12 +1,22 @@
 /**
  * Shared canton-aware job-board section matcher.
  * ─────────────────────────────────────────────────────────────────────────
- * Single source of truth for "is this dist path under a job-board section?",
- * used by the audit feature-classifiers (audit-title-length,
- * audit-text-html-ratio, audit-dist-multi). Extracted per CLAUDE.md
- * non-negotiable #6 (a regex duplicated literally in ≥2 files → one shared
- * module) so the TI-vs-canton-aware drift that caused the 2026-06-11
- * post-deploy title-length failure cannot happen again.
+ * Shared "is this dist path under a job-board section?" matcher, extracted
+ * per CLAUDE.md non-negotiable #6 (a regex duplicated literally in ≥2 files →
+ * one shared module) so the TI-vs-canton-aware drift that caused the
+ * 2026-06-11 post-deploy title-length failure stops recurring.
+ *
+ * Consumers (all the job-board SECTION detectors): the audit
+ * feature-classifiers audit-title-length (re-exported to
+ * audit-h1-title-duplicates + audit-title-no-disambig-hash),
+ * audit-text-html-ratio, audit-page-weight, audit-dist-multi; and the
+ * funnel validators validate-content-quality.isJobPage +
+ * validate-sitemap-pages.isJobPage (both non-blocking uses of the match).
+ * NOT yet wired: validate-structured-data-completeness.classifyPage — it
+ * feeds a BLOCKING sampler (process.exit on incomplete JobPosting schema),
+ * so broadening its stratification on the pages this change promotes is a
+ * behavioural change that can't be validated until the post-deploy dist
+ * exists; deferred to a verified follow-up (see PR ## Non implementato).
  *
  * Why this is broad (all cantons, not just TI).
  *   The old literal was TI-only:

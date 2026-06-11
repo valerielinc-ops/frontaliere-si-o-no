@@ -74,4 +74,16 @@ describe('job-board section matcher', () => {
   it('TI weekly-employer company hubs still win over job-board', () => {
     expect(classifyFeature(rel('/cerca-lavoro-ticino/azienda-eoc/'))).toBe('weekly-employers');
   });
+
+  // The funnel validators (validate-content-quality / validate-sitemap-pages
+  // isJobPage) call `JOB_BOARD_SECTION_RX.test('/' + path)` where `path` is a
+  // dist-relative file path with the `index.html` leaf — cover that exact form.
+  it.each([
+    'cerca-lavoro-ticino/some-job/index.html',
+    'cerca-lavoro-argovia/wettingen/index.html',
+    'en/find-jobs-geneva/head-of-clinic-100-hug/index.html',
+    'de/jobs-in-aargau/index.html',
+  ])('validator form: "/" + %s matches the job-board section', (p) => {
+    expect(isJobBoardSectionPath('/' + p)).toBe(true);
+  });
 });
