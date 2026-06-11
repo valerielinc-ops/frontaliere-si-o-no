@@ -30,6 +30,7 @@ import {
   BASE_URL,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
+  DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -2356,6 +2357,7 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>
   ${yoyHtml}
   ${triYearHtml}
+  ${DRIVEBY_AD_SNIPPET}
   <section class="s-ziawP1" aria-labelledby="editorial">
     <h2 id="editorial" style="${H2_STYLE}">${esc(copy.editorialTitle)}</h2>
     <p class="s-KwuhOL">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>

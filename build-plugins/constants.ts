@@ -15,6 +15,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
+import { AD_SLOTS } from '../services/adsenseSlots';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 
 export const BUILD_ID = String(Date.now());
@@ -401,6 +402,23 @@ const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
 export const ADSENSE_LOADER_CONTENT = `(function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return;if(navigator.plugins&&navigator.plugins.length===0)return;if(typeof navigator.permissions==='undefined')return;}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||function(cb){return setTimeout(cb,800);})(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||function(cb){return setTimeout(cb,1200);})(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
 export const ADSENSE_LOADER_FILENAME = `adsense-loader-${shortContentHash(ADSENSE_LOADER_CONTENT)}.js`;
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
+
+/**
+ * Above-the-fold manual display slot for drive-by SEO landings (health
+ * premiums, fuel daily, border wait) — pages with 7-11s median sessions and
+ * no manual <ins> slots, where Auto Ads alone arrived too late to serve
+ * (2026-06 revenue deep dive). A visible slot makes the adsense lazy loader's
+ * IntersectionObserver fire at first paint, so adsbygoogle.js loads
+ * immediately instead of waiting for the idle fallback. Reuses the existing
+ * ACTIVE responsive display unit HOMEPAGE_MID_DISPLAY (2093992129) — ad unit
+ * creation needs a write-scope OAuth token the automation does not hold.
+ * Wrapper reserves min-h-[280px] so an async fill causes zero CLS (AGENTS.md
+ * non-negotiable 7: reserve space, never suppress the ad system).
+ */
+export const DRIVEBY_ATF_AD_SLOT_ID = AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot;
+export const DRIVEBY_AD_SNIPPET = `<div class="my-6 min-h-[280px]">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="${ADSENSE_CLIENT_ID}" data-ad-slot="${DRIVEBY_ATF_AD_SLOT_ID}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>`;
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
