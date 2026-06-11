@@ -8039,6 +8039,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cargo-chiasso-lavoro-saperi.title': 'Cargo taglia, ma a Chiasso ci sono i saperi per creare lavoro',
     'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'Il settore merci ferroviario a Chiasso affronta tagli, ma le competenze locali possono sostenere la ripresa occupazionale.',
     'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Lavoratori e treni nel settore merci a Chiasso, Ticino',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'Richiesta Permesso G Step by Step 2026',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Guida completa alla procedura di richiesta del Permesso G per frontalieri nel 2026: documenti necessari, ruolo del datore di lavoro, ufficio cantonale, tempi e costi.',
+    'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Ufficio cantonale per la gestione dei permessi di lavoro per frontalieri in Ticino',
 };
 
 export default blogMetaIt;

@@ -43364,6 +43364,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-richiesta-permesso-g-step-by-step-2026': {
+    title: 'Richiesta Permesso G Step by Step 2026 | Frontaliere Ticino',
+    description: 'Procedura completa per richiedere il Permesso G nel 2026: documenti, datore di lavoro, ufficio cantonale, tempi e costi per frontalieri Italia-Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiesta, permesso, step, completa',
+    ogTitle: 'Richiesta Permesso G Step by Step 2026',
+    ogDescription: 'Tutti i dettagli sulla procedura di richiesta del Permesso G per frontalieri nel Canton Ticino nel 2026: documenti, requisiti, tempi e costi.',
+    canonicalPath: '/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiesta Permesso G Step by Step 2026",
+      "description": "Procedura completa per richiedere il Permesso G nel 2026: documenti, datore di lavoro, ufficio cantonale, tempi e costi per frontalieri Italia-Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiesta-permesso-g-step-by-step-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale per la gestione dei permessi di lavoro per frontalieri in Ticino"
+      },
+      "datePublished": "2026-06-11T02:18:14+00:00",
+      "dateModified": "2026-06-11T02:18:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
