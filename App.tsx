@@ -1720,7 +1720,7 @@ const App: React.FC = () => {
   *  - Manual AdSenseBanner slots reserve placeholderMinHeight 220-400px
   *    (services/adsenseSlots.ts) before fill.
   *  - Anchor + Vignette overlays are position:fixed (zero CLS).
-  *  - `data-ad-frequency-hint=120s` on the AdSense loader caps interstitial
+  *  - `data-ad-frequency-hint=60s` on the AdSense loader caps interstitial
   *    churn during SPA navigation (AdSenseBanner.tsx:141).
   *  - Per-page `disableAutoAds` in build-plugins/htmlTemplate.ts is preserved
   *    for "drive-by" SEO landings where bounce ≥97% (F8/F6/F2). */}
