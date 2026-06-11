@@ -3261,7 +3261,6 @@ Rules:
  'publisherLanding.compare.notIncluded': 'Not included',
  'publisherLanding.compare.priceRow': 'Price',
  'publisherLanding.compare.freePrice': 'Free',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / listing / 30 days',
  'publisherLanding.compare.row.listing': 'Listing in the job board',
  'publisherLanding.compare.row.seoPage': 'Dedicated SEO page',
  'publisherLanding.compare.row.featured': 'Featured in the listing and emails',
@@ -3291,6 +3290,37 @@ Rules:
  'publisherLanding.finalCta.subtitle': 'Reach the right cross-border workers, with or without a budget. Get started in minutes.',
  'publisherLanding.finalCta.button': 'Post a job',
 
+
+ // ── Impeccable redesign: plan cards, dashboard KPIs, success CTAs ──
+ 'publisherLanding.hero.eyebrow': 'For employers hiring in Ticino',
+ 'publisherLanding.hero.trust': 'No credit card needed for the free listing',
+ 'publisherLanding.plan.free.name': 'Free',
+ 'publisherLanding.plan.free.tagline': 'Great to get started: your ad joins the board with its own dedicated page.',
+ 'publisherLanding.plan.free.cta': 'Post for free',
+ 'publisherLanding.plan.sponsored.name': 'Sponsored',
+ 'publisherLanding.plan.sponsored.tagline': 'To truly stand out to the right cross-border workers.',
+ 'publisherLanding.plan.sponsored.badge': 'Recommended',
+ 'publisherLanding.plan.sponsored.cta': 'Go Sponsored',
+ 'publisherLanding.plan.sponsored.priceNote': '/ 30 days · per location',
+ 'publisherLanding.plan.sponsored.everything': 'Everything in Free, plus:',
+ 'publisherDashboard.kpi.heading': 'Performance overview',
+ 'publisherDashboard.kpi.eyebrow': 'Your performance',
+ 'publisherDashboard.kpi.totalViews': 'total views',
+ 'publisherDashboard.kpi.totalClicks': 'Apply clicks',
+ 'publisherDashboard.kpi.totalApplications': 'Applications',
+ 'publisherDashboard.kpi.conversion': 'Conversion rate',
+ 'publisherDashboard.kpi.noDataYet': 'Stats fill in as cross-border workers see your ads.',
+ 'publisherDashboard.adsHeading': 'Your ads',
+ 'publisherDashboard.bestPerformer': 'Most viewed',
+ 'publisherDashboard.empty.title': 'Your applications start here',
+ 'publisherDashboard.empty.body': 'You haven’t posted any ads yet. Create your first one — it takes a few minutes, and AI can help.',
+ 'publisher.published.viewDashboard': 'Go to my ads',
+ 'publisher.published.publishAnother': 'Post another ad',
+
+ // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3500.title': 'Refreshed employer portal',
+ 'whatsNew.v3500.publisherRedesign.title': 'Post jobs: new look and dashboard',
+ 'whatsNew.v3500.publisherRedesign.desc': 'The employer pages got a warmer, clearer look: Free vs Sponsored plans side by side, and a “My ads” dashboard with animated stats and a conversion funnel for every listing.',
 };
 
 export default enCore;

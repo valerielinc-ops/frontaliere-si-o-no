@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "straumann-0920db0f4d6d",
-      "slug": "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
+      "slug": "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck",
       "slugByLocale": {
-        "it": "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
+        "it": "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck",
         "en": "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
         "de": "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck",
         "fr": "ingenieur-produit-et-fabrication-dispositifs-medicaux-80-100-galvosurge-straumann-berneck"
@@ -80,11 +80,13 @@
         ]
       },
       "previousSlugs": [
-        "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch"
+        "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
+        "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch"
+          "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
+          "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck"
         ],
         "de": [
           "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch"
@@ -112,7 +114,7 @@
       "slugByLocale": {
         "it": "responsabile-seniore-follow-up-clinico-post-market-straumann-basel",
         "en": "senior-manager-post-market-clinical-follow-up-straumann-ch",
-        "de": "senior-manager-post-markt-klinische-nachsorge-straumann-basel",
+        "de": "senior-manager-klinische-nachbeobachtung-nach-dem-inverkehrbringen-straumann-basel",
         "fr": "responsable-senior-suivi-clinique-post-marche-straumann-basel"
       },
       "company": "Straumann",
@@ -186,11 +188,15 @@
         ]
       },
       "previousSlugs": [
-        "senior-manager-post-market-clinical-follow-up-straumann-ch"
+        "senior-manager-post-market-clinical-follow-up-straumann-ch",
+        "senior-manager-post-markt-klinische-nachsorge-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-post-market-clinical-follow-up-straumann-ch"
+        ],
+        "de": [
+          "senior-manager-post-markt-klinische-nachsorge-straumann-basel"
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:16.706Z",
