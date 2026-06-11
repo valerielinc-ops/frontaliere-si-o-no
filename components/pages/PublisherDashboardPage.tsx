@@ -1,19 +1,39 @@
 /**
- * PublisherDashboardPage — a publisher's own ads with per-ad metrics.
+ * PublisherDashboardPage — a publisher's own ads with per-ad metrics, presented
+ * as an engaging analytics dashboard:
+ *  - an animated "performance" overview band (count-up KPIs + conversion rate),
+ *  - per-ad cards with a real views→clicks→applications conversion funnel,
+ *  - a gold "Sponsorizzato" tier identity and a best-performer crown.
  *
  * Reads `publisher_jobs` where publisherUid == current user, then the matching
  * `publisher_job_events/{adId}` counters (views, apply-clicks) written by
- * services/publisherAnalyticsService.ts.
+ * services/publisherAnalyticsService.ts. All aggregates/conversion rates are
+ * derived client-side from data already loaded — no extra reads.
  */
 
-import React, { useEffect, useState } from 'react';
-import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil } from 'lucide-react';
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  Briefcase,
+  LogIn,
+  Plus,
+  Eye,
+  MousePointerClick,
+  CreditCard,
+  FileText,
+  Pencil,
+  Star,
+  Crown,
+  TrendingUp,
+  Inbox,
+  Sparkles,
+} from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { getApp } from '@/services/firebase';
+import { useCountUp } from '@/hooks/useCountUp';
 import type { PublisherJobStatus, PublisherTier } from '@/services/publisherTypes';
 
 interface DashboardRow {
@@ -50,6 +70,67 @@ function tsToMillis(value: unknown): number | null {
 const BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
 
+/** Status → semantic pill colours (same meaning everywhere). */
+const STATUS_PILL: Record<PublisherJobStatus, string> = {
+  draft: 'bg-neutral-subtle text-neutral border-neutral-border',
+  pending_payment: 'bg-warning-subtle text-warning border-warning-border',
+  paid: 'bg-success-subtle text-success border-success-border',
+  published: 'bg-success-subtle text-success border-success-border',
+  expired: 'bg-surface-raised text-muted border-edge',
+  rejected: 'bg-danger-subtle text-danger border-danger-border',
+};
+
+/** A single count-up KPI used in the overview band. */
+function CountUpValue({ value, active }: { value: number; active: boolean }): React.ReactElement {
+  const display = useCountUp(value, { active });
+  return <>{display.toLocaleString('it-CH')}</>;
+}
+
+/**
+ * Conversion funnel: views (100%) → apply clicks → applications, each bar
+ * scaled to the ad's own views. Bars reveal with a transform (never width) so
+ * the motion stays jank-free. Conveys real conversion, not decoration.
+ */
+function FunnelBar({
+  icon,
+  label,
+  value,
+  pct,
+  tone,
+  mounted,
+  delayMs,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: number;
+  pct: number;
+  tone: string;
+  mounted: boolean;
+  delayMs: number;
+}): React.ReactElement {
+  return (
+    <div className="flex items-center gap-3">
+      <span className="inline-flex items-center gap-1.5 text-xs text-subtle w-28 shrink-0">
+        {icon}
+        {label}
+      </span>
+      <div className="relative h-2.5 flex-1 rounded-full bg-surface-raised overflow-hidden">
+        <div
+          className={`absolute inset-y-0 left-0 rounded-full ${tone} origin-left transition-transform duration-700 ease-out`}
+          style={{
+            width: `${Math.max(pct, value > 0 ? 4 : 0)}%`,
+            transform: mounted ? 'scaleX(1)' : 'scaleX(0)',
+            transitionDelay: `${delayMs}ms`,
+          }}
+        />
+      </div>
+      <span className="text-sm font-semibold tabular-nums text-strong w-12 text-right shrink-0">
+        {value.toLocaleString('it-CH')}
+      </span>
+    </div>
+  );
+}
+
 const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
   const { user, loading, signIn } = useAuth();
@@ -57,6 +138,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [apps, setApps] = useState<ApplicationRow[]>([]);
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
+  const [barsMounted, setBarsMounted] = useState(false);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci', 'Publisher Dashboard');
@@ -154,6 +236,10 @@ const PublisherDashboardPage: React.FC = () => {
           setRows(result);
           setApps(appRows);
           setState('ready');
+          // Defer two frames so the funnel bars animate from 0 on first paint.
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => { if (!cancelled) setBarsMounted(true); }),
+          );
         }
       } catch (error) {
         if (!cancelled) setState('error');
@@ -164,6 +250,30 @@ const PublisherDashboardPage: React.FC = () => {
       cancelled = true;
     };
   }, [user]);
+
+  // ── Aggregates (derived client-side from already-loaded data) ──
+  const appsByJob = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const a of apps) m.set(a.jobId, (m.get(a.jobId) ?? 0) + 1);
+    return m;
+  }, [apps]);
+
+  const totals = useMemo(() => {
+    const views = rows.reduce((s, r) => s + r.views, 0);
+    const clicks = rows.reduce((s, r) => s + r.applyClicks, 0);
+    const applications = apps.length;
+    // Conversion = apply-clicks per 100 views (intent-to-apply rate), 1 decimal.
+    const conversion = views > 0 ? Math.round((clicks / views) * 1000) / 10 : 0;
+    return { views, clicks, applications, conversion };
+  }, [rows, apps]);
+
+  // Best performer = the ad with the most views (only worth crowning if >0 and
+  // there's more than one ad to compare).
+  const bestPerformerId = useMemo(() => {
+    if (rows.length < 2) return null;
+    const top = rows.reduce((best, r) => (r.views > best.views ? r : best), rows[0]);
+    return top.views > 0 ? top.id : null;
+  }, [rows]);
 
   // ── Auth gate ───────────────────────────────────────────────
   if (!loading && !user) {
@@ -191,8 +301,7 @@ const PublisherDashboardPage: React.FC = () => {
   }
 
   const statusLabel = (s: PublisherJobStatus) => t(`publisherDashboard.status.${s}`);
-  const tierLabel = (tier: PublisherTier) =>
-    tier === 'free' ? t('publisherDashboard.tier.free') : t('publisherDashboard.tier.sponsored');
+  const isSponsored = (tier: PublisherTier) => tier === 'sponsored';
 
   // "Renews in N days" — only for sponsored+paid ads with a future renewsAt.
   const renewalLabel = (r: DashboardRow): string | null => {
@@ -204,7 +313,7 @@ const PublisherDashboardPage: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">{t('publisherDashboard.title')}</h1>
           <p className="text-subtle mt-1">{t('publisherDashboard.subtitle')}</p>
@@ -241,12 +350,17 @@ const PublisherDashboardPage: React.FC = () => {
         <p className="text-sm text-danger py-8 text-center">{t('publisherDashboard.error')}</p>
       )}
 
+      {/* ── Empty state — welcoming, not a dead end ──────────────── */}
       {state === 'ready' && rows.length === 0 && (
-        <div className="text-center py-12 space-y-3">
-          <p className="text-subtle">{t('publisherDashboard.empty')}</p>
+        <div className="rounded-3xl border border-dashed border-edge bg-surface-alt px-6 py-14 text-center animate-fade-in-up">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-subtle text-link mb-4">
+            <Inbox className="w-8 h-8" />
+          </div>
+          <h2 className="text-xl font-bold font-display text-strong mb-1.5">{t('publisherDashboard.empty.title')}</h2>
+          <p className="text-subtle max-w-sm mx-auto mb-6">{t('publisherDashboard.empty.body')}</p>
           <a
             href={buildPath({ activeTab: 'publish' }, locale)}
-            className="inline-flex items-center gap-1.5 text-link font-medium hover:underline"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors no-underline"
           >
             <Plus className="w-4 h-4" />
             {t('publisherDashboard.emptyCta')}
@@ -256,88 +370,156 @@ const PublisherDashboardPage: React.FC = () => {
 
       {state === 'ready' && rows.length > 0 && (
         <>
-          {/* Desktop table */}
-          <div className="hidden sm:block overflow-x-auto rounded-2xl border border-edge">
-            <table className="w-full text-sm">
-              <thead className="bg-surface-alt text-subtle">
-                <tr>
-                  <th scope="col" className="text-left font-medium px-4 py-3">{t('publisherDashboard.col.title')}</th>
-                  <th scope="col" className="text-left font-medium px-3 py-3">{t('publisherDashboard.col.tier')}</th>
-                  <th scope="col" className="text-left font-medium px-3 py-3">{t('publisherDashboard.col.status')}</th>
-                  <th scope="col" className="text-right font-medium px-3 py-3">{t('publisherDashboard.col.locations')}</th>
-                  <th scope="col" className="text-right font-medium px-3 py-3">{t('publisherDashboard.col.views')}</th>
-                  <th scope="col" className="text-right font-medium px-3 py-3">{t('publisherDashboard.col.applyClicks')}</th>
-                  <th scope="col" className="text-right font-medium px-4 py-3">{t('publisherDashboard.col.applications')}</th>
-                  <th scope="col" className="text-right font-medium px-4 py-3"><span className="sr-only">{t('publisherDashboard.edit')}</span></th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((r) => (
-                  <tr key={r.id} className="border-t border-edge">
-                    <td className="px-4 py-3 text-strong font-medium">{r.title}</td>
-                    <td className="px-3 py-3 text-subtle">{tierLabel(r.tier)}</td>
-                    <td className="px-3 py-3 text-subtle">
-                      {statusLabel(r.status)}
-                      {renewalLabel(r) && (
-                        <span className="block text-xs text-muted mt-0.5">{renewalLabel(r)}</span>
+          {/* ── Performance overview (animated KPIs) ──────────────── */}
+          <section aria-labelledby="dash-overview-heading" className="mb-8 animate-fade-in-up">
+            <h2 id="dash-overview-heading" className="sr-only">{t('publisherDashboard.kpi.heading')}</h2>
+            <div className="rounded-3xl border border-edge bg-surface-alt p-6 sm:p-7">
+              <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-link mb-3">
+                <TrendingUp className="w-3.5 h-3.5" />
+                {t('publisherDashboard.kpi.eyebrow')}
+              </p>
+              {/* Hero metric: big, animated — the "wow" moment. */}
+              <div className="flex flex-wrap items-end gap-x-3 gap-y-1">
+                <span className="text-5xl sm:text-6xl font-bold font-display text-strong tabular-nums leading-none">
+                  <CountUpValue value={totals.views} active={state === 'ready'} />
+                </span>
+                <span className="text-base text-subtle pb-1.5">{t('publisherDashboard.kpi.totalViews')}</span>
+              </div>
+              {/* Supporting metrics — varied weight, not an identical grid. */}
+              <div className="mt-6 grid grid-cols-3 gap-3">
+                {[
+                  { key: 'clicks', icon: <MousePointerClick className="w-4 h-4" />, value: totals.clicks, label: t('publisherDashboard.kpi.totalClicks'), suffix: '' },
+                  { key: 'apps', icon: <FileText className="w-4 h-4" />, value: totals.applications, label: t('publisherDashboard.kpi.totalApplications'), suffix: '' },
+                  { key: 'conv', icon: <TrendingUp className="w-4 h-4" />, value: totals.conversion, label: t('publisherDashboard.kpi.conversion'), suffix: '%' },
+                ].map((m) => (
+                  <div key={m.key} className="rounded-2xl bg-surface p-4 border border-edge">
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent-subtle text-link mb-2">
+                      {m.icon}
+                    </span>
+                    <p className="text-2xl font-bold font-display text-strong tabular-nums leading-none">
+                      <CountUpValue value={m.value} active={state === 'ready'} />{m.suffix}
+                    </p>
+                    <p className="text-xs text-subtle mt-1.5 leading-tight">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+              {totals.views === 0 && (
+                <p className="mt-4 text-xs text-muted">{t('publisherDashboard.kpi.noDataYet')}</p>
+              )}
+            </div>
+          </section>
+
+          {/* ── Per-ad cards with conversion funnel ───────────────── */}
+          <section aria-labelledby="dash-ads-heading">
+            <h2 id="dash-ads-heading" className="text-lg font-bold font-display text-strong mb-4">
+              {t('publisherDashboard.adsHeading')}
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {rows.map((r, i) => {
+                const applications = appsByJob.get(r.id) ?? 0;
+                const clickPct = r.views > 0 ? (r.applyClicks / r.views) * 100 : 0;
+                const appPct = r.views > 0 ? (applications / r.views) * 100 : 0;
+                const sponsored = isSponsored(r.tier);
+                const isBest = r.id === bestPerformerId;
+                return (
+                  <article
+                    key={r.id}
+                    className={`relative rounded-2xl border bg-surface p-5 animate-fade-in-up ${
+                      sponsored ? 'border-warning-border' : 'border-edge'
+                    }`}
+                    style={{ animationDelay: `${Math.min(i * 60, 360)}ms`, animationFillMode: 'both' }}
+                  >
+                    {isBest && (
+                      <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-warning text-on-accent shadow-sm">
+                        <Crown className="w-3.5 h-3.5" />
+                        {t('publisherDashboard.bestPerformer')}
+                      </span>
+                    )}
+                    <h3 className="font-semibold text-strong leading-snug mb-3 pr-2">{r.title}</h3>
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                      {sponsored ? (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-warning-subtle text-warning border border-warning-border">
+                          <Star className="w-3 h-3 fill-warning" />
+                          {t('publisherDashboard.tier.sponsored')}
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-surface-raised text-subtle border border-edge">
+                          {t('publisherDashboard.tier.free')}
+                        </span>
                       )}
-                    </td>
-                    <td className="px-3 py-3 text-right text-body">{r.locations}</td>
-                    <td className="px-3 py-3 text-right text-body">{r.views}</td>
-                    <td className="px-3 py-3 text-right text-body">{r.applyClicks}</td>
-                    <td className="px-4 py-3 text-right text-body">{apps.filter((a) => a.jobId === r.id).length}</td>
-                    <td className="px-4 py-3 text-right">
+                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${STATUS_PILL[r.status]}`}>
+                        {statusLabel(r.status)}
+                      </span>
+                      <span className="text-xs text-muted">
+                        {r.locations} {t('publisherDashboard.col.locations')}
+                      </span>
+                    </div>
+
+                    {/* Conversion funnel */}
+                    <div className="space-y-2.5">
+                      <FunnelBar
+                        icon={<Eye className="w-3.5 h-3.5" />}
+                        label={t('publisherDashboard.col.views')}
+                        value={r.views}
+                        pct={r.views > 0 ? 100 : 0}
+                        tone="bg-accent"
+                        mounted={barsMounted}
+                        delayMs={i * 40}
+                      />
+                      <FunnelBar
+                        icon={<MousePointerClick className="w-3.5 h-3.5" />}
+                        label={t('publisherDashboard.col.applyClicks')}
+                        value={r.applyClicks}
+                        pct={clickPct}
+                        tone="bg-info"
+                        mounted={barsMounted}
+                        delayMs={i * 40 + 80}
+                      />
+                      <FunnelBar
+                        icon={<FileText className="w-3.5 h-3.5" />}
+                        label={t('publisherDashboard.col.applications')}
+                        value={applications}
+                        pct={appPct}
+                        tone="bg-success"
+                        mounted={barsMounted}
+                        delayMs={i * 40 + 160}
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between gap-3 mt-4 pt-3 border-t border-edge">
+                      <span className="text-xs text-muted">{renewalLabel(r) ?? ' '}</span>
                       <a
                         href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
-                        className="inline-flex items-center gap-1 text-link hover:underline"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-link hover:underline"
                       >
                         <Pencil className="w-3.5 h-3.5" />
                         {t('publisherDashboard.edit')}
                       </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile cards */}
-          <div className="sm:hidden space-y-3">
-            {rows.map((r) => (
-              <div key={r.id} className="rounded-2xl border border-edge bg-surface-alt p-4">
-                <div className="font-semibold text-strong">{r.title}</div>
-                <div className="text-xs text-subtle mt-1">
-                  {tierLabel(r.tier)} · {statusLabel(r.status)} · {r.locations} {t('publisherDashboard.col.locations')}
-                </div>
-                {renewalLabel(r) && (
-                  <div className="text-xs text-muted mt-1">{renewalLabel(r)}</div>
-                )}
-                <div className="flex gap-4 mt-3 text-sm text-body">
-                  <span className="inline-flex items-center gap-1"><Eye className="w-4 h-4 text-subtle" />{r.views}</span>
-                  <span className="inline-flex items-center gap-1"><MousePointerClick className="w-4 h-4 text-subtle" />{r.applyClicks}</span>
-                  <span className="inline-flex items-center gap-1"><FileText className="w-4 h-4 text-subtle" />{apps.filter((a) => a.jobId === r.id).length}</span>
-                </div>
-                <a
-                  href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
-                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-link hover:underline"
-                >
-                  <Pencil className="w-4 h-4" />
-                  {t('publisherDashboard.edit')}
-                </a>
-              </div>
-            ))}
-          </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
         </>
       )}
 
       {/* Applications received (in-house / forward) */}
       {state === 'ready' && (
         <section className="mt-10">
-          <h2 className="text-lg font-bold font-display text-strong mb-3">
+          <h2 className="flex items-center gap-2 text-lg font-bold font-display text-strong mb-3">
             {t('publisherDashboard.applications.title')}
+            {apps.length > 0 && (
+              <span className="inline-flex items-center justify-center min-w-6 h-6 px-2 rounded-full text-xs font-semibold bg-accent-subtle text-link">
+                {apps.length}
+              </span>
+            )}
           </h2>
           {apps.length === 0 ? (
-            <p className="text-sm text-subtle">{t('publisherDashboard.applications.empty')}</p>
+            <div className="rounded-2xl border border-dashed border-edge bg-surface-alt p-6 text-center">
+              <Sparkles className="w-5 h-5 text-muted mx-auto mb-2" />
+              <p className="text-sm text-subtle">{t('publisherDashboard.applications.empty')}</p>
+            </div>
           ) : (
             <ul className="space-y-3">
               {apps.map((a) => {

@@ -14,7 +14,7 @@
  */
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Briefcase, Plus, Trash2, Send, AlertTriangle, Clock, CheckCircle2, Shield, Sparkles, ShoppingCart, Mail, Loader2, AlertCircle } from 'lucide-react';
+import { Briefcase, Plus, Trash2, Send, AlertTriangle, Clock, CheckCircle2, Shield, Sparkles, ShoppingCart, Mail, Loader2, AlertCircle, Star, Check, PartyPopper } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
 import { useAuth, getAuthEmail } from '@/services/authService';
@@ -168,6 +168,21 @@ const APPLY_MODES: { value: ApplyMode; labelKey: string }[] = [
  { value: 'forward_email', labelKey: 'publisher.apply.mode.forwardEmail' },
  { value: 'in_house', labelKey: 'publisher.apply.mode.inHouse' },
 ];
+
+/**
+ * Top perk highlights shown on the plan cards. Reuses the For-Employers landing
+ * `compare.row.*` i18n keys so the Free/Sponsored story stays identical across
+ * the marketing page and the authoring form (single source of truth).
+ */
+const TIER_PERKS: Record<PublisherTier, string[]> = {
+ free: ['publisherLanding.compare.row.listing', 'publisherLanding.compare.row.seoPage'],
+ sponsored: [
+ 'publisherLanding.compare.row.featured',
+ 'publisherLanding.compare.row.newsletter',
+ 'publisherLanding.compare.row.inHouse',
+ 'publisherLanding.compare.row.analytics',
+ ],
+};
 
 const inputClass =
  'w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-strong focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]';
@@ -1004,13 +1019,30 @@ const PublisherPublishPage: React.FC = () => {
  // ── Free-tier published success ─────────────────────────────
  if (status === 'published') {
  return (
- <div className="max-w-2xl mx-auto px-4 py-12">
- <div className="text-center space-y-4">
- <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle">
- <Clock className="w-8 h-8 text-success" />
+ <div className="max-w-2xl mx-auto px-4 py-16">
+ <div className="text-center space-y-4 animate-fade-in-up">
+ <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-success-subtle ring-8 ring-success-subtle/40">
+ <PartyPopper className="w-10 h-10 text-success" aria-hidden="true" />
  </div>
- <h2 className="text-2xl font-bold font-display text-strong">{t('publisher.published.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-strong">{t('publisher.published.title')}</h2>
  <p className="text-subtle max-w-md mx-auto">{t('publisher.published.message')}</p>
+ <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+ <a
+ href={buildPath({ activeTab: 'publisher-dashboard' }, locale)}
+ className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors no-underline"
+ >
+ <Briefcase className="w-4 h-4" />
+ {t('publisher.published.viewDashboard')}
+ </a>
+ <button
+ type="button"
+ onClick={() => { resetAdFields(); setCart([]); setStatus('idle'); window.scrollTo({ top: 0 }); }}
+ className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-link border border-edge rounded-xl hover:bg-surface-alt transition-colors"
+ >
+ <Plus className="w-4 h-4" />
+ {t('publisher.published.publishAnother')}
+ </button>
+ </div>
  </div>
  </div>
  );
@@ -1019,13 +1051,22 @@ const PublisherPublishPage: React.FC = () => {
  // ── Edit saved success ──────────────────────────────────────
  if (status === 'edited') {
  return (
- <div className="max-w-2xl mx-auto px-4 py-12">
- <div className="text-center space-y-4">
- <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle">
- <Clock className="w-8 h-8 text-success" />
+ <div className="max-w-2xl mx-auto px-4 py-16">
+ <div className="text-center space-y-4 animate-fade-in-up">
+ <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-success-subtle ring-8 ring-success-subtle/40">
+ <CheckCircle2 className="w-10 h-10 text-success" aria-hidden="true" />
  </div>
- <h2 className="text-2xl font-bold font-display text-strong">{t('publisher.editSuccess.title')}</h2>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-strong">{t('publisher.editSuccess.title')}</h2>
  <p className="text-subtle max-w-md mx-auto">{t('publisher.editSuccess.message')}</p>
+ <div className="pt-2">
+ <a
+ href={buildPath({ activeTab: 'publisher-dashboard' }, locale)}
+ className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors no-underline"
+ >
+ <Briefcase className="w-4 h-4" />
+ {t('publisher.published.viewDashboard')}
+ </a>
+ </div>
  </div>
  </div>
  );
@@ -1045,15 +1086,23 @@ const PublisherPublishPage: React.FC = () => {
  </div>
 
  <form onSubmit={handleSubmit} className="space-y-8">
- {/* ── Tier selector ──────────────────────────────────── */}
+ {/* ── Tier selector (plan cards) ─────────────────────── */}
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.tier.section')}</h2>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  {([
- { value: 'free', titleKey: 'publisher.tier.free.title', descKey: 'publisher.tier.free.desc' },
- { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', descKey: 'publisher.tier.sponsored.desc' },
+ { value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' },
+ { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: 'CHF 49', priceNote: t('publisherLanding.plan.sponsored.priceNote') },
  ] as const).map(opt => {
  const selected = tier === opt.value;
+ const isSponsoredCard = opt.value === 'sponsored';
+ // Sponsored = warm "gold" identity (warning token + Star); free = neutral.
+ const selectedRing = isSponsoredCard
+ ? 'border-warning ring-2 ring-warning-border bg-warning-subtle'
+ : 'border-accent ring-2 ring-accent-border bg-accent-subtle';
+ const idleRing = isSponsoredCard
+ ? 'border-warning-border bg-warning-subtle/40 hover:border-warning'
+ : 'border-edge bg-surface-alt hover:border-accent';
  return (
  <button
  key={opt.value}
@@ -1062,10 +1111,37 @@ const PublisherPublishPage: React.FC = () => {
  disabled={isEdit}
  aria-disabled={isEdit}
  onClick={() => { if (!isEdit) setTier(opt.value as PublisherTier); }}
- className={`text-left p-4 rounded-2xl border transition-colors ${selected ? 'border-accent bg-accent-subtle' : 'border-edge bg-surface-alt hover:border-accent'} ${isEdit ? 'opacity-60 cursor-not-allowed hover:border-edge' : ''}`}
+ className={`relative text-left p-5 rounded-2xl border transition-all ${selected ? selectedRing : idleRing} ${isEdit ? 'opacity-60 cursor-not-allowed' : ''}`}
  >
- <span className="block text-sm font-semibold text-strong">{t(opt.titleKey)}</span>
- <span className="block text-xs text-subtle mt-1">{t(opt.descKey)}</span>
+ {isSponsoredCard && (
+ <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-warning text-on-accent shadow-sm">
+ <Star className="w-3 h-3 fill-current" aria-hidden="true" />
+ {t('publisherLanding.plan.sponsored.badge')}
+ </span>
+ )}
+ <span className="flex items-center justify-between gap-2">
+ <span className={`text-sm font-bold font-display ${isSponsoredCard ? 'text-warning' : 'text-strong'}`}>
+ {t(opt.titleKey)}
+ </span>
+ <span
+ className={`inline-flex items-center justify-center w-5 h-5 rounded-full border transition-colors ${selected ? (isSponsoredCard ? 'bg-warning border-warning text-on-accent' : 'bg-accent border-accent text-on-accent') : 'border-edge text-transparent'}`}
+ aria-hidden="true"
+ >
+ <Check className="w-3.5 h-3.5" />
+ </span>
+ </span>
+ <span className="mt-2 flex items-baseline gap-1.5">
+ <span className="text-2xl font-bold font-display text-strong">{opt.price}</span>
+ {opt.priceNote && <span className="text-xs text-subtle">{opt.priceNote}</span>}
+ </span>
+ <span className="mt-3 block space-y-1.5">
+ {TIER_PERKS[opt.value].map(perkKey => (
+ <span key={perkKey} className="flex items-start gap-2 text-xs text-body">
+ <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isSponsoredCard ? 'text-warning' : 'text-success'}`} aria-hidden="true" />
+ {t(perkKey)}
+ </span>
+ ))}
+ </span>
  </button>
  );
  })}
