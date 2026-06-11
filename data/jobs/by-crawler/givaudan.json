@@ -1,7 +1,72 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-06-10T22:42:05.101Z",
+  "assembledAt": "2026-06-11T12:40:11.415Z",
   "jobs": [
+    {
+      "id": "givaudan-783dd874b6b8",
+      "slug": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+      "slugByLocale": {
+        "de": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+        "it": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+        "en": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+        "fr": "quality-assurance-sample-technician-m-w-d-givaudan-ch"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Quality Assurance & Sample Technician (m/w/d)",
+      "titleByLocale": {
+        "de": "Qualität Assurance & Sample Techniker (m/w/d)",
+        "en": "Quality Assurance & Sample Technician (m/w/d)",
+        "it": "Quality Assurance & Sample Technician (m/w/d)",
+        "fr": "Qualité Assurance & Sample Technicien (m/w/d)"
+      },
+      "description": "Wir suchen einen Qualitätssicherungs- und Proben-Techniker (m/w/d), der chemisch-physikalische Analysen durchführt und zur Sicherstellung unserer hohen Qualitätsstandards beiträgt. Wenn Sie Erfahrung in der Lebensmittelbranche haben und ein hohes Hygienebewusstsein mitbringen, freuen wir uns auf Ihre Bewerbung!",
+      "descriptionByLocale": {
+        "de": "Wir suchen einen Qualitätssicherungs- und Proben-Techniker (m/w/d), der chemisch-physikalische Analysen durchführt und zur Sicherstellung unserer hohen Qualitätsstandards beiträgt. Wenn Sie Erfahrung in der Lebensmittelbranche haben und ein hohes Hygienebewusstsein mitbringen, freuen wir uns auf Ihre Bewerbung!",
+        "it": "Wir suchen einen Qualitätssicherungs- und Proben-Techniker (m/w/d), der chemisch-physikalische Analysen durchführt und zur Sicherstellung unserer hohen Qualitätsstandards beiträgt. Wenn Sie Erfahrung in der Lebensmittelbranche haben und ein hohes Hygienebewusstsein mitbringen, freuen wir uns auf Ihre Bewerbung!",
+        "en": "Wir suchen einen Qualitätssicherungs- und Proben-Techniker (m/w/d), der chemisch-physikalische Analysen durchführt und zur Sicherstellung unserer hohen Qualitätsstandards beiträgt. Wenn Sie Erfahrung in der Lebensmittelbranche haben und ein hohes Hygienebewusstsein mitbringen, freuen wir uns auf Ihre Bewerbung!",
+        "fr": "Wir suchen einen Qualitätssicherungs- und Proben-Techniker (m/w/d), der chemisch-physikalische Analysen durchführt und zur Sicherstellung unserer hohen Qualitätsstandards beiträgt. Wenn Sie Erfahrung in der Lebensmittelbranche haben und ein hohes Hygienebewusstsein mitbringen, freuen wir uns auf Ihre Bewerbung!"
+      },
+      "location": "Burgdorf, Switzerland",
+      "canton": "BE",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-11T12:40:09.062Z",
+      "addressLocality": "Burgdorf",
+      "postalCode": "3400",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-11T12:40:09.062Z"
+    },
     {
       "id": "givaudan-6370a307a023",
       "slug": "acquirente-operativo-60-80-m-f-d-givaudan-volketswil-switzerland",
@@ -23,17 +88,17 @@
       },
       "description": "Wir suchen einen Einkaufsadministrator, der in einer abwechslungsreichen und flexiblen Umgebung arbeitet. Du wirst für die Einkaufsadministration, das Lieferantenmanagement und die Vertragsverhandlung verantwortlich sein. Werde Teil eines Teams, das innovative Lösungen entwickelt und das Leben der Menschen bereichert.",
       "descriptionByLocale": {
-        "it": "Descrizione\n\n- Siamo alla ricerca di un amministratore di acquisto che lavora in un ambiente vario e flessibile.\n- Lei sarà responsabile per l'acquisto di amministrazione, gestione dei fornitori e negoziazione dei contratti.\nDiventa parte di un team che sviluppa soluzioni innovative e arricchisce la vita delle persone.",
-        "en": "Descrizione\n\n- We are looking for a purchasing administrator who works in a varied and flexible environment.\n- You will be responsible for purchasing administration, supplier management and contract negotiation.\nBecome part of a team that develops innovative solutions and enriches people’s lives.",
-        "de": "Descrizione\n\n- Wir suchen einen Einkaufsadministrator, der in einer abwechslungsreichen und flexiblen Umgebung arbeitet.\n- Du wirst für die Einkaufsadministration, das Lieferantenmanagement und die Vertragsverhandlung verantwortlich sein.\n- Werde Teil eines Teams, das innovative Lösungen entwickelt und das Leben der Menschen bereichert.",
-        "fr": "Descrizione\n\n- Nous recherchons un administrateur qui travaille dans un environnement varié et flexible.\n- Vous serez responsable de l'administration des achats, de la gestion des fournisseurs et de la négociation des contrats.\nFaites partie d'une équipe qui développe des solutions innovantes et enrichit la vie des gens."
+        "it": "Descrizione - Siamo alla ricerca di un amministratore di acquisto che lavora in un ambiente vario e flessibile. - Lei sarà responsabile per l'acquisto di amministrazione, gestione dei fornitori e negoziazione dei contratti. Diventa parte di un team che sviluppa soluzioni innovative e arricchisce la vita delle persone.",
+        "en": "Descrizione - We are looking for a purchasing administrator who works in a varied and flexible environment. - You will be responsible for purchasing administration, supplier management and contract negotiation. Become part of a team that develops innovative solutions and enriches people’s lives.",
+        "de": "Wir suchen einen Einkaufsadministrator, der in einer abwechslungsreichen und flexiblen Umgebung arbeitet. Du wirst für die Einkaufsadministration, das Lieferantenmanagement und die Vertragsverhandlung verantwortlich sein. Werde Teil eines Teams, das innovative Lösungen entwickelt und das Leben der Menschen bereichert.",
+        "fr": "Descrizione - Nous recherchons un administrateur qui travaille dans un environnement varié et flexible. - Vous serez responsable de l'administration des achats, de la gestion des fournisseurs et de la négociation des contrats. Faites partie d'une équipe qui développe des solutions innovantes et enrichit la vie des gens."
       },
       "location": "Volketswil, Switzerland",
       "canton": "ZH",
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118947EXTERNALENGLOBAL/operativer-einkaufer-60-80-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:42:03.048Z",
+      "crawledAt": "2026-06-11T12:40:09.062Z",
       "addressLocality": "Volketswil",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -50,6 +115,20 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118947EXTERNALENGLOBAL/operativer-einkaufer-60-80-m-w-d",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+        ],
+        "en": [
+          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+        ],
+        "fr": [
+          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+        ]
+      },
       "firstSeenAt": "2026-06-10T12:08:28.181Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -62,21 +141,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
-        ],
-        "en": [
-          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
-        ],
-        "fr": [
-          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
-        ]
-      },
-      "previousSlugs": [
-        "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
-      ]
+      }
     },
     {
       "id": "givaudan-846cabb7d6b3",
@@ -109,7 +174,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118971EXTERNALENGLOBAL/betriebsmechaniker-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:42:03.046Z",
+      "crawledAt": "2026-06-11T12:40:09.061Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "addressRegion": "BE",
@@ -179,7 +244,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118901EXTERNALENGLOBAL/specialiste-en-equipement-sous-pression-et-en-conformite-reglementaire-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.046Z",
+      "crawledAt": "2026-06-11T12:40:09.060Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -249,7 +314,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118226EXTERNALENGLOBAL/quality-control-analyst-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.046Z",
+      "crawledAt": "2026-06-11T12:40:09.060Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -281,6 +346,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.838Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -290,6 +356,78 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "givaudan-92075c4b111c",
+      "slug": "responsabile-quality-f-b-eame-givaudan-vernier-switzerland",
+      "slugByLocale": {
+        "it": "responsabile-quality-f-b-eame-givaudan-vernier-switzerland",
+        "en": "head-of-quality-f-b-eame-givaudan-ch",
+        "de": "leiter-qualitat-f-b-eame-givaudan-vernier",
+        "fr": "directeur-qualite-f-b-eame-givaudan-vernier"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Head of Quality F&B EAME",
+      "titleByLocale": {
+        "it": "Responsabile Quality F&B EAME",
+        "en": "Head of Quality F&B EAME",
+        "de": "Leiter Qualität F&B EAME",
+        "fr": "Directeur Qualité F&B EAME"
+      },
+      "description": "Join our team as Head of Quality for Fragrance & Beauty EAME, leading quality management strategy and compliance across the region. Drive product excellence, regulatory adherence, and team development in a dynamic, innovative environment. Shape the future of fragrance and beauty with a global leader committed to quality, creativity, and customer satisfaction.",
+      "descriptionByLocale": {
+        "it": "Unisciti al nostro team come Capo Qualità per Fragranza e Bellezza EAME, guidando la strategia di gestione della qualità e della conformità in tutta la regione. Promuovi l'eccellenza del prodotto, la conformità normativa e lo sviluppo del team in un ambiente dinamico e innovativo. Plasma il futuro della fragranza e della bellezza con un leader globale impegnato nella qualità, nella creatività e nella soddisfazione del cliente.",
+        "en": "Join our team as Head of Quality for Fragrance & Beauty EAME, leading quality management strategy and compliance across the region. Drive product excellence, regulatory adherence, and team development in a dynamic, innovative environment. Shape the future of fragrance and beauty with a global leader committed to quality, creativity, and customer satisfaction.",
+        "de": "Treten Sie unserem Team als Leiter Qualität für Fragrance & Beauty EAME bei und leiten Sie die Qualitätssicherungsstrategie und -konformität in der Region. Fördern Sie die Produktqualität, die Einhaltung der Vorschriften und die Teamentwicklung in einer dynamischen, innovativen Umgebung. Gestalten Sie mit einem globalen Unternehmen, das sich der Qualität, Kreativität und Kundenzufriedenheit verschrieben hat, die Zukunft der Parfüm- und Kosmetikindustrie.",
+        "fr": "Rejoignez notre équipe en tant que Directeur Qualité pour Fragrance & Beauty EAME, en dirigeant la stratégie de gestion de la qualité et de la conformité dans toute la région. Favorisez l'excellence des produits, la conformité réglementaire et le développement des équipes dans un environnement dynamique et innovant. Façonnez l'avenir des parfums et de la beauté avec un leader mondial engagé envers la qualité, la créativité et la satisfaction de la clientèle."
+      },
+      "location": "Vernier, Switzerland",
+      "canton": "GE",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-11T12:40:09.058Z",
+      "addressLocality": "Vernier",
+      "postalCode": "1214",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-05",
+      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "head-of-quality-f-b-eame-givaudan-ch",
+        "capo-qualita-f-b-eame-givaudan-vernier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-quality-f-b-eame-givaudan-ch",
+          "capo-qualita-f-b-eame-givaudan-vernier"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:49.837Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -325,7 +463,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118780EXTERNALENGLOBAL/environmental-lab-manager-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.045Z",
+      "crawledAt": "2026-06-11T12:40:09.058Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -395,7 +533,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118833EXTERNALENGLOBAL/panelist-25-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:42:03.044Z",
+      "crawledAt": "2026-06-11T12:40:09.057Z",
       "addressLocality": "Kemptthal",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -422,148 +560,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:51:49.836Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "givaudan-92075c4b111c",
-      "slug": "responsabile-quality-f-b-eame-givaudan-vernier-switzerland",
-      "slugByLocale": {
-        "it": "responsabile-quality-f-b-eame-givaudan-vernier-switzerland",
-        "en": "head-of-quality-f-b-eame-givaudan-ch",
-        "de": "leiter-qualitat-f-b-eame-givaudan-vernier",
-        "fr": "directeur-qualite-f-b-eame-givaudan-vernier"
-      },
-      "company": "Givaudan",
-      "companyKey": "givaudan",
-      "companyDomain": "givaudan.com",
-      "title": "Head of Quality F&B EAME",
-      "titleByLocale": {
-        "it": "Responsabile Quality F&B EAME",
-        "en": "Head of Quality F&B EAME",
-        "de": "Leiter Qualität F&B EAME",
-        "fr": "Directeur Qualité F&B EAME"
-      },
-      "description": "Join our team as Head of Quality for Fragrance & Beauty EAME, leading quality management strategy and compliance across the region. Drive product excellence, regulatory adherence, and team development in a dynamic, innovative environment. Shape the future of fragrance and beauty with a global leader committed to quality, creativity, and customer satisfaction.",
-      "descriptionByLocale": {
-        "it": "Unisciti al nostro team come Capo Qualità per Fragranza e Bellezza EAME, guidando la strategia di gestione della qualità e della conformità in tutta la regione. Promuovi l'eccellenza del prodotto, la conformità normativa e lo sviluppo del team in un ambiente dinamico e innovativo. Plasma il futuro della fragranza e della bellezza con un leader globale impegnato nella qualità, nella creatività e nella soddisfazione del cliente.",
-        "en": "Join our team as Head of Quality for Fragrance & Beauty EAME, leading quality management strategy and compliance across the region. Drive product excellence, regulatory adherence, and team development in a dynamic, innovative environment. Shape the future of fragrance and beauty with a global leader committed to quality, creativity, and customer satisfaction.",
-        "de": "Treten Sie unserem Team als Leiter Qualität für Fragrance & Beauty EAME bei und leiten Sie die Qualitätssicherungsstrategie und -konformität in der Region. Fördern Sie die Produktqualität, die Einhaltung der Vorschriften und die Teamentwicklung in einer dynamischen, innovativen Umgebung. Gestalten Sie mit einem globalen Unternehmen, das sich der Qualität, Kreativität und Kundenzufriedenheit verschrieben hat, die Zukunft der Parfüm- und Kosmetikindustrie.",
-        "fr": "Rejoignez notre équipe en tant que Directeur Qualité pour Fragrance & Beauty EAME, en dirigeant la stratégie de gestion de la qualité et de la conformité dans toute la région. Favorisez l'excellence des produits, la conformité réglementaire et le développement des équipes dans un environnement dynamique et innovant. Façonnez l'avenir des parfums et de la beauté avec un leader mondial engagé envers la qualité, la créativité et la satisfaction de la clientèle."
-      },
-      "location": "Vernier, Switzerland",
-      "canton": "GE",
-      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
-      "source": "Givaudan Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.044Z",
-      "addressLocality": "Vernier",
-      "postalCode": "1214",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118946EXTERNALENGLOBAL/head-of-quality-f-b-eame",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "head-of-quality-f-b-eame-givaudan-ch",
-        "capo-qualita-f-b-eame-givaudan-vernier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-quality-f-b-eame-givaudan-ch",
-          "capo-qualita-f-b-eame-givaudan-vernier"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:49.837Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "givaudan-5389471bcff9",
-      "slug": "team-leader-in-production-3x8-m-f-d-givaudan-vernier",
-      "slugByLocale": {
-        "it": "team-leader-in-production-3x8-m-f-d-givaudan-vernier",
-        "en": "team-leader-in-production-3x8-m-f-d-givaudan-vernier",
-        "de": "team-leader-in-produktion-3x8-m-f-d-givaudan-vernier",
-        "fr": "chef-d-equipe-en-production-composition-3x8-h-f-d-givaudan-ch"
-      },
-      "company": "Givaudan",
-      "companyKey": "givaudan",
-      "companyDomain": "givaudan.com",
-      "title": "Chef d'équipe en production composition 3x8 (h/f/d)",
-      "titleByLocale": {
-        "it": "Chef d'équipe en production composition 3x8 (f/m/d)",
-        "en": "Team Leader in Production - 3x8 (m/f/d)",
-        "de": "Team Leader in Produktion - 3x8 (m/f/d)",
-        "fr": "Chef d'équipe en production composition 3x8 (h/f/d)"
-      },
-      "description": "Nous recherchons un Chef d'équipe en production pour superviser les opérations de fabrication chimique. Vous serez responsable de la gestion de la production, de la sécurité et de la qualité, tout en développant votre équipe dans un environnement dynamique.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un Team Leader in produzione per supervisionare le operazioni di produzione chimica. Sarai responsabile della gestione della produzione, della sicurezza e della qualità, mentre sviluppi il tuo team in un ambiente dinamico.",
-        "en": "We are looking for a Team Leader in Production to oversee chemical manufacturing operations. You will be responsible for production management, safety, and quality, while developing your team in a dynamic environment.",
-        "de": "Wir suchen einen Team Leader in Produktion, um die chemischen Produktionsabläufe zu leiten. Sie sind verantwortlich für die Produktionsleitung, Sicherheit und Qualität sowie für die Entwicklung Ihres Teams in einer dynamischen Umgebung.",
-        "fr": "Nous recherchons un Chef d'équipe en production pour superviser les opérations de fabrication chimique. Vous serez responsable de la gestion de la production, de la sécurité et de la qualité, tout en développant votre équipe dans un environnement dynamique."
-      },
-      "location": "Vernier, Switzerland",
-      "canton": "GE",
-      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118534EXTERNALENGLOBAL/chef-d-equipe-en-production-composition-3x8-h-f-d",
-      "source": "Givaudan Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.042Z",
-      "addressLocality": "Vernier",
-      "postalCode": "1214",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118534EXTERNALENGLOBAL/chef-d-equipe-en-production-composition-3x8-h-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-d-equipe-en-production-composition-3x8-h-f-d-givaudan-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-d-equipe-en-production-composition-3x8-h-f-d-givaudan-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:49.833Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -608,7 +604,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118070EXTERNALENGLOBAL/stagiaire-ingenieur-process-en-logistique-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.042Z",
+      "crawledAt": "2026-06-11T12:40:09.056Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -648,37 +644,37 @@
       }
     },
     {
-      "id": "givaudan-2a1202ad4cfe",
-      "slug": "reliability-engineer-m-f-d-givaudan-vernier",
+      "id": "givaudan-5389471bcff9",
+      "slug": "team-leader-in-production-3x8-m-f-d-givaudan-vernier",
       "slugByLocale": {
-        "it": "reliability-engineer-m-f-d-givaudan-vernier",
-        "en": "reliability-engineer-m-f-d-givaudan-vernier",
-        "de": "zuverlassigkeitsingenieur-m-w-d-givaudan-vernier",
-        "fr": "ingenieur-fiabilisation-h-f-d-givaudan-ch"
+        "it": "team-leader-in-production-3x8-m-f-d-givaudan-vernier",
+        "en": "team-leader-in-production-3x8-m-f-d-givaudan-vernier",
+        "de": "team-leader-in-produktion-3x8-m-f-d-givaudan-vernier",
+        "fr": "chef-d-equipe-en-production-composition-3x8-h-f-d-givaudan-ch"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
       "companyDomain": "givaudan.com",
-      "title": "Ingénieur fiabilisation (h/f/d)",
+      "title": "Chef d'équipe en production composition 3x8 (h/f/d)",
       "titleByLocale": {
-        "it": "Ingénieur fiabilisation (f/m/d)",
-        "en": "Reliability Engineer (m/f/d)",
-        "de": "Zuverlässigkeitsingenieur (m/w/d)",
-        "fr": "Ingénieur fiabilisation (h/f/d)"
+        "it": "Chef d'équipe en production composition 3x8 (f/m/d)",
+        "en": "Team Leader in Production - 3x8 (m/f/d)",
+        "de": "Team Leader in Produktion - 3x8 (m/f/d)",
+        "fr": "Chef d'équipe en production composition 3x8 (h/f/d)"
       },
-      "description": "Nous recherchons un Ingénieur fiabilisation pour rejoindre notre équipe dynamique. Vous serez responsable de la fiabilisation des équipements critiques et de l'amélioration continue des processus. Si vous avez une expérience solide en mécanique et électricité, et que vous souhaitez faire la différence, postulez dès maintenant !",
+      "description": "Nous recherchons un Chef d'équipe en production pour superviser les opérations de fabrication chimique. Vous serez responsable de la gestion de la production, de la sécurité et de la qualité, tout en développant votre équipe dans un environnement dynamique.",
       "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere di fiducia per entrare a far parte del nostro team dinamico. Sarai responsabile dell'affidabilità delle apparecchiature critiche e del miglioramento continuo dei processi. Se hai una solida esperienza nel campo della meccanica e dell'elettricità e vuoi fare la differenza, applica subito!",
-        "en": "We are looking for a Reliability Engineer to join our dynamic team. You will be responsible for the reliability of critical equipment and continuous process improvement. If you have solid experience in mechanics and electrical engineering, and you want to make a difference, apply now!",
-        "de": "Wir suchen einen Zuverlässigkeitsingenieur zur Verstärkung unseres dynamischen Teams. Sie sind für die Zuverlässigkeit kritischer Anlagen und die kontinuierliche Prozessverbesserung verantwortlich. Wenn Sie über fundierte Erfahrung in Mechanik und Elektrotechnik verfügen und einen Unterschied machen möchten, bewerben Sie sich jetzt!",
-        "fr": "Nous recherchons un Ingénieur fiabilisation pour rejoindre notre équipe dynamique. Vous serez responsable de la fiabilisation des équipements critiques et de l'amélioration continue des processus. Si vous avez une expérience solide en mécanique et électricité, et que vous souhaitez faire la différence, postulez dès maintenant !"
+        "it": "Stiamo cercando un Team Leader in produzione per supervisionare le operazioni di produzione chimica. Sarai responsabile della gestione della produzione, della sicurezza e della qualità, mentre sviluppi il tuo team in un ambiente dinamico.",
+        "en": "We are looking for a Team Leader in Production to oversee chemical manufacturing operations. You will be responsible for production management, safety, and quality, while developing your team in a dynamic environment.",
+        "de": "Wir suchen einen Team Leader in Produktion, um die chemischen Produktionsabläufe zu leiten. Sie sind verantwortlich für die Produktionsleitung, Sicherheit und Qualität sowie für die Entwicklung Ihres Teams in einer dynamischen Umgebung.",
+        "fr": "Nous recherchons un Chef d'équipe en production pour superviser les opérations de fabrication chimique. Vous serez responsable de la gestion de la production, de la sécurité et de la qualité, tout en développant votre équipe dans un environnement dynamique."
       },
       "location": "Vernier, Switzerland",
       "canton": "GE",
-      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117951EXTERNALENGLOBAL/ingenieur-fiabilisation-h-f-d",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118534EXTERNALENGLOBAL/chef-d-equipe-en-production-composition-3x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.041Z",
+      "crawledAt": "2026-06-11T12:40:09.055Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -687,97 +683,23 @@
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-25",
-      "applyUrl": "https://jobs.givaudan.com/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Se hai una solida esperienza nel campo della meccanica e dell'elettricità e vuoi fare la differenza, applica subito!"
-        ]
-      },
-      "previousSlugs": [
-        "ingenieur-fiabilisation-h-f-d-givaudan-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ingenieur-fiabilisation-h-f-d-givaudan-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:49.832Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "givaudan-497b3c64f741",
-      "slug": "ingegnere-di-processo-m-f-d-givaudan-vernier",
-      "slugByLocale": {
-        "it": "ingegnere-di-processo-m-f-d-givaudan-vernier",
-        "en": "process-engineer-m-f-d-givaudan-vernier",
-        "de": "prozessingenieur-m-w-d-givaudan-vernier",
-        "fr": "ingenieur-process-h-f-d-givaudan-ch"
-      },
-      "company": "Givaudan",
-      "companyKey": "givaudan",
-      "companyDomain": "givaudan.com",
-      "title": "Ingénieur Process (h/f/d)",
-      "titleByLocale": {
-        "it": "Ingegnere di Processo (M/F/D)",
-        "en": "Process Engineer (M/F/D)",
-        "de": "Prozessingenieur (m/w/d)",
-        "fr": "Ingénieur Process (h/f/d)"
-      },
-      "description": "Nous recherchons un Ingénieur Process passionné pour rejoindre notre équipe à Vernier. Vous serez responsable de garantir la sécurité et la conformité des installations industrielles tout en collaborant avec diverses équipes pour améliorer les processus. Rejoignez-nous pour faire la différence !",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un Ingegnere di Processo appassionato per unirsi al nostro team a Vernio, Svizzera. Sarai responsabile di garantire la sicurezza e la conformità delle strutture industriali collaborando con vari team per migliorare i processi. Unisciti a noi per fare la differenza!",
-        "en": "We are looking for a passionate Process Engineer to join our team in Vernier, Switzerland. You will be responsible for ensuring the safety and compliance of industrial facilities while collaborating with various teams to improve processes. Join us to make a difference!",
-        "de": "Wir suchen einen engagierten Prozessingenieur, um unserem Team in Vernier, Schweiz beizutreffen. Sie sind für die Gewährleistung der Sicherheit und Konformität von Industrieanlagen sowie die Zusammenarbeit mit verschiedenen Teams zur Verbesserung von Prozessen verantwortlich. Treten Sie uns bei, um etwas zu bewirken!",
-        "fr": "Nous recherchons un Ingénieur Process passionné pour rejoindre notre équipe à Vernier. Vous serez responsable de garantir la sécurité et la conformité des installations industrielles tout en collaborant avec diverses équipes pour améliorer les processus. Rejoignez-nous pour faire la différence !"
-      },
-      "location": "Vernier, Switzerland",
-      "canton": "GE",
-      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117850EXTERNALENGLOBAL/ingenieur-process-h-f-d",
-      "source": "Givaudan Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.040Z",
-      "addressLocality": "Vernier",
-      "postalCode": "1214",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-25",
-      "applyUrl": "https://jobs.givaudan.com/",
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118534EXTERNALENGLOBAL/chef-d-equipe-en-production-composition-3x8-h-f-d",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-process-h-f-d-givaudan-ch"
+        "chef-d-equipe-en-production-composition-3x8-h-f-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-process-h-f-d-givaudan-ch"
+          "chef-d-equipe-en-production-composition-3x8-h-f-d-givaudan-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:51:49.830Z",
+      "firstSeenAt": "2026-06-10T07:51:49.833Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -822,7 +744,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117704EXTERNALENGLOBAL/automation-engineer-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.040Z",
+      "crawledAt": "2026-06-11T12:40:09.054Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -853,6 +775,152 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.831Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "givaudan-2a1202ad4cfe",
+      "slug": "reliability-engineer-m-f-d-givaudan-vernier",
+      "slugByLocale": {
+        "it": "reliability-engineer-m-f-d-givaudan-vernier",
+        "en": "reliability-engineer-m-f-d-givaudan-vernier",
+        "de": "zuverlassigkeitsingenieur-m-w-d-givaudan-vernier",
+        "fr": "ingenieur-fiabilisation-h-f-d-givaudan-ch"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Ingénieur fiabilisation (h/f/d)",
+      "titleByLocale": {
+        "it": "Ingénieur fiabilisation (f/m/d)",
+        "en": "Reliability Engineer (m/f/d)",
+        "de": "Zuverlässigkeitsingenieur (m/w/d)",
+        "fr": "Ingénieur fiabilisation (h/f/d)"
+      },
+      "description": "Nous recherchons un Ingénieur fiabilisation pour rejoindre notre équipe dynamique. Vous serez responsable de la fiabilisation des équipements critiques et de l'amélioration continue des processus. Si vous avez une expérience solide en mécanique et électricité, et que vous souhaitez faire la différence, postulez dès maintenant !",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere di fiducia per entrare a far parte del nostro team dinamico. Sarai responsabile dell'affidabilità delle apparecchiature critiche e del miglioramento continuo dei processi. Se hai una solida esperienza nel campo della meccanica e dell'elettricità e vuoi fare la differenza, applica subito!",
+        "en": "We are looking for a Reliability Engineer to join our dynamic team. You will be responsible for the reliability of critical equipment and continuous process improvement. If you have solid experience in mechanics and electrical engineering, and you want to make a difference, apply now!",
+        "de": "Wir suchen einen Zuverlässigkeitsingenieur zur Verstärkung unseres dynamischen Teams. Sie sind für die Zuverlässigkeit kritischer Anlagen und die kontinuierliche Prozessverbesserung verantwortlich. Wenn Sie über fundierte Erfahrung in Mechanik und Elektrotechnik verfügen und einen Unterschied machen möchten, bewerben Sie sich jetzt!",
+        "fr": "Nous recherchons un Ingénieur fiabilisation pour rejoindre notre équipe dynamique. Vous serez responsable de la fiabilisation des équipements critiques et de l'amélioration continue des processus. Si vous avez une expérience solide en mécanique et électricité, et que vous souhaitez faire la différence, postulez dès maintenant !"
+      },
+      "location": "Vernier, Switzerland",
+      "canton": "GE",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117951EXTERNALENGLOBAL/ingenieur-fiabilisation-h-f-d",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-11T12:40:09.054Z",
+      "addressLocality": "Vernier",
+      "postalCode": "1214",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-25",
+      "applyUrl": "https://jobs.givaudan.com/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Se hai una solida esperienza nel campo della meccanica e dell'elettricità e vuoi fare la differenza, applica subito!"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-fiabilisation-h-f-d-givaudan-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-fiabilisation-h-f-d-givaudan-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:49.832Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "givaudan-497b3c64f741",
+      "slug": "ingegnere-di-processo-m-f-d-givaudan-vernier",
+      "slugByLocale": {
+        "it": "ingegnere-di-processo-m-f-d-givaudan-vernier",
+        "en": "process-engineer-m-f-d-givaudan-vernier",
+        "de": "prozessingenieur-m-w-d-givaudan-vernier",
+        "fr": "ingenieur-process-h-f-d-givaudan-ch"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Ingénieur Process (h/f/d)",
+      "titleByLocale": {
+        "it": "Ingegnere di Processo (M/F/D)",
+        "en": "Process Engineer (M/F/D)",
+        "de": "Prozessingenieur (m/w/d)",
+        "fr": "Ingénieur Process (h/f/d)"
+      },
+      "description": "Nous recherchons un Ingénieur Process passionné pour rejoindre notre équipe à Vernier. Vous serez responsable de garantir la sécurité et la conformité des installations industrielles tout en collaborant avec diverses équipes pour améliorer les processus. Rejoignez-nous pour faire la différence !",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un Ingegnere di Processo appassionato per unirsi al nostro team a Vernio, Svizzera. Sarai responsabile di garantire la sicurezza e la conformità delle strutture industriali collaborando con vari team per migliorare i processi. Unisciti a noi per fare la differenza!",
+        "en": "We are looking for a passionate Process Engineer to join our team in Vernier, Switzerland. You will be responsible for ensuring the safety and compliance of industrial facilities while collaborating with various teams to improve processes. Join us to make a difference!",
+        "de": "Wir suchen einen engagierten Prozessingenieur, um unserem Team in Vernier, Schweiz beizutreffen. Sie sind für die Gewährleistung der Sicherheit und Konformität von Industrieanlagen sowie die Zusammenarbeit mit verschiedenen Teams zur Verbesserung von Prozessen verantwortlich. Treten Sie uns bei, um etwas zu bewirken!",
+        "fr": "Nous recherchons un Ingénieur Process passionné pour rejoindre notre équipe à Vernier. Vous serez responsable de garantir la sécurité et la conformité des installations industrielles tout en collaborant avec diverses équipes pour améliorer les processus. Rejoignez-nous pour faire la différence !"
+      },
+      "location": "Vernier, Switzerland",
+      "canton": "GE",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117850EXTERNALENGLOBAL/ingenieur-process-h-f-d",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-11T12:40:09.052Z",
+      "addressLocality": "Vernier",
+      "postalCode": "1214",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-25",
+      "applyUrl": "https://jobs.givaudan.com/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ingenieur-process-h-f-d-givaudan-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-process-h-f-d-givaudan-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:49.830Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -897,7 +965,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118607EXTERNALENGLOBAL/head-digital-supply-chain-manufacturing",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.039Z",
+      "crawledAt": "2026-06-11T12:40:09.051Z",
       "addressLocality": "Kemptthal",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -971,7 +1039,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118475EXTERNALENGLOBAL/global-category-buyer-functional-ingredients",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.035Z",
+      "crawledAt": "2026-06-11T12:40:09.050Z",
       "addressLocality": "Kemptthal",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -997,6 +1065,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.828Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1041,7 +1110,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117688EXTERNALENGLOBAL/legal-counsel-f-b",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.033Z",
+      "crawledAt": "2026-06-11T12:40:09.048Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1111,7 +1180,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117952EXTERNALENGLOBAL/procurement-biotech-manager",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.033Z",
+      "crawledAt": "2026-06-11T12:40:09.048Z",
       "addressLocality": "Kemptthal",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -1181,7 +1250,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117411EXTERNALENGLOBAL/apprentissage-employe-de-commerce-cfc-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.031Z",
+      "crawledAt": "2026-06-11T12:40:09.046Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1221,76 +1290,6 @@
       }
     },
     {
-      "id": "givaudan-f9e7df875deb",
-      "slug": "team-leader-nella-produzione-chimica-2x8-m-f-d-givaudan-vernier",
-      "slugByLocale": {
-        "it": "team-leader-nella-produzione-chimica-2x8-m-f-d-givaudan-vernier",
-        "en": "team-leader-in-2x8-chemical-production-m-f-d-givaudan-vernier",
-        "de": "teamleiter-chemieproduktion-2x8-m-w-d-givaudan-vernier",
-        "fr": "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
-      },
-      "company": "Givaudan",
-      "companyKey": "givaudan",
-      "companyDomain": "givaudan.com",
-      "title": "Chef d'équipe en production chimique 2x8 (h/f/d)",
-      "titleByLocale": {
-        "it": "Team leader nella produzione chimica 2x8 (m/f/d)",
-        "en": "Team leader in 2x8 chemical production (m/f/d)",
-        "de": "Teamleiter Chemieproduktion 2x8 (m/w/d)",
-        "fr": "Chef d'équipe en production chimique 2x8 (h/f/d)"
-      },
-      "description": "Nous recherchons un Chef d'équipe en production chimique pour superviser et coordonner les activités de fabrication d'ingrédients. Vous garantirez la qualité et la sécurité des produits tout en gérant une équipe dynamique. Rejoignez-nous pour faire la différence dans un environnement innovant et collaboratif.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un Team Leader nella produzione chimica per supervisionare e coordinare le attività di produzione degli ingredienti. Garantire la qualità e la sicurezza dei prodotti gestendo un team dinamico. Unisciti a noi per fare la differenza in un ambiente innovativo e collaborativo.",
-        "en": "We are looking for a Chemical Production Team Leader to oversee and coordinate ingredient manufacturing activities. You will ensure product quality and safety while managing a dynamic team. Join us to make a difference in an innovative and collaborative environment.",
-        "de": "Wir suchen einen Teamleiter für die chemische Produktion, der die Aktivitäten zur Herstellung von Inhaltsstoffen überwacht und koordiniert. Sie garantieren die Qualität und Sicherheit der Produkte und führen gleichzeitig ein dynamisches Team. Begleiten Sie uns, um in einer innovativen und kollaborativen Umgebung etwas zu bewirken.",
-        "fr": "Nous recherchons un Chef d'équipe en production chimique pour superviser et coordonner les activités de fabrication d'ingrédients. Vous garantirez la qualité et la sécurité des produits tout en gérant une équipe dynamique. Rejoignez-nous pour faire la différence dans un environnement innovant et collaboratif."
-      },
-      "location": "Vernier, Switzerland",
-      "canton": "GE",
-      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
-      "source": "Givaudan Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.030Z",
-      "addressLocality": "Vernier",
-      "postalCode": "1214",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:49.822Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "givaudan-f6a46e937145",
       "slug": "tecnico-controllo-qualita-microbiologia-m-f-d-givaudan-bischofszell",
       "slugByLocale": {
@@ -1321,7 +1320,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118713EXTERNALENGLOBAL/quality-control-technician-microbiology-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:42:03.029Z",
+      "crawledAt": "2026-06-11T12:40:09.045Z",
       "addressLocality": "Bischofszell",
       "postalCode": "8500",
       "addressRegion": "TG",
@@ -1347,6 +1346,77 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.821Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "givaudan-f9e7df875deb",
+      "slug": "team-leader-nella-produzione-chimica-2x8-m-f-d-givaudan-vernier",
+      "slugByLocale": {
+        "it": "team-leader-nella-produzione-chimica-2x8-m-f-d-givaudan-vernier",
+        "en": "team-leader-in-2x8-chemical-production-m-f-d-givaudan-vernier",
+        "de": "teamleiter-chemieproduktion-2x8-m-w-d-givaudan-vernier",
+        "fr": "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Chef d'équipe en production chimique 2x8 (h/f/d)",
+      "titleByLocale": {
+        "it": "Team leader nella produzione chimica 2x8 (m/f/d)",
+        "en": "Team leader in 2x8 chemical production (m/f/d)",
+        "de": "Teamleiter Chemieproduktion 2x8 (m/w/d)",
+        "fr": "Chef d'équipe en production chimique 2x8 (h/f/d)"
+      },
+      "description": "Nous recherchons un Chef d'équipe en production chimique pour superviser et coordonner les activités de fabrication d'ingrédients. Vous garantirez la qualité et la sécurité des produits tout en gérant une équipe dynamique. Rejoignez-nous pour faire la différence dans un environnement innovant et collaboratif.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un Team Leader nella produzione chimica per supervisionare e coordinare le attività di produzione degli ingredienti. Garantire la qualità e la sicurezza dei prodotti gestendo un team dinamico. Unisciti a noi per fare la differenza in un ambiente innovativo e collaborativo.",
+        "en": "We are looking for a Chemical Production Team Leader to oversee and coordinate ingredient manufacturing activities. You will ensure product quality and safety while managing a dynamic team. Join us to make a difference in an innovative and collaborative environment.",
+        "de": "Wir suchen einen Teamleiter für die chemische Produktion, der die Aktivitäten zur Herstellung von Inhaltsstoffen überwacht und koordiniert. Sie garantieren die Qualität und Sicherheit der Produkte und führen gleichzeitig ein dynamisches Team. Begleiten Sie uns, um in einer innovativen und kollaborativen Umgebung etwas zu bewirken.",
+        "fr": "Nous recherchons un Chef d'équipe en production chimique pour superviser et coordonner les activités de fabrication d'ingrédients. Vous garantirez la qualité et la sécurité des produits tout en gérant une équipe dynamique. Rejoignez-nous pour faire la différence dans un environnement innovant et collaboratif."
+      },
+      "location": "Vernier, Switzerland",
+      "canton": "GE",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-11T12:40:09.045Z",
+      "addressLocality": "Vernier",
+      "postalCode": "1214",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118088EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-2x8-h-f-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-equipe-en-production-chimique-2x8-h-f-d-givaudan-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:49.822Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1391,7 +1461,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118517EXTERNALENGLOBAL/perfumery-lab-supervisor-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.027Z",
+      "crawledAt": "2026-06-11T12:40:09.043Z",
       "addressLocality": "Kemptthal",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -1408,15 +1478,16 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118517EXTERNALENGLOBAL/perfumery-lab-supervisor-m-f-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-10T07:51:49.820Z",
+      "previousSlugs": [
+        "perfumery-lab-supervisor-m-f-d-givaudan-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "perfumery-lab-supervisor-m-f-d-givaudan-ch"
         ]
       },
-      "previousSlugs": [
-        "perfumery-lab-supervisor-m-f-d-givaudan-ch"
-      ],
+      "firstSeenAt": "2026-06-10T07:51:49.820Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1461,7 +1532,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117415EXTERNALENGLOBAL/apprentissage-logisticien-cfc-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:03.026Z",
+      "crawledAt": "2026-06-11T12:40:09.041Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1531,7 +1602,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118688EXTERNALENGLOBAL/ehs-specialist-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.025Z",
+      "crawledAt": "2026-06-11T12:40:09.040Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1571,107 +1642,6 @@
       }
     },
     {
-      "id": "givaudan-124707c51acf",
-      "slug": "responsabile-approvvigionamento-ingredienti-givaudan-vernier",
-      "slugByLocale": {
-        "it": "responsabile-approvvigionamento-ingredienti-givaudan-vernier",
-        "en": "head-of-procurement-ingredients-givaudan-ch",
-        "de": "leiter-beschaffung-zutaten-givaudan-vernier",
-        "fr": "responsable-des-achats-ingredients-givaudan-vernier"
-      },
-      "company": "Givaudan",
-      "companyKey": "givaudan",
-      "companyDomain": "givaudan.com",
-      "title": "Head of Procurement Ingredients",
-      "titleByLocale": {
-        "it": "Responsabile Approvvigionamento Ingredienti",
-        "en": "Head of Procurement Ingredients",
-        "de": "Leiter Beschaffung Zutaten",
-        "fr": "Responsable des Achats Ingrédients"
-      },
-      "description": "We are looking for a Head of Procurement Ingredients to establish a clear segment vision focused on value creation and bottom line. You will develop and implement category strategies, engage with key stakeholders, and lead a global category management organization.",
-      "descriptionByLocale": {
-        "it": "Descrizione - Siamo alla ricerca di un Responsabile Approvvigionamento Ingredienti per stabilire una chiara visione di segmento focalizzata sulla creazione di valore e sul risultato netto. Svilupperai e implementerai strategie di categoria, ti interfacciarai con le parti interessate chiave e guiderai un'organizzazione globale di gestione delle categorie.",
-        "en": "We are looking for a Head of Procurement Ingredients to establish a clear segment vision focused on value creation and bottom line. You will develop and implement category strategies, engage with key stakeholders, and lead a global category management organization.",
-        "de": "Beschreibung - Wir suchen einen Leiter Beschaffung Zutaten, der eine klare Segmentvision mit Fokus auf Wertschöpfung und Geschäftsergebnis etabliert. Sie werden Kategoriestrategien entwickeln und umsetzen, mit wichtigen Stakeholdern zusammenarbeiten und eine globale Kategorie-Management-Organisation leiten.",
-        "fr": "Description - Nous recherchons un Responsable des Achats Ingrédients pour établir une vision claire du segment axée sur la création de valeur et le résultat net. Vous développerez et mettrez en œuvre des stratégies par catégorie, collaborerez avec les parties prenantes clés et dirigerez une organisation mondiale de gestion des catégories."
-      },
-      "location": "Vernier, Switzerland",
-      "canton": "GE",
-      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
-      "source": "Givaudan Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.024Z",
-      "addressLocality": "Vernier",
-      "postalCode": "1214",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Sviluppare e implementare strategie di categoria",
-          "Stabilire una visione di segmento focalizzata sulla creazione di valore",
-          "Coinvolgere le parti interessate chiave",
-          "Guidare un'organizzazione globale di gestione delle categorie",
-          "Ottimizzare il risultato netto",
-          "Gestire l'approvvigionamento degli ingredienti",
-          "Definire la visione del segmento",
-          "Allineare le strategie agli obiettivi aziendali"
-        ],
-        "de": [
-          "Kategoriestrategien entwickeln und umsetzen",
-          "Eine klare Segmentvision mit Fokus auf Wertschöpfung etablieren",
-          "Mit wichtigen Stakeholdern zusammenarbeiten",
-          "Eine globale Kategorie-Management-Organisation leiten",
-          "Das Geschäftsergebnis optimieren",
-          "Die Beschaffung von Zutaten verwalten",
-          "Die Segmentvision definieren",
-          "Strategien an Unternehmensziele ausrichten"
-        ],
-        "fr": [
-          "Développer et mettre en œuvre des stratégies par catégorie",
-          "Établir une vision claire du segment axée sur la création de valeur",
-          "Collaborer avec les parties prenantes clés",
-          "Diriger une organisation mondiale de gestion des catégories",
-          "Optimiser le résultat net",
-          "Gérer les achats d'ingrédients",
-          "Définir la vision du segment",
-          "Aligner les stratégies sur les objectifs de l'entreprise"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-procurement-ingredients-givaudan-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-procurement-ingredients-givaudan-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:51:49.815Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "givaudan-131bea9585a3",
       "slug": "responsabile-di-categoria-senior-per-i-prodotti-chimici-aromatici-givaudan-vernier",
       "slugByLocale": {
@@ -1702,7 +1672,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117748EXTERNALENGLOBAL/senior-category-manager-aroma-chemicals",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.024Z",
+      "crawledAt": "2026-06-11T12:40:09.039Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -1772,7 +1742,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB116426EXTERNALENGLOBAL/talent-pool-operations-internship-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.023Z",
+      "crawledAt": "2026-06-11T12:40:09.038Z",
       "addressLocality": "Kemptthal",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -1812,6 +1782,108 @@
       }
     },
     {
+      "id": "givaudan-124707c51acf",
+      "slug": "responsabile-approvvigionamento-ingredienti-givaudan-vernier",
+      "slugByLocale": {
+        "it": "responsabile-approvvigionamento-ingredienti-givaudan-vernier",
+        "en": "head-of-procurement-ingredients-givaudan-ch",
+        "de": "leiter-beschaffung-zutaten-givaudan-vernier",
+        "fr": "responsable-des-achats-ingredients-givaudan-vernier"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Head of Procurement Ingredients",
+      "titleByLocale": {
+        "it": "Responsabile Approvvigionamento Ingredienti",
+        "en": "Head of Procurement Ingredients",
+        "de": "Leiter Beschaffung Zutaten",
+        "fr": "Responsable des Achats Ingrédients"
+      },
+      "description": "We are looking for a Head of Procurement Ingredients to establish a clear segment vision focused on value creation and bottom line. You will develop and implement category strategies, engage with key stakeholders, and lead a global category management organization.",
+      "descriptionByLocale": {
+        "it": "Descrizione - Siamo alla ricerca di un Responsabile Approvvigionamento Ingredienti per stabilire una chiara visione di segmento focalizzata sulla creazione di valore e sul risultato netto. Svilupperai e implementerai strategie di categoria, ti interfacciarai con le parti interessate chiave e guiderai un'organizzazione globale di gestione delle categorie.",
+        "en": "We are looking for a Head of Procurement Ingredients to establish a clear segment vision focused on value creation and bottom line. You will develop and implement category strategies, engage with key stakeholders, and lead a global category management organization.",
+        "de": "Beschreibung - Wir suchen einen Leiter Beschaffung Zutaten, der eine klare Segmentvision mit Fokus auf Wertschöpfung und Geschäftsergebnis etabliert. Sie werden Kategoriestrategien entwickeln und umsetzen, mit wichtigen Stakeholdern zusammenarbeiten und eine globale Kategorie-Management-Organisation leiten.",
+        "fr": "Description - Nous recherchons un Responsable des Achats Ingrédients pour établir une vision claire du segment axée sur la création de valeur et le résultat net. Vous développerez et mettrez en œuvre des stratégies par catégorie, collaborerez avec les parties prenantes clés et dirigerez une organisation mondiale de gestion des catégories."
+      },
+      "location": "Vernier, Switzerland",
+      "canton": "GE",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-11T12:40:09.038Z",
+      "addressLocality": "Vernier",
+      "postalCode": "1214",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB118363EXTERNALENGLOBAL/head-of-procurement-ingredients",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Sviluppare e implementare strategie di categoria",
+          "Stabilire una visione di segmento focalizzata sulla creazione di valore",
+          "Coinvolgere le parti interessate chiave",
+          "Guidare un'organizzazione globale di gestione delle categorie",
+          "Ottimizzare il risultato netto",
+          "Gestire l'approvvigionamento degli ingredienti",
+          "Definire la visione del segmento",
+          "Allineare le strategie agli obiettivi aziendali"
+        ],
+        "de": [
+          "Kategoriestrategien entwickeln und umsetzen",
+          "Eine klare Segmentvision mit Fokus auf Wertschöpfung etablieren",
+          "Mit wichtigen Stakeholdern zusammenarbeiten",
+          "Eine globale Kategorie-Management-Organisation leiten",
+          "Das Geschäftsergebnis optimieren",
+          "Die Beschaffung von Zutaten verwalten",
+          "Die Segmentvision definieren",
+          "Strategien an Unternehmensziele ausrichten"
+        ],
+        "fr": [
+          "Développer et mettre en œuvre des stratégies par catégorie",
+          "Établir une vision claire du segment axée sur la création de valeur",
+          "Collaborer avec les parties prenantes clés",
+          "Diriger une organisation mondiale de gestion des catégories",
+          "Optimiser le résultat net",
+          "Gérer les achats d'ingrédients",
+          "Définir la vision du segment",
+          "Aligner les stratégies sur les objectifs de l'entreprise"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-procurement-ingredients-givaudan-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-procurement-ingredients-givaudan-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:51:49.815Z",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "givaudan-012cb00b0e6b",
       "slug": "product-manager-and-designer-sap-treasury-givaudan-ch",
       "slugByLocale": {
@@ -1842,7 +1914,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117798EXTERNALENGLOBAL/product-manager-and-designer-sap-treasury",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T22:42:03.020Z",
+      "crawledAt": "2026-06-11T12:40:09.034Z",
       "addressLocality": "Kemptthal",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -1904,7 +1976,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117638EXTERNALENGLOBAL/quality-assurance-food-safety-specialist-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:42:03.000Z",
+      "crawledAt": "2026-06-11T12:40:09.017Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "addressRegion": "BE",
@@ -1930,6 +2002,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.793Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1974,7 +2047,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118338EXTERNALENGLOBAL/betriebselektriker-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:42:02.999Z",
+      "crawledAt": "2026-06-11T12:40:09.016Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "addressRegion": "ZH",
@@ -2000,6 +2073,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.792Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2044,7 +2118,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117953EXTERNALENGLOBAL/continuous-improvement-specialist-h-f-d-90-a-100-departement-production-composition",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-10T22:42:02.971Z",
+      "crawledAt": "2026-06-11T12:40:08.986Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "Genève",
@@ -2076,6 +2150,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.767Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
