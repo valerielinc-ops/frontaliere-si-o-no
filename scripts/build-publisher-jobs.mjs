@@ -51,6 +51,36 @@ async function main() {
   // when the last paid ad expires — keeps the slice authoritative, not stale).
   writeJobsCrawlerSlice(PUBLISHER_SOURCE_KEY, records);
 
+  // Stamp each projected ad with its public URL + projection timestamp so the
+  // publisher dashboard can distinguish "In revisione" (paid but not yet picked
+  // up by this sync) from "Online" (projected into the slice + deploy triggered)
+  // and link to the live page. Best-effort — never fail the slice write over it.
+  try {
+    const adminMod = await import('firebase-admin');
+    const FieldValue = (adminMod.default || adminMod).firestore.FieldValue;
+    const firstUrlByAd = new Map();
+    for (const r of records) {
+      if (r.publisherJobId && !firstUrlByAd.has(r.publisherJobId)) {
+        // Canonical trailing slash (site convention) on the public link.
+        firstUrlByAd.set(r.publisherJobId, r.url.endsWith('/') ? r.url : `${r.url}/`);
+      }
+    }
+    if (firstUrlByAd.size) {
+      const batch = db.batch();
+      for (const [jobId, publicUrl] of firstUrlByAd) {
+        batch.set(
+          db.collection('publisher_jobs').doc(jobId),
+          { publicUrl, projectedAt: FieldValue.serverTimestamp() },
+          { merge: true },
+        );
+      }
+      await batch.commit();
+      console.log(`[build-publisher-jobs] stamped publicUrl + projectedAt on ${firstUrlByAd.size} ad(s).`);
+    }
+  } catch (err) {
+    console.warn('[build-publisher-jobs] writeback (publicUrl/projectedAt) failed (non-fatal):', err instanceof Error ? err.message : String(err));
+  }
+
   console.log(
     `[build-publisher-jobs] ${pubJobs.length} live ad(s) (paid + free-published) → ${records.length} job record(s) in ` +
       `data/jobs/by-crawler/${PUBLISHER_SOURCE_KEY}.json`,
