@@ -18,21 +18,31 @@
  * GitHub Pages match the shard repo's custom domain.
  *
  * Caching: shard responses are cached by Cloudflare's NATIVE edge cache via
- * `cf: { cacheEverything, cacheTtl }` on the origin fetch — NOT the Workers
- * Cache API. The previous caches.default/last-known-good machinery was removed
- * (2026-06-11) because:
- *   1. Every Cache API operation is logged in zone analytics as a synthetic
- *      `requestSource: edgeWorkerCacheAPI` row — cache.match() MISSes show up
- *      as edgeResponseStatus **504** (~124k/day) and cache.put()s as 204
- *      (~80k/day). Those phantom 504s (User-Agent empty, protocol UNK,
- *      originResponseDurationMs 0, zero eyeball rows) were repeatedly misread
- *      as a real outage ("26% of requests fail") and burned three PR cycles
- *      (#1791 regression, #1814 hotfix, #1830 no-op). Real client traffic on
- *      the shards is clean: zero eyeball 504s/day, ~50×503/day zone-wide.
- *   2. caches.default is per-colo and ephemeral; cf-native caching is tiered
- *      (upper-tier colos shared), so origin fetches drop further.
- * Do NOT reintroduce caches.default here without filtering monitoring to
- * `requestSource: "eyeball"` first (scripts/lib/cf-analytics.mjs does this).
+ * `cf: { cacheEverything, cacheTtl }` on the origin fetch — keyed on the
+ * origin-{loc} URL, tiered across colos.
+ *
+ * Cache API (caches.default): WRITE-ONLY, apex-keyed, for the over-cap
+ * failover. A routed Worker is invoked on EVERY matching request — the edge
+ * cache cannot answer in front of it ("Workers run before the cache"), so on
+ * the free plan nothing here reduces the 100k/day invocation count. What CAN
+ * answer without the Worker is the fail-open path: when the daily cap is
+ * exceeded and the route is configured `request_limit_fail_open: true`,
+ * Cloudflare bypasses the Worker and the request flows through the normal CDN
+ * pipeline. cache.put() below stores every shard 200 under its PUBLIC apex
+ * URL so that pipeline finds it (a zone Cache Rule marks /en|/de|/fr eligible
+ * for cache lookup — see scripts/cf-locale-failover-setup.mjs, re-run by
+ * deploy-worker.yml after every deploy). Net effect over cap: warm pages keep
+ * serving 200 (stale ≤24h) instead of error 1027 on everything.
+ *
+ * Cache API history (#1791/#1814/#1830/#1842): every Cache API op is logged in
+ * zone analytics as a synthetic `requestSource: edgeWorkerCacheAPI` row —
+ * cache.match() MISSes as phantom 504s (misread as an outage, three PR cycles
+ * burned) and cache.put()s as 204s. This Worker therefore: (a) never calls
+ * cache.match() — the request path stays single-consumer, no tee (the put copy
+ * is built from an explicit arrayBuffer, not a stream tee, so the #1791
+ * deadlock class is structurally impossible); (b) tolerates the returning 204
+ * put rows because monitoring filters `requestSource: "eyeball"` since #1842
+ * (scripts/lib/cf-analytics.mjs). Keep both properties when touching this.
  *
  * Asset/data/og refs in shard HTML are CDN-absolute (since #1665), so those
  * requests bypass this Worker entirely.
@@ -62,17 +72,26 @@ const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 //   land 2-3×/day — 2h bounds that staleness window.
 //
 //   CACHE_MAX_AGE (6h) — `max-age`/`s-maxage` stamped on the 200 responses we
-//   return: CF caches the WORKER response eyeball-side, so repeat hits don't
-//   re-invoke the Worker at all — the lever that keeps frontaliere-locale-router
-//   under the free-tier 100k/day cap (measured 2026-06-11: ~144k inv/day,
-//   ~63% AI crawlers re-crawling; raised 2h→6h to absorb more repeats).
+//   return. CORRECTION (2026-06-11, vs the #1865 rationale): this does NOT
+//   stop re-invocations — a routed Worker runs before the cache on every
+//   request (confirmed by docs and by flat invocation counts post-#1865). It
+//   still helps browsers and downstream proxies hold the page, and it is the
+//   Cache-Control crawl-side fetchers see.
 //   Safe against stale-HTML 404s: superseded CDN asset hashes are retained
 //   GRACE_DAYS=7 (prune-cdn-assets.mjs), far longer than this TTL, so HTML
 //   served up to 6h stale still resolves every referenced /assets hash. Live
 //   job data is client-fetched fresh from the CDN at runtime (not baked into
 //   this cached HTML), so a 6h-stale SEO shell is fine.
+//
+//   FAIL_OPEN_CACHE_TTL (24h) — s-maxage on the apex-keyed cache.put copy:
+//   how long the fail-open path can serve a page once the Worker is over the
+//   daily cap. 24h spans the worst case (cap hit right after a put, reset at
+//   00:00 UTC). Staleness is bounded by the same CDN-asset GRACE_DAYS=7
+//   argument above. Browser max-age stays short (300) so humans who get a
+//   fail-open HIT revalidate soon after.
 const CACHE_MAX_AGE = 21600; // 6 h — eyeball-side (Worker response)
 const ORIGIN_CACHE_TTL = 7200; // 2 h — origin-fetch side (cf.cacheTtl)
+const FAIL_OPEN_CACHE_TTL = 86400; // 24 h — apex-keyed Cache API copy (fail-open failover)
 
 // Cache-Control stamped on shard 404s. ~51k/day of shard traffic is crawlers
 // re-fetching DEAD job URLs from memory (old canton/slug variants, pruned
@@ -129,7 +148,7 @@ async function fetchOriginWithRetry(upstream, request, cfOpts) {
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, _env, ctx) {
     const url = new URL(request.url);
     const match = url.pathname.match(LOCALE_RE);
 
@@ -194,15 +213,31 @@ export default {
       }
     }
 
-    // Stamp Cache-Control on successful GETs so browsers and Cloudflare's
-    // eyeball-side edge cache (s-maxage) can serve repeats without re-invoking
-    // the Worker. Single body consumer — no buffering or stream tee needed
-    // (the multi-consumer tee deadlock of #1791/#1814 is structurally gone
-    // along with the Cache API writes that required it).
+    // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in
+    // the colo cache for the over-cap fail-open path (see header comment).
+    // The body is buffered ONCE via arrayBuffer and reused for both responses
+    // — deliberately no resp.clone()/stream tee, which is the #1791/#1814
+    // deadlock class (a slow eyeball consumer stalls the cache.put branch).
+    // Shard pages are small HTML (~50-200KB), well within Worker memory.
+    // Query-string URLs are skipped: not canonical, would only pollute the
+    // per-colo cache (e.g. deploy-worker.yml's ?dwcheck= cache-busters).
     if (request.method === 'GET' && resp.status === 200) {
       const headers = new Headers(resp.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
-      return new Response(resp.body, { status: 200, statusText: resp.statusText, headers });
+      const body = await resp.arrayBuffer();
+      if (ctx && !url.search) {
+        const cacheHeaders = new Headers(resp.headers);
+        cacheHeaders.set('Cache-Control', `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}`);
+        ctx.waitUntil(
+          caches.default
+            .put(
+              new Request(url.toString(), { method: 'GET' }),
+              new Response(body, { status: 200, statusText: resp.statusText, headers: cacheHeaders }),
+            )
+            .catch(() => {}), // best-effort failover warmup — never fail the live response
+        );
+      }
+      return new Response(body, { status: 200, statusText: resp.statusText, headers });
     }
 
     // Stamp Cache-Control on 404s too: see NOT_FOUND_CACHE_CONTROL. GitHub
