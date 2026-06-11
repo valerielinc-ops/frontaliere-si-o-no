@@ -56,6 +56,35 @@ describe('resolveSpaBundle', () => {
     expect(info.hasSpaBundle).toBe(true);
   });
 
+  it('extracts the STABLE entry filenames (index-entry.js + hashless index.css)', () => {
+    // Production output after the entry JS + CSS stabilization (vite.config.ts
+    // entryFileNames + assetFileNames): the JS entry is `index-entry.js` and
+    // the CSS entry is the hashless `index.css`. The resolver must extract both
+    // — the CSS hash is optional in SPA_ENTRY_CSS_RX.
+    const html = `<!doctype html>
+<html><head>
+<link rel="stylesheet" href="/assets/index.css">
+<script type="module" crossorigin src="/assets/index-entry.js"></script>
+</head><body><div id="root"></div></body></html>`;
+    fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf-8');
+    const info = resolveSpaBundle(distDir);
+    expect(info.entryJs).toBe('index-entry.js');
+    expect(info.entryCss).toBe('index.css');
+    expect(info.hasSpaBundle).toBe(true);
+  });
+
+  it('extracts the stable hashless index.css from an absolute CDN URL too', () => {
+    const html = `<!doctype html>
+<html><head>
+<link rel="stylesheet" href="https://cdn.frontaliereticino.ch/assets/index.css">
+<script type="module" crossorigin src="https://cdn.frontaliereticino.ch/assets/index-entry.js"></script>
+</head><body><div id="root"></div></body></html>`;
+    fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf-8');
+    const info = resolveSpaBundle(distDir);
+    expect(info.entryCss).toBe('index.css');
+    expect(info.hasSpaBundle).toBe(true);
+  });
+
   it('caches per distDir — second call does not re-read', () => {
     writeIndexHtml(distDir, 'AAA', 'BBB');
     const first = resolveSpaBundle(distDir);

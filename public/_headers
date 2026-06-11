@@ -14,6 +14,17 @@
 # the site moves to object storage / a CDN that reads _headers.)
 /assets/index-entry.js
   Cache-Control: public, max-age=0, must-revalidate
+# SPA entry STYLESHEET has a STABLE name too (assets/index.css, see
+# vite.config.ts assetFileNames) for the same reason — a stable name never
+# 404s from old cached HTML referencing a rotated hash. Its bytes DO change on
+# real style changes, so it must REVALIDATE and override the immutable
+# /assets/* rule. Placed AFTER /assets/* so it wins under both precedence
+# semantics, exactly like index-entry.js above. (GitHub Pages ignores _headers
+# today; honored once the site serves from a _headers-reading CDN. If the
+# Fastly/CDN layer pins /assets/* immutable independently of _headers, add the
+# same revalidate override there — else a style change serves stale CSS.)
+/assets/index.css
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Icons — cache for 1 month
 /icons/*
