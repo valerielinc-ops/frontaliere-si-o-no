@@ -111,6 +111,23 @@ export function publisherJobToRecords(pubJob, opts = {}) {
     descriptionByLocale.it = pubJob.description;
   }
 
+  // Same gap for titleByLocale (+ slugByLocale, built per-location below):
+  // publisher ads store only a flat `title`/`slug`, so once the ad is in the
+  // dataset `tests/job-locale-completeness` ("no job has a completely empty
+  // titleByLocale/slugByLocale object") fails. Populate every locale (source
+  // title; the /lavoro slug is locale-agnostic), merged with any real
+  // translations. en/de/fr defaulting to the IT title trips assemble's
+  // cross-locale-duplicate guard → needsRetranslation, so the "all-4-locales"
+  // gates skip the ad until translate-pending fills real translations.
+  const LOCALE_KEYS = ['it', 'en', 'de', 'fr'];
+  const flatTitle = String(pubJob.title || '').trim();
+  const titleByLocale = { ...(pubJob.titleByLocale || {}) };
+  if (flatTitle) {
+    for (const lk of LOCALE_KEYS) {
+      if (!String(titleByLocale[lk] || '').trim()) titleByLocale[lk] = pubJob.title;
+    }
+  }
+
   const company = pubJob.company || {};
   const companyName = String(company.name || '').trim();
   const companyKey = company.companyKey || slugifyPublisher(companyName);
@@ -141,6 +158,12 @@ export function publisherJobToRecords(pubJob, opts = {}) {
     const id = `pub-${pubJob.id}-${slugifyPublisher(locationLabel)}`;
     const url = `${SITE_ORIGIN}/lavoro/${baseSlug}`;
     const applyUrl = apply.mode === 'external_url' && apply.url ? apply.url : url;
+    // The /lavoro/<slug> path is locale-agnostic → the same slug in every
+    // locale (merged with any real per-locale slug already present).
+    const slugByLocale = { ...(pubJob.slugByLocale || {}) };
+    for (const lk of LOCALE_KEYS) {
+      if (!String(slugByLocale[lk] || '').trim()) slugByLocale[lk] = baseSlug;
+    }
 
     return {
       title: pubJob.title,
@@ -167,7 +190,8 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       contractType: pubJob.contractType || null,
       validThrough: validThroughIso,
       description: pubJob.description || '',
-      titleByLocale: pubJob.titleByLocale || undefined,
+      titleByLocale: Object.keys(titleByLocale).length ? titleByLocale : undefined,
+      slugByLocale: Object.keys(slugByLocale).length ? slugByLocale : undefined,
       descriptionByLocale: Object.keys(descriptionByLocale).length ? descriptionByLocale : undefined,
       id,
       salaryMin: pubJob.salaryMin ?? null,
