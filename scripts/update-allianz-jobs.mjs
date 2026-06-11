@@ -206,6 +206,36 @@ async function fetchAllListings() {
   return allItems;
 }
 
+// Umantis publishes each vacancy only in its own language; the `/Description/4`
+// (Italian) URL returns a content-less shell for German/French jobs, so the old
+// hardcoded-`/4` fetch grabbed the page chrome → most jobs shared the same
+// body+title (the duplicate-listings audit critical). Probe every language code
+// and keep the variant whose parsed body carries the most real text.
+const DESCRIPTION_LANG_CODES = [4, 1, 3, 2]; // IT first (target locale), then DE/EN/FR
+
+async function fetchBestDetail(item) {
+  let best = null;
+  let bestLen = 0;
+  for (const code of DESCRIPTION_LANG_CODES) {
+    const url = `https://${COMPANY_HOST}/Vacancies/${item.vacancyId}/Description/${code}`;
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch {
+      continue;
+    }
+    const detail = parseAllianzDetailPage(html, item.title, item.location);
+    const len = (detail.description || '').replace(/\s+/g, ' ').trim().length;
+    if (len > bestLen) {
+      bestLen = len;
+      best = detail;
+    }
+    // First sufficiently-rich variant wins — avoids probing all 4 codes per job.
+    if (bestLen >= 300) break;
+  }
+  return best || parseAllianzDetailPage('', item.title, item.location);
+}
+
 async function enrichWithDetails(listings) {
   const enriched = [];
   const toFetch = listings.slice(0, MAX_DETAIL_PAGES);
@@ -215,8 +245,7 @@ async function enrichWithDetails(listings) {
   for (let i = 0; i < toFetch.length; i++) {
     const item = toFetch[i];
     try {
-      const html = await fetchText(item.detailUrl);
-      const detail = parseAllianzDetailPage(html, item.title, item.location);
+      const detail = await fetchBestDetail(item);
       enriched.push({
         ...item,
         title: detail.title || item.title,
@@ -225,7 +254,7 @@ async function enrichWithDetails(listings) {
         description: detail.description || '',
         contractType: detail.contractType || '',
       });
-      console.log(`  ✅ [${i + 1}/${toFetch.length}] ${item.vacancyId}: ${detail.title || item.title} — ${inferLocation(item, detail)}`);
+      console.log(`  ✅ [${i + 1}/${toFetch.length}] ${item.vacancyId}: ${detail.title || item.title} — ${inferLocation(item, detail)} (${(detail.description || '').length} chars)`);
     } catch (err) {
       console.log(`  ⚠️ Detail fetch failed for ${item.vacancyId}: ${err.message}`);
       enriched.push({
