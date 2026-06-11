@@ -107,9 +107,13 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Amazon / Alexa
+# Amazon / Alexa — welcome, but rate-limited: Amazonbot honors Crawl-delay
+# (per Amazon's crawler docs) and was fetching ~24k locale-shard pages/day,
+# each one a Cloudflare Worker invocation against the free-tier 100k/day cap.
+# 10s ≈ max 8.6k fetches/day, plenty for Alexa/Rufus freshness on this site.
 User-agent: Amazonbot
 Allow: /
+Crawl-delay: 10
 
 # Apple
 User-agent: Applebot
@@ -188,3 +192,32 @@ Allow: /
 # Kagi AI Search
 User-agent: KagiBot
 Allow: /
+
+# ─── SEO-tool crawlers — blocked ──────────────────────────────────────────
+# Backlink/keyword-tool crawlers bring zero search or AI visibility and no
+# referral traffic; on the /en /de /fr locale shards every fetch is a
+# Cloudflare Worker invocation that counts against the free-tier 100k/day cap
+# (AhrefsBot alone: ~10k fetches/day measured 2026-06-11). All of these honor
+# robots.txt. Ad-verification crawlers (IAS, proximic) stay ALLOWED — they
+# validate inventory for AdSense advertisers (~95% of revenue).
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /

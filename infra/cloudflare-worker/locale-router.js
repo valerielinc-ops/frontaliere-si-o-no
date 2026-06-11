@@ -52,21 +52,37 @@ const SHARD_ORIGIN = {
 // to these prefixes; this regex is the in-code guard.)
 const LOCALE_RE = /^\/(en|de|fr)(\/|$|\.html$)/;
 
-// Edge-cache TTL for shard pages, applied twice: as `cf.cacheTtl` on the
-// origin fetch (CF caches the ORIGIN response, tiered/cross-colo, so repeat
-// misses don't re-contact GitHub Pages) and as `s-maxage` on the response we
-// return (CF caches the WORKER response eyeball-side, so repeat hits don't
-// re-invoke the Worker at all — the lever that keeps frontaliere-locale-router
-// under the free-tier 100k/day cap). Safe against stale-HTML 404s: superseded
-// CDN asset hashes are retained GRACE_DAYS=7 (prune-cdn-assets.mjs), far
-// longer than this TTL, so HTML served up to 2h stale still resolves every
-// referenced /assets hash. Live job data is client-fetched fresh from the CDN
-// at runtime (not baked into this cached HTML), so a 2h-stale SEO shell is
-// fine. Tradeoff accepted: with cacheEverything a shard 404 can also be edge-
-// cached up to 2h, so a page that flips 404→200 on deploy may serve a cached
-// 404 from an already-poisoned colo for up to 2h — negligible for crawlers,
-// which revisit on a much longer cadence.
-const CACHE_MAX_AGE = 7200; // 2 h
+// Edge-cache TTLs for shard pages. Two layers, deliberately different:
+//
+//   ORIGIN_CACHE_TTL (2h) — `cf.cacheTtl` on the origin fetch: CF caches the
+//   ORIGIN response (tiered/cross-colo) so repeat misses don't re-contact
+//   GitHub Pages. Kept at 2h because with cacheEverything it also negative-
+//   caches origin 404s: a page that flips 404→200 on deploy may serve a
+//   cached 404 from an already-probed colo for up to this TTL, and deploys
+//   land 2-3×/day — 2h bounds that staleness window.
+//
+//   CACHE_MAX_AGE (6h) — `max-age`/`s-maxage` stamped on the 200 responses we
+//   return: CF caches the WORKER response eyeball-side, so repeat hits don't
+//   re-invoke the Worker at all — the lever that keeps frontaliere-locale-router
+//   under the free-tier 100k/day cap (measured 2026-06-11: ~144k inv/day,
+//   ~63% AI crawlers re-crawling; raised 2h→6h to absorb more repeats).
+//   Safe against stale-HTML 404s: superseded CDN asset hashes are retained
+//   GRACE_DAYS=7 (prune-cdn-assets.mjs), far longer than this TTL, so HTML
+//   served up to 6h stale still resolves every referenced /assets hash. Live
+//   job data is client-fetched fresh from the CDN at runtime (not baked into
+//   this cached HTML), so a 6h-stale SEO shell is fine.
+const CACHE_MAX_AGE = 21600; // 6 h — eyeball-side (Worker response)
+const ORIGIN_CACHE_TTL = 7200; // 2 h — origin-fetch side (cf.cacheTtl)
+
+// Cache-Control stamped on shard 404s. ~51k/day of shard traffic is crawlers
+// re-fetching DEAD job URLs from memory (old canton/slug variants, pruned
+// jobs) — 404 is the correct status (no page can exist for them: the
+// traffic-evidence gate caps soft-landing emission, and 391k bridge pages
+// would blow the Pages 10 GB cap), but without Cache-Control every repeat hit
+// re-invokes the Worker. s-maxage lets the edge absorb repeats; short
+// browser max-age so a human who lands on a just-published URL that
+// transiently 404'd retries fresh soon after.
+const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 
 // Per-attempt upstream timeout + one retry. A healthy shard origin answers in
 // ~0.1-0.2s, so 6s is generous for a slow-but-ok fetch yet fails a hung
@@ -140,7 +156,7 @@ export default {
     try {
       resp = await fetchOriginWithRetry(upstream, request, {
         cacheEverything: true,
-        cacheTtl: CACHE_MAX_AGE,
+        cacheTtl: ORIGIN_CACHE_TTL,
       });
     } catch {
       // Every attempt timed out / threw — no origin response. Short Retry-After:
@@ -187,6 +203,15 @@ export default {
       const headers = new Headers(resp.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
       return new Response(resp.body, { status: 200, statusText: resp.statusText, headers });
+    }
+
+    // Stamp Cache-Control on 404s too: see NOT_FOUND_CACHE_CONTROL. GitHub
+    // Pages sends no Cache-Control on its 404 page, so without this every
+    // crawler re-fetch of a dead URL re-invokes the Worker.
+    if (request.method === 'GET' && resp.status === 404) {
+      const headers = new Headers(resp.headers);
+      headers.set('Cache-Control', NOT_FOUND_CACHE_CONTROL);
+      return new Response(resp.body, { status: 404, statusText: resp.statusText, headers });
     }
 
     return resp;
