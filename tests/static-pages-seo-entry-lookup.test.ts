@@ -44,6 +44,18 @@ describe('staticPagesPlugin seoMap key normalization', () => {
   });
 });
 
+describe('llmsTxtPlugin seo lookup key normalization', () => {
+  // Same slash-divergence class: parseSitemapUrls strips trailing slashes,
+  // so parseSeoEntries must key the map in the same slash-less form or every
+  // hand-written entry (canonicalPath WITH slash) misses at lookup and the
+  // llms.txt page index degrades to slug-derived labels.
+  it('parseSeoEntries keys the map in strip-slash form', () => {
+    const llmsSource = readFileSync(path.resolve(ROOT, 'build-plugins', 'llmsTxtPlugin.ts'), 'utf-8');
+    expect(llmsSource).toContain("map.set(cp.replace(/\\/+$/, '') || '/', { title, desc });");
+    expect(llmsSource).not.toMatch(/map\.set\(cp,/);
+  });
+});
+
 describe('seo source files parse contract (real files)', () => {
   // Mirror of the plugin's entry scanner — keep in sync with
   // build-plugins/staticPagesPlugin.ts entryStartRx/NON_ENTRY_KEYS.
