@@ -89,14 +89,12 @@ function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLa
  className="w-6 h-6 object-contain"
  loading="lazy"
  onError={(e) => {
+ // No Clearbit→Google-favicon hop (defunct CDN / grey globe). On any load
+ // error, hide the image and reveal the initial-letter fallback span.
  const el = e.currentTarget;
- if (el.src.includes('logo.clearbit.com')) {
- el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`;
- } else {
  el.style.display = 'none';
  const fallback = el.nextElementSibling as HTMLElement | null;
  if (fallback) fallback.style.display = '';
- }
  }}
  />
  ) : null}
