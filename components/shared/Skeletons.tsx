@@ -343,9 +343,12 @@ export const SkeletonJobBoard: React.FC = () => (
  <SkeletonLine width="flex-1" height="h-10" className="rounded-xl" />
  <SkeletonLine width="w-24" height="h-10" className="rounded-xl" />
  </div>
- {/* Job cards */}
- {Array.from({ length: 6 }).map((_, i) => (
- <div key={i} className={`${pulse} h-[72px] rounded-xl`} />
+ {/* Job cards — 10 per page, ~112px each: total skeleton height tracks the
+ final list so the footer doesn't jump into/out of the viewport when the
+ async job fetch resolves (field CLS p75 0.58 on /cerca-lavoro-ticino/,
+ footer collapse measured at 0.064/landing). */}
+ {Array.from({ length: 10 }).map((_, i) => (
+ <div key={i} className={`${pulse} h-28 rounded-xl`} />
  ))}
  </div>
 );
