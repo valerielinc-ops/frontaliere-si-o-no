@@ -1,18 +1,48 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-06-10T22:32:05.005Z",
+  "generatedAt": "2026-06-11T12:32:06.041Z",
   "total": 9,
-  "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5514,
-  "avgDurationMs": 5514,
+  "durationMs": 5540,
+  "avgDurationMs": 5540,
   "durationHistory": [
-    5514
+    5540
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "davos-klosters-bergbahnen-d00053469fff",
+      "slug": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen",
+      "companyDomain": "davosklosters.ch",
+      "title": "Kabinenführer:in Jakobshorn",
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Kabinenfuehrer-in-Jakobshorn_j_3891467",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-11T12:32:02.674Z",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "davos-klosters-bergbahnen-b1e9004c53e4",
@@ -34,7 +64,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.193Z",
+      "crawledAt": "2026-06-11T12:32:01.878Z",
       "firstSeenAt": "2026-06-09T11:17:26.005Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -64,7 +94,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.446Z",
+      "crawledAt": "2026-06-11T12:32:02.143Z",
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -94,38 +124,8 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bar-Rotliechtli_j_3890499",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.431Z",
+      "crawledAt": "2026-06-11T12:32:03.500Z",
       "firstSeenAt": "2026-06-09T11:17:27.549Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "davos-klosters-bergbahnen-23c310d6f7f1",
-      "slug": "mitarbeiter-in-front-office-bolgenhof-davos-klosters-bergbahnen-davos",
-      "company": "Davos Klosters Bergbahnen AG",
-      "companyKey": "davos-klosters-bergbahnen",
-      "companyDomain": "davosklosters.ch",
-      "title": "Mitarbeiter:in Front Office Bolgenhof",
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressCountry": "CH",
-      "category": "tourism",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Bolgenhof_j_2652066",
-      "source": "Davos Klosters Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:03.186Z",
-      "firstSeenAt": "2026-06-04T11:47:54.743Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -154,7 +154,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Front-Office-Mitarbeiter-in_j_3887442",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.669Z",
+      "crawledAt": "2026-06-11T12:32:02.404Z",
       "firstSeenAt": "2026-06-02T12:50:53.798Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -184,7 +184,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in_j_3887486",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.180Z",
+      "crawledAt": "2026-06-11T12:32:03.231Z",
       "firstSeenAt": "2026-06-02T12:50:54.291Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -214,7 +214,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.695Z",
+      "crawledAt": "2026-06-11T12:32:03.781Z",
       "firstSeenAt": "2026-05-28T12:20:50.604Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -244,7 +244,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.924Z",
+      "crawledAt": "2026-06-11T12:32:02.959Z",
       "firstSeenAt": "2026-04-13T10:24:18.731Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -274,7 +274,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.946Z",
+      "crawledAt": "2026-06-11T12:32:04.040Z",
       "firstSeenAt": "2026-04-13T10:24:19.013Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -285,8 +285,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "davos-klosters-bergbahnen-23c310d6f7f1",
       "slug": "collaboratore-trice-front-office-bolgenhof-davos-klosters-bergbahnen-ag-davos",
@@ -309,7 +308,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-10T22:32:03.186Z",
       "firstSeenAt": "2026-06-04T11:47:54.743Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "7270",
@@ -322,7 +320,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "davos-klosters-bergbahnen-da1009241443",
       "slug": "collaboratore-trice-front-office-davos-klosters-bergbahnen-ag-davos",
@@ -343,7 +343,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.946Z",
+      "crawledAt": "2026-06-11T12:32:04.040Z",
       "firstSeenAt": "2026-04-13T10:24:19.013Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -378,7 +378,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.695Z",
+      "crawledAt": "2026-06-11T12:32:03.781Z",
       "firstSeenAt": "2026-05-28T12:20:50.604Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -414,7 +414,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bar-Rotliechtli_j_3890499",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.431Z",
+      "crawledAt": "2026-06-11T12:32:03.500Z",
       "firstSeenAt": "2026-06-09T11:17:27.549Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -449,7 +449,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in_j_3887486",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:02.180Z",
+      "crawledAt": "2026-06-11T12:32:03.231Z",
       "firstSeenAt": "2026-06-02T12:50:54.291Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -484,7 +484,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.924Z",
+      "crawledAt": "2026-06-11T12:32:02.959Z",
       "firstSeenAt": "2026-04-13T10:24:18.731Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -496,6 +496,41 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "davos-klosters-bergbahnen-d00053469fff",
+      "slug": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen",
+      "companyDomain": "davosklosters.ch",
+      "title": "Kabinenführer:in Jakobshorn",
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Kabinenfuehrer-in-Jakobshorn_j_3891467",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-11T12:32:02.674Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "postalCode": "7270",
+      "country": "CH",
+      "addressRegion": "GR",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -519,7 +554,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Front-Office-Mitarbeiter-in_j_3887442",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.669Z",
+      "crawledAt": "2026-06-11T12:32:02.404Z",
       "firstSeenAt": "2026-06-02T12:50:53.798Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -554,7 +589,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.446Z",
+      "crawledAt": "2026-06-11T12:32:02.143Z",
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -589,7 +624,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T22:32:01.193Z",
+      "crawledAt": "2026-06-11T12:32:01.878Z",
       "firstSeenAt": "2026-06-09T11:17:26.005Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
