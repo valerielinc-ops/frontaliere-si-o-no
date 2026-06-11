@@ -27,6 +27,10 @@ import {
   countDistinctLocations,
   netChfForUnits,
 } from './publisherPricingMirror.js';
+// Guarded revert of abandoned-checkout ads (shared with the daily reaper CF).
+// Lives in the reap module so this file's `import('stripe')` never has to load
+// when the reaper (or its unit test) runs.
+import { revertPendingJobsToDraft } from './publisherPendingReapCore.js';
 
 // ── Stripe client (lazy, cached) ────────────────────────────────────────────
 let _stripe = null;
@@ -163,12 +167,15 @@ export async function handleCreatePublisherCheckout(req) {
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 
-  // Mark the jobs as awaiting payment (still not public).
+  // Mark the jobs as awaiting payment (still not public). `pendingPaymentAt`
+  // anchors the stale-checkout reaper (reapStalePendingPayments): if the publisher
+  // abandons Stripe, the ad is reverted to 'draft' instead of being stuck forever.
   const batch = db().batch();
   for (const jobId of verifiedJobIds) {
     batch.update(db().collection('publisher_jobs').doc(jobId), {
       status: 'pending_payment',
       orderId: orderRef.id,
+      pendingPaymentAt: admin.firestore.FieldValue.serverTimestamp(),
       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
     });
   }
@@ -237,6 +244,84 @@ export async function handleArchivePublisherAd(req) {
   }
 
   return { status: 200, body: { ok: true } };
+}
+
+// ── restorePublisherAd ──────────────────────────────────────────────────────
+// Inverse of archive: bring an archived ad back. The destination status depends
+// on whether the publisher still has a live billing relationship:
+//   free                      → 'published' (re-enters the slice, no payment)
+//   sponsored + active sub    → 'paid'  (re-attached to the order; no new charge —
+//                               reuses the slot the publisher kept paying for)
+//   sponsored + dead/no sub   → 'draft' (must run a fresh checkout to go live)
+// Symmetric to handleArchivePublisherAd (which detached the ad from order.jobIds).
+const LIVE_SUB_STATUSES = new Set(['active', 'trialing', 'past_due']);
+
+export async function handleRestorePublisherAd(req) {
+  if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+  const decoded = await verifyCaller(req);
+  if (!decoded) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
+
+  const jobId = String((req.body || {}).jobId || '');
+  if (!jobId) return { status: 400, body: { ok: false, error: 'no_job' } };
+
+  const jobRef = db().collection('publisher_jobs').doc(jobId);
+  const snap = await jobRef.get();
+  if (!snap.exists) return { status: 404, body: { ok: false, error: 'not_found' } };
+  const job = snap.data();
+  if (job.publisherUid !== decoded.uid) return { status: 403, body: { ok: false, error: 'not_owner' } };
+  if (job.status !== 'archived') return { status: 409, body: { ok: false, error: 'not_archived' } };
+
+  const ts = admin.firestore.FieldValue.serverTimestamp();
+
+  // Free tier: no billing — just re-list it. (Anti-spam cap is a create-time
+  // trigger; a restore is an update, so an already-known ad is not re-capped.)
+  if (job.tier === 'free') {
+    await jobRef.set({ status: 'published', archivedAt: null, updatedAt: ts }, { merge: true });
+    return { status: 200, body: { ok: true, status: 'published' } };
+  }
+
+  // Sponsored: re-list under the still-active subscription if there is one.
+  const orderId = job.orderId ? String(job.orderId) : null;
+  let subscriptionId = null;
+  let orderRef = null;
+  if (orderId) {
+    orderRef = db().collection('orders').doc(orderId);
+    const orderSnap = await orderRef.get();
+    if (orderSnap.exists) subscriptionId = orderSnap.data().stripeSubscriptionId || null;
+  }
+
+  let subLive = false;
+  if (subscriptionId) {
+    try {
+      const stripe = await getStripe();
+      const sub = await stripe.subscriptions.retrieve(subscriptionId);
+      subLive = LIVE_SUB_STATUSES.has(sub?.status);
+    } catch (error) {
+      // Best-effort: if Stripe is unreachable, fall back to the safe 'draft' path
+      // (publisher can re-checkout) rather than resurrecting an unverified ad.
+      console.error('[restorePublisherAd] subscription lookup failed', error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (subLive) {
+    // Re-attach to the order so renewals keep it live, then flip back to paid.
+    if (orderRef) {
+      try {
+        await orderRef.update({ jobIds: admin.firestore.FieldValue.arrayUnion(jobId), updatedAt: ts });
+      } catch (error) {
+        console.error('[restorePublisherAd] order re-attach failed', error instanceof Error ? error.message : String(error));
+      }
+    }
+    await jobRef.set({ status: 'paid', paidAt: ts, archivedAt: null, subscriptionId, updatedAt: ts }, { merge: true });
+    try {
+      await storeRenewal(await getStripe(), subscriptionId, [jobId], orderId);
+    } catch { /* non-fatal: renewal date is best-effort */ }
+    return { status: 200, body: { ok: true, status: 'paid' } };
+  }
+
+  // No live subscription → back to draft; the publisher must run a new checkout.
+  await jobRef.set({ status: 'draft', archivedAt: null, updatedAt: ts }, { merge: true });
+  return { status: 200, body: { ok: true, status: 'draft' } };
 }
 
 // ── stripeWebhook ───────────────────────────────────────────────────────────
@@ -382,6 +467,19 @@ export async function handleStripeWebhook(req) {
           await storeRenewal(stripe, obj.subscription, order.jobIds, orderSnap.id);
         } catch { /* non-fatal: renewal date is best-effort */ }
         await sendPublisherConfirmation(order.publisherUid, (order.jobIds || []).length);
+      }
+      break;
+    }
+    case 'checkout.session.expired': {
+      // The publisher opened checkout but never paid; Stripe expired the session
+      // (default 24h). Cancel the dangling order and free the ad from the dead-end
+      // 'pending_payment' state so it can be edited / re-submitted. Guarded: only
+      // jobs still pending are touched (a completed/archived one is left alone).
+      const orderId = obj.metadata?.orderId || obj.client_reference_id;
+      const orderSnap = await orderByStripeRef({ sessionId: obj.id, orderId });
+      if (orderSnap) {
+        await orderSnap.ref.update({ status: 'canceled', updatedAt: ts });
+        await revertPendingJobsToDraft(orderSnap.data().jobIds);
       }
       break;
     }

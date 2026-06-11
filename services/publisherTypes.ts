@@ -102,6 +102,33 @@ export type PublisherJobStatus =
 /** Status values that mean the ad is live and should be projected into the slice. */
 export const LIVE_JOB_STATUSES: readonly PublisherJobStatus[] = ['paid', 'published'];
 
+/** True when the ad is currently projected into the public slice. */
+export function isLiveStatus(status: PublisherJobStatus): boolean {
+  return LIVE_JOB_STATUSES.includes(status);
+}
+
+/**
+ * Statuses from which the publisher may archive an ad (take it down / pause).
+ * `expired`/`rejected` are already off the slice and `archived` is terminal-ish
+ * (restore brings it back) — none of those expose an archive action.
+ */
+export const ARCHIVABLE_STATUSES: readonly PublisherJobStatus[] = [
+  'paid',
+  'published',
+  'pending_payment',
+  'draft',
+];
+
+/** True when the dashboard should offer an "archive" action for this status. */
+export function canArchive(status: PublisherJobStatus): boolean {
+  return ARCHIVABLE_STATUSES.includes(status);
+}
+
+/** True when the dashboard should offer a "restore" action (only archived ads). */
+export function canRestore(status: PublisherJobStatus): boolean {
+  return status === 'archived';
+}
+
 /** How candidates apply (locked: build all three generically). */
 export type ApplyMode = 'external_url' | 'forward_email' | 'in_house';
 
@@ -166,6 +193,14 @@ export interface PublisherJob {
   updatedAt: IsoTimestamp;
   /** Set when status flips to paid (drives 30-day renewal display + 1–2h notice). */
   paidAt?: IsoTimestamp;
+  /** Set when status flips to pending_payment (checkout opened). Drives the stale-
+   * checkout reaper: a pending ad older than the reap window is reverted to draft. */
+  pendingPaymentAt?: IsoTimestamp;
+  /** Set when the publisher archives the ad from the dashboard (status → archived). */
+  archivedAt?: IsoTimestamp;
+  /** Set on every content edit of a live ad — drives the "modificato" hint
+   * (changes go live at the next slice sync, ~1–2h). */
+  contentEditedAt?: IsoTimestamp;
 }
 
 // ─── Orders / Stripe mirror ─────────────────────────────────────────────────

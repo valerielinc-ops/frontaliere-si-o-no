@@ -20,7 +20,8 @@ import { getPublicConfigValues } from './src/publicConfig.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
-import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd } from './src/stripePublisherCore.js';
+import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
+import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
@@ -740,6 +741,32 @@ export const archivePublisherAd = onRequest(
  },
 );
 
+// Publisher-initiated restore of an archived ad. Re-lists it: free → published,
+// sponsored with a still-active subscription → paid (reusing the slot, no new
+// charge), otherwise → draft (must run a fresh checkout). Inverse of archive.
+export const restorePublisherAd = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleRestorePublisherAd(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[restorePublisherAd]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
 // Stripe webhook — the ONLY path that flips a job to 'paid'. Needs the raw body
 // for signature verification (cors:false; Firebase provides req.rawBody).
 export const stripeWebhook = onRequest(
@@ -840,6 +867,21 @@ export const sendPublisherRenewalReminders = onSchedule(
  if (sent > 0) console.log(`[sendPublisherRenewalReminders] sent ${sent} renewal reminder(s)`);
  } catch (error) {
  console.error('[sendPublisherRenewalReminders]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Reaper: revert ads stuck in 'pending_payment' past the reap window (abandoned
+// checkout) back to 'draft', daily. Backstop for a missed checkout.session.expired
+// webhook. Guarded + idempotent (only touches docs still pending_payment).
+export const reapPublisherPendingPayments = onSchedule(
+ { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
+ async () => {
+ try {
+ const reverted = await reapStalePendingPayments();
+ if (reverted > 0) console.log(`[reapPublisherPendingPayments] reverted ${reverted} stale pending ad(s)`);
+ } catch (error) {
+ console.error('[reapPublisherPendingPayments]', error instanceof Error ? error.message : String(error));
  }
  },
 );
