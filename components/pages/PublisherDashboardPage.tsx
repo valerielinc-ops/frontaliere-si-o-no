@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil } from 'lucide-react';
+import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil, Archive } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
@@ -49,6 +49,12 @@ function tsToMillis(value: unknown): number | null {
 
 const BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
+const ARCHIVE_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/archivePublisherAd';
+
+// Statuses for which the publisher can still archive the ad (live or in-flight).
+// Already-terminal states (expired/rejected/archived) get no archive action.
+const ARCHIVABLE_STATUSES = new Set(['paid', 'published', 'pending_payment', 'draft']);
 
 const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
@@ -57,6 +63,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [apps, setApps] = useState<ApplicationRow[]>([]);
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
+  const [archivingId, setArchivingId] = useState<string | null>(null);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci', 'Publisher Dashboard');
@@ -77,6 +84,32 @@ const PublisherDashboardPage: React.FC = () => {
       else setBillingBusy(false);
     } catch {
       setBillingBusy(false);
+    }
+  };
+
+  const handleArchive = async (jobId: string) => {
+    if (!user || archivingId) return;
+    if (typeof window !== 'undefined' && !window.confirm(t('publisherDashboard.archiveConfirm'))) return;
+    setArchivingId(jobId);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch(ARCHIVE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({ jobId }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean };
+      if (!res.ok || !data.ok) throw new Error('archive_failed');
+      // Reflect the new state locally without a full reload — the slice rebuild
+      // (and removal from the live site) follows on the next publisher-jobs sync.
+      setRows((prev) => prev.map((r) => (r.id === jobId ? { ...r, status: 'archived' } : r)));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'archive', 'success');
+    } catch (error) {
+      reportCaughtError(error, 'publisherDashboard.archive');
+      if (typeof window !== 'undefined') window.alert(t('publisherDashboard.archiveError'));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'archive', 'error');
+    } finally {
+      setArchivingId(null);
     }
   };
 
@@ -286,7 +319,7 @@ const PublisherDashboardPage: React.FC = () => {
                     <td className="px-3 py-3 text-right text-body">{r.views}</td>
                     <td className="px-3 py-3 text-right text-body">{r.applyClicks}</td>
                     <td className="px-4 py-3 text-right text-body">{apps.filter((a) => a.jobId === r.id).length}</td>
-                    <td className="px-4 py-3 text-right">
+                    <td className="px-4 py-3 text-right whitespace-nowrap">
                       <a
                         href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
                         className="inline-flex items-center gap-1 text-link hover:underline"
@@ -294,6 +327,17 @@ const PublisherDashboardPage: React.FC = () => {
                         <Pencil className="w-3.5 h-3.5" />
                         {t('publisherDashboard.edit')}
                       </a>
+                      {ARCHIVABLE_STATUSES.has(r.status) && (
+                        <button
+                          type="button"
+                          onClick={() => { void handleArchive(r.id); }}
+                          disabled={archivingId === r.id}
+                          className="ml-3 inline-flex items-center gap-1 text-subtle hover:text-danger disabled:opacity-60 transition-colors"
+                        >
+                          <Archive className="w-3.5 h-3.5" />
+                          {t('publisherDashboard.archive')}
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -317,13 +361,26 @@ const PublisherDashboardPage: React.FC = () => {
                   <span className="inline-flex items-center gap-1"><MousePointerClick className="w-4 h-4 text-subtle" />{r.applyClicks}</span>
                   <span className="inline-flex items-center gap-1"><FileText className="w-4 h-4 text-subtle" />{apps.filter((a) => a.jobId === r.id).length}</span>
                 </div>
-                <a
-                  href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
-                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-link hover:underline"
-                >
-                  <Pencil className="w-4 h-4" />
-                  {t('publisherDashboard.edit')}
-                </a>
+                <div className="mt-3 flex items-center gap-4">
+                  <a
+                    href={`${buildPath({ activeTab: 'publish' }, locale)}?edit=${r.id}`}
+                    className="inline-flex items-center gap-1 text-sm font-medium text-link hover:underline"
+                  >
+                    <Pencil className="w-4 h-4" />
+                    {t('publisherDashboard.edit')}
+                  </a>
+                  {ARCHIVABLE_STATUSES.has(r.status) && (
+                    <button
+                      type="button"
+                      onClick={() => { void handleArchive(r.id); }}
+                      disabled={archivingId === r.id}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-subtle hover:text-danger disabled:opacity-60 transition-colors"
+                    >
+                      <Archive className="w-4 h-4" />
+                      {t('publisherDashboard.archive')}
+                    </button>
+                  )}
+                </div>
               </div>
             ))}
           </div>
