@@ -3257,7 +3257,6 @@ Regeln:
  'publisherLanding.compare.notIncluded': 'Nicht enthalten',
  'publisherLanding.compare.priceRow': 'Preis',
  'publisherLanding.compare.freePrice': 'Kostenlos',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / Anzeige / 30 Tage',
  'publisherLanding.compare.row.listing': 'Anzeige in der Jobbörse',
  'publisherLanding.compare.row.seoPage': 'Eigene SEO-Seite',
  'publisherLanding.compare.row.featured': 'Hervorgehoben in der Liste und in E-Mails',

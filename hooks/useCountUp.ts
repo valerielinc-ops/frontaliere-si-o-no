@@ -23,10 +23,17 @@ interface UseCountUpOptions {
   durationMs?: number;
   /** When false, the counter stays at 0 and waits (e.g. until data is ready). */
   active?: boolean;
+  /** Decimal places to preserve while counting (e.g. 1 for a 3.7% rate). Default 0. */
+  decimals?: number;
 }
 
-export function useCountUp(target: number, { durationMs = 1400, active = true }: UseCountUpOptions = {}): number {
+export function useCountUp(
+  target: number,
+  { durationMs = 1400, active = true, decimals = 0 }: UseCountUpOptions = {},
+): number {
   const safeTarget = Number.isFinite(target) ? target : 0;
+  const factor = Math.pow(10, decimals);
+  const round = (n: number) => Math.round(n * factor) / factor;
   const [value, setValue] = useState(0);
   const frameRef = useRef<number | null>(null);
 
@@ -34,7 +41,7 @@ export function useCountUp(target: number, { durationMs = 1400, active = true }:
     if (!active) return;
 
     if (prefersReducedMotion() || safeTarget === 0) {
-      setValue(safeTarget);
+      setValue(round(safeTarget));
       return;
     }
 
@@ -42,7 +49,9 @@ export function useCountUp(target: number, { durationMs = 1400, active = true }:
     const tick = (now: number) => {
       if (start === null) start = now;
       const progress = Math.min((now - start) / durationMs, 1);
-      setValue(Math.round(easeOutQuart(progress) * safeTarget));
+      // Land exactly on the target at the final frame, so a decimal like 3.7
+      // isn't rounded up to 4.
+      setValue(progress >= 1 ? round(safeTarget) : round(easeOutQuart(progress) * safeTarget));
       if (progress < 1) {
         frameRef.current = requestAnimationFrame(tick);
       }
@@ -52,7 +61,7 @@ export function useCountUp(target: number, { durationMs = 1400, active = true }:
     return () => {
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
     };
-  }, [safeTarget, durationMs, active]);
+  }, [safeTarget, durationMs, active, decimals]);
 
   return value;
 }

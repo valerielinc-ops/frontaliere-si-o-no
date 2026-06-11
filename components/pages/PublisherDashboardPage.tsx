@@ -89,9 +89,9 @@ const STATUS_PILL: Record<PublisherJobStatus, string> = {
 };
 
 /** A single count-up KPI used in the overview band. */
-function CountUpValue({ value, active }: { value: number; active: boolean }): React.ReactElement {
-  const display = useCountUp(value, { active });
-  return <>{display.toLocaleString('it-CH')}</>;
+function CountUpValue({ value, active, decimals = 0 }: { value: number; active: boolean; decimals?: number }): React.ReactElement {
+  const display = useCountUp(value, { active, decimals });
+  return <>{display.toLocaleString('it-CH', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}</>;
 }
 
 /**
@@ -423,16 +423,16 @@ const PublisherDashboardPage: React.FC = () => {
               {/* Supporting metrics — varied weight, not an identical grid. */}
               <div className="mt-6 grid grid-cols-3 gap-3">
                 {[
-                  { key: 'clicks', icon: <MousePointerClick className="w-4 h-4" />, value: totals.clicks, label: t('publisherDashboard.kpi.totalClicks'), suffix: '' },
-                  { key: 'apps', icon: <FileText className="w-4 h-4" />, value: totals.applications, label: t('publisherDashboard.kpi.totalApplications'), suffix: '' },
-                  { key: 'conv', icon: <TrendingUp className="w-4 h-4" />, value: totals.conversion, label: t('publisherDashboard.kpi.conversion'), suffix: '%' },
+                  { key: 'clicks', icon: <MousePointerClick className="w-4 h-4" />, value: totals.clicks, label: t('publisherDashboard.kpi.totalClicks'), suffix: '', decimals: 0 },
+                  { key: 'apps', icon: <FileText className="w-4 h-4" />, value: totals.applications, label: t('publisherDashboard.kpi.totalApplications'), suffix: '', decimals: 0 },
+                  { key: 'conv', icon: <TrendingUp className="w-4 h-4" />, value: totals.conversion, label: t('publisherDashboard.kpi.conversion'), suffix: '%', decimals: 1 },
                 ].map((m) => (
                   <div key={m.key} className="rounded-2xl bg-surface p-4 border border-edge">
                     <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent-subtle text-link mb-2">
                       {m.icon}
                     </span>
                     <p className="text-2xl font-bold font-display text-strong tabular-nums leading-none">
-                      <CountUpValue value={m.value} active={state === 'ready'} />{m.suffix}
+                      <CountUpValue value={m.value} active={state === 'ready'} decimals={m.decimals} />{m.suffix}
                     </p>
                     <p className="text-xs text-subtle mt-1.5 leading-tight">{m.label}</p>
                   </div>

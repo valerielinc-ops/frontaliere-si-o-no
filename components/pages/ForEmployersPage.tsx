@@ -35,6 +35,7 @@ import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
 import { Analytics } from '@/services/analytics';
 import { useCountUp } from '@/hooks/useCountUp';
+import { PRICE_PER_UNIT_CHF, PRICING_CURRENCY } from '@/services/publisherPricing';
 
 /** Stat tiles — real (approximate) audience figures, all values via i18n. */
 const STAT_TILES: { icon: React.ReactNode; valueKey: string; labelKey: string; primary?: boolean }[] = [
@@ -241,7 +242,7 @@ const ForEmployersPage: React.FC = () => {
               {t('publisherLanding.plan.sponsored.name')}
             </p>
             <p className="mt-2 flex items-baseline gap-1.5">
-              <span className="text-3xl font-bold font-display text-strong">CHF 49</span>
+              <span className="text-3xl font-bold font-display text-strong">{PRICING_CURRENCY} {PRICE_PER_UNIT_CHF}</span>
               <span className="text-sm text-subtle">{t('publisherLanding.plan.sponsored.priceNote')}</span>
             </p>
             <p className="mt-1 text-sm text-body">{t('publisherLanding.plan.sponsored.tagline')}</p>

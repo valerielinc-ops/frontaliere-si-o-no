@@ -3344,7 +3344,6 @@ Regole:
  'publisherLanding.compare.notIncluded': 'Non incluso',
  'publisherLanding.compare.priceRow': 'Prezzo',
  'publisherLanding.compare.freePrice': 'Gratis',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / annuncio / 30 giorni',
  'publisherLanding.compare.row.listing': 'Annuncio nel listino',
  'publisherLanding.compare.row.seoPage': 'Pagina SEO dedicata',
  'publisherLanding.compare.row.featured': 'In evidenza nel listino e nelle email',

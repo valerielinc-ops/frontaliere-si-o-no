@@ -38,7 +38,7 @@ import {
  serverTimestamp,
 } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
-import { priceForCart } from '@/services/publisherPricing';
+import { priceForCart, PRICE_PER_UNIT_CHF, PRICING_CURRENCY } from '@/services/publisherPricing';
 import { listCantonOptions } from '@/services/cantonList';
 import type {
  ApplyMode,
@@ -1092,7 +1092,7 @@ const PublisherPublishPage: React.FC = () => {
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  {([
  { value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' },
- { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: 'CHF 49', priceNote: t('publisherLanding.plan.sponsored.priceNote') },
+ { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: `${PRICING_CURRENCY} ${PRICE_PER_UNIT_CHF}`, priceNote: t('publisherLanding.plan.sponsored.priceNote') },
  ] as const).map(opt => {
  const selected = tier === opt.value;
  const isSponsoredCard = opt.value === 'sponsored';

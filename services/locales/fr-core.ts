@@ -3257,7 +3257,6 @@ Règles :
  'publisherLanding.compare.notIncluded': 'Non inclus',
  'publisherLanding.compare.priceRow': 'Prix',
  'publisherLanding.compare.freePrice': 'Gratuit',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / annonce / 30 jours',
  'publisherLanding.compare.row.listing': 'Annonce dans la liste',
  'publisherLanding.compare.row.seoPage': 'Page SEO dédiée',
  'publisherLanding.compare.row.featured': 'Mise en avant dans la liste et les e-mails',

@@ -3254,7 +3254,6 @@ Rules:
  'publisherLanding.compare.notIncluded': 'Not included',
  'publisherLanding.compare.priceRow': 'Price',
  'publisherLanding.compare.freePrice': 'Free',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / listing / 30 days',
  'publisherLanding.compare.row.listing': 'Listing in the job board',
  'publisherLanding.compare.row.seoPage': 'Dedicated SEO page',
  'publisherLanding.compare.row.featured': 'Featured in the listing and emails',
