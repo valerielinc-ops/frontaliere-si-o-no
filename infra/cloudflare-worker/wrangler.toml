@@ -28,3 +28,18 @@ routes = [
   # only burned ~10 needless Worker subrequests per shard pageview against the
   # free-tier 100k/day cap (the in-code CDN_PATHS branch was already dropped).
 ]
+
+# Workers Logs (Observability) — free tier. Persists per-request logs +
+# console output + the request outcome (status, CPU, errors) to the dashboard
+# (Workers & Pages → frontaliere-locale-router → Logs) with a short retention.
+# Declared HERE (not via a one-off dashboard/API toggle) so every
+# `wrangler deploy` keeps it on — an API PATCH would be wiped on the next deploy.
+# head_sampling_rate = 1 logs 100% of invocations; the Worker only handles the
+# en/de/fr shard traffic (well under the free 100k/day invocation cap), so full
+# sampling stays within the free Workers Logs daily allowance and gives complete
+# visibility into the shard 504 path (whether the origin retry / last-known-good
+# fallback actually fires).
+[observability]
+enabled = true
+head_sampling_rate = 1
+
