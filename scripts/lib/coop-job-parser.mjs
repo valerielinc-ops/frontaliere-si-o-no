@@ -67,11 +67,20 @@ export async function fetchCoopJsonLd(url, timeoutMs = 12000) {
  * Extract JSON-LD JobPosting from HTML.
  */
 export function extractJsonLd(html = '') {
-  const matches = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
+  // Permissive regex: tolerate single quotes, reordered attributes and a
+  // missing/relocated `type=` — mirrors the robust extractor introduced for
+  // Straumann (straumann-job-parser.mjs). Coop is ~95% of job volume, so a
+  // silent regex miss on markup drift would drop recoverable listings.
+  const matches = [...String(html).matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)];
   for (const m of matches) {
     try {
       const data = JSON.parse(m[1]);
-      if (data?.['@type'] === 'JobPosting') return data;
+      // Handle bare object, top-level array and @graph containers; match
+      // `@type` as array/string via includes() instead of strict equality.
+      const candidates = Array.isArray(data) ? data : Array.isArray(data?.['@graph']) ? data['@graph'] : [data];
+      for (const node of candidates) {
+        if (String(node?.['@type'] || '').includes('JobPosting')) return node;
+      }
     } catch {}
   }
   return null;

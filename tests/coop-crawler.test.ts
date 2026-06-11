@@ -85,6 +85,35 @@ describe('extractJsonLd — Coop pages', () => {
   it('returns null for pages without JSON-LD', () => {
     expect(extractJsonLd('<html><body>No JSON-LD here</body></html>')).toBeNull();
   });
+
+  // Markup-drift resilience — mirrors the permissive Straumann extractor so a
+  // silent regex/`@type` miss never drops a recoverable Coop listing (#1792).
+  it('tolerates single-quoted type attribute and reordered attributes', () => {
+    const html = `<script data-x="1" type='application/ld+json'>
+      {"@type":"JobPosting","title":"Single-quoted","description":"x"}
+    </script>`;
+    const ld = extractJsonLd(html);
+    expect(ld).not.toBeNull();
+    expect(ld.title).toBe('Single-quoted');
+  });
+
+  it('matches @type as an array', () => {
+    const html = `<script type="application/ld+json">
+      {"@type":["JobPosting","WPHeader"],"title":"Array type"}
+    </script>`;
+    const ld = extractJsonLd(html);
+    expect(ld).not.toBeNull();
+    expect(ld.title).toBe('Array type');
+  });
+
+  it('extracts JobPosting nested in @graph', () => {
+    const html = `<script type="application/ld+json">
+      {"@graph":[{"@type":"WebPage"},{"@type":"JobPosting","title":"Graph job"}]}
+    </script>`;
+    const ld = extractJsonLd(html);
+    expect(ld).not.toBeNull();
+    expect(ld.title).toBe('Graph job');
+  });
 });
 
 // ──────────────────────────────────────────────────────────────
