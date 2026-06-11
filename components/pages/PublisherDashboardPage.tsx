@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil, Archive, RotateCcw } from 'lucide-react';
+import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil, Archive, RotateCcw, ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
@@ -27,6 +27,8 @@ interface DashboardRow {
   applyClicks: number;
   createdAt: number | null;
   renewsAt: number | null;
+  publicUrl: string | null;
+  projectedAt: number | null;
   contentEditedAt: number | null;
 }
 
@@ -188,6 +190,8 @@ const PublisherDashboardPage: React.FC = () => {
               applyClicks,
               createdAt: tsToMillis(j.createdAt),
               renewsAt: tsToMillis(j.renewsAt),
+              publicUrl: typeof j.publicUrl === 'string' ? j.publicUrl : null,
+              projectedAt: tsToMillis(j.projectedAt),
               contentEditedAt: tsToMillis(j.contentEditedAt),
             };
           }),
@@ -258,6 +262,24 @@ const PublisherDashboardPage: React.FC = () => {
   const statusLabel = (s: PublisherJobStatus) => t(`publisherDashboard.status.${s}`);
   const tierLabel = (tier: PublisherTier) =>
     tier === 'free' ? t('publisherDashboard.tier.free') : t('publisherDashboard.tier.sponsored');
+
+  // Pipeline-aware status for live-eligible ads. A paid/published ad reads
+  // "In revisione" until the publisher-jobs sync has projected it into the slice
+  // and triggered the deploy (publicUrl + projectedAt stamped by
+  // build-publisher-jobs.mjs), then "Online" with a link to the live page.
+  const isLiveEligible = (r: DashboardRow) => r.status === 'paid' || r.status === 'published';
+  const displayStatus = (r: DashboardRow): string =>
+    isLiveEligible(r)
+      ? (r.projectedAt ? t('publisherDashboard.status.online') : t('publisherDashboard.status.review'))
+      : statusLabel(r.status);
+  // Show the live link once the ad is in the deployed slice. Deploy latency
+  // (~1h) is disclosed so a freshly-projected link that 404s for a few minutes
+  // doesn't read as broken.
+  const liveLink = (r: DashboardRow): { url: string; soon: boolean } | null => {
+    if (!isLiveEligible(r) || !r.projectedAt || !r.publicUrl) return null;
+    const soon = Date.now() - r.projectedAt < 2 * 3600000;
+    return { url: r.publicUrl, soon };
+  };
 
   // "Renews in N days" — only for sponsored+paid ads with a future renewsAt.
   const renewalLabel = (r: DashboardRow): string | null => {
@@ -353,7 +375,21 @@ const PublisherDashboardPage: React.FC = () => {
                     <td className="px-4 py-3 text-strong font-medium">{r.title}</td>
                     <td className="px-3 py-3 text-subtle">{tierLabel(r.tier)}</td>
                     <td className="px-3 py-3 text-subtle">
-                      {statusLabel(r.status)}
+                      {displayStatus(r)}
+                      {liveLink(r) && (
+                        <a
+                          href={liveLink(r)!.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-xs text-link hover:underline mt-0.5 inline-flex items-center gap-1"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          {t('publisherDashboard.viewLive')}
+                        </a>
+                      )}
+                      {liveLink(r)?.soon && (
+                        <span className="block text-xs text-muted mt-0.5">{t('publisherDashboard.liveSoon')}</span>
+                      )}
                       {renewalLabel(r) && (
                         <span className="block text-xs text-muted mt-0.5">{renewalLabel(r)}</span>
                       )}
@@ -408,8 +444,22 @@ const PublisherDashboardPage: React.FC = () => {
               <div key={r.id} className="rounded-2xl border border-edge bg-surface-alt p-4">
                 <div className="font-semibold text-strong">{r.title}</div>
                 <div className="text-xs text-subtle mt-1">
-                  {tierLabel(r.tier)} · {statusLabel(r.status)} · {r.locations} {t('publisherDashboard.col.locations')}
+                  {tierLabel(r.tier)} · {displayStatus(r)} · {r.locations} {t('publisherDashboard.col.locations')}
                 </div>
+                {liveLink(r) && (
+                  <a
+                    href={liveLink(r)!.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-link hover:underline mt-1 inline-flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    {t('publisherDashboard.viewLive')}
+                  </a>
+                )}
+                {liveLink(r)?.soon && (
+                  <div className="text-xs text-muted mt-1">{t('publisherDashboard.liveSoon')}</div>
+                )}
                 {renewalLabel(r) && (
                   <div className="text-xs text-muted mt-1">{renewalLabel(r)}</div>
                 )}
