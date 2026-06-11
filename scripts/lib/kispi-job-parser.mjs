@@ -185,9 +185,13 @@ export async function fetchAllKispiJobs() {
     if (!title || title.length < 3) continue;
 
     const descriptionHtml = String(ld.description || '');
-    const descriptionText = descriptionHtml
-      ? normalizeSpace(htmlToText(descriptionHtml)).slice(0, 6000)
-      : detail.metaDesc;
+    // Strip THEN fall back: a truthy-but-whitespace-only JSON-LD body strips to
+    // '' — a `descriptionHtml ? strip : metaDesc` ternary would keep that empty
+    // string and skip the `detail.metaDesc` tier (the raw HTML is truthy so the
+    // `: metaDesc` branch never runs). `|| detail.metaDesc` preserves the
+    // fallback hierarchy (same idiom fix as the Decathlon parser).
+    const descriptionText = normalizeSpace(htmlToText(descriptionHtml)).slice(0, 6000)
+      || detail.metaDesc;
     const description = descriptionText
       || `${title} — ${KISPI_COMPANY_NAME}, Zürich.`;
 
