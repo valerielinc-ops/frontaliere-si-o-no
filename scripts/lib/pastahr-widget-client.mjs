@@ -78,6 +78,13 @@ export function makePastaHrBrowserHeaders(referer, origin, { ua, attempt = 0 } =
   const userAgent = ua || PASTAHR_BROWSER_USER_AGENTS[attempt % PASTAHR_BROWSER_USER_AGENTS.length];
   return {
     Accept: 'application/json, text/javascript, */*; q=0.01',
+    // Verified safe on the direct (non-Playwright) fetch path: undici (Node 22,
+    // the runtime for every update-jobs-* crawler workflow) decompresses the
+    // response body from its `Content-Encoding` *unconditionally* for `fetch`,
+    // independent of the request `Accept-Encoding`. Pinning gzip/deflate/br here
+    // (to mirror the real in-page widget XHR for the WAF) does NOT make the
+    // downstream `res.json()` choke on compressed bytes — confirmed against
+    // gzip, deflate and br via a local undici round-trip on Node v22.
     'Accept-Encoding': 'gzip, deflate, br',
     'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
