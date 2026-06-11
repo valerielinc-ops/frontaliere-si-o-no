@@ -46,7 +46,7 @@ import { createHash } from 'node:crypto';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { fetchHtml, htmlToText } from './hospital-custom-html-helpers.mjs';
-import { fetchPastaHrWidgetPage } from './pastahr-widget-client.mjs';
+import { fetchPastaHrWidgetPage, PASTAHR_ENDPOINT } from './pastahr-widget-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
