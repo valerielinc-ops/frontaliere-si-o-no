@@ -5945,9 +5945,9 @@
       "slug": "elektroniker-in-per-energie-e-gebaudetechnik-alle-bkw-zweisimmen",
       "slugByLocale": {
         "it": "elektroniker-in-per-energie-e-gebaudetechnik-alle-bkw-zweisimmen",
-        "en": "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
+        "en": "electronics-engineer-in-energy-and-building-technology-all-bkw-zweisimmen",
         "de": "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
-        "fr": "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch"
+        "fr": "ingenieur-en-electronique-pour-l-energie-et-la-technologie-du-batiment-tous-bkw-zweisimmen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -5994,6 +5994,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch"
+        ],
+        "fr": [
           "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch"
         ]
       },
@@ -15499,12 +15505,12 @@
     },
     {
       "id": "bkw-0bec00d8211b",
-      "slug": "spezialist-in-engineering-alle-bkw-ch",
+      "slug": "specialista-in-ingegneria-tutti-bkw-oberkirch-c4bbcb",
       "slugByLocale": {
-        "it": "spezialist-in-engineering-alle-bkw-ch",
-        "en": "spezialist-in-engineering-alle-bkw-ch",
+        "it": "specialista-in-ingegneria-tutti-bkw-oberkirch-c4bbcb",
+        "en": "specialist-in-engineering-all-bkw-oberkirch",
         "de": "spezialist-in-engineering-alle-bkw-ch",
-        "fr": "spezialist-in-engineering-alle-bkw-ch"
+        "fr": "specialiste-en-genie-tous-bkw-oberkirch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -15558,7 +15564,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-engineering-alle-bkw-ch"
+        ],
+        "en": [
+          "spezialist-in-engineering-alle-bkw-ch"
+        ],
+        "fr": [
+          "spezialist-in-engineering-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-engineering-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-4de4f528dc81",
@@ -21700,12 +21720,12 @@
     },
     {
       "id": "bkw-4b551bef32a2",
-      "slug": "techniker-in-gebaudeautomation-alle-bkw-ch",
+      "slug": "tecnico-in-building-automation-tutti-bkw-urdorf",
       "slugByLocale": {
-        "it": "techniker-in-gebaudeautomation-alle-bkw-ch",
-        "en": "techniker-in-gebaudeautomation-alle-bkw-ch",
+        "it": "tecnico-in-building-automation-tutti-bkw-urdorf",
+        "en": "technician-in-building-automation-all-bkw-urdorf",
         "de": "techniker-in-gebaudeautomation-alle-bkw-ch",
-        "fr": "techniker-in-gebaudeautomation-alle-bkw-ch"
+        "fr": "technicien-in-automatisation-des-batiments-tous-bkw-urdorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21759,7 +21779,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-gebaudeautomation-alle-bkw-ch"
+        ],
+        "en": [
+          "techniker-in-gebaudeautomation-alle-bkw-ch"
+        ],
+        "fr": [
+          "techniker-in-gebaudeautomation-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-gebaudeautomation-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-4a349a31a7ae",

@@ -2768,8 +2768,7 @@
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-tech-ops-csl-behring-bern",
-        "senior-scientist-tech-ops-csl-behring-ch",
-        "leitender-projektmanager-tech-ops-csl-behring-bern"
+        "senior-scientist-tech-ops-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3155,8 +3154,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3625,10 +3622,10 @@
     },
     {
       "id": "csl-behring-af441d070aeb",
-      "slug": "associate-director-human-factors-design-and-development-csl-behring-ch",
+      "slug": "direttore-associato-progettazione-e-sviluppo-dei-fattori-umani-csl-behring-bern",
       "slugByLocale": {
         "en": "associate-director-human-factors-design-and-development-csl-behring-ch",
-        "it": "associate-director-human-factors-design-and-development-csl-behring-ch",
+        "it": "direttore-associato-progettazione-e-sviluppo-dei-fattori-umani-csl-behring-bern",
         "de": "associate-director-human-factors-design-and-development-csl-behring-ch",
         "fr": "associate-director-human-factors-design-and-development-csl-behring-ch"
       },
@@ -3688,7 +3685,15 @@
       },
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T22:31:16.273Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-human-factors-design-and-development-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-human-factors-design-and-development-csl-behring-ch"
+      ]
     }
   ]
 }
