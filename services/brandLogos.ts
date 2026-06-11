@@ -49,19 +49,22 @@ export const PROVIDER_LOGOS: Record<string, ProviderLogoEntry> = {
 };
 
 /**
- * Returns localPath if the logo was already downloaded, otherwise the Clearbit CDN URL.
- * Returns null for unknown slugs (component falls back to COMPANY_LOGO_PLACEHOLDER).
+ * Returns the committed local logo path for a provider slug, or null when none
+ * is bundled. We no longer emit a Clearbit CDN URL: Clearbit's logo API is
+ * defunct (every request errors) so it only ever degraded to a broken image.
+ * `<ProviderLogo>` renders a deterministic coloured-initials badge for a null
+ * result — a real visual identity, never the grey globe.
  */
 export function getProviderLogoUrl(slug: string): string | null {
   const entry = PROVIDER_LOGOS[slug];
   if (!entry) return null;
-  if (entry.localPath) return entry.localPath;
-  return `https://logo.clearbit.com/${entry.domain}`;
+  return entry.localPath ?? null;
 }
 
 // ── Health insurer logos keyed by domain ────────────────────────────────────
-// 25 out of 34 downloaded from each insurer's official site (SVG preferred).
-// Remaining 9 fall back to Clearbit → Google favicon → placeholder at runtime.
+// Downloaded from each insurer's official site (SVG preferred). Domains without
+// a bundled asset fall back to the coloured-initials badge in <ProviderLogo>
+// (no Clearbit / Google-favicon hop — both only produced a broken grey globe).
 
 export const INSURER_LOGOS: Record<string, string> = {
   'css.ch':            '/images/insurers/css.svg',
