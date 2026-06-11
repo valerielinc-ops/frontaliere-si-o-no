@@ -10,8 +10,11 @@
  * content-hashed (vite.config.ts `entryFileNames`), so the prerendered pages
  * don't churn on every bundle rehash. The regex still matches it unchanged
  * because `entry` ∈ the hash charset (`index-<hashchars>+.js`). The entry CSS
- * stays content-hashed (`index-{hash}.css`) — its bytes change only on real
- * style changes, so it doesn't drive the per-deploy churn.
+ * is now ALSO stabilized to `assets/index.css` (vite.config.ts assetFileNames)
+ * — content-hashing it meant a rotated hash 404'd from old cached HTML still
+ * referencing the superseded name; a stable name always resolves. Its bytes
+ * still change on real style changes, so like index-entry.js it must REVALIDATE
+ * (public/_headers), not be served immutable.
  *
  * The `[^"]*` before `/assets/` tolerates an optional origin prefix so the
  * match works whether Vite emitted a same-origin path or an absolute CDN URL
@@ -42,4 +45,8 @@ import { VITE_HASH_CHARS } from './viteAssetHashRx';
 
 const H = `[${VITE_HASH_CHARS}]`;
 export const SPA_ENTRY_JS_RX = new RegExp(`src="[^"]*\\/assets\\/(index-${H}+\\.js)"`);
-export const SPA_ENTRY_CSS_RX = new RegExp(`href="[^"]*\\/assets\\/(index-${H}+\\.css)"`);
+// The CSS hash is OPTIONAL: the entry stylesheet is stabilized to
+// `assets/index.css` (vite.config.ts assetFileNames), but HTML cached before
+// that change — or any future re-hashed asset — may still carry
+// `index-<hash>.css`, so match both shapes. Capture stays the bare filename.
+export const SPA_ENTRY_CSS_RX = new RegExp(`href="[^"]*\\/assets\\/(index(?:-${H}+)?\\.css)"`);
