@@ -51,6 +51,7 @@ import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, 
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
+import { commitInChunks } from './lib/firestore-batch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -1672,10 +1673,12 @@ async function persistQualityScoresToFirestore(summaries) {
       admin.initializeApp({ credential: admin.credential.applicationDefault() });
     }
     const db = admin.firestore();
-    const batch = db.batch();
     const now = new Date().toISOString();
 
-    for (const entry of entriesWithScores) {
+    // Chunk the write so it scales past the Firestore 500-op batch cap (one
+    // entry per crawler slug — grows with crawler count; a single commit() over
+    // >500 would throw and persist nothing that run).
+    await commitInChunks(db, entriesWithScores, (batch, entry) => {
       const docRef = db.collection(QUALITY_SCORES_COLLECTION).doc(entry.key);
       batch.set(docRef, {
         slug: entry.key,
@@ -1685,9 +1688,7 @@ async function persistQualityScoresToFirestore(summaries) {
         lastUpdated: now,
         worstJobs: (entry.qualityScore.worstJobs || []).slice(0, 5),
       }, { merge: true });
-    }
-
-    await batch.commit();
+    });
     console.log(`☁️  [QualityScores] Persisted ${entriesWithScores.length} crawler quality scores to Firestore`);
   } catch (err) {
     // Non-fatal: quality scores are also in the summary JSON
