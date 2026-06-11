@@ -5073,9 +5073,9 @@
     },
     {
       "id": "tether-d4ef425278e7",
-      "slug": "program-manager-mining-100-remote-tether-ch",
+      "slug": "gestione-del-programma-mining-100-remoto-tether-operations-medellin-antioquia",
       "slugByLocale": {
-        "it": "program-manager-mining-100-remote-tether-ch",
+        "it": "gestione-del-programma-mining-100-remoto-tether-operations-medellin-antioquia",
         "en": "program-manager-mining-100-remote-tether-ch",
         "de": "program-manager-mining-100-remote-tether-ch",
         "fr": "program-manager-mining-100-remote-tether-ch"
@@ -5135,7 +5135,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "program-manager-mining-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "program-manager-mining-100-remote-tether-ch"
+      ]
     },
     {
       "id": "tether-5a97049b2ed0",

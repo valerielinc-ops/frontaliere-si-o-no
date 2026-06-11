@@ -2718,9 +2718,9 @@
     },
     {
       "id": "buergenstock-hotels-502fbda69212",
-      "slug": "addetto-alle-porte-100-f-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "portata-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "addetto-alle-porte-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "portata-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
@@ -2766,11 +2766,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+        "addetto-alle-porte-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+          "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+          "addetto-alle-porte-100-f-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "firstSeenAt": "2026-06-01T13:52:38.369Z",
@@ -2996,9 +2998,9 @@
     },
     {
       "id": "buergenstock-hotels-47e39f18a023",
-      "slug": "spa-wellness-attendant-w-m-i-100-buergenstock-hotels-obburgen",
+      "slug": "centro-benessere-f-m-i-100-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "spa-wellness-attendant-w-m-i-100-buergenstock-hotels-obburgen",
+        "it": "centro-benessere-f-m-i-100-burgenstock-hotels-ag-obburgen",
         "en": "spa-wellness-attendant-w-m-i-100-buergenstock-hotels-obburgen",
         "de": "spa-wellness-attendant-w-m-i-100-buergenstock-hotels-obburgen",
         "fr": "spa-wellness-attendant-w-m-i-100-buergenstock-hotels-obburgen"
@@ -3055,7 +3057,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-wellness-attendant-w-m-i-100-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "spa-wellness-attendant-w-m-i-100-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-4cbfe881fcbb",
@@ -3193,9 +3203,9 @@
     },
     {
       "id": "buergenstock-hotels-cff2aa8bd2a2",
-      "slug": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "chef-de-rang-cenere-in-camera-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "chef-de-rang-cenere-in-camera-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen"
@@ -3252,7 +3262,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-5e82544d5ebd",

@@ -1398,12 +1398,12 @@
     },
     {
       "id": "abbott-8df321ee901c",
-      "slug": "tender-specialist-abbott-ch",
+      "slug": "specialista-di-tender-abbott-basel",
       "slugByLocale": {
         "en": "tender-specialist-abbott-ch",
-        "it": "tender-specialist-abbott-ch",
-        "de": "tender-specialist-abbott-ch",
-        "fr": "tender-specialist-abbott-ch"
+        "it": "specialista-di-tender-abbott-basel",
+        "de": "tender-spezialist-abbott-basel",
+        "fr": "specialiste-des-appels-d-offres-abbott-basel"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1459,7 +1459,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-11T12:03:17.389Z"
+      "firstSeenAt": "2026-06-11T12:03:17.389Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tender-specialist-abbott-ch"
+        ],
+        "de": [
+          "tender-specialist-abbott-ch"
+        ],
+        "fr": [
+          "tender-specialist-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tender-specialist-abbott-ch"
+      ]
     },
     {
       "id": "abbott-052665347841",
@@ -1467,8 +1481,8 @@
       "slugByLocale": {
         "en": "senior-mechatronics-engineer-abbott-ch",
         "it": "senior-mechatronics-engineer-abbott-ch",
-        "de": "senior-mechatronics-engineer-abbott-ch",
-        "fr": "senior-mechatronics-engineer-abbott-ch"
+        "de": "senior-mechatroniker-abbott-zurich",
+        "fr": "ingenieur-mecatronic-senior-abbott-zurich"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1526,7 +1540,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-11T12:03:16.610Z",
       "previousSlugs": [
-        "senior-mechatronics-engineer-abbott-ch",
         "ingegnere-senior-in-meccatronica-abbott-zurich",
         "senior-mechatronik-ingenieur-abbott-zurich",
         "ingenieur-mecatronique-senior-abbott-zurich"
@@ -1549,8 +1562,8 @@
       "slugByLocale": {
         "en": "senior-financial-analyst-abbott-ch",
         "it": "senior-financial-analyst-abbott-ch",
-        "de": "senior-financial-analyst-abbott-ch",
-        "fr": "senior-financial-analyst-abbott-ch"
+        "de": "senior-finanzanalyst-abbott-zurich",
+        "fr": "aine-analyste-financier-abbott-zurich"
       },
       "company": "Abbott",
       "companyKey": "abbott",

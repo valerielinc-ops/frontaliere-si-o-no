@@ -460,9 +460,9 @@
     },
     {
       "id": "clinique-de-genolier-dc3d59e27c72",
-      "slug": "infirmier-e-referent-e-clinique-et-formation-clinique-de-genolier",
+      "slug": "infermiere-e-formazione-di-riferimento-clinico-clinique-de-genolier-genolier",
       "slugByLocale": {
-        "it": "infirmier-e-referent-e-clinique-et-formation-clinique-de-genolier",
+        "it": "infermiere-e-formazione-di-riferimento-clinico-clinique-de-genolier-genolier",
         "en": "infirmier-e-referent-e-clinique-et-formation-clinique-de-genolier",
         "de": "infirmier-e-referent-e-clinique-et-formation-clinique-de-genolier",
         "fr": "infirmier-e-referent-e-clinique-et-formation-clinique-de-genolier"
@@ -520,7 +520,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-e-referent-e-clinique-et-formation-clinique-de-genolier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-e-referent-e-clinique-et-formation-clinique-de-genolier"
+      ]
     }
   ]
 }

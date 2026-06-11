@@ -75,10 +75,10 @@
     },
     {
       "id": "msc-cargo-ae2d4551edb1",
-      "slug": "spa-product-manager-msc-geneva",
+      "slug": "responsabile-prodotto-spa-msc-group-geneva",
       "slugByLocale": {
         "en": "spa-product-manager-msc-geneva",
-        "it": "spa-product-manager-msc-geneva",
+        "it": "responsabile-prodotto-spa-msc-group-geneva",
         "de": "spa-product-manager-msc-geneva",
         "fr": "spa-product-manager-msc-geneva"
       },
@@ -137,13 +137,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-11T13:14:04.701Z"
+      "firstSeenAt": "2026-06-11T13:14:04.701Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-product-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "spa-product-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
       "slugByLocale": {
-        "it": "f-b-service-manager-msc-geneva",
+        "it": "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
         "en": "f-b-service-manager-msc-geneva",
         "de": "f-b-service-manager-msc-geneva",
         "fr": "f-b-service-manager-msc-geneva"
@@ -201,7 +209,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",

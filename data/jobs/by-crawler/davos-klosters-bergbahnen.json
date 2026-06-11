@@ -376,10 +376,10 @@
     },
     {
       "id": "davos-klosters-bergbahnen-d00053469fff",
-      "slug": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
+      "slug": "operatore-della-cabina-in-jakobshorn-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
-        "it": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
+        "it": "operatore-della-cabina-in-jakobshorn-davos-klosters-bergbahnen-ag-davos",
         "en": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
         "fr": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos"
       },
@@ -434,7 +434,15 @@
       "postalCode": "7270",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-11T12:32:02.674Z"
+      "firstSeenAt": "2026-06-11T12:32:02.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-2814a2940212",

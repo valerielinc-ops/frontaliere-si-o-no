@@ -368,9 +368,9 @@
     },
     {
       "id": "pictet-7048f9e2baa6",
-      "slug": "compliance-officer-pictet-singapore",
+      "slug": "ufficiale-di-conformita-pictet-group-singapore",
       "slugByLocale": {
-        "it": "compliance-officer-pictet-singapore",
+        "it": "ufficiale-di-conformita-pictet-group-singapore",
         "en": "compliance-officer-pictet-singapore",
         "de": "compliance-officer-pictet-singapore",
         "fr": "compliance-officer-pictet-singapore"
@@ -428,7 +428,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-pictet-singapore"
+      ]
     },
     {
       "id": "pictet-db2a1c9b2ba2",
@@ -507,9 +515,9 @@
     },
     {
       "id": "pictet-0e2fea42e0f0",
-      "slug": "sales-manager-pictet-taipei",
+      "slug": "responsabile-vendite-pictet-group-taipei",
       "slugByLocale": {
-        "it": "sales-manager-pictet-taipei",
+        "it": "responsabile-vendite-pictet-group-taipei",
         "en": "sales-manager-pictet-taipei",
         "de": "sales-manager-pictet-taipei",
         "fr": "sales-manager-pictet-taipei"
@@ -567,7 +575,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-pictet-taipei"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-pictet-taipei"
+      ]
     },
     {
       "id": "pictet-b171b82415aa",
@@ -648,12 +664,12 @@
     },
     {
       "id": "pictet-c2aef8b5bf16",
-      "slug": "direct-advisor-pictet-geneva",
+      "slug": "direct-consulente-pictet-group-geneva",
       "slugByLocale": {
         "en": "direct-advisor-pictet-geneva",
-        "it": "direct-advisor-pictet-geneva",
-        "de": "direct-advisor-pictet-geneva",
-        "fr": "direct-advisor-pictet-geneva"
+        "it": "direct-consulente-pictet-group-geneva",
+        "de": "direct-berater-pictet-group-geneva",
+        "fr": "direct-conseiller-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -710,7 +726,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-11T13:13:03.191Z"
+      "firstSeenAt": "2026-06-11T13:13:03.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direct-advisor-pictet-geneva"
+        ],
+        "de": [
+          "direct-advisor-pictet-geneva"
+        ],
+        "fr": [
+          "direct-advisor-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "direct-advisor-pictet-geneva"
+      ]
     }
   ]
 }

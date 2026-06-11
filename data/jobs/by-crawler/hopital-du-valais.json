@@ -3109,15 +3109,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion"
         ],
         "de": [
-          "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion",
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
-        ],
-        "en": [
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
+          "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
         ]
       },
       "needsRetranslation": true,
@@ -3193,15 +3188,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion"
         ],
         "de": [
-          "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
-        ],
-        "en": [
-          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
+          "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion"
         ]
       },
       "needsRetranslation": true,
@@ -3460,9 +3450,9 @@
     },
     {
       "id": "hopital-du-valais-1d96edf120e5",
-      "slug": "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
+      "slug": "persona-responsabile-60-80-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
+        "it": "persona-responsabile-60-80-hopital-du-valais-brig",
         "en": "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
         "de": "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
         "fr": "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig"
@@ -3523,13 +3513,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-265947c675f5",
-      "slug": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
+      "slug": "infermiera-all-80-per-una-missione-specifica-di-10-mesi-per-il-suo-servizio-di-psichiatria-ospedaliera-per-adulti",
       "slugByLocale": {
-        "it": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
+        "it": "infermiera-all-80-per-una-missione-specifica-di-10-mesi-per-il-suo-servizio-di-psichiatria-ospedaliera-per-adulti",
         "en": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
         "de": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie",
         "fr": "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie"
@@ -3590,14 +3588,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-pour-une-mission-determinee-de-10-mois-pour-son-service-de-psychiatrie"
+      ]
     },
     {
       "id": "hopital-du-valais-a07d028597ce",
-      "slug": "leitende-n-arztin-arzt-pneumologie-80-100-hopital-du-valais-visp",
+      "slug": "pneumologia-del-medico-senior-80-100-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "leitende-n-arztin-arzt-pneumologie-80-100-hopital-du-valais-visp",
-        "it": "leitende-n-arztin-arzt-pneumologie-80-100-hopital-du-valais-visp",
+        "it": "pneumologia-del-medico-senior-80-100-hopital-du-valais-visp",
         "en": "leitende-n-arztin-arzt-pneumologie-80-100-hopital-du-valais-visp",
         "fr": "leitende-n-arztin-arzt-pneumologie-80-100-hopital-du-valais-visp"
       },
@@ -3657,7 +3663,15 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-11T12:48:17.299Z"
+      "firstSeenAt": "2026-06-11T12:48:17.299Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-arztin-arzt-pneumologie-80-100-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-n-arztin-arzt-pneumologie-80-100-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-43635752d7b4",

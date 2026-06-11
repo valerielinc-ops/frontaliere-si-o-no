@@ -1381,8 +1381,7 @@
           "software-engineer-bobst-ch"
         ],
         "en": [
-          "software-engineer-bobst-switzerland-mex",
-          "software-engineer-bobst-ch"
+          "software-engineer-bobst-switzerland-mex"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:01.004Z",
@@ -2952,9 +2951,9 @@
     },
     {
       "id": "bobst-b8375f43e208",
-      "slug": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch",
+      "slug": "contrappaltatore-meccanico-alternativo-h-f-bobst-france-bron",
       "slugByLocale": {
-        "it": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch",
+        "it": "contrappaltatore-meccanico-alternativo-h-f-bobst-france-bron",
         "en": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch",
         "de": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch",
         "fr": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch"
@@ -3012,7 +3011,15 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch"
+      ]
     }
   ]
 }

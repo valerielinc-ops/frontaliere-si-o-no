@@ -108,10 +108,10 @@
       "id": "psgn-d83f964ebd3a",
       "slug": "dipl-specialista-di-cura-hf-fh-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "en": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "de": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "fr": "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
+        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -156,10 +156,10 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-57f50c",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-care-specialist-hf-fh-night-service-psychiatrie-st-gallen-wil-sg-57f50c",
         "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
         "dipl-specialiste-des-soins-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg-57f50c",
+        "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg",
         "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
         "dipl-care-specialist-hf-fh-night-service-psychiatrie-st-gallen-wil-sg",
@@ -172,8 +172,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-57f50c",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-57f50c"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-night-service-psychiatrie-st-gallen-wil-sg-57f50c"
@@ -183,7 +182,6 @@
         ],
         "fr": [
           "dipl-specialiste-des-soins-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg-57f50c",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
           "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -740,10 +738,10 @@
     },
     {
       "id": "psgn-f0e62c1cc475",
-      "slug": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+      "slug": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "pflegepraktikant-in-psgn-wil-sg",
-        "it": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+        "it": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
         "en": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
         "fr": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
       },
@@ -791,11 +789,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikant-in-psgn-wil-sg"
+          "pflegepraktikant-in-psgn-wil-sg",
+          "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "pflegepraktikant-in-psgn-wil-sg"
+        "pflegepraktikant-in-psgn-wil-sg",
+        "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

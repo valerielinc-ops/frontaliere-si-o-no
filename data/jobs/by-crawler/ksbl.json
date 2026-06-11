@@ -5343,9 +5343,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
-        "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -5392,10 +5392,12 @@
         "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "dipl-career-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-carriere-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "dipl-carriere-a-kantonsspital-baselland-ksbl-liestal",
-        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal"
+        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal",
+        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -6622,10 +6624,10 @@
     },
     {
       "id": "ksbl-f903b1c51440",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
+      "slug": "dipl-infermiere-di-cardiologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
+        "it": "dipl-infermiere-di-cardiologia-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
         "fr": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
       },
@@ -6683,7 +6685,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:01:25.966Z"
+      "firstSeenAt": "2026-06-11T13:01:25.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
+      ]
     }
   ]
 }

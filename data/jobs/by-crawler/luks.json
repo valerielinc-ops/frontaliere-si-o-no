@@ -6965,9 +6965,9 @@
       "slug": "operatorin-operator-technik-80-luks-luzern-2",
       "slugByLocale": {
         "it": "operatorin-operator-technik-80-luks-luzern-2",
-        "en": "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
+        "en": "operatorin-operator-technik-80-luks-luzern-2",
         "de": "operatorin-operator-technik-80-luks-luzern",
-        "fr": "operateur-technique-d-operateur-80-luzerner-kantonsspital-luks-luzern"
+        "fr": "operatorin-operator-technik-80-luks-luzern-2"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -7017,11 +7017,13 @@
         "operations-technician-80-luzerner-kantonsspital-luks-luzern",
         "operator-operator-technik-80-luzerner-kantonsspital-luks-luzern",
         "technical-operator-80-luzerner-kantonsspital-luks-luzern",
+        "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern-e4aad4",
         "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern",
         "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
+        "operateur-technique-d-operateur-80-luzerner-kantonsspital-luks-luzern",
         "betreiber-technik-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -18311,9 +18313,9 @@
     },
     {
       "id": "luks-c8ec7f3ca353",
-      "slug": "hebamme-hf-fh-80-luks-stans-2",
+      "slug": "midwife-hf-fh-80-luzerner-kantonsspital-luks-stans-5597e1",
       "slugByLocale": {
-        "it": "hebamme-hf-fh-80-luks-stans-2",
+        "it": "midwife-hf-fh-80-luzerner-kantonsspital-luks-stans-5597e1",
         "en": "hebamme-hf-fh-80-luks-stans-2",
         "de": "hebamme-hf-fh-80-luks-stans",
         "fr": "hebamme-hf-fh-80-luks-stans-2"
@@ -18370,7 +18372,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-hf-fh-80-luks-stans-2"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-hf-fh-80-luks-stans-2"
+      ]
     },
     {
       "id": "luks-cc4f8ff29231",
@@ -18466,10 +18476,10 @@
     },
     {
       "id": "luks-2f531fe4ec93",
-      "slug": "fachmitarbeiterin-fachmitarbeiter-pharmazie-arzneimittelversorgung-40-80-luks-luzern",
+      "slug": "specialista-specialista-fornitura-di-farmaci-farmaceutici-40-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "fachmitarbeiterin-fachmitarbeiter-pharmazie-arzneimittelversorgung-40-80-luks-luzern",
-        "it": "fachmitarbeiterin-fachmitarbeiter-pharmazie-arzneimittelversorgung-40-80-luks-luzern",
+        "it": "specialista-specialista-fornitura-di-farmaci-farmaceutici-40-80-luzerner-kantonsspital-luks-luzern",
         "en": "fachmitarbeiterin-fachmitarbeiter-pharmazie-arzneimittelversorgung-40-80-luks-luzern",
         "fr": "fachmitarbeiterin-fachmitarbeiter-pharmazie-arzneimittelversorgung-40-80-luks-luzern"
       },
@@ -18527,7 +18537,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:03:49.204Z"
+      "firstSeenAt": "2026-06-11T13:03:49.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiterin-fachmitarbeiter-pharmazie-arzneimittelversorgung-40-80-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiterin-fachmitarbeiter-pharmazie-arzneimittelversorgung-40-80-luks-luzern"
+      ]
     },
     {
       "id": "luks-2418e97e54cb",
@@ -18604,10 +18622,10 @@
     },
     {
       "id": "luks-84ce50d15c84",
-      "slug": "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern",
+      "slug": "specialista-dell-ospedale-servizio-medico-specialistico-ospedaliero-50-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern",
-        "it": "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern",
+        "it": "specialista-dell-ospedale-servizio-medico-specialistico-ospedaliero-50-luzerner-kantonsspital-luks-luzern",
         "en": "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern",
         "fr": "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern"
       },
@@ -18665,14 +18683,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:03:49.201Z"
+      "firstSeenAt": "2026-06-11T13:03:49.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern"
+      ]
     },
     {
       "id": "luks-bd36302425a9",
-      "slug": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern",
+      "slug": "segretario-medico-segretario-medico-mba-histology-100-temporaneo-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
-        "it": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern",
+        "it": "segretario-medico-segretario-medico-mba-histology-100-temporaneo-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern",
         "en": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
         "fr": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern"
       },
@@ -18720,11 +18746,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern"
+          "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
+          "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern"
+        "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
+        "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -18742,10 +18770,10 @@
     },
     {
       "id": "luks-cd685024dae6",
-      "slug": "neuropsychologin-neuropsychologe-80-luks-luzern",
+      "slug": "neuropsicologo-neuropsicologo-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "neuropsychologin-neuropsychologe-80-luks-luzern",
-        "it": "neuropsychologin-neuropsychologe-80-luks-luzern",
+        "it": "neuropsicologo-neuropsicologo-80-luzerner-kantonsspital-luks-luzern",
         "en": "neuropsychologin-neuropsychologe-80-luks-luzern",
         "fr": "neuropsychologin-neuropsychologe-80-luks-luzern"
       },
@@ -18803,7 +18831,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:03:49.189Z"
+      "firstSeenAt": "2026-06-11T13:03:49.189Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "neuropsychologin-neuropsychologe-80-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "neuropsychologin-neuropsychologe-80-luks-luzern"
+      ]
     }
   ]
 }

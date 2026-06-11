@@ -736,9 +736,9 @@
     },
     {
       "id": "zuger-kantonsspital-7b7178a33fe2",
-      "slug": "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
+      "slug": "assistenza-di-emergenza-esperto-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "it": "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
+        "it": "assistenza-di-emergenza-esperto-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
         "en": "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
         "de": "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
         "fr": "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
@@ -795,13 +795,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
+      ]
     },
     {
       "id": "zuger-kantonsspital-89181ad94b96",
-      "slug": "pflegefachperson-hf-onkologie-80-100-zuger-kantonsspital-baar",
+      "slug": "professionista-hf-oncology-80-100-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "it": "pflegefachperson-hf-onkologie-80-100-zuger-kantonsspital-baar",
+        "it": "professionista-hf-oncology-80-100-zuger-kantonsspital-baar",
         "en": "pflegefachperson-hf-onkologie-80-100-zuger-kantonsspital-baar",
         "de": "pflegefachperson-hf-onkologie-80-100-zuger-kantonsspital-baar",
         "fr": "pflegefachperson-hf-onkologie-80-100-zuger-kantonsspital-baar"
@@ -858,7 +866,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-onkologie-80-100-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-onkologie-80-100-zuger-kantonsspital-baar"
+      ]
     }
   ]
 }

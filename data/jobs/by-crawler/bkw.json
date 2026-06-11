@@ -6456,10 +6456,8 @@
         "elettricista-efz-tutti-bkw-solothurn",
         "elektroinstallateur-in-efz-alle-bkw-ch-7",
         "elektroinstallateur-in-efz-alle-bkw-ch-6",
-        "elektroinstallateur-in-efz-alle-bkw-ch",
         "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a-v7jffq",
-        "elektroinstallateur-in-efz-alle-bkw-ch-4",
-        "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a"
+        "elektroinstallateur-in-efz-alle-bkw-ch-4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21428,12 +21426,12 @@
     },
     {
       "id": "bkw-c245eeb90d11",
-      "slug": "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch",
+      "slug": "leader-del-progetto-site-manager-electricity-tutti-i-generi-bkw-tafers",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch",
-        "it": "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch",
-        "en": "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch",
-        "de": "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch"
+        "it": "leader-del-progetto-site-manager-electricity-tutti-i-generi-bkw-tafers",
+        "en": "project-leader-site-manager-electricity-all-genres-bkw-tafers",
+        "de": "projektleiter-site-manager-elektrizitat-alle-genres-bkw-tafers"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21489,7 +21487,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:20:12.343Z"
+      "firstSeenAt": "2026-06-11T12:20:12.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch"
+        ],
+        "en": [
+          "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch"
+        ],
+        "de": [
+          "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-responsable-de-site-electricite-tous-genres-bkw-ch"
+      ]
     },
     {
       "id": "bkw-401e26254c82",
@@ -21566,12 +21578,12 @@
     },
     {
       "id": "bkw-e0a89d7b5604",
-      "slug": "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch",
+      "slug": "responsabile-r-gestione-delle-piante-berner-jura-tutti-bkw-reconvilier",
       "slugByLocale": {
         "de": "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch",
-        "it": "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch",
-        "en": "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch",
-        "fr": "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch"
+        "it": "responsabile-r-gestione-delle-piante-berner-jura-tutti-bkw-reconvilier",
+        "en": "responsible-r-plant-management-berner-jura-all-bkw-reconvilier",
+        "fr": "responsable-r-gestion-vegetale-berner-jura-tous-bkw-reconvilier"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21627,16 +21639,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:20:12.333Z"
+      "firstSeenAt": "2026-06-11T12:20:12.333Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch"
+        ],
+        "en": [
+          "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch"
+        ],
+        "fr": [
+          "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortliche-r-anlagenmanagement-berner-jura-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-63e7cffeaa8c",
-      "slug": "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
+      "slug": "pianificatore-di-tecnologia-di-costruzione-in-riscaldamento-tutti-bkw-koniz",
       "slugByLocale": {
         "de": "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
-        "it": "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
-        "en": "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
-        "fr": "gebaudetechnikplaner-in-heizung-alle-bkw-ch"
+        "it": "pianificatore-di-tecnologia-di-costruzione-in-riscaldamento-tutti-bkw-koniz",
+        "en": "building-technology-planner-in-heating-all-bkw-koniz",
+        "fr": "planificateur-de-technologie-du-batiment-dans-le-chauffage-tous-bkw-koniz"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21694,20 +21720,23 @@
       },
       "firstSeenAt": "2026-06-11T12:20:12.327Z",
       "previousSlugs": [
-        "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
         "progettista-di-impianti-tecnici-per-edifici-riscaldamento-tutti-bkw-winterthur",
+        "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
         "building-services-engineer-heating-all-bkw-winterthur",
         "planificateur-de-technique-du-batiment-chauffage-tous-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "progettista-di-impianti-tecnici-per-edifici-riscaldamento-tutti-bkw-winterthur"
+          "progettista-di-impianti-tecnici-per-edifici-riscaldamento-tutti-bkw-winterthur",
+          "gebaudetechnikplaner-in-heizung-alle-bkw-ch"
         ],
         "en": [
-          "building-services-engineer-heating-all-bkw-winterthur"
+          "building-services-engineer-heating-all-bkw-winterthur",
+          "gebaudetechnikplaner-in-heizung-alle-bkw-ch"
         ],
         "fr": [
-          "planificateur-de-technique-du-batiment-chauffage-tous-bkw-winterthur"
+          "planificateur-de-technique-du-batiment-chauffage-tous-bkw-winterthur",
+          "gebaudetechnikplaner-in-heizung-alle-bkw-ch"
         ]
       }
     }

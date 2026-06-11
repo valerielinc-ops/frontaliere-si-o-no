@@ -98,10 +98,10 @@
     },
     {
       "id": "liebherr-a83c82c9f347",
-      "slug": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden",
+      "slug": "meccanico-di-costruzione-movimento-terra-m-w-liebherr-reiden",
       "slugByLocale": {
         "de": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden",
-        "it": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden",
+        "it": "meccanico-di-costruzione-movimento-terra-m-w-liebherr-reiden",
         "en": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden",
         "fr": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
       },
@@ -160,7 +160,15 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-11T14:25:10.368Z"
+      "firstSeenAt": "2026-06-11T14:25:10.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
+      ]
     },
     {
       "id": "liebherr-7ff60d1d1366",
@@ -258,7 +266,7 @@
         "fr": "assistant-e-de-direction-h-f-x-liebherr-bulle",
         "it": "assistant-e-de-direction-h-f-x-liebherr-bulle",
         "en": "assistant-e-de-direction-h-f-x-liebherr-bulle",
-        "de": "assistant-e-de-direction-h-f-x-liebherr-bulle"
+        "de": "assistent-e-de-direction-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -367,8 +375,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "teamleader-h-f-x-produits-de-base-liebherr-bulle",
-          "teamleader-h-f-x-commodities-liebherr-bulle"
+          "teamleader-h-f-x-produits-de-base-liebherr-bulle"
         ],
         "it": [
           "teamleader-h-f-x-commodities-liebherr-bulle"
@@ -2892,8 +2899,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle",
-          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
+          "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle"
         ],
         "it": [
           "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
@@ -7314,7 +7320,7 @@
       "slugByLocale": {
         "en": "executive-assistant-m-f-x-liebherr-bulle",
         "it": "executive-assistant-m-f-x-liebherr-bulle",
-        "de": "executive-assistant-m-f-x-liebherr-bulle",
+        "de": "executive-assistent-m-f-x-liebherr-bulle",
         "fr": "executive-assistant-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",

@@ -538,10 +538,10 @@
     },
     {
       "id": "schindler-3597bc5ec697",
-      "slug": "service-techniker-in-region-kilchberg-horgen-m-f-d-80-100-schindler-wettswil",
+      "slug": "tecnico-di-servizio-nella-regione-di-kilchberg-horgen-m-f-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "de": "service-techniker-in-region-kilchberg-horgen-m-f-d-80-100-schindler-wettswil",
-        "it": "service-techniker-in-region-kilchberg-horgen-m-f-d-80-100-schindler-wettswil",
+        "it": "tecnico-di-servizio-nella-regione-di-kilchberg-horgen-m-f-d-80-100-schindler-wettswil",
         "en": "service-techniker-in-region-kilchberg-horgen-m-f-d-80-100-schindler-wettswil",
         "fr": "service-techniker-in-region-kilchberg-horgen-m-f-d-80-100-schindler-wettswil"
       },
@@ -601,7 +601,15 @@
       },
       "streetAddress": "",
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-11T13:34:25.344Z"
+      "firstSeenAt": "2026-06-11T13:34:25.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-techniker-in-region-kilchberg-horgen-m-f-d-80-100-schindler-wettswil"
+        ]
+      },
+      "previousSlugs": [
+        "service-techniker-in-region-kilchberg-horgen-m-f-d-80-100-schindler-wettswil"
+      ]
     },
     {
       "id": "schindler-cfa7ef0ace82",
@@ -4870,8 +4878,7 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "de": [
-          "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-          "manager-fur-cookie-einwilligungen-schindler-bern"
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-09T12:10:12.363Z",

@@ -498,10 +498,10 @@
     },
     {
       "id": "tertianum-eb344b6fb23a",
-      "slug": "aktivierungstherapeut-in-tertianum-bazenheid",
+      "slug": "terapeuta-attivazione-tertianum-bazenheid",
       "slugByLocale": {
         "de": "aktivierungstherapeut-in-tertianum-bazenheid",
-        "it": "aktivierungstherapeut-in-tertianum-bazenheid",
+        "it": "terapeuta-attivazione-tertianum-bazenheid",
         "en": "aktivierungstherapeut-in-tertianum-bazenheid",
         "fr": "aktivierungstherapeut-in-tertianum-bazenheid"
       },
@@ -559,7 +559,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:56:50.210Z"
+      "firstSeenAt": "2026-06-11T13:56:50.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aktivierungstherapeut-in-tertianum-bazenheid"
+        ]
+      },
+      "previousSlugs": [
+        "aktivierungstherapeut-in-tertianum-bazenheid"
+      ]
     },
     {
       "id": "tertianum-0dfd515deddf",
@@ -1380,10 +1388,10 @@
     },
     {
       "id": "tertianum-2a072a4f5407",
-      "slug": "pflegehelfer-in-srk-40-100-tertianum-degersheim",
+      "slug": "assistente-infermieristico-in-srk-40-100-tertianum-degersheim",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-40-100-tertianum-degersheim",
-        "it": "pflegehelfer-in-srk-40-100-tertianum-degersheim",
+        "it": "assistente-infermieristico-in-srk-40-100-tertianum-degersheim",
         "en": "pflegehelfer-in-srk-40-100-tertianum-degersheim",
         "fr": "pflegehelfer-in-srk-40-100-tertianum-degersheim"
       },
@@ -1441,7 +1449,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:56:42.533Z"
+      "firstSeenAt": "2026-06-11T13:56:42.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-40-100-tertianum-degersheim"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-40-100-tertianum-degersheim"
+      ]
     },
     {
       "id": "tertianum-e58866d6e166",
@@ -4645,9 +4661,9 @@
     },
     {
       "id": "tertianum-966afbcff728",
-      "slug": "responsable-d-tertianum-delemont",
+      "slug": "capo-tertianum-delemont",
       "slugByLocale": {
-        "it": "responsable-d-tertianum-delemont",
+        "it": "capo-tertianum-delemont",
         "en": "responsable-d-tertianum-delemont",
         "de": "responsable-d-tertianum-delemont",
         "fr": "responsable-d-tertianum-delemont"
@@ -4704,7 +4720,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-tertianum-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-tertianum-delemont"
+      ]
     },
     {
       "id": "tertianum-8d8f7f5410e2",

@@ -2693,8 +2693,7 @@
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-tech-ops-csl-behring-bern",
-        "senior-scientist-tech-ops-csl-behring-ch",
-        "leitender-projektmanager-tech-ops-csl-behring-bern"
+        "senior-scientist-tech-ops-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3080,8 +3079,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3546,12 +3543,12 @@
     },
     {
       "id": "csl-behring-15e7aae56c28",
-      "slug": "principal-scientist-tech-ops-cmc-science-csl-behring-ch",
+      "slug": "principali-opzioni-tecnologiche-per-gli-scienziati-cmc-science-csl-behring-bern",
       "slugByLocale": {
         "en": "principal-scientist-tech-ops-cmc-science-csl-behring-ch",
-        "it": "principal-scientist-tech-ops-cmc-science-csl-behring-ch",
+        "it": "principali-opzioni-tecnologiche-per-gli-scienziati-cmc-science-csl-behring-bern",
         "de": "principal-scientist-tech-ops-cmc-science-csl-behring-ch",
-        "fr": "principal-scientist-tech-ops-cmc-science-csl-behring-ch"
+        "fr": "ops-scientifiques-principaux-sciences-du-cmc-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3607,16 +3604,27 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-11T12:29:39.591Z"
+      "firstSeenAt": "2026-06-11T12:29:39.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-tech-ops-cmc-science-csl-behring-ch"
+        ],
+        "fr": [
+          "principal-scientist-tech-ops-cmc-science-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-scientist-tech-ops-cmc-science-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-e06adc023f65",
-      "slug": "associate-scientist-cell-biology-in-translational-research-csl-behring-ch",
+      "slug": "scienziato-associato-biologia-cellulare-nella-ricerca-traduttiva-csl-behring-schlieren",
       "slugByLocale": {
         "en": "associate-scientist-cell-biology-in-translational-research-csl-behring-ch",
-        "it": "associate-scientist-cell-biology-in-translational-research-csl-behring-ch",
-        "de": "associate-scientist-cell-biology-in-translational-research-csl-behring-ch",
-        "fr": "associate-scientist-cell-biology-in-translational-research-csl-behring-ch"
+        "it": "scienziato-associato-biologia-cellulare-nella-ricerca-traduttiva-csl-behring-schlieren",
+        "de": "associate-scientist-zellbiologie-in-der-translationalen-forschung-csl-behring-schlieren",
+        "fr": "scientifique-associe-biologie-cellulaire-dans-la-recherche-translationnelle-csl-behring-schlieren"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3672,7 +3680,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-11T12:29:38.903Z"
+      "firstSeenAt": "2026-06-11T12:29:38.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-scientist-cell-biology-in-translational-research-csl-behring-ch"
+        ],
+        "de": [
+          "associate-scientist-cell-biology-in-translational-research-csl-behring-ch"
+        ],
+        "fr": [
+          "associate-scientist-cell-biology-in-translational-research-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-scientist-cell-biology-in-translational-research-csl-behring-ch"
+      ]
     }
   ]
 }

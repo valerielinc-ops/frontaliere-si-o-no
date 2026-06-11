@@ -871,8 +871,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
         "it": "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax",
-        "en": "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
-        "fr": "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
+        "en": "associate-bahnuberwachung-weisse-arena-gruppe-laax",
+        "fr": "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -921,6 +921,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch"
         ]
       },

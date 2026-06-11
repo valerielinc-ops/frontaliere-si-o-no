@@ -6254,9 +6254,9 @@
     },
     {
       "id": "stadler-rail-57ef66764f36",
-      "slug": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch",
+      "slug": "impianti-di-sicurezza-ferroviaria-dell-ingegnere-del-progetto-stadler-rail-vufflens-la-ville-35f9ad",
       "slugByLocale": {
-        "it": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch",
+        "it": "impianti-di-sicurezza-ferroviaria-dell-ingegnere-del-progetto-stadler-rail-vufflens-la-ville-35f9ad",
         "en": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch",
         "de": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch",
         "fr": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch"
@@ -6313,7 +6313,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-319c4860bf51",
@@ -12832,9 +12840,9 @@
     },
     {
       "id": "stadler-rail-5a11bc0cbb0a",
-      "slug": "recruiting-stadler-rail-ch",
+      "slug": "reclutamento-stadler-rail-wallisellen-b49540",
       "slugByLocale": {
-        "it": "recruiting-stadler-rail-ch",
+        "it": "reclutamento-stadler-rail-wallisellen-b49540",
         "en": "recruiting-stadler-rail-ch",
         "de": "recruiting-stadler-rail-ch",
         "fr": "recruiting-stadler-rail-ch"
@@ -12891,7 +12899,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "recruiting-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "recruiting-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-3e0e6085da36",
@@ -13535,10 +13551,10 @@
     },
     {
       "id": "stadler-rail-325c8732639a",
-      "slug": "qualitatsmanager-in-stadler-rail-bussnang",
+      "slug": "responsabile-della-qualita-in-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "qualitatsmanager-in-stadler-rail-ch",
-        "it": "qualitatsmanager-in-stadler-rail-bussnang",
+        "it": "responsabile-della-qualita-in-stadler-rail-bussnang",
         "en": "qualitatsmanager-in-stadler-rail-bussnang",
         "fr": "qualitatsmanager-in-stadler-rail-bussnang"
       },
@@ -13586,11 +13602,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "qualitatsmanager-in-stadler-rail-ch"
+          "qualitatsmanager-in-stadler-rail-ch",
+          "qualitatsmanager-in-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
-        "qualitatsmanager-in-stadler-rail-ch"
+        "qualitatsmanager-in-stadler-rail-ch",
+        "qualitatsmanager-in-stadler-rail-bussnang"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -13681,10 +13699,10 @@
     },
     {
       "id": "stadler-rail-3ae52049b79c",
-      "slug": "cost-engineer-stadler-rail-ch",
+      "slug": "cost-ingegnere-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "cost-engineer-stadler-rail-ch",
-        "it": "cost-engineer-stadler-rail-ch",
+        "it": "cost-ingegnere-stadler-rail-st-margrethen",
         "en": "cost-engineer-stadler-rail-ch",
         "fr": "cost-engineer-stadler-rail-ch"
       },
@@ -13742,7 +13760,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:39:34.568Z"
+      "firstSeenAt": "2026-06-11T13:39:34.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cost-engineer-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cost-engineer-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-08c6c912614a",

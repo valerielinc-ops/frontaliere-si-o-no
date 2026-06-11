@@ -382,8 +382,7 @@
           "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-basel"
         ],
         "en": [
-          "assistant-in-health-and-social-affairs-in-the-gerontopsychiatrie-adullam-stiftung-basel",
-          "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel"
+          "assistant-in-health-and-social-affairs-in-the-gerontopsychiatrie-adullam-stiftung-basel"
         ],
         "fr": [
           "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel"
@@ -410,10 +409,10 @@
     },
     {
       "id": "adullam-0e783457c4dd",
-      "slug": "dipl-pflegefachperson-hf-fh-adullam-basel",
+      "slug": "dipl-cura-professionale-hf-fh-adullam-stiftung-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-adullam-basel",
-        "it": "dipl-pflegefachperson-hf-fh-adullam-basel",
+        "it": "dipl-cura-professionale-hf-fh-adullam-stiftung-basel",
         "en": "dipl-pflegefachperson-hf-fh-adullam-basel",
         "fr": "dipl-pflegefachperson-hf-fh-adullam-basel"
       },
@@ -476,7 +475,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:03:27.044Z"
+      "firstSeenAt": "2026-06-11T12:03:27.044Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-adullam-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-adullam-basel"
+      ]
     },
     {
       "id": "adullam-cc3f32ef6ed8",

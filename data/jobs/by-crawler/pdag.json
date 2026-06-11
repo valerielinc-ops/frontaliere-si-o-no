@@ -2795,10 +2795,10 @@
     },
     {
       "id": "pdag-4823f123d98a",
-      "slug": "oberarztin-oberarzt-pdag-aarau",
+      "slug": "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-aarau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-pdag-aarau",
-        "it": "oberarztin-oberarzt-pdag-aarau",
+        "it": "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-aarau",
         "en": "oberarztin-oberarzt-pdag-aarau",
         "fr": "oberarztin-oberarzt-pdag-aarau"
       },
@@ -2856,7 +2856,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:15:23.525Z"
+      "firstSeenAt": "2026-06-11T13:15:23.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdag-aarau"
+      ]
     },
     {
       "id": "pdag-80fdf37ee8b0",
@@ -3090,10 +3098,10 @@
     },
     {
       "id": "pdag-384e29984b85",
-      "slug": "leitende-arztin-leitender-arzt-pdag-windisch",
+      "slug": "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-pdag-windisch",
-        "it": "leitende-arztin-leitender-arzt-pdag-windisch",
+        "it": "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "leitende-arztin-leitender-arzt-pdag-windisch",
         "fr": "leitende-arztin-leitender-arzt-pdag-windisch"
       },
@@ -3151,7 +3159,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:15:23.523Z"
+      "firstSeenAt": "2026-06-11T13:15:23.523Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-add14e2f8ba0",
@@ -3236,10 +3252,10 @@
     },
     {
       "id": "pdag-1cb2cb0db663",
-      "slug": "sozialarbeiterin-sozialarbeiter-pdag-windisch-2",
+      "slug": "lavoratore-sociale-lavoratore-sociale-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-pdag-windisch",
-        "it": "sozialarbeiterin-sozialarbeiter-pdag-windisch-2",
+        "it": "lavoratore-sociale-lavoratore-sociale-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "sozialarbeiterin-sozialarbeiter-pdag-windisch-2",
         "fr": "sozialarbeiterin-sozialarbeiter-pdag-windisch-2"
       },
@@ -3297,14 +3313,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:15:23.522Z"
+      "firstSeenAt": "2026-06-11T13:15:23.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-pdag-windisch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-pdag-windisch-2"
+      ]
     },
     {
       "id": "pdag-64971ce9f97a",
-      "slug": "servizio-alberghiero-dipendenti-ward-privati-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "mitarbeiterin-collaboratore-trice-hotellerieservice-privatstationen-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hotellerieservice-privatstationen-pdag-windisch",
-        "it": "servizio-alberghiero-dipendenti-ward-privati-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "mitarbeiterin-collaboratore-trice-hotellerieservice-privatstationen-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "employee-hotel-service-private-wards-psychiatrische-dienste-aargau-pdag-windisch",
         "fr": "service-hotelier-employe-chambres-privees-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -3360,11 +3384,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-hotellerieservice-privatstationen-pdag-windisch"
+          "mitarbeiterin-mitarbeiter-hotellerieservice-privatstationen-pdag-windisch",
+          "servizio-alberghiero-dipendenti-ward-privati-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-hotellerieservice-privatstationen-pdag-windisch"
+        "mitarbeiterin-mitarbeiter-hotellerieservice-privatstationen-pdag-windisch",
+        "servizio-alberghiero-dipendenti-ward-privati-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4501,10 +4527,10 @@
     },
     {
       "id": "pdag-4fba8e3abd14",
-      "slug": "psicooncologa-psicooncolologo-o-psicoterapeuta-psicoterapeuta-psychiatrische-dienste-aargau-pdag-baden",
+      "slug": "psychoonkologin-psychoonkologe-o-psychotherapeutin-psychotherapeut-psychiatrische-dienste-aargau-pdag-baden",
       "slugByLocale": {
         "de": "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-baden",
-        "it": "psicooncologa-psicooncolologo-o-psicoterapeuta-psicoterapeuta-psychiatrische-dienste-aargau-pdag-baden",
+        "it": "psychoonkologin-psychoonkologe-o-psychotherapeutin-psychotherapeut-psychiatrische-dienste-aargau-pdag-baden",
         "en": "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-baden",
         "fr": "psychooncologue-psychooncologue-ou-psychotherapeute-psychotherapeute-psychiatrische-dienste-aargau-pdag-baden"
       },
@@ -4561,11 +4587,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-baden"
+          "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-baden",
+          "psicooncologa-psicooncolologo-o-psicoterapeuta-psicoterapeuta-psychiatrische-dienste-aargau-pdag-baden"
         ]
       },
       "previousSlugs": [
-        "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-baden"
+        "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-baden",
+        "psicooncologa-psicooncolologo-o-psicoterapeuta-psicoterapeuta-psychiatrische-dienste-aargau-pdag-baden"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5288,10 +5316,10 @@
     },
     {
       "id": "pdag-c5d4ed243245",
-      "slug": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
+      "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "it": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
+        "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       },
@@ -5349,7 +5377,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:15:23.507Z"
+      "firstSeenAt": "2026-06-11T13:15:23.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+      ]
     },
     {
       "id": "pdag-a0dd58fa8653",
@@ -5833,10 +5869,10 @@
     },
     {
       "id": "pdag-08e25a486fe1",
-      "slug": "prozessmanager-prozessmanagerin-digitalisierung-automatisierung-idm-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "gestione-dei-processi-gestione-dei-processi-digitalizzazione-e-automazione-idm-psychiatrische-dienste-aargau-pdag",
       "slugByLocale": {
         "de": "prozessmanager-prozessmanagerin-digitalisierung-amp-automatisierung-idm-pdag-windisch",
-        "it": "prozessmanager-prozessmanagerin-digitalisierung-automatisierung-idm-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "gestione-dei-processi-gestione-dei-processi-digitalizzazione-e-automazione-idm-psychiatrische-dienste-aargau-pdag",
         "en": "prozessmanager-prozessmanagerin-digitalisierung-automatisierung-idm-psychiatrische-dienste-aargau-pdag-windisch",
         "fr": "prozessmanager-prozessmanagerin-digitalisierung-automatisierung-idm-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -5884,11 +5920,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "prozessmanager-prozessmanagerin-digitalisierung-amp-automatisierung-idm-pdag-windisch"
+          "prozessmanager-prozessmanagerin-digitalisierung-amp-automatisierung-idm-pdag-windisch",
+          "prozessmanager-prozessmanagerin-digitalisierung-automatisierung-idm-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "prozessmanager-prozessmanagerin-digitalisierung-amp-automatisierung-idm-pdag-windisch"
+        "prozessmanager-prozessmanagerin-digitalisierung-amp-automatisierung-idm-pdag-windisch",
+        "prozessmanager-prozessmanagerin-digitalisierung-automatisierung-idm-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5906,10 +5944,10 @@
     },
     {
       "id": "pdag-1d99dcf57025",
-      "slug": "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste",
+      "slug": "specialisti-responsabili-stv-gestione-della-stazione-psichiatria-forense-stazionario-psychiatrische-dienste-aargau-pdag",
       "slugByLocale": {
         "de": "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie",
-        "it": "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste",
+        "it": "specialisti-responsabili-stv-gestione-della-stazione-psichiatria-forense-stazionario-psychiatrische-dienste-aargau-pdag",
         "en": "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste",
         "fr": "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste"
       },
@@ -5957,11 +5995,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie-2"
+          "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie-2",
+          "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie-2"
+        "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie-2",
+        "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

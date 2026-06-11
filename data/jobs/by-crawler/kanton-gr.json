@@ -432,10 +432,10 @@
     },
     {
       "id": "kanton-gr-7dd1d820f95f",
-      "slug": "sozialarbeiter-in-kanton-gr-ch",
+      "slug": "lavoratore-sociale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kanton-gr-ch",
-        "it": "sozialarbeiter-in-kanton-gr-ch",
+        "it": "lavoratore-sociale-kantonale-verwaltung-graubunden-chur",
         "en": "sozialarbeiter-in-kanton-gr-ch",
         "fr": "sozialarbeiter-in-kanton-gr-ch"
       },
@@ -498,7 +498,15 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-11T12:52:44.203Z"
+      "firstSeenAt": "2026-06-11T12:52:44.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-97ca2de8e20d",
@@ -580,10 +588,10 @@
     },
     {
       "id": "kanton-gr-a4699f5ab545",
-      "slug": "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur",
+      "slug": "ispettore-del-servizio-di-ispezione-agricola-grigioni-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kanton-gr-ch",
-        "it": "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur",
+        "it": "ispettore-del-servizio-di-ispezione-agricola-grigioni-kantonale-verwaltung-graubunden-chur",
         "en": "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur",
         "fr": "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur"
       },
@@ -632,11 +640,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kanton-gr-ch"
+          "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kanton-gr-ch",
+          "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kanton-gr-ch"
+        "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kanton-gr-ch",
+        "kontrolleur-in-landwirtschaftlicher-kontrolldienst-graubunden-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -733,10 +743,10 @@
     },
     {
       "id": "kanton-gr-52cd528eff24",
-      "slug": "praktikant-in-multimedia-kanton-gr-ch",
+      "slug": "stage-in-multimedia-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "praktikant-in-multimedia-kanton-gr-ch",
-        "it": "praktikant-in-multimedia-kanton-gr-ch",
+        "it": "stage-in-multimedia-kantonale-verwaltung-graubunden-chur",
         "en": "praktikant-in-multimedia-kanton-gr-ch",
         "fr": "praktikant-in-multimedia-kanton-gr-ch"
       },
@@ -799,7 +809,15 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-11T12:52:41.713Z"
+      "firstSeenAt": "2026-06-11T12:52:41.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-multimedia-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-multimedia-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-4a15bbb1a98f",
@@ -959,10 +977,10 @@
     },
     {
       "id": "kanton-gr-31abae010ca0",
-      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-ilanz",
+      "slug": "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
         "de": "strassenwart-in-kanton-gr-ch",
-        "it": "strassenwart-in-kantonale-verwaltung-graubunden-ilanz",
+        "it": "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz",
         "en": "strassenwart-in-kanton-gr-ch",
         "fr": "strassenwart-in-kanton-gr-ch"
       },
@@ -1014,11 +1032,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "strassenwart-in-kanton-gr-ch"
+          "strassenwart-in-kanton-gr-ch",
+          "strassenwart-in-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "previousSlugs": [
-        "strassenwart-in-kanton-gr-ch"
+        "strassenwart-in-kanton-gr-ch",
+        "strassenwart-in-kantonale-verwaltung-graubunden-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1146,9 +1166,9 @@
     },
     {
       "id": "kanton-gr-56f1d94ae3c7",
-      "slug": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
+      "slug": "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
-        "it": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
+        "it": "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz",
         "en": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
         "de": "immobilienbewerter-in-kanton-gr-ch",
         "fr": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
@@ -1197,11 +1217,13 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "immobilienbewerter-in-kanton-gr-ch"
+        "immobilienbewerter-in-kanton-gr-ch",
+        "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewerter-in-kanton-gr-ch"
+          "immobilienbewerter-in-kanton-gr-ch",
+          "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "needsRetranslation": true,
@@ -2166,7 +2188,7 @@
         "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2212,11 +2234,15 @@
       "pensumMax": 80,
       "pensum": "50-80%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-kanton-gr-ch"
+        "dipl-pflegefachperson-hf-kanton-gr-ch",
+        "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-kanton-gr-ch"
+        ],
+        "fr": [
+          "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -2324,9 +2350,9 @@
       "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
       "slugByLocale": {
         "it": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
-        "en": "strassenwart-in-kanton-gr-ch",
+        "en": "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
         "de": "strassenwart-in-kanton-gr-ch",
-        "fr": "strassenwart-in-kanton-gr-ch"
+        "fr": "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2372,20 +2398,16 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "strassenwart-in-kanton-gr-ch",
-        "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
-        "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
+        "strassenwart-in-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch"
         ],
         "en": [
-          "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
           "strassenwart-in-kanton-gr-ch"
         ],
         "fr": [
-          "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan",
           "strassenwart-in-kanton-gr-ch"
         ]
       },

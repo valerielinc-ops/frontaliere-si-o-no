@@ -1920,9 +1920,9 @@
     },
     {
       "id": "spital-davos-d377ee790b76",
-      "slug": "dipl-expert-in-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-ch",
+      "slug": "dipl-nds-hf-60-100-stagione-invernale-2026-27-spital-davos-davos",
       "slugByLocale": {
-        "it": "dipl-expert-in-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-ch",
+        "it": "dipl-nds-hf-60-100-stagione-invernale-2026-27-spital-davos-davos",
         "en": "dipl-expert-in-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-ch",
         "de": "dipl-expert-in-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-ch",
         "fr": "dipl-expert-in-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-ch"
@@ -1984,7 +1984,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expert-in-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-ch"
+      ]
     },
     {
       "id": "spital-davos-9ee7a190d0b2",

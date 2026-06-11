@@ -1992,8 +1992,7 @@
           "termineur-h-f-rolex-ch"
         ],
         "fr": [
-          "echeancier-h-f-rolex-bienne",
-          "termineur-h-f-rolex-ch"
+          "echeancier-h-f-rolex-bienne"
         ]
       },
       "firstSeenAt": "2026-06-10T07:54:21.536Z",
@@ -10313,9 +10312,9 @@
     },
     {
       "id": "rolex-4616ff09b908",
-      "slug": "charge-de-projets-qualite-h-f-rolex-ch-2",
+      "slug": "responsabile-del-progetto-di-qualita-h-f-rolex-geneve",
       "slugByLocale": {
-        "it": "charge-de-projets-qualite-h-f-rolex-ch-2",
+        "it": "responsabile-del-progetto-di-qualita-h-f-rolex-geneve",
         "en": "charge-de-projets-qualite-h-f-rolex-ch-2",
         "de": "charge-de-projets-qualite-h-f-rolex-ch-2",
         "fr": "charge-de-projets-qualite-h-f-rolex-ch"
@@ -10371,7 +10370,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-qualite-h-f-rolex-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-qualite-h-f-rolex-ch-2"
+      ]
     },
     {
       "id": "rolex-22848bc1a65a",
@@ -10444,9 +10451,9 @@
     },
     {
       "id": "rolex-166065149c80",
-      "slug": "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch-2",
+      "slug": "attrezzature-e-infrastrutture-di-project-manager-h-f-rolex-geneve-cc4e15",
       "slugByLocale": {
-        "it": "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch-2",
+        "it": "attrezzature-e-infrastrutture-di-project-manager-h-f-rolex-geneve-cc4e15",
         "en": "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch-2",
         "de": "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch-2",
         "fr": "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch"
@@ -10502,7 +10509,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch-2"
+      ]
     },
     {
       "id": "rolex-3cdf225d8d12",
@@ -10713,9 +10728,9 @@
     },
     {
       "id": "rolex-6f9067b0ccc9",
-      "slug": "gestionnaire-logistique-m-w-d-rolex-geneve",
+      "slug": "gestione-logistica-h-f-rolex-geneve-40f3af",
       "slugByLocale": {
-        "it": "gestionnaire-logistique-m-w-d-rolex-geneve",
+        "it": "gestione-logistica-h-f-rolex-geneve-40f3af",
         "en": "gestionnaire-logistique-h-f-rolex-ch-3",
         "de": "gestionnaire-logistique-h-f-rolex-ch-3",
         "fr": "gestionnaire-logistique-h-f-rolex-ch"
@@ -10760,12 +10775,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-logistique-h-f-rolex-ch-3",
-        "gestionnaire-logistique-h-f-rolex-ch-2"
+        "gestionnaire-logistique-h-f-rolex-ch-2",
+        "gestionnaire-logistique-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-logistique-h-f-rolex-ch-3",
-          "gestionnaire-logistique-h-f-rolex-ch-2"
+          "gestionnaire-logistique-h-f-rolex-ch-2",
+          "gestionnaire-logistique-m-w-d-rolex-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -10993,9 +11010,9 @@
     },
     {
       "id": "rolex-0e4de73fbc07",
-      "slug": "technicien-r-d-h-f-prototypes-cadran-rolex-ch",
+      "slug": "r-d-technician-h-f-prototipi-dial-rolex-geneve",
       "slugByLocale": {
-        "it": "technicien-r-d-h-f-prototypes-cadran-rolex-ch",
+        "it": "r-d-technician-h-f-prototipi-dial-rolex-geneve",
         "en": "technicien-r-d-h-f-prototypes-cadran-rolex-ch",
         "de": "technicien-r-d-h-f-prototypes-cadran-rolex-ch",
         "fr": "technicien-r-d-h-f-prototypes-cadran-rolex-ch"
@@ -11051,7 +11068,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-r-d-h-f-prototypes-cadran-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-r-d-h-f-prototypes-cadran-rolex-ch"
+      ]
     },
     {
       "id": "rolex-5a877611d254",

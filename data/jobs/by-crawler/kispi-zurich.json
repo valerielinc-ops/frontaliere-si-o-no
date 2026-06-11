@@ -541,9 +541,9 @@
     },
     {
       "id": "kispi-zurich-6cfcd0f41191",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
@@ -600,7 +600,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-e984252b332b",
@@ -680,10 +688,10 @@
     },
     {
       "id": "kispi-zurich-8ee5f49744bc",
-      "slug": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
+      "slug": "interno-per-infermieri-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
-        "it": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
+        "it": "interno-per-infermieri-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
         "fr": "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
       },
@@ -741,7 +749,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:53:41.659Z"
+      "firstSeenAt": "2026-06-11T12:53:41.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+      ]
     }
   ]
 }

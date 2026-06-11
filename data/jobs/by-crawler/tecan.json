@@ -79,10 +79,10 @@
     },
     {
       "id": "tecan-dd30a66c5d72",
-      "slug": "head-software-product-management-tecan-mannedorf",
+      "slug": "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf",
       "slugByLocale": {
         "en": "head-software-product-management-tecan-mannedorf",
-        "it": "head-software-product-management-tecan-mannedorf",
+        "it": "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf",
         "de": "head-software-product-management-tecan-mannedorf",
         "fr": "head-software-product-management-tecan-mannedorf"
       },
@@ -140,7 +140,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:53:07.075Z"
+      "firstSeenAt": "2026-06-11T13:53:07.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-software-product-management-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "head-software-product-management-tecan-mannedorf"
+      ]
     },
     {
       "id": "tecan-de4d84aa887e",
@@ -512,8 +520,7 @@
           "think-okay-let-s-see-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original",
           "reasoning-the-target-language-specified-in-the-request-is-english-en-the-original-title-is-already-in-english-technical",
           "technical-editor-tecan-mannedorf",
-          "technical-writers-tecan-mannedorf",
-          "technical-writer-tecan-mannedorf"
+          "technical-writers-tecan-mannedorf"
         ],
         "fr": [
           "redacteur-technique-tecan-mannedorf"
@@ -929,8 +936,7 @@
         "en": [
           "measuring-technology-tecan-mannedorf",
           "measurement-technician-tecan-mannedorf",
-          "measuring-technicians-tecan-mannedorf",
-          "messtechniker-tecan-mannedorf"
+          "measuring-technicians-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:25.507Z",

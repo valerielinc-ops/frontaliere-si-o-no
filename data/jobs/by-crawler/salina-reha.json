@@ -279,10 +279,10 @@
     },
     {
       "id": "salina-reha-f9bff0a51edd",
-      "slug": "med-praxisassistent-in-arztsekretar-in-salina-rheinfelden",
+      "slug": "med-assistente-pratica-in-segreteria-medica-in-salina-rehaklinik-rheinfelden-rheinfelden",
       "slugByLocale": {
         "de": "med-praxisassistent-in-arztsekretar-in-salina-rheinfelden",
-        "it": "med-praxisassistent-in-arztsekretar-in-salina-rheinfelden",
+        "it": "med-assistente-pratica-in-segreteria-medica-in-salina-rehaklinik-rheinfelden-rheinfelden",
         "en": "med-praxisassistent-in-arztsekretar-in-salina-rheinfelden",
         "fr": "med-praxisassistent-in-arztsekretar-in-salina-rheinfelden"
       },
@@ -340,7 +340,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:29:03.493Z"
+      "firstSeenAt": "2026-06-11T13:29:03.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-arztsekretar-in-salina-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-arztsekretar-in-salina-rheinfelden"
+      ]
     }
   ]
 }

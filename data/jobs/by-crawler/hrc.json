@@ -578,9 +578,9 @@
     },
     {
       "id": "hrc-d62695fcfc8a",
-      "slug": "secretaire-polyvalent-h-f-a-80-100-hrc-rennaz",
+      "slug": "segretario-polivalente-h-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "secretaire-polyvalent-h-f-a-80-100-hrc-rennaz",
+        "it": "segretario-polivalente-h-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
         "en": "secretaire-polyvalent-h-f-a-80-100-hrc-rennaz",
         "de": "secretaire-polyvalent-h-f-a-80-100-hrc-rennaz",
         "fr": "secretaire-polyvalent-h-f-a-80-100-hrc-rennaz"
@@ -637,7 +637,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-polyvalent-h-f-a-80-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-polyvalent-h-f-a-80-100-hrc-rennaz"
+      ]
     }
   ]
 }
