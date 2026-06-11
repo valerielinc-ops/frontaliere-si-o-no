@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stgag",
-  "assembledAt": "2026-06-11T13:49:24.880Z",
+  "assembledAt": "2026-06-11T23:35:57.349Z",
   "jobs": [
     {
       "id": "stgag-c9c6e56f5738",
@@ -34,7 +34,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3662/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:22.983Z",
+      "crawledAt": "2026-06-11T23:35:54.922Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1500/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:22.092Z",
+      "crawledAt": "2026-06-11T23:35:53.978Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1536/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:21.245Z",
+      "crawledAt": "2026-06-11T23:35:53.012Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3663/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:20.374Z",
+      "crawledAt": "2026-06-11T23:35:52.038Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3667/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:19.474Z",
+      "crawledAt": "2026-06-11T23:35:51.070Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -356,6 +356,14 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3667/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen"
+        ]
+      },
       "firstSeenAt": "2026-06-10T13:02:46.867Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -368,15 +376,7 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen"
-        ]
-      },
-      "previousSlugs": [
-        "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen"
-      ]
+      }
     },
     {
       "id": "stgag-a9a4d8cb65aa",
@@ -410,7 +410,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3670/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:18.537Z",
+      "crawledAt": "2026-06-11T23:35:50.065Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -483,7 +483,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3669/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:17.602Z",
+      "crawledAt": "2026-06-11T23:35:49.125Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -556,7 +556,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3673/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:16.760Z",
+      "crawledAt": "2026-06-11T23:35:48.186Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -573,6 +573,14 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3673/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "med-praxisassistenten-in-mpa-stgag-munsterlingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistenten-in-mpa-stgag-munsterlingen"
+        ]
+      },
       "firstSeenAt": "2026-06-10T13:02:44.450Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -585,23 +593,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistenten-in-mpa-stgag-munsterlingen"
-        ]
-      },
-      "previousSlugs": [
-        "med-praxisassistenten-in-mpa-stgag-munsterlingen"
-      ]
+      }
     },
     {
       "id": "stgag-d7cfc3a21e0e",
       "slug": "terapisti-d-arte-spital-thurgau-stgag-munsterlingen-83acaf",
       "slugByLocale": {
-        "de": "kunsttherapeuten-in-stgag-munsterlingen",
         "it": "terapisti-d-arte-spital-thurgau-stgag-munsterlingen-83acaf",
         "en": "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen",
+        "de": "kunsttherapeuten-in-stgag-munsterlingen",
         "fr": "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -609,17 +609,17 @@
       "companyDomain": "stgag.ch",
       "title": "Kunsttherapeuten/-in",
       "titleByLocale": {
-        "de": "Kunsttherapeuten/-in",
-        "en": "Kunsttherapeuten/-in",
         "it": "Terapisti d'arte",
+        "en": "Kunsttherapeuten/-in",
+        "de": "Kunsttherapeuten/-in",
         "fr": "Kunsttherapeuten/-in"
       },
       "description": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen\n\nPlanung, Organisation und Durchführung von Projekten und Ausstellungen\n\nBegleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess\n\nFörderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen\n\nTeilnahme an fachübergreifenden Spezialtherapiesitzungen\n\nAnleitung, Begleitung und Unterstützung von Praktikant/innen\n\nMitarbeit bei Klinik- und Stationsprojekten\n\nAbgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen\n\nPlanung, Organisation und Durchführung von Projekten und Ausstellungen\n\nBegleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess\n\nFörderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen\n\nTeilnahme an fachübergreifenden Spezialtherapiesitzungen\n\nAnleitung, Begleitung und Unterstützung von Praktikant/innen\n\nMitarbeit bei Klinik- und Stationsprojekten\n\nAbgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "it": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen\n\nPlanung, Organisation und Durchführung von Projekten und Ausstellungen\n\nBegleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess\n\nFörderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen\n\nTeilnahme an fachübergreifenden Spezialtherapiesitzungen\n\nAnleitung, Begleitung und Unterstützung von Praktikant/innen\n\nMitarbeit bei Klinik- und Stationsprojekten\n\nAbgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "en": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen\n\nPlanung, Organisation und Durchführung von Projekten und Ausstellungen\n\nBegleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess\n\nFörderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen\n\nTeilnahme an fachübergreifenden Spezialtherapiesitzungen\n\nAnleitung, Begleitung und Unterstützung von Praktikant/innen\n\nMitarbeit bei Klinik- und Stationsprojekten\n\nAbgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen\n\nPlanung, Organisation und Durchführung von Projekten und Ausstellungen\n\nBegleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess\n\nFörderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen\n\nTeilnahme an fachübergreifenden Spezialtherapiesitzungen\n\nAnleitung, Begleitung und Unterstützung von Praktikant/innen\n\nMitarbeit bei Klinik- und Stationsprojekten\n\nAbgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet"
+        "it": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen Planung, Organisation und Durchführung von Projekten und Ausstellungen Begleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess Förderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen Teilnahme an fachübergreifenden Spezialtherapiesitzungen Anleitung, Begleitung und Unterstützung von Praktikant/innen Mitarbeit bei Klinik- und Stationsprojekten Abgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "en": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen Planung, Organisation und Durchführung von Projekten und Ausstellungen Begleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess Förderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen Teilnahme an fachübergreifenden Spezialtherapiesitzungen Anleitung, Begleitung und Unterstützung von Praktikant/innen Mitarbeit bei Klinik- und Stationsprojekten Abgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "de": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen Planung, Organisation und Durchführung von Projekten und Ausstellungen Begleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess Förderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen Teilnahme an fachübergreifenden Spezialtherapiesitzungen Anleitung, Begleitung und Unterstützung von Praktikant/innen Mitarbeit bei Klinik- und Stationsprojekten Abgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "fr": "Zur Ergänzung unseres Teams für das neu entstehende Living Museum Münsterlingen suchen wir ab dem 1. September 2026 eine/n Kunsttherapeuten/-in 40-80% Suchen Sie ein Arbeitsumfeld, das Kreativität, Begegnung und therapeutisches Arbeiten miteinander verbindet? Ist Recovery für Sie mehr als ein Konzept, sondern eine Haltung, die den Menschen in den Mittelpunkt stellt? Dann freuen wir uns darauf Sie kennenzulernen. Im Living Museum Münsterlingen entstehen Räume für Begegnung, Kreativität und persönliche Entwicklung. Gemeinsam mit einem engagierten Team begleiten Sie Klient/innen dabei, eigene Ausdruckformen zu entdecken, Ressourcen zu stärken und kreative Ideen Wirklichkeit werden zu lassen. Sie übernehmen Mitwirkung beim Aufbau des Living Museums Münsterlingen Planung, Organisation und Durchführung von Projekten und Ausstellungen Begleitung und Unterstützung von Klient/innen im kreativen Gestaltungsprozess Förderung der individuellen Ressourcen und Ausdrucksmöglichkeiten der Klient/innen Teilnahme an fachübergreifenden Spezialtherapiesitzungen Anleitung, Begleitung und Unterstützung von Praktikant/innen Mitarbeit bei Klinik- und Stationsprojekten Abgeschlossenes Studium der Kunsttherapie oder Ausbildung als dipl. Ergotherapeut/in (FH mit SRK-Anerkennung)\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet"
       },
       "needsRetranslation": true,
       "location": "Münsterlingen",
@@ -627,7 +627,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3665/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:15.909Z",
+      "crawledAt": "2026-06-11T23:35:47.220Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -643,19 +643,18 @@
       "postedDate": "2026-06-11",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3665/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "kunsttherapeuten-in-stgag-munsterlingen",
+        "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kunsttherapeuten-in-stgag-munsterlingen",
           "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen"
         ]
       },
-      "previousSlugs": [
-        "kunsttherapeuten-in-stgag-munsterlingen",
-        "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen"
-      ],
+      "firstSeenAt": "2026-06-11T13:49:15.909Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -667,16 +666,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-11T13:49:15.909Z"
+      }
     },
     {
       "id": "stgag-29dfcb2ba1e9",
       "slug": "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "de": "fachmann-frau-gesundheit-efz-stgag-munsterlingen",
         "it": "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-munsterlingen",
         "en": "fachmann-frau-gesundheit-efz-stgag-munsterlingen",
+        "de": "fachmann-frau-gesundheit-efz-stgag-munsterlingen",
         "fr": "fachmann-frau-gesundheit-efz-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -684,17 +682,17 @@
       "companyDomain": "stgag.ch",
       "title": "Fachmann/-frau Gesundheit EFZ",
       "titleByLocale": {
-        "de": "Fachmann/-frau Gesundheit EFZ",
         "it": "Fachmann/-frau Gesundheit CFC",
         "en": "Fachmann/-frau Gesundheit EFZ",
+        "de": "Fachmann/-frau Gesundheit EFZ",
         "fr": "Fachmann/-frau Gesundheit EFZ"
       },
       "description": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten\n\nDu übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station\n\nDu beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes\n\nDu bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern\n\nDu hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\nDu bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit\n\nDu besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen\n\nDu bist flexibel, belastbar, selbständig und teamfähig\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten\n\nDu übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station\n\nDu beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes\n\nDu bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern\n\nDu hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\nDu bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit\n\nDu besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen\n\nDu bist flexibel, belastbar, selbständig und teamfähig\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "it": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten\n\nDu übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station\n\nDu beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes\n\nDu bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern\n\nDu hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\nDu bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit\n\nDu besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen\n\nDu bist flexibel, belastbar, selbständig und teamfähig\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "en": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten\n\nDu übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station\n\nDu beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes\n\nDu bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern\n\nDu hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\nDu bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit\n\nDu besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen\n\nDu bist flexibel, belastbar, selbständig und teamfähig\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten\n\nDu übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station\n\nDu beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes\n\nDu bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern\n\nDu hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\nDu bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit\n\nDu besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen\n\nDu bist flexibel, belastbar, selbständig und teamfähig\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet"
+        "it": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "en": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "de": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "fr": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet"
       },
       "needsRetranslation": true,
       "location": "Münsterlingen",
@@ -702,7 +700,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3664/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:49:15.030Z",
+      "crawledAt": "2026-06-11T23:35:46.231Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -718,17 +716,16 @@
       "postedDate": "2026-06-11",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3664/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachmann-frau-gesundheit-efz-stgag-munsterlingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-stgag-munsterlingen"
         ]
       },
-      "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-stgag-munsterlingen"
-      ],
+      "firstSeenAt": "2026-06-11T13:49:15.030Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -740,8 +737,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-11T13:49:15.030Z"
+      }
     }
   ]
 }
