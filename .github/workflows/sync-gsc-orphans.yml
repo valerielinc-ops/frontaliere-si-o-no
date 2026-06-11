@@ -90,6 +90,16 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: node scripts/mine-all-job-slugs.mjs
 
+      - name: Canton-aware migration of slug registry (keep registry invariant pre-commit)
+        if: ${{ inputs.dry_run != true }}
+        # mine-all-job-slugs writes every entry under the legacy TI section.
+        # Rewrite entries attributable to live non-TI jobs to their canton-aware
+        # paths BEFORE committing to main (bot-direct-to-main gate, same
+        # rationale as the prune step below): an unmigrated registry bakes
+        # TI canonicals into dist soft-landings and turns gate:seo-source red
+        # post-merge (run 27352608929). Needs data/jobs.json (assembled above).
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
       - name: Prune non-resolving 404-compat paths (keep test invariant green)
         if: ${{ inputs.dry_run != true }}
         # Gate bot-direct-to-main against the committed-snapshot invariant
