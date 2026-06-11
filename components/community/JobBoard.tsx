@@ -92,7 +92,7 @@ import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
-import { SkeletonJobDetail } from '@/components/shared/Skeletons';
+import { SkeletonJobDetail, SkeletonJobBoard, SkeletonLine } from '@/components/shared/Skeletons';
 import { useExpiredJob, hasSeededExpiredData, seededJobMatchesSlug } from '@/hooks/useExpiredJob';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
@@ -4994,18 +4994,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return <SkeletonJobDetail />;
  }
  return (
- // Reserve ~viewport height during the async job fetch. Search/filter URLs
- // (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this JobBoard
- // WITHOUT staticOverlay, so App.tsx display:none's the full-height static
- // SEO body on hydration. A short `py-20` spinner then collapsed the page to
- // ~116px and it jumped back to N×72px when jobs resolved → CLS p75 0.87
- // (jobs_filter_concorsi). min-h-[80vh] (same reserve convention as
- // SkeletonComparator) keeps height stable through static→spinner→list so
- // the lab CLS drops <0.25 and the audit-cls-live lab_post_fix override clears
- // the gate without waiting weeks for CrUX to roll forward.
- <div className="flex items-center justify-center min-h-[80vh]">
- <Loader2 className="w-9 h-9 text-accent animate-spin" />
- </div>
+ // Reserve realistic page height during the async job fetch. Search/filter
+ // URLs (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this
+ // JobBoard WITHOUT staticOverlay, so App.tsx display:none's the full-height
+ // static SEO body on hydration. The previous centered spinner reserved only
+ // 80vh: the footer sat just inside the viewport during the fetch, then got
+ // pushed below the fold when the ~10-card list resolved → 0.064 CLS on
+ // every landing (field p75 0.58 on /cerca-lavoro-ticino/). The skeleton
+ // list approximates the final list height (header + search bar + 10×112px
+ // cards, min-h-[80vh] floor inside SkeletonJobBoard) so the footer never
+ // enters the viewport mid-load.
+ <SkeletonJobBoard />
  );
  }
  }
@@ -5945,6 +5944,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const descriptionPreview = String(
  selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
  ).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220);
+ // True while the slim index gave us no description but the per-job detail
+ // fetch hasn't settled yet (cache miss on first render, or in flight).
+ // Drives an equal-height teaser skeleton so the late-arriving text doesn't
+ // push the auth gate down (~92px, measured 0.054 CLS per detail view).
+ const teaserPending = !descriptionPreview
+ && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
@@ -6022,12 +6027,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Readable description teaser — shows first ~200 chars to create information
  scent and an "open loop" that motivates signup. Fades out at the bottom.
  On very short viewports (landscape phones) we hide it entirely so the gate CTAs
- land above the fold; on normal phones the clamp still bounds it to ≤80px. */}
- {descriptionPreview && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
+ land above the fold; on normal phones the clamp still bounds it to ≤80px.
+ CLS guards: (a) svh, NOT dvh — dvh re-resolves every time the mobile URL bar
+ collapses/expands, oscillating maxHeight 0↔80px and shifting the gate and
+ everything below it on every scroll direction change; svh is static.
+ (b) While the slim index has no description yet but the per-job detail
+ enrichment is in flight, render an equal-height skeleton so the gate isn't
+ pushed down ~92px when the teaser text arrives (measured 0.054/view). */}
+ {(descriptionPreview || teaserPending) && (
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ maxHeight: 'clamp(0px, calc(100svh - 540px), 80px)' }}>
+ {descriptionPreview ? (
  <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
  </p>
+ ) : (
+ <div className="px-3 py-2 sm:py-3 space-y-2" aria-hidden="true">
+ <SkeletonLine height="h-4" />
+ <SkeletonLine height="h-4" />
+ <SkeletonLine height="h-4" width="w-3/4" />
+ </div>
+ )}
  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
  </div>
  )}
@@ -7519,8 +7538,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
 
- {/* Mobile: infinite scroll sentinel */}
- <div className="min-h-[48px] sm:hidden">
+ {/* Mobile: infinite scroll sentinel. min-h matches the spinner row's real
+ height (py-6 + h-5 = 68px) so the container doesn't shrink by 20px when
+ hasMoreMobileJobs flips false at end-of-list (in-viewport layout shift). */}
+ <div className="min-h-[68px] sm:hidden">
  {hasMoreMobileJobs && (
  <div ref={jobSentinelRef} className="flex justify-center items-center py-6">
  <div className="h-5 w-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />

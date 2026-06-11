@@ -711,9 +711,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  {/* Readable description teaser — shows first ~200 chars to create information
  scent and an "open loop" that motivates signup. Fades out at the bottom.
- Hidden on landscape phones (≤540dvh) so the gate CTAs land above the fold. */}
+ Hidden on landscape phones (≤540px viewport) so the gate CTAs land above the fold.
+ svh, NOT dvh: dvh re-resolves on mobile URL-bar collapse/expand, oscillating
+ maxHeight 0↔80px and shifting the gate below on every scroll direction change. */}
  {descriptionPreview && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ maxHeight: 'clamp(0px, calc(100svh - 540px), 80px)' }}>
  <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
  </p>

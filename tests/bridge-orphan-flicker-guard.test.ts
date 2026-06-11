@@ -77,20 +77,21 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
       );
     });
 
-    it('places the cold-load skeleton INSIDE the jobsLoading block, before the generic spinner', () => {
+    it('places the cold-load skeleton INSIDE the jobsLoading block, before the generic listing fallback', () => {
       // Reachability is the whole point: `if (jobsLoading)` returns in every
-      // branch, so the guard must precede the generic spinner AND sit after the
-      // `if (jobsLoading) {` opener — otherwise it is dead code.
+      // branch, so the guard must precede the generic listing fallback (the
+      // <SkeletonJobBoard /> that replaced the old min-h-[80vh] spinner) AND
+      // sit after the `if (jobsLoading) {` opener — otherwise it is dead code.
       const jobsLoadingIdx = jobBoardSrc.indexOf('if (jobsLoading) {');
       const coldGuardIdx = jobBoardSrc.indexOf('!searchSlugFilter && !seeded');
-      const spinnerIdx = jobBoardSrc.indexOf("min-h-[80vh]");
+      const listingFallbackIdx = jobBoardSrc.indexOf('<SkeletonJobBoard />');
       const orphanIdx = jobBoardSrc.indexOf('<JobOrphanView');
       expect(jobsLoadingIdx).toBeGreaterThan(0);
       expect(coldGuardIdx).toBeGreaterThan(0);
-      expect(spinnerIdx).toBeGreaterThan(0);
+      expect(listingFallbackIdx).toBeGreaterThan(0);
       expect(orphanIdx).toBeGreaterThan(0);
       expect(coldGuardIdx).toBeGreaterThan(jobsLoadingIdx);
-      expect(coldGuardIdx).toBeLessThan(spinnerIdx);
+      expect(coldGuardIdx).toBeLessThan(listingFallbackIdx);
       expect(coldGuardIdx).toBeLessThan(orphanIdx);
     });
 
