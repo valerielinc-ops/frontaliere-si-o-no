@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-06-11T13:31:18.433Z",
+  "assembledAt": "2026-06-11T23:27:39.659Z",
   "jobs": [
     {
       "id": "spital-sts-5b24c86593ab",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/90dc793b-c682-4a4d-a5e8-a915f27821a0/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:16.530Z",
+      "crawledAt": "2026-06-11T23:27:37.586Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1c830d99-211a-4f9f-a9f1-719bf13974a2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:15.894Z",
+      "crawledAt": "2026-06-11T23:27:36.407Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c4819bf1-2f97-4808-9c34-5a33a85a15e2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:15.057Z",
+      "crawledAt": "2026-06-11T23:27:35.280Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -265,7 +265,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c87ea77d-c64c-41c7-93e0-0efcee4b5938/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:14.201Z",
+      "crawledAt": "2026-06-11T23:27:34.190Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c7c6e9a9-d32f-490c-9e6e-d36e7d25cf02/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:13.562Z",
+      "crawledAt": "2026-06-11T23:27:33.076Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -407,7 +407,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/985404f9-e545-424f-a78d-991bffb30901/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:12.922Z",
+      "crawledAt": "2026-06-11T23:27:32.008Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -486,7 +486,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9ebf5831-65b5-4230-a3da-722730d57695/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:12.242Z",
+      "crawledAt": "2026-06-11T23:27:31.006Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -563,7 +563,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/bc26f779-c496-40b7-a82a-f408b43caf49/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:11.559Z",
+      "crawledAt": "2026-06-11T23:27:29.853Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -626,7 +626,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/d7922b14-bc1f-47d7-a0f2-eefb871a7b57/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:10.712Z",
+      "crawledAt": "2026-06-11T23:27:28.727Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -643,6 +643,14 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/d7922b14-bc1f-47d7-a0f2-eefb871a7b57",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "med-praxisassistent-in-urologie-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-urologie-spital-sts-thun"
+        ]
+      },
       "firstSeenAt": "2026-06-10T23:28:07.034Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -655,15 +663,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistent-in-urologie-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "med-praxisassistent-in-urologie-spital-sts-thun"
-      ]
+      }
     },
     {
       "id": "spital-sts-194e1f6c949a",
@@ -697,7 +697,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7af25d74-121c-4534-9677-cab6a836fef8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:31:10.093Z",
+      "crawledAt": "2026-06-11T23:27:27.655Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -714,6 +714,14 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7af25d74-121c-4534-9677-cab6a836fef8",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+        ]
+      },
       "firstSeenAt": "2026-06-10T23:28:05.932Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -726,15 +734,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
-      ]
+      }
     }
   ]
 }
