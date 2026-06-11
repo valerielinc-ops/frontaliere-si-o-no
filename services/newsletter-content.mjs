@@ -40,44 +40,20 @@ function loadLogoManifest() {
 }
 
 /**
- * Fallback gFavicon domains for companies whose companyKey isn't in the manifest
- * and whose jobs lack a companyWebsite. Mirrors CRAWLED_COMPANY_LOGOS in jobDataNormalization.ts.
- */
-const KNOWN_LOGO_DOMAINS = {
-  'citta-di-lugano': 'lugano.ch',
-  'citta-di-bellinzona': 'bellinzona.ch',
-  'citta-di-locarno': 'locarno.ch',
-  'citta-di-mendrisio': 'mendrisio.ch',
-};
-
-/**
  * Resolve the best logo URL for a job in newsletter context (absolute URLs only).
- * Priority: manifest (self-hosted) → Clearbit (company domain) → gFavicon fallback → null
+ * Only a self-hosted logo from the manifest is returned; otherwise null so the
+ * email template renders its coloured initial-letter avatar. We deliberately do
+ * NOT fall back to Clearbit (CDN defunct → broken image) or a Google favicon
+ * (grey globe) — both look broken in an inbox.
  */
 function resolveLogoUrl(job) {
   const manifest = loadLogoManifest();
   const key = job.companyKey || '';
 
-  // 1. Self-hosted logo from manifest
+  // Self-hosted logo from manifest → absolute URL. Anything else → null
+  // (template falls back to the coloured initial-letter avatar).
   if (key && manifest[key]) {
     return `${BASE_URL}${manifest[key]}`;
-  }
-
-  // 2. Clearbit via company website domain
-  const website = job.companyWebsite || job.website || '';
-  if (website) {
-    try {
-      const domain = new URL(website.startsWith('http') ? website : `https://${website}`).hostname
-        .replace(/^www\./, '');
-      if (domain) return `https://logo.clearbit.com/${domain}`;
-    } catch {
-      // ignore malformed URL
-    }
-  }
-
-  // 3. gFavicon for known public-sector companies without a companyWebsite
-  if (key && KNOWN_LOGO_DOMAINS[key]) {
-    return `https://www.google.com/s2/favicons?domain=${KNOWN_LOGO_DOMAINS[key]}&sz=128`;
   }
 
   return null;
@@ -291,8 +267,12 @@ const SLUG_STOP_WORDS = new Set([
 /**
  * Extract meaningful keywords from a slug or free-text source string.
  * Filters stop words and short tokens. Returns lowercase Set.
+ *
+ * Exported so the job-alert matcher (services/jobAlertMatching.mjs) reuses the
+ * SAME tokenizer + stop-word list instead of copy-pasting it — single source of
+ * truth keeps the two funnels' keyword extraction from drifting apart.
  */
-function extractKeywords(text) {
+export function extractKeywords(text) {
   if (!text) return new Set();
   const tokens = String(text)
     .toLowerCase()

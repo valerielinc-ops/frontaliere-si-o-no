@@ -65,6 +65,33 @@ import {
 
 const DETAIL_DELAY_MS = 250;
 
+/**
+ * Matches JavaScript-error-shaped strings that can leak into extracted fields
+ * when a Solique tenant's JS template fails to render a variable (e.g. the
+ * SVAR tenant renders literal `"location" is not defined` inside every
+ * `<div class="location">` when its AngularJS/Vue binding breaks). These must
+ * never propagate into title/location/description/slug. Pattern covers:
+ *   - `"<identifier>" is not defined`   (ReferenceError message variant)
+ *   - `<identifier> is not defined`     (bare form, same meaning)
+ *   - `ReferenceError`                  (error constructor name)
+ *   - `undefined`                       (lone JS falsy literal)
+ * The check is case-insensitive and trims surrounding whitespace/quotes first.
+ */
+const JS_ERROR_RX = /^(?:"?\w[\w.]*"?\s+is\s+not\s+defined|referenceerror(?:\s*:\s*.+)?|undefined)$/i;
+
+/**
+ * Return `''` if `value` is a JS-error-shaped string (see `JS_ERROR_RX`),
+ * otherwise return `value` unchanged. Used to sanitize location/title/area
+ * fields extracted from live Solique pages whose JS template may be broken.
+ * @param {string} value
+ * @returns {string}
+ */
+function sanitizeField(value) {
+  if (!value) return value;
+  const trimmed = String(value).trim().replace(/^["']+|["']+$/g, '').trim();
+  return JS_ERROR_RX.test(trimmed) ? '' : value;
+}
+
 function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
 }
@@ -106,15 +133,15 @@ export function parseSoliqueListing(html = '') {
 function parseSoliqueTileBody(id, body) {
   if (!body) return null;
   const titleMatch = body.match(/<(?:div|h[1-6])\s+class="jobtitle"[^>]*>([\s\S]*?)<\/(?:div|h[1-6])>/i);
-  const title = titleMatch ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1]))) : '';
+  const title = sanitizeField(titleMatch ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1]))) : '');
   const minMatch = body.match(/<span\s+class="min[^"]*"[^>]*>\s*(\d{1,3})\s*<\/span>/);
   const maxMatch = body.match(/<span\s+class="max[^"]*"[^>]*>\s*(\d{1,3})\s*<\/span>/);
   const minPct = minMatch ? parseInt(minMatch[1], 10) : null;
   const maxPct = maxMatch ? parseInt(maxMatch[1], 10) : null;
   const locationMatch = body.match(/<div\s+class="location"[^>]*>([\s\S]*?)<\/div>/);
-  const location = locationMatch ? normalizeSpace(decodeEntities(stripHtml(locationMatch[1]))) : '';
+  const location = sanitizeField(locationMatch ? normalizeSpace(decodeEntities(stripHtml(locationMatch[1]))) : '');
   const areaMatch = body.match(/<div\s+class="area"[^>]*>([\s\S]*?)<\/div>/);
-  const area = areaMatch ? normalizeSpace(decodeEntities(stripHtml(areaMatch[1]))) : '';
+  const area = sanitizeField(areaMatch ? normalizeSpace(decodeEntities(stripHtml(areaMatch[1]))) : '');
   const employmentMatch = body.match(/<div\s+class="employment"[^>]*>([\s\S]*?)<\/div>/);
   const employment = employmentMatch ? normalizeSpace(decodeEntities(stripHtml(employmentMatch[1]))) : '';
   const startMatch = body.match(/<div\s+class="startdate"[^>]*>([\s\S]*?)<\/div>/);
@@ -194,10 +221,10 @@ export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
   const seen = new Set();
   for (const j of jobs) {
     const id = String(j?.title?.id || j?.id || '').trim();
-    const title = normalizeSpace(decodeEntities(String(j?.title?.value || '')));
+    const title = sanitizeField(normalizeSpace(decodeEntities(String(j?.title?.value || ''))));
     if (!id || !title || seen.has(id)) continue;
     seen.add(id);
-    const location = normalizeSpace(decodeEntities(String(j?.location?.value || '')));
+    const location = sanitizeField(normalizeSpace(decodeEntities(String(j?.location?.value || ''))));
     const minPct = j?.from?.value != null && j.from.value !== '' ? parseInt(j.from.value, 10) : null;
     const maxPct = j?.to?.value != null && j.to.value !== '' ? parseInt(j.to.value, 10) : null;
     const link = String(j?.link || '').replace(/^\/+/, '');
@@ -262,7 +289,7 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   const titledRx = /<div\s+class="title-green"[^>]*>([\s\S]*?)<\/div>([\s\S]*?)(?=<div\s+class="title-green"|$)/g;
   let tm;
   while ((tm = titledRx.exec(cleaned))) {
-    const title = normalizeSpace(decodeEntities(stripHtml(tm[1])));
+    const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(tm[1]))));
     if (!title) continue;
     let body = tm[2]
       .replace(/<li[^>]*>/gi, '\n• ')
@@ -283,7 +310,7 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
     let hm;
     let captured = false;
     while ((hm = headingRx.exec(inner))) {
-      const title = normalizeSpace(decodeEntities(stripHtml(hm[1])));
+      const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(hm[1]))));
       if (!title) continue;
       captured = true;
       let body = hm[2]
@@ -310,7 +337,7 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   const panelRx = /<div\s+class="job-panel\s+job-panel--[a-z0-9_-]+[^"]*"[^>]*>\s*<h2[^>]*>([\s\S]*?)<\/h2>\s*<div[^>]*>([\s\S]*?)<\/div>\s*<\/div>/g;
   let pm;
   while ((pm = panelRx.exec(cleaned))) {
-    const title = normalizeSpace(decodeEntities(stripHtml(pm[1])));
+    const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(pm[1]))));
     if (!title) continue;
     let body = pm[2]
       .replace(/<li[^>]*>/gi, '\n• ')
@@ -522,8 +549,12 @@ export function createSoliqueParser(config) {
         ? descParts.join('\n\n')
         : `${title} — ${companyName} (${tile.location || defaultCity}).`;
 
-      const rawLocation = tile.location || defaultCity;
-      const primaryCity = rawLocation.split(/[&,/]|·/)[0].trim() || defaultCity;
+      // Guard: if the Solique server renders a JS-error placeholder (e.g.
+      // `"location" is not defined`) inside the location field (observed on the
+      // SVAR tenant when its JS template breaks), sanitize it to '' so the
+      // defaultCity fallback fires instead of leaking into the slug.
+      const rawLocation = sanitizeField(tile.location) || defaultCity;
+      const primaryCity = sanitizeField(rawLocation.split(/[&,/]|·/)[0].trim()) || defaultCity;
       const canton = inferSwissTargetCanton(`${primaryCity} ${rawLocation}`) || defaultCanton;
       const postal = (postalCodeForCity ? postalCodeForCity(primaryCity) : '') || defaultPostalCode;
 

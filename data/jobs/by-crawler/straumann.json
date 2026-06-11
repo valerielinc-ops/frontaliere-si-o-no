@@ -1,506 +1,14 @@
 {
   "crawlerKey": "straumann",
-  "assembledAt": "2026-06-10T08:06:02.598Z",
+  "assembledAt": "2026-06-11T11:26:15.863Z",
   "jobs": [
-    {
-      "id": "straumann-c16e28756872",
-      "slug": "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel",
-      "slugByLocale": {
-        "en": "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch",
-        "it": "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel",
-        "de": "senior-global-growth-lead-einzelzahnlosungen-sdis-temporar-straumann-basel",
-        "fr": "responsable-senior-du-developpement-mondial-solutions-pour-dents-uniques-sdis-temporaire-straumann-basel"
-      },
-      "company": "Straumann",
-      "companyKey": "straumann",
-      "companyDomain": "straumann.com",
-      "title": "Senior Global Growth Lead Single Tooth Solutions SDIS - Temporary",
-      "titleByLocale": {
-        "en": "Senior Global Growth Lead Single Tooth Solutions SDIS - Temporary",
-        "it": "Senior Global Growth Lead Soluzioni per Singoli Denti SDIS - Temporaneo",
-        "de": "Senior Global Growth Lead Einzelzahnlösungen SDIS - Temporär",
-        "fr": "Responsable Senior du Développement Mondial Solutions pour Dents Uniques SDIS - Temporaire"
-      },
-      "description": "Join our team as a Senior Global Growth Lead for Single Tooth Solutions, driving strategic growth and commercial success in a dynamic healthcare environment. Lead go-to-market strategies, manage global launches, and collaborate with cross-functional teams to deliver innovative solutions. Shape the future of dental health with a market leader in Switzerland.",
-      "descriptionByLocale": {
-        "en": "Join our team as a Senior Global Growth Lead for Single Tooth Solutions, driving strategic growth and commercial success in a dynamic healthcare environment. Lead go-to-market strategies, manage global launches, and collaborate with cross-functional teams to deliver innovative solutions. Shape the future of dental health with a market leader in Switzerland.",
-        "it": "Unisciti al nostro team come Senior Global Growth Lead per le Soluzioni per Singoli Denti, guidando la crescita strategica e il successo commerciale in un contesto sanitario dinamico.\n\nGuida le strategie di go-to-market, gestisci i lanci globali e collabora con team cross-funzionali per fornire soluzioni innovative.\n\nContribuisci a plasmare il futuro della salute dentale con un leader di mercato in Svizzera.",
-        "de": "Werden Sie Teil unseres Teams als Senior Global Growth Lead für Einzelzahnlösungen und treiben Sie strategisches Wachstum und kommerziellen Erfolg in einem dynamischen Gesundheitsumfeld voran.\n\nLeiten Sie Go-to-Market-Strategien, verwalten Sie globale Produkteinführungen und arbeiten Sie mit bereichsübergreifenden Teams zusammen, um innovative Lösungen zu liefern.\n\nGestalten Sie die Zukunft der Zahngesundheit mit einem Marktführer in der Schweiz.",
-        "fr": "Rejoignez notre équipe en tant que Responsable Senior du Développement Mondial pour les Solutions pour Dents Uniques, en pilotant la croissance stratégique et le succès commercial dans un environnement de santé dynamique.\n\nConduisez les stratégies de commercialisation, gérez les lancements mondiaux et collaborez avec des équipes transverses pour fournir des solutions innovantes.\n\nFaçonnez l'avenir de la santé dentaire avec un leader du marché en Suisse."
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://careers.straumann.com/global/en/job/20937/senior-global-growth-lead-single-tooth-solutions-sdis-temporary",
-      "source": "Straumann Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-10T07:55:16.723Z",
-      "addressLocality": "Basel",
-      "addressRegion": "Basel-Stadt",
-      "postalCode": "4002",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Research & Development",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Dental / Medical Devices (MedTech)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "applyUrl": "https://careers.straumann.com/global/en/job/20937/senior-global-growth-lead-single-tooth-solutions-sdis-temporary",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
-      ],
-      "salaryMin": 79500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-10T07:55:16.723Z"
-    },
-    {
-      "id": "straumann-3e594246fb1e",
-      "slug": "zahntechniker-design-digital-cad-w-m-d-straumann-ch",
-      "slugByLocale": {
-        "de": "zahntechniker-design-digital-cad-w-m-d-straumann-ch",
-        "it": "zahntechniker-design-digital-cad-w-m-d-straumann-ch",
-        "en": "dental-technician-design-digital-cad-f-m-d-straumann-rheinfelden",
-        "fr": "conception-de-prothesistes-dentaires-cao-numerique-w-m-d-straumann-rheinfelden"
-      },
-      "company": "Straumann",
-      "companyKey": "straumann",
-      "companyDomain": "straumann.com",
-      "title": "Zahntechniker Design / Digital CAD (w/m/d)",
-      "titleByLocale": {
-        "de": "Zahntechniker Design / Digital CAD (dealovashop / M / d)",
-        "it": "Zahntechniker Design / Digital CAD (w/m/d)",
-        "en": "Dental Technician Design / Digital CAD (f/m/d)",
-        "fr": "Conception de prothésistes dentaires/CAO numérique (w/m/d)"
-      },
-      "description": "Wir suchen einen Zahntechniker Design / Digital CAD, der in einem dynamischen Team seine digitalen Fähigkeiten erweitern möchte. Wenn Sie eine abgeschlossene Berufsausbildung als Zahntechniker/in EFZ haben und gerne in der digitalen Zahntechnik arbeiten, freuen wir uns auf Ihre Bewerbung!",
-      "descriptionByLocale": {
-        "de": "Wir suchen einen Zahntechniker Design / Digital CAD, der in einem dynamischen Team seine digitalen Fähigkeiten erweitern möchte. Wenn Sie eine abgeschlossene Berufsausbildung als Zahntechniker/in EFZ haben und gerne in der digitalen Zahntechnik arbeiten, freuen wir uns auf Ihre Bewerbung!",
-        "it": "Siamo alla ricerca di un odontotecnico Design / Digital CAD che voglia ampliare le proprie competenze digitali all'interno di un team dinamico. Se hai completato una formazione professionale come odontotecnico/a AFC e ti piace lavorare nell'odontotecnica digitale, non vediamo l'ora di ricevere la tua candidatura!",
-        "en": "We are looking for a dental technician Design / Digital CAD who wants to expand his digital skills in a dynamic team. If you have completed vocational training as a dental technician and enjoy working in digital dental technology, we look forward to receiving your application!",
-        "fr": "Nous recherchons un prothésiste dentaire Design / Digital CAD qui souhaite développer ses compétences numériques au sein d'une équipe dynamique. Si vous avez terminé votre formation professionnelle de technicien-ne dentaire CFC et que vous aimez travailler dans la technologie dentaire numérique, nous nous réjouissons de votre candidature !"
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://careers.straumann.com/global/en/job/20245/zahntechniker-design-digital-cad-w-m-d",
-      "source": "Straumann Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:55:16.722Z",
-      "addressLocality": "Rheinfelden",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Manufacturing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Dental / Medical Devices (MedTech)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "applyUrl": "https://careers.straumann.com/global/en/job/20245/zahntechniker-design-digital-cad-w-m-d",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "5000",
-      "addressRegion": "AG",
-      "firstSeenAt": "2026-06-10T07:55:16.722Z"
-    },
-    {
-      "id": "straumann-53f1f679bfa5",
-      "slug": "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden",
-      "slugByLocale": {
-        "de": "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
-        "it": "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden",
-        "en": "employee-supply-chain-management-f-m-d-straumann-rheinfelden",
-        "fr": "mitarbeiter-chaine-d-approvisionnement-management-w-m-d-straumann-rheinfelden"
-      },
-      "company": "Straumann",
-      "companyKey": "straumann",
-      "companyDomain": "straumann.com",
-      "title": "Mitarbeiter Supply Chain Management (w/m/d)",
-      "titleByLocale": {
-        "de": "Mitarbeiter Supply Chain Management (w/m/d)",
-        "it": "Collaboratore Supply Chain Management (f/m/d)",
-        "en": "Employee Supply Chain Management (f/m/d)",
-        "fr": "Mitarbeiter Chaîne d'approvisionnement Management (w/m/d)"
-      },
-      "description": "Wir suchen einen Mitarbeiter im Supply Chain Management, der den gesamten Material- und Warenfluss organisiert und überwacht. Sie unterstützen die Produktion und optimieren die internen Warenflüsse in einem innovativen Unternehmen.",
-      "descriptionByLocale": {
-        "de": "Wir suchen einen Mitarbeiter im Supply Chain Management, der den gesamten Material- und Warenfluss organisiert und überwacht. Sie unterstützen die Produktion und optimieren die internen Warenflüsse in einem innovativen Unternehmen.",
-        "it": "Siamo alla ricerca di un collaboratore nella gestione della supply chain che organizzi e supervisioni l'intero flusso di materiali e merci. Sostengono la produzione e ottimizzano i flussi interni di merci in un'azienda innovativa.",
-        "en": "We are looking for an employee in Supply Chain Management who organizes and monitors the entire flow of materials and goods. They support production and optimise the internal flows of goods in an innovative company.",
-        "fr": "Nous recherchons un responsable de la gestion de la chaîne d'approvisionnement qui organise et surveille l'ensemble du flux de matériaux et de marchandises. Ils soutiennent la production et optimisent les flux de marchandises internes dans une entreprise innovante."
-      },
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
-      "source": "Straumann Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:55:16.722Z",
-      "addressLocality": "Rheinfelden",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Supply Chain",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Dental / Medical Devices (MedTech)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "applyUrl": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-supply-chain-management-w-m-d-straumann-ch"
-        ],
-        "fr": [
-          "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
-        "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "5000",
-      "addressRegion": "AG",
-      "firstSeenAt": "2026-06-10T07:55:16.722Z"
-    },
-    {
-      "id": "straumann-be0285a3dbd8",
-      "slug": "collaborateur-service-infrastructure-straumann-ch",
-      "slugByLocale": {
-        "fr": "collaborateur-service-infrastructure-straumann-ch",
-        "it": "collaborateur-service-infrastructure-straumann-ch",
-        "en": "infrastructure-service-collaborator-straumann-villeret",
-        "de": "mitarbeiter-service-infrastructure-straumann-villeret"
-      },
-      "company": "Straumann",
-      "companyKey": "straumann",
-      "companyDomain": "straumann.com",
-      "title": "Collaborateur Service Infrastructure",
-      "titleByLocale": {
-        "fr": "Infrastructure de services Collaborateurs",
-        "it": "Collaborateur Service Infrastructure",
-        "en": "Infrastructure Service Collaborator",
-        "de": "Mitarbeiter Service Infrastructure"
-      },
-      "description": "Rejoignez notre équipe en tant que Collaborateur Service Infrastructure et contribuez à la sécurité et à la performance des infrastructures. Si vous avez une expérience en maintenance technique et une passion pour l'amélioration continue, cette opportunité est faite pour vous !",
-      "descriptionByLocale": {
-        "fr": "Rejoignez notre équipe en tant que Collaborateur Service Infrastructure et contribuez à la sécurité et à la performance des infrastructures. Si vous avez une expérience en maintenance technique et une passion pour l'amélioration continue, cette opportunité est faite pour vous !",
-        "it": "Entra a far parte del nostro team come Collaboratore Service Infrastructure e contribuisci alla sicurezza e alle prestazioni delle infrastrutture. Se hai esperienza nella manutenzione tecnica e passione per il miglioramento continuo, questa è l'opportunità che fa per te!",
-        "en": "Join our team as an Infrastructure Service Associate and contribute to infrastructure security and performance. If you have experience in technical maintenance and a passion for continuous improvement, this opportunity is for you!",
-        "de": "Werden Sie Teil unseres Teams als Service Infrastructure Mitarbeiter und tragen Sie zur Sicherheit und Leistungsfähigkeit der Infrastruktur bei. Wenn Sie Erfahrung in der technischen Wartung und eine Leidenschaft für kontinuierliche Verbesserung haben, ist diese Gelegenheit genau das Richtige für Sie!"
-      },
-      "location": "Villeret",
-      "canton": "BE",
-      "url": "https://careers.straumann.com/global/en/job/20068/collaborateur-service-infrastructure",
-      "source": "Straumann Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:55:16.722Z",
-      "addressLocality": "Villeret",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Corporate & Support Functions",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Dental / Medical Devices (MedTech)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-17",
-      "applyUrl": "https://careers.straumann.com/global/en/job/20068/collaborateur-service-infrastructure",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-06-10T07:55:16.722Z"
-    },
-    {
-      "id": "straumann-551d2a777a02",
-      "slug": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
-      "slugByLocale": {
-        "en": "procurement-business-partner-villeret-straumann-ch",
-        "it": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
-        "de": "beschaffungsgeschaftspartner-villeret-straumann-villeret",
-        "fr": "procurement-business-partner-villeret-straumann-ch"
-      },
-      "company": "Straumann",
-      "companyKey": "straumann",
-      "companyDomain": "straumann.com",
-      "title": "Procurement Business Partner Villeret",
-      "titleByLocale": {
-        "en": "Procurement Business Partner Villeret",
-        "fr": "Procurement Business Partner Villeret",
-        "it": "Partner commerciale per gli acquisti Villeret",
-        "de": "Beschaffungsgeschäftspartner Villeret"
-      },
-      "description": "## Descrizione\nEmbrace the opportunity to become a Procurement Business Partner at our Villeret manufacturing site.\nShape the future of manufacturing with a global leader in oral health innovation.\n\n## Mansioni\n- Drive operational excellence\n- Manage supplier relationships\n- Ensure compliance in a dynamic, regulated environment\n- Collaborate across functions to deliver cost savings\n- Support new product introductions",
-      "descriptionByLocale": {
-        "en": "Descrizione\nEmbrace the opportunity to become a Procurement Business Partner at our Villeret manufacturing site.\nShape the future of manufacturing with a global leader in oral health innovation.\n\nMansioni\n- Drive operational excellence\n- Manage supplier relationships\n- Ensure compliance in a dynamic, regulated environment\n- Collaborate across functions to deliver cost savings\n- Support new product introductions",
-        "it": "Descrizione Cogli l'opportunità di diventare un Procurement Business Partner presso il nostro sito di produzione di Villeret. Modella il futuro della produzione con un leader globale nell'innovazione della salute orale. Mansioni - Guidare l'eccellenza operativa - Gestire le relazioni con i fornitori - Garantire la conformità in un ambiente dinamico e regolamentato - Collaborare tra le funzioni per ottenere risparmi sui costi - Supportare l'introduzione di nuovi prodotti",
-        "de": "Beschreibung Nutzen Sie die Gelegenheit, ein Beschaffungsgeschäftspartner an unserem Villeret-Produktionsstandort zu werden. Gestalten Sie die Zukunft der Fertigung mit einem weltweit führenden Anbieter von Innovationen im Bereich der Mundgesundheit. Mansioni - Förderung der operativen Exzellenz - Verwaltung der Lieferantenbeziehungen - Sicherstellung der Compliance in einem dynamischen, regulierten Umfeld - funktionsübergreifende Zusammenarbeit zur Erzielung von Kosteneinsparungen - Unterstützung der Einführung neuer Produkte",
-        "fr": "Descrizione Saisissez l'opportunité de devenir partenaire commercial en approvisionnement sur notre site de fabrication de Villeret. Façonner l'avenir de la fabrication avec un leader mondial de l'innovation en santé bucco-dentaire. Mansioni - Favoriser l'excellence opérationnelle - Gérer les relations avec les fournisseurs - Assurer la conformité dans un environnement dynamique et réglementé - Collaborer entre les fonctions pour réaliser des économies - Soutenir les lancements de nouveaux produits"
-      },
-      "location": "Villeret",
-      "canton": "BE",
-      "url": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
-      "source": "Straumann Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-10T07:55:16.721Z",
-      "addressLocality": "Villeret",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finance",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Dental / Medical Devices (MedTech)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "applyUrl": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "procurement-business-partner-villeret-straumann-ch"
-        ]
-      },
-      "previousSlugs": [
-        "procurement-business-partner-villeret-straumann-ch"
-      ],
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-06-10T07:55:16.721Z"
-    },
-    {
-      "id": "straumann-91e06428baab",
-      "slug": "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret",
-      "slugByLocale": {
-        "fr": "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
-        "it": "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret",
-        "en": "apprenticeship-production-mechanic-and-polymechanic-cfc-straumann-villeret",
-        "de": "lehre-produktionsmechaniker-und-polymechaniker-efz-straumann-villeret"
-      },
-      "company": "Straumann",
-      "companyKey": "straumann",
-      "companyDomain": "straumann.com",
-      "title": "Apprentissage Mécanicien de production et Polymécanicien CFC",
-      "titleByLocale": {
-        "fr": "Apprentissage Mécanicien de production et Polymécanicien CFC",
-        "it": "Apprendistato Meccanico di produzione e Polimeccanico AFC",
-        "en": "Apprenticeship Production Mechanic and Polymechanic CFC",
-        "de": "Lehre Produktionsmechaniker und Polymechaniker EFZ"
-      },
-      "description": "Rejoignez une équipe dynamique et apprenez à usiner, réparer et entretenir des installations mécaniques. Une formation complète vous attend dans un environnement stimulant.",
-      "descriptionByLocale": {
-        "fr": "Rejoignez une équipe dynamique et apprenez à usiner, réparer et entretenir des installations mécaniques. Une formation complète vous attend dans un environnement stimulant.",
-        "it": "Entra a far parte di un team dinamico e impara a lavorare, riparare e mantenere gli impianti meccanici. Una formazione completa ti aspetta in un ambiente stimolante.",
-        "en": "Join a dynamic team and learn how to machine, repair and maintain mechanical installations. A complete training awaits you in a stimulating environment.",
-        "de": "Treten Sie einem dynamischen Team bei und lernen Sie, mechanische Anlagen zu bearbeiten, zu reparieren und zu warten. In einem anregenden Umfeld erwartet Sie eine umfassende Schulung."
-      },
-      "location": "Villeret",
-      "canton": "BE",
-      "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
-      "source": "Straumann Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:55:16.721Z",
-      "addressLocality": "Villeret",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Corporate & Support Functions",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Dental / Medical Devices (MedTech)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-08",
-      "applyUrl": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
-        ]
-      },
-      "previousSlugs": [
-        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
-      ],
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-06-10T07:55:16.721Z"
-    },
-    {
-      "id": "straumann-cf4a93d7d5b6",
-      "slug": "steward-dei-dati-principali-straumann-villeret",
-      "slugByLocale": {
-        "fr": "master-data-steward-straumann-ch",
-        "it": "steward-dei-dati-principali-straumann-villeret",
-        "en": "think-okay-let-s-tackle-this-translation-request-the-user-wants-to-translate-the-job-title-master-data-steward-into",
-        "de": "master-data-steward-straumann-ch"
-      },
-      "company": "Straumann",
-      "companyKey": "straumann",
-      "companyDomain": "straumann.com",
-      "title": "Master Data Steward",
-      "titleByLocale": {
-        "fr": "Maître de la Garde des Données",
-        "de": "Master Data Steward",
-        "it": "Steward dei dati principali",
-        "en": "<think> Okay, let's tackle this translation request. The user wants to translate the job title \"Master Data Steward\" into English. Wait, but the title is already in English. Hmm, maybe the user thinks there's a non-English word here. Let me check each word. \"Master\" is definitely English. \"Data\" is also English. \"Steward\" is an"
-      },
-      "description": "Nous recherchons un Master Data Steward pour garantir la qualité et la fiabilité des données au sein de notre organisation. Vous travaillerez en étroite collaboration avec diverses équipes pour assurer la conformité et l'intégrité des données tout au long de leur cycle de vie. Rejoignez-nous pour faire la différence !",
-      "descriptionByLocale": {
-        "fr": "Nous recherchons un Master Data Steward pour garantir la qualité et la fiabilité des données au sein de notre organisation. Vous travaillerez en étroite collaboration avec diverses équipes pour assurer la conformité et l'intégrité des données tout au long de leur cycle de vie. Rejoignez-nous pour faire la différence !",
-        "it": "Stiamo cercando un Master Data Steward per garantire la qualità e l'affidabilità dei dati all'interno della nostra organizzazione. Lavorerai a stretto contatto con vari team per garantire la conformità e l'integrità dei dati durante tutto il loro ciclo di vita. Unisciti a noi per fare la differenza!",
-        "en": "We are looking for a Master Data Steward to ensure data quality and reliability within our organization. You will work closely with various teams to ensure compliance and integrity of data throughout its lifecycle. Join us to make a difference!",
-        "de": "Wir suchen einen Master Data Steward, um die Qualität und Zuverlässigkeit der Daten in unserer Organisation zu gewährleisten. Sie arbeiten eng mit verschiedenen Teams zusammen, um die Compliance und Integrität der Daten während ihres gesamten Lebenszyklus zu gewährleisten. Begleiten Sie uns, um einen Unterschied zu machen!"
-      },
-      "location": "Villeret",
-      "canton": "BE",
-      "url": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
-      "source": "Straumann Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-10T07:55:16.720Z",
-      "addressLocality": "Villeret",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Corporate & Support Functions",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Dental / Medical Devices (MedTech)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "master-data-steward-straumann-ch"
-        ]
-      },
-      "previousSlugs": [
-        "master-data-steward-straumann-ch"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-06-10T07:55:16.720Z"
-    },
     {
       "id": "straumann-0920db0f4d6d",
       "slug": "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
       "slugByLocale": {
-        "de": "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
         "it": "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
         "en": "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
+        "de": "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck",
         "fr": "ingenieur-produit-et-fabrication-dispositifs-medicaux-80-100-galvosurge-straumann-berneck"
       },
       "company": "Straumann",
@@ -508,24 +16,24 @@
       "companyDomain": "straumann.com",
       "title": "Product & Manufacturing Engineer - Medical Devices (80–100%) GalvoSurge",
       "titleByLocale": {
-        "de": "Produkt- und Fertigungsingenieur - Medizinprodukte (80–100%) GalvoSurge",
+        "it": "Product & Manufacturing Ingegnere - Medical Devices (80–100%) GalvoSurge",
         "en": "Product & Manufacturing Engineer - Medical Devices (80–100%) GalvoSurge",
-        "it": "Ingegnere di Prodotto e Produzione - Dispositivi Medici (80–100%) GalvoSurge",
-        "fr": "Ingénieur Produit et Fabrication - Dispositifs Médicaux (80–100%) GalvoSurge"
+        "de": "Produkt- und Fertigungsingenieur - Medizinprodukte (80–100%) GalvoSurge",
+        "fr": "Ingénieur produit et fabrication - Dispositifs médicaux (80-100 %) GalvoSurge"
       },
-      "description": "## Descrizione\n\n- Wir suchen einen Produkt- und Fertigungsingenieur, der Technologie, Produktion und Produktentwicklung in einem dynamischen Medtech-Unternehmen verbindet.\n- Übernehmen Sie Verantwortung in einem motivierten Team und gestalten Sie innovative Medizinprodukte aktiv mit.",
+      "description": "Job Requirements\n\nDiese Rolle ist für eine Position direkt bei GalvoSurge® einem Unternehmen der Straumann Group\n\nThis role is for a position directly with GalvoSurge® part of the Straumann Group\n\nDu möchtest Technologie, Produktion und Produktentwicklung miteinander verbinden und aktiv an innovativen Medizinprodukten arbeiten?\n\nDann werde Teil von GalvoSurge Dental AG – einem dynamischen Medtech-Unternehmen innerhalb der Straumann Group, einem weltweit führenden Anbieter in der Dentalindustrie.\n\nBei uns arbeitest du in einem kleinen, hochmotivierten Team mit viel Gestaltungsspielraum und direktem Einfluss auf Produkte und Produktionsprozesse.\n\nDeine Mission\n\nDu bist die zentrale technische Schnittstelle zwischen Produktentwicklung, Produktion und Lieferanten.\n\nDabei übernimmst du unter anderem:\n\n- Projektmanagement bei Produktentwicklungen und -optimierungen bis hin zur Markteinführung\n\n- Weiterentwicklung unserer Medizinprodukte\n\n- Aktive Zusammenarbeit mit unseren Produktionspartnern, auch in den Bereichen produkt- und prozessorientierte Qualität\n\n- Verantwortung für den Bereich Elektronik und Software sowie technische Schnittstelle zu den Lieferanten\n\n- Optimierung, Pflege und Betreuung unserer Montageanlagen und Prüfvorrichtungen\n\n- Analyse technischer Probleme und Verbesserungen bei Produktreklamationen\n\n- Sourcing und Aufbau neuer Lieferanten\n\nWork Experience\n\nDein Profil\n\nDu bist eine technisch versierte, strukturierte Persönlichkeit, die gerne Verantwortung übernimmt und Dinge voranbringt.\n\n- Idealerweise bringst du Folgendes mit:\n\n- Ingenieurstudium oder technische Ausbildung auf hohem Niveau\n\n- Mehrjährige Erfahrung im Produkt-/Projektmanagement und Elektronik\n\n- Strukturierte und lösungsorientierte Arbeitsweise\n\n- Sehr gute Deutsch und Englischkenntnisse\n\n- Erfahrung im Medtech- oder Dentalbereich ist ein Plus",
       "descriptionByLocale": {
-        "de": "Descrizione\n\n- Wir suchen einen Produkt- und Fertigungsingenieur, der Technologie, Produktion und Produktentwicklung in einem dynamischen Medtech-Unternehmen verbindet.\n- Übernehmen Sie Verantwortung in einem motivierten Team und gestalten Sie innovative Medizinprodukte aktiv mit.",
-        "it": "Descrizione\n\n- Cerchiamo un ingegnere di prodotto e produzione che colleghi tecnologia, produzione e sviluppo del prodotto in un'azienda medtech dinamica.\n- Assumetevi la responsabilità in un team motivato e contribuite attivamente alla creazione di dispositivi medici innovativi.",
-        "en": "Description\n\n- We are seeking a Product and Manufacturing Engineer who connects technology, production, and product development in a dynamic medtech company.\n- Take responsibility in a motivated team and actively shape innovative medical devices.",
-        "fr": "Description\n\n- Nous recherchons un ingénieur produit et fabrication capable de relier technologie, production et développement de produits au sein d'une entreprise medtech dynamique.\n- Assumez des responsabilités au sein d'une équipe motivée et participez activement à la conception de dispositifs médicaux innovants."
+        "it": "Requisiti di lavoro Questo ruolo è per una posizione direttamente presso GalvoSurge ® una società del gruppo Straumann Questo ruolo è per una posizione direttamente con GalvoSurge® parte del gruppo Straumann Vuoi combinare tecnologia, produzione e sviluppo del prodotto e lavorare attivamente su dispositivi medici innovativi? Allora entra a far parte di GalvoSurge Dental AG, una dinamica azienda di tecnologia medicale all'interno del Gruppo Straumann, leader mondiale nel settore dentale. Con noi lavori in un team piccolo e altamente motivato con un ampio margine di manovra e un'influenza diretta su prodotti e processi di produzione. La tua missione Sei l'interfaccia tecnica centrale tra lo sviluppo del prodotto, la produzione e i fornitori. Tra le altre cose, ti occupi di: - gestione del progetto per lo sviluppo e l'ottimizzazione dei prodotti fino al lancio sul mercato - ulteriore sviluppo dei nostri dispositivi medici - collaborazione attiva con i nostri partner di produzione, anche nei settori della qualità orientata ai prodotti e ai processi - responsabilità per il settore dell'elettronica e del software e interfaccia tecnica con i fornitori - ottimizzazione, manutenzione e assistenza dei nostri impianti di assemblaggio e dispositivi di prova - analisi dei problemi tecnici e miglioramenti dei reclami sui prodotti - sourcing e costruzione di nuovi fornitori Work Experience Il tuo profilo Sei una persona tecnicamente esperta e strutturata che si assume volentieri la responsabilità",
+        "en": "Job \n• Requirements This role is for a position directly at GalvoSurge® a Straumann Group company This role is for a position directly with GalvoSurge ® part of the Straumann Group Would you like to combine technology, production and product development and actively work on innovative medical devices? Then become part of GalvoSurge Dental AG – a dynamic medtech company within the Straumann Group, a global leader in the dental industry. With us, you work in a small, highly motivated team with a lot of creative freedom and direct influence on products and production processes. Your mission You are the central technical interface between product development, production and suppliers. Among other things, you will take on the following tasks: - Project management for product development and optimisation up to market launch - Further development of our medical devices - Active cooperation with our production partners, including in the areas of product and process-oriented quality - Responsibility for the area of electronics and software as well as the technical interface to suppliers - Optimisation, maintenance and support of our assembly systems and testing devices - Analysis of technical problems and improvements in product complaints - Sourcing and development of new suppliers Work Experience \n• Profile \n• Your profile You are a technically experienced, structured person who likes to take on responsibility",
+        "de": "Job Requirements\n\nDiese Rolle ist für eine Position direkt bei GalvoSurge® einem Unternehmen der Straumann Group\n\nThis role is for a position directly with GalvoSurge® part of the Straumann Group\n\nDu möchtest Technologie, Produktion und Produktentwicklung miteinander verbinden und aktiv an innovativen Medizinprodukten arbeiten?\n\nDann werde Teil von GalvoSurge Dental AG – einem dynamischen Medtech-Unternehmen innerhalb der Straumann Group, einem weltweit führenden Anbieter in der Dentalindustrie.\n\nBei uns arbeitest du in einem kleinen, hochmotivierten Team mit viel Gestaltungsspielraum und direktem Einfluss auf Produkte und Produktionsprozesse.\n\nDeine Mission\n\nDu bist die zentrale technische Schnittstelle zwischen Produktentwicklung, Produktion und Lieferanten.\n\nDabei übernimmst du unter anderem:\n\n- Projektmanagement bei Produktentwicklungen und -optimierungen bis hin zur Markteinführung\n\n- Weiterentwicklung unserer Medizinprodukte\n\n- Aktive Zusammenarbeit mit unseren Produktionspartnern, auch in den Bereichen produkt- und prozessorientierte Qualität\n\n- Verantwortung für den Bereich Elektronik und Software sowie technische Schnittstelle zu den Lieferanten\n\n- Optimierung, Pflege und Betreuung unserer Montageanlagen und Prüfvorrichtungen\n\n- Analyse technischer Probleme und Verbesserungen bei Produktreklamationen\n\n- Sourcing und Aufbau neuer Lieferanten\n\nWork Experience\n\nDein Profil\n\nDu bist eine technisch versierte, strukturierte Persönlichkeit, die gerne Verantwortung übernimmt und Dinge voranbringt.\n\n- Idealerweise bringst du Folgendes mit:\n\n- Ingenieurstudium oder technische Ausbildung auf hohem Niveau\n\n- Mehrjährige Erfahrung im Produkt-/Projektmanagement und Elektronik\n\n- Strukturierte und lösungsorientierte Arbeitsweise\n\n- Sehr gute Deutsch und Englischkenntnisse\n\n- Erfahrung im Medtech- oder Dentalbereich ist ein Plus",
+        "fr": "Job \n• Requirements Ce rôle est pour un poste directement chez GalvoSurge ® une entreprise du Straumann Group This role is for a position directly with GalvoSurge ® part of the Straumann Group Vous souhaitez combiner la technologie, la production et le développement de produits et travailler activement sur des dispositifs médicaux innovants ? Alors rejoignez GalvoSurge Dental AG – une entreprise dynamique de technologie médicale au sein du Straumann Group, un leader mondial de l'industrie dentaire. Chez nous, tu travailles au sein d'une petite équipe très motivée avec une grande marge de manœuvre et une influence directe sur les produits et les processus de production. Ta mission Tu es l'interface technique centrale entre le développement de produits, la production et les fournisseurs. Vous assumez les responsabilités suivantes : - Gestion de projet pour le développement et l'optimisation de produits jusqu'à la mise sur le marché - Développement de nos dispositifs médicaux - Coopération active avec nos partenaires de production, également dans les domaines de la qualité axée sur les produits et les processus - Responsabilité dans le domaine de l'électronique et des logiciels ainsi que de l'interface technique avec les fournisseurs - Optimisation, maintenance et suivi de nos installations d'assemblage et de nos dispositifs de test - Analyse des problèmes techniques et des améliorations dans les réclamations de produits - Sourcing et création de nouveaux fournisseurs Expérience de travail \n• Votre profil Vous êtes une personne techniquement qualifiée et structurée qui aime prendre des responsabilités"
       },
       "location": "Berneck",
       "canton": "SG",
       "url": "https://careers.straumann.com/global/en/job/P-100083/product-manufacturing-engineer-medical-devices-80-100-galvosurge",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T07:55:16.719Z",
+      "crawledAt": "2026-06-11T11:20:49.773Z",
       "addressLocality": "Berneck",
       "addressCountry": "CH",
       "country": "CH",
@@ -540,7 +48,6 @@
       "applyUrl": "https://careers.straumann.com/global/en/job/P-100083/product-manufacturing-engineer-medical-devices-80-100-galvosurge",
       "requirements": [],
       "requirementsByLocale": {
-        "de": [],
         "it": [
           "Laurea in ingegneria meccanica, dei materiali o affine",
           "Esperienza nella produzione di dispositivi medici o settori ad alta precisione",
@@ -572,14 +79,18 @@
           "Maîtrise de l'allemand et de l'anglais ; la connaissance de l'italien est un atout"
         ]
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch"
-        ]
-      },
       "previousSlugs": [
         "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch"
+        ],
+        "de": [
+          "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:16.719Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -593,15 +104,14 @@
         }
       },
       "postalCode": "9000",
-      "addressRegion": "SG",
-      "firstSeenAt": "2026-06-10T07:55:16.719Z"
+      "addressRegion": "SG"
     },
     {
       "id": "straumann-29dd31b6ca94",
       "slug": "responsabile-seniore-follow-up-clinico-post-market-straumann-basel",
       "slugByLocale": {
-        "en": "senior-manager-post-market-clinical-follow-up-straumann-ch",
         "it": "responsabile-seniore-follow-up-clinico-post-market-straumann-basel",
+        "en": "senior-manager-post-market-clinical-follow-up-straumann-ch",
         "de": "senior-manager-post-markt-klinische-nachsorge-straumann-basel",
         "fr": "responsable-senior-suivi-clinique-post-marche-straumann-basel"
       },
@@ -610,24 +120,24 @@
       "companyDomain": "straumann.com",
       "title": "Senior Manager - Post-Market Clinical Follow-up",
       "titleByLocale": {
+        "it": "Responsabile Senior - Follow-up Clinico Post-Mercato",
         "en": "Senior Manager - Post-Market Clinical Follow-up",
-        "it": "Responsabile Seniore - Follow-up Clinico Post-Market",
-        "de": "Senior Manager - Post-Markt-Klinische Nachsorge",
+        "de": "Senior Manager - Klinische Nachbeobachtung nach dem Inverkehrbringen",
         "fr": "Responsable Senior - Suivi Clinique Post-Marché"
       },
-      "description": "## Descrizione\n- Join our team as a Senior Manager - Post-Market Clinical Follow-up and drive strategy and execution in the medical device industry.\n- Shape the future of clinical evaluation and post-market surveillance with a global leader in real-world evidence.\n\n## Mansioni\n- Lead PMCF processes\n- Ensure regulatory compliance\n- Collaborate across functions in an international environment",
+      "description": "We are seeking an experienced and highly motivated professional with strong expertise in Post-Market Clinical Follow-up (PMCF) or Clinical Evaluation within the medical device industry. This position is part of Straumann’s Real-World Evidence (RWE) Team and is based at Straumann Group Headquarters in Basel, Switzerland. The role requires a collaborative and solution-oriented professional who is comfortable working across functions and managing diverse activities in an international environment. Reporting directly to the Team Lead RWE, the successful candidate will play a key role in driving PMCF strategy and execution in alignment with regulatory requirements and broader business objectives.\n\nKey Responsibilities:\n\n- Oversee and continuously enhance PMCF processes and methodologies and contribute to Notified Body audits and technical file review activities\n\n- Evaluate and synthesize clinical data from multiple sources, including scientific literature, registries, surveys, clinical investigations, and scientific meetings\n\n- Establish, maintain, and track PMCF Plans / Reports, including oversight of associated activities, timelines, and deliverables\n\n- Support the integration of PMCF outputs into Clinical Evaluation and Post Market Surveillance documentation\n\n- Establish and, where applicable, implement methods for collecting post-market clinical data outside of clinical investigations (e.g. registry analyses, surveys, real-world evidence initiatives) in collaboration with internal and external stakeholders\n\nRequired Qualifications:\n\n- Advanced degree in a relevant field such as Life Sciences, Biomedical Engineering, Dentistry, or related disciplines\n\n- Minimum 5 years of relevant professional experience in PMCF, Clinical Evaluation, Clinical Research, or related fields within the medical device industry\n\n- Strong understanding of EU MDR requirements related to PMCF, Clinical Evaluation, and Post-Market Surveillance\n\n- Strong affinity for clinical and scientific data, including experience translating clinical evidence into regulatory documentation\n\n- Experience with post-market evidence generation approaches such as clinical investigations, registries, and surveys is strongly preferred\n\n- Excellent analytical, organizational, and communication skills with a structured, proactive, and result-oriented working style\n\n- Ability to manage multiple priorities effectively in a dynamic cross-functional and international environment\n\nAll qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or disability.\n\nEmployment Type: Full Time\n\nAlternative Locations: Switzerland : Basel\n\nTravel Percentage: 0 - 10%\n\nRequisition ID: 21128",
       "descriptionByLocale": {
-        "en": "Descrizione\n- Join our team as a Senior Manager - Post-Market Clinical Follow-up and drive strategy and execution in the medical device industry.\n- Shape the future of clinical evaluation and post-market surveillance with a global leader in real-world evidence.\n\nMansioni\n- Lead PMCF processes\n- Ensure regulatory compliance\n- Collaborate across functions in an international environment",
-        "it": "Descrizione\n- Unisciti al nostro team come Responsabile Seniore - Follow-up Clinico Post-Market e guida la strategia e l'esecuzione nell'industria dei dispositivi medici.\n- Determina il futuro dell'evaluazione clinica e della sorveglianza post-marché con un leader globale nella real-world evidence.\n\nMansioni\n- Guida i processi PMCF\n- Assicura la conformità regolamentare\n- Collabora con funzioni diverse in un ambiente internazionale",
-        "de": "Beschreibung\n- Tritt unserem Team als Senior Manager - Post-Markt-Klinische Nachsorge bei und leite Strategie und Umsetzung in der Medizinindustrie.\n- Gestalte die Zukunft der klinischen Bewertung und der post-marktlichen Überwachung mit einem globalen Führer in der Real-World-Evidence.\n\nAufgaben\n- Leite PMCF-Prozesse\n- Sorgen Sie für die regulatorische Einhaltung\n- Arbeiten Sie in einem internationalen Umfeld mit verschiedenen Funktionen zusammen",
-        "fr": "Description\n- Rejoignez notre équipe en tant que Responsable Senior - Suivi Clinique Post-Marché et guidez la stratégie et l'exécution dans l'industrie des dispositifs médicaux.\n- Définissez l'avenir de l'évaluation clinique et de la surveillance post-marché avec un leader mondial dans la réal-world evidence.\n\nTâches\n- Dirigez les processus PMCF\n- Assurez la conformité réglementaire\n- Travaillez dans un environnement international avec différentes fonctions"
+        "it": "Stiamo cercando un professionista esperto e altamente motivato con una solida esperienza nel Follow-up Clinico Post-Mercato (PMCF) o nella Valutazione Clinica nel settore dei dispositivi medici. Questa posizione fa parte del Team di Evidenza del Mondo Reale (RWE) di Straumann ed è basata presso la sede centrale del Gruppo Straumann a Basilea, Svizzera. Il ruolo richiede un professionista collaborativo e orientato alle soluzioni, a suo agio nel lavorare tra funzioni diverse e nel gestire attività diversificate in un ambiente internazionale. Rispondendo direttamente al Team Lead RWE, il candidato selezionato svolgerà un ruolo chiave nella definizione della strategia e nell'esecuzione del PMCF in conformità con i requisiti normativi e gli obiettivi aziendali più ampi.\n\nResponsabilità principali:\n\n- Supervisionare e migliorare continuamente i processi e le metodologie PMCF e contribuire agli audit degli Organismi Notificati e alle attività di revisione dei file tecnici\n\n- Valutare e sintetizzare i dati clinici provenienti da più fonti, inclusa la letteratura scientifica, i registri, i sondaggi, le indagini cliniche e gli incontri scientifici\n\n- Stabilire, mantenere e monitorare i Piani / Rapporti PMCF, inclusa la supervisione delle attività, delle tempistiche e delle consegne associate\n\n- Supportare l'integrazione dei risultati PMCF nella documentazione di Valutazione Clinica e Sorveglianza Post-Mercato\n\n- Stabilire e, ove applicabile, implementare metodi per raccogliere dati clinici post-mercato al di fuori delle indagini cliniche (ad esempio analisi dei registri, sondaggi, iniziative di evidenza del mondo reale) in collaborazione con stakeholder interni ed esterni\n\nQualifiche richieste:\n\n- Laurea avanzata in un campo pertinente come Scienze della Vita, Ingegneria Biomedica, Odontoiatria o discipline correlate\n\n- Minimo 5 anni di esperienza professionale rilevante in PMCF, Valutazione Clinica, Ricerca Clinica o campi correlati nel settore dei dispositivi medici\n\n- Solida comprensione dei requisiti del Regolamento MDR UE relativi a PMCF, Valutazione Clinica e Sorveglianza Post-Mercato\n\n- Forte affinità per i dati clinici e scientifici, inclusa l'esperienza nella traduzione di evidenze cliniche in documentazione normativa\n\n- Preferibile esperienza con approcci di generazione di evidenze post-mercato come indagini cliniche, registri e sondaggi\n\n- Eccellenti capacità analitiche, organizzative e comunicative con uno stile di lavoro strutturato, proattivo e orientato ai risultati\n\n- Capacità di gestire efficacemente più priorità in un ambiente dinamico, trasversale e internazionale\n\nTutti i candidati qualificati saranno presi in considerazione per l'impiego indipendentemente da razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale o disabilità.\n\nTipo di impiego: Tempo pieno\n\nLocalità alternative: Svizzera : Basilea\n\nPercentuale di viaggio: 0 - 10%\n\nID richiesta: 21128",
+        "en": "We are seeking an experienced and highly motivated professional with strong expertise in Post-Market Clinical Follow-up (PMCF) or Clinical Evaluation within the medical device industry. This position is part of Straumann’s Real-World Evidence (RWE) Team and is based at Straumann Group Headquarters in Basel, Switzerland. The role requires a collaborative and solution-oriented professional who is comfortable working across functions and managing diverse activities in an international environment. Reporting directly to the Team Lead RWE, the successful candidate will play a key role in driving PMCF strategy and execution in alignment with regulatory requirements and broader business objectives.\n\nKey Responsibilities:\n\n- Oversee and continuously enhance PMCF processes and methodologies and contribute to Notified Body audits and technical file review activities\n\n- Evaluate and synthesize clinical data from multiple sources, including scientific literature, registries, surveys, clinical investigations, and scientific meetings\n\n- Establish, maintain, and track PMCF Plans / Reports, including oversight of associated activities, timelines, and deliverables\n\n- Support the integration of PMCF outputs into Clinical Evaluation and Post Market Surveillance documentation\n\n- Establish and, where applicable, implement methods for collecting post-market clinical data outside of clinical investigations (e.g. registry analyses, surveys, real-world evidence initiatives) in collaboration with internal and external stakeholders\n\nRequired Qualifications:\n\n- Advanced degree in a relevant field such as Life Sciences, Biomedical Engineering, Dentistry, or related disciplines\n\n- Minimum 5 years of relevant professional experience in PMCF, Clinical Evaluation, Clinical Research, or related fields within the medical device industry\n\n- Strong understanding of EU MDR requirements related to PMCF, Clinical Evaluation, and Post-Market Surveillance\n\n- Strong affinity for clinical and scientific data, including experience translating clinical evidence into regulatory documentation\n\n- Experience with post-market evidence generation approaches such as clinical investigations, registries, and surveys is strongly preferred\n\n- Excellent analytical, organizational, and communication skills with a structured, proactive, and result-oriented working style\n\n- Ability to manage multiple priorities effectively in a dynamic cross-functional and international environment\n\nAll qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or disability.\n\nEmployment Type: Full Time\n\nAlternative Locations: Switzerland : Basel\n\nTravel Percentage: 0 - 10%\n\nRequisition ID: 21128",
+        "de": "Wir suchen eine erfahrene und hochmotivierte Fachkraft mit fundierter Expertise im Bereich Post-Market Clinical Follow-up (PMCF) oder klinische Bewertung in der Medizinprodukteindustrie. Diese Position ist Teil des Real-World Evidence (RWE) Teams von Straumann und hat ihren Sitz in der Hauptzentrale der Straumann Gruppe in Basel, Schweiz. Die Rolle erfordert eine kooperative und lösungsorientierte Fachkraft, die sich in funktionsübergreifenden Teams und bei der Verwaltung vielfältiger Aktivitäten in einem internationalen Umfeld wohlfühlt. Der erfolgreiche Kandidat, der direkt an den Teamleiter RWE berichtet, wird eine Schlüsselrolle bei der Entwicklung und Umsetzung der PMCF-Strategie in Übereinstimmung mit regulatorischen Anforderungen und übergeordneten Geschäftszielen spielen.\n\nHauptverantwortlichkeiten:\n\n- Überwachung und kontinuierliche Verbesserung von PMCF-Prozessen und -Methoden sowie Unterstützung bei Audits der Benannten Stellen und technischen Aktenprüfungen\n\n- Bewertung und Synthese klinischer Daten aus verschiedenen Quellen, einschließlich wissenschaftlicher Literatur, Register, Umfragen, klinischer Untersuchungen und wissenschaftlicher Tagungen\n\n- Erstellung, Pflege und Nachverfolgung von PMCF-Plänen / -Berichten, einschließlich der Überwachung der zugehörigen Aktivitäten, Zeitpläne und Ergebnisse\n\n- Unterstützung der Integration von PMCF-Ergebnissen in die Dokumentation zur klinischen Bewertung und Marktüberwachung\n\n- Entwicklung und, wo anwendbar, Implementierung von Methoden zur Erfassung klinischer Daten nach der Markteinführung außerhalb klinischer Untersuchungen (z. B. Registeranalysen, Umfragen, Initiativen für Real-World Evidence) in Zusammenarbeit mit internen und externen Stakeholdern\n\nErforderliche Qualifikationen:\n\n- Fortgeschrittener Abschluss in einem relevanten Bereich wie Lebenswissenschaften, Biomedizintechnik, Zahnmedizin oder verwandten Disziplinen\n\n- Mindestens 5 Jahre relevante Berufserfahrung in PMCF, klinischer Bewertung, klinischer Forschung oder verwandten Bereichen in der Medizinprodukteindustrie\n\n- Fundiertes Verständnis der EU-MDR-Anforderungen im Zusammenhang mit PMCF, klinischer Bewertung und Marktüberwachung\n\n- Hohe Affinität zu klinischen und wissenschaftlichen Daten, einschließlich Erfahrung in der Übersetzung klinischer Evidenz in regulatorische Dokumentation\n\n- Erfahrung mit Ansätzen zur Evidenzgenerierung nach der Markteinführung wie klinischen Untersuchungen, Registern und Umfragen wird bevorzugt\n\n- Ausgezeichnete analytische, organisatorische und kommunikative Fähigkeiten mit einer strukturierten, proaktiven und ergebnisorientierten Arbeitsweise\n\n- Fähigkeit, mehrere Prioritäten effektiv in einem dynamischen, funktionsübergreifenden und internationalen Umfeld zu managen\n\nAlle qualifizierten Bewerber werden unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, sexueller Orientierung, Geschlechtsidentität, nationaler Herkunft oder Behinderung berücksichtigt.\n\nBeschäftigungsart: Vollzeit\n\nAlternative Standorte: Schweiz : Basel\n\nReiseanteil: 0 - 10%\n\nAnforderungs-ID: 21128",
+        "fr": "Nous recherchons un professionnel expérimenté et hautement motivé avec une solide expertise en Suivi Clinique Post-Marché (PMCF) ou en Évaluation Clinique dans le secteur des dispositifs médicaux. Ce poste fait partie de l'équipe Real-World Evidence (RWE) de Straumann et est basé au siège du groupe Straumann à Bâle, Suisse. Le rôle exige un professionnel collaboratif et orienté vers les solutions, à l'aise pour travailler entre différentes fonctions et gérer des activités variées dans un environnement international. Relevant directement du responsable de l'équipe RWE, le candidat retenu jouera un rôle clé dans la définition de la stratégie et l'exécution du PMCF en conformité avec les exigences réglementaires et les objectifs commerciaux globaux.\n\nResponsabilités principales :\n\n- Superviser et améliorer en continu les processus et méthodologies PMCF et contribuer aux audits des organismes notifiés et aux activités de révision des dossiers techniques\n\n- Évaluer et synthétiser les données cliniques provenant de multiples sources, y compris la littérature scientifique, les registres, les enquêtes, les investigations cliniques et les réunions scientifiques\n\n- Établir, maintenir et suivre les plans / rapports PMCF, y compris la supervision des activités, des délais et des livrables associés\n\n- Soutenir l'intégration des résultats PMCF dans la documentation d'évaluation clinique et de surveillance post-marché\n\n- Développer et, le cas échéant, mettre en œuvre des méthodes de collecte de données cliniques post-marché en dehors des investigations cliniques (par exemple, analyses de registres, enquêtes, initiatives de preuves du monde réel) en collaboration avec les parties prenantes internes et externes\n\nQualifications requises :\n\n- Diplôme avancé dans un domaine pertinent tel que les sciences de la vie, l'ingénierie biomédicale, la dentisterie ou des disciplines connexes\n\n- Minimum 5 ans d'expérience professionnelle pertinente en PMCF, évaluation clinique, recherche clinique ou domaines connexes dans l'industrie des dispositifs médicaux\n\n- Solide compréhension des exigences du Règlement MDR de l'UE concernant le PMCF, l'évaluation clinique et la surveillance post-marché\n\n- Forte affinité pour les données cliniques et scientifiques, y compris une expérience dans la traduction des preuves cliniques en documentation réglementaire\n\n- Expérience des approches de génération de preuves post-marché telles que les investigations cliniques, les registres et les enquêtes fortement préférée\n\n- Excellentes compétences analytiques, organisationnelles et de communication avec un style de travail structuré, proactif et orienté vers les résultats\n\n- Capacité à gérer efficacement plusieurs priorités dans un environnement dynamique, transversal et international\n\nTous les candidats qualifiés seront pris en considération pour l'emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap.\n\nType d'emploi : Temps plein\n\nLieux alternatifs : Suisse : Bâle\n\nPourcentage de voyage : 0 - 10%\n\nID de la demande : 21128"
       },
       "location": "Basel",
       "canton": "BS",
       "url": "https://careers.straumann.com/global/en/job/21128/senior-manager-post-market-clinical-follow-up",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-10T07:55:16.706Z",
+      "crawledAt": "2026-06-11T11:20:49.480Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "postalCode": "4002",
@@ -644,31 +154,46 @@
       "applyUrl": "https://careers.straumann.com/global/en/job/21128/senior-manager-post-market-clinical-follow-up",
       "requirements": [],
       "requirementsByLocale": {
-        "en": [],
         "it": [
           "Lead PMCF processes",
           "Ensure regulatory compliance",
-          "Collaborate across functions in an international environment"
+          "Collaborate across functions in an international environment",
+          "Laurea avanzata in Scienze della Vita, Ingegneria Biomedica o discipline correlate",
+          "Minimo 5 anni di esperienza in PMCF o Valutazione Clinica nel settore dei dispositivi medici",
+          "Conoscenza approfondita dei requisiti MDR UE per PMCF e Sorveglianza Post-Mercato",
+          "Esperienza nella traduzione di dati clinici in documentazione normativa",
+          "Preferibile esperienza con indagini cliniche, registri e sondaggi post-mercato"
         ],
         "de": [
           "Leite PMCF-Prozesse",
           "Sorgen Sie für die regulatorische Einhaltung",
-          "Arbeiten Sie in einem internationalen Umfeld mit verschiedenen Funktionen zusammen"
+          "Arbeiten Sie in einem internationalen Umfeld mit verschiedenen Funktionen zusammen",
+          "Fortgeschrittener Abschluss in Lebenswissenschaften, Biomedizintechnik oder verwandten Disziplinen",
+          "Mindestens 5 Jahre Erfahrung in PMCF oder klinischer Bewertung in der Medizinprodukteindustrie",
+          "Fundiertes Verständnis der EU-MDR-Anforderungen für PMCF und Marktüberwachung",
+          "Erfahrung in der Übersetzung klinischer Daten in regulatorische Dokumentation",
+          "Bevorzugt Erfahrung mit klinischen Untersuchungen, Registern und Umfragen"
         ],
         "fr": [
           "Dirigez les processus PMCF",
           "Assurez la conformité réglementaire",
-          "Travaillez dans un environnement international avec différentes fonctions"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-manager-post-market-clinical-follow-up-straumann-ch"
+          "Travaillez dans un environnement international avec différentes fonctions",
+          "Diplôme avancé en sciences de la vie, ingénierie biomédicale ou disciplines connexes",
+          "Minimum 5 ans d'expérience en PMCF ou évaluation clinique dans l'industrie des dispositifs médicaux",
+          "Compréhension approfondie des exigences MDR de l'UE pour le PMCF et la surveillance post-marché",
+          "Expérience dans la traduction de données cliniques en documentation réglementaire",
+          "Préférence pour une expérience avec des enquêtes cliniques, registres et sondages post-marché"
         ]
       },
       "previousSlugs": [
         "senior-manager-post-market-clinical-follow-up-straumann-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-post-market-clinical-follow-up-straumann-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:16.706Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -680,8 +205,437 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "straumann-cf4a93d7d5b6",
+      "slug": "steward-dei-dati-principali-straumann-villeret",
+      "slugByLocale": {
+        "it": "steward-dei-dati-principali-straumann-villeret",
+        "en": "think-okay-let-s-tackle-this-translation-request-the-user-wants-to-translate-the-job-title-master-data-steward-into",
+        "de": "master-data-steward-straumann-ch",
+        "fr": "maitre-de-la-garde-des-donnees-straumann-villeret"
       },
-      "firstSeenAt": "2026-06-10T07:55:16.706Z"
+      "company": "Straumann",
+      "companyKey": "straumann",
+      "companyDomain": "straumann.com",
+      "title": "Master Data Steward",
+      "titleByLocale": {
+        "it": "Steward dei dati principali",
+        "en": "<think> Okay, let's tackle this translation request. The user wants to translate the job title \"Master Data Steward\" into English. Wait, but the title is already in English. Hmm, maybe the user thinks there's a non-English word here. Let me check each word. \"Master\" is definitely English. \"Data\" is also English. \"Steward\" is an",
+        "de": "Master Data Steward",
+        "fr": "Maître de la Garde des Données"
+      },
+      "description": "Êtes-vous prêt(e) à libérer votre potentiel ?\n\nChez Straumann Group, nous vivons une période passionnante de croissance, d’innovation et d’impact, guidée par notre mission d’améliorer la santé bucco-dentaire et de transformer la vie de millions de personnes dans le monde. Unis par une même raison d’être, nous donnons chaque jour le meilleur de nous-mêmes dans une culture de performance et d’apprentissage qui favorise la collaboration, la curiosité et l’ambition. Ici, vous aurez l’opportunité de prendre en main votre parcours professionnel, en développant continuellement vos compétences, votre passion et votre envie d’apprendre. Ensemble, nous ne façonnons pas seulement de plus beaux sourires : nous révélons le potentiel de chacun, y compris le vôtre.\n\nIntroduction\n\nDans ce rôle clé, vous contribuez à la fiabilité et à la qualité des données de référence qui soutiennent les opérations industrielles de Straumann. En tant que Master Data Steward, vous garantissez la cohérence, la conformité et la traçabilité des données tout au long de leur cycle de vie au sein de SAP, MES, PLM et des systèmes associés.\n\nVous travaillez au cœur des interactions entre la Production, l’Industrialisation, les Méthodes, la Qualité, la Supply Chain, le Contrôle de gestion et l’Informatique afin de garantir que les données reflètent fidèlement les processus métiers et les exigences réglementaires. Votre contribution participe directement à l’efficacité opérationnelle, à la qualité des produits et à l’amélioration continue dans un environnement industriel réglementé.\n\nVotre rôle\n\nGestion des Master Data\n\n- Créer, maintenir et faire évoluer les données de référence dans SAP et les systèmes associés (articles, nomenclatures, gammes, postes de travail, données MES, PLM, informations achats et données de planification).\n\n- Garantir l’exactitude, l’intégrité, la cohérence et la conformité des données tout au long du cycle de vie des produits.\n\n- Collaborer avec les équipes métiers afin de traduire les besoins opérationnels en données fiables et exploitables.\n\n- Identifier les écarts ou anomalies, analyser leurs causes et coordonner les actions correctives.\n\n- Participer aux projets de modification de produits, procédés ou équipements en évaluant les impacts sur les données de référence.\n\n- Accompagner les activités de phase-out et assurer une désactivation cohérente et traçable des données.\n\n- Fournir un support aux utilisateurs sur les processus et règles de gestion liés aux Master Data.\n\nGouvernance et amélioration continue\n\n- Développer et maintenir les procédures, modes opératoires et workflows associés aux données de référence.\n\n- Contribuer à la standardisation et à l’optimisation des pratiques de gestion des données.\n\n- Participer à la modélisation et à l’amélioration des processus métier.\n\n- Soutenir les initiatives de gouvernance des données et les évolutions de systèmes.\n\n- Promouvoir les bonnes pratiques de qualité des données auprès des parties prenantes.\n\nAnalyse de données et reporting\n\n- Réaliser des analyses permettant d’évaluer la qualité des référentiels et d’identifier des opportunités d’amélioration.\n\n- Développer et suivre des indicateurs liés aux Master Data.\n\n- Contribuer à la création et à l’évolution de tableaux de bord Power BI.\n\n- Collaborer avec les équipes Data, IT et métiers pour structurer et valoriser les données.\n\n- Participer à la définition des besoins métiers liés aux outils, workflows et reportings.\n\nVotre profil\n\nExigences essentielles\n\n- Formation en informatique, systèmes d’information, informatique de gestion, data ou domaine équivalent.\n\n- Expérience en gestion des Master Data dans un environnement industriel structuré.\n\n- Bonne connaissance de SAP et des données de production telles que les articles, nomenclatures, gammes de fabrication ou postes de travail.\n\n- Compréhension des exigences de qualité, de conformité, de traçabilité et de gouvernance des données.\n\n- Expérience en analyse de données et reporting.\n\n- Maîtrise avancée d’Excel et bonnes connaissances de Power BI, SQL et DAX.\n\n- Capacité à documenter des processus, rédiger des procédures et formaliser des règles de gestion.\n\n- Excellentes compétences en communication et en collaboration avec des interlocuteurs variés.\n\nAtouts appréciés\n\n- Expérience dans le secteur des dispositifs médicaux ou dans un environnement réglementé.\n\n- Connaissance de systèmes MES, PLM ou d’outils documentaires.\n\n- Expérience en Business Process Modeling (BPM).\n\n- Connaissance de SharePoint, des workflows de validation ou d’outils similaires.\n\n- Familiarité avec Snowflake ou d’autres plateformes de données modernes.\n\nTous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap.",
+      "descriptionByLocale": {
+        "it": "Sei pronto a liberare il tuo potenziale? In Straumann Group viviamo un periodo entusiasmante di crescita, innovazione e impatto, guidato dalla nostra missione di migliorare la salute orale e trasformare la vita di milioni di persone in tutto il mondo. Uniti da una stessa ragion d’essere, diamo ogni giorno il meglio di noi stessi in una cultura della performance e dell'apprendimento che favorisce la collaborazione, la curiosità e l’ambizione. Qui avrai l’opportunità di prendere in mano il tuo percorso professionale, sviluppando continuamente le tue competenze, la tua passione e la tua voglia di imparare. Insieme non stiamo solo forgiando sorrisi più belli: stiamo rivelando il potenziale di tutti, incluso il tuo. Introduzione In questo ruolo chiave contribuisci all'affidabilità e alla qualità dei dati di riferimento che supportano le operazioni industriali di Straumann. In qualità di Master Data Steward, garantisci la coerenza, la conformità e la tracciabilità dei dati durante tutto il loro ciclo di vita all'interno di SAP, MES, PLM e dei sistemi associati. Lavori al centro delle interazioni tra Produzione, Industrializzazione, Metodi, Qualità, Supply Chain, Controllo di Gestione e Informatica per garantire che i dati riflettano fedelmente i processi aziendali e i requisiti normativi. Il tuo contributo partecipa direttamente a",
+        "en": "Are you ready to unlock your potential? At Straumann Group, we live in an exciting time of growth, innovation and impact, driven by our mission to improve oral health and transform the lives of millions of people around the world. United by a common purpose, we give our best every day in a culture of performance and learning that fosters collaboration, curiosity and ambition. Here, you will have the opportunity to take charge of your career path, continuously developing your skills, your passion and your desire to learn. Together, we're not just shaping better smiles: we're unlocking the potential of everyone, including yours. Introduction In this key role, you contribute to the reliability and quality of the master data that supports Straumann's industrial operations. As a Master Data Steward, you ensure consistency, compliance and traceability of data throughout its lifecycle within SAP, MES, PLM and related systems. You work at the heart of interactions between Production, Industrialization, Methods, Quality, Supply Chain, Controlling and IT to ensure that data accurately reflects business processes and regulatory requirements. Your contribution directly participates in",
+        "de": "Sind Sie bereit, Ihr Potenzial freizusetzen? Bei der Straumann Group erleben wir eine aufregende Zeit des Wachstums, der Innovation und der Wirkung, angetrieben von unserer Mission, die Mundgesundheit zu verbessern und das Leben von Millionen von Menschen auf der ganzen Welt zu verändern. Vereint durch die gleiche Daseinsberechtigung geben wir jeden Tag unser Bestes in einer Leistungs- und Lernkultur, die Zusammenarbeit, Neugier und Ehrgeiz fördert. Hier haben Sie die Möglichkeit, Ihren beruflichen Werdegang selbst in die Hand zu nehmen und Ihre Fähigkeiten, Ihre Leidenschaft und Ihren Lernwillen kontinuierlich weiterzuentwickeln. Gemeinsam formen wir nicht nur ein schöneres Lächeln: Wir zeigen das Potenzial jedes Einzelnen, auch Ihres. Einleitung In dieser Schlüsselrolle tragen Sie zur Zuverlässigkeit und Qualität der Referenzdaten bei, die den industriellen Betrieb von Straumann unterstützen. Als Master Data Steward stellen Sie die Konsistenz, Compliance und Rückverfolgbarkeit von Daten über den gesamten Lebenszyklus in SAP, MES, PLM und den damit verbundenen Systemen sicher. Sie arbeiten im Herzen der Wechselwirkungen zwischen Produktion, Industrialisierung, Methoden, Qualität, Supply Chain, Controlling und IT, um sicherzustellen, dass die Daten die Geschäftsprozesse und regulatorischen \n• Anforderungen genau widerspiegeln. Ihr Beitrag beteiligt sich direkt an",
+        "fr": "Êtes-vous prêt(e) à libérer votre potentiel ?\n\nChez Straumann Group, nous vivons une période passionnante de croissance, d’innovation et d’impact, guidée par notre mission d’améliorer la santé bucco-dentaire et de transformer la vie de millions de personnes dans le monde. Unis par une même raison d’être, nous donnons chaque jour le meilleur de nous-mêmes dans une culture de performance et d’apprentissage qui favorise la collaboration, la curiosité et l’ambition. Ici, vous aurez l’opportunité de prendre en main votre parcours professionnel, en développant continuellement vos compétences, votre passion et votre envie d’apprendre. Ensemble, nous ne façonnons pas seulement de plus beaux sourires : nous révélons le potentiel de chacun, y compris le vôtre.\n\nIntroduction\n\nDans ce rôle clé, vous contribuez à la fiabilité et à la qualité des données de référence qui soutiennent les opérations industrielles de Straumann. En tant que Master Data Steward, vous garantissez la cohérence, la conformité et la traçabilité des données tout au long de leur cycle de vie au sein de SAP, MES, PLM et des systèmes associés.\n\nVous travaillez au cœur des interactions entre la Production, l’Industrialisation, les Méthodes, la Qualité, la Supply Chain, le Contrôle de gestion et l’Informatique afin de garantir que les données reflètent fidèlement les processus métiers et les exigences réglementaires. Votre contribution participe directement à l’efficacité opérationnelle, à la qualité des produits et à l’amélioration continue dans un environnement industriel réglementé.\n\nVotre rôle\n\nGestion des Master Data\n\n- Créer, maintenir et faire évoluer les données de référence dans SAP et les systèmes associés (articles, nomenclatures, gammes, postes de travail, données MES, PLM, informations achats et données de planification).\n\n- Garantir l’exactitude, l’intégrité, la cohérence et la conformité des données tout au long du cycle de vie des produits.\n\n- Collaborer avec les équipes métiers afin de traduire les besoins opérationnels en données fiables et exploitables.\n\n- Identifier les écarts ou anomalies, analyser leurs causes et coordonner les actions correctives.\n\n- Participer aux projets de modification de produits, procédés ou équipements en évaluant les impacts sur les données de référence.\n\n- Accompagner les activités de phase-out et assurer une désactivation cohérente et traçable des données.\n\n- Fournir un support aux utilisateurs sur les processus et règles de gestion liés aux Master Data.\n\nGouvernance et amélioration continue\n\n- Développer et maintenir les procédures, modes opératoires et workflows associés aux données de référence.\n\n- Contribuer à la standardisation et à l’optimisation des pratiques de gestion des données.\n\n- Participer à la modélisation et à l’amélioration des processus métier.\n\n- Soutenir les initiatives de gouvernance des données et les évolutions de systèmes.\n\n- Promouvoir les bonnes pratiques de qualité des données auprès des parties prenantes.\n\nAnalyse de données et reporting\n\n- Réaliser des analyses permettant d’évaluer la qualité des référentiels et d’identifier des opportunités d’amélioration.\n\n- Développer et suivre des indicateurs liés aux Master Data.\n\n- Contribuer à la création et à l’évolution de tableaux de bord Power BI.\n\n- Collaborer avec les équipes Data, IT et métiers pour structurer et valoriser les données.\n\n- Participer à la définition des besoins métiers liés aux outils, workflows et reportings.\n\nVotre profil\n\nExigences essentielles\n\n- Formation en informatique, systèmes d’information, informatique de gestion, data ou domaine équivalent.\n\n- Expérience en gestion des Master Data dans un environnement industriel structuré.\n\n- Bonne connaissance de SAP et des données de production telles que les articles, nomenclatures, gammes de fabrication ou postes de travail.\n\n- Compréhension des exigences de qualité, de conformité, de traçabilité et de gouvernance des données.\n\n- Expérience en analyse de données et reporting.\n\n- Maîtrise avancée d’Excel et bonnes connaissances de Power BI, SQL et DAX.\n\n- Capacité à documenter des processus, rédiger des procédures et formaliser des règles de gestion.\n\n- Excellentes compétences en communication et en collaboration avec des interlocuteurs variés.\n\nAtouts appréciés\n\n- Expérience dans le secteur des dispositifs médicaux ou dans un environnement réglementé.\n\n- Connaissance de systèmes MES, PLM ou d’outils documentaires.\n\n- Expérience en Business Process Modeling (BPM).\n\n- Connaissance de SharePoint, des workflows de validation ou d’outils similaires.\n\n- Familiarité avec Snowflake ou d’autres plateformes de données modernes.\n\nTous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap."
+      },
+      "location": "Villeret",
+      "canton": "BE",
+      "url": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
+      "source": "Straumann Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-11T11:20:49.196Z",
+      "addressLocality": "Villeret",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Corporate & Support Functions",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Dental / Medical Devices (MedTech)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-04",
+      "applyUrl": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "master-data-steward-straumann-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "master-data-steward-straumann-ch"
+        ],
+        "fr": [
+          "master-data-steward-straumann-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:16.720Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
+    },
+    {
+      "id": "straumann-551d2a777a02",
+      "slug": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
+      "slugByLocale": {
+        "it": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
+        "en": "procurement-business-partner-villeret-straumann-ch",
+        "de": "beschaffungsgeschaftspartner-villeret-straumann-villeret",
+        "fr": "procurement-business-partner-villeret-straumann-ch"
+      },
+      "company": "Straumann",
+      "companyKey": "straumann",
+      "companyDomain": "straumann.com",
+      "title": "Procurement Business Partner Villeret",
+      "titleByLocale": {
+        "it": "Partner commerciale per gli acquisti Villeret",
+        "en": "Procurement Business Partner Villeret",
+        "de": "Beschaffungsgeschäftspartner Villeret",
+        "fr": "Procurement Business Partner Villeret"
+      },
+      "description": "Are you ready to unlock your potential?\n\nAt Straumann Group we’re on an exciting journey of growth, innovation, and impact - driven by our mission to improve oral health and transform millions of lives worldwide. United by purpose, we bring our best selves to work every day, embracing a high-performance, player-learner culture that inspires collaboration, curiosity, and ambition. Here, you’ll have the opportunity to take charge of your own career, harnessing your skills, passion, and enthusiasm for learning to continually grow and progress. Together, we’re not just shaping brighter smiles, we’re unlocking the potential of people everywhere, including our own.\n\nIntroduction\n\nAs Procurement Lead for our Villeret manufacturing site, you will play a pivotal role in ensuring the reliable, compliant, and cost-effective supply of goods and services that support our operations. Acting as the primary procurement business partner to the site leadership team, you will connect global procurement strategies with local execution, helping drive operational excellence, product innovation, and regulatory compliance.\n\nThis is a highly visible role within the Villeret Site Leadership Team, offering the opportunity to collaborate across Operations, Quality, Engineering, Finance, and Global Procurement while making a direct impact on manufacturing performance and business success.\n\nYour Role\n\nAs Procurement Lead, you will:\n\nBusiness Partnering & Operational Support\n\n- Serve as the primary procurement partner to the Villeret Site Leadership Team.\n\n- Support production priorities by ensuring a secure and reliable supply of materials and services.\n\n- Identify and mitigate supply risks to maintain operational continuity.\n\n- Contribute to site performance objectives and key operational metrics.\n\nSupplier Management & Performance\n\n- Manage strategic supplier relationships and performance.\n\n- Monitor and improve supplier delivery, quality, and cost performance.\n\n- Lead supplier issue resolution and recovery planning when required.\n\n- Foster collaborative partnerships that support long-term business goals.\n\nQuality & Regulatory Compliance\n\n- Ensure procurement activities align with quality management system requirements and applicable regulations.\n\n- Support supplier audits, corrective and preventive actions (CAPA), and change control processes.\n\n- Maintain procurement documentation and audit readiness.\n\nProduct Lifecycle & Engineering Collaboration\n\n- Partner with Engineering and cross-functional teams to support new product introductions and product changes.\n\n- Contribute to design-to-cost initiatives and sourcing strategies.\n\n- Ensure supplier readiness for industrialization and production scaling.\n\nCost Management & Procurement Excellence\n\n- Deliver sustainable cost savings and value-creation initiatives.\n\n- Execute global procurement strategies at site level.\n\n- Provide transparent reporting and tracking of procurement performance.\n\n- Support procurement transformation initiatives and continuous improvement efforts.\n\nCross-Functional Collaboration\n\n- Build strong partnerships with Operations, Quality, Engineering, Finance, and Global Procurement teams.\n\n- Act as a key link between site requirements and global procurement priorities.\n\nYour Profile\n\nMust-Have Qualifications\n\n- Master's degree in Supply Chain, Engineering, Business, or a related discipline.\n\n- Significant experience in procurement within a manufacturing environment.\n\n- Experience managing supplier relationships and driving supplier performance.\n\n- Knowledge of quality management systems and regulated manufacturing environments.\n\n- Experience supporting product lifecycle management (PLM), product changes, or new product introductions.\n\n- Strong stakeholder management and influencing skills.\n\n- Ability to analyze complex situations, prioritize effectively, and drive results.\n\nNice-to-Have Qualifications\n\n- Experience within medical devices, healthcare, or other highly regulated industries.\n\n- Experience leading procurement transformation or continuous improvement initiatives.\n\n- Familiarity with ISO 13485 or comparable quality standards.\n\nTous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap.",
+      "descriptionByLocale": {
+        "it": "Sei pronto a sbloccare il tuo potenziale? Presso Straumann Group stiamo intraprendendo un entusiasmante viaggio di crescita, innovazione e impatto, guidati dalla nostra missione di migliorare la salute orale e trasformare milioni di vite in tutto il mondo. Uniti dallo scopo, portiamo il meglio di noi stessi al lavoro ogni giorno, abbracciando una cultura ad alte prestazioni, giocatore-studente, che ispira collaborazione, curiosità e ambizione. Qui avrai l'opportunità di assumere la responsabilità della tua carriera, sfruttando le tue capacità, passione ed entusiasmo per imparare a crescere e progredire continuamente. Insieme, non stiamo solo dando forma a sorrisi più luminosi, ma stiamo liberando il potenziale delle persone ovunque, compreso il nostro. Introduzione In qualità di responsabile dell'approvvigionamento per il nostro sito di produzione di Villeret, svolgerai un ruolo fondamentale nel garantire la fornitura affidabile, conforme ed economicamente vantaggiosa di beni e servizi che supportano le nostre operazioni. Agendo come principale partner commerciale di approvvigionamento per il team dirigente del sito, collegherai le strategie di approvvigionamento globali con l'esecuzione locale, contribuendo a promuovere l'eccellenza operativa, l'innovazione dei prodotti e la conformità normativa. Si tratta di un ruolo altamente visibile all'interno del team di leadership del sito Villeret, che offre l'opportunità di collaborare tra operazioni, qualità, ingegneria, finanza e approvvigionamento globale, avendo al tempo stesso un impatto diretto sulle prestazioni di produzione e sul successo aziendale. Il tuo ruolo di responsabile dell'approvvigionamento: Partner commerciale e supporto operativo: fungerà da partner principale dell'approvvigionamento per il team di leadership del sito Villeret. - Sostenere le priorità di produzione garantendo una fornitura sicura e affidabile di materiali e servizi. - Identificare e mitigare i rischi di fornitura per mantenere la continuità operativa. - Contribuire agli obiettivi prestazionali del sito e alle principali metriche operative. Gestione e prestazioni dei fornitori: gestire le relazioni e le prestazioni strategiche dei fornitori. - Monitorare e migliorare la consegna, la qualità e le prestazioni dei costi dei fornitori. - Risoluzione dei problemi del fornitore principale e pianificazione del ripristino quando richiesto. - Promuovere partenariati collaborativi che supportano obiettivi aziendali a lungo termine. Conformità alla qualità e alle normative: garantire che le attività di approvvigionamento siano in linea con i requisiti del sistema di gestione della qualità e con le normative applicabili. - Supportare audit dei fornitori, azioni correttive e preventive (CAPA) e processi di controllo delle modifiche. - Mantenere la documentazione di approvvigionamento e la disponibilità all'audit. Ciclo di vita del prodotto e collaborazione di progettazione: collaborare con team di progettazione e interfunzionali per supportare l'introduzione di nuovi prodotti e le modifiche ai prodotti. - Contribuire alle iniziative design-to-cost e alle strategie di approvvigionamento. - Garantire la disponibilità dei fornitori per l'industrializzazione e il ridimensionamento della produzione. Eccellenza nella gestione dei costi e nell'approvvigionamento: offrire risparmi sostenibili sui costi e iniziative di creazione di valore. - Eseguire strategie di approvvigionamento globali a livello di sito. - Fornire reporting trasparente e monitoraggio delle prestazioni degli appalti. - Supportare le iniziative di trasformazione degli approvvigionamenti e gli sforzi di miglioramento continuo. Collaborazione interfunzionale: crea solide partnership con i team operativi, di qualità, di ingegneria, di finanza e di approvvigionamento globale. - Agire come collegamento chiave tra i requisiti del sito e le priorità di approvvigionamento globali. Il tuo profilo Qualifiche indispensabili: Master in Supply Chain, Ingegneria, Economia o una disciplina correlata. - Esperienza significativa nel procurement all'interno di un ambiente produttivo. - Esperienza nella gestione dei rapporti con i fornitori e nel miglioramento delle prestazioni dei fornitori. - Conoscenza dei sistemi di gestione della qualità e degli ambienti produttivi regolamentati. - Esperienza nel supporto della gestione del ciclo di vita del prodotto (PLM), delle modifiche ai prodotti o dell'introduzione di nuovi prodotti. - Forti capacità di gestione e influenza degli stakeholder. - Capacità di analizzare situazioni complesse, stabilire le priorità in modo efficace e ottenere risultati. Qualifiche piacevoli: esperienza nel settore dei dispositivi medici, della sanità o di altri settori altamente regolamentati. - Esperienza nella guida della trasformazione degli approvvigionamenti o di iniziative di miglioramento continuo. - Familiarità con ISO 13485 o standard di qualità comparabili. Tutti i candidati qualificati saranno considerati per un impiego senza distinzione di razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale o handicap.",
+        "en": "Are you ready to unlock your potential?\n\nAt Straumann Group we’re on an exciting journey of growth, innovation, and impact - driven by our mission to improve oral health and transform millions of lives worldwide. United by purpose, we bring our best selves to work every day, embracing a high-performance, player-learner culture that inspires collaboration, curiosity, and ambition. Here, you’ll have the opportunity to take charge of your own career, harnessing your skills, passion, and enthusiasm for learning to continually grow and progress. Together, we’re not just shaping brighter smiles, we’re unlocking the potential of people everywhere, including our own.\n\nIntroduction\n\nAs Procurement Lead for our Villeret manufacturing site, you will play a pivotal role in ensuring the reliable, compliant, and cost-effective supply of goods and services that support our operations. Acting as the primary procurement business partner to the site leadership team, you will connect global procurement strategies with local execution, helping drive operational excellence, product innovation, and regulatory compliance.\n\nThis is a highly visible role within the Villeret Site Leadership Team, offering the opportunity to collaborate across Operations, Quality, Engineering, Finance, and Global Procurement while making a direct impact on manufacturing performance and business success.\n\nYour Role\n\nAs Procurement Lead, you will:\n\nBusiness Partnering & Operational Support\n\n- Serve as the primary procurement partner to the Villeret Site Leadership Team.\n\n- Support production priorities by ensuring a secure and reliable supply of materials and services.\n\n- Identify and mitigate supply risks to maintain operational continuity.\n\n- Contribute to site performance objectives and key operational metrics.\n\nSupplier Management & Performance\n\n- Manage strategic supplier relationships and performance.\n\n- Monitor and improve supplier delivery, quality, and cost performance.\n\n- Lead supplier issue resolution and recovery planning when required.\n\n- Foster collaborative partnerships that support long-term business goals.\n\nQuality & Regulatory Compliance\n\n- Ensure procurement activities align with quality management system requirements and applicable regulations.\n\n- Support supplier audits, corrective and preventive actions (CAPA), and change control processes.\n\n- Maintain procurement documentation and audit readiness.\n\nProduct Lifecycle & Engineering Collaboration\n\n- Partner with Engineering and cross-functional teams to support new product introductions and product changes.\n\n- Contribute to design-to-cost initiatives and sourcing strategies.\n\n- Ensure supplier readiness for industrialization and production scaling.\n\nCost Management & Procurement Excellence\n\n- Deliver sustainable cost savings and value-creation initiatives.\n\n- Execute global procurement strategies at site level.\n\n- Provide transparent reporting and tracking of procurement performance.\n\n- Support procurement transformation initiatives and continuous improvement efforts.\n\nCross-Functional Collaboration\n\n- Build strong partnerships with Operations, Quality, Engineering, Finance, and Global Procurement teams.\n\n- Act as a key link between site requirements and global procurement priorities.\n\nYour Profile\n\nMust-Have Qualifications\n\n- Master's degree in Supply Chain, Engineering, Business, or a related discipline.\n\n- Significant experience in procurement within a manufacturing environment.\n\n- Experience managing supplier relationships and driving supplier performance.\n\n- Knowledge of quality management systems and regulated manufacturing environments.\n\n- Experience supporting product lifecycle management (PLM), product changes, or new product introductions.\n\n- Strong stakeholder management and influencing skills.\n\n- Ability to analyze complex situations, prioritize effectively, and drive results.\n\nNice-to-Have Qualifications\n\n- Experience within medical devices, healthcare, or other highly regulated industries.\n\n- Experience leading procurement transformation or continuous improvement initiatives.\n\n- Familiarity with ISO 13485 or comparable quality standards.\n\nTous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap.",
+        "de": "Sind Sie bereit, Ihr Potenzial freizusetzen? Bei der Straumann Group befinden wir uns auf einer spannenden Reise voller Wachstum, Innovation und Wirkung – angetrieben von unserer Mission, die Mundgesundheit zu verbessern und das Leben von Millionen von Menschen weltweit zu verändern. Durch unsere Absicht vereint, bringen wir jeden Tag unser Bestes zur Arbeit und leben eine leistungsstarke, von Spielern und Lernenden geprägte Kultur, die Zusammenarbeit, Neugier und Ehrgeiz anregt. Hier haben Sie die Möglichkeit, Ihre Karriere selbst in die Hand zu nehmen und Ihre Fähigkeiten, Ihre Leidenschaft und Ihren Enthusiasmus für das Lernen zu nutzen, um kontinuierlich zu wachsen und Fortschritte zu machen. Gemeinsam gestalten wir nicht nur ein strahlenderes Lächeln, wir erschließen auch das Potenzial von Menschen überall, auch bei uns selbst. Einführung Als Einkaufsleiter für unseren Produktionsstandort Villeret spielen Sie eine entscheidende Rolle bei der Sicherstellung der zuverlässigen, gesetzeskonformen und kostengünstigen Lieferung von Waren und Dienstleistungen, die unseren Betrieb unterstützen. Als primärer Beschaffungsgeschäftspartner des Standortleitungsteams verknüpfen Sie globale Beschaffungsstrategien mit der lokalen Umsetzung und tragen so dazu bei, operative Exzellenz, Produktinnovation und die Einhaltung gesetzlicher Vorschriften voranzutreiben. Dies ist eine sehr sichtbare Rolle innerhalb des Villeret-Standortleitungsteams, die die Möglichkeit bietet, in den Bereichen Betrieb, Qualität, Technik, Finanzen und globale Beschaffung zusammenzuarbeiten und gleichzeitig einen direkten Einfluss auf die Produktionsleistung und den Geschäftserfolg zu haben. Ihre Rolle als Beschaffungsleiter: Geschäftspartnerschaft und operative Unterstützung – Sie fungieren als primärer Beschaffungspartner für das Villeret Site Leadership Team. - Unterstützen Sie Produktionsprioritäten, indem Sie eine sichere und zuverlässige Versorgung mit Materialien und Dienstleistungen gewährleisten. - Lieferrisiken identifizieren und mindern, um die Betriebskontinuität aufrechtzuerhalten. - Tragen Sie zu den Leistungszielen der Website und den wichtigsten Betriebskennzahlen bei. Lieferantenmanagement und -leistung – Verwalten Sie strategische Lieferantenbeziehungen und -leistung. - Überwachen und verbessern Sie die Lieferung, Qualität und Kostenleistung der Lieferanten. - Bei Bedarf leiten Sie die Lösung von Lieferantenproblemen und planen die Wiederherstellung. - Fördern Sie Kooperationspartnerschaften, die langfristige Geschäftsziele unterstützen. Qualität und Einhaltung gesetzlicher Vorschriften – Stellen Sie sicher, dass die Beschaffungsaktivitäten den \n• Anforderungen des Qualitätsmanagementsystems und den geltenden Vorschriften entsprechen. - Unterstützen Sie Lieferantenaudits, Korrektur- und Vorbeugungsmaßnahmen (CAPA) und Änderungskontrollprozesse. - Aufrechterhaltung der Beschaffungsdokumentation und Prüfungsbereitschaft. Produktlebenszyklus- und technische Zusammenarbeit – Arbeiten Sie mit technischen und funktionsübergreifenden Teams zusammen, um die Einführung neuer Produkte und Produktänderungen zu unterstützen. - Tragen Sie zu Design-to-Cost-Initiativen und Beschaffungsstrategien bei. - Stellen Sie sicher, dass die Lieferanten für die Industrialisierung und Produktionsskalierung bereit sind. Exzellentes Kostenmanagement und Beschaffung – Liefern Sie nachhaltige Kosteneinsparungen und Initiativen zur Wertschöpfung. - Führen Sie globale Beschaffungsstrategien auf Standortebene aus. - Sorgen Sie für eine transparente Berichterstattung und Verfolgung der Beschaffungsleistung. - Unterstützen Sie Initiativen zur Beschaffungstransformation und kontinuierliche Verbesserungsbemühungen. Funktionsübergreifende Zusammenarbeit – Bauen Sie starke Partnerschaften mit den Teams für Betrieb, Qualität, Technik, Finanzen und globale Beschaffung auf. - Als wichtiges Bindeglied zwischen Standortanforderungen und globalen Beschaffungsprioritäten fungieren. \n• Ihr Profil: Unverzichtbare Qualifikationen – Master-Abschluss in Supply Chain, Ingenieurwesen, Betriebswirtschaft oder einer verwandten Disziplin. - Umfangreiche Erfahrung in der Beschaffung in einer Fertigungsumgebung. - Erfahrung in der Verwaltung von Lieferantenbeziehungen und der Steigerung der Lieferantenleistung. - Kenntnisse über Qualitätsmanagementsysteme und regulierte Fertigungsumgebungen. - Erfahrung in der Unterstützung des Produktlebenszyklusmanagements (PLM), Produktänderungen oder der Einführung neuer Produkte. - Starke Stakeholder-Management- und Einflussfähigkeiten. - Fähigkeit, komplexe Situationen zu analysieren, effektiv Prioritäten zu setzen und Ergebnisse zu erzielen. Angenehme Qualifikationen – Erfahrung in der Medizintechnik, im Gesundheitswesen oder anderen stark regulierten Branchen. - Erleben Sie die Leitung von Beschaffungstransformationen oder kontinuierlichen Verbesserungsinitiativen. - Vertrautheit mit ISO 13485 oder vergleichbaren Qualitätsstandards. Alle qualifizierten Kandidaten werden für eine Anstellung ohne Unterschied von Rasse, Farbe, Religion, Geschlecht, sexueller Orientierung, Genreidentität, nationaler Herkunft oder Behinderung berücksichtigt.",
+        "fr": "Êtes-vous prêt à débloquer votre potentiel? Chez Straumann Group, nous sommes sur un parcours passionnant de croissance, d'innovation et d'impact, animé par notre mission d'améliorer la santé buccodentaire et de transformer des millions de vies dans le monde entier. Unis par le but, nous apportons nos meilleurs nous-mêmes au travail chaque jour, embrassant une culture de haute performance, joueur-learner qui inspire collaboration, curiosité et ambition. Ici, vous aurez l'occasion de prendre en main votre propre carrière, d'exploiter vos compétences, votre passion et votre enthousiasme pour apprendre à croître et à progresser continuellement. Ensemble, nous ne formons pas seulement des sourires plus brillants, nous débloquons le potentiel des gens partout, y compris le nôtre. Introduction En tant que chef de file en matière d'approvisionnement pour notre site de fabrication de Villeret, vous jouerez un rôle central pour assurer la fourniture fiable, conforme et rentable de biens et de services qui soutiennent nos activités. En tant que partenaire principal de l'équipe de direction du site, vous lierez les stratégies d'approvisionnement mondiales à l'exécution locale, contribuant ainsi à l'excellence opérationnelle, à l'innovation des produits et à la conformité réglementaire. Il s'agit d'un rôle très visible au sein de l'équipe de leadership du site Villeret, qui offre l'occasion de collaborer dans les domaines des opérations, de la qualité, de l'ingénierie, des finances et de l'approvisionnement mondial tout en ayant un impact direct sur la performance de fabrication et la réussite commerciale. Votre rôle en tant que responsable de l'approvisionnement : Partenariat d'affaires et soutien opérationnel - Servir de principal partenaire de l'équipe de leadership du site Villeret. - Soutenir les priorités de production en assurant un approvisionnement sûr et fiable en matériaux et services. - Identifier et atténuer les risques d'approvisionnement pour maintenir la continuité opérationnelle. - Contribuer aux objectifs de rendement du site et aux principales mesures opérationnelles. Gestion et performance des fournisseurs - Gérer les relations et les performances stratégiques des fournisseurs. - Surveiller et améliorer la livraison, la qualité et les coûts. - Résolution des problèmes des fournisseurs principaux et planification du rétablissement au besoin. - Favoriser des partenariats de collaboration qui appuient les objectifs commerciaux à long terme. Qualité et conformité réglementaire - Veiller à ce que les activités d'approvisionnement soient conformes aux exigences du système de gestion de la qualité et aux règlements applicables. - Soutenir les audits des fournisseurs, les mesures correctives et préventives (CAPA) et les processus de contrôle du changement. - Tenir à jour la documentation sur les achats et les vérifications. Collaboration en cycle de vie et en ingénierie des produits - Partenaire avec des équipes d'ingénierie et d'interfonctionnement pour soutenir les nouvelles introductions de produits et les changements de produits. - Contribuer à la conception d'initiatives et de stratégies d'approvisionnement. - Veiller à ce que les fournisseurs soient prêts pour l ' industrialisation et la production. Gestion des coûts et excellence en matière d'approvisionnement - Réaliser des économies durables et des initiatives de création de valeur. - Exécuter des stratégies globales d'approvisionnement au niveau du site. - Établir des rapports transparents et assurer le suivi du rendement des achats. - Appuyer les initiatives de transformation des achats et les efforts d ' amélioration continue. Collaboration interfonctionnelle - Établir des partenariats solides avec les équipes Opérations, Qualité, Ingénierie, Finances et Achats mondiaux. - Être un lien essentiel entre les besoins des sites et les priorités mondiales en matière d'approvisionnement. \n• Votre profil doit posséder des qualifications - Maîtrise en chaîne d'approvisionnement, en génie, en affaires ou dans une discipline connexe. - Expérience importante en matière d'approvisionnement dans un environnement manufacturier. - Expérience de la gestion des relations avec les fournisseurs et de la performance des fournisseurs. - Connaissance des systèmes de gestion de la qualité et des environnements de fabrication réglementés. - Expérience d'appui à la gestion du cycle de vie des produits, aux changements de produits ou aux introductions de nouveaux produits. - Une gestion forte des parties prenantes et une influence sur les compétences. - Capacité d'analyser des situations complexes, de prioriser efficacement et de produire des résultats. \n• Qualifications agréables à posséder - Expérience au sein des appareils médicaux, des soins de santé ou d'autres industries hautement réglementées. - Expérience de la transformation des achats ou des initiatives d'amélioration continue. - Connaissance de la norme ISO 13485 ou des normes de qualité comparables. Tous les candidats qualifiés séront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap."
+      },
+      "location": "Villeret",
+      "canton": "BE",
+      "url": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
+      "source": "Straumann Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-11T11:20:48.853Z",
+      "addressLocality": "Villeret",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finance",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Dental / Medical Devices (MedTech)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-03",
+      "applyUrl": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Agire come collegamento chiave tra i requisiti del sito e le priorità di approvvigionamento globali.",
+          "Esperienza significativa nel procurement all'interno di un ambiente produttivo.",
+          "Esperienza nella gestione dei rapporti con i fornitori e nel miglioramento delle prestazioni dei fornitori.",
+          "esperienza nel settore dei dispositivi medici, della sanità o di altri settori altamente regolamentati.",
+          "Esperienza nella guida della trasformazione degli approvvigionamenti o di iniziative di miglioramento continuo."
+        ]
+      },
+      "previousSlugs": [
+        "procurement-business-partner-villeret-straumann-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-business-partner-villeret-straumann-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:16.721Z",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE",
+      "needsRetranslation": true
+    },
+    {
+      "id": "straumann-c16e28756872",
+      "slug": "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel",
+      "slugByLocale": {
+        "it": "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel",
+        "en": "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch",
+        "de": "senior-global-growth-lead-einzelzahnlosungen-sdis-temporar-straumann-basel",
+        "fr": "responsable-senior-du-developpement-mondial-solutions-pour-dents-uniques-sdis-temporaire-straumann-basel"
+      },
+      "company": "Straumann",
+      "companyKey": "straumann",
+      "companyDomain": "straumann.com",
+      "title": "Senior Global Growth Lead Single Tooth Solutions SDIS - Temporary",
+      "titleByLocale": {
+        "it": "Senior Global Growth Lead Single Tooth Solutions SDIS - Temporaneo",
+        "en": "Senior Global Growth Lead Single Tooth Solutions SDIS - Temporary",
+        "de": "Senior Global Growth Lead Single Tooth Solutions SDIS - Temporär",
+        "fr": "Senior Global Growth Lead Single Tooth Solutions SDIS - Temporaire"
+      },
+      "description": "Job Purpose\n\nThe Senior Growth Lead for Single Tooth Solutions at Straumann is accountable for defining and driving the strategic direction and commercial success of the Straumann Single Tooth Indication area. This role ensures that the indication area delivers sustainable growth through clear business cases, differentiated value propositions, and effective go-to-market (GTM) execution. Within this framework, a key responsibility is the successful commercialization of end-to-end clinical workflows.\nThe position holder can also contribute or temporarily lead initiatives related to other indications (Fixed Full Arch, Removable Full Arch).\n\nMain Tasks and Responsibilities\n\n- Own the indication growth plan and business case, ensuring alignment with the overall business objectives and portfolio strategy (Business Book).\n\n- Ensure alignment on business goals and indication growth plan priorities across IBU, CCS, and regions.\n\n- Translate market and customer insights into actionable strategies that strengthen Straumann’s competitive position and long-term success.\n\n- Define and execute go-to-market (GTM) strategies, including positioning, messaging, pricing, and channel mix, to increase customer value and NCA.\n\n- Lead launch excellence planning and execution: commercial readiness deliverables as defined in Launch Process.\n\n- Develop and oversee commercial deliverables: claims and value proposition (in collaboration with Clinical Workflows Team and Development PM Team), branding, and communication strategy (in coordination with SDIS Marketing and Global MarCom), marketing assets, campaigns, sales tools, training decks.\n\n- Plan and execute brand medical marketing strategies, integrating scientific evidence, clinical studies, and KOL input.\n\n- Ensure alignment of the roadmap with business objectives and manage portfolio coherence within the indication area, including lifecycle management.\n\n- Maximize revenues and profitability of in-market products.\n\n- Ensure alignment between global and regional teams through clear targets, roles, and performance tracking mechanisms.\n\n- Build and manage relationships with key opinion leaders (KOLs) and the dental community to foster advocacy and clinical credibility.\n\nRequirements needed\n\n• A degree in marketing, business, engineering or related fields.\n• At least 5 years of experience in growth marketing, product management, or a similar roles, preferably in the healthcare or dental sector.\n• Experience with complex launches on a global scale.\n• Commercial acumen.\n• Deep understanding of implant dentistry customer behavior, needs, and preferences.\n• Data-driven mindset and excellent analytical, with the ability to measure and report on key performance indicators and make data-driven recommendations.\n• Strong sense of ownership.\n• Capability to align a broad range of stakeholders around a common vision.\n• Excellent communication and presentation skills, with the ability to communicate effectively with internal and external stakeholders at all levels.\n\nAll qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or disability.\n\nEmployment Type: Full Time\n\nAlternative Locations: Switzerland : Basel\n\nTravel Percentage: 0 - 20%\n\nRequisition ID: 20937",
+      "descriptionByLocale": {
+        "it": "Scopo del lavoro Il Senior Growth Lead per le soluzioni per denti singoli presso Straumann è responsabile della definizione e della guida della direzione strategica e del successo commerciale dell'area Straumann Single Tooth Indication. Questo ruolo garantisce che l'area di indicazione offra una crescita sostenibile attraverso casi aziendali chiari, proposte di valore differenziate e un'efficace esecuzione del go-to-market (GTM). In questo quadro, una responsabilità chiave è la commercializzazione di successo dei flussi di lavoro clinici end-to-end. Il titolare della posizione può anche contribuire o condurre temporaneamente iniziative legate ad altre indicazioni (Arcata completa fissa, Arcata completa rimovibile). Principali compiti e responsabilità - Possedere il piano di crescita dell'indicazione e il business case, garantendo l'allineamento con gli obiettivi aziendali generali e la strategia di portafoglio (Business Book). - Garantire l'allineamento sugli obiettivi aziendali e indicare le priorità del piano di crescita tra IBU, CCS e regioni. - Tradurre le conoscenze del mercato e dei clienti in strategie attuabili che rafforzino la posizione competitiva e il successo a lungo termine di Straumann. - Definire ed eseguire strategie go-to-market (GTM), inclusi posizionamento, messaggistica, prezzi e mix di canali, per aumentare il valore del cliente e l'NCA. - Pianificazione ed esecuzione dell'eccellenza nel lancio del lead: risultati finali di preparazione commerciale come definito nel processo di lancio. - Sviluppare e supervisionare i risultati commerciali: reclami e proposta di valore (in collaborazione con il team dei flussi di lavoro clinici e il team PM di sviluppo), strategia di branding e comunicazione (in coordinamento con SDIS Marketing e Global MarCom), risorse di marketing, campagne, strumenti di vendita, mazzi di formazione. - Pianificare ed eseguire strategie di marketing medico del marchio, integrando prove scientifiche, studi clinici e input KOL. - Garantire l'allineamento della tabella di marcia con gli obiettivi aziendali e gestire la coerenza del portafoglio all'interno dell'area di indicazione, inclusa la gestione del ciclo di vita. - Massimizzare i ricavi e la redditività dei prodotti sul mercato. - Garantire l'allineamento tra i team globali e regionali attraverso obiettivi, ruoli e meccanismi di monitoraggio delle prestazioni chiari. - Costruire e gestire rapporti con i principali opinion leader (KOL) e la comunità dentale per promuovere il patrocinio e la credibilità clinica. Requisiti richiesti\n• Una laurea in marketing, economia, ingegneria o campi correlati.\n• Almeno 5 anni di esperienza nel marketing di crescita, nella gestione del prodotto o in ruoli simili, preferibilmente nel settore sanitario o dentale.\n• Esperienza con lanci complessi su scala globale.\n• Senso commerciale.\n• Conoscenza approfondita del comportamento, delle esigenze e delle preferenze dei clienti dell'implantologia odontoiatrica.\n• Mentalità basata sui dati ed eccellente capacità analitica, con la capacità di misurare e riferire sugli indicatori chiave di prestazione e formulare raccomandazioni basate sui dati.\n• Forte senso di appartenenza.\n• Capacità di allineare un'ampia gamma di stakeholder attorno ad una visione comune.\n• Eccellenti capacità di comunicazione e presentazione, con la capacità di comunicare in modo efficace con le parti interessate interne ed esterne a tutti i livelli. Tutti i candidati qualificati riceveranno un corrispettivo per l'occupazione indipendentemente da razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale o disabilità. Tipo di impiego: Tempo pieno Sedi alternative: Svizzera: Basilea Percentuale di viaggio: 0 - 20% ID richiesta: 20937",
+        "en": "Job Purpose\n\nThe Senior Growth Lead for Single Tooth Solutions at Straumann is accountable for defining and driving the strategic direction and commercial success of the Straumann Single Tooth Indication area. This role ensures that the indication area delivers sustainable growth through clear business cases, differentiated value propositions, and effective go-to-market (GTM) execution. Within this framework, a key responsibility is the successful commercialization of end-to-end clinical workflows.\nThe position holder can also contribute or temporarily lead initiatives related to other indications (Fixed Full Arch, Removable Full Arch).\n\nMain Tasks and Responsibilities\n\n- Own the indication growth plan and business case, ensuring alignment with the overall business objectives and portfolio strategy (Business Book).\n\n- Ensure alignment on business goals and indication growth plan priorities across IBU, CCS, and regions.\n\n- Translate market and customer insights into actionable strategies that strengthen Straumann’s competitive position and long-term success.\n\n- Define and execute go-to-market (GTM) strategies, including positioning, messaging, pricing, and channel mix, to increase customer value and NCA.\n\n- Lead launch excellence planning and execution: commercial readiness deliverables as defined in Launch Process.\n\n- Develop and oversee commercial deliverables: claims and value proposition (in collaboration with Clinical Workflows Team and Development PM Team), branding, and communication strategy (in coordination with SDIS Marketing and Global MarCom), marketing assets, campaigns, sales tools, training decks.\n\n- Plan and execute brand medical marketing strategies, integrating scientific evidence, clinical studies, and KOL input.\n\n- Ensure alignment of the roadmap with business objectives and manage portfolio coherence within the indication area, including lifecycle management.\n\n- Maximize revenues and profitability of in-market products.\n\n- Ensure alignment between global and regional teams through clear targets, roles, and performance tracking mechanisms.\n\n- Build and manage relationships with key opinion leaders (KOLs) and the dental community to foster advocacy and clinical credibility.\n\nRequirements needed\n\n• A degree in marketing, business, engineering or related fields.\n• At least 5 years of experience in growth marketing, product management, or a similar roles, preferably in the healthcare or dental sector.\n• Experience with complex launches on a global scale.\n• Commercial acumen.\n• Deep understanding of implant dentistry customer behavior, needs, and preferences.\n• Data-driven mindset and excellent analytical, with the ability to measure and report on key performance indicators and make data-driven recommendations.\n• Strong sense of ownership.\n• Capability to align a broad range of stakeholders around a common vision.\n• Excellent communication and presentation skills, with the ability to communicate effectively with internal and external stakeholders at all levels.\n\nAll qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or disability.\n\nEmployment Type: Full Time\n\nAlternative Locations: Switzerland : Basel\n\nTravel Percentage: 0 - 20%\n\nRequisition ID: 20937",
+        "de": "Der Senior Growth Lead für Single Tooth Solutions bei Straumann ist dafür verantwortlich, die strategische Ausrichtung und den kommerziellen Erfolg des Straumann Single Tooth Indication-Bereichs zu definieren und voranzutreiben. Diese Rolle stellt sicher, dass der Indikationsbereich durch klare Business Cases, differenzierte Wertversprechen und eine effektive Go-to-Market-Ausführung (GTM) nachhaltiges Wachstum liefert. In diesem Rahmen ist eine zentrale Verantwortung die erfolgreiche Kommerzialisierung von End-to-End-klinischen Workflows. Der Positionsinhaber kann auch Initiativen im Zusammenhang mit anderen Indikationen (Fixed Full Arch, Removable Full Arch) beitragen oder vorübergehend leiten. Hauptaufgaben und Verantwortlichkeiten - Besitzen Sie den Indikationswachstumsplan und den Business Case, um die Ausrichtung auf die allgemeinen Geschäftsziele und die Portfoliostrategie sicherzustellen (Business Book). - Sicherstellung der Ausrichtung auf die Geschäftsziele und die Prioritäten des Indikationswachstumsplans in IBU, CCS und Regionen. - Übersetzen Sie Markt- und Kundeneinblicke in umsetzbare Strategien, die Straumanns Wettbewerbsposition und langfristigen Erfolg stärken. Definieren und Ausführen von Go-to-Market-Strategien (GTM), einschließlich Positionierung, Messaging, Preisgestaltung und Kanalmix, um den Kundenwert und NCA zu erhöhen. Lead Launch Excellence Planung und Ausführung: Kommerzielle Bereitschaftsleistungen wie im Launch-Prozess definiert. - Entwicklung und Überwachung kommerzieller Leistungen: Claims und Value Proposition (in Zusammenarbeit mit Clinical Workflows Team und Development PM Team), Branding und Kommunikationsstrategie (in Abstimmung mit SDIS Marketing und Global MarCom), Marketing Assets, Kampagnen, Verkaufstools, Schulungsdecks. - Planen und implementieren Sie Marken-Medical-Marketing-Strategien, indem Sie wissenschaftliche Erkenntnisse, klinische Studien und KOL-Input integrieren. - Sicherstellung der Ausrichtung der Roadmap auf die Geschäftsziele und Verwaltung der Portfoliokohärenz innerhalb des Indikationsgebiets, einschließlich des Lifecycle-Managements. Maximieren Sie Einnahmen und Rentabilität von In-Market-Produkten. - Sicherstellung der Abstimmung zwischen globalen und regionalen Teams durch klare Ziele, Rollen und Performance-Tracking-Mechanismen. Aufbau und Verwaltung von Beziehungen zu wichtigen Meinungsführern (KOLs) und der Zahnärztegemeinschaft zur Förderung von Interessenvertretung und klinischer Glaubwürdigkeit. Anforderungen erforderlich\n• Ein Abschluss in Marketing, Business, Engineering oder verwandten Bereichen.\n• Mindestens 5 Jahre Erfahrung in Wachstumsmarketing, Produktmanagement oder ähnlichen Rollen, vorzugsweise im Gesundheits- oder Dentalbereich.\n• Erfahrung mit komplexen Starts auf globaler Ebene.\n• Kommerzieller Scharfsinn.\n• Tiefes Verständnis des Kundenverhaltens, der Bedürfnisse und Präferenzen der Implantologie.\n• Datengesteuerte Denkweise und exzellente Analyse, mit der Fähigkeit, wichtige Leistungsindikatoren zu messen und zu berichten und datengesteuerte Empfehlungen abzugeben.\n• Starkes Gefühl von Besitz.\n• Fähigkeit, ein breites Spektrum von Interessengruppen auf eine gemeinsame Vision auszurichten.\n• Hervorragende Kommunikations- und Präsentationsfähigkeiten mit der Fähigkeit, effektiv mit internen und externen Stakeholdern auf allen Ebenen zu kommunizieren. Alle qualifizierten Bewerber erhalten eine Gegenleistung für eine Beschäftigung ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft oder Behinderung. Beschäftigungsart: Vollzeit-Alternative Standorte: Schweiz : Basler Reiseprozentsatz: 0 - 20% Anforderungs-ID: 20937",
+        "fr": "But de l'emploi Le principal responsable de la croissance des solutions de dents uniques chez Straumann est responsable de la définition et de la conduite de l'orientation stratégique et de la réussite commerciale du secteur de l'indication de dents uniques de Straumann. Ce rôle garantit que la zone d'indication assure une croissance durable grâce à des analyses de rentabilisation claires, des propositions de valeur différenciées et une mise en marché efficace. Dans ce cadre, une responsabilité clé est la commercialisation réussie des flux de travail cliniques de bout en bout. Le titulaire de la position peut également contribuer ou diriger temporairement des initiatives liées à d'autres indications (Fixed Full Arch, Removable Full Arch). Principales tâches et responsabilités - Posséder le plan de croissance de l'indice et l'analyse de rentabilisation, en assurant l'alignement avec les objectifs opérationnels globaux et la stratégie du portefeuille (Business Book). - Assurer l'alignement sur les objectifs opérationnels et indiquer les priorités du plan de croissance de l'UEI, du CCS et des régions. - Traduire les connaissances du marché et des clients en stratégies actionnables qui renforcent la position concurrentielle de Straumann et le succès à long terme. - Définir et exécuter des stratégies de mise en marché (GTM), y compris le positionnement, la messagerie, les prix et le mix de canaux, pour augmenter la valeur client et NCA. - Planification et exécution de l'excellence du lancement : produits livrables de préparation commerciale tels que définis dans le processus de lancement. - Élaborer et superviser les produits livrables commerciaux : réclamations et proposition de valeur (en collaboration avec l'équipe des flux de travail cliniques et l'équipe des PM de développement), marque et stratégie de communication (en coordination avec le SDIS Marketing et le Global MarCom), actifs marketing, campagnes, outils de vente, supports de formation. - Planifier et exécuter des stratégies de marketing médical de marque, intégrant des données scientifiques, des études cliniques et des données KOL. - Assurer l'alignement de la feuille de route sur les objectifs opérationnels et gérer la cohérence du portefeuille dans le domaine de l'indication, y compris la gestion du cycle de vie. - Maximiser les revenus et la rentabilité des produits sur le marché. - Assurer l'alignement entre les équipes mondiales et régionales au moyen d'objectifs, de rôles et de mécanismes de suivi des résultats clairs. - Établir et gérer des relations avec les principaux leaders d'opinion (KOL) et la communauté dentaire pour favoriser la défense des intérêts et la crédibilité clinique. Exigences requises\n• Diplôme en marketing, commerce, ingénierie ou domaines connexes.\n• Au moins 5 ans d'expérience dans la commercialisation de la croissance, la gestion de produits ou un rôle similaire, de préférence dans le secteur des soins de santé ou des soins dentaires.\n• Expérience des lancements complexes à l'échelle mondiale.\n• Œuvre commerciale.\n• Compréhension approfondie du comportement, des besoins et des préférences des clients de l'implant dentaire.\n• Un état d'esprit axé sur les données et une excellente analyse, avec la capacité de mesurer et de rendre compte des principaux indicateurs de résultats et de formuler des recommandations fondées sur les données.\n• Forte appropriation.\n• Capacité d'aligner un large éventail de parties prenantes autour d'une vision commune.\n• Excellentes compétences en communication et présentation, avec la capacité de communiquer efficacement avec les acteurs internes et externes à tous les niveaux. Tous les candidats qualifiés seront considérés pour un emploi sans considération de race, de couleur, de religion, de sexe, d'orientation sexuelle, d'identité de genre, d'origine nationale ou de handicap. Type d'emploi: Temps plein Lieux alternatifs: Suisse: Bâle Voyage Pourcentage: 0 - 20% Numéro de la demande: 20937"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://careers.straumann.com/global/en/job/20937/senior-global-growth-lead-single-tooth-solutions-sdis-temporary",
+      "source": "Straumann Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-11T11:20:48.552Z",
+      "addressLocality": "Basel",
+      "addressRegion": "Basel-Stadt",
+      "postalCode": "4002",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Research & Development",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Dental / Medical Devices (MedTech)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "applyUrl": "https://careers.straumann.com/global/en/job/20937/senior-global-growth-lead-single-tooth-solutions-sdis-temporary",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:16.723Z",
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "straumann-53f1f679bfa5",
+      "slug": "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden",
+      "slugByLocale": {
+        "it": "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden",
+        "en": "employee-supply-chain-management-f-m-d-straumann-rheinfelden",
+        "de": "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
+        "fr": "mitarbeiter-chaine-d-approvisionnement-management-w-m-d-straumann-rheinfelden"
+      },
+      "company": "Straumann",
+      "companyKey": "straumann",
+      "companyDomain": "straumann.com",
+      "title": "Mitarbeiter Supply Chain Management (w/m/d)",
+      "titleByLocale": {
+        "it": "Collaboratore Supply Chain Management (f/m/d)",
+        "en": "Employee Supply Chain Management (f/m/d)",
+        "de": "Mitarbeiter Supply Chain Management (w/m/d)",
+        "fr": "Mitarbeiter Chaîne d'approvisionnement Management (w/m/d)"
+      },
+      "description": "Stellenausschreibung:\n\nDie etkon (Schweiz) AG, Teil der Straumann Gruppe, ist schweizweit der grösste und einer der innovativsten Fertigungsbetriebe für zahntechnische Leistungen. Wir bieten Zahnarztpraxen einen effizienten und wirtschaftlichen Zugang zu implantatgestützten und zahngetragenen Versorgungen. Wir fertigen zu 100% «Swiss Made» in hoher Präzision, ohne dabei Kompromisse bei der Qualität einzugehen.\n\nZiel der Funktion\n\nDer Mitarbeiter Supply Chain Management organisiert, steuert und überwacht den gesamten Material- und Warenfluss vom Lieferanten über das Lager bis zur Produktion und zum Kunden. Er sorgt dafür, dass Material, Informationen und Sendungen strukturiert, termingerecht und wirtschaftlich durch das Unternehmen fliessen. Als interner Dienstleister unterstützt er alle Spezialisten in der Produktion proaktiv, damit diese optimal Arbeiten können und dass die internen Warenflüsse laufend optimiert werden.\n\nAufgaben:\n\n- Material- und Bestandsmanagement\n\n- Sicherstellung der Materialverfügbarkeit für die gesamte Unternehmung\n\n- Überwachung von Mindestbeständen und Meldebeständen\n\n- Auslösen von Bestellungen gemäss Dispositionsvorgaben\n\n- Terminüberwachung von Bestellungen und Lieferungen\n\n- Wareneingangskontrolle (Menge, Qualität, Dokumentation)\n\n- Verwaltung und Pflege der Lagerbestände im System\n\n- Organisation der Lagerplätze und Lagerstruktur\n\n- Durchführung von Inventuren\n\n- Logistik / Versand\n\n- Mitarbeit bei der Verpackung und Versandvorbereitung von Kundenaufträgen (inkl. Lieferscheinerstellung, Organisation von Kurierfahrten)\n\n- Verwaltung von Versandmaterialien\n\n- Verantwortlich für den Import und Export\n\n- Prozess- und Kostenoptimierung\n\n- Aktive Mitarbeit bei der Optimierung der Lagerbestände\n\n- Verbesserung der Lieferzeiten und Verfügbarkeit\n\n- Mitarbeit bei Prozessoptimierungen entlang der gesamten Supply Chain\n\n- Unterstützung bei Make-or-Buy-Entscheidungen\n\n- Mitarbeit bei Wirtschaftlichkeitsberechnungen (Material, Lieferanten, Prozesse)\n\n- Qualität und Dokumentation (ISO-relevant)\n\n- Sicherstellung der Rückverfolgbarkeit von Materialien (Chargen)\n\n- Dokumentation von Wareneingängen und Lieferanten\n\n- Einhaltung der definierten Prozesse gemäss QM-System\n\n- Mitarbeit bei Risikoanalysen im Bereich Beschaffung und Logistik\n\n- Pflege von Materialstammdaten\n\nProfil:\n\n- Absoluter Dienstleistungsgedanke\n\n- Sehr strukturierte und organisierte Arbeitsweise\n\n- Hohes Planungs- und Organisationsvermögen\n\n- Denkt in Prozessen und Abläufen\n\n- Arbeitet vorausschauend und nicht nur reaktiv\n\n- Hohe Zuverlässigkeit und Genauigkeit\n\n- Behalten auch bei vielen parallelen Aufgaben den Überblick\n\n- Arbeitet systematisch und lösungsorientiert\n\n- Hohe Eigenverantwortung\n\n- „Sieht Arbeit“, bevor Probleme entstehen\n\n- Ruhig, überlegt, organisiert\n\n- Hands-on-Mentalität\n\n- Verbindlich und zuverlässig\n\n- Belastbar in Stresssituationen\n\n- Kommunikativ in der Abstimmung mit Lieferanten und internen Abteilungen\n\n- Denkt wirtschaftlich\n\n- Hat Freude an Ordnung, Systemen und Planung\n\n- Kaufmännische Grundausbildung und Erfahrung in Logistik, Disposition, Einkauf oder Supply Chain von Vorteil\n\n- Deutsch als Muttersprache\n\nIhre Benefits:\nEs erwartet Sie eine abwechslungsreiche und spannende Herausforderung in einem soliden schweizerischen Unternehmen mit modernem Arbeitsumfeld. Vertrauen, Fairness und Professionalität liegen uns am Herzen. Wir bieten flexible Arbeitszeiten, attraktive Vertragsbedingungen und die Arbeit in einem motivierten und vielseitigen Team in einer Firma mit Renommee.\n\nAll qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or disability.\n\nEmployment Type: Full Time\n\nAlternative Locations: Switzerland : Rheinfelden\n\nTravel Percentage: 0 - 20%\n\nRequisition ID: 20367",
+      "descriptionByLocale": {
+        "it": "Annuncio di lavoro: etkon (Schweiz) AG, parte del gruppo Straumann, è la più grande e una delle aziende produttrici più innovative di servizi odontotecnici in Svizzera. \n• Offriamo agli studi dentistici un accesso efficiente ed economico ai trattamenti supportati da impianti e da denti. Produciamo 100% “Swiss Made” con alta precisione senza compromettere la qualità. Scopo della funzione L'addetto al Supply Chain Management organizza, controlla e monitora l'intero flusso di materiali e merci dal fornitore al magazzino alla produzione e al cliente. Garantisce che materiali, informazioni e spedizioni fluiscano attraverso l'azienda in modo strutturato, tempestivo ed economico. In qualità di fornitore di servizi interno, supporta in modo proattivo tutti gli specialisti della produzione affinché possano lavorare in modo ottimale e affinché il flusso interno delle merci sia continuamente ottimizzato. Compiti: - Gestione dei materiali e dell'inventario - Garantire la disponibilità dei materiali per l'intera azienda - Monitoraggio delle scorte minime e dei livelli di riordino - Attivazione degli ordini in base alle specifiche di pianificazione - Monitoraggio delle scadenze degli ordini e delle consegne - Ispezione delle merci in entrata (quantità, qualità, documentazione) - Gestione e mantenimento delle scorte nel sistema - Organizzazione dei luoghi di stoccaggio e della struttura del magazzino - Realizzazione degli inventari - Logistica/spedizione - Partecipazione alla preparazione dell'imballaggio e della spedizione degli ordini dei clienti (incl. Creazione di bolle di consegna, organizzazione di viaggi di corriere) - Gestione dei materiali di spedizione - Responsabile dell'importazione e dell'esportazione - Ottimizzazione dei processi e dei costi - Partecipazione attiva all'ottimizzazione dei livelli di inventario - Miglioramento dei tempi di consegna e della disponibilità - Partecipazione all'ottimizzazione dei processi lungo l'intera catena di fornitura - Supporto nelle decisioni make-or-buy - Partecipazione ai calcoli di redditività (materiali, fornitori, processi) - Qualità e documentazione (rilevante ISO) - Garantire la tracciabilità dei materiali (lotti) - Documentazione delle merci in entrata e dei fornitori - Rispetto delle norme processi definiti secondo il sistema QM - Partecipazione all'analisi dei rischi nell'ambito dell'approvvigionamento e della logistica - Mantenimento dei dati anagrafici dei materiali Profilo: - Filosofia di servizio assoluta - Modo di lavorare molto strutturato e organizzato - Elevate capacità di pianificazione e organizzazione - Pensa in termini di processi e procedure - Lavora con lungimiranza e non solo reattività - Elevata affidabilità e precisione - Mantiene una visione d'insieme anche con molti compiti paralleli - Lavora in modo sistematico e orientato alla soluzione - Elevato livello di responsabilità personale - \"Vede il lavoro\" prima che sorgano problemi - Calmo, considerato, organizzato - Mentalità pratica - Impegnato e affidabile - Resiliente in situazioni di stress - Comunicativo in coordinamento con i fornitori e i reparti interni - Pensa in modo economico - Ama l'ordine, i sistemi e la pianificazione - La formazione commerciale di base e l'esperienza nella logistica, nella programmazione, negli acquisti o nella catena di fornitura sono un vantaggio - Il tedesco come lingua madre I vostri vantaggi: Una sfida varia ed entusiasmante vi aspetta in una solida azienda svizzera con un ambiente di lavoro moderno. Fiducia, correttezza e professionalità sono importanti per noi. \n• Offriamo orari di lavoro flessibili, condizioni contrattuali interessanti e lavoriamo in un team motivato e diversificato in un'azienda rinomata. Tutti i candidati qualificati riceveranno un corrispettivo per l'occupazione indipendentemente da razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale o disabilità. Tipo di impiego: Tempo pieno Sedi alternative: Svizzera: Rheinfelden Percentuale di viaggio: 0 - 20% ID richiesta: 20367",
+        "en": "Job advertisement: etkon (Schweiz) AG, part of the Straumann Group, is the largest and one of the most innovative manufacturing companies for dental services in Switzerland. \n• We offer dental practices an efficient and economical access to implant-assisted and tooth-worn care. We produce 100% “Swiss Made” in high precision without compromising on quality. The employee supply chain management organizes, controls and monitors the entire material and goods flow from the supplier to the warehouse to production and the customer. It ensures that material, information and shipments flow through the company in a structured, timely and economical manner. As an internal service provider, he proactively supports all specialists in production so that they can work optimally and that the internal flows of goods are continuously optimized. Tasks: - Material and inventory management - Ensuring material availability for the entire company - Monitoring of minimum stocks and reporting stocks - Time monitoring of orders and deliveries - Management of inventories in the system - Organization of storage spaces and structure - Implementation of inventories - Logistics / Shipping - Cooperation in the packaging and preparation of customer orders (incl. delivery notes, organization of courier journeys) - Management of shipping materials - Improvement of delivery times and availability - Cooperation in process optimizations along the entire supply chain - Cooperation in make-or-buy decisions - Quality and documentation (ISO-relevant) - Ensuring the traceability of materials receipts and suppliers - Compliance with the defined processes according to QM system - Maintenance of material master data \n• Profile: - Superior service concept - High planning and organizational capacity - Thinking in processes and processes - High reliability and accuracy - Keeping the overview also in many parallel tasks - Calm, thoughtful, organized - Works systematically and solution-oriented - \"Sees work\", before problems arise - Reliable and reliable - Communicative in coordination with suppliers and internal departments - Trust, fairness and professionalism are important to us. \n• We offer flexible working hours, attractive contract conditions and work in a motivated and versatile team in a company with a reputation. All Qualified Applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or disability. Employment Type: Full Time Alternative Locations: Switzerland : Rheinfelden Travel Percentage: 0 - 20% Requisition ID: 20367",
+        "de": "Stellenausschreibung:\n\nDie etkon (Schweiz) AG, Teil der Straumann Gruppe, ist schweizweit der grösste und einer der innovativsten Fertigungsbetriebe für zahntechnische Leistungen. Wir bieten Zahnarztpraxen einen effizienten und wirtschaftlichen Zugang zu implantatgestützten und zahngetragenen Versorgungen. Wir fertigen zu 100% «Swiss Made» in hoher Präzision, ohne dabei Kompromisse bei der Qualität einzugehen.\n\nZiel der Funktion\n\nDer Mitarbeiter Supply Chain Management organisiert, steuert und überwacht den gesamten Material- und Warenfluss vom Lieferanten über das Lager bis zur Produktion und zum Kunden. Er sorgt dafür, dass Material, Informationen und Sendungen strukturiert, termingerecht und wirtschaftlich durch das Unternehmen fliessen. Als interner Dienstleister unterstützt er alle Spezialisten in der Produktion proaktiv, damit diese optimal Arbeiten können und dass die internen Warenflüsse laufend optimiert werden.\n\nAufgaben:\n\n- Material- und Bestandsmanagement\n\n- Sicherstellung der Materialverfügbarkeit für die gesamte Unternehmung\n\n- Überwachung von Mindestbeständen und Meldebeständen\n\n- Auslösen von Bestellungen gemäss Dispositionsvorgaben\n\n- Terminüberwachung von Bestellungen und Lieferungen\n\n- Wareneingangskontrolle (Menge, Qualität, Dokumentation)\n\n- Verwaltung und Pflege der Lagerbestände im System\n\n- Organisation der Lagerplätze und Lagerstruktur\n\n- Durchführung von Inventuren\n\n- Logistik / Versand\n\n- Mitarbeit bei der Verpackung und Versandvorbereitung von Kundenaufträgen (inkl. Lieferscheinerstellung, Organisation von Kurierfahrten)\n\n- Verwaltung von Versandmaterialien\n\n- Verantwortlich für den Import und Export\n\n- Prozess- und Kostenoptimierung\n\n- Aktive Mitarbeit bei der Optimierung der Lagerbestände\n\n- Verbesserung der Lieferzeiten und Verfügbarkeit\n\n- Mitarbeit bei Prozessoptimierungen entlang der gesamten Supply Chain\n\n- Unterstützung bei Make-or-Buy-Entscheidungen\n\n- Mitarbeit bei Wirtschaftlichkeitsberechnungen (Material, Lieferanten, Prozesse)\n\n- Qualität und Dokumentation (ISO-relevant)\n\n- Sicherstellung der Rückverfolgbarkeit von Materialien (Chargen)\n\n- Dokumentation von Wareneingängen und Lieferanten\n\n- Einhaltung der definierten Prozesse gemäss QM-System\n\n- Mitarbeit bei Risikoanalysen im Bereich Beschaffung und Logistik\n\n- Pflege von Materialstammdaten\n\nProfil:\n\n- Absoluter Dienstleistungsgedanke\n\n- Sehr strukturierte und organisierte Arbeitsweise\n\n- Hohes Planungs- und Organisationsvermögen\n\n- Denkt in Prozessen und Abläufen\n\n- Arbeitet vorausschauend und nicht nur reaktiv\n\n- Hohe Zuverlässigkeit und Genauigkeit\n\n- Behalten auch bei vielen parallelen Aufgaben den Überblick\n\n- Arbeitet systematisch und lösungsorientiert\n\n- Hohe Eigenverantwortung\n\n- „Sieht Arbeit“, bevor Probleme entstehen\n\n- Ruhig, überlegt, organisiert\n\n- Hands-on-Mentalität\n\n- Verbindlich und zuverlässig\n\n- Belastbar in Stresssituationen\n\n- Kommunikativ in der Abstimmung mit Lieferanten und internen Abteilungen\n\n- Denkt wirtschaftlich\n\n- Hat Freude an Ordnung, Systemen und Planung\n\n- Kaufmännische Grundausbildung und Erfahrung in Logistik, Disposition, Einkauf oder Supply Chain von Vorteil\n\n- Deutsch als Muttersprache\n\nIhre Benefits:\nEs erwartet Sie eine abwechslungsreiche und spannende Herausforderung in einem soliden schweizerischen Unternehmen mit modernem Arbeitsumfeld. Vertrauen, Fairness und Professionalität liegen uns am Herzen. Wir bieten flexible Arbeitszeiten, attraktive Vertragsbedingungen und die Arbeit in einem motivierten und vielseitigen Team in einer Firma mit Renommee.\n\nAll qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or disability.\n\nEmployment Type: Full Time\n\nAlternative Locations: Switzerland : Rheinfelden\n\nTravel Percentage: 0 - 20%\n\nRequisition ID: 20367",
+        "fr": "Annonce d'emploi : etkon (Schweiz) AG, qui fait partie du groupe Straumann, est la plus grande et l'une des entreprises de fabrication de services de technologie dentaire les plus innovantes en Suisse. \n• Nous offrons aux cabinets dentaires un accès efficace et économique aux traitements implantaires et dentaires. Nous fabriquons du 100% « Swiss Made » avec une grande précision sans compromis sur la qualité. Objectif de la fonction L'employé de Supply Chain Management organise, contrôle et surveille l'ensemble du flux de matières et de marchandises depuis le fournisseur jusqu'à l'entrepôt jusqu'à la production et jusqu'au client. Il veille à ce que le matériel, les informations et les expéditions circulent dans l'entreprise de manière structurée, opportune et économique. En tant que prestataire de services interne, il soutient de manière proactive tous les spécialistes de la production afin qu'ils puissent travailler de manière optimale et que le flux interne de marchandises soit continuellement optimisé. Tâches : - Gestion du matériel et des stocks - Assurer la disponibilité du matériel pour toute l'entreprise - Surveiller les stocks minimum et les niveaux de réapprovisionnement - Déclencher les commandes selon les spécifications de planification - Suivi des délais de commandes et de livraisons - Contrôle de l'entrée des marchandises (quantité, qualité, documentation) - Gestion et maintenance des stocks dans le système - Organisation des lieux de stockage et de la structure de l'entrepôt - Réalisation des inventaires - Logistique / expédition - Participation à la préparation de l'emballage et de l'expédition des commandes clients (incl. Création de bons de livraison, organisation des voyages de messagerie) - Gestion du matériel d'expédition - Responsable de l'import et de l'export - Optimisation des processus et des coûts - Participation active à l'optimisation des niveaux de stocks - Amélioration des délais de livraison et de la disponibilité - Participation à l'optimisation des processus tout au long de la chaîne d'approvisionnement - Aide aux décisions de faire ou d'acheter - Participation aux calculs de rentabilité (matériau, fournisseurs, processus) - Qualité et documentation (pertinent ISO) - Assurer la traçabilité des matériaux (lots) - Documentation des marchandises et des fournisseurs entrants - Respect des processus définis selon le système QM - Participation aux analyses de risques dans le domaine des achats et de la logistique - Gestion des données de base des matériaux Profil : - Philosophie de service absolue - Mode de travail très structuré et organisé - Grandes compétences en matière de planification et d'organisation - Pense en termes de processus et de procédures - Travaille avec prévoyance et pas seulement réactivité - Haute fiabilité et précision - Garder une vue d'ensemble même avec de nombreuses tâches parallèles - Travaille de manière systématique et orientée vers les solutions - Haut niveau de responsabilité personnelle - « Voir le travail » avant que les problèmes ne surviennent - Calme, réfléchi, organisé - Mentalité pratique - Engagé et fiable - Résilient dans les situations stressantes - Communicatif en coordination avec les fournisseurs et les services internes - Pense de manière économique - Aime les commandes, les systèmes et la planification - Une formation commerciale de base et une expérience en logistique, planification, achats ou chaîne d'approvisionnement est un avantage - L'allemand comme langue maternelle Vos avantages : Un défi varié et passionnant vous attend dans une entreprise suisse solide avec un environnement de travail moderne. La confiance, l'équité et le professionnalisme sont importants pour nous. \n• Nous proposons des horaires de travail flexibles, des conditions contractuelles attractives et travaillons au sein d'une équipe motivée et diversifiée dans une entreprise réputée. Tous les candidats qualifiés seront pris en considération pour un emploi sans distinction de race, de couleur, de religion, de sexe, d'orientation sexuelle, d'identité de genre, d'origine nationale ou de handicap. Type d'emploi : Temps plein Lieux alternatifs : Suisse : Rheinfelden Pourcentage de déplacement : 0 - 20 % Numéro de demande : 20367"
+      },
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
+      "source": "Straumann Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-11T11:20:48.281Z",
+      "addressLocality": "Rheinfelden",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Supply Chain",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Dental / Medical Devices (MedTech)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "applyUrl": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
+        "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-supply-chain-management-w-m-d-straumann-ch"
+        ],
+        "fr": [
+          "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:16.722Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5000",
+      "addressRegion": "AG"
+    },
+    {
+      "id": "straumann-be0285a3dbd8",
+      "slug": "collaborateur-service-infrastructure-straumann-ch",
+      "slugByLocale": {
+        "it": "collaborateur-service-infrastructure-straumann-ch",
+        "en": "infrastructure-service-collaborator-straumann-villeret",
+        "de": "mitarbeiter-service-infrastructure-straumann-villeret",
+        "fr": "infrastructure-de-services-collaborateurs-straumann-villeret"
+      },
+      "company": "Straumann",
+      "companyKey": "straumann",
+      "companyDomain": "straumann.com",
+      "title": "Collaborateur Service Infrastructure",
+      "titleByLocale": {
+        "it": "Collaborateur Service Infrastructure",
+        "en": "Infrastructure Service Collaborator",
+        "de": "Mitarbeiter Service Infrastructure",
+        "fr": "Infrastructure de services Collaborateurs"
+      },
+      "description": "Êtes-vous prêt(e) à libérer votre potentiel ?\n\nChez Straumann Group, nous vivons une aventure passionnante faite de croissance, d’innovation et d’impact – guidée par notre mission d’améliorer la santé bucco-dentaire et de transformer des millions de vies dans le monde. Unis par une même raison d’être, nous donnons chaque jour le meilleur de nous-mêmes, en cultivant une culture de performance et d’apprentissage qui favorise la collaboration, la curiosité et l’ambition. Ici, vous aurez l’opportunité de piloter votre propre parcours professionnel, en développant continuellement vos compétences, votre passion et votre envie d’apprendre. Ensemble, nous ne façonnons pas seulement des sourires plus lumineux – nous révélons le potentiel de chacun, y compris le vôtre.\n\nIntroduction\n\nour notre site de Straumann Villeret SA (Villeret, Corgémont et Sonceboz), nous recherchons un·e Collaborateur·trice Service Infrastructure.\n\nDans ce rôle clé, vous contribuez activement à la continuité des activités du site en garantissant la sécurité, la disponibilité et la performance des infrastructures (bâtiments, installations techniques et énergie). Vous intervenez dans un environnement industriel exigeant où la fiabilité des installations est essentielle au bon fonctionnement de la production.\n\nVous évoluez au sein d’une équipe engagée et collaborez étroitement avec la maintenance, les prestataires externes et les différents départements du site.\n\nVotre rôle\n\nEn tant que Collaborateur·trice Service Infrastructure, vous :\n\nSécurité & conformité\n\n- Contribuez activement à maintenir un environnement de travail sûr pour l’ensemble des collaborateurs et partenaires externes.\n\n- Assurez le bon fonctionnement des dispositifs de contrôle et de sécurité.\n\n- Intégrez la gestion des risques dans toutes vos interventions (maintenance, projets, améliorations continues).\n\n- Veillez au respect des règles EHS (Environnement, Hygiène, Sécurité).\n\nMaintenance & exploitation des infrastructures\n\n- Supervisez et entretenez les installations techniques du bâtiment (chauffage, ventilation, traitement des eaux, eau pure/DI, etc.).\n\n- Réagissez aux alarmes et effectuez des interventions de dépannage pour garantir la disponibilité des équipements.\n\n- Participez aux maintenances préventives, correctives et amélioratives.\n\n- Analysez les dysfonctionnements techniques et proposez des améliorations structurées.\n\n- Coordonnez et suivez les interventions des entreprises externes.\n\nSupport opérationnel & logistique\n\n- Gérez les stocks de consommables et pièces de rechange en collaboration avec les départements concernés.\n\n- Approvisionnez les ateliers en consommables techniques.\n\n- Réalisez des travaux de manutention, de transport et de préparation des locaux selon les besoins.\n\n- Créez les ordres de maintenance et les demandes d’achats nécessaires.\n\nOrganisation & collaboration\n\n- Partagez les informations utiles à l’équipe et assurez un reporting régulier.\n\n- Collaborez étroitement avec la Maintenance et les autres départements pour coordonner les interventions.\n\n- Contribuez à une culture de collaboration, d’amélioration continue et de responsabilité partagée.\n\nCe poste implique des horaires flexibles, un travail en 2x8 ainsi que des interventions de piquet (nuit/week-end) selon les besoins opérationnels.\n\nVotre profil\n\nExigences essentielles\n\n- Formation professionnelle (CFC ou titre équivalent) dans un domaine technique, idéalement lié aux infrastructures du bâtiment.\n\n- Expérience dans la maintenance technique ou l’exploitation d’installations industrielles.\n\n- Permis de conduire (véhicule léger).\n\n- Bonne maîtrise du français.\n\n- Disponibilité pour des horaires flexibles (2x8) et service de piquet.\n\n- Résidence permettant une intervention rapide sur site (délai d’intervention compatible avec les exigences opérationnelles).\n\nAtouts\n\n- Connaissances en chauffage, ventilation, traitement des eaux ou installations industrielles.\n\n- Permis de cariste.\n\n- Connaissances d’anglais ou d’allemand.\n\n- Aisance avec les outils informatiques (Microsoft Office ou systèmes de gestion de maintenance).\n\nTous les candidats et toutes les candidates qualifié·e·s seront pris·es en considération pour un emploi sans distinction de race, de couleur, de religion, de sexe, d’orientation sexuelle, d’identité de genre, d’origine nationale ou de handicap.",
+      "descriptionByLocale": {
+        "it": "Sei pronto a sbloccare il tuo potenziale? A Straumann Group, viviamo un'emozionante avventura di crescita, innovazione e impatto – guidata dalla nostra missione per migliorare la salute orale e trasformare milioni di vite in tutto il mondo. Unito dalla stessa ragione di essere, diamo ogni giorno il meglio di noi stessi, coltivando una cultura di performance e apprendimento che promuove collaborazione, curiosità e ambizione. Qui avrete l'opportunità di guidare la vostra carriera professionale, sviluppando continuamente le vostre abilità, passione e desiderio di imparare. Insieme, non solo creiamo sorrisi più brillanti – riveliamo il potenziale di tutti, compreso il vostro. Introduzione al nostro sito di Straumann Villeret SA (Villeret, Corgémont e Sonceboz), stiamo cercando un Infrastruttura di Servizio Collaboratore. In questo ruolo chiave, contribuisci attivamente alla continuità delle attività del sito garantendo la sicurezza, la disponibilità e le prestazioni delle infrastrutture (edifici, installazioni tecniche ed energia). Interviene in un ambiente industriale esigente dove l'affidabilità degli impianti è essenziale per il corretto funzionamento della produzione. Stai lavorando con un team impegnato e lavorando a stretto contatto con la manutenzione, i fornitori esterni e i vari dipartimenti del sito. Il tuo ruolo di collaboratore delle infrastrutture di servizio, tu: Sicurezza e conformità - Contribuisci attivamente al mantenimento di un ambiente di lavoro sicuro per tutti i dipendenti e partner esterni. - Assicurare un corretto funzionamento dei dispositivi di controllo e di sicurezza. - Integrare la gestione del rischio in tutti i vostri interventi (manutenzione, progetti, miglioramenti continui). - Assicurare il rispetto delle regole EHS (Ambiente, Igiene, Sicurezza). Manutenzione e funzionamento delle infrastrutture - Supervisione e manutenzione delle strutture tecniche dell'edificio (riscaldamento, ventilazione, trattamento dell'acqua, acqua pura/ID, ecc.). - Rispondere agli allarmi e eseguire interventi di risoluzione dei problemi per garantire la disponibilità delle attrezzature. - Partecipa alla manutenzione preventiva, correttiva e migliorata. - Analizzare i malfunzionamenti tecnici e proporre miglioramenti strutturati. - Coordinare e monitorare gli interventi delle aziende esterne. Supporto operativo & logistica - Gestione dei materiali di consumo e dei pezzi di ricambio in collaborazione con i dipartimenti interessati. - Utilizzare materiali di consumo tecnici per i laboratori. - Eseguire la gestione, il trasporto e la preparazione dei locali come richiesto. - Creare ordini di manutenzione e richieste di acquisto. Organizzazione e collaborazione - Condividere le informazioni utili al team e garantire un reporting regolare. - Lavorare a stretto contatto con la manutenzione e altri dipartimenti per coordinare gli interventi. - Contribuire a una cultura di collaborazione, miglioramento continuo e responsabilità condivisa. Questa posizione comporta orari di lavoro flessibili, 2x8 interventi di lavoro e picketing (notte/settimana) come richiesto. Il tuo profilo \n• Requisiti essenziali - Formazione professionale (CFC o equivalente) in un campo tecnico, idealmente legato all'infrastruttura di costruzione. - Esperienza nella manutenzione tecnica o nel funzionamento degli impianti industriali. - Patente di guida (veicolo leggero). - Buon comando del francese. - Disponibilità per ore flessibili (2x8) e servizio picket. - Residence che consente un rapido intervento in loco (deadline compatibile con i requisiti operativi). Beni - Conoscenza del riscaldamento, ventilazione, trattamento acque o impianti industriali. - La patente. - Conoscenza dell'inglese o del tedesco. - Utilizzare con strumenti informatici (Microsoft Office o sistemi di gestione della manutenzione). Tutti i candidati qualificati saranno considerati per l'occupazione senza distinzione di razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale o disabilità.",
+        "en": "Are you ready to unlock your potential? At Straumann Group, we live an exciting adventure of growth, innovation and impact – guided by our mission to improve oral health and transform millions of lives around the world. United by the same reason for being, we give every day the best of ourselves, cultivating a culture of performance and learning that promotes collaboration, curiosity and ambition. Here you will have the opportunity to drive your own professional career, continuously developing your skills, passion and desire to learn. Together, we not only create brighter smiles – we reveal the potential of everyone, including yours. Introduction to our site of Straumann Villeret SA (Villeret, Corgémont and Sonceboz), we are looking for a Collaborator Service Infrastructure. In this key role, you actively contribute to the continuity of the site's activities by ensuring the safety, availability and performance of infrastructure (buildings, technical installations and energy). You intervene in a demanding industrial environment where the reliability of the installations is essential to the proper functioning of the production. You are working with an engaged team and working closely with maintenance, external providers and the various departments of the site. Your role As a Service Infrastructure Collaborator, you: Security & Compliance - Contribute actively to maintaining a safe working environment for all employees and external partners. - Ensure proper operation of control and safety devices. - Integrate risk management into all your interventions (maintenance, projects, continuous improvements). - Ensure compliance with EHS rules (Environment, Hygiene, Safety). Infrastructure maintenance & operation - Supervise and maintain the technical facilities of the building (heating, ventilation, water treatment, pure/ID water, etc.). - Respond to alarms and perform troubleshooting interventions to ensure equipment availability. - Participate in preventive, corrective and improvement maintenance. - Analyze technical malfunctions and propose structured improvements. - Coordinate and monitor the interventions of external companies. Operational support & logistics - Manage consumables and spare parts stocks in collaboration with the departments concerned. - Use technical consumables for workshops. - Perform handling, transportation and preparation of premises as required. - Create maintenance orders and purchase requests. Organization & collaboration - Share information useful to the team and ensure regular reporting. - Work closely with Maintenance and other departments to coordinate interventions. - Contribute to a culture of collaboration, continuous improvement and shared responsibility. This position involves flexible working hours, 2x8 work and picketing interventions (night/weekend) as required. Your \n• Profile Essential \n• Requirements - Vocational training (CFC or equivalent) in a technical field, ideally linked to building infrastructure. - Experience in the technical maintenance or operation of industrial installations. - Driver's licence (light vehicle). - Good command of French. - Availability for flexible hours (2x8) and picket service. - Residence allowing rapid on-site intervention (deadline compatible with operational requirements). Assets - Knowledge of heating, ventilation, water treatment or industrial installations. - Carist license. - Knowledge of English or German. - Use with computer tools (Microsoft Office or maintenance management systems). All qualified candidates will be considered for employment without distinction as to race, colour, religion, sex, sexual orientation, gender identity, national origin or disability.",
+        "de": "Sind Sie bereit, Ihr Potenzial freizusetzen? Bei der Straumann Group befinden wir uns auf einer spannenden Reise voller Wachstum, Innovation und Wirkung – angetrieben von unserer Mission, die Mundgesundheit zu verbessern und das Leben von Millionen von Menschen auf der ganzen Welt zu verändern. Gemeinsam mit dem gleichen Ziel geben wir jeden Tag das Beste aus uns selbst und pflegen eine Kultur der Leistung und des Lernens, die Zusammenarbeit, Neugier und Ehrgeiz fördert. Hier haben Sie die Möglichkeit, Ihre eigene berufliche Reise zu steuern und Ihre Fähigkeiten, Ihre Leidenschaft und Ihren Lernwillen kontinuierlich weiterzuentwickeln. Gemeinsam gestalten wir nicht nur ein strahlenderes Lächeln – wir erschließen das Potenzial jedes Einzelnen, auch Ihres. Einleitung Für unseren Standort Straumann Villeret SA (Villeret, Corgémont und Sonceboz) suchen wir einen Infrastrukturdienstmitarbeiter. In dieser Schlüsselrolle tragen Sie aktiv zur Kontinuität der Standortaktivitäten bei, indem Sie die Sicherheit, Verfügbarkeit und Leistungsfähigkeit der Infrastruktur (Gebäude, technische Anlagen und Energie) gewährleisten. Sie arbeiten in einem anspruchsvollen Industrieumfeld, in dem die Zuverlässigkeit der Anlagen für den reibungslosen Produktionsablauf von entscheidender Bedeutung ist. Sie arbeiten in einem engagierten Team und arbeiten eng mit der Instandhaltung, externen Dienstleistern und den verschiedenen Abteilungen des Standorts zusammen. Ihre Rolle Als Infrastructure Service Collaborator sind Sie: Sicherheit und Compliance – Tragen Sie aktiv zur Aufrechterhaltung einer sicheren Arbeitsumgebung für alle Mitarbeiter und externen Partner bei. - Stellen Sie sicher, dass die Kontroll- und Sicherheitseinrichtungen ordnungsgemäß funktionieren. - Integrieren Sie das Risikomanagement in alle Ihre Interventionen (Wartung, Projekte, kontinuierliche Verbesserungen). - Stellen Sie die Einhaltung der EHS-Vorschriften (Umwelt, Gesundheit, Sicherheit) sicher. Wartung und Betrieb der Infrastruktur – Überwachung und Wartung der technischen Anlagen des Gebäudes (Heizung, Lüftung, Wasseraufbereitung, Reinwasser/DI usw.). - Reagieren Sie auf Alarme und führen Sie Fehlerbehebungsmaßnahmen durch, um die Verfügbarkeit der Geräte sicherzustellen. - Beteiligen Sie sich an vorbeugenden, korrigierenden und verbessernden Wartungsarbeiten. - Technische Störungen analysieren und strukturierte Verbesserungen vorschlagen. - Koordinieren und überwachen Sie die Interventionen externer Unternehmen. Betriebs- und Logistikunterstützung – Verwalten Sie die Lagerbestände an Verbrauchsmaterialien und Ersatzteilen in Zusammenarbeit mit den zuständigen Abteilungen. - Versorgen Sie die Werkstätten mit technischen Verbrauchsmaterialien. - Handhabung, Transport und Vorbereitung der Räumlichkeiten nach Bedarf durchführen. - Erstellen Sie die erforderlichen Wartungsaufträge und Kaufanfragen. Organisation und Zusammenarbeit – Teilen Sie nützliche Informationen mit dem Team und stellen Sie eine regelmäßige Berichterstattung sicher. - Arbeiten Sie eng mit der Instandhaltung und anderen Abteilungen zusammen, um Interventionen zu koordinieren. - Tragen Sie zu einer Kultur der Zusammenarbeit, kontinuierlichen Verbesserung und gemeinsamen Verantwortung bei. Diese Position beinhaltet flexible Arbeitszeiten, 2x8-Arbeit sowie Bereitschaftseinsätze (nachts/am Wochenende) je nach betrieblichem Bedarf. \n• Ihr Profil Grundvoraussetzungen - Berufsausbildung (CFC oder gleichwertige Qualifikation) in einem technischen Bereich, idealerweise mit Bezug zur Gebäudeinfrastruktur. - Erfahrung in der technischen Wartung oder im Betrieb von Industrieanlagen. - Führerschein (Leichtfahrzeug). - Gute Französischkenntnisse. - Verfügbarkeit für flexible Arbeitszeiten (2x8) und Bereitschaftsdienst. - Wohnsitz, der ein schnelles Eingreifen vor Ort ermöglicht (Reaktionszeit im Einklang mit den betrieblichen \n• Anforderungen). Vermögenswerte – Kenntnisse in den Bereichen Heizung, Lüftung, Wasseraufbereitung oder Industrieanlagen. - Führerschein für Gabelstapler. - Englisch- oder Deutschkenntnisse. - Sicherer Umgang mit IT-Tools (Microsoft Office oder Wartungsmanagementsysteme). Alle qualifizierten Bewerber werden unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, sexueller Orientierung, Geschlechtsidentität, nationaler Herkunft oder Behinderung für eine Anstellung berücksichtigt.",
+        "fr": "Êtes-vous prêt(e) à libérer votre potentiel ?\n\nChez Straumann Group, nous vivons une aventure passionnante faite de croissance, d’innovation et d’impact – guidée par notre mission d’améliorer la santé bucco-dentaire et de transformer des millions de vies dans le monde. Unis par une même raison d’être, nous donnons chaque jour le meilleur de nous-mêmes, en cultivant une culture de performance et d’apprentissage qui favorise la collaboration, la curiosité et l’ambition. Ici, vous aurez l’opportunité de piloter votre propre parcours professionnel, en développant continuellement vos compétences, votre passion et votre envie d’apprendre. Ensemble, nous ne façonnons pas seulement des sourires plus lumineux – nous révélons le potentiel de chacun, y compris le vôtre.\n\nIntroduction\n\nour notre site de Straumann Villeret SA (Villeret, Corgémont et Sonceboz), nous recherchons un·e Collaborateur·trice Service Infrastructure.\n\nDans ce rôle clé, vous contribuez activement à la continuité des activités du site en garantissant la sécurité, la disponibilité et la performance des infrastructures (bâtiments, installations techniques et énergie). Vous intervenez dans un environnement industriel exigeant où la fiabilité des installations est essentielle au bon fonctionnement de la production.\n\nVous évoluez au sein d’une équipe engagée et collaborez étroitement avec la maintenance, les prestataires externes et les différents départements du site.\n\nVotre rôle\n\nEn tant que Collaborateur·trice Service Infrastructure, vous :\n\nSécurité & conformité\n\n- Contribuez activement à maintenir un environnement de travail sûr pour l’ensemble des collaborateurs et partenaires externes.\n\n- Assurez le bon fonctionnement des dispositifs de contrôle et de sécurité.\n\n- Intégrez la gestion des risques dans toutes vos interventions (maintenance, projets, améliorations continues).\n\n- Veillez au respect des règles EHS (Environnement, Hygiène, Sécurité).\n\nMaintenance & exploitation des infrastructures\n\n- Supervisez et entretenez les installations techniques du bâtiment (chauffage, ventilation, traitement des eaux, eau pure/DI, etc.).\n\n- Réagissez aux alarmes et effectuez des interventions de dépannage pour garantir la disponibilité des équipements.\n\n- Participez aux maintenances préventives, correctives et amélioratives.\n\n- Analysez les dysfonctionnements techniques et proposez des améliorations structurées.\n\n- Coordonnez et suivez les interventions des entreprises externes.\n\nSupport opérationnel & logistique\n\n- Gérez les stocks de consommables et pièces de rechange en collaboration avec les départements concernés.\n\n- Approvisionnez les ateliers en consommables techniques.\n\n- Réalisez des travaux de manutention, de transport et de préparation des locaux selon les besoins.\n\n- Créez les ordres de maintenance et les demandes d’achats nécessaires.\n\nOrganisation & collaboration\n\n- Partagez les informations utiles à l’équipe et assurez un reporting régulier.\n\n- Collaborez étroitement avec la Maintenance et les autres départements pour coordonner les interventions.\n\n- Contribuez à une culture de collaboration, d’amélioration continue et de responsabilité partagée.\n\nCe poste implique des horaires flexibles, un travail en 2x8 ainsi que des interventions de piquet (nuit/week-end) selon les besoins opérationnels.\n\nVotre profil\n\nExigences essentielles\n\n- Formation professionnelle (CFC ou titre équivalent) dans un domaine technique, idéalement lié aux infrastructures du bâtiment.\n\n- Expérience dans la maintenance technique ou l’exploitation d’installations industrielles.\n\n- Permis de conduire (véhicule léger).\n\n- Bonne maîtrise du français.\n\n- Disponibilité pour des horaires flexibles (2x8) et service de piquet.\n\n- Résidence permettant une intervention rapide sur site (délai d’intervention compatible avec les exigences opérationnelles).\n\nAtouts\n\n- Connaissances en chauffage, ventilation, traitement des eaux ou installations industrielles.\n\n- Permis de cariste.\n\n- Connaissances d’anglais ou d’allemand.\n\n- Aisance avec les outils informatiques (Microsoft Office ou systèmes de gestion de maintenance).\n\nTous les candidats et toutes les candidates qualifié·e·s seront pris·es en considération pour un emploi sans distinction de race, de couleur, de religion, de sexe, d’orientation sexuelle, d’identité de genre, d’origine nationale ou de handicap."
+      },
+      "location": "Villeret",
+      "canton": "BE",
+      "url": "https://careers.straumann.com/global/en/job/20068/collaborateur-service-infrastructure",
+      "source": "Straumann Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-11T11:20:47.930Z",
+      "addressLocality": "Villeret",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Corporate & Support Functions",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Dental / Medical Devices (MedTech)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-17",
+      "applyUrl": "https://careers.straumann.com/global/en/job/20068/collaborateur-service-infrastructure",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-10T07:55:16.722Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
+    },
+    {
+      "id": "straumann-91e06428baab",
+      "slug": "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret",
+      "slugByLocale": {
+        "it": "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret",
+        "en": "apprenticeship-production-mechanic-and-polymechanic-cfc-straumann-villeret",
+        "de": "lehre-produktionsmechaniker-und-polymechaniker-efz-straumann-villeret",
+        "fr": "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
+      },
+      "company": "Straumann",
+      "companyKey": "straumann",
+      "companyDomain": "straumann.com",
+      "title": "Apprentissage Mécanicien de production et Polymécanicien CFC",
+      "titleByLocale": {
+        "it": "Apprendistato Meccanico di produzione e Polimeccanico AFC",
+        "en": "Apprenticeship Production Mechanic and Polymechanic CFC",
+        "de": "Lehre Produktionsmechaniker und Polymechaniker EFZ",
+        "fr": "Apprentissage Mécanicien de production et Polymécanicien CFC"
+      },
+      "description": "STRAUMANN GROUP\n\nLe Groupe Straumann allie portée mondiale, expérience et innovation avec passion et engagement envers une qualité irréprochable, rendant les soins dentaires améliorés disponibles et accessibles aux clients et aux patients du monde entier. Le groupe regroupe des marques mondiales et internationales synonymes d’excellence, d’innovation et de qualité, notamment Straumann, Neodent, Anthogyr, Medentika, ClearCorrect, Dental Wings ainsi que d’autres entreprises et partenaires détenus totalement ou partiellement.\n\nAvec plus de 8 000 employés dans le monde, le Groupe développe, fabrique et fournit des implants dentaires, des instruments, des biomatériaux, des prothèses CADCAM, des équipements numériques, des logiciels et des aligneurs transparents pour des applications en dentisterie de remplacement, restauratrice, orthodontique et préventive. En tant que fournisseur de solutions globales, nous adoptons une approche holistique, offrant formation, assistance et une large gamme de services aux praticiens dentaires, cliniques et laboratoires à travers le monde.\n\nPrincipales tâches et responsabilités:\n\n- Usinage de séries de pièces techniques avec des machines modernes\n\n- Réparation d’éléments mécaniques\n\n- Entretien des installations et détection des pannes\n\nCompétences et connaissances professionnelles\n\n- Tu es curieux(se), motivé(e) et prêt(e) à apprendre\n\n- Tu aimes bricoler ou comprendre comment tout fonctionne\n\n- Tu veux un métier où tu bouges, fabriques, répares et apprends\n\nCe que nous t’offrons :\n\n- Une formation complète avec des professionnels\n\n- Un métier passionnant dans un domaine porteur de sens\n\n- Une super ambiance et de vraies perspectives d’avenir\n\nTous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap.",
+      "descriptionByLocale": {
+        "it": "GRUPPO STRAUMANN Il Gruppo Straumann unisce portata, esperienza e innovazione a livello globale con passione e impegno per una qualità elevata, rendendo disponibili cure dentistiche migliorate e accessibili a clienti e pazienti in tutto il mondo. Il gruppo riunisce marchi globali e internazionali che sono sinonimo di eccellenza, innovazione e qualità, tra cui Straumann, Neodent, Anthogyr, Medentika, ClearCorrect, Dental Wings e altre aziende e partner interamente o parzialmente di proprietà. Con oltre 8.000 dipendenti in tutto il mondo, il Gruppo sviluppa, produce e fornisce impianti dentali, strumenti, biomateriali, protesi CADCAM, apparecchiature digitali, software e rivestimenti trasparenti per applicazioni in odontoiatria sostitutiva, restauratore, odontoiatria ortodontica e preventiva. Come fornitore globale di soluzioni, prendiamo un approccio olistico, offrendo formazione, assistenza e una vasta gamma di servizi a professionisti dentali, cliniche e laboratori in tutto il mondo. Principali compiti e responsabilità: - Serie di parti tecniche di lavorazione con macchine moderne - Riparazione di componenti meccanici - Manutenzione e rilevamento di guasti Competenze e conoscenze professionali - Sei curioso, motivato e pronto ad imparare - Ti piace armeggiare o capire come funziona tutto. - No. Vuoi un lavoro in cui ti muovi, produci, ripara e impara \n• Cosa offriamo: - Formazione completa con professionisti - Una professione emozionante in un campo significativo - Una grande atmosfera e prospettive reali per il futuro Tutti i candidati qualificati saranno considerati per l'occupazione indipendentemente da razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale o disabilità.",
+        "en": "STRAUMANN GROUP The Straumann Group combines global reach, experience and innovation with passion and commitment to impeccable quality, making enhanced dental care available and accessible to customers and patients around the world. The group brings together global and international brands synonymous with excellence, innovation and quality, including Straumann, Neodent, Anthogyr, Medentika, ClearCorrect, Dental Wings and other wholly or partially owned companies and partners. With more than 8,000 employees worldwide, the Group develops, manufactures and supplies dental implants, instruments, biomaterials, CADCAM prosthetics, digital equipment, software and transparent aligners for applications in replacement, restorative, orthodontic and preventative dentistry. As a global solutions provider, we take a holistic approach, offering training, support and a wide range of services to dental practitioners, clinics and laboratories across the world. Main tasks and responsibilities: - Machining of series of technical parts with modern machines - Repair of mechanical elements - Maintenance of installations and fault detection Professional skills and knowledge - You are curious, motivated and ready to learn - You like to tinker or understand how everything works - You want a job where you move, make, repair and learn \n• What we offer you: - Complete training with professionals - An exciting job in a meaningful field - A great atmosphere and real future prospects All qualified candidates will be considered for employment without distinction of race, color, religion, sex, sexual orientation, gender identity, national origin or disability.",
+        "de": "STRAUMANN-GRUPPE Die Straumann-Gruppe kombiniert globale Reichweite, Erfahrung und Innovation mit Leidenschaft und Engagement für einwandfreie Qualität und macht Kunden und Patienten auf der ganzen Welt eine verbesserte zahnmedizinische Versorgung verfügbar und zugänglich. Die Gruppe vereint globale und internationale Marken, die für Exzellenz, Innovation und Qualität stehen, darunter Straumann, Neodent, Anthogyr, Medentika, ClearCorrect, Dental Wings und andere ganz oder teilweise eigene Unternehmen und Partner. Mit mehr als 8.000 Mitarbeitern weltweit entwickelt, produziert und liefert die Gruppe Zahnimplantate, Instrumente, Biomaterialien, CADCAM-Prothetik, digitale Geräte, Software und transparente Aligner für Anwendungen in der Ersatz-, restaurativen, kieferorthopädischen und präventiven Zahnheilkunde. Als globaler Lösungsanbieter verfolgen wir einen ganzheitlichen Ansatz und bieten Zahnärzten, Kliniken und Laboren auf der ganzen Welt Schulungen, Support und eine breite Palette von Dienstleistungen an. Hauptaufgaben und Verantwortlichkeiten: - Bearbeitung von Serien technischer Teile mit modernen Maschinen - Reparatur mechanischer Elemente - Wartung von Anlagen und Fehlererkennung Fachliche Fähigkeiten und Kenntnisse - Du bist neugierig, motiviert und lernbereit - Du bastelst gerne oder verstehst, wie alles funktioniert - Du möchtest einen Job, bei dem du umziehst, baust, reparierst und lernst Was wir dir bieten: - Komplette Ausbildung bei Profis - Ein spannender Job in einem sinnvollen Bereich - Eine tolle Atmosphäre und echte Zukunftsaussichten Alle qualifizierten Kandidaten werden für eine Anstellung ohne Unterschied von Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft oder Behinderung.",
+        "fr": "STRAUMANN GROUP\n\nLe Groupe Straumann allie portée mondiale, expérience et innovation avec passion et engagement envers une qualité irréprochable, rendant les soins dentaires améliorés disponibles et accessibles aux clients et aux patients du monde entier. Le groupe regroupe des marques mondiales et internationales synonymes d’excellence, d’innovation et de qualité, notamment Straumann, Neodent, Anthogyr, Medentika, ClearCorrect, Dental Wings ainsi que d’autres entreprises et partenaires détenus totalement ou partiellement.\n\nAvec plus de 8 000 employés dans le monde, le Groupe développe, fabrique et fournit des implants dentaires, des instruments, des biomatériaux, des prothèses CADCAM, des équipements numériques, des logiciels et des aligneurs transparents pour des applications en dentisterie de remplacement, restauratrice, orthodontique et préventive. En tant que fournisseur de solutions globales, nous adoptons une approche holistique, offrant formation, assistance et une large gamme de services aux praticiens dentaires, cliniques et laboratoires à travers le monde.\n\nPrincipales tâches et responsabilités:\n\n- Usinage de séries de pièces techniques avec des machines modernes\n\n- Réparation d’éléments mécaniques\n\n- Entretien des installations et détection des pannes\n\nCompétences et connaissances professionnelles\n\n- Tu es curieux(se), motivé(e) et prêt(e) à apprendre\n\n- Tu aimes bricoler ou comprendre comment tout fonctionne\n\n- Tu veux un métier où tu bouges, fabriques, répares et apprends\n\nCe que nous t’offrons :\n\n- Une formation complète avec des professionnels\n\n- Un métier passionnant dans un domaine porteur de sens\n\n- Une super ambiance et de vraies perspectives d’avenir\n\nTous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap."
+      },
+      "location": "Villeret",
+      "canton": "BE",
+      "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
+      "source": "Straumann Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-11T11:20:47.589Z",
+      "addressLocality": "Villeret",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Corporate & Support Functions",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Dental / Medical Devices (MedTech)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-08",
+      "applyUrl": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:16.721Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
     }
   ]
 }

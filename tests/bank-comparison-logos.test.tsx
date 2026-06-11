@@ -94,16 +94,16 @@ describe('BankComparison — provider logos', () => {
     }
   });
 
-  it('uses the Intesa Sanpaolo entry from PROVIDER_LOGOS as the logo source', () => {
+  it('renders a coloured-initials badge (never Clearbit / grey globe) when no local logo is bundled', () => {
     render(<BankComparison />);
 
     const intesaImg = screen.getByAltText('Intesa Sanpaolo');
     const src = intesaImg.getAttribute('src') ?? '';
-    // No local file is committed for Intesa, so initial src must come from
-    // Clearbit (resolved from PROVIDER_LOGOS['intesa-sanpaolo'].domain).
-    // If Clearbit fails at runtime, the onError handler swaps to the local
-    // SVG placeholder — but at initial render we expect the Clearbit URL.
-    expect(src).toContain('logo.clearbit.com');
-    expect(src).toContain('intesasanpaolo.com');
+    // No local file is committed for Intesa Sanpaolo. We no longer emit a
+    // Clearbit URL (defunct CDN) or a Google favicon (grey globe) — the initial
+    // src is the deterministic coloured-initials data URI.
+    expect(src).not.toContain('logo.clearbit.com');
+    expect(src).not.toContain('google.com/s2/favicons');
+    expect(src).toMatch(/^data:image\/svg\+xml/);
   });
 });

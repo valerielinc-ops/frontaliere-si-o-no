@@ -27,6 +27,8 @@ import {
   Inbox,
   Sparkles,
   Archive,
+  RotateCcw,
+  ExternalLink,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -36,6 +38,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { getApp } from '@/services/firebase';
 import { useCountUp } from '@/hooks/useCountUp';
 import type { PublisherJobStatus, PublisherTier } from '@/services/publisherTypes';
+import { canArchive, canRestore, isLiveStatus } from '@/services/publisherTypes';
 
 interface DashboardRow {
   id: string;
@@ -47,6 +50,9 @@ interface DashboardRow {
   applyClicks: number;
   createdAt: number | null;
   renewsAt: number | null;
+  publicUrl: string | null;
+  projectedAt: number | null;
+  contentEditedAt: number | null;
 }
 
 interface ApplicationRow {
@@ -72,10 +78,13 @@ const BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
 const ARCHIVE_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/archivePublisherAd';
+const RESTORE_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/restorePublisherAd';
 
-// Statuses for which the publisher can still archive the ad (live or in-flight).
-// Already-terminal states (expired/rejected/archived) get no archive action.
-const ARCHIVABLE_STATUSES = new Set(['paid', 'published', 'pending_payment', 'draft']);
+// How long after a content edit the "changes pending publication (~1–2h)" hint
+// stays visible. The slice sync (~hourly) + deploy propagates the edit within
+// this window; past it the hint would be a stale, false claim, so it self-clears.
+const MODIFIED_HINT_WINDOW_MS = 3 * 60 * 60 * 1000;
 
 /** Status → semantic pill colours (same meaning everywhere). */
 const STATUS_PILL: Record<PublisherJobStatus, string> = {
@@ -148,6 +157,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [billingBusy, setBillingBusy] = useState(false);
   const [barsMounted, setBarsMounted] = useState(false);
   const [archivingId, setArchivingId] = useState<string | null>(null);
+  const [restoringId, setRestoringId] = useState<string | null>(null);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
@@ -197,6 +207,31 @@ const PublisherDashboardPage: React.FC = () => {
     }
   };
 
+  const handleRestore = async (jobId: string) => {
+    if (!user || restoringId) return;
+    setRestoringId(jobId);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch(RESTORE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({ jobId }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; status?: PublisherJobStatus };
+      if (!res.ok || !data.ok || !data.status) throw new Error('restore_failed');
+      // Reflect the resolved destination (paid / published / draft) returned by the CF.
+      const next = data.status;
+      setRows((prev) => prev.map((r) => (r.id === jobId ? { ...r, status: next } : r)));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'restore', 'success');
+    } catch (error) {
+      reportCaughtError(error, 'publisherDashboard.restore');
+      if (typeof window !== 'undefined') window.alert(t('publisherDashboard.restoreError'));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'restore', 'error');
+    } finally {
+      setRestoringId(null);
+    }
+  };
+
   useEffect(() => {
     if (!user) return;
     let cancelled = false;
@@ -241,6 +276,9 @@ const PublisherDashboardPage: React.FC = () => {
               applyClicks,
               createdAt: tsToMillis(j.createdAt),
               renewsAt: tsToMillis(j.renewsAt),
+              publicUrl: typeof j.publicUrl === 'string' ? j.publicUrl : null,
+              projectedAt: tsToMillis(j.projectedAt),
+              contentEditedAt: tsToMillis(j.contentEditedAt),
             };
           }),
         );
@@ -338,12 +376,41 @@ const PublisherDashboardPage: React.FC = () => {
   const statusLabel = (s: PublisherJobStatus) => t(`publisherDashboard.status.${s}`);
   const isSponsored = (tier: PublisherTier) => tier === 'sponsored';
 
+  // Pipeline-aware status for live-eligible ads. A paid/published ad reads
+  // "In revisione" until the publisher-jobs sync has projected it into the slice
+  // and triggered the deploy (publicUrl + projectedAt stamped by
+  // build-publisher-jobs.mjs), then "Online" with a link to the live page.
+  const isLiveEligible = (r: DashboardRow) => r.status === 'paid' || r.status === 'published';
+  const displayStatus = (r: DashboardRow): string =>
+    isLiveEligible(r)
+      ? (r.projectedAt ? t('publisherDashboard.status.online') : t('publisherDashboard.status.review'))
+      : statusLabel(r.status);
+  // Show the live link once the ad is in the deployed slice. Deploy latency
+  // (~1h) is disclosed so a freshly-projected link that 404s for a few minutes
+  // doesn't read as broken.
+  const liveLink = (r: DashboardRow): { url: string; soon: boolean } | null => {
+    if (!isLiveEligible(r) || !r.projectedAt || !r.publicUrl) return null;
+    const soon = Date.now() - r.projectedAt < 2 * 3600000;
+    return { url: r.publicUrl, soon };
+  };
+
   // "Renews in N days" — only for sponsored+paid ads with a future renewsAt.
   const renewalLabel = (r: DashboardRow): string | null => {
     if (r.tier !== 'sponsored' || r.status !== 'paid' || r.renewsAt == null) return null;
     const days = Math.ceil((r.renewsAt - Date.now()) / 86400000);
     if (days <= 0) return null;
     return t('publisherDashboard.renewsIn', { days });
+  };
+
+  // "Edits pending publication" — a content edit on a LIVE ad isn't visible on the
+  // site until the next slice sync (~1–2h). Surfaces that the change is in-flight,
+  // but ONLY within a recency window: `contentEditedAt` is stamped on every edit
+  // and never cleared, so without this gate the "online entro 1–2 ore" claim would
+  // stay (falsely) forever. After the window the edit has long since gone live.
+  const modifiedLabel = (r: DashboardRow): string | null => {
+    if (!isLiveStatus(r.status) || r.contentEditedAt == null) return null;
+    if (Date.now() - r.contentEditedAt > MODIFIED_HINT_WINDOW_MS) return null;
+    return t('publisherDashboard.modifiedPending');
   };
 
   return (
@@ -483,12 +550,29 @@ const PublisherDashboardPage: React.FC = () => {
                         </span>
                       )}
                       <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${STATUS_PILL[r.status]}`}>
-                        {statusLabel(r.status)}
+                        {displayStatus(r)}
                       </span>
+                      {liveLink(r) && (
+                        <a
+                          href={liveLink(r)!.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-link hover:underline"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          {t('publisherDashboard.viewLive')}
+                        </a>
+                      )}
                       <span className="text-xs text-muted">
                         {r.locations} {t('publisherDashboard.col.locations')}
                       </span>
                     </div>
+                    {liveLink(r)?.soon && (
+                      <p className="text-xs text-muted mb-3 -mt-2">{t('publisherDashboard.liveSoon')}</p>
+                    )}
+                    {modifiedLabel(r) && (
+                      <p className="text-xs text-muted mb-3 -mt-2">{modifiedLabel(r)}</p>
+                    )}
 
                     {/* Conversion funnel */}
                     <div className="space-y-2.5">
@@ -531,7 +615,7 @@ const PublisherDashboardPage: React.FC = () => {
                           <Pencil className="w-3.5 h-3.5" />
                           {t('publisherDashboard.edit')}
                         </a>
-                        {ARCHIVABLE_STATUSES.has(r.status) && (
+                        {canArchive(r.status) && (
                           <button
                             type="button"
                             onClick={() => { void handleArchive(r.id); }}
@@ -540,6 +624,17 @@ const PublisherDashboardPage: React.FC = () => {
                           >
                             <Archive className="w-3.5 h-3.5" />
                             {t('publisherDashboard.archive')}
+                          </button>
+                        )}
+                        {canRestore(r.status) && (
+                          <button
+                            type="button"
+                            onClick={() => { void handleRestore(r.id); }}
+                            disabled={restoringId === r.id}
+                            className="inline-flex items-center gap-1 text-sm font-medium text-link hover:underline disabled:opacity-60 transition-colors"
+                          >
+                            <RotateCcw className="w-3.5 h-3.5" />
+                            {t('publisherDashboard.restore')}
                           </button>
                         )}
                       </div>

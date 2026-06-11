@@ -35,6 +35,7 @@ import {
   inferSkyguideCanton,
   buildSkyguideLocalizedContent,
 } from './lib/skyguide-job-parser.mjs';
+import { fetchHtml } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -79,39 +80,22 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-// Retry policy: 4 total attempts (initial + 3 retries) with exponential backoff
-// 3s → 6s → 12s → 20s between attempts (~41s total wait) to survive transient
-// upstream outages of 45–60s seen in CI on 2026-04-18 (Skyguide) / 2026-04-19 (Ariston).
-const FETCH_RETRY_DELAYS_MS = [3000, 6000, 12000, 20000];
-
-async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000, retries = 3) {
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        signal: controller.signal,
-        headers: {
-          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-          'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8,de;q=0.7,fr;q=0.6',
-          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-        },
-      });
-      clearTimeout(timer);
-      if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-      return await res.text();
-    } catch (err) {
-      clearTimeout(timer);
-      if (attempt < retries) {
-        const delay = FETCH_RETRY_DELAYS_MS[attempt] ?? 20000;
-        console.log(`  ⚠️ Retry ${attempt + 1}/${retries} for ${url} in ${delay}ms: ${err.message}`);
-        await new Promise((r) => setTimeout(r, delay));
-      } else {
-        throw err;
-      }
-    }
-  }
-}
+// fetchText removed: replaced by shared fetchHtml from crawler-template.mjs,
+// which adds connection-level Jina fallback for datacenter egress blocks (the
+// root cause of the 2026-04-18 Skyguide CI outage). fetchHtml already includes
+// retry+backoff via fetchWithRetry; no local loop needed.
+//
+// Skyguide's WAF gates on a realistic browser fingerprint, so we MUST keep the
+// Chrome User-Agent + Accept-Language this crawler always sent (the bot DEFAULT_UA
+// risks a 403, which is an HTTP error → NOT proxied via Jina → hard fail every wave).
+// options.headers override DEFAULT_UA; 30s timeout preserved.
+const SKYGUIDE_FETCH_HEADERS = {
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8,de;q=0.7,fr;q=0.6',
+  'User-Agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+};
+const SKYGUIDE_FETCH_OPTS = { headers: SKYGUIDE_FETCH_HEADERS, timeoutMs: 30000 };
 
 function absoluteUrl(raw = '') {
   if (!raw) return '';
@@ -152,7 +136,7 @@ async function fetchListings() {
   const seen = new Set();
 
   for (const listingUrl of LISTING_URLS) {
-    const html = await fetchText(listingUrl);
+    const html = await fetchHtml(listingUrl, SKYGUIDE_FETCH_OPTS);
     const rows = parseSkyguideListings(html);
     console.log(`📋 Rows from filter ${listingUrl}: ${rows.length}`);
     for (const row of rows) {
@@ -185,7 +169,7 @@ function normalizePostedDate(raw = '') {
 
 async function buildSkyguideJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
-  const html = await fetchText(detailUrl);
+  const html = await fetchHtml(detailUrl, SKYGUIDE_FETCH_OPTS);
   const detail = parseSkyguideJobDetail(html);
   const localized = buildSkyguideLocalizedContent(detail, COMPANY_NAME);
   const location = normalizeLocation(detail.location || listing.location);

@@ -45,6 +45,7 @@ const ATS_HOST_MARKERS = [
  'workable.com',
  'jobvite.com',
  'service-now.com',
+ 'talentics.ai',
 ];
 
 function gFavicon(domain: string): string {
@@ -120,6 +121,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'buergenstock-hotels': cLogo('buergenstock.ch'),
  'burkhalter-group': '/images/brands/burkhalter-group.png',
  'cambiavalute': gFavicon('cambiavalute.ch'),
+ 'canton-ticino-osc': '/images/brands/canton-ticino-osc.ico',
  'capri-holdings': cLogo('capriholdings.com'),
  'caritas-schweiz': cLogo('caritas.ch'),
  'casale': '/images/brands/casale.png',
@@ -160,6 +162,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'cseb': '/images/brands/cseb.png',
  'csl-behring': cLogo('cslbehring.com'),
  'csvm-mustair': cLogo('csvm.ch'),
+ 'csvp-poschiavo': '/images/brands/csvp-poschiavo.png',
  'daler-hopital': cLogo('daler.ch'),
  'damiani-group': 'https://www.damianigroup.com/wp-content/uploads/2020/03/DAMIANI_GROUP-logo-new-SVG.svg',
  'davos-klosters-bergbahnen': '/images/brands/davos-klosters-bergbahnen.png',
@@ -168,8 +171,10 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'delvitech-sa': 'https://legacy.delvi.tech/wp-content/uploads/2022/03/cropped-Delvi.tech_favicon.jpg',
  'denner': '/images/brands/denner.png',
  'diakoniewerk-neumuenster': cLogo('diakoniewerk-neumuenster.ch'),
+ 'duferco': '/images/brands/duferco.png',
  'dxt-commodities': 'https://dxt.com/wp-content/uploads/2025/04/logo-DXT.png',
  'efg-international': '/images/logos/efg-international.svg',
+ 'ehc-vd': '/images/brands/ehc-vd.ico',
  'emil-frey': cLogo('emilfrey.ch'),
  'emmi': cLogo('emmi.com'),
  'ems-chemie': '/images/brands/ems-chemie.png',
@@ -182,6 +187,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'ergolz-klinik': cLogo('cardiance.com'),
  'ermenegildo-zegna': '/images/logos/ermenegildo-zegna.svg',
  'ermenegildo-zegna-logistica': '/images/logos/ermenegildo-zegna.svg',
+ 'eta-sa-swatch-group': '/images/brands/eta-sa-swatch-group.ico',
  'eth-zurich': cLogo('ethzurich.ch'),
  'fart': gFavicon('fartiamo.ch'),
  'ferrovia-retica': '/images/brands/ferrovia-retica.png',
@@ -231,6 +237,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'hopital-de-lavaux': cLogo('hopitaldelavaux.ch'),
  'hopital-de-moutier': cLogo('swissmedical.net'),
  'hopital-du-valais': 'https://www.hopitalvs.ch/typo3temp/assets/_processed_/3/b/csm_favicon_feec2e8f1f.png',
+ 'hopital-la-tour': '/images/brands/hopital-la-tour.png',
  'hoval': '/images/brands/hoval.png',
  'hrc': cLogo('hopitalrivierachablais.ch'),
  'hug': cLogo('hug.ch'),
@@ -241,6 +248,9 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'imad': cLogo('imad-ge.ch'),
  'implenia': cLogo('implenia.com'),
  'impresa-pizzarotti': '/images/brands/impresa-pizzarotti.png',
+ 'institution-lavigny': '/images/brands/institution-lavigny.jpg',
+ 'interdiscount': '/images/brands/interdiscount.ico',
+ 'international-school-of-ticino': '/images/brands/international-school-of-ticino.ico',
  'ipw': cLogo('ipw.ch'),
  'julius-baer': cLogo('juliusbaer.com'),
  'jumbo': '/images/brands/jumbo.png',
@@ -259,6 +269,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'klinik-im-hasel': cLogo('klinikimhasel.ch'),
  'klinik-lengg': cLogo('kliniklengg.ch'),
  'klinik-schloss-mammern': cLogo('klinik-schloss-mammern.ch'),
+ 'klinik-schoenberg': '/images/brands/klinik-schoenberg.png',
  'klinik-schuetzen': cLogo('klinikschuetzen.ch'),
  'klinik-seeschau': cLogo('klinik-seeschau.ch'),
  'klinik-sgm': cLogo('klinik-sgm.ch'),
@@ -372,6 +383,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'salina-reha': cLogo('salina-reha.ch'),
  'sanatorium-kilchberg': cLogo('sanatorium-kilchberg.ch'),
  'schindler': gFavicon('schindler.com'),
+ 'schulthess-klinik': '/images/brands/schulthess-klinik.png',
  'see-spital': cLogo('see-spital.ch'),
  'senevita': cLogo('senevita.ch'),
  'siegfried': '/images/brands/siegfried.png',
@@ -382,6 +394,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'soh-solothurner-spitaeler': cLogo('solothurnerspitaeler.ch'),
  'solina': cLogo('solina.ch'),
  'solothurner-spitaeler': cLogo('solothurnerspitaeler.ch'),
+ 'somedia': '/images/brands/somedia.ico',
  'sonnweid': cLogo('sonnweid.ch'),
  'sonova': cLogo('sonova.com'),
  'spitaeler-schaffhausen': cLogo('spitaeler-sh.ch'),
@@ -417,6 +430,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'suchthilfe-region-basel': cLogo('suchthilfe.ch'),
  'suedhang': cLogo('suedhang.ch'),
  'sulzer': cLogo('sulzer.com'),
+ 'sune-egge': '/images/brands/sune-egge.svg',
  'sunrise-communications-ag': '/images/brands/sunrise-communications-ag.png',
  'sunrise-sede-ticino': cLogo('sunrise.ch'),
  'supsi-dti': 'https://www.supsi.ch/o/supsi-v2-theme/images/favicon/apple-touch-icon.png',
@@ -482,6 +496,26 @@ for (const [slug, localPath] of Object.entries(
 // Alias keys used by orphan/GSC-enriched job data (slugified from company name)
 // that differ from the canonical crawler key in the registry above.
 CRAWLED_COMPANY_LOGOS['guess-europe-sagl'] ??= CRAWLED_COMPANY_LOGOS['guess-europe'];
+
+// Broken-logo guard. After the manifest overlay, any entry whose value is STILL
+// a Google `s2/favicons` URL (grey-globe PNG that browsers paint even on a 404)
+// or a `logo.clearbit.com` URL (Clearbit's logo CDN is defunct → every request
+// errors) was never mirrored locally and would render broken. Drop those keys
+// so every resolver path (the step-1 lookup AND the isXxx identity fallbacks,
+// which all read this map) falls through to the coloured-initials badge —
+// never the grey globe, a dead Clearbit image, or a dead URL in JSON-LD
+// `hiringOrganization.logo`. The `gFavicon('...')`/`cLogo('...')` source entries
+// are intentionally KEPT in the literal above: they are download hints for
+// scripts/download-company-logos.mjs, which parses the source text — not this
+// runtime object — and mirrors each logo to /images/brands/{slug}. Once a logo
+// is mirrored the overlay replaces the value with the local path, so this guard
+// only ever removes genuinely-unmirrored entries.
+for (const key of Object.keys(CRAWLED_COMPANY_LOGOS)) {
+ const value = CRAWLED_COMPANY_LOGOS[key];
+ if (value?.includes('google.com/s2/favicons') || value?.includes('logo.clearbit.com')) {
+ delete CRAWLED_COMPANY_LOGOS[key];
+ }
+}
 
 const CATEGORY_ALIASES: Record<string, CanonicalJobCategory> = {
  tech: 'tech',
@@ -771,9 +805,9 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
  if (isBracco(job)) return CRAWLED_COMPANY_LOGOS['bracco'];
  if (isBoggi(job)) return CRAWLED_COMPANY_LOGOS['boggi-milano'];
  if (isSwisscom(job)) return CRAWLED_COMPANY_LOGOS['swisscom-sede-ticino'];
- if (isAriston(job)) return gFavicon('aristongroup.com');
+ if (isAriston(job)) return CRAWLED_COMPANY_LOGOS['ariston-group'];
  if (isBosch(job)) return CRAWLED_COMPANY_LOGOS['bosch-thermotechnik-ag'];
- if (isRittmeyer(job)) return gFavicon('rittmeyer.com');
+ if (isRittmeyer(job)) return CRAWLED_COMPANY_LOGOS['rittmeyer-ag'];
  if (isUsi(job)) return CRAWLED_COMPANY_LOGOS['usi-universita-della-svizzera-italiana'];
  if (normalizeCompanyIdentity(`${job.company || ''} ${job.companyKey || ''}`).includes('posta svizzera')
  || normalizeCompanyIdentity(`${job.company || ''} ${job.companyKey || ''}`).includes('post ch')
@@ -781,10 +815,15 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
  return CRAWLED_COMPANY_LOGOS['posta-svizzera-centro-regionale'];
  }
 
- // 3. Domain-based resolution for non-crawled companies
- const host = resolveCompanyWebsiteHost(job);
- if (!host) return null;
- return gFavicon(host);
+ // 3. No curated logo and no identity match. We deliberately do NOT fall back
+ // to gFavicon(host) here: Google's favicon API serves a generic grey-globe
+ // PNG (HTTP 200/404-with-body, ~726 B) for domains it can't resolve, which
+ // browsers render even on a 404 — so the <img onError> chain never fires and
+ // the user sees the broken-looking grey globe (e.g. crawled companies on ATS
+ // sub-domains like duferco.talentics.ai). Returning null lets the SPA and the
+ // static SEO renderer fall through to the deterministic coloured-initials
+ // badge instead — a real visual identity, never the grey globe.
+ return null;
 }
 
 /**

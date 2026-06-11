@@ -730,6 +730,9 @@ const PublisherPublishPage: React.FC = () => {
  ...(ad.apply.mode === 'forward_email' || ad.apply.mode === 'in_house' ? { email: ad.apply.email.trim() } : {}),
  ...(ad.apply.privacyPolicyUrl.trim() ? { privacyPolicyUrl: ad.apply.privacyPolicyUrl.trim() } : {}),
  },
+ // Marks the ad as edited — the dashboard shows a "changes pending publication"
+ // hint on live ads until the next slice sync (~1–2h) picks the edit up.
+ contentEditedAt: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },
  { merge: true },

@@ -97,6 +97,7 @@ import { getCityCanton } from './shared/cantonCities';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
 import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
+import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
 // via the canonical `buildJobPostingSchema` builder.
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
@@ -3219,13 +3220,11 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       companyKey: stats.employerKey,
       companyDomain: stats.companyDomain,
     });
-  // Static-page mirror of `services/logoService.ts` `handleCompanyLogoError`:
-  // Clearbit → Google favicon → /icons/company-placeholder.svg, guarded
-  // against infinite loops via `data-lf`. Inline because static HTML cannot
-  // attach React onError handlers.
-  const LOGO_ONERROR = `if(this.dataset.lf==='ph')return;if(this.src.indexOf('logo.clearbit.com')>-1){var d=this.src.replace(/^https?:\\/\\/logo\\.clearbit\\.com\\//,'').split(/[\\/?#]/)[0];if(d){this.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128';this.dataset.lf='gf';return;}}this.src='/icons/company-placeholder.svg';this.dataset.lf='ph';this.style.visibility='visible';`;
+  // Inline onerror for static HTML (no React handler). Shared LOGO_IMG_ONERROR
+  // falls straight to the placeholder — no Clearbit/Google-favicon hop (both
+  // produce the broken-looking grey globe). See companyLogoResolver.ts.
   const headerLogoHtml = brandLogoUrl
-    ? `<img class="s-xISvoQ" src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" onerror="${LOGO_ONERROR}">`
+    ? `<img class="s-xISvoQ" src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" onerror="${LOGO_IMG_ONERROR}">`
     : `<span class="s-oRrysh" aria-hidden="true">${ICON_BUILDING_SVG}</span>`;
 
   // Job list (≤10) — rendered via the SPA-matching shared `renderJobCardHtml`
