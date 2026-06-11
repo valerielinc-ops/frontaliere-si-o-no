@@ -612,6 +612,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
 
+ // BFS-depth closure (2026-06-11): the per-canton "Esplora" navigator only
+ // linked the top-8 cities by job count, leaving every OTHER emitted
+ // municipality city hub (`/cerca-lavoro-{canton}/{city}/`) BFS-orphaned in
+ // sitemap-jobs.xml (1715 offenders vs 1037 baseline on the failing
+ // post-deploy run). The per-canton city-hub emit (Phase 3.1 below) records
+ // the EXACT emitted city-hub set per canton here — same gate, same slugs —
+ // so the navigator can link all of them and bring every city page to BFS
+ // depth ≤ (canton hub + 1). Keyed by canton code; the slug is
+ // locale-independent (the navigator prefixes the locale section itself).
+ // Auto-covers every present and future canton with no per-canton wiring.
+ const emittedCantonCityHubs = new Map<string, Array<{ slug: string; label: string }>>();
+
  // Tiered emission filter (artifact-shrink Fase 1). Consults
  // data/evidence-index.json (90d GSC/GA4/PostHog) + the hourly
  // data/thin-page-promotions-active.json (self-healing feedback) +
@@ -6030,6 +6042,9 @@ ${staticAnalyticsHtml}
    if (ca !== cb) return cb - ca;
    return a.citySlug.localeCompare(b.citySlug);
  });
+ // Record the exact emitted city-hub set (job-desc + alpha order) so the
+ // canton-hub navigator links every one of them (BFS-depth closure above).
+ emittedCantonCityHubs.set(canton, cantonCityList.map((c) => ({ slug: c.citySlug, label: c.cityDisplay })));
  for (const { citySlug, cityDisplay: canonCityDisplay } of cantonCityList) {
  const cityJobs = byCity.get(citySlug) ?? ([] as typeof validJobs);
  const cityDisplay = cityDisplayByCantonCity.get(canton)?.get(citySlug) ?? canonCityDisplay;
@@ -8982,6 +8997,22 @@ ${staticAnalyticsHtml}
          seenCitySlugs.add(slug);
          topCityHubs.push({ slug, label: cityRaw });
        }
+       // BFS-depth closure (2026-06-11): every OTHER emitted municipality
+       // city hub for this canton (beyond the top-8 featured above). The
+       // per-canton city-hub emit (Phase 3.1) writes a static page for EVERY
+       // canon municipality — incl. 0-job ones — but the navigator only
+       // linked the top 8, leaving the long tail (e.g. argovia/suhr,
+       // argovia/wettingen) BFS-orphaned in sitemap-jobs.xml. Link the exact
+       // emitted set (recorded at emit time, same gate + same slugs → no
+       // 404 risk) so each city page reaches BFS depth ≤ (canton hub + 1).
+       // Deduped against the featured top-8 via the shared seenCitySlugs set
+       // so no URL is linked twice (Squirrel identical-links a11y).
+       const otherCityHubs: Array<{ slug: string; label: string }> = [];
+       for (const c of emittedCantonCityHubs.get(entry.key) ?? []) {
+         if (!c.slug || seenCitySlugs.has(c.slug)) continue;
+         seenCitySlugs.add(c.slug);
+         otherCityHubs.push(c);
+       }
        // Top categories by job count (max 6). Mirror the category slug
        // tables from the category-listing block (~line 5742-5752); kept
        // inline to avoid hoisting a nested scope across thousands of lines.
@@ -9143,6 +9174,10 @@ ${staticAnalyticsHtml}
          : entry.locale === 'de' ? 'Top-Städte'
          : entry.locale === 'fr' ? 'Villes principales'
          : 'Città principali';
+       const colAllCitiesLabel = entry.locale === 'en' ? `All municipalities in ${display}`
+         : entry.locale === 'de' ? `Alle Gemeinden in ${display}`
+         : entry.locale === 'fr' ? `Toutes les communes en ${display}`
+         : `Tutti i comuni in ${display}`;
        const colByCategoryLabel = entry.locale === 'en' ? 'Top sectors'
          : entry.locale === 'de' ? 'Top-Branchen'
          : entry.locale === 'fr' ? 'Secteurs principaux'
@@ -9178,6 +9213,25 @@ ${staticAnalyticsHtml}
            `<div class="s-h0CoDf" data-explore-categories>` +
            `<h3 class="s-8S_vke">${esc(colByCategoryLabel)}</h3>` +
            `<div>${renderLinks(topCategoryHubs)}</div>` +
+           `</div>`,
+         );
+       }
+       // BFS-depth closure (2026-06-11): link every remaining emitted
+       // municipality city hub so the long tail is no longer BFS-orphaned.
+       // Rendered as a lightweight comma-free wrapped link list (NOT the
+       // per-link pill style above) because a big canton (Bern ~334
+       // municipalities) would otherwise add ~90 KB of repeated inline-style
+       // bytes to the hub and crowd the flat 215 KB page-weight cap. Plain
+       // anchors inherit the seo-static link color; one container style does
+       // the spacing for the whole block.
+       if (otherCityHubs.length > 0) {
+         const cityIndexLinks = otherCityHubs
+           .map((it) => `<a href="${exploreSectionBase}${it.slug}/">${esc(it.label)}</a>`)
+           .join(' · ');
+         blocks.push(
+           `<div class="s-h0CoDf" data-explore-all-cities>` +
+           `<h3 class="s-8S_vke">${esc(colAllCitiesLabel)}</h3>` +
+           `<div style="font-size:14px;line-height:1.9;color:var(--color-link)">${cityIndexLinks}</div>` +
            `</div>`,
          );
        }

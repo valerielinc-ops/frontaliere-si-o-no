@@ -14,6 +14,7 @@
 
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import { join, extname } from 'path';
+import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 const DIST = 'dist';
 const DOMAIN = 'https://frontaliereticino.ch/';
@@ -56,7 +57,13 @@ function hasJobPostingSchema(html) {
 }
 
 function isJobPage(path) {
-  return /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test('/' + path);
+  // Canton-aware job-board sections (TI legacy + every canton + svizzera
+  // aggregator) via the shared matcher — was TI-only, which made non-TI
+  // canton job pages invisible to the JobPosting-schema warning and the
+  // thin-bridge exemption below. Both downstream uses are non-blocking for
+  // these pages (jobsNoSchema is a warning; the exemption only ever removes
+  // a thin-content error), so broadening cannot turn the gate red.
+  return JOB_BOARD_SECTION_RX.test('/' + path);
 }
 
 function isIndividualJobPage(path) {
