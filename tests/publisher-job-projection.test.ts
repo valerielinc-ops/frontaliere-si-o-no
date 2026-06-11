@@ -71,6 +71,29 @@ describe('publisherJobToRecords', () => {
     expect(r.descriptionByLocale.it).toBe(existing);
   });
 
+  it('populates titleByLocale + slugByLocale for all 4 locales (job-locale-completeness gate)', () => {
+    const [r] = publisherJobToRecords(paidJob(), { nowIso: NOW });
+    expect(r.titleByLocale).toBeDefined();
+    expect(r.slugByLocale).toBeDefined();
+    for (const lk of ['it', 'en', 'de', 'fr']) {
+      expect(String(r.titleByLocale[lk] || '').length).toBeGreaterThan(0);
+      expect(String(r.slugByLocale[lk] || '').length).toBeGreaterThan(0);
+    }
+    // The /lavoro/<slug> path is locale-agnostic → same slug across locales.
+    expect(r.slugByLocale.en).toBe(r.slug);
+    expect(r.titleByLocale.it).toBe('Fisioterapista diplomato/a');
+  });
+
+  it('preserves a real per-locale title/slug instead of overwriting with the source', () => {
+    const [r] = publisherJobToRecords(
+      paidJob({ titleByLocale: { en: 'Certified physiotherapist' }, slugByLocale: { en: 'certified-physiotherapist-lugano' } }),
+      { nowIso: NOW },
+    );
+    expect(r.titleByLocale.en).toBe('Certified physiotherapist');
+    expect(r.slugByLocale.en).toBe('certified-physiotherapist-lugano');
+    expect(String(r.titleByLocale.de || '').length).toBeGreaterThan(0); // still backfilled from source
+  });
+
   it('produces stable deterministic ids per (job, location)', () => {
     const a = publisherJobToRecords(paidJob(), { nowIso: NOW });
     const b = publisherJobToRecords(paidJob(), { nowIso: NOW });
