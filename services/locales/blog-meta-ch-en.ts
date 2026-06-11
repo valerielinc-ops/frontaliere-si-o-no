@@ -128,6 +128,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.givaudan-licenziamenti.title': 'Givaudan fires staff',
     'blog.article.givaudan-licenziamenti.excerpt': 'Givaudan, global leader in fragrances and flavors, fires employees for stealing essences.',
     'blog.article.givaudan-licenziamenti.imageAlt': 'Chemical industry in Switzerland',
+    'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi shakes up leadership and seeks new partners',
+    'blog.article.agefi-nuovi-vertici.excerpt': 'Frédéric Lelièvre leaves L\'Agefi for Le Temps; Jonas Follonier becomes editor-in-chief and Olivier Bloch director',
+    'blog.article.agefi-nuovi-vertici.imageAlt': 'A Swiss business newspaper being read in a café in Lugano',
 };
 
 export default blogMetaChEn;
