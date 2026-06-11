@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-06-10T23:15:18.202Z",
+  "generatedAt": "2026-06-11T13:21:01.588Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4483,
-  "avgDurationMs": 4483,
+  "durationMs": 3693,
+  "avgDurationMs": 3693,
   "durationHistory": [
-    4483
+    3693
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,13 +21,13 @@
       "companyKey": "privatklinik-hohenegg",
       "companyDomain": "hohenegg.ch",
       "title": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0038/pub/12/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T23:15:14.771Z",
+      "crawledAt": "2026-06-11T13:20:58.603Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -46,11 +46,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "firstSeenAt": "2026-06-10T12:43:00.781Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/640332/0053/pub/4/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T23:15:15.278Z",
+      "crawledAt": "2026-06-11T13:20:59.048Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -86,11 +86,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "firstSeenAt": "2026-06-10T12:43:01.245Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -107,7 +107,7 @@
       "url": "https://apply.refline.ch/640332/0061/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T23:15:15.759Z",
+      "crawledAt": "2026-06-11T13:20:59.466Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
