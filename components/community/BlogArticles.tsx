@@ -22,7 +22,8 @@ import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorCont
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
 import Callout from '@/components/shared/Callout';
-import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
+import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
+import { generateInitialsLogo } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
@@ -857,21 +858,19 @@ interface JobPreview {
 function jobLogoUrl(job: JobPreview): string | null {
  const explicit = resolveCompanyLogoUrl(job);
  if (explicit) return cdnImageUrl(explicit);
- const host = resolveCompanyWebsiteHost(job);
- if (!host) return null;
- // Prefer Clearbit (returns 404 for unknown, not grey globe); Google favicon is onError backup
- return `https://logo.clearbit.com/${host}`;
+ // No curated logo: use the deterministic coloured-initials badge — never a
+ // Clearbit URL (CDN defunct → 404) or Google favicon (grey globe). Matches
+ // the SPA job board and the static SEO renderer.
+ if (job.company && job.company.trim().length > 0) return generateInitialsLogo(job.company);
+ return null;
 }
 
-/** onError handler for company logo images: Clearbit 404 -> Google favicon -> hide */
+/** onError handler: jobLogoUrl only ever yields a self-hosted asset or an
+ * inlined initials data URI (neither 404s), so a load error means a genuinely
+ * broken asset — hide it (the `<Building2>` icon shows when logo is null). No
+ * Clearbit→Google-favicon hop: that only produced the broken grey globe. */
 function handleBlogLogoError(e: { currentTarget: HTMLImageElement }) {
- const el = e.currentTarget;
- if (el.src.includes('logo.clearbit.com')) {
- const domain = el.src.replace('https://logo.clearbit.com/', '');
- el.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
- } else {
- el.style.display = 'none';
- }
+ e.currentTarget.style.display = 'none';
 }
 
 const JOB_STOP_WORDS = new Set([...STOP_WORDS, 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);

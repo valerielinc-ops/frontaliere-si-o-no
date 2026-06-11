@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -115,32 +115,8 @@ function detectEmploymentType(text = '') {
 const SITEMAP_URL = 'https://jobs.mobiliar.ch/sitemap.xml';
 const JOB_BASE = 'https://jobs.mobiliar.ch';
 
-/**
- * Fetch a URL and return the response text with timeout handling.
- */
-async function fetchText(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
-}
+// fetchText removed: use shared fetchHtml from crawler-template.mjs which
+// includes connection-level Jina fallback for datacenter egress blocks.
 
 /**
  * Parse sitemap.xml and extract ALL Swiss Mobiliar job URLs.
@@ -151,7 +127,7 @@ async function fetchText(url) {
  */
 async function fetchAllSwissJobUrls() {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
-  const xml = await fetchText(SITEMAP_URL);
+  const xml = await fetchHtml(SITEMAP_URL, { headers: { Accept: 'application/xml,text/xml,*/*' } });
 
   // Extract all <loc> URLs that point at job detail pages.
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)]
@@ -289,7 +265,7 @@ export async function fetchAllMobiliarJobs() {
     const urlLocation = extractLocationFromUrl(jobUrl);
 
     try {
-      const html = await fetchText(jobUrl);
+      const html = await fetchHtml(jobUrl);
       const parsed = parseDetailPage(html);
 
       if (!parsed) {

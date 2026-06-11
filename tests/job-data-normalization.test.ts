@@ -153,6 +153,49 @@ describe('jobDataNormalization', () => {
     expect(logo).toBeTruthy();
   });
 
+  it('returns null (never a gFavicon grey globe) for an unknown company with a host', () => {
+    // Non-curated, non-identity-matched company. The domain branch used to
+    // return gFavicon(host); it now returns null so the SPA / static renderer
+    // fall through to the coloured-initials badge instead of the grey globe.
+    const logo = resolveCompanyLogoUrl({
+      company: 'Totally Unknown Crawled GmbH',
+      companyKey: 'totally-unknown-crawled-gmbh',
+      companyDomain: 'totally-unknown-crawled-example.ch',
+      url: 'https://totally-unknown-crawled-example.ch/jobs/123',
+    });
+    expect(logo).toBeNull();
+  });
+
+  it('returns the curated Duferco logo even though its companyDomain is the talentics.ai ATS host', () => {
+    const logo = resolveCompanyLogoUrl({
+      company: 'Duferco',
+      companyKey: 'duferco',
+      companyDomain: 'duferco.talentics.ai',
+      url: 'https://duferco.talentics.ai/job/b77369d4',
+    });
+    expect(logo).not.toContain('google.com/s2/favicons');
+    expect(logo).toBe(CRAWLED_COMPANY_LOGOS['duferco']);
+  });
+
+  it('treats talentics.ai as an ATS host (resolveCompanyWebsiteHost must not surface it as the company site)', () => {
+    const host = resolveCompanyWebsiteHost({
+      company: 'Some Company',
+      companyKey: 'some-company-xyz',
+      companyDomain: 'acme.talentics.ai',
+      url: 'https://acme.talentics.ai/job/1',
+    });
+    // Only the ATS host is available, so it is returned as a last resort, but
+    // it must never be preferred over a real company domain when one exists.
+    const hostWithReal = resolveCompanyWebsiteHost({
+      company: 'Some Company',
+      companyKey: 'some-company-xyz',
+      companyDomain: 'acme.talentics.ai',
+      url: 'https://acme-real.ch/job/1',
+    });
+    expect(hostWithReal).toBe('acme-real.ch');
+    expect(host).toBe('talentics.ai');
+  });
+
   describe('truncateJobSlug (Semrush A9 / Issue 201 — URLs >200 chars)', () => {
     it('returns short slugs untouched', () => {
       expect(truncateJobSlug('senior-software-engineer-zurich-ubs')).toBe(

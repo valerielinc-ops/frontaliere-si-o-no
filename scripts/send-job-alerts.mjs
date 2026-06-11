@@ -24,6 +24,7 @@ import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
+import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -145,53 +146,13 @@ function brandLogoUrl(companyName, companyKey) {
   return null;
 }
 
-// Job-board aggregator domains — when an alert pulls from these, the URL
-// host is NOT the company site, so the favicon would be wrong (LinkedIn /
-// Indeed / Jobup logo instead of the actual employer). Skip the favicon
-// fallback for these and let the initial-letter avatar render instead.
-const AGGREGATOR_HOSTS = new Set([
-  'linkedin.com', 'indeed.com', 'indeed.ch', 'glassdoor.com',
-  'jobs.ch', 'jobup.ch', 'jobscout24.ch', 'monster.ch', 'monster.com',
-  'stepstone.ch', 'stepstone.com', 'jobagent.ch', 'job-room.ch',
-  'arbeit.swiss', 'work.swiss', 'topjobs.ch',
-]);
-
-function extractCompanyDomain(rawUrl) {
-  if (!rawUrl) return null;
-  try {
-    const host = new URL(rawUrl).hostname.replace(/^www\./, '').toLowerCase();
-    if (!host) return null;
-    // Reject our own domain (job board on frontaliereticino.ch) and aggregators.
-    if (host === 'frontaliereticino.ch' || host.endsWith('.frontaliereticino.ch')) return null;
-    if (AGGREGATOR_HOSTS.has(host)) return null;
-    // For subdomains like jobs.companysite.com / careers.companysite.com,
-    // strip the leading subdomain so the favicon comes from the parent.
-    if (/^(?:careers?|jobs?|recruiting|hr|werkenbij|emplois|stellen|carriere)\./.test(host)) {
-      return host.split('.').slice(1).join('.');
-    }
-    return host;
-  } catch {
-    return null;
-  }
-}
-
-// Universal logo fallback via Google's S2 favicons CDN. ALWAYS returns an icon
-// for any reachable domain (lower quality than bundled logos — usually 32–128px
-// favicons — but covers every long-tail employer not in our 72-brand bundle).
-function faviconUrl(domain) {
-  if (!domain) return null;
-  return `https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(domain)}`;
-}
-
 function resolveAvatarSrc(job) {
-  // Tier 1: bundled, high-quality brand logo.
+  // Bundled, high-quality brand logo only. No Google-favicon tier: it serves a
+  // grey globe for domains it can't resolve (and the wrong logo for aggregator
+  // hosts), both of which look broken in an inbox. A null result renders the
+  // coloured initial-letter avatar instead.
   const bundled = brandLogoUrl(job.company, job.companyKey);
   if (bundled) return { src: bundled, kind: 'bundled' };
-  // Tier 2: site favicon for the company's own domain.
-  const sourceUrl = job.url || job.applyUrl || job.urlByLocale?.it || null;
-  const domain = extractCompanyDomain(sourceUrl);
-  const fav = faviconUrl(domain);
-  if (fav) return { src: fav, kind: 'favicon' };
   return null;
 }
 
@@ -451,44 +412,11 @@ function loadRecentJobs() {
 }
 
 // ── Matching logic ───────────────────────────────────────────
-
-function matchJobToAlert(job, alert) {
-  let score = 0;
-
-  // Keyword matching (title + description)
-  if (alert.keywords?.length > 0) {
-    const text = `${job.title || ''} ${job.description || ''} ${Object.values(job.titleByLocale || {}).join(' ')}`.toLowerCase();
-    const keywordMatch = alert.keywords.some((kw) => text.includes(kw.toLowerCase()));
-    if (keywordMatch) score += 3;
-    else return 0; // Keywords required but none matched
-  }
-
-  // Location matching
-  if (alert.locations?.length > 0) {
-    const jobLoc = `${job.location || ''} ${job.addressLocality || ''} ${job.canton || ''}`.toLowerCase();
-    const locMatch = alert.locations.some((loc) => jobLoc.includes(loc.toLowerCase()));
-    if (locMatch) score += 2;
-  }
-
-  // Contract type matching
-  if (alert.contractTypes?.length > 0) {
-    const jobContract = (job.contract || '').toLowerCase();
-    const contractMatch = alert.contractTypes.some((ct) => jobContract.includes(ct.toLowerCase()));
-    if (contractMatch) score += 1;
-  }
-
-  // Sector matching
-  if (alert.sectors?.length > 0) {
-    const jobSector = (job.sector || '').toLowerCase();
-    const sectorMatch = alert.sectors.some((s) => jobSector.includes(s.toLowerCase()));
-    if (sectorMatch) score += 2;
-  }
-
-  // If no keywords required, location is sufficient
-  if (alert.keywords?.length === 0 && score === 0) return 0;
-
-  return Math.max(score, 1);
-}
+// The relevance heuristic lives in services/jobAlertMatching.mjs
+// (buildAlertProfile + scoreJobForAlert) so it is pure + unit-testable and
+// shares the keyword tokenizer with the newsletter funnel. The matching loop
+// in main() builds a per-alert profile (alert config + source-job intent +
+// newsletter_subscribers profile) and scores every recent job against it.
 
 // ── Email template ───────────────────────────────────────────
 
@@ -611,11 +539,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const initial = (company || '?')[0].toUpperCase();
     const avatar = resolveAvatarSrc(job);
     const logoSrc = avatar?.src || null;
-    // Bundled logos render contained on white, favicons render edge-to-edge
-    // on a dark surface (favicons are usually transparent or have their own bg).
-    const logoStyle = avatar?.kind === 'favicon'
-      ? 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:cover;'
-      : 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
+    // Bundled logos render contained on white.
+    const logoStyle = 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
     const tags = [];
     // "NEW" badge for jobs first seen within 48 hours.
     const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
@@ -1059,11 +984,17 @@ async function main() {
   const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
   const newsletterCooldownSet = new Set();
   const autologinDisabledSet = new Set();
+  // Subscriber profiles keyed by lowercased email. Captured here (reusing the
+  // newsletter_subscribers read this loop already performs — zero extra reads)
+  // so the matcher can fold the newsletter profile (job_company, job_category,
+  // sector_interest, location_interest, preferences, …) into relevance scoring.
+  const subscriberProfiles = new Map();
   for (const email of alertEmails) {
     try {
       const subDoc = await db.collection('newsletter_subscribers').doc(email).get();
       if (subDoc.exists) {
         const data = subDoc.data() || {};
+        subscriberProfiles.set(email.toLowerCase(), data);
         const lastSentAt = data.last_sent_at;
         if (lastSentAt) {
           const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
@@ -1103,8 +1034,11 @@ async function main() {
   let totalMatches = 0;
 
   for (const alert of alerts) {
+    // Enrich the alert with the subscriber's newsletter profile + its own
+    // source-job signals, then score every recent job against that profile.
+    const profile = buildAlertProfile(alert, subscriberProfiles.get(alert.email.toLowerCase()) || null);
     const sorted = recentJobs
-      .map((job) => ({ job, score: matchJobToAlert(job, alert) }))
+      .map((job) => ({ job, score: scoreJobForAlert(job, profile) }))
       .filter((m) => m.score > 0)
       .sort((a, b) => {
         // Primary: higher score first.
