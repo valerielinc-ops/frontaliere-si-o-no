@@ -10,9 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
-import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -22,7 +20,6 @@ export const GEBERIT_COMPANY_NAME = 'Geberit';
 export const GEBERIT_COMPANY_DOMAIN = 'geberit.com';
 
 const CAREER_URL = 'https://jobs.geberit.com/';
-const SITEMAP_URL = 'https://jobs.geberit.com/sitemap.xml';
 
 // HQ fallback (Rapperswil-Jona, SG) per recon.
 const HQ = {
@@ -36,22 +33,6 @@ const SECTOR = 'Industrial / Sanitary technology (manufacturing)';
 
 // Posting host of the SuccessFactors RMK tenant (branded CNAME).
 const ATS_HOST = 'jobs.geberit.com';
-
-/**
- * City tokens that mark a Swiss job slug per recon. Each entry maps the
- * slug-prefix token to a human-readable location + canton. Order matters:
- * longest/most-specific prefix first so 'Rapperswil-Jona' wins over 'Jona'.
- * German plants (Pfullendorf, Haldensleben, Lichtenstein/Saxony, …) are NOT
- * listed → they fall through the filter and are excluded.
- */
-const SWISS_CITY_TOKENS = [
-  { token: 'Rapperswil-Jona', location: 'Rapperswil-Jona', canton: 'SG' },
-  { token: 'Aussendienst-Schweiz', location: 'Aussendienst Schweiz', canton: null },
-  { token: 'Jona', location: 'Jona', canton: 'SG' },
-  { token: 'Pfaeffikon', location: 'Pfäffikon', canton: 'SZ' },
-  { token: 'Pfäffikon', location: 'Pfäffikon', canton: 'SZ' },
-  { token: 'Givisiez', location: 'Givisiez', canton: 'FR' },
-];
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -139,107 +120,107 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Sitemap listing fetcher ──────────────────────────────────
- * The Geberit careers site runs on a branded SAP SuccessFactors RMK
- * (jobs2web) tenant. Its search rows are AJAX-injected and the job-detail
- * pages are JS-rendered with NO server-side JSON-LD, so the only reliable
- * machine-readable source is the single sitemap.xml: one <url> block per
- * job, with <loc>.../job/{City-Slug}/{jobId}/</loc> and a <lastmod> date.
- * We derive the title from the slug and the location from the leading city
- * token, filtering to Swiss jobs by that token (recon chFilter).
+/* ── SuccessFactors RMK / Career Site Builder JSON API ─────────
+ * The Geberit careers site is a SAP SuccessFactors "Career Site Builder"
+ * SPA: search rows and job-detail bodies are rendered client-side from a
+ * JSON search API, and the server HTML carries NO JSON-LD and only ~500
+ * chars of chrome — the sitemap likewise exposes only title + URL. The SPA
+ * itself calls a public Azure-Search-backed endpoint with a publishable
+ * api-key embedded in the page; one POST returns the FULL job records
+ * (rich HTML description + structured address + dates + job type) for an
+ * OData filter, so we query Swiss jobs directly — no headless render, no
+ * per-job detail fetch, real descriptions that clear the boilerplate gate.
  */
+
+const SEARCH_API_URL = 'https://production.api.recruiting-solutions.org/search';
+// Publishable (pk_) frontend key — the SPA ships it in plain JS; not a secret.
+const SEARCH_API_KEY =
+  'pk_geberit-prod_wbymYncbyHVbHzffXBqsBBBGQsyWJQEAnbmrthowOTtUchrxCjEEKgKyJvsGlvcfMxGXJpNAbqPTXBgTZQKeldlzFKscNjWJ';
+const SEARCH_CUSTOMER_ID = 'geberit-prod';
+// OData filter: every job with at least one Swiss address (data label is German "Schweiz").
+const SWISS_FILTER = "addresses/any(a: a/country eq 'Schweiz')";
+const PAGE_SIZE = 100;
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
-  '(KHTML, like Gecko) Chrome/126.0 Safari/537.36';
+  '(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
-/** Match a Swiss city token at the START of the slug path segment. */
-function matchSwissCityToken(slugSegment = '') {
-  const seg = String(slugSegment || '');
-  for (const entry of SWISS_CITY_TOKENS) {
-    if (seg.toLowerCase().startsWith(entry.token.toLowerCase() + '-') ||
-        seg.toLowerCase() === entry.token.toLowerCase()) {
-      return entry;
-    }
-  }
-  return null;
+/** Map a SuccessFactors locale code (de_DE, en_US, fr_FR, it_IT) → our 2-letter locale. */
+function localeToLang(code = '') {
+  const lc = String(code || '').slice(0, 2).toLowerCase();
+  return ['it', 'de', 'fr', 'en'].includes(lc) ? lc : 'de';
 }
 
 /**
- * Turn the remaining slug (after the city token) into a human title.
- * Slug words are dash-joined and may carry a trailing percentage band
- * (e.g. "...-(a)-80-100" / "...-100"). We keep those — they are part of
- * the real posting title — and just restore spaces.
+ * Convert the RMK description HTML (<h2>/<p>/<ul><li>) into markdown so the
+ * list/heading structure survives (the parser-quality audit flags flat prose
+ * with no bullets). Falls back to a plain-text strip for anything else.
  */
-function slugToTitle(rest = '') {
-  return rest
-    .split('-')
-    .filter(Boolean)
-    .join(' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+function htmlToMarkdown(html = '') {
+  let s = String(html || '');
+  s = s.replace(/<\s*(h[1-6])[^>]*>([\s\S]*?)<\/\s*\1\s*>/gi, (_m, _t, inner) => `\n\n## ${stripHtml(inner).trim()}\n`);
+  s = s.replace(/<\s*li[^>]*>([\s\S]*?)<\/\s*li\s*>/gi, (_m, inner) => `\n- ${stripHtml(inner).trim()}`);
+  s = s.replace(/<\s*\/\s*(p|div|ul|ol)\s*>/gi, '\n');
+  s = s.replace(/<\s*br\s*\/?\s*>/gi, '\n');
+  s = stripHtml(s);
+  s = s.replace(/&#13;/g, '').replace(/ /g, ' ');
+  s = s.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').replace(/[ \t]{2,}/g, ' ');
+  return s.trim();
 }
 
-/** Parse <url> blocks out of the sitemap XML. */
-function parseSitemap(xml = '') {
-  const out = [];
-  const blockRe = /<url>([\s\S]*?)<\/url>/g;
-  let m;
-  while ((m = blockRe.exec(xml)) !== null) {
-    const block = m[1];
-    const loc = (block.match(/<loc>([^<]+)<\/loc>/) || [])[1];
-    const lastmod = (block.match(/<lastmod>([^<]+)<\/lastmod>/) || [])[1];
-    if (loc) out.push({ loc: loc.trim(), lastmod: (lastmod || '').trim() });
-  }
-  return out;
-}
-
-async function fetchJobListings() {
-  let xml;
-  try {
-    xml = await fetchHtml(SITEMAP_URL, { headers: { 'User-Agent': UA, Accept: 'application/xml,text/xml,*/*' } });
-  } catch (err) {
-    console.error(`❌ Failed to fetch sitemap: ${err?.message || err}`);
-    return [];
-  }
-
-  const entries = parseSitemap(xml);
-  console.log(`  🗺️  Sitemap entries: ${entries.length}`);
-
-  const listings = [];
-  for (const { loc, lastmod } of entries) {
-    // Path shape: /job/{City-Slug}/{jobId}/
-    const pathMatch = loc.match(/\/job\/([^/]+)\/(\d+)\/?$/i);
-    if (!pathMatch) continue;
-
-    const rawSlug = pathMatch[1];
-    const jobReqId = pathMatch[2];
-    // Decode %28a%29 → (a), %C3%B6 → ö, etc.
-    let decoded;
+/** POST the search API with transient retry. Returns the parsed JSON or throws. */
+async function postSearch(body, { retries = 3 } = {}) {
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      decoded = decodeURIComponent(rawSlug);
-    } catch {
-      decoded = rawSlug;
+      const res = await fetch(SEARCH_API_URL, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json;charset=UTF-8',
+          'x-api-key': SEARCH_API_KEY,
+          customerid: SEARCH_CUSTOMER_ID,
+          privatejobboard: 'false',
+          internal: 'false',
+          'User-Agent': UA,
+          Referer: CAREER_URL,
+        },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} from search API`);
+      return await res.json();
+    } catch (err) {
+      lastErr = err;
+      if (attempt < retries) {
+        await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+      }
     }
-
-    const cityHit = matchSwissCityToken(decoded);
-    if (!cityHit) continue; // non-CH (German plants, Lichtenstein/Saxony, …)
-
-    // Strip the city token prefix to get the title remainder.
-    const rest = decoded.slice(cityHit.token.length).replace(/^-+/, '');
-    const title = slugToTitle(rest) || cityHit.location;
-
-    listings.push({
-      title,
-      location: cityHit.location,
-      cantonHint: cityHit.canton, // may be null → HQ fallback later
-      url: loc,
-      postedAt: lastmod || '',
-      jobReqId,
-    });
   }
+  throw lastErr;
+}
 
-  return listings;
+/** Fetch every Swiss Geberit job record (with full description) from the RMK API. */
+async function fetchSwissJobRecords() {
+  const collected = [];
+  let skip = 0;
+  let total = Infinity;
+  // Hard cap to avoid a runaway loop if the API ignores skip.
+  for (let page = 0; page < 50 && skip < total; page++) {
+    const data = await postSearch({
+      count: true,
+      facets: [],
+      search: '*',
+      filter: SWISS_FILTER,
+      skip,
+      top: PAGE_SIZE,
+    });
+    if (page === 0) total = Number(data?.['@odata.count'] ?? 0);
+    const value = Array.isArray(data?.value) ? data.value : [];
+    if (value.length === 0) break;
+    collected.push(...value);
+    skip += value.length;
+    if (collected.length >= total) break;
+  }
+  return collected;
 }
 
 /**
@@ -251,47 +232,71 @@ async function fetchJobListings() {
  */
 export async function fetchAllGeberitJobs() {
   console.log(`🔍 Fetching Geberit (Switzerland) jobs`);
-  console.log(`   Source: ${SITEMAP_URL}\n`);
+  console.log(`   Source: SuccessFactors RMK search API (filter: Swiss addresses)\n`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
+  let records;
+  try {
+    records = await fetchSwissJobRecords();
+  } catch (err) {
+    console.error(`❌ Failed to fetch Geberit jobs from RMK API: ${err?.message || err}`);
     return [];
   }
-
-  console.log(`  📋 Listings found: ${listings.length}`);
+  console.log(`  📋 Swiss job records returned: ${records.length}`);
 
   const jobs = [];
-  const seenIds = new Set();
-  for (const listing of listings) {
-    const title = normalizeSpace(listing.title || '');
+  const seenInternal = new Set();
+  // Prefer one locale per physical job: de (CH primary) > it > fr > en.
+  const LANG_RANK = { de: 0, it: 1, fr: 2, en: 3 };
+  const sorted = [...records].sort(
+    (a, b) => (LANG_RANK[localeToLang(a.language)] ?? 9) - (LANG_RANK[localeToLang(b.language)] ?? 9),
+  );
+
+  for (const rec of sorted) {
+    const title = normalizeSpace(rec.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || HQ.city;
-    // Prefer the city-token canton; otherwise infer from the location string;
-    // otherwise fall back to the HQ canton (recon: SG).
-    const canton =
-      listing.cantonHint || inferSwissTargetCanton(location) || HQ.canton;
+    // jobId = "<internalId>-<locale>" (e.g. "1799-de_DE"). Dedup physical jobs
+    // across locale variants on the internal id.
+    const internalId = String(rec.jobId || '').split('-')[0] || String(rec.jobId || '');
+    if (!internalId) continue;
+    if (seenInternal.has(internalId)) continue;
 
-    // No server-side description available (JS-rendered detail pages, no
-    // JSON-LD) → derive a minimal description from the title. The AI pipeline
-    // enriches/localizes downstream.
-    const descriptionText = stripHtml(listing.description || '');
-    const description = descriptionText || `${title} — Geberit, ${location}`;
-    const publicUrl = listing.url || CAREER_URL;
+    // The OData filter `addresses/any(a: a/country eq 'Schweiz')` matches records
+    // with *at least one* Swiss address — the Swiss one is not guaranteed to be
+    // at index [0] (multi-site records can list a foreign plant first). Pick the
+    // Swiss address explicitly so location/postalCode/streetAddress never come
+    // from a foreign address and mis-tag a foreign job as CH/SG.
+    const addrs = Array.isArray(rec.addresses) ? rec.addresses : [];
+    const addr = addrs.find((a) => a && a.country === 'Schweiz') || addrs[0] || {};
+    const location = normalizeSpace(addr.city || HQ.city);
+    const canton = inferSwissTargetCanton(`${location} ${addr.postalCode || ''}`) || HQ.canton;
 
-    const sourceLang = detectLang(description || title, 'de');
+    const description = htmlToMarkdown(rec.description || '');
+    if (!description || description.length < 30) continue; // skip empties → never synthesise
+
+    seenInternal.add(internalId);
+
+    const sourceLang = localeToLang(rec.language);
+    // Keep the ORIGINAL slug formula (`${title} geberit ch`) so already-indexed
+    // Geberit URLs do not change — the source swap (sitemap → RMK API) must not
+    // re-slug the employer slice (reviewer 🔴 on #1857: a re-slug would orphan the
+    // previousSlugs redirect bridge and 404 the old `…-geberit-ch` URLs).
     const jobSlug = slugify(`${title} geberit ch`);
-    // Stable id from the SuccessFactors jobReqId when present, else URL hash.
-    const idSeed = listing.jobReqId || publicUrl;
-    const urlHash = createHash('sha1').update(String(idSeed)).digest('hex').slice(0, 12);
-    const id = `geberit-${urlHash}`;
-    if (seenIds.has(id)) continue;
-    seenIds.add(id);
+    const id = `geberit-${internalId}`;
 
-    // Normalize <lastmod> (YYYY-MM-DD or ISO) to a date-only string.
-    const postedDate = (listing.postedAt || '').slice(0, 10) ||
+    const publicUrl =
+      rec.link && /^https?:\/\//i.test(rec.link)
+        ? rec.link
+        : `https://${ATS_HOST}/job-invite/${internalId}/?locale=${rec.language || 'de_DE'}`;
+
+    const postedDate = String(rec.datePosted || '').slice(0, 10) ||
       new Date().toISOString().split('T')[0];
+
+    const empType = rec?.jobType?.code === 'Full-Time'
+      ? 'FULL_TIME'
+      : rec?.jobType?.code === 'Part-Time'
+        ? 'PART_TIME'
+        : detectEmploymentType(`${title} ${rec?.jobType?.label || ''}`);
 
     const job = {
       // ── Required fields ──
@@ -314,12 +319,13 @@ export async function fetchAllGeberitJobs() {
 
       // ── Recommended fields ──
       addressLocality: location,
-      postalCode: location === HQ.city ? HQ.postalCode : undefined,
+      postalCode: addr.postalCode || (location === HQ.city ? HQ.postalCode : undefined),
+      streetAddress: addr.street || undefined,
       addressRegion: canton === HQ.canton ? HQ.addressRegion : undefined,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      employmentType: detectEmploymentType(title),
+      employmentType: empType,
       experienceLevel: detectExperienceLevel(title),
       sector: SECTOR,
       currency: 'CHF',

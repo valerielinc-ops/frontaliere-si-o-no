@@ -1,9 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   GEBERIT_KEY,
   GEBERIT_COMPANY_NAME,
   isGeberitJob,
   isTrustedDomain,
+  fetchAllGeberitJobs,
+  // @ts-expect-error mjs module, no type declarations
 } from '../scripts/lib/geberit-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -125,5 +127,72 @@ describe('Geberit crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('fetchAllGeberitJobs (SuccessFactors RMK search API)', () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  function apiRecord(over = {}) {
+    return {
+      jobId: '1799-de_DE',
+      language: 'de_DE',
+      title: 'Strategic Project Buyer (a) 100%',
+      datePosted: '2026-05-16T12:35:05Z',
+      jobType: { code: 'Full-Time', label: 'Vollzeit' },
+      link: 'https://jobs.geberit.com/job-invite/1799/?locale=de_DE',
+      description:
+        "<div><h2><b>HAUPTAUFGABEN</b></h2><p>Als Strategic Project Buyer bist du zuständig für die Bereitstellung der Einkaufsartikel.</p><ul><li>Evaluierung von Lieferanten im Rahmen der Entwicklungsprojekte</li><li>Verantwortung für die rechtzeitige Bereitstellung der Beschaffungsartikel</li></ul></div>",
+      addresses: [{ city: 'Rapperswil-Jona', postalCode: '8645', country: 'Schweiz', street: 'Schachenstrasse 77', countryCode: 'CHE' }],
+      ...over,
+    };
+  }
+
+  function mockSearch(records) {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ '@odata.count': records.length, value: records }),
+    });
+  }
+
+  it('maps an RMK record to a job with the REAL (non-synthetic) description', async () => {
+    mockSearch([apiRecord()]);
+    const jobs = await fetchAllGeberitJobs();
+    expect(jobs).toHaveLength(1);
+    const j = jobs[0];
+    expect(j.title).toBe('Strategic Project Buyer (a) 100%');
+    expect(j.location).toBe('Rapperswil-Jona');
+    expect(j.postalCode).toBe('8645');
+    expect(j.employmentType).toBe('FULL_TIME');
+    // real description: markdown with heading + bullets, NOT a "<title> — Geberit" stub
+    expect(j.description.length).toBeGreaterThan(100);
+    expect(j.description).toMatch(/HAUPTAUFGABEN/);
+    expect(j.description).toMatch(/(^|\n)- /);
+    expect(j.description).not.toMatch(/— Geberit,/);
+    expect(j.descriptionByLocale.de).toBe(j.description);
+  });
+
+  it('dedups locale variants of the same physical job by internal id', async () => {
+    mockSearch([
+      apiRecord({ jobId: '1799-de_DE', language: 'de_DE' }),
+      apiRecord({ jobId: '1799-en_US', language: 'en_US', title: 'Strategic Project Buyer (a) 100%' }),
+    ]);
+    const jobs = await fetchAllGeberitJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('geberit-1799');
+    expect(jobs[0].sourceLang).toBe('de'); // de preferred over en
+  });
+
+  it('skips records whose description is empty instead of synthesising one', async () => {
+    mockSearch([apiRecord({ description: '' })]);
+    const jobs = await fetchAllGeberitJobs();
+    expect(jobs).toHaveLength(0);
+  });
+
+  it('returns [] (no throw) when the API errors', async () => {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 503, json: async () => ({}) });
+    const jobs = await fetchAllGeberitJobs();
+    expect(jobs).toEqual([]);
   });
 });

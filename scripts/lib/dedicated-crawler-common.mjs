@@ -5189,15 +5189,42 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // the normalized full URL (legacy behaviour) — no regression.
   const matchKey = opts.matchKey || ((job) => extractStableJobId(job?.url));
 
+  // Guard against a non-injective matchKey (collisions). A bridge key that is
+  // not unique — e.g. a slug bridge where two distinct postings share
+  // slugify("<title> …") (Geberit's `…-geberit-ch` + `…-geberit-ch-2` collision
+  // pair) — would otherwise map several fresh jobs onto a single old record:
+  // the Map below silently keeps only the last existing per key, and every
+  // fresh sharing that key inherits the SAME old.id / previousSlugs / locale
+  // translations, cross-contaminating them onto the wrong job while the other
+  // old record is left unmatched and expired. For any key shared by >1 existing
+  // OR >1 fresh job we skip the bridge entirely and let those jobs re-index with
+  // their own fresh identity — correctness over equity-preservation for an
+  // inherently ambiguous set.
+  const ambiguousKeys = new Set();
+  const seenExistingKeys = new Set();
+  for (const job of existingJobs) {
+    const k = matchKey(job);
+    if (!k) continue;
+    if (seenExistingKeys.has(k)) ambiguousKeys.add(k);
+    seenExistingKeys.add(k);
+  }
+  const seenFreshKeys = new Set();
+  for (const job of freshJobs) {
+    const k = matchKey(job);
+    if (!k) continue;
+    if (seenFreshKeys.has(k)) ambiguousKeys.add(k);
+    seenFreshKeys.add(k);
+  }
+
   const existingByKey = new Map();
   for (const job of existingJobs) {
     const k = matchKey(job);
-    if (k) existingByKey.set(k, job);
+    if (k && !ambiguousKeys.has(k)) existingByKey.set(k, job);
   }
 
   return freshJobs.map((fresh) => {
     const k = matchKey(fresh);
-    const old = k ? existingByKey.get(k) : null;
+    const old = (k && !ambiguousKeys.has(k)) ? existingByKey.get(k) : null;
     if (!old) return fresh;
 
     // Preserve stable ID from existing job
