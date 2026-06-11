@@ -42,6 +42,19 @@ export const PASTAHR_BROWSER_USER_AGENTS = [
 const PASTAHR_ENDPOINT = 'https://www.publicjobs.ch/widget';
 
 /**
+ * Derive the `Sec-CH-UA-Platform` client-hint value from the chosen UA string.
+ * Cloudflare cross-checks the platform hint against the UA: a desktop UA that
+ * says macOS/Linux paired with a `"Windows"` hint is a *mismatched* fingerprint
+ * (worse than a missing hint) and raises the bot score — defeating the purpose
+ * of this client. Always pair the hint with the actual UA platform.
+ */
+export function platformHintForUserAgent(ua) {
+  if (/Mac OS X|Macintosh/i.test(ua)) return '"macOS"';
+  if (/Linux|X11/i.test(ua)) return '"Linux"';
+  return '"Windows"';
+}
+
+/**
  * Build the full browser-fingerprinting header set for a publicjobs.ch
  * widget POST. These are the headers the in-page widget JS actually sends;
  * missing any of them increases the WAF bot-score.
@@ -64,7 +77,7 @@ export function makePastaHrBrowserHeaders(referer, origin, { ua, attempt = 0 } =
     // bot score because real Chrome always sends these.
     'Sec-CH-UA': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
     'Sec-CH-UA-Mobile': '?0',
-    'Sec-CH-UA-Platform': '"Windows"',
+    'Sec-CH-UA-Platform': platformHintForUserAgent(userAgent),
     'X-Requested-With': 'XMLHttpRequest',
     Referer: referer,
     Origin: origin,
@@ -103,14 +116,15 @@ async function fetchPastaHrPageViaPlaywright(params, { referer, origin, ua, time
   let browser;
   try {
     browser = await launchChromium({ headless: true });
+    const playwrightUa = ua || PASTAHR_BROWSER_USER_AGENTS[0];
     const context = await browser.newContext({
-      userAgent: ua || PASTAHR_BROWSER_USER_AGENTS[0],
+      userAgent: playwrightUa,
       locale: 'de-CH',
       extraHTTPHeaders: {
         'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
         'Sec-CH-UA': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
         'Sec-CH-UA-Mobile': '?0',
-        'Sec-CH-UA-Platform': '"Windows"',
+        'Sec-CH-UA-Platform': platformHintForUserAgent(playwrightUa),
       },
     });
     const page = await context.newPage();
