@@ -282,7 +282,7 @@
       "id": "richemont-7d49e9e9e2fc",
       "slug": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin",
+        "it": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
         "en": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "de": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "fr": "sertisseur-h-f-richemont-le-sentier"
@@ -329,16 +329,16 @@
       "previousSlugs": [
         "sertisseur-h-f-richemont-le-sentier",
         "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
+        "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin",
         "communications-unifiees-dwp-stagiaire-en-messagerie-richemont-meyrin",
         "sertisseur-h-f-jaeger-lecoultre-le-sentier",
-        "dwp-unified-communications-messaging-tirocinante-richemont-meyrin",
-        "dwp-unified-communications-messaging-intern-richemont-meyrin",
-        "incastonatore-m-f-jaeger-lecoultre-le-sentier"
+        "dwp-unified-communications-messaging-tirocinante-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sertisseur-h-f-richemont-le-sentier",
-          "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin"
+          "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
+          "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin"
         ],
         "en": [
           "sertisseur-h-f-richemont-le-sentier"
@@ -1566,7 +1566,6 @@
         "uhrwerkbauer-h-f-van-cleef-arpels-meyrin",
         "team-leader-pick-pack-richemont-villars-sur-glane",
         "team-leader-picking-and-packing-richemont-villars-sur-glane",
-        "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
         "pick-pack-capo-squadra-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.555Z",
@@ -1825,7 +1824,6 @@
         "responsabile-progetti-sste-valfleurier-buttes",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
         "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -1856,7 +1854,7 @@
       "id": "richemont-ef1447d5c244",
       "slug": "responsabile-progetti-sste-valfleurier-buttes",
       "slugByLocale": {
-        "it": "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
+        "it": "responsabile-progetti-sste-valfleurier-buttes",
         "en": "group-talent-systems-operations-project-manager-richemont-bellevue",
         "de": "gruppentalent-system-operations-projektmanager-valfleurier-buttes",
         "fr": "chef-de-projet-des-systemes-de-gestion-des-talents-et-des-operations-du-groupe-richemont-bellevue"
@@ -1902,17 +1900,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-projets-sste-richemont-buttes",
+        "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue",
         "group-talent-systems-operations-projektmanager-richemont-bellevue",
         "charge-de-projets-sste-valfleurier-buttes",
         "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
-        "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-        "group-talent-systems-operations-project-manager-richemont-bellevue",
-        "responsabile-progetti-sste-valfleurier-buttes"
+        "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-sste-richemont-buttes"
+          "charge-de-projets-sste-richemont-buttes",
+          "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
         ],
         "en": [
           "charge-de-projets-sste-richemont-buttes"
@@ -2714,7 +2712,7 @@
       "slug": "tirocinante-processi-di-progresso-procadrans-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "tirocinante-processi-di-progresso-procadrans-la-chaux-de-fonds",
-        "en": "process-improvement-intern-procadrans-la-chaux-de-fonds",
+        "en": "trainee-progress-procedures-procadrans-la-chaux-de-fonds",
         "de": "praktikant-fortschrittsprozesse-procadrans-la-chaux-de-fonds",
         "fr": "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds"
       },
@@ -2758,14 +2756,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds"
+        "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds",
+        "process-improvement-intern-procadrans-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds"
         ],
         "en": [
-          "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds"
+          "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds",
+          "process-improvement-intern-procadrans-la-chaux-de-fonds"
         ]
       },
       "needsRetranslation": true,
@@ -3096,7 +3096,7 @@
       "id": "richemont-fd939e29e6e6",
       "slug": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
       "slugByLocale": {
-        "it": "stage-di-gestione-del-programma-richemont-meyrin",
+        "it": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
         "en": "program-management-intern-richemont-meyrin",
         "de": "program-management-praktikant-richemont-meyrin",
         "fr": "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
@@ -3144,6 +3144,7 @@
         "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
         "tirocinante-in-program-management-richemont-meyrin",
         "stage-in-program-management-richemont-meyrin",
+        "stage-di-gestione-del-programma-richemont-meyrin",
         "program-management-intern-richemont-meyrin",
         "praktikum-im-programmmanagement-richemont-meyrin",
         "stagiaire-en-gestion-de-programme-richemont-meyrin",
@@ -3151,15 +3152,14 @@
         "program-management-tirocinante-richemont-meyrin",
         "programmleitung-intern-richemont-meyrin",
         "program-management-praktikant-richemont-meyrin-1a55df",
-        "programmmanagement-intern-richemont-meyrin",
-        "program-management-praktikant-richemont-meyrin",
-        "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes"
+        "programmmanagement-intern-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
           "tirocinante-in-program-management-richemont-meyrin",
-          "stage-in-program-management-richemont-meyrin"
+          "stage-in-program-management-richemont-meyrin",
+          "stage-di-gestione-del-programma-richemont-meyrin"
         ],
         "en": [
           "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
