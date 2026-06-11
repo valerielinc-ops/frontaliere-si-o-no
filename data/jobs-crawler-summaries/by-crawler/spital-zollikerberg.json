@@ -1,16 +1,16 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-06-11T13:34:16.337Z",
+  "generatedAt": "2026-06-11T23:32:32.061Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2465,
-  "avgDurationMs": 2465,
+  "durationMs": 3061,
+  "avgDurationMs": 3061,
   "durationHistory": [
-    2465
+    3061
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,13 +21,13 @@
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Fachfrau / Fachmann Gesundheit Intensivstation",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22e4a19a-0c48-48e5-b4d3-aeff99c2a989,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:34:14.475Z",
+      "crawledAt": "2026-06-11T23:32:29.898Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -42,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-06-11",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22e4a19a-0c48-48e5-b4d3-aeff99c2a989,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     }
