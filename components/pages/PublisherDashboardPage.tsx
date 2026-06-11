@@ -53,6 +53,7 @@ interface DashboardRow {
   publicUrl: string | null;
   projectedAt: number | null;
   contentEditedAt: number | null;
+  pendingPaymentAt: number | null;
 }
 
 interface ApplicationRow {
@@ -80,6 +81,8 @@ const ARCHIVE_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/archivePublisherAd';
 const RESTORE_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/restorePublisherAd';
+const CHECKOUT_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherCheckout';
 
 // How long after a content edit the "changes pending publication (~1–2h)" hint
 // stays visible. The slice sync (~hourly) + deploy propagates the edit within
@@ -158,6 +161,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [barsMounted, setBarsMounted] = useState(false);
   const [archivingId, setArchivingId] = useState<string | null>(null);
   const [restoringId, setRestoringId] = useState<string | null>(null);
+  const [resumingCheckoutId, setResumingCheckoutId] = useState<string | null>(null);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
@@ -232,6 +236,34 @@ const PublisherDashboardPage: React.FC = () => {
     }
   };
 
+  const handleResumeCheckout = async (jobId: string) => {
+    if (!user || resumingCheckoutId) return;
+    setResumingCheckoutId(jobId);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch(CHECKOUT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({
+          jobIds: [jobId],
+          successUrl: `${window.location.origin}${window.location.pathname}`,
+          cancelUrl: window.location.href,
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; url?: string };
+      if (data.ok && data.url) {
+        window.location.assign(data.url);
+      } else {
+        if (typeof window !== 'undefined') window.alert(t('publisherDashboard.resumeCheckoutError'));
+        setResumingCheckoutId(null);
+      }
+    } catch (error) {
+      reportCaughtError(error, 'publisherDashboard.resumeCheckout');
+      if (typeof window !== 'undefined') window.alert(t('publisherDashboard.resumeCheckoutError'));
+      setResumingCheckoutId(null);
+    }
+  };
+
   useEffect(() => {
     if (!user) return;
     let cancelled = false;
@@ -279,6 +311,7 @@ const PublisherDashboardPage: React.FC = () => {
               publicUrl: typeof j.publicUrl === 'string' ? j.publicUrl : null,
               projectedAt: tsToMillis(j.projectedAt),
               contentEditedAt: tsToMillis(j.contentEditedAt),
+              pendingPaymentAt: tsToMillis(j.pendingPaymentAt),
             };
           }),
         );
@@ -412,6 +445,10 @@ const PublisherDashboardPage: React.FC = () => {
     if (Date.now() - r.contentEditedAt > MODIFIED_HINT_WINDOW_MS) return null;
     return t('publisherDashboard.modifiedPending');
   };
+
+  // A draft that was previously in pending_payment (reaped by the stale-checkout
+  // reaper) has pendingPaymentAt set. Offer a one-click re-checkout CTA.
+  const isReapedDraft = (r: DashboardRow) => r.status === 'draft' && r.pendingPaymentAt != null;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -635,6 +672,17 @@ const PublisherDashboardPage: React.FC = () => {
                           >
                             <RotateCcw className="w-3.5 h-3.5" />
                             {t('publisherDashboard.restore')}
+                          </button>
+                        )}
+                        {isReapedDraft(r) && (
+                          <button
+                            type="button"
+                            onClick={() => { void handleResumeCheckout(r.id); }}
+                            disabled={resumingCheckoutId === r.id}
+                            className="inline-flex items-center gap-1 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover px-3 py-1.5 rounded-lg disabled:opacity-60 transition-colors"
+                          >
+                            <CreditCard className="w-3.5 h-3.5" />
+                            {t('publisherDashboard.resumeCheckout')}
                           </button>
                         )}
                       </div>
