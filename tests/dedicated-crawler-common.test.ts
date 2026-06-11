@@ -504,4 +504,66 @@ describe('mergePreserveLocaleData URL matching', () => {
     expect(merged[0].slugByLocale.de).toBe('produktmanager-example-zurich');
     expect(merged[0].slugByLocale.fr).toBe('chef-de-produit-example-zurich');
   });
+
+  it('skips the bridge for a colliding (non-injective) matchKey instead of cross-contaminating', async () => {
+    const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    // Two distinct postings that collapse to the same slug bridge key (the
+    // Geberit `…-geberit-ch` + `…-geberit-ch-2` collision pair). Each fresh job
+    // emits the RAW slug (no `-2` suffix) → identical matchKey. Binding both to
+    // one old record would duplicate `old.id` and cross-contaminate previousSlugs
+    // / translations onto the wrong job. The guard must let them re-index fresh.
+    const existing = [
+      {
+        id: 'geberit-OLD-A',
+        slug: 'talent-for-sales-management-a-100-geberit-ch',
+        url: 'https://jobs.geberit.com/job/X/1363323000/',
+        title: 'Talent for Sales Management a 100%',
+        previousSlugs: ['old-bridge-a'],
+        titleByLocale: { it: 'Talento Vendite A', de: 'Verkaufstalent A' },
+      },
+      {
+        id: 'geberit-OLD-B',
+        slug: 'talent-for-sales-management-a-100-geberit-ch-2',
+        url: 'https://jobs.geberit.com/job/Y/1363323999/',
+        title: 'Talent for Sales Management a 100%',
+        previousSlugs: ['old-bridge-b'],
+        titleByLocale: { it: 'Talento Vendite B', de: 'Verkaufstalent B' },
+      },
+    ];
+
+    const fresh = [
+      {
+        id: 'geberit-1799',
+        slug: 'talent-for-sales-management-a-100-geberit-ch',
+        url: 'https://jobs.geberit.com/job-invite/1799/',
+        title: 'Talent for Sales Management a 100%',
+        titleByLocale: { de: 'Verkaufstalent A' },
+        sourceLang: 'de',
+      },
+      {
+        id: 'geberit-1800',
+        slug: 'talent-for-sales-management-a-100-geberit-ch',
+        url: 'https://jobs.geberit.com/job-invite/1800/',
+        title: 'Talent for Sales Management a 100%',
+        titleByLocale: { de: 'Verkaufstalent B' },
+        sourceLang: 'de',
+      },
+    ];
+
+    const matchKey = (job: { slug?: string }) =>
+      String(job?.slug || '').trim().toLowerCase();
+    const merged = mergePreserveLocaleData(existing, fresh, { matchKey });
+
+    // Both fresh kept with their own distinct ids — no inheritance from a single
+    // old, no duplicate id, no cross-contaminated previousSlugs.
+    expect(merged).toHaveLength(2);
+    const ids = merged.map((j) => j.id).sort();
+    expect(ids).toEqual(['geberit-1799', 'geberit-1800']);
+    expect(new Set(ids).size).toBe(2);
+    for (const job of merged) {
+      expect(job.previousSlugs ?? []).not.toContain('old-bridge-a');
+      expect(job.previousSlugs ?? []).not.toContain('old-bridge-b');
+    }
+  });
 });
