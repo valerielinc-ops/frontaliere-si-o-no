@@ -232,9 +232,12 @@ export async function fetchAllDecathlonJobs() {
     // thin → boilerplate-padded → boilerplate-guard failure (#1719). Falls back
     // to the title on any failure (fail-per-record, never fake content).
     const detailDescHtml = await fetchDecathlonDetailDescription(publicUrl);
-    const descriptionText = detailDescHtml
-      ? normalizeSpace(stripHtml(detailDescHtml))
-      : title;
+    // Strip THEN fall back: a truthy-but-whitespace-only JSON-LD body (e.g.
+    // `<p> </p>`/`<br>`) strips to '' — a `detailDescHtml ? strip : title`
+    // ternary would keep that empty string (the raw HTML is truthy so the
+    // `: title` branch never runs), bypassing the boilerplate guard. `|| title`
+    // catches the empty-after-strip case (Liebherr/Implenia use the same idiom).
+    const descriptionText = normalizeSpace(stripHtml(detailDescHtml)) || title;
 
     const sourceLang = detectLang(title, 'fr');
     const jobSlug = slugify(`${title} decathlon ch`);
