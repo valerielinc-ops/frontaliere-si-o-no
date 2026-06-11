@@ -72,7 +72,7 @@
     },
     {
       "id": "company-7ubd00",
-      "slug": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7ubd00",
+      "slug": "rappresentanti-omega-boutique-zermatt-omega-ltd-ticino",
       "company": "Omega Ltd.",
       "title": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZERMATT",
       "location": "Ticino",
@@ -91,7 +91,7 @@
       "crawledAt": "2026-06-11T13:47:15.047Z",
       "firstSeenAt": "2026-06-11T13:47:15.047Z",
       "slugByLocale": {
-        "it": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7ubd00",
+        "it": "rappresentanti-omega-boutique-zermatt-omega-ltd-ticino",
         "en": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7ubd00",
         "de": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7ubd00",
         "fr": "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7ubd00"
@@ -128,11 +128,19 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3920",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7ubd00"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-omega-boutique-zermatt-omega-ltd-bahnhofstrasse-30a-3920-zermatt-valais-schweiz-firmenadresse-omega-ag-jakob-st-7ubd00"
+      ]
     },
     {
       "id": "company-7ubczy",
-      "slug": "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli-7ubczy",
+      "slug": "tecnica-di-manutenzione-h-f-omega-ltd-rue-jakob-stampfli",
       "company": "Omega Ltd.",
       "title": "Technicien de Maintenance (H/F)",
       "location": "Rue Jakob-Stämpfli",
@@ -164,7 +172,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli-7ubczy",
+        "it": "tecnica-di-manutenzione-h-f-omega-ltd-rue-jakob-stampfli",
         "en": "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli-7ubczy",
         "de": "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli-7ubczy",
         "fr": "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli-7ubczy"
@@ -173,11 +181,13 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli"
+          "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli",
+          "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli-7ubczy"
         ]
       },
       "previousSlugs": [
-        "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli"
+        "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli",
+        "technicien-de-maintenance-m-w-d-omega-ltd-rue-jakob-stampfli-7ubczy"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -200,7 +210,7 @@
     },
     {
       "id": "company-7ubczx",
-      "slug": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubczx",
+      "slug": "responsabile-del-gruppo-microtecnico-the-swatch-group-research-and-development-ltd-ticino",
       "company": "The Swatch Group Research and Development Ltd",
       "title": "Chef de Groupe Microtechnique",
       "location": "Ticino",
@@ -219,7 +229,7 @@
       "crawledAt": "2026-06-11T13:47:15.047Z",
       "firstSeenAt": "2026-06-11T13:47:15.047Z",
       "slugByLocale": {
-        "it": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubczx",
+        "it": "responsabile-del-gruppo-microtecnico-the-swatch-group-research-and-development-ltd-ticino",
         "en": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubczx",
         "de": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubczx",
         "fr": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubczx"
@@ -256,7 +266,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2074",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubczx"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubczx"
+      ]
     },
     {
       "id": "company-7ubczu",
@@ -405,7 +423,7 @@
     },
     {
       "id": "company-7ubcyz",
-      "slug": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubcyz",
+      "slug": "responsabile-del-gruppo-microtecnico-the-swatch-group-research-and-development-ltd-ticino-a879e7",
       "company": "The Swatch Group Research and Development Ltd",
       "title": "Chef de Groupe Microtechnique",
       "location": "Ticino",
@@ -424,7 +442,7 @@
       "crawledAt": "2026-06-11T13:47:15.047Z",
       "firstSeenAt": "2026-06-11T13:47:15.047Z",
       "slugByLocale": {
-        "it": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubcyz",
+        "it": "responsabile-del-gruppo-microtecnico-the-swatch-group-research-and-development-ltd-ticino-a879e7",
         "en": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubcyz",
         "de": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubcyz",
         "fr": "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubcyz"
@@ -461,7 +479,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2074",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubcyz"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-groupe-microtechnique-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entrepris-7ubcyz"
+      ]
     },
     {
       "id": "company-7ubd2m",

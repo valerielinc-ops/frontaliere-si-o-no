@@ -7,9 +7,9 @@
       "slug": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld",
       "slugByLocale": {
         "it": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld",
-        "en": "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
+        "en": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld",
         "de": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "fr": "transportmanifestant-a-frauenfeld-denner-frauenfeld"
+        "fr": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -69,7 +69,9 @@
       "previousSlugs": [
         "transportdisponent-in-frauenfeld-denner",
         "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld"
+        "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
+        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld",
+        "transportmanifestant-a-frauenfeld-denner-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -190,9 +192,9 @@
     },
     {
       "id": "denner-59e268a42021",
-      "slug": "vendeur-vendeuse-denner-ecublens-vd",
+      "slug": "venditore-venditore-denner-ecublens-vd",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-ecublens-vd",
+        "it": "venditore-venditore-denner-ecublens-vd",
         "en": "vendeur-vendeuse-denner",
         "de": "vendeur-vendeuse-denner",
         "fr": "vendeur-vendeuse-denner-geneve"
@@ -251,11 +253,13 @@
       "sourceLang": "fr",
       "crawledAt": "2026-06-11T12:31:03.615Z",
       "previousSlugs": [
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-ecublens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-ecublens-vd"
         ]
       },
       "needsRetranslation": true,
@@ -697,9 +701,9 @@
     },
     {
       "id": "denner-8f0419093535",
-      "slug": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
+      "slug": "responsabile-vendite-denner-partner-in-educazione-regione-berna-fribourg-denner-bern",
       "slugByLocale": {
-        "it": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
+        "it": "responsabile-vendite-denner-partner-in-educazione-regione-berna-fribourg-denner-bern",
         "en": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
         "de": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
         "fr": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
@@ -775,7 +779,15 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
+      ]
     },
     {
       "id": "denner-dd1d1fc3bbdc",

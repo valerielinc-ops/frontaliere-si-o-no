@@ -596,9 +596,9 @@
     },
     {
       "id": "spital-sts-b5318df664c0",
-      "slug": "med-praxisassistent-in-urologie-spital-sts-thun",
+      "slug": "med-assistente-pratica-in-urologia-spital-sts-thun",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-urologie-spital-sts-thun",
+        "it": "med-assistente-pratica-in-urologia-spital-sts-thun",
         "en": "med-praxisassistent-in-urologie-spital-sts-thun",
         "de": "med-praxisassistent-in-urologie-spital-sts-thun",
         "fr": "med-praxisassistent-in-urologie-spital-sts-thun"
@@ -655,13 +655,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-urologie-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-urologie-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-194e1f6c949a",
-      "slug": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
+      "slug": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
       "slugByLocale": {
-        "it": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
+        "it": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
         "en": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
         "de": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
         "fr": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
@@ -718,7 +726,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+      ]
     }
   ]
 }

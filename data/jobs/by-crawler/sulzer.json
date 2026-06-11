@@ -1979,12 +1979,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2025,16 +2025,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apparecchi-elettrici-sulzer-winterthur",
-        "avertisseur-electrique-sulzer-winterthur"
+        "electrical-fitter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apparecchi-elettrici-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ],
         "fr": [
-          "avertisseur-electrique-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ]
       },
@@ -7068,11 +7065,11 @@
     },
     {
       "id": "sulzer-0d5749c831c9",
-      "slug": "engenheiro-a-de-aplicacao-sulzer-ch",
+      "slug": "ingegnere-applicativo-sulzer-winterthur",
       "slugByLocale": {
-        "it": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "it": "ingegnere-applicativo-sulzer-winterthur",
         "en": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "de": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "de": "anwendungsingenieur-sulzer-winterthur",
         "fr": "engenheiro-a-de-aplicacao-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -7114,16 +7111,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingegnere-applicativo-sulzer-winterthur",
-        "anwendungsingenieur-sulzer-winterthur"
+        "engenheiro-a-de-aplicacao-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-applicativo-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ],
         "de": [
-          "anwendungsingenieur-sulzer-winterthur",
           "engenheiro-a-de-aplicacao-sulzer-ch"
         ]
       },
@@ -18470,12 +18464,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -18517,17 +18511,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-manager-w-m-d-sulzer-ch",
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-w-m-d-sulzer-ch",
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -20681,9 +20672,9 @@
     },
     {
       "id": "sulzer-7f0c8fa1ca65",
-      "slug": "combustion-welder-sulzer-ch",
+      "slug": "bustion-welder-sulzer-la-porte",
       "slugByLocale": {
-        "it": "combustion-welder-sulzer-ch",
+        "it": "bustion-welder-sulzer-la-porte",
         "en": "combustion-welder-sulzer-ch",
         "de": "combustion-welder-sulzer-ch",
         "fr": "combustion-welder-sulzer-ch"
@@ -20740,13 +20731,21 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "combustion-welder-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "combustion-welder-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-55888cc43546",
-      "slug": "business-controller-sulzer-ch",
+      "slug": "controllore-di-affari-sulzer-madrid",
       "slugByLocale": {
-        "it": "business-controller-sulzer-ch",
+        "it": "controllore-di-affari-sulzer-madrid",
         "en": "business-controller-sulzer-ch",
         "de": "business-controller-sulzer-ch",
         "fr": "business-controller-sulzer-madrid"
@@ -20803,7 +20802,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-controller-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-controller-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-867962d72fb7",
@@ -20955,9 +20962,9 @@
     },
     {
       "id": "sulzer-72f2bdc35137",
-      "slug": "cnc-mill-machinist-sulzer-ch",
+      "slug": "lavoratore-di-fresatrici-cnc-sulzer-la-porte",
       "slugByLocale": {
-        "it": "cnc-mill-machinist-sulzer-ch",
+        "it": "lavoratore-di-fresatrici-cnc-sulzer-la-porte",
         "en": "cnc-mill-machinist-sulzer-ch",
         "de": "cnc-mill-machinist-sulzer-ch",
         "fr": "cnc-mill-machinist-sulzer-ch"
@@ -21014,7 +21021,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-mill-machinist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cnc-mill-machinist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-dffc30f6a363",
@@ -21298,9 +21313,9 @@
     },
     {
       "id": "sulzer-2cd67027334a",
-      "slug": "machinist-sulzer-ch-6",
+      "slug": "macchinista-sulzer-bahrain",
       "slugByLocale": {
-        "it": "machinist-sulzer-ch-6",
+        "it": "macchinista-sulzer-bahrain",
         "en": "machinist-sulzer-ch",
         "de": "machinist-sulzer-ch-6",
         "fr": "machinist-sulzer-ch-6"
@@ -21357,7 +21372,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "machinist-sulzer-ch-6"
+        ]
+      },
+      "previousSlugs": [
+        "machinist-sulzer-ch-6"
+      ]
     },
     {
       "id": "sulzer-cab6fe601674",
@@ -21572,9 +21595,9 @@
     },
     {
       "id": "sulzer-2b64c452af3c",
-      "slug": "electrical-fitter-sulzer-ch-4",
+      "slug": "apparecchi-elettrici-sulzer-bahrain",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch-4",
+        "it": "apparecchi-elettrici-sulzer-bahrain",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-bahrain",
         "fr": "electrical-fitter-sulzer-ch-4"
@@ -21631,7 +21654,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-fitter-sulzer-ch-4"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-fitter-sulzer-ch-4"
+      ]
     },
     {
       "id": "sulzer-f7c897608901",
@@ -21712,9 +21743,9 @@
     },
     {
       "id": "sulzer-093df42312a6",
-      "slug": "administrative-support-sulzer-ch",
+      "slug": "supporto-amministrativo-sulzer-gillette",
       "slugByLocale": {
-        "it": "administrative-support-sulzer-ch",
+        "it": "supporto-amministrativo-sulzer-gillette",
         "en": "administrative-support-sulzer-ch",
         "de": "administrative-support-sulzer-ch",
         "fr": "administrative-support-sulzer-ch"
@@ -21771,7 +21802,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-support-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-support-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e3234df3ebb5",
@@ -21903,10 +21942,10 @@
     },
     {
       "id": "sulzer-e2150829b3e0",
-      "slug": "business-controller-sulzer-ch-2",
+      "slug": "controllore-di-affari-sulzer-leeds",
       "slugByLocale": {
         "en": "business-controller-sulzer-ch",
-        "it": "business-controller-sulzer-ch-2",
+        "it": "controllore-di-affari-sulzer-leeds",
         "de": "business-controller-sulzer-ch-2",
         "fr": "business-controller-sulzer-leeds"
       },
@@ -21964,7 +22003,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-11T13:51:18.449Z"
+      "firstSeenAt": "2026-06-11T13:51:18.449Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-controller-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "business-controller-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-c458f2402c40",

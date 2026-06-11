@@ -5718,9 +5718,9 @@
     },
     {
       "id": "senevita-bcfdcdd24df9",
-      "slug": "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh",
+      "slug": "dipl-specialista-hf-fh-gestione-area-residenziale-100-senevita-dietikon-zh",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh",
+        "it": "dipl-specialista-hf-fh-gestione-area-residenziale-100-senevita-dietikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh",
         "de": "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh",
         "fr": "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh"
@@ -5778,13 +5778,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-wohnbereichsleitung-100-senevita-dietikon-zh"
+      ]
     },
     {
       "id": "senevita-5f775d84b6fb",
-      "slug": "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh",
+      "slug": "dipl-hf-fh-gestione-gruppo-servizio-notte-100-senevita-dietikon-zh",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh",
+        "it": "dipl-hf-fh-gestione-gruppo-servizio-notte-100-senevita-dietikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh",
         "de": "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh",
         "fr": "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh"
@@ -5842,13 +5850,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-gruppenleitung-nachtdienst-100-senevita-dietikon-zh"
+      ]
     },
     {
       "id": "senevita-a27b417f083e",
-      "slug": "dipl-pflegefachperson-hf-fh-fachverantwortung-pflegequalitat-100-senevita-dietikon-zh",
+      "slug": "dipl-infermieristica-professionale-hf-fh-responsabilita-professionale-qualita-della-cura-100-senevita-dietikon-zh",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-fachverantwortung-pflegequalitat-100-senevita-dietikon-zh",
+        "it": "dipl-infermieristica-professionale-hf-fh-responsabilita-professionale-qualita-della-cura-100-senevita-dietikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-fachverantwortung-pflegequalitat-100-senevita-dietikon-zh",
         "de": "dipl-pflegefachperson-hf-fh-fachverantwortung-pflegequalitat-100-senevita-dietikon-zh",
         "fr": "dipl-pflegefachperson-hf-fh-fachverantwortung-pflegequalitat-100-senevita-dietikon-zh"
@@ -5906,7 +5922,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-fachverantwortung-pflegequalitat-100-senevita-dietikon-zh"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-fachverantwortung-pflegequalitat-100-senevita-dietikon-zh"
+      ]
     },
     {
       "id": "senevita-2860aa830fff",
@@ -6634,10 +6658,10 @@
     },
     {
       "id": "senevita-c107fcd0ac56",
-      "slug": "dipl-pflegefachperson-40-100-senevita-basel-bs-und-bl",
+      "slug": "dipl-infermieristica-professionale-40-100-senevita-basel-bs-und-bl",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-40-100-senevita-basel-bs-und-bl",
-        "it": "dipl-pflegefachperson-40-100-senevita-basel-bs-und-bl",
+        "it": "dipl-infermieristica-professionale-40-100-senevita-basel-bs-und-bl",
         "en": "dipl-pflegefachperson-40-100-senevita-basel-bs-und-bl",
         "fr": "dipl-pflegefachperson-40-100-senevita-basel-bs-und-bl"
       },
@@ -6696,7 +6720,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:28:17.629Z"
+      "firstSeenAt": "2026-06-11T13:28:17.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-40-100-senevita-basel-bs-und-bl"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-40-100-senevita-basel-bs-und-bl"
+      ]
     },
     {
       "id": "senevita-57fcece5499d",

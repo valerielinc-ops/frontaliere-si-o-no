@@ -66,10 +66,10 @@
     },
     {
       "id": "prada-24f2141adccd",
-      "slug": "sales-associates-prada-group-taoyuan-sales-associates",
+      "slug": "associati-di-vendita-prada-group-taoyuan-sales-associates",
       "slugByLocale": {
         "en": "sales-associates-prada-group-taoyuan-sales-associates",
-        "it": "sales-associates-prada-group-taoyuan-sales-associates",
+        "it": "associati-di-vendita-prada-group-taoyuan-sales-associates",
         "de": "sales-associates-prada-group-taoyuan-sales-associates",
         "fr": "sales-associates-prada-group-taoyuan-sales-associates"
       },
@@ -124,7 +124,15 @@
       "postalCode": "1700",
       "country": "CH",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-06-11T13:15:29.226Z"
+      "firstSeenAt": "2026-06-11T13:15:29.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associates-prada-group-taoyuan-sales-associates"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associates-prada-group-taoyuan-sales-associates"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",

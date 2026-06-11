@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "spital-zollikerberg-e0be97285f4e",
-      "slug": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
+      "slug": "unita-di-cura-intensiva-sanitaria-specializzata-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
+        "it": "unita-di-cura-intensiva-sanitaria-specializzata-spital-zollikerberg-zollikerberg",
         "en": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
         "fr": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
       },
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-3a6ef43f1af4",
@@ -280,10 +288,10 @@
     },
     {
       "id": "spital-zollikerberg-04f6d3e13995",
-      "slug": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
+      "slug": "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
-        "it": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
+        "it": "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg",
         "en": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
         "fr": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
       },
@@ -341,14 +349,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-c46bd1f15e6a",
-      "slug": "study-nurse-frauenheilkunde-spital-zollikerberg-spital-zollikerberg-zollikerberg",
+      "slug": "studio-infermiera-ginecologia-spital-zollikerberg-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "study-nurse-frauenheilkunde-spital-zollikerberg-spital-zollikerberg-zollikerberg",
-        "it": "study-nurse-frauenheilkunde-spital-zollikerberg-spital-zollikerberg-zollikerberg",
+        "it": "studio-infermiera-ginecologia-spital-zollikerberg-spital-zollikerberg-zollikerberg",
         "en": "study-nurse-frauenheilkunde-spital-zollikerberg-spital-zollikerberg-zollikerberg",
         "fr": "study-nurse-frauenheilkunde-spital-zollikerberg-spital-zollikerberg-zollikerberg"
       },
@@ -406,7 +422,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-frauenheilkunde-spital-zollikerberg-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-frauenheilkunde-spital-zollikerberg-spital-zollikerberg-zollikerberg"
+      ]
     }
   ]
 }

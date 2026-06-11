@@ -4283,9 +4283,9 @@
     },
     {
       "id": "spital-emmental-d2c171dcf8ad",
-      "slug": "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf",
+      "slug": "dipl-expert-expert-anesthesia-care-i-a-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf",
+        "it": "dipl-expert-expert-anesthesia-care-i-a-a-spital-emmental-burgdorf",
         "en": "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf",
         "de": "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf",
         "fr": "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf"
@@ -4348,7 +4348,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-ac9a21a8f4ae",

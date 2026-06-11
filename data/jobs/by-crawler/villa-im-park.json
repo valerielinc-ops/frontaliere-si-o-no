@@ -306,9 +306,9 @@
     },
     {
       "id": "villa-im-park-fc9b7e7c0359",
-      "slug": "dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-villa-im-park-rothrist",
+      "slug": "dipl-cura-di-anestesia-esperto-nds-hf-60-90-privatklinik-villa-im-park-rothrist",
       "slugByLocale": {
-        "it": "dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-villa-im-park-rothrist",
+        "it": "dipl-cura-di-anestesia-esperto-nds-hf-60-90-privatklinik-villa-im-park-rothrist",
         "en": "dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-villa-im-park-rothrist",
         "de": "dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-villa-im-park-rothrist",
         "fr": "dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-villa-im-park-rothrist"
@@ -366,7 +366,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-villa-im-park-rothrist"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-villa-im-park-rothrist"
+      ]
     }
   ]
 }

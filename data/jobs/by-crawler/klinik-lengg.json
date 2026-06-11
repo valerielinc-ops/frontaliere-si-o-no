@@ -1506,9 +1506,9 @@
     },
     {
       "id": "klinik-lengg-e8921734eafd",
-      "slug": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+      "slug": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+        "it": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
         "en": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
         "de": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
         "fr": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
@@ -1565,7 +1565,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+      ]
     },
     {
       "id": "klinik-lengg-b1e0b4814220",

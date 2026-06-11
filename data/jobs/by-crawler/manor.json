@@ -136,7 +136,7 @@
       "slug": "manor-mitarbeiter-in-spielwaren-40-zurich-mitarbeiterin-spielwaren-40",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-spielwaren-40-zurich-mitarbeiterin-spielwaren-40",
-        "en": "manor-mitarbeiter-in-spielwaren-40-zurich-mitarbeiterin-spielwaren-40",
+        "en": "employee-toys-40-manor-ag-zurich-mitarbeiterin-spielwaren-40",
         "de": "manor-mitarbeiter-in-spielwaren-40-zurich-mitarbeiterin-spielwaren-40",
         "fr": "manor-mitarbeiter-in-spielwaren-40-zurich-mitarbeiterin-spielwaren-40"
       },
@@ -192,7 +192,7 @@
       "slug": "manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
       "slugByLocale": {
         "it": "manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
-        "en": "manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
+        "en": "kassier-in-non-food-50-manor-ag-thun-kassiererin-non-food",
         "de": "manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
         "fr": "manor-kassierer-in-non-food-50-thun-kassiererin-non-food"
       },
@@ -416,7 +416,7 @@
       "slug": "manor-collaborateur-trice-supermarche-boulangerie-30-etudiant-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-boulangerie-30-etudiant-chavannes-de-bogis-collaborateurtrice",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-30-etudiant-chavannes-de-bogis-collaborateurtrice",
+        "en": "supermarket-collaborator-boulangerie-30-etudiant-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-30-etudiant-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-30-etudiant-chavannes-de-bogis-collaborateurtrice"
       },
@@ -469,9 +469,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-store-manager-100-liestal-store-manager-100",
+      "slug": "gestione-del-negozio-100-manor-ag-liestal-store-manager-100",
       "slugByLocale": {
-        "it": "manor-store-manager-100-liestal-store-manager-100",
+        "it": "gestione-del-negozio-100-manor-ag-liestal-store-manager-100",
         "en": "manor-store-manager-100-liestal-store-manager-100",
         "de": "manor-store-manager-100-liestal-store-manager-100",
         "fr": "manor-store-manager-100-liestal-store-manager-100"
@@ -503,7 +503,15 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-store-manager-100-liestal-store-manager-100"
+        ]
+      },
+      "previousSlugs": [
+        "manor-store-manager-100-liestal-store-manager-100"
+      ]
     },
     {
       "title": "Collaborateur/trice Visual Merchandising (food) 60%",
@@ -527,7 +535,7 @@
       "slug": "manor-collaborateur-trice-visual-merchandising-food-60-vevey-collaborateurtrice-visual-merchandising",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-visual-merchandising-food-60-vevey-collaborateurtrice-visual-merchandising",
-        "en": "manor-collaborateur-trice-visual-merchandising-food-60-vevey-collaborateurtrice-visual-merchandising",
+        "en": "visual-merchandising-collaborator-food-60-manor-ag-vevey-collaborateurtrice-visual-merchandising",
         "de": "manor-collaborateur-trice-visual-merchandising-food-60-vevey-collaborateurtrice-visual-merchandising",
         "fr": "manor-collaborateur-trice-visual-merchandising-food-60-vevey-collaborateurtrice-visual-merchandising"
       },
@@ -580,9 +588,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
+      "slug": "addetto-a-alla-logistica-20-60-manor-ag-winterthur-mitarbeiterin-logistik-20",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
+        "it": "addetto-a-alla-logistica-20-60-manor-ag-winterthur-mitarbeiterin-logistik-20",
         "en": "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
         "de": "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
         "fr": "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20"
@@ -617,7 +625,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "addetto-a-alla-logistica-20-60-manor-ag-winterthur-mitarbeiterin-logistik-20"
+        "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -644,9 +652,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
+      "slug": "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
+        "it": "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50",
         "en": "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
         "de": "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
         "fr": "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50"
@@ -681,7 +689,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50"
+        "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -711,7 +719,7 @@
       "slug": "manor-collaborateur-trice-caisse-supermarche-20-geneve-1-collaborateurtrice-caisse",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-supermarche-20-geneve-1-collaborateurtrice-caisse",
-        "en": "manor-collaborateur-trice-caisse-supermarche-20-geneve-1-collaborateurtrice-caisse",
+        "en": "caisse-collaborator-supermarche-20-manor-ag-geneve-1-collaborateurtrice-caisse",
         "de": "manor-collaborateur-trice-caisse-supermarche-20-geneve-1-collaborateurtrice-caisse",
         "fr": "manor-collaborateur-trice-caisse-supermarche-20-geneve-1-collaborateurtrice-caisse"
       },
@@ -1047,7 +1055,7 @@
       "slug": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
-        "en": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
+        "en": "current-collaborator-accessoires-dames-60-manor-ag-monthey-collaborateurtrice-vente-accessoires",
         "de": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
         "fr": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires"
       },
@@ -1100,9 +1108,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie",
+      "slug": "collaboratore-trice-in-vendita-parfumerie-60-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie",
+        "it": "collaboratore-trice-in-vendita-parfumerie-60-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
         "en": "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie",
         "fr": "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie"
@@ -1137,7 +1145,7 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-vendita-parfumerie-60-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1164,9 +1172,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-parfumerie-bijouterie-100-zurich-mitarbeiterin-verkauf-parfumerie",
+      "slug": "collaboratore-trice-in-vendita-parfumerie-bijouterie-100-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-parfumerie-bijouterie-100-zurich-mitarbeiterin-verkauf-parfumerie",
+        "it": "collaboratore-trice-in-vendita-parfumerie-bijouterie-100-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie",
         "en": "manor-mitarbeiter-in-verkauf-parfumerie-bijouterie-100-zurich-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-bijouterie-100-zurich-mitarbeiterin-verkauf-parfumerie",
         "fr": "manor-mitarbeiter-in-verkauf-parfumerie-bijouterie-100-zurich-mitarbeiterin-verkauf-parfumerie"
@@ -1201,7 +1209,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-vendita-parfumerie-bijouterie-100-manor-ag-zurich-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-bijouterie-100-zurich-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1228,9 +1236,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte",
+      "slug": "collaboratore-trice-in-supermarkt-fruchte-gemuse-50-manor-ag-chur-mitarbeiterin-supermarkt-fruchte",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte",
+        "it": "collaboratore-trice-in-supermarkt-fruchte-gemuse-50-manor-ag-chur-mitarbeiterin-supermarkt-fruchte",
         "en": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte",
         "de": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte",
         "fr": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte"
@@ -1265,7 +1273,7 @@
       "postalCode": "7000",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-supermarkt-fruchte-gemuse-50-manor-ag-chur-mitarbeiterin-supermarkt-fruchte"
+        "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1292,9 +1300,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-30-chur-mitarbeiterin-supermarkt-fruchte",
+      "slug": "collaboratore-trice-in-supermarkt-fruchte-gemuse-30-manor-ag-chur-mitarbeiterin-supermarkt-fruchte",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-30-chur-mitarbeiterin-supermarkt-fruchte",
+        "it": "collaboratore-trice-in-supermarkt-fruchte-gemuse-30-manor-ag-chur-mitarbeiterin-supermarkt-fruchte",
         "en": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-30-chur-mitarbeiterin-supermarkt-fruchte",
         "de": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-30-chur-mitarbeiterin-supermarkt-fruchte",
         "fr": "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-30-chur-mitarbeiterin-supermarkt-fruchte"
@@ -1329,7 +1337,7 @@
       "postalCode": "7000",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-supermarkt-fruchte-gemuse-30-manor-ag-chur-mitarbeiterin-supermarkt-fruchte"
+        "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-30-chur-mitarbeiterin-supermarkt-fruchte"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1468,9 +1476,9 @@
       },
       "postedDate": "2026-06-09",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion",
+      "slug": "collaboratore-trice-in-vendita-fashion-kasse-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion",
+        "it": "collaboratore-trice-in-vendita-fashion-kasse-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion",
         "en": "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion",
         "de": "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion",
         "fr": "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion"
@@ -1505,7 +1513,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-vendita-fashion-kasse-5-10-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
+        "manor-mitarbeiter-in-verkauf-fashion-kasse-5-10-langenthal-mitarbeiterin-verkauf-fashion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2036,9 +2044,9 @@
       },
       "postedDate": "2026-06-07",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-visual-merchandising-70-affoltern-am-albis-mitarbeiterin",
+      "slug": "collaboratore-trice-in-visual-merchandising-70-manor-ag-affoltern-am-albis-mitarbeiterin",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-visual-merchandising-70-affoltern-am-albis-mitarbeiterin",
+        "it": "collaboratore-trice-in-visual-merchandising-70-manor-ag-affoltern-am-albis-mitarbeiterin",
         "en": "manor-mitarbeiter-in-visual-merchandising-70-affoltern-am-albis-mitarbeiterin",
         "de": "manor-mitarbeiter-in-visual-merchandising-70-affoltern-am-albis-mitarbeiterin",
         "fr": "manor-mitarbeiter-in-visual-merchandising-70-affoltern-am-albis-mitarbeiterin"
@@ -2073,7 +2081,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-visual-merchandising-70-manor-ag-affoltern-am-albis-mitarbeiterin"
+        "manor-mitarbeiter-in-visual-merchandising-70-affoltern-am-albis-mitarbeiterin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2100,9 +2108,9 @@
       },
       "postedDate": "2026-06-06",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-30-kreuzlingen-mitarbeiterin-logistik-30",
+      "slug": "collaboratore-trice-in-logistik-30-manor-ag-kreuzlingen-mitarbeiterin-logistik-30",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-30-kreuzlingen-mitarbeiterin-logistik-30",
+        "it": "collaboratore-trice-in-logistik-30-manor-ag-kreuzlingen-mitarbeiterin-logistik-30",
         "en": "manor-mitarbeiter-in-logistik-30-kreuzlingen-mitarbeiterin-logistik-30",
         "de": "manor-mitarbeiter-in-logistik-30-kreuzlingen-mitarbeiterin-logistik-30",
         "fr": "manor-mitarbeiter-in-logistik-30-kreuzlingen-mitarbeiterin-logistik-30"
@@ -2137,7 +2145,7 @@
       "postalCode": "8500",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-logistik-30-manor-ag-kreuzlingen-mitarbeiterin-logistik-30"
+        "manor-mitarbeiter-in-logistik-30-kreuzlingen-mitarbeiterin-logistik-30"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2279,7 +2287,7 @@
       "slug": "manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche",
-        "en": "manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche",
+        "en": "caisse-collaborator-supermarche-50-manor-ag-vevey-collaborateurtrice-caisse-supermarche",
         "de": "manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche",
         "fr": "manor-collaborateur-trice-caisse-supermarche-50-vevey-collaborateurtrice-caisse-supermarche"
       },
@@ -2444,9 +2452,9 @@
       },
       "postedDate": "2026-06-05",
       "source": "company-website",
-      "slug": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-parfumerie-100-yverdon-apprentie-gestionnaire-du",
+      "slug": "apprenticeship-retail-manager-swc-perfumery-100-manor-ag-yverdon-apprentie-gestionnaire-du",
       "slugByLocale": {
-        "it": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-parfumerie-100-yverdon-apprentie-gestionnaire-du",
+        "it": "apprenticeship-retail-manager-swc-perfumery-100-manor-ag-yverdon-apprentie-gestionnaire-du",
         "en": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-parfumerie-100-yverdon-apprentie-gestionnaire-du",
         "de": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-parfumerie-100-yverdon-apprentie-gestionnaire-du",
         "fr": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-parfumerie-100-yverdon-apprentie-gestionnaire-du"
@@ -2479,7 +2487,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-parfumerie-100-yverdon-apprentie-gestionnaire-du"
+        ]
+      },
+      "previousSlugs": [
+        "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-parfumerie-100-yverdon-apprentie-gestionnaire-du"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Confection Dames) 50% du 31.08.2026 au 12.09.2026",
@@ -2559,7 +2575,7 @@
       "slug": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente",
-        "en": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente",
+        "en": "current-collaborator-confection-dames-50-of-24-08-2026-manor-ag-geneve-1-collaborateurtrice-vente",
         "de": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente",
         "fr": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente"
       },
@@ -2615,7 +2631,7 @@
       "slug": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
       "slugByLocale": {
         "it": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
-        "en": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
+        "en": "cuisinier-isre-100-manor-ag-vevey-cuisinierere-100",
         "de": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
         "fr": "manor-cuisinier-ere-100-vevey-cuisinierere-100"
       },
@@ -2727,7 +2743,7 @@
       "slug": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
+        "en": "supermarket-collaborator-boulangerie-0-manor-ag-biel-collaborateurtrice-supermarche-boulangerie",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie"
       },
@@ -2892,9 +2908,9 @@
       },
       "postedDate": "2026-06-04",
       "source": "company-website",
-      "slug": "manor-kassierer-in-non-food-40-affoltern-am-albis-kassiererin",
+      "slug": "cassiere-non-alimentari-40-manor-ag-affoltern-am-albis-kassiererin",
       "slugByLocale": {
-        "it": "manor-kassierer-in-non-food-40-affoltern-am-albis-kassiererin",
+        "it": "cassiere-non-alimentari-40-manor-ag-affoltern-am-albis-kassiererin",
         "en": "manor-kassierer-in-non-food-40-affoltern-am-albis-kassiererin",
         "de": "manor-kassierer-in-non-food-40-affoltern-am-albis-kassiererin",
         "fr": "manor-kassierer-in-non-food-40-affoltern-am-albis-kassiererin"
@@ -2927,7 +2943,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-kassierer-in-non-food-40-affoltern-am-albis-kassiererin"
+        ]
+      },
+      "previousSlugs": [
+        "manor-kassierer-in-non-food-40-affoltern-am-albis-kassiererin"
+      ]
     },
     {
       "title": "Floor Manager*in 100%",
@@ -2948,9 +2972,9 @@
       },
       "postedDate": "2026-06-04",
       "source": "company-website",
-      "slug": "manor-floor-manager-in-100-chur-floor-managerin-100",
+      "slug": "gestione-del-pavimento-100-manor-ag-chur-floor-managerin-100",
       "slugByLocale": {
-        "it": "manor-floor-manager-in-100-chur-floor-managerin-100",
+        "it": "gestione-del-pavimento-100-manor-ag-chur-floor-managerin-100",
         "en": "manor-floor-manager-in-100-chur-floor-managerin-100",
         "de": "manor-floor-manager-in-100-chur-floor-managerin-100",
         "fr": "manor-floor-manager-in-100-chur-floor-managerin-100"
@@ -2983,7 +3007,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-floor-manager-in-100-chur-floor-managerin-100"
+        ]
+      },
+      "previousSlugs": [
+        "manor-floor-manager-in-100-chur-floor-managerin-100"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Confection Messieurs), 60%, du 01.06.2026 au 31.07.2026",
@@ -3116,9 +3148,9 @@
       },
       "postedDate": "2026-06-04",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
+      "slug": "vendite-dei-collaboratori-lancome-l-oreal-prestige-50-manor-ag-morges-collaborateurtrice-vente-lancomel-oreal",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
+        "it": "vendite-dei-collaboratori-lancome-l-oreal-prestige-50-manor-ag-morges-collaborateurtrice-vente-lancomel-oreal",
         "en": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
         "de": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
         "fr": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal"
@@ -3151,7 +3183,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal"
+      ]
     },
     {
       "title": "Mitarbeiter*in Merchandising Parfümerie 60%",
@@ -3343,7 +3383,7 @@
       "slug": "manor-collaborateur-trice-vente-etudiant-20-geneve-1-collaborateurtrice-vente",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-etudiant-20-geneve-1-collaborateurtrice-vente",
-        "en": "manor-collaborateur-trice-vente-etudiant-20-geneve-1-collaborateurtrice-vente",
+        "en": "current-student-collaborator-20-manor-ag-geneve-1-collaborateurtrice-vente",
         "de": "manor-collaborateur-trice-vente-etudiant-20-geneve-1-collaborateurtrice-vente",
         "fr": "manor-collaborateur-trice-vente-etudiant-20-geneve-1-collaborateurtrice-vente"
       },
@@ -3455,7 +3495,7 @@
       "slug": "manor-collaborateur-trice-supemarche-epicerie-50-lausanne-collaborateurtrice-supemarche-epicerie",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supemarche-epicerie-50-lausanne-collaborateurtrice-supemarche-epicerie",
-        "en": "manor-collaborateur-trice-supemarche-epicerie-50-lausanne-collaborateurtrice-supemarche-epicerie",
+        "en": "supermarche-collaborator-epicerie-50-manor-ag-lausanne-collaborateurtrice-supemarche-epicerie",
         "de": "manor-collaborateur-trice-supemarche-epicerie-50-lausanne-collaborateurtrice-supemarche-epicerie",
         "fr": "manor-collaborateur-trice-supemarche-epicerie-50-lausanne-collaborateurtrice-supemarche-epicerie"
       },
@@ -3511,7 +3551,7 @@
       "slug": "manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
-        "en": "manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
+        "en": "collaborateur-trice-vente-biout-manor-ag-lausanne-collaborateurtrice-vente-bijouteriemontres",
         "de": "manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
         "fr": "manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres"
       },
@@ -3567,7 +3607,7 @@
       "slug": "manor-collaborateur-trice-caisse-20-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-20-chavannes-de-bogis-collaborateurtrice",
-        "en": "manor-collaborateur-trice-caisse-20-chavannes-de-bogis-collaborateurtrice",
+        "en": "caisse-collaborator-20-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "manor-collaborateur-trice-caisse-20-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-caisse-20-chavannes-de-bogis-collaborateurtrice"
       },
@@ -3623,7 +3663,7 @@
       "slug": "manor-apprentissage-polydesigner-3d-cfc-100-geneve-1-apprentissage-polydesigner",
       "slugByLocale": {
         "it": "manor-apprentissage-polydesigner-3d-cfc-100-geneve-1-apprentissage-polydesigner",
-        "en": "manor-apprentissage-polydesigner-3d-cfc-100-geneve-1-apprentissage-polydesigner",
+        "en": "apprenticissage-poles-designer-3d-cfc-100-manor-ag-geneve-1-apprentissage-polydesigner",
         "de": "manor-apprentissage-polydesigner-3d-cfc-100-geneve-1-apprentissage-polydesigner",
         "fr": "manor-apprentissage-polydesigner-3d-cfc-100-geneve-1-apprentissage-polydesigner"
       },
@@ -3732,9 +3772,9 @@
       },
       "postedDate": "2026-06-03",
       "source": "company-website",
-      "slug": "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits",
+      "slug": "gestione-settoriale-frutte-vegetali-take-out-100-manor-ag-vevey-responsable-secteur-fruits",
       "slugByLocale": {
-        "it": "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits",
+        "it": "gestione-settoriale-frutte-vegetali-take-out-100-manor-ag-vevey-responsable-secteur-fruits",
         "en": "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits",
         "de": "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits",
         "fr": "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits"
@@ -3767,7 +3807,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits"
+        ]
+      },
+      "previousSlugs": [
+        "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits"
+      ]
     },
     {
       "title": "Collaborateur/trice caisse 60%",
@@ -3791,7 +3839,7 @@
       "slug": "manor-collaborateur-trice-caisse-60-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-60-chavannes-de-bogis-collaborateurtrice",
-        "en": "manor-collaborateur-trice-caisse-60-chavannes-de-bogis-collaborateurtrice",
+        "en": "caisse-collaborator-60-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "manor-collaborateur-trice-caisse-60-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-caisse-60-chavannes-de-bogis-collaborateurtrice"
       },
@@ -3844,9 +3892,9 @@
       },
       "postedDate": "2026-06-02",
       "source": "company-website",
-      "slug": "manor-patissier-ere-cereales-80-du-03-08-2026-chavannes-de-bogis-patissierere",
+      "slug": "pasticceria-cereale-80-di-03-08-2026-manor-ag-chavannes-de-bogis-patissierere",
       "slugByLocale": {
-        "it": "manor-patissier-ere-cereales-80-du-03-08-2026-chavannes-de-bogis-patissierere",
+        "it": "pasticceria-cereale-80-di-03-08-2026-manor-ag-chavannes-de-bogis-patissierere",
         "en": "manor-patissier-ere-cereales-80-du-03-08-2026-chavannes-de-bogis-patissierere",
         "de": "manor-patissier-ere-cereales-80-du-03-08-2026-chavannes-de-bogis-patissierere",
         "fr": "manor-patissier-ere-cereales-80-du-03-08-2026-chavannes-de-bogis-patissierere"
@@ -3879,7 +3927,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-patissier-ere-cereales-80-du-03-08-2026-chavannes-de-bogis-patissierere"
+        ]
+      },
+      "previousSlugs": [
+        "manor-patissier-ere-cereales-80-du-03-08-2026-chavannes-de-bogis-patissierere"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Epicerie) Etudiant/e 20% du 09.05.2026",
@@ -3900,9 +3956,9 @@
       },
       "postedDate": "2026-06-02",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-epicerie-etudiant-e-20-du-09-05-2026-nyon-collaborateurtrice-vente-epicerie",
+      "slug": "studente-20-del-09-05-2026-manor-ag-nyon-collaborateurtrice-vente-epicerie",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-epicerie-etudiant-e-20-du-09-05-2026-nyon-collaborateurtrice-vente-epicerie",
+        "it": "studente-20-del-09-05-2026-manor-ag-nyon-collaborateurtrice-vente-epicerie",
         "en": "manor-collaborateur-trice-vente-epicerie-etudiant-e-20-du-09-05-2026-nyon-collaborateurtrice-vente-epicerie",
         "de": "manor-collaborateur-trice-vente-epicerie-etudiant-e-20-du-09-05-2026-nyon-collaborateurtrice-vente-epicerie",
         "fr": "manor-collaborateur-trice-vente-epicerie-etudiant-e-20-du-09-05-2026-nyon-collaborateurtrice-vente-epicerie"
@@ -3935,7 +3991,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-epicerie-etudiant-e-20-du-09-05-2026-nyon-collaborateurtrice-vente-epicerie"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-epicerie-etudiant-e-20-du-09-05-2026-nyon-collaborateurtrice-vente-epicerie"
+      ]
     },
     {
       "title": "Mitarbeiter*in Kundendienst 40%",
@@ -3956,9 +4020,9 @@
       },
       "postedDate": "2026-06-02",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kundendienst-40-hinwil-mitarbeiterin-kundendienst-40",
+      "slug": "collaboratore-trice-in-kundendienst-40-manor-ag-hinwil-mitarbeiterin-kundendienst-40",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kundendienst-40-hinwil-mitarbeiterin-kundendienst-40",
+        "it": "collaboratore-trice-in-kundendienst-40-manor-ag-hinwil-mitarbeiterin-kundendienst-40",
         "en": "manor-mitarbeiter-in-kundendienst-40-hinwil-mitarbeiterin-kundendienst-40",
         "de": "manor-mitarbeiter-in-kundendienst-40-hinwil-mitarbeiterin-kundendienst-40",
         "fr": "manor-mitarbeiter-in-kundendienst-40-hinwil-mitarbeiterin-kundendienst-40"
@@ -3993,7 +4057,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-kundendienst-40-manor-ag-hinwil-mitarbeiterin-kundendienst-40"
+        "manor-mitarbeiter-in-kundendienst-40-hinwil-mitarbeiterin-kundendienst-40"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4244,9 +4308,9 @@
       },
       "postedDate": "2026-06-02",
       "source": "company-website",
-      "slug": "manor-gestionnaire-du-commerce-de-detail-cfc-home-menage-100-monthey-gestionnaire-du-commerce",
+      "slug": "cfc-retail-manager-home-household-100-manor-ag-monthey-gestionnaire-du-commerce",
       "slugByLocale": {
-        "it": "manor-gestionnaire-du-commerce-de-detail-cfc-home-menage-100-monthey-gestionnaire-du-commerce",
+        "it": "cfc-retail-manager-home-household-100-manor-ag-monthey-gestionnaire-du-commerce",
         "en": "manor-gestionnaire-du-commerce-de-detail-cfc-home-menage-100-monthey-gestionnaire-du-commerce",
         "de": "manor-gestionnaire-du-commerce-de-detail-cfc-home-menage-100-monthey-gestionnaire-du-commerce",
         "fr": "manor-gestionnaire-du-commerce-de-detail-cfc-home-menage-100-monthey-gestionnaire-du-commerce"
@@ -4279,7 +4343,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-gestionnaire-du-commerce-de-detail-cfc-home-menage-100-monthey-gestionnaire-du-commerce"
+        ]
+      },
+      "previousSlugs": [
+        "manor-gestionnaire-du-commerce-de-detail-cfc-home-menage-100-monthey-gestionnaire-du-commerce"
+      ]
     },
     {
       "title": "Apprenti/e Gestionnaire du commerce de détail CFC 100%",
@@ -4300,9 +4372,9 @@
       },
       "postedDate": "2026-06-02",
       "source": "company-website",
-      "slug": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-100-monthey-apprentie-gestionnaire-du",
+      "slug": "apprenticeship-retail-manager-swc-100-manor-ag-monthey-apprentie-gestionnaire-du",
       "slugByLocale": {
-        "it": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-100-monthey-apprentie-gestionnaire-du",
+        "it": "apprenticeship-retail-manager-swc-100-manor-ag-monthey-apprentie-gestionnaire-du",
         "en": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-100-monthey-apprentie-gestionnaire-du",
         "de": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-100-monthey-apprentie-gestionnaire-du",
         "fr": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-100-monthey-apprentie-gestionnaire-du"
@@ -4335,7 +4407,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-100-monthey-apprentie-gestionnaire-du"
+        ]
+      },
+      "previousSlugs": [
+        "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-100-monthey-apprentie-gestionnaire-du"
+      ]
     },
     {
       "title": "Mitarbeiter*in Logistik VZ 20%",
@@ -4471,7 +4551,7 @@
       "slug": "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60",
-        "en": "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60",
+        "en": "logistics-collaborator-60-manor-ag-fribourg-collaborateurtrice-logistique-60",
         "de": "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60",
         "fr": "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60"
       },
@@ -4748,9 +4828,9 @@
       },
       "postedDate": "2026-05-29",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-damenabteilung-20-winterthur-mitarbeiterin-verkauf-damenabteilung",
+      "slug": "collaboratore-trice-in-vendita-damenabteilung-20-manor-ag-winterthur-mitarbeiterin-verkauf-damenabteilung",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-damenabteilung-20-winterthur-mitarbeiterin-verkauf-damenabteilung",
+        "it": "collaboratore-trice-in-vendita-damenabteilung-20-manor-ag-winterthur-mitarbeiterin-verkauf-damenabteilung",
         "en": "manor-mitarbeiter-in-verkauf-damenabteilung-20-winterthur-mitarbeiterin-verkauf-damenabteilung",
         "de": "manor-mitarbeiter-in-verkauf-damenabteilung-20-winterthur-mitarbeiterin-verkauf-damenabteilung",
         "fr": "manor-mitarbeiter-in-verkauf-damenabteilung-20-winterthur-mitarbeiterin-verkauf-damenabteilung"
@@ -4785,7 +4865,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-vendita-damenabteilung-20-manor-ag-winterthur-mitarbeiterin-verkauf-damenabteilung"
+        "manor-mitarbeiter-in-verkauf-damenabteilung-20-winterthur-mitarbeiterin-verkauf-damenabteilung"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4868,9 +4948,9 @@
       },
       "postedDate": "2026-05-29",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
+      "slug": "collaboratore-trice-in-warenbewirtschaftung-spielwaren-30-manor-ag-winterthur-mitarbeiterin-warenbewirtschaftung",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
+        "it": "collaboratore-trice-in-warenbewirtschaftung-spielwaren-30-manor-ag-winterthur-mitarbeiterin-warenbewirtschaftung",
         "en": "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
         "de": "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
         "fr": "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren"
@@ -4905,7 +4985,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-warenbewirtschaftung-spielwaren-30-manor-ag-winterthur-mitarbeiterin-warenbewirtschaftung"
+        "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4988,9 +5068,9 @@
       },
       "postedDate": "2026-05-28",
       "source": "company-website",
-      "slug": "manor-responsable-secteur-epicerie-100-sion-responsable-secteur-epicerie",
+      "slug": "gestione-settoriale-gpicerie-100-manor-ag-sion-responsable-secteur-epicerie",
       "slugByLocale": {
-        "it": "manor-responsable-secteur-epicerie-100-sion-responsable-secteur-epicerie",
+        "it": "gestione-settoriale-gpicerie-100-manor-ag-sion-responsable-secteur-epicerie",
         "en": "manor-responsable-secteur-epicerie-100-sion-responsable-secteur-epicerie",
         "de": "manor-responsable-secteur-epicerie-100-sion-responsable-secteur-epicerie",
         "fr": "manor-responsable-secteur-epicerie-100-sion-responsable-secteur-epicerie"
@@ -5023,7 +5103,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-responsable-secteur-epicerie-100-sion-responsable-secteur-epicerie"
+        ]
+      },
+      "previousSlugs": [
+        "manor-responsable-secteur-epicerie-100-sion-responsable-secteur-epicerie"
+      ]
     },
     {
       "title": "Collaborateur/trice caisse (Messieurs) Etudiant/e 20%",
@@ -5103,7 +5191,7 @@
       "slug": "manor-verkaufer-in-backerei-20-biel-verkauferin-backerei-20",
       "slugByLocale": {
         "it": "manor-verkaufer-in-backerei-20-biel-verkauferin-backerei-20",
-        "en": "manor-verkaufer-in-backerei-20-biel-verkauferin-backerei-20",
+        "en": "verkuf-manor-ag-biel-verkauferin-backerei-20",
         "de": "manor-verkaufer-in-backerei-20-biel-verkauferin-backerei-20",
         "fr": "manor-verkaufer-in-backerei-20-biel-verkauferin-backerei-20"
       },
@@ -5268,9 +5356,9 @@
       },
       "postedDate": "2026-05-27",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-food-65-nyon-collaborateurtrice-supermarche-food",
+      "slug": "supermercato-collaboratore-food-65-manor-ag-nyon-collaborateurtrice-supermarche-food",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-supermarche-food-65-nyon-collaborateurtrice-supermarche-food",
+        "it": "supermercato-collaboratore-food-65-manor-ag-nyon-collaborateurtrice-supermarche-food",
         "en": "manor-collaborateur-trice-supermarche-food-65-nyon-collaborateurtrice-supermarche-food",
         "de": "manor-collaborateur-trice-supermarche-food-65-nyon-collaborateurtrice-supermarche-food",
         "fr": "manor-collaborateur-trice-supermarche-food-65-nyon-collaborateurtrice-supermarche-food"
@@ -5303,7 +5391,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-supermarche-food-65-nyon-collaborateurtrice-supermarche-food"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-supermarche-food-65-nyon-collaborateurtrice-supermarche-food"
+      ]
     },
     {
       "title": "Cuisinier/ère (Manora)  80%",
@@ -5380,9 +5476,9 @@
       },
       "postedDate": "2026-05-27",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-damenkonfektion-60-pfaffikon-mitarbeiterin-verkauf-damenkonfektion",
+      "slug": "collaboratore-trice-in-vendita-damenkonfektion-60-manor-ag-pfaffikon-mitarbeiterin-verkauf-damenkonfektion",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-damenkonfektion-60-pfaffikon-mitarbeiterin-verkauf-damenkonfektion",
+        "it": "collaboratore-trice-in-vendita-damenkonfektion-60-manor-ag-pfaffikon-mitarbeiterin-verkauf-damenkonfektion",
         "en": "manor-mitarbeiter-in-verkauf-damenkonfektion-60-pfaffikon-mitarbeiterin-verkauf-damenkonfektion",
         "de": "manor-mitarbeiter-in-verkauf-damenkonfektion-60-pfaffikon-mitarbeiterin-verkauf-damenkonfektion",
         "fr": "manor-mitarbeiter-in-verkauf-damenkonfektion-60-pfaffikon-mitarbeiterin-verkauf-damenkonfektion"
@@ -5417,7 +5513,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-vendita-damenkonfektion-60-manor-ag-pfaffikon-mitarbeiterin-verkauf-damenkonfektion"
+        "manor-mitarbeiter-in-verkauf-damenkonfektion-60-pfaffikon-mitarbeiterin-verkauf-damenkonfektion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5503,9 +5599,9 @@
       "slug": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
+        "en": "sales-associate-parfumerie-60-80-manor-ag-biel-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie",
-        "fr": "manor-mitarbeiter-in-verkauf-parfumerie-60-80-biel-mitarbeiterin-verkauf-parfumerie"
+        "fr": "vendeur-se-parfumerie-60-80-manor-ag-biel-mitarbeiterin-verkauf-parfumerie"
       },
       "titleByLocale": {
         "it": "Addetto/a alle vendite (Parfümerie) 60-80%",
@@ -5556,9 +5652,9 @@
       },
       "postedDate": "2026-05-26",
       "source": "company-website",
-      "slug": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
+      "slug": "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales",
       "slugByLocale": {
-        "it": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
+        "it": "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales",
         "en": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
         "de": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
         "fr": "manor-retail-media-sales-manager-100-basel-retail-media-sales"
@@ -5591,7 +5687,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-retail-media-sales-manager-100-basel-retail-media-sales"
+        ]
+      },
+      "previousSlugs": [
+        "manor-retail-media-sales-manager-100-basel-retail-media-sales"
+      ]
     },
     {
       "title": "Collaborateur/trice caisse (Confection Enfants) 40%",
@@ -5615,7 +5719,7 @@
       "slug": "manor-collaborateur-trice-caisse-confection-enfants-40-lausanne-collaborateurtrice-caisse-confection",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-confection-enfants-40-lausanne-collaborateurtrice-caisse-confection",
-        "en": "manor-collaborateur-trice-caisse-confection-enfants-40-lausanne-collaborateurtrice-caisse-confection",
+        "en": "cashier-childrenswear-40-manor-ag-lausanne-collaborateurtrice-caisse-confection",
         "de": "manor-collaborateur-trice-caisse-confection-enfants-40-lausanne-collaborateurtrice-caisse-confection",
         "fr": "manor-collaborateur-trice-caisse-confection-enfants-40-lausanne-collaborateurtrice-caisse-confection"
       },
@@ -5724,9 +5828,9 @@
       },
       "postedDate": "2026-05-26",
       "source": "company-website",
-      "slug": "manor-patissier-ere-supermarche-100-lausanne-patissierere-supermarche-100",
+      "slug": "pasticceria-supermercato-100-manor-ag-lausanne-patissierere-supermarche-100",
       "slugByLocale": {
-        "it": "manor-patissier-ere-supermarche-100-lausanne-patissierere-supermarche-100",
+        "it": "pasticceria-supermercato-100-manor-ag-lausanne-patissierere-supermarche-100",
         "en": "manor-patissier-ere-supermarche-100-lausanne-patissierere-supermarche-100",
         "de": "manor-patissier-ere-supermarche-100-lausanne-patissierere-supermarche-100",
         "fr": "manor-patissier-ere-supermarche-100-lausanne-patissierere-supermarche-100"
@@ -5759,7 +5863,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-patissier-ere-supermarche-100-lausanne-patissierere-supermarche-100"
+        ]
+      },
+      "previousSlugs": [
+        "manor-patissier-ere-supermarche-100-lausanne-patissierere-supermarche-100"
+      ]
     },
     {
       "title": "Collaborateur/trice  supermarché (boulangerie/pâtisserie) 50%",
@@ -5836,9 +5948,9 @@
       },
       "postedDate": "2026-05-26",
       "source": "company-website",
-      "slug": "manor-student-in-mitarbeiter-in-kasse-10-20-st-gallen-studentinmitarbeiterin-kasse",
+      "slug": "student-in-collaboratore-trice-in-kasse-10-20-manor-ag-st-gallen-studentinmitarbeiterin-kasse",
       "slugByLocale": {
-        "it": "manor-student-in-mitarbeiter-in-kasse-10-20-st-gallen-studentinmitarbeiterin-kasse",
+        "it": "student-in-collaboratore-trice-in-kasse-10-20-manor-ag-st-gallen-studentinmitarbeiterin-kasse",
         "en": "manor-student-in-mitarbeiter-in-kasse-10-20-st-gallen-studentinmitarbeiterin-kasse",
         "de": "manor-student-in-mitarbeiter-in-kasse-10-20-st-gallen-studentinmitarbeiterin-kasse",
         "fr": "manor-student-in-mitarbeiter-in-kasse-10-20-st-gallen-studentinmitarbeiterin-kasse"
@@ -5873,7 +5985,7 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "student-in-collaboratore-trice-in-kasse-10-20-manor-ag-st-gallen-studentinmitarbeiterin-kasse"
+        "manor-student-in-mitarbeiter-in-kasse-10-20-st-gallen-studentinmitarbeiterin-kasse"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5959,7 +6071,7 @@
       "slug": "manor-collaborateur-trice-supermarche-poissonnerie-70-morges-collaborateurtrice-supermarche-poissonnerie",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-poissonnerie-70-morges-collaborateurtrice-supermarche-poissonnerie",
-        "en": "manor-collaborateur-trice-supermarche-poissonnerie-70-morges-collaborateurtrice-supermarche-poissonnerie",
+        "en": "supermarche-co-operator-poissonnerie-70-manor-ag-morges-collaborateurtrice-supermarche-poissonnerie",
         "de": "manor-collaborateur-trice-supermarche-poissonnerie-70-morges-collaborateurtrice-supermarche-poissonnerie",
         "fr": "manor-collaborateur-trice-supermarche-poissonnerie-70-morges-collaborateurtrice-supermarche-poissonnerie"
       },
@@ -6015,7 +6127,7 @@
       "slug": "manor-collaborateur-trice-caisse-supermarche-50-lausanne-collaborateurtrice-caisse-supermarche",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-caisse-supermarche-50-lausanne-collaborateurtrice-caisse-supermarche",
-        "en": "manor-collaborateur-trice-caisse-supermarche-50-lausanne-collaborateurtrice-caisse-supermarche",
+        "en": "caisse-collaborator-supermarche-50-manor-ag-lausanne-collaborateurtrice-caisse-supermarche",
         "de": "manor-collaborateur-trice-caisse-supermarche-50-lausanne-collaborateurtrice-caisse-supermarche",
         "fr": "manor-collaborateur-trice-caisse-supermarche-50-lausanne-collaborateurtrice-caisse-supermarche"
       },
@@ -6236,9 +6348,9 @@
       },
       "postedDate": "2026-05-22",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-und-warenaufbereitung-40-zug-mitarbeiterin-logistik-und",
+      "slug": "collaboratore-trice-in-logistik-e-warenaufbereitung-40-manor-ag-zug-mitarbeiterin-logistik-und",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-und-warenaufbereitung-40-zug-mitarbeiterin-logistik-und",
+        "it": "collaboratore-trice-in-logistik-e-warenaufbereitung-40-manor-ag-zug-mitarbeiterin-logistik-und",
         "en": "manor-mitarbeiter-in-logistik-und-warenaufbereitung-40-zug-mitarbeiterin-logistik-und",
         "de": "manor-mitarbeiter-in-logistik-und-warenaufbereitung-40-zug-mitarbeiterin-logistik-und",
         "fr": "manor-mitarbeiter-in-logistik-und-warenaufbereitung-40-zug-mitarbeiterin-logistik-und"
@@ -6273,7 +6385,7 @@
       "postalCode": "6300",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-logistik-e-warenaufbereitung-40-manor-ag-zug-mitarbeiterin-logistik-und"
+        "manor-mitarbeiter-in-logistik-und-warenaufbereitung-40-zug-mitarbeiterin-logistik-und"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6300,9 +6412,9 @@
       },
       "postedDate": "2026-05-22",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
+      "slug": "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
+        "it": "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
         "en": "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
         "de": "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
         "fr": "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop"
@@ -6337,7 +6449,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
+        "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6364,9 +6476,9 @@
       },
       "postedDate": "2026-05-22",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung",
+      "slug": "collaboratore-trice-in-supermarkt-weinabteilung-20-manor-ag-chur-mitarbeiterin-supermarkt-weinabteilung",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung",
+        "it": "collaboratore-trice-in-supermarkt-weinabteilung-20-manor-ag-chur-mitarbeiterin-supermarkt-weinabteilung",
         "en": "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung",
         "de": "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung",
         "fr": "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung"
@@ -6401,7 +6513,7 @@
       "postalCode": "7000",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-supermarkt-weinabteilung-20-manor-ag-chur-mitarbeiterin-supermarkt-weinabteilung"
+        "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6428,9 +6540,9 @@
       },
       "postedDate": "2026-05-21",
       "source": "company-website",
-      "slug": "manor-droguiste-derma-center-100-fribourg-droguiste-derma-center",
+      "slug": "utente-di-droga-derma-center-100-manor-ag-fribourg-droguiste-derma-center",
       "slugByLocale": {
-        "it": "manor-droguiste-derma-center-100-fribourg-droguiste-derma-center",
+        "it": "utente-di-droga-derma-center-100-manor-ag-fribourg-droguiste-derma-center",
         "en": "manor-droguiste-derma-center-100-fribourg-droguiste-derma-center",
         "de": "manor-droguiste-derma-center-100-fribourg-droguiste-derma-center",
         "fr": "manor-droguiste-derma-center-100-fribourg-droguiste-derma-center"
@@ -6463,7 +6575,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-droguiste-derma-center-100-fribourg-droguiste-derma-center"
+        ]
+      },
+      "previousSlugs": [
+        "manor-droguiste-derma-center-100-fribourg-droguiste-derma-center"
+      ]
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -6487,7 +6607,7 @@
       "slug": "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
-        "en": "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
+        "en": "service-collaborator-manora-50-manor-ag-sion-collaborateurtrice-service-manora",
         "de": "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
         "fr": "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora"
       },
@@ -6652,9 +6772,9 @@
       },
       "postedDate": "2026-05-20",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100",
+      "slug": "collaboratore-trice-in-service-100-manor-ag-thun-mitarbeiterin-service-100",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100",
+        "it": "collaboratore-trice-in-service-100-manor-ag-thun-mitarbeiterin-service-100",
         "en": "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100",
         "de": "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100",
         "fr": "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100"
@@ -6689,7 +6809,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-service-100-manor-ag-thun-mitarbeiterin-service-100"
+        "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6775,7 +6895,7 @@
       "slug": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
       "slugByLocale": {
         "it": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
-        "en": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
+        "en": "lehrstelle-polign-manor-ag-emmen-lehrstelle-polydesigner-in",
         "de": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
         "fr": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in"
       },
@@ -6887,7 +7007,7 @@
       "slug": "manor-collaborateur-trice-supermarche-boulangerie-50-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-boulangerie-50-chavannes-de-bogis-collaborateurtrice",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-50-chavannes-de-bogis-collaborateurtrice",
+        "en": "supermarche-co-operator-boulangerie-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-50-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-50-chavannes-de-bogis-collaborateurtrice"
       },
@@ -6996,9 +7116,9 @@
       },
       "postedDate": "2026-05-19",
       "source": "company-website",
-      "slug": "manor-floor-manager-confection-dames-100-geneve-1-floor-manager",
+      "slug": "gestione-del-pavimento-100-manor-ag-geneve-1-floor-manager",
       "slugByLocale": {
-        "it": "manor-floor-manager-confection-dames-100-geneve-1-floor-manager",
+        "it": "gestione-del-pavimento-100-manor-ag-geneve-1-floor-manager",
         "en": "manor-floor-manager-confection-dames-100-geneve-1-floor-manager",
         "de": "manor-floor-manager-confection-dames-100-geneve-1-floor-manager",
         "fr": "manor-floor-manager-confection-dames-100-geneve-1-floor-manager"
@@ -7031,7 +7151,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-floor-manager-confection-dames-100-geneve-1-floor-manager"
+        ]
+      },
+      "previousSlugs": [
+        "manor-floor-manager-confection-dames-100-geneve-1-floor-manager"
+      ]
     },
     {
       "title": "Collaborateur/trice supermarché (Charcuteries & Fromages) 50%",
@@ -7111,7 +7239,7 @@
       "slug": "manor-collaborateur-trice-supermarche-epicerie-50-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-epicerie-50-chavannes-de-bogis-collaborateurtrice",
-        "en": "manor-collaborateur-trice-supermarche-epicerie-50-chavannes-de-bogis-collaborateurtrice",
+        "en": "supermarche-co-operator-epicerie-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "manor-collaborateur-trice-supermarche-epicerie-50-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-supermarche-epicerie-50-chavannes-de-bogis-collaborateurtrice"
       },
@@ -7164,9 +7292,9 @@
       },
       "postedDate": "2026-05-19",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-parfumerie-accessoires-40-luzern-mitarbeiterin-kasse-parfumerieaccessoires",
+      "slug": "collaboratore-trice-in-kasse-parfumerie-accessoires-40-manor-ag-luzern-mitarbeiterin-kasse-parfumerieaccessoires",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-parfumerie-accessoires-40-luzern-mitarbeiterin-kasse-parfumerieaccessoires",
+        "it": "collaboratore-trice-in-kasse-parfumerie-accessoires-40-manor-ag-luzern-mitarbeiterin-kasse-parfumerieaccessoires",
         "en": "manor-mitarbeiter-in-kasse-parfumerie-accessoires-40-luzern-mitarbeiterin-kasse-parfumerieaccessoires",
         "de": "manor-mitarbeiter-in-kasse-parfumerie-accessoires-40-luzern-mitarbeiterin-kasse-parfumerieaccessoires",
         "fr": "manor-mitarbeiter-in-kasse-parfumerie-accessoires-40-luzern-mitarbeiterin-kasse-parfumerieaccessoires"
@@ -7201,7 +7329,7 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
       "previousSlugs": [
-        "collaboratore-trice-in-kasse-parfumerie-accessoires-40-manor-ag-luzern-mitarbeiterin-kasse-parfumerieaccessoires"
+        "manor-mitarbeiter-in-kasse-parfumerie-accessoires-40-luzern-mitarbeiterin-kasse-parfumerieaccessoires"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7455,7 +7583,7 @@
       "slug": "manor-collaborateur-trice-supermarche-poissonnerie-etudiant-e-20-geneve-1-collaborateurtrice-supermarche",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-poissonnerie-etudiant-e-20-geneve-1-collaborateurtrice-supermarche",
-        "en": "manor-collaborateur-trice-supermarche-poissonnerie-etudiant-e-20-geneve-1-collaborateurtrice-supermarche",
+        "en": "supermarche-collaborator-poissonnerie-student-20-manor-ag-geneve-1-collaborateurtrice-supermarche",
         "de": "manor-collaborateur-trice-supermarche-poissonnerie-etudiant-e-20-geneve-1-collaborateurtrice-supermarche",
         "fr": "manor-collaborateur-trice-supermarche-poissonnerie-etudiant-e-20-geneve-1-collaborateurtrice-supermarche"
       },
@@ -7508,9 +7636,9 @@
       },
       "postedDate": "2026-05-15",
       "source": "company-website",
-      "slug": "manor-sales-trainer-60-80-basel-sales-trainer-60",
+      "slug": "vendite-trainer-60-80-manor-ag-basel-sales-trainer-60",
       "slugByLocale": {
-        "it": "manor-sales-trainer-60-80-basel-sales-trainer-60",
+        "it": "vendite-trainer-60-80-manor-ag-basel-sales-trainer-60",
         "en": "manor-sales-trainer-60-80-basel-sales-trainer-60",
         "de": "manor-sales-trainer-60-80-basel-sales-trainer-60",
         "fr": "manor-sales-trainer-60-80-basel-sales-trainer-60"
@@ -7543,7 +7671,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-sales-trainer-60-80-basel-sales-trainer-60"
+        ]
+      },
+      "previousSlugs": [
+        "manor-sales-trainer-60-80-basel-sales-trainer-60"
+      ]
     },
     {
       "title": "Sales Trainer 80-100%",
@@ -7788,9 +7924,9 @@
       },
       "postedDate": "2026-05-14",
       "source": "company-website",
-      "slug": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-confection-messieurs-100-monthey-apprentie-gestionnaire-du",
+      "slug": "apprenticeship-retail-manager-swc-gentle-manufacturing-100-manor-ag-monthey-apprentie-gestionnaire-du",
       "slugByLocale": {
-        "it": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-confection-messieurs-100-monthey-apprentie-gestionnaire-du",
+        "it": "apprenticeship-retail-manager-swc-gentle-manufacturing-100-manor-ag-monthey-apprentie-gestionnaire-du",
         "en": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-confection-messieurs-100-monthey-apprentie-gestionnaire-du",
         "de": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-confection-messieurs-100-monthey-apprentie-gestionnaire-du",
         "fr": "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-confection-messieurs-100-monthey-apprentie-gestionnaire-du"
@@ -7823,7 +7959,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-confection-messieurs-100-monthey-apprentie-gestionnaire-du"
+        ]
+      },
+      "previousSlugs": [
+        "manor-apprenti-e-gestionnaire-du-commerce-de-detail-cfc-confection-messieurs-100-monthey-apprentie-gestionnaire-du"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf Parfümerie 40%",
@@ -7900,9 +8044,9 @@
       },
       "postedDate": "2026-05-14",
       "source": "company-website",
-      "slug": "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food",
+      "slug": "cashier-non-alimentare-30-manor-ag-winterthur-kassiererin-non-food",
       "slugByLocale": {
-        "it": "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food",
+        "it": "cashier-non-alimentare-30-manor-ag-winterthur-kassiererin-non-food",
         "en": "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food",
         "de": "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food",
         "fr": "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food"
@@ -7935,7 +8079,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food"
+        ]
+      },
+      "previousSlugs": [
+        "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food"
+      ]
     },
     {
       "title": "Collaborateur/trice Visual Merchandising 100%",
@@ -7959,7 +8111,7 @@
       "slug": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
-        "en": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
+        "en": "visual-merchandising-collaborator-100-manor-ag-lausanne-collaborateurtrice-visual-merchandising",
         "de": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
         "fr": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising"
       },

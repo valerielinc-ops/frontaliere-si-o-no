@@ -2428,9 +2428,9 @@
     },
     {
       "id": "cnp-c5c9cb7eb721",
-      "slug": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
+      "slug": "psicologo-capo-dipartimento-infanzia-e-adolescenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
-        "it": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
+        "it": "psicologo-capo-dipartimento-infanzia-e-adolescenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "en": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
         "de": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
         "fr": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
@@ -2487,14 +2487,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
+      ]
     },
     {
       "id": "cnp-160bb3bc4e80",
-      "slug": "directeur-rice-medical-e-cnp-marin-epagnier",
+      "slug": "direttore-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "directeur-rice-medical-e-cnp-marin-epagnier",
-        "it": "directeur-rice-medical-e-cnp-marin-epagnier",
+        "it": "direttore-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "en": "directeur-rice-medical-e-cnp-marin-epagnier",
         "de": "directeur-rice-medical-e-cnp-marin-epagnier"
       },
@@ -2552,14 +2560,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:29:22.985Z"
+      "firstSeenAt": "2026-06-11T12:29:22.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-rice-medical-e-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-rice-medical-e-cnp-marin-epagnier"
+      ]
     },
     {
       "id": "cnp-3dcbd437d33d",
-      "slug": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
+      "slug": "responsabile-medico-del-dipartimento-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin",
       "slugByLocale": {
         "fr": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
-        "it": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
+        "it": "responsabile-medico-del-dipartimento-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin",
         "en": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
         "de": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
       },
@@ -2617,7 +2633,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:29:22.521Z"
+      "firstSeenAt": "2026-06-11T12:29:22.521Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
+      ]
     }
   ]
 }

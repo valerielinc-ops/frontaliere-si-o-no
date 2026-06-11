@@ -610,9 +610,9 @@
     },
     {
       "id": "privatklinik-bethanien-798d314abf60",
-      "slug": "stv-leitung-physiotherapie-privatklinik-bethanien",
+      "slug": "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich",
       "slugByLocale": {
-        "it": "stv-leitung-physiotherapie-privatklinik-bethanien",
+        "it": "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich",
         "en": "stv-leitung-physiotherapie-privatklinik-bethanien",
         "de": "stv-leitung-physiotherapie-privatklinik-bethanien",
         "fr": "stv-leitung-physiotherapie-privatklinik-bethanien"
@@ -670,7 +670,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leitung-physiotherapie-privatklinik-bethanien"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leitung-physiotherapie-privatklinik-bethanien"
+      ]
     }
   ]
 }

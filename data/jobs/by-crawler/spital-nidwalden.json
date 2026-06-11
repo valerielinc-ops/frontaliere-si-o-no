@@ -193,8 +193,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "koch-kochin-efz-80-100-spital-nidwalden-stans",
-          "koch-kochin-efz-80-100-luks-stans"
+          "koch-kochin-efz-80-100-spital-nidwalden-stans"
         ],
         "it": [
           "koch-kochin-efz-80-100-spital-nidwalden-stans",
@@ -414,8 +413,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachmitarbeiter-in-technik-instandhaltungsfachperson-80-100-spital-nidwalden-stans",
-          "fachmitarbeiter-in-technik-instandhaltungsfachperson-80-100-luks-stans"
+          "fachmitarbeiter-in-technik-instandhaltungsfachperson-80-100-spital-nidwalden-stans"
         ],
         "it": [
           "fachmitarbeiter-in-technik-instandhaltungsfachperson-80-100-spital-nidwalden-stans",
@@ -450,9 +448,9 @@
     },
     {
       "id": "spital-nidwalden-c8ec7f3ca353",
-      "slug": "hebamme-hf-fh-80-spital-nidwalden-stans",
+      "slug": "midwife-hf-fh-80-spital-nidwalden-stans",
       "slugByLocale": {
-        "it": "hebamme-hf-fh-80-spital-nidwalden-stans",
+        "it": "midwife-hf-fh-80-spital-nidwalden-stans",
         "en": "hebamme-hf-fh-80-spital-nidwalden-stans",
         "de": "hebamme-hf-fh-80-spital-nidwalden-stans",
         "fr": "hebamme-hf-fh-80-spital-nidwalden-stans"
@@ -509,7 +507,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-hf-fh-80-spital-nidwalden-stans"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-hf-fh-80-spital-nidwalden-stans"
+      ]
     },
     {
       "id": "spital-nidwalden-cc4f8ff29231",

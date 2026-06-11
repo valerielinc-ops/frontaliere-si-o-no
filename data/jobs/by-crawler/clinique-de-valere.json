@@ -110,10 +110,10 @@
     },
     {
       "id": "clinique-de-valere-aa4340a179af",
-      "slug": "cdi-ergotherapeute-clinique-de-valere",
+      "slug": "cdi-terapista-occupazionale-clinique-de-valere-sion",
       "slugByLocale": {
         "fr": "cdi-ergotherapeute-clinique-de-valere",
-        "it": "cdi-ergotherapeute-clinique-de-valere",
+        "it": "cdi-terapista-occupazionale-clinique-de-valere-sion",
         "en": "cdi-ergotherapeute-clinique-de-valere",
         "de": "cdi-ergotherapeute-clinique-de-valere"
       },
@@ -172,7 +172,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:23:57.556Z"
+      "firstSeenAt": "2026-06-11T12:23:57.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-ergotherapeute-clinique-de-valere"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-ergotherapeute-clinique-de-valere"
+      ]
     }
   ]
 }

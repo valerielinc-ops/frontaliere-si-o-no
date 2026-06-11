@@ -1883,8 +1883,8 @@
       "slugByLocale": {
         "de": "kaderarztin-arzt-oder-leitender-arzt-leitende-arztin-neurologie-80-100-prinzipiell-teilbar",
         "it": "kaderarztin-arzt-o-leitender-arzt-leitende-arztin-neurologie-80-100-prinzipiell-teilbar-gzo-spital-wetzikon",
-        "en": "kaderarztin-arzt-oder-leitender-arzt-leitende-arztin-neurologie-80-100-prinzipiell-teilbar",
-        "fr": "kaderarztin-arzt-oder-leitender-arzt-leitende-arztin-neurologie-80-100-prinzipiell-teilbar"
+        "en": "senior-physician-or-senior-physician-neurology-80-100-in-principle-divisible-gzo-spital-wetzikon-wetzikon",
+        "fr": "medecin-superieur-ou-neurologie-medecin-superieur-80-100-en-principe-divisible-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1931,6 +1931,12 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "kaderarztin-arzt-oder-leitender-arzt-leitende-arztin-neurologie-80-100-prinzipiell-teilbar"
+        ],
+        "en": [
+          "kaderarztin-arzt-oder-leitender-arzt-leitende-arztin-neurologie-80-100-prinzipiell-teilbar"
+        ],
+        "fr": [
           "kaderarztin-arzt-oder-leitender-arzt-leitende-arztin-neurologie-80-100-prinzipiell-teilbar"
         ]
       },

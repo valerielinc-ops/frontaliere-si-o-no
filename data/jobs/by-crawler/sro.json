@@ -1209,9 +1209,9 @@
     },
     {
       "id": "sro-24f4df2591f0",
-      "slug": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+      "slug": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+        "it": "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
         "de": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
         "fr": "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
@@ -1273,7 +1273,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-1835d1031b9c",
@@ -2797,9 +2805,9 @@
     },
     {
       "id": "sro-442ed153e878",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
         "fr": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
@@ -2850,11 +2858,13 @@
       "validThrough": "2026-07-08",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
+        "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
+        "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:35.670Z",
@@ -2873,9 +2883,9 @@
     },
     {
       "id": "sro-56c39454fab4",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dipl-hf-fh-50-100-servizio-notturno-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "dipl-hf-fh-50-100-servizio-notturno-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro",
         "de": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro",
         "fr": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro"
@@ -2926,11 +2936,13 @@
       "validThrough": "2026-07-09",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro"
+        "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro",
+        "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro"
+          "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro",
+          "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:34.052Z",
@@ -2949,9 +2961,9 @@
     },
     {
       "id": "sro-301b7ff51ff1",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
         "fr": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
@@ -3002,11 +3014,13 @@
       "validThrough": "2026-07-08",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
+        "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
+        "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:32.031Z",
@@ -3025,9 +3039,9 @@
     },
     {
       "id": "sro-cedc969aff93",
-      "slug": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
         "fr": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
@@ -3075,11 +3089,13 @@
       "validThrough": "2026-07-09",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
+        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:30.622Z",
@@ -3255,9 +3271,9 @@
     },
     {
       "id": "sro-7e6fde3f069a",
-      "slug": "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
+      "slug": "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
+        "it": "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
         "de": "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
         "fr": "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
@@ -3319,13 +3335,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-5216a345084c",
-      "slug": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro",
+      "slug": "dipl-esperto-in-pronto-soccorso-assistenza-intensiva-dal-40-nel-pool-dei-dipendenti-sro-ag-spital-region-oberaargau",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro",
+        "it": "dipl-esperto-in-pronto-soccorso-assistenza-intensiva-dal-40-nel-pool-dei-dipendenti-sro-ag-spital-region-oberaargau",
         "en": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro",
         "de": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro",
         "fr": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro"
@@ -3387,7 +3411,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro"
+      ]
     },
     {
       "id": "sro-0a92ff235413",

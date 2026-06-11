@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "givaudan-783dd874b6b8",
-      "slug": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+      "slug": "garanzia-di-qualita-campione-tecnico-m-f-d-givaudan-burgdorf-switzerland",
       "slugByLocale": {
         "de": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
-        "it": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+        "it": "garanzia-di-qualita-campione-tecnico-m-f-d-givaudan-burgdorf-switzerland",
         "en": "quality-assurance-sample-technician-m-w-d-givaudan-ch",
-        "fr": "quality-assurance-sample-technician-m-w-d-givaudan-ch"
+        "fr": "technicien-en-assurance-de-la-qualite-et-echantillon-m-f-d-givaudan-burgdorf-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:40:09.062Z"
+      "firstSeenAt": "2026-06-11T12:40:09.062Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-assurance-sample-technician-m-w-d-givaudan-ch"
+        ],
+        "fr": [
+          "quality-assurance-sample-technician-m-w-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-assurance-sample-technician-m-w-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-6370a307a023",
@@ -505,7 +516,7 @@
       "slug": "panelist-25-m-w-d-givaudan-kemptthal",
       "slugByLocale": {
         "it": "panelist-25-m-w-d-givaudan-kemptthal",
-        "en": "panelists-25-m-w-d-givaudan-kemptthal",
+        "en": "panelist-25-m-f-d-givaudan-kemptthal-switzerland",
         "de": "panelist-25-m-w-d-givaudan-ch",
         "fr": "paneliste-25-m-f-d-givaudan-kemptthal"
       },
@@ -549,11 +560,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "panelist-25-m-w-d-givaudan-ch"
+        "panelist-25-m-w-d-givaudan-ch",
+        "panelists-25-m-w-d-givaudan-kemptthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "panelist-25-m-w-d-givaudan-ch"
+        ],
+        "en": [
+          "panelists-25-m-w-d-givaudan-kemptthal"
         ]
       },
       "needsRetranslation": false,
@@ -937,7 +952,7 @@
         "it": "direttore-digitale-della-catena-di-approvvigionamento-e-della-produzione-givaudan-givaudan-kemptthal",
         "en": "head-digital-supply-chain-manufacturing-givaudan-ch",
         "de": "leiter-digital-supply-chain-manufacturing-givaudan-givaudan-kemptthal",
-        "fr": "head-digital-chaine-d-approvisionnement-manufacturing-givaudan-kemptthal-switzerland"
+        "fr": "chaine-d-approvisionnement-numerique-et-fabrication-givaudan-kemptthal-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -980,14 +995,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-digital-supply-chain-manufacturing-givaudan-ch",
-        "directeur-digital-supply-chain-manufacturing-givaudan-givaudan-kemptthal"
+        "directeur-digital-supply-chain-manufacturing-givaudan-givaudan-kemptthal",
+        "head-digital-chaine-d-approvisionnement-manufacturing-givaudan-kemptthal-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-digital-supply-chain-manufacturing-givaudan-ch"
         ],
         "fr": [
-          "directeur-digital-supply-chain-manufacturing-givaudan-givaudan-kemptthal"
+          "directeur-digital-supply-chain-manufacturing-givaudan-givaudan-kemptthal",
+          "head-digital-chaine-d-approvisionnement-manufacturing-givaudan-kemptthal-switzerland"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.830Z",
@@ -1146,9 +1163,9 @@
     },
     {
       "id": "givaudan-2ea1b051ad43",
-      "slug": "manager-acquisti-biotech-givaudan-kemptthal",
+      "slug": "responsabile-biotecnologica-degli-acquisti-givaudan-kemptthal-switzerland",
       "slugByLocale": {
-        "it": "manager-acquisti-biotech-givaudan-kemptthal",
+        "it": "responsabile-biotecnologica-degli-acquisti-givaudan-kemptthal-switzerland",
         "en": "procurement-biotech-manager-givaudan-ch",
         "de": "manager-einkauf-biotech-givaudan-kemptthal",
         "fr": "responsable-de-l-approvisionnement-en-biotechnologie-givaudan-kemptthal"
@@ -1193,11 +1210,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "procurement-biotech-manager-givaudan-ch"
+        "procurement-biotech-manager-givaudan-ch",
+        "manager-acquisti-biotech-givaudan-kemptthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "procurement-biotech-manager-givaudan-ch"
+          "procurement-biotech-manager-givaudan-ch",
+          "manager-acquisti-biotech-givaudan-kemptthal"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.824Z",
@@ -1812,7 +1831,7 @@
         "it": "talento-pool-tirocinio-operativo-m-f-d-givaudan-kemptthal",
         "en": "talent-pool-operations-internship-m-w-d-givaudan-ch",
         "de": "talent-pool-operations-trainee-m-w-d-givaudan-kemptthal",
-        "fr": "talent-pool-stage-operations-h-f-nv-givaudan-kemptthal"
+        "fr": "vivier-de-talents-stage-en-operations-lundi-mercredi-ld-givaudan-kemptthal-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -1854,11 +1873,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "talent-pool-operations-internship-m-w-d-givaudan-ch"
+        "talent-pool-operations-internship-m-w-d-givaudan-ch",
+        "talent-pool-stage-operations-h-f-nv-givaudan-kemptthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-pool-operations-internship-m-w-d-givaudan-ch"
+        ],
+        "fr": [
+          "talent-pool-stage-operations-h-f-nv-givaudan-kemptthal"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.814Z",

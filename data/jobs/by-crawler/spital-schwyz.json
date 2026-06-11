@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "spital-schwyz-29bb2acb04d3",
-      "slug": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz",
+      "slug": "team-leader-nella-gestione-dei-pazienti-80-100-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz",
+        "it": "team-leader-nella-gestione-dei-pazienti-80-100-spital-schwyz-schwyz",
         "en": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz",
         "de": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz",
         "fr": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz"
@@ -63,7 +63,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-5d247ab15806",

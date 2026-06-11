@@ -623,10 +623,10 @@
     },
     {
       "id": "jumbo-442cde60-00f",
-      "slug": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
+      "slug": "conduttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-eyholz",
       "slugByLocale": {
         "de": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "it": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
+        "it": "conduttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-eyholz",
         "en": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
         "fr": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
       },
@@ -690,7 +690,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:51:52.408Z"
+      "firstSeenAt": "2026-06-11T12:51:52.408Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
+      ]
     }
   ]
 }

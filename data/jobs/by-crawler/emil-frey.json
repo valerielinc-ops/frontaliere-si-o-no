@@ -2218,8 +2218,7 @@
           "carrosseriespengler-in-emil-frey-ostermundigen"
         ],
         "de": [
-          "karosseriespengler-in-emil-frey-ostermundigen",
-          "carrosseriespengler-in-emil-frey-ostermundigen"
+          "karosseriespengler-in-emil-frey-ostermundigen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.393Z",
@@ -2319,8 +2318,7 @@
           "carrosseriespengler-in-emil-frey-schaffhausen"
         ],
         "de": [
-          "karosseriespengler-in-emil-frey-schaffhausen",
-          "carrosseriespengler-in-emil-frey-schaffhausen"
+          "karosseriespengler-in-emil-frey-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.393Z",
@@ -8035,9 +8033,9 @@
     },
     {
       "id": "emil-frey-8f52976001f1",
-      "slug": "reifenpraktiker-in-pneulager-emil-frey-niederglatt",
+      "slug": "professionisti-del-pneumatico-pelagers-emil-frey-niederglatt",
       "slugByLocale": {
-        "it": "reifenpraktiker-in-pneulager-emil-frey-niederglatt",
+        "it": "professionisti-del-pneumatico-pelagers-emil-frey-niederglatt",
         "en": "reifenpraktiker-in-pneulager-emil-frey-niederglatt",
         "de": "reifenpraktiker-in-pneulager-emil-frey-niederglatt",
         "fr": "reifenpraktiker-in-pneulager-emil-frey-niederglatt"
@@ -8095,13 +8093,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-in-pneulager-emil-frey-niederglatt"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-in-pneulager-emil-frey-niederglatt"
+      ]
     },
     {
       "id": "emil-frey-55406b3477c9",
-      "slug": "automobildiagnostiker-in-emil-frey-zurich",
+      "slug": "diagnostica-automobilistica-in-emil-frey-zurich",
       "slugByLocale": {
-        "it": "automobildiagnostiker-in-emil-frey-zurich",
+        "it": "diagnostica-automobilistica-in-emil-frey-zurich",
         "en": "automobildiagnostiker-in-emil-frey-zurich",
         "de": "automobildiagnostiker-in-emil-frey-zurich",
         "fr": "automobildiagnostiker-in-emil-frey-zurich"
@@ -8159,7 +8165,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automobildiagnostiker-in-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "automobildiagnostiker-in-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-ca392bf6d8a2",
@@ -8235,9 +8249,9 @@
     },
     {
       "id": "emil-frey-9d3504826594",
-      "slug": "fachspezialist-in-antragsprufung-leasing-emil-frey-glattbrugg",
+      "slug": "specialista-tecnico-applicazione-recensione-leasing-emil-frey-glattbrugg",
       "slugByLocale": {
-        "it": "fachspezialist-in-antragsprufung-leasing-emil-frey-glattbrugg",
+        "it": "specialista-tecnico-applicazione-recensione-leasing-emil-frey-glattbrugg",
         "en": "fachspezialist-in-antragsprufung-leasing-emil-frey-glattbrugg",
         "de": "fachspezialist-in-antragsprufung-leasing-emil-frey-glattbrugg",
         "fr": "fachspezialist-in-antragsprufung-leasing-emil-frey-glattbrugg"
@@ -8295,7 +8309,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-antragsprufung-leasing-emil-frey-glattbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-antragsprufung-leasing-emil-frey-glattbrugg"
+      ]
     },
     {
       "id": "emil-frey-3d1912787346",
@@ -8443,10 +8465,10 @@
     },
     {
       "id": "emil-frey-32fd6731c3a8",
-      "slug": "fahrer-in-region-zurich-auf-abruf-emil-frey-zurich",
+      "slug": "conducente-nella-regione-di-zurigo-su-richiesta-emil-frey-zurich",
       "slugByLocale": {
         "de": "fahrer-in-region-zurich-auf-abruf-emil-frey-zurich",
-        "it": "fahrer-in-region-zurich-auf-abruf-emil-frey-zurich",
+        "it": "conducente-nella-regione-di-zurigo-su-richiesta-emil-frey-zurich",
         "en": "fahrer-in-region-zurich-auf-abruf-emil-frey-zurich",
         "fr": "fahrer-in-region-zurich-auf-abruf-emil-frey-zurich"
       },
@@ -8505,7 +8527,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:33:50.118Z"
+      "firstSeenAt": "2026-06-11T12:33:50.118Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrer-in-region-zurich-auf-abruf-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fahrer-in-region-zurich-auf-abruf-emil-frey-zurich"
+      ]
     }
   ]
 }

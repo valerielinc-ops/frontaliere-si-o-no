@@ -2718,10 +2718,10 @@
     },
     {
       "id": "vaudoise-b6a94350128c",
-      "slug": "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
+      "slug": "charged-customer-relations-officer-h-f-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
-        "it": "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
+        "it": "charged-customer-relations-officer-h-f-x-100-vaudoise-assurances-lausanne",
         "en": "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
         "de": "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
       },
@@ -2780,7 +2780,15 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-11T13:54:01.110Z"
+      "firstSeenAt": "2026-06-11T13:54:01.110Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-a54d6e988711",

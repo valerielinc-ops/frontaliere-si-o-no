@@ -232,9 +232,9 @@
     },
     {
       "id": "spitex-ch-bdab6d40b374",
-      "slug": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
+      "slug": "dipl-professionista-hf-40-80-spitex-region-lueg-hasle-ruegsau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
+        "it": "dipl-professionista-hf-40-80-spitex-region-lueg-hasle-ruegsau",
         "en": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
         "de": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
         "fr": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
@@ -292,7 +292,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
+      ]
     },
     {
       "id": "spitex-ch-33c2437cd148",
@@ -1283,10 +1291,10 @@
     },
     {
       "id": "spitex-ch-a497e18f6ebd",
-      "slug": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+      "slug": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
-        "it": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+        "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
         "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "fr": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
       },
@@ -1345,7 +1353,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:43:39.737Z"
+      "firstSeenAt": "2026-06-11T13:43:39.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+      ]
     },
     {
       "id": "spitex-ch-68405e541bd9",
@@ -1563,10 +1579,10 @@
     },
     {
       "id": "spitex-ch-f09d9f0bd0d7",
-      "slug": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald",
+      "slug": "dipl-infermieristica-specialista-hf-focus-psichiatria-stiftung-drei-tannen-wald",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
-        "it": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald",
+        "it": "dipl-infermieristica-specialista-hf-focus-psichiatria-stiftung-drei-tannen-wald",
         "en": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald",
         "fr": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
       },
@@ -1615,11 +1631,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald"
+          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald"
+        "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+        "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

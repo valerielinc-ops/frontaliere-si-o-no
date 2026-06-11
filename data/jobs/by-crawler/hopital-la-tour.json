@@ -579,9 +579,9 @@
     },
     {
       "id": "hopital-la-tour-e4e1c3e002b0",
-      "slug": "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin",
+      "slug": "segretario-medico-servizi-di-emergenza-cdi-70-hopital-de-la-tour-meyrin",
       "slugByLocale": {
-        "it": "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin",
+        "it": "segretario-medico-servizi-di-emergenza-cdi-70-hopital-de-la-tour-meyrin",
         "en": "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin",
         "de": "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin",
         "fr": "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
@@ -638,13 +638,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-8031a34200ce",
-      "slug": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin",
+      "slug": "infermiera-pediatrica-hom-9-mesi-80-hopital-de-la-tour-meyrin",
       "slugByLocale": {
-        "it": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin",
+        "it": "infermiera-pediatrica-hom-9-mesi-80-hopital-de-la-tour-meyrin",
         "en": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin",
         "de": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin",
         "fr": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
@@ -701,13 +709,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-bbd968138a17",
-      "slug": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin",
+      "slug": "infermiera-pediatrica-cdi-50-hopital-de-la-tour-meyrin",
       "slugByLocale": {
-        "it": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin",
+        "it": "infermiera-pediatrica-cdi-50-hopital-de-la-tour-meyrin",
         "en": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin",
         "de": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin",
         "fr": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
@@ -764,14 +780,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-81ab730d13f0",
-      "slug": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
+      "slug": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
-        "it": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
+        "it": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
         "en": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
         "de": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
       },
@@ -829,7 +853,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:47:07.951Z"
+      "firstSeenAt": "2026-06-11T12:47:07.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+      ]
     }
   ]
 }

@@ -309,9 +309,9 @@
     },
     {
       "id": "stgag-7b1144ad8faf",
-      "slug": "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen",
+      "slug": "responsabile-applicazioni-in-applicazioni-amministrative-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen",
+        "it": "responsabile-applicazioni-in-applicazioni-amministrative-spital-thurgau-stgag-munsterlingen",
         "en": "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen",
         "de": "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen",
         "fr": "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen"
@@ -368,13 +368,21 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "applikations-manager-in-administrative-fachapplikationen-stgag-munsterlingen"
+      ]
     },
     {
       "id": "stgag-a9a4d8cb65aa",
-      "slug": "dipl-pflegefachmann-frau-langzeitpflege-spital-thurgau-stgag-munsterlingen",
+      "slug": "dipl-professionista-di-cura-a-lungo-termine-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-langzeitpflege-spital-thurgau-stgag-munsterlingen",
+        "it": "dipl-professionista-di-cura-a-lungo-termine-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-langzeitpflege-stgag-munsterlingen",
         "de": "dipl-pflegefachmann-frau-langzeitpflege-stgag-munsterlingen",
         "fr": "dipl-pflegefachmann-frau-langzeitpflege-stgag-munsterlingen"
@@ -420,11 +428,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-langzeitpflege-stgag-munsterlingen"
+        "dipl-pflegefachmann-frau-langzeitpflege-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-langzeitpflege-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-langzeitpflege-stgag-munsterlingen"
+          "dipl-pflegefachmann-frau-langzeitpflege-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-langzeitpflege-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-06-10T13:02:45.883Z",
@@ -443,9 +453,9 @@
     },
     {
       "id": "stgag-8c42420f843d",
-      "slug": "fachmann-frau-gesundheit-langzeitpflege-spital-thurgau-stgag-munsterlingen",
+      "slug": "cura-professionale-donna-a-lungo-termine-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "fachmann-frau-gesundheit-langzeitpflege-spital-thurgau-stgag-munsterlingen",
+        "it": "cura-professionale-donna-a-lungo-termine-spital-thurgau-stgag-munsterlingen",
         "en": "fachmann-frau-gesundheit-langzeitpflege-stgag-munsterlingen",
         "de": "fachmann-frau-gesundheit-langzeitpflege-stgag-munsterlingen",
         "fr": "fachmann-frau-gesundheit-langzeitpflege-stgag-munsterlingen"
@@ -491,11 +501,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmann-frau-gesundheit-langzeitpflege-stgag-munsterlingen"
+        "fachmann-frau-gesundheit-langzeitpflege-stgag-munsterlingen",
+        "fachmann-frau-gesundheit-langzeitpflege-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-gesundheit-langzeitpflege-stgag-munsterlingen"
+          "fachmann-frau-gesundheit-langzeitpflege-stgag-munsterlingen",
+          "fachmann-frau-gesundheit-langzeitpflege-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-06-10T13:02:45.377Z",
@@ -514,9 +526,9 @@
     },
     {
       "id": "stgag-705bfe27b88a",
-      "slug": "med-praxisassistenten-in-mpa-stgag-munsterlingen",
+      "slug": "med-assistenti-di-pratica-in-mpa-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "med-praxisassistenten-in-mpa-stgag-munsterlingen",
+        "it": "med-assistenti-di-pratica-in-mpa-spital-thurgau-stgag-munsterlingen",
         "en": "med-praxisassistenten-in-mpa-stgag-munsterlingen",
         "de": "med-praxisassistenten-in-mpa-stgag-munsterlingen",
         "fr": "med-praxisassistenten-in-mpa-stgag-munsterlingen"
@@ -573,14 +585,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistenten-in-mpa-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistenten-in-mpa-stgag-munsterlingen"
+      ]
     },
     {
       "id": "stgag-d7cfc3a21e0e",
-      "slug": "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen",
+      "slug": "terapisti-d-arte-spital-thurgau-stgag-munsterlingen-83acaf",
       "slugByLocale": {
         "de": "kunsttherapeuten-in-stgag-munsterlingen",
-        "it": "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen",
+        "it": "terapisti-d-arte-spital-thurgau-stgag-munsterlingen-83acaf",
         "en": "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen",
         "fr": "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen"
       },
@@ -628,11 +648,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kunsttherapeuten-in-stgag-munsterlingen"
+          "kunsttherapeuten-in-stgag-munsterlingen",
+          "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "kunsttherapeuten-in-stgag-munsterlingen"
+        "kunsttherapeuten-in-stgag-munsterlingen",
+        "kunsttherapeuten-in-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -5019,9 +5019,9 @@
     },
     {
       "id": "zurzach-care-2dab28d1fdd3",
-      "slug": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-int-zurzach-care-bad",
+      "slug": "infermiere-infermiera-certificata-80-100-dipartimento-msk-int-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-int-zurzach-care-bad",
+        "it": "infermiere-infermiera-certificata-80-100-dipartimento-msk-int-zurzach-care-bad-zurzach",
         "en": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-int-zurzach-care-bad",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-int-zurzach-care-bad",
         "fr": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-int-zurzach-care-bad"
@@ -5078,7 +5078,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-int-zurzach-care-bad"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-int-zurzach-care-bad"
+      ]
     },
     {
       "id": "zurzach-care-6e20c223b8f4",

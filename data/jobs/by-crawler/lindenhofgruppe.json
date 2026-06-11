@@ -240,9 +240,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -286,8 +286,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
-        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
-        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -300,11 +298,9 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
-          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
@@ -2202,9 +2198,9 @@
     },
     {
       "id": "lindenhofgruppe-1b097bb07b91",
-      "slug": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
+      "slug": "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
+        "it": "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital",
         "en": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
         "de": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
         "fr": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
@@ -2261,14 +2257,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-c90539a958da",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
+      "slug": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
+        "it": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
         "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
         "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
       },
@@ -2316,11 +2320,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

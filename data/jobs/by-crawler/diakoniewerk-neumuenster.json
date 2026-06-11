@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "diakoniewerk-neumuenster-c6c9eb371202",
-      "slug": "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "slug": "unita-di-cura-intensiva-sanitaria-specializzata-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumuenster-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "it": "unita-di-cura-intensiva-sanitaria-specializzata-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "en": "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "fr": "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
       },
@@ -55,11 +55,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumuenster-zollikerberg"
+          "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumuenster-zollikerberg",
+          "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumuenster-zollikerberg"
+        "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumuenster-zollikerberg",
+        "fachfrau-fachmann-gesundheit-intensivstation-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -288,10 +290,10 @@
     },
     {
       "id": "diakoniewerk-neumuenster-ae023faf5823",
-      "slug": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "dipl-expert-dipl-expert-emergency-care-nds-hf-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "slugByLocale": {
         "de": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-diakoniewerk-neumuenster-zollikerberg",
-        "it": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-diakoniewerk-neumuenster-zollikerberg",
+        "it": "dipl-expert-dipl-expert-emergency-care-nds-hf-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "en": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "fr": "dipl-expertin-dipl-experte-notfallpflege-nds-hf-diakoniewerk-neumuenster-zollikerberg"
       },
@@ -349,14 +351,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experte-notfallpflege-nds-hf-diakoniewerk-neumuenster-zollikerberg"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-29b49a861aa4",
-      "slug": "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "slug": "studio-infermiera-ginecologia-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
       "slugByLocale": {
         "de": "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumuenster-zollikerberg",
-        "it": "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "it": "studio-infermiera-ginecologia-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
         "en": "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "fr": "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
       },
@@ -404,11 +414,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumuenster-zollikerberg"
+          "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumuenster-zollikerberg",
+          "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
         ]
       },
       "previousSlugs": [
-        "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumuenster-zollikerberg"
+        "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumuenster-zollikerberg",
+        "study-nurse-frauenheilkunde-spital-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

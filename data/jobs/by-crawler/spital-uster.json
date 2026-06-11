@@ -3944,9 +3944,9 @@
     },
     {
       "id": "spital-uster-976d72df1448",
-      "slug": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch",
+      "slug": "assistente-dell-hotel-60-spital-uster-uster",
       "slugByLocale": {
-        "it": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch",
+        "it": "assistente-dell-hotel-60-spital-uster-uster",
         "en": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch",
         "de": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch",
         "fr": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
@@ -4004,13 +4004,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-e815db3adc47",
-      "slug": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch",
+      "slug": "medico-senior-50-60-endocrinologia-diabetologia-spital-uster-uster",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch",
+        "it": "medico-senior-50-60-endocrinologia-diabetologia-spital-uster-uster",
         "en": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch",
         "de": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch",
         "fr": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
@@ -4068,7 +4076,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
+      ]
     }
   ]
 }

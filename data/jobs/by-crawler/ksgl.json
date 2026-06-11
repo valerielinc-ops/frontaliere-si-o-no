@@ -1749,9 +1749,9 @@
     },
     {
       "id": "ksgl-eb7ca9a8ff04",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
+      "slug": "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
+        "it": "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
         "en": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
         "fr": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
@@ -1808,7 +1808,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
+      ]
     }
   ]
 }
