@@ -10,6 +10,12 @@ name: Discover 404s via URL Inspection
 # programmatic way to discover unknown 404 URLs would be via the UI CSV
 # export. By rotating through our known URL universe we catch every
 # 404 transition without manual intervention.
+#
+# A second, complementary producer runs in the same job: the Cloudflare edge
+# 404 sweep (discover-404s-via-cloudflare.mjs), which surfaces 404 URLs we DON'T
+# already track — every real edge hit, human + bot, locale shards included,
+# zero GSC quota. Both producers append to the same accumulator and share the
+# prune + commit steps below.
 
 on:
   schedule:
@@ -82,6 +88,24 @@ jobs:
           MIN_AGE_DAYS: ${{ inputs.min_age_days || '14' }}
         run: |
           node scripts/discover-404s-via-inspection.mjs \
+            ${{ inputs.dry_run == true && '--dry-run' || '' }}
+
+      - name: Run Cloudflare edge 404 sweep
+        # Third producer (#1803 — script merged but never wired to CI until
+        # now). CF edge analytics records EVERY real 404 at the edge (human +
+        # bot, /en /de /fr shards included, no GSC quota), unlike URL
+        # Inspection which only re-checks URLs we already track. The script
+        # only APPENDS candidates (assets/infra filtered, min-count 2); the
+        # prune step below drops whatever the resolver can't map, keeping
+        # tests/search-console-compat.test.ts green. The CF analytics lib
+        # filters requestSource=eyeball by default (#1842), so Worker-internal
+        # phantom rows (edgeWorkerCacheAPI) can never reach the accumulator.
+        # continue-on-error: best-effort enrichment — a CF API hiccup must not
+        # kill the GSC sweep's commit. CF_API_TOKEN arrives from the
+        # "Load RC secrets" step above (Firebase Remote Config → GITHUB_ENV).
+        continue-on-error: true
+        run: |
+          node scripts/discover-404s-via-cloudflare.mjs \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
       - name: Prune non-resolving 404-compat paths (keep test invariant green)
