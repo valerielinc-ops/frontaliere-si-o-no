@@ -267,8 +267,12 @@ const SLUG_STOP_WORDS = new Set([
 /**
  * Extract meaningful keywords from a slug or free-text source string.
  * Filters stop words and short tokens. Returns lowercase Set.
+ *
+ * Exported so the job-alert matcher (services/jobAlertMatching.mjs) reuses the
+ * SAME tokenizer + stop-word list instead of copy-pasting it — single source of
+ * truth keeps the two funnels' keyword extraction from drifting apart.
  */
-function extractKeywords(text) {
+export function extractKeywords(text) {
   if (!text) return new Set();
   const tokens = String(text)
     .toLowerCase()

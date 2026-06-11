@@ -24,6 +24,7 @@ import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
+import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -411,44 +412,11 @@ function loadRecentJobs() {
 }
 
 // ── Matching logic ───────────────────────────────────────────
-
-function matchJobToAlert(job, alert) {
-  let score = 0;
-
-  // Keyword matching (title + description)
-  if (alert.keywords?.length > 0) {
-    const text = `${job.title || ''} ${job.description || ''} ${Object.values(job.titleByLocale || {}).join(' ')}`.toLowerCase();
-    const keywordMatch = alert.keywords.some((kw) => text.includes(kw.toLowerCase()));
-    if (keywordMatch) score += 3;
-    else return 0; // Keywords required but none matched
-  }
-
-  // Location matching
-  if (alert.locations?.length > 0) {
-    const jobLoc = `${job.location || ''} ${job.addressLocality || ''} ${job.canton || ''}`.toLowerCase();
-    const locMatch = alert.locations.some((loc) => jobLoc.includes(loc.toLowerCase()));
-    if (locMatch) score += 2;
-  }
-
-  // Contract type matching
-  if (alert.contractTypes?.length > 0) {
-    const jobContract = (job.contract || '').toLowerCase();
-    const contractMatch = alert.contractTypes.some((ct) => jobContract.includes(ct.toLowerCase()));
-    if (contractMatch) score += 1;
-  }
-
-  // Sector matching
-  if (alert.sectors?.length > 0) {
-    const jobSector = (job.sector || '').toLowerCase();
-    const sectorMatch = alert.sectors.some((s) => jobSector.includes(s.toLowerCase()));
-    if (sectorMatch) score += 2;
-  }
-
-  // If no keywords required, location is sufficient
-  if (alert.keywords?.length === 0 && score === 0) return 0;
-
-  return Math.max(score, 1);
-}
+// The relevance heuristic lives in services/jobAlertMatching.mjs
+// (buildAlertProfile + scoreJobForAlert) so it is pure + unit-testable and
+// shares the keyword tokenizer with the newsletter funnel. The matching loop
+// in main() builds a per-alert profile (alert config + source-job intent +
+// newsletter_subscribers profile) and scores every recent job against it.
 
 // ── Email template ───────────────────────────────────────────
 
@@ -1016,11 +984,17 @@ async function main() {
   const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
   const newsletterCooldownSet = new Set();
   const autologinDisabledSet = new Set();
+  // Subscriber profiles keyed by lowercased email. Captured here (reusing the
+  // newsletter_subscribers read this loop already performs — zero extra reads)
+  // so the matcher can fold the newsletter profile (job_company, job_category,
+  // sector_interest, location_interest, preferences, …) into relevance scoring.
+  const subscriberProfiles = new Map();
   for (const email of alertEmails) {
     try {
       const subDoc = await db.collection('newsletter_subscribers').doc(email).get();
       if (subDoc.exists) {
         const data = subDoc.data() || {};
+        subscriberProfiles.set(email.toLowerCase(), data);
         const lastSentAt = data.last_sent_at;
         if (lastSentAt) {
           const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
@@ -1060,8 +1034,11 @@ async function main() {
   let totalMatches = 0;
 
   for (const alert of alerts) {
+    // Enrich the alert with the subscriber's newsletter profile + its own
+    // source-job signals, then score every recent job against that profile.
+    const profile = buildAlertProfile(alert, subscriberProfiles.get(alert.email.toLowerCase()) || null);
     const sorted = recentJobs
-      .map((job) => ({ job, score: matchJobToAlert(job, alert) }))
+      .map((job) => ({ job, score: scoreJobForAlert(job, profile) }))
       .filter((m) => m.score > 0)
       .sort((a, b) => {
         // Primary: higher score first.
