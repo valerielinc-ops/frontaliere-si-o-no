@@ -477,6 +477,18 @@ async function fetchUmantisDetail(detailUrl, title = '') {
  *                                           pages to a generic career center
  *                                           while Application/* remains the
  *                                           stable live job endpoint.
+ * @param {boolean} [config.allowBoilerplateOnDeadDetail=false] When true and a
+ *                                           Description/* URL 3xx-redirects
+ *                                           cross-host (issue #1245), still emit
+ *                                           the job using synthesised boilerplate
+ *                                           rather than quarantining it. Use for
+ *                                           tenants where the Umantis listing is
+ *                                           the sole authoritative source but
+ *                                           the detail URL has been deprecated
+ *                                           (kispi-sg, paraplegie). When false
+ *                                           (default), dead-detail jobs are
+ *                                           quarantined so boilerplate-guard
+ *                                           garbage can't enter the dataset.
  */
 export function createUmantisListingParser(config) {
   const {
@@ -492,6 +504,7 @@ export function createUmantisListingParser(config) {
     publicCareerUrl,
     defaultSourceLang = 'de',
     canonicalUrlMode = 'detail',
+    allowBoilerplateOnDeadDetail = false,
   } = config;
 
   const customBaseUrl = rawCustomBaseUrl
@@ -582,16 +595,26 @@ export function createUmantisListingParser(config) {
       await new Promise((r) => setTimeout(r, 200));
 
       // Dead detail URL (issue #1245): the tenant deprecated
-      // /Vacancies/{id}/Description/* and now 3xx-redirects it cross-host (→
-      // public site / migrated ATS). There is no per-job body to extract and
-      // the listing page carries no description either, so synthesising a
-      // German boilerplate fallback here would only feed the dataset
-      // boilerplate-guard garbage and brick the whole crawler. QUARANTINE the
-      // job instead — skip emit — so the crawler succeeds with the remaining
-      // good jobs (or exits cleanly with a WARNING if EVERY job is dead).
+      // /Vacancies/{id}/Description/* and now 3xx-redirects it cross-host.
+      //
+      // Two handling modes:
+      //
+      // allowBoilerplateOnDeadDetail=false (default): QUARANTINE the job.
+      //   Used when the Umantis listing is unreliable after migration (the
+      //   ATS has moved elsewhere and the listing may go stale). Skipping
+      //   emit prevents boilerplate-guard garbage entering the dataset.
+      //
+      // allowBoilerplateOnDeadDetail=true: CONTINUE and let the description
+      //   synthesiser below build structured boilerplate from listing metadata.
+      //   Used for tenants (kispi-sg, paraplegie) where the Umantis listing
+      //   remains the authoritative vacancy source but the per-job
+      //   /Description/* URL has been retired — the listing metadata
+      //   (title, department, art, befristung, location) gives enough signal
+      //   for a structured, non-boilerplate-triggering description.
       if (deadDetail) {
         quarantinedDeadDetail++;
-        continue;
+        if (!allowBoilerplateOnDeadDetail) continue;
+        // Fall through — detailContent stays '' and the synthesiser takes over.
       }
       if (detailContent) detailHits++;
 
@@ -686,13 +709,16 @@ export function createUmantisListingParser(config) {
       console.log(`  ⏭️  Skipped ${skippedCivilService} Zivildienst/civil-service listing(s) (not relevant for cross-border workers)`);
     }
     if (quarantinedDeadDetail > 0) {
-      console.warn(`  ⚠️  Quarantined ${quarantinedDeadDetail}/${entries.length} job(s): detail URL deprecated (cross-host 3xx → source migrated away, issue #1245). Not emitting boilerplate for these.`);
+      if (allowBoilerplateOnDeadDetail) {
+        console.warn(`  ⚠️  ${quarantinedDeadDetail}/${entries.length} job(s) have deprecated detail URL (cross-host 3xx, issue #1245). Using structured boilerplate from listing metadata (allowBoilerplateOnDeadDetail=true).`);
+      } else {
+        console.warn(`  ⚠️  Quarantined ${quarantinedDeadDetail}/${entries.length} job(s): detail URL deprecated (cross-host 3xx → source migrated away, issue #1245). Not emitting boilerplate for these.`);
+      }
     }
-    // If EVERY discovered job has a dead detail URL, the tenant has migrated its
-    // ATS away from Umantis entirely. Exit cleanly with a clear WARNING instead
-    // of hard-failing every run — a degraded/migrated source must not brick the
-    // whole crawler (and there is nothing real to index without per-job bodies).
-    if (jobs.length === 0 && quarantinedDeadDetail > 0) {
+    // If EVERY discovered job has a dead detail URL AND we are NOT in
+    // allow-boilerplate mode, the tenant has migrated its ATS away from
+    // Umantis entirely. Exit cleanly with a clear WARNING.
+    if (jobs.length === 0 && quarantinedDeadDetail > 0 && !allowBoilerplateOnDeadDetail) {
       console.warn(`  ⚠️  ${companyName}: ALL ${entries.length} listing(s) have a deprecated (cross-host-redirecting) Umantis detail URL — source appears to have migrated off Umantis. Emitting 0 jobs (no hard failure). Follow-up: per-tenant public-site/Prospective description extraction (issue #1245).`);
     }
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content${quarantinedDeadDetail > 0 ? `, ${quarantinedDeadDetail} quarantined dead-detail` : ''})`);

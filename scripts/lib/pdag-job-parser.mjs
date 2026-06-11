@@ -1,33 +1,41 @@
 #!/usr/bin/env node
 /**
- * PDAG — Psychiatrische Dienste Aargau AG job parser — Umantis tenant 22705.
+ * PDAG — Psychiatrische Dienste Aargau AG job parser.
  *
- * Public career site: https://www.pdag.ch/de/karriere.html
- * Raw listing:        https://recruitingapp-22705.umantis.com/Jobs/All?lang=ger
+ * Public career site: https://jobs.pdag.ch/
+ * ATS: Prospective (medium 1000003) — migrated from Umantis tenant 22705.
+ *
+ * The Umantis listing (recruitingapp-22705.umantis.com) still returns job
+ * titles but ALL /Vacancies/{id}/Description/* URLs now 3xx-redirect
+ * cross-host to https://jobs.pdag.ch/ (issue #1245). PDAG has fully migrated
+ * to Prospective.ch; the canonical job data is served via:
+ *   https://ohws.prospective.ch/public/v1/medium/1000003/jobs?lang=de
  *
  * Cantonal psychiatric services for Aargau, headquartered in Königsfelden
- * (Windisch). Five-digit tenant ID range (22xxx) shared with Spital Zofingen.
+ * (Windisch). Covers KPP (psychiatry), ZPP (psychotherapy), addiction
+ * medicine, geriatric psychiatry, and child/adolescent services.
  *
- * Newer Umantis UI (column-value spans).
+ * Fixes: GitHub issue #1740 (0 jobs from dead Umantis detail URLs).
  */
-import { createUmantisListingParser } from './umantis-listing-common.mjs';
+import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
 
 export const PDAG_KEY = 'pdag';
 export const PDAG_COMPANY_NAME = 'Psychiatrische Dienste Aargau (PDAG)';
 export const PDAG_COMPANY_DOMAIN = 'pdag.ch';
 
-const parser = createUmantisListingParser({
+const parser = createProspectiveChParser({
   companyKey: PDAG_KEY,
   companyName: PDAG_COMPANY_NAME,
   companyDomain: PDAG_COMPANY_DOMAIN,
-  tenantId: 22705,
-  lang: 'ger',
+  mediumId: '1000003',
+  apiLang: 'de',
   defaultCanton: 'AG',
   defaultCity: 'Windisch',
   defaultPostalCode: '5210',
-  publicCareerUrl: 'https://www.pdag.ch/de/karriere.html',
+  publicCareerUrl: 'https://jobs.pdag.ch/',
   defaultSourceLang: 'de',
-  canonicalUrlMode: 'application',
+  // Also trust the Prospective-hosted job pages served from jobs.pdag.ch
+  extraTrustedHosts: ['jobs.pdag.ch', 'ohws.prospective.ch'],
 });
 
 export const fetchAllPdagJobs = parser.fetchAllJobs;
