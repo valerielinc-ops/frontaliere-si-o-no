@@ -1,12 +1,17 @@
 /**
  * chatbotInference.js — Server-side AI inference for the site-wide chatbot.
  *
- * Runs inside Firebase Functions (europe-west6) to keep Gemini API keys
- * off the browser, enable multi-model fallback, and cache common FAQ answers.
+ * Runs inside Firebase Functions (europe-west6) to keep provider API keys
+ * off the browser, enable multi-provider fallback, and cache common FAQ answers.
  *
- * Model priority (free-first):
- * 1. gemini-2.0-flash-lite (replaces deprecated gemini-2.0-flash)
- * 2. gemini-1.5-flash-8b (lighter fallback, also free-tier)
+ * Provider chain (free-first):
+ * 1. Gemini (gemini-2.0-flash-lite → gemini-1.5-flash-8b) — primary
+ * 2. Groq llama-3.3-70b-versatile — first OpenAI-compatible fallback
+ * 3. NVIDIA meta/llama-3.1-70b-instruct — second OpenAI-compatible fallback
+ * 4. Groq llama-3.1-8b-instant — last-resort fallback
+ *
+ * Tools (searchJobs) are embedded as text in the system prompt; no native
+ * function-calling API is used, so OpenAI-compatible providers work identically.
  *
  * Response caching: in-memory, 10-minute TTL, max 200 entries.
  * Only single-turn messages ≤ 200 chars are cached (FAQ pattern).
@@ -22,6 +27,16 @@ const GEMINI_MODELS = [
 ];
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
+const PROVIDER_TIMEOUT_MS = 18000;
+
+// Free OpenAI-compatible fallbacks tried when all Gemini models fail.
+// Keys already live in Remote Config (same pool as geminiGenerate / translation chain).
+// Diversity across providers matters: a per-key 429 on one must not take down siblings.
+const OPENAI_FALLBACKS = [
+  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.3-70b-versatile', label: 'groq-70b' },
+  { rcKey: 'NVIDIA_API_KEY', base: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'meta/llama-3.1-70b-instruct', label: 'nvidia-70b' },
+  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.1-8b-instant', label: 'groq-8b' },
+];
 
 // ── Available client-side tools ─────────────────────────────────────────────
 // Tools the LLM may request. Execution happens client-side (AiChatbot.tsx)
@@ -92,7 +107,7 @@ function cacheSet(key, text) {
  responseCache.set(key, { text, ts: Date.now() });
 }
 
-// ── Gemini REST call ─────────────────────────────────────────────────────────
+// ── Provider calls ───────────────────────────────────────────────────────────
 
 function sleep(ms) {
  return new Promise(resolve => setTimeout(resolve, ms));
@@ -130,6 +145,7 @@ async function callGeminiModel(model, messages, systemPrompt, apiKey) {
  { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
  ],
  }),
+ signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
  });
 
  if (response.ok) {
@@ -160,14 +176,43 @@ async function callGeminiModel(model, messages, systemPrompt, apiKey) {
  throw Object.assign(new Error('rate_limited_exhausted'), { code: '429', status: 429 });
 }
 
+/**
+ * Call an OpenAI-compatible chat endpoint with multi-turn message history.
+ * Returns trimmed text on success, throws on failure.
+ */
+async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, systemPrompt }) {
+  const msgs = [];
+  if (systemPrompt.trim()) msgs.push({ role: 'system', content: systemPrompt });
+  for (const m of messages) {
+    msgs.push({ role: m.role === 'assistant' ? 'assistant' : 'user', content: String(m.content ?? '') });
+  }
+
+  const res = await fetch(base, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({ model, messages: msgs, max_tokens: 1024, temperature: 0.7 }),
+    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
+  });
+
+  if (!res.ok) {
+    const detail = await res.text().catch(() => '');
+    throw new Error(`http_${res.status}: ${detail.slice(0, 120)}`);
+  }
+
+  const data = await res.json().catch(() => ({}));
+  const text = data?.choices?.[0]?.message?.content?.trim() || '';
+  if (!text) throw new Error('empty');
+  return text;
+}
+
 // ── Main export ──────────────────────────────────────────────────────────────
 
 /**
  * Handle a chatbot inference request.
- * Tries each model in GEMINI_MODELS in order, returns on first success.
+ * Tries Gemini first, then falls through to free OpenAI-compatible providers.
  *
  * @param {{ messages: Array<{role:string,content:string}>, systemPrompt: string }} params
- * @returns {{ text: string, model: string, source: 'cache'|'gemini' }}
+ * @returns {{ text: string, model: string, source: 'cache'|'gemini'|'openai-compat' }}
  */
 export async function handleChatbotInference({ messages, systemPrompt }) {
  if (!Array.isArray(messages) || messages.length === 0) {
@@ -183,29 +228,51 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  }
  }
 
- // 2. Get API key from Remote Config (server-side, never sent to browser)
- const apiKey = await getRemoteConfigValue('GEMINI_API_KEY');
- if (!apiKey) {
- throw Object.assign(new Error('no_api_key'), { code: 'CONFIG' });
- }
-
- // 3. Try each model in priority order
  // Append tool catalogue so the model knows which client-side tools exist.
  const augmentedPrompt = `${systemPrompt}${buildToolsSection()}`;
- let lastError = null;
+ const failures = [];
+
+ // 2. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
+ const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
+ if (geminiKey) {
  for (const model of GEMINI_MODELS) {
  try {
- const text = await callGeminiModel(model, messages, augmentedPrompt, apiKey);
+ const text = await callGeminiModel(model, messages, augmentedPrompt, geminiKey);
  if (key) cacheSet(key, text);
  return { text, model, source: 'gemini' };
  } catch (err) {
- lastError = err;
- // Stop trying more models on 429 (rate limit is per-key, not per-model)
+ failures.push(`gemini/${model}: ${err instanceof Error ? err.message : String(err)}`);
+ // Rate limit is per-key — no point trying the next Gemini model
  if (err?.code === '429') break;
- // Log and continue to next model for other errors
  console.warn(`[chatbot] model=${model} failed: ${err.message}`);
  }
  }
+ } else {
+ failures.push('gemini: not_configured');
+ }
 
- throw lastError ?? new Error('all_models_failed');
+ // 3. Fallbacks: free OpenAI-compatible providers (keys already in Remote Config).
+ //    Tools are embedded as text in augmentedPrompt — no format translation needed.
+ for (const fb of OPENAI_FALLBACKS) {
+ const fbKey = await getRemoteConfigValue(fb.rcKey);
+ if (!fbKey) {
+ failures.push(`${fb.label}: no_key`);
+ continue;
+ }
+ try {
+ const text = await callOpenAiCompatibleMultiTurn({ base: fb.base, apiKey: fbKey, model: fb.model, messages, systemPrompt: augmentedPrompt });
+ console.log(`[chatbot] served by fallback ${fb.label}`);
+ if (key) cacheSet(key, text);
+ return { text, model: fb.model, source: 'openai-compat' };
+ } catch (err) {
+ failures.push(`${fb.label}: ${err instanceof Error ? err.message : String(err)}`);
+ }
+ }
+
+ // Every provider failed.
+ console.error('[chatbot] all providers failed —', failures.join(' | '));
+ throw Object.assign(
+ new Error('all_providers_failed'),
+ { code: 'ALL_FAILED', detail: failures.join(' | ').slice(0, 300) },
+ );
 }
