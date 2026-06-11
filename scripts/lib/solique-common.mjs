@@ -133,7 +133,7 @@ export function parseSoliqueListing(html = '') {
 function parseSoliqueTileBody(id, body) {
   if (!body) return null;
   const titleMatch = body.match(/<(?:div|h[1-6])\s+class="jobtitle"[^>]*>([\s\S]*?)<\/(?:div|h[1-6])>/i);
-  const title = titleMatch ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1]))) : '';
+  const title = sanitizeField(titleMatch ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1]))) : '');
   const minMatch = body.match(/<span\s+class="min[^"]*"[^>]*>\s*(\d{1,3})\s*<\/span>/);
   const maxMatch = body.match(/<span\s+class="max[^"]*"[^>]*>\s*(\d{1,3})\s*<\/span>/);
   const minPct = minMatch ? parseInt(minMatch[1], 10) : null;
@@ -221,7 +221,7 @@ export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
   const seen = new Set();
   for (const j of jobs) {
     const id = String(j?.title?.id || j?.id || '').trim();
-    const title = normalizeSpace(decodeEntities(String(j?.title?.value || '')));
+    const title = sanitizeField(normalizeSpace(decodeEntities(String(j?.title?.value || ''))));
     if (!id || !title || seen.has(id)) continue;
     seen.add(id);
     const location = sanitizeField(normalizeSpace(decodeEntities(String(j?.location?.value || ''))));
@@ -289,7 +289,7 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   const titledRx = /<div\s+class="title-green"[^>]*>([\s\S]*?)<\/div>([\s\S]*?)(?=<div\s+class="title-green"|$)/g;
   let tm;
   while ((tm = titledRx.exec(cleaned))) {
-    const title = normalizeSpace(decodeEntities(stripHtml(tm[1])));
+    const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(tm[1]))));
     if (!title) continue;
     let body = tm[2]
       .replace(/<li[^>]*>/gi, '\n• ')
@@ -310,7 +310,7 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
     let hm;
     let captured = false;
     while ((hm = headingRx.exec(inner))) {
-      const title = normalizeSpace(decodeEntities(stripHtml(hm[1])));
+      const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(hm[1]))));
       if (!title) continue;
       captured = true;
       let body = hm[2]
@@ -337,7 +337,7 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
   const panelRx = /<div\s+class="job-panel\s+job-panel--[a-z0-9_-]+[^"]*"[^>]*>\s*<h2[^>]*>([\s\S]*?)<\/h2>\s*<div[^>]*>([\s\S]*?)<\/div>\s*<\/div>/g;
   let pm;
   while ((pm = panelRx.exec(cleaned))) {
-    const title = normalizeSpace(decodeEntities(stripHtml(pm[1])));
+    const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(pm[1]))));
     if (!title) continue;
     let body = pm[2]
       .replace(/<li[^>]*>/gi, '\n• ')

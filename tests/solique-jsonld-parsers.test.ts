@@ -261,6 +261,30 @@ describe('JS-error-string sanitizer (issues #1682 / #1741)', () => {
     expect(rows[0].location).toBe('');
     warn.mockRestore();
   });
+
+  it('drops a job whose TITLE is JS-error-shaped (would otherwise leak into the slug) — SSR listing', () => {
+    const brokenTitle = `
+<div class="job"><div class="job-group">
+  <h3 class="jobtitle">&quot;title&quot; is not defined</h3>
+  <div class="location">Herisau</div>
+  <div class="link"><a id="555" href="job/details/555">Details</a></div>
+</div></div>`;
+    const rows = parseSoliqueListing(brokenTitle);
+    // sanitizeField empties the title → the `title.length >= 3` filter skips the job
+    expect(rows.find((r: { id: string }) => r.id === '555')).toBeUndefined();
+  });
+
+  it('drops a job whose TITLE is JS-error-shaped (API listing)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: 'ReferenceError: title is not defined', id: '556' }, location: { value: 'Herisau' } }] },
+      'svar',
+      'de',
+    );
+    // sanitized title → falsy → the `!title` guard skips the row, no error-shaped slug
+    expect(rows.find((r: { id: string }) => r.id === '556')).toBeUndefined();
+    warn.mockRestore();
+  });
 });
 
 describe('JSON-LD JobPosting helper', () => {
