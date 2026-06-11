@@ -223,9 +223,16 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           collector.add(np.join(distDir, urlPath, 'index.html'), html);
           collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           pagesWritten++;
-        }
 
-        sitemapEntries.push({ canonical: detailPath('it', slug), alternates });
+          // Sitemap: only the IT canonical, and only when that page was actually
+          // emitted (title present → not `continue`d above) AND is indexable
+          // (wordCount ≥ MIN → index,follow, not noindex/thin). Pushing in the
+          // outer loop would submit noindex or skipped-IT (404) URLs to Search
+          // Console. Mirrors careerLandingsPlugin's gated push.
+          if (locale === 'it' && wordCount >= MIN_INDEXABLE_WORDS) {
+            sitemapEntries.push({ canonical: urlPath, alternates });
+          }
+        }
       }
 
       if (sitemapEntries.length > 0) {
