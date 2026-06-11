@@ -741,14 +741,24 @@ export function clearNewsletterPendingLocally(): void {
 
 const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
 
-export async function requestConfirmationEmail(email: string): Promise<{ success: boolean; error?: string }> {
+export async function requestConfirmationEmail(
+ email: string,
+ purpose?: 'confirm' | 'login',
+): Promise<{ success: boolean; error?: string }> {
  try {
  const { getLocale } = await import('@/services/i18n');
  const sourcePath = window.location.pathname || '/';
  const resp = await fetch(`${FUNCTIONS_BASE}/newsletterSendConfirmation`, {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify({ email: email.toLowerCase().trim(), locale: getLocale(), sourcePath }),
+ body: JSON.stringify({
+ email: email.toLowerCase().trim(),
+ locale: getLocale(),
+ sourcePath,
+ // 'login' makes the CF send the link even to an already-confirmed
+ // subscriber (the link both confirms — a no-op — and auto-logs in).
+ ...(purpose ? { purpose } : {}),
+ }),
  });
  const data = await resp.json();
  return data as { success: boolean; error?: string };

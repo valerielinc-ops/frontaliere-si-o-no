@@ -424,6 +424,7 @@ export const newsletterSendConfirmation = onRequest(
  const email = String(req.body?.email || '').trim().toLowerCase();
  const locale = String(req.body?.locale || 'it').trim();
  const sourcePath = String(req.body?.sourcePath || '/').trim();
+ const purpose = req.body?.purpose === 'login' ? 'login' : 'confirm';
 
  if (!email || !email.includes('@')) {
  res.status(400).json({ success: false, error: 'invalid_email' });
@@ -438,6 +439,7 @@ export const newsletterSendConfirmation = onRequest(
  sourcePath,
  resendApiKey,
  secret: newsletterSecret,
+ purpose,
  });
  res.status(result.success ? 200 : 400).json(result);
  } catch (error) {
