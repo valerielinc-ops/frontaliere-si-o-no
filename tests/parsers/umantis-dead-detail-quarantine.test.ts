@@ -190,6 +190,35 @@ describe('createUmantisListingParser — quarantine vs hard-fail', () => {
     expect(jobs).toEqual([]);
   });
 
+  it('allowBoilerplateOnDeadDetail=true emits jobs with structured boilerplate on dead-detail (kispi-sg / paraplegie mode)', async () => {
+    const fetchMock = vi.fn(async (url: string) => {
+      if (url.includes('/Jobs/All')) return res({ status: 200, body: LISTING_HTML });
+      // Both detail URLs are dead (cross-host 302).
+      return res({ status: 302, location: 'https://www.test-spital.ch/karriere' });
+    });
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const { fetchAllJobs } = createUmantisListingParser({
+      companyKey: 'test-tenant',
+      companyName: 'Test Spital',
+      companyDomain: 'test-spital.ch',
+      tenantId: 2782,
+      defaultCanton: 'TI',
+      defaultCity: 'Lugano',
+      defaultPostalCode: '6900',
+      allowBoilerplateOnDeadDetail: true,
+    });
+    const jobs = await fetchAllJobs();
+
+    // Both jobs emitted despite dead detail URLs.
+    expect(jobs).toHaveLength(2);
+    // Each job must have a non-empty structured description (not just a title).
+    for (const j of jobs) {
+      expect(j.description.length).toBeGreaterThan(40);
+      expect(j.title.length).toBeGreaterThan(3);
+    }
+  });
+
   it('a still-200 tenant is unaffected (both jobs emitted with real content)', async () => {
     const fetchMock = vi.fn(async (url: string) => {
       if (url.includes('/Jobs/All')) return res({ status: 200, body: LISTING_HTML });

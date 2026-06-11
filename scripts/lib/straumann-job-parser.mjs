@@ -12,8 +12,9 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { fetchPostWidgetWithAntiBotHardening } from './pastahr-widget-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -28,9 +29,6 @@ const SECTOR = 'Dental / Medical Devices (MedTech)';
 
 // HQ fallback (Basel, Basel-Stadt) per recon record.
 const HQ = { city: 'Basel', canton: 'BS', postalCode: '4002', region: 'Basel-Stadt' };
-
-const USER_AGENT =
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -178,25 +176,27 @@ function buildJobUrl(job) {
 async function fetchJobListings() {
   console.log(`   Fetching from: ${WIDGETS_API} (Phenom refineSearch, country=Switzerland)`);
 
-  const headers = {
-    'User-Agent': USER_AGENT,
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-    Origin: 'https://careers.straumann.com',
-    Referer: CAREER_URL,
-  };
-
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const listings = [];
   const PAGE = 10;
   const MAX_PAGES = 50; // safety cap (Switzerland count ~10; total global ~216)
 
   for (let page = 0; page < MAX_PAGES; page++) {
     const from = page * PAGE;
-    const data = await fetchJson(WIDGETS_API, {
-      method: 'POST',
-      headers,
-      body: buildRefineSearchBody(from),
-    });
+    // Phenom People WAF uses Cloudflare and blocks GitHub Actions IPs when the
+    // request fingerprint looks like a bot (#1751). Use the shared anti-bot
+    // client: Chrome 131 UA + client-hint headers first, Playwright fallback on
+    // 403 — same pattern used for publicjobs.ch/widget (#1679, #1783).
+    const data = await fetchPostWidgetWithAntiBotHardening(
+      buildRefineSearchBody(from),
+      WIDGETS_API,
+      {
+        referer: CAREER_URL,
+        origin: `https://${ATS_HOST}`,
+        timeoutMs,
+        attempt: page,
+      },
+    );
 
     const jobs = data?.refineSearch?.data?.jobs;
     if (!Array.isArray(jobs) || jobs.length === 0) break;

@@ -37,6 +37,12 @@ const parser = createUmantisListingParser({
   defaultPostalCode: '6207',
   publicCareerUrl: 'https://www.paraplegie.ch/de/karriere/offene-stellen/',
   defaultSourceLang: 'de',
+  // The Umantis /Vacancies/{id}/Description/* URLs 3xx-redirect cross-host to
+  // paraplegie.ch/karriere (issue #1245, GitHub issue #1739). The listing page
+  // itself remains the authoritative vacancy source (Umantis tenant 2782 is
+  // live). Emit jobs with synthesised boilerplate from listing metadata rather
+  // than quarantining every job → 0 emitted.
+  allowBoilerplateOnDeadDetail: true,
 });
 
 export const fetchAllParaplegieJobs = parser.fetchAllJobs;
