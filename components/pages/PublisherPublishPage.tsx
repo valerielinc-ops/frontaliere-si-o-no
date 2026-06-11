@@ -14,8 +14,9 @@
  */
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Briefcase, Plus, Trash2, Send, AlertTriangle, Clock, Shield, Sparkles, ShoppingCart, Mail, Loader2, AlertCircle } from 'lucide-react';
+import { Briefcase, Plus, Trash2, Send, AlertTriangle, Clock, CheckCircle2, Shield, Sparkles, ShoppingCart, Mail, Loader2, AlertCircle } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { buildPath } from '@/services/router';
 import { useAuth, getAuthEmail } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -304,6 +305,9 @@ const PublisherPublishPage: React.FC = () => {
  const [errors, setErrors] = useState<string[]>([]);
  const [errorMessage, setErrorMessage] = useState('');
 
+ // True when the page is the Stripe-checkout return (?publisher_checkout=success).
+ const [checkoutSuccess, setCheckoutSuccess] = useState(false);
+
  // ── AI auto-fill (sponsored only) ───────────────────────────
  const [aiPosition, setAiPosition] = useState('');
  const [aiStatus, setAiStatus] = useState<'idle' | 'loading' | 'error'>('idle');
@@ -350,6 +354,26 @@ const PublisherPublishPage: React.FC = () => {
  useEffect(() => {
  Analytics.trackPageView('/pubblica-offerta', 'Publisher Publish Page');
  Analytics.trackUIInteraction('publisher', 'page', 'publish_page', 'view');
+ }, []);
+
+ // ── Stripe checkout return ──────────────────────────────────
+ // The checkout CF sets successUrl to `…/pubblica-offerta/?publisher_checkout=success`.
+ // Without handling it the user lands on a blank form with no confirmation (the
+ // ad was already created client-side before the redirect; the webhook flips it
+ // to `paid`). Show a success screen and strip the param so a refresh or a later
+ // visit doesn't re-trigger it.
+ useEffect(() => {
+ const params = new URLSearchParams(window.location.search);
+ if (params.get('publisher_checkout') !== 'success') return;
+ setCheckoutSuccess(true);
+ Analytics.trackUIInteraction('publisher', 'checkout', 'return', 'success');
+ params.delete('publisher_checkout');
+ const qs = params.toString();
+ window.history.replaceState(
+ window.history.state,
+ '',
+ `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`,
+ );
  }, []);
 
  // ── Implicit newsletter subscribe on social sign-in ─────────
@@ -860,6 +884,31 @@ const PublisherPublishPage: React.FC = () => {
  setGateStatus('error');
  }
  };
+
+ // ── Stripe checkout success ─────────────────────────────────
+ // Takes priority over the auth gate: the param is the source of truth and
+ // auth may still be resolving on this fresh page load. The ad already exists
+ // (created before the redirect); send the user to their dashboard, not a form.
+ if (checkoutSuccess) {
+ return (
+ <div className="max-w-2xl mx-auto px-4 py-12">
+ <div className="text-center space-y-4">
+ <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle">
+ <CheckCircle2 className="w-8 h-8 text-success" />
+ </div>
+ <h2 className="text-2xl font-bold font-display text-strong">{t('publisher.checkoutSuccess.title')}</h2>
+ <p className="text-subtle max-w-md mx-auto">{t('publisher.checkoutSuccess.message')}</p>
+ <a
+ href={buildPath({ activeTab: 'publisher-dashboard' }, locale)}
+ className="mt-2 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+ >
+ <Briefcase className="w-4 h-4" />
+ {t('publisher.checkoutSuccess.cta')}
+ </a>
+ </div>
+ </div>
+ );
+ }
 
  // ── Auth gate ───────────────────────────────────────────────
  // While auth resolves, show a spinner — NEVER flash the form for an
