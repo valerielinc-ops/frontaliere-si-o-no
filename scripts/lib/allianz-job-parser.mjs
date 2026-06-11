@@ -124,6 +124,148 @@ function isGenericTitle(title, siteName) {
   return false;
 }
 
+/* ── Detail body extraction ────────────────────────────────────
+ *
+ * The Umantis ATS is mid-migration between two detail-page templates:
+ *   - NEW template: the real role body lives in `.container.page-width` →
+ *     `.content` blocks (paragraphs + <ul><li> bullets + headings).
+ *   - OLD template: the body lives in `.showblock_textblock` blocks.
+ * In BOTH templates the page also carries chrome (skip-links, the
+ * "your browser cannot display embedded frames" notice, the
+ * "Kontakt / Keine Details erfasst / Aktionen / Ich bin interessiert" sidebar,
+ * the "Generalagentur <name> |" agency header).
+ *
+ * Crucially, a given vacancy is only published in ITS OWN language: the Italian
+ * `/Description/4` page for a German job returns a content-less shell, so the
+ * old parser (hardcoded `/Description/4`) grabbed the chrome for most jobs →
+ * dozens of vacancies ended up with the SAME body+title (the duplicate-listings
+ * audit critical). `pickRichestAllianzDescription` probes every language code
+ * and keeps the variant with the most real body text.
+ */
+
+const CHROME_LINE_RE = /^(Kontakt|Aktionen|Ich bin interessiert|Zurück|Keine Details erfasst|Ihr Browser kann|Zum Hauptinhalt|Springe zur|Jetzt Teil der Allianz|Bewerben|Drucken|Empfehlen|Merken|Teilen)\b/i;
+const AGENCY_HEADER_RE = /^(Generalagentur|Agence générale|Agenzia generale)[^.\n]{0,80}\|?\s*$/i;
+
+/**
+ * Extract the real job-body HTML from a Umantis detail page, chrome removed.
+ * Handles both the new (`.container.page-width`) and old (`.showblock_textblock`)
+ * templates and returns the richest candidate's inner HTML (so <ul>/<li>
+ * structure survives for downstream markdown conversion). Returns '' if no
+ * substantial body is present (e.g. the wrong-language shell page).
+ */
+export function extractAllianzBodyHtml(html = '') {
+  const doc = new JSDOM(html).window.document;
+  doc.querySelectorAll('script,style,noscript,header,footer,nav').forEach((n) => n.remove());
+
+  const candidates = [];
+
+  // NEW template — main content area.
+  const newMain = doc.querySelector('.container.page-width');
+  if (newMain) {
+    // Drop obvious chrome sub-blocks (apply CTA / share bar) by class hints.
+    for (const el of newMain.querySelectorAll('[class*="apply"],[class*="share"],[class*="action"],[class*="cta"],form')) {
+      el.remove();
+    }
+    candidates.push(newMain);
+  }
+
+  // OLD template — substantial showblock textblocks, chrome filtered out.
+  const oldBlocks = [...doc.querySelectorAll('.showblock_textblock')].filter((n) => {
+    const t = normalizeSpace(n.textContent || '');
+    if (t.length < 60) return false;
+    if (CHROME_LINE_RE.test(t)) return false;
+    if (AGENCY_HEADER_RE.test(t)) return false;
+    return true;
+  });
+  if (oldBlocks.length) {
+    candidates.push({ innerHTML: oldBlocks.map((n) => n.outerHTML).join('\n'), textContent: oldBlocks.map((n) => n.textContent).join(' ') });
+  }
+
+  let best = '';
+  let bestLen = 0;
+  for (const c of candidates) {
+    const len = normalizeSpace(c.textContent || '').length;
+    if (len > bestLen) {
+      bestLen = len;
+      best = c.innerHTML || '';
+    }
+  }
+  return best;
+}
+
+/**
+ * Convert an extracted Umantis body HTML into clean markdown, dropping any
+ * residual chrome lines. Walks the DOM so that <ul>/<li> nested inside content
+ * <div>s are preserved as `- ` bullets and <h*>/bold-only paragraphs as `## `
+ * headings — Umantis wraps its lists in <div class="content"> which a flat
+ * inline-flatten converter would collapse, so this walker handles lists
+ * explicitly wherever they appear in the tree.
+ */
+export function allianzBodyToMarkdown(bodyHtml = '') {
+  if (!bodyHtml || !bodyHtml.trim()) return '';
+  const doc = new JSDOM(`<body>${bodyHtml}</body>`).window.document;
+  const body = doc.body;
+  const lines = [];
+
+  const inlineText = (node) => normalizeSpace(node.textContent || '');
+
+  const walk = (node) => {
+    if (node.nodeType === 3) {
+      const t = normalizeSpace(node.textContent || '');
+      if (t) lines.push(t);
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName.toLowerCase();
+
+    if (tag === 'ul' || tag === 'ol') {
+      let idx = 0;
+      for (const li of node.children) {
+        if (li.tagName.toLowerCase() !== 'li') continue;
+        idx += 1;
+        const text = inlineText(li);
+        if (text) lines.push(node.tagName.toLowerCase() === 'ol' ? `${idx}. ${text}` : `- ${text}`);
+      }
+      return;
+    }
+
+    if (/^h[1-6]$/.test(tag)) {
+      const t = inlineText(node);
+      if (t) lines.push(`## ${t}`);
+      return;
+    }
+
+    if (tag === 'p') {
+      const t = inlineText(node);
+      if (t) lines.push(t);
+      return;
+    }
+
+    // Containers (div/section/article/etc): recurse so nested lists are reached.
+    for (const child of node.childNodes) walk(child);
+  };
+
+  for (const child of body.childNodes) walk(child);
+
+  const cleaned = lines
+    .map((l) => l.trim())
+    .filter((l) => {
+      if (!l) return false;
+      const bare = l.replace(/^[-*#\d.\s]+/, '').trim();
+      if (!bare) return false;
+      if (CHROME_LINE_RE.test(bare)) return false;
+      if (AGENCY_HEADER_RE.test(bare)) return false;
+      return true;
+    });
+
+  // De-dup consecutive identical lines (some templates repeat headings).
+  const out = [];
+  for (const l of cleaned) {
+    if (out[out.length - 1] !== l) out.push(l);
+  }
+  return out.join('\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, 5000);
+}
+
 /**
  * Parse a detail page (Italian) and extract rich metadata.
  *
@@ -193,36 +335,40 @@ export function parseAllianzDetailPage(html = '', fallbackTitle = '', fallbackLo
     }
   }
 
-  // Extract description text from the body
-  const bodyHtml = html;
-  let description = '';
+  // Extract the real job body, chrome stripped, as structured markdown. Handles
+  // both Umantis templates (new `.container.page-width`, old
+  // `.showblock_textblock`) and preserves <ul><li> bullets as `- ` lines so the
+  // descriptions aren't flat prose. Returns '' on the wrong-language shell page.
+  const bodyHtml = extractAllianzBodyHtml(html);
+  let description = allianzBodyToMarkdown(bodyHtml);
 
-  // Try to find the main content area (Allianz template uses table-based email-style HTML)
-  const contentMatch = bodyHtml.match(/<td[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/td>/i) ||
-    bodyHtml.match(/<div[^>]*class="[^"]*vacancy[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-
-  if (contentMatch) {
-    description = stripHtml(contentMatch[1]);
-  } else {
-    // Fallback: extract all meaningful text between "Cosa ti proponiamo" and footer
-    const stripped = stripHtml(bodyHtml);
-    const startIdx = stripped.search(/Cosa ti (proponiamo|offriamo)|Was wir (dir bieten|Ihnen bieten)|What we offer/i);
-    if (startIdx > -1) {
-      const endIdx = stripped.indexOf('Ulteriori informazioni', startIdx);
-      description = (endIdx > -1 ? stripped.slice(startIdx, endIdx) : stripped.slice(startIdx, startIdx + 3000)).trim();
+  if (!description) {
+    // Legacy fallback for any remaining table/email-style template: pull the
+    // content cell or the "Was wir bieten / Cosa ti proponiamo" section.
+    // NOTE: deliberately NO chrome-grabbing "first N lines" last resort — a
+    // wrong-language shell page carries only chrome (skip-links, "Ihr Browser
+    // kann keine Frames anzeigen", the Kontakt/Aktionen sidebar). Returning ''
+    // for a shell is REQUIRED so fetchBestDetail keeps probing language codes
+    // and picks the variant that actually carries the role body. Grabbing the
+    // shell chrome here is what produced the duplicate-listings critical.
+    const contentMatch = html.match(/<td[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/td>/i) ||
+      html.match(/<div[^>]*class="[^"]*vacancy[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+    if (contentMatch) {
+      description = stripHtml(contentMatch[1]);
     } else {
-      // Last resort: look for substantial text blocks
-      const lines = stripped.split('\n').filter((l) => l.trim().length > 40);
-      description = lines.slice(0, 15).join('\n').trim();
+      const stripped = stripHtml(html);
+      const startIdx = stripped.search(/Cosa ti (proponiamo|offriamo)|Was wir (dir bieten|Ihnen bieten)|What we offer/i);
+      if (startIdx > -1) {
+        const endIdx = stripped.indexOf('Ulteriori informazioni', startIdx);
+        description = (endIdx > -1 ? stripped.slice(startIdx, endIdx) : stripped.slice(startIdx, startIdx + 3000)).trim();
+      }
     }
+    description = description
+      .replace(/\n{3,}/g, '\n\n')
+      .replace(/^\s+|\s+$/gm, '')
+      .trim()
+      .slice(0, 5000);
   }
-
-  // Clean up description
-  description = description
-    .replace(/\n{3,}/g, '\n\n')
-    .replace(/^\s+|\s+$/gm, '')
-    .trim()
-    .slice(0, 5000);
 
   // Extract address from body (e.g. "Piazza del Sole\n6500 Bellinzona")
   let locationFromBody = '';

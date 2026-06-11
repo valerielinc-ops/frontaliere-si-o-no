@@ -12,7 +12,8 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
+import { htmlToMarkdown } from './axpo-job-parser.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
@@ -226,6 +227,45 @@ async function fetchJobListings() {
 }
 
 /**
+ * Fetch the FULL structured description for one Givaudan job from its detail page.
+ *
+ * The Phenom listing widget only carries a short flat `descriptionTeaser`
+ * (1-2 sentences, no list structure) — publishing that leaves every job as flat
+ * prose with no <ul><li>, which the parser-quality audit flags as a
+ * "no structured content" critical. The SSR detail page (the same URL the
+ * listing builds) embeds the complete schema.org JobPosting description in a
+ * JSON-LD <script>, with real <ul>/<li> bullets and headings (verified live:
+ * 5000-8000 chars per job). We extract that HTML and convert it to markdown via
+ * the shared htmlToMarkdown so the bullets/headings survive as `- `/`## ` lines.
+ *
+ * Returns markdown on success, '' on any failure so the caller falls back to the
+ * listing teaser (never synthesises content).
+ */
+async function fetchGivaudanDetailDescription(url) {
+  if (!url || !/^https?:\/\//.test(url)) return '';
+  try {
+    const html = await fetchHtml(url, { timeoutMs: 15000 });
+    if (!html) return '';
+    const blocks = [...html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => m[1]);
+    for (const block of blocks) {
+      try {
+        const data = JSON.parse(block);
+        const arr = Array.isArray(data) ? data : [data];
+        for (const o of arr) {
+          if (String(o?.['@type'] || '').includes('JobPosting') && o.description) {
+            // o.description is entity-encoded HTML (e.g. &lt;ul&gt;&lt;li&gt;…);
+            // htmlToMarkdown decodes entities and preserves list/heading structure.
+            const { markdown } = htmlToMarkdown(String(o.description));
+            return markdown || '';
+          }
+        }
+      } catch { /* skip malformed JSON-LD block */ }
+    }
+  } catch { /* network/timeout → caller falls back to the teaser */ }
+  return '';
+}
+
+/**
  * Fetch all Givaudan jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -254,12 +294,16 @@ export async function fetchAllGivaudanJobs() {
     const canton = inferSwissTargetCanton(location) || HQ.canton;
     // Locality = leading city token of the "City, Switzerland" string.
     const addressLocality = normalizeSpace(location.split(',')[0]) || HQ.city;
-    const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;
 
     if (seen.has(listing.jobReqId || publicUrl)) continue;
     seen.add(listing.jobReqId || publicUrl);
+
+    // Prefer the FULL structured detail-page description (markdown with bullets)
+    // over the flat listing teaser. Falls back to the teaser on any fetch failure.
+    const detailMarkdown = await fetchGivaudanDetailDescription(publicUrl);
+    const descriptionText = detailMarkdown || stripHtml(listing.description || '');
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} givaudan ch`);
