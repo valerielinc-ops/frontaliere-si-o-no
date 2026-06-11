@@ -83,6 +83,14 @@ jobs:
           workingDirectory: infra/cloudflare-worker
           command: deploy
 
+      # Over-cap failover config. wrangler re-syncs routes from wrangler.toml,
+      # which cannot express request_limit_fail_open — a deploy can silently
+      # reset routes to the fail-closed default (error 1027 on everything over
+      # the free 100k/day cap). Re-assert fail-open + the zone cache rule that
+      # lets the CDN serve the Worker's apex-keyed cached pages while bypassed.
+      - name: Assert fail-open routes + failover cache rule
+        run: node scripts/cf-locale-failover-setup.mjs
+
       # Live regression check: status AND timing. The previous 30s tee-deadlock
       # (introduced in #1791, fixed in #1814) returned HTTP 200 but stalled
       # ~30s, so a status-only smoke missed it entirely and it sat live ~1 day.
