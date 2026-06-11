@@ -84,9 +84,19 @@ Apex già su Cloudflare (orange-cloud, default dopo l'NS move). Poi:
 ```bash
 cd infra/cloudflare-worker
 npx wrangler deploy        # oppure: incolla locale-router.js nella dashboard Workers
+node ../../scripts/cf-locale-failover-setup.mjs   # SEMPRE dopo il deploy (vedi sotto)
 ```
 
-(la route `frontaliereticino.ch/*` è in `wrangler.toml`).
+(le route sono SCOPED ai soli path locale in `wrangler.toml` — mai regredire a
+`frontaliereticino.ch/*`, conterebbe anche l'IT nel cap 100k/day.)
+
+Il deploy può resettare il flag `request_limit_fail_open` delle route al
+default fail-closed (errore 1027 su tutto sopra il cap free 100k/day).
+`scripts/cf-locale-failover-setup.mjs` (idempotente, CF_API_TOKEN da
+`load-rc-env.mjs`) ri-asserisce fail-open + la cache rule di zona che permette
+alla CDN di servire le pagine apex-keyed scritte dal Worker (`cache.put`)
+quando il Worker è bypassato. `deploy-worker.yml` lo esegue da solo; solo i
+deploy manuali devono ricordarselo.
 
 ### 2.5 Verifica end-to-end (URL pubblico = identico, servito dallo shard)
 ```bash

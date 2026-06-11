@@ -6,6 +6,12 @@ name = "frontaliere-locale-router"
 main = "locale-router.js"
 compatibility_date = "2026-01-01"
 
+# NOTE: routes carry a `request_limit_fail_open` flag that wrangler.toml CANNOT
+# express (API-only). It MUST be true (over the free 100k/day cap the Worker is
+# bypassed and the CDN cache serves apex-keyed pages instead of error 1027) —
+# scripts/cf-locale-failover-setup.mjs asserts it after every deploy
+# (deploy-worker.yml runs it; after a MANUAL `npx wrangler deploy`, run it too).
+#
 # Scope the Worker to ONLY the locale paths so the IT bulk (~95% of traffic) is
 # pure Cloudflare passthrough with no Worker subrequest. Three patterns per
 # locale cover the subtree, the bare homepage path, and the .html homepage file
