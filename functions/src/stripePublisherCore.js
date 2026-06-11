@@ -198,6 +198,47 @@ export async function handleCreateBillingPortal(req) {
   return { status: 200, body: { ok: true, url: session.url } };
 }
 
+// ── archivePublisherAd ──────────────────────────────────────────────────────
+// Publisher-initiated archive of one of their own ads. The ad leaves the live
+// slice (status → 'archived', which is NOT in LIVE_JOB_STATUSES) but the Stripe
+// subscription is intentionally LEFT ACTIVE: the publisher paid for a slot and
+// can reuse it for a new ad. We detach the ad from its order's `jobIds` so the
+// renewal webhook (`invoice.paid` → setJobsStatus(order.jobIds, 'paid')) can
+// never resurrect an archived ad. Stripe is never touched here.
+export async function handleArchivePublisherAd(req) {
+  if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+  const decoded = await verifyCaller(req);
+  if (!decoded) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
+
+  const jobId = String((req.body || {}).jobId || '');
+  if (!jobId) return { status: 400, body: { ok: false, error: 'no_job' } };
+
+  const jobRef = db().collection('publisher_jobs').doc(jobId);
+  const snap = await jobRef.get();
+  if (!snap.exists) return { status: 404, body: { ok: false, error: 'not_found' } };
+  const job = snap.data();
+  if (job.publisherUid !== decoded.uid) return { status: 403, body: { ok: false, error: 'not_owner' } };
+
+  const ts = admin.firestore.FieldValue.serverTimestamp();
+  await jobRef.set({ status: 'archived', archivedAt: ts, updatedAt: ts }, { merge: true });
+
+  // Detach from the order so renewal never re-flips it to 'paid'. Best-effort:
+  // free-tier ads have no order; a missing order is not an error.
+  const orderId = job.orderId ? String(job.orderId) : null;
+  if (orderId) {
+    try {
+      await db().collection('orders').doc(orderId).update({
+        jobIds: admin.firestore.FieldValue.arrayRemove(jobId),
+        updatedAt: ts,
+      });
+    } catch (error) {
+      console.error('[archivePublisherAd] order detach failed', error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  return { status: 200, body: { ok: true } };
+}
+
 // ── stripeWebhook ───────────────────────────────────────────────────────────
 
 async function setJobsStatus(jobIds, status, extra = {}) {
@@ -232,7 +273,7 @@ async function sendPublisherConfirmation(publisherUid, jobCount) {
         `<h2>Grazie, pagamento confermato</h2>` +
         `<p>${jobCount > 1 ? 'I tuoi annunci saranno online' : 'Il tuo annuncio sarà online'} entro 1–2 ore con pagina SEO dedicata.</p>` +
         `<p>Gestisci gli annunci e vedi le candidature dalla tua dashboard: ` +
-        `<a href="https://frontaliereticino.ch/i-miei-annunci">I miei annunci</a>.</p>` +
+        `<a href="https://frontaliereticino.ch/i-miei-annunci/">I miei annunci</a>.</p>` +
         `<p style="font-size:12px;color:#666">La ricevuta/fattura ti arriva separatamente da Stripe. Abbonamento rinnovato ogni 30 giorni; disdici quando vuoi dalla dashboard.</p>`,
     });
   } catch {

@@ -241,6 +241,7 @@ const frVita: Record<string, string> = {
  'profile.action.pension': 'Retraite',
  'profile.action.exchange': 'Change',
  'profile.action.guide': 'Guide',
+ 'profile.action.myListings': 'Mes annonces',
  'profile.family.title': 'Membres de la famille',
  'profile.family.relationship': 'Lien de parenté',
  'profile.family.spouse': 'Conjoint(e)',
