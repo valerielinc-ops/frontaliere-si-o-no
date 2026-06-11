@@ -91,6 +91,26 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   const nowIso = opts.nowIso || null;
   const validDays = Number.isFinite(opts.validDays) ? opts.validDays : 30;
 
+  // Mirror the (already ≥50-word, validated) description into the source-locale
+  // key of descriptionByLocale. Publisher ads store only the flat `description`
+  // string — they never populate `descriptionByLocale`. Downstream the
+  // boilerplate guard (assemble-jobs-dataset detectBoilerplateDescriptions)
+  // reads `job.descriptionByLocale?.it`, so an absent map looks like an EMPTY
+  // description → every publisher ad is flagged `empty_description` → the
+  // publisher-jobs-sync FATALs at the 50% threshold and a PAID ad never reaches
+  // the live slice. Filling the source locale (IT for the IT-primary site) with
+  // the same text the page already renders fixes the false positive without
+  // changing any content or lowering the thin-content gate above.
+  const sourceLang = pubJob.sourceLang || 'it';
+  const descriptionByLocale = { ...(pubJob.descriptionByLocale || {}) };
+  const flatDescription = String(pubJob.description || '').trim();
+  if (flatDescription && !String(descriptionByLocale[sourceLang] || '').trim()) {
+    descriptionByLocale[sourceLang] = pubJob.description;
+  }
+  if (flatDescription && !String(descriptionByLocale.it || '').trim()) {
+    descriptionByLocale.it = pubJob.description;
+  }
+
   const company = pubJob.company || {};
   const companyName = String(company.name || '').trim();
   const companyKey = company.companyKey || slugifyPublisher(companyName);
@@ -148,7 +168,7 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       validThrough: validThroughIso,
       description: pubJob.description || '',
       titleByLocale: pubJob.titleByLocale || undefined,
-      descriptionByLocale: pubJob.descriptionByLocale || undefined,
+      descriptionByLocale: Object.keys(descriptionByLocale).length ? descriptionByLocale : undefined,
       id,
       salaryMin: pubJob.salaryMin ?? null,
       salaryMax: pubJob.salaryMax ?? null,
