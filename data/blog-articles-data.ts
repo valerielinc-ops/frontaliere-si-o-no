@@ -25488,6 +25488,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'cargo-chiasso-lavoro-saperi',
+ category: 'pratico',
+ date: '2026-06-11T00:53:37.884Z',
+ image: '/images/blog/cargo-chiasso-lavoro-saperi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8036,6 +8036,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Imposte alla fonte Ticino: calcolatore e aliquote 2026',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Scopri come funziona il calcolo dell\'imposta alla fonte in Ticino per il 2026 con le nuove aliquote, gli scaglioni e la gestione del prelievo fiscale.',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Vista panoramica di Lugano con ufficio in primo piano',
+    'blog.article.cargo-chiasso-lavoro-saperi.title': 'Cargo taglia, ma a Chiasso ci sono i saperi per creare lavoro',
+    'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'Il settore merci ferroviario a Chiasso affronta tagli, ma le competenze locali possono sostenere la ripresa occupazionale.',
+    'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Lavoratori e treni nel settore merci a Chiasso, Ticino',
 };
 
 export default blogMetaIt;

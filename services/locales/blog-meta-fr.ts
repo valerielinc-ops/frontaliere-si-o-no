@@ -8036,6 +8036,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Impôt à la source Ticino: calculatrice et taux 2026',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Découvrez comment fonctionne le calcul de l\'impôt à la source en Ticino pour 2026 avec les nouvelles taux, tranches et gestion des prélèvements fiscaux.',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Vue panoramique sur Lugano avec bureau au premier plan',
+    'blog.article.cargo-chiasso-lavoro-saperi.title': 'Coupe des marchandises, mais Chiasso crée des emplois',
+    'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'Le secteur ferroviaire des marchandises à Chiasso est en baisse, mais les compétences locales peuvent soutenir la reprise de l\'emploi.',
+    'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Travailleurs et trains dans le secteur fret à Chiasso, Ticino',
 };
 
 export default blogMetaFr;

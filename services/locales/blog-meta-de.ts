@@ -8034,6 +8034,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.imposta-fonte-ticino-calcolatore-2026.title': 'Quellensteuer Tessin: Rechner und Tarife 2026',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.excerpt': 'Erfahren Sie, wie die Quellensteuerberechnung im Tessin für 2026 mit den neuen Tarifen, Stufen und der Steuerabwicklung funktioniert.',
     'blog.article.imposta-fonte-ticino-calcolatore-2026.imageAlt': 'Panoramablick auf Lugano mit Büro im Vordergrund',
+    'blog.article.cargo-chiasso-lavoro-saperi.title': 'Güterverkehr in Chiasso: Einbrüche, aber Know-how für neue Jobs',
+    'blog.article.cargo-chiasso-lavoro-saperi.excerpt': 'Der Güterverkehr auf der Schiene in Chiasso erlebt Einbrüche, aber die lokalen Kompetenzen können den Beschäftigungsaufschwung unterstützen.',
+    'blog.article.cargo-chiasso-lavoro-saperi.imageAlt': 'Arbeiter und Züge im Frachtsektor in Ticino, Chiasso',
 };
 
 export default blogMetaDe;
