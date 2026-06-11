@@ -508,36 +508,44 @@ async function postProcessCoopJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   let repaired = 0;
 
-  // Detail-page fetch resilience at national scale: jobs.coopjobs.ch throttles
-  // bulk requests (1900+ jobs/run on one CI IP), so a single fetch returns empty
-  // for many jobs → the description stays blank and the pipeline then pads it
-  // with generic company boilerplate, which hard-fails the assemble
-  // boilerplate-guard. Retry with backoff + a small inter-request delay recovers
-  // the real JSON-LD description (the SSR detail page always carries the full
-  // 250-350-word text — verified live). Jobs that still resolve no real
-  // description are quarantined below (dropped, never published as boilerplate).
+  // Detail-page fetch resilience + throughput at national scale.
+  //
+  // ROOT CAUSE (issue #1789): jobs.coopjobs.ch is slow (~2.8s per detail page)
+  // and the previous serial loop re-fetched all ~2200 CH-wide jobs one-by-one
+  // → ~100 min for a single pass. Together with the base crawler's own serial
+  // detail loop and the localization step, the 360-min CI budget was exhausted
+  // before most pages were fetched, so the vast majority of descriptions stayed
+  // EMPTY (not boilerplate-text) and the assemble boilerplate-guard hard-failed
+  // at ~95%.
+  //
+  // FIX: fetch the authoritative JSON-LD with BOUNDED CONCURRENCY (verified
+  // live: a pool of 8 sustains 100% success in ~18 min for the full national
+  // set; the origin starts returning HTTP 503 only above ~12-16 in-flight
+  // requests). A failed fetch (503/timeout) is retried with backoff, so the
+  // real description is recovered instead of left blank. Jobs that still resolve
+  // no real description are quarantined below (dropped, never published as
+  // boilerplate). The concurrency is env-overridable but capped at 12 to stay
+  // under the origin's rate-limit ceiling.
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const concurrency = Math.min(
+    12,
+    Math.max(1, Number(process.env.JOBS_COOP_DETAIL_CONCURRENCY) || 8),
+  );
   async function fetchCoopJsonLdResilient(url) {
     for (let attempt = 0; attempt < 4; attempt += 1) {
       const ld = await fetchCoopJsonLd(url, timeoutMs);
       if (ld) return ld; // got JSON-LD (description handled downstream)
-      await sleep(400 * (attempt + 1)); // backoff only when the fetch itself failed
+      await sleep(400 * (attempt + 1)); // backoff only when the fetch itself failed (e.g. 503 under load)
     }
     return null;
   }
   const quarantineUrls = new Set();
 
-  for (const job of coopJobs) {
-    const descLen = (job.description || '').length;
-    const jsonLd = await fetchCoopJsonLdResilient(job.url);
-    await sleep(60); // polite throttle to avoid tripping the bulk rate-limit
-    if (!jsonLd || String(jsonLd.description || '').trim().length < 80) {
-      // No real source description available → quarantine (don't publish a
-      // boilerplate-padded thin page).
-      if (descLen < 250) quarantineUrls.add(job.url);
-      if (!jsonLd) continue;
-    }
-
+  // Pure per-job repair: applies authoritative JSON-LD (location/company/title/
+  // description) to a single job object in place. Safe to run from concurrent
+  // workers because each call mutates only its own `job` (Node is single-threaded;
+  // there is no shared mutable state between jobs here).
+  function repairJobFromJsonLd(job, jsonLd) {
     let changed = false;
 
     // ── Location & company update from JSON-LD ──
@@ -568,6 +576,7 @@ async function postProcessCoopJobs() {
     }
 
     // ── Description validation ──
+    const descLen = (job.description || '').length;
     const ldDesc = (jsonLd.description || '').trim();
     if (ldDesc) {
       const markdown = coopDescHtmlToMarkdown(ldDesc);
@@ -607,6 +616,17 @@ async function postProcessCoopJobs() {
           if (descLang !== 'it') {
             job.sourceLang = descLang;
           }
+          // Post-process runs AFTER the localization step, so a freshly fetched
+          // German/French description leaves descriptionByLocale.it empty. The
+          // boilerplate guard reads descriptionByLocale.it and would count such a
+          // job as `empty_description` even though its real source text is now
+          // present — only translation is pending. Mark it for retranslation so
+          // the guard correctly excludes it (translation backlog ≠ parser
+          // failure) and the next localization pass fills IT. Jobs whose source
+          // already IS Italian keep IT populated and pass the guard directly.
+          if (descLang !== 'it' || !String(job.descriptionByLocale?.it || '').trim()) {
+            job.needsRetranslation = true;
+          }
           changed = true;
         }
       }
@@ -618,13 +638,35 @@ async function postProcessCoopJobs() {
       }
     }
 
-    if (changed) {
-      repaired++;
-    }
-
-    // Throttle requests
-    await new Promise((r) => setTimeout(r, 200));
+    return changed;
   }
+
+  // Fetch + repair one job. Quarantines jobs that resolve no real description.
+  async function processOne(job) {
+    const descLen = (job.description || '').length;
+    const jsonLd = await fetchCoopJsonLdResilient(job.url);
+    if (!jsonLd || String(jsonLd.description || '').trim().length < 80) {
+      // No real source description available → quarantine (don't publish a
+      // boilerplate-padded thin page).
+      if (descLen < 250) quarantineUrls.add(job.url);
+      if (!jsonLd) return;
+    }
+    if (repairJobFromJsonLd(job, jsonLd)) repaired += 1;
+  }
+
+  // Bounded-concurrency pool over the Coop jobs. A shared index cursor feeds
+  // `concurrency` workers; each pulls the next job until the queue drains.
+  let cursor = 0;
+  const startMs = Date.now();
+  async function worker() {
+    while (cursor < coopJobs.length) {
+      const job = coopJobs[cursor];
+      cursor += 1;
+      await processOne(job);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(concurrency, coopJobs.length) }, worker));
+  console.log(`  ⏱️  Detail JSON-LD fetch: ${coopJobs.length} jobs in ${((Date.now() - startMs) / 1000).toFixed(0)}s (concurrency=${concurrency})`);
 
   // Quarantine: drop Coop jobs for which no real source description could be
   // fetched (after retries) and whose own description is too thin — publishing a
