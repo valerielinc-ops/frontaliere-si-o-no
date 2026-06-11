@@ -2,10 +2,12 @@ import { describe, it, expect } from 'vitest';
 import { PROVIDER_LOGOS, getProviderLogoUrl, INSURER_LOGOS, getInsurerLogoUrl } from '@/services/brandLogos';
 
 describe('getProviderLogoUrl', () => {
-  it('returns Clearbit URL for known slug without localPath', () => {
-    // intesa-sanpaolo has no localPath (download failed) — reliably tests the Clearbit fallback path
+  it('returns null (never a Clearbit URL) for a known slug without localPath', () => {
+    // intesa-sanpaolo has no localPath (download failed). We no longer emit a
+    // Clearbit URL (defunct CDN) — <ProviderLogo> renders a coloured-initials
+    // badge for a null result instead.
     const url = getProviderLogoUrl('intesa-sanpaolo');
-    expect(url).toBe('https://logo.clearbit.com/intesasanpaolo.com');
+    expect(url).toBeNull();
   });
 
   it('returns localPath when set', () => {
