@@ -308,6 +308,18 @@ jobs:
       - name: Mine all job slugs for comprehensive 404 coverage
         run: node scripts/mine-all-job-slugs.mjs
 
+      - name: Canton-aware migration of slug registry
+        # mine-all-job-slugs writes every entry under the legacy TI section
+        # (LOCALE_PREFIXES hardcode). For non-TI jobs that stale path leaks
+        # into dist as soft-landing canonical/hreflang (selfUrl reads the
+        # registry verbatim) → gate:seo-source red post-merge (run
+        # 27352608929: VD job canonicalised to /cerca-lavoro-ticino/).
+        # tests.yml + post-deploy-validate-dist.yml already run this script
+        # before vitest; without it HERE the build consumes the unmigrated
+        # registry while the gates test a migrated copy — gate and artifact
+        # must see the same data.
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
       # Cluster-pages cache REMOVED (2026-05-09).
       # Build instrumentation on 5 recent deploys showed:
       #   - cache MISS (4/5 runs, jobs.json invalidates daily via cron):
