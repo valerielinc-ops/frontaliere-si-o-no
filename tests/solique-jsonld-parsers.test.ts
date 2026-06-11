@@ -197,6 +197,72 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
   });
 });
 
+// ─── JS-error-string sanitizer (issues #1682 / #1741) ────────────────────────
+// When the Solique server-side template renderer fails (e.g. AngularJS/Vue
+// binding is broken), the literal JS error message is embedded inside HTML
+// elements that the parser extracts. The sanitizeField guard must drop those
+// so they never leak into slugs/titles/locations.
+
+const SVAR_BROKEN_LISTING = `
+<div class="job">
+  <div class="job-group">
+    <h3 class="jobtitle">Fachfrau/-mann Gesundheit in Ausbildung</h3>
+    <div class="location">&quot;location&quot; is not defined</div>
+    <div class="startdate">sofort</div>
+    <div class="link"><a id="123456" href="job/details/123456">Details</a></div>
+  </div>
+</div>
+<div class="job">
+  <div class="job-group">
+    <h3 class="jobtitle">Pflegefachperson HF</h3>
+    <div class="location">Herisau</div>
+    <div class="startdate">01.08.2026</div>
+    <div class="link"><a id="123457" href="job/details/123457">Details</a></div>
+  </div>
+</div>`;
+
+describe('JS-error-string sanitizer (issues #1682 / #1741)', () => {
+  it('drops `"location" is not defined` from the location field (SVAR broken template)', () => {
+    const rows = parseSoliqueListing(SVAR_BROKEN_LISTING);
+    const broken = rows.find((r: { id: string }) => r.id === '123456');
+    expect(broken).toBeDefined();
+    // location must be empty, NOT the error string
+    expect(broken!.location).toBe('');
+    expect(broken!.location).not.toContain('not defined');
+  });
+
+  it('preserves a valid location on the same listing page', () => {
+    const rows = parseSoliqueListing(SVAR_BROKEN_LISTING);
+    const good = rows.find((r: { id: string }) => r.id === '123457');
+    expect(good).toBeDefined();
+    expect(good!.location).toBe('Herisau');
+  });
+
+  it('sanitizes bare `undefined` in location (API listing)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: 'Test Job', id: '999' }, location: { value: 'undefined' } }] },
+      'svar',
+      'de',
+    );
+    expect(rows).toHaveLength(1);
+    expect(rows[0].location).toBe('');
+    warn.mockRestore();
+  });
+
+  it('sanitizes `ReferenceError: location is not defined` in API listing location', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: 'Test Job', id: '998' }, location: { value: 'ReferenceError: location is not defined' } }] },
+      'svar',
+      'de',
+    );
+    expect(rows).toHaveLength(1);
+    expect(rows[0].location).toBe('');
+    warn.mockRestore();
+  });
+});
+
 describe('JSON-LD JobPosting helper', () => {
   it('extracts JobPosting fields', () => {
     const ld = extractJobPostingLd(JSONLD_DETAIL);
