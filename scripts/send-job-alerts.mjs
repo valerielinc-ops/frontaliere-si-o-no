@@ -445,6 +445,15 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     // If a sensible word boundary exists past 50% of the slot, cut there;
     // otherwise hard-cut to avoid producing a 2-character title.
     let cut = lastSpace > Math.floor(max * 0.5) ? slot.slice(0, lastSpace) : slot;
+    // Balance brackets: if the cut left an unmatched "(" / "[" \u2014 e.g. truncating
+    // inside a "(100%)" or "(m/w/d)" suffix produced "\u2026 Portafogli (100%" \u2014 drop
+    // the dangling fragment so the subject never emits an unbalanced "(100%\u2026".
+    const opens = (cut.match(/[([]/g) || []).length;
+    const closes = (cut.match(/[)\]]/g) || []).length;
+    if (opens > closes) {
+      const lastOpen = Math.max(cut.lastIndexOf('('), cut.lastIndexOf('['));
+      if (lastOpen > Math.floor(max * 0.4)) cut = cut.slice(0, lastOpen);
+    }
     // Drop trailing punctuation (commas, semicolons, dashes, periods, en/em dashes).
     cut = cut.replace(/[\s,;:.\-\u2013\u2014]+$/, '');
     return cut + '\u2026';
@@ -461,12 +470,30 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     }
     return t || raw;
   };
+  // Strip Swiss workload (Pensum) and gender markers from a title for the SUBJECT
+  // line ONLY — "(100%)", "(80-100%)", "(m/w/d)", "(w/m)" carry no value in a
+  // space-constrained subject and used to overflow it and get truncated mid-token
+  // into a dangling "(100%…" (reported live). Job CARDS keep these (more room; the
+  // workload % is genuinely useful there).
+  const stripTitleNoise = (raw) => {
+    const original = String(raw || '').trim();
+    let t = original
+      // Workload: (100%), (80 %), (80-100%), (ca. 60–100 %).
+      .replace(/\s*\(\s*(?:ca\.?\s*)?\d{1,3}\s*(?:[–—-]\s*\d{1,3}\s*)?%\s*\)/gi, '')
+      // Gender markers: (m/w/d) (w/m) (f/h) (h/f) (m/f/d) (m/w/x) — slash/dash sep.
+      .replace(/\s*\(\s*[mwfdhx](?:\s*[/\-]\s*[mwfdhx])+\s*\)/gi, '')
+      // Collapse leftover double spaces and any dangling trailing separator.
+      .replace(/\s{2,}/g, ' ')
+      .replace(/\s*[-–—|·,]\s*$/, '')
+      .trim();
+    return t || original;
+  };
   let subject;
   if (matchedJobs.length === 0) {
     subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
   } else {
     const topJob = matchedJobs[0];
-    const topTitle = cleanTitle(topJob.titleByLocale?.[locale] || topJob.titleByLocale?.it || topJob.title || s.fallbackTitle);
+    const topTitle = stripTitleNoise(cleanTitle(topJob.titleByLocale?.[locale] || topJob.titleByLocale?.it || topJob.title || s.fallbackTitle));
     const topCompany = (topJob.company || '').trim();
     const extra = matchedJobs.length - 1;
     const bell = '\ud83d\udd14';
