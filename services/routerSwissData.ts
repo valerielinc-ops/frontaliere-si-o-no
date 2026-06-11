@@ -63,6 +63,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'premi-di-cassa-malati-ticino': { it: 'premi-di-cassa-malati-ticino', en: 'treatment-fee-premiums-ticino', de: 'kassenservice-pramien-tessin', fr: 'primes-maladie-ticino' },
  'soggiorno-estero-avs-evitare-lacuna': { it: 'soggiorno-estero-avs-evitare-lacuna', en: 'living-abroad-avoid-avs-gap', de: 'ausland-aufenthalt-vermeiden-avs-luecke', fr: 'sejour-etranger-eviter-lacune-avs' },
  'avs-finanziamento-13esima': { it: 'avs-finanziamento-13esima', en: 'ahv-financing-13th', de: 'ahv-finanzierung-13', fr: 'avs-financement-13e' },
+ 'givaudan-licenziamenti': { it: 'givaudan-licenziamenti', en: 'givaudan-layoffs', de: 'givaudan-entlassungen', fr: 'givaudan-licenciements' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

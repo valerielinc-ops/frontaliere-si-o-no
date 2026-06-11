@@ -125,6 +125,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-finanziamento-13esima.title': '13th AHV goes to conciliation conference',
     'blog.article.avs-finanziamento-13esima.excerpt': 'No agreement between National Council and States on financing the 13th AHV',
     'blog.article.avs-finanziamento-13esima.imageAlt': 'Swiss Parliament building in Bern with AVS logo',
+    'blog.article.givaudan-licenziamenti.title': 'Givaudan fires staff',
+    'blog.article.givaudan-licenziamenti.excerpt': 'Givaudan, global leader in fragrances and flavors, fires employees for stealing essences.',
+    'blog.article.givaudan-licenziamenti.imageAlt': 'Chemical industry in Switzerland',
 };
 
 export default blogMetaChEn;
