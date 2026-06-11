@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil, Archive, ExternalLink } from 'lucide-react';
+import { Briefcase, LogIn, Plus, Eye, MousePointerClick, CreditCard, FileText, Pencil, Archive, RotateCcw, ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
@@ -15,6 +15,7 @@ import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { getApp } from '@/services/firebase';
 import type { PublisherJobStatus, PublisherTier } from '@/services/publisherTypes';
+import { canArchive, canRestore, isLiveStatus } from '@/services/publisherTypes';
 
 interface DashboardRow {
   id: string;
@@ -28,6 +29,7 @@ interface DashboardRow {
   renewsAt: number | null;
   publicUrl: string | null;
   projectedAt: number | null;
+  contentEditedAt: number | null;
 }
 
 interface ApplicationRow {
@@ -53,10 +55,13 @@ const BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
 const ARCHIVE_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/archivePublisherAd';
+const RESTORE_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/restorePublisherAd';
 
-// Statuses for which the publisher can still archive the ad (live or in-flight).
-// Already-terminal states (expired/rejected/archived) get no archive action.
-const ARCHIVABLE_STATUSES = new Set(['paid', 'published', 'pending_payment', 'draft']);
+// How long after a content edit the "changes pending publication (~1–2h)" hint
+// stays visible. The slice sync (~hourly) + deploy propagates the edit within
+// this window; past it the hint would be a stale, false claim, so it self-clears.
+const MODIFIED_HINT_WINDOW_MS = 3 * 60 * 60 * 1000;
 
 const PublisherDashboardPage: React.FC = () => {
   const { t, locale } = useTranslation();
@@ -66,6 +71,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
   const [archivingId, setArchivingId] = useState<string | null>(null);
+  const [restoringId, setRestoringId] = useState<string | null>(null);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
@@ -115,6 +121,31 @@ const PublisherDashboardPage: React.FC = () => {
     }
   };
 
+  const handleRestore = async (jobId: string) => {
+    if (!user || restoringId) return;
+    setRestoringId(jobId);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch(RESTORE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({ jobId }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; status?: PublisherJobStatus };
+      if (!res.ok || !data.ok || !data.status) throw new Error('restore_failed');
+      // Reflect the resolved destination (paid / published / draft) returned by the CF.
+      const next = data.status;
+      setRows((prev) => prev.map((r) => (r.id === jobId ? { ...r, status: next } : r)));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'restore', 'success');
+    } catch (error) {
+      reportCaughtError(error, 'publisherDashboard.restore');
+      if (typeof window !== 'undefined') window.alert(t('publisherDashboard.restoreError'));
+      Analytics.trackUIInteraction('publisher', 'dashboard', 'restore', 'error');
+    } finally {
+      setRestoringId(null);
+    }
+  };
+
   useEffect(() => {
     if (!user) return;
     let cancelled = false;
@@ -161,6 +192,7 @@ const PublisherDashboardPage: React.FC = () => {
               renewsAt: tsToMillis(j.renewsAt),
               publicUrl: typeof j.publicUrl === 'string' ? j.publicUrl : null,
               projectedAt: tsToMillis(j.projectedAt),
+              contentEditedAt: tsToMillis(j.contentEditedAt),
             };
           }),
         );
@@ -257,6 +289,17 @@ const PublisherDashboardPage: React.FC = () => {
     return t('publisherDashboard.renewsIn', { days });
   };
 
+  // "Edits pending publication" — a content edit on a LIVE ad isn't visible on the
+  // site until the next slice sync (~1–2h). Surfaces that the change is in-flight,
+  // but ONLY within a recency window: `contentEditedAt` is stamped on every edit
+  // and never cleared, so without this gate the "online entro 1–2 ore" claim would
+  // stay (falsely) forever. After the window the edit has long since gone live.
+  const modifiedLabel = (r: DashboardRow): string | null => {
+    if (!isLiveStatus(r.status) || r.contentEditedAt == null) return null;
+    if (Date.now() - r.contentEditedAt > MODIFIED_HINT_WINDOW_MS) return null;
+    return t('publisherDashboard.modifiedPending');
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
@@ -350,6 +393,9 @@ const PublisherDashboardPage: React.FC = () => {
                       {renewalLabel(r) && (
                         <span className="block text-xs text-muted mt-0.5">{renewalLabel(r)}</span>
                       )}
+                      {modifiedLabel(r) && (
+                        <span className="block text-xs text-muted mt-0.5">{modifiedLabel(r)}</span>
+                      )}
                     </td>
                     <td className="px-3 py-3 text-right text-body">{r.locations}</td>
                     <td className="px-3 py-3 text-right text-body">{r.views}</td>
@@ -363,7 +409,7 @@ const PublisherDashboardPage: React.FC = () => {
                         <Pencil className="w-3.5 h-3.5" />
                         {t('publisherDashboard.edit')}
                       </a>
-                      {ARCHIVABLE_STATUSES.has(r.status) && (
+                      {canArchive(r.status) && (
                         <button
                           type="button"
                           onClick={() => { void handleArchive(r.id); }}
@@ -372,6 +418,17 @@ const PublisherDashboardPage: React.FC = () => {
                         >
                           <Archive className="w-3.5 h-3.5" />
                           {t('publisherDashboard.archive')}
+                        </button>
+                      )}
+                      {canRestore(r.status) && (
+                        <button
+                          type="button"
+                          onClick={() => { void handleRestore(r.id); }}
+                          disabled={restoringId === r.id}
+                          className="ml-3 inline-flex items-center gap-1 text-link hover:underline disabled:opacity-60 transition-colors"
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          {t('publisherDashboard.restore')}
                         </button>
                       )}
                     </td>
@@ -406,6 +463,9 @@ const PublisherDashboardPage: React.FC = () => {
                 {renewalLabel(r) && (
                   <div className="text-xs text-muted mt-1">{renewalLabel(r)}</div>
                 )}
+                {modifiedLabel(r) && (
+                  <div className="text-xs text-muted mt-1">{modifiedLabel(r)}</div>
+                )}
                 <div className="flex gap-4 mt-3 text-sm text-body">
                   <span className="inline-flex items-center gap-1"><Eye className="w-4 h-4 text-subtle" />{r.views}</span>
                   <span className="inline-flex items-center gap-1"><MousePointerClick className="w-4 h-4 text-subtle" />{r.applyClicks}</span>
@@ -419,7 +479,7 @@ const PublisherDashboardPage: React.FC = () => {
                     <Pencil className="w-4 h-4" />
                     {t('publisherDashboard.edit')}
                   </a>
-                  {ARCHIVABLE_STATUSES.has(r.status) && (
+                  {canArchive(r.status) && (
                     <button
                       type="button"
                       onClick={() => { void handleArchive(r.id); }}
@@ -428,6 +488,17 @@ const PublisherDashboardPage: React.FC = () => {
                     >
                       <Archive className="w-4 h-4" />
                       {t('publisherDashboard.archive')}
+                    </button>
+                  )}
+                  {canRestore(r.status) && (
+                    <button
+                      type="button"
+                      onClick={() => { void handleRestore(r.id); }}
+                      disabled={restoringId === r.id}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-link hover:underline disabled:opacity-60 transition-colors"
+                    >
+                      <RotateCcw className="w-4 h-4" />
+                      {t('publisherDashboard.restore')}
                     </button>
                   )}
                 </div>
