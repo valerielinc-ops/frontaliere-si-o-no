@@ -5,6 +5,8 @@ import {
   isHirslandenJob,
   isTrustedDomain,
   parseSearchResults,
+  parseDetailPage,
+  descriptionBodyToMarkdown,
 } from '../scripts/lib/hirslanden-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -192,6 +194,96 @@ describe('Hirslanden Klinik crawler parser', () => {
     it('returns empty array for HTML with no job links', () => {
       expect(parseSearchResults('<div>Keine Ergebnisse</div>')).toEqual([]);
       expect(parseSearchResults('')).toEqual([]);
+    });
+  });
+
+  describe('parseDetailPage', () => {
+    // Mirrors the real careers.mediclinic.com SF skin: a page-level
+    // <div id="content"> chrome wrapper holding the search/job-alert widget,
+    // and the REAL per-job body inside <span itemprop="description"> with its
+    // <h2>/<ul><li> blocks nested in styled <div>s. Scraping #content gave the
+    // same chrome for every job → boilerplate fallback → duplicate-listings.
+    const detailHtml = (title: string, aufgabe: string, profil: string) => `
+      <html><body>
+        <div id="content" tabindex="-1" class="contentHirslanden" role="main">
+          <div class="inner"><div id="search-wrapper">
+            <form class="jobAlertsSearchForm"><input name="keywords"></form>
+            <h2>Suche nach Stichwort</h2>
+          </div></div>
+        </div>
+        <h1><span itemprop="title" data-careersite-propertyid="title">${title}</span></h1>
+        <span itemprop="description" data-careersite-propertyid="description">
+          <span class="jobdescription">
+            <p>Arbeitsort: Hirslanden Klinik Aarau&#160; | Aarau&#160;</p>
+            <p>Referenznummer: 66992</p>
+            <div><div style="font-size:16px"><h2 style="margin:0"><b>DEINE AUFGABEN</b></h2></div>
+              <div><ul><li>${aufgabe}</li></ul></div></div>
+            <div><div><h2><b>DEIN PROFIL</b></h2></div>
+              <div><ul><li>${profil}</li></ul></div></div>
+            <p>Für zusätzliche Informationen steht dir Erika Musterfrau unter T +41 62 836 71 68 gerne zur Verfügung.</p>
+          </span>
+        </span>
+        <a href="/talentcommunity/apply/66992/?locale=de_DE">Bewerben</a>
+      </body></html>`;
+
+    it('extracts the real job title from itemprop="title", not the <h2> section heading', () => {
+      const d = parseDetailPage(detailHtml('OP-Lagerungspfleger (a) 100%', 'OP-Bereitschaft', 'Grundausbildung'));
+      expect(d?.title).toBe('OP-Lagerungspfleger (a) 100%');
+      expect(d?.title).not.toMatch(/AUFGABEN|PROFIL/);
+    });
+
+    it('extracts the per-job description from itemprop="description", not the #content chrome wrapper', () => {
+      const d = parseDetailPage(detailHtml('Pflegefachperson', 'Pflege leisten', 'Diplom Pflege'));
+      expect(d?.description).toContain('Pflege leisten');
+      expect(d?.description).toContain('Diplom Pflege');
+      // Chrome from the #content search widget must NOT leak in.
+      expect(d?.description).not.toMatch(/Suche nach Stichwort/);
+    });
+
+    it('yields DISTINCT descriptions for distinct jobs (no duplicate-listings collapse)', () => {
+      const a = parseDetailPage(detailHtml('Job A', 'Aufgabe A spezifisch', 'Profil A'));
+      const b = parseDetailPage(detailHtml('Job B', 'Aufgabe B spezifisch', 'Profil B'));
+      expect(a?.description).not.toBe(b?.description);
+      expect(a?.title).not.toBe(b?.title);
+    });
+
+    it('preserves <h2> headings as ## and <ul><li> as - bullets (structured content)', () => {
+      const d = parseDetailPage(detailHtml('Rolle', 'Erste Aufgabe', 'Erste Anforderung'));
+      expect(d?.description).toMatch(/^## DEINE AUFGABEN$/m);
+      expect(d?.description).toMatch(/^## DEIN PROFIL$/m);
+      expect(d?.description).toMatch(/^- Erste Aufgabe$/m);
+      expect(d?.description).toMatch(/^- Erste Anforderung$/m);
+    });
+
+    it('strips recruiter direct-phone PII from the description', () => {
+      const d = parseDetailPage(detailHtml('Rolle', 'Aufgabe', 'Profil'));
+      expect(d?.description).not.toMatch(/\+41\s*62\s*836/);
+    });
+
+    it('parses the apply URL', () => {
+      const d = parseDetailPage(detailHtml('Rolle', 'Aufgabe', 'Profil'));
+      expect(d?.applyUrl).toContain('/talentcommunity/apply/66992/');
+    });
+
+    it('returns null for empty/invalid input', () => {
+      expect(parseDetailPage('')).toBeNull();
+      // @ts-expect-error testing non-string input
+      expect(parseDetailPage(null)).toBeNull();
+    });
+  });
+
+  describe('descriptionBodyToMarkdown', () => {
+    it('recurses through nested style <div>s so lists/headings survive (axpo flat converter would collapse them)', () => {
+      const body = '<div><div><h2><b>AUFGABEN</b></h2></div><div><ul><li>Eins</li><li>Zwei</li></ul></div></div>';
+      const md = descriptionBodyToMarkdown(body);
+      expect(md).toMatch(/^## AUFGABEN$/m);
+      expect(md).toMatch(/^- Eins$/m);
+      expect(md).toMatch(/^- Zwei$/m);
+    });
+
+    it('returns empty string for empty input', () => {
+      expect(descriptionBodyToMarkdown('')).toBe('');
+      expect(descriptionBodyToMarkdown('   ')).toBe('');
     });
   });
 });
