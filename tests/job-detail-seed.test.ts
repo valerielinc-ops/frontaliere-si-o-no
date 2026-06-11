@@ -339,7 +339,9 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       // so a seeded active detail falls through to the real render.
       expect(src).toMatch(/const seededActiveDetail = selectedJob && initialJobSlug/);
       const guardIdx = src.indexOf('if (!seededActiveDetail) {');
-      const loaderIdx = src.indexOf('<Loader2 className="w-9 h-9 text-accent animate-spin" />');
+      // Generic listing fallback (<SkeletonJobBoard /> — replaced the old
+      // centered Loader2 spinner) must stay gated behind !seededActiveDetail.
+      const loaderIdx = src.indexOf('<SkeletonJobBoard />');
       expect(guardIdx).toBeGreaterThan(0);
       expect(loaderIdx).toBeGreaterThan(guardIdx);
     });
