@@ -153,6 +153,16 @@ function main() {
   }
   if (pr.state !== 'OPEN') return fail(`PR #${PR} stato=${pr.state} (non OPEN) — skip.`);
   if (pr.isDraft) return fail(`PR #${PR} è draft — skip.`);
+  // Conflict gate: una PR DIRTY (merge-conflict — tipicamente una sibling che ha
+  // toccato lo stesso file dopo il branch) NON è mergiabile; `gh pr merge`
+  // fallirebbe comunque a fine valutazione. Skip esplicito (exit 0) con messaggio
+  // chiaro, invece di tentare il merge e produrre un run rosso rumoroso: la
+  // risoluzione è manuale (pr-autorebase ha già abortito + etichettato
+  // `stale-review`). Solo 'DIRTY' = conflitto certo; BEHIND/UNKNOWN/UNSTABLE
+  // proseguono ai gate normali (GitHub fa 3-way merge se non c'è conflitto).
+  if (pr.mergeStateStatus === 'DIRTY') {
+    return fail(`PR #${PR} mergeStateStatus=DIRTY (conflitto con main/sibling) — skip; va risolta a mano (vedi label stale-review), nessun tentativo di merge.`);
+  }
   const head = pr.headRefOid;
   const labels = (pr.labels || []).map((l) => l.name);
   console.log(`HEAD SHA: ${head} · labels: [${labels.join(', ') || '—'}]`);
