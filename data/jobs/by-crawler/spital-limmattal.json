@@ -608,7 +608,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "persona-di-riferimento-op-lagerung-spital-limmattal-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "persona-di-riferimento-op-lagerung-spital-limmattal-schlieren"
+      ]
     },
     {
       "id": "spital-limmattal-7d25cdf0139b",
@@ -1054,7 +1062,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr"
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr",
+        "aide-aux-soins-infirmiers-srk-assistant-en-sante-et-soins-sociaux-urgence-temporaire-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1064,7 +1073,8 @@
           "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr"
         ],
         "fr": [
-          "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr"
+          "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr",
+          "aide-aux-soins-infirmiers-srk-assistant-en-sante-et-soins-sociaux-urgence-temporaire-spital-limmattal-schlieren"
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:46.859Z",
@@ -2114,10 +2124,14 @@
       "previousSlugsByLocale": {
         "de": [
           "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-chirurgie-befristet-f-u00fcr-1-jahr"
+        ],
+        "fr": [
+          "aide-infirmiere-srk-assistante-en-sante-et-en-soins-sociaux-chirurgie-temporaire-f-u00fcr-1-an-spital-limmattal"
         ]
       },
       "previousSlugs": [
-        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-chirurgie-befristet-f-u00fcr-1-jahr"
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-chirurgie-befristet-f-u00fcr-1-jahr",
+        "aide-infirmiere-srk-assistante-en-sante-et-en-soins-sociaux-chirurgie-temporaire-f-u00fcr-1-an-spital-limmattal"
       ],
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
       "salaryMin": 49500,
@@ -3542,14 +3556,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+        "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch",
+        "formazione-professionale-in-dipl-nds-hf-esperto-di-assistenza-di-emergenza-spital-limmattal-schlieren",
+        "vocational-trainers-in-dipl-expert-in-nds-hf-emergency-care-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+          "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch",
+          "formazione-professionale-in-dipl-nds-hf-esperto-di-assistenza-di-emergenza-spital-limmattal-schlieren"
         ],
         "en": [
-          "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
+          "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch",
+          "vocational-trainers-in-dipl-expert-in-nds-hf-emergency-care-spital-limmattal-schlieren"
         ],
         "fr": [
           "berufsbildner-in-dipl-experte-in-nds-hf-notfallpflege-spital-limmattal-ch"
@@ -3623,11 +3641,13 @@
       "previousSlugs": [
         "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
         "dipl-rescue-suit-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
-        "dipl-rescue-suit-u00e4ter-in-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
+        "dipl-rescue-suit-u00e4ter-in-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren",
+        "dipl-rescue-sanit-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
+          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
+          "dipl-rescue-sanit-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren"
         ],
         "fr": [
           "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
@@ -3698,11 +3718,13 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
         "dipl-assistenza-specialistica-hf-fh-stazione-di-emergenza-spital-limmattal-schlieren",
-        "dipl-station-d-urgence-hf-fh-spital-limmattal-schlieren"
+        "dipl-station-d-urgence-hf-fh-spital-limmattal-schlieren",
+        "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+          "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"

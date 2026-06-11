@@ -302,14 +302,16 @@
       "requirementsByLocale": {},
       "externalId": "2676",
       "previousSlugs": [
-        "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich"
+        "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich",
+        "team-leader-team-leader-medical-secretariats-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich"
         ],
         "en": [
-          "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich"
+          "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich",
+          "team-leader-team-leader-medical-secretariats-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "fr": [
           "teamleiterin-teamleiter-medizinische-sekretariate-puk-zuerich-zurich"
@@ -538,7 +540,8 @@
       "previousSlugs": [
         "senior-ict-anwendungs-und-dateningenieur-psychiatrische-universitatsklinik-zurich-zurich",
         "applicazioni-ict-senior-data-engineer-psychiatrische-universitatsklinik-zurich-zurich",
-        "ingenieur-senior-en-application-et-donnees-ict-psychiatrische-universitatsklinik-zurich-zurich"
+        "ingenieur-senior-en-application-et-donnees-ict-psychiatrische-universitatsklinik-zurich-zurich",
+        "ingenieur-principal-en-applications-et-donnees-tic-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:44:51.763Z",
       "salaryMin": 68000,
@@ -553,7 +556,12 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "fr": [
+          "ingenieur-principal-en-applications-et-donnees-tic-psychiatrische-universitatsklinik-zurich-zurich"
+        ]
+      }
     },
     {
       "id": "puk-zuerich-00c98cb65a01",
@@ -609,17 +617,21 @@
         "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im",
         "educatore-trice-specializzato-a-insegnante-di-scuola-primaria-o-secondaria-con-esperienza-nel-settore-della-scuola",
         "special-education-teacher-primary-or-secondary-school-teacher-with-experience-in-special-education-psychiatrische",
-        "educateur-trice-specialise-e-enseignant-e-du-primaire-ou-du-secondaire-avec-experience-en-enseignement-specialise"
+        "educateur-trice-specialise-e-enseignant-e-du-primaire-ou-du-secondaire-avec-experience-en-enseignement-specialise",
+        "primary-or-secondary-school-teacher-with-experience-in-the-special-education-sector-psychiatrische-universitatsklinik",
+        "pedagogue-specialise-e-scolaire-enseignant-e-primaire-ou-secondaire-experimente-e-dans-le-domaine-de-l-enseignement"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im"
         ],
         "en": [
-          "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im"
+          "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im",
+          "primary-or-secondary-school-teacher-with-experience-in-the-special-education-sector-psychiatrische-universitatsklinik"
         ],
         "fr": [
-          "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im"
+          "schulische-r-heilpadagogin-heilpadagoge-primar-oder-sekundarlehrperson-mit-erfahrung-im",
+          "pedagogue-specialise-e-scolaire-enseignant-e-primaire-ou-secondaire-experimente-e-dans-le-domaine-de-l-enseignement"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:51.288Z",
@@ -686,17 +698,21 @@
       "requirementsByLocale": {},
       "externalId": "2060",
       "previousSlugs": [
-        "psychologin-psychologe-pool-puk-zuerich-zurich"
+        "psychologin-psychologe-pool-puk-zuerich-zurich",
+        "psicologo-psicologo-pool-psychiatrische-universitatsklinik-zurich-zurich",
+        "psychologue-psychologue-pool-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologe-pool-puk-zuerich-zurich"
+          "psychologin-psychologe-pool-puk-zuerich-zurich",
+          "psicologo-psicologo-pool-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "psychologin-psychologe-pool-puk-zuerich-zurich"
         ],
         "fr": [
-          "psychologin-psychologe-pool-puk-zuerich-zurich"
+          "psychologin-psychologe-pool-puk-zuerich-zurich",
+          "psychologue-psychologue-pool-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:50.814Z",
@@ -916,7 +932,6 @@
       "requirementsByLocale": {},
       "externalId": "2669",
       "previousSlugs": [
-        "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
@@ -934,7 +949,9 @@
         "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
         "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -946,7 +963,9 @@
           "portfolio-manager-real-estate-portfolio-manager-real-estate-focus-on-site-development-psychiatrische-universitatsklinik"
         ],
         "de": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w"
         ],
         "fr": [
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
@@ -1182,17 +1201,21 @@
         "pflegefachfrau-oder-pflegefachmann-hf-fh-g2-schwerpunkt-depressionen-angst-und",
         "infermiere-a-specializzato-a-hf-fh-g2-depressione-ansia-e-disturbi-ossessivo-compulsivi-nel-eta-avanzata-psychiatrische",
         "specialized-nurse-hf-fh-g2-depression-anxiety-and-obsessive-compulsive-disorders-in-the-elderly-psychiatrische",
-        "infirmier-ere-specialise-e-hf-fh-g2-depression-anxiete-et-troubles-obsessionnels-compulsifs-chez-les-personnes-agees"
+        "infirmier-ere-specialise-e-hf-fh-g2-depression-anxiete-et-troubles-obsessionnels-compulsifs-chez-les-personnes-agees",
+        "nursing-specialist-hf-fh-g2-focus-depression-anxiety-and-obsessive-compulsive-diseases-in-old-age-psychiatrische",
+        "specialiste-des-soins-infirmiers-hf-fh-g2-focalisation-depression-anxiete-et-maladies-obsessionnelles-compulsives-chez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-oder-pflegefachmann-hf-fh-g2-schwerpunkt-depressionen-angst-und"
         ],
         "en": [
-          "pflegefachfrau-oder-pflegefachmann-hf-fh-g2-schwerpunkt-depressionen-angst-und"
+          "pflegefachfrau-oder-pflegefachmann-hf-fh-g2-schwerpunkt-depressionen-angst-und",
+          "nursing-specialist-hf-fh-g2-focus-depression-anxiety-and-obsessive-compulsive-diseases-in-old-age-psychiatrische"
         ],
         "fr": [
-          "pflegefachfrau-oder-pflegefachmann-hf-fh-g2-schwerpunkt-depressionen-angst-und"
+          "pflegefachfrau-oder-pflegefachmann-hf-fh-g2-schwerpunkt-depressionen-angst-und",
+          "specialiste-des-soins-infirmiers-hf-fh-g2-focalisation-depression-anxiete-et-maladies-obsessionnelles-compulsives-chez"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:47.962Z",
@@ -2543,7 +2566,8 @@
       "requirementsByLocale": {},
       "externalId": "2645",
       "previousSlugs": [
-        "fachfrau-oder-fachmann-gesundheit-schwerpunkt-demenz-delir-und-psychotische-storungen-puk"
+        "fachfrau-oder-fachmann-gesundheit-schwerpunkt-demenz-delir-und-psychotische-storungen-puk",
+        "specialiste-de-la-sante-centre-demence-delire-et-troubles-psychotiques-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2553,7 +2577,8 @@
           "fachfrau-oder-fachmann-gesundheit-schwerpunkt-demenz-delir-und-psychotische-storungen-puk"
         ],
         "fr": [
-          "fachfrau-oder-fachmann-gesundheit-schwerpunkt-demenz-delir-und-psychotische-storungen-puk"
+          "fachfrau-oder-fachmann-gesundheit-schwerpunkt-demenz-delir-und-psychotische-storungen-puk",
+          "specialiste-de-la-sante-centre-demence-delire-et-troubles-psychotiques-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:37.487Z",
@@ -2787,7 +2812,8 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-80-begleitdienst-puk-zuerich-zurich"
+        "fachfrau-fachmann-gesundheit-80-begleitdienst-puk-zuerich-zurich",
+        "professionnel-sante-80-service-d-accompagnement-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2797,7 +2823,8 @@
           "fachfrau-fachmann-gesundheit-80-begleitdienst-puk-zuerich-zurich"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-80-begleitdienst-puk-zuerich-zurich"
+          "fachfrau-fachmann-gesundheit-80-begleitdienst-puk-zuerich-zurich",
+          "professionnel-sante-80-service-d-accompagnement-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:36.057Z",
@@ -3181,11 +3208,13 @@
       "externalId": "2660",
       "previousSlugs": [
         "ergotherapie-hf-fh-puk-zuerich-zurich",
-        "therapie-occupationnelle-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
+        "therapie-occupationnelle-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
+        "terapia-professionale-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapie-hf-fh-puk-zuerich-zurich"
+          "ergotherapie-hf-fh-puk-zuerich-zurich",
+          "terapia-professionale-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:33.679Z",
@@ -3493,7 +3522,8 @@
       "requirementsByLocale": {},
       "externalId": "2697",
       "previousSlugs": [
-        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich"
+        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich",
+        "dipl-professionnels-des-soins-infirmiers-dipl-infirmiere-hf-fh-pour-la-station-e0-f0-psychiatrische-universitatsklinik"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3503,7 +3533,8 @@
           "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich"
         ],
         "fr": [
-          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich"
+          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-fur-die-station-e0-f0-puk-zuerich-zurich",
+          "dipl-professionnels-des-soins-infirmiers-dipl-infirmiere-hf-fh-pour-la-station-e0-f0-psychiatrische-universitatsklinik"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:31.276Z",
@@ -3573,14 +3604,16 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich"
+        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich",
+        "dipl-nursing-professional-dipl-nurse-hf-80-100-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich"
         ],
         "en": [
-          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich"
+          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich",
+          "dipl-nursing-professional-dipl-nurse-hf-80-100-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:30.801Z",
@@ -3654,14 +3687,16 @@
         "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich",
         "dipl-infermiere-socioeducatore-a-dipl-infermiere-socioeducatore-a-70-100-area-stazioni-di-sicurezza-psychiatrische",
         "dipl-nursing-social-education-specialist-dipl-nursing-social-education-specialist-70-100-security-stations-area",
-        "dipl-infirmier-educateur-social-dipl-infirmier-educateur-social-70-100-secteur-des-stations-de-securite-psychiatrische"
+        "dipl-infirmier-educateur-social-dipl-infirmier-educateur-social-70-100-secteur-des-stations-de-securite-psychiatrische",
+        "dipl-nursing-professional-social-teacher-dipl-nursing-professional-social-teacher-70-100-area-security-stations"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich"
         ],
         "en": [
-          "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich"
+          "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich",
+          "dipl-nursing-professional-social-teacher-dipl-nursing-professional-social-teacher-70-100-area-security-stations"
         ],
         "fr": [
           "dipl-pflegefachfrau-sozialpadagogin-dipl-pflegefachmann-sozialpadagoge-70-100-bereich"
@@ -3731,10 +3766,6 @@
       "requirementsByLocale": {},
       "externalId": "1956",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-        "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
         "infermiere-specializzata-apn-in-psichiatria-geriatrica-servizio-di-consulenza-e-liaison-psychiatrische",
@@ -3749,7 +3780,12 @@
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
-        "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik"
+        "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3761,10 +3797,15 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich"
         ],
         "de": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "fr": [
-          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische"
+          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
+          "dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:29.850Z",
@@ -3912,7 +3953,8 @@
         "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-schwerpunkt",
         "diplomata-in-assistenza-infermieristica-specializzati-a-o-diplomata-in-educazione-sociale-con-specializzazione-in",
         "diploma-in-nursing-or-social-education-specialization-in-emergency-service-psychiatrische-universitatsklinik-zurich",
-        "diplome-e-en-soins-infirmiers-ou-en-education-sociale-specialisation-en-service-d-urgence-psychiatrische"
+        "diplome-e-en-soins-infirmiers-ou-en-education-sociale-specialisation-en-service-d-urgence-psychiatrische",
+        "infirmier-diplome-ou-pedagogue-social-dipl-focus-sur-les-services-d-urgence-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3922,7 +3964,8 @@
           "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-schwerpunkt"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-schwerpunkt"
+          "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-schwerpunkt",
+          "infirmier-diplome-ou-pedagogue-social-dipl-focus-sur-les-services-d-urgence-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:28.899Z",
@@ -4070,8 +4113,6 @@
       "requirementsByLocale": {},
       "externalId": "2642",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
@@ -4087,19 +4128,27 @@
         "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+          "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich"
         ],
         "de": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "fr": [
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
@@ -4170,7 +4219,8 @@
       "requirementsByLocale": {},
       "externalId": "2391",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-f1-puk-zuerich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-f1-puk-zuerich-zurich",
+        "dipl-soins-infirmiers-professionnels-hf-fh-f1-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4178,6 +4228,9 @@
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-f1-puk-zuerich-zurich"
+        ],
+        "fr": [
+          "dipl-soins-infirmiers-professionnels-hf-fh-f1-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:27.000Z",
@@ -4244,7 +4297,8 @@
       "requirementsByLocale": {},
       "externalId": "2689",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-puk-zuerich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-puk-zuerich-zurich",
+        "dipl-nurse-nurse-specialist-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4252,6 +4306,9 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-puk-zuerich-zurich"
+        ],
+        "en": [
+          "dipl-nurse-nurse-specialist-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:26.525Z",
@@ -4395,10 +4452,6 @@
       "requirementsByLocale": {},
       "externalId": "2139",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-        "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
         "infermiere-specializzata-apn-in-psichiatria-geriatrica-servizio-di-consulenza-e-liaison-psychiatrische",
@@ -4414,7 +4467,11 @@
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
         "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
-        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4426,7 +4483,11 @@
           "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich"
         ],
         "de": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w"
         ],
         "fr": [
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
@@ -4497,10 +4558,6 @@
       "requirementsByLocale": {},
       "externalId": "2625",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-        "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
         "infermiere-specializzata-apn-in-psichiatria-geriatrica-servizio-di-consulenza-e-liaison-psychiatrische",
@@ -4514,23 +4571,35 @@
         "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich",
+        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+          "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich"
         ],
         "de": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "fr": [
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
-          "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+          "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:25.102Z",
@@ -4597,11 +4666,6 @@
       "requirementsByLocale": {},
       "externalId": "2543",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-        "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
-        "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
         "infermiere-specializzata-apn-in-psichiatria-geriatrica-servizio-di-consulenza-e-liaison-psychiatrische",
         "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
@@ -4614,22 +4678,36 @@
         "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-stazione-per-bambini-psychiatrische-universitatsklinik-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-station-pour-enfants-psychiatrische-universitatsklinik-zurich",
+        "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-stazione-per-bambini-psychiatrische-universitatsklinik-zurich",
+          "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
         ],
         "de": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "fr": [
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-station-pour-enfants-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:24.627Z",
@@ -4696,7 +4774,8 @@
       "requirementsByLocale": {},
       "externalId": "2441",
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-b1-puk-zuerich-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-b1-puk-zuerich-zurich",
+        "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-b1-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4704,6 +4783,9 @@
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-b1-puk-zuerich-zurich"
+        ],
+        "fr": [
+          "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-b1-psychiatrische"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:24.150Z",
@@ -4773,9 +4855,6 @@
       "pensumMax": 100,
       "pensum": "70 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
@@ -4790,7 +4869,12 @@
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
-        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w",
+        "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-70-100-zsft-psychiatrische",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4802,10 +4886,15 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich"
         ],
         "de": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich"
         ],
         "fr": [
-          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische"
+          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
+          "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-70-100-zsft-psychiatrische"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:23.674Z",
@@ -5243,11 +5332,13 @@
       "externalId": "2644",
       "previousSlugs": [
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
+        "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich"
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
           "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
