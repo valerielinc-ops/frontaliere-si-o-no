@@ -5,7 +5,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { collapsifySeoBlock } from '../../build-plugins/staticPagesPlugin';
+import { collapsifySeoBlock, HOMEPAGE_ROOT_CONTENT_RX } from '../../build-plugins/staticPagesPlugin';
 
 // Fixture mirrors what HOMEPAGE_SEO_BLOCK_HTML / CALCULATOR_SEO_BLOCK_HTML /
 // JOBBOARD_SEO_BLOCK_HTML emit after the OKLCH token migration: every text
@@ -78,5 +78,31 @@ describe('collapsifySeoBlock', () => {
     const summaryCloses = (out.match(/<\/summary>/g) || []).length;
     expect(summaryOpens).toBe(summaryCloses);
     expect(summaryOpens).toBe(3);
+  });
+});
+
+// Regression guard for #1804 item 1: the homepage `#root` content extraction
+// regex must tolerate the `<div id="footer-root"></div>` lite-shell portal that
+// buildPage() now emits between `#root` and the module <script>. When the match
+// silently failed, the whole injection block was skipped and the deployed `/`
+// shipped with no hp-seo-block / canton nav / related-guides links.
+describe('HOMEPAGE_ROOT_CONTENT_RX', () => {
+  const ROOT_BODY = '<main id="main-content"><h1>Home</h1><p>Prerendered prose.</p></main>';
+
+  it('extracts #root content when a footer-root sibling sits before the module script', () => {
+    const html =
+      `<body><div id="root">${ROOT_BODY}</div>\n` +
+      `<div id="footer-root"></div>\n` +
+      `<script type="module" crossorigin src="/assets/index.js"></script></body>`;
+    const m = html.match(HOMEPAGE_ROOT_CONTENT_RX);
+    expect(m?.[1]).toBe('<h1>Home</h1><p>Prerendered prose.</p>');
+  });
+
+  it('still extracts #root content when no footer-root div is present', () => {
+    const html =
+      `<body><div id="root">${ROOT_BODY}</div>\n` +
+      `<script type="module" crossorigin src="/assets/index.js"></script></body>`;
+    const m = html.match(HOMEPAGE_ROOT_CONTENT_RX);
+    expect(m?.[1]).toBe('<h1>Home</h1><p>Prerendered prose.</p>');
   });
 });
