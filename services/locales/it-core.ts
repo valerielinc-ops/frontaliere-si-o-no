@@ -3351,7 +3351,6 @@ Regole:
  'publisherLanding.compare.notIncluded': 'Non incluso',
  'publisherLanding.compare.priceRow': 'Prezzo',
  'publisherLanding.compare.freePrice': 'Gratis',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / annuncio / 30 giorni',
  'publisherLanding.compare.row.listing': 'Annuncio nel listino',
  'publisherLanding.compare.row.seoPage': 'Pagina SEO dedicata',
  'publisherLanding.compare.row.featured': 'In evidenza nel listino e nelle email',
@@ -3381,5 +3380,36 @@ Regole:
  'publisherLanding.finalCta.subtitle': 'Raggiungi i frontalieri giusti, con o senza budget. Inizia in pochi minuti.',
  'publisherLanding.finalCta.button': 'Pubblica un annuncio',
 
+
+ // ── Impeccable redesign: plan cards, dashboard KPIs, success CTAs ──
+ 'publisherLanding.hero.eyebrow': 'Per chi assume in Ticino',
+ 'publisherLanding.hero.trust': 'Nessuna carta di credito per l’annuncio gratuito',
+ 'publisherLanding.plan.free.name': 'Gratis',
+ 'publisherLanding.plan.free.tagline': 'Perfetto per provare: il tuo annuncio entra nel listino con la sua pagina dedicata.',
+ 'publisherLanding.plan.free.cta': 'Pubblica gratis',
+ 'publisherLanding.plan.sponsored.name': 'Sponsorizzato',
+ 'publisherLanding.plan.sponsored.tagline': 'Per farti notare davvero dai frontalieri giusti.',
+ 'publisherLanding.plan.sponsored.badge': 'Consigliato',
+ 'publisherLanding.plan.sponsored.cta': 'Passa a Sponsorizzato',
+ 'publisherLanding.plan.sponsored.priceNote': '/ 30 giorni · per sede',
+ 'publisherLanding.plan.sponsored.everything': 'Tutto del piano Gratis, più:',
+ 'publisherDashboard.kpi.heading': 'Panoramica performance',
+ 'publisherDashboard.kpi.eyebrow': 'La tua performance',
+ 'publisherDashboard.kpi.totalViews': 'visualizzazioni totali',
+ 'publisherDashboard.kpi.totalClicks': 'Clic candidatura',
+ 'publisherDashboard.kpi.totalApplications': 'Candidature',
+ 'publisherDashboard.kpi.conversion': 'Tasso di conversione',
+ 'publisherDashboard.kpi.noDataYet': 'Le statistiche si popolano man mano che i frontalieri vedono i tuoi annunci.',
+ 'publisherDashboard.adsHeading': 'I tuoi annunci',
+ 'publisherDashboard.bestPerformer': 'Il più visto',
+ 'publisherDashboard.empty.title': 'Qui nascono le tue candidature',
+ 'publisherDashboard.empty.body': 'Non hai ancora pubblicato annunci. Crea il primo: bastano pochi minuti e ti dà una mano anche l’AI.',
+ 'publisher.published.viewDashboard': 'Vai ai miei annunci',
+ 'publisher.published.publishAnother': 'Pubblica un altro annuncio',
+
+ // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3500.title': 'Portale aziende rinnovato',
+ 'whatsNew.v3500.publisherRedesign.title': 'Pubblica offerte: nuova veste e dashboard',
+ 'whatsNew.v3500.publisherRedesign.desc': 'Le pagine per le aziende hanno un look più caldo e chiaro: piani Gratis e Sponsorizzato a confronto e una dashboard “I miei annunci” con statistiche animate e imbuto di conversione per ogni annuncio.',
 };
 export default translations;

@@ -3264,7 +3264,6 @@ Regeln:
  'publisherLanding.compare.notIncluded': 'Nicht enthalten',
  'publisherLanding.compare.priceRow': 'Preis',
  'publisherLanding.compare.freePrice': 'Kostenlos',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / Anzeige / 30 Tage',
  'publisherLanding.compare.row.listing': 'Anzeige in der Jobbörse',
  'publisherLanding.compare.row.seoPage': 'Eigene SEO-Seite',
  'publisherLanding.compare.row.featured': 'Hervorgehoben in der Liste und in E-Mails',
@@ -3294,6 +3293,37 @@ Regeln:
  'publisherLanding.finalCta.subtitle': 'Erreichen Sie die richtigen Grenzgänger, mit oder ohne Budget. Starten Sie in wenigen Minuten.',
  'publisherLanding.finalCta.button': 'Stelle ausschreiben',
 
+
+ // ── Impeccable redesign: plan cards, dashboard KPIs, success CTAs ──
+ 'publisherLanding.hero.eyebrow': 'Für Arbeitgeber im Tessin',
+ 'publisherLanding.hero.trust': 'Keine Kreditkarte für das kostenlose Inserat',
+ 'publisherLanding.plan.free.name': 'Gratis',
+ 'publisherLanding.plan.free.tagline': 'Ideal zum Ausprobieren: Ihr Inserat kommt mit eigener Seite ins Verzeichnis.',
+ 'publisherLanding.plan.free.cta': 'Gratis inserieren',
+ 'publisherLanding.plan.sponsored.name': 'Gesponsert',
+ 'publisherLanding.plan.sponsored.tagline': 'Um bei den richtigen Grenzgängern wirklich aufzufallen.',
+ 'publisherLanding.plan.sponsored.badge': 'Empfohlen',
+ 'publisherLanding.plan.sponsored.cta': 'Zu Gesponsert wechseln',
+ 'publisherLanding.plan.sponsored.priceNote': '/ 30 Tage · pro Standort',
+ 'publisherLanding.plan.sponsored.everything': 'Alles aus Gratis, plus:',
+ 'publisherDashboard.kpi.heading': 'Leistungsübersicht',
+ 'publisherDashboard.kpi.eyebrow': 'Ihre Leistung',
+ 'publisherDashboard.kpi.totalViews': 'Aufrufe insgesamt',
+ 'publisherDashboard.kpi.totalClicks': 'Bewerbungsklicks',
+ 'publisherDashboard.kpi.totalApplications': 'Bewerbungen',
+ 'publisherDashboard.kpi.conversion': 'Konversionsrate',
+ 'publisherDashboard.kpi.noDataYet': 'Die Statistiken füllen sich, sobald Grenzgänger Ihre Inserate sehen.',
+ 'publisherDashboard.adsHeading': 'Ihre Inserate',
+ 'publisherDashboard.bestPerformer': 'Meist gesehen',
+ 'publisherDashboard.empty.title': 'Hier beginnen Ihre Bewerbungen',
+ 'publisherDashboard.empty.body': 'Sie haben noch keine Inserate veröffentlicht. Erstellen Sie das erste — in wenigen Minuten, mit KI-Unterstützung.',
+ 'publisher.published.viewDashboard': 'Zu meinen Inseraten',
+ 'publisher.published.publishAnother': 'Weiteres Inserat aufgeben',
+
+ // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3500.title': 'Überarbeitetes Arbeitgeberportal',
+ 'whatsNew.v3500.publisherRedesign.title': 'Inserate aufgeben: neuer Look und Dashboard',
+ 'whatsNew.v3500.publisherRedesign.desc': 'Die Arbeitgeberseiten wirken wärmer und klarer: Gratis- und Gesponsert-Plan im Vergleich sowie ein „Meine Inserate“-Dashboard mit animierten Statistiken und Konversionstrichter pro Inserat.',
 };
 
 export default deCore;

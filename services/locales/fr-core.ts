@@ -3264,7 +3264,6 @@ Règles :
  'publisherLanding.compare.notIncluded': 'Non inclus',
  'publisherLanding.compare.priceRow': 'Prix',
  'publisherLanding.compare.freePrice': 'Gratuit',
- 'publisherLanding.compare.sponsoredPrice': 'CHF 49 / annonce / 30 jours',
  'publisherLanding.compare.row.listing': 'Annonce dans la liste',
  'publisherLanding.compare.row.seoPage': 'Page SEO dédiée',
  'publisherLanding.compare.row.featured': 'Mise en avant dans la liste et les e-mails',
@@ -3294,6 +3293,37 @@ Règles :
  'publisherLanding.finalCta.subtitle': 'Atteignez les bons frontaliers, avec ou sans budget. Lancez-vous en quelques minutes.',
  'publisherLanding.finalCta.button': 'Publier une offre',
 
+
+ // ── Impeccable redesign: plan cards, dashboard KPIs, success CTAs ──
+ 'publisherLanding.hero.eyebrow': 'Pour les employeurs qui recrutent au Tessin',
+ 'publisherLanding.hero.trust': 'Aucune carte de crédit pour l’annonce gratuite',
+ 'publisherLanding.plan.free.name': 'Gratuit',
+ 'publisherLanding.plan.free.tagline': 'Parfait pour commencer : votre annonce rejoint la liste avec sa propre page dédiée.',
+ 'publisherLanding.plan.free.cta': 'Publier gratuitement',
+ 'publisherLanding.plan.sponsored.name': 'Sponsorisé',
+ 'publisherLanding.plan.sponsored.tagline': 'Pour vraiment vous démarquer auprès des bons frontaliers.',
+ 'publisherLanding.plan.sponsored.badge': 'Recommandé',
+ 'publisherLanding.plan.sponsored.cta': 'Passer à Sponsorisé',
+ 'publisherLanding.plan.sponsored.priceNote': '/ 30 jours · par site',
+ 'publisherLanding.plan.sponsored.everything': 'Tout le plan Gratuit, plus :',
+ 'publisherDashboard.kpi.heading': 'Aperçu des performances',
+ 'publisherDashboard.kpi.eyebrow': 'Vos performances',
+ 'publisherDashboard.kpi.totalViews': 'vues au total',
+ 'publisherDashboard.kpi.totalClicks': 'Clics de candidature',
+ 'publisherDashboard.kpi.totalApplications': 'Candidatures',
+ 'publisherDashboard.kpi.conversion': 'Taux de conversion',
+ 'publisherDashboard.kpi.noDataYet': 'Les statistiques se remplissent à mesure que les frontaliers voient vos annonces.',
+ 'publisherDashboard.adsHeading': 'Vos annonces',
+ 'publisherDashboard.bestPerformer': 'La plus vue',
+ 'publisherDashboard.empty.title': 'Vos candidatures commencent ici',
+ 'publisherDashboard.empty.body': 'Vous n’avez pas encore publié d’annonces. Créez la première — quelques minutes suffisent, avec l’aide de l’IA.',
+ 'publisher.published.viewDashboard': 'Voir mes annonces',
+ 'publisher.published.publishAnother': 'Publier une autre annonce',
+
+ // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3500.title': 'Portail employeurs renouvelé',
+ 'whatsNew.v3500.publisherRedesign.title': 'Publier des offres : nouveau look et tableau de bord',
+ 'whatsNew.v3500.publisherRedesign.desc': 'Les pages employeurs ont un aspect plus chaleureux et clair : forfaits Gratuit et Sponsorisé comparés, et un tableau de bord « Mes annonces » avec statistiques animées et entonnoir de conversion par annonce.',
 };
 
 export default frCore;
