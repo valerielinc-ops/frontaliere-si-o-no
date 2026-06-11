@@ -195,32 +195,37 @@ export default {
     // Cache successful GET responses and stamp Cache-Control so Cloudflare CDN
     // can also serve from edge without re-entering the Worker.
     if (request.method === 'GET' && resp.status === 200) {
-      // Clone the origin response up front so we can write two cache entries
-      // (short-TTL serving copy + long-TTL last-known-good) plus the returned
-      // body from one upstream read.
-      const lkgSource = resp.clone();
+      // Buffer the body ONCE, then build independent Responses from the bytes:
+      // the serving copy + the two cache entries (short-TTL cacheKey + long-TTL
+      // last-known-good). Do NOT tee/clone the live stream. A nested resp.clone()
+      // feeding two `ctx.waitUntil(cache.put(...))` consumers plus the client
+      // deadlocked on backpressure — the CF runtime never drained the 3-way tee,
+      // stalling the client ~30s on EVERY shard page and never completing
+      // cache.put (edge cache dead → every hit re-invoked the Worker and
+      // re-stalled). Regression from PR #1791; fixed here. These SEO shells are
+      // ~9–100 KB so buffering is trivial (Worker has 128 MB) and removes the
+      // stream — and therefore the backpressure — entirely. Reusing one
+      // ArrayBuffer across `new Response(buf, …)` is safe: the constructor copies
+      // the bytes, it doesn't detach the buffer.
+      const bodyBuf = await resp.arrayBuffer();
 
       const headers = new Headers(resp.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
-      const cacheable = new Response(resp.body, {
-        status: resp.status,
-        statusText: resp.statusText,
-        headers,
-      });
-      const toReturn = cacheable.clone();
-      ctx.waitUntil(cache.put(cacheKey, cacheable));
+      const servingInit = { status: 200, statusText: resp.statusText, headers };
+
+      ctx.waitUntil(cache.put(cacheKey, new Response(bodyBuf, servingInit)));
 
       // Refresh the long-lived fallback copy on every successful fetch.
-      const lkgHeaders = new Headers(lkgSource.headers);
+      const lkgHeaders = new Headers(resp.headers);
       lkgHeaders.set('Cache-Control', `public, max-age=${LKG_MAX_AGE}`);
       ctx.waitUntil(
         cache.put(
           lkgKey(url.toString()),
-          new Response(lkgSource.body, { status: 200, statusText: 'OK', headers: lkgHeaders }),
+          new Response(bodyBuf, { status: 200, statusText: 'OK', headers: lkgHeaders }),
         ),
       );
 
-      return toReturn;
+      return new Response(bodyBuf, servingInit);
     }
 
     return resp;
