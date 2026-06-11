@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-06-10T13:14:14.072Z",
+  "generatedAt": "2026-06-10T23:45:10.431Z",
   "total": 19,
   "newCount": 0,
   "updatedCount": 15,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 29664,
-  "avgDurationMs": 29664,
+  "durationMs": 19200,
+  "avgDurationMs": 19200,
   "durationHistory": [
-    29664
+    19200
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -615,48 +615,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments//hru/hru-phd-snsf-corboz-2026.pdf",
-      "title": "Posizione di dottorato nell'ambito del progetto del FNS",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-di-dottorato-nell-ambito-del-progetto-del-fns-usi-mendrisio",
-      "department": "Institute for the History and Theory of Art and Architecture (ISA)",
-      "category": "phd",
-      "datePosted": "2026-04-15",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-2cb5230f2b36",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-04-15T22:31:54.876Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
