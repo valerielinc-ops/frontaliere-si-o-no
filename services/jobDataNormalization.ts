@@ -497,20 +497,22 @@ for (const [slug, localPath] of Object.entries(
 // that differ from the canonical crawler key in the registry above.
 CRAWLED_COMPANY_LOGOS['guess-europe-sagl'] ??= CRAWLED_COMPANY_LOGOS['guess-europe'];
 
-// Grey-globe guard. After the manifest overlay, any entry whose value is STILL
-// a Google `s2/favicons` URL was never mirrored locally — so it would render
-// the generic grey-globe PNG (HTTP 200/404-with-body, ~726 B) that browsers
-// paint even on a 404, with no onError to recover. Drop those keys so every
-// resolver path (the step-1 lookup AND the isXxx identity fallbacks, which all
-// read this map) falls through to the coloured-initials badge instead of the
-// grey globe. The `gFavicon('...')` source entries are intentionally KEPT in
-// the literal above: they are download hints for
+// Broken-logo guard. After the manifest overlay, any entry whose value is STILL
+// a Google `s2/favicons` URL (grey-globe PNG that browsers paint even on a 404)
+// or a `logo.clearbit.com` URL (Clearbit's logo CDN is defunct → every request
+// errors) was never mirrored locally and would render broken. Drop those keys
+// so every resolver path (the step-1 lookup AND the isXxx identity fallbacks,
+// which all read this map) falls through to the coloured-initials badge —
+// never the grey globe, a dead Clearbit image, or a dead URL in JSON-LD
+// `hiringOrganization.logo`. The `gFavicon('...')`/`cLogo('...')` source entries
+// are intentionally KEPT in the literal above: they are download hints for
 // scripts/download-company-logos.mjs, which parses the source text — not this
-// runtime object — and mirrors each favicon to /images/brands/{slug}. Once a
-// logo is mirrored the overlay above replaces the value with the local path,
-// so this guard only ever removes genuinely-unmirrored entries.
+// runtime object — and mirrors each logo to /images/brands/{slug}. Once a logo
+// is mirrored the overlay replaces the value with the local path, so this guard
+// only ever removes genuinely-unmirrored entries.
 for (const key of Object.keys(CRAWLED_COMPANY_LOGOS)) {
- if (CRAWLED_COMPANY_LOGOS[key]?.includes('google.com/s2/favicons')) {
+ const value = CRAWLED_COMPANY_LOGOS[key];
+ if (value?.includes('google.com/s2/favicons') || value?.includes('logo.clearbit.com')) {
  delete CRAWLED_COMPANY_LOGOS[key];
  }
 }
