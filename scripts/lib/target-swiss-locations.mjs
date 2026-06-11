@@ -323,6 +323,53 @@ export function isCantonOnlyLabel(text = '') {
   return _cantonOnlyTokens.has(token);
 }
 
+// Reverse map: normalized city token → canonical BFS municipality display name
+// (preserves hyphens and casing, e.g. "la chaux de fonds" → "La Chaux-de-Fonds").
+// `findSwissCityInText`/`normalizeToken` deliberately return the space-normalized
+// token (hyphens dropped, lower-cased) — fine for presence/whitelist checks, but
+// a consumer that surfaces that token as a structured-data `addressLocality`
+// would emit a malformed locality for composite municipalities (e.g.
+// "La Chaux De Fonds"), a Google-Jobs de-index risk. Built from municipalities
+// first (authoritative display form); aliases only fill gaps.
+const _canonicalCityNameByToken = (() => {
+  const map = new Map();
+  for (const code of Object.keys(SWISS_CANTONS)) {
+    const entry = MUNICIPALITY_DATA.cantons?.[code];
+    if (!entry) continue;
+    for (const name of entry.municipalities || []) {
+      const token = normalizeToken(name);
+      if (token && !map.has(token)) map.set(token, name);
+    }
+    for (const name of entry.aliases || []) {
+      const token = normalizeToken(name);
+      if (token && !map.has(token)) map.set(token, name);
+    }
+  }
+  return map;
+})();
+
+/**
+ * Map a Swiss city token (as returned by `findSwissCityInText`, or any free
+ * city string) to its canonical BFS municipality display name, preserving
+ * hyphens and casing (e.g. "la chaux de fonds" → "La Chaux-de-Fonds"). Use this
+ * before surfacing a matched city as an `addressLocality`/`location`. Unknown
+ * tokens fall back to a hyphen-agnostic title-case of the input (best-effort —
+ * dropped hyphens can't be recovered). Empty input → ''.
+ */
+export function canonicalSwissCityName(value = '') {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const token = normalizeToken(raw);
+  if (token && _canonicalCityNameByToken.has(token)) {
+    return _canonicalCityNameByToken.get(token);
+  }
+  return raw
+    .split(/\s+/)
+    .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+    .join(' ')
+    .trim();
+}
+
 /**
  * Find any known Swiss city mentioned in free-form text. Returns the first
  * matched city token (normalized) or empty string. Used as a "rescue" path
