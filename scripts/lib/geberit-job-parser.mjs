@@ -261,7 +261,13 @@ export async function fetchAllGeberitJobs() {
     if (!internalId) continue;
     if (seenInternal.has(internalId)) continue;
 
-    const addr = (Array.isArray(rec.addresses) && rec.addresses[0]) || {};
+    // The OData filter `addresses/any(a: a/country eq 'Schweiz')` matches records
+    // with *at least one* Swiss address — the Swiss one is not guaranteed to be
+    // at index [0] (multi-site records can list a foreign plant first). Pick the
+    // Swiss address explicitly so location/postalCode/streetAddress never come
+    // from a foreign address and mis-tag a foreign job as CH/SG.
+    const addrs = Array.isArray(rec.addresses) ? rec.addresses : [];
+    const addr = addrs.find((a) => a && a.country === 'Schweiz') || addrs[0] || {};
     const location = normalizeSpace(addr.city || HQ.city);
     const canton = inferSwissTargetCanton(`${location} ${addr.postalCode || ''}`) || HQ.canton;
 
