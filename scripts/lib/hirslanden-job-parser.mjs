@@ -23,7 +23,8 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
-import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { isConnectionLevelFetchError } from './transient-fetch.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -362,6 +363,14 @@ async function fetchPage(url, timeoutMs, userAgent) {
     return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
   } catch (err) {
     clearTimeout(timer);
+    // Connection-level failure (no HTTP response received — datacenter egress
+    // IP blocked, DNS failure, socket reset): re-fetch via Jina clean-IP proxy.
+    // Root cause of #1680: careers.mediclinic.com unreachable from CI runner.
+    // HTTP errors (err.status set) are NOT proxied — the server did respond.
+    if (isConnectionLevelFetchError(err)) {
+      const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
+      if (html != null) return html;
+    }
     throw err;
   }
 }
