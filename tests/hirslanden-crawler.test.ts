@@ -270,6 +270,27 @@ describe('Hirslanden Klinik crawler parser', () => {
       // @ts-expect-error testing non-string input
       expect(parseDetailPage(null)).toBeNull();
     });
+
+    it('ignores a competing <meta itemprop> in <head> and reads the body span (#1885)', () => {
+      // If the SF skin ever ships a void `<meta itemprop="title|description">`
+      // in <head>, an unscoped `[itemprop=...]` selector returns it first by
+      // document order (head before body) — its textContent/innerHTML is empty,
+      // so title goes blank and every description collapses onto the fallback
+      // (the duplicate-listings audit critical). The typed-span/:not(meta) guard
+      // must skip the void node and still read the real body content.
+      const withHeadMeta = detailHtml('Pflegefachperson HF', 'Pflege leisten', 'Diplom Pflege')
+        .replace(
+          '<html><body>',
+          '<html><head>' +
+            '<meta itemprop="title" content="">' +
+            '<meta itemprop="description" content="">' +
+            '</head><body>',
+        );
+      const d = parseDetailPage(withHeadMeta);
+      expect(d?.title).toBe('Pflegefachperson HF');
+      expect(d?.description).toContain('Pflege leisten');
+      expect(d?.description).toContain('Diplom Pflege');
+    });
   });
 
   describe('descriptionBodyToMarkdown', () => {

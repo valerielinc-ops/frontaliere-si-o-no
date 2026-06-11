@@ -83,9 +83,19 @@ export function inferSkyguideCanton(raw = '') {
 
 export function parseSkyguideJobDetail(html = '') {
   const document = new JSDOM(html).window.document;
-  const title = normalizeSpace(document.querySelector('[itemprop="title"]')?.textContent || '');
-  const location = normalizeSpace(document.querySelector('[itemprop="streetAddress"]')?.getAttribute('content') || '');
-  const datePostedRaw = normalizeSpace(document.querySelector('[itemprop="datePosted"]')?.getAttribute('content') || '');
+  // Title: prefer the typed body <span> and exclude void <meta>/<link> microdata
+  // nodes. An unscoped `[itemprop="title"]` returns the first match in document
+  // order, so a `<meta itemprop="title">` shipped in <head> (whose textContent is
+  // empty) would win → blank title (same void-node-wins class as #1885).
+  const titleEl =
+    document.querySelector('span[itemprop="title"]') ||
+    document.querySelector('[itemprop="title"]:not(meta):not(link)');
+  const title = normalizeSpace(titleEl?.textContent || '');
+  // streetAddress/datePosted are read from the `content=` attribute, so scope to
+  // `meta[itemprop]` (same idiom as damiani/ariston) — this rejects a non-meta
+  // or a void node in <head> winning the unscoped first-match.
+  const location = normalizeSpace(document.querySelector('meta[itemprop="streetAddress"]')?.getAttribute('content') || '');
+  const datePostedRaw = normalizeSpace(document.querySelector('meta[itemprop="datePosted"]')?.getAttribute('content') || '');
   const applyPath = normalizeSpace(document.querySelector('a.apply.dialogApplyBtn')?.getAttribute('href') || '');
   const intro = htmlFragmentToMarkdown(document.querySelector('.customPlugin .inner')?.innerHTML || '');
   const descriptionHtml = document.querySelector('span.jobdescription')?.innerHTML || '';

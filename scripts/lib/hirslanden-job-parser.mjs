@@ -344,15 +344,27 @@ export function parseDetailPage(html) {
 
   // Title: SF microdata first, then page <h1>, then <h2> (last — <h2> on the
   // detail page are SECTION headings like "DEINE AUFGABEN", never the role title).
+  // Prefer the typed body <span> and exclude void <meta>/<link> microdata nodes:
+  // they carry their value in a `content=`/`href=` attribute (empty textContent),
+  // and a `<meta itemprop="title">` in <head> would otherwise win by document
+  // order → empty title (same first-match class as the description, #1885).
   const titleEl =
-    doc.querySelector('[itemprop="title"]') ||
+    doc.querySelector('span[itemprop="title"]') ||
+    doc.querySelector('[itemprop="title"]:not(meta):not(link)') ||
     doc.querySelector('h1') ||
     doc.querySelector('h2');
   const title = titleEl ? normalizeSpace(titleEl.textContent || '') : '';
 
   // Description: the real per-job body lives in <span itemprop="description">.
+  // Prefer the typed body <span> and exclude void <meta>/<link> microdata nodes.
+  // An unscoped `[itemprop="description"]` would match a `<meta itemprop=
+  // "description">` shipped in <head> first (document order), whose `.innerHTML`
+  // is empty → every description collapses to buildFallbackDescription → the
+  // duplicate-listings audit critical reappears (#1885, follow-up of #1884).
   let description = '';
-  const descEl = doc.querySelector('[itemprop="description"]');
+  const descEl =
+    doc.querySelector('span[itemprop="description"]') ||
+    doc.querySelector('[itemprop="description"]:not(meta):not(link)');
   if (descEl) {
     description = descriptionBodyToMarkdown(descEl.innerHTML);
   }
