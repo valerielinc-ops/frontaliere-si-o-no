@@ -11319,5 +11319,119 @@
         "pending": 79
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-11T07:07:39.348Z",
+    "label": "before",
+    "total": 14293,
+    "needsRetranslation": 5466,
+    "suppressed": 39,
+    "incomplete": 3141,
+    "complete": 11152,
+    "missingByLocale": {
+      "it": 2527,
+      "en": 2343,
+      "de": 779,
+      "fr": 2393
+    },
+    "topPending": [
+      {
+        "company": "UFA AG",
+        "pending": 430
+      },
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 291
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 123
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 104
+      },
+      {
+        "company": "Richemont",
+        "pending": 98
+      },
+      {
+        "company": "Liebherr",
+        "pending": 90
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 86
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-11T09:33:41.995Z",
+    "label": "after",
+    "total": 14293,
+    "needsRetranslation": 5265,
+    "suppressed": 44,
+    "incomplete": 3048,
+    "complete": 11245,
+    "missingByLocale": {
+      "it": 2494,
+      "en": 2321,
+      "de": 763,
+      "fr": 2360
+    },
+    "topPending": [
+      {
+        "company": "UFA AG",
+        "pending": 430
+      },
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 417
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 291
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 123
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 104
+      },
+      {
+        "company": "Liebherr",
+        "pending": 90
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 86
+      },
+      {
+        "company": "Roche",
+        "pending": 79
+      }
+    ]
   }
 ]
