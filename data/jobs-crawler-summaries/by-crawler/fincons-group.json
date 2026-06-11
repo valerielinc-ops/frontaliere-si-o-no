@@ -1,56 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-11T12:36:35.296Z",
+  "generatedAt": "2026-06-11T22:38:30.951Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1569,
-  "avgDurationMs": 1569,
+  "durationMs": 1777,
+  "avgDurationMs": 1777,
   "durationHistory": [
-    1569
+    1777
   ],
-  "newJobs": [
-    {
-      "title": "Senior .NET Engineer",
-      "slug": "senior-net-engineer-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-11",
-      "validThrough": "2026-09-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260611115624_NDW2YNSD34Y18S7S",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Developer PL/SQL - Banking Area",
@@ -87,6 +49,49 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 3",
       "firstSeenAt": "2026-05-07T11:00:54.190Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Senior .NET Engineer",
+      "slug": "senior-net-engineer-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-11",
+      "validThrough": "2026-09-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260611115624_NDW2YNSD34Y18S7S",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-5a765aa1e211",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-06-11T12:36:35.294Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -225,50 +230,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "ServiceNow Developer (ITSM - CMDB)",
-      "slug": "servicenow-sviluppatore-itsm-cmdb-fincons-group-lugano",
-      "url": "https://fincons.applytojob.com/apply/9q4OLkyxDB/ServiceNow-Developer-ITSM-CMDB",
-      "applyUrl": "https://fincons.applytojob.com/apply/9q4OLkyxDB/ServiceNow-Developer-ITSM-CMDB",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-03",
-      "validThrough": "2026-07-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260403064403_82EOJMNY54KZRWYT",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "id": "fincons-group-1ae8c4e7d020",
-      "firstSeenAt": "2026-04-13T21:41:31.727Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
