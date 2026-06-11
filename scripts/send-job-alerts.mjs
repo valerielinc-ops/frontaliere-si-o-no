@@ -25,6 +25,7 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
+import { commitInChunks } from './lib/firestore-batch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -818,29 +819,26 @@ async function sendBatch(emails) {
 async function enqueueFailedEmails(db, failedItems) {
   if (failedItems.length === 0) return;
   const { FieldValue } = await import('firebase-admin/firestore');
-  const batch = db.batch();
-  let enqueued = 0;
 
-  for (const item of failedItems) {
-    const email = item.recipient?.email;
-    const alertId = item.meta?.alertId || '';
-    if (!email) continue;
-
-    const docRef = db.collection(RETRY_COLLECTION).doc();
-    batch.set(docRef, {
-      alertId,
-      email,
-      subject: item.payload?.subject || '',
-      html: item.payload?.html || '',
-      createdAt: FieldValue.serverTimestamp(),
-      retryCount: 0,
-      error: (item.error || '').slice(0, 500),
-    });
-    enqueued++;
-  }
+  // Pre-filter so the slice length is a safe upper bound on ops-per-batch, then
+  // chunk the writes past the Firestore 500-op batch cap (a mass-failure run can
+  // exceed it; a single commit() would throw and enqueue nothing for retry).
+  const toEnqueue = failedItems.filter((item) => item.recipient?.email);
+  const enqueued = toEnqueue.length;
 
   if (enqueued > 0) {
-    await batch.commit();
+    await commitInChunks(db, toEnqueue, (batch, item) => {
+      const docRef = db.collection(RETRY_COLLECTION).doc();
+      batch.set(docRef, {
+        alertId: item.meta?.alertId || '',
+        email: item.recipient.email,
+        subject: item.payload?.subject || '',
+        html: item.payload?.html || '',
+        createdAt: FieldValue.serverTimestamp(),
+        retryCount: 0,
+        error: (item.error || '').slice(0, 500),
+      });
+    });
     console.log(`   🔄 Enqueued ${enqueued} failed emails for retry (max ${MAX_RETRY_COUNT} retries)`);
   }
 }
@@ -1144,17 +1142,17 @@ async function main() {
   // 5. Update Firestore: lastMatchedAt + matchCount on the alert subdoc
   if (!DRY_RUN) {
     const { FieldValue } = await import('firebase-admin/firestore');
-    const batch = db.batch();
-    for (const email of emailsToSend) {
-      // email.ref points at job_alert_subscribers/{email}/alerts/{alertId}
-      // and was captured during the load step above.
-      if (!email.ref) continue;
+    // email.ref points at job_alert_subscribers/{email}/alerts/{alertId} and was
+    // captured during the load step above. Pre-filter then chunk past the
+    // Firestore 500-op batch cap (emailsToSend can exceed it at scale; a single
+    // commit() would throw and skip every lastMatchedAt/matchCount update).
+    const toUpdate = emailsToSend.filter((email) => email.ref);
+    await commitInChunks(db, toUpdate, (batch, email) => {
       batch.update(email.ref, {
         lastMatchedAt: FieldValue.serverTimestamp(),
         matchCount: FieldValue.increment(email.matchCount),
       });
-    }
-    await batch.commit();
+    });
     console.log('   📊 Firestore updated');
   }
 
