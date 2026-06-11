@@ -273,7 +273,7 @@ async function sendPublisherConfirmation(publisherUid, jobCount) {
         `<h2>Grazie, pagamento confermato</h2>` +
         `<p>${jobCount > 1 ? 'I tuoi annunci saranno online' : 'Il tuo annuncio sarà online'} entro 1–2 ore con pagina SEO dedicata.</p>` +
         `<p>Gestisci gli annunci e vedi le candidature dalla tua dashboard: ` +
-        `<a href="https://frontaliereticino.ch/i-miei-annunci">I miei annunci</a>.</p>` +
+        `<a href="https://frontaliereticino.ch/i-miei-annunci/">I miei annunci</a>.</p>` +
         `<p style="font-size:12px;color:#666">La ricevuta/fattura ti arriva separatamente da Stripe. Abbonamento rinnovato ogni 30 giorni; disdici quando vuoi dalla dashboard.</p>`,
     });
   } catch {
