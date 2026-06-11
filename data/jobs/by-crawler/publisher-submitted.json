@@ -1,5 +1,106 @@
 {
   "crawlerKey": "publisher-submitted",
-  "assembledAt": "2026-06-11T01:59:55.622Z",
-  "jobs": []
+  "assembledAt": "2026-06-11T08:00:17.043Z",
+  "jobs": [
+    {
+      "title": "Prompt engineer da remoto",
+      "slug": "prompt-engineer-da-remoto-thun-frontaliere-ticino",
+      "url": "https://frontaliereticino.ch/lavoro/prompt-engineer-da-remoto-thun-frontaliere-ticino",
+      "applyUrl": "https://frontaliereticino.ch/lavoro/prompt-engineer-da-remoto-thun-frontaliere-ticino",
+      "company": "Frontaliere Ticino",
+      "companyKey": "frontaliere-ticino",
+      "companyDomain": "https://frontaliereticino.ch/",
+      "location": "Thun",
+      "addressLocality": "Thun",
+      "postalCode": "3608",
+      "streetAddress": null,
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "it",
+      "sector": "IT",
+      "source": "publisher-submitted",
+      "sourceLang": "it",
+      "postedDate": "2026-06-11T05:35:50.285Z",
+      "employmentType": "FULL_TIME",
+      "contractType": "permanent",
+      "validThrough": "2026-07-11T00:00:00.000Z",
+      "description": "Stiamo cercando un Prompt Engineer da remoto per progettare, testare e ottimizzare prompt e workflow conversazionali per sistemi di intelligenza artificiale. La risorsa lavorerà a stretto contatto con product, sviluppo e stakeholder interni per trasformare esigenze di business in istruzioni chiare, misurabili e affidabili per modelli linguistici.\n\nResponsabilità\n- Progettare, riscrivere e ottimizzare prompt per casi d’uso specifici.\n- Testare la qualità delle risposte generate e migliorare accuratezza, coerenza e robustezza.\n- Definire criteri di valutazione e metriche di qualità.\n- Analizzare errori, edge case e comportamenti anomali del modello.\n- Documentare versioni, esperimenti e linee guida operative.\n- Collaborare con team tecnici e di prodotto per integrare i prompt nei flussi applicativi.\n\nRequisiti\nOttime capacità di scrittura, analisi e problem solving.\n\nEsperienza con LLM, chatbot o strumenti di AI generativa.\n\nCapacità di tradurre requisiti complessi in istruzioni strutturate.\n\nAttitudine al test iterativo e alla validazione dei risultati.\n\nBuona conoscenza di inglese tecnico.\n\nGradita esperienza con JavaScript, API, workflow automation o analisi dati.\n\nCompetenze preferenziali\nConoscenza di prompt chaining, structured output e valutazione dei modelli.\n\nFamiliarità con RAG, agenti, tool use o sistemi di automazione.\n\nEsperienza in documentazione tecnica e collaborazione cross-funzionale.\n\nSensibilità verso qualità, sicurezza, bias e affidabilità delle risposte AI.\n\nOffriamo\nLavoro completamente remoto.\n\nAmbiente dinamico e orientato all’innovazione.\n\nPossibilità di lavorare su prodotti AI ad alto impatto.\n\nFlessibilità organizzativa e collaborazione internazionale.\n\nInserimento in un team tecnico con forte attenzione a qualità e sperimentazione.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un Prompt Engineer da remoto per progettare, testare e ottimizzare prompt e workflow conversazionali per sistemi di intelligenza artificiale. La risorsa lavorerà a stretto contatto con product, sviluppo e stakeholder interni per trasformare esigenze di business in istruzioni chiare, misurabili e affidabili per modelli linguistici.\n\nResponsabilità\n- Progettare, riscrivere e ottimizzare prompt per casi d’uso specifici.\n- Testare la qualità delle risposte generate e migliorare accuratezza, coerenza e robustezza.\n- Definire criteri di valutazione e metriche di qualità.\n- Analizzare errori, edge case e comportamenti anomali del modello.\n- Documentare versioni, esperimenti e linee guida operative.\n- Collaborare con team tecnici e di prodotto per integrare i prompt nei flussi applicativi.\n\nRequisiti\nOttime capacità di scrittura, analisi e problem solving.\n\nEsperienza con LLM, chatbot o strumenti di AI generativa.\n\nCapacità di tradurre requisiti complessi in istruzioni strutturate.\n\nAttitudine al test iterativo e alla validazione dei risultati.\n\nBuona conoscenza di inglese tecnico.\n\nGradita esperienza con JavaScript, API, workflow automation o analisi dati.\n\nCompetenze preferenziali\nConoscenza di prompt chaining, structured output e valutazione dei modelli.\n\nFamiliarità con RAG, agenti, tool use o sistemi di automazione.\n\nEsperienza in documentazione tecnica e collaborazione cross-funzionale.\n\nSensibilità verso qualità, sicurezza, bias e affidabilità delle risposte AI.\n\nOffriamo\nLavoro completamente remoto.\n\nAmbiente dinamico e orientato all’innovazione.\n\nPossibilità di lavorare su prodotti AI ad alto impatto.\n\nFlessibilità organizzativa e collaborazione internazionale.\n\nInserimento in un team tecnico con forte attenzione a qualità e sperimentazione."
+      },
+      "id": "pub-VWGpDYThKqvcFCHlOjhV-thun",
+      "salaryMin": 45000,
+      "salaryMax": 50000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-11T05:31:50.877Z",
+      "crawledAt": "2026-06-11",
+      "featured": true,
+      "tier": "sponsored",
+      "applyMode": "in_house",
+      "publisherUid": "1q09zJL5xWYl3pMy8sqwzlX3QFX2",
+      "publisherJobId": "VWGpDYThKqvcFCHlOjhV",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 45000,
+          "maxValue": 50000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Prompt engineer da remoto",
+      "slug": "prompt-engineer-da-remoto-remoto-frontaliere-ticino",
+      "url": "https://frontaliereticino.ch/lavoro/prompt-engineer-da-remoto-remoto-frontaliere-ticino",
+      "applyUrl": "https://frontaliereticino.ch/lavoro/prompt-engineer-da-remoto-remoto-frontaliere-ticino",
+      "company": "Frontaliere Ticino",
+      "companyKey": "frontaliere-ticino",
+      "companyDomain": "https://frontaliereticino.ch/",
+      "location": "(Remoto)",
+      "addressLocality": "(Remoto)",
+      "postalCode": null,
+      "streetAddress": null,
+      "addressRegion": "UR",
+      "addressCountry": "CH",
+      "canton": "UR",
+      "country": "CH",
+      "category": "it",
+      "sector": "IT",
+      "source": "publisher-submitted",
+      "sourceLang": "it",
+      "postedDate": "2026-06-11T05:35:50.285Z",
+      "employmentType": "FULL_TIME",
+      "contractType": "permanent",
+      "validThrough": "2026-07-11T00:00:00.000Z",
+      "description": "Stiamo cercando un Prompt Engineer da remoto per progettare, testare e ottimizzare prompt e workflow conversazionali per sistemi di intelligenza artificiale. La risorsa lavorerà a stretto contatto con product, sviluppo e stakeholder interni per trasformare esigenze di business in istruzioni chiare, misurabili e affidabili per modelli linguistici.\n\nResponsabilità\n- Progettare, riscrivere e ottimizzare prompt per casi d’uso specifici.\n- Testare la qualità delle risposte generate e migliorare accuratezza, coerenza e robustezza.\n- Definire criteri di valutazione e metriche di qualità.\n- Analizzare errori, edge case e comportamenti anomali del modello.\n- Documentare versioni, esperimenti e linee guida operative.\n- Collaborare con team tecnici e di prodotto per integrare i prompt nei flussi applicativi.\n\nRequisiti\nOttime capacità di scrittura, analisi e problem solving.\n\nEsperienza con LLM, chatbot o strumenti di AI generativa.\n\nCapacità di tradurre requisiti complessi in istruzioni strutturate.\n\nAttitudine al test iterativo e alla validazione dei risultati.\n\nBuona conoscenza di inglese tecnico.\n\nGradita esperienza con JavaScript, API, workflow automation o analisi dati.\n\nCompetenze preferenziali\nConoscenza di prompt chaining, structured output e valutazione dei modelli.\n\nFamiliarità con RAG, agenti, tool use o sistemi di automazione.\n\nEsperienza in documentazione tecnica e collaborazione cross-funzionale.\n\nSensibilità verso qualità, sicurezza, bias e affidabilità delle risposte AI.\n\nOffriamo\nLavoro completamente remoto.\n\nAmbiente dinamico e orientato all’innovazione.\n\nPossibilità di lavorare su prodotti AI ad alto impatto.\n\nFlessibilità organizzativa e collaborazione internazionale.\n\nInserimento in un team tecnico con forte attenzione a qualità e sperimentazione.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un Prompt Engineer da remoto per progettare, testare e ottimizzare prompt e workflow conversazionali per sistemi di intelligenza artificiale. La risorsa lavorerà a stretto contatto con product, sviluppo e stakeholder interni per trasformare esigenze di business in istruzioni chiare, misurabili e affidabili per modelli linguistici.\n\nResponsabilità\n- Progettare, riscrivere e ottimizzare prompt per casi d’uso specifici.\n- Testare la qualità delle risposte generate e migliorare accuratezza, coerenza e robustezza.\n- Definire criteri di valutazione e metriche di qualità.\n- Analizzare errori, edge case e comportamenti anomali del modello.\n- Documentare versioni, esperimenti e linee guida operative.\n- Collaborare con team tecnici e di prodotto per integrare i prompt nei flussi applicativi.\n\nRequisiti\nOttime capacità di scrittura, analisi e problem solving.\n\nEsperienza con LLM, chatbot o strumenti di AI generativa.\n\nCapacità di tradurre requisiti complessi in istruzioni strutturate.\n\nAttitudine al test iterativo e alla validazione dei risultati.\n\nBuona conoscenza di inglese tecnico.\n\nGradita esperienza con JavaScript, API, workflow automation o analisi dati.\n\nCompetenze preferenziali\nConoscenza di prompt chaining, structured output e valutazione dei modelli.\n\nFamiliarità con RAG, agenti, tool use o sistemi di automazione.\n\nEsperienza in documentazione tecnica e collaborazione cross-funzionale.\n\nSensibilità verso qualità, sicurezza, bias e affidabilità delle risposte AI.\n\nOffriamo\nLavoro completamente remoto.\n\nAmbiente dinamico e orientato all’innovazione.\n\nPossibilità di lavorare su prodotti AI ad alto impatto.\n\nFlessibilità organizzativa e collaborazione internazionale.\n\nInserimento in un team tecnico con forte attenzione a qualità e sperimentazione."
+      },
+      "id": "pub-VWGpDYThKqvcFCHlOjhV-remoto",
+      "salaryMin": 45000,
+      "salaryMax": 50000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-11T05:31:50.877Z",
+      "crawledAt": "2026-06-11",
+      "featured": true,
+      "tier": "sponsored",
+      "applyMode": "in_house",
+      "publisherUid": "1q09zJL5xWYl3pMy8sqwzlX3QFX2",
+      "publisherJobId": "VWGpDYThKqvcFCHlOjhV",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 45000,
+          "maxValue": 50000,
+          "unitText": "YEAR"
+        }
+      }
+    }
+  ]
 }
