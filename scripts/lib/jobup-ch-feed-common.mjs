@@ -34,6 +34,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
+import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
@@ -123,6 +124,28 @@ function parseFeedBody(text) {
   return JSON.parse(jsonText);
 }
 
+/**
+ * When Jina Reader fetches a JSON endpoint, Chromium renders the response
+ * through its built-in JSON viewer: the JSON payload appears as the text
+ * content of a `<pre>` element inside an `<html>` page. Extract the raw JSON
+ * text so `parseFeedBody` can parse it — otherwise `looksLikeJsonFeedBody`
+ * correctly rejects the HTML-wrapped body as non-JSON.
+ *
+ * Returns the extracted JSON string if found, or null if the body does not
+ * look like a Jina/Chromium JSON-viewer page.
+ */
+function extractJsonFromJinaHtmlWrapper(body) {
+  const trimmed = String(body || '').trim();
+  // Fast path: already raw JSON (no HTML wrapper).
+  if (looksLikeJsonFeedBody(trimmed)) return trimmed;
+  // Chromium JSON viewer: <html>...<body><pre ...>{...}</pre></body></html>
+  const preMatch = trimmed.match(/<pre[^>]*>([\s\S]*?)<\/pre>/i);
+  if (!preMatch) return null;
+  const candidate = preMatch[1].trim();
+  if (!looksLikeJsonFeedBody(candidate)) return null;
+  return candidate;
+}
+
 const NAMED_ENTITIES = {
   amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
   agrave: 'à', acirc: 'â', auml: 'ä', aring: 'å', atilde: 'ã', aacute: 'á',
@@ -203,10 +226,29 @@ async function fetchFeed(url) {
     }, { label: `jobup ${url}` });
     return parseFeedBody(text);
   } catch (err) {
-    // Persistent anti-bot fence (403/406): retry once via a real headless
-    // browser, which jobup's WAF treats as a genuine visitor.
+    // Persistent anti-bot fence (403/406): the feed is a plain GET so we can
+    // route it through the Jina Reader proxy (clean egress IP, real browser
+    // fetch) as a cheaper intermediate step before spinning up a full headless
+    // Chromium. Jina succeeds in the common case (IP-reputation block only);
+    // Playwright is the final resort when jobup's WAF demands a full JS session
+    // (#1745). Fallback order: Jina → Playwright → re-throw original error.
     if (isAntiBotStatus(err?.status)) {
-      console.warn(`[jobup] HTTP ${err.status} from ${url} — trying Playwright anti-bot fallback`);
+      console.warn(`[jobup] HTTP ${err.status} from ${url} — trying Jina proxy fallback`);
+      const jinaRaw = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: 30000 });
+      // Jina renders JSON endpoints through Chromium's JSON viewer → the JSON
+      // is wrapped in an HTML page; extract it before parsing.
+      const jinaJson = jinaRaw ? extractJsonFromJinaHtmlWrapper(jinaRaw) : null;
+      if (jinaJson) {
+        try {
+          return parseFeedBody(jinaJson);
+        } catch (parseErr) {
+          console.warn(`[jobup] Jina body did not parse as JSON: ${parseErr?.message || parseErr}`);
+        }
+      } else if (jinaRaw) {
+        console.warn(`[jobup] Jina returned a non-JSON body for ${url} — escalating to Playwright`);
+      }
+      // Jina unavailable / challenge body / parse error — escalate to Playwright.
+      console.warn(`[jobup] Trying Playwright anti-bot fallback for ${url}`);
       const body = await fetchFeedViaPlaywright(url);
       if (body) {
         try {

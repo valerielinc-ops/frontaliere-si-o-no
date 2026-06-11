@@ -32,6 +32,7 @@ import {
   detectHealthcareEmploymentType,
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchPastaHrWidgetPage } from './pastahr-widget-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -39,17 +40,14 @@ export const IGS_BERN_KEY = 'igs-bern';
 export const IGS_BERN_COMPANY_NAME = 'Interessengemeinschaft Sozialpsychiatrie Bern';
 export const IGS_BERN_COMPANY_DOMAIN = 'igsbern.ch';
 
-const PASTAHR_ENDPOINT = 'https://www.publicjobs.ch/widget';
 const PASTAHR_KD_NR = '104465';
 const PASTAHR_REFERER = 'https://www.igsbern.ch/jobs/offene-stellen/';
+const PASTAHR_ORIGIN = 'https://www.igsbern.ch';
 
 const PAGE_SIZE = 50;
 const MAX_PAGES = 6;
 
 const PUBLIC_CAREER_URL = 'https://www.igsbern.ch/jobs/offene-stellen/';
-
-const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -97,8 +95,6 @@ export function isTrustedDomain(rawUrl = '') {
 
 async function fetchPastaHrPage(page = 1) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   const params = new URLSearchParams();
   params.set('kdNr', PASTAHR_KD_NR);
@@ -108,31 +104,14 @@ async function fetchPastaHrPage(page = 1) {
   params.set('dateFormat', 'DD.MM.YYYY');
   params.set('searchQuery', '');
 
-  try {
-    const res = await fetch(PASTAHR_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json, text/javascript, */*; q=0.01',
-        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'User-Agent': USER_AGENT,
-        'X-Requested-With': 'XMLHttpRequest',
-        Referer: PASTAHR_REFERER,
-        Origin: 'https://www.igsbern.ch',
-        'Sec-Fetch-Dest': 'empty',
-        'Sec-Fetch-Mode': 'cors',
-        'Sec-Fetch-Site': 'cross-site',
-      },
-      body: params.toString(),
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${PASTAHR_ENDPOINT}`);
-    return await res.json();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  // Uses the shared PastaHR client: realistic Chrome 131 headers first, with
+  // an automatic Playwright POST fallback on 403 anti-bot blocks (#1783).
+  return fetchPastaHrWidgetPage(params, {
+    referer: PASTAHR_REFERER,
+    origin: PASTAHR_ORIGIN,
+    timeoutMs,
+    attempt: page - 1,
+  });
 }
 
 async function fetchAllPastaHrJobs() {
