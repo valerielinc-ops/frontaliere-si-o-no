@@ -1,48 +1,47 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-06-10T23:42:25.653Z",
-  "total": 36,
+  "generatedAt": "2026-06-11T13:55:33.336Z",
+  "total": 37,
   "newCount": 1,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 29,
-  "durationMs": 65432,
-  "avgDurationMs": 65432,
+  "durationMs": 42658,
+  "avgDurationMs": 42658,
   "durationHistory": [
-    65432
+    42658
   ],
   "newJobs": [
     {
-      "id": "company-leyl0q",
-      "slug": "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-swiss-armed-forces-vtg-bern-leyl0q",
+      "id": "company-ibos0f",
+      "slug": "operatore-in-support-swiss-armed-forces-vtg-bern-ibos0f",
       "company": "Swiss Armed Forces (VTG)",
-      "title": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
+      "title": "Operator/-in Support",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "TI",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-10",
-      "url": "https://jobs.admin.ch/offene-stellen/flugsicherungstechniker-in-support-flugsicherungssysteme-sufs/535d3aaf-7aed-4325-a325-c5e588921e77",
+      "url": "https://jobs.admin.ch/offene-stellen/operator-in-support/159e0b9f-1f9f-4033-af70-1d1d0689fd68",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Emmen",
-        "canton": ""
+        "location": "Rivera",
+        "canton": "TI"
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-06-10T23:42:23.994Z",
-      "firstSeenAt": "2026-06-10T23:42:23.994Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-06-11T13:55:32.096Z",
+      "firstSeenAt": "2026-06-11T13:55:32.096Z",
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
+        "translation": 23,
         "completeness": 14
       }
     }
@@ -50,7 +49,7 @@
   "updatedJobs": [
     {
       "id": "company-jhv13s",
-      "slug": "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-jhv13s",
+      "slug": "specialista-di-meccatronica-automobilistica-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Automobil-Mechatroniker/-in",
       "location": "Bern",
@@ -66,7 +65,6 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-06-10T13:12:05.728Z",
       "firstSeenAt": "2026-06-10T13:12:05.728Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -74,11 +72,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "country": "CH",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -264,10 +262,91 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "id": "company-r2rk7v",
+      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2020-05-29",
+      "url": "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "STANS-OBERDORF / AUSLAND",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-05-10T11:06:13.818Z",
+      "firstSeenAt": "2026-05-10T11:06:13.818Z",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "",
+      "postalCode": "3001",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-leyl0q",
+      "slug": "tecnico-di-controllo-del-traffico-aereo-in-supporto-sistemi-di-controllo-del-traffico-aereo-sufs-swiss-armed-forces-vtg",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.admin.ch/offene-stellen/flugsicherungstechniker-in-support-flugsicherungssysteme-sufs/535d3aaf-7aed-4325-a325-c5e588921e77",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Emmen",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-10T23:42:23.994Z",
+      "firstSeenAt": "2026-06-10T23:42:23.994Z",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "country": "CH",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "id": "company-z7otyz",
       "slug": "specialista-nella-tecnologia-hlks-riscaldamento-ventilazione-aria-condizionata-servizi-igienici-swiss-armed-forces-vtg",
@@ -1147,47 +1226,6 @@
       "featured": false,
       "postedDate": "2020-06-04",
       "url": "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "STANS-OBERDORF / AUSLAND",
-        "canton": ""
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-05-10T11:06:13.818Z",
-      "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "",
-      "postalCode": "3001",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "company-r2rk7v",
-      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2020-05-29",
-      "url": "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
