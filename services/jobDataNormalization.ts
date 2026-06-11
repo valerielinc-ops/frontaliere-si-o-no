@@ -299,7 +299,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'lindenhofgruppe': cLogo('lindenhofgruppe.ch'),
  'linnea': 'https://www.linnea.ch/wp-content/uploads/2023/10/cropped-favicon-192x192.png',
  'lis-lugano-istituti-sociali': gFavicon('lugano-lis.ch'),
- 'localsearch': '/images/brands/localsearch.jpg',
+ 'localsearch': '/images/brands/localsearch.png',
  'logitech': cLogo('logitech.com'),
  'lombard-odier': cLogo('lombardodier.com'),
  'lombardi-group': '/images/brands/lombardi-group.png',
