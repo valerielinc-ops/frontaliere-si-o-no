@@ -58,7 +58,9 @@ const MAX_HOURS = 23.9;
 
 function parseArgs(argv) {
   const opts = {
-    hours: 24,
+    // Default just under the free-plan 1-day cap so the common no-arg run
+    // doesn't emit the "clamped" note every time.
+    hours: 23,
     minStatus: 300,
     statusClass: null, // 3 | 4 | 5
     host: null,

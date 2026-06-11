@@ -141,6 +141,14 @@ export default {
         if (lkg) {
           const headers = new Headers(lkg.headers);
           headers.set('X-Shard-Fallback', 'lkg'); // stale-while-error marker
+          // The stored LKG copy carries Cache-Control: max-age=LKG_MAX_AGE (7d)
+          // — that governs ITS retention in caches.default. We must NOT leak that
+          // TTL to the CDN edge on the served fallback: otherwise Cloudflare would
+          // cache the stale shell edge-side for 7d, never re-invoke the Worker
+          // after the origin recovers, and the shard would stay stale for a week.
+          // no-store keeps the fallback out of the edge so every request during
+          // the outage re-enters the Worker and recovers the instant origin heals.
+          headers.set('Cache-Control', 'no-store');
           return new Response(lkg.body, { status: 200, statusText: 'OK', headers });
         }
       }
