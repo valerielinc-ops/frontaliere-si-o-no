@@ -3186,6 +3186,8 @@ Regeln:
  'publisherDashboard.archiveError': 'Anzeige konnte nicht archiviert werden. Bitte erneut versuchen.',
  'publisherDashboard.restore': 'Wiederherstellen',
  'publisherDashboard.restoreError': 'Anzeige konnte nicht wiederhergestellt werden. Bitte erneut versuchen.',
+ 'publisherDashboard.resumeCheckout': 'Zahlung fortsetzen',
+ 'publisherDashboard.resumeCheckoutError': 'Checkout konnte nicht fortgesetzt werden. Bitte erneut versuchen.',
  'publisherDashboard.modifiedPending': 'Änderungen werden veröffentlicht (online in 1–2 Stunden)',
  'publisherDashboard.error': 'Anzeigen konnten nicht geladen werden. Bitte erneut versuchen.',
  'publisherDashboard.empty': 'Sie haben noch keine Anzeigen veröffentlicht.',
