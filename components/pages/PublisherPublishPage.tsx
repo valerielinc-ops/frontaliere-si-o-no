@@ -13,10 +13,17 @@
  * client preview is informational only.
  */
 
-import React, { useEffect, useMemo, useState } from 'react';
-import { Briefcase, Plus, Trash2, Send, AlertTriangle, LogIn, Clock, Shield, Sparkles, ShoppingCart } from 'lucide-react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Briefcase, Plus, Trash2, Send, AlertTriangle, Clock, Shield, Sparkles, ShoppingCart, Mail, Loader2, AlertCircle } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { useAuth } from '@/services/authService';
+import { useAuth, getAuthEmail } from '@/services/authService';
+import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
+import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import {
+ upsertNewsletterSubscriber,
+ requestConfirmationEmail,
+ markNewsletterSubscribedLocally,
+} from '@/services/newsletterSubscribers';
 import { recaptchaService } from '@/services/recaptchaService';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -46,6 +53,10 @@ const GEMINI_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate';
 
 const VALID_EMPLOYMENT_TYPES = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY', 'INTERN'];
+
+/** GDPR consent proof recorded when a publisher signs in through the gate. */
+const PUBLISHER_CONSENT_TEXT =
+ 'Accedendo per pubblicare un\'offerta, accetto di ricevere la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.';
 
 /** Minimum words required in the description (mirrors the projection content gate). */
 const DESCRIPTION_MIN_WORDS = 50;
@@ -227,7 +238,19 @@ function buildJobLocations(rows: LocationRow[]): PublisherJobLocation[] {
 
 const PublisherPublishPage: React.FC = () => {
  const { t, locale } = useTranslation();
- const { user, loading, signIn } = useAuth();
+ const { user, loading } = useAuth();
+
+ // ── Auth gate: email path state ─────────────────────────────
+ // The gate offers Google + LinkedIn (SocialSignInButtons) AND an email
+ // path. Email reuses the newsletter double-opt-in: a NEW address gets the
+ // opt-in email (which doubles as a sign-in link via ?action=confirm_newsletter
+ // auto-login, wired in App.tsx); an EXISTING address gets a login link sent
+ // explicitly (requestConfirmationEmail purpose:'login'). All three methods
+ // also subscribe the user to the newsletter (implicit consent, owner policy).
+ const [gateEmail, setGateEmail] = useState('');
+ const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
+ const [gateError, setGateError] = useState('');
+ const gateSocialSyncedRef = useRef(false);
 
  // ── Tier ────────────────────────────────────────────────────
  // free      → plain crawler-style listing (no featured/blast, external apply only), no payment.
@@ -328,6 +351,58 @@ const PublisherPublishPage: React.FC = () => {
  Analytics.trackPageView('/pubblica-offerta', 'Publisher Publish Page');
  Analytics.trackUIInteraction('publisher', 'page', 'publish_page', 'view');
  }, []);
+
+ // ── Implicit newsletter subscribe on social sign-in ─────────
+ // When a visitor authenticates via Google/LinkedIn through the gate, also
+ // record them as a newsletter subscriber (owner policy: all three access
+ // methods imply consent). Idempotent + guarded so it runs once and never
+ // re-asks an already-known subscriber. The email path subscribes in its own
+ // submit handler, so this only needs to cover the OAuth providers.
+ useEffect(() => {
+ if (!user || gateSocialSyncedRef.current) return;
+ if (typeof window !== 'undefined' && localStorage.getItem('newsletter_subscribed') === 'true') {
+ gateSocialSyncedRef.current = true;
+ return;
+ }
+ const email = getAuthEmail(user);
+ if (!email) return;
+ gateSocialSyncedRef.current = true;
+ void (async () => {
+ try {
+ const firestore = getFirestore(await getApp());
+ const providerId = String(user?.providerData?.[0]?.providerId || '').toLowerCase();
+ const consentMethod = providerId.includes('google')
+ ? 'google_oauth'
+ : providerId.includes('linkedin')
+ ? 'linkedin_oauth'
+ : providerId.includes('facebook')
+ ? 'facebook_oauth'
+ : 'social_oauth';
+ await upsertNewsletterSubscriber(firestore, {
+ email,
+ userId: user?.uid || null,
+ name: user?.displayName || null,
+ preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+ source: 'publisher_gate_social',
+ sourcePage: '/pubblica-offerta',
+ sourceCta: 'publisher_gate_social',
+ sourceComponent: 'PublisherPublishPage',
+ sourceRouteFamily: 'publisher',
+ locale: navigator.language || 'it-IT',
+ // OAuth-verified email + implicit consent → no double-opt-in email.
+ isActive: true,
+ status: 'confirmed',
+ consentGiven: true,
+ consentText: PUBLISHER_CONSENT_TEXT,
+ consentMethod,
+ consentUserAgent: navigator.userAgent,
+ });
+ markNewsletterSubscribedLocally();
+ } catch (error) {
+ reportCaughtError(error, 'publisher.gateSocialSubscribe');
+ }
+ })();
+ }, [user]);
 
  // ── SEO meta (title + description) ──────────────────────────
  useEffect(() => {
@@ -733,6 +808,56 @@ const PublisherPublishPage: React.FC = () => {
  }
  };
 
+ // ── Auth gate: email sign-in handler ────────────────────────
+ // Subscribe to the newsletter (= the access workflow) and deliver a sign-in
+ // link. A NEW address: the opt-in email IS the link (auto-sent by the upsert).
+ // An EXISTING address: the opt-in is suppressed server-side, so we request a
+ // dedicated login link (purpose:'login'). Either way the user clicks the
+ // link → App.tsx ?action=confirm_newsletter handler auto-logs them in and
+ // returns them to /pubblica-offerta, authenticated.
+ const handleGateEmailSubmit = async (e: React.FormEvent) => {
+ e.preventDefault();
+ if (gateStatus === 'loading') return;
+ const email = gateEmail.trim();
+ if (!validateEmailStrict(email).valid) {
+ setGateError(t('newsletter.invalidEmail'));
+ setGateStatus('error');
+ return;
+ }
+ setGateStatus('loading');
+ setGateError('');
+ try {
+ const firestore = getFirestore(await getApp());
+ const upsert = await upsertNewsletterSubscriber(firestore, {
+ email,
+ preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+ source: 'publisher_gate_email',
+ sourcePage: '/pubblica-offerta',
+ sourceCta: 'publisher_gate_email',
+ sourceComponent: 'PublisherPublishPage',
+ sourceRouteFamily: 'publisher',
+ locale: navigator.language || 'it-IT',
+ isActive: false,
+ status: 'pending',
+ consentGiven: true,
+ consentText: PUBLISHER_CONSENT_TEXT,
+ consentMethod: 'email_checkbox',
+ consentUserAgent: navigator.userAgent,
+ });
+ // New pending subscribers already received the opt-in (= login) email from
+ // the upsert. Existing subscribers need an explicit login link.
+ if (upsert.existed) {
+ await requestConfirmationEmail(email, 'login');
+ }
+ setGateStatus('sent');
+ Analytics.trackUIInteraction('publisher', 'gate', 'email_login', 'sent');
+ } catch (error) {
+ reportCaughtError(error, 'publisher.gateEmailSubmit');
+ setGateError(t('newsletter.subscribeError'));
+ setGateStatus('error');
+ }
+ };
+
  // ── Auth gate ───────────────────────────────────────────────
  // While auth resolves, show a spinner — NEVER flash the form for an
  // as-yet-unauthenticated visitor (the form is authenticated-only).
@@ -749,24 +874,76 @@ const PublisherPublishPage: React.FC = () => {
  );
  }
  if (!loading && !user) {
+ // After an email submit: tell the user to open the sign-in link we sent.
+ if (gateStatus === 'sent') {
  return (
- <div className="max-w-2xl mx-auto px-4 py-12">
+ <div className="max-w-md mx-auto px-4 py-12">
  <div className="text-center space-y-4">
- <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-subtle mb-2">
+ <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-success-subtle mb-2">
+ <Mail className="w-7 h-7 text-success" />
+ </div>
+ <h1 className="text-2xl font-bold font-display text-strong">
+ {t('publisher.gate.checkEmailTitle')}
+ </h1>
+ <p className="text-subtle max-w-sm mx-auto">{t('publisher.gate.checkEmailBody')}</p>
+ </div>
+ </div>
+ );
+ }
+ return (
+ <div className="max-w-md mx-auto px-4 py-12">
+ <div className="text-center space-y-3">
+ <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-subtle mb-1">
  <Briefcase className="w-7 h-7 text-link" />
  </div>
  <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">
  {t('publisher.title')}
  </h1>
- <p className="text-subtle max-w-md mx-auto">{t('publisher.loginRequired')}</p>
+ <p className="text-subtle max-w-sm mx-auto">{t('publisher.gate.subtitle')}</p>
+ </div>
+
+ <div className="mt-6 space-y-4">
+ {/* Social sign-in — same row as the newsletter box (Google + LinkedIn) */}
+ <SocialSignInButtons locale={locale} googleWidth={320} errorContext="publisher.gate" />
+
+ {/* Divider */}
+ <div className="flex items-center gap-3">
+ <div className="flex-1 h-px bg-edge" />
+ <span className="text-xs text-muted uppercase tracking-wider">{t('publisher.gate.or')}</span>
+ <div className="flex-1 h-px bg-edge" />
+ </div>
+
+ {/* Email path → newsletter opt-in / login link */}
+ <form onSubmit={handleGateEmailSubmit} className="space-y-2">
+ <label htmlFor="publisher-gate-email" className="sr-only">{t('newsletter.emailPlaceholder')}</label>
+ <EmailInput
+ id="publisher-gate-email"
+ value={gateEmail}
+ onChange={(val) => { setGateEmail(val); if (gateStatus === 'error') setGateStatus('idle'); }}
+ placeholder={t('newsletter.emailPlaceholder')}
+ className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
+ />
+ {gateStatus === 'error' && gateError && (
+ <div className="flex items-start gap-2 p-2 bg-danger-subtle rounded-lg text-danger text-xs">
+ <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+ <span>{gateError}</span>
+ </div>
+ )}
  <button
- type="button"
- onClick={() => { void signIn(); }}
- className="mt-2 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+ type="submit"
+ disabled={gateStatus === 'loading'}
+ className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
  >
- <LogIn className="w-4 h-4" />
- {t('publisher.loginCta')}
+ {gateStatus === 'loading'
+ ? <><Loader2 className="w-4 h-4 animate-spin" /> {t('publisher.gate.emailCta')}</>
+ : <><Mail className="w-4 h-4" /> {t('publisher.gate.emailCta')}</>}
  </button>
+ </form>
+
+ <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
+ <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
+ <span>{t('publisher.gate.consentNote')}</span>
+ </p>
  </div>
  </div>
  );
