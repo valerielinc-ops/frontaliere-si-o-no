@@ -644,12 +644,12 @@
     },
     {
       "id": "pictet-b171b82415aa",
-      "slug": "senior-project-manager-pictet-geneva",
+      "slug": "responsabile-del-progetto-senior-pictet-group-geneva",
       "slugByLocale": {
         "en": "senior-project-manager-pictet-geneva",
-        "it": "senior-project-manager-pictet-geneva",
-        "de": "senior-project-manager-pictet-geneva",
-        "fr": "senior-project-manager-pictet-geneva"
+        "it": "responsabile-del-progetto-senior-pictet-group-geneva",
+        "de": "senior-projektmanager-pictet-group-geneva",
+        "fr": "directeur-principal-de-projet-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -705,7 +705,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-10T23:13:39.848Z"
+      "firstSeenAt": "2026-06-10T23:13:39.848Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-pictet-geneva"
+        ],
+        "de": [
+          "senior-project-manager-pictet-geneva"
+        ],
+        "fr": [
+          "senior-project-manager-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-pictet-geneva"
+      ]
     }
   ]
 }

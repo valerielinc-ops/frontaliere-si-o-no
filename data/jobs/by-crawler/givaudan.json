@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "givaudan-6370a307a023",
-      "slug": "operativer-einkaufer-60-80-m-w-d-givaudan-ch",
+      "slug": "acquirente-operativo-60-80-m-f-d-givaudan-volketswil-switzerland",
       "slugByLocale": {
-        "it": "operativer-einkaufer-60-80-m-w-d-givaudan-ch",
-        "en": "operativer-einkaufer-60-80-m-w-d-givaudan-ch",
+        "it": "acquirente-operativo-60-80-m-f-d-givaudan-volketswil-switzerland",
+        "en": "operational-buyer-60-80-m-f-d-givaudan-volketswil-switzerland",
         "de": "operativer-einkaufer-60-80-m-w-d-givaudan-ch",
-        "fr": "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+        "fr": "acheteur-operationnel-60-80-m-f-d-givaudan-volketswil-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -62,7 +62,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+        ],
+        "en": [
+          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+        ],
+        "fr": [
+          "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operativer-einkaufer-60-80-m-w-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-846cabb7d6b3",
