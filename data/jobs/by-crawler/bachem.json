@@ -764,12 +764,12 @@
     },
     {
       "id": "bachem-b8c6699b0c62",
-      "slug": "admin-support-manufacturing-a-100-bachem-bubendorf",
+      "slug": "supporto-amministrativo-produzione-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "admin-support-manufacturing-a-100-bachem-bubendorf",
-        "it": "admin-support-manufacturing-a-100-bachem-bubendorf",
+        "it": "supporto-amministrativo-produzione-a-100-bachem-ag-bubendorf",
         "en": "admin-support-manufacturing-a-100-bachem-bubendorf",
-        "fr": "admin-support-manufacturing-a-100-bachem-bubendorf"
+        "fr": "fabrication-de-soutien-administratif-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -824,7 +824,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T22:13:47.876Z"
+      "firstSeenAt": "2026-06-10T22:13:47.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "admin-support-manufacturing-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "admin-support-manufacturing-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "admin-support-manufacturing-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-463c36e92848",
@@ -8291,12 +8302,12 @@
     },
     {
       "id": "bachem-6dd471c0ab59",
-      "slug": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+      "slug": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
       "slugByLocale": {
-        "it": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+        "it": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
         "en": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
         "de": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
-        "fr": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
+        "fr": "technicien-de-laboratoire-qc-ipc-a-100-bachem-ag-bubendorf-e66106"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -8339,12 +8350,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lab-technician-qc-ipc-a-100-bachem-bubendorf",
-        "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106"
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-qc-ipc-a-100-bachem-bubendorf",
-          "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
+          "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
+        ],
+        "fr": [
           "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
         ]
       },

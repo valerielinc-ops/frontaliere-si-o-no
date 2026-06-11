@@ -14845,8 +14845,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-bistro-60-usz-ch",
         "it": "collaboratore-trice-bistro-60-universitatsspital-zurich-usz-campus",
-        "en": "mitarbeiter-in-bistro-60-universitatsspital-zurich-usz-campus",
-        "fr": "mitarbeiter-in-bistro-60-universitatsspital-zurich-usz-campus"
+        "en": "associate-bistro-60-universitatsspital-zurich-usz-campus",
+        "fr": "collaborateur-trice-bistro-60-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -14893,10 +14893,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bistro-60-usz-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-bistro-60-universitatsspital-zurich-usz-campus"
+        ],
+        "fr": [
+          "mitarbeiter-in-bistro-60-universitatsspital-zurich-usz-campus"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-bistro-60-usz-ch"
+        "mitarbeiter-in-bistro-60-usz-ch",
+        "mitarbeiter-in-bistro-60-universitatsspital-zurich-usz-campus"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

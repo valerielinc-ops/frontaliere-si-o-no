@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "liebherr-f80ad8d2090f",
-      "slug": "teamleader-h-f-x-commodities-liebherr-bulle",
+      "slug": "teamleader-h-f-x-commodita-liebherr-bulle",
       "slugByLocale": {
         "en": "teamleader-h-f-x-commodities-liebherr-bulle",
-        "it": "teamleader-h-f-x-commodities-liebherr-bulle",
-        "de": "teamleader-h-f-x-commodities-liebherr-bulle",
+        "it": "teamleader-h-f-x-commodita-liebherr-bulle",
+        "de": "teamleader-h-f-x-rohstoffe-liebherr-bulle",
         "fr": "teamleader-h-f-x-commodities-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -64,7 +64,18 @@
       },
       "postalCode": "1630",
       "firstSeenAt": "2026-06-10T23:02:06.674Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-h-f-x-commodities-liebherr-bulle"
+        ],
+        "de": [
+          "teamleader-h-f-x-commodities-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-h-f-x-commodities-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-d828deca3d91",
@@ -209,7 +220,7 @@
         "it": "servizio-tecnico-torre-gru-m-w-liebherr-reiden",
         "en": "service-technician-tower-cranes-m-w-liebherr-reiden",
         "de": "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
-        "fr": "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
+        "fr": "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -248,8 +259,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
-        "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden"
+        "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -259,7 +269,6 @@
           "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
         ],
         "fr": [
-          "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden",
           "service-techniker-turmdrehkrane-m-w-liebherr-reiden"
         ]
       },
@@ -1190,9 +1199,9 @@
     },
     {
       "id": "liebherr-5028cdbe91bf",
-      "slug": "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
+      "slug": "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden",
       "slugByLocale": {
-        "it": "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
+        "it": "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden",
         "en": "electrician-service-technician-concrete-technology-m-f-liebherr-reiden",
         "de": "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
         "fr": "technologie-du-beton-electricien-technicien-de-service-m-f-liebherr-reiden"
@@ -1234,11 +1243,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+        "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden",
           "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden"
         ],
         "en": [
@@ -1707,7 +1715,7 @@
       "slugByLocale": {
         "it": "project-purchasing-leader-m-w-d-temporaire-liebherr-bulle",
         "en": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
-        "de": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
+        "de": "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
         "fr": "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -1747,15 +1755,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle",
-        "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10"
+        "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
         ],
         "de": [
-          "projektbeschaffungsleiter-m-w-x-temporaire-liebherr-bulle-e7dd10",
           "project-purchasing-leader-m-f-x-temporaire-liebherr-bulle"
         ]
       },
@@ -1929,7 +1935,7 @@
       "slugByLocale": {
         "it": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
         "en": "maintenance-technician-h-f-x-automation-liebherr-bulle",
-        "de": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
+        "de": "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
         "fr": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -1969,8 +1975,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
-        "wartungstechniker-h-w-x-automatisierung-liebherr-bulle"
+        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1980,7 +1985,6 @@
           "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
         ],
         "de": [
-          "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
           "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
         ]
       },
@@ -2068,7 +2072,7 @@
       "slugByLocale": {
         "it": "senior-project-manager-m-w-x-liebherr-bulle",
         "en": "senior-project-manager-m-w-x-liebherr-bulle",
-        "de": "senior-project-manager-m-w-x-liebherr-bulle",
+        "de": "senior-projektmanager-m-w-x-liebherr-bulle",
         "fr": "senior-project-manager-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -2108,13 +2112,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-projektmanager-m-w-x-liebherr-bulle",
         "directeur-principal-de-projet-m-m-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "senior-projektmanager-m-w-x-liebherr-bulle"
-        ],
         "fr": [
           "directeur-principal-de-projet-m-m-x-liebherr-bulle"
         ]
@@ -2660,7 +2660,7 @@
       "slugByLocale": {
         "it": "giovani-talenti-agente-di-processo-m-w-x-liebherr-bulle",
         "en": "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "de": "young-talent-process-agent-m-w-x-liebherr-bulle",
+        "de": "junges-talent-prozessagent-m-w-x-liebherr-bulle",
         "fr": "young-talent-process-agent-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -2701,7 +2701,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "young-talent-process-agent-m-w-x-liebherr-bulle",
-        "junges-talent-prozessagent-m-w-x-liebherr-bulle",
         "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
@@ -2709,7 +2708,7 @@
           "young-talent-process-agent-m-w-x-liebherr-bulle"
         ],
         "de": [
-          "junges-talent-prozessagent-m-w-x-liebherr-bulle"
+          "young-talent-process-agent-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
@@ -3248,7 +3247,7 @@
       "slugByLocale": {
         "it": "divisione-controller-m-w-d-liebherr-baden",
         "en": "division-controller-m-w-d-liebherr-baden",
-        "de": "division-controller-m-w-d-liebherr-baden",
+        "de": "reglerbereich-m-w-d-liebherr-baden",
         "fr": "division-controller-m-w-d-liebherr-baden"
       },
       "company": "Liebherr",
@@ -3288,15 +3287,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "division-controller-m-w-d-liebherr-baden",
-        "reglerbereich-m-w-d-liebherr-baden"
+        "division-controller-m-w-d-liebherr-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "division-controller-m-w-d-liebherr-baden"
         ],
         "de": [
-          "reglerbereich-m-w-d-liebherr-baden",
           "division-controller-m-w-d-liebherr-baden"
         ]
       },
@@ -3743,7 +3740,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-produzione-dmu-h-f-x-liebherr-bulle",
         "en": "production-engineer-dmu-h-f-x-liebherr-bulle",
-        "de": "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
+        "de": "produktionsingenieur-dmu-h-f-x-liebherr-bulle",
         "fr": "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -3783,8 +3780,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle",
-        "produktionsingenieur-dmu-h-f-x-liebherr-bulle"
+        "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3794,7 +3790,6 @@
           "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
         ],
         "de": [
-          "produktionsingenieur-dmu-h-f-x-liebherr-bulle",
           "ingenieur-de-production-dmu-h-f-x-liebherr-bulle"
         ]
       },
@@ -3952,7 +3947,7 @@
       "slugByLocale": {
         "it": "responsabile-del-reclamo-del-cliente-m-w-x-liebherr-bulle",
         "en": "customer-claim-manager-m-w-x-liebherr-bulle",
-        "de": "customer-claim-manager-m-w-x-liebherr-bulle",
+        "de": "kundenschadensmanager-m-w-x-liebherr-bulle",
         "fr": "customer-claim-manager-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -3993,7 +3988,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "customer-claim-manager-m-w-x-liebherr-bulle",
-        "kundenschadensmanager-m-w-x-liebherr-bulle",
         "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
@@ -4001,7 +3995,7 @@
           "customer-claim-manager-m-w-x-liebherr-bulle"
         ],
         "de": [
-          "kundenschadensmanager-m-w-x-liebherr-bulle"
+          "customer-claim-manager-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "gestionnaire-des-reclamations-du-client-m-w-x-liebherr-bulle"
@@ -4103,7 +4097,7 @@
       "slugByLocale": {
         "it": "gestione-dei-reclami-clienti-h-f-x-liebherr-bulle",
         "en": "customer-claim-manager-h-f-x-liebherr-bulle",
-        "de": "customer-claim-manager-h-f-x-liebherr-bulle",
+        "de": "kundenschadensmanager-h-f-x-liebherr-bulle",
         "fr": "customer-claim-manager-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4152,7 +4146,8 @@
           "customer-claim-manager-h-f-x-liebherr-bulle"
         ],
         "de": [
-          "kundenreklamationsmanager-h-w-x-liebherr-bulle"
+          "kundenreklamationsmanager-h-w-x-liebherr-bulle",
+          "customer-claim-manager-h-f-x-liebherr-bulle"
         ],
         "fr": [
           "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle"
@@ -4328,7 +4323,7 @@
       "slugByLocale": {
         "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "speculative-application-liebherr-bulle",
+        "de": "spekulative-anwendung-liebherr-bulle",
         "fr": "speculative-application-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4368,15 +4363,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "speculative-application-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle"
+        "speculative-application-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "speculative-application-liebherr-bulle"
         ],
         "de": [
-          "spekulative-anwendung-liebherr-bulle",
           "speculative-application-liebherr-bulle"
         ]
       },
@@ -4402,7 +4395,7 @@
       "slugByLocale": {
         "it": "product-manager-difesa-m-f-x-liebherr-bulle",
         "en": "product-manager-defense-m-f-x-liebherr-bulle",
-        "de": "product-manager-defense-m-f-x-liebherr-bulle",
+        "de": "produktmanager-verteidigung-m-w-x-liebherr-bulle",
         "fr": "product-manager-defense-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4443,7 +4436,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "product-manager-defense-m-f-x-liebherr-bulle",
-        "produktmanager-verteidigung-m-w-x-liebherr-bulle",
         "gestionnaire-de-produits-defense-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
@@ -4451,7 +4443,7 @@
           "product-manager-defense-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "produktmanager-verteidigung-m-w-x-liebherr-bulle"
+          "product-manager-defense-m-f-x-liebherr-bulle"
         ],
         "fr": [
           "gestionnaire-de-produits-defense-m-f-x-liebherr-bulle"
@@ -5889,11 +5881,11 @@
     },
     {
       "id": "liebherr-140b4103231d",
-      "slug": "teamleader-h-f-x-commodities-liebherr-bulle-2",
+      "slug": "teamleader-h-f-x-commodita-liebherr-bulle-8c8003",
       "slugByLocale": {
         "en": "teamleader-h-f-x-commodities-liebherr-bulle",
-        "it": "teamleader-h-f-x-commodities-liebherr-bulle-2",
-        "de": "teamleader-h-f-x-commodities-liebherr-bulle-2",
+        "it": "teamleader-h-f-x-commodita-liebherr-bulle-8c8003",
+        "de": "teamleader-h-f-x-rohstoffe-liebherr-bulle-8c8003",
         "fr": "teamleader-h-f-x-commodities-liebherr-bulle-2"
       },
       "company": "Liebherr",
@@ -5948,7 +5940,18 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-10T23:02:06.608Z"
+      "firstSeenAt": "2026-06-10T23:02:06.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-h-f-x-commodities-liebherr-bulle-2"
+        ],
+        "de": [
+          "teamleader-h-f-x-commodities-liebherr-bulle-2"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-h-f-x-commodities-liebherr-bulle-2"
+      ]
     },
     {
       "id": "liebherr-f74af63c25c9",
@@ -6086,7 +6089,7 @@
       "slugByLocale": {
         "it": "giovani-talenti-m-f-x-presviluppo-liebherr-bulle",
         "en": "young-talent-m-f-x-pre-development-liebherr-bulle",
-        "de": "young-talent-m-f-x-predevelopment-liebherr-bulle",
+        "de": "junge-talente-m-w-x-vorentwicklung-liebherr-bulle",
         "fr": "young-talent-m-f-x-predevelopment-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -6126,8 +6129,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "young-talent-m-f-x-predevelopment-liebherr-bulle",
-        "junge-talente-m-w-x-vorentwicklung-liebherr-bulle"
+        "young-talent-m-f-x-predevelopment-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6137,7 +6139,6 @@
           "young-talent-m-f-x-predevelopment-liebherr-bulle"
         ],
         "de": [
-          "junge-talente-m-w-x-vorentwicklung-liebherr-bulle",
           "young-talent-m-f-x-predevelopment-liebherr-bulle"
         ]
       },
@@ -6224,7 +6225,7 @@
       "slugByLocale": {
         "it": "young-talent-w-m-x-software-engineering-liebherr-bulle",
         "en": "young-talent-w-m-x-software-engineering-liebherr-bulle",
-        "de": "young-talent-w-m-x-software-engineering-liebherr-bulle",
+        "de": "junge-talente-w-m-x-softwareentwicklung-liebherr-bulle",
         "fr": "jeunes-talents-w-m-x-genie-logiciel-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -6277,7 +6278,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "previousSlugsByLocale": {
+        "de": [
+          "young-talent-w-m-x-software-engineering-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "young-talent-w-m-x-software-engineering-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-fc754261391a",

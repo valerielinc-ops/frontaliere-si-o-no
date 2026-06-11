@@ -763,12 +763,12 @@
     },
     {
       "id": "kanton-gr-07ba0cc7ad52",
-      "slug": "ict-supporter-in-kanton-gr-ch",
+      "slug": "supporti-ict-in-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "ict-supporter-in-kanton-gr-ch",
+        "it": "supporti-ict-in-kantonale-verwaltung-graubunden-chur",
         "en": "ict-supporter-in-kanton-gr-ch",
         "de": "ict-supporter-in-kanton-gr-ch",
-        "fr": "ict-supporter-in-kanton-gr-ch"
+        "fr": "soutien-aux-tic-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -828,16 +828,27 @@
         }
       },
       "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "ict-supporter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-2b12ae820f0a",
-      "slug": "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch",
+      "slug": "maestro-di-lavoro-nella-zona-artigianale-creativa-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch",
-        "en": "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch",
+        "it": "maestro-di-lavoro-nella-zona-artigianale-creativa-kantonale-verwaltung-graubunden-cazis",
+        "en": "workmaster-in-the-craft-creative-area-kantonale-verwaltung-graubunden-cazis",
         "de": "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch",
-        "fr": "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch"
+        "fr": "maitre-d-ouvrage-dans-le-domaine-artisanal-creatif-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -895,7 +906,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch"
+        ],
+        "en": [
+          "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch"
+        ],
+        "fr": [
+          "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkmeister-in-im-handwerklich-kreativen-bereich-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-cd8b0ce7571c",
@@ -1052,12 +1077,12 @@
     },
     {
       "id": "kanton-gr-064b2fc4c86b",
-      "slug": "altlasten-fachperson-kanton-gr-ch",
+      "slug": "specialista-della-contaminazione-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "altlasten-fachperson-kanton-gr-ch",
-        "en": "altlasten-fachperson-kanton-gr-ch",
+        "it": "specialista-della-contaminazione-kantonale-verwaltung-graubunden-chur",
+        "en": "contaminated-contaminants-kantonale-verwaltung-graubunden-chur",
         "de": "altlasten-fachperson-kanton-gr-ch",
-        "fr": "altlasten-fachperson-kanton-gr-ch"
+        "fr": "specialiste-de-la-contamination-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1115,7 +1140,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "altlasten-fachperson-kanton-gr-ch"
+        ],
+        "en": [
+          "altlasten-fachperson-kanton-gr-ch"
+        ],
+        "fr": [
+          "altlasten-fachperson-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "altlasten-fachperson-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-03466fc46b88",
@@ -1272,9 +1311,9 @@
       "slug": "lehrperson-per-schulmusik-ii-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "it": "lehrperson-per-schulmusik-ii-kantonale-verwaltung-graubunden-chur",
-        "en": "lehrperson-fur-schulmusik-ii-kanton-gr-ch",
+        "en": "teacher-of-school-music-ii-kantonale-verwaltung-graubunden-chur",
         "de": "lehrperson-fur-schulmusik-ii-kanton-gr-ch",
-        "fr": "lehrperson-fur-schulmusik-ii-kanton-gr-ch"
+        "fr": "professeur-de-musique-scolaire-ii-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1324,6 +1363,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-schulmusik-ii-kanton-gr-ch"
+        ],
+        "en": [
+          "lehrperson-fur-schulmusik-ii-kanton-gr-ch"
+        ],
+        "fr": [
           "lehrperson-fur-schulmusik-ii-kanton-gr-ch"
         ]
       },
@@ -1571,12 +1616,12 @@
     },
     {
       "id": "kanton-gr-7607a9d5c13e",
-      "slug": "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch",
+      "slug": "area-manager-in-social-health-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch",
+        "it": "area-manager-in-social-health-kantonale-verwaltung-graubunden-cazis",
         "en": "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch",
         "de": "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch",
-        "fr": "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch"
+        "fr": "gestionnaire-de-secteur-dans-social-health-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1634,16 +1679,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch"
+        ],
+        "fr": [
+          "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-6f2678b969ef",
       "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
       "slugByLocale": {
         "it": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
-        "en": "strassenwart-in-kanton-gr-ch",
+        "en": "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
         "de": "strassenwart-in-kanton-gr-ch",
-        "fr": "strassenwart-in-kanton-gr-ch"
+        "fr": "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1693,6 +1749,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "en": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "fr": [
           "strassenwart-in-kanton-gr-ch"
         ]
       },

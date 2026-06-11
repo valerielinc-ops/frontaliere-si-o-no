@@ -83,12 +83,12 @@
     },
     {
       "id": "vaxcyte-27b9ca402283",
-      "slug": "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch",
+      "slug": "specialista-di-assicurazione-di-qualita-iii-produzione-esterna-vaxcyte-visp",
       "slugByLocale": {
         "en": "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch",
-        "it": "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch",
-        "de": "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch",
-        "fr": "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch"
+        "it": "specialista-di-assicurazione-di-qualita-iii-produzione-esterna-vaxcyte-visp",
+        "de": "qualitatssicherung-spezialist-iii-externe-fertigung-vaxcyte-visp",
+        "fr": "specialiste-de-l-assurance-de-la-qualite-iii-fabrication-externe-vaxcyte-visp"
       },
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
@@ -148,7 +148,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T23:39:42.886Z"
+      "firstSeenAt": "2026-06-10T23:39:42.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch"
+        ],
+        "de": [
+          "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch"
+        ],
+        "fr": [
+          "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-assurance-specialist-iii-external-manufacturing-vaxcyte-ch"
+      ]
     }
   ]
 }

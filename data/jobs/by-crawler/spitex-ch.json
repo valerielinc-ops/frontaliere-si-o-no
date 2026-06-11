@@ -148,8 +148,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
         "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh"
+        "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -225,10 +225,7 @@
         "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
         "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
         "infirmier-dipl-hf-specialise-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-infermiere-a-hf-specializzazione-kinder-e-jugendpsychiatria-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-nursing-professional-hf-specialization-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "diplome-e-en-soins-infirmiers-hf-specialise-e-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs"
+        "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl"
       ]
     },
     {
@@ -773,12 +770,12 @@
     },
     {
       "id": "spitex-ch-2d9bd813b6f8",
-      "slug": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+      "slug": "gestione-del-rame-cura-80-100-spitex-zimmerberg-ag-thalwil-2165fd",
       "slugByLocale": {
-        "it": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
-        "en": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+        "it": "gestione-del-rame-cura-80-100-spitex-zimmerberg-ag-thalwil-2165fd",
+        "en": "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil-2165fd",
         "de": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
-        "fr": "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
+        "fr": "co-gestion-d-equipe-soins-80-100-spitex-zimmerberg-ag-thalwil-2165fd"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -834,20 +831,23 @@
         }
       },
       "previousSlugs": [
-        "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
         "gestione-del-rame-cura-80-100-spitex-zimmerberg-ag-thalwil",
+        "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
         "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
         "co-gestion-d-equipe-soins-80-100-spitex-zimmerberg-ag-thalwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-del-rame-cura-80-100-spitex-zimmerberg-ag-thalwil"
+          "gestione-del-rame-cura-80-100-spitex-zimmerberg-ag-thalwil",
+          "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
         ],
         "en": [
-          "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil"
+          "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
+          "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
         ],
         "fr": [
-          "co-gestion-d-equipe-soins-80-100-spitex-zimmerberg-ag-thalwil"
+          "co-gestion-d-equipe-soins-80-100-spitex-zimmerberg-ag-thalwil",
+          "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
         ]
       }
     },
@@ -924,12 +924,12 @@
     },
     {
       "id": "spitex-ch-75d453f2beda",
-      "slug": "pflegefachperson-hf-40-50-spitex-ch-wurenlos",
+      "slug": "infermiera-hf-40-50-spitex-wurenlos-wurenlos",
       "slugByLocale": {
-        "it": "pflegefachperson-hf-40-50-spitex-ch-wurenlos",
+        "it": "infermiera-hf-40-50-spitex-wurenlos-wurenlos",
         "en": "pflegefachperson-hf-40-50-spitex-ch-wurenlos",
         "de": "pflegefachperson-hf-40-50-spitex-ch-wurenlos",
-        "fr": "pflegefachperson-hf-40-50-spitex-ch-wurenlos"
+        "fr": "infirmiere-ic-40-50-spitex-wurenlos-wurenlos"
       },
       "company": "Spitex Würenlos",
       "companyKey": "spitex-ch",
@@ -983,16 +983,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-40-50-spitex-ch-wurenlos"
+        ],
+        "fr": [
+          "pflegefachperson-hf-40-50-spitex-ch-wurenlos"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-40-50-spitex-ch-wurenlos"
+      ]
     },
     {
       "id": "spitex-ch-1a37b09d081e",
-      "slug": "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl",
+      "slug": "diplomato-a-infermieristica-hf-psichiatria-60-80-spitex-grauholz-urtenen-schonbuhl",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl",
+        "it": "diplomato-a-infermieristica-hf-psichiatria-60-80-spitex-grauholz-urtenen-schonbuhl",
         "en": "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl",
         "de": "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl",
-        "fr": "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl"
+        "fr": "diplome-e-en-soins-infirmiers-hf-psychiatrie-60-80-spitex-grauholz-urtenen-schonbuhl"
       },
       "company": "Spitex Grauholz",
       "companyKey": "spitex-ch",
@@ -1046,7 +1057,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-psychiatrie-60-80-spitex-ch-urtenen-schonbuhl"
+      ]
     },
     {
       "id": "spitex-ch-3b6d5468cda9",
@@ -1055,7 +1077,7 @@
         "it": "dipl-pflegefachfrau-mann-hf-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
         "en": "dipl-pflegefachfrau-mann-hf-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
         "de": "dipl-pflegefachfrau-mann-hf-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
-        "fr": "dipl-pflegefachfrau-mann-hf-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
+        "fr": "dipl-specialiste-des-soins-infirmiers-psychiatrie-m-f-j-charge-de-travail-entre-30-et-50-spitex-nord-ost-aargau-noa-ag"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1103,6 +1125,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
         ]
       },
       "firstSeenAt": "2026-06-10T13:01:16.337Z",
@@ -1124,9 +1149,9 @@
       "slug": "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-stadt-winterthur",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-stadt-winterthur",
-        "en": "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-spitex-ch-winterthur",
+        "en": "health-specialist-40-60-evening-service-spitex-spitex-stadt-winterthur-winterthur",
         "de": "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-spitex-ch-winterthur",
-        "fr": "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-spitex-ch-winterthur"
+        "fr": "specialiste-de-la-sante-40-60-service-en-soiree-spitex-spitex-stadt-winterthur-winterthur"
       },
       "company": "Spitex Stadt Winterthur",
       "companyKey": "spitex-ch",
@@ -1174,6 +1199,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-spitex-ch-winterthur"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-spitex-ch-winterthur"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-40-60-abenddienst-spitex-spitex-ch-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-10T13:01:15.464Z",
@@ -1192,12 +1223,12 @@
     },
     {
       "id": "spitex-ch-b975fec7fd1e",
-      "slug": "teamleitung-pflege-spitex-ch-horgen",
+      "slug": "cura-della-leadership-del-team-spitex-horgen-oberrieden-horgen",
       "slugByLocale": {
-        "it": "teamleitung-pflege-spitex-ch-horgen",
-        "en": "teamleitung-pflege-spitex-ch-horgen",
+        "it": "cura-della-leadership-del-team-spitex-horgen-oberrieden-horgen",
+        "en": "team-leadership-care-spitex-horgen-oberrieden-horgen",
         "de": "teamleitung-pflege-spitex-ch-horgen",
-        "fr": "teamleitung-pflege-spitex-ch-horgen"
+        "fr": "soins-de-direction-de-l-equipe-spitex-horgen-oberrieden-horgen"
       },
       "company": "Spitex Horgen-Oberrieden",
       "companyKey": "spitex-ch",
@@ -1251,7 +1282,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ],
+        "en": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ],
+        "fr": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-pflege-spitex-ch-horgen"
+      ]
     },
     {
       "id": "spitex-ch-558a8dd86160",
@@ -1259,8 +1304,8 @@
       "slugByLocale": {
         "de": "wir-leben-pflege-mit-herz-flexibel-selbstandig-personlich-mit-zeit-spitex-ch-sattel",
         "it": "wir-leben-pflege-mit-herz-flexibel-selbstandig-personlich-mit-zeit-spitex-ch-sattel",
-        "en": "wir-leben-pflege-mit-herz-flexibel-selbstandig-personlich-mit-zeit-spitex-ch-sattel",
-        "fr": "wir-leben-pflege-mit-herz-flexibel-selbstandig-personlich-mit-zeit-spitex-ch-sattel"
+        "en": "we-live-care-with-heart-flexible-self-employed-personally-with-time-spitex-sattel-rothenthurm-sattel",
+        "fr": "nous-vivons-les-soins-avec-le-c-ur-flexible-travailleurs-independants-personnellement-avec-le-temps-spitex-sattel"
       },
       "company": "Spitex Sattel Rothenthurm",
       "companyKey": "spitex-ch",
@@ -1325,7 +1370,7 @@
         "de": "fachperson-finanz-und-rechnungswesen-im-jobsharing-30-50-spitex-ch-dachsen",
         "it": "fachperson-finanz-e-rechnungswesen-im-jobsharing-30-50-spitex-am-kohlfirst-dachsen",
         "en": "fachperson-finanz-und-rechnungswesen-im-jobsharing-30-50-spitex-ch-dachsen",
-        "fr": "fachperson-finanz-und-rechnungswesen-im-jobsharing-30-50-spitex-ch-dachsen"
+        "fr": "specialiste-des-finances-et-de-la-comptabilite-dans-le-partage-de-l-emploi-30-50-spitex-am-kohlfirst-dachsen"
       },
       "company": "Spitex am Kohlfirst",
       "companyKey": "spitex-ch",
@@ -1372,6 +1417,9 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-finanz-und-rechnungswesen-im-jobsharing-30-50-spitex-ch-dachsen"
+        ],
+        "fr": [
+          "fachperson-finanz-und-rechnungswesen-im-jobsharing-30-50-spitex-ch-dachsen"
         ]
       },
       "previousSlugs": [
@@ -1397,8 +1445,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-psychiatrie-oder-mit-erfahrung-in-der-psychiatrie-mit-einem",
         "it": "dipl-pflegefachperson-hf-fh-psychiatrie-o-con-erfahrung-in-der-psychiatrie-con-einem-arbeitspensum-von-60-100-zweckverband-pflege-und-betreuung-mittleres-tosstal-turbenthal",
-        "en": "dipl-pflegefachperson-hf-fh-psychiatrie-oder-mit-erfahrung-in-der-psychiatrie-mit-einem",
-        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-oder-mit-erfahrung-in-der-psychiatrie-mit-einem"
+        "en": "dipl-nursing-professional-hf-fh-psychiatry-or-with-experience-in-psychiatry-with-a-workload-of-60-100-zweckverband",
+        "fr": "dipl-psychiatrie-professionnelle-hf-fh-ou-avec-experience-en-psychiatrie-avec-une-charge-de-travail-de-60-100"
       },
       "company": "Zweckverband Pflege und Betreuung Mittleres Tösstal",
       "companyKey": "spitex-ch",
@@ -1445,6 +1493,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-oder-mit-erfahrung-in-der-psychiatrie-mit-einem"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-oder-mit-erfahrung-in-der-psychiatrie-mit-einem"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-oder-mit-erfahrung-in-der-psychiatrie-mit-einem"
         ]
       },
       "previousSlugs": [
@@ -1470,8 +1524,8 @@
       "slugByLocale": {
         "de": "zur-erganzung-unseres-teams-suchen-wir-per-sofort-oder-nach-vereinbarung-fachpersonen",
         "it": "zur-erganzung-unseres-teams-suchen-wir-per-sofort-o-nach-vereinbarung-fachpersonen-gesundheit-fage-cfc-spitex-unteres-seetal-hallwil",
-        "en": "zur-erganzung-unseres-teams-suchen-wir-per-sofort-oder-nach-vereinbarung-fachpersonen",
-        "fr": "zur-erganzung-unseres-teams-suchen-wir-per-sofort-oder-nach-vereinbarung-fachpersonen"
+        "en": "to-complement-our-team-we-are-looking-for-health-professionals-fage-efz-spitex-unteres-seetal-hallwil",
+        "fr": "pour-completer-notre-equipe-nous-recherchons-des-professionnels-de-la-sante-fage-efz-spitex-unteres-seetal-hallwil"
       },
       "company": "Spitex Unteres Seetal",
       "companyKey": "spitex-ch",
@@ -1517,6 +1571,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zur-erganzung-unseres-teams-suchen-wir-per-sofort-oder-nach-vereinbarung-fachpersonen"
+        ],
+        "en": [
+          "zur-erganzung-unseres-teams-suchen-wir-per-sofort-oder-nach-vereinbarung-fachpersonen"
+        ],
+        "fr": [
           "zur-erganzung-unseres-teams-suchen-wir-per-sofort-oder-nach-vereinbarung-fachpersonen"
         ]
       },
@@ -1689,8 +1749,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
         "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-stafa-stafa",
+        "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -1748,6 +1808,7 @@
       },
       "firstSeenAt": "2026-06-10T23:33:13.637Z",
       "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
         "dipl-career-hf-fh-with-drop-guidance-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "dipl-carriere-hf-fh-avec-guide-d-abandon-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
@@ -1758,7 +1819,6 @@
         "diplome-e-en-soins-infirmiers-hf-avec-gestion-de-cas-50-100-spitex-region-birs-gmbh-reinach-bl",
         "dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa",
         "dipl-care-specialist-hf-fh-with-drop-guidance-80-100-spitex-stafa-stafa",
-        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
         "dipl-specialiste-des-soins-hf-fh-avec-guide-d-abandon-80-100-spitex-stafa-stafa",
         "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
         "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
@@ -1766,8 +1826,7 @@
         "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
         "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
         "infirmier-dipl-hf-specialise-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-infermiere-a-hf-specializzazione-kinder-e-jugendpsychiatria-60-80-spitex-region-birs-gmbh-reinach-bl"
+        "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl"
       ],
       "previousSlugsByLocale": {
         "it": [

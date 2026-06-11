@@ -3039,7 +3039,7 @@
         "it": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "en": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "de": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch",
-        "fr": "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
+        "fr": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3098,7 +3098,10 @@
         "fr": [
           "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
         ]
-      }
+      },
+      "previousSlugs": [
+        "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-0a6358c2e526",
@@ -3539,12 +3542,12 @@
     },
     {
       "id": "csl-behring-23f9e072374a",
-      "slug": "senior-ci-specialist-csl-behring-ch",
+      "slug": "senior-ci-specialista-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-ci-specialist-csl-behring-ch",
-        "it": "senior-ci-specialist-csl-behring-ch",
-        "de": "senior-ci-specialist-csl-behring-ch",
-        "fr": "senior-ci-specialist-csl-behring-ch"
+        "it": "senior-ci-specialista-csl-behring-bern",
+        "de": "senior-ci-spezialist-csl-behring-bern",
+        "fr": "senior-ci-specialiste-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3601,7 +3604,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-10T22:31:17.038Z"
+      "firstSeenAt": "2026-06-10T22:31:17.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-ci-specialist-csl-behring-ch"
+        ],
+        "de": [
+          "senior-ci-specialist-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-ci-specialist-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-ci-specialist-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-af441d070aeb",

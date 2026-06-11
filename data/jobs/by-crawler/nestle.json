@@ -4002,12 +4002,12 @@
     },
     {
       "id": "nestle-1402969333",
-      "slug": "fp-a-intern-nestle-ch",
+      "slug": "fp-a-tirocinante-nestle-vevey-ch",
       "slugByLocale": {
         "en": "fp-a-intern-nestle-ch",
-        "it": "fp-a-intern-nestle-ch",
-        "de": "fp-a-intern-nestle-ch",
-        "fr": "fp-a-intern-nestle-ch"
+        "it": "fp-a-tirocinante-nestle-vevey-ch",
+        "de": "fp-a-praktikant-nestle-vevey-ch",
+        "fr": "fp-a-stagiaire-nestle-vevey-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4063,7 +4063,21 @@
       },
       "postalCode": "1800",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-10T23:09:43.858Z"
+      "firstSeenAt": "2026-06-10T23:09:43.858Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fp-a-intern-nestle-ch"
+        ],
+        "de": [
+          "fp-a-intern-nestle-ch"
+        ],
+        "fr": [
+          "fp-a-intern-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fp-a-intern-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1402820033",

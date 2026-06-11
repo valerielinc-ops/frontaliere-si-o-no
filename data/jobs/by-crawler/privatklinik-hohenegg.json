@@ -102,9 +102,9 @@
       "slug": "collaboratore-trice-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-meilen",
       "slugByLocale": {
         "it": "collaboratore-trice-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-meilen",
-        "en": "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
+        "en": "employee-management-disposition-60-100-privatklinik-hohenegg-meilen",
         "de": "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
-        "fr": "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+        "fr": "gestion-et-disposition-des-employes-60-100-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -154,6 +154,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T12:43:01.245Z",
@@ -172,9 +178,9 @@
     },
     {
       "id": "privatklinik-hohenegg-85d3502fdbb6",
-      "slug": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+      "slug": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
       "slugByLocale": {
-        "it": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+        "it": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
         "en": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
         "de": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
         "fr": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
@@ -235,21 +241,22 @@
         }
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+        "dipl-infermiere-a-sup-in-formazione-privatklinik-hohenegg-meilen",
         "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
-        "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-meilen",
         "leitung-human-resources-90-100-privatklinik-hohenegg-ch",
+        "dipl-infirmier-ere-es-en-formation-privatklinik-hohenegg-meilen",
+        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+        "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
         "diploma-in-nursing-hf-in-training-privatklinik-hohenegg-meilen",
         "head-of-human-resources-90-100-privatklinik-hohenegg-meilen",
         "infirmier-specialise-en-psychiatrie-60-100-privatklinik-hohenegg-meilen",
-        "pflegefachperson-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen",
-        "dipl-infermiere-a-sup-in-formazione-privatklinik-hohenegg-meilen",
-        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-meilen",
-        "dipl-infirmier-ere-es-en-formation-privatklinik-hohenegg-meilen"
+        "pflegefachperson-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiere-a-sup-in-formazione-privatklinik-hohenegg-meilen"
+          "dipl-infermiere-a-sup-in-formazione-privatklinik-hohenegg-meilen",
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
         ],
         "en": [
           "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-meilen"
