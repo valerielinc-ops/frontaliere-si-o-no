@@ -66,7 +66,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [archivingId, setArchivingId] = useState<string | null>(null);
 
   useEffect(() => {
-    Analytics.trackPageView('/i-miei-annunci', 'Publisher Dashboard');
+    Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
   }, []);
 
   const handleManageBilling = async () => {

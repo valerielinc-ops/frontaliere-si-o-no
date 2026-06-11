@@ -352,7 +352,7 @@ const PublisherPublishPage: React.FC = () => {
  };
 
  useEffect(() => {
- Analytics.trackPageView('/pubblica-offerta', 'Publisher Publish Page');
+ Analytics.trackPageView('/pubblica-offerta/', 'Publisher Publish Page');
  Analytics.trackUIInteraction('publisher', 'page', 'publish_page', 'view');
  }, []);
 
