@@ -277,7 +277,11 @@ export async function fetchAllGeberitJobs() {
     seenInternal.add(internalId);
 
     const sourceLang = localeToLang(rec.language);
-    const jobSlug = slugify(`${title} geberit ${location}`);
+    // Keep the ORIGINAL slug formula (`${title} geberit ch`) so already-indexed
+    // Geberit URLs do not change — the source swap (sitemap → RMK API) must not
+    // re-slug the employer slice (reviewer 🔴 on #1857: a re-slug would orphan the
+    // previousSlugs redirect bridge and 404 the old `…-geberit-ch` URLs).
+    const jobSlug = slugify(`${title} geberit ch`);
     const id = `geberit-${internalId}`;
 
     const publicUrl =
