@@ -16,7 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton, findSwissCityInText } from './target-swiss-locations.mjs';
+import { inferAnyCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -209,7 +209,10 @@ function parseCareerPageHtml(html = '') {
         // major hubs.
         const parent = link.closest('li, tr, div, article') || link.parentElement;
         const parentText = parent?.textContent || '';
-        const location = findSwissCityInText(parentText) || '';
+        // Canonical BFS display name (preserves hyphens/casing for composite
+        // municipalities) — findSwissCityInText returns a space-normalized,
+        // lower-cased token unfit for a structured-data addressLocality.
+        const location = canonicalSwissCityName(findSwissCityInText(parentText));
 
         jobs.push({ title, url: fullUrl, location, description: '' });
       }
