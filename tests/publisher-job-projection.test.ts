@@ -43,6 +43,8 @@ describe('publisherJobToRecords', () => {
   it('only projects paid jobs', () => {
     expect(publisherJobToRecords(paidJob({ status: 'pending_payment' }), { nowIso: NOW })).toEqual([]);
     expect(publisherJobToRecords(paidJob({ status: 'draft' }), { nowIso: NOW })).toEqual([]);
+    expect(publisherJobToRecords(paidJob({ status: 'archived' }), { nowIso: NOW })).toEqual([]);
+    expect(publisherJobToRecords(paidJob({ status: 'expired' }), { nowIso: NOW })).toEqual([]);
     expect(publisherJobToRecords(null, { nowIso: NOW })).toEqual([]);
   });
 
