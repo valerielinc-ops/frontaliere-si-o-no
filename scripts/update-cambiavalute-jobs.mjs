@@ -205,8 +205,10 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
         // Mirror a real Chrome top-level navigation. The Sec-Fetch-* metadata +
         // Upgrade-Insecure-Requests are sent by every modern browser; their
         // absence is a strong bot tell for the WAF. `Accept-Encoding` is left
-        // unset on purpose so undici negotiates + auto-decompresses the body
-        // (manually pinning br/gzip makes res.text() return compressed bytes).
+        // unset on purpose so undici negotiates it (a manual `gzip, deflate, br`
+        // is not needed here — undici auto-decompresses the body from its
+        // `Content-Encoding` whether or not the caller pins `Accept-Encoding`,
+        // verified on Node 22; res.text() is decompressed either way).
         // No fake `Referer` — a direct navigation has Sec-Fetch-Site: none.
         Accept:
           'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
