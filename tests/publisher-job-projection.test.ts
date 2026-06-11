@@ -60,6 +60,32 @@ describe('publisherJobToRecords', () => {
     expect(r.descriptionByLocale.it).toBe(desc);
   });
 
+  it('populates titleByLocale + slugByLocale (source+IT) so the job-locale-completeness gate stays green', () => {
+    const [r] = publisherJobToRecords(paidJob(), { nowIso: NOW });
+    // non-empty objects → the "no completely empty …Locale object" gate passes
+    expect(r.titleByLocale && typeof r.titleByLocale === 'object').toBe(true);
+    expect(r.slugByLocale && typeof r.slugByLocale === 'object').toBe(true);
+    expect(r.titleByLocale.it).toBe('Fisioterapista diplomato/a');
+    expect(r.slugByLocale.it).toBe(r.slug);
+    // en/de/fr not yet translated → flagged so the "all 4 locales" gate skips it
+    expect(r.needsRetranslation).toBe(true);
+  });
+
+  it('preserves existing titleByLocale/slugByLocale and does not flag when all 4 locales present', () => {
+    const [r] = publisherJobToRecords(
+      paidJob({
+        titleByLocale: { it: 'Custom IT', en: 'Custom EN', de: 'D', fr: 'F' },
+        slugByLocale: { it: 's-it', en: 's-en', de: 's-de', fr: 's-fr' },
+        descriptionByLocale: { it: 'x '.repeat(60), en: 'y', de: 'z', fr: 'w' },
+      }),
+      { nowIso: NOW },
+    );
+    expect(r.titleByLocale.it).toBe('Custom IT');
+    expect(r.titleByLocale.en).toBe('Custom EN');
+    expect(r.slugByLocale.en).toBe('s-en');
+    expect(r.needsRetranslation).toBeUndefined();
+  });
+
   it('preserves an existing descriptionByLocale.it instead of overwriting it', () => {
     const existing = 'testo italiano gia tradotto con tante parole diverse qui '.repeat(4).trim();
     const [r] = publisherJobToRecords(

@@ -142,6 +142,28 @@ export function publisherJobToRecords(pubJob, opts = {}) {
     const url = `${SITE_ORIGIN}/lavoro/${baseSlug}`;
     const applyUrl = apply.mode === 'external_url' && apply.url ? apply.url : url;
 
+    // Mirror the flat title/slug into the source-locale (+ IT) keys of
+    // titleByLocale/slugByLocale — same gap (and fix) as descriptionByLocale
+    // above. Publisher ads store only flat `title`/`slug`; without these maps a
+    // projected job lands in the dataset with NO titleByLocale/slugByLocale
+    // object → the job-locale-completeness gate ("no completely empty …Locale
+    // object") fails and turns `main` red (publisher-jobs-sync commits straight
+    // to main, so an unvalidated record poisons the gate). en/de/fr are filled
+    // later by translate-pending; we flag `needsRetranslation` until then so the
+    // "all 4 locales" gate skips the row (it still carries a non-empty
+    // source-locale map, so the "no empty object" gate passes).
+    const titleByLocale = { ...(pubJob.titleByLocale || {}) };
+    if (pubJob.title && !String(titleByLocale[sourceLang] || '').trim()) titleByLocale[sourceLang] = pubJob.title;
+    if (pubJob.title && !String(titleByLocale.it || '').trim()) titleByLocale.it = pubJob.title;
+    const slugByLocale = { ...(pubJob.slugByLocale || {}) };
+    if (baseSlug && !String(slugByLocale[sourceLang] || '').trim()) slugByLocale[sourceLang] = baseSlug;
+    if (baseSlug && !String(slugByLocale.it || '').trim()) slugByLocale.it = baseSlug;
+    const needsRetranslation = ['it', 'en', 'de', 'fr'].some(
+      (l) => !String(titleByLocale[l] || '').trim()
+        || !String(slugByLocale[l] || '').trim()
+        || !String(descriptionByLocale[l] || '').trim(),
+    );
+
     return {
       title: pubJob.title,
       slug: baseSlug,
@@ -167,8 +189,10 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       contractType: pubJob.contractType || null,
       validThrough: validThroughIso,
       description: pubJob.description || '',
-      titleByLocale: pubJob.titleByLocale || undefined,
+      titleByLocale: Object.keys(titleByLocale).length ? titleByLocale : undefined,
+      slugByLocale: Object.keys(slugByLocale).length ? slugByLocale : undefined,
       descriptionByLocale: Object.keys(descriptionByLocale).length ? descriptionByLocale : undefined,
+      needsRetranslation: needsRetranslation || undefined,
       id,
       salaryMin: pubJob.salaryMin ?? null,
       salaryMax: pubJob.salaryMax ?? null,
