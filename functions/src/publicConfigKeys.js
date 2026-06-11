@@ -6,9 +6,6 @@
  * else in Remote Config (ESP keys, AdSense/GSC tokens, AI provider keys…) stays
  * server-only. Default-deny: a new RC secret cannot leak unless added here, and
  * `tests/public-config-allowlist.test.ts` fails if an obvious secret is.
- *
- * Keys tagged PHASE-2 are still read by client code and drop once those calls
- * are proxied server-side (chatbot, exchange rates, feedback issue creation).
  */
 export const PUBLIC_CONFIG_KEYS = [
   'CLARITY_PROJECT_ID',
