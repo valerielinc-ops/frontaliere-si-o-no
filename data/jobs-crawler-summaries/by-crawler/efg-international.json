@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-06-10T22:34:42.678Z",
+  "generatedAt": "2026-06-11T12:33:02.168Z",
   "total": 36,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 34,
-  "durationMs": 29749,
-  "avgDurationMs": 29749,
+  "durationMs": 21755,
+  "avgDurationMs": 21755,
   "durationHistory": [
-    29749
+    21755
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -185,7 +185,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:40.003Z",
+      "crawledAt": "2026-06-11T12:32:59.449Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -272,7 +272,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:40.001Z",
+      "crawledAt": "2026-06-11T12:32:59.448Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -289,61 +289,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6219",
-      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-10T22:34:40.000Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-20",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-20T22:46:49.521Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -420,7 +365,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:40.000Z",
+      "crawledAt": "2026-06-11T12:32:59.446Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -436,6 +381,61 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6219",
+      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Data Ops Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-11T12:32:59.445Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-20",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-20T22:46:49.521Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -535,7 +535,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.999Z",
+      "crawledAt": "2026-06-11T12:32:59.444Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -590,7 +590,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.997Z",
+      "crawledAt": "2026-06-11T12:32:59.443Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -720,7 +720,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.996Z",
+      "crawledAt": "2026-06-11T12:32:59.440Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -737,88 +737,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6150",
-      "slug": "bi-solution-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "BI Solution Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
-            ],
-            "requirements": [
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical, hands‑on and problem‑solving aptitude",
-              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction"
-            ],
-            "keywords": [
-              "University degree in Business",
-              "Advanced level in data visualisation tools such as Power Query",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical",
-              "Designing",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
-              "Staying abreast of key technical developments and trends (e.g. AI"
-            ],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-06-10T22:34:39.994Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.898Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 22
       }
@@ -903,7 +821,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.994Z",
+      "crawledAt": "2026-06-11T12:32:59.439Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -922,6 +840,88 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6150",
+      "slug": "bi-solution-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "BI Solution Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
+            ],
+            "requirements": [
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical, hands‑on and problem‑solving aptitude",
+              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction"
+            ],
+            "keywords": [
+              "University degree in Business",
+              "Advanced level in data visualisation tools such as Power Query",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical",
+              "Designing",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
+              "Staying abreast of key technical developments and trends (e.g. AI"
+            ],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-06-11T12:32:59.438Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.898Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1021,7 +1021,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.993Z",
+      "crawledAt": "2026-06-11T12:32:59.438Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1040,6 +1040,61 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6064",
+      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Cybersecurity Internal Penetration Tester",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-11T12:32:59.436Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-07",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.894Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1146,7 +1201,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.992Z",
+      "crawledAt": "2026-06-11T12:32:59.436Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1163,61 +1218,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6064",
-      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Cybersecurity Internal Penetration Tester",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-10T22:34:39.991Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-07",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.894Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -1256,7 +1256,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.990Z",
+      "crawledAt": "2026-06-11T12:32:59.434Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1311,7 +1311,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.989Z",
+      "crawledAt": "2026-06-11T12:32:59.433Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1365,7 +1365,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.988Z",
+      "crawledAt": "2026-06-11T12:32:59.433Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1488,7 +1488,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.987Z",
+      "crawledAt": "2026-06-11T12:32:59.431Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1617,7 +1617,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.986Z",
+      "crawledAt": "2026-06-11T12:32:59.430Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1673,7 +1673,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.985Z",
+      "crawledAt": "2026-06-11T12:32:59.429Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1796,7 +1796,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.984Z",
+      "crawledAt": "2026-06-11T12:32:59.428Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -1945,7 +1945,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.983Z",
+      "crawledAt": "2026-06-11T12:32:59.427Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1962,60 +1962,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6071",
-      "slug": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "IT Data Service Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6071",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Department:</strong> DataOps / IT</span></li><li><span><strong>Work time Percentage:</strong> 100%</span></li><li><span><strong>Location:</strong> Geneva</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>DataOps Service & Governance Engineer</strong></span></p><p><span>DataOps Services’ mission is to ensure the reliable and efficient servicing of all data interfaces supported by our data platform. This includes a broad spectrum of interfaces, ranging from highly critical order-processing flows to regular analytical and reporting systems. The DataOps team supports global systems serving the entire Group worldwide.</span></p><p><span>We are looking for a reliable and well-organised expert to join our DataOps team in Geneva. As our platform and data landscape evolve, robust operational governance has become increasingly important. With growing regulatory requirements, rising business expectations for data quality, and the need for consistent service delivery, we must ensure that our processes are well-documented, controlled, and transparent.</span></p><p><span>In this context, we are seeking a profile dedicated to overseeing documentation, managing Standard Operating Procedures (SOPs), and monitoring Service Level Agreements (SLAs). By reinforcing these governance pillars, you will help us ensure continuity and quality of operations, while facilitating clear communication and alignment among our technical and business teams.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Coordinate operational activities related to data integration services under the responsibility of the DataOps Team Manager, ensuring effective change management, quality assurance, SLA monitoring, and comprehensive SOP documentation.</span></li><li><span>Monitor and track the smooth operation of critical business processes, acting as the primary contact for SLA- and procedure-related topics.</span></li><li><span>Create, maintain, and continuously improve documentation and operational procedures (SOPs) to ensure alignment with internal standards, audit requirements, and applicable regulations.</span></li><li><span>Collaborate closely with IT, production support, and business teams to strengthen governance around data integration processes and ensure documentation is accurate, up to date, and consistently applied.</span></li><li><span>Ensure traceability, consolidation, and regular updates of performance indicators (KPIs) related to SLAs, operational quality, and service reliability.</span></li><li><span>Prepare and contribute to regular service reviews and reporting, highlighting risks, issues, and improvement opportunities.</span></li><li><span>Improve internal team processes by gathering stakeholder feedback, identifying pain points, and proposing optimisations to SOPs and workflows in collaboration with the line manager.</span></li><li><span>Support incident and problem management from a governance perspective (e.g. post-incident documentation, lessons learned, action follow-up).</span></li><li><span>Facilitate effective communication and coordination across teams to support operational excellence and a culture of continuous improvement.</span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in operational governance, documentation management, service management, or PMO roles within a data-driven or IT/operations environment (e.g. data platforms, integration, production support).</span></li><li><span>Proven experience in managing and monitoring SLAs and SOPs, with the ability to structure, validate, implement, and track procedures across multiple stakeholders.</span></li><li><span>Strong writing, organisational, and analytical skills, with a demonstrated ability to produce clear, concise, and audit-ready documentation.</span></li><li><span>Experience in tracking performance indicators (KPIs), preparing service quality reports, and presenting findings to management and stakeholders.</span></li><li><span>Good understanding of data integration and data platform environments; knowledge of Kafka, Opcon orchestrator, microservice architectures, and REST-based communication is a strong plus.</span></li><li><span>Strong communication and interpersonal skills, with the ability to interact effectively with both technical and non-technical stakeholders and to facilitate coordination across teams.</span></li><li><span>High attention to detail, rigor, and autonomy in managing tasks and priorities in a dynamic environment.</span></li><li><span>Good command of spoken and written English; French is an asset.</span></li></ul><p><span><strong>Personal Attributes</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Responsible and reliable, especially during critical operational periods and in the context of production incidents or major changes.</span></li><li><span>Methodical, structured, and rigorous in documentation, process management, and follow-up.</span></li><li><span>Proactive and a strong team player, with the ability to work effectively within cross-functional and international teams.</span></li><li><span>Curious and motivated to learn and grow in a transforming technological environment, embracing change and continuous improvement.</span></li><li><span>Comfortable challenging the status quo constructively and proposing pragmatic, risk-aware solutions.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-10T22:34:39.979Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-28",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-28T12:24:37.370Z",
-      "country": "CH",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -2054,7 +2000,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.977Z",
+      "crawledAt": "2026-06-11T12:32:59.423Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -2107,7 +2053,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-10T22:34:39.975Z",
+      "crawledAt": "2026-06-11T12:32:59.422Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2127,6 +2073,60 @@
         "richness": 22,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6071",
+      "slug": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IT Data Service Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6071",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Department:</strong> DataOps / IT</span></li><li><span><strong>Work time Percentage:</strong> 100%</span></li><li><span><strong>Location:</strong> Geneva</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>DataOps Service & Governance Engineer</strong></span></p><p><span>DataOps Services’ mission is to ensure the reliable and efficient servicing of all data interfaces supported by our data platform. This includes a broad spectrum of interfaces, ranging from highly critical order-processing flows to regular analytical and reporting systems. The DataOps team supports global systems serving the entire Group worldwide.</span></p><p><span>We are looking for a reliable and well-organised expert to join our DataOps team in Geneva. As our platform and data landscape evolve, robust operational governance has become increasingly important. With growing regulatory requirements, rising business expectations for data quality, and the need for consistent service delivery, we must ensure that our processes are well-documented, controlled, and transparent.</span></p><p><span>In this context, we are seeking a profile dedicated to overseeing documentation, managing Standard Operating Procedures (SOPs), and monitoring Service Level Agreements (SLAs). By reinforcing these governance pillars, you will help us ensure continuity and quality of operations, while facilitating clear communication and alignment among our technical and business teams.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Coordinate operational activities related to data integration services under the responsibility of the DataOps Team Manager, ensuring effective change management, quality assurance, SLA monitoring, and comprehensive SOP documentation.</span></li><li><span>Monitor and track the smooth operation of critical business processes, acting as the primary contact for SLA- and procedure-related topics.</span></li><li><span>Create, maintain, and continuously improve documentation and operational procedures (SOPs) to ensure alignment with internal standards, audit requirements, and applicable regulations.</span></li><li><span>Collaborate closely with IT, production support, and business teams to strengthen governance around data integration processes and ensure documentation is accurate, up to date, and consistently applied.</span></li><li><span>Ensure traceability, consolidation, and regular updates of performance indicators (KPIs) related to SLAs, operational quality, and service reliability.</span></li><li><span>Prepare and contribute to regular service reviews and reporting, highlighting risks, issues, and improvement opportunities.</span></li><li><span>Improve internal team processes by gathering stakeholder feedback, identifying pain points, and proposing optimisations to SOPs and workflows in collaboration with the line manager.</span></li><li><span>Support incident and problem management from a governance perspective (e.g. post-incident documentation, lessons learned, action follow-up).</span></li><li><span>Facilitate effective communication and coordination across teams to support operational excellence and a culture of continuous improvement.</span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in operational governance, documentation management, service management, or PMO roles within a data-driven or IT/operations environment (e.g. data platforms, integration, production support).</span></li><li><span>Proven experience in managing and monitoring SLAs and SOPs, with the ability to structure, validate, implement, and track procedures across multiple stakeholders.</span></li><li><span>Strong writing, organisational, and analytical skills, with a demonstrated ability to produce clear, concise, and audit-ready documentation.</span></li><li><span>Experience in tracking performance indicators (KPIs), preparing service quality reports, and presenting findings to management and stakeholders.</span></li><li><span>Good understanding of data integration and data platform environments; knowledge of Kafka, Opcon orchestrator, microservice architectures, and REST-based communication is a strong plus.</span></li><li><span>Strong communication and interpersonal skills, with the ability to interact effectively with both technical and non-technical stakeholders and to facilitate coordination across teams.</span></li><li><span>High attention to detail, rigor, and autonomy in managing tasks and priorities in a dynamic environment.</span></li><li><span>Good command of spoken and written English; French is an asset.</span></li></ul><p><span><strong>Personal Attributes</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Responsible and reliable, especially during critical operational periods and in the context of production incidents or major changes.</span></li><li><span>Methodical, structured, and rigorous in documentation, process management, and follow-up.</span></li><li><span>Proactive and a strong team player, with the ability to work effectively within cross-functional and international teams.</span></li><li><span>Curious and motivated to learn and grow in a transforming technological environment, embracing change and continuous improvement.</span></li><li><span>Comfortable challenging the status quo constructively and proposing pragmatic, risk-aware solutions.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-11T12:32:59.421Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-28",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-28T12:24:37.370Z",
+      "country": "CH",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
