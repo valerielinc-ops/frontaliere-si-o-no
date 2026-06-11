@@ -3183,6 +3183,8 @@ Rules:
  'publisherDashboard.archiveError': 'Could not archive the ad. Please try again.',
  'publisherDashboard.restore': 'Restore',
  'publisherDashboard.restoreError': 'Could not restore the ad. Please try again.',
+ 'publisherDashboard.resumeCheckout': 'Resume payment',
+ 'publisherDashboard.resumeCheckoutError': 'Could not resume checkout. Please try again.',
  'publisherDashboard.modifiedPending': 'Changes pending publication (live within 1–2 hours)',
  'publisherDashboard.error': 'Could not load your ads. Please try again.',
  'publisherDashboard.empty': 'You have not published any ads yet.',

@@ -3273,6 +3273,8 @@ Regole:
  'publisherDashboard.archiveError': 'Impossibile archiviare l\'annuncio. Riprova.',
  'publisherDashboard.restore': 'Ripristina',
  'publisherDashboard.restoreError': 'Impossibile ripristinare l\'annuncio. Riprova.',
+ 'publisherDashboard.resumeCheckout': 'Riprendi pagamento',
+ 'publisherDashboard.resumeCheckoutError': 'Impossibile riprendere il checkout. Riprova.',
  'publisherDashboard.modifiedPending': 'Modifiche in pubblicazione (online entro 1–2 ore)',
  'publisherDashboard.error': 'Impossibile caricare gli annunci. Riprova.',
  'publisherDashboard.empty': 'Non hai ancora pubblicato annunci.',

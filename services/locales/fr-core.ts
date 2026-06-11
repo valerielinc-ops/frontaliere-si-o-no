@@ -3186,6 +3186,8 @@ Règles :
  'publisherDashboard.archiveError': 'Impossible d\'archiver l\'annonce. Réessayez.',
  'publisherDashboard.restore': 'Restaurer',
  'publisherDashboard.restoreError': 'Impossible de restaurer l\'annonce. Réessayez.',
+ 'publisherDashboard.resumeCheckout': 'Reprendre le paiement',
+ 'publisherDashboard.resumeCheckoutError': 'Impossible de reprendre le paiement. Réessayez.',
  'publisherDashboard.modifiedPending': 'Modifications en cours de publication (en ligne sous 1–2 heures)',
  'publisherDashboard.error': 'Impossible de charger vos annonces. Réessayez.',
  'publisherDashboard.empty': 'Vous n\'avez pas encore publié d\'annonces.',
