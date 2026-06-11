@@ -12,9 +12,10 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -311,6 +312,26 @@ function parseStartDate(raw) {
 }
 
 /**
+ * Fetch the full job-body description from an Implenia jobs2web detail page.
+ * The RMK list endpoint carries no body; the detail page is server-rendered
+ * plain HTML with the body in an `itemprop="description"` schema.org/JobPosting
+ * microdata block (verified live). fetchHtml follows the 302 to the canonical
+ * `/job/{slug}/{seq}-de_DE/` URL. Returns inner HTML or '' on any failure.
+ */
+async function fetchImpleniaDetailDescription(url) {
+  if (!url || !/^https?:\/\//.test(url)) return '';
+  try {
+    const html = await fetchHtml(url, {
+      timeoutMs: 15000,
+      headers: { 'User-Agent': BROWSER_UA },
+    });
+    return extractMicrodataDescription(html);
+  } catch {
+    return ''; // network/timeout → caller falls back to the metadata lede
+  }
+}
+
+/**
  * Fetch all Implenia jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -344,12 +365,20 @@ export async function fetchAllImpleniaJobs() {
     const postalCode = listing.postalCode || (location === HQ.city ? HQ.postalCode : '');
     const addressRegion = canton === HQ.canton ? HQ.addressRegion : canton;
 
-    // The listing API carries no description body; build a concise lede from the
-    // real fields. The AI localization step enriches/translates downstream.
+    // The RMK listing API carries no description body. Fetch the REAL job body
+    // from the server-rendered detail page's itemprop="description" microdata
+    // so jobs aren't thin → boilerplate-padded → boilerplate-guard failure
+    // (#1723). Fall back to a concise metadata lede on any fetch failure
+    // (fail-per-record, never fake content).
+    const detailDescHtml = await fetchImpleniaDetailDescription(publicUrl);
+    const detailDescText = detailDescHtml
+      ? normalizeSpace(stripHtml(detailDescHtml))
+      : '';
     const descParts = [title];
     if (listing.jobFunction) descParts.push(listing.jobFunction);
     if (location) descParts.push(location);
-    const descriptionText = `${descParts.join(' — ')}. ${IMPLENIA_COMPANY_NAME}, ${SECTOR.split('(')[0].trim()}.`;
+    const descriptionText = detailDescText
+      || `${descParts.join(' — ')}. ${IMPLENIA_COMPANY_NAME}, ${SECTOR.split('(')[0].trim()}.`;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} implenia ch`);

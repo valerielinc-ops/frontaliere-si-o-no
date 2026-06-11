@@ -12,9 +12,10 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -170,6 +171,25 @@ async function fetchJobListings() {
 }
 
 /**
+ * Fetch the full schema.org JobPosting description (HTML) from a Decathlon
+ * detail page. The DigitalRecruiters listing API returns only metadata; the
+ * SSR detail page carries the full description in a JSON-LD <script>. Returns
+ * '' on any failure so the caller falls back to the title.
+ */
+async function fetchDecathlonDetailDescription(url) {
+  if (!url || !/^https?:\/\//.test(url)) return '';
+  try {
+    const html = await fetchHtml(url, {
+      timeoutMs: 15000,
+      headers: { 'User-Agent': REQUEST_HEADERS['User-Agent'] },
+    });
+    return extractJobPostingDescription(html);
+  } catch {
+    return ''; // network/timeout → caller falls back to the title
+  }
+}
+
+/**
  * Fetch all Decathlon jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
@@ -206,9 +226,15 @@ export async function fetchAllDecathlonJobs() {
     const canton = inferSwissTargetCanton(location) || 'GE';
     const postalCode = parsePostalFromSlug(slug);
 
-    // Listing API has no body; the assembled title carries the role context.
-    // The AI localization step enriches the description from the detail page.
-    const descriptionText = title;
+    // The DigitalRecruiters listing API carries NO body — only metadata. Each
+    // detail page DOES carry the full description in a schema.org/JobPosting
+    // JSON-LD <script> (verified live ~1.5k chars). Fetch it so jobs aren't
+    // thin → boilerplate-padded → boilerplate-guard failure (#1719). Falls back
+    // to the title on any failure (fail-per-record, never fake content).
+    const detailDescHtml = await fetchDecathlonDetailDescription(publicUrl);
+    const descriptionText = detailDescHtml
+      ? normalizeSpace(stripHtml(detailDescHtml))
+      : title;
 
     const sourceLang = detectLang(title, 'fr');
     const jobSlug = slugify(`${title} decathlon ch`);
