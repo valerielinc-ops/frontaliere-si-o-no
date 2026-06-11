@@ -837,8 +837,11 @@ const PublisherPublishPage: React.FC = () => {
  sourceComponent: 'PublisherPublishPage',
  sourceRouteFamily: 'publisher',
  locale: navigator.language || 'it-IT',
- isActive: false,
- status: 'pending',
+ // Do NOT pass status/isActive: inferNewsletterSubscriptionState gives
+ // explicit fields absolute precedence, so forcing 'pending' here would
+ // DOWNGRADE an already-confirmed subscriber who types their email in the
+ // gate. Omitting them preserves a confirmed subscriber and defaults a new
+ // address to 'pending' (→ auto opt-in/login email).
  consentGiven: true,
  consentText: PUBLISHER_CONSENT_TEXT,
  consentMethod: 'email_checkbox',
