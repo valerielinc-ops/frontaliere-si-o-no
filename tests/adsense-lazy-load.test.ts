@@ -76,11 +76,11 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     // a slot scrolls into view. Guards the rIC fallback against removal.
     expect(ADSENSE_LOADER_CONTENT).toContain('requestIdleCallback');
     // Pin the *post-IO* scheduling site specifically. The loader has two rIC
-    // call sites — `timeout:4000` (IntersectionObserver-unavailable branch) and
-    // `timeout:6000` (the no-scroll guard that fires after the observer is set
+    // call sites — `timeout:1500` (IntersectionObserver-unavailable branch) and
+    // `timeout:2500` (the no-scroll guard that fires after the observer is set
     // up). A bare `toContain('requestIdleCallback')` would stay green if a
-    // refactor dropped only the 6000 site — the exact regression this guards.
-    expect(ADSENSE_LOADER_CONTENT).toContain('timeout:6000');
+    // refactor dropped only the 2500 site — the exact regression this guards.
+    expect(ADSENSE_LOADER_CONTENT).toContain('timeout:2500');
     // First-interaction trigger: the loader must also load adsbygoogle.js on the
     // first real user engagement, not only on slot-scroll or idle. This closes
     // the dominant Auto Ads leak — quick-bounce mobile sessions (75% of traffic)
@@ -170,10 +170,10 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
     // removing the Auto Ads idle load (rIC branch OR its setTimeout fallback)
     // fails the test.
     expect(adSenseBanner).toMatch(
-      /requestIdleCallback[\s\S]*?\(\s*\(\)\s*=>\s*loadAdSenseScript\(\),\s*\{\s*timeout:\s*3000\s*\}\s*\)/,
+      /requestIdleCallback[\s\S]*?\(\s*\(\)\s*=>\s*loadAdSenseScript\(\),\s*\{\s*timeout:\s*1500\s*\}\s*\)/,
     );
     expect(adSenseBanner).toMatch(
-      /setTimeout\(\s*\(\)\s*=>\s*loadAdSenseScript\(\),\s*2500\s*\)/,
+      /setTimeout\(\s*\(\)\s*=>\s*loadAdSenseScript\(\),\s*1500\s*\)/,
     );
     // Cleanup must cancel both the idle handle and its setTimeout fallback so a
     // route change before the idle fires doesn't leak a load.
