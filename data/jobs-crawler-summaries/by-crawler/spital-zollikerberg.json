@@ -1,33 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-06-10T23:32:54.819Z",
+  "generatedAt": "2026-06-11T13:34:16.337Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2800,
-  "avgDurationMs": 2800,
+  "durationMs": 2465,
+  "avgDurationMs": 2465,
   "durationHistory": [
-    2800
+    2465
   ],
   "newJobs": [],
   "updatedJobs": [
     {
-      "id": "spital-zollikerberg-520e9b96cf42",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-e0be97285f4e",
+      "slug": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
-      "needsRetranslation": false,
+      "title": "Fachfrau / Fachmann Gesundheit Intensivstation",
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=50be559c-df7c-42b5-8777-e2cdd522bb55,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22e4a19a-0c48-48e5-b4d3-aeff99c2a989,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-10T23:32:52.929Z",
+      "crawledAt": "2026-06-11T13:34:14.475Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -40,14 +40,13 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=50be559c-df7c-42b5-8777-e2cdd522bb55,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "_qualityScore": 72,
+      "postedDate": "2026-06-11",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=22e4a19a-0c48-48e5-b4d3-aeff99c2a989,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 4,
         "completeness": 17
       }
     }
