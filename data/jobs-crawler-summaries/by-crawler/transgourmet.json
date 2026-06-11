@@ -1,16 +1,16 @@
 {
   "key": "transgourmet",
   "label": "Transgourmet",
-  "generatedAt": "2026-06-11T13:50:48.819Z",
+  "generatedAt": "2026-06-11T23:37:05.514Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3019,
-  "avgDurationMs": 3019,
+  "durationMs": 2558,
+  "avgDurationMs": 2558,
   "durationHistory": [
-    3019
+    2558
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/1c3385a2-832c-49c6-a61a-0308193c5d51",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T13:50:46.655Z",
+      "crawledAt": "2026-06-11T23:37:03.620Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -43,6 +43,7 @@
       "postedDate": "2026-03-12",
       "pensum": "50%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164555",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T11:25:48.621Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
