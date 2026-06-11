@@ -136,7 +136,7 @@ function detectEmploymentType(title = '') {
  * Parse the kispisg.ch/stellen listing page.
  * Returns [{title, slug, pimcoreId, snippet}].
  */
-function parseListingPage(html) {
+export function parseListingPage(html) {
   const out = [];
   const seen = new Set();
 
@@ -153,10 +153,27 @@ function parseListingPage(html) {
     const inner = m[2];
     const slug = m[3];
 
-    // Extract title from the <p class="h1"> element that contains data-id
-    // (already consumed as the tag's inner content starts right after data-id="N">)
-    const titleMatch = inner.match(/^([^<]{3,200})/);
-    const title = normalizeSpace(decodeHtmlEntities(titleMatch ? titleMatch[1] : ''));
+    // Extract the title from the <p class="h1" data-id="N"> element. Its inner
+    // content (m[2]) runs from right after `data-id="N">` up to the closing
+    // </p>. Pimcore sometimes wraps the title in a nested <span> (or similar),
+    // so take the whole title block up to </p> and strip inner tags. Matching
+    // only the leading plain-text node (/^([^<]{3,200})/) returned '' for a
+    // wrapped title → card silently dropped, yielding fewer than the declared
+    // jobs (issue #1850).
+    let titleHtml;
+    let snippetHtml;
+    const titleBlockMatch = inner.match(/^([\s\S]*?)<\/p>/i);
+    if (titleBlockMatch) {
+      titleHtml = titleBlockMatch[1];
+      snippetHtml = inner.slice(titleBlockMatch[0].length);
+    } else {
+      // No closing </p> in the captured block — fall back to the leading
+      // plain-text node so a malformed card still degrades gracefully.
+      const leadMatch = inner.match(/^([^<]{3,200})/);
+      titleHtml = leadMatch ? leadMatch[1] : '';
+      snippetHtml = inner.slice(leadMatch ? leadMatch[0].length : 0);
+    }
+    const title = normalizeSpace(decodeHtmlEntities(stripHtml(titleHtml))).slice(0, 200);
     if (!title || title.length < 3) continue;
 
     // Skip initiative applications (Initiativbewerbung)
@@ -164,7 +181,6 @@ function parseListingPage(html) {
     if (/\binitiativ\b/i.test(title)) continue;
 
     // Brief teaser text following the title
-    const snippetHtml = inner.slice(titleMatch ? titleMatch[0].length : 0);
     const snippet = normalizeSpace(decodeHtmlEntities(stripHtml(snippetHtml))).slice(0, 300);
 
     seen.add(pimcoreId);
