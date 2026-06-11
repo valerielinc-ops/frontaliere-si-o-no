@@ -241,6 +241,7 @@ const deVita: Record<string, string> = {
  'profile.action.pension': 'Rente',
  'profile.action.exchange': 'Wechselkurs',
  'profile.action.guide': 'Leitfaden',
+ 'profile.action.myListings': 'Meine Anzeigen',
  'profile.family.title': 'Familienmitglieder',
  'profile.family.relationship': 'Beziehung',
  'profile.family.spouse': 'Ehepartner/in',
