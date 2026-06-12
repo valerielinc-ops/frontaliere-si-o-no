@@ -25542,6 +25542,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'equita-fiscale-famiglie-ticino',
+ category: 'fiscale',
+ date: '2026-06-12T04:01:23.520Z',
+ image: '/images/blog/equita-fiscale-famiglie-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

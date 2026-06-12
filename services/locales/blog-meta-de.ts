@@ -8052,6 +8052,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-13esima-conciliazione-iva.title': '13. AVS-Gesetz: In Konsens, IVA steigt um 0,4%',
     'blog.article.avs-13esima-conciliazione-iva.excerpt': 'Nationale und Bundesländer in Dispute: Das 13. AVS-Gesetz geht in Konsens. Risiko des Versandens ohne Finanzierung. Steigerung der IVA im Mittelpunkt der Diskussion.',
     'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Schweizer Parlament und Finanzierung 13. AHV',
+    'blog.article.equita-fiscale-famiglie-ticino.title': 'Famiglie Ticino: equità fiscale per lavoro e famiglia',
+    'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'Die Frauen des Centro stellen eine Motion an den Grossen Rat, um steuerlich die im Kanton Tessin von Familien getragenen Kosten für die Vereinbarkeit von Arbeit und Familie mit strengen Kriterien anzuerkennen.',
+    'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande in Bellinzona mit modernen Familien im Vordergrund, symbolisch für die Herausforderungen der Vereinbarkeit von Beruf und Familie im Tessin.',
 };
 
 export default blogMetaDe;
