@@ -280,13 +280,18 @@ const App: React.FC = () => {
  // users entirely, leaving these landings blank until the SPA painted —
  // FCP ~4s on a fast desktop), so it must join the same pre-paint toggle
  // or it would duplicate the hydrated JobBoard below the SPA view.
+ // The hide MUST be inline `!important`: index.css carries
+ // `main:not(...) { display: block !important; }` (AdSense side-rail layout
+ // guard) and any !important display rule silently beats a plain inline
+ // `display:none` — observed live on /fr/.../recherche-* (static body
+ // visible below the hydrated JobBoard despite the inline style being set).
  useLayoutEffect(() => {
    const staticMains = document.querySelectorAll<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
    for (const staticMain of staticMains) {
      if (staticOverlay) {
        staticMain.style.removeProperty('display');
      } else {
-       staticMain.style.display = 'none';
+       staticMain.style.setProperty('display', 'none', 'important');
      }
    }
  }, [staticOverlay]);

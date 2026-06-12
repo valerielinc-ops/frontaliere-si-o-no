@@ -67,6 +67,17 @@ describe('seo-static.css', () => {
     const appSrc = fs.readFileSync(path.resolve(process.cwd(), 'App.tsx'), 'utf8');
     expect(appSrc).toMatch(/main\.seo-static-content,\s*main\.cluster-seo-prose/);
   });
+
+  // The toggle must hide with INLINE !important: index.css carries
+  // `main:not(...) { display: block !important }` (AdSense side-rail layout
+  // guard) and any !important display rule beats a plain inline
+  // `style.display = 'none'`. Observed live post-#1918: inline display:none
+  // set, computed display still block → static body duplicated below the
+  // hydrated JobBoard.
+  it("App.tsx hides via setProperty('display','none','important')", () => {
+    const appSrc = fs.readFileSync(path.resolve(process.cwd(), 'App.tsx'), 'utf8');
+    expect(appSrc).toMatch(/setProperty\(\s*'display',\s*'none',\s*'important'\s*\)/);
+  });
 });
 
 // Cascade-source guard (inverted by the visible-pre-hydration contract).
@@ -118,5 +129,31 @@ describe('index.css (SPA bundle source) cascade does not re-hide the cluster bod
         });
       }
     }
+  });
+
+  // Miss-class the substring guard above cannot see: a broad `main`/
+  // `main:not(...)` selector that does NOT name the static classes but
+  // forces `display` with !important (e.g. the AdSense side-rail guard
+  // `main:not(.seo-static-content) { display:block !important }`) overrides
+  // App.tsx's hide on every <main> it still matches. Any such rule must
+  // exclude BOTH static-handoff mains.
+  it('broad main display:!important rules exclude both static-handoff classes', () => {
+    const css = fs.readFileSync(SPA_CSS_PATH, 'utf8');
+    const root = postcss.parse(css, { from: SPA_CSS_PATH });
+    root.walkRules((rule) => {
+      if (!/(^|[,\s])main(:not\(|\s*\{|\s*,|$)/.test(rule.selector) && !rule.selector.startsWith('main:not(')) return;
+      rule.walkDecls('display', (d) => {
+        if (!d.important) return;
+        for (const cls of ['.seo-static-content', '.cluster-seo-prose']) {
+          expect(
+            rule.selector.includes(`:not(${cls})`),
+            `index.css rule "${rule.selector}" forces display:${d.value} !important ` +
+              `on <main> without :not(${cls}) — it beats App.tsx's ` +
+              `hide-at-hydration inline style and re-shows the static body below ` +
+              `the hydrated SPA (live duplication observed post-#1918).`,
+          ).toBe(true);
+        }
+      });
+    });
   });
 });
