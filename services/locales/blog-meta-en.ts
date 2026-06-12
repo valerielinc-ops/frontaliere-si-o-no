@@ -8047,6 +8047,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parlamento-avs-frontalieri-2025.title': '13th AVS, mixed funding',
     'blog.article.parlamento-avs-frontalieri-2025.excerpt': 'The Council of States approves the proposal of the Conciliation Conference. Other decisions on electronic prescriptions and protection of adoptive mothers. Here\'s the impact for cross-border workers in Ticino.',
     'blog.article.parlamento-avs-frontalieri-2025.imageAlt': 'Swiss Federal Palace in Bern, seat of the Parliament.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Cross-border commuting to Switzerland: documents and customs rules 2026',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Find out the necessary documents to cross the border as a cross-border worker and the customs rules in Switzerland in 2026.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Car crossing the Swiss-Italian border',
 };
 
 export default blogMetaEn;
