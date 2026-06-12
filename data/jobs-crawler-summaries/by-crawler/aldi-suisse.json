@@ -1,16 +1,16 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-06-12T11:36:50.428Z",
+  "generatedAt": "2026-06-12T21:51:45.793Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4233,
-  "avgDurationMs": 4233,
+  "durationMs": 4542,
+  "avgDurationMs": 4542,
   "durationHistory": [
-    4233
+    4542
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "url": "https://www.jobs.aldi.ch/job/1391132333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T11:36:48.183Z",
+      "crawledAt": "2026-06-12T21:51:43.664Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T11:43:10.534Z",
       "salaryMin": 59000,
@@ -76,7 +76,7 @@
       "url": "https://www.jobs.aldi.ch/job/1381255333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T11:36:48.176Z",
+      "crawledAt": "2026-06-12T21:51:43.657Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-03T22:35:07.098Z",
       "salaryMin": 59000,
@@ -91,45 +91,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "aldi-suisse-57c1988b19ee",
-      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit",
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Mitarbeiter Verkauf (m/w/d)",
-      "location": "en in elf Ländern weltweit",
-      "postalCode": "6928",
-      "canton": "TI",
-      "addressLocality": "en in elf Ländern weltweit",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "streetAddress": "Centro Monda 8",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "url": "https://www.jobs.aldi.ch/job/1388300533",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:07:41.617Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-03T12:34:00.413Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "country": "CH",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 21,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
