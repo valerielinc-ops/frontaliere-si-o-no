@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-26T02:22:29.053Z",
-    "label": "after",
-    "total": 8619,
-    "needsRetranslation": 1776,
-    "incomplete": 518,
-    "complete": 8101,
-    "missingByLocale": {
-      "it": 313,
-      "en": 236,
-      "de": 175,
-      "fr": 289
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 70
-      },
-      {
-        "company": "Nestlé",
-        "pending": 39
-      },
-      {
-        "company": "Roche",
-        "pending": 32
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-26T04:22:26.673Z",
-    "label": "before",
-    "total": 8619,
-    "needsRetranslation": 1856,
-    "incomplete": 516,
-    "complete": 8103,
-    "missingByLocale": {
-      "it": 310,
-      "en": 234,
-      "de": 175,
-      "fr": 287
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 70
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 70
-      },
-      {
-        "company": "Nestlé",
-        "pending": 39
-      },
-      {
-        "company": "Roche",
-        "pending": 32
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 15
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-26T05:22:17.251Z",
     "label": "after",
     "total": 8619,
@@ -11317,6 +11205,120 @@
       {
         "company": "Klubschule Migros",
         "pending": 48
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 44
+      },
+      {
+        "company": "Allianz Suisse",
+        "pending": 38
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-12T08:06:05.259Z",
+    "label": "before",
+    "total": 14476,
+    "needsRetranslation": 4589,
+    "suppressed": 44,
+    "incomplete": 1554,
+    "complete": 12922,
+    "missingByLocale": {
+      "it": 1195,
+      "en": 910,
+      "de": 457,
+      "fr": 1029
+    },
+    "topPending": [
+      {
+        "company": "Lidl Svizzera",
+        "pending": 289
+      },
+      {
+        "company": "Manor AG",
+        "pending": 112
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 101
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 100
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 75
+      },
+      {
+        "company": "Roche",
+        "pending": 50
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Klubschule Migros",
+        "pending": 45
+      },
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 44
+      },
+      {
+        "company": "Allianz Suisse",
+        "pending": 38
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-12T11:15:50.346Z",
+    "label": "after",
+    "total": 14476,
+    "needsRetranslation": 4039,
+    "suppressed": 44,
+    "incomplete": 1508,
+    "complete": 12968,
+    "missingByLocale": {
+      "it": 1153,
+      "en": 870,
+      "de": 450,
+      "fr": 993
+    },
+    "topPending": [
+      {
+        "company": "Lidl Svizzera",
+        "pending": 289
+      },
+      {
+        "company": "Manor AG",
+        "pending": 112
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 101
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 100
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 75
+      },
+      {
+        "company": "Roche",
+        "pending": 50
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Klubschule Migros",
+        "pending": 45
       },
       {
         "company": "Jumbo, Division der Coop Genossenschaft",
