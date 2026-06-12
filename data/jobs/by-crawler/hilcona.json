@@ -191,7 +191,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.478Z",
-      "needsRetranslation": true,
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -259,7 +258,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.240Z",
-      "needsRetranslation": true,
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -481,7 +479,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:44.131Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -541,7 +538,9 @@
       "crawledAt": "2026-06-12T12:15:43.948Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel"
+        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
+        "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
+        "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -555,7 +554,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:43.890Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1427,7 +1425,6 @@
         ]
       },
       "firstSeenAt": "2026-05-20T23:07:42.400Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1750,7 +1747,7 @@
       "id": "hilcona-3e7e02ff1b7a",
       "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
+        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
         "fr": "electricien-d-installation-geiser-ag-schlieren"
@@ -1790,20 +1787,19 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
+        "elettrotecnico-di-impianto-geiser-ag-schlieren",
+        "electricien-d-installation-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
-          "electricien-d-installation-geiser-ag-schlieren"
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
         ]
       },
       "firstSeenAt": "2026-05-11T22:14:05.649Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2828,7 +2824,6 @@
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
       ],
       "firstSeenAt": "2026-04-24T21:45:49.790Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2849,7 +2844,7 @@
       "id": "hilcona-277ed76f4a2e",
       "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
         "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
@@ -2894,20 +2889,19 @@
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+        "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "electricien-en-service-bell-schweiz-ag-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
-          "electricien-en-service-bell-schweiz-ag-oensingen"
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ]
       },
       "firstSeenAt": "2026-05-19T22:27:14.053Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3685,7 +3679,6 @@
         "dans-100-eisberg-ag-dallikon"
       ],
       "firstSeenAt": "2026-04-13T21:51:20.728Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4754,7 +4747,6 @@
         "mitarbeiter-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-26T23:03:17.579Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5332,7 +5324,6 @@
         "sprachcoach-deutsch-franzoesisch-e-englisch-bell-schweiz-ag-oensingen"
       ],
       "firstSeenAt": "2026-04-13T10:42:51.182Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5894,7 +5885,6 @@
         "technologie-du-personnel-et-gestion-du-materiel-geiser-ag-schlieren"
       ],
       "firstSeenAt": "2026-05-22T11:51:42.428Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7079,15 +7069,15 @@
       "titleByLocale": {
         "de": "Mitarbeiter Mitarbeiterin Leitstand Neubau Oensingen",
         "it": "Collaboratore/trice Mitarbeiterin Leitstand Neubau Oensingen",
-        "en": "Mitarbeiter Mitarbeiterin Leitstand Neubau Oensingen",
-        "fr": "Mitarbeiter Mitarbeiterin Leitstand Neubau Oensingen"
+        "en": "Employee Staff member Leitstand Neubau Oensingen",
+        "fr": "Employé Membre du personnel Leitstand Neubau Oensingen"
       },
       "description": "Bist du bereit für eine spannende Aufgabe in einer neuen, modernen Logistikumgebung? Wir suchen dich für unseren Neubau in Oensingen, wo du die Verantwortung für den betrieblichen Leitstand übernimmst und den reibungslosen Ablauf der Prozesse sicherstellst Aufgaben:\n• Steuerung und Überwachung der Anlage sowie frühzeitiges Erkennen und Beheben von Störungen\n• Routing und Auslösen von Aufträgen, Priorisierung der Fehlerbehebung\n• Koordination und Anleitung des Teams im betrieblichen Leitstand\n• Erstellung von Reports und kontinuierliche Optimierung der Systemprozesse\n• Enge Zusammenarbeit mit den technischen Teams sowie der Produktions- und Kapazitätsplanung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene Ausbildung in Produktion oder Logistik\n• Erfahrung im Leitstand sowie Kenntnisse in SAP\n• Führungserfahrung und Entscheidungsstärke\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse\n• Bereitschaft zur Nachtschicht",
       "descriptionByLocale": {
-        "de": "Bist du bereit für eine spannende Aufgabe in einer neuen, modernen Logistikumgebung? Wir suchen dich für unseren Neubau in Oensingen, wo du die Verantwortung für den betrieblichen Leitstand übernimmst und den reibungslosen Ablauf der Prozesse sicherstellst Aufgaben:\n• Steuerung und Überwachung der Anlage sowie frühzeitiges Erkennen und Beheben von Störungen\n• Routing und Auslösen von Aufträgen, Priorisierung der Fehlerbehebung\n• Koordination und Anleitung des Teams im betrieblichen Leitstand\n• Erstellung von Reports und kontinuierliche Optimierung der Systemprozesse\n• Enge Zusammenarbeit mit den technischen Teams sowie der Produktions- und Kapazitätsplanung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene Ausbildung in Produktion oder Logistik\n• Erfahrung im Leitstand sowie Kenntnisse in SAP\n• Führungserfahrung und Entscheidungsstärke\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse\n• Bereitschaft zur Nachtschicht",
-        "it": "Bist du bereit für eine spannende Aufgabe in einer neuen, modernen Logistikumgebung? Wir suchen dich für unseren Neubau in Oensingen, wo du die Verantwortung für den betrieblichen Leitstand übernimmst und den reibungslosen Ablauf der Prozesse sicherstellst Aufgaben:\n• Steuerung und Überwachung der Anlage sowie frühzeitiges Erkennen und Beheben von Störungen\n• Routing und Auslösen von Aufträgen, Priorisierung der Fehlerbehebung\n• Koordination und Anleitung des Teams im betrieblichen Leitstand\n• Erstellung von Reports und kontinuierliche Optimierung der Systemprozesse\n• Enge Zusammenarbeit mit den technischen Teams sowie der Produktions- und Kapazitätsplanung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene Ausbildung in Produktion oder Logistik\n• Erfahrung im Leitstand sowie Kenntnisse in SAP\n• Führungserfahrung und Entscheidungsstärke\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse\n• Bereitschaft zur Nachtschicht",
-        "en": "Bist du bereit für eine spannende Aufgabe in einer neuen, modernen Logistikumgebung? Wir suchen dich für unseren Neubau in Oensingen, wo du die Verantwortung für den betrieblichen Leitstand übernimmst und den reibungslosen Ablauf der Prozesse sicherstellst Aufgaben:\n• Steuerung und Überwachung der Anlage sowie frühzeitiges Erkennen und Beheben von Störungen\n• Routing und Auslösen von Aufträgen, Priorisierung der Fehlerbehebung\n• Koordination und Anleitung des Teams im betrieblichen Leitstand\n• Erstellung von Reports und kontinuierliche Optimierung der Systemprozesse\n• Enge Zusammenarbeit mit den technischen Teams sowie der Produktions- und Kapazitätsplanung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene Ausbildung in Produktion oder Logistik\n• Erfahrung im Leitstand sowie Kenntnisse in SAP\n• Führungserfahrung und Entscheidungsstärke\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse\n• Bereitschaft zur Nachtschicht",
-        "fr": "Bist du bereit für eine spannende Aufgabe in einer neuen, modernen Logistikumgebung? Wir suchen dich für unseren Neubau in Oensingen, wo du die Verantwortung für den betrieblichen Leitstand übernimmst und den reibungslosen Ablauf der Prozesse sicherstellst Aufgaben:\n• Steuerung und Überwachung der Anlage sowie frühzeitiges Erkennen und Beheben von Störungen\n• Routing und Auslösen von Aufträgen, Priorisierung der Fehlerbehebung\n• Koordination und Anleitung des Teams im betrieblichen Leitstand\n• Erstellung von Reports und kontinuierliche Optimierung der Systemprozesse\n• Enge Zusammenarbeit mit den technischen Teams sowie der Produktions- und Kapazitätsplanung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene Ausbildung in Produktion oder Logistik\n• Erfahrung im Leitstand sowie Kenntnisse in SAP\n• Führungserfahrung und Entscheidungsstärke\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse\n• Bereitschaft zur Nachtschicht"
+        "de": "## Mansioni\n- Gestione e supervisione dell'impianto, con il riconoscimento precoce e la risoluzione delle anomalie\n- Routing e attivazione degli ordini, priorità nella risoluzione dei problemi\n- Coordinamento e guida del team nel centro di controllo operativo\n- Creazione di report e ottimizzazione continua dei processi del sistema\n- Collaborazione stretta con i team tecnici, nonché con la pianificazione della produzione e della capacità\n- Supporto nell'implementazione di nuovi strumenti e processi\n\n## Requisiti\n- Formazione completata in produzione o logistica\n- Esperienza nel centro di controllo operativo e conoscenze in SAP\n- Capacità di leadership e presa di decisioni\n- Buona padronanza di MS Office e ottime conoscenze della lingua tedesca\n- Disponibilità a lavorare su turni notturni\n\n## Cosa offriamo\n- Un ambiente di lavoro moderno e stimolante\n- Un nuovo edificio in costruzione a Oensingen\n- Opportunità di crescita professionale e sviluppo personale\n- Un team dinamico e collaborativo\n- Un contratto a tempo indeterminato\n\n## Contatto\nPer candidarsi, invia il tuo curriculum e una lettera di presentazione a [email protected]",
+        "it": "Mansioni\n- Gestione e supervisione dell'impianto, con il riconoscimento precoce e la risoluzione delle anomalie\n- Routing e attivazione degli ordini, priorità nella risoluzione dei problemi\n- Coordinamento e guida del team nel centro di controllo operativo\n- Creazione di report e accettazione continua dei processi del sistema\n- Collaborazione stretta con i team tecnici, nonché con la pianificazione della produzione e della capacità\n- Supporto nell'implementazione di nuovi strumenti e processi\n\nRequisiti\nFormazione completata in produzione o logistica\nEsperienza nel centro di controllo operativo e conoscenze in SAP\nCapacità di leadership e presa di decisione\n— Buona padronanza di MS Office e conoscenze conoscenze della lingua tedesca\n— Disponibilità a lavorare su turni notturni\n\nCosa di Friamo\n- Un ambiente di lavoro moderno e stimolante\n- Un nuovo edificio in costruzione a Oensingen\n- Opportunità di crescita professionale e sviluppo personale\n- Un team dinamico e collaborativo\n- Un contratto a tempo indeterminato\n\nContatto\nPer candidarsi, invia il tuo curriculum e una lettera di presentazione a [email protected]",
+        "en": "Mansioni\n- Gestione e supervisione dell'impianto, con il riconoscimento precoce e la risoluzione delle anomalie\n- Routing e attivazione degli ordini, priorità nella risoluzione dei problemi\n- Coordinamento e guida del team nel centro di controllo operativo\n- Creazione di report e ottimizzazione continua dei processi del sistema\n- Collaborazione stretta con i team tecnici, nonché con la pianificazione della produzione e della capacità\n- Supporto nell'implementazione di nuovi strumenti e processi\n\nRequirements\nFormazione completata in produzione o logistica\nEsperienza nel centro di controllo operativo e conoscenze in SAP\nCapacità di leadership e presa di decisioni\n— Buona padronanza di MS Office e ottime conoscenze della lingua tedesca\n— Disponibilità a lavorare su turni notturni\n\nCosa of Friamo\n- Un ambiente di lavoro moderno e stimolante\n- Un nuovo edificio in costruzione a Oensingen\n- Opportunità di crescita professionale e sviluppo personale\n- Un team dinamico e collaborativo\n- Un contratto a tempo indeterminato\n\nContatto\nPer candidarsi, invia il tuo curriculum e una lettera di presentazione a [email protected]",
+        "fr": "Mansioni\n- Gestione e supervisione dell'impianto, con il riconoscimento precoce e la risoluzione delle anomalie\n- Routage e attivazione degli ordini, priorità nella risoluzione dei problemi\n- Coordinamento e guida del team nel centro di controllo operativo\n- Creazione di report e ottimizzazione continue dei processi del sistema\n- Collaborazione stretta con i team tecnici, nonché con la pianificazione della produzione e della capacità\n- Supporto nell'implementazione di nuovi strumenti e processi\n\nExigences\nFormazione completata in produzione o logistica\nEsperienza nel centro di controllo operativo e conoscenze en SAP\nCapacità di leadership e presa di decisioni\n— Buona padronanza di MS Office e ottime conoscenze della lingua tedesca\n— Disponibilité a lavorare su tourni notturni\n\nCosa de Friamo\n- Un ambiente di lavoro moderno e stimolante\n- Un nuovo édificio en costruzione a Oensingen\n- Opportunità di crescita professionelle e sviluppo personale\n- Un équipe dinamico e collaboration\n- Un contrat à un tempo indéterminato\n\nContatto\nPar candidat, invia il tuo curriculum e una lettera di presentazione a [email protected]"
       },
       "requirements": [],
       "requirementsByLocale": {
@@ -7118,7 +7108,6 @@
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-oensingen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7284,7 +7273,6 @@
         "operational-technology-bell-schweiz-ag-basel"
       ],
       "firstSeenAt": "2026-05-29T12:38:10.738Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7481,15 +7469,15 @@
       "titleByLocale": {
         "de": "Mitarbeiter Mitarbeiterin Technischer Leitstand Neubau Oensingen",
         "it": "Collaboratore/trice Mitarbeiterin Technischer Leitstand Neubau Oensingen",
-        "en": "Mitarbeiter Mitarbeiterin Technischer Leitstand Neubau Oensingen",
-        "fr": "Mitarbeiter Mitarbeiterin Technischer Leitstand Neubau Oensingen"
+        "en": "Employee Employee Technical control station Neubau Oensingen",
+        "fr": "Employé Employé Station de contrôle technique Neubau Oensingen"
       },
       "description": "Zur Verstärkung unseres Teams im technischen Bereich suchen wir eine engagierte und zuverlässige Persönlichkeit als Mitarbeiter / Mitarbeiterin Technischer Leitstand. In unserem modernen Neubau erwarten dich spannende Aufgaben in einem zukunftsorientierten Arbeitsumfeld. Aufgaben:\n• Koordination und Bearbeitung technischer Störungen im Leitstand\n• Enge Zusammenarbeit mit dem betrieblichem Leitstand zur Sicherstellung eines reibungslosen Anlagenbetriebs\n• Weitergabe und Präzisierung von Störungsmeldungen an Techniker zu schneller Behebung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene technische Berufsausbildung oder vergleichbare Qualifikation\n• Erfahrung im Umgang mit Visualisierungssystemen, idealerweise in der Logistikbranche\n• Flexibilität bezüglich 3-Schichtarbeit\n• Kommunikationsstärke und Teamfähigkeit\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse",
       "descriptionByLocale": {
-        "de": "Zur Verstärkung unseres Teams im technischen Bereich suchen wir eine engagierte und zuverlässige Persönlichkeit als Mitarbeiter / Mitarbeiterin Technischer Leitstand. In unserem modernen Neubau erwarten dich spannende Aufgaben in einem zukunftsorientierten Arbeitsumfeld. Aufgaben:\n• Koordination und Bearbeitung technischer Störungen im Leitstand\n• Enge Zusammenarbeit mit dem betrieblichem Leitstand zur Sicherstellung eines reibungslosen Anlagenbetriebs\n• Weitergabe und Präzisierung von Störungsmeldungen an Techniker zu schneller Behebung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene technische Berufsausbildung oder vergleichbare Qualifikation\n• Erfahrung im Umgang mit Visualisierungssystemen, idealerweise in der Logistikbranche\n• Flexibilität bezüglich 3-Schichtarbeit\n• Kommunikationsstärke und Teamfähigkeit\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse",
-        "it": "Zur Verstärkung unseres Teams im technischen Bereich suchen wir eine engagierte und zuverlässige Persönlichkeit als Mitarbeiter / Mitarbeiterin Technischer Leitstand. In unserem modernen Neubau erwarten dich spannende Aufgaben in einem zukunftsorientierten Arbeitsumfeld. Aufgaben:\n• Koordination und Bearbeitung technischer Störungen im Leitstand\n• Enge Zusammenarbeit mit dem betrieblichem Leitstand zur Sicherstellung eines reibungslosen Anlagenbetriebs\n• Weitergabe und Präzisierung von Störungsmeldungen an Techniker zu schneller Behebung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene technische Berufsausbildung oder vergleichbare Qualifikation\n• Erfahrung im Umgang mit Visualisierungssystemen, idealerweise in der Logistikbranche\n• Flexibilität bezüglich 3-Schichtarbeit\n• Kommunikationsstärke und Teamfähigkeit\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse",
-        "en": "Zur Verstärkung unseres Teams im technischen Bereich suchen wir eine engagierte und zuverlässige Persönlichkeit als Mitarbeiter / Mitarbeiterin Technischer Leitstand. In unserem modernen Neubau erwarten dich spannende Aufgaben in einem zukunftsorientierten Arbeitsumfeld. Aufgaben:\n• Koordination und Bearbeitung technischer Störungen im Leitstand\n• Enge Zusammenarbeit mit dem betrieblichem Leitstand zur Sicherstellung eines reibungslosen Anlagenbetriebs\n• Weitergabe und Präzisierung von Störungsmeldungen an Techniker zu schneller Behebung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene technische Berufsausbildung oder vergleichbare Qualifikation\n• Erfahrung im Umgang mit Visualisierungssystemen, idealerweise in der Logistikbranche\n• Flexibilität bezüglich 3-Schichtarbeit\n• Kommunikationsstärke und Teamfähigkeit\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse",
-        "fr": "Zur Verstärkung unseres Teams im technischen Bereich suchen wir eine engagierte und zuverlässige Persönlichkeit als Mitarbeiter / Mitarbeiterin Technischer Leitstand. In unserem modernen Neubau erwarten dich spannende Aufgaben in einem zukunftsorientierten Arbeitsumfeld. Aufgaben:\n• Koordination und Bearbeitung technischer Störungen im Leitstand\n• Enge Zusammenarbeit mit dem betrieblichem Leitstand zur Sicherstellung eines reibungslosen Anlagenbetriebs\n• Weitergabe und Präzisierung von Störungsmeldungen an Techniker zu schneller Behebung\n• Unterstützung bei der Implementierung neuer Tools und Prozesse Anforderungen:\n• Abgeschlossene technische Berufsausbildung oder vergleichbare Qualifikation\n• Erfahrung im Umgang mit Visualisierungssystemen, idealerweise in der Logistikbranche\n• Flexibilität bezüglich 3-Schichtarbeit\n• Kommunikationsstärke und Teamfähigkeit\n• Sicherer Umgang mit MS Office und sehr gute Deutschkenntnisse"
+        "de": "## Mansioni\n- Coordinamento e gestione delle interruzioni tecniche nel centro di controllo\n- Collaborazione stretta con il centro di controllo operativo per garantire un funzionamento ottimale delle apparecchiature\n- Trasmissione e precisazione delle segnalazioni di interruzione ai tecnici per una rapida risoluzione\n- Supporto nell'implementazione di nuovi strumenti e processi\n\n## Requisiti\n- Qualifica professionale tecnica o equivalente\n- Esperienza nella gestione di sistemi di visualizzazione, preferibilmente nel settore logistico\n- Disponibilità a lavorare su turni in tre turni\n- Forte capacità comunicativa e lavoro di squadra\n- Buona padronanza di MS Office e ottima conoscenza della lingua tedesca\n\n## Cosa offriamo\n- Un ambiente di lavoro moderno e dinamico\n- Opportunità di crescita professionale in un contesto orientato al futuro\n- Un team motivato e dedicato\n- Un contratto a tempo indeterminato\n\n## Contatto\nPer candidarsi, invia il tuo curriculum e una lettera di presentazione a [indirizzo email].",
+        "it": "Mansioni\n- Coordinamento e gestione delle interruzioni tecniche nel centro di controllo\n- Collaborazione stretta con il centro di controllo operativo per garantire un funzionamento ottimale delle apparecchiature\n- Trasmissione e precisazione delle segnalazioni di interruzione ai tecnici per una rapida risoluzione\n- Supporto nell'implementazione di nuovi strumenti e processi\n\nRequisiti\nQualifica professionale tecnica o equivalente\n- Esperienza nella gestione di sistemi di visualizzazione, preferibilmente nel settore logistico\n— Disponibilità a lavorare su turni a tre turni\nForte capacità comunicativa e lavoro di squadra\n— Buona padronanza di MS Office e ottima conoscenza della lingua tedesca\n\nCosa di Friamo\n- Un ambiente di lavoro moderno e dinamico\nOpportunità di crescita professionale in un contesto orientaleto al futuro\n- Un team motivato e dedicato\n- Un contratto a tempo indeterminato\n\nContatto\nPer candidarsi, invia il tuo curriculum e una lettera di presentazione a [indirizzo email].",
+        "en": "Mansioni\n- Coordinamento e gestione delle interruzioni tecniche nel centro di controllo\n- Collaborazione stretta con il centro di controllo operativo per garantire un funzionamento ottimale delle apparecchiature\n- Trasmissione e precisazione delle segnalazioni di interruzione ai tecnici per una rapida risoluzione\n- Supporto nell'implementazione di nuovi strumenti e processi\n\nRequirements\nQualifica professionale tecnica o equivalente\n- Esperienza nella gestione di sistemi di visualizzazione, preferibilmente nel settore logistico\n— Disponibilità a lavorare su turni in tre turni\nForte capacità comunicativa e lavoro di squadra\n— Buona padronanza di MS Office e ottima conoscenza della lingua tedesca\n\nCosa of Friamo\n- Un ambiente di lavoro moderno e dinamico\nOpportunità di crescita professionale in un contesto orientato al futuro\n- Un team motivato e dedicato\n- Un contratto a tempo indeterminato\n\nContatto\nPer candidarsi, invia il tuo curriculum e una lettera di presentazione a [indirizzo email].",
+        "fr": "Mansioni\n- Coordinamento e gestione delle interruzioni tecniche nel centro di controllo\n- Collaborazione stretta con il centro di controllo operativo per garantie un funzionamento ottimale delle apparecchiature\n- Trasmissione e precisazione delle segnalazioni di interruzione ai tecnici per una rapida risoluzione\n- Supporto nell'implementazione di nuovi strumenti e processi\n\nExigences\nQualifica professionale tecnica o équivalente\n- Esperienza nella gestione di sistemi di visualizzazione, preferibilemente nel setore logistico\n— Disponibilité a lavorare su tourni in tre tourni\nForte capacità comunicativa e lavoro di squadra\n— Buona padronanza di MS Office e ottima conoscenza della lingua tedesca\n\nCosa de Friamo\n- Un ambiente di lavoro moderno e dinamico\nOpportunità di crescita professionale in un contesto orientalato al futuro\n- Une équipe motivato e dedicato\n- Un contrat à un tempo indéterminato\n\nContatto\nPar candidat, invia il tuo curriculum e una lettera di presentazione a [indirizzo email]."
       },
       "requirements": [],
       "requirementsByLocale": {
@@ -7509,7 +7497,6 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-06-12T12:15:23.520Z",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-technischer-leitstand-neubau-oensingen-hilcona-oensingen"
@@ -7598,7 +7585,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:42:40.250Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8445,7 +8431,6 @@
         "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.638Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -8524,7 +8509,6 @@
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.371Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
