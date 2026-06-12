@@ -140,6 +140,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.title': 'Pension frontalière 2026 : AVS/INPS et totalisation',
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.excerpt': 'La pension frontalière 2026 prévoit une coordination entre AVS et INPS. Il est essentiel de planifier la pension sans exemples personnels non vérifiés.',
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.imageAlt': 'Scène de la Suisse nationale/ cantonale territoriale pertinente au sujet. Réalistique, DSLR, pas comme un IA',
+    'blog.article.smartworking-frontaliere-s-definitivo.title': 'Smartworking pour frontaliers : limites et ristorni validés',
+    'blog.article.smartworking-frontaliere-s-definitivo.excerpt': 'Le Parlement suisse a définitivement adopté les nouvelles règles concernant le télétravail pour les travailleurs frontaliers, avec des limites et des ristorni de plus de 40 millions de francs.',
+    'blog.article.smartworking-frontaliere-s-definitivo.imageAlt': 'Scène suisse avec frontalier travaillant à domicile',
 };
 
 export default blogMetaChFr;

@@ -140,6 +140,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.title': 'Grenzpension 2026: AVS/INPS-Koordination',
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.excerpt': 'Die Grenzgängerbewilligung 2026 sieht eine Koordination zwischen AVS und INPS vor. Es ist wichtig, die Pension ohne unverifizierte Beispiele zu planen.',
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.imageAlt': 'Scene aus der Schweizerischen nationalen/cantonalen Territorialität relevant für das Thema. Realistisch, DSLR, nicht wie ein AI',
+    'blog.article.smartworking-frontaliere-s-definitivo.title': 'Smartworking für Grenzgänger: Limits und Rückerstattungen',
+    'blog.article.smartworking-frontaliere-s-definitivo.excerpt': 'Das Schweizer Parlament hat die neuen Regeln zum Smartworking für Grenzgänger definitiv verabschiedet, inklusive Limits und Rückerstattungen von über 40 Millionen Franken.',
+    'blog.article.smartworking-frontaliere-s-definitivo.imageAlt': 'Schweizerische Szene mit Grenzgängern, die von zu Hause aus arbeiten',
 };
 
 export default blogMetaChDe;
