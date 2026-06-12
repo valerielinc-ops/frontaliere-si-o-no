@@ -137,6 +137,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parlamento-avs-protezione-adozione.title': 'Parlement approuve AVS et protections pour mères adoptives',
     'blog.article.parlamento-avs-protezione-adozione.excerpt': 'Le Conseil des États a approuvé le financement mixte de la 13e AVS, tandis que le Conseil national a introduit des protections pour les mères adoptives et une seconde chance pour les surendettés.',
     'blog.article.parlamento-avs-protezione-adozione.imageAlt': 'Parlement fédéral suisse à Berne avec symboles numériques de santé',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.title': 'Pension frontalière 2026 : AVS/INPS et totalisation',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.excerpt': 'La pension frontalière 2026 prévoit une coordination entre AVS et INPS. Il est essentiel de planifier la pension sans exemples personnels non vérifiés.',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.imageAlt': 'Scène de la Suisse nationale/ cantonale territoriale pertinente au sujet. Réalistique, DSLR, pas comme un IA',
 };
 
 export default blogMetaChFr;

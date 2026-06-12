@@ -137,6 +137,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-avs-protezione-adozione.title': 'Parlament genehmigt AHV-Finanzierung, Schutz für Adoptivmütter',
     'blog.article.parlamento-avs-protezione-adozione.excerpt': 'Der Ständerat hat die gemischte Finanzierung der 13. AHV genehmigt, während der Nationalrat Schutzmaßnahmen für Adoptivmütter eingeführt und eine zweite Chance für Überschuldeten geschaffen hat.',
     'blog.article.parlamento-avs-protezione-adozione.imageAlt': 'Bundesparlament in Bern mit digitalen Gesundheitssymbolen',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.title': 'Grenzpension 2026: AVS/INPS-Koordination',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.excerpt': 'Die Grenzgängerbewilligung 2026 sieht eine Koordination zwischen AVS und INPS vor. Es ist wichtig, die Pension ohne unverifizierte Beispiele zu planen.',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.imageAlt': 'Scene aus der Schweizerischen nationalen/cantonalen Territorialität relevant für das Thema. Realistisch, DSLR, nicht wie ein AI',
 };
 
 export default blogMetaChDe;

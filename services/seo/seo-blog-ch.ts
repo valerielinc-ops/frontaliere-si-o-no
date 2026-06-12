@@ -1697,6 +1697,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensione-avs-inps-2026-famiglia-con-figli': {
+    title: 'Pensione frontaliere 2026: coordinamento AVS/INPS e totalizzazione senza esempi personali',
+    description: 'La pensione frontaliere 2026 prevede un coordinamento tra AVS e INPS. Scopri come funziona e come pianificare la tua pensione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, coordinamento, inps, totalizzazione',
+    ogTitle: 'Pensione frontaliere 2026: come funziona il coordinamento AVS/INPS',
+    ogDescription: 'La pensione frontaliere 2026 prevede un coordinamento tra AVS e INPS. Scopri come funziona e come pianificare la tua pensione.',
+    canonicalPath: '/articoli-svizzera/pensione-avs-inps-2026-famiglia-con-figli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontaliere 2026: coordinamento AVS/INPS e totalizzazione senza esempi personali",
+      "description": "La pensione frontaliere 2026 prevede un coordinamento tra AVS e INPS. Scopri come funziona e come pianificare la tua pensione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-avs-inps-2026-famiglia-con-figli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena svizzera nazionale/cantonale pertinente al tema. Fotorealistica, DSLR, non sembrare AI"
+      },
+      "datePublished": "2026-06-12T02:24:16+00:00",
+      "dateModified": "2026-06-12T02:24:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensione-avs-inps-2026-famiglia-con-figli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
