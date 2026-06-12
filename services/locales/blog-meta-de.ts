@@ -8040,6 +8040,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'G-Bewilligung beantragen 2026 Schritt für Schritt',
     'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Vollständige Anleitung zum Beantragungsverfahren der G-Bewilligung für Grenzgänger im Jahr 2026: erforderliche Dokumente, Rolle des Arbeitgebers, kantonales Amt, Fristen und Kosten.',
     'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Kantonales Amt für die Verwaltung von Grenzarbeitsgenehmigungen im Tessin',
+    'blog.article.documenti-necessari-lavoro-svizzera.title': 'Grenzgänger: Notwendige Unterlagen für den Arbeitsstart',
+    'blog.article.documenti-necessari-lavoro-svizzera.excerpt': 'Praktischer Leitfaden für Grenzgänger: Vom Arbeitsvertrag bis zur Krankenversicherung, erfahren Sie hier, was vor dem Grenzübertritt vorzubereiten ist.',
+    'blog.article.documenti-necessari-lavoro-svizzera.imageAlt': 'Erforderliche Dokumente für den Arbeitsbeginn in der Schweiz als Grenzgänger',
 };
 
 export default blogMetaDe;

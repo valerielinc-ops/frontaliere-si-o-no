@@ -8042,6 +8042,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'Permis G 2026: Demande Étape par Étape',
     'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Guide complet de la procédure de demande du permis G pour frontaliers en 2026 : documents requis, rôle de l\'employeur, office cantonal, délais et coûts.',
     'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Bureau cantonal de gestion des permis de travail transfrontaliers au Tessin',
+    'blog.article.documenti-necessari-lavoro-svizzera.title': 'Frontalier : documents nécessaires pour travailler en Suisse',
+    'blog.article.documenti-necessari-lavoro-svizzera.excerpt': 'Guide pratique de la documentation essentielle pour les frontaliers : du contrat de travail à l\'assurance maladie, voici ce qu\'il faut préparer avant de franchir la frontière.',
+    'blog.article.documenti-necessari-lavoro-svizzera.imageAlt': 'Documents requis pour commencer à travailler en Suisse en tant que frontalier',
 };
 
 export default blogMetaFr;

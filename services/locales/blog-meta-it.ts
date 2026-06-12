@@ -8042,6 +8042,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'Richiesta Permesso G Step by Step 2026',
     'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Guida completa alla procedura di richiesta del Permesso G per frontalieri nel 2026: documenti necessari, ruolo del datore di lavoro, ufficio cantonale, tempi e costi.',
     'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Ufficio cantonale per la gestione dei permessi di lavoro per frontalieri in Ticino',
+    'blog.article.documenti-necessari-lavoro-svizzera.title': 'Frontaliere: documenti necessari inizio lavoro in Svizzera',
+    'blog.article.documenti-necessari-lavoro-svizzera.excerpt': 'Guida pratica alla documentazione essenziale per i frontalieri: dal contratto di lavoro all\'assicurazione malattia, ecco cosa preparare prima di varcare il confine.',
+    'blog.article.documenti-necessari-lavoro-svizzera.imageAlt': 'Documenti necessari per iniziare a lavorare in Svizzera come frontaliere',
 };
 
 export default blogMetaIt;
