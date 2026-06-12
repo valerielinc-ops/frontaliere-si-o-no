@@ -94,7 +94,12 @@ jobs:
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
             echo "model=claude-opus-4-8" >> "$GITHUB_OUTPUT"
-            echo "max_turns=40" >> "$GITHUB_OUTPUT"
+            # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
+            # num_turns=41 (es. run 27386343034) = run opus intera bruciata,
+            # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
+            # anti-runaway, non come budget di lavoro: tenerlo sopra il p99
+            # osservato dei run sani.
+            echo "max_turns=50" >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
