@@ -33,6 +33,7 @@ import {
   renderCantonSeoProse,
   type CantonSeoSlot,
 } from './cantonSeoProse';
+import { CALC_HREF } from './localeCalcHref';
 
 export type CommuterLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -199,12 +200,7 @@ const COPY: Record<CommuterLocale, CommuterCopy> = {
 // of duplicating the table. Previously pointed at the locale homepage ('/'),
 // which made the "calcolatore stipendio netto frontaliere" cross-link land
 // on the homepage instead of the calculator.
-export const CALC_HREF: Record<CommuterLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
+export { CALC_HREF } from './localeCalcHref';
 const FX_HREF: Record<CommuterLocale, string> = {
   it: '/comparatori/cambio-valuta/',
   en: '/en/comparators/currency-exchange/',

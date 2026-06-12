@@ -49,7 +49,7 @@
  *    page's FAQPage JSON-LD (avoiding GSC "duplicate FAQPage" warnings).
  */
 
-import { CALC_HREF } from './jobBoardCommuterContext';
+import { CALC_HREF } from './localeCalcHref';
 
 export type CantonSeoLocale = 'it' | 'en' | 'de' | 'fr';
 
