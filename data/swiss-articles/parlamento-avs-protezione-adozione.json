@@ -1,0 +1,18 @@
+{
+  "id": "parlamento-avs-protezione-adozione",
+  "slug": "parlamento-avs-protezione-adozione",
+  "publishedAt": "2026-06-12T01:50:32.524Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "pensioni",
+    "score": 0.525,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1
+  }
+}

@@ -134,6 +134,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.title': 'Schweizer Flughäfen',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.excerpt': 'Die drei wichtigsten Schweizer Flughäfen haben im Winterhalbjahr 2025/26 mehr Passagiere und Fracht bewegt.',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.imageAlt': 'Flughafen Zürich',
+    'blog.article.parlamento-avs-protezione-adozione.title': 'Parlament genehmigt AHV-Finanzierung, Schutz für Adoptivmütter',
+    'blog.article.parlamento-avs-protezione-adozione.excerpt': 'Der Ständerat hat die gemischte Finanzierung der 13. AHV genehmigt, während der Nationalrat Schutzmaßnahmen für Adoptivmütter eingeführt und eine zweite Chance für Überschuldeten geschaffen hat.',
+    'blog.article.parlamento-avs-protezione-adozione.imageAlt': 'Bundesparlament in Bern mit digitalen Gesundheitssymbolen',
 };
 
 export default blogMetaChDe;

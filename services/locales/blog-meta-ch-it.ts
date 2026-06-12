@@ -134,6 +134,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.title': 'Aeroporti svizzeri: aumentano i passeggeri e il traffico merci',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.excerpt': 'I tre principali aeroporti svizzeri hanno movimentato più passeggeri e merci nel semestre invernale 2025/26.',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.imageAlt': 'Aeroporto di Zurigo',
+    'blog.article.parlamento-avs-protezione-adozione.title': 'Parlamento approva finanziamento AVS e nuove tutele per mamme adottive',
+    'blog.article.parlamento-avs-protezione-adozione.excerpt': 'Il Consiglio degli Stati ha approvato il finanziamento misto della 13ª AVS, mentre il Consiglio nazionale ha introdotto tutele per le madri adottive e una seconda chance per i sovraindebitati.',
+    'blog.article.parlamento-avs-protezione-adozione.imageAlt': 'Edificio del Parlamento federale svizzero a Berna, con simboli digitali della sanità',
 };
 
 export default blogMetaChIt;

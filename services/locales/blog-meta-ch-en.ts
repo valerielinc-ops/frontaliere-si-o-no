@@ -134,6 +134,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.title': 'Swiss Airports: Passenger and Freight Traffic on the Rise',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.excerpt': 'The three main Swiss airports have handled more passengers and freight in the winter semester 2025/26.',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.imageAlt': 'Zurich Airport',
+    'blog.article.parlamento-avs-protezione-adozione.title': 'Parliament approves AVS funding, safeguards for adoptive moms',
+    'blog.article.parlamento-avs-protezione-adozione.excerpt': 'The Council of States approved the mixed financing of the 13th AVS, while the National Council introduced safeguards for adoptive mothers and a second chance for over‑indebted borrowers.',
+    'blog.article.parlamento-avs-protezione-adozione.imageAlt': 'Swiss Federal Parliament building in Bern with digital health symbols',
 };
 
 export default blogMetaChEn;
