@@ -415,37 +415,61 @@ export default defineConfig(({ mode }) => {
  },
  rollupOptions: {
  output: {
- // STABLE entry filename (no content-hash). Every prerendered page embeds
- // <script src=".../assets/index-entry.js">. When the entry was content-hashed
- // (index-<hash>.js, Vite default) its name changed on ANY bundled-module
- // change — and Vite chunk hashes are circularly interconnected (entry→App→
- // leaf→App), so a change anywhere (a PR, but also auto-generated
- // services/locales/blog-body/*.ts and regenerated locale files) cascaded to
- // the entry hash → all ~1.28M prerendered pages re-referenced a new
- // /assets/index-<hash>.js → ~80%/deploy churn (measured). A stable name keeps
- // pages byte-identical across deploys; the entry's INTERNAL imports (hashed
- // App/chunks) still rotate, but that's 1 file, not 1.28M pages.
- // - Matches build-plugins/shared/spaBundleRx.ts (`index-<hashchars>+.js`):
- //   "entry" ∈ the hash charset, so SPA_ENTRY_JS_RX picks it up unchanged.
- // - Sub-chunks stay content-hashed (chunkFileNames default) for cache-busting.
- // - CACHE: index-entry.js bytes change per code-deploy → it must REVALIDATE,
- //   not be immutable — see public/_headers. Hashed chunks stay immutable.
- // - CDN offload (deploy.yml) cp -r's all of dist/assets, and prune-cdn-assets
- //   never prunes a file present in dist/assets → the stable entry ships + persists.
+ // STABLE filenames (no content-hash) for EVERY JS chunk and CSS sheet.
+ //
+ // History: the entry was stabilized first (index-entry.js, #1615 — Vite chunk
+ // hashes are circularly interconnected entry→App→leaf→App, so ANY bundled-module
+ // change cascaded to the entry hash → all ~1.28M prerendered pages re-referenced
+ // a new /assets/index-<hash>.js → ~80%/deploy churn, measured). Then the entry
+ // CSS (index.css, #1810 — a rotated hash 404'd from HTML still cached under the
+ // superseded name). The remaining hashed names had the SAME two costs at smaller
+ // scale and bought nothing in return:
+ // - The prerendered pages also embed <link rel="modulepreload"> for App,
+ //   i18n, it-core, it-calculator and vendor-react (staticPagesPlugin /
+ //   preloadLocalePlugin / ogPagesPlugin): one hash rotation there re-churned
+ //   every page despite the stable entry.
+ // - Cached HTML referencing a rotated hash 404s once the old file is pruned
+ //   from the CDN (grace 7d) — the #1810 outage class, still open for chunks.
+ // - The classic argument FOR hashes — far-future immutable caching — does not
+ //   exist in this serving stack: GitHub Pages ignores public/_headers and
+ //   serves EVERYTHING (hashed or not) with `cache-control: max-age=600` + ETag
+ //   (verified live 2026-06-12). Hashed names therefore only rotated URLs
+ //   (cold CDN/browser cache on every deploy) without ever being immutable.
+ // With stable names every URL persists across deploys: unchanged files
+ // revalidate to 304s, changed files re-download — and pages stay byte-identical.
+ // Worst case after a deploy is a ≤600s stale window (same as the entry today).
+ // - Chunk discovery in build plugins goes through
+ //   build-plugins/shared/chunkFiles.ts (stable name first, legacy hashed
+ //   fallback); the entry extract regexes in shared/spaBundleRx.ts match the
+ //   stable names unchanged.
+ // - CACHE: see public/_headers — /assets/* revalidates (max-age=600); nothing
+ //   may be served immutable now that names are stable.
+ // - CDN offload (deploy.yml) cp -r's all of dist/assets and the additive merge
+ //   (cp -n) never overwrites a freshly-built file → the stable names always
+ //   carry the new bytes; prune-cdn-assets GCs the legacy hashed generations.
  entryFileNames: 'assets/index-entry.js',
- // STABLE entry stylesheet (no content-hash), same rationale as the JS entry
- // above. When the CSS was content-hashed (index-<hash>.css, Vite default for
- // assets), a rotated hash 404'd from any HTML still cached referencing the
- // superseded name (old browser/CDN copy) → unstyled page. Pinning it to
- // assets/index.css makes the reference always resolve. ONLY the entry sheet
- // is stabilized; every other asset keeps [hash] for cache-busting.
- // - Matches build-plugins/shared/spaBundleRx.ts SPA_ENTRY_CSS_RX (hash now
- //   optional) → resolver/seoPageShell pick up `index.css` unchanged.
- // - CACHE: index.css bytes change on real style changes → it must REVALIDATE,
- //   not be served immutable — see public/_headers (mirrors index-entry.js).
+ chunkFileNames: (chunk) => {
+ // Per-article blog-body modules share their basename across the 4 locale
+ // dirs (services/locales/{blog-body,blog-body-ch}/<locale>/<slug>.ts —
+ // BOTH families, Ticino and the Svizzera section). Without a qualifier
+ // Rollup dedups the colliding output names by appending a counter
+ // (slug2.js = en, slug3.js = fr, …) whose locale mapping is pure
+ // iteration order — semantically unkeyed under stable-name caching (a
+ // cached slug2.js could mean a different locale after a reorder). Key
+ // them by locale instead: <slug>.<locale>.js / <slug>.ch.<locale>.js
+ // (dot separator: can't be confused with a real slug suffix nor with the
+ // legacy `-<hash8>` shape the CDN janitor prunes).
+ const m = (chunk.facadeModuleId ?? '').match(/[\\/]services[\\/]locales[\\/]blog-body(-ch)?[\\/]([a-z]{2})[\\/]/);
+ if (m) return `assets/[name].${m[1] ? 'ch.' : ''}${m[2]}.js`;
+ return 'assets/[name].js';
+ },
  assetFileNames: (assetInfo) => {
  const n = assetInfo.name || (assetInfo.names && assetInfo.names[0]) || '';
- if (n === 'index.css') return 'assets/index.css';
+ // All stylesheets get stable names (entry index.css + per-chunk CSS).
+ // Non-CSS bundler assets (images/fonts imported from JS) keep the hash:
+ // their basenames can collide across source dirs and nothing in the
+ // prerendered HTML references them, so rotation is free there.
+ if (n.endsWith('.css')) return 'assets/[name][extname]';
  return 'assets/[name]-[hash][extname]';
  },
  manualChunks(id) {
