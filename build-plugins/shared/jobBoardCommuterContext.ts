@@ -29,6 +29,7 @@
  *  - Cross-references to calculator / FX / health-insurance comparator
  */
 
+import { CALC_HREF } from './calculatorHref';
 import {
   renderCantonSeoProse,
   type CantonSeoSlot,
@@ -193,18 +194,10 @@ const COPY: Record<CommuterLocale, CommuterCopy> = {
   },
 };
 
-// Per-locale net-salary calculator landing. Same paths as CALCULATOR_URL in
-// professionLandingsPlugin.ts — exported so host plugins (e.g. the
-// care-variant CTA in jobsSeoPagesPlugin) reuse one source of truth instead
-// of duplicating the table. Previously pointed at the locale homepage ('/'),
-// which made the "calcolatore stipendio netto frontaliere" cross-link land
-// on the homepage instead of the calculator.
-export const CALC_HREF: Record<CommuterLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
+// Calculator paths live in the leaf module calculatorHref.ts (this module
+// imports cantonSeoProse, so hosting the table here created an ESM cycle —
+// see calculatorHref.ts header). Re-exported for existing consumers.
+export { CALC_HREF } from './calculatorHref';
 const FX_HREF: Record<CommuterLocale, string> = {
   it: '/comparatori/cambio-valuta/',
   en: '/en/comparators/currency-exchange/',
