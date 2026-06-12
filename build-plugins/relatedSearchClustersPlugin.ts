@@ -1794,7 +1794,9 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
  * Inject a link to the per-locale hub into the existing job-board section
  * landing (emitted by `jobsSeoPagesPlugin`). Keeps the hub at BFS depth
  * ≤4 from `/`. If the section landing is missing (jobs plugin skipped),
- * we log a warning and skip — never fail.
+ * we log a warning and skip — never fail on a missing/unwritable file.
+ * The ONE hard failure is the page-weight guard at the end: an oversized
+ * landing must fail the build here rather than the post-deploy audit.
  */
 function injectHubLinkIntoSectionLanding(
   distDir: string,
@@ -1865,6 +1867,27 @@ function injectHubLinkIntoSectionLanding(
     fs.writeFileSync(sectionPath, patched, 'utf-8');
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write section landing:', err);
+  }
+
+  // Build-time page-weight guard. This injection is the last known mutator
+  // of the job-board landing, the only repeat offender of the post-deploy
+  // audit:page-weight gate (215 KB; broke at 200 KB on run 26112128794,
+  // again at 215 KB on run 27386112992 → issue #1887). Failing HERE turns
+  // "deploy → validate-dist red → rollback → prod frozen on a stale build"
+  // into a build-job failure that never reaches deploy and names the page.
+  // 205 KB (10 KB under the audit budget) so the build fails before the
+  // audit ever can. Do NOT raise either limit to pass a build — trim the
+  // data-driven blocks instead (see .jbx-* in seo-static.css for the
+  // 119 KB inline-style precedent).
+  const JOB_BOARD_LANDING_GUARD_BYTES = 205 * 1024;
+  const patchedBytes = Buffer.byteLength(patched, 'utf-8');
+  if (patchedBytes > JOB_BOARD_LANDING_GUARD_BYTES) {
+    throw new Error(
+      `[related-search-clusters] job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
+      `over the ${JOB_BOARD_LANDING_GUARD_BYTES} B build-time guard (audit:page-weight budget is 215 KB). ` +
+      `A data-driven block on this landing grew past its headroom — trim the offending block ` +
+      `(do not raise this guard or the audit budget; non-negotiable #1).`,
+    );
   }
 }
 
