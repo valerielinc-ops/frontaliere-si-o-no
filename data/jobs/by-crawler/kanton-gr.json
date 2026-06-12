@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-06-12T12:22:39.738Z",
+  "assembledAt": "2026-06-12T22:37:42.061Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:31.082Z",
+      "crawledAt": "2026-06-12T22:37:31.684Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:30.405Z",
+      "crawledAt": "2026-06-12T22:37:31.068Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -200,6 +201,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -245,7 +247,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:29.726Z",
+      "crawledAt": "2026-06-12T22:37:30.453Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -306,6 +308,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -351,7 +354,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:29.048Z",
+      "crawledAt": "2026-06-12T22:37:29.818Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -412,6 +415,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -428,36 +432,36 @@
     },
     {
       "id": "kanton-gr-5ac21b098df3",
-      "slug": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
+      "slug": "membro-del-consiglio-della-banca-di-grigioni-kantonalbank-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
+        "it": "membro-del-consiglio-della-banca-di-grigioni-kantonalbank-kantonale-verwaltung-graubunden-chur",
+        "en": "member-of-the-bank-council-of-graubundner-kantonalbank-kantonale-verwaltung-graubunden-chur",
         "de": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
-        "it": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
-        "en": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
-        "fr": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch"
+        "fr": "membre-du-conseil-de-banque-de-graubundner-kantonalbank-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
       "companyDomain": "gr.ch",
       "title": "Mitglied des Bankrats der Graubündner Kantonalbank",
       "titleByLocale": {
-        "de": "Mitglied des Bankrats der Graubündner Kantonalbank",
         "it": "Membro del Consiglio della Banca di Grigioni Kantonalbank",
         "en": "Member of the Bank Council of Graubündner Kantonalbank",
+        "de": "Mitglied des Bankrats der Graubündner Kantonalbank",
         "fr": "Membre du conseil de banque de Graubündner Kantonalbank"
       },
       "description": "Die Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank\n\nAufgaben\nAls Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt. Sie übernehmen insbesondere folgende\n• Aufgaben:\n\nAnforderungen\nSie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen. Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten. Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt.",
       "descriptionByLocale": {
-        "de": "## Descrizione\nDie Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank\n\n## Mansioni\n- Als Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt.\n- Sie übernehmen insbesondere folgende Aufgaben:\n\n## Requisiti\n- Sie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen.\n- Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten.\n- Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt.\n\n## Cosa offriamo\n(Nicht im Text enthalten)\n\n## Contatto\n(Nicht im Text enthalten)",
-        "it": "Descrizione\nIl governo del Cantone dei Grigioni sta cercando 1. Aprile 2027 un membro del Consiglio Banca dei Grigioni Kantonalbank\n\nMansioni\nCome membro del Consiglio Bancario di sette membri, il più alto organo del GKB, siete responsabili della gestione strategica della banca.\n- In particolare:\n\nRequisiti\n- Hai una profonda esperienza economica e finanziaria con un focus sul banking e sull'esperienza corrispondente.\nSi prevede una vasta comprensione delle relazioni bancarie lungo la catena del valore e una conoscenza approfondita degli aspetti della gestione centrale e del rischio.\nInoltre, è necessaria l'esperienza nello sviluppo strategico delle istituzioni finanziarie e nel trattare il mercato rilevante e la dinamica competitiva.\n\nCosa di Friamo\n(Non incluso nel testo)\n\nContatto\n(Non incluso nel testo)",
-        "en": "Descrizione\nThe Government of the Canton of Graubünden is looking for 1. April 2027 a member of the Bank Council of Graubündner Kantonalbank\n\nMansioni\nAs a member of the seven-member Bank Council, the highest body of the GKB, you are responsible for the strategic management of the bank.\n- They shall in particular:\n\nRequirements\n- You have in-depth economic and financial expertise with a focus on banking and corresponding experience.\nA broad understanding of banking relationships along the value chain and in-depth knowledge of central management and risk aspects are expected.\nIn addition, experience in the strategic development of financial institutions as well as in dealing with relevant market and competitive dynamics is required.\n\nCosa of Friamo\n(Not included in the text)\n\nContatto\n(Not included in the text)",
-        "fr": "Descrizione\nLe gouvernement du canton des Grisons recherche 1. Avril 2027 membre du conseil de banque de Graubündner Kantonalbank\n\nMansioni\nEn tant que membre du conseil bancaire de sept membres, le plus haut organe de la GKB, vous êtes responsable de la gestion stratégique de la banque.\n- Ils doivent notamment:\n\nExigences\n- Vous avez une expertise économique et financière approfondie avec un accent sur la banque et l'expérience correspondante.\nOn s'attend à une vaste compréhension des relations bancaires le long de la chaîne de valeur et à une connaissance approfondie des aspects de la gestion centrale et des risques.\nEn outre, l'expérience dans le développement stratégique des institutions financières ainsi que dans le traitement des dynamiques de marché et de concurrence pertinentes est nécessaire.\n\nCosa de Friamo\n(Non inclus dans le texte)\n\nContatto\n(Non inclus dans le texte)"
+        "it": "Descrizione Il governo del Cantone dei Grigioni sta cercando 1. Aprile 2027 un membro del Consiglio Banca dei Grigioni Kantonalbank Mansioni Come membro del Consiglio Bancario di sette membri, il più alto organo del GKB, siete responsabili della gestione strategica della banca. - In particolare: \n• Requisiti - Hai una profonda esperienza economica e finanziaria con un focus sul banking e sull'esperienza corrispondente. Si prevede una vasta comprensione delle relazioni bancarie lungo la catena del valore e una conoscenza approfondita degli aspetti della gestione centrale e del rischio. Inoltre, è necessaria l'esperienza nello sviluppo strategico delle istituzioni finanziarie e nel trattare il mercato rilevante e la dinamica competitiva. Cosa di Friamo (Non incluso nel testo) Contatto (Non incluso nel testo)",
+        "en": "Descrizione The Government of the Canton of Graubünden is looking for 1. April 2027 a member of the Bank Council of Graubündner Kantonalbank Mansioni As a member of the seven-member Bank Council, the highest body of the GKB, you are responsible for the strategic management of the bank. - They shall in particular: \n• Requirements - You have in-depth economic and financial expertise with a focus on banking and corresponding experience. A broad understanding of banking relationships along the value chain and in-depth knowledge of central management and risk aspects are expected. In addition, experience in the strategic development of financial institutions as well as in dealing with relevant market and competitive dynamics is required. Cosa of Friamo (Not included in the text) Contatto (Not included in the text)",
+        "de": "Die Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank Aufgaben Als Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt. Sie übernehmen insbesondere folgende\n• Aufgaben: Anforderungen Sie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen. Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten. Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt.",
+        "fr": "Descrizione Le gouvernement du canton des Grisons recherche 1. Avril 2027 membre du conseil de banque de Graubündner Kantonalbank Mansioni En tant que membre du conseil bancaire de sept membres, le plus haut organe de la GKB, vous êtes responsable de la gestion stratégique de la banque. - Ils doivent notamment: \n• Exigences - Vous avez une expertise économique et financière approfondie avec un accent sur la banque et l'expérience correspondante. On s'attend à une vaste compréhension des relations bancaires le long de la chaîne de valeur et à une connaissance approfondie des aspects de la gestion centrale et des risques. En outre, l'expérience dans le développement stratégique des institutions financières ainsi que dans le traitement des dynamiques de marché et de concurrence pertinentes est nécessaire. Cosa de Friamo (Non inclus dans le texte) Contatto (Non inclus dans le texte)"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2727/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:28.368Z",
+      "crawledAt": "2026-06-12T22:37:29.203Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -472,14 +476,27 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://apply.refline.ch/514915/2727/pub/3/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Graubündner Kantonalbank",
       "applicationDeadline": "2026-07-10",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "firstSeenAt": "2026-06-12T12:22:28.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch"
+        ],
+        "en": [
+          "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch"
+        ],
+        "fr": [
+          "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -492,8 +509,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-12T12:22:28.368Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-7dd1d820f95f",
@@ -521,14 +537,14 @@
         "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Mittelbünden ist zuständig für 25 Gemeinden mit einem Einzugsgebiet von 23 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung Wir suchen für den Standort Thusis per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in . Die Stelle ist aktuell bis 28. Februar 2027 befristet. Es besteht voraussichtlich die Option auf Verlängerung der Anstellung. Aufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten Anforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und Sozialversicherungsbereich\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n• Idealerweise gute Fremdsprachenkenntnisse\n• Selbstständiges und lösungsorientiertes Arbeiten",
         "fr": "L'Office cantonal d'aide sociale assure pour le compte des communes une aide personnelle en matière sociale et en toxicomanie et accompagne les personnes dans l'accès à l'aide sociale économique. Elle gère également huit services sociaux régionaux dans les régions du canton. Le service social régional de Mittelbünden est responsable de 25 communes avec une zone de desserte de 23 000 personnes. Conseils sociaux, aide en addiction et soutien financier Nous recherchons une assistante sociale pour le site de Ainsiis à partir du 1er août 2026 ou sur rendez-vous. Le poste est actuellement limité au 28 février 2027. Il existe probablement une option pour prolonger votre emploi. Tâches\n• Conseil social axé sur les solutions et les ressources pour les individus et les familles\n• Accès aux prestations de sécurité sociale et à l'aide sociale économique\n• Conseils aux réfugiés et étrangers reconnus et temporairement admis en matière d'intégration linguistique, professionnelle et sociale\n• Collaboration avec les autorités sociales et les services spécialisés\n• Autres activités diverses, intéressantes et responsables Exigences\n• Formation complète de travailleur social BSc/FH\n• Aimer travailler avec des personnes d'origines sociales et/ou culturelles différentes\n• Compétences de conseil et connaissances spécialisées en droit de la protection sociale et dans le secteur de la sécurité sociale\n• Sociable, résilient, joueur d'équipe, bon compétences communicatives, organisationnelles et administratives\n• Idéalement bonnes compétences en langues étrangères\n• Travail indépendant et axé sur les solutions"
       },
-      "location": "Chur",
+      "location": "Thusis",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2739/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:27.695Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
+      "crawledAt": "2026-06-12T22:37:28.591Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Sociale",
@@ -607,7 +623,7 @@
       "url": "https://apply.refline.ch/514915/2721/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:27.017Z",
+      "crawledAt": "2026-06-12T22:37:27.975Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -682,7 +698,7 @@
       "url": "https://apply.refline.ch/514915/2731/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:26.337Z",
+      "crawledAt": "2026-06-12T22:37:27.359Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -756,7 +772,7 @@
       "url": "https://apply.refline.ch/514915/2734/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:25.658Z",
+      "crawledAt": "2026-06-12T22:37:26.743Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -831,7 +847,7 @@
       "url": "https://apply.refline.ch/514915/2719/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:24.979Z",
+      "crawledAt": "2026-06-12T22:37:26.127Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -912,7 +928,7 @@
       "url": "https://apply.refline.ch/514915/2735/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:24.301Z",
+      "crawledAt": "2026-06-12T22:37:25.511Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -987,7 +1003,7 @@
       "url": "https://apply.refline.ch/514915/2729/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:23.616Z",
+      "crawledAt": "2026-06-12T22:37:24.893Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1068,7 +1084,7 @@
       "url": "https://apply.refline.ch/514915/2728/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:22.938Z",
+      "crawledAt": "2026-06-12T22:37:24.279Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1146,7 +1162,7 @@
       "url": "https://apply.refline.ch/514915/2699/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:22.258Z",
+      "crawledAt": "2026-06-12T22:37:23.663Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1209,6 +1225,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1254,7 +1271,7 @@
       "url": "https://apply.refline.ch/514915/2717/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:21.582Z",
+      "crawledAt": "2026-06-12T22:37:23.047Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1332,7 +1349,7 @@
       "url": "https://apply.refline.ch/514915/2724/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:20.891Z",
+      "crawledAt": "2026-06-12T22:37:22.417Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1407,7 +1424,7 @@
       "url": "https://apply.refline.ch/514915/2725/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:20.214Z",
+      "crawledAt": "2026-06-12T22:37:21.802Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1438,6 +1455,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:53.758Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1483,7 +1501,7 @@
       "url": "https://apply.refline.ch/514915/2722/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:19.537Z",
+      "crawledAt": "2026-06-12T22:37:21.187Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1569,7 +1587,7 @@
       "url": "https://apply.refline.ch/514915/2726/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:18.860Z",
+      "crawledAt": "2026-06-12T22:37:20.571Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1605,6 +1623,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:52.468Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1650,7 +1669,7 @@
       "url": "https://apply.refline.ch/514915/2723/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:18.182Z",
+      "crawledAt": "2026-06-12T22:37:19.955Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1728,7 +1747,7 @@
       "url": "https://apply.refline.ch/514915/2720/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:17.502Z",
+      "crawledAt": "2026-06-12T22:37:19.339Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1804,7 +1823,7 @@
       "url": "https://apply.refline.ch/514915/2714/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:16.795Z",
+      "crawledAt": "2026-06-12T22:37:18.706Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1885,7 +1904,7 @@
       "url": "https://apply.refline.ch/514915/2715/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:16.117Z",
+      "crawledAt": "2026-06-12T22:37:18.091Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1915,6 +1934,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.867Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1960,7 +1980,7 @@
       "url": "https://apply.refline.ch/514915/2716/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:15.438Z",
+      "crawledAt": "2026-06-12T22:37:17.474Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2035,7 +2055,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:14.759Z",
+      "crawledAt": "2026-06-12T22:37:16.857Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2065,6 +2085,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.927Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2110,7 +2131,7 @@
       "url": "https://apply.refline.ch/514915/2712/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:14.082Z",
+      "crawledAt": "2026-06-12T22:37:16.241Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2140,6 +2161,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.260Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2161,7 +2183,7 @@
         "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2185,7 +2207,7 @@
       "url": "https://apply.refline.ch/514915/2711/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:12.726Z",
+      "crawledAt": "2026-06-12T22:37:15.007Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2207,8 +2229,7 @@
       "pensumMax": 80,
       "pensum": "50-80%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
+        "dipl-pflegefachperson-hf-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2268,7 +2289,7 @@
       "url": "https://apply.refline.ch/514915/2625/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:12.042Z",
+      "crawledAt": "2026-06-12T22:37:14.387Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2349,7 +2370,7 @@
       "url": "https://apply.refline.ch/514915/2706/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:11.360Z",
+      "crawledAt": "2026-06-12T22:37:13.770Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2389,6 +2410,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:44.680Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2434,7 +2456,7 @@
       "url": "https://apply.refline.ch/514915/2708/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:10.678Z",
+      "crawledAt": "2026-06-12T22:37:13.154Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2466,6 +2488,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:43.387Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2511,7 +2534,7 @@
       "url": "https://apply.refline.ch/514915/2704/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:09.996Z",
+      "crawledAt": "2026-06-12T22:37:12.531Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2541,84 +2564,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:42.742Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-26aa5917dc5a",
-      "slug": "chimico-a-fh-ingegnere-a-ambientale-fh-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "chimico-a-fh-ingegnere-a-ambientale-fh-kantonale-verwaltung-graubunden-chur",
-        "en": "chemist-fh-environmental-engineer-fh-kantonale-verwaltung-graubunden-chur",
-        "de": "chemiker-in-fh-umweltingenieur-in-fh-kantonale-verwaltung-graubunden-chur",
-        "fr": "chimiste-fh-ingenieur-e-en-environnement-fh-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Chemiker(in) FH / Umweltingenieur(in) FH",
-      "titleByLocale": {
-        "it": "Chemist(in) FH / Ingegnere ambientale(in) FH",
-        "en": "Chemist(in) FH / Environmental Engineer(in) FH",
-        "de": "Chemiker(in) FH / Umweltingenieur(in) FH",
-        "fr": "Chimiste(in) FH / Ingénieur en environnement(in) FH"
-      },
-      "description": "Das Amt für Natur und Umwelt (ANU) ist eine Dienststelle des Erziehungs- Kultur- und Umweltschutzdepartements. Das ANU ist zuständig für den kantonalen Vollzug des Gewässerschutz-, des Umweltschutz- und des Natur- und Heimatschutzgesetzes.\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung eine/n Chemiker(in) FH / Umweltingenieur(in) FH\n\nAufgaben\n• Überwachung des Betriebs der öffentlichen und industriellen Abwasserreinigungsanlagen (ARA) im Kanton Graubünden.\n\n• Sie werten die Betriebsdaten der ARA aus und überprüfen ob die Einleitbedingungen eingehalten werden.\n\n• Die Kontrollberichte zu den Vergleichsanalysen werten Sie aus und erstellen die Jahresrapporte für alle ARA.\n\n• Sie überprüfen die Eigenanalytik, ermitteln bei Abweichungen die Ursachen und schulen das Betriebspersonal in der Abwasseranalytik.\n\n• Sie besuchen die ARAs und setzen sich über den Betrieb in Kenntnis.\n\nAnforderungen\n• Abgeschlossenes Studium als Chemiker(in) FH oder Umweltingenieur(in) FH mit vertieften Kenntnissen und Erfahrungen in der Verfahrenstechnik und Abwasseranalytik.\n\n• Bereitschaft, die Klärwerkpersonalausbildung des VSA zu absolvieren.\n\n• Sie treten sicher auf, verfügen über Verhandlungsgeschick, arbeiten selbständig, sind kommunikativ und teamfähig. Eine gute mündliche und schriftliche Ausdrucksfähigkeit in Deutsch ist selbstverständlich, Italienisch- und Romanischkenntnisse sind von Vorteil.\n\n• Führerschein der Kategorie B.",
-      "descriptionByLocale": {
-        "it": "L'Ufficio per la Natura e l'Ambiente (ANU) è un dipartimento del Dipartimento dell'Educazione, della Cultura e della Protezione Ambientale. L'ANU è responsabile dell'attuazione cantonale del Water Protection, Environmental Protection and Nature and Homeland Protection Act. Stiamo cercando un chimico (in) FH / ingegnere ambientale (in) FH compiti entro il 1 ° gennaio 2027 o con accordo\n• Supervisione del funzionamento degli impianti di trattamento delle acque reflue pubbliche e industriali (ARA) nel cantone di Grigioni.\n• Valutano i dati operativi dell'ARA e controllano se le condizioni di iniziazione sono soddisfatte.\n• Valuta i rapporti di controllo per le analisi comparative e crea le relazioni annuali per tutte le ARA.\n• Controllano l'autoanalisi, determinano le cause delle deviazioni e addestrano il personale operativo nell'analisi delle acque reflue.\n• Visitano gli ARA e si informano dell'operazione. Requisiti\n• Studi completi come FH chimico o ingegnere ambientale FH con conoscenza approfondita e esperienza nell'ingegneria dei processi e nell'analisi delle acque reflue.\n• Volontà di completare la formazione del personale dell'impianto di depurazione VSA.\n• Essi svolgono in modo sicuro, hanno competenze di negoziazione, il lavoro indipendentemente, sono comunicativi e capaci di lavoro di squadra. Una buona capacità espressiva verbale e scritta in tedesco è una questione naturalmente, la conoscenza dell'italiano e del romancio è un vantaggio.\n• patente di guida della categoria B.",
-        "en": "The Office for Nature and Environment (ANU) is a department of the Department of Education, Culture and Environmental Protection. The ANU is responsible for the cantonal implementation of the Water Protection, Environmental Protection and Nature and Homeland Protection Act. We are looking for a chemist(in) FH / environmental engineer(in) FH tasks by 1 January 2027 or by agreement\n• Supervision of the operation of public and industrial wastewater treatment plants (ARA) in the canton of Graubünden.\n• They evaluate the operating data of the ARA and check whether the initiation conditions are met.\n• You evaluate the control reports for the comparative analyses and create the annual reports for all ARAs.\n• They check the self-analysis, determine the causes of deviations and train the operating staff in wastewater analysis.\n• They visit the ARAs and inform themselves about the operation. Requirements\n• Completed studies as a chemist FH or environmental engineer FH with in-depth knowledge and experience in process engineering and wastewater analysis.\n• Willingness to complete the VSA sewage treatment plant personnel training.\n• They perform safely, have negotiating skills, work independently, are communicative and capable of teamwork. A good verbal and written expressive ability in German is a matter of course, knowledge of Italian and Romance is an advantage.\n• Category B driving licence.",
-        "de": "Das Amt für Natur und Umwelt (ANU) ist eine Dienststelle des Erziehungs- Kultur- und Umweltschutzdepartements. Das ANU ist zuständig für den kantonalen Vollzug des Gewässerschutz-, des Umweltschutz- und des Natur- und Heimatschutzgesetzes. Wir suchen per 1. Januar 2027 oder nach Vereinbarung eine/n Chemiker(in) FH / Umweltingenieur(in) FH Aufgaben\n• Überwachung des Betriebs der öffentlichen und industriellen Abwasserreinigungsanlagen (ARA) im Kanton Graubünden.\n• Sie werten die Betriebsdaten der ARA aus und überprüfen ob die Einleitbedingungen eingehalten werden.\n• Die Kontrollberichte zu den Vergleichsanalysen werten Sie aus und erstellen die Jahresrapporte für alle ARA.\n• Sie überprüfen die Eigenanalytik, ermitteln bei Abweichungen die Ursachen und schulen das Betriebspersonal in der Abwasseranalytik.\n• Sie besuchen die ARAs und setzen sich über den Betrieb in Kenntnis. Anforderungen\n• Abgeschlossenes Studium als Chemiker(in) FH oder Umweltingenieur(in) FH mit vertieften Kenntnissen und Erfahrungen in der Verfahrenstechnik und Abwasseranalytik.\n• Bereitschaft, die Klärwerkpersonalausbildung des VSA zu absolvieren.\n• Sie treten sicher auf, verfügen über Verhandlungsgeschick, arbeiten selbständig, sind kommunikativ und teamfähig. Eine gute mündliche und schriftliche Ausdrucksfähigkeit in Deutsch ist selbstverständlich, Italienisch- und Romanischkenntnisse sind von Vorteil.\n• Führerschein der Kategorie B.",
-        "fr": "Le Bureau pour la nature et l'environnement (ANU) est un département du Département de l'éducation, de la culture et de la protection de l'environnement. L'ANU est responsable de l'application cantonale de la loi sur la protection de l'eau, de l'environnement et de la nature et de la protection des terres. Nous sommes à la recherche d'un chimiste(in) FH / ingénieur environnemental(in) FH tâches avant le 1er janvier 2027 ou par accord\n• Surveillance de l'exploitation des stations de traitement des eaux usées publiques et industrielles (ARA) dans le canton des Grisons.\n• Ils évaluent les données opérationnelles de l'ARA et vérifient si les conditions d'initiation sont remplies.\n• Vous évaluez les rapports de contrôle pour les analyses comparatives et créez les rapports annuels pour tous les ARA.\n• Ils vérifient l'auto-analyse, déterminent les causes des écarts et forment le personnel d'exploitation à l'analyse des eaux usées.\n• Ils visitent les ARA et s'informent de l'opération. Exigences\n• Études terminées en tant que chimiste FH ou ingénieur en environnement FH avec une connaissance approfondie et une expérience en ingénierie des procédés et en analyse des eaux usées.\n• Volonté de compléter la formation du personnel de l'usine d'épuration de VSA.\n• Ils s'acquittent en toute sécurité, ont des compétences en négociation, travaillent de façon indépendante, sont communicatifs et capables de travailler en équipe. Une bonne capacité d'expression verbale et écrite en allemand est une question bien sûr, la connaissance de l'italien et de la romance est un avantage.\n• Permis de conduire de catégorie B."
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:09.316Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://apply.refline.ch/514915/2639/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Natur und Umwelt",
-      "applicationDeadline": "2026-06-12",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
-        ],
-        "it": [
-          "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
-      ],
-      "firstSeenAt": "2026-06-10T12:18:42.096Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2664,7 +2609,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:22:08.626Z",
+      "crawledAt": "2026-06-12T22:37:11.905Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2728,6 +2673,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
