@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-06-11T22:07:24.698Z",
+  "assembledAt": "2026-06-12T21:51:21.459Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:07:23.257Z",
+      "crawledAt": "2026-06-12T21:51:20.059Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale comprovata nel settore del soccorso",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
