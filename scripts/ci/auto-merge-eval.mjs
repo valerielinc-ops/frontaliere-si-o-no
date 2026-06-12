@@ -255,17 +255,44 @@ function main() {
     ? `Tutti i gate OK → squash-merge PR #${PR} via GITHUB_PAT (cascade atteso: deploy + followup).`
     : `::warning::Tutti i gate OK → squash-merge PR #${PR} via GITHUB_TOKEN (PAT assente, nessun cascade deploy/followup).`);
 
+  // Race benigna tra i due trigger del workflow (review submitted + tests
+  // workflow_run, nessuna concurrency per design): entrambi valutano gli
+  // stessi gate e tentano il merge quasi insieme — il perdente riceve
+  // "Merge already in progress" / "already merged" e usciva ROSSO con un
+  // ::warning depistante "scope insufficiente?" (osservato run 27405822440 su
+  // PR #1952, gia' mergiata dall'altro run). Se la PR risulta MERGED, e' un
+  // successo: il cascade lo gestisce il run vincitore. Poll breve perche'
+  // "in progress" significa che il vincitore sta finendo proprio ora.
+  const confirmedMergedAfterRace = () => {
+    for (let i = 0; i < 3; i++) {
+      try {
+        const st = gh(['pr', 'view', PR, '--repo', REPO, '--json', 'state'], { token: primary });
+        if (st && st.state === 'MERGED') return true;
+      } catch { /* tentativo successivo */ }
+      try { execFileSync('sleep', ['3']); } catch { /* noop */ }
+    }
+    return false;
+  };
+
   const mergeArgs = ['pr', 'merge', PR, '--squash', '--delete-branch', '--repo', REPO];
   try {
     gh(mergeArgs, { json: false, token: primary });
     console.log(`PR #${PR} mergiata.`);
   } catch (e) {
+    if (confirmedMergedAfterRace()) {
+      console.log(`PR #${PR} gia' mergiata da un run concorrente (race trigger review/tests) — successo, nessun retry.`);
+      return;
+    }
     if (hasPat && fallback) {
       console.log(`::warning::Merge col GITHUB_PAT fallito (scope insufficiente?) — retry con GITHUB_TOKEN, nessun cascade.`);
       try {
         gh(mergeArgs, { json: false, token: fallback });
         console.log(`PR #${PR} mergiata (fallback GITHUB_TOKEN).`);
       } catch (e2) {
+        if (confirmedMergedAfterRace()) {
+          console.log(`PR #${PR} gia' mergiata da un run concorrente (race trigger review/tests) — successo.`);
+          return;
+        }
         console.error(`::error::Merge fallito anche col fallback: ${String(e2).slice(0, 200)}`);
         process.exit(1);
       }
