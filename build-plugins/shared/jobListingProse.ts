@@ -23,7 +23,7 @@
  * works in both light and dark mode.
  */
 
-import { CALC_HREF as SHARED_CALC_HREF } from './jobBoardCommuterContext';
+import { CALC_HREF as SHARED_CALC_HREF } from './calcHref';
 
 export type ListingProseLocale = 'it' | 'en' | 'de' | 'fr';
 

@@ -33,6 +33,7 @@ import {
   renderCantonSeoProse,
   type CantonSeoSlot,
 } from './cantonSeoProse';
+import { CALC_HREF } from './calcHref';
 
 export type CommuterLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -194,17 +195,14 @@ const COPY: Record<CommuterLocale, CommuterCopy> = {
 };
 
 // Per-locale net-salary calculator landing. Same paths as CALCULATOR_URL in
-// professionLandingsPlugin.ts — exported so host plugins (e.g. the
-// care-variant CTA in jobsSeoPagesPlugin) reuse one source of truth instead
-// of duplicating the table. Previously pointed at the locale homepage ('/'),
-// which made the "calcolatore stipendio netto frontaliere" cross-link land
-// on the homepage instead of the calculator.
-export const CALC_HREF: Record<CommuterLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
+// professionLandingsPlugin.ts — re-exported so host plugins (e.g. the
+// care-variant CTA in jobsSeoPagesPlugin) keep importing one source of
+// truth from here. The table itself lives in the dependency-free
+// `calcHref.ts` leaf module: defining it HERE put it inside the
+// jobBoardCommuterContext ↔ cantonSeoProse import cycle, where an unlucky
+// evaluation order left the binding uninitialized → deploy build TypeError
+// on main (run 27401576244, post #1938).
+export { CALC_HREF };
 const FX_HREF: Record<CommuterLocale, string> = {
   it: '/comparatori/cambio-valuta/',
   en: '/en/comparators/currency-exchange/',
