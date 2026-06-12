@@ -43,10 +43,10 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
     });
 
     it('returns SkeletonJobDetail when the bridge fetch has not yet attempted for the current slug', () => {
-      // Pattern: if slug-map knows this slug (bridgeMeta.id present) AND
+      // Pattern: if (slug-map knows this slug OR map not yet loaded) AND
       // bridgeFetchAttempted !== bridgeTargetForRender, render skeleton.
       expect(jobBoardSrc).toMatch(
-        /if \(bridgeMeta\?\.id && bridgeFetchAttempted !== bridgeTargetForRender\) \{[\s\S]{0,200}return <SkeletonJobDetail \/>;[\s\S]{0,40}\}/,
+        /if \(\(bridgeMeta\?\.id \|\| !isJobSlugMapReady\(\)\) && bridgeFetchAttempted !== bridgeTargetForRender\) \{[\s\S]{0,200}return <SkeletonJobDetail \/>;[\s\S]{0,40}\}/,
       );
     });
 
