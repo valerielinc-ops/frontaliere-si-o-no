@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-06-11T22:34:08.637Z",
+  "generatedAt": "2026-06-12T12:02:33.455Z",
   "total": 36,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 34,
-  "durationMs": 30207,
-  "avgDurationMs": 30207,
+  "durationMs": 23028,
+  "avgDurationMs": 23028,
   "durationHistory": [
-    30207
+    23028
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -185,7 +185,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.162Z",
+      "crawledAt": "2026-06-12T12:02:30.966Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -272,7 +272,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.160Z",
+      "crawledAt": "2026-06-12T12:02:30.964Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -365,7 +365,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.159Z",
+      "crawledAt": "2026-06-12T12:02:30.963Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -419,7 +419,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.158Z",
+      "crawledAt": "2026-06-12T12:02:30.962Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -535,7 +535,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.158Z",
+      "crawledAt": "2026-06-12T12:02:30.961Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -590,7 +590,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.157Z",
+      "crawledAt": "2026-06-12T12:02:30.960Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -720,7 +720,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.155Z",
+      "crawledAt": "2026-06-12T12:02:30.957Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -737,6 +737,88 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6150",
+      "slug": "bi-solution-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "BI Solution Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
+            ],
+            "requirements": [
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical, hands‑on and problem‑solving aptitude",
+              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction"
+            ],
+            "keywords": [
+              "University degree in Business",
+              "Advanced level in data visualisation tools such as Power Query",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical",
+              "Designing",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
+              "Staying abreast of key technical developments and trends (e.g. AI"
+            ],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-06-12T12:02:30.955Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.898Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 22
       }
@@ -821,7 +903,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.154Z",
+      "crawledAt": "2026-06-12T12:02:30.955Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -840,88 +922,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6150",
-      "slug": "bi-solution-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "BI Solution Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
-            ],
-            "requirements": [
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical, hands‑on and problem‑solving aptitude",
-              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction"
-            ],
-            "keywords": [
-              "University degree in Business",
-              "Advanced level in data visualisation tools such as Power Query",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical",
-              "Designing",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
-              "Staying abreast of key technical developments and trends (e.g. AI"
-            ],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-06-11T22:34:06.153Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.898Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
       }
     },
     {
@@ -1021,7 +1021,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.153Z",
+      "crawledAt": "2026-06-12T12:02:30.954Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1040,6 +1040,60 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6071",
+      "slug": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IT Data Service Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6071",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Department:</strong> DataOps / IT</span></li><li><span><strong>Work time Percentage:</strong> 100%</span></li><li><span><strong>Location:</strong> Geneva</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>DataOps Service & Governance Engineer</strong></span></p><p><span>DataOps Services’ mission is to ensure the reliable and efficient servicing of all data interfaces supported by our data platform. This includes a broad spectrum of interfaces, ranging from highly critical order-processing flows to regular analytical and reporting systems. The DataOps team supports global systems serving the entire Group worldwide.</span></p><p><span>We are looking for a reliable and well-organised expert to join our DataOps team in Geneva. As our platform and data landscape evolve, robust operational governance has become increasingly important. With growing regulatory requirements, rising business expectations for data quality, and the need for consistent service delivery, we must ensure that our processes are well-documented, controlled, and transparent.</span></p><p><span>In this context, we are seeking a profile dedicated to overseeing documentation, managing Standard Operating Procedures (SOPs), and monitoring Service Level Agreements (SLAs). By reinforcing these governance pillars, you will help us ensure continuity and quality of operations, while facilitating clear communication and alignment among our technical and business teams.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Coordinate operational activities related to data integration services under the responsibility of the DataOps Team Manager, ensuring effective change management, quality assurance, SLA monitoring, and comprehensive SOP documentation.</span></li><li><span>Monitor and track the smooth operation of critical business processes, acting as the primary contact for SLA- and procedure-related topics.</span></li><li><span>Create, maintain, and continuously improve documentation and operational procedures (SOPs) to ensure alignment with internal standards, audit requirements, and applicable regulations.</span></li><li><span>Collaborate closely with IT, production support, and business teams to strengthen governance around data integration processes and ensure documentation is accurate, up to date, and consistently applied.</span></li><li><span>Ensure traceability, consolidation, and regular updates of performance indicators (KPIs) related to SLAs, operational quality, and service reliability.</span></li><li><span>Prepare and contribute to regular service reviews and reporting, highlighting risks, issues, and improvement opportunities.</span></li><li><span>Improve internal team processes by gathering stakeholder feedback, identifying pain points, and proposing optimisations to SOPs and workflows in collaboration with the line manager.</span></li><li><span>Support incident and problem management from a governance perspective (e.g. post-incident documentation, lessons learned, action follow-up).</span></li><li><span>Facilitate effective communication and coordination across teams to support operational excellence and a culture of continuous improvement.</span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in operational governance, documentation management, service management, or PMO roles within a data-driven or IT/operations environment (e.g. data platforms, integration, production support).</span></li><li><span>Proven experience in managing and monitoring SLAs and SOPs, with the ability to structure, validate, implement, and track procedures across multiple stakeholders.</span></li><li><span>Strong writing, organisational, and analytical skills, with a demonstrated ability to produce clear, concise, and audit-ready documentation.</span></li><li><span>Experience in tracking performance indicators (KPIs), preparing service quality reports, and presenting findings to management and stakeholders.</span></li><li><span>Good understanding of data integration and data platform environments; knowledge of Kafka, Opcon orchestrator, microservice architectures, and REST-based communication is a strong plus.</span></li><li><span>Strong communication and interpersonal skills, with the ability to interact effectively with both technical and non-technical stakeholders and to facilitate coordination across teams.</span></li><li><span>High attention to detail, rigor, and autonomy in managing tasks and priorities in a dynamic environment.</span></li><li><span>Good command of spoken and written English; French is an asset.</span></li></ul><p><span><strong>Personal Attributes</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Responsible and reliable, especially during critical operational periods and in the context of production incidents or major changes.</span></li><li><span>Methodical, structured, and rigorous in documentation, process management, and follow-up.</span></li><li><span>Proactive and a strong team player, with the ability to work effectively within cross-functional and international teams.</span></li><li><span>Curious and motivated to learn and grow in a transforming technological environment, embracing change and continuous improvement.</span></li><li><span>Comfortable challenging the status quo constructively and proposing pragmatic, risk-aware solutions.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-12T12:02:30.953Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-28",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-28T12:24:37.370Z",
+      "country": "CH",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1146,7 +1200,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.152Z",
+      "crawledAt": "2026-06-12T12:02:30.952Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1201,7 +1255,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.151Z",
+      "crawledAt": "2026-06-12T12:02:30.951Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1256,7 +1310,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.150Z",
+      "crawledAt": "2026-06-12T12:02:30.950Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1311,7 +1365,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.150Z",
+      "crawledAt": "2026-06-12T12:02:30.949Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1365,7 +1419,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.149Z",
+      "crawledAt": "2026-06-12T12:02:30.948Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1488,7 +1542,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.148Z",
+      "crawledAt": "2026-06-12T12:02:30.947Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1617,7 +1671,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.147Z",
+      "crawledAt": "2026-06-12T12:02:30.945Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1637,6 +1691,60 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "id": "efg-5869",
+      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-06-12T12:02:30.944Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.931Z",
+      "country": "CH",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -1742,7 +1850,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.146Z",
+      "crawledAt": "2026-06-12T12:02:30.943Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -1761,60 +1869,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "efg-5869",
-      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-11T22:34:06.146Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.931Z",
-      "country": "CH",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
       }
     },
     {
@@ -1945,7 +1999,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.145Z",
+      "crawledAt": "2026-06-12T12:02:30.941Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2000,7 +2054,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.142Z",
+      "crawledAt": "2026-06-12T12:02:30.938Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -2053,7 +2107,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-11T22:34:06.141Z",
+      "crawledAt": "2026-06-12T12:02:30.936Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2073,60 +2127,6 @@
         "richness": 22,
         "translation": 25,
         "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6071",
-      "slug": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "IT Data Service Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6071",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Department:</strong> DataOps / IT</span></li><li><span><strong>Work time Percentage:</strong> 100%</span></li><li><span><strong>Location:</strong> Geneva</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>DataOps Service & Governance Engineer</strong></span></p><p><span>DataOps Services’ mission is to ensure the reliable and efficient servicing of all data interfaces supported by our data platform. This includes a broad spectrum of interfaces, ranging from highly critical order-processing flows to regular analytical and reporting systems. The DataOps team supports global systems serving the entire Group worldwide.</span></p><p><span>We are looking for a reliable and well-organised expert to join our DataOps team in Geneva. As our platform and data landscape evolve, robust operational governance has become increasingly important. With growing regulatory requirements, rising business expectations for data quality, and the need for consistent service delivery, we must ensure that our processes are well-documented, controlled, and transparent.</span></p><p><span>In this context, we are seeking a profile dedicated to overseeing documentation, managing Standard Operating Procedures (SOPs), and monitoring Service Level Agreements (SLAs). By reinforcing these governance pillars, you will help us ensure continuity and quality of operations, while facilitating clear communication and alignment among our technical and business teams.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Coordinate operational activities related to data integration services under the responsibility of the DataOps Team Manager, ensuring effective change management, quality assurance, SLA monitoring, and comprehensive SOP documentation.</span></li><li><span>Monitor and track the smooth operation of critical business processes, acting as the primary contact for SLA- and procedure-related topics.</span></li><li><span>Create, maintain, and continuously improve documentation and operational procedures (SOPs) to ensure alignment with internal standards, audit requirements, and applicable regulations.</span></li><li><span>Collaborate closely with IT, production support, and business teams to strengthen governance around data integration processes and ensure documentation is accurate, up to date, and consistently applied.</span></li><li><span>Ensure traceability, consolidation, and regular updates of performance indicators (KPIs) related to SLAs, operational quality, and service reliability.</span></li><li><span>Prepare and contribute to regular service reviews and reporting, highlighting risks, issues, and improvement opportunities.</span></li><li><span>Improve internal team processes by gathering stakeholder feedback, identifying pain points, and proposing optimisations to SOPs and workflows in collaboration with the line manager.</span></li><li><span>Support incident and problem management from a governance perspective (e.g. post-incident documentation, lessons learned, action follow-up).</span></li><li><span>Facilitate effective communication and coordination across teams to support operational excellence and a culture of continuous improvement.</span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in operational governance, documentation management, service management, or PMO roles within a data-driven or IT/operations environment (e.g. data platforms, integration, production support).</span></li><li><span>Proven experience in managing and monitoring SLAs and SOPs, with the ability to structure, validate, implement, and track procedures across multiple stakeholders.</span></li><li><span>Strong writing, organisational, and analytical skills, with a demonstrated ability to produce clear, concise, and audit-ready documentation.</span></li><li><span>Experience in tracking performance indicators (KPIs), preparing service quality reports, and presenting findings to management and stakeholders.</span></li><li><span>Good understanding of data integration and data platform environments; knowledge of Kafka, Opcon orchestrator, microservice architectures, and REST-based communication is a strong plus.</span></li><li><span>Strong communication and interpersonal skills, with the ability to interact effectively with both technical and non-technical stakeholders and to facilitate coordination across teams.</span></li><li><span>High attention to detail, rigor, and autonomy in managing tasks and priorities in a dynamic environment.</span></li><li><span>Good command of spoken and written English; French is an asset.</span></li></ul><p><span><strong>Personal Attributes</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Responsible and reliable, especially during critical operational periods and in the context of production incidents or major changes.</span></li><li><span>Methodical, structured, and rigorous in documentation, process management, and follow-up.</span></li><li><span>Proactive and a strong team player, with the ability to work effectively within cross-functional and international teams.</span></li><li><span>Curious and motivated to learn and grow in a transforming technological environment, embracing change and continuous improvement.</span></li><li><span>Comfortable challenging the status quo constructively and proposing pragmatic, risk-aware solutions.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-11T22:34:06.140Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-28",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-28T12:24:37.370Z",
-      "country": "CH",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
       }
     },
     {
