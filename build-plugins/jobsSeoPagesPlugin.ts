@@ -27,7 +27,8 @@ import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
  renderJobCardHtml,
@@ -213,179 +214,22 @@ export function safeIsoDate(raw: unknown): string | null {
  }
 }
 
-/** Locale-aware "in city" connector for title cores. */
-const CITY_CONNECTOR: Record<string, string> = {
- it: 'a',
- en: 'in',
- de: 'in',
- fr: 'à',
-};
-
 /**
- * Build the "core" part of a job-detail title (without brand suffix).
+ * Compose the job-page <title>. Thin wrapper over the shared
+ * {@link composeSerpJobTitle} (build-plugins/shared/titleSuffix.ts) so the
+ * SSG plugin and the SPA runtime share ONE cascade. Token priority:
+ * role > city > company > brand — the company is dropped before the role is
+ * ever truncated (it still lives in the H1/meta/JSON-LD), the city is never
+ * dropped while it fits (local query intent + multi-sede title uniqueness).
  *
- * Includes the city whenever possible so multi-sede jobs do not collapse
- * into duplicate titles. Falls back gracefully when fields are missing.
- */
-export function buildJobTitleCore(
- jobTitle: string,
- company: string,
- city: string,
- locale: string,
-): string {
- const connector = CITY_CONNECTOR[locale] || CITY_CONNECTOR.it;
- const cleanCity = (city || '').trim();
- const cleanCompany = (company || '').trim();
- if (cleanCompany && cleanCity) {
- return `${jobTitle} — ${cleanCompany} ${connector} ${cleanCity}`;
- }
- if (cleanCompany) return `${jobTitle} — ${cleanCompany}`;
- if (cleanCity) return `${jobTitle} ${connector} ${cleanCity}`;
- return jobTitle;
-}
-
-const JOB_TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
-// Google rewrites titles beyond ~60 chars, but pages whose core exceeds the
-// budget must NEVER drop the trailing city — truncating the tail made
-// multi-sede roles (same title × N cities) collapse into one <title>.
-// The hard ceiling is 70 chars (incl. suffix), still within SERP width,
-// and the composer below always preserves the trailing city token.
-const JOB_TITLE_MAX = 70;
-
-/**
- * Word-aware truncation of a job-title core that has no company/city tail
- * to preserve. Used as the fallback path inside
- * {@link truncateJobCorePreservingCity} when the city/company structure
- * does not allow tail-preserving truncation.
+ * Replaces the previous composer that reserved the 21-char brand suffix
+ * inside the core budget and then dropped the brand anyway for 92 % of the
+ * corpus — chopping ~17 chars of keyword content per title and leaving a
+ * mid-headline `…` on 91 % of job pages (the pattern measured collapsing
+ * CTR 4.8 % → 0.99 % on /calcola-stipendio/, see titleSuffix.ts).
  *
- * Cuts on the last whitespace inside `maxCore`, appends "…". Falls back
- * to a hard cut when no usable boundary exists.
- */
-export function truncateTitleCore(core: string, maxCore: number): string {
- if (core.length <= maxCore) return core;
- // Reserve 1 char for the trailing ellipsis.
- const sliced = core.slice(0, maxCore - 1);
- const lastSpace = sliced.lastIndexOf(' ');
- if (lastSpace > Math.floor(maxCore / 2)) {
-  return sliced.slice(0, lastSpace).trimEnd() + '…';
- }
- return sliced.trimEnd() + '…';
-}
-
-/**
- * City-preserving truncation: if the core exceeds `maxCore`, shorten the
- * job-title segment (everything before the " — " company delimiter) rather
- * than the tail, so the trailing "… in <city>" disambiguator survives.
- * Falls back to a plain tail-trim only when there is no company or city to
- * preserve.
- */
-export function truncateJobCorePreservingCity(
- jobTitle: string,
- company: string,
- city: string,
- locale: string,
- maxCore: number,
-): string {
- const full = buildJobTitleCore(jobTitle, company, city, locale);
- if (full.length <= maxCore) return full;
- const cleanCompany = (company || '').trim();
- const cleanCity = (city || '').trim();
- const connector = CITY_CONNECTOR[locale] || CITY_CONNECTOR.it;
-
- // Case 1: city only — "jobTitle <connector> city". Trim the jobTitle portion.
- if (!cleanCompany && cleanCity) {
-  const tail = ` ${connector} ${cleanCity}`;
-  // Reserve 1 char for the ellipsis appended after the slice.
-  const jobBudget = maxCore - tail.length - 1;
-  if (jobBudget >= 1 && jobTitle.length > jobBudget) {
-   return `${jobTitle.slice(0, jobBudget).trimEnd()}…${tail}`;
-  }
-  // City tail alone consumes the full budget — fall back to tail-trim so
-  // the result at least stays under maxCore (no city preservation possible).
-  return truncateTitleCore(full, maxCore);
- }
-
- // Case 2: company + (optional) city.
- if (cleanCompany) {
-  const companyTail = cleanCity
-   ? ` — ${cleanCompany} ${connector} ${cleanCity}`
-   : ` — ${cleanCompany}`;
-  // 2a — if trimming only the jobTitle segment makes the result fit, do it.
-  const jobBudget = maxCore - companyTail.length - 1;
-  if (jobBudget >= 1 && jobTitle.length > jobBudget) {
-   return `${jobTitle.slice(0, jobBudget).trimEnd()}…${companyTail}`;
-  }
-  // 2b — jobTitle already fits; the company segment is the culprit.
-  // Trim the company name while preserving the trailing "<connector> city" token.
-  if (cleanCity) {
-   const cityTail = ` ${connector} ${cleanCity}`;
-   const companyBudget = maxCore - jobTitle.length - cityTail.length - ' — '.length - 1;
-   if (companyBudget >= 1 && cleanCompany.length > companyBudget) {
-    const trimmedCompany = cleanCompany.slice(0, companyBudget).trimEnd();
-    return `${jobTitle} — ${trimmedCompany}…${cityTail}`;
-   }
-  }
-  return truncateTitleCore(full, maxCore);
- }
-
- return truncateTitleCore(full, maxCore);
-}
-
-/**
- * Build the disambiguator suffix appended to the title core when two
- * otherwise-identical jobs (same role + company + city) would collide.
- *
- * Format: ` (#abcd1234)` — a leading space, parentheses, hash sigil, then an
- * 8-char lowercase hex hash deterministically derived from the FULL input
- * token (typically the per-locale slug, which is already unique per page).
- *
- * Why a hash and not the slug tail: the previous implementation used the last
- * 6 alphanum chars of the slug, which collides when many slugs share a city
- * suffix (e.g. `…-chur`, `…-bach`) — yielding the same `(#enchur)` tail on
- * dozens of pages and re-tripping Semrush's title-uniqueness audit. A hash of
- * the FULL slug always differs whenever the slug differs, so as long as
- * router slugs are deduped at crawl time (which they are), final titles are
- * guaranteed unique across the locale.
- *
- * The hash function is a non-crypto FNV-1a-style rolling hash mixed into a
- * 32-bit unsigned integer and rendered as 8 hex digits — fast, dependency
- * free, deterministic, and effectively collision-free for our dataset size
- * (~10k pages per locale; birthday-bound ≈ 65k for 32-bit).
- *
- * Empty input returns an empty string so callers can pass through optional
- * tokens without conditional logic.
- */
-export function buildTitleDisambiguator(token: string): string {
- // Format the disambiguator as ` · ${token}`. This used to emit an
- // FNV-1a 8-hex hash like ` (#abcd1234)` but Semrush's `<title>` audit
- // flags those as "low-CTR auto-disambiguator". We now expect callers
- // (see `pickJobDisambiguator` below) to pass a HUMAN-READABLE token
- // such as "80%", "CHF 60-75k", "apr 2027", or "rif. abc123" — a
- // compact, locale-friendly fragment that carries actual information.
- //
- // The token is rendered verbatim (after trimming + collapsing
- // whitespace) so callers control the localization. An empty token
- // returns an empty string so callers can pass through optional
- // disambiguators without conditional logic.
- const cleaned = String(token || '').trim().replace(/\s+/g, ' ');
- if (!cleaned) return '';
- return ` · ${cleaned}`;
-}
-
-/**
- * Compose final <title>: city-preserving truncated core + optional brand suffix.
- *
- * Universal policy: the final <title> is hard-capped at JOB_TITLE_MAX (70)
- * including the optional brand suffix. The core is truncated upstream
- * (preserving the trailing city token) so that the disambiguator hash
- * always lands inside the cap.
- *
- * When `disambiguator` is provided and non-empty (e.g. the per-locale slug
- * or job id), it is hashed into a short ` (#abcd1234)` suffix appended
- * INSIDE the cap so that two otherwise-identical jobs (same role + company
- * + city, multi-slug variants) emit distinct <title> tags. Its length is
- * subtracted from the city-preservation budget so neither the disambiguator
- * nor the trailing city token is amputated.
+ * The optional `disambiguator` is appended as ` · {token}` INSIDE the
+ * 66-char cap (audit:title-length) for collision-prone titles.
  */
 export function composeJobPageTitle(
  jobTitle: string,
@@ -394,25 +238,29 @@ export function composeJobPageTitle(
  locale: string,
  disambiguator?: string,
 ): string {
- const disamb = buildTitleDisambiguator(disambiguator || '');
- // Reserve room for BOTH the disambiguator AND the brand suffix inside
- // the 70-char cap. The brand is always appended downstream (see
- // buildTitleWithBrand — always-brand prevents title===h1 duplication),
- // so we must budget for it here, otherwise the city tail (which the
- // city-preserving truncate guarantees) would be amputated by the
- // downstream brand-fitting word-trim.
- const maxCore = Math.max(1, JOB_TITLE_MAX - disamb.length - JOB_TITLE_BRAND_SUFFIX.length);
- const core = truncateJobCorePreservingCity(jobTitle, company, city, locale, maxCore);
- // Use TITLE_MAX_CHARS=66 (audit:title-length cap) so that when the
- // headline + brand exceeds 66 the BRAND is dropped while the headline
- // stays whole — preferring keyword content over brand suffix per user
- // policy ("preferisci il titolo al brand"). The city-preserving core
- // is still budgeted against JOB_TITLE_MAX=70 so the trailing city +
- // disambiguator hash never get amputated; this only governs whether
- // the brand suffix gets appended. Pages whose core+disamb already
- // exceed 66 (rare — capped to ≤48 by maxCore math above) return the
- // headline verbatim, no `…` truncation per titleSuffix policy.
- return buildTitleWithBrand(`${core}${disamb}`, JOB_TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS);
+ return composeSerpJobTitle(jobTitle, company, city, locale, { disambiguator });
+}
+
+/**
+ * FNV-1a 32-bit hash rendered as 8 hex chars. Last-resort title uniqueness
+ * token: hashes the FULL slug so it differs whenever the slug differs
+ * (slug TAILS collide constantly — `…-zell`, `…-chur` city suffixes).
+ * Rendered as `rif. a1b2c3d4` (locale ref label), NOT as ` (#a1b2c3d4)` —
+ * the parenthesized-hash form is banned by audit-title-no-disambig-hash.
+ */
+export function fnv8(input: string): string {
+ let h = 0x811c9dc5;
+ for (let i = 0; i < input.length; i++) {
+  h ^= input.charCodeAt(i);
+  h = Math.imul(h, 0x01000193) >>> 0;
+ }
+ return h.toString(16).padStart(8, '0');
+}
+
+/** Case-insensitive, whitespace-normalized comparison key — mirrors the
+ * normalization used by audit-h1-title-duplicates. */
+export function titleCompareKey(s: string): string {
+ return String(s || '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 /** Compose H1: job title + company only (no city, no brand). */
@@ -438,7 +286,7 @@ export { stripLiteralMarkdownFromTitle };
 // + city + locale), we append a compact, parlante token to disambiguate.
 // Goals: (a) parlante (carries info, never an opaque hash), (b) unique
 // enough across the colliding-title cohort, (c) short to keep the title
-// inside JOB_TITLE_MAX (70). Cascade order, most-specific first:
+// inside TITLE_MAX_CHARS (66). Cascade order, most-specific first:
 //
 //   1. workHours / employmentType-as-percentage   "80%", "60-100%"
 //   2. employmentType label (non-default)         "Part-time", "Stagionale"
@@ -507,8 +355,8 @@ const REF_LABEL: Record<string, string> = {
 /**
  * Pick a human-readable disambiguator string for a job whose <title>
  * collides with another job in the same locale. The empty string is
- * returned when no usable token exists (caller can fall back to the
- * job slug + buildTitleDisambiguator hash).
+ * returned when no usable token exists (caller can fall back to a
+ * `rif. {fnv8(slug)}` token via claimUniqueTitle).
  *
  * @param job        The raw job object from data/jobs.json
  * @param locale     'it' | 'en' | 'de' | 'fr'
@@ -2311,6 +2159,39 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  }
 
+ // ── Cross-corpus title-uniqueness net ──
+ // audit-title-uniqueness is a HARD deploy gate (exit 1 on any within-locale
+ // duplicate) and it walks the WHOLE dist — so an ACTIVE job page and an
+ // EXPIRED soft-landing for a re-posted twin (same role + company + city)
+ // must not compose the same <title>. Previously this was masked by the
+ // unconditional ` · rif. {slug-tail}` suffix on every expired page; with
+ // that suffix now collision-only, this registry is the explicit guarantee.
+ // `claimUniqueTitle` registers every emitted title per locale; on a clash
+ // it recomposes with the caller-supplied disambiguator chain, ending in a
+ // deterministic `rif. {fnv8(slug)}` + numeric bump that can never collide.
+ const claimedTitlesByLocale: Record<'it' | 'en' | 'de' | 'fr', Set<string>> = {
+ it: new Set(), en: new Set(), de: new Set(), fr: new Set(),
+ };
+ const claimUniqueTitle = (
+ locale: 'it' | 'en' | 'de' | 'fr',
+ title: string,
+ uniqueKey: string,
+ recompose: (disambiguator: string) => string,
+ ): string => {
+ const seen = claimedTitlesByLocale[locale];
+ let candidate = title;
+ if (seen.has(titleCompareKey(candidate))) {
+  const refLabel = REF_LABEL[locale] || REF_LABEL.it;
+  candidate = recompose(`${refLabel} ${fnv8(uniqueKey)}`);
+  let bump = 2;
+  while (seen.has(titleCompareKey(candidate))) {
+   candidate = recompose(`${refLabel} ${fnv8(uniqueKey)}-${bump++}`);
+  }
+ }
+ seen.add(titleCompareKey(candidate));
+ return candidate;
+ };
+
  // Per-(canton, locale, slug) active-job path dedup. cleanup-jobs.mjs
  // dedupes by `job.slug` (the canonical IT slug), but two distinct jobs
  // can pass that filter with different IT slugs while still converging
@@ -2571,9 +2452,26 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const disambiguatorToken = collidesInLocale
  ? pickJobDisambiguator(job as Record<string, unknown>, locale, baseTitleProbe)
  : '';
- const title = disambiguatorToken
+ let title = disambiguatorToken
  ? composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken)
  : baseTitleProbe;
+ // <title> must differ from the <h1> (audit:h1-title-duplicates). With the
+ // role>city>company cascade the title normally carries the city or brand
+ // and differs structurally; the residual case is a city-less job whose
+ // "role — company" headline is too long for the brand but exactly equals
+ // the H1 — disambiguate it with the job metadata token.
+ const __h1Key = titleCompareKey(composeJobPageH1(localizedTitle, String(job.company || '')));
+ if (titleCompareKey(title) === __h1Key) {
+ const h1AvoidToken = pickJobDisambiguator(job as Record<string, unknown>, locale, title);
+ title = composeJobPageTitle(
+  localizedTitle, String(job.company || ''), jobLocation, locale,
+  h1AvoidToken || `${REF_LABEL[locale] || REF_LABEL.it} ${fnv8(String(job.slug || job.id || localizedTitle))}`,
+ );
+ }
+ // Cross-corpus uniqueness net (see claimUniqueTitle above): guarantees no
+ // two emitted pages in this locale — active OR expired — share a <title>.
+ title = claimUniqueTitle(locale, title, `${String(job.slug || job.id || '')}::${locale}`,
+ (d) => composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, d));
  // Clean variant for og:title — same as `title` minus the trailing
  // " · {disambiguator}". The disambig is needed in the HTML <title>
  // for SEO uniqueness, but the social cards look better without the
@@ -2581,7 +2479,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // so `ogTitle` is structurally identical to the no-disamb probe.
  const ogTitle = baseTitleProbe;
  recordPhase('title', __tPh_title);
- const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
+ // stripLeadingSectionLabel: crawlers flatten the source page's
+ // "Descrizione/Description/Beschreibung" heading into the first sentence
+ // ("Descrizione Presso la sede di Zell, …") — Google then leads the SERP
+ // snippet with that junk word when it prefers the body over the meta
+ // description. Strip it once here so meta fallback + body paragraphs +
+ // JSON-LD all inherit the clean text.
+ const localizedDescriptionRaw = stripLeadingSectionLabel(String(job?.descriptionByLocale?.[locale] || job.description || ''));
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
  // Build an SEO-friendly meta description with salary and CTA
@@ -10426,18 +10330,6 @@ ${staticAnalyticsHtml}
  const jobDatePosted = String(ejData?.datePosted || '');
  const jobExpiredAt = String(ejData?.expiredAt || '');
  const displayCanton = CANTON_DISPLAY[jobCanton] || jobCanton;
- // Compact human-readable disambiguator for expired/soft-landing pages.
- // Use ONLY the LAST slug token (typically the crawler-emitted unique-id
- // suffix, e.g. "5010e3f8") capped at 10 chars. The previous version
- // hashed the full slug, but with `buildTitleDisambiguator` now emitting
- // ` · ${literal}` (no hashing) the full slug would land verbatim in
- // the <title>, blowing past JOB_TITLE_MAX (run 25434391277 produced
- // 84,501 job-board pages with 184-char titles when the entire slug
- // was injected this way).
- const _expiredSlugTail = (slug.split('-').filter(Boolean).pop() || '').slice(0, 10);
- const expiredDisambiguator = _expiredSlugTail
-  ? buildTitleDisambiguator(`rif. ${_expiredSlugTail}`)
-  : '';
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(jobCompany.toLowerCase()) || [])
  : [];
@@ -10476,57 +10368,49 @@ ${staticAnalyticsHtml}
  const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
 
  // Rich content fallback chain: expired-jobs.json → orphan enriched data → slug extraction
- // jobCompany/jobLocation/jobCanton/displayCanton/expiredDisambiguator/etc.
- // are hoisted above the for-locale loop (per-slug invariants).
+ // jobCompany/jobLocation/jobCanton/displayCanton/etc. are hoisted above
+ // the for-locale loop (per-slug invariants).
  const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title);
- const jobDescription = String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '');
- // Total <title> budget: 80 char (Google SERP-display ceiling). Layout:
- //   [headline] + [disambiguator " (#abcdef12)" = 12] + [" | Frontaliere Ticino" = 22]
- // Headline budget = 80 - 12 - 22 = 46 char, used for
- // `${headlineCap} — ${shortCompany}` (or just `${headlineCap}` if company
- // doesn't fit). uniqueSuffix (city / slug-tail) is dropped: the slug-hash
- // disambiguator already guarantees uniqueness across slugs, and the city
- // Universal rule: headline VERBATIM, brand suffix appended only when total
- // stays within TITLE_MAX_CHARS (70). See build-plugins/shared/titleSuffix.ts.
- let headline: string;
- if (hasRealTitle) {
-  const cleanTitle = jobTitle.trim();
-  const cleanCompany = jobCompany.trim();
-  headline = cleanCompany ? `${cleanTitle} — ${cleanCompany}` : cleanTitle;
- } else {
-  headline = copy.title;
+ const jobDescription = stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || ''));
+ // SERP title via the shared role>city>company>brand cascade — same
+ // composer as ACTIVE job pages, so an expired listing reads like a job
+ // result ("Role — Company a Zell"), not like an archive record. The old
+ // path appended ` · rif. {slug-tail}` UNCONDITIONALLY (99.8 % of 18.5k
+ // expired titles carried it; the tail is a CITY word, not an id, for 61 %
+ // of slugs — live offender: "…Produzione PPS —… · rif. zell") and
+ // word-truncated the headline to make room for it. Uniqueness is now
+ // guaranteed by claimUniqueTitle (cross-corpus registry, see above)
+ // which only suffixes a `rif.` token on an ACTUAL collision.
+ // Note: we work on the RAW headline (no HTML-escape) so `&` / `<` are not
+ // expanded into multi-char entities that fool the length-based budget;
+ // esc() is applied ONCE at the <title> call site downstream.
+ const __expiredCompose = (disambiguator?: string): string =>
+  hasRealTitle
+   ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { disambiguator })
+   : composeSerpJobTitle(copy.title, '', jobLocation, locale, { disambiguator });
+ let pageTitleRaw = __expiredCompose();
+ // <h1> equality guard (audit:h1-title-duplicates): the static H1 below is
+ // "role — company"; when the cascade lands on that exact string and the
+ // brand didn't fit, force a metadata token to keep title ≠ h1.
+ const __expiredH1Key = titleCompareKey(jobCompany ? `${jobTitle} — ${jobCompany}` : jobTitle);
+ const __expiredRefLabel = REF_LABEL[locale] || REF_LABEL.it;
+ if (titleCompareKey(pageTitleRaw) === __expiredH1Key) {
+  pageTitleRaw = __expiredCompose(`${__expiredRefLabel} ${fnv8(slug)}`);
  }
- // The disambiguator MUST land inside the cap when present (multi-slug
- // expired jobs share role+company and rely on it for title-uniqueness),
- // but we DROP the brand before resorting to `…` truncation — mid-headline
- // ellipsis tanks SERP CTR (see build-plugins/shared/titleSuffix.ts comment).
- // Critically, we work on the RAW headline (no HTML-escape) so `&` / `<` etc.
- // are not artificially expanded into multi-char entities like `&amp;` that
- // fool the length-based truncate. We apply esc() ONCE at the
- // <title>${...}</title> call site downstream.
- let pageTitleRaw: string;
- if (!expiredDisambiguator) {
-  // No disambiguator: trust buildTitleWithBrand (keep brand or drop it,
-  // never truncate).
-  pageTitleRaw = buildTitleWithBrand(headline);
- } else {
-  const withBrandAndDisamb = `${headline}${expiredDisambiguator}${TITLE_BRAND_SUFFIX}`;
-  if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
-   pageTitleRaw = withBrandAndDisamb;
-  } else {
-   const headlinePlusDisamb = `${headline}${expiredDisambiguator}`;
-   if (headlinePlusDisamb.length <= TITLE_MAX_CHARS) {
-    pageTitleRaw = headlinePlusDisamb;
-   } else {
-    const headlineBudget = TITLE_MAX_CHARS - expiredDisambiguator.length;
-    const truncated = truncateHeadline(headline, Math.max(1, headlineBudget));
-    pageTitleRaw = `${truncated}${expiredDisambiguator}`;
-   }
-  }
- }
+ // Cross-corpus uniqueness net — shares the registry with ACTIVE job pages
+ // so a re-posted twin (active page + expired soft-landing, same role +
+ // company + city) can never emit a duplicate <title> within the locale.
+ pageTitleRaw = claimUniqueTitle(locale, pageTitleRaw, `${slug}::${locale}`, __expiredCompose);
  const pageTitle = esc(pageTitleRaw);
 
- const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
+ // Meta description: lead with role + company + place (city when known,
+ // canton otherwise) so the SERP snippet fallback carries the local-intent
+ // tokens, then the related-positions CTA.
+ const __descConnector = JOB_TITLE_CITY_CONNECTOR[locale] || JOB_TITLE_CITY_CONNECTOR.it;
+ const __descPlace = jobLocation
+  ? ` ${__descConnector} ${jobLocation}${displayCanton && displayCanton !== jobLocation ? ` (${displayCanton})` : ''}`
+  : '';
+ const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${esc(__descPlace)}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
  // Seed expired job data as window global so the SPA can render
  // rich content (title, company, description) without depending on

@@ -1,12 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import {
  safeIsoDate,
- buildJobTitleCore,
- truncateTitleCore,
  composeJobPageTitle,
  composeJobPageH1,
  pickJobDisambiguator,
+ fnv8,
+ titleCompareKey,
 } from '../build-plugins/jobsSeoPagesPlugin';
+import { composeSerpJobTitle, truncateHeadline, TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
+import { stripLeadingSectionLabel } from '../build-plugins/shared/jobDescription/parser';
 
 describe('safeIsoDate', () => {
  it('returns ISO-8601 string for a valid date string', () => {
@@ -52,100 +54,150 @@ describe('safeIsoDate', () => {
  });
 });
 
-describe('buildJobTitleCore', () => {
- it('includes the city with Italian connector "a"', () => {
- expect(buildJobTitleCore('Sviluppatore', 'Acme', 'Lugano', 'it'))
- .toBe('Sviluppatore — Acme a Lugano');
+describe('composeSerpJobTitle (role > city > company > brand cascade)', () => {
+ it('keeps the full "role — company a city" + brand when everything fits', () => {
+ expect(composeSerpJobTitle('Sviluppatore', 'Acme', 'Lugano', 'it'))
+ .toBe('Sviluppatore — Acme a Lugano | Frontaliere Ticino');
  });
 
- it('uses English "in" connector', () => {
- expect(buildJobTitleCore('Developer', 'Acme', 'Lugano', 'en'))
- .toBe('Developer — Acme in Lugano');
+ it('uses the locale connector (en/de "in", fr "à")', () => {
+ expect(composeSerpJobTitle('Developer', 'Acme', 'Lugano', 'en')).toContain('Acme in Lugano');
+ expect(composeSerpJobTitle('Entwickler', 'Acme', 'Lugano', 'de')).toContain('Acme in Lugano');
+ expect(composeSerpJobTitle('Développeur', 'Acme', 'Lugano', 'fr')).toContain('Acme à Lugano');
  });
 
- it('uses German "in" connector', () => {
- expect(buildJobTitleCore('Entwickler', 'Acme', 'Lugano', 'de'))
- .toBe('Entwickler — Acme in Lugano');
+ it('drops the COMPANY before touching the role or the city', () => {
+ // Live SERP offender (Bell Schweiz AG, Zell): the old composer emitted
+ // "Addetto alla Pianificazione della Produzione PPS —… · rif. zell".
+ const out = composeSerpJobTitle(
+  'Addetto alla Pianificazione della Produzione PPS', 'Bell Schweiz AG', 'Zell', 'it');
+ expect(out).toBe('Addetto alla Pianificazione della Produzione PPS a Zell');
+ expect(out).not.toContain('…');
+ expect(out).not.toContain('rif.');
+ expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
  });
 
- it('uses French "à" connector', () => {
- expect(buildJobTitleCore('Développeur', 'Acme', 'Lugano', 'fr'))
- .toBe('Développeur — Acme à Lugano');
+ it('never emits a mid-headline ellipsis while any candidate fits', () => {
+ const out = composeSerpJobTitle(
+  'Very Long Senior Software Engineer Position with Specialty',
+  'International Consulting Group AG', 'Lugano', 'it');
+ // role+city (67) overflows 66, so the cascade falls back to the bare
+ // role (58) — verbatim, no "…", no dangling delimiter.
+ expect(out).toBe('Very Long Senior Software Engineer Position with Specialty');
  });
 
- it('falls back to connector when city missing', () => {
- expect(buildJobTitleCore('Developer', 'Acme', '', 'it'))
- .toBe('Developer — Acme');
+ it('preserves the city tail when even the bare role overflows', () => {
+ const role = 'Specialist Senior Software Engineer Backend Distributed Systems Architect';
+ const out = composeSerpJobTitle(role, 'Acme', 'Lugano', 'it');
+ expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ expect(out).toMatch(/… a Lugano$/);
  });
 
- it('falls back when company is missing but city is present', () => {
- expect(buildJobTitleCore('Developer', '', 'Lugano', 'it'))
- .toBe('Developer a Lugano');
+ it('uses the full 66-char budget (no phantom brand reservation)', () => {
+ // Old composer reserved 21 chars for a brand it then dropped 92 % of
+ // the time, truncating cores at ~49 chars. A 65-char headline must now
+ // survive verbatim (brand dropped, no truncation).
+ const role = 'Impiegato amministrativo settore logistica e spedizioni';
+ const out = composeSerpJobTitle(role, '', 'Chiasso', 'it');
+ expect(out).toBe(`${role} a Chiasso`);
+ expect(out.length).toBeGreaterThan(60);
+ expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
  });
 
- it('returns only the title when both company and city missing', () => {
- expect(buildJobTitleCore('Developer', '', '', 'it')).toBe('Developer');
+ it('budgets the disambiguator before the cascade so it always fits', () => {
+ const out = composeSerpJobTitle('Stage', 'Lidl', 'Lugano', 'it', { disambiguator: '80%' });
+ expect(out).toContain(' · 80%');
+ expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
  });
 
- it('differentiates multi-sede jobs by city', () => {
- const a = buildJobTitleCore('Stage', 'Lidl', 'Lugano', 'it');
- const b = buildJobTitleCore('Stage', 'Lidl', 'Bellinzona', 'it');
- expect(a).not.toBe(b);
+ it('drops a malformed oversized city instead of blowing the cap (regression)', () => {
+ const malformedCity = ': Ticino, Switzerland.Availability to work on-site is required. What we offer youAt ALTEN you benefit from a permanent contract.';
+ const out = composeSerpJobTitle('Java Software Ingegnere', 'ALTEN Switzerland', malformedCity, 'it');
+ expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
  });
 });
 
-describe('truncateTitleCore', () => {
- it('returns input verbatim when shorter than maxCore', () => {
- expect(truncateTitleCore('Short core', 40)).toBe('Short core');
+describe('truncateHeadline', () => {
+ it('returns input verbatim when within budget', () => {
+ expect(truncateHeadline('Short core', 40)).toBe('Short core');
  });
 
  it('truncates word-aware on whitespace boundary when possible', () => {
- const out = truncateTitleCore('Senior Software Engineer Backend Developer', 30);
+ const out = truncateHeadline('Senior Software Engineer Backend Developer', 30);
  expect(out.length).toBeLessThanOrEqual(30);
  expect(out.endsWith('…')).toBe(true);
- // Cuts on a space boundary — the char immediately before "…" is the
- // last char of a complete word from the input, never a partially-cut token.
  const lastWord = out.replace(/…$/, '').split(/\s+/).pop() ?? '';
  expect('Senior Software Engineer Backend Developer'.split(/\s+/)).toContain(lastWord);
  });
 
+ it('never leaves a dangling delimiter before the ellipsis (live "PPS —…" regression)', () => {
+ // Cut landing right after the " — " company delimiter must strip it.
+ const headline = 'Addetto alla Pianificazione della Produzione PPS — Bell Schweiz AG';
+ const out = truncateHeadline(headline, 54);
+ expect(out).toBe('Addetto alla Pianificazione della Produzione PPS…');
+ expect(out).not.toMatch(/[—–\-·|,;:&(]\s*…$/);
+ });
+
  it('falls back to hard cut for tokens with no usable space boundary', () => {
- const out = truncateTitleCore('a'.repeat(50), 20);
+ const out = truncateHeadline('a'.repeat(50), 20);
  expect(out.length).toBeLessThanOrEqual(20);
  expect(out.endsWith('…')).toBe(true);
  });
+});
 
- it('caps absurdly long input that contains body content (regression)', () => {
- const malformed = 'Java Software Ingegnere — ALTEN Switzerland a : Ticino, Switzerland.Availability to work on-site is required. What we offer you.';
- const out = truncateTitleCore(malformed, 70);
- expect(out.length).toBeLessThanOrEqual(70);
+describe('stripLeadingSectionLabel', () => {
+ it('strips a flattened leading "Descrizione" heading (live Bell/Zell snippet)', () => {
+ expect(stripLeadingSectionLabel('Descrizione Presso la sede di Zell, il team PPS pianifica.'))
+ .toBe('Presso la sede di Zell, il team PPS pianifica.');
+ });
+
+ it('strips localized variants with optional separator', () => {
+ expect(stripLeadingSectionLabel('Beschreibung: Wir suchen Verstärkung.')).toBe('Wir suchen Verstärkung.');
+ expect(stripLeadingSectionLabel('Description du poste Nous recherchons un agent.')).toBe('Nous recherchons un agent.');
+ expect(stripLeadingSectionLabel('Job description We are hiring.')).toBe('We are hiring.');
+ });
+
+ it('keeps legitimate sentences that merely start with the word', () => {
+ const legit = 'Descrizione dettagliata delle mansioni nel documento allegato.';
+ expect(stripLeadingSectionLabel(legit)).toBe(legit);
+ });
+
+ it('passes through empty/absent input', () => {
+ expect(stripLeadingSectionLabel('')).toBe('');
+ });
+});
+
+describe('fnv8 / titleCompareKey', () => {
+ it('fnv8 is deterministic, 8 hex chars, and slug-sensitive', () => {
+ expect(fnv8('a-slug')).toBe(fnv8('a-slug'));
+ expect(fnv8('a-slug')).toMatch(/^[0-9a-f]{8}$/);
+ expect(fnv8('role-bell-zell')).not.toBe(fnv8('role-bell-wil'));
+ });
+
+ it('titleCompareKey normalizes case and whitespace like the H1 audit', () => {
+ expect(titleCompareKey('  Developer —  Acme ')).toBe(titleCompareKey('developer — acme'));
  });
 });
 
 describe('composeJobPageTitle', () => {
  const SUFFIX = ' | Frontaliere Ticino';
- const MAX = 70;
+ const MAX = 66; // TITLE_MAX_CHARS — audit:title-length cap
 
- it('appends the brand suffix when total ≤ 70', () => {
+ it('appends the brand suffix when total ≤ 66', () => {
  const out = composeJobPageTitle('Dev', 'Acme', 'Lugano', 'it');
  expect(out.endsWith(SUFFIX)).toBe(true);
  expect(out.length).toBeLessThanOrEqual(MAX);
  });
 
- it('drops the brand (but preserves city) when the title is too long', () => {
- // Policy change (titleSuffix.ts): when the headline+brand exceeds the
- // SERP cap (66 chars), the brand suffix is dropped — preferring keyword
- // content over brand. The city-preserving core keeps the trailing city
- // token intact regardless, even when the headline itself must be
- // shortened to fit the 70-char cap.
+ it('drops brand THEN company when the title is too long — role stays whole', () => {
+ // role>city>company>brand cascade: "role a Lugano" (67) still overflows
+ // 66, so the company AND city give way and the bare role ships verbatim
+ // — never a mid-headline "…" while a whole candidate fits.
  const jobTitle = 'Very Long Senior Software Engineer Position with Specialty';
  const company = 'International Consulting Group AG';
  const out = composeJobPageTitle(jobTitle, company, 'Lugano', 'it');
  expect(out.length).toBeLessThanOrEqual(MAX);
- // City-preserving truncation keeps the trailing city token (the city is
- // the disambiguator that prevents multi-sede titles from collapsing).
- expect(out).toContain('Lugano');
- // The brand suffix is dropped when the title would otherwise exceed 66.
+ expect(out).toBe(jobTitle);
  expect(out.endsWith(SUFFIX)).toBe(false);
  });
 
@@ -183,7 +235,7 @@ describe('composeJobPageTitle', () => {
  expect(out).toContain('Lugano');
  });
 
- it('caps the final <title> at 70 chars even when input contains malformed body content', () => {
+ it('caps the final <title> at 66 chars even when input contains malformed body content', () => {
  // Regression: PR #36 removed the truncate net; jobs whose `city` field
  // contained the full job description body produced 400+ char titles.
  const jobTitle = 'Java Software Ingegnere';
@@ -193,7 +245,7 @@ describe('composeJobPageTitle', () => {
  expect(out.length).toBeLessThanOrEqual(MAX);
  });
 
- it('keeps multi-slug jobs distinct via disambiguator inside the 70-char cap', () => {
+ it('keeps multi-slug jobs distinct via disambiguator inside the 66-char cap', () => {
  // Same role + company + city, two different human-readable disambig
  // tokens (e.g. salary range vs work-hours percentage). Each disambig
  // must land inside the cap so audit:title-uniqueness stays green.

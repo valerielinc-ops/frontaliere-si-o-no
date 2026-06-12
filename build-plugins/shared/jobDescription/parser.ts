@@ -113,6 +113,34 @@ function stripLabelDecoration(s: string): string {
   return t.trim();
 }
 
+/**
+ * Generic "description" intro labels that crawlers flatten INLINE into the
+ * first sentence when the source page's heading/body newline is lost:
+ * "Descrizione Presso la sede di Zell, il team PPS…". The label adds zero
+ * information and — because Google often picks the page body over the meta
+ * description — it leads the SERP snippet as a junk first word.
+ * Kept separate from SECTION_LABELS (line-level heading promotion): these
+ * are matched as a LEADING PREFIX of flattened prose, not as standalone lines.
+ */
+const LEADING_INTRO_LABEL_RE = /^\s*(?:descrizione(?:\s+(?:del\s+(?:ruolo|lavoro|posto)|posizione))?|description(?:\s+du\s+poste)?|job\s+description|(?:stellen|job|aufgaben)?beschreibung|descriptif(?:\s+du\s+poste)?)\s*[:：\-–—]?\s+/i;
+
+/**
+ * Strip a leading flattened "Descrizione/Description/Beschreibung/…" intro
+ * label from a crawled job description. Only fires when the label is
+ * immediately followed by a capitalized/quoted/numeric continuation — the
+ * signature of a heading whose trailing newline the crawler collapsed —
+ * so legitimate sentences ("Descrizione dettagliata segue…") are untouched.
+ * (The continuation check is a separate case-SENSITIVE test: the label match
+ * itself is case-insensitive, the capital that follows must be real.)
+ */
+export function stripLeadingSectionLabel(raw: string): string {
+  const s = String(raw || '');
+  const m = s.match(LEADING_INTRO_LABEL_RE);
+  if (!m) return s;
+  const rest = s.slice(m[0].length);
+  return /^[A-ZÀ-ÖØ-Þ«"„'0-9]/.test(rest) ? rest : s;
+}
+
 function isSectionLabel(line: string): boolean {
   const trimmed = line.trim();
   const cleaned = stripLabelDecoration(trimmed).toLowerCase();
