@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2782,
+ "numberOfItems": 2783,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7422,7 +7422,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2779, "name": "Parlamento approva finanziamento AVS e nuove tu...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-avs-protezione-adozione` },
           { "@type": "ListItem", "position": 2780, "name": "Ingresso in Svizzera per frontalieri: documenti...", "url": `${BASE_URL}/articoli-frontaliere/ingresso-svizzera-documenti-dogana-2026` },
           { "@type": "ListItem", "position": 2781, "name": "Pensione frontaliere 2026: coordinamento AVS/IN...", "url": `${BASE_URL}/articoli-frontaliere/pensione-avs-inps-2026-famiglia-con-figli` },
-          { "@type": "ListItem", "position": 2782, "name": "13esima AVS: va in conciliazione, IVA sale di 0,4%", "url": `${BASE_URL}/articoli-frontaliere/avs-13esima-conciliazione-iva` }
+          { "@type": "ListItem", "position": 2782, "name": "13esima AVS: va in conciliazione, IVA sale di 0,4%", "url": `${BASE_URL}/articoli-frontaliere/avs-13esima-conciliazione-iva` },
+          { "@type": "ListItem", "position": 2783, "name": "Smartworking per frontalieri: limiti e ristorni...", "url": `${BASE_URL}/articoli-frontaliere/smartworking-frontaliere-s-definitivo` }
  ]
  },
  {

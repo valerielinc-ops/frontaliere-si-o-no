@@ -422,6 +422,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'smartworking-frontaliere-s-definitivo',
+    category: 'fiscale',
+    date: '2026-06-12T03:38:44.871Z',
+    image: '/images/blog/smartworking-frontaliere-s-definitivo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

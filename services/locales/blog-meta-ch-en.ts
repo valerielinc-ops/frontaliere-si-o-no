@@ -140,6 +140,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.title': 'Frontier Pension 2026: AVS/INPS Coordination and No-Example Personalization',
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.excerpt': 'The frontier pension 2026 involves coordination between AVS and INPS. It is essential to plan the pension without unverified personal examples.',
     'blog.article.pensione-avs-inps-2026-famiglia-con-figli.imageAlt': 'Scene from Switzerland national/cantonal territory relevant to the topic. Realistic, DSLR, not AI-like',
+    'blog.article.smartworking-frontaliere-s-definitivo.title': 'Smartworking for Cross-Border Workers: Limits Approved',
+    'blog.article.smartworking-frontaliere-s-definitivo.excerpt': 'The Swiss Parliament has definitively approved the new rules on smartworking for cross-border workers, with limits and refunds exceeding 40 million francs.',
+    'blog.article.smartworking-frontaliere-s-definitivo.imageAlt': 'Swiss scene with cross-border workers working from home',
 };
 
 export default blogMetaChEn;
