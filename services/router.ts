@@ -1696,7 +1696,21 @@ if (typeof window !== 'undefined') {
  // "trouver-emploi-*" (FR) — see SLUG_TABLES and getJobBoardSlug.
  if (!/^(cerca-lavoro|find-jobs|jobs-in|trouver-emploi)/.test(candidate)) return false;
  // Must have at least one more segment (the job slug or city/sector)
- return segments.length > start + 1;
+ if (segments.length <= start + 1) return false;
+ // Static SEO families under the job-board hub are NOT job-detail pages:
+ // related-search clusters (ricerca-/search-/suche-/recherche-, ~517k pages),
+ // company hubs (azienda-/company-/unternehmen-/entreprise-), category
+ // listings (categoria-/category-/kategorie-/categorie-) and pagination
+ // (pagina-N/page-N/seite-N). None of them renders a single job detail, so
+ // the eager slug-map fetch (~1.1 MB gzip) only competes with the SPA
+ // chunks for bandwidth on those landings — measured +3s to JobBoard
+ // chunk arrival on /fr/.../recherche-* pages. Fall through to the
+ // idle-time load instead; worst case (a real job slug starting with one
+ // of these prefixes) degrades softly: JobBoard registers the map later
+ // and the bridge-in-flight guard covers the gap.
+ const second = segments[start + 1];
+ if (/^(ricerca|search|suche|recherche|azienda|company|unternehmen|entreprise|categoria|category|kategorie|categorie|pagina|page|seite)-/.test(second)) return false;
+ return true;
  } catch {
  return false;
  }
@@ -2945,8 +2959,9 @@ export function parsePath(pathname: string): ParseResult {
  // `parseSearchSlugFilter` (services/relatedSearchClusters.ts) detects the
  // `ricerca-`/`search-`/`suche-`/`recherche-` prefix and populates the search
  // bar + result grid. Returning `staticOverlay: true` here breaks the page
- // because the static body is intentionally sr-only (crawler-only) — the
- // SPA must hydrate the interactive search view for users.
+ // because the SPA must hydrate the interactive search view for users —
+ // the static body is only the pre-hydration first paint (App.tsx hides
+ // `main.cluster-seo-prose` at hydration).
  //
  // Build-time static SEO pages emitted under /cerca-lavoro-ticino/:
  // company hubs (azienda-/company-/unternehmen-/entreprise-), category

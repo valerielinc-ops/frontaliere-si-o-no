@@ -115,7 +115,17 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
 
     it('requires at least two segments after locale stripping (board + job-slug-or-city)', () => {
       // A bare /cerca-lavoro-ticino/ is the LISTING, not a detail page.
-      expect(routerSrc).toMatch(/segments\.length > start \+ 1/);
+      expect(routerSrc).toMatch(/segments\.length <= start \+ 1\) return false/);
+    });
+
+    it('excludes static SEO families (search clusters, company hubs, categories, pagination) from the eager load', () => {
+      // /fr/trouver-emploi-suisse/recherche-*/ and friends are NOT job-detail
+      // pages: the eager ~1.1MB-gzip slug-map fetch only competed with the
+      // SPA chunks for bandwidth there (measured +3s to JobBoard chunk
+      // arrival). They must fall through to the idle-time load.
+      expect(routerSrc).toMatch(
+        /ricerca\|search\|suche\|recherche\|azienda\|company\|unternehmen\|entreprise\|categoria\|category\|kategorie\|categorie\|pagina\|page\|seite/,
+      );
     });
 
     it('fires ensureJobSlugMapLoaded eagerly (NOT through requestIdleCallback) when on a job-detail URL', () => {
