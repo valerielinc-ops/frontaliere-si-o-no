@@ -41,8 +41,9 @@ import { renderJobBoardListingDensityProse, renderListingPaginationProse } from 
 import {
  renderJobBoardCommuterContext,
  renderSearchQueryIntro,
- isKnownTicinoCommuterCity,
+ isKnownTicinoCommuterCity, CALC_HREF,
 } from './shared/jobBoardCommuterContext';
+import { formatUpdatedSentence } from './shared/humanDate';
 import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
 import {
  renderHeroBadges,
@@ -4614,8 +4615,8 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-xzWvwM">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -4775,8 +4776,8 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-it71Rt">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -4942,8 +4943,8 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-it71Rt">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -5121,8 +5122,8 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-it71Rt">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -5179,6 +5180,14 @@ ${staticAnalyticsHtml}
  }), '0.76', sectionByLocaleCanton);
  }
 
+ // Primary CTA label — same copy as professionLandingsCopy.primaryCtaLabel;
+ // href comes from the shared CALC_HREF table (per-locale calculator path).
+ const careCtaLabel: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: 'Calcola il tuo netto come frontaliere',
+ en: 'Calculate your cross-border net',
+ de: 'Grenzgänger-Nettolohn berechnen',
+ fr: 'Calculer votre net frontalier',
+ };
  for (const clusterKey of editorialCareKeys) {
  for (const editorialCanton of EDITORIAL_CANTONS) {
  if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
@@ -5250,13 +5259,16 @@ ${staticAnalyticsHtml}
  breadcrumbs: [
  { name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
  { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
- { name: locale === 'it' ? `Infermieri in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'en' ? `Nurses in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'de' ? `Pflege-Jobs ${germanCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}` : `Infirmiers ${frenchCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}`, item: model.parentHubHref },
+ { name: locale === 'it' ? `Sanità in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'en' ? `Healthcare jobs in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'de' ? `Gesundheits-Jobs ${germanCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}` : `Santé ${frenchCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}`, item: model.parentHubHref },
  { name: model.heading, item: canonicalUrl },
  ],
  items: [...model.feed.jobs, ...model.latestJobs],
  });
  const edc = CANTON_DISPLAY[editorialCanton] || editorialCanton;
- const backLabel = locale === 'it' ? `Torna all\u2019hub infermieri in ${edc}` : locale === 'en' ? `Back to nurses in ${edc}` : locale === 'de' ? `Zur\u00FCck zum Pflege-Hub ${germanCantonPrep(edc)}` : `Retour au hub infirmiers ${frenchCantonPrep(edc)}`;
+ // The parent hub covers the whole care cluster (nurses, OSS, educators,
+ // clinics, care homes), so the back-link must say "healthcare hub", not
+ // "nurses" - on the educators page "Torna all'hub infermieri" was wrong.
+ const backLabel = locale === 'it' ? `Torna all\u2019hub sanit\u00E0 in ${edc}` : locale === 'en' ? `Back to healthcare jobs in ${edc}` : locale === 'de' ? `Zur\u00FCck zum Gesundheits-Hub ${germanCantonPrep(edc)}` : `Retour au hub sant\u00E9 ${frenchCantonPrep(edc)}`;
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -5285,17 +5297,25 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-it71Rt">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <nav class="s-bcr" aria-label="breadcrumb">
+ <a href="${locale === 'it' ? '/' : `/${locale}/`}" class="s-bcl">${esc(homeLabel[locale])}</a>
+ <span> / </span>
+ <a href="${sectionRootUrl}" class="s-bcl">${esc(cantonSectionName(locale, edc))}</a>
+ <span> / </span>
+ <span>${esc(model.heading)}</span>
+ </nav>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
  <p class="s-drFGhf"><a class="s-YszcPD" href="${model.parentHubHref}">${esc(backLabel)}</a></p>
  </header>
  <section class="s-S6PRaY">
- <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
- <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>${model.latestJobs.length > 0 ? `
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>` : ''}
  </section>
+ <p class="s-O3JTly"><a href="${CALC_HREF[locale]}" class="s-cta">${esc(careCtaLabel[locale])} →</a></p>
  <section class="s-KZc0LQ">
  <div class="s-r2QmTP">
  <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
@@ -5303,10 +5323,10 @@ ${staticAnalyticsHtml}
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section class="s-4FxAs0">
+ ${model.latestJobs.length > 0 ? `<section class="s-4FxAs0">
  <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
- </section>
+ </section>` : ''}
  <section class="s-KZc0LQ">
  <h2 class="s-iEVPhz">${esc(locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante')}</h2>
  <div class="s-J2fKgL">${siblingLinks}</div>
@@ -5470,8 +5490,8 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-it71Rt">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(pageH1)}</h1>
  <p class="s-wU5Nrr">${esc(pageDesc)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -5687,8 +5707,8 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-it71Rt">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -5846,8 +5866,8 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content s-it71Rt">
- <header class="s-S_0cal">
- <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <header class="s-S_0cal sx-hero">
+ <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6139,10 +6159,6 @@ ${staticAnalyticsHtml}
  // a bare `<h1><p><p><ul>` which rendered visibly unstyled next to TI
  // siblings.
  const updatedDate = new Date().toISOString().slice(0, 10);
- const updatedLabel = locale === 'it' ? 'Aggiornato'
-   : locale === 'en' ? 'Updated'
-   : locale === 'de' ? 'Aktualisiert'
-   : 'Mis à jour';
  const jobCountLabel = locale === 'it' ? 'Offerte attive'
    : locale === 'en' ? 'Open positions'
    : locale === 'de' ? 'Offene Stellen'
@@ -6160,7 +6176,7 @@ ${staticAnalyticsHtml}
    : locale === 'de' ? `Stellenangebote in ${cityDisplay}`
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
- const bodyHtml = `<header class="s-S_0cal"><p class="s-zNiFzy">${esc(updatedLabel)} · ${updatedDate}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(updatedDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default

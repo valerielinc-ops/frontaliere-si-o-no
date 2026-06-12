@@ -3607,10 +3607,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (nonTiCantonNavEntries.length > 0) {
  const navLocale = locale as NonTiNavLocale;
  const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
- const pillBaseStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #cbd5e1';
- const pillEditorialStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #c7d2fe';
- const pillSectorStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #bbf7d0';
- const pillCompanyStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fef3c7;color:#854d0e;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #fcd34d';
+ // Pill styling lives in public/assets/seo-static.css (.jbx-*): these were
+ // per-anchor inline style attrs — 621 anchors × ~190 B ≈ 119 KB on
+ // /cerca-lavoro-ticino/ alone (54% of the page), the page-weight gate
+ // breaker behind issue #1887.
  const outerNavLabel = navLocale === 'it' ? 'Esplora i cantoni in dettaglio'
    : navLocale === 'en' ? 'Explore cantons in detail'
    : navLocale === 'de' ? 'Kantone im Detail erkunden'
@@ -3640,28 +3640,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    // Editorial slots (7 anchors).
    if (e.editorialSlots[navLocale].length > 0) {
      const anchors = e.editorialSlots[navLocale]
-       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillEditorialStyle}">${esc(it.label)}</a>`)
+       .map((it) => `<a href="${cantonBase}${it.slug}/" class="jbx-e">${esc(it.label)}</a>`)
        .join('');
      blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
    }
    // Sector hubs (≤10).
    if (e.sectorSlugs[navLocale].length > 0) {
      const anchors = e.sectorSlugs[navLocale]
-       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillSectorStyle}">${esc(it.label)}</a>`)
+       .map((it) => `<a href="${cantonBase}${it.slug}/" class="jbx-s">${esc(it.label)}</a>`)
        .join('');
      blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
    }
    // Top company hubs (≤6).
    if (e.companyHubs[navLocale].length > 0) {
      const anchors = e.companyHubs[navLocale]
-       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillCompanyStyle}">${esc(it.label)}</a>`)
+       .map((it) => `<a href="${cantonBase}${it.slug}/" class="jbx-c">${esc(it.label)}</a>`)
        .join('');
      blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(companyLabel)}:</strong> ${anchors}</div>`);
    }
    // City hubs (≤8) — slug is locale-agnostic (citySlug normalised).
    if (e.cityHubs.length > 0) {
      const anchors = e.cityHubs
-       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillBaseStyle}">${esc(it.label)}</a>`)
+       .map((it) => `<a href="${cantonBase}${it.slug}/" class="jbx-a">${esc(it.label)}</a>`)
        .join('');
      blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(cityLabel)}:</strong> ${anchors}</div>`);
    }
@@ -3688,15 +3688,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  //       buildCantonHubEditorial above).
  //   (c) Top TI search-cluster bridges (~30 per locale, deterministic).
  //   (d) Top TI company hubs (`azienda-{slug}` etc., capped 20).
- // Each block is wrapped in <details> (mobile-fold) and emits inline
- // semantic-token styling (no Tailwind utility classes).
+ // Each block is wrapped in <details> (mobile-fold); anchor styling is
+ // shared .jbx-* classes in seo-static.css (no Tailwind utility classes).
  {
    const navLocale = locale as TiNavLocale;
    const tiSection = resolveCantonSection(navLocale, 'TI');
    const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
    const tiBase = `/${localePref}${tiSection}/`.replace(/\/+/g, '/');
-   const linkStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;border:1px solid #c7d2fe';
-   const secondaryLinkStyle = 'display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0';
+   // Link styling lives in public/assets/seo-static.css (.jbx-l primary,
+   // .jbx-m secondary) — formerly per-anchor inline style attrs, see the
+   // .jbx-* note above.
 
    // (a) Editorial slot pages — 7 per locale.
    const editorialSlotLabels: Record<TiNavLocale, { today: string; nurses: string; partTime: string; clinics: string; careHomes: string; oss: string; educators: string; nav: string }> = {
@@ -3716,7 +3717,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      { slug: careClusterSlug('educators', 'TI', navLocale), label: slLabels.educators },
    ];
    const editorialSlotAnchors = editorialSlotItems
-     .map((it) => `<a href="${tiBase}${it.slug}/" style="${linkStyle}">${esc(it.label)}</a>`)
+     .map((it) => `<a href="${tiBase}${it.slug}/" class="jbx-l">${esc(it.label)}</a>`)
      .join('');
    editorialBlocks.push(
      `<details class="s-01GpQM" open><summary class="s-DhA4PZ">${esc(slLabels.nav)} (${editorialSlotItems.length})</summary><nav class="s-6_t7LY" aria-label="${esc(slLabels.nav)}">${editorialSlotAnchors}</nav></details>`,
@@ -3732,7 +3733,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      const paginationAnchors: string[] = [];
      for (let p = 2; p <= tiPaginationPages; p++) {
        const href = `${tiBase}${TI_PAGINATION_SLUG[navLocale]}-${p}/`;
-       paginationAnchors.push(`<a href="${href}" style="${linkStyle}">${pageWord}&nbsp;${p}</a>`);
+       paginationAnchors.push(`<a href="${href}" class="jbx-l">${pageWord}&nbsp;${p}</a>`);
      }
      editorialBlocks.push(
        `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(paginationNavLabel)} (${tiPaginationPages - 1})</summary><nav class="s-6_t7LY" aria-label="${esc(paginationNavLabel)}">${paginationAnchors.join('')}</nav></details>`,
@@ -3747,7 +3748,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        : navLocale === 'fr' ? 'Recherches d\'emploi populaires au Tessin'
        : 'Ricerche di lavoro più popolari in Ticino';
      const clusterAnchors = localeClusters
-       .map((c) => `<a href="${tiBase}${c.slug}/" style="${secondaryLinkStyle}">${esc(c.label)}</a>`)
+       .map((c) => `<a href="${tiBase}${c.slug}/" class="jbx-m">${esc(c.label)}</a>`)
        .join('');
      editorialBlocks.push(
        `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(clustersNavLabel)} (${localeClusters.length})</summary><nav class="s-6_t7LY" aria-label="${esc(clustersNavLabel)}">${clusterAnchors}</nav></details>`,
@@ -3763,7 +3764,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        : navLocale === 'fr' ? 'Principaux employeurs au Tessin'
        : 'Aziende che assumono in Ticino';
      const companyAnchors = tiTopCompanies
-       .map((c) => `<a href="${tiBase}${companyPrefix}-${c.slug}/" style="${linkStyle}">${esc(c.label)}</a>`)
+       .map((c) => `<a href="${tiBase}${companyPrefix}-${c.slug}/" class="jbx-l">${esc(c.label)}</a>`)
        .join('');
      editorialBlocks.push(
        `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(companyNavLabel)} (${tiTopCompanies.length})</summary><nav class="s-6_t7LY" aria-label="${esc(companyNavLabel)}">${companyAnchors}</nav></details>`,
@@ -4370,7 +4371,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // the strip, pages whose ogT carries the brand suffix produce identical
  // <title> and <h1> strings (Semrush "Duplicate H1 and title tags").
  const stripBrand = (s: string) => s.replace(/\s*[|·]\s*Frontaliere Ticino\s*$/i, '').trim();
- const h1Fallback = stripBrand(seoData.ogT) || seoData.ogT;
+ // SERP-style ogT decorations (🔥 prefix, " | Aggiornate Oggi" tail) read as
+ // clickbait in an on-page <h1>. Strip leading pictographs and turn pipes
+ // into an em-dash: "🔥 5914 Offerte … | Aggiornate Oggi" →
+ // "5914 Offerte … — Aggiornate Oggi". The <title>/ogT keep their format.
+ const cleanH1 = (s: string) =>
+ s.replace(/^[\p{Extended_Pictographic}\u{FE0F}\s]+/u, '').replace(/\s*\|\s*/g, ' — ').trim();
+ const h1Fallback = cleanH1(stripBrand(seoData.ogT)) || seoData.ogT;
  // Last-resort discriminator: if title == fallback (page that lacks the
  // brand suffix entirely), append a separator so the strings still differ.
  // Apply via differentiateH1FromTitle (locale-aware) so the same protection
