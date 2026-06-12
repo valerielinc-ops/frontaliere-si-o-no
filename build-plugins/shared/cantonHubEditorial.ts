@@ -13,14 +13,17 @@
  * gave neither AI extractors nor crawlers the same definition surface as
  * the TI hub.
  *
- * **TI byte-identity contract.** When called with `{canton: 'TI', display:
- * 'Ticino', locale: 'it', ...}`, this helper emits the exact same set of
- * strings that `staticPagesPlugin.ts` previously inlined for its TI
- * `isJobsIndex` branch — same characters, same order, same array length.
- * The `cathedral-canton-hub-parity.test.ts` snapshot test enforces this
- * invariance. The TI canton navigator (`<details>` listing every other
- * canton) is intentionally NOT part of this helper because it is unique
- * to the TI hub; it stays inline in `staticPagesPlugin.ts`.
+ * **TI parity contract.** When called with `{canton: 'TI', display:
+ * 'Ticino', locale: 'it', ...}`, this helper emits the same set of strings
+ * that `staticPagesPlugin.ts` previously inlined for its TI `isJobsIndex`
+ * branch — same order, same array length — with ONE deliberate deviation
+ * (2026-06): the hardcoded "oltre 1.500 offerte" claim now interpolates the
+ * live `jobsCount` (it contradicted the real count surfaced in the page
+ * title), falling back to the legacy fixed claim when `jobsCount <= 0`.
+ * `cathedral-canton-hub-parity.test.ts` pins this behaviour. The TI canton
+ * navigator (`<details>` listing every other canton) is intentionally NOT
+ * part of this helper because it is unique to the TI hub; it stays inline
+ * in `staticPagesPlugin.ts`.
  *
  * **Per-canton commuter prose** (Como → Brogeda etc.) is NOT emitted by
  * this helper. The legacy TI prose mentions Lugano, Bellinzona, Locarno,
@@ -70,14 +73,23 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   const isTi = canton === 'TI';
   const out: string[] = [];
 
+  // TI claim: interpolate the live jobsCount like the non-TI branch does
+  // (the hardcoded "oltre 1.500" contradicted the title's real count, e.g.
+  // 5914, on the indexed hub). Falls back to the legacy fixed claim only
+  // when the caller has no usable count (jobsCount <= 0).
+  const tiJobsClaim = jobsCount > 0
+    ? `<strong>${jobsCount.toLocaleString('de-CH')}</strong>`
+    : 'oltre 1.500';
+  const tiFaqJobsClaim = jobsCount > 0 ? jobsCount.toLocaleString('de-CH') : 'oltre 1.500';
+
   // ── 1. H2 + intro paragraph (definition block for AI extraction) ────────
   if (isTi) {
-    // Byte-identical TI strings (Italian). Other locales served the same
-    // Italian filler historically — preserved for byte-identity even though
-    // it is not idiomatic for EN/DE/FR pages.
+    // Legacy TI strings (Italian). Other locales served the same Italian
+    // filler historically — preserved even though it is not idiomatic for
+    // EN/DE/FR pages. The job count is the only live interpolation.
     out.push(
       `<h2 class="s-o3IET6">Offerte di Lavoro in Ticino — Bacheca Lavoro per Frontalieri</h2>`,
-      `<p class="s-6g7z41">Cerchi <strong>lavoro in Ticino</strong>? Questa bacheca raccoglie oltre 1.500 <strong>offerte di lavoro</strong> attive da più di 100 aziende del Canton Ticino, aggiornate ogni 12 ore. Le posizioni coprono tutti i principali settori — banca, pharma, IT, edilizia, sanità, logistica — e sono disponibili in italiano, inglese, tedesco e francese. Ogni annuncio è collegato direttamente al sito ufficiale dell’azienda per la candidatura.</p>`,
+      `<p class="s-6g7z41">Cerchi <strong>lavoro in Ticino</strong>? Questa bacheca raccoglie ${tiJobsClaim} <strong>offerte di lavoro</strong> attive da più di 100 aziende del Canton Ticino, aggiornate ogni 12 ore. Le posizioni coprono tutti i principali settori — banca, pharma, IT, edilizia, sanità, logistica — e sono disponibili in italiano, inglese, tedesco e francese. Ogni annuncio è collegato direttamente al sito ufficiale dell’azienda per la candidatura.</p>`,
     );
   } else {
     // Canton-agnostic intro. Uses `display` so it reads naturally for
@@ -159,7 +171,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   if (isTi) {
     out.push(
       `<details class="s-01GpQM"><summary class="s-qAjSfB">Domande frequenti sulla ricerca lavoro in Ticino</summary><div class="s-4vhLHi">` +
-      `<p class="s-F2hp6o"><strong>Quante offerte di lavoro sono disponibili?</strong> La sezione lavoro Ticino raccoglie oltre 1.500 offerte attive da più di 100 aziende ticinesi, aggiornate ogni 12 ore tramite crawler automatici che monitorano i siti ufficiali delle aziende.</p>` +
+      `<p class="s-F2hp6o"><strong>Quante offerte di lavoro sono disponibili?</strong> La sezione lavoro Ticino raccoglie ${tiFaqJobsClaim} offerte attive da più di 100 aziende ticinesi, aggiornate ogni 12 ore tramite crawler automatici che monitorano i siti ufficiali delle aziende.</p>` +
       `<p class="s-F2hp6o"><strong>Come posso cercare lavoro in Ticino come frontaliere?</strong> Usa il motore di ricerca integrato per filtrare le posizioni per settore (banca, pharma, IT, edilizia, sanità), tipo di contratto (tempo indeterminato, determinato, part-time), località (Lugano, Bellinzona, Locarno, Mendrisio) e data di pubblicazione. Ogni annuncio include il collegamento diretto alla candidatura sul sito aziendale.</p>` +
       `<p class="s-F2hp6o"><strong>Serve il permesso G per candidarsi?</strong> I frontalieri con permesso G (Grenzgängerbewilligung) possono candidarsi a qualsiasi posizione in Svizzera. Il permesso viene richiesto dal datore di lavoro dopo l'assunzione. Per i dettagli, consulta la <a class="s-676LjN" href="/guida-frontaliere/permessi-di-lavoro/">guida permessi di lavoro</a>.</p>` +
       `<p class="s-F2hp6o"><strong>Quali sono i settori con più domanda in Ticino?</strong> I settori con maggiore domanda per frontalieri nel 2026 sono: servizi finanziari e bancari, farmaceutico e chimico, IT e software, edilizia e impiantistica, sanità e assistenza, ristorazione e turismo, logistica e trasporti.</p>` +

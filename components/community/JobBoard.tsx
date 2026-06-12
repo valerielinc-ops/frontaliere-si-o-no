@@ -88,7 +88,7 @@ import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/s
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
-import { buildPath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildPath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, isJobSlugMapReady, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -5908,16 +5908,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (robotsMeta?.getAttribute('content')?.includes('noindex')) {
  robotsMeta.remove();
  }
- // Bridge-in-flight guard: if the slug-map knows this slug points to a real
- // job (different canton, slug-rename alias, or cross-locale), the bridge
- // fallback effect above is still merging it into `jobs`. Show a skeleton
- // instead of flashing JobOrphanView ("Questo annuncio non è più disponibile")
- // for the few hundred ms between hydration and bridge resolve — the
- // pre-rendered static body shows the real content during that window, so
- // any flip to Orphan is a visible regression.
+ // Bridge-in-flight guard: show skeleton instead of flashing JobOrphanView
+ // ("Questo annuncio non è più disponibile") during the resolution window.
+ // Two cases:
+ //   (a) Map loaded, slug is a real job → bridge fetch still in flight.
+ //   (b) Map not yet loaded → can't confirm orphan status yet. This covers
+ //       slugs whose prefix (recherche-, page-, …) caused isJobDetailUrl()
+ //       to return false, deferring the slug-map to idle-load. Without this
+ //       branch the guard was blind: getJobMetaForSlug returned undefined
+ //       and JobOrphanView flashed before the bridge effect could resolve.
+ // In both cases bridgeFetchAttempted being set (finally block) will flip
+ // !isJobSlugMapReady() to false after the map loads, clearing the skeleton.
  const bridgeTargetForRender = bridgeTargetSlug || initialJobSlug;
  const bridgeMeta = getJobMetaForSlug(bridgeTargetForRender);
- if (bridgeMeta?.id && bridgeFetchAttempted !== bridgeTargetForRender) {
+ if ((bridgeMeta?.id || !isJobSlugMapReady()) && bridgeFetchAttempted !== bridgeTargetForRender) {
  return <SkeletonJobDetail />;
  }
  // Expired: slug found in expired-jobs.json — show metadata + sign-in + related

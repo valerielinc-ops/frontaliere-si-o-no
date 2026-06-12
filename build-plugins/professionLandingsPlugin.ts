@@ -22,7 +22,7 @@
  *   6. employer grid (top 6, compact 2-col)
  *   7. ─── "Approfondisci" divider ───
  *   8. long-form prose H2 sections (existing 7 blocks)
- *   9. salary band table + employers table
+ *   9. employers table (curated, with historical-employers framing note)
  *  10. sources · FAQ · related · final CTAs
  *
  * Live signal comes from professionJobsAggregate (build-time read of
@@ -44,7 +44,6 @@ import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
   LINK_ACCENT_STYLE,
-  HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
@@ -53,10 +52,12 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero } from './shared/landingHeroPersonality';
+import { formatUpdatedDate } from './shared/humanDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
+  PROFESSION_SLUGS,
   buildProfessionLandingPath,
   PROFESSION_FACTS,
   type ProfessionLocale,
@@ -106,6 +107,15 @@ function inlineFormat(s: string): string {
     return `<a class="s-6L_4jt" href="${esc(safeUrl)}" rel="noopener">${text}</a>`;
   });
   return linked;
+}
+
+/**
+ * Profession search term for the SPA job board `?q=` filter — the last
+ * segment of the locale slug (e.g. "jobs-ticino-nurse" → "nurse"), which is
+ * always the single-token locale-natural role keyword.
+ */
+function professionSearchTerm(locale: ProfessionLocale, id: ProfessionId): string {
+  return PROFESSION_SLUGS[locale][id].split('-').pop() ?? '';
 }
 
 const OG_LOCALE: Record<ProfessionLocale, string> = {
@@ -193,7 +203,13 @@ function renderFeaturedJobs(
     locale,
     emptyStateHtml: emptyHtml,
   });
-  const ctaHref = buildJobBoardUrl(locale);
+  // Deep-link the "see all" CTA to the job board pre-filtered on the
+  // profession (JobBoard reads `?q=` from the URL). Trailing slash stays on
+  // the path, before the query string.
+  const searchTerm = professionSearchTerm(locale, id);
+  const ctaHref = searchTerm
+    ? `${buildJobBoardUrl(locale)}?q=${encodeURIComponent(searchTerm)}`
+    : buildJobBoardUrl(locale);
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
@@ -278,6 +294,7 @@ function renderEmployersTable(
   id: ProfessionId,
   headings: { employer: string; city: string; typicalRoles: string; salaryLabel: string },
   title: string,
+  note: string,
 ): string {
   const facts = PROFESSION_FACTS[id];
   const rows = facts.topEmployers
@@ -291,6 +308,7 @@ function renderEmployersTable(
     .join('');
   return `<section class="s-KZc0LQ">
     <h2 class="s-zlWKhs">${esc(title)}</h2>
+    <p class="text-sm text-subtle mt-1 mb-3">${esc(note)}</p>
     <div class="s-qS9-Q-">
       <table class="s-QbQwZ0">
         <thead>
@@ -301,23 +319,6 @@ function renderEmployersTable(
         </thead>
         <tbody>${rows}</tbody>
       </table>
-    </div>
-  </section>`;
-}
-
-function renderSalaryBandTable(
-  id: ProfessionId,
-  salaryLabel: string,
-  title: string,
-): string {
-  const facts = PROFESSION_FACTS[id];
-  const [min, max] = facts.typicalSalaryRange;
-  return `<section class="s-86Shfc">
-    <h2 class="s-zlWKhs">${esc(title)}</h2>
-    <div class="s-card" style="padding:16px 18px">
-      <p class="s-P8V7XF">${esc(salaryLabel)}</p>
-      <p class="s-g7fdha">CHF ${min.toLocaleString('en-CH')} &ndash; ${max.toLocaleString('en-CH')}</p>
-      <p class="s--zidT1">Mediana: CHF ${facts.medianSalaryChf.toLocaleString('en-CH')}</p>
     </div>
   </section>`;
 }
@@ -454,22 +455,24 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  const itemListLd = inlineScriptJson({
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: copy.employersTableTitle,
-    itemListOrder: 'https://schema.org/ItemListOrderAscending',
-    numberOfItems: facts.topEmployers.length,
-    itemListElement: facts.topEmployers.map((emp, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      item: {
-        '@type': 'Organization',
-        name: emp,
-        location: facts.topCities[i % facts.topCities.length],
-      },
-    })),
-  });
+  // ItemList of the featured live openings (each with an absolute URL) —
+  // richer than the previous curated-employer list and coherent with the
+  // visible "Offerte in evidenza" section. Omitted entirely when empty.
+  const featuredForLd = snapshot.featured.slice(0, 3);
+  const itemListLd = featuredForLd.length > 0
+    ? inlineScriptJson({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: copy.featuredJobsTitle,
+        itemListOrder: 'https://schema.org/ItemListOrderAscending',
+        numberOfItems: featuredForLd.length,
+        itemListElement: featuredForLd.map((j, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: `${BASE_URL}${buildFeaturedJobUrl(j, locale)}`,
+        })),
+      })
+    : '';
 
   // ── Template B body ────────────────────────────────────────────────────
   const copyView: CopyView = {
@@ -483,7 +486,7 @@ function renderPage(opts: {
 
   const statTilesHtml = `<div class="seo-fade-in">${renderStatGrid([
     { label: copy.statTileLiveLabel, value: copy.statLiveValue, tone: pickStatTileTone('openings', snapshot.liveCount) },
-    { label: copy.statTileSalaryLabel, value: copy.statSalaryValue, tone: pickStatTileTone('salary', snapshot.medianSalaryChf ?? 0) },
+    { label: copy.statTileSalaryLabel, value: copy.statSalaryValue, tone: pickStatTileTone('salary', facts.medianSalaryChf) },
     { label: copy.statTileFreshLabel, value: copy.statFreshValue, tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ])}</div>`;
 
@@ -494,8 +497,13 @@ function renderPage(opts: {
   const dividerHtml = renderApprofondisciDivider(copy.approfondisciHeading);
 
   const sectionsHtml = sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
-  const employersTable = renderEmployersTable(locale, id, copy.tableHeadings, copy.employersTableTitle);
-  const salaryTable = renderSalaryBandTable(id, copy.tableHeadings.salaryLabel, copy.salaryTableTitle);
+  const employersTable = renderEmployersTable(
+    locale,
+    id,
+    copy.tableHeadings,
+    copy.employersTableTitle,
+    copy.employersTableNote,
+  );
   const faqHtml = renderFaqBlock(faqs);
   const relatedHtml = renderRelatedLinks(locale, copy.relatedLabel);
   const sourcesHtml = renderSourcesBlock(id, copy.sourcesLabel);
@@ -510,16 +518,18 @@ function renderPage(opts: {
     </nav>
     ${renderLandingHero(id, locale, {
       openings: snapshot.liveCount,
-      medianSalary: snapshot.medianSalaryChf ?? undefined,
+      // Same curated source as the salary stat tile (statSalaryValue), so the
+      // hero lede and the tile agree by construction — the live aggregate
+      // median is polluted by default-estimated salaries.
+      medianSalary: facts.medianSalaryChf,
     }, copy.h1, copy.denseLede)}
-    <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(copy.updatedLabel)} ${esc(dateStamp)}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}
     ${dividerHtml}
     ${sectionsHtml}
-    ${salaryTable}
     ${employersTable}
     ${sourcesHtml}
     <section class="s-KZc0LQ">
@@ -553,7 +563,7 @@ function renderPage(opts: {
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
     extraHeadHtml: extraHead,
-    jsonLdScripts: [breadcrumbLd, faqLd, articleLd, itemListLd],
+    jsonLdScripts: [breadcrumbLd, faqLd, articleLd, ...(itemListLd ? [itemListLd] : [])],
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },

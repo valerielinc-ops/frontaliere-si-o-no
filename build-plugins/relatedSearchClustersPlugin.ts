@@ -51,6 +51,7 @@ import { BASE_URL } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
+import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildClusterThinHtml } from './shared/clusterThinShell';
@@ -1827,28 +1828,20 @@ function injectHubLinkIntoSectionLanding(
   if (html.includes('data-related-search-hub-link="1"')) return;
 
   const hubPagePaths = listEmittedHubPagePaths(distDir, locale);
-  // Head+tail truncation, mirroring the cantonHubEditorial.ts archive
-  // paginator: the full list grew ~55 B per hub page (265 pages = ~15 KB)
-  // on the job-board landing and tipped dist/cerca-lavoro-ticino/index.html
-  // over the audit:page-weight budget (220 KB) on 2026-06-12. Crawler reach
-  // to every /ricerca/page-N/ is preserved by renderPageNavigator(), which
-  // links EVERY page on the hub pages themselves (root → job board → hub
-  // page 1 → page-N stays within the BFS depth gate), so the job-board
-  // injection only needs head+tail anchors.
-  const PAGINATOR_HEAD = 20;
-  const PAGINATOR_TAIL = 5;
+  // FULL page list, deliberately. PR #1915 truncated this to head(20)+tail(5)
+  // to duck the page-weight budget, but that pushed every cluster page hanging
+  // off a middle hub page one hop deeper — on the EN/DE/FR landings (which sit
+  // at depth 2, not 1) clusters landed at depth 5 and audit:max-bfs-depth
+  // regressed on sitemap-search-clusters-001..005 (run 27393621559, 47-73%
+  // below crawl depth vs baseline 0%). renderPageNavigator() on the hub pages
+  // does link every page-N, but only from depth 3 on non-IT locales — too
+  // deep. The full list (~55 B/page, 265 pages ≈ 15 KB) fits again because
+  // PR #1921 freed ~110 KB of inline-style overhead on this landing; the
+  // 205 KB guard below still bounds the page.
   const tailPaths = hubPagePaths.slice(1); // pages 2..N
   const pageAnchor = (urlPath: string, pageNum: number): string =>
     `<a href="${esc(urlPath)}">${pageNum}</a>`;
-  let pageLinks: string;
-  if (tailPaths.length <= PAGINATOR_HEAD + PAGINATOR_TAIL) {
-    pageLinks = tailPaths.map((urlPath, idx) => pageAnchor(urlPath, idx + 2)).join(' ');
-  } else {
-    const headLinks = tailPaths.slice(0, PAGINATOR_HEAD).map((urlPath, idx) => pageAnchor(urlPath, idx + 2));
-    const tailLinks = tailPaths.slice(-PAGINATOR_TAIL).map((urlPath, idx) =>
-      pageAnchor(urlPath, tailPaths.length - PAGINATOR_TAIL + idx + 2));
-    pageLinks = [...headLinks, '<span aria-hidden="true">…</span>', ...tailLinks].join(' ');
-  }
+  const pageLinks = tailPaths.map((urlPath, idx) => pageAnchor(urlPath, idx + 2)).join(' ');
   const pageLinkBlock = pageLinks
     ? `<details><summary>${esc(copy.pageNavigatorLabel)}</summary><p>${pageLinks}</p></details>`
     : '';
@@ -1891,6 +1884,56 @@ function injectHubLinkIntoSectionLanding(
       `A data-driven block on this landing grew past its headroom — trim the offending block ` +
       `(do not raise this guard or the audit budget; non-negotiable #1).`,
     );
+  }
+}
+
+/**
+ * Inject the FULL hub page-N index into the per-locale orphan-query hub
+ * (/ricerca/, /en/search/, /de/suche/, /fr/recherche/ — emitted by
+ * orphanQueryLandingPlugin and linked from the depth-1 site index). PR #1915
+ * truncated the job-board paginator to head+tail for the page-weight
+ * budget, which orphaned every cluster page reachable only through hub
+ * pages 22..N (max-bfs-depth: +134k unreachable, deploy 27393621559
+ * rolled back). This block restores reachability on a page with ample
+ * byte headroom (~79 KB of 220 KB): site index (1) -> orphan hub (2) ->
+ * hub page-N (3) -> cluster page (4) stays within the depth-4 gate.
+ * Idempotent via the data marker; missing hub file -> warn and skip.
+ */
+function injectPageIndexIntoOrphanHub(distDir: string, locale: Locale): void {
+  const prefix = LOCALE_PREFIX[locale];
+  const section = ORPHAN_LANDING_SECTION[locale];
+  const hubPath = path.join(distDir, prefix.replace(/^\//, ''), section, 'index.html');
+  if (!fs.existsSync(hubPath)) {
+    console.warn(`\x1b[33m[related-search-clusters]\x1b[0m orphan-query hub missing at ${hubPath} — skipping page-index injection.`);
+    return;
+  }
+  let html: string;
+  try {
+    html = fs.readFileSync(hubPath, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to read orphan-query hub:', err);
+    return;
+  }
+  if (html.includes('data-related-search-pages-index="1"')) return;
+  const hubPagePaths = listEmittedHubPagePaths(distDir, locale);
+  if (hubPagePaths.length === 0) return;
+  const copy = COPY[locale];
+  const links = hubPagePaths.map((urlPath, idx) =>
+    `<a href="${esc(urlPath)}">${idx + 1}</a>`,
+  ).join(' ');
+  const block = `<nav data-related-search-pages-index="1" aria-label="${esc(copy.pageNavigatorLabel)}"><details><summary>${esc(copy.pageNavigatorLabel)} (${hubPagePaths.length})</summary><p>${links}</p></details></nav>`;
+  let patched: string | null = null;
+  if (html.includes('</main>')) {
+    patched = html.replace('</main>', `${block}\n</main>`);
+  }
+  if (!patched) {
+    console.warn(`\x1b[33m[related-search-clusters]\x1b[0m no insertion anchor in ${hubPath} — skipping page-index injection.`);
+    return;
+  }
+  try {
+    fs.writeFileSync(hubPath, patched);
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write orphan-query hub:', err);
   }
 }
 
@@ -2278,6 +2321,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           const __tCacheHitPatch = profileStart();
           for (const { locale, url } of restored.hubs) {
             injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
+            injectPageIndexIntoOrphanHub(distDir, locale);
           }
           // Discover whatever shards the cache restored (legacy single-file
           // or sharded) and re-advertise them in the master sitemap.
@@ -2709,6 +2753,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tHubInject = profileStart();
       for (const { locale, url } of cachedHubs) {
         injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
+        injectPageIndexIntoOrphanHub(distDir, locale);
       }
       profileRecord('inject-hub-link', __tHubInject);
       const __tSitemap = profileStart();

@@ -35,6 +35,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { formatUpdatedSentence } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import {
   ALL_FAQ_HUB,
@@ -349,7 +350,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="fh-hd">
-      <p class="fh-eyebrow">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+      <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            FAQ + comparisons hubs for shipping two H1 tags. The body heading
