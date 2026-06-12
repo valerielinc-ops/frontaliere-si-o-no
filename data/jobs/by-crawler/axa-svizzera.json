@@ -178,8 +178,8 @@
       "slugByLocale": {
         "de": "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen",
         "it": "versicherungsberater-in-per-la-hauptagentur-wettingen-axa-svizzera-wettingen",
-        "en": "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen",
-        "fr": "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen"
+        "en": "insurance-consultant-for-the-main-agency-wettingen-axa-svizzera-wettingen",
+        "fr": "consultant-en-assurance-pour-l-agence-principale-wettingen-axa-svizzera-wettingen"
       },
       "id": "axa-svizzera-fafa39f25848",
       "previousSlugsByLocale": {
@@ -188,10 +188,17 @@
         ],
         "de": [
           "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-wettingen-xv275e"
+        ],
+        "en": [
+          "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen"
+        ],
+        "fr": [
+          "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-wettingen-xv275e"
+        "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-wettingen-xv275e",
+        "versicherungsberater-in-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen"
       ],
       "salaryMin": 50500,
       "salaryMax": 89000,
@@ -248,7 +255,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-innendienst-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen",
         "it": "collaboratore-trice-servizio-interno-per-la-hauptagentur-wettingen-axa-svizzera-wettingen",
-        "en": "mitarbeiter-in-innendienst-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen",
+        "en": "employee-in-house-for-the-main-agency-wettingen-axa-svizzera-wettingen",
         "fr": "collaborateur-trice-innendienst-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen"
       },
       "id": "axa-svizzera-458df134eab2",
@@ -260,6 +267,9 @@
           "mitarbeiter-in-innendienst-fur-die-hauptagentur-wettingen-axa-wettingen-gbe0fy"
         ],
         "fr": [
+          "mitarbeiter-in-innendienst-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen"
+        ],
+        "en": [
           "mitarbeiter-in-innendienst-fur-die-hauptagentur-wettingen-axa-svizzera-wettingen"
         ]
       },
@@ -10854,9 +10864,9 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo",
-        "en": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
-        "de": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
-        "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
+        "en": "insurance-consultant-axa-svizzera-manno",
+        "de": "versicherungsberater-axa-svizzera-manno",
+        "fr": "consulente-assicurativo-axa-svizzera-manno"
       },
       "id": "axa-svizzera-9a1a0bf0744b",
       "salaryMin": 49500,
@@ -10888,10 +10898,7 @@
         "consulente-assicurativo-axa-agenzia-principale-igor-scheggia-biasca-xhxjxo",
         "consulente-assicurativo-axa-biasca-xhxjxo",
         "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "consulente-assicurativo-axa-svizzera-manno",
-        "insurance-consultant-axa-svizzera-manno",
-        "versicherungsberater-axa-svizzera-manno"
+        "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10902,17 +10909,14 @@
         ],
         "fr": [
           "consulente-assicurativo-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
-          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
-          "consulente-assicurativo-axa-svizzera-manno"
+          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
         ],
         "en": [
           "insurance-consultant-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
-          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
-          "insurance-consultant-axa-svizzera-manno"
+          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
         ],
         "de": [
-          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
-          "versicherungsberater-axa-svizzera-manno"
+          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
         ]
       }
     },

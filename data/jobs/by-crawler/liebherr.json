@@ -1076,12 +1076,12 @@
     },
     {
       "id": "liebherr-5247f4283f10",
-      "slug": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
+      "slug": "key-account-manager-area-rinnovabili-energia-eolica-m-w-d-liebherr-baden",
       "slugByLocale": {
-        "it": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
+        "it": "key-account-manager-area-rinnovabili-energia-eolica-m-w-d-liebherr-baden",
         "en": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
         "de": "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
-        "fr": "directeur-de-compte-principal-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
+        "fr": "gestionnaire-de-comptes-cle-energie-renouvelable-energie-eolienne-m-w-d-liebherr-baden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1124,14 +1124,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "key-account-manager-energia-rinnovabile-energia-eolica-m-f-d-liebherr-baden",
-        "praktikant-im-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
+        "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
+        "praktikant-im-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
+        "directeur-de-compte-principal-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "key-account-manager-energia-rinnovabile-energia-eolica-m-f-d-liebherr-baden"
+          "key-account-manager-energia-rinnovabile-energia-eolica-m-f-d-liebherr-baden",
+          "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
         ],
         "de": [
           "praktikant-im-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
+        ],
+        "fr": [
+          "directeur-de-compte-principal-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.418Z",
@@ -2980,7 +2986,7 @@
       "slugByLocale": {
         "it": "giovani-talenti-preparazione-del-lavoro-motori-di-combustione-m-f-x-liebherr-bulle",
         "en": "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
-        "de": "junge-talente-arbeitsvorbereitung-verbrennungsmotoren-m-w-x-liebherr-bulle",
+        "de": "junges-talent-arbeitsvorbereitung-verbrennungsmotoren-m-f-x-liebherr-bulle",
         "fr": "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -3024,6 +3030,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
+        "junge-talente-arbeitsvorbereitung-verbrennungsmotoren-m-w-x-liebherr-bulle",
         "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle",
         "jeunes-talents-moteurs-a-combustion-de-preparation-au-travail-m-f-x-liebherr-bulle"
       ],
@@ -3032,7 +3039,8 @@
           "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
+          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
+          "junge-talente-arbeitsvorbereitung-verbrennungsmotoren-m-w-x-liebherr-bulle"
         ],
         "fr": [
           "jeunes-talents-moteurs-a-combustion-pour-la-preparation-du-travail-m-f-x-liebherr-bulle",
@@ -6290,12 +6298,12 @@
     },
     {
       "id": "liebherr-0e6e924460f7",
-      "slug": "proprietario-del-sottosistema-motore-crank-case-cylinder-head-m-w-x-liebherr-bulle",
+      "slug": "proprietario-del-sottosistema-del-motore-cilindro-e-testa-di-cilindro-m-w-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "proprietario-del-sottosistema-motore-crank-case-cylinder-head-m-w-x-liebherr-bulle",
+        "it": "proprietario-del-sottosistema-del-motore-cilindro-e-testa-di-cilindro-m-w-x-liebherr-bulle",
         "en": "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle",
-        "de": "motorteilsystembesitzer-kurbelgehause-und-zylinderkopf-m-w-x-liebherr-bulle",
-        "fr": "sous-systeme-moteur-cas-de-cran-et-tete-de-cylindre-m-w-x-liebherr-bulle"
+        "de": "leiter-des-motor-untersystems-zylinderkopf-und-kurbelgehause-m-w-x-liebherr-bulle",
+        "fr": "responsable-du-sous-systeme-moteur-culasse-et-cylindre-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6337,17 +6345,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle"
+        "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle",
+        "proprietario-del-sottosistema-motore-crank-case-cylinder-head-m-w-x-liebherr-bulle",
+        "motorteilsystembesitzer-kurbelgehause-und-zylinderkopf-m-w-x-liebherr-bulle",
+        "sous-systeme-moteur-cas-de-cran-et-tete-de-cylindre-m-w-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle"
+          "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle",
+          "proprietario-del-sottosistema-motore-crank-case-cylinder-head-m-w-x-liebherr-bulle"
         ],
         "de": [
-          "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle"
+          "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle",
+          "motorteilsystembesitzer-kurbelgehause-und-zylinderkopf-m-w-x-liebherr-bulle"
         ],
         "fr": [
-          "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle"
+          "engine-subsystem-owner-crank-case-cylinder-head-m-w-x-liebherr-bulle",
+          "sous-systeme-moteur-cas-de-cran-et-tete-de-cylindre-m-w-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.371Z",
@@ -6880,7 +6894,7 @@
       "slugByLocale": {
         "it": "specialiste-technique-m-w-d-securite-produits-defense-temporaire-liebherr-bulle",
         "en": "technical-specialist-h-f-x-security-products-defense-temporary-liebherr-bulle",
-        "de": "technischer-spezialist-h-f-x-security-products-defense-temporar-liebherr-bulle",
+        "de": "technischer-spezialist-h-f-x-produkt-sicherheit-verteidigung-zeitlich-begrenzt-liebherr-bulle",
         "fr": "specialiste-technique-h-f-x-securite-produits-defense-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -6923,7 +6937,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-technique-h-f-x-securite-produits-defense-temporaire-liebherr-bulle"
+        "specialiste-technique-h-f-x-securite-produits-defense-temporaire-liebherr-bulle",
+        "technischer-spezialist-h-f-x-security-products-defense-temporar-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6933,7 +6948,8 @@
           "specialiste-technique-h-f-x-securite-produits-defense-temporaire-liebherr-bulle"
         ],
         "de": [
-          "specialiste-technique-h-f-x-securite-produits-defense-temporaire-liebherr-bulle"
+          "specialiste-technique-h-f-x-securite-produits-defense-temporaire-liebherr-bulle",
+          "technischer-spezialist-h-f-x-security-products-defense-temporar-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.367Z",
@@ -7294,9 +7310,9 @@
     },
     {
       "id": "liebherr-9e92fbe857ce",
-      "slug": "executive-assistant-m-f-x-liebherr-bulle",
+      "slug": "assistente-esecutivo-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "executive-assistant-m-f-x-liebherr-bulle",
+        "it": "assistente-esecutivo-m-f-x-liebherr-bulle",
         "en": "executive-assistant-m-f-x-liebherr-bulle",
         "de": "executive-assistent-m-f-x-liebherr-bulle",
         "fr": "executive-assistant-m-f-x-liebherr-bulle"
@@ -7353,7 +7369,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-m-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-b8371a0c23b9",

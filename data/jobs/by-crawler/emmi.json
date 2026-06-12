@@ -5295,12 +5295,12 @@
     },
     {
       "id": "emmi-8f695443963e",
-      "slug": "sales-support-foodservcie-emmi-ch",
+      "slug": "assistenza-commerciale-foodservcie-emmi-luzern-luzern",
       "slugByLocale": {
         "de": "sales-support-foodservcie-emmi-ch",
-        "it": "sales-support-foodservcie-emmi-ch",
+        "it": "assistenza-commerciale-foodservcie-emmi-luzern-luzern",
         "en": "sales-support-foodservcie-emmi-ch",
-        "fr": "sales-support-foodservcie-emmi-ch"
+        "fr": "soutien-aux-ventes-foodservcie-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5367,16 +5367,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T22:34:33.274Z"
+      "firstSeenAt": "2026-06-11T22:34:33.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-foodservcie-emmi-ch"
+        ],
+        "fr": [
+          "sales-support-foodservcie-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-foodservcie-emmi-ch"
+      ]
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
         "de": "account-manager-emmi-ch",
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5445,7 +5456,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T22:34:33.264Z"
+      "firstSeenAt": "2026-06-11T22:34:33.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-emmi-ch"
+        ],
+        "fr": [
+          "account-manager-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-emmi-ch"
+      ]
     }
   ]
 }
