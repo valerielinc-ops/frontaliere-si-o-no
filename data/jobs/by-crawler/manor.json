@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-06-12T12:37:46.335Z",
+  "assembledAt": "2026-06-12T22:52:23.313Z",
   "jobs": [
     {
       "title": "Collaborateur/trice Visual Merchandising 100%",
@@ -748,62 +748,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
-    },
-    {
-      "title": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie-p%C3%A2tisserie%29-70/1354931755/",
-      "location": "Genève 1 Collaborateurtrice supermarché",
-      "canton": "GE",
-      "country": "CH",
-      "category": "hospitality",
-      "description": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% at Manor, located in Genève 1 Collaborateurtrice supermarché, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% bei Manor, gelegen in Genève 1 Collaborateurtrice supermarché, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% chez Manor, situé à Genève 1 Collaborateurtrice supermarché, Canton de Genève, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-10",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
-      "slugByLocale": {
-        "it": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
-        "de": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
-        "fr": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche"
-      },
-      "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
-        "en": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
-        "de": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
-        "fr": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%"
-      },
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "manor-9bd8ebcd187b",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Genève 1 Collaborateurtrice supermarché",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1204",
       "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
@@ -1771,6 +1715,62 @@
           "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50"
         ]
       }
+    },
+    {
+      "title": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie-p%C3%A2tisserie%29-70/1354931755/",
+      "location": "Genève 1 Collaborateurtrice supermarché",
+      "canton": "GE",
+      "country": "CH",
+      "category": "hospitality",
+      "description": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionByLocale": {
+        "it": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% presso Manor, con sede a Genève 1 Collaborateurtrice supermarché, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% at Manor, located in Genève 1 Collaborateurtrice supermarché, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% bei Manor, gelegen in Genève 1 Collaborateurtrice supermarché, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70% chez Manor, situé à Genève 1 Collaborateurtrice supermarché, Canton de Genève, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-06-10",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
+        "en": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
+        "de": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche",
+        "fr": "manor-collaborateur-trice-supermarche-boulangerie-patisserie-70-geneve-1-collaborateurtrice-supermarche"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
+        "en": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
+        "de": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%",
+        "fr": "Collaborateur/trice supermarché (Boulangerie /pâtisserie) 70%"
+      },
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-9bd8ebcd187b",
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Genève 1 Collaborateurtrice supermarché",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1204",
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Collaborateur/trice supermarché (take-out) 50%",
@@ -3562,65 +3562,6 @@
       "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
-      "title": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Morges-Collaborateurtrice-vente-%28Lanc%C3%B4meL'Or%C3%A9al-Prestige%29%2C-50/1351338155/",
-      "location": "Morges Collaborateurtrice vente (LancômeL'Oréal",
-      "canton": "VD",
-      "country": "CH",
-      "category": "sales",
-      "description": "Souriante, avenante, polyvalente et  bien organisée et qui a un esprit commercial. Bonne connaissance des trends beauty actuels. Une personne soignée, et méthodique. Elle doit avoir une approche client professionnelle, et avoir un bon relationnel. L'esprit d'équipe est aussi une valeur importante car elle fait partie également du staff manor.",
-      "descriptionIt": "Souriante, avenante, polyvalente et  bien organisée et qui a un esprit commercial. Bonne connaissance des trends beauty actuels. Une personne soignée, et méthodique. Elle doit avoir une approche client professionnelle, et avoir un bon relationnel. L'esprit d'équipe est aussi une valeur importante car elle fait partie également du staff manor.",
-      "descriptionByLocale": {
-        "it": "Souriante, avenante, polyvalente et  bien organisée et qui a un esprit commercial. Bonne connaissance des trends beauty actuels. Une personne soignée, et méthodique. Elle doit avoir une approche client professionnelle, et avoir un bon relationnel. L'esprit d'équipe est aussi une valeur importante car elle fait partie également du staff manor.",
-        "en": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50% at Manor, located in Morges Collaborateurtrice vente (LancômeL'Oréal, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50% bei Manor, gelegen in Morges Collaborateurtrice vente (LancômeL'Oréal, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50% chez Manor, situé à Morges Collaborateurtrice vente (LancômeL'Oréal, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-04",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
-      "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
-        "en": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
-        "de": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
-        "fr": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal"
-      },
-      "titleByLocale": {
-        "it": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
-        "fr": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
-        "en": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
-        "de": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%"
-      },
-      "sourceLang": "fr",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "manor-63a85c131f30",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Morges Collaborateurtrice vente (LancômeL'Oréal",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugs": [
-        "vendite-dei-collaboratori-lancome-l-oreal-prestige-50-manor-ag-morges-collaborateurtrice-vente-lancomel-oreal"
-      ]
-    },
-    {
       "title": "Mitarbeiter*in Merchandising Parfümerie 60%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -3731,6 +3672,65 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-10T23:09:21.713Z"
+    },
+    {
+      "title": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Morges-Collaborateurtrice-vente-%28Lanc%C3%B4meL'Or%C3%A9al-Prestige%29%2C-50/1351338155/",
+      "location": "Morges Collaborateurtrice vente (LancômeL'Oréal",
+      "canton": "VD",
+      "country": "CH",
+      "category": "sales",
+      "description": "Souriante, avenante, polyvalente et  bien organisée et qui a un esprit commercial. Bonne connaissance des trends beauty actuels. Une personne soignée, et méthodique. Elle doit avoir une approche client professionnelle, et avoir un bon relationnel. L'esprit d'équipe est aussi une valeur importante car elle fait partie également du staff manor.",
+      "descriptionIt": "Souriante, avenante, polyvalente et  bien organisée et qui a un esprit commercial. Bonne connaissance des trends beauty actuels. Une personne soignée, et méthodique. Elle doit avoir une approche client professionnelle, et avoir un bon relationnel. L'esprit d'équipe est aussi une valeur importante car elle fait partie également du staff manor.",
+      "descriptionByLocale": {
+        "it": "Souriante, avenante, polyvalente et  bien organisée et qui a un esprit commercial. Bonne connaissance des trends beauty actuels. Une personne soignée, et méthodique. Elle doit avoir une approche client professionnelle, et avoir un bon relationnel. L'esprit d'équipe est aussi une valeur importante car elle fait partie également du staff manor.",
+        "en": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50% at Manor, located in Morges Collaborateurtrice vente (LancômeL'Oréal, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50% bei Manor, gelegen in Morges Collaborateurtrice vente (LancômeL'Oréal, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50% chez Manor, situé à Morges Collaborateurtrice vente (LancômeL'Oréal, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-06-04",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
+        "en": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
+        "de": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal",
+        "fr": "manor-collaborateur-trice-vente-lancome-l-oreal-prestige-50-morges-collaborateurtrice-vente-lancomel-apos-oreal"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
+        "fr": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
+        "en": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%",
+        "de": "Collaborateur/trice vente (Lancôme/L'Oréal Prestige), 50%"
+      },
+      "sourceLang": "fr",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-63a85c131f30",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Morges Collaborateurtrice vente (LancômeL'Oréal",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugs": [
+        "vendite-dei-collaboratori-lancome-l-oreal-prestige-50-manor-ag-morges-collaborateurtrice-vente-lancomel-oreal"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Parfumerie) 100% de suite",
