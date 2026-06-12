@@ -27,6 +27,7 @@ import {
   type CareerLocale,
 } from './careerLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
+import { realSalaryMedianChf } from './shared/realSalaryMedian';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -233,22 +234,6 @@ function jobCityString(job: JobRecord): string {
   return `${job.addressLocality ?? ''} ${job.canton ?? ''}`;
 }
 
-function median(values: readonly number[]): number | null {
-  const sorted = [...values].filter((v) => Number.isFinite(v) && v > 0).sort((a, b) => a - b);
-  if (sorted.length === 0) return null;
-  const mid = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0 ? Math.round((sorted[mid - 1] + sorted[mid]) / 2) : sorted[mid];
-}
-
-function jobMidpoint(job: JobRecord): number | null {
-  const min = typeof job.salaryMin === 'number' ? job.salaryMin : null;
-  const max = typeof job.salaryMax === 'number' ? job.salaryMax : null;
-  if (min && max) return Math.round((min + max) / 2);
-  if (min) return min;
-  if (max) return max;
-  return null;
-}
-
 function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   const postedDate = job.postedDate || job.firstSeenAt || '';
@@ -446,16 +431,11 @@ function buildPublicSectorSnapshot(
   }
 
   const liveCount = Math.max(concorsiCount, matches.length);
-  const salaryValues: number[] = [];
-  for (const job of matches) {
-    const mid = jobMidpoint(job);
-    if (mid) salaryValues.push(mid);
-  }
 
   return {
     liveCount,
     fresh30Count: fresh30Count(matches, now),
-    medianSalaryChf: median(salaryValues),
+    medianSalaryChf: realSalaryMedianChf(matches),
     featured: pickFeatured(matches, now, 3),
     topEmployers: topEmployersFromJobs(matches, 6),
     topCities: topCitiesFromJobs(matches, 5),
@@ -478,15 +458,10 @@ function buildInternshipSnapshot(jobs: readonly JobRecord[], now: number): Caree
     if (!LUGANO_AREA_REGEX.test(city)) continue;
     matches.push(job);
   }
-  const salaryValues: number[] = [];
-  for (const job of matches) {
-    const mid = jobMidpoint(job);
-    if (mid) salaryValues.push(mid);
-  }
   return {
     liveCount: matches.length,
     fresh30Count: fresh30Count(matches, now),
-    medianSalaryChf: median(salaryValues),
+    medianSalaryChf: realSalaryMedianChf(matches),
     featured: pickFeatured(matches, now, 3),
     // No employer grid for stage — the curated copy carries that signal.
     topEmployers: [],
@@ -506,15 +481,10 @@ function buildFrontaliereContractSnapshot(
   now: number,
 ): CareerJobsSnapshot {
   // Use every job in the dataset (all are CH-side, suitable for permesso G).
-  const salaryValues: number[] = [];
-  for (const job of jobs) {
-    const mid = jobMidpoint(job);
-    if (mid) salaryValues.push(mid);
-  }
   return {
     liveCount: jobs.length,
     fresh30Count: fresh30Count(jobs, now),
-    medianSalaryChf: median(salaryValues),
+    medianSalaryChf: realSalaryMedianChf(jobs),
     featured: [],
     topEmployers: [],
     topCities: topCitiesFromJobs(jobs, 5),

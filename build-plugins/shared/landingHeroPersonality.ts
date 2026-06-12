@@ -399,8 +399,12 @@ export function renderLandingHero(
   fallbackTagline?: string,
 ): string {
   const badge = HERO_BADGES[id];
+  // `sx-kick` (seo-static.css) renders the eyebrow as an accent pill
+  // (inline-flex + gap replaces the former `flex items-center gap-1.5`
+  // utilities; `font-semibold` kept as fallback when the static sheet is
+  // unavailable — sx-kick declares the same weight).
   const eyebrow = badge
-    ? `<p class="text-sm font-semibold text-accent flex items-center gap-1.5"><span class="lh-emoji" aria-hidden="true">${badge.emoji}</span>${escHtml(badge.eyebrowLabel[locale])}</p>`
+    ? `<p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">${badge.emoji}</span>${escHtml(badge.eyebrowLabel[locale])}</p>`
     : '';
   const tagline = badge
     ? badge.taglineTemplate[locale](vars)
@@ -408,6 +412,8 @@ export function renderLandingHero(
   const taglineHtml = tagline
     ? `<p class="text-base text-body mt-2 max-w-prose">${escHtml(tagline)}</p>`
     : '';
-  return `<header>${eyebrow}<h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${escHtml(title)}</h1>${taglineHtml}</header>`;
+  // `sx-hero` (seo-static.css) paints the soft accent gradient band behind
+  // the whole header — class-only change, content order untouched (CLS-safe).
+  return `<header class="sx-hero">${eyebrow}<h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${escHtml(title)}</h1>${taglineHtml}</header>`;
 }
 

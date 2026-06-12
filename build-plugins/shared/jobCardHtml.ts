@@ -42,6 +42,15 @@ export interface JobCardJob {
   datePosted?: string;
   salaryMin?: number | string | null;
   salaryMax?: number | string | null;
+  /**
+   * Provenance of salaryMin/Max persisted by scripts/re-enrich-jobs.mjs:
+   * `'reported'` (extracted from the posting text), `'existing'` (structured
+   * salary already on the record) or `'estimated'` (sector-median band).
+   * `'estimated'` renders the range with a per-locale "(stima)" suffix so the
+   * band is never presented as a real offer. Absent on records not yet
+   * re-enriched → output stays byte-identical to the pre-flag behaviour.
+   */
+  salarySource?: 'reported' | 'existing' | 'estimated';
   featured?: boolean;
   /** Fallback used when CRAWLED_COMPANY_LOGOS / favicon resolution returns null. */
   logo?: string | null;
@@ -183,15 +192,29 @@ export function isJobNew(
 // icon DEFS below so every page that injects the symbols also defines `jcLF`,
 // the global the per-card `onerror="jcLF(this)"` calls. Shared with
 // employerCardHtml.ts so the client logic exists in exactly one place.
-export const JOB_CARD_ICON_SYMBOLS = '<svg style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="i-jc-eur" viewBox="0 0 24 24"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></symbol><symbol id="i-jc-mp" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-jc-cl" viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></symbol><symbol id="i-jc-st" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-jc-sp" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol></svg>' + LOGO_FALLBACK_SCRIPT;
+export const JOB_CARD_ICON_SYMBOLS = '<svg style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="i-jc-bkn" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01"/><path d="M18 12h.01"/></symbol><symbol id="i-jc-mp" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-jc-cl" viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></symbol><symbol id="i-jc-st" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-jc-sp" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol></svg>' + LOGO_FALLBACK_SCRIPT;
 
-const ICON_EURO = '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro w-3.5 h-3.5" aria-hidden="true"><use href="#i-jc-eur"/></svg>';
+// Currency-neutral banknote (lucide `banknote`) — the salary values are CHF,
+// so the previous euro glyph (lucide `euro`) was factually wrong. Same wrapper
+// dims (14×14, w-3.5 h-3.5) and stroke pattern as every other card icon.
+const ICON_BANKNOTE = '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-banknote w-3.5 h-3.5" aria-hidden="true"><use href="#i-jc-bkn"/></svg>';
 const ICON_MAPPIN = '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3" aria-hidden="true"><use href="#i-jc-mp"/></svg>';
 const ICON_CLOCK = '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-3 h-3" aria-hidden="true"><use href="#i-jc-cl"/></svg>';
 const ICON_STAR = '<svg width="14" height="14" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" aria-hidden="true"><use href="#i-jc-st"/></svg>';
 const ICON_SPARKLES = '<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-2.5 h-2.5" aria-hidden="true"><use href="#i-jc-sp"/></svg>';
 
 // ── Salary formatting ────────────────────────────────────────────────
+
+/**
+ * Per-locale suffix appended to the salary range when `salarySource` is
+ * `'estimated'` — declares the band as a sector estimate, not a real offer.
+ */
+const SALARY_ESTIMATE_SUFFIX: Record<JobCardLocale, string> = {
+  it: '(stima)',
+  en: '(est.)',
+  de: '(Schätzung)',
+  fr: '(est.)',
+};
 
 function formatSalary(
   rawMin: number | string | null | undefined,
@@ -202,6 +225,26 @@ function formatSalary(
   if (!Number.isFinite(min) || !Number.isFinite(max)) return '';
   if (min <= 0 || max < min) return '';
   return `CHF ${Math.round(min / 1000)}k – ${Math.round(max / 1000)}k`;
+}
+
+// ── Locality display ─────────────────────────────────────────────────
+
+/**
+ * Defensive display-only title-casing for crawler localities persisted in
+ * slug-style lowercase («quartino», «castel san pietro»). Applies ONLY when
+ * the string contains no uppercase letter at all — anything already
+ * capitalised («Lugano», «SUPSI / DTI», «S. Antonino») passes through
+ * byte-identical. Word boundaries include spaces, hyphens, apostrophes,
+ * dots and slashes so «s. antonino» → «S. Antonino» and
+ * «lugano-besso» → «Lugano-Besso». Data is never mutated — this runs at
+ * render time only.
+ */
+export function titleCaseLocalityIfLowercase(raw: string): string {
+  if (!raw || raw !== raw.toLowerCase()) return raw;
+  return raw.replace(
+    /(^|[\s\-'’./(])(\p{Ll})/gu,
+    (_m, sep: string, ch: string) => sep + ch.toUpperCase(),
+  );
 }
 
 // ── Logo image markup ────────────────────────────────────────────────
@@ -251,7 +294,13 @@ export function renderJobCardHtml(
     String(titleSource).replace(/\s+/g, ' ').trim(),
   );
   const company = String(job.company || '').trim();
-  const rawLocation = String(job.location || job.addressLocality || '').trim();
+  // Display-only title-case for all-lowercase crawler localities; already
+  // capitalised strings pass through untouched (byte-identical output). The
+  // city linkifiers downstream match case-insensitively, so handing them the
+  // cased string is safe.
+  const rawLocation = titleCaseLocalityIfLowercase(
+    String(job.location || job.addressLocality || '').trim(),
+  );
   const cantonStr = job.canton ? ` (${escHtml(String(job.canton))})` : '';
 
   const locationDisplay = opts.linkifyLocation
@@ -259,6 +308,12 @@ export function renderJobCardHtml(
     : escHtml(rawLocation);
 
   const salary = formatSalary(job.salaryMin, job.salaryMax);
+  // Estimated bands are declared as such; missing salarySource (records not
+  // yet re-enriched) keeps the legacy unsuffixed label byte-identical.
+  const salaryLabel =
+    salary && job.salarySource === 'estimated'
+      ? `${salary} ${SALARY_ESTIMATE_SUFFIX[locale]}`
+      : salary;
   const contractLbl = localizedContract(job.contract, locale);
   const postedRaw = String(job.postedDate || job.datePosted || '').trim();
   const postedLabel = relativePostedLabel(postedRaw, locale);
@@ -282,8 +337,8 @@ export function renderJobCardHtml(
     ? `<span class="jc-newbadge">${ICON_SPARKLES}${escHtml(NEW_BADGE_LABEL[locale])}</span>`
     : '';
 
-  const salaryHtml = salary
-    ? `<span class="jc-salary">${ICON_EURO}${escHtml(salary)}</span>`
+  const salaryHtml = salaryLabel
+    ? `<span class="jc-salary">${ICON_BANKNOTE}${escHtml(salaryLabel)}</span>`
     : '';
 
   const companyAndLocation = (() => {
