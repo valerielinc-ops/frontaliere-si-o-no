@@ -131,6 +131,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi shakes up leadership and seeks new partners',
     'blog.article.agefi-nuovi-vertici.excerpt': 'Frédéric Lelièvre leaves L\'Agefi for Le Temps; Jonas Follonier becomes editor-in-chief and Olivier Bloch director',
     'blog.article.agefi-nuovi-vertici.imageAlt': 'A Swiss business newspaper being read in a café in Lugano',
+    'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.title': 'Swiss Airports: Passenger and Freight Traffic on the Rise',
+    'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.excerpt': 'The three main Swiss airports have handled more passengers and freight in the winter semester 2025/26.',
+    'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.imageAlt': 'Zurich Airport',
 };
 
 export default blogMetaChEn;

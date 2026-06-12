@@ -65,6 +65,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'avs-finanziamento-13esima': { it: 'avs-finanziamento-13esima', en: 'ahv-financing-13th', de: 'ahv-finanzierung-13', fr: 'avs-financement-13e' },
  'givaudan-licenziamenti': { it: 'givaudan-licenziamenti', en: 'givaudan-layoffs', de: 'givaudan-entlassungen', fr: 'givaudan-licenciements' },
  'agefi-nuovi-vertici': { it: 'agefi-nuovi-vertici', en: 'agefi-management-change-new-partners', de: 'agefi-fuhrungswechsel-neue-partner', fr: 'agefi-changement-direction-nouveaux-partenaires' },
+ 'aeroporti-svizzeri-aumentano-pas-s-vieto': { it: 'aeroporti-svizzeri-aumentano-pas-s-vieto', en: 'swiss-airports-passengers-increase', de: 'schweizer-flughafen-aufschwung-passagiere', fr: 'aeroports-suisse-augmentation-passagers' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
