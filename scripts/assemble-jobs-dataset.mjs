@@ -553,7 +553,19 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
     if (job.needsRetranslation) continue;
     eligibleCount++;
 
-    const desc = String(job.descriptionByLocale?.it || '').trim();
+    // Parser health is measured on the SOURCE text the parser produced.
+    // descriptionByLocale.it is only a proxy: a job crawled from a German/
+    // French source with SKIP_AI_TRANSLATION=1 has a real source description
+    // but an empty IT locale until translate-pending fills it — that is a
+    // translation backlog, not a parser failure. Falling back to the
+    // source-language description keeps the guard's purpose (catch parsers
+    // that silently emit nothing/boilerplate) without hard-failing whole
+    // CH-wide crawls on untranslated-yet jobs (Coop 95% false-positive,
+    // run 27381349097).
+    const desc =
+      String(job.descriptionByLocale?.it || '').trim() ||
+      String(job.descriptionByLocale?.[job.sourceLang || 'it'] || '').trim() ||
+      String(job.description || '').trim();
     if (!desc) {
       boilerplateJobs.push({
         slug: job.slug || job.title || 'unknown',
