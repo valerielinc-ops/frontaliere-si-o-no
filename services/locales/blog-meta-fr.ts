@@ -8045,6 +8045,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.documenti-necessari-lavoro-svizzera.title': 'Frontalier : documents nécessaires pour travailler en Suisse',
     'blog.article.documenti-necessari-lavoro-svizzera.excerpt': 'Guide pratique de la documentation essentielle pour les frontaliers : du contrat de travail à l\'assurance maladie, voici ce qu\'il faut préparer avant de franchir la frontière.',
     'blog.article.documenti-necessari-lavoro-svizzera.imageAlt': 'Documents requis pour commencer à travailler en Suisse en tant que frontalier',
+    'blog.article.parlamento-avs-frontalieri-2025.title': '13e AVS, financement mixte',
+    'blog.article.parlamento-avs-frontalieri-2025.excerpt': 'Le Conseil des États approuve la proposition de la Conférence de conciliation. D\'autres décisions sur les ordonnances électroniques et la protection des mères adoptives. Voici l\'impact pour les frontaliers qui travaillent au Tessin.',
+    'blog.article.parlamento-avs-frontalieri-2025.imageAlt': 'Palais fédéral à Berne, siège du Parlement.',
 };
 
 export default blogMetaFr;

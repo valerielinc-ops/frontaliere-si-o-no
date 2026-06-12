@@ -43442,6 +43442,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parlamento-avs-frontalieri-2025': {
+    title: '13esima AVS, finanziamento misto: effetti per i frontalieri',
+    description: 'Il Consiglio degli Stati ha approvato la proposta di finanziamento misto per la 13esima AVS. Altre decisioni su ricette elettroniche e madri adottive. Cosa',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, finanziamento, misto, effetti',
+    ogTitle: '13esima AVS, finanziamento misto: effetti per i frontalieri',
+    ogDescription: 'Il Consiglio degli Stati approva la proposta della Conferenza di conciliazione. Ricette elettroniche e protezione madri adottive: le decisioni del Parlamento',
+    canonicalPath: '/articoli-frontaliere/parlamento-avs-frontalieri-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "13esima AVS, finanziamento misto: effetti per i frontalieri",
+      "description": "Il Consiglio degli Stati ha approvato la proposta di finanziamento misto per la 13esima AVS. Altre decisioni su ricette elettroniche e madri adottive. Cosa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parlamento-avs-frontalieri-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-06-12T00:51:12+00:00",
+      "dateModified": "2026-06-12T00:51:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parlamento-avs-frontalieri-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8044,6 +8044,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.documenti-necessari-lavoro-svizzera.title': 'Cross-border workers: documents for starting in Switzerland',
     'blog.article.documenti-necessari-lavoro-svizzera.excerpt': 'A practical guide to essential documentation for cross-border commuters: from employment contracts to health insurance, here is what to prepare before crossing the border.',
     'blog.article.documenti-necessari-lavoro-svizzera.imageAlt': 'Documents required to start working in Switzerland as a cross-border worker',
+    'blog.article.parlamento-avs-frontalieri-2025.title': '13th AVS, mixed funding',
+    'blog.article.parlamento-avs-frontalieri-2025.excerpt': 'The Council of States approves the proposal of the Conciliation Conference. Other decisions on electronic prescriptions and protection of adoptive mothers. Here\'s the impact for cross-border workers in Ticino.',
+    'blog.article.parlamento-avs-frontalieri-2025.imageAlt': 'Swiss Federal Palace in Bern, seat of the Parliament.',
 };
 
 export default blogMetaEn;

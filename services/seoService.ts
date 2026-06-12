@@ -3974,6 +3974,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-richiesta-permesso-g-step-by-step-2026': { name: 'Permesso G', path: '/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026', parent: 'blog' },
     'blog-documenti-necessari-lavoro-svizzera': { name: 'Documenti frontalieri', path: '/articoli-frontaliere/documenti-necessari-lavoro-svizzera', parent: 'blog' },
     'blog-aeroporti-svizzeri-aumentano-pas-s-vieto': { name: 'Aeroporti svizzeri', path: '/articoli-svizzera/aeroporti-svizzeri-aumentano-pas-s-vieto/', parent: 'blog' },
+    'blog-parlamento-avs-frontalieri-2025': { name: '13esima AVS finanziamento', path: '/articoli-frontaliere/parlamento-avs-frontalieri-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];
