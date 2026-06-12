@@ -2318,6 +2318,20 @@ export function parsePath(pathname: string): ParseResult {
  // The slug is always a single locale-agnostic segment (detailPath uses a
  // literal `/lavoro/` for every locale); bare `/lavoro/` (the job-board alias)
  // and `/lavoro-…/` SEO landings are NOT matched.
+ // Publisher ad APPLY page — /lavoro/<slug>/candidatura/ (+ locale variants).
+ // Deliberately NO staticOverlay: the emitted page is a 200-status stub
+ // (publisherAdPagesPlugin renderApplyStub) and the SPA must replace it with
+ // the job-board detail view, which mounts PublisherApplyForm for
+ // in_house/forward_email ads. jobSlug deep-links the detail; the slug map
+ // carries id+canton so the job resolves even when its canton shard isn't
+ // part of the initial referrer-aware fetch.
+ {
+   const applyMatch = path.match(/^(?:\/(en|de|fr))?\/lavoro\/([a-z0-9][a-z0-9-]*)\/candidatura\/?$/);
+   if (applyMatch) {
+     return { route: { activeTab: 'job-board', jobSlug: applyMatch[2] }, locale };
+   }
+ }
+
  if (/^\/lavoro\/[a-z0-9][a-z0-9-]*\/?$/.test(path) ||
      /^\/(en|de|fr)\/lavoro\/[a-z0-9][a-z0-9-]*\/?$/.test(path)) {
    return { route: { activeTab: 'job-board', staticOverlay: true }, locale };

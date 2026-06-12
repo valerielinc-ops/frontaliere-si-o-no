@@ -131,6 +131,18 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   const company = pubJob.company || {};
   const companyName = String(company.name || '').trim();
   const companyKey = company.companyKey || slugifyPublisher(companyName);
+  // Publisher-provided logo URL (form field company.logoUrl). https-only (the
+  // site is https — http would be mixed content); anything else (data:,
+  // javascript:, relative junk) is dropped and the renderers fall back to the
+  // deterministic coloured-initials badge.
+  const rawLogo = String(company.logoUrl || '').trim();
+  const companyLogo = /^https:\/\/\S+$/i.test(rawLogo) ? rawLogo : null;
+  // Markdown-formatted description (sponsored-only authoring surface). The flat
+  // `description` stays plain text — JSON-LD, meta descriptions, search
+  // haystacks and the newsletter keep consuming it unchanged.
+  const descriptionMd = !isFree && String(pubJob.descriptionMd || '').trim()
+    ? String(pubJob.descriptionMd).trim()
+    : null;
   const apply = pubJob.apply || {};
   const postedIso = toIso(pubJob.paidAt, nowIso) || toIso(pubJob.createdAt, nowIso);
   const firstSeenIso = toIso(pubJob.createdAt, postedIso);
@@ -173,6 +185,8 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       company: companyName,
       companyKey,
       companyDomain: company.domain || null,
+      ...(companyLogo ? { companyLogo } : {}),
+      ...(descriptionMd ? { descriptionMd } : {}),
       location: locationLabel,
       addressLocality: addr.addressLocality || locationLabel,
       postalCode: addr.postalCode || null,
