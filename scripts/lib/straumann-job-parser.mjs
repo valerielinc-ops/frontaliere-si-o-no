@@ -194,7 +194,6 @@ async function fetchJobListings() {
         referer: CAREER_URL,
         origin: `https://${ATS_HOST}`,
         timeoutMs,
-        attempt: page,
       },
     );
 
