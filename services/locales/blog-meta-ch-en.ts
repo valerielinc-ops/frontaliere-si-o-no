@@ -137,6 +137,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parlamento-avs-protezione-adozione.title': 'Parliament approves AVS funding, safeguards for adoptive moms',
     'blog.article.parlamento-avs-protezione-adozione.excerpt': 'The Council of States approved the mixed financing of the 13th AVS, while the National Council introduced safeguards for adoptive mothers and a second chance for over‑indebted borrowers.',
     'blog.article.parlamento-avs-protezione-adozione.imageAlt': 'Swiss Federal Parliament building in Bern with digital health symbols',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.title': 'Frontier Pension 2026: AVS/INPS Coordination and No-Example Personalization',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.excerpt': 'The frontier pension 2026 involves coordination between AVS and INPS. It is essential to plan the pension without unverified personal examples.',
+    'blog.article.pensione-avs-inps-2026-famiglia-con-figli.imageAlt': 'Scene from Switzerland national/cantonal territory relevant to the topic. Realistic, DSLR, not AI-like',
 };
 
 export default blogMetaChEn;

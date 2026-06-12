@@ -413,6 +413,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pensione-avs-inps-2026-famiglia-con-figli',
+    category: 'pratico',
+    date: '2026-06-12T02:24:16.836Z',
+    image: '/images/blog/pensione-avs-inps-2026-famiglia-con-figli.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
