@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oscam-castelrotto",
-  "assembledAt": "2026-06-11T23:10:34.525Z",
+  "assembledAt": "2026-06-12T12:39:22.995Z",
   "jobs": [
     {
       "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-be80f019a870",
@@ -34,7 +34,7 @@
       "url": "https://www.oscam.ch/lavoraconnoi/#concorso-generale-2025-per-medici-assistenti",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-11T23:10:32.669Z",
+      "crawledAt": "2026-06-12T12:39:21.060Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "url": "https://www.oscam.ch/lavoraconnoi/#concorso-generale-2026",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-11T23:10:32.435Z",
+      "crawledAt": "2026-06-12T12:39:16.429Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -115,68 +115,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "oscam-castelrotto-concorso-assunzione-personale-avventizio-estivo-20-7b9b67683807",
-      "slug": "concorso-assunzione-personale-avventizio-estivo-2026-oscam-castelrotto-castelrotto",
-      "slugByLocale": {
-        "it": "concorso-assunzione-personale-avventizio-estivo-2026-oscam-castelrotto-castelrotto",
-        "en": "summer-temporary-staff-hiring-competition-2026-ospedale-malcantonese-oscam-fondazione-giuseppe-rossi-castelrotto",
-        "de": "sommerzeitliche-saisonkrafte-werbung-2026-ospedale-malcantonese-oscam-fondazione-giuseppe-rossi-castelrotto",
-        "fr": "concours-d-embauche-de-personnel-temporaire-estival-2026-ospedale-malcantonese-oscam-fondazione-giuseppe-rossi"
-      },
-      "company": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
-      "companyKey": "oscam-castelrotto",
-      "companyDomain": "oscam.ch",
-      "title": "Concorso assunzione personale avventizio estivo 2026",
-      "titleByLocale": {
-        "it": "Concorso assunzione personale avventizio estivo 2026",
-        "en": "Summer Temporary Staff Hiring Competition 2026",
-        "de": "Sommerzeitliche Saisonkräfte-Werbung 2026",
-        "fr": "Concours d'embauche de personnel temporaire estival 2026"
-      },
-      "description": "Concorso assunzione personale avventizio estivo 2026 presso l'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto (Malcantone, Canton Ticino).\n\nL'OSCAM è un ospedale di cure acute con sede a Castelrotto che serve la regione del Malcantone. La fondazione Giuseppe Rossi gestisce reparti di medicina interna, chirurgia, psichiatria, ostetricia-ginecologia e cure palliative, oltre a un pronto soccorso e a servizi ambulatoriali per la popolazione del distretto di Lugano-Malcantone.\n\nPOSSIBILITÀ DI IMPIEGO ESTIVO PER GIOVANI MALCANTONESI\n\nLa direzione dell’Ospedale e della Casa anziani Malcantonese offre le seguenƟ opportunità di impieghi esƟvi per giovani malcantonesi. 1. RequisiƟ - Età compresa tra i 16 e i 23 anni; - CondoƩa irreprensibile, sana cosƟtuzione fisica, flessibilità e disponibilità. 2. Mansioni - Lavori nel contesto dei seƩori alberghiero (cucina, lavanderia, bar), aƫvazione (casa anziani), amministraƟvo, manutenƟvo, informaƟco 3. Retribuzione - CHF 1'000.00 al mese 4. Entrata/uscita dal servizio - Nella candidatura il/la richiedente dovrà specificare il mese esƟvo scelto (luglio o agosto). Segnaliamo che non sarà possibile essere impiegaƟ per periodi inferiori ad un mese o a cavallo dei due mesi. L'aƩribuzione dei posƟ avverrà in ordine di ricezione delle candidature ed in base alla disponibilità dei servizi. I postulanƟ devono annunciarsi entro il 20 aprile 2026 inviando esclusivamente le loro richieste in forma eleƩronica all’indirizzo e-mail risorseumane@oscam.ch dell’Ufficio risorse umane dell’Ospedale e Casa anziani Malcantonese, indicando il periodo della loro disponibilità, il contesto desiderato e allegando un breve curriculum vitae. Ospedale/Casa anziani Malcantonese Il DireƩore: R. Perucchi CastelroƩo, 27 marzo 2026\n\nBando completo (PDF): https://www.oscam.ch/wp-content/uploads/2026/03/Concorso-assunzione-personale-avventizio-estivo-2026.pdf",
-      "descriptionByLocale": {
-        "it": "Concorso assunzione personale avventizio estivo 2026 presso l'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto (Malcantone, Canton Ticino). L'OSCAM è un ospedale di cure acute con sede a Castelrotto che serve la regione del Malcantone. La fondazione Giuseppe Rossi gestisce reparti di medicina interna, chirurgia, psichiatria, ostetricia-ginecologia e cure palliative, oltre a un pronto soccorso e a servizi ambulatoriali per la popolazione del distretto di Lugano-Malcantone. POSSIBILITÀ DI IMPIEGO ESTIVO PER GIOVANI MALCANTONESI\n\nLa direzione dell’Ospedale e della Casa anziani Malcantonese offre le seguenƟ opportunità di impieghi esƟvi per giovani malcantonesi. 1. RequisiƟ - Età compresa tra i 16 e i 23 anni; - CondoƩa irreprensibile, sana cosƟtuzione fisica, flessibilità e disponibilità. 2. Mansioni - Lavori nel contesto dei seƩori alberghiero (cucina, lavanderia, bar), aƫvazione (casa anziani), amministraƟvo, manutenƟvo, informaƟco 3. Retribuzione - CHF 1'000.00 al mese 4. Entrata/uscita dal servizio - Nella candidatura il/la richiedente dovrà specificare il mese esƟvo scelto (luglio o agosto). Segnaliamo che non sarà possibile essere impiegaƟ per periodi inferiori ad un mese o a cavallo dei due mesi. L'aƩribuzione dei posƟ avverrà in ordine di ricezione delle candidature ed in base alla disponibilità dei servizi. I postulanƟ devono annunciarsi entro il 20 aprile 2026 inviando esclusivamente le loro richieste in forma eleƩronica all’indirizzo e-mail risorseumane@oscam.ch dell’Ufficio risorse umane dell’Ospedale e Casa anziani Malcantonese, indicando il periodo della loro disponibilità, il contesto desiderato e allegando un breve curriculum vitae. Ospedale/Casa anziani Malcantonese Il DireƩore: R. Perucchi CastelroƩo, 27 marzo 2026 Bando completo (PDF): https://www.oscam.ch/wp-content/uploads/2026/03/Concorso-assunzione-personale-avventizio-estivo-2026.pdf",
-        "en": "Adventitious Personnel Competition Summer 2026 Description The OSCAM is an acute care hospital based in Castelrotto that serves the Malcantone region. The Giuseppe Rossi Foundation manages departments of internal medicine, surgery, psychiatry, obstetrics-gynecology and palliative care, as well as an emergency room and outpatient services for the population of the Lugano-Malcantone district. The competition is published as an official notice. The full details (requirements, professional profile, application procedure, deadline for submission, contact details of the reference staff) are available in the attached PDF document. Application Methods Applications are made by post or e-mail to the administrative management of OSCAM according to the instructions of the call. Full Call Documentation (PDF): https://www.oscam.ch/wp-content/uploads/2026/03/Concorso-assunzione-personale-avventizio-estivo-2026.pdf",
-        "de": "Rekrutierungswettbewerb Adventizio Summer 2026 Beschreibung Das OSCAM ist ein Akutkrankenhaus mit Sitz in Kastelruth, das der Region Malcantone dient. Die Stiftung Giuseppe Rossi betreibt Abteilungen für Innere Medizin, Chirurgie, Psychiatrie, Geburtshilfe-Gynäkologie und Palliativmedizin sowie eine Notaufnahme und ambulante Dienste für die Bevölkerung des Bezirks Lugano-Malcantone. Der Wettbewerb wird als offizielle Ausschreibung veröffentlicht. Die vollständigen Details (\n• Anforderungen, Berufsbild, Bewerbungsmodalitäten, Bewerbungsfrist, Ansprechpartner) finden Sie im beiliegenden PDF-Dokument. Modalitäten der Bewerbung Die Bewerbungen erfolgen per Post oder E-Mail an die Verwaltungsleitung der OSCAM gemäß den Anweisungen in der Ausschreibung. Vollständige Ausschreibungsdokumentation (PDF): https://www.oscam.ch/wp-content/uploads/2026/03/Concorso-assunzione-personale-avventizio-estivo-2026.pdf",
-        "fr": "Concours Recrutement Personnel Été 2026 Description L'OSCAM est un hôpital de soins aigus basé à Castelrotto qui dessert la région de Malcantone. La fondation Giuseppe Rossi gère des services de médecine interne, de chirurgie, de psychiatrie, d'obstétrique-gynécologie et de soins palliatifs, ainsi qu'une salle d'urgence et des services ambulatoires pour la population du district de Lugano-Malcantone. Le concours est publié en tant qu'avis officiel. Le détail complet (exigences, profil professionnel, modalités de candidature, délai de présentation, contacts du personnel de référence) est disponible dans le document PDF ci-joint. Modalités de candidature Les candidatures se font par courrier ou e-mail à la direction administrative de l'OSCAM selon les instructions de l'avis. Documentation complète de l'avis (PDF) : https://www.oscam.ch/wp-content/uploads/2026/03/Concorso-assunzione-personale-avventizio-estivo-2026.pdf"
-      },
-      "location": "Castelrotto",
-      "canton": "TI",
-      "url": "https://www.oscam.ch/lavoraconnoi/#concorso-assunzione-personale-avventizio-estivo-20",
-      "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-11T23:10:31.521Z",
-      "addressLocality": "Castelrotto",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6989",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.oscam.ch/wp-content/uploads/2026/03/Concorso-assunzione-personale-avventizio-estivo-2026.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-19T21:17:11.054Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
