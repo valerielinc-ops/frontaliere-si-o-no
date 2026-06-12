@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-06-12T12:18:41.514Z",
+  "assembledAt": "2026-06-12T22:33:04.334Z",
   "jobs": [
     {
       "id": "company-u7vkyi",
@@ -74,7 +74,8 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-24q2ge",
@@ -248,7 +249,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2pgzo8",
@@ -359,7 +361,8 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-e3ivbg",
@@ -872,12 +875,14 @@
         "de": [
           "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
           "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
-          "cmo-manager-ibsa-institut-biochimique-grancia"
+          "cmo-manager-ibsa-institut-biochimique-grancia",
+          "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4"
         ],
         "fr": [
           "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area",
           "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
-          "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
+          "directeur-de-l-ocm-ibsa-institut-biochimique-grancia",
+          "directeur-de-l-ocm-ibsa-institut-biochimique-grancia-bm0ep4"
         ]
       },
       "previousSlugs": [
@@ -888,9 +893,11 @@
         "cmo-manager-ibsa-institut-biochimique-grancia",
         "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
         "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
+        "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4",
         "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area",
         "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
-        "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
+        "directeur-de-l-ocm-ibsa-institut-biochimique-grancia",
+        "directeur-de-l-ocm-ibsa-institut-biochimique-grancia-bm0ep4"
       ],
       "salaryMin": 82500,
       "salaryMax": 127000,
