@@ -543,14 +543,14 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
  // "24 ore + 3 giorni" tail to absorb long canton names like Grigioni.
  title: `Offerte di lavoro ${cd.it} oggi | 24 ore + 3 giorni`,
  heading: `Offerte di lavoro ${cd.it} oggi`,
- description: `Scopri le offerte di lavoro in ${cd.it} pubblicate oggi o negli ultimi 3 giorni, con blocchi dedicati a ultime 24 ore, part-time e citta come ${cities}.`,
- intro: `Questa landing editoriale raccoglie gli annunci piu freschi del nostro job board ${cd.it} e li organizza in blocchi utili per chi cerca lavoro in ${cd.it} e vuole capire subito dove si sta muovendo il mercato.`,
+ description: `Scopri le offerte di lavoro in ${cd.it} pubblicate oggi o negli ultimi 3 giorni, con blocchi dedicati a ultime 24 ore, part-time e città come ${cities}.`,
+ intro: `Questa landing editoriale raccoglie gli annunci più freschi del nostro job board ${cd.it} e li organizza in blocchi utili per chi cerca lavoro in ${cd.it} e vuole capire subito dove si sta muovendo il mercato.`,
  updatedLabel: 'Aggiornamento',
  countsLabel: 'annunci attivi monitorati',
  fresh24h: 'Ultime 24 ore',
  fresh3d: 'Ultimi 3 giorni',
  partTime: `Part-time in ${cd.it}`,
- cityHub: 'Per citta',
+ cityHub: 'Per città',
  openAll: `Vedi tutte le offerte di lavoro in ${cd.it}`,
  internalLinks: ['Ultime 24 ore', 'Ultimi 3 giorni', `Part-time in ${cd.it}`],
  },
@@ -636,11 +636,11 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
  },
  {
  title: 'Job board aggregato',
- body: 'Il nostro job board unisce aziende private, enti pubblici e concorsi ufficiali in un unico posto. Serve per confrontare piu opportunita, non sostituisce la fonte originaria.',
+ body: 'Il nostro job board unisce aziende private, enti pubblici e concorsi ufficiali in un unico posto. Serve per confrontare più opportunità, non sostituisce la fonte originaria.',
  },
  {
  title: 'Fonti ufficiali',
- body: 'Le fonti ufficiali come concorsi.ti.ch restano il riferimento per testo integrale, formulari, allegati e validita del bando. Noi le rendiamo piu facili da trovare e filtrare.',
+ body: 'Le fonti ufficiali come concorsi.ti.ch restano il riferimento per testo integrale, formulari, allegati e validità del bando. Noi le rendiamo più facili da trovare e filtrare.',
  },
  ],
  internalLinks: ['Ultimi concorsi pubblici', 'Tutte le offerte in Ticino'],
@@ -651,7 +651,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
  },
  {
  question: 'Queste offerte sostituiscono la fonte ufficiale?',
- answer: 'No. La fonte ufficiale resta il riferimento per il testo completo del concorso, i documenti richiesti e la candidatura. Le nostre schede servono per trovare e leggere piu rapidamente i bandi.',
+ answer: 'No. La fonte ufficiale resta il riferimento per il testo completo del concorso, i documenti richiesti e la candidatura. Le nostre schede servono per trovare e leggere più rapidamente i bandi.',
  },
  {
  question: 'Trovo solo concorsi pubblici?',
@@ -805,23 +805,23 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
  return {
  it: {
  title: `Infermieri in ${cd.it} | Cliniche, case anziani e OSS`,
- heading: `Infermieri e sanita in ${cd.it}`,
+ heading: `Infermieri e sanità in ${cd.it}`,
  description: (count) => `Scopri ${count} offerte per infermieri, OSS, educatori e ruoli nelle cliniche o case anziani in ${cd.it}, con pagine dedicate ai cluster che convertono meglio.`,
- intro: `Questo hub raccoglie i lavori sanita e care che intercettano piu domanda: infermieri, OSS, educatori, cliniche private e case anziani. Serve per trovare piu velocemente le opportunita davvero vicine al tuo profilo.`,
+ intro: `Questo hub raccoglie i lavori sanità e care che intercettano più domanda: infermieri, OSS, educatori, cliniche private e case anziani. Serve per trovare più velocemente le opportunità davvero vicine al tuo profilo.`,
  updatedLabel: 'Aggiornamento',
- countsLabel: 'offerte sanita e care',
- feedLabel: `Offerte per infermieri e sanita in ${cd.it}`,
- latestLabel: 'Nuove offerte sanita negli ultimi 3 giorni',
- variantTitle: 'Percorsi piu cercati nel cluster sanita',
+ countsLabel: 'offerte sanità e care',
+ feedLabel: `Offerte per infermieri e sanità in ${cd.it}`,
+ latestLabel: 'Nuove offerte sanità negli ultimi 3 giorni',
+ variantTitle: 'Percorsi più cercati nel cluster sanità',
  explainerCards: [
  { title: 'Cliniche', body: 'Ruoli in cliniche private, ospedali e strutture sanitarie dove il volume di candidature e alto ma la domanda resta costante.' },
  { title: 'Case anziani', body: 'Annunci in RSA, geriatria, strutture assistenziali e cure a lungo termine, utili per chi cerca continuita e turni stabili.' },
  { title: 'OSS ed educatori', body: 'Sottocluster ad alta conversione per operatori sociosanitari, socioassistenziali ed educatori attivi in scuole, centri e strutture sociali.' },
  ],
  faq: [
- { question: 'Qui trovo solo infermieri?', answer: `No. L hub include anche OSS, educatori, case anziani e cliniche, cioe i cluster care che generano piu interesse e candidature in ${cd.it}.` },
+ { question: 'Qui trovo solo infermieri?', answer: `No. L hub include anche OSS, educatori, case anziani e cliniche, cioè i cluster care che generano più interesse e candidature in ${cd.it}.` },
  { question: 'Le offerte arrivano da strutture pubbliche e private?', answer: 'Si. Il feed include annunci da ospedali, cliniche, enti pubblici, case anziani e altri datori di lavoro gia indicizzati nel nostro job board.' },
- { question: 'Come conviene usare questa pagina?', answer: 'Parti dal cluster piu vicino al tuo profilo, poi apri le pagine dedicate per affinare la ricerca tra cliniche, case anziani, OSS o educatori.' },
+ { question: 'Come conviene usare questa pagina?', answer: 'Parti dal cluster più vicino al tuo profilo, poi apri le pagine dedicate per affinare la ricerca tra cliniche, case anziani, OSS o educatori.' },
  ],
  openAll: `Vedi tutte le offerte in ${cd.it}`,
  },
@@ -982,8 +982,8 @@ const LOCATION_COPY: Record<JobLandingLocale, {
  heading: (location) => `Lavoro a ${location} in Ticino`,
  title: (location) => `Offerte di lavoro a ${location} in Ticino | Lavoro ${location} aggiornato`,
  description: (location, count) => `Scopri ${count} offerte di lavoro a ${location} in Ticino con annunci aggiornati, aziende che assumono, nuovi annunci degli ultimi 3 giorni e link alle candidature.`,
- intro: (location) => `Questa pagina raccoglie in un solo punto gli annunci con sede a ${location}, cosi puoi capire subito quali aziende stanno assumendo davvero in citta e quali profili compaiono piu spesso.`,
- countsLabel: 'annunci attivi in citta',
+ intro: (location) => `Questa pagina raccoglie in un solo punto gli annunci con sede a ${location}, così puoi capire subito quali aziende stanno assumendo davvero in città e quali profili compaiono più spesso.`,
+ countsLabel: 'annunci attivi in città',
  updatedLabel: 'Aggiornamento',
  feedLabel: (location) => `Offerte attive a ${location}`,
  latestLabel: (location) => `Nuovi annunci a ${location} negli ultimi 3 giorni`,
@@ -1039,7 +1039,7 @@ const LOCATION_TYPE_COPY: Record<JobLandingLocale, {
  heading: (label, location) => `${label} a ${location} in Ticino`,
  title: (label, location) => `${label} a ${location} in Ticino | Offerte di lavoro aggiornate`,
  description: (label, location, count) => `Scopri ${count} offerte di ${label.toLowerCase()} a ${location} in Ticino, con annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali.`,
- intro: (label, location) => `Questa pagina raccoglie le offerte di ${label.toLowerCase()} con sede a ${location}, utile per chi cerca un ingresso nel mercato locale o un percorso piu compatibile con studio e formazione.`,
+ intro: (label, location) => `Questa pagina raccoglie le offerte di ${label.toLowerCase()} con sede a ${location}, utile per chi cerca un ingresso nel mercato locale o un percorso più compatibile con studio e formazione.`,
  countsLabel: 'annunci attivi',
  updatedLabel: 'Aggiornamento',
  feedLabel: (label, location) => `Offerte di ${label.toLowerCase()} a ${location}`,
@@ -1926,6 +1926,11 @@ export function buildJobCareVariantLandingModel(options: {
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const label = careClusterLabel(clusterKey, cantonCode, locale);
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
+ // Lowercased label for mid-sentence interpolation, with the canton display
+ // name's casing restored ("educatori in ticino" → "educatori in Ticino").
+ // Root fix for the lowercase-canton bug visible in countsLabel/latestLabel/
+ // feed.label on the live care-variant pages.
+ const labelLower = label.toLowerCase().replace(cd[locale].toLowerCase(), cd[locale]);
  const isEducators = clusterKey === 'educators';
  // Title: the `label` already contains the canton display + preposition
  // (e.g. "Maisons de retraite dans le canton de Schaffhouse"). The trailing
@@ -1945,19 +1950,19 @@ export function buildJobCareVariantLandingModel(options: {
  const description = locale === 'it'
  ? isEducators
  ? `Concorso educatore ${cd.it}: ${matches.length} offerte di lavoro per educatori dell'infanzia, educatrici e pedagoghi con candidature dirette.`
- : `Scopri ${matches.length} offerte per ${label.toLowerCase()} con annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali in ${cd.it}.`
+ : `Scopri ${matches.length} offerte per ${labelLower} con annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali in ${cd.it}.`
  : locale === 'en'
- ? `Browse ${matches.length} ${label.toLowerCase()} job offers in ${cd.en}, with updated listings, jobs from the last 3 days and direct links to official applications.`
+ ? `Browse ${matches.length} ${labelLower} job offers in ${cd.en}, with updated listings, jobs from the last 3 days and direct links to official applications.`
  : locale === 'de'
- ? `Entdecken Sie ${matches.length} Jobangebote fur ${label.toLowerCase()} ${germanCantonPrep(cd.de)} mit aktuellen Inseraten der letzten 3 Tage und direkten Bewerbungslinks.`
- : `Consultez ${matches.length} offres pour ${label.toLowerCase()} ${frenchCantonPrep(cd.fr)}, avec annonces a jour, offres des 3 derniers jours et liens directs vers la candidature officielle.`;
+ ? `Entdecken Sie ${matches.length} Jobangebote fur ${labelLower} ${germanCantonPrep(cd.de)} mit aktuellen Inseraten der letzten 3 Tage und direkten Bewerbungslinks.`
+ : `Consultez ${matches.length} offres pour ${labelLower} ${frenchCantonPrep(cd.fr)}, avec annonces a jour, offres des 3 derniers jours et liens directs vers la candidature officielle.`;
  const intro = locale === 'it'
- ? `Questa pagina restringe il cluster sanita ai profili ${label.toLowerCase()}, cosi puoi leggere solo gli annunci davvero pertinenti senza passare da una lista troppo ampia.`
+ ? `Questa pagina restringe il cluster sanità ai profili ${labelLower}, così puoi leggere solo gli annunci davvero pertinenti senza passare da una lista troppo ampia.`
  : locale === 'en'
- ? `This page narrows the healthcare hub down to ${label.toLowerCase()} roles, so you can focus on the most relevant listings without scanning a broad generic feed.`
+ ? `This page narrows the healthcare hub down to ${labelLower} roles, so you can focus on the most relevant listings without scanning a broad generic feed.`
  : locale === 'de'
- ? `Diese Seite fokussiert den Gesundheits-Hub auf ${label.toLowerCase()}, damit Sie die relevantesten Stellen schneller sehen.`
- : `Cette page resserre le hub sante sur les roles ${label.toLowerCase()} pour aller directement aux offres les plus pertinentes.`;
+ ? `Diese Seite fokussiert den Gesundheits-Hub auf ${labelLower}, damit Sie die relevantesten Stellen schneller sehen.`
+ : `Cette page resserre le hub sante sur les roles ${labelLower} pour aller directement aux offres les plus pertinentes.`;
  const siblingLinks = buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition, canton: cantonCode }).filter((entry) => entry.key !== clusterKey);
  const feedJobs = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
  const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
@@ -1973,10 +1978,10 @@ export function buildJobCareVariantLandingModel(options: {
  countsLabel: locale === 'it' ? 'offerte attive' : locale === 'en' ? 'active job offers' : locale === 'de' ? 'aktive Angebote' : 'offres actives',
  totalJobs: matches.length,
  feed: {
- label: locale === 'it' ? `Offerte ${label.toLowerCase()}` : locale === 'en' ? `${label} job offers` : locale === 'de' ? `${label} Jobs` : `Offres ${label.toLowerCase()}`,
+ label: locale === 'it' ? `Offerte ${labelLower}` : locale === 'en' ? `${label} job offers` : locale === 'de' ? `${label} Jobs` : `Offres ${labelLower}`,
  jobs: feedJobs,
  },
- latestLabel: locale === 'it' ? `Nuove offerte ${label.toLowerCase()} negli ultimi 3 giorni` : locale === 'en' ? `Newest ${label.toLowerCase()} jobs in the last 3 days` : locale === 'de' ? `Neueste ${label.toLowerCase()} der letzten 3 Tage` : `Nouvelles offres ${label.toLowerCase()} des 3 derniers jours`,
+ latestLabel: locale === 'it' ? `Nuove offerte ${labelLower} negli ultimi 3 giorni` : locale === 'en' ? `Newest ${labelLower} jobs in the last 3 days` : locale === 'de' ? `Neueste ${labelLower} der letzten 3 Tage` : `Nouvelles offres ${labelLower} des 3 derniers jours`,
  latestJobs: latestJobsLinked,
  parentHubHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${(JOB_NURSES_HUB_SLUGS_BY_CANTON[cantonCode] || JOB_NURSES_HUB_SLUGS)[locale]}`.replace(/\/+/g, '/')}`),
  siblingLinks,
@@ -2368,13 +2373,13 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
  it: {
  title: `Lavoro part-time ${cd.it} | Posti flessibili frontalieri`,
  heading: `Lavoro part-time in ${cd.it}`,
- description: (count) => `Scopri ${count} offerte part-time in ${cd.it} per frontalieri. Posizioni a tempo parziale aggiornate da aziende svizzere, con filtri per citta e settore.`,
- intro: `Questa landing raccoglie tutte le offerte a tempo parziale disponibili nel Canton ${cd.it}, ideale per chi cerca flessibilita lavorativa come frontaliere. Le posizioni spaziano da contratti al 20% fino al 80% e coprono tutti i principali settori.`,
+ description: (count) => `Scopri ${count} offerte part-time in ${cd.it} per frontalieri. Posizioni a tempo parziale aggiornate da aziende svizzere, con filtri per città e settore.`,
+ intro: `Questa landing raccoglie tutte le offerte a tempo parziale disponibili nel Canton ${cd.it}, ideale per chi cerca flessibilità lavorativa come frontaliere. Le posizioni spaziano da contratti al 20% fino al 80% e coprono tutti i principali settori.`,
  updatedLabel: 'Aggiornamento',
  countsLabel: 'annunci part-time attivi',
  feedLabel: `Offerte part-time in ${cd.it}`,
  latestLabel: 'Nuove offerte part-time negli ultimi 3 giorni',
- cityHub: 'Part-time per citta',
+ cityHub: 'Part-time per città',
  openAll: `Vedi tutte le offerte di lavoro in ${cd.it}`,
  faq: [
  {
@@ -2383,7 +2388,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
  },
  {
  question: 'Un frontaliere puo lavorare part-time con il permesso G?',
- answer: "Si, il permesso G consente anche contratti a tempo parziale. L'importante e che il rapporto di lavoro sia regolare e dichiarato. Il part-time non influisce sulla validita del permesso.",
+ answer: "Si, il permesso G consente anche contratti a tempo parziale. L'importante e che il rapporto di lavoro sia regolare e dichiarato. Il part-time non influisce sulla validità del permesso.",
  },
  {
  question: 'Come vengono filtrate le offerte part-time?',

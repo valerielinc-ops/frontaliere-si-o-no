@@ -963,6 +963,25 @@ async function enrichJob(job, aiState) {
   const salaryMin = salary.salaryMin;
   const salaryMax = salary.salaryMax;
   const currency = String(salary.currency || job.currency || 'CHF').toUpperCase() || 'CHF';
+  // --- Salary provenance (persisted as `salarySource`) ---
+  // 'reported' (extracted from the posting text) always wins. An 'existing'
+  // structured salary from a previous run may itself be a sector estimation
+  // that was persisted without provenance (the in-memory `source` field was
+  // never written to jobs.json). The estimation is deterministic per
+  // sector/level, so an EXACT min+max match against today's estimator output
+  // is a reliable fingerprint → reclassify as 'estimated'. Downstream
+  // consumers (job cards, profession medians) use this to tell real salaries
+  // from estimated bands.
+  let salarySource = 'estimated';
+  if (reportedSalary) {
+    salarySource = 'reported';
+  } else if (existingSalary) {
+    salarySource =
+      existingSalary.salaryMin === estimated.minValue
+        && existingSalary.salaryMax === estimated.maxValue
+        ? 'estimated'
+        : 'existing';
+  }
   job = {
     ...jobWithNormalizedCategory,
     baseSalary: {
@@ -978,6 +997,7 @@ async function enrichJob(job, aiState) {
     salaryMin,
     salaryMax,
     currency,
+    salarySource,
   };
 
   // --- Update address from company lookup ---

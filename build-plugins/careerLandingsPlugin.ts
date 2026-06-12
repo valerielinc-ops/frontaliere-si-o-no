@@ -41,6 +41,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -512,7 +513,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
     </header>`}
-    <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(shell.updatedLabel)} ${esc(dateStamp)}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(shell.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
