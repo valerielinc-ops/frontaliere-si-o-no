@@ -14,9 +14,12 @@ name: Loop health report (zero-Claude)
 
 on:
   schedule:
-    # Lunedì 05:45 UTC — dopo il lessons-harvester (05:17) così un harvest
-    # appena uscito è già visibile, prima del compress-docs (04:00 +1g).
-    - cron: '45 5 * * 1'
+    # Daily 05:45 UTC (era weekly): una regressione del loop (failure-rate,
+    # zombie) a cadenza settimanale brucerebbe quota per giorni prima della
+    # detection. Il report è zero-Claude e costa ~1min di runner → daily è
+    # gratis e chiude il ciclo misura→correggi entro 24h. Dopo il
+    # lessons-harvester (05:17) così l'harvest è già visibile.
+    - cron: '45 5 * * *'
   workflow_dispatch:
     inputs:
       days:
