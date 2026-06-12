@@ -1827,28 +1827,20 @@ function injectHubLinkIntoSectionLanding(
   if (html.includes('data-related-search-hub-link="1"')) return;
 
   const hubPagePaths = listEmittedHubPagePaths(distDir, locale);
-  // Head+tail truncation, mirroring the cantonHubEditorial.ts archive
-  // paginator: the full list grew ~55 B per hub page (265 pages = ~15 KB)
-  // on the job-board landing and tipped dist/cerca-lavoro-ticino/index.html
-  // over the audit:page-weight budget (220 KB) on 2026-06-12. Crawler reach
-  // to every /ricerca/page-N/ is preserved by renderPageNavigator(), which
-  // links EVERY page on the hub pages themselves (root → job board → hub
-  // page 1 → page-N stays within the BFS depth gate), so the job-board
-  // injection only needs head+tail anchors.
-  const PAGINATOR_HEAD = 20;
-  const PAGINATOR_TAIL = 5;
+  // FULL page list, deliberately. PR #1915 truncated this to head(20)+tail(5)
+  // to duck the page-weight budget, but that pushed every cluster page hanging
+  // off a middle hub page one hop deeper — on the EN/DE/FR landings (which sit
+  // at depth 2, not 1) clusters landed at depth 5 and audit:max-bfs-depth
+  // regressed on sitemap-search-clusters-001..005 (run 27393621559, 47-73%
+  // below crawl depth vs baseline 0%). renderPageNavigator() on the hub pages
+  // does link every page-N, but only from depth 3 on non-IT locales — too
+  // deep. The full list (~55 B/page, 265 pages ≈ 15 KB) fits again because
+  // PR #1921 freed ~110 KB of inline-style overhead on this landing; the
+  // 205 KB guard below still bounds the page.
   const tailPaths = hubPagePaths.slice(1); // pages 2..N
   const pageAnchor = (urlPath: string, pageNum: number): string =>
     `<a href="${esc(urlPath)}">${pageNum}</a>`;
-  let pageLinks: string;
-  if (tailPaths.length <= PAGINATOR_HEAD + PAGINATOR_TAIL) {
-    pageLinks = tailPaths.map((urlPath, idx) => pageAnchor(urlPath, idx + 2)).join(' ');
-  } else {
-    const headLinks = tailPaths.slice(0, PAGINATOR_HEAD).map((urlPath, idx) => pageAnchor(urlPath, idx + 2));
-    const tailLinks = tailPaths.slice(-PAGINATOR_TAIL).map((urlPath, idx) =>
-      pageAnchor(urlPath, tailPaths.length - PAGINATOR_TAIL + idx + 2));
-    pageLinks = [...headLinks, '<span aria-hidden="true">…</span>', ...tailLinks].join(' ');
-  }
+  const pageLinks = tailPaths.map((urlPath, idx) => pageAnchor(urlPath, idx + 2)).join(' ');
   const pageLinkBlock = pageLinks
     ? `<details><summary>${esc(copy.pageNavigatorLabel)}</summary><p>${pageLinks}</p></details>`
     : '';
