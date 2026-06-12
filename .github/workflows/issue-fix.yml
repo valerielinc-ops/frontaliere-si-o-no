@@ -103,7 +103,13 @@ jobs:
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
-            echo "max_turns=30" >> "$GITHUB_OUTPUT"
+            # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
+            # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
+            # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —
+            # il bump #1919 copriva solo il tier high (40->50); il campione
+            # 7gg aveva mostrato solo morti opus (bias). Stessa regola: cap
+            # anti-runaway sopra il p99 dei run sani, non budget di lavoro.
+            echo "max_turns=40" >> "$GITHUB_OUTPUT"
           fi
           echo "Fix tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
           # Aggregate detection (deterministic, da titolo "N item deferred", N>=2).
