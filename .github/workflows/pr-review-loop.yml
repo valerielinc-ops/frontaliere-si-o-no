@@ -92,7 +92,10 @@ jobs:
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
         # migrate, assemble dataset, sitemap/canonical/slug/structured-data).
         # Bug in questi path = falso senso di sicurezza che si propaga su ogni
-        # merge, quindi probing opus paga. Tier normal (sonnet, max-turns 15) per
+        # merge, quindi probing opus paga. Tier normal 15->25 (misurato: 13
+        # run/7gg morti `error_max_turns` a num_turns=16 senza postare review,
+        # es. run 27345572135/27340191180 - review intera bruciata + PR ferma
+        # fino al rescuer). Tier normal (sonnet, max-turns 25) per
         # tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/`
         # (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`,
         # `*-report` — non mutano l'indice, verificano soltanto). Vedi REVIEW.md
@@ -126,7 +129,7 @@ jobs:
           # scatta.
           if [ -z "$files" ]; then
             echo "Empty file list (rebase-only or empty PR)."
-            set_tier normal claude-sonnet-4-6 15
+            set_tier normal claude-sonnet-4-6 25
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
@@ -156,7 +159,7 @@ jobs:
           if [ -n "$crit$scripts_crit" ]; then
             set_tier high claude-opus-4-8 40
           else
-            set_tier normal claude-sonnet-4-6 15
+            set_tier normal claude-sonnet-4-6 25
           fi
 
       - name: Run Claude review
@@ -202,7 +205,7 @@ jobs:
             - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.
             - **No missing-test findings (REVIEW.md → IGNORA → test coverage):** NON sollevare "manca un test" / "aggiungi coverage" / "pinna con un test" come 🟡 nit né come voce `## Adversarial check`, nemmeno su path funnel-critici. Nell'adversarial check elenca rischi di COMPORTAMENTO/correttezza non verificati, mai assenza di test. Eccezione (resta in scope): un BUG in un test ESISTENTE (assertion/regex/guard leaky, fixture date assolute).
 
-            **Cross-file pattern probing (REVIEW.md step 5):** quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. **Scopa la ricerca al CODE** — `rg <pattern> scripts build-plugins components services functions server hooks tests` (oppure `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`): cercare dentro `data/`/`public/` matcha migliaia di blob dati rigenerati = turni e token sprecati senza segnale. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
+            **Cross-file pattern probing (REVIEW.md step 5):** prima di costruire grep a mano, controlla se sulla PR esiste il commento sticky `<!-- sibling-check -->` (postato dal job zero-Claude di pr-body-contract): contiene già i file gemelli candidati che condividono i costrutti modificati dal diff — parti da quella lista (verifica i candidati, non fidarti ciecamente: è token-match euristico). Se assente o insufficiente, quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. **Scopa la ricerca al CODE** — `rg <pattern> scripts build-plugins components services functions server hooks tests` (oppure `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`): cercare dentro `data/`/`public/` matcha migliaia di blob dati rigenerati = turni e token sprecati senza segnale. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
 
             **Posta UNA review:**
             `gh pr review $PR_NUMBER --comment --body "<markdown formato REVIEW.md>"`
