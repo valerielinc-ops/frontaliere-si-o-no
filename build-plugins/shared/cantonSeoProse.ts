@@ -49,7 +49,7 @@
  *    page's FAQPage JSON-LD (avoiding GSC "duplicate FAQPage" warnings).
  */
 
-import { CALC_HREF } from './jobBoardCommuterContext';
+import { CALC_HREF } from './calcHref';
 
 export type CantonSeoLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -108,8 +108,9 @@ interface SlotCopy {
   crossLinks: string;
 }
 
-// Locale-aware calculator paths — single source in jobBoardCommuterContext
-// (the '/'-pointing local table sent users to the homepage, not the simulator).
+// Locale-aware calculator paths — single source in the import-free leaf
+// module calcHref.ts (importing via jobBoardCommuterContext created an ESM
+// cycle that left this binding undefined at build time, run 27402547466).
 const CALCULATOR_HREF: Record<CantonSeoLocale, string> = CALC_HREF;
 
 const FX_HREF: Record<CantonSeoLocale, string> = {

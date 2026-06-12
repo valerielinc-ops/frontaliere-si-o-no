@@ -33,6 +33,7 @@ import {
   renderCantonSeoProse,
   type CantonSeoSlot,
 } from './cantonSeoProse';
+import { CALC_HREF } from './calcHref';
 
 export type CommuterLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -193,18 +194,11 @@ const COPY: Record<CommuterLocale, CommuterCopy> = {
   },
 };
 
-// Per-locale net-salary calculator landing. Same paths as CALCULATOR_URL in
-// professionLandingsPlugin.ts — exported so host plugins (e.g. the
-// care-variant CTA in jobsSeoPagesPlugin) reuse one source of truth instead
-// of duplicating the table. Previously pointed at the locale homepage ('/'),
-// which made the "calcolatore stipendio netto frontaliere" cross-link land
-// on the homepage instead of the calculator.
-export const CALC_HREF: Record<CommuterLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
+// CALC_HREF lives in the import-free leaf module ./calcHref.ts (moved there
+// to break the ESM cycle with cantonSeoProse.ts — see that file's docblock);
+// re-exported here so existing importers (jobsSeoPagesPlugin, jobListingProse)
+// keep working.
+export { CALC_HREF };
 const FX_HREF: Record<CommuterLocale, string> = {
   it: '/comparatori/cambio-valuta/',
   en: '/en/comparators/currency-exchange/',
