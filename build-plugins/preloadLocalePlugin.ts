@@ -10,6 +10,7 @@
  */
 
 import type { Plugin } from 'vite';
+import { findChunkFiles } from './shared/chunkFiles';
 
 export function preloadLocalePlugin(rootDir: string): Plugin {
  return {
@@ -23,16 +24,10 @@ export function preloadLocalePlugin(rootDir: string): Plugin {
  const indexPath = np.join(distDir, 'index.html');
  try {
  const assetFiles = fs.readdirSync(np.join(distDir, 'assets'));
- // Match critical Italian chunks: it-core, it-calculator (hash may contain dashes/underscores)
- const itCriticalChunks = assetFiles.filter((f: string) =>
- /^it-(core|calculator)-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')
- );
- // Also preload the App chunk — it's dynamically imported from the entry
- // point, so the browser doesn't discover it until entry JS executes.
- const appChunk = assetFiles.find((f: string) =>
- /^App-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')
- );
- const criticalChunks = [...itCriticalChunks, ...(appChunk ? [appChunk] : [])];
+ // Critical Italian chunks + the App chunk — App is dynamically imported
+ // from the entry point, so the browser doesn't discover it until entry
+ // JS executes. Stable-name resolution via shared/chunkFiles.ts.
+ const criticalChunks = findChunkFiles(assetFiles, ['it-core', 'it-calculator', 'App']);
  if (!criticalChunks.length) return;
  let html = fs.readFileSync(indexPath, 'utf-8');
  let added = 0;
