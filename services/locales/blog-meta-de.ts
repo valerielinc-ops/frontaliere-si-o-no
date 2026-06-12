@@ -8043,6 +8043,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.documenti-necessari-lavoro-svizzera.title': 'Grenzgänger: Notwendige Unterlagen für den Arbeitsstart',
     'blog.article.documenti-necessari-lavoro-svizzera.excerpt': 'Praktischer Leitfaden für Grenzgänger: Vom Arbeitsvertrag bis zur Krankenversicherung, erfahren Sie hier, was vor dem Grenzübertritt vorzubereiten ist.',
     'blog.article.documenti-necessari-lavoro-svizzera.imageAlt': 'Erforderliche Dokumente für den Arbeitsbeginn in der Schweiz als Grenzgänger',
+    'blog.article.parlamento-avs-frontalieri-2025.title': '13. AVS, Mischfinanzierung',
+    'blog.article.parlamento-avs-frontalieri-2025.excerpt': 'Der Ständerat verabschiedet den Vorschlag der Einigungskonferenz. Weitere Entscheidungen zu elektronischen Rezepten und Schutz für adoptierende Mütter. Hier sind die Auswirkungen für Grenzgänger in der Region Ticino.',
+    'blog.article.parlamento-avs-frontalieri-2025.imageAlt': 'Bundeshaus in Bern, Sitz des Parlaments.',
 };
 
 export default blogMetaDe;

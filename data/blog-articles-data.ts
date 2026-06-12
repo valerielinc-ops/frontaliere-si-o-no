@@ -25515,6 +25515,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'parlamento-avs-frontalieri-2025',
+ category: 'pensione',
+ date: '2026-06-12T00:51:12.410Z',
+ image: '/images/blog/parlamento-avs-frontalieri-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
