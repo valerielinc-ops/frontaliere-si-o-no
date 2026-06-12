@@ -140,9 +140,30 @@ export function createAuditor() {
       for (const s of structured) byFeature[s.feature] = (byFeature[s.feature] ?? 0) + 1;
 
       const hasOffenders = oversized.length > 0 || imgIssuesByFile.length > 0;
+      // Name the worst offenders inline: the unified-runner FAIL line is the
+      // only auditor output that reaches the CI log, and a bare count forced
+      // every triage to download the audit-reports artifact first (run
+      // 27386112992 / issue #1887).
+      const topPaths = structured.slice(0, 3)
+        .map((s) => s.kind === 'img-attrs'
+          ? `${s.path} (img-attrs)`
+          : `${s.path} (${(s.metric / 1024).toFixed(1)} KB > ${(budgetForPath(s.path) / 1024).toFixed(0)} KB)`)
+        .join(', ');
+      // Early warning while still green: pages ≥90% of their budget are the
+      // next gate breakers (cerca-lavoro-ticino sat at 99.6% for days before
+      // run 27386112992 went red). Surfacing them in the PASS line turns the
+      // budget cliff into a visible drift trend in every deploy log.
+      const nearBudget = samples
+        .filter((s) => s.bytes <= budgetForPath(s.file) && s.bytes > budgetForPath(s.file) * 0.9)
+        .sort((a, b) => (b.bytes / budgetForPath(b.file)) - (a.bytes / budgetForPath(a.file)));
+      const nearNote = nearBudget.length > 0
+        ? ` — WARNING ${nearBudget.length} page(s) ≥90% of budget, next breakers: ${nearBudget.slice(0, 3)
+            .map((s) => `${s.file} (${Math.round((s.bytes / budgetForPath(s.file)) * 100)}%)`)
+            .join(', ')}`
+        : '';
       const humanSummary = hasOffenders
-        ? `${oversized.length} oversized + ${imgIssuesByFile.length} img-attr offender(s)`
-        : `all ${samples.length} pages within budget and <img> attrs present`;
+        ? `${oversized.length} oversized + ${imgIssuesByFile.length} img-attr offender(s): ${topPaths}${structured.length > 3 ? ', …' : ''}`
+        : `all ${samples.length} pages within budget and <img> attrs present${nearNote}`;
 
       return {
         passed: !hasOffenders,
