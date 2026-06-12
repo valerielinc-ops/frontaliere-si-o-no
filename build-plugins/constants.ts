@@ -11,7 +11,6 @@
  */
 
 import { execSync } from 'child_process';
-import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
@@ -21,37 +20,21 @@ import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 export const BUILD_ID = String(Date.now());
 
 /**
- * Short content hash (8 chars, base64url) used to derive cache-busting
- * filenames for the externalised boot scripts (early-boot, gtag-init,
- * adsense-loader, posthog-init) and the externalised stylesheets
- * (seo-static, bridge). Replaces the `?v=${BUILD_ID}` query-string
- * cachebuster previously appended to every tag — saves the 14-byte
- * query repeated across ~822k static pages (~62 MB dist for scripts +
- * ~17 MB for stylesheets).
- */
-export function shortContentHash(content: string): string {
-  return crypto.createHash('sha256').update(content).digest('base64url').slice(0, 8);
-}
-
-/**
- * Compute the content hash of a CSS file that lives in `public/assets/`
- * (Vite copies the public/ tree to dist/ at the start of the build, so
- * the file is always present on disk by the time closeBundle runs).
+ * Fail-fast guard for the externalised stylesheets that live in
+ * `public/assets/` (Vite copies the public/ tree to dist/ at the start of
+ * the build, so the file lands in dist/assets/ under the same name). The
+ * read at module-load time keeps the historical invariant that a missing
+ * source file fails the build immediately instead of shipping ~822k pages
+ * whose `<link>` 404s.
  *
- * Reading at module-load time is intentional: every plugin that imports
- * `SEO_STATIC_CSS_LINK` / `BRIDGE_CSS_LINK` then sees the same hashed
- * filename, no race against the rename that happens in
- * `staticScriptsPlugin.closeBundle`. The repo root is resolved by
- * walking up from this file's directory until we find package.json.
- *
- * Stale-hash safety: the hash is derived from the *current on-disk* file
- * content (`fs.readFileSync` + sha256), NOT from a committed manifest or
- * cache. So editing `public/assets/{seo-static,bridge}.css` automatically
- * re-hashes → the `<link>` filename changes → browsers fetch the new sheet
- * (no risk of salary/SEO pages loading a stale, CSS-less file). This
- * invariant is pinned by `tests/css-asset-hash.test.ts`.
+ * The filenames are STABLE (no content hash) like every other bundler
+ * asset — see vite.config.ts `chunkFileNames`/`assetFileNames` for the full
+ * rationale (the serving stack revalidates at max-age=600, so a content
+ * change propagates without a rename, while a rename re-churned ~822k
+ * prerendered pages and 404'd from HTML cached under the old name). This
+ * invariant is pinned by `tests/stable-asset-names.test.ts`.
  */
-function readPublicAssetHash(relPath: string): { content: string; hash: string } {
+function assertPublicAssetExists(relPath: string): void {
   // Walk up from `build-plugins/constants.ts` to the repo root.
   // process.cwd() is unreliable (depends on how Vite was invoked); the
   // file's own location is the stable anchor.
@@ -61,25 +44,15 @@ function readPublicAssetHash(relPath: string): { content: string; hash: string }
   while (dir !== '/' && !fs.existsSync(path.join(dir, 'package.json'))) {
     dir = path.dirname(dir);
   }
-  const absolute = path.join(dir, 'public', 'assets', relPath);
-  const content = fs.readFileSync(absolute, 'utf-8');
-  return { content, hash: shortContentHash(content) };
+  fs.readFileSync(path.join(dir, 'public', 'assets', relPath), 'utf-8');
 }
 
-const { hash: SEO_STATIC_CSS_HASH } = readPublicAssetHash('seo-static.css');
-const { hash: BRIDGE_CSS_HASH } = readPublicAssetHash('bridge.css');
+assertPublicAssetExists('seo-static.css');
+assertPublicAssetExists('bridge.css');
 
-/**
- * Hashed CSS filenames + ready-made <link> tags for the externalised
- * stylesheets. `staticScriptsPlugin` renames the unhashed source from
- * `dist/assets/{name}.css` (copied verbatim by Vite from public/) to
- * `dist/assets/{name}-{hash}.css` so the per-page tag references match
- * the actual file on disk. Saves ~17 MB across ~822k SEO pages
- * (the 14-byte `?v=${BUILD_ID}` query string is dropped).
- */
-export const SEO_STATIC_CSS_FILENAME = `seo-static-${SEO_STATIC_CSS_HASH}.css`;
+export const SEO_STATIC_CSS_FILENAME = 'seo-static.css';
 export const SEO_STATIC_CSS_LINK = `<link rel="stylesheet" href="/assets/${SEO_STATIC_CSS_FILENAME}">`;
-export const BRIDGE_CSS_FILENAME = `bridge-${BRIDGE_CSS_HASH}.css`;
+export const BRIDGE_CSS_FILENAME = 'bridge.css';
 export const BRIDGE_CSS_LINK = `<link rel="stylesheet" href="/assets/${BRIDGE_CSS_FILENAME}">`;
 
 /**
@@ -127,7 +100,7 @@ export const DARK_MODE_INIT_CONTENT = `(function(){if(localStorage.theme==='dark
  * before paint to apply the `dark` class) and spa-action-redirect (which is
  * cheap to run synchronously). Replaces TWO separate `<script src>` tags
  * per static page (~140 B each) with ONE tag pointing at
- * `/assets/early-boot-{hash}.js`. Across ~822k SEO static pages this drops
+ * `/assets/early-boot.js`. Across ~822k SEO static pages this drops
  * ~80 B/page = ~65 MB dist.
  *
  * Order of concatenation matters: dark-mode FIRST (must paint with the
@@ -136,15 +109,15 @@ export const DARK_MODE_INIT_CONTENT = `(function(){if(localStorage.theme==='dark
  * theme decision committed for the next page).
  */
 export const EARLY_BOOT_CONTENT = `${DARK_MODE_INIT_CONTENT}${SPA_ACTION_REDIRECT_SCRIPT_CONTENT}`;
-export const EARLY_BOOT_FILENAME = `early-boot-${shortContentHash(EARLY_BOOT_CONTENT)}.js`;
+export const EARLY_BOOT_FILENAME = 'early-boot.js';
 export const EARLY_BOOT_SCRIPT = `<script src="/assets/${EARLY_BOOT_FILENAME}"></script>`;
 
 /**
  * Range-selector wiring for the fuel history chart, shared by every page under
  * /prezzi-benzina/ + /prezzi-diesel/ (4 locales × 2 fuels). Previously a ~600 B
- * inline IIFE repeated on every chart page; externalising it to one hashed,
- * cached `/assets/fuel-chart-{hash}.js` strips that per-page weight across the
- * whole fuel corpus and lets the browser cache it once.
+ * inline IIFE repeated on every chart page; externalising it to one cached
+ * `/assets/fuel-chart.js` strips that per-page weight across the whole fuel
+ * corpus and lets the browser cache it once.
  *
  * Self-wires ALL `[data-fuel-history-chart]` blocks on the page (no
  * `currentScript.previousElementSibling` dependency), guarded by a global flag
@@ -153,7 +126,7 @@ export const EARLY_BOOT_SCRIPT = `<script src="/assets/${EARLY_BOOT_FILENAME}"><
  * toggled with the `.s-on` class.
  */
 export const FUEL_CHART_SCRIPT_CONTENT = `(function(){if(window.__fuelChartWired)return;window.__fuelChartWired=1;function wire(root){var btns=root.querySelectorAll('[data-range-btn]');var contents=root.querySelectorAll('[data-range-content]');var statsEls=root.querySelectorAll('[data-range-stats]');function setActive(r){btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-range-btn')===r?'true':'false');});contents.forEach(function(c){c.classList.toggle('s-on',c.getAttribute('data-range-content')===r);});statsEls.forEach(function(s){s.classList.toggle('s-on',s.getAttribute('data-range-stats')===r);});}btns.forEach(function(b){b.addEventListener('click',function(){setActive(b.getAttribute('data-range-btn'));});});}document.querySelectorAll('[data-fuel-history-chart]').forEach(wire);})();`;
-export const FUEL_CHART_SCRIPT_FILENAME = `fuel-chart-${shortContentHash(FUEL_CHART_SCRIPT_CONTENT)}.js`;
+export const FUEL_CHART_SCRIPT_FILENAME = 'fuel-chart.js';
 export const FUEL_CHART_SCRIPT_TAG = `<script src="/assets/${FUEL_CHART_SCRIPT_FILENAME}" defer></script>`;
 
 /**
@@ -319,7 +292,7 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */
 export const GTAG_INIT_CONTENT = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'});`;
-export const GTAG_INIT_FILENAME = `gtag-init-${shortContentHash(GTAG_INIT_CONTENT)}.js`;
+export const GTAG_INIT_FILENAME = 'gtag-init.js';
 export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
  <script src="/assets/${GTAG_INIT_FILENAME}"></script>`;
 
@@ -344,7 +317,7 @@ export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
  * After externalising, per-page cost drops from ~1.2 KB → ~80 B (the <script src> tag).
  */
 export const POSTHOG_INIT_CONTENT = `!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage'});`;
-export const POSTHOG_INIT_FILENAME = `posthog-init-${shortContentHash(POSTHOG_INIT_CONTENT)}.js`;
+export const POSTHOG_INIT_FILENAME = 'posthog-init.js';
 export const POSTHOG_SNIPPET = `<script src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
 
 /**
@@ -410,7 +383,7 @@ const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
 export const ADSENSE_LOADER_CONTENT = `(function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return;if(navigator.plugins&&navigator.plugins.length===0)return;if(typeof navigator.permissions==='undefined')return;}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
-export const ADSENSE_LOADER_FILENAME = `adsense-loader-${shortContentHash(ADSENSE_LOADER_CONTENT)}.js`;
+export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
