@@ -5,6 +5,12 @@ name: Post-deploy Validate (live)
 # GitHub Pages. READ-ONLY by design: live smoke (probe 5xx + e2e:live)
 # fetched directly from the deployed site.
 #
+# NOTE (2026-06-12): the `rollback` job in deploy.yml is currently DISABLED
+# (`if: false`, explicit user request). References below to rollback firing
+# describe the failure-classification contract (`failure_kind` output), which
+# is unchanged and still consumed by the (gated-off) rollback condition — kept
+# intact so re-enabling rollback needs no changes here.
+#
 # Side-effects (Facebook/LinkedIn post, IndexNow/GSC submission, winners
 # git push, mark last_known_good) used to live here but were extracted
 # to `post-deploy-publish.yml` because they fired BEFORE validate-dist
