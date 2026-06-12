@@ -1,83 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-06-12T12:23:44.121Z",
+  "assembledAt": "2026-06-12T22:38:06.197Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-d456771c7784",
-      "slug": "assistente-medico-orl-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "assistente-medico-orl-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "assistant-physician-orl-100-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
-        "fr": "medecin-adjoint-orl-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Assistenzärztin / Assistenzarzt ORL 100%",
-      "titleByLocale": {
-        "it": "Assistente medico ORL 100%",
-        "en": "Assistant physician ORL 100%",
-        "de": "Assistenzärztin / Assistenzarzt ORL 100%",
-        "fr": "Médecin adjoint ORL 100%"
-      },
-      "description": "Assistenzärztin / Assistenzarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Assistente medico ORL 100% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n• Tipo: Tempo pieno\n• Durata: illimitato\n• Posizione: Zurigo (ZH)\n• Applicazione tramite Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "en": "Assistant physician ORL 100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n• Type: Full time\n• Duration: unlimited\n• Location: Zurich (ZH)\n• Application via the Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "de": "Assistenzärztin / Assistenzarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Assistant médecin ORL 100% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: plein temps\n• Durée: illimitée\n• Lieu: Zurich (ZH)\n• Demande via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3678/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:41.880Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3678/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T23:58:13.827Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-54b759192d40",
       "slug": "medico-senior-orl-100-universitats-kinderspital-zurich-kispi-zurich",
@@ -104,12 +28,13 @@
         "de": "Oberärztin / Oberarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Médecin senior ORL 100% chez Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: plein temps\n• Durée: illimitée\n• Lieu: Zurich (ZH)\n• Demande via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3653/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:40.816Z",
+      "crawledAt": "2026-06-12T22:38:04.273Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,7 +111,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3683/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:39.767Z",
+      "crawledAt": "2026-06-12T22:38:03.465Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -262,12 +187,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 04.06.2026 Deine Aufgaben\n• Du führst den Assistenzpool selbständig und koordinierst dabei eine grosse Aufgabenvielfalt sowie divergierende Bedürfnisse und Prioritäten.\n• Art: Vollzeit\n• Befristung: unbefristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung (en anglais seulement) seit en ligne : 04.06.2026\n• Vous dirigez le pool d'assistance de manière indépendante et coordonnez un large éventail de tâches et de besoins et priorités divergents.\n• Type: plein temps\n• Durée: illimitée"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3676/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:38.705Z",
+      "crawledAt": "2026-06-12T22:38:02.655Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -340,12 +266,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 05.06.2026 EEG/Epileptologie befristet für 4 Monate Deine Aufgaben\n• Du bereitest das EEG-Zimmer sowie die benötigten Materialien vor und sorgst für einen reibungslosen Ablauf der Untersuchungen.\n• Art: Vollzeit\n• Befristung: befristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung en ligne depuis : 05.06.2026 EEG/Epileptologie limitée pendant 4 mois descrizione - Vous préparez la salle EEG ainsi que les matériaux nécessaires pour un bon déroulement des enquêtes.\n• Requisiti - Type: Temps plein - Date limite: fixée"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3680/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:37.644Z",
+      "crawledAt": "2026-06-12T22:38:01.818Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -421,12 +348,13 @@
         "de": "Payroll Spezialistin (m/w) 90-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Spécialiste de la paie (m/f) 90-100% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse. Type: Temps plein\n• Durée temporaire : temporaire Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3685/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:36.740Z",
+      "crawledAt": "2026-06-12T22:38:01.002Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -489,7 +417,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3684/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:35.839Z",
+      "crawledAt": "2026-06-12T22:38:00.151Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -566,7 +494,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3687/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:34.944Z",
+      "crawledAt": "2026-06-12T22:37:59.273Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -637,7 +565,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:34.059Z",
+      "crawledAt": "2026-06-12T22:37:58.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -711,7 +639,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3134/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:23:33.002Z",
+      "crawledAt": "2026-06-12T22:37:57.530Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -749,6 +677,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kispi-zurich-cb690f5b842b",
+      "slug": "hr-controller-m-w-40-50-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "hr-controller-m-w-40-50-kispi-zurich-zurich",
+        "it": "hr-controller-m-w-40-50-kispi-zurich-zurich",
+        "en": "hr-controller-m-w-40-50-kispi-zurich-zurich",
+        "fr": "hr-controller-m-w-40-50-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "HR Controller (m/w) 40-50%",
+      "titleByLocale": {
+        "de": "Personalwesen Controller (m/w) 40-50%",
+        "fr": "HR Controller (m/w) 40-50%",
+        "it": "Risorse Umane Controller (m/w) 40-50%",
+        "en": "HR Controller (m/w) 40-50%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 12.06.2026 Befristet bis März 2027 Deine Aufgaben\n• Für diverse interne und externe Statistiken, Abrechnungen und Reports bereitest du HR-Kennzahlen auf und erstellst periodische Berichte und Auswertungen für interne Anspruchsgruppen.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 12.06.2026 Befristet bis März 2027 Deine Aufgaben\n• Für diverse interne und externe Statistiken, Abrechnungen und Reports bereitest du HR-Kennzahlen auf und erstellst periodische Berichte und Auswertungen für interne Anspruchsgruppen.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 12.06.2026 Befristet bis März 2027 Deine Aufgaben\n• Für diverse interne und externe Statistiken, Abrechnungen und Reports bereitest du HR-Kennzahlen auf und erstellst periodische Berichte und Auswertungen für interne Anspruchsgruppen.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 12.06.2026 Befristet bis März 2027 Deine Aufgaben\n• Für diverse interne und externe Statistiken, Abrechnungen und Reports bereitest du HR-Kennzahlen auf und erstellst periodische Berichte und Auswertungen für interne Anspruchsgruppen.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 12.06.2026 Befristet bis März 2027 Deine Aufgaben\n• Für diverse interne und externe Statistiken, Abrechnungen und Reports bereitest du HR-Kennzahlen auf und erstellst periodische Berichte und Auswertungen für interne Anspruchsgruppen.\n\n• Art: Vollzeit\n• Befristung: unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3686/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-12T22:37:56.644Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3686/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-12T22:37:56.644Z"
     }
   ]
 }
