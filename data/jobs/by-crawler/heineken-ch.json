@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-06-11T22:47:28.209Z",
+  "assembledAt": "2026-06-12T12:19:46.498Z",
   "jobs": [
     {
       "id": "heineken-ch-b178feb93410",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:47:26.208Z",
+      "crawledAt": "2026-06-12T12:19:44.546Z",
       "previousSlugs": [
         "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
       ],
@@ -124,7 +124,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:47:19.424Z",
+      "crawledAt": "2026-06-12T12:19:36.719Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "logistica-negozio-100-heineken-switzerland-luzern"
@@ -162,7 +162,7 @@
       "slug": "logistician-heineken-switzerland-denges",
       "slugByLocale": {
         "it": "logistician-heineken-switzerland-denges",
-        "en": "logisticsian-heineken-switzerland-denges",
+        "en": "logistician-heineken-ch-denges",
         "de": "logistician-heineken-ch-denges",
         "fr": "logistician-heineken-ch-denges"
       },
@@ -202,9 +202,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154479&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T22:47:10.764Z",
+      "crawledAt": "2026-06-12T12:19:28.554Z",
       "previousSlugs": [
         "logistician-heineken-ch-denges",
+        "logisticsian-heineken-switzerland-denges",
         "logistik-heineken-switzerland-denges",
         "logistiker-heineken-switzerland-denges"
       ],
@@ -213,6 +214,7 @@
           "logistician-heineken-ch-denges"
         ],
         "en": [
+          "logisticsian-heineken-switzerland-denges",
           "logistician-heineken-ch-denges"
         ],
         "de": [
@@ -282,7 +284,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:47:02.091Z",
+      "crawledAt": "2026-06-12T12:19:20.959Z",
       "previousSlugs": [
         "truck-driver-heineken-ch-baltschieder"
       ],
@@ -358,7 +360,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:46:54.215Z",
+      "crawledAt": "2026-06-12T12:19:12.670Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern"
       ],
@@ -434,7 +436,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156200&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:46:45.918Z",
+      "crawledAt": "2026-06-12T12:19:05.522Z",
       "previousSlugs": [
         "lernende-r-logistik-in-domat-ems-heineken-ch-domat-ems",
         "lernende-r-logistik-in-domat-ems-heineken-ch-chur",
@@ -523,7 +525,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:46:38.967Z",
+      "crawledAt": "2026-06-12T12:18:56.556Z",
       "previousSlugs": [
         "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
       ],
@@ -599,7 +601,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:46:30.286Z",
+      "crawledAt": "2026-06-12T12:18:51.282Z",
       "previousSlugsByLocale": {
         "it": [
           "agent-customer-service-heineken-ch-luzern",
@@ -614,6 +616,7 @@
         "mitarbeiter-in-kundenservice-heineken-ch-luzern"
       ],
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -674,7 +677,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159424&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:46:22.085Z",
+      "crawledAt": "2026-06-12T12:18:45.570Z",
       "previousSlugs": [
         "logistiker-im-getrankelager-m-w-heineken-ch-davos"
       ],
@@ -690,6 +693,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:01:22.291Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -705,31 +709,31 @@
       }
     },
     {
-      "id": "heineken-ch-7667a600bd7f",
-      "jobReqId": "159426",
-      "slug": "linienfuehrer-abfuellerei-m-w-heineken-ch-chur",
+      "id": "heineken-ch-b0b67e64be95",
+      "jobReqId": null,
+      "slug": "linienfuhrer-abfuellerei-m-w-heineken-ch-chur",
       "slugByLocale": {
-        "it": "linienfuehrer-abfuellerei-m-w-heineken-ch-chur",
-        "en": "linienfuhrer-abfuellerei-m-f-heineken-switzerland-chur",
-        "de": "linienfuehrer-abfuellerei-m-w-heineken-ch-chur",
-        "fr": "linienfuhrer-abfuellerei-m-f-heineken-switzerland-chur"
+        "de": "linienfuhrer-abfuellerei-m-w-heineken-ch-chur",
+        "it": "linienfuhrer-abfuellerei-m-w-heineken-ch-chur",
+        "en": "linienfuhrer-abfuellerei-m-w-heineken-ch-chur",
+        "fr": "linienfuhrer-abfuellerei-m-w-heineken-ch-chur"
       },
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
       "companyDomain": "theheinekencompany.com",
       "title": "Linienführer Abfüellerei (m/w)",
       "titleByLocale": {
-        "it": "Linienfuehrer Abfuellerei (m/w)",
-        "en": "Linienführer Abfuellerei (m/f)",
         "de": "Linienführer Abfüellerei (m/w)",
-        "fr": "Linienführer Abfuellerei (m/f)"
+        "it": "Linienführer Abfüellerei (m/w)",
+        "en": "Linienführer Abfüellerei (m/w)",
+        "fr": "Linienführer Abfüellerei (m/w)"
       },
-      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für die Abteilung Abfüllerei Chur suchen wir nach Vereinbarung eine verantwortungsbewusste und engagierte Persönlichkeit. Deine zentrale Rolle umfasst die Anweisung der Operator Packaging innerhalb der zugeteilten Anlagen, Sicherstellen, dass alle Standards eingehalten und umgesetzt werden sowie die Unterstützung bei der Schulung und Weiterentwicklung des Teams Packaging. Deine Hauptaufgaben: Sicherstellung der geplanten Anlagenauslastung Fachliche und personelle Führung des Linienpersonals Sicherstellen, dass die betrieblichen Sicherheits-, Hygiene-, Qualitäts- und Arbeitsvorschriften eingehalten werden Abstimmung von Einsätzen mit dem Technischen Dienst Unterstützen der Abteilungsleitung bei Schulung und Weiterentwicklung der Mitarbeitenden Aktive Mitarbeit bei der kontinuierlichen Verbesserung der Prozesse, der technischen Anlagen und der Verpackungsqualität innerhalb des Zuständigkeitsbereiches Pflege von relevanten Dokumenten im Qualitätsmanagement Unsere \n• Anforderungen: Technische Ausbildung, idealerweise mit mehrjähriger Erfahrung in der Abfüllung/Verpackung von Lebensmitteln oder ähnlichen Arbeitsbereichen erste Führungserfahrung Erfahrung mit Systemen im Bereich kontinuierliche Verbesserung z.B. (TPM) Erfahrung im Umgang mit MS-Office Hohe Flexibilität und Bereitschaft zum Einsatz im 3-Schichtbetrieb Sehr gute Deutschkenntnisse in Wort und Schrift sowie Englisch von Vorteil Interessiert? Dann freut sich Claudia Tschuor auf Deine Bewerbungsunterlagen.",
+      "description": "Linienführer Abfüellerei (m/w) bei Heineken Switzerland (Calanda Brauerei) in Chur, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
       "descriptionByLocale": {
-        "it": "Il tuo ruolo centrale consiste nell'istruire l'Offerta Operatore all'interno delle strutture assegnate, assicurando che tutti gli standard vengano rispettati e implementati e supportando la formazione e lo sviluppo del team Packaging. I vostri compiti principali: Assicurare l'utilizzo dell'impianto pianificato Gestione professionale e del personale del personale di linea Assicurarsi che la sicurezza operativa, l'igiene, la qualità e le normative di lavoro siano rispettate al coordinamento delle assegnazioni con il servizio tecnico Sostenere la gestione del reparto nella formazione e nello sviluppo ulteriore dei dipendenti Cooperazione attiva nel miglioramento continuo dei processi, delle strutture tecniche e della qualità dell'imballaggio nell'ambito della manutenzione dei documenti rilevanti nella gestione della qualità\n• Requisiti: Formazione tecnica, idealmente con diversi anni di esperienza nel riempimento/imballaggio di prodotti alimentari o aree di lavoro simili prima esperienza di gestione con sistemi nel settore del miglioramento continuo, ad esempio (TPM) Esperienza nel trattare con MS-Office Alta flessibilità e disponibilità ad utilizzare in funzionamento a 3 turni Molto buona conoscenza del tedesco in parola e scrittura così come l'inglese di vantaggio Interessi? Poi Claudia Tschuor non vede l'ora dei tuoi documenti di candidatura.",
-        "en": "Your central role includes instructing Operator Packaging within the assigned facilities, ensuring that all standards are met and implemented, and supporting the training and development of the Packaging team. Your main tasks: Ensure the planned plant utilization Professional and personnel management of the line staff Ensure that the operational safety, hygiene, quality and work regulations are adhered to coordination of assignments with the technical service Support the department management in training and further development of the employees Active cooperation in the continuous improvement of processes, technical facilities and packaging quality within the area of responsibility Maintenance of relevant documents in quality management Our\n• Requirements: Technical training, ideally with several years of experience in the filling/packaging of foodstuffs or similar work areas first management experience experience with systems in the area of continuous improvement e.g. (TPM) Experience in dealing with MS-Office High flexibility and willingness to use in 3-shift operation Very good knowledge of German in word and writing as well as English of advantage Interested? Then Claudia Tschuor looks forward to your application documents.",
-        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für die Abteilung Abfüllerei Chur suchen wir nach Vereinbarung eine verantwortungsbewusste und engagierte Persönlichkeit. Deine zentrale Rolle umfasst die Anweisung der Operator Packaging innerhalb der zugeteilten Anlagen, Sicherstellen, dass alle Standards eingehalten und umgesetzt werden sowie die Unterstützung bei der Schulung und Weiterentwicklung des Teams Packaging. Deine Hauptaufgaben: Sicherstellung der geplanten Anlagenauslastung Fachliche und personelle Führung des Linienpersonals Sicherstellen, dass die betrieblichen Sicherheits-, Hygiene-, Qualitäts- und Arbeitsvorschriften eingehalten werden Abstimmung von Einsätzen mit dem Technischen Dienst Unterstützen der Abteilungsleitung bei Schulung und Weiterentwicklung der Mitarbeitenden Aktive Mitarbeit bei der kontinuierlichen Verbesserung der Prozesse, der technischen Anlagen und der Verpackungsqualität innerhalb des Zuständigkeitsbereiches Pflege von relevanten Dokumenten im Qualitätsmanagement Unsere \n• Anforderungen: Technische Ausbildung, idealerweise mit mehrjähriger Erfahrung in der Abfüllung/Verpackung von Lebensmitteln oder ähnlichen Arbeitsbereichen erste Führungserfahrung Erfahrung mit Systemen im Bereich kontinuierliche Verbesserung z.B. (TPM) Erfahrung im Umgang mit MS-Office Hohe Flexibilität und Bereitschaft zum Einsatz im 3-Schichtbetrieb Sehr gute Deutschkenntnisse in Wort und Schrift sowie Englisch von Vorteil Interessiert? Dann freut sich Claudia Tschuor auf Deine Bewerbungsunterlagen.",
-        "fr": "Votre rôle central consiste à donner des instructions à l'opérateur Emballage dans les installations assignées, à s'assurer que toutes les normes sont respectées et mises en oeuvre et à appuyer la formation et le perfectionnement de l'équipe d'emballage. Vos tâches principales : Assurer l'utilisation planifiée des installations Gestion professionnelle et du personnel du personnel de la ligne Veiller à ce que la sécurité opérationnelle, l'hygiène, la qualité et la réglementation du travail soient respectées en coordination avec le service technique Soutenir la direction du département dans la formation et le perfectionnement des employés Coopération active dans l'amélioration continue des processus, des installations techniques et de la qualité des emballages dans le domaine de responsabilité Entretien des documents pertinents dans la gestion de la qualité\n• Exigences: formation technique, idéalement avec plusieurs années d'expérience dans le remplissage/emballage de denrées alimentaires ou de domaines de travail similaires première expérience de gestion avec des systèmes dans le domaine de l'amélioration continue p. ex. (TPM) Expérience dans le traitement de MS-Office Haute flexibilité et volonté d'utiliser dans l'opération de 3 équipes Très bonne connaissance de l'allemand dans la parole et l'écriture ainsi que l'anglais d'avantage Intéressé? Alors Claudia Tschuor attend avec impatience vos documents de candidature."
+        "de": "Linienführer Abfüellerei (m/w) bei Heineken Switzerland (Calanda Brauerei) in Chur, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "it": "Linienführer Abfüellerei (m/w) bei Heineken Switzerland (Calanda Brauerei) in Chur, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "en": "Linienführer Abfüellerei (m/w) bei Heineken Switzerland (Calanda Brauerei) in Chur, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "fr": "Linienführer Abfüellerei (m/w) bei Heineken Switzerland (Calanda Brauerei) in Chur, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration."
       },
       "location": "Chur",
       "canton": "GR",
@@ -739,27 +743,19 @@
       "country": "CH",
       "postalCode": "7000",
       "streetAddress": "Chur, Graubünden",
-      "category": "Logistica",
+      "category": "Altro",
       "sector": "Industria / Alimentare",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "featured": false,
-      "postedDate": "2026-06-08",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/linienfuhrer-abfuellerei-mw?jobid=159426",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159426&career_ns=job_application",
+      "postedDate": "2026-06-12",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/linienfuhrer-abfuellerei-mw?jobid=linienfuhrer-abfuellerei-mw",
+      "applyUrl": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/linienfuhrer-abfuellerei-mw",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:46:14.408Z",
-      "firstSeenAt": "2026-06-08T13:01:14.661Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "linienfuhrer-abfuellerei-m-w-heineken-ch-chur"
-        ]
-      },
-      "previousSlugs": [
-        "linienfuhrer-abfuellerei-m-w-heineken-ch-chur"
-      ],
+      "crawledAt": "2026-06-12T12:15:12.847Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -772,7 +768,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-12T12:15:12.847Z"
     }
   ]
 }
