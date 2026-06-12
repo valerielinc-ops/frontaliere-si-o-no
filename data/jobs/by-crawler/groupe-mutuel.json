@@ -1,7 +1,78 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-06-11T22:43:47.853Z",
+  "assembledAt": "2026-06-12T12:12:06.194Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4134?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4134?c=groupemutuel&lang=fr-FR",
+      "title": "Indexateur (h/f) 100% - temporaire 3 mois",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Sion",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Tu consultes les factures, complètes les informations nécessaires et les transmets au bon service pour leur remboursement Concrètement, tu recherches et saisis différentes informations dans le système, comme les numéros d’assurés et ceux des prestataires de soins Tu vérifies et enregistres également les éléments importants liés aux factures (dates, montants, type de cas, mode de paiement, etc.)\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Tu consultes les factures, complètes les informations nécessaires et les transmets au bon service pour leur remboursement Concrètement, tu recherches et saisis différentes informations dans le système, comme les numéros d’assurés et ceux des prestataires de soins Tu vérifies et enregistres également les éléments importants liés aux factures (dates, montants, type de cas, mode de paiement, etc.)\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Tu consultes les factures, complètes les informations nécessaires et les transmets au bon service pour leur remboursement Concrètement, tu recherches et saisis différentes informations dans le système, comme les numéros d’assurés et ceux des prestataires de soins Tu vérifies et enregistres également les éléments importants liés aux factures (dates, montants, type de cas, mode de paiement, etc.)\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Tu consultes les factures, complètes les informations nécessaires et les transmets au bon service pour leur remboursement Concrètement, tu recherches et saisis différentes informations dans le système, comme les numéros d’assurés et ceux des prestataires de soins Tu vérifies et enregistres également les éléments importants liés aux factures (dates, montants, type de cas, mode de paiement, etc.)\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Tu consultes les factures, complètes les informations nécessaires et les transmets au bon service pour leur remboursement Concrètement, tu recherches et saisis différentes informations dans le système, comme les numéros d’assurés et ceux des prestataires de soins Tu vérifies et enregistres également les éléments importants liés aux factures (dates, montants, type de cas, mode de paiement, etc.)\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Indexateur (h/f) 100% - temporaire 3 mois",
+        "it": "Indexateur (h/f) 100% - temporaire 3 mois",
+        "en": "Indexateur (h/f) 100% - temporaire 3 mois",
+        "de": "Indexateur (h/f) 100% - temporaire 3 mois"
+      },
+      "slug": "indexateur-m-w-d-100-temporaire-3-mois-groupe-mutuel-sion",
+      "slugByLocale": {
+        "fr": "indexateur-h-f-100-temporaire-3-mois-groupe-mutuel",
+        "en": "indexateur-h-f-100-temporaire-3-mois-groupe-mutuel",
+        "it": "indexateur-m-w-d-100-temporaire-3-mois-groupe-mutuel-sion",
+        "de": "indexateur-h-f-100-temporaire-3-mois-groupe-mutuel"
+      },
+      "category": "general",
+      "datePosted": "2026-06-12",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "jobReqId": "4134",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-19d59763b092",
+      "previousSlugsByLocale": {
+        "it": [
+          "indexateur-h-f-100-temporaire-3-mois-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "indexateur-h-f-100-temporaire-3-mois-groupe-mutuel"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-06-12T12:12:06.193Z"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4133?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4133?c=groupemutuel&lang=fr-FR",
@@ -892,7 +963,8 @@
       ],
       "addressLocality": "Genève",
       "addressCountry": "CH",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4077?c=groupemutuel&lang=fr-FR",
@@ -1045,7 +1117,8 @@
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4085?c=groupemutuel&lang=fr-FR",
@@ -1288,7 +1361,8 @@
       "firstSeenAt": "2026-05-19T11:48:30.108Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4071?c=groupemutuel&lang=fr-FR",
@@ -1533,7 +1607,8 @@
       "firstSeenAt": "2026-05-04T10:57:40.559Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3971?c=groupemutuel&lang=fr-FR",
@@ -1772,7 +1847,8 @@
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -1851,7 +1927,8 @@
       },
       "firstSeenAt": "2026-04-13T21:47:16.445Z",
       "addressLocality": "Aarau",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -1955,7 +2032,8 @@
       "firstSeenAt": "2026-04-13T21:47:16.445Z",
       "addressLocality": "Crissier",
       "addressCountry": "CH",
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
