@@ -22,6 +22,8 @@ type JobLike = {
  companyKey?: string;
  companyDomain?: string;
  url?: string;
+ /** Publisher-provided logo URL (projected from the publish form, https-only). */
+ companyLogo?: string | null;
 };
 
 const ATS_HOST_MARKERS = [
@@ -787,6 +789,12 @@ export function resolveCompanyWebsiteHost(job: JobLike): string {
 }
 
 export function resolveCompanyLogoUrl(job: JobLike): string | null {
+ // 0. Publisher-provided logo (projected from the publish form; validated
+ // https-only at projection time). Only publisher-submitted records carry
+ // this field, so behavior for crawled jobs is unchanged.
+ const ownLogo = String(job.companyLogo || '').trim();
+ if (/^https:\/\/\S+$/i.test(ownLogo)) return ownLogo;
+
  // 1. Explicit crawled-company logo map (most reliable)
  const key = job.companyKey || '';
  if (key && CRAWLED_COMPANY_LOGOS[key]) {

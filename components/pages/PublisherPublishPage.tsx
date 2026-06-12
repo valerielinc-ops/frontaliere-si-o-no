@@ -36,8 +36,10 @@ import {
  getDoc,
  setDoc,
  serverTimestamp,
+ deleteField,
 } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
+import { renderPublisherMarkdown, stripPublisherMarkdown } from '@/services/publisherMarkdown';
 import { priceForCart, PRICE_PER_UNIT_CHF, PRICING_CURRENCY } from '@/services/publisherPricing';
 import { listCantonOptions } from '@/services/cantonList';
 import type {
@@ -188,6 +190,7 @@ const inputClass =
  'w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-strong focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]';
 const labelClass = 'block text-sm font-medium text-body mb-1.5';
 const sectionTitleClass = 'text-lg font-semibold font-display text-strong mb-4';
+const mdBtnClass = 'min-h-[32px] px-2.5 py-1 text-xs font-semibold rounded-lg border border-edge bg-surface-alt text-body hover:bg-accent-subtle transition-colors';
 
 function countWords(text: string): number {
  const trimmed = text.trim();
@@ -299,6 +302,45 @@ const PublisherPublishPage: React.FC = () => {
  const [applyUrl, setApplyUrl] = useState('');
  const [applyEmail, setApplyEmail] = useState('');
  const [privacyPolicyUrl, setPrivacyPolicyUrl] = useState('');
+
+ // ── Markdown editor (sponsored only) ────────────────────────
+ // Sponsored descriptions support a tiny markdown subset (## sections,
+ // - bullets, **bold**) rendered by services/publisherMarkdown — the same
+ // renderer the static /lavoro/ page uses, so the preview is exact.
+ const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
+ const [showMdPreview, setShowMdPreview] = useState(false);
+
+ const insertMd = (prefix: string, suffix = '', placeholder = '') => {
+ const el = descriptionRef.current;
+ if (!el) return;
+ const start = el.selectionStart ?? description.length;
+ const end = el.selectionEnd ?? start;
+ const selected = description.slice(start, end) || placeholder;
+ // Block tokens (## , - ) must sit at a line start.
+ const needsNl = prefix.startsWith('#') || prefix.startsWith('- ');
+ const before = description.slice(0, start);
+ const lead = needsNl && before && !before.endsWith('\n') ? '\n' : '';
+ const next = `${before}${lead}${prefix}${selected}${suffix}${description.slice(end)}`;
+ setDescription(next);
+ requestAnimationFrame(() => {
+ el.focus();
+ const pos = start + lead.length + prefix.length + selected.length + suffix.length;
+ el.setSelectionRange(pos, pos);
+ });
+ };
+
+ // Appends the recommended job-page structure (the same sections crawled job
+ // pages surface: about / responsibilities / requirements / what we offer).
+ const insertMdTemplate = () => {
+ const tpl = [
+ `## ${t('publisher.editor.tpl.about')}`, '', '',
+ `## ${t('publisher.editor.tpl.tasks')}`, '- ', '- ', '',
+ `## ${t('publisher.editor.tpl.requirements')}`, '- ', '- ', '',
+ `## ${t('publisher.editor.tpl.offer')}`, '- ', '- ',
+ ].join('\n');
+ setDescription((d) => (d.trim() ? `${d.replace(/\s+$/, '')}\n\n${tpl}\n` : `${tpl}\n`));
+ setShowMdPreview(true);
+ };
 
  // ── Multi-ad cart ───────────────────────────────────────────
  // Each item is a snapshot of the per-ad fields above. Company + tier are
@@ -489,7 +531,9 @@ const PublisherPublishPage: React.FC = () => {
  setLogoUrl(c.logoUrl ? String(c.logoUrl) : '');
 
  setTitle(d.title ? String(d.title) : '');
- setDescription(d.description ? String(d.description) : '');
+ // Sponsored ads may carry a markdown source (descriptionMd) — edit that,
+ // not the derived plain text, so formatting survives an edit round-trip.
+ setDescription(d.descriptionMd ? String(d.descriptionMd) : (d.description ? String(d.description) : ''));
  setCategory(d.category ? String(d.category) : '');
  setSector(d.sector ? String(d.sector) : '');
  if (d.employmentType) setEmploymentType(String(d.employmentType));
@@ -571,7 +615,10 @@ const PublisherPublishPage: React.FC = () => {
  };
 
  const cantonOptions = useMemo(() => listCantonOptions(locale), [locale]);
- const descriptionWords = useMemo(() => countWords(description), [description]);
+ // Word count / validation run on the PLAIN text — markdown syntax characters
+ // (##, -, **) must not count toward the 50-word minimum.
+ const descriptionPlain = useMemo(() => stripPublisherMarkdown(description), [description]);
+ const descriptionWords = useMemo(() => countWords(descriptionPlain), [descriptionPlain]);
 
  // ── Client-side validation ──────────────────────────────────
  // Per-ad validation (title / description / ≥1 location / apply fields). Reused
@@ -579,7 +626,7 @@ const PublisherPublishPage: React.FC = () => {
  const validateCurrentAd = (): string[] => {
  const found: string[] = [];
  if (!title.trim()) found.push(t('publisher.error.title'));
- if (countWords(description) < DESCRIPTION_MIN_WORDS) found.push(t('publisher.error.description'));
+ if (countWords(stripPublisherMarkdown(description)) < DESCRIPTION_MIN_WORDS) found.push(t('publisher.error.description'));
  if (distinctLocations.length < 1) found.push(t('publisher.error.locations'));
  if (applyMode === 'external_url' && !isValidUrl(applyUrl)) {
  found.push(t('publisher.error.applyUrl'));
@@ -708,11 +755,19 @@ const PublisherPublishPage: React.FC = () => {
  const jobLocations = buildJobLocations(ad.locations);
  const parsedMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
  const parsedMax = ad.salaryMax.trim() ? Number(ad.salaryMax) : undefined;
+ // Sponsored: `description` stays PLAIN text (JSON-LD / meta / search all
+ // consume it); the markdown source ships separately as `descriptionMd`.
+ const editPlainDesc = isFree ? ad.description.trim() : stripPublisherMarkdown(ad.description);
+ const editMdDesc = !isFree && ad.description.trim() && ad.description.trim() !== editPlainDesc
+ ? ad.description.trim() : null;
  await setDoc(
  doc(db, 'publisher_jobs', editId),
  {
  title: ad.title.trim(),
- description: ad.description.trim(),
+ description: editPlainDesc,
+ // merge:true → explicitly delete a stale markdown source when the
+ // publisher removed all formatting in this edit.
+ descriptionMd: editMdDesc ?? deleteField(),
  company,
  locations: jobLocations,
  employmentType: ad.employmentType,
@@ -762,6 +817,11 @@ const PublisherPublishPage: React.FC = () => {
  const jobLocations = buildJobLocations(ad.locations);
  const parsedSalaryMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
  const parsedSalaryMax = ad.salaryMax.trim() ? Number(ad.salaryMax) : undefined;
+ // Sponsored: `description` stays PLAIN text (JSON-LD / meta / search all
+ // consume it); the markdown source ships separately as `descriptionMd`.
+ const plainDesc = isFree ? ad.description.trim() : stripPublisherMarkdown(ad.description);
+ const mdDesc = !isFree && ad.description.trim() && ad.description.trim() !== plainDesc
+ ? ad.description.trim() : null;
 
  const docRef = await addDoc(collection(db, 'publisher_jobs'), {
  publisherUid: user.uid,
@@ -769,7 +829,8 @@ const PublisherPublishPage: React.FC = () => {
  // free → live immediately as a plain listing; sponsored → awaits Stripe.
  status: isFree ? 'published' : 'pending_payment',
  title: ad.title.trim(),
- description: ad.description.trim(),
+ description: plainDesc,
+ ...(mdDesc ? { descriptionMd: mdDesc } : {}),
  sourceLang: 'it',
  company,
  locations: jobLocations,
@@ -1272,10 +1333,36 @@ const PublisherPublishPage: React.FC = () => {
  <label htmlFor="pub-description" className={labelClass}>
  {t('publisher.ad.description')} *
  </label>
+ {!isFree && (
+ <div className="flex flex-wrap items-center gap-1.5 mb-2" role="toolbar" aria-label={t('publisher.editor.toolbar')}>
+ <button type="button" onClick={() => insertMd('## ', '', t('publisher.editor.sectionPh'))} className={mdBtnClass}>
+ {t('publisher.editor.section')}
+ </button>
+ <button type="button" onClick={() => insertMd('- ', '', t('publisher.editor.bulletPh'))} className={mdBtnClass}>
+ • {t('publisher.editor.bullet')}
+ </button>
+ <button type="button" onClick={() => insertMd('**', '**', t('publisher.editor.boldPh'))} className={mdBtnClass} aria-label={t('publisher.editor.bold')}>
+ <strong>B</strong>
+ </button>
+ <button type="button" onClick={insertMdTemplate} className={mdBtnClass}>
+ <Sparkles className="inline-block w-3.5 h-3.5 mr-1" aria-hidden="true" />
+ {t('publisher.editor.template')}
+ </button>
+ <button
+ type="button"
+ onClick={() => setShowMdPreview(v => !v)}
+ aria-pressed={showMdPreview}
+ className={`${mdBtnClass} ${showMdPreview ? 'bg-accent-subtle text-link' : ''}`}
+ >
+ {showMdPreview ? t('publisher.editor.hidePreview') : t('publisher.editor.preview')}
+ </button>
+ </div>
+ )}
  <textarea
  id="pub-description"
  required
  rows={6}
+ ref={descriptionRef}
  value={description}
  onChange={e => setDescription(e.target.value)}
  spellCheck={true}
@@ -1284,7 +1371,10 @@ const PublisherPublishPage: React.FC = () => {
  placeholder={t('publisher.ad.descriptionPlaceholder')}
  />
  <div className="mt-1 flex items-center justify-between gap-2">
- <p className="text-xs text-muted">{t('publisher.ad.descriptionHint')}</p>
+ <p className="text-xs text-muted">
+ {t('publisher.ad.descriptionHint')}
+ {!isFree && <> {t('publisher.editor.hint')}</>}
+ </p>
  <p
  id="pub-description-count"
  className={`text-xs font-medium tabular-nums ${descriptionWords < DESCRIPTION_MIN_WORDS ? 'text-danger' : 'text-success'}`}
@@ -1293,6 +1383,16 @@ const PublisherPublishPage: React.FC = () => {
  {t('publisher.ad.descriptionWordCount', { current: descriptionWords, min: DESCRIPTION_MIN_WORDS })}
  </p>
  </div>
+ {!isFree && showMdPreview && (
+ <div
+ className="mt-2 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-body"
+ aria-label={t('publisher.editor.preview')}
+ dangerouslySetInnerHTML={{
+ __html: renderPublisherMarkdown(description)
+ || `<p class="text-muted">${t('publisher.editor.previewEmpty')}</p>`,
+ }}
+ />
+ )}
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
  <div>

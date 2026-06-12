@@ -51,6 +51,8 @@ const DETAIL_FIELDS = new Set([
  'pensum', 'pensumMin', 'pensumMax',
  'workModel', 'remote',
  'applicationDeadline',
+ // Publisher-ad fields (logo, markdown description, in-house apply wiring).
+ 'companyLogo', 'descriptionMd', 'tier', 'applyMode', 'publisherUid', 'publisherJobId',
 ]);
 
 

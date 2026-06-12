@@ -89,3 +89,23 @@ export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
 export function detectJobTitleLang(title = '', fallback = 'it') {
   return detectJobTitleLocaleDetails(title, fallback).lang;
 }
+
+/**
+ * Publisher-authored jobs declare their source language explicitly: the title
+ * and description are human-written by the employer in `sourceLang`, so
+ * heuristic language detection must never override that slot. Detection sees
+ * an Italian title like "Prompt engineer da remoto" as EN (job-title hints are
+ * dominated by English loanwords) and then "repairs" the IT slot via
+ * heuristicTranslateJobTitle → "Prompt Ingegnere da remoto" — destroying the
+ * paid, publisher-written copy. Both heuristic sites
+ * (shared-jobs-crawler ensureLocaleFields and dedicated-crawler-common
+ * hardenJobLocaleFields) consult this pin before trusting detection.
+ *
+ * @param {object} job  any job-shaped record
+ * @returns {string|null} the declared source locale to pin, or null to detect
+ */
+export function pinnedTitleSourceLang(job) {
+  if (!job || job.source !== 'publisher-submitted') return null;
+  const lang = String(job.sourceLang || '').trim().toLowerCase();
+  return DEFAULT_JOB_LOCALES.includes(lang) ? lang : null;
+}

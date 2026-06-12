@@ -30,6 +30,8 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildJobPostingSchema } from './shared/jobPostingSchema';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
+import { renderPublisherMarkdown } from '../services/publisherMarkdown';
+import { generateInitialsLogo } from '../services/logoService';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type AdLocale = (typeof LOCALES)[number];
@@ -59,6 +61,35 @@ const POSTED_LABEL: Record<AdLocale, string> = {
 const SALARY_LABEL: Record<AdLocale, string> = {
   it: 'Retribuzione', en: 'Salary', de: 'Gehalt', fr: 'Salaire',
 };
+const SPONSORED_LABEL: Record<AdLocale, string> = {
+  it: 'Sponsorizzato', en: 'Sponsored', de: 'Gesponsert', fr: 'Sponsorisé',
+};
+const CONTRACT_LABEL: Record<AdLocale, string> = {
+  it: 'Contratto', en: 'Contract', de: 'Vertrag', fr: 'Contrat',
+};
+const APPLY_FORM_HINT: Record<AdLocale, string> = {
+  it: 'Candidatura diretta — risposta dal datore di lavoro',
+  en: 'Direct application — reply from the employer',
+  de: 'Direktbewerbung — Antwort vom Arbeitgeber',
+  fr: 'Candidature directe — réponse de l’employeur',
+};
+const APPLY_LOADING: Record<AdLocale, string> = {
+  it: 'Caricamento del modulo di candidatura…',
+  en: 'Loading the application form…',
+  de: 'Bewerbungsformular wird geladen…',
+  fr: 'Chargement du formulaire de candidature…',
+};
+const EMPLOYMENT_LABEL: Record<string, Record<AdLocale, string>> = {
+  FULL_TIME: { it: 'Tempo pieno', en: 'Full time', de: 'Vollzeit', fr: 'Temps plein' },
+  PART_TIME: { it: 'Part-time', en: 'Part time', de: 'Teilzeit', fr: 'Temps partiel' },
+  TEMPORARY: { it: 'Temporaneo', en: 'Temporary', de: 'Befristet', fr: 'Temporaire' },
+  CONTRACTOR: { it: 'A progetto', en: 'Contractor', de: 'Freiberuflich', fr: 'Indépendant' },
+  INTERN: { it: 'Stage', en: 'Internship', de: 'Praktikum', fr: 'Stage' },
+};
+const CONTRACT_TYPE_LABEL: Record<string, Record<AdLocale, string>> = {
+  permanent: { it: 'Indeterminato', en: 'Permanent', de: 'Unbefristet', fr: 'CDI' },
+  temporary: { it: 'Determinato', en: 'Fixed-term', de: 'Befristet', fr: 'CDD' },
+};
 
 function esc(s: unknown): string {
   return String(s ?? '').replace(/[&<>"']/g, (c) => (
@@ -71,6 +102,7 @@ interface AdRecord {
   slug?: string;
   url?: string;
   company?: string;
+  companyLogo?: string | null;
   location?: string;
   addressLocality?: string;
   canton?: string;
@@ -79,11 +111,15 @@ interface AdRecord {
   salaryMax?: number | null;
   currency?: string;
   description?: string;
+  descriptionMd?: string | null;
   descriptionByLocale?: Partial<Record<string, string>>;
   titleByLocale?: Partial<Record<string, string>>;
   applyMode?: string;
   applyUrl?: string;
   employmentType?: string;
+  contractType?: string;
+  tier?: string;
+  featured?: boolean;
   [k: string]: unknown;
 }
 
@@ -96,39 +132,130 @@ function localizedDescription(rec: AdRecord, locale: AdLocale): string {
   return String(rec.descriptionByLocale?.[locale] || rec.description || '').trim();
 }
 
-function renderBody(rec: AdRecord, locale: AdLocale): string {
+/**
+ * Where the "Candidati ora" CTA must point:
+ *   - external_url with a real (non-self) URL → the employer's page, new tab.
+ *   - in_house / forward_email → the /candidatura/ sub-page, where the SPA
+ *     mounts PublisherApplyForm (the static page itself cannot host the form —
+ *     this route is staticOverlay, the SPA never hydrates a form into it).
+ *     The old fallback pointed the button at the page ITSELF (self-link, dead).
+ */
+export function applyTarget(rec: AdRecord, locale: AdLocale): { href: string; external: boolean } {
+  const slug = String(rec.slug || '');
+  const applyUrl = String(rec.applyUrl || '').trim();
+  const selfUrl = `${BASE_URL}/lavoro/${slug}`;
+  const isSelf = applyUrl === selfUrl || applyUrl === `${selfUrl}/`;
+  if (rec.applyMode === 'external_url' && applyUrl && !isSelf) {
+    return { href: applyUrl, external: true };
+  }
+  return { href: `${detailPath(locale, slug)}candidatura/`, external: false };
+}
+
+/** Company logo <img> (publisher-provided, https-only) or the deterministic
+ * coloured-initials badge — same fallback the SPA renders, never a grey globe. */
+function logoHtml(rec: AdRecord, sizeCls: string): string {
+  const company = String(rec.company || '').trim();
+  const ownLogo = String(rec.companyLogo || '').trim();
+  const src = /^https:\/\/\S+$/i.test(ownLogo) ? ownLogo : (company ? generateInitialsLogo(company) : '');
+  if (!src) return '';
+  return `<img src="${esc(src)}" alt="Logo ${esc(company)}" width="56" height="56" loading="eager" class="${sizeCls} rounded-xl border border-edge bg-surface object-contain flex-shrink-0"${ownLogo ? ` onerror="this.src='${generateInitialsLogo(company)}';this.onerror=null"` : ''}>`;
+}
+
+function ctaHtml(rec: AdRecord, locale: AdLocale, extraCls = ''): string {
+  const target = applyTarget(rec, locale);
+  return `<a href="${esc(target.href)}" rel="nofollow"${target.external ? ' target="_blank"' : ''} class="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-accent hover:bg-accent-hover text-on-accent font-semibold no-underline transition-colors ${extraCls}">${esc(APPLY_LABEL[locale])}</a>`;
+}
+
+export function renderBody(rec: AdRecord, locale: AdLocale): string {
   const title = localizedTitle(rec, locale);
   const company = String(rec.company || '').trim();
   const place = String(rec.location || rec.addressLocality || '').trim();
   const desc = localizedDescription(rec, locale);
   const jobs = JOBS_ROOT[locale];
-  const applyHref = rec.applyMode === 'external_url' && rec.applyUrl ? rec.applyUrl : detailPath(locale, String(rec.slug || ''));
+  const sponsored = rec.tier === 'sponsored';
   const salary = Number.isFinite(rec.salaryMin) && Number(rec.salaryMin) > 0
     ? `${esc(rec.currency || 'CHF')} ${Number(rec.salaryMin).toLocaleString('de-CH')}${Number.isFinite(rec.salaryMax) && Number(rec.salaryMax) ? `–${Number(rec.salaryMax).toLocaleString('de-CH')}` : ''}`
     : null;
   const postedHuman = rec.postedDate ? String(rec.postedDate).slice(0, 10) : null;
-  // Description as paragraphs (split on blank lines / newlines).
-  const descHtml = desc
-    .split(/\n{2,}|\r?\n/)
-    .map((p) => p.trim())
-    .filter(Boolean)
-    .map((p) => `<p>${esc(p)}</p>`)
-    .join('');
+  const employment = EMPLOYMENT_LABEL[String(rec.employmentType || '')]?.[locale] || null;
+  const contract = CONTRACT_TYPE_LABEL[String(rec.contractType || '')]?.[locale] || null;
 
-  return `<main class="seo-static-content" style="max-width:760px;margin:0 auto;padding:24px 20px 56px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--color-body)">
-<nav aria-label="breadcrumb" style="font-size:13px;color:var(--color-subtle);margin-bottom:16px">
-<a href="${esc(localePrefix(locale) || '/')}" style="color:inherit">${esc(HOME_LABEL[locale])}</a> ·
-<a href="${esc(jobs.path)}" style="color:inherit">${esc(jobs.label)}</a> ·
+  // Sponsored ads with markdown get the rich section renderer (headings,
+  // bullet lists, bold) — shared with the editor preview so what the publisher
+  // sees while writing is exactly what ships. Everything else: plain paragraphs.
+  // The markdown source is written in the ad's source language only — locale
+  // variants with a real translation keep their translated plain text.
+  const md = sponsored && locale === String(rec.sourceLang || 'it')
+    ? String(rec.descriptionMd || '').trim()
+    : '';
+  const descHtml = md
+    ? renderPublisherMarkdown(md, {
+      h2: 'text-lg font-bold text-strong mt-7 mb-2 pb-1.5 border-b border-edge',
+      h3: 'text-base font-semibold text-strong mt-5 mb-1.5',
+      p: 'my-2.5 leading-relaxed text-body',
+      ul: 'my-2.5 ml-5 list-disc space-y-1.5 text-body',
+    })
+    : desc
+      .split(/\n{2,}|\r?\n/)
+      .map((p) => p.trim())
+      .filter(Boolean)
+      .map((p) => `<p class="my-2.5 leading-relaxed text-body">${esc(p)}</p>`)
+      .join('');
+
+  const tile = (label: string, value: string): string =>
+    `<div class="rounded-xl border border-edge bg-surface-alt px-3.5 py-2.5"><div class="text-xs text-muted">${label}</div><div class="text-sm font-semibold text-strong">${value}</div></div>`;
+  const tiles = [
+    salary ? tile(esc(SALARY_LABEL[locale]), salary) : '',
+    contract ? tile(esc(CONTRACT_LABEL[locale]), esc(contract)) : '',
+    employment && employment !== contract ? tile('Pensum', esc(employment)) : '',
+    postedHuman ? tile(esc(POSTED_LABEL[locale]), `<time datetime="${esc(postedHuman)}">${esc(postedHuman)}</time>`) : '',
+  ].filter(Boolean).join('');
+
+  const sponsoredBadge = sponsored && rec.featured
+    ? `<span class="inline-flex items-center px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide rounded-full bg-accent-subtle text-link align-middle">${esc(SPONSORED_LABEL[locale])}</span>`
+    : '';
+
+  return `<main class="seo-static-content max-w-[760px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
+<nav aria-label="breadcrumb" class="text-[13px] text-muted mb-4">
+<a href="${esc(localePrefix(locale) || '/')}" class="text-inherit">${esc(HOME_LABEL[locale])}</a> ·
+<a href="${esc(jobs.path)}" class="text-inherit">${esc(jobs.label)}</a> ·
 <span>${esc(title)}</span>
 </nav>
-<h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px">${esc(title)}</h1>
-<p style="font-size:15px;color:var(--color-subtle);margin:0 0 18px">${esc(company)}${company && place ? ' · ' : ''}${esc(place)}</p>
-<div style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px">
-${salary ? `<span style="background:var(--color-surface-alt);border-radius:10px;padding:8px 12px;font-size:14px"><strong>${esc(SALARY_LABEL[locale])}:</strong> ${salary}</span>` : ''}
-${postedHuman ? `<span style="background:var(--color-surface-alt);border-radius:10px;padding:8px 12px;font-size:14px">${esc(POSTED_LABEL[locale])} <time datetime="${esc(postedHuman)}">${esc(postedHuman)}</time></span>` : ''}
+<header class="rounded-2xl border border-edge bg-surface-alt p-5 mb-5">
+<div class="flex items-start gap-4">
+${logoHtml(rec, 'w-14 h-14')}
+<div class="min-w-0">
+<h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(title)} ${sponsoredBadge}</h1>
+<p class="text-[15px] text-muted m-0">${esc(company)}${company && place ? ' · ' : ''}${esc(place)}</p>
 </div>
-<section style="margin:0 0 28px">${descHtml}</section>
-<a href="${esc(applyHref)}" rel="nofollow"${rec.applyMode === 'external_url' ? ' target="_blank"' : ''} style="display:inline-flex;align-items:center;gap:8px;background:var(--color-accent,#2563eb);color:#fff;font-weight:600;padding:12px 22px;border-radius:12px;text-decoration:none">${esc(APPLY_LABEL[locale])}</a>
+</div>
+${tiles ? `<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>` : ''}
+<div class="mt-4 flex flex-wrap items-center gap-3">
+${ctaHtml(rec, locale)}
+${rec.applyMode !== 'external_url' ? `<span class="text-xs text-muted">${esc(APPLY_FORM_HINT[locale])}</span>` : ''}
+</div>
+</header>
+<section class="mb-7">${descHtml}</section>
+<div class="flex flex-wrap items-center gap-4">
+${ctaHtml(rec, locale)}
+<a href="${esc(jobs.path)}" class="text-sm font-semibold text-link">${esc(jobs.label)} →</a>
+</div>
+</main>`;
+}
+
+/**
+ * Minimal 200-status shell behind the in-house apply CTA. The route is mapped
+ * by services/router.ts WITHOUT staticOverlay, so the SPA replaces this body
+ * with the job detail view + PublisherApplyForm on hydrate. Always noindex —
+ * it exists purely so the CTA lands on a real page instead of a 404.
+ */
+function renderApplyStub(rec: AdRecord, locale: AdLocale): string {
+  const title = localizedTitle(rec, locale);
+  const back = detailPath(locale, String(rec.slug || ''));
+  return `<main class="seo-static-content max-w-[760px] mx-auto px-5 pt-10 pb-14 text-body">
+<h1 class="text-xl font-bold text-strong mb-3">${esc(APPLY_LABEL[locale])} — ${esc(title)}</h1>
+<p class="text-muted">${esc(APPLY_LOADING[locale])}</p>
+<p class="mt-6"><a href="${esc(back)}" class="text-sm font-semibold text-link">← ${esc(title)}</a></p>
 </main>`;
 }
 
@@ -223,6 +350,30 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           collector.add(np.join(distDir, urlPath, 'index.html'), html);
           collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           pagesWritten++;
+
+          // Whenever the CTA resolves to the /candidatura/ sub-page (in-house /
+          // forward-email ads, plus the defensive self-link fallback), emit that
+          // page too (200-status stub; the SPA mounts the apply form — see
+          // renderApplyStub). Always noindex, never in the sitemap.
+          if (!applyTarget(rec, locale).external) {
+            const stubPath = `${urlPath}candidatura/`;
+            const stubHtml = buildSeoPageHtml({
+              locale,
+              title: `${APPLY_LABEL[locale]} — ${title}`,
+              description: metaDesc,
+              canonicalUrl: `${BASE_URL}${stubPath}`,
+              robots: 'noindex,follow',
+              ogType: 'article',
+              ogLocale: OG_LOCALE[locale],
+              hreflangHtml: '',
+              jsonLdScripts: [],
+              bodyHtml: renderApplyStub(rec, locale),
+              distDir,
+              skipMainWrap: true,
+            });
+            collector.add(np.join(distDir, stubPath, 'index.html'), stubHtml);
+            pagesWritten++;
+          }
 
           // Sitemap: only the IT canonical, and only when that page was actually
           // emitted (title present → not `continue`d above) AND is indexable

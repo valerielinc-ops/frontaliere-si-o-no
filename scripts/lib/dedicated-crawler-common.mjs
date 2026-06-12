@@ -17,6 +17,7 @@ import {
   detectJobTitleLang,
   detectJobTitleLocaleDetails,
   detectTextLocale,
+  pinnedTitleSourceLang,
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
@@ -1252,10 +1253,14 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     }
     const baseSlug = String(job.slug || '').trim();
     const disambiguator = String(job.slugDisambiguator || '').trim();
-    const detectedSourceLang = detectLang(baseDesc || baseTitle, 'it');
-    let titleSourceLang = detectJobTitleLang(baseTitle, detectedSourceLang);
-    const sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
-    if (baseTitle && titleSourceLang === 'it' && sourceLang !== 'it' && needsItalianTitleRepair(baseTitle)) {
+    // Publisher-authored records pin their declared source language — heuristic
+    // detection must never reclassify (and then "repair") the slot the employer
+    // wrote (see pinnedTitleSourceLang in job-locale-utils.mjs).
+    const pinnedLang = pinnedTitleSourceLang(job);
+    const detectedSourceLang = pinnedLang || detectLang(baseDesc || baseTitle, 'it');
+    let titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle, detectedSourceLang);
+    const sourceLang = pinnedLang || detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+    if (!pinnedLang && baseTitle && titleSourceLang === 'it' && sourceLang !== 'it' && needsItalianTitleRepair(baseTitle)) {
       titleSourceLang = sourceLang;
     }
 
@@ -2009,7 +2014,8 @@ export function hasUntranslatedLocaleTitles(job = {}, ctx = {}) {
   const ns = ctx.normalizeSpace || ((s) => String(s || '').replace(/\s+/g, ' ').trim());
   const sourceTitle = ns(job?.title || '');
   if (!sourceTitle) return false;
-  const sourceLang = detectJobTitleLang(sourceTitle, detectLanguage(job?.description || '', 'en'));
+  const sourceLang = pinnedTitleSourceLang(job)
+    || detectJobTitleLang(sourceTitle, detectLanguage(job?.description || '', 'en'));
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const localized = ns(job?.titleByLocale?.[locale] || '');
@@ -2482,9 +2488,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const out = { ...job };
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
   const currentByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
-  const sourceLang = detectLanguage(out.description || '', 'en');
+  // Publisher-authored records pin their declared source language (see
+  // pinnedTitleSourceLang) — AI localization must never treat the employer's
+  // own copy as a "wrong language" slot to overwrite.
+  const pinnedLang = pinnedTitleSourceLang(out);
+  const sourceLang = pinnedLang || detectLanguage(out.description || '', 'en');
   const forceLocalization = shouldForceLocalizationForJob(out, ctx);
-  const titleSourceLang = detectJobTitleLang(out.title || '', sourceLang);
+  const titleSourceLang = pinnedLang || detectJobTitleLang(out.title || '', sourceLang);
   const sourceTitle = nsFn(titleByLocale[titleSourceLang] || out.title || '');
   if (sourceTitle) titleByLocale[titleSourceLang] = sourceTitle;
 
@@ -2906,8 +2916,8 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
         if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
         // Ensure source locale slots are populated
-        const titleLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
-        const descLang = detectTextLocale(baseDesc || baseTitle, titleLang).lang;
+        const titleLang = pinnedTitleSourceLang(job) || detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
+        const descLang = pinnedTitleSourceLang(job) || detectTextLocale(baseDesc || baseTitle, titleLang).lang;
         if (baseTitle && !job.titleByLocale[titleLang]) job.titleByLocale[titleLang] = baseTitle;
         if (baseDesc && !job.descriptionByLocale[descLang]) job.descriptionByLocale[descLang] = baseDesc;
         // FRO-549: If all locale titles are already translated, a cache miss (hash
@@ -2936,8 +2946,9 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         continue;
       }
 
-      const titleSourceLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
-      let sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+      const pinnedJobLang = pinnedTitleSourceLang(job);
+      const titleSourceLang = pinnedJobLang || detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
+      let sourceLang = pinnedJobLang || detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
       let jobTranslated = false;
 
       if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
@@ -3838,8 +3849,8 @@ export function validateDedicatedLocaleCoverage({
     const baseDescTrimmed = baseDesc.trim();
     const baseDescIsThin = baseDescTrimmed.length < minSourceDescriptionCharsForHardValidation;
     const baseTitle = String(job?.title || '').trim();
-    const sourceLang = detectSourceLang(`${job?.title || ''} ${baseDesc}`, job);
-    const titleSourceLang = detectJobTitleLang(
+    const sourceLang = pinnedTitleSourceLang(job) || detectSourceLang(`${job?.title || ''} ${baseDesc}`, job);
+    const titleSourceLang = pinnedTitleSourceLang(job) || detectJobTitleLang(
       String(job?.titleByLocale?.[sourceLang] || baseTitle),
       sourceLang,
     );
@@ -5882,13 +5893,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
 
     if (localeTextCoverage(best.descriptionByLocale, 120) === 0 && (best.description || '').length >= 120) {
       const fallbackDesc = {};
-      const descSourceLang = detectLang(best.description || '', 'en');
+      const descSourceLang = pinnedTitleSourceLang(best) || detectLang(best.description || '', 'en');
       fallbackDesc[descSourceLang] = best.description;
       best.descriptionByLocale = fallbackDesc;
     }
     if (localeTextCoverage(best.titleByLocale, 3) === 0 && best.title) {
       const fallbackTitle = {};
-      const titleSourceLang = detectJobTitleLang(best.title, detectLang(best.description || '', 'en'));
+      const titleSourceLang = pinnedTitleSourceLang(best)
+        || detectJobTitleLang(best.title, detectLang(best.description || '', 'en'));
       fallbackTitle[titleSourceLang] = best.title;
       best.titleByLocale = fallbackTitle;
     }

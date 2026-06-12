@@ -285,6 +285,43 @@ describe('applyMode projection', () => {
   });
 });
 
+describe('companyLogo projection', () => {
+  it('projects a valid https logoUrl as companyLogo', () => {
+    const [r] = publisherJobToRecords(
+      paidJob({ company: { name: 'ACME SA', logoUrl: 'https://acme.ch/logo.png' } }),
+      { nowIso: NOW },
+    );
+    expect(r.companyLogo).toBe('https://acme.ch/logo.png');
+  });
+
+  it('drops non-https / junk logo URLs (initials-badge fallback downstream)', () => {
+    for (const bad of ['http://acme.ch/logo.png', 'javascript:alert(1)', 'data:image/png;base64,x', '/logo.png', '']) {
+      const [r] = publisherJobToRecords(
+        paidJob({ company: { name: 'ACME SA', logoUrl: bad } }),
+        { nowIso: NOW },
+      );
+      expect(r.companyLogo, `logoUrl=${bad}`).toBeUndefined();
+    }
+  });
+});
+
+describe('descriptionMd projection (sponsored-only markdown)', () => {
+  it('passes descriptionMd through for sponsored ads', () => {
+    const md = `## Chi siamo\nTesto.\n\n## Requisiti\n- ${'parola '.repeat(50).trim()}`;
+    const [r] = publisherJobToRecords(paidJob({ descriptionMd: md }), { nowIso: NOW });
+    expect(r.descriptionMd).toBe(md);
+    expect(r.description).toBe(paidJob().description); // flat description untouched
+  });
+
+  it('never projects descriptionMd on free-tier ads', () => {
+    const [r] = publisherJobToRecords(
+      paidJob({ tier: 'free', status: 'published', descriptionMd: '## Sezione\n- voce' }),
+      { nowIso: NOW },
+    );
+    expect(r.descriptionMd).toBeUndefined();
+  });
+});
+
 describe('publisher slice does not trip the boilerplate guard', () => {
   // Regression for the publisher-jobs-sync FATAL: publisher ads store only the
   // flat `description`, so before the descriptionByLocale.it mirror the guard
