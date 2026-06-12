@@ -171,6 +171,65 @@ describe('detectBoilerplateDescriptions — edge cases', () => {
     expect(report.boilerplateJobs[0].reason).toBe('empty_description');
   });
 
+  it('does NOT flag a job with empty IT locale but a real source-language description (translation backlog)', () => {
+    const job = {
+      slug: 'de-source-job',
+      title: 'Verkäufer:in Food',
+      sourceLang: 'de',
+      descriptionByLocale: {
+        it: '',
+        de:
+          '## Aufgaben\n' +
+          'Du berätst unsere Kundschaft kompetent und sorgst für ein gepflegtes Ladenbild. ' +
+          'Du bewirtschaftest die Regale, kontrollierst Frische und Qualität der Produkte ' +
+          'und unterstützt das Team an der Kasse bei hohem Kundenaufkommen täglich.\n\n' +
+          '## Anforderungen\n' +
+          '- Abgeschlossene Berufsausbildung im Detailhandel\n' +
+          '- Erfahrung mit Frischprodukten und Warenpräsentation\n' +
+          '- Flexibilität, Teamgeist und Freude am Kundenkontakt',
+      },
+    };
+    const report = detectBoilerplateDescriptions([job], 'coop-ticino');
+    expect(report.boilerplateCount).toBe(0);
+    expect(report.ratio).toBe(0);
+  });
+
+  it('does NOT flag a job with empty locales but a real top-level description', () => {
+    const job = {
+      slug: 'desc-only-job',
+      title: 'Magazziniere',
+      descriptionByLocale: { it: '' },
+      description: RICH_DESCRIPTION,
+    };
+    const report = detectBoilerplateDescriptions([job], 'test-co');
+    expect(report.boilerplateCount).toBe(0);
+  });
+
+  it('still flags empty_description when IT locale, source locale and description are all empty', () => {
+    const job = {
+      slug: 'all-empty-job',
+      title: 'Test',
+      sourceLang: 'de',
+      descriptionByLocale: { it: '', de: '' },
+      description: '',
+    };
+    const report = detectBoilerplateDescriptions([job], 'test-co');
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('empty_description');
+  });
+
+  it('still flags low_unique_words when the source-language fallback is thin', () => {
+    const job = {
+      slug: 'thin-de-job',
+      title: 'Test',
+      sourceLang: 'de',
+      descriptionByLocale: { it: '', de: 'Verkauf in der Filiale' },
+    };
+    const report = detectBoilerplateDescriptions([job], 'test-co');
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('low_unique_words');
+  });
+
   it('excludes needsRetranslation jobs from count', () => {
     const jobs = [
       makeJob('retrans-job', BOILERPLATE_2_MARKERS, { needsRetranslation: true }),

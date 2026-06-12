@@ -1527,16 +1527,19 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   </details>`;
 
   // ── Body ────────────────────────────────────────────────────────
-  // 100% crawler-only. The SPA's hydrated JobBoard renders all visible
-  // chrome for users (sub-nav, breadcrumb, search-query header, JobCard
-  // grid, footer) inside `#root`. This static body holds the H1 + ~9KB
-  // prose ONLY for crawlers + screen readers — wrapped in an off-screen
-  // (clip-rect) container so sighted users see absolutely nothing from
-  // the static layer. No `hubChrome` is passed below either, so the
+  // Visible PRE-hydration, hidden at hydration. The SPA's hydrated JobBoard
+  // renders all visible chrome for users (sub-nav, breadcrumb, search-query
+  // header, JobCard grid, footer) inside `#root`; until those chunks arrive
+  // this static body (H1 + job links + prose) is the ONLY paintable content
+  // on the page, so it renders in normal flow — the former clip-rect
+  // recipe (#1249) blanked these landings until SPA paint (FCP ~4s desktop).
+  // App.tsx's pre-paint useLayoutEffect flips `main.cluster-seo-prose` to
+  // display:none on hydration, so it never duplicates the JobBoard.
+  // No `hubChrome` is passed below either, so the
   // sub-nav strip we previously emitted as a static sibling is gone.
   // SEO content stays in DOM (Googlebot indexes it with the same weight
   // as standard `<details>` accordion content per Search Central docs).
-  // Crawler-indexable job list. Always emitted (off-screen, no visual impact)
+  // Job list is always emitted
   // so the static HTML carries cross-canton job references even when the
   // SPA's canton-scoped grid would render zero — mirrors the SPA's Tier 3
   // cross-canton fallback at the build layer. Each link points to the job's
@@ -1560,11 +1563,11 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     : '';
 
   // The `.related-search-cluster` class in `public/assets/seo-static.css`
-  // carries the same `position:absolute;width:1px;...;border:0` recipe that
-  // used to live inline on `style=` here. Dropping the inline form saves
+  // carries the visible-pre-hydration layout (max-width, padding, job-list
+  // styling). Keeping it class-based (not inline `style=`) saves
   // ~132 B × 180k cluster pages = ~24 MB on the dist artifact. The class
   // is loaded by the shared `seoStaticCssLink` that every cluster page
-  // already imports — no extra request, identical computed style.
+  // already imports — no extra request.
   const bodyHtml = `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
     ${jobLinksHtml}
@@ -1794,7 +1797,9 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
  * Inject a link to the per-locale hub into the existing job-board section
  * landing (emitted by `jobsSeoPagesPlugin`). Keeps the hub at BFS depth
  * ≤4 from `/`. If the section landing is missing (jobs plugin skipped),
- * we log a warning and skip — never fail.
+ * we log a warning and skip — never fail on a missing/unwritable file.
+ * The ONE hard failure is the page-weight guard at the end: an oversized
+ * landing must fail the build here rather than the post-deploy audit.
  */
 function injectHubLinkIntoSectionLanding(
   distDir: string,
@@ -1865,6 +1870,27 @@ function injectHubLinkIntoSectionLanding(
     fs.writeFileSync(sectionPath, patched, 'utf-8');
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write section landing:', err);
+  }
+
+  // Build-time page-weight guard. This injection is the last known mutator
+  // of the job-board landing, the only repeat offender of the post-deploy
+  // audit:page-weight gate (215 KB; broke at 200 KB on run 26112128794,
+  // again at 215 KB on run 27386112992 → issue #1887). Failing HERE turns
+  // "deploy → validate-dist red → rollback → prod frozen on a stale build"
+  // into a build-job failure that never reaches deploy and names the page.
+  // 205 KB (10 KB under the audit budget) so the build fails before the
+  // audit ever can. Do NOT raise either limit to pass a build — trim the
+  // data-driven blocks instead (see .jbx-* in seo-static.css for the
+  // 119 KB inline-style precedent).
+  const JOB_BOARD_LANDING_GUARD_BYTES = 205 * 1024;
+  const patchedBytes = Buffer.byteLength(patched, 'utf-8');
+  if (patchedBytes > JOB_BOARD_LANDING_GUARD_BYTES) {
+    throw new Error(
+      `[related-search-clusters] job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
+      `over the ${JOB_BOARD_LANDING_GUARD_BYTES} B build-time guard (audit:page-weight budget is 215 KB). ` +
+      `A data-driven block on this landing grew past its headroom — trim the offending block ` +
+      `(do not raise this guard or the audit budget; non-negotiable #1).`,
+    );
   }
 }
 

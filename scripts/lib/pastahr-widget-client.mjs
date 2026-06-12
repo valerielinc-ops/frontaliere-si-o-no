@@ -33,6 +33,7 @@
  *
  * Exported surface:
  *   PASTAHR_BROWSER_USER_AGENTS               — UA pool
+ *   PASTAHR_RUN_USER_AGENT                    — the UA picked once for this run
  *   makePastaHrBrowserHeaders(ref, origin)    — build the full header set
  *   fetchPastaHrWidgetPage(params, opts)      — PastaHR/URLSearchParams fetch
  *   fetchPostWidgetWithAntiBotHardening(body, contentType, endpoint, opts)
@@ -49,6 +50,22 @@ export const PASTAHR_BROWSER_USER_AGENTS = [
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
 ];
+
+/**
+ * One User-Agent per RUN, seeded once at module load — never per page (#1824).
+ *
+ * Each crawler workflow runs as its own fresh Node process, so this index is
+ * fixed for the lifetime of the run (every page within a session presents the
+ * same UA + matching `Sec-CH-UA-Platform`) yet varies *between* runs (a new
+ * random seed each process) — exactly the "reduce fingerprint correlation
+ * between runs" intent of the UA pool. Selecting per page instead (the old
+ * `PASTAHR_BROWSER_USER_AGENTS[attempt % len]`, with `attempt = page - 1`) made
+ * pages 2+ of the same session — same IP, no cookies, milliseconds apart —
+ * present a different OS/platform, which is itself a bot signal and the opposite
+ * of the anti-detection goal. A `JOBS_CRAWLER_USER_AGENT` env override still wins.
+ */
+export const PASTAHR_RUN_USER_AGENT =
+  PASTAHR_BROWSER_USER_AGENTS[Math.floor(Math.random() * PASTAHR_BROWSER_USER_AGENTS.length)];
 
 export const PASTAHR_ENDPOINT = 'https://www.publicjobs.ch/widget';
 
@@ -72,11 +89,10 @@ export function platformHintForUserAgent(ua) {
  *
  * @param {string} referer  — the employer's career page URL (e.g. 'https://www.igsbern.ch/jobs/offene-stellen/')
  * @param {string} origin   — the employer domain origin   (e.g. 'https://www.igsbern.ch')
- * @param {string} [ua]     — User-Agent override; defaults to round-robin from PASTAHR_BROWSER_USER_AGENTS
- * @param {number} [attempt] — used for UA rotation
+ * @param {string} [ua]     — User-Agent override; defaults to the per-run UA (PASTAHR_RUN_USER_AGENT)
  */
-export function makePastaHrBrowserHeaders(referer, origin, { ua, attempt = 0 } = {}) {
-  const userAgent = ua || PASTAHR_BROWSER_USER_AGENTS[attempt % PASTAHR_BROWSER_USER_AGENTS.length];
+export function makePastaHrBrowserHeaders(referer, origin, { ua } = {}) {
+  const userAgent = ua || PASTAHR_RUN_USER_AGENT;
   return {
     Accept: 'application/json, text/javascript, */*; q=0.01',
     // Verified safe on the direct (non-Playwright) fetch path: undici (Node 22,
@@ -220,13 +236,11 @@ function fetchPastaHrPageViaPlaywright(params, opts) {
  * @param {string} opts.referer      — employer's career page URL
  * @param {string} opts.origin       — employer's origin (scheme+host)
  * @param {number} [opts.timeoutMs]  — per-attempt timeout (default 20 000 ms)
- * @param {number} [opts.attempt]    — UA rotation index (optional)
  * @returns {Promise<Object>}        — parsed JSON from the widget API
  */
-export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutMs = 20000, attempt = 0 } = {}) {
-  const ua = process.env.JOBS_CRAWLER_USER_AGENT
-    || PASTAHR_BROWSER_USER_AGENTS[attempt % PASTAHR_BROWSER_USER_AGENTS.length];
-  const headers = makePastaHrBrowserHeaders(referer, origin, { ua, attempt });
+export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutMs = 20000 } = {}) {
+  const ua = process.env.JOBS_CRAWLER_USER_AGENT || PASTAHR_RUN_USER_AGENT;
+  const headers = makePastaHrBrowserHeaders(referer, origin, { ua });
 
   // Wrap the attempt in the shared transient-retry loop so a transient 429/5xx
   // or network blip self-heals with exponential backoff (the behaviour the old
@@ -292,19 +306,17 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
  * @param {string}        opts.referer      — career page URL (establishes WAF context)
  * @param {string}        opts.origin       — scheme+host of the career page
  * @param {number}        [opts.timeoutMs]  — per-attempt timeout (default 20 000 ms)
- * @param {number}        [opts.attempt]    — UA rotation index
  * @returns {Promise<Object>} parsed JSON response
  */
-export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { referer, origin, timeoutMs = 20000, attempt = 0 } = {}) {
-  const ua = process.env.JOBS_CRAWLER_USER_AGENT
-    || PASTAHR_BROWSER_USER_AGENTS[attempt % PASTAHR_BROWSER_USER_AGENTS.length];
+export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { referer, origin, timeoutMs = 20000 } = {}) {
+  const ua = process.env.JOBS_CRAWLER_USER_AGENT || PASTAHR_RUN_USER_AGENT;
 
   const bodyString = typeof body === 'string' ? body : JSON.stringify(body);
   const contentType = 'application/json';
 
   // Reuse the same header builder; the client-hint set is platform-agnostic.
   const headers = {
-    ...makePastaHrBrowserHeaders(referer, origin, { ua, attempt }),
+    ...makePastaHrBrowserHeaders(referer, origin, { ua }),
     // Override the PastaHR-specific content-type with JSON.
     'Content-Type': contentType,
     // Phenom People expects standard JSON Accept.
