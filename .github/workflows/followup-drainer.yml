@@ -59,6 +59,19 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # cascade, coda congelata, routing/re-queue inerti). Alert inline
+      # deterministico, dedup sul titolo canonico del monitor daily
+      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
+      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
+      - name: Alert PAT-down (dedup, zero-Claude)
+        if: env.GITHUB_PAT == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Drain follow-up queue (deterministic, no Claude)
         env:
           # PAT (owner) OBBLIGATORIO: il `labeled` agent:fix deve triggerare

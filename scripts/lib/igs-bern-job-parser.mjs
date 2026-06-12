@@ -110,7 +110,6 @@ async function fetchPastaHrPage(page = 1) {
     referer: PASTAHR_REFERER,
     origin: PASTAHR_ORIGIN,
     timeoutMs,
-    attempt: page - 1,
   });
 }
 

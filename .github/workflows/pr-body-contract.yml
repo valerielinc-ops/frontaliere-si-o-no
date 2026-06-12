@@ -128,3 +128,83 @@ jobs:
 
             await upsert(parts.join('\n\n'));
             core.setFailed(`PR body contract: ${fails.join('; ')}`);
+
+  # Sibling-class surfacer (zero-Claude, advisory). Il finding reviewer più
+  # ricorrente dopo il body-contract è il 🔴 "stesso antipattern nel file
+  # gemello" (sibling-class-fix: 4/5 dei 🔴 campionati 2026-06-12, ~98 re-review
+  # + 37 round fixer extra in 7gg). check-sibling-patterns.mjs calcola la lista
+  # candidati in modo deterministico; questo job la posta come sticky comment a
+  # PR-open, così (a) l'autore (agent locale o fixer) la vede PRIMA della
+  # review, (b) il reviewer la consuma senza ricostruire la grep a mano (turni
+  # risparmiati). Heuristico → advisory: MAI setFailed (falsi positivi attesi),
+  # non blocca nulla. Skip su action=edited (il body non cambia il diff).
+  sibling-check:
+    if: github.event.action != 'edited'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          # Storia completa: serve il merge-base con la base branch per il
+          # three-dot diff dello script (repo grande ma fetch ~40s, accettabile
+          # per un check che pre-empta un round review+fix da ~2 run Claude).
+          fetch-depth: 0
+      - name: Surface sibling candidates
+        id: sib
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          git fetch origin "$BASE_REF" --quiet || true
+          node scripts/ci/check-sibling-patterns.mjs --base "origin/$BASE_REF" --json > sibling-report.json
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
+            console.log('candidates=' + r.candidates.length);
+          " >> "$GITHUB_OUTPUT"
+      - uses: actions/github-script@v8
+        with:
+          script: |
+            const STICKY = '<!-- sibling-check -->';
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('sibling-report.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            if (!report.candidates.length) {
+              // All-clear: aggiorna lo sticky se esisteva (diff cambiato), mai crearne uno nuovo.
+              if (prior) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: prior.id,
+                  body: `${STICKY}\n✅ **Sibling-check OK** — nessun file gemello non toccato condivide i costrutti modificati da questo diff.`,
+                });
+              }
+              core.info('No sibling candidates.');
+              return;
+            }
+
+            const TOP = 10;
+            const rows = report.candidates.slice(0, TOP).map(c =>
+              `- \`${c.file}\` — costrutti condivisi: ${c.tokens.slice(0, 5).map(t => '\`' + t + '\`').join(', ')}`
+            ).join('\n');
+            const more = report.candidates.length > TOP
+              ? `\n…e altri ${report.candidates.length - TOP} candidati (run locale: \`node scripts/ci/check-sibling-patterns.mjs\`).`
+              : '';
+            const body = [
+              STICKY,
+              `⚠️ **Sibling-check** (advisory, euristico — AGENTS.md #6 / bucket \`sibling-class-fix\`): ` +
+              `${report.candidates.length} file NON toccati da questa PR condividono costrutti che il diff modifica. ` +
+              `Per ciascuno: stesso antipattern? → fix nella STESSA PR, oppure giustifica in \`## Non implementato\`.`,
+              rows + more,
+              `_Candidati ≠ verdetto: il token-match surfaca, non conferma. Ricalcolato a ogni push._`,
+            ].join('\n\n');
+
+            if (prior) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }

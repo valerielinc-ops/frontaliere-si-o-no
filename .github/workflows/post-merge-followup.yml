@@ -15,6 +15,7 @@ permissions:
   pull-requests: write
   issues: write
   id-token: write
+  actions: write # self-retry via workflow_dispatch (vedi step "Retry once")
 
 jobs:
   followup:
@@ -110,6 +111,26 @@ jobs:
             - Mai chiudere/riaprire issue.
             - Incerto sul filtro → crea con rationale "needs triage".
             - Zero candidate → `## Post-merge follow-up triage: zero outstanding items.` e termina.
+
+
+      # Un run fallito (error_max_turns, 400 upstream, transient) = triage
+      # PERSO per sempre: i 🟡/❓ del reviewer e gli item `## Non implementato`
+      # evaporano senza retry ne' monitor (unico recupero era il dispatch
+      # manuale). Self-retry UNA volta via workflow_dispatch: l'eccezione
+      # anti-ricorsione di GitHub consente a GITHUB_TOKEN di creare run
+      # workflow_dispatch, e il gate `event_name == 'pull_request'` rende il
+      # retry non ricorsivo by-construction (il run di retry e' un dispatch:
+      # se fallisce anche lui, questo step e' skipped -> bounded a 1).
+      - name: Retry once on failure (self-dispatch)
+        if: failure() && github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "::warning::post-merge-followup fallito su PR #${{ github.event.pull_request.number }} — self-retry via workflow_dispatch (1 tentativo)."
+          gh workflow run post-merge-followup.yml --ref main \
+            -f pr_number="${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}"
 
       - name: Claude usage metrics
         if: always()
