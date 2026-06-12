@@ -710,8 +710,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-technischer-dienst-100-berit-klinik",
         "it": "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher",
-        "en": "mitarbeiter-technischer-dienst-100-berit-klinik",
-        "fr": "mitarbeiter-technischer-dienst-100-berit-klinik"
+        "en": "employee-technical-service-100-berit-klinik-speicher",
+        "fr": "service-technique-des-employes-100-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__f29b91f9d3.pdf"
@@ -719,6 +719,12 @@
       "id": "berit-klinik-cd28276f4528",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-technischer-dienst-100-berit-klinik"
+        ],
+        "en": [
+          "mitarbeiter-technischer-dienst-100-berit-klinik"
+        ],
+        "fr": [
           "mitarbeiter-technischer-dienst-100-berit-klinik"
         ]
       },

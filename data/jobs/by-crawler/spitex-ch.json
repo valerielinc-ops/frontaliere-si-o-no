@@ -1081,7 +1081,7 @@
         "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
         "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
-        "fr": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-spitex-rebeno"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -1128,6 +1128,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
         ]
       },
@@ -1222,9 +1225,9 @@
       "slug": "fachperson-gesundheit-fage-cfc-con-individuellem-pensum-20-80-spitex-region-kreuzlingen-tagerwilen",
       "slugByLocale": {
         "it": "fachperson-gesundheit-fage-cfc-con-individuellem-pensum-20-80-spitex-region-kreuzlingen-tagerwilen",
-        "en": "fachperson-gesundheit-fage-efz-mit-individuellem-pensum-20-80-spitex-ch-tagerwilen",
+        "en": "professional-health-fage-efz-with-individual-workload-20-80-spitex-region-kreuzlingen-tagerwilen",
         "de": "fachperson-gesundheit-fage-efz-mit-individuellem-pensum-20-80-spitex-ch-tagerwilen",
-        "fr": "fachperson-gesundheit-fage-efz-mit-individuellem-pensum-20-80-spitex-ch-tagerwilen"
+        "fr": "fage-efz-avec-charge-de-travail-individuelle-20-80-spitex-region-kreuzlingen-tagerwilen"
       },
       "company": "Spitex Region Kreuzlingen",
       "companyKey": "spitex-ch",
@@ -1269,6 +1272,12 @@
       "firstSeenAt": "2026-06-11T13:43:38.281Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-fage-efz-mit-individuellem-pensum-20-80-spitex-ch-tagerwilen"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-efz-mit-individuellem-pensum-20-80-spitex-ch-tagerwilen"
+        ],
+        "fr": [
           "fachperson-gesundheit-fage-efz-mit-individuellem-pensum-20-80-spitex-ch-tagerwilen"
         ]
       },
@@ -1367,9 +1376,9 @@
       "slug": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim",
       "slugByLocale": {
         "it": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim",
-        "en": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim",
+        "en": "study-place-to-nurse-hf-driver-s-license-or-ga-and-pc-equipment-included-spitex-region-mullheim-mullheim",
         "de": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
-        "fr": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim"
+        "fr": "lieu-d-etude-de-l-infirmiere-hf-permis-de-conduire-ou-ga-et-equipement-pc-inclus-spitex-region-mullheim-mullheim"
       },
       "company": "Spitex Region Müllheim",
       "companyKey": "spitex-ch",
@@ -1435,12 +1444,12 @@
     },
     {
       "id": "spitex-ch-79b7f01b5ed1",
-      "slug": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
+      "slug": "professionista-della-salute-efz-80-100-spitex-stafa-stafa",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
-        "it": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
-        "en": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
-        "fr": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
+        "it": "professionista-della-salute-efz-80-100-spitex-stafa-stafa",
+        "en": "health-professional-efz-80-100-spitex-stafa-stafa",
+        "fr": "professionnels-de-la-sante-efz-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -1498,6 +1507,7 @@
       },
       "firstSeenAt": "2026-06-11T23:33:01.721Z",
       "previousSlugs": [
+        "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
         "fachperson-gesundheit-cfc-50-80-spitex-kempt-effretikon",
         "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
         "fachperson-gesundheit-cfc-60-80-spitex-am-kohlfirst-dachsen",
@@ -1509,7 +1519,18 @@
         "fachperson-gesundheit-efz-spitex-ch-frick",
         "professionnels-de-la-sante-efz-spitex-regio-frick-frick",
         "professionista-della-salute-efz-spitex-regio-frick-frick"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
+        ]
+      }
     },
     {
       "id": "spitex-ch-43bfefa22fb7",
@@ -1590,8 +1611,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachfrau-diplomierten-pflegefachmann-hf-fh-50-100-mit-dem-schwerpunkt",
         "it": "diplomierte-pflegefachfrau-diplomierten-pflegefachmann-hf-fh-50-100-mit-dem-schwerpunkt",
-        "en": "diplomierte-pflegefachfrau-diplomierten-pflegefachmann-hf-fh-50-100-mit-dem-schwerpunkt",
-        "fr": "diplomierte-pflegefachfrau-diplomierten-pflegefachmann-hf-fh-50-100-mit-dem-schwerpunkt"
+        "en": "certified-nurse-qualified-nurse-specialist-hf-fh-50-100-with-a-focus-on-somatics-spitex-region-arbon-arbon",
+        "fr": "infirmiere-agreee-infirmiere-specialiste-hf-fh-50-100-avec-un-accent-sur-la-somatique-spitex-region-arbon-arbon"
       },
       "company": "Spitex Region Arbon",
       "companyKey": "spitex-ch",
@@ -1651,12 +1672,12 @@
     },
     {
       "id": "spitex-ch-fabef8fda127",
-      "slug": "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon",
+      "slug": "salute-professionale-fage-40-100-spitex-region-arbon-arbon",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon",
-        "it": "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon",
-        "en": "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon",
-        "fr": "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon"
+        "it": "salute-professionale-fage-40-100-spitex-region-arbon-arbon",
+        "en": "professional-health-fage-40-100-spitex-region-arbon-arbon",
+        "fr": "sante-professionnelle-fage-40-100-spitex-region-arbon-arbon"
       },
       "company": "Spitex Region Arbon",
       "companyKey": "spitex-ch",
@@ -1714,21 +1735,33 @@
       },
       "firstSeenAt": "2026-06-11T23:32:59.569Z",
       "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon",
         "professionista-della-salute-fage-servizio-serale-40-70-spitex-muttenz-ag-muttenz",
         "health-professional-fage-evening-service-40-70-spitex-muttenz-ag-muttenz",
         "fachfrau-fachmann-gesundheit-fage-abenddienst-40-70-spitex-ch-muttenz",
         "professionnel-de-la-sante-fage-service-de-soiree-40-70-spitex-muttenz-ag-muttenz",
         "sante-professionnelle-fage-service-du-soir-40-70-spitex-muttenz-ag-muttenz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-fage-40-100-spitex-ch-arbon"
+        ]
+      }
     },
     {
       "id": "spitex-ch-60981262cae9",
       "slug": "fachperson-gesundheit-cfc-50-80-spitex-kempt-effretikon",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
-        "en": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
+        "it": "fachperson-gesundheit-cfc-50-80-spitex-kempt-effretikon",
+        "en": "health-professional-efz-80-100-spitex-kempt-effretikon",
         "de": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
-        "fr": "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
+        "fr": "professionnels-de-la-sante-efz-80-100-spitex-kempt-effretikon"
       },
       "company": "SPITEX Kempt",
       "companyKey": "spitex-ch",
@@ -1772,7 +1805,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
-        "fachperson-gesundheit-cfc-50-80-spitex-kempt-effretikon",
+        "fachperson-gesundheit-efz-80-100-spitex-ch-stafa",
         "fachperson-gesundheit-cfc-60-80-spitex-am-kohlfirst-dachsen",
         "health-professional-efz-60-80-spitex-am-kohlfirst-dachsen",
         "fachperson-gesundheit-efz-60-80-spitex-ch-dachsen",
@@ -1785,16 +1818,19 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon"
+          "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
+          "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
         ],
         "en": [
-          "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon"
+          "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
+          "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
         ],
         "de": [
           "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon"
         ],
         "fr": [
-          "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon"
+          "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
+          "fachperson-gesundheit-efz-80-100-spitex-ch-stafa"
         ]
       },
       "firstSeenAt": "2026-06-10T23:33:27.554Z",

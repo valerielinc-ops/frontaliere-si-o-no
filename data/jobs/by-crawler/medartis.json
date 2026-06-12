@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medartis-58ad858cd23e",
-      "slug": "mechanist-screws-100-medartis-basel",
+      "slug": "viti-meccanici-100-medartis-basel",
       "slugByLocale": {
         "de": "mechanist-screws-100-medartis-basel",
-        "it": "mechanist-screws-100-medartis-basel",
+        "it": "viti-meccanici-100-medartis-basel",
         "en": "mechanist-screws-100-medartis-basel",
-        "fr": "mechanist-screws-100-medartis-basel"
+        "fr": "mecaniste-vis-100-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T23:05:12.322Z"
+      "firstSeenAt": "2026-06-11T23:05:12.322Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanist-screws-100-medartis-basel"
+        ],
+        "fr": [
+          "mechanist-screws-100-medartis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "mechanist-screws-100-medartis-basel"
+      ]
     },
     {
       "id": "medartis-bb1513c7d9ce",

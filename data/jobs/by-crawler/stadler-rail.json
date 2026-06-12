@@ -6208,8 +6208,8 @@
       "slug": "impianti-di-sicurezza-ferroviaria-dell-ingegnere-del-progetto-stadler-rail-vufflens-la-ville-35f9ad",
       "slugByLocale": {
         "it": "impianti-di-sicurezza-ferroviaria-dell-ingegnere-del-progetto-stadler-rail-vufflens-la-ville-35f9ad",
-        "en": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch",
-        "de": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch",
+        "en": "project-engineer-railway-safety-facilities-stadler-rail-vufflens-la-ville",
+        "de": "projektingenieur-eisenbahn-sicherheitseinrichtungen-stadler-rail-vufflens-la-ville",
         "fr": "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch"
       },
       "company": "Stadler Rail",
@@ -6256,6 +6256,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch"
+        ],
+        "en": [
+          "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch"
+        ],
+        "de": [
           "ingenieur-e-de-projet-installations-de-securite-ferroviaires-stadler-rail-ch"
         ]
       },
@@ -12756,8 +12762,8 @@
       "slugByLocale": {
         "it": "reclutamento-stadler-rail-wallisellen-b49540",
         "en": "recruiting-stadler-rail-ch",
-        "de": "recruiting-stadler-rail-ch",
-        "fr": "recruiting-stadler-rail-ch"
+        "de": "einstellung-stadler-rail-wallisellen",
+        "fr": "recrutement-stadler-rail-wallisellen-b49540"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12803,6 +12809,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "recruiting-stadler-rail-ch"
+        ],
+        "de": [
+          "recruiting-stadler-rail-ch"
+        ],
+        "fr": [
           "recruiting-stadler-rail-ch"
         ]
       },
@@ -13463,8 +13475,8 @@
       "slugByLocale": {
         "de": "projektleiter-garantie-und-nacharbeit-stadler-rail-ch",
         "it": "projektleiter-garantie-e-nacharbeit-stadler-rail-frauenfeld",
-        "en": "projektleiter-garantie-und-nacharbeit-stadler-rail-ch",
-        "fr": "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
+        "en": "project-manager-guarantee-and-rework-stadler-rail-frauenfeld",
+        "fr": "garantie-et-retravail-du-gestionnaire-de-projet-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13510,6 +13522,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
+        ],
+        "en": [
+          "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
+        ],
+        "fr": [
+          "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
@@ -13531,12 +13549,12 @@
     },
     {
       "id": "stadler-rail-b23a24c7075f",
-      "slug": "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch",
+      "slug": "project-manager-in-introduzione-operativa-80-100-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch",
-        "it": "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch",
-        "en": "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch",
-        "fr": "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch"
+        "it": "project-manager-in-introduzione-operativa-80-100-stadler-rail-st-margrethen",
+        "en": "project-manager-in-operational-introduction-80-100-stadler-rail-st-margrethen",
+        "fr": "gestionnaire-de-projet-dans-l-introduction-operationnelle-80-100-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13591,7 +13609,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T23:31:38.960Z"
+      "firstSeenAt": "2026-06-11T23:31:38.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch"
+        ],
+        "en": [
+          "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch"
+        ],
+        "fr": [
+          "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teilprojektleiter-in-betriebseinfuhrung-80-100-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-325c8732639a",

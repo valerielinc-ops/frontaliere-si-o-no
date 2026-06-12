@@ -2585,8 +2585,7 @@
         "ricercatore-tech-ops-csl-behring-bern",
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
-        "senior-scientist-tech-ops-csl-behring-ch",
-        "leitender-projektmanager-tech-ops-csl-behring-bern"
+        "senior-scientist-tech-ops-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2973,8 +2972,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3670,12 +3667,12 @@
     },
     {
       "id": "csl-behring-6a2bca10e92c",
-      "slug": "analytical-testing-lead-principal-scientist-csl-behring-ch",
+      "slug": "piombo-di-prova-analitico-principale-scienziato-csl-behring-bern",
       "slugByLocale": {
         "en": "analytical-testing-lead-principal-scientist-csl-behring-ch",
-        "it": "analytical-testing-lead-principal-scientist-csl-behring-ch",
-        "de": "analytical-testing-lead-principal-scientist-csl-behring-ch",
-        "fr": "analytical-testing-lead-principal-scientist-csl-behring-ch"
+        "it": "piombo-di-prova-analitico-principale-scienziato-csl-behring-bern",
+        "de": "leitender-analytiker-hauptwissenschaftler-csl-behring-bern",
+        "fr": "tests-analytiques-responsable-chercheur-principal-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3731,7 +3728,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-11T22:31:13.767Z"
+      "firstSeenAt": "2026-06-11T22:31:13.767Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analytical-testing-lead-principal-scientist-csl-behring-ch"
+        ],
+        "de": [
+          "analytical-testing-lead-principal-scientist-csl-behring-ch"
+        ],
+        "fr": [
+          "analytical-testing-lead-principal-scientist-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "analytical-testing-lead-principal-scientist-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-0feb031e8355",
@@ -3871,12 +3882,12 @@
     },
     {
       "id": "csl-behring-4a9ee97a450d",
-      "slug": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
+      "slug": "principale-scienziato-tech-ops-m-f-x-csl-behring-bern",
       "slugByLocale": {
         "en": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
-        "it": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
-        "de": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
-        "fr": "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
+        "it": "principale-scienziato-tech-ops-m-f-x-csl-behring-bern",
+        "de": "hauptwissenschaftler-tech-ops-m-w-x-csl-behring-bern",
+        "fr": "chercheur-principal-operations-techniques-m-f-x-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3932,7 +3943,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-11T22:31:10.740Z"
+      "firstSeenAt": "2026-06-11T22:31:10.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
+        ],
+        "de": [
+          "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
+        ],
+        "fr": [
+          "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
+      ]
     }
   ]
 }

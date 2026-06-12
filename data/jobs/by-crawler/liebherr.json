@@ -265,8 +265,8 @@
       "slugByLocale": {
         "de": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden",
         "it": "meccanico-di-costruzione-movimento-terra-m-w-liebherr-reiden",
-        "en": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden",
-        "fr": "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
+        "en": "construction-machinery-mechanic-earth-movement-m-w-liebherr-reiden",
+        "fr": "mecanicien-de-la-construction-mouvement-terrestre-m-p-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -325,6 +325,12 @@
       "firstSeenAt": "2026-06-11T14:25:10.368Z",
       "previousSlugsByLocale": {
         "it": [
+          "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
+        ],
+        "en": [
+          "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
+        ],
+        "fr": [
           "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
         ]
       },
@@ -392,7 +398,6 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "young-talent-purchasing-combustion-engines-m-w-x-liebherr-bulle",
           "jeunes-talents-achat-de-moteurs-a-combustion-m-w-x-liebherr-bulle"
         ],
         "it": [
@@ -425,11 +430,11 @@
     },
     {
       "id": "liebherr-ca2dc07989d2",
-      "slug": "assistant-e-de-direction-h-f-x-liebherr-bulle",
+      "slug": "assistente-esecutivo-h-f-x-liebherr-bulle",
       "slugByLocale": {
         "fr": "assistant-e-de-direction-h-f-x-liebherr-bulle",
-        "it": "assistant-e-de-direction-h-f-x-liebherr-bulle",
-        "en": "assistant-e-de-direction-h-f-x-liebherr-bulle",
+        "it": "assistente-esecutivo-h-f-x-liebherr-bulle",
+        "en": "executive-assistant-h-f-x-liebherr-bulle",
         "de": "assistent-e-de-direction-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -486,7 +491,18 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-11T14:23:26.139Z"
+      "firstSeenAt": "2026-06-11T14:23:26.139Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-de-direction-h-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "assistant-e-de-direction-h-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-de-direction-h-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-f80ad8d2090f",
@@ -1287,8 +1303,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "flottenmanagement-90-m-w-d-liebherr-nussbaumen",
-          "fleet-management-90-m-w-d-liebherr-nussbaumen"
+          "flottenmanagement-90-m-w-d-liebherr-nussbaumen"
         ],
         "it": [
           "fleet-management-90-m-w-d-liebherr-nussbaumen"
@@ -1560,12 +1575,12 @@
     },
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+      "slug": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "it": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
         "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
         "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        "fr": "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1607,18 +1622,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
         "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
+        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ],
         "fr": [
-          "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ]
       },
@@ -3130,7 +3142,6 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "young-talent-it-technician-m-f-x-liebherr-bulle",
           "young-talent-it-technicien-m-f-x-liebherr-bulle",
           "jeune-talent-technicien-it-m-f-x-liebherr-bulle"
         ],
@@ -3316,7 +3327,6 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "young-talent-engine-assembly-m-f-x-liebherr-bulle",
           "jeunes-talents-assemblage-moteur-m-f-x-liebherr-bulle",
           "jeune-talent-assemblage-de-moteurs-m-f-x-liebherr-bulle"
         ],
@@ -3422,7 +3432,6 @@
           "young-talent-process-agent-m-w-x-liebherr-bulle"
         ],
         "fr": [
-          "young-talent-process-agent-m-w-x-liebherr-bulle",
           "jeunes-talents-agent-de-traitement-m-m-x-liebherr-bulle"
         ]
       },
@@ -3590,8 +3599,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsunterstutzung-italien-m-w-d-liebherr-nussbaumen",
-          "sales-support-italien-m-w-d-liebherr-nussbaumen"
+          "verkaufsunterstutzung-italien-m-w-d-liebherr-nussbaumen"
         ],
         "it": [
           "sales-support-italien-m-w-d-liebherr-nussbaumen"
@@ -3677,8 +3685,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "it-unterstutzung-m-w-d-liebherr-nussbaumen",
-          "it-support-m-w-d-liebherr-nussbaumen"
+          "it-unterstutzung-m-w-d-liebherr-nussbaumen"
         ],
         "it": [
           "it-support-m-w-d-liebherr-nussbaumen"
@@ -3955,8 +3962,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "verkaufssupport-analytics-m-w-d-liebherr-nussbaumen",
-          "sales-support-analytics-m-w-d-liebherr-nussbaumen"
+          "verkaufssupport-analytics-m-w-d-liebherr-nussbaumen"
         ],
         "it": [
           "sales-support-analytics-m-w-d-liebherr-nussbaumen"
@@ -5136,7 +5142,6 @@
           "beschaffungskoordinator-serienaktien-h-f-x-liebherr-bulle"
         ],
         "fr": [
-          "procurement-coordinator-serial-parts-h-f-x-liebherr-bulle",
           "coordinateur-des-achats-pieces-de-serie-h-f-x-liebherr-bulle"
         ]
       },
@@ -5321,7 +5326,6 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "customer-claim-manager-m-w-x-liebherr-bulle",
           "kundenschadensmanager-m-w-x-liebherr-bulle"
         ],
         "it": [
@@ -5521,7 +5525,6 @@
         ],
         "fr": [
           "gestionnaire-des-reclamations-du-client-h-f-x-liebherr-bulle",
-          "customer-claim-manager-h-f-x-liebherr-bulle",
           "gestionnaire-de-reclamation-client-h-f-x-liebherr-bulle"
         ]
       },
@@ -6309,7 +6312,6 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "warranty-investigation-technician-m-w-d-liebherr-bulle",
           "warranty-investigation-techniker-m-w-d-liebherr-bulle",
           "garantieuntersuchungstechniker-m-w-d-liebherr-bulle"
         ],
@@ -6568,7 +6570,6 @@
       "previousSlugsByLocale": {
         "fr": [
           "customer-qualite-ingenieur-m-f-x-field-qualite-liebherr-bulle",
-          "customer-quality-engineer-m-f-x-field-quality-liebherr-bulle",
           "ingenieur-qualite-client-m-f-x-qualite-sur-le-terrain-liebherr-bulle"
         ],
         "it": [
