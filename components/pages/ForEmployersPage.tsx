@@ -30,6 +30,10 @@ import {
   Send,
   Inbox,
   Search,
+  TrendingUp,
+  ListChecks,
+  Image,
+  Headset,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
@@ -53,10 +57,14 @@ const STAT_TILES: { icon: React.ReactNode; valueKey: string; labelKey: string; p
 const FEATURES: { icon: React.ReactNode; labelKey: string; free: boolean }[] = [
   { icon: <Briefcase className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.listing', free: true },
   { icon: <Search className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.seoPage', free: true },
+  { icon: <Image className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.logo', free: true },
   { icon: <Star className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.featured', free: false },
+  { icon: <TrendingUp className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.topPlacement', free: false },
+  { icon: <ListChecks className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.richEditor', free: false },
   { icon: <Send className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.newsletter', free: false },
   { icon: <Inbox className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.inHouse', free: false },
   { icon: <BarChart3 className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.analytics', free: false },
+  { icon: <Headset className="w-4 h-4" aria-hidden="true" />, labelKey: 'publisherLanding.compare.row.teamSupport', free: false },
 ];
 
 const STEPS: { icon: React.ReactNode; titleKey: string; descKey: string }[] = [
