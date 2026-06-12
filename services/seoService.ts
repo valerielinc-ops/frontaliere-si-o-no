@@ -3978,6 +3978,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-parlamento-avs-protezione-adozione': { name: 'Parlamento', path: '/articoli-svizzera/parlamento-avs-protezione-adozione/', parent: 'blog' },
     'blog-ingresso-svizzera-documenti-dogana-2026': { name: 'Frontalieri', path: '/articoli-frontaliere/ingresso-svizzera-documenti-dogana-2026', parent: 'blog' },
     'blog-pensione-avs-inps-2026-famiglia-con-figli': { name: 'Pensione frontaliere 2026', path: '/articoli-svizzera/pensione-avs-inps-2026-famiglia-con-figli/', parent: 'blog' },
+    'blog-avs-13esima-conciliazione-iva': { name: '13esima AVS', path: '/articoli-frontaliere/avs-13esima-conciliazione-iva', parent: 'blog' },
  };
 
  const info = sectionNames[section];

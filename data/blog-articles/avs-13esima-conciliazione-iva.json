@@ -1,0 +1,18 @@
+{
+  "id": "avs-13esima-conciliazione-iva",
+  "slug": "avs-13esima-conciliazione-iva",
+  "publishedAt": "2026-06-12T03:08:00.631Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "pensioni",
+    "score": 0.2625,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1
+  }
+}

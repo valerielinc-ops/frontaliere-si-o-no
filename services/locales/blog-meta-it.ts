@@ -8051,6 +8051,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Ingresso in Svizzera per frontalieri: documenti e regole dogana 2026',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Scopri i documenti necessari per varcare il confine come frontaliere e le regole dogana in Svizzera nel 2026.',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Auto che attraversa il confine Svizzera-Italia',
+    'blog.article.avs-13esima-conciliazione-iva.title': '13esima AVS: va in conciliazione, IVA sale di 0,4%',
+    'blog.article.avs-13esima-conciliazione-iva.excerpt': 'Nazionale e Stati in disaccordo: la 13esima AVS va in conciliazione. Rischio versamento senza finanziamento. Aumento IVA al centro del dibattito.',
+    'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Parlamento svizzero e finanziamento 13esima AVS',
 };
 
 export default blogMetaIt;

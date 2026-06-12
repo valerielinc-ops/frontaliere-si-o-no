@@ -8051,6 +8051,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Entrée en Suisse pour frontaliers : documents et règles douanières 2026',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Découvrez les documents nécessaires pour franchir la frontière en tant que frontalier et les règles douanières en Suisse en 2026.',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Voiture traversant la frontière Suisse-Italie',
+    'blog.article.avs-13esima-conciliazione-iva.title': '13e AVS en conciliation, IVA de 0,4%',
+    'blog.article.avs-13esima-conciliazione-iva.excerpt': 'Nation et États en désaccord : la 13e AVS va en conciliation. Risque de versement sans financement. L\'augmentation de l\'IVA est au cœur du débat.',
+    'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Parlement suisse et financement 13e AVS',
 };
 
 export default blogMetaFr;

@@ -8050,6 +8050,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Cross-border commuting to Switzerland: documents and customs rules 2026',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Find out the necessary documents to cross the border as a cross-border worker and the customs rules in Switzerland in 2026.',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Car crossing the Swiss-Italian border',
+    'blog.article.avs-13esima-conciliazione-iva.title': '13th AVS: conciliation, VAT up 0.4%',
+    'blog.article.avs-13esima-conciliazione-iva.excerpt': 'National and States disagree: 13th AVS goes to conciliation. Risk of payment without funding. VAT increase at the center of the debate.',
+    'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Swiss Parliament and 13th AVS pension funding',
 };
 
 export default blogMetaEn;
