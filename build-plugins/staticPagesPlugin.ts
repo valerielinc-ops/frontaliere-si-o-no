@@ -1867,33 +1867,40 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
 
  // Match entries like: 'key': { ... title: '...', ... canonicalPath: '...' ... }
- // Parse entries by finding top-level keys and their blocks
- // Entry keys can be quoted ('key': {) or unquoted (key: {)
- // Skip known non-entry property names that happen to match the pattern
- const NON_ENTRY_KEYS = new Set([
- 'structuredData', 'acceptedAnswer', 'areaServed', 'potentialAction',
- 'target', 'offers', 'logo', 'creator', 'spatialCoverage', 'step',
- 'itemListElement', 'mainEntity', 'author', 'publisher', 'image',
- ]);
- // Indent range starts at 1: the seo source files are stored space-compressed
- // (1-space indentation at every nesting level). Requiring >=2 spaces silently
- // dropped EVERY entry in seo-pages.ts / seo-landing.ts, so ~200 curated pages
- // shipped with the URL-derived fallback title/description (GSC CTR ~0.2%).
+ // ── Robust, allowlist-free entry recognition (#1898 item 2) ──
+ // The seo source files are stored space-compressed: 1-space indentation at
+ // EVERY nesting level. So a bare `^\s{1,8}key:\s*\{` matches nested
+ // structured-data properties (acceptedAnswer, offers, areaServed, …) exactly
+ // like top-level page entries. This was previously patched with a
+ // hand-maintained NON_ENTRY_KEYS denylist — fragile: the moment a NEW schema
+ // property name appeared at indent 1 it would be read as an entry-start, split
+ // the enclosing real entry's block and truncate its structuredData (silent
+ // rich-result loss on a curated page). Instead, validate each candidate by its
+ // BALANCED object block: a real page entry is the ONLY construct that carries a
+ // top-level `canonicalPath: '…'`. Candidates nested inside an already-claimed
+ // entry are skipped; candidates whose balanced block has no canonicalPath are
+ // ignored. Order- and allowlist-independent → cannot silently drift when the
+ // seo files gain new structured-data shapes.
+ // (Indent floor stays 1: requiring >=2 spaces silently dropped EVERY entry in
+ // seo-pages.ts / seo-landing.ts — ~200 curated pages on fallback meta, GSC CTR
+ // ~0.2% — see #1897. Keep entryStartRx's `^\s{1,8}` form.)
  const entryStartRx = /^\s{1,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
- const entryStarts: { key: string; pos: number }[] = [];
+ const hasCanonicalPath = (b: string): boolean => /canonicalPath:\s*'[^']+'/.test(b);
+ const entryBlocks: string[] = [];
  let esm: RegExpExecArray | null;
+ let claimedUntil = -1;
  while ((esm = entryStartRx.exec(seoSrc)) !== null) {
- const key = esm[1] ?? esm[2];
- if (NON_ENTRY_KEYS.has(key)) continue;
- entryStarts.push({ key, pos: esm.index });
+ if (esm.index < claimedUntil) continue; // nested inside an already-claimed entry
+ const bracePos = esm.index + esm[0].length - 1; // index of the opening `{`
+ const balanced = extractBalanced(seoSrc, bracePos);
+ if (!balanced) continue;
+ if (!hasCanonicalPath(balanced)) continue; // not a page entry (no canonicalPath)
+ entryBlocks.push(balanced);
+ claimedUntil = bracePos + balanced.length;
  }
 
- // For each entry, extract the block text up to the next entry
- for (let i = 0; i < entryStarts.length; i++) {
- const start = entryStarts[i].pos;
- const end = i + 1 < entryStarts.length ? entryStarts[i + 1].pos : seoSrc.length;
- const block = seoSrc.substring(start, end);
-
+ // Parse each entry from its balanced object block.
+ for (const block of entryBlocks) {
  const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1];
  if (!cp) continue;
 

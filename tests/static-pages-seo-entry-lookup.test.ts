@@ -58,36 +58,104 @@ describe('llmsTxtPlugin seo lookup key normalization', () => {
 
 describe('seo source files parse contract (real files)', () => {
   // Mirror of the plugin's entry scanner — keep in sync with
-  // build-plugins/staticPagesPlugin.ts entryStartRx/NON_ENTRY_KEYS.
-  const NON_ENTRY_KEYS = new Set([
-    'structuredData', 'acceptedAnswer', 'areaServed', 'potentialAction',
-    'target', 'offers', 'logo', 'creator', 'spatialCoverage', 'step',
-    'itemListElement', 'mainEntity', 'author', 'publisher', 'image',
-  ]);
-
-  const parseEntries = (src: string): Map<string, { title: string; desc: string }> => {
-    const entryStartRx = /^\s{1,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
-    const starts: number[] = [];
-    let m: RegExpExecArray | null;
-    while ((m = entryStartRx.exec(src)) !== null) {
-      const key = m[1] ?? m[2];
-      if (NON_ENTRY_KEYS.has(key)) continue;
-      starts.push(m.index);
+  // build-plugins/staticPagesPlugin.ts. Allowlist-free (#1898 item 2): a
+  // candidate `key: {` is a real page entry iff its BALANCED object block
+  // carries a top-level canonicalPath; nested structured-data properties at
+  // indent 1 (offers, areaServed, a brand-new schema prop, …) are skipped
+  // because they live inside an already-claimed entry and carry no canonicalPath.
+  const extractBalanced = (src: string, pos: number): string | null => {
+    const open = src[pos];
+    const close = open === '{' ? '}' : open === '[' ? ']' : null;
+    if (!close) return null;
+    let depth = 0, inStr = false, strChar = '';
+    for (let j = pos; j < src.length; j++) {
+      const c = src[j];
+      if (inStr) {
+        if (c === '\\') { j++; continue; }
+        if (c === strChar) inStr = false;
+        continue;
+      }
+      if (c === "'" || c === '"' || c === '`') { inStr = true; strChar = c; continue; }
+      if (c === open) depth++;
+      else if (c === close) { depth--; if (depth === 0) return src.substring(pos, j + 1); }
     }
-    const map = new Map<string, { title: string; desc: string }>();
-    for (let i = 0; i < starts.length; i++) {
-      const block = src.substring(starts[i], i + 1 < starts.length ? starts[i + 1] : src.length);
+    return null;
+  };
+
+  const parseEntries = (src: string): Map<string, { title: string; desc: string; sd: string }> => {
+    const entryStartRx = /^\s{1,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
+    const hasCanonicalPath = (b: string): boolean => /canonicalPath:\s*'[^']+'/.test(b);
+    const blocks: string[] = [];
+    let m: RegExpExecArray | null;
+    let claimedUntil = -1;
+    while ((m = entryStartRx.exec(src)) !== null) {
+      if (m.index < claimedUntil) continue;
+      const bracePos = m.index + m[0].length - 1;
+      const balanced = extractBalanced(src, bracePos);
+      if (!balanced) continue;
+      if (!hasCanonicalPath(balanced)) continue;
+      blocks.push(balanced);
+      claimedUntil = bracePos + balanced.length;
+    }
+    const map = new Map<string, { title: string; desc: string; sd: string }>();
+    for (const block of blocks) {
       const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1];
       if (!cp) continue;
       const matchStr = (key: string): string => {
         const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
         return block.match(rx)?.[1] ?? '';
       };
+      // Recover the raw structuredData block (intact only if the entry block was
+      // not truncated by a spurious nested-property entry-start).
+      let sd = '';
+      const sdMatch = block.match(/structuredData:\s*/);
+      if (sdMatch && sdMatch.index != null) {
+        const sdStart = sdMatch.index + sdMatch[0].length;
+        const firstChar = block.substring(sdStart).match(/[{[]/);
+        if (firstChar && firstChar.index != null) {
+          sd = extractBalanced(block, sdStart + firstChar.index) ?? '';
+        }
+      }
       const title = matchStr('title');
-      if (title) map.set(cp.replace(/\/+$/, '') + '/', { title, desc: matchStr('description') });
+      if (title) map.set(cp.replace(/\/+$/, '') + '/', { title, desc: matchStr('description'), sd });
     }
     return map;
   };
+
+  it('keeps a real entry intact when an unknown nested schema property sits at indent 1', () => {
+    // Space-compressed format (1-space indent at every nesting level). The
+    // structuredData carries `geoRadius` — a property name absent from the old
+    // hand-maintained denylist. The previous boundary-splitting parser read it
+    // as an entry-start, truncating this entry's structuredData (silent
+    // rich-result loss); the balanced-block parser keeps the whole entry.
+    const src = [
+      'export const X = {',
+      " 'page-with-new-schema-prop': {",
+      "  title: 'Curated Title For New Schema Page',",
+      "  description: 'A substantive curated description, clearly not the generic fallback.',",
+      "  canonicalPath: '/area/new-schema-page/',",
+      '  structuredData: {',
+      "   '@type': 'Place',",
+      '   geoRadius: {',
+      "    '@type': 'GeoShape',",
+      "    name: 'radius',",
+      '   },',
+      '  },',
+      ' },',
+      " 'next-real-entry': {",
+      "  title: 'Second Curated Title',",
+      "  canonicalPath: '/area/second/',",
+      ' },',
+      '};',
+    ].join('\n');
+    const entries = parseEntries(src);
+    const first = entries.get('/area/new-schema-page/');
+    expect(first?.title).toBe('Curated Title For New Schema Page');
+    // The structuredData must survive intact — this is what the old splitting
+    // parser dropped when geoRadius was mis-read as an entry boundary.
+    expect(first?.sd, 'structuredData truncated — nested prop split the entry').toContain('GeoShape');
+    expect(entries.get('/area/second/')?.title).toBe('Second Curated Title');
+  });
 
   it('recovers curated entries for known high-impression pages', () => {
     const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
