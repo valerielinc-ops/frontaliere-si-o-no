@@ -8049,6 +8049,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Einreise in die Schweiz für Grenzgänger: Dokumente und Zollregeln 2026',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Entdecken Sie die notwendigen Dokumente, um als Grenzgänger die Grenze zu überschreiten, und die Zollregeln in der Schweiz im Jahr 2026.',
     'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Auto überquert die Schweizer-Italienische Grenze',
+    'blog.article.avs-13esima-conciliazione-iva.title': '13. AVS-Gesetz: In Konsens, IVA steigt um 0,4%',
+    'blog.article.avs-13esima-conciliazione-iva.excerpt': 'Nationale und Bundesländer in Dispute: Das 13. AVS-Gesetz geht in Konsens. Risiko des Versandens ohne Finanzierung. Steigerung der IVA im Mittelpunkt der Diskussion.',
+    'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Schweizer Parlament und Finanzierung 13. AHV',
 };
 
 export default blogMetaDe;

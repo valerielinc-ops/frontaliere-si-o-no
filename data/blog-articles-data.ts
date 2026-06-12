@@ -25533,6 +25533,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'avs-13esima-conciliazione-iva',
+ category: 'pensione',
+ date: '2026-06-12T03:07:58.768Z',
+ image: '/images/blog/avs-13esima-conciliazione-iva.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
