@@ -395,9 +395,11 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  *     instead of a flat sub-second setTimeout. A fixed 0.8–1.2s timeout could
  *     fire the script *before* LCP on slow connections, regressing LCP; gating
  *     on `load` bounds that structurally. Engaged users are unaffected — the
- *     first-interaction triggers load the script immediately regardless. This
- *     keeps the 1.5s no-rIC floor used by AdSenseBanner.tsx and the index.html
- *     googlefc loader consistent with the static-shell loader.
+ *     first-interaction triggers load the script immediately regardless. The
+ *     index.html googlefc loader uses the same `ricFb` load-gating for its
+ *     no-rIC path, so both static-shell ad/CMP fetch paths are load-gated (not
+ *     timer-gated). AdSenseBanner.tsx keeps a flat 1.5s no-rIC timer because it
+ *     runs in a post-hydration effect (already after LCP), so it needs no gate.
  *  3. On script load, pushes {} for every slot currently in the DOM.
  */
 const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);

@@ -261,7 +261,7 @@
     <!-- PERF: Funding Choices scripts (loader + anti-adblock fallback below) are
          deferred until after first paint to fix mobile LCP (was 11.3s). The
          original ~19KB inline obfuscated IIFE was parser-blocking on slow CPUs.
-         requestIdleCallback (with setTimeout fallback) defers initialization
+         requestIdleCallback (with a load-gated fallback) defers initialization
          past the LCP frame without changing functionality — the recovery
          message still renders if an ad-blocker is detected. -->
     <script>
@@ -303,9 +303,19 @@
             try { (new Function(inert.textContent))(); } catch(e) { /* fail-soft */ }
           }
         }
+        // No-rIC fallback (legacy iOS Safari < 16.4: IntersectionObserver since
+        // 12.2 but no requestIdleCallback until 16.4). Defer loadFc past the
+        // `load` event (i.e. after LCP) instead of a flat setTimeout that could
+        // fire the FC loader fetch *before* LCP on slow connections, regressing
+        // LCP. Mirrors `ricFb` in build-plugins/constants.ts (ADSENSE_LOADER_
+        // CONTENT) so both no-rIC ad/CMP fetch paths are load-gated, not
+        // timer-gated. Modern browsers (with rIC) are unchanged — timeout:4000.
+        function ricFb(cb){
+          if (document.readyState === 'complete') { setTimeout(cb, 200); }
+          else { window.addEventListener('load', function(){ setTimeout(cb, 200); }, { once: true }); }
+        }
         function schedule(){
-          var ric = window.requestIdleCallback || function(cb){return setTimeout(cb, 1500);};
-          ric(loadFc, { timeout: 4000 });
+          (window.requestIdleCallback || ricFb)(loadFc, { timeout: 4000 });
         }
         if (document.readyState === 'loading') {
           window.addEventListener('DOMContentLoaded', schedule, { once: true });
