@@ -1673,6 +1673,11 @@ export async function ensureJobSlugMapLoaded(): Promise<void> {
  await _jobSlugMapPromise;
 }
 
+/** Returns true once the job slug map has been loaded into memory. */
+export function isJobSlugMapReady(): boolean {
+ return _jobSlugMap !== null;
+}
+
 // Defer job slug map loading — only preload when user navigates to job-board tab.
 // The JobBoard component will trigger loading via registerJobSlugMap().
 // This saves ~800ms of main-thread blocking on initial page load.
