@@ -1,7 +1,100 @@
 {
   "crawlerKey": "rehab-basel",
-  "assembledAt": "2026-06-12T12:46:29.604Z",
+  "assembledAt": "2026-06-12T23:01:05.236Z",
   "jobs": [
+    {
+      "id": "rehab-basel-4a143774111b",
+      "slug": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
+      "slugByLocale": {
+        "it": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
+        "en": "internship-in-nursing-100-m-f-d-rehab-basel-basel",
+        "de": "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
+        "fr": "stage-en-soins-infirmiers-100-h-f-d-rehab-basel-basel"
+      },
+      "company": "REHAB Basel",
+      "companyKey": "rehab-basel",
+      "companyDomain": "rehab.ch",
+      "title": "Praktikum in der Pflege 100% m/w/d",
+      "titleByLocale": {
+        "it": "Stage in Assistenza Sanitaria 100% m/w/e",
+        "en": "100% Internship in Healthcare Assistance",
+        "de": "Praktikum in der Pflege 100% m/w/d",
+        "fr": "Stage en Soins de Santé 100% m/f/d"
+      },
+      "description": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+      "descriptionByLocale": {
+        "it": "Descrizione Stage in Assistenza Sanitaria 100% m/w/e presso REHAB Basel – Clinica per la Riabilitazione Neuroreologica e la Paraplegia, Basel (4055, BS), Svizzera. - Referenza: 2022-132 - Luogo: Basel (BS) - Settore: Riabilitazione Neuroreologica e Paraplegia - Invio della candidatura tramite il portale di carriera Talentsoft di REHAB Basel",
+        "en": "Description 100% Internship in Healthcare Assistance at REHAB Basel – Clinic for Neurorehabilitation and Paraplegia, Basel (4055, BS), Switzerland. - Reference: 2022-132 - Location: Basel (BS) - Field: Neurorehabilitation and Paraplegia - Apply via REHAB Basel’s Talentsoft Career Portal",
+        "de": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+        "fr": "Description Stage en soins de santé 100% m/f/d chez REHAB Basel – Clinique de neuroréadaptation et paraplégie, Bâle (4055, BS), Suisse. - Référence : 2022-132 - Lieu : Bâle (BS) - Domaine : Neuroréadaptation et paraplégie - Candidature à envoyer via le portail de carrière Talentsoft de REHAB Basel"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
+      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-12T23:01:03.711Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4055",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-28",
+      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Studente/i in campo infermieristico o terapeutico",
+          "Conoscenza della lingua tedesca (almeno livello B1)",
+          "Disponibilità per un periodo di almeno 3 mesi"
+        ],
+        "en": [
+          "Students in the field of nursing or therapy",
+          "Knowledge of the German language (at least level B1)",
+          "Availability for a period of at least 3 months"
+        ],
+        "fr": [
+          "Étudiants en soins infirmiers ou en thérapie",
+          "Connaissance de la langue allemande (au moins niveau B1)",
+          "Disponibilité pour une période d'au moins 3 mois"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
+        "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel",
+        "100-internship-in-healthcare-assistance-rehab-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
+          "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel"
+        ],
+        "en": [
+          "100-internship-in-healthcare-assistance-rehab-basel-basel"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T10:00:47.508Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "rehab-basel-a7e4cb9fd062",
       "slug": "specialista-della-salute-fage-paraplegiologia-80-100-m-w-d-rehab-basel-basel",
@@ -34,7 +127,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-paraplegiologie-80-100-m-w-d_258.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.265Z",
+      "crawledAt": "2026-06-12T23:01:03.711Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -106,194 +199,6 @@
       }
     },
     {
-      "id": "rehab-basel-af1fb99cf471",
-      "slug": "cuoco-dietetico-al-100-m-f-d-rehab-basel-basel",
-      "slugByLocale": {
-        "it": "cuoco-dietetico-al-100-m-f-d-rehab-basel-basel",
-        "en": "diet-cook-100-m-w-d-rehab-basel-basel",
-        "de": "diatkoch-in-100-m-w-d-rehab-basel-basel",
-        "fr": "cuisinier-ere-dietetique-100-m-w-d-rehab-basel-basel"
-      },
-      "company": "REHAB Basel",
-      "companyKey": "rehab-basel",
-      "companyDomain": "rehab.ch",
-      "title": "Diätkoch*in 100% m/w/d",
-      "titleByLocale": {
-        "it": "Cucina Dietetica 100% m/w/d",
-        "en": "Dietary Cook 100% m/w/d",
-        "de": "Diätkoch*in 100% m/w/d",
-        "fr": "Cuisinier·ère en nutrition 100% m/w/d"
-      },
-      "description": "Diätkoch*in 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2024-201\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-      "descriptionByLocale": {
-        "it": "Annuncio di Lavoro Cucina Dietetica 100% m/w/d presso REHAB Basel – Clinica per la Riabilitazione Neuroreologica e Paraplegia, Basel (4055, BS), Svizzera. - Riferimento: 2024-201 - Luogo: Basel (BS) - Settore: Riabilitazione Neuroreologica e Paraplegia Invito a candidarsi tramite il portale di carriera Talentsoft di REHAB Basel",
-        "en": "Job Announcement Dietary Cook 100% m/w/d at REHAB Basel — Neurorehabilitation and Paraplegia Clinic, Basel (4055, BS), Switzerland. - Reference: 2024-201 - Location: Basel (BS) - Field: Neurorehabilitation and Paraplegia Apply via REHAB Basel’s Talentsoft Career Portal",
-        "de": "Diätkoch*in 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2024-201\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-        "fr": "Offre d'emploi Cuisinier·ère en nutrition 100% m/w/d chez REHAB Basel — Clinique de réadaptation neuroréactive et paraplégie, Bâle (4055, BS), Suisse. - Référence: 2024-201 - Lieu: Bâle (BS) - Domaine: Réadaptation neuroréactive et paraplégie Postuler via le portail de carrière Talentsoft de REHAB Basel"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-diatkoch-in-100-m-w-d_201.aspx",
-      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.264Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4055",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-16",
-      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-diatkoch-in-100-m-w-d_201.aspx",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea in Scienze Alimentari o in Scienze della Cucina",
-          "Esperienza nella direzione di cucine e servizi",
-          "Conoscenze in Scienze Alimentari e -terapia",
-          "Capacità di lavoro di squadra e comunicazione",
-          "Buone conoscenze della normativa svizzera sui prodotti alimentari e l'igiene"
-        ],
-        "en": [
-          "Completed studies in Culinary Arts or Nutrition Science",
-          "Experience in leading kitchens and service areas",
-          "Knowledge in Nutrition Science and -therapy",
-          "Ability to work in a team and communicate",
-          "Good knowledge of the Swiss Food and Hygiene Ordinance"
-        ],
-        "fr": [
-          "Diplôme en arts culinaires ou en sciences de la nutrition",
-          "Expérience dans la direction de cuisines et de services",
-          "Connaissances en sciences de la nutrition et -thérapie",
-          "Capacité à travailler en équipe et à communiquer",
-          "Bonnes connaissances de l'ordonnance suisse sur les produits alimentaires et l'hygiène"
-        ]
-      },
-      "previousSlugs": [
-        "diatkoch-in-100-m-w-d-rehab-basel-basel",
-        "cucina-dietetica-100-m-w-d-rehab-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "diatkoch-in-100-m-w-d-rehab-basel-basel",
-          "cucina-dietetica-100-m-w-d-rehab-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T10:00:47.507Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "rehab-basel-4a143774111b",
-      "slug": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
-      "slugByLocale": {
-        "it": "tirocinio-infermieristico-100-m-f-d-rehab-basel-basel",
-        "en": "internship-in-nursing-100-m-f-d-rehab-basel-basel",
-        "de": "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
-        "fr": "stage-en-soins-infirmiers-100-h-f-d-rehab-basel-basel"
-      },
-      "company": "REHAB Basel",
-      "companyKey": "rehab-basel",
-      "companyDomain": "rehab.ch",
-      "title": "Praktikum in der Pflege 100% m/w/d",
-      "titleByLocale": {
-        "it": "Stage in Assistenza Sanitaria 100% m/w/e",
-        "en": "100% Internship in Healthcare Assistance",
-        "de": "Praktikum in der Pflege 100% m/w/d",
-        "fr": "Stage en Soins de Santé 100% m/f/d"
-      },
-      "description": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-      "descriptionByLocale": {
-        "it": "Descrizione Stage in Assistenza Sanitaria 100% m/w/e presso REHAB Basel – Clinica per la Riabilitazione Neuroreologica e la Paraplegia, Basel (4055, BS), Svizzera. - Referenza: 2022-132 - Luogo: Basel (BS) - Settore: Riabilitazione Neuroreologica e Paraplegia - Invio della candidatura tramite il portale di carriera Talentsoft di REHAB Basel",
-        "en": "Description 100% Internship in Healthcare Assistance at REHAB Basel – Clinic for Neurorehabilitation and Paraplegia, Basel (4055, BS), Switzerland. - Reference: 2022-132 - Location: Basel (BS) - Field: Neurorehabilitation and Paraplegia - Apply via REHAB Basel’s Talentsoft Career Portal",
-        "de": "Praktikum in der Pflege 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2022-132\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-        "fr": "Description Stage en soins de santé 100% m/f/d chez REHAB Basel – Clinique de neuroréadaptation et paraplégie, Bâle (4055, BS), Suisse. - Référence : 2022-132 - Lieu : Bâle (BS) - Domaine : Neuroréadaptation et paraplégie - Candidature à envoyer via le portail de carrière Talentsoft de REHAB Basel"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
-      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.264Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4055",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-28",
-      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Studente/i in campo infermieristico o terapeutico",
-          "Conoscenza della lingua tedesca (almeno livello B1)",
-          "Disponibilità per un periodo di almeno 3 mesi"
-        ],
-        "en": [
-          "Students in the field of nursing or therapy",
-          "Knowledge of the German language (at least level B1)",
-          "Availability for a period of at least 3 months"
-        ],
-        "fr": [
-          "Étudiants en soins infirmiers ou en thérapie",
-          "Connaissance de la langue allemande (au moins niveau B1)",
-          "Disponibilité pour une période d'au moins 3 mois"
-        ]
-      },
-      "previousSlugs": [
-        "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
-        "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel",
-        "100-internship-in-healthcare-assistance-rehab-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-in-der-pflege-100-m-w-d-rehab-basel-basel",
-          "stage-in-assistenza-sanitaria-100-m-w-e-rehab-basel-basel"
-        ],
-        "en": [
-          "100-internship-in-healthcare-assistance-rehab-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T10:00:47.508Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "rehab-basel-484f487b4e2c",
       "slug": "apprendistato-2027-come-fachmann-fachfrau-sowie-praktiker-in-reinigungstechnik-100-afp-cfc-m-w-d-rehab-basel",
       "slugByLocale": {
@@ -325,7 +230,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachmann-fachfrau-sowie-praktiker-in-reinigungstechnik-100-eba-efz-m-w-d_283.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.263Z",
+      "crawledAt": "2026-06-12T23:01:03.710Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -416,7 +321,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-_136.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T12:46:27.263Z",
+      "crawledAt": "2026-06-12T23:01:03.710Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -497,7 +402,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-fruhrehabilitation-80-100-m-w-d_137.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T12:46:27.263Z",
+      "crawledAt": "2026-06-12T23:01:03.710Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -570,7 +475,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-sporttherapie-100-m-w-d_279.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.263Z",
+      "crawledAt": "2026-06-12T23:01:03.710Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -621,69 +526,87 @@
       }
     },
     {
-      "id": "rehab-basel-0307a3ec451b",
-      "slug": "assistenzarzt-arztin-per-allgemeine-innere-medizin-o-neurologie-100-m-w-d-rehab-basel",
+      "id": "rehab-basel-af1fb99cf471",
+      "slug": "cuoco-dietetico-al-100-m-f-d-rehab-basel-basel",
       "slugByLocale": {
-        "it": "assistenzarzt-arztin-per-allgemeine-innere-medizin-o-neurologie-100-m-w-d-rehab-basel",
-        "en": "assistant-physician-for-general-internal-medicine-or-neurology-100-m-w-d-rehab-basel-basel",
-        "de": "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel",
-        "fr": "medecin-adjoint-pour-la-medecine-interne-generale-ou-la-neurologie-100-m-m-j-rehab-basel-basel"
+        "it": "cuoco-dietetico-al-100-m-f-d-rehab-basel-basel",
+        "en": "diet-cook-100-m-w-d-rehab-basel-basel",
+        "de": "diatkoch-in-100-m-w-d-rehab-basel-basel",
+        "fr": "cuisinier-ere-dietetique-100-m-w-d-rehab-basel-basel"
       },
       "company": "REHAB Basel",
       "companyKey": "rehab-basel",
       "companyDomain": "rehab.ch",
-      "title": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d",
+      "title": "Diätkoch*in 100% m/w/d",
       "titleByLocale": {
-        "it": "Assistente medico per medicina interna generale o neurologia 100% m/w/d",
-        "en": "Assistant physician for General Internal Medicine or Neurology 100% m/w/d",
-        "de": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d",
-        "fr": "Médecin adjoint pour la médecine interne générale ou la neurologie 100% m/m/j"
+        "it": "Cucina Dietetica 100% m/w/d",
+        "en": "Dietary Cook 100% m/w/d",
+        "de": "Diätkoch*in 100% m/w/d",
+        "fr": "Cuisinier·ère en nutrition 100% m/w/d"
       },
-      "description": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-133\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+      "description": "Diätkoch*in 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2024-201\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
       "descriptionByLocale": {
-        "it": "Assistente medico per Medicina Interna Generale o Neurologia 100% m/w/d presso REHAB Basel — Dipartimento di Neuroreabilitazione e Paraplegiologia, Basilea (4055, BS), Svizzera.\n• Riferimento: 2022-133\n• Posizione: Basilea (BS)\n• Oggetto: Neuroriabilitazione e paraplegiologia\n• Applicazione tramite il portale di carriera Talentsoft di REHAB Basel",
-        "en": "Assistant physician for General Internal Medicine or Neurology 100% m/w/d at REHAB Basel — Department of Neurorehabilitation and Paraplegiology, Basel (4055, BS), Switzerland.\n• Reference: 2022-133\n• Location: Basel (BS)\n• Subject: Neurorehabilitation and Paraplegiology\n• Application via REHAB Basel's Talentsoft career portal",
-        "de": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2022-133\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
-        "fr": "Médecin adjoint en médecine interne générale ou en neurologie 100% m/p/p au REHAB Basel — Département de neuroréadaptation et de paraplégiologie, Bâle (4055, BS), Suisse.\n• Référence: 2022-133\n• Lieu: Bâle (BS)\n• Sujet: neuroréadaptation et paraplégiologie\n• Application via le portail Talentsoft de REHAB Basel"
+        "it": "Annuncio di Lavoro Cucina Dietetica 100% m/w/d presso REHAB Basel – Clinica per la Riabilitazione Neuroreologica e Paraplegia, Basel (4055, BS), Svizzera. - Riferimento: 2024-201 - Luogo: Basel (BS) - Settore: Riabilitazione Neuroreologica e Paraplegia Invito a candidarsi tramite il portale di carriera Talentsoft di REHAB Basel",
+        "en": "Job Announcement Dietary Cook 100% m/w/d at REHAB Basel — Neurorehabilitation and Paraplegia Clinic, Basel (4055, BS), Switzerland. - Reference: 2024-201 - Location: Basel (BS) - Field: Neurorehabilitation and Paraplegia Apply via REHAB Basel’s Talentsoft Career Portal",
+        "de": "Diätkoch*in 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2024-201\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+        "fr": "Offre d'emploi Cuisinier·ère en nutrition 100% m/w/d chez REHAB Basel — Clinique de réadaptation neuroréactive et paraplégie, Bâle (4055, BS), Suisse. - Référence: 2024-201 - Lieu: Bâle (BS) - Domaine: Réadaptation neuroréactive et paraplégie Postuler via le portail de carrière Talentsoft de REHAB Basel"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
-      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d_133.aspx",
+      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-diatkoch-in-100-m-w-d_201.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.262Z",
+      "crawledAt": "2026-06-12T23:01:03.710Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4055",
-      "category": "Sanità / Ospedali",
+      "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d_133.aspx",
+      "postedDate": "2026-03-16",
+      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-diatkoch-in-100-m-w-d_201.aspx",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "it": [
+          "Laurea in Scienze Alimentari o in Scienze della Cucina",
+          "Esperienza nella direzione di cucine e servizi",
+          "Conoscenze in Scienze Alimentari e -terapia",
+          "Capacità di lavoro di squadra e comunicazione",
+          "Buone conoscenze della normativa svizzera sui prodotti alimentari e l'igiene"
+        ],
+        "en": [
+          "Completed studies in Culinary Arts or Nutrition Science",
+          "Experience in leading kitchens and service areas",
+          "Knowledge in Nutrition Science and -therapy",
+          "Ability to work in a team and communicate",
+          "Good knowledge of the Swiss Food and Hygiene Ordinance"
+        ],
+        "fr": [
+          "Diplôme en arts culinaires ou en sciences de la nutrition",
+          "Expérience dans la direction de cuisines et de services",
+          "Connaissances en sciences de la nutrition et -thérapie",
+          "Capacité à travailler en équipe et à communiquer",
+          "Bonnes connaissances de l'ordonnance suisse sur les produits alimentaires et l'hygiène"
+        ]
+      },
       "previousSlugs": [
-        "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
+        "diatkoch-in-100-m-w-d-rehab-basel-basel",
+        "cucina-dietetica-100-m-w-d-rehab-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
-        ],
-        "en": [
-          "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
-        ],
-        "fr": [
-          "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
+          "diatkoch-in-100-m-w-d-rehab-basel-basel",
+          "cucina-dietetica-100-m-w-d-rehab-basel-basel"
         ]
       },
-      "firstSeenAt": "2026-06-02T14:25:33.656Z",
+      "firstSeenAt": "2026-05-19T10:00:47.507Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -729,7 +652,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-mitarbeiter-in-tagesklinik-fage-oder-mpa-efz-50-m-w-d_286.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.262Z",
+      "crawledAt": "2026-06-12T23:01:03.709Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -807,7 +730,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d_282.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T12:46:27.262Z",
+      "crawledAt": "2026-06-12T23:01:03.709Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -884,7 +807,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-mpa-dipl-pflegefachperson-60-100-m-w-d_285.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T12:46:27.262Z",
+      "crawledAt": "2026-06-12T23:01:03.709Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -978,7 +901,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba-m-w-d_284.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.262Z",
+      "crawledAt": "2026-06-12T23:01:03.709Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1041,6 +964,83 @@
       }
     },
     {
+      "id": "rehab-basel-0307a3ec451b",
+      "slug": "assistenzarzt-arztin-per-allgemeine-innere-medizin-o-neurologie-100-m-w-d-rehab-basel",
+      "slugByLocale": {
+        "it": "assistenzarzt-arztin-per-allgemeine-innere-medizin-o-neurologie-100-m-w-d-rehab-basel",
+        "en": "assistant-physician-for-general-internal-medicine-or-neurology-100-m-w-d-rehab-basel-basel",
+        "de": "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel",
+        "fr": "medecin-adjoint-pour-la-medecine-interne-generale-ou-la-neurologie-100-m-m-j-rehab-basel-basel"
+      },
+      "company": "REHAB Basel",
+      "companyKey": "rehab-basel",
+      "companyDomain": "rehab.ch",
+      "title": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d",
+      "titleByLocale": {
+        "it": "Assistente medico per medicina interna generale o neurologia 100% m/w/d",
+        "en": "Assistant physician for General Internal Medicine or Neurology 100% m/w/d",
+        "de": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d",
+        "fr": "Médecin adjoint pour la médecine interne générale ou la neurologie 100% m/m/j"
+      },
+      "description": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n\n• Referenz: 2022-133\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+      "descriptionByLocale": {
+        "it": "Assistente medico per Medicina Interna Generale o Neurologia 100% m/w/d presso REHAB Basel — Dipartimento di Neuroreabilitazione e Paraplegiologia, Basilea (4055, BS), Svizzera.\n• Riferimento: 2022-133\n• Posizione: Basilea (BS)\n• Oggetto: Neuroriabilitazione e paraplegiologia\n• Applicazione tramite il portale di carriera Talentsoft di REHAB Basel",
+        "en": "Assistant physician for General Internal Medicine or Neurology 100% m/w/d at REHAB Basel — Department of Neurorehabilitation and Paraplegiology, Basel (4055, BS), Switzerland.\n• Reference: 2022-133\n• Location: Basel (BS)\n• Subject: Neurorehabilitation and Paraplegiology\n• Application via REHAB Basel's Talentsoft career portal",
+        "de": "Assistenzarzt*ärztin für Allgemeine Innere Medizin oder Neurologie 100% m/w/d bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.\n• Referenz: 2022-133\n• Standort: Basel (BS)\n• Fachgebiet: Neurorehabilitation und Paraplegiologie\n• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel",
+        "fr": "Médecin adjoint en médecine interne générale ou en neurologie 100% m/p/p au REHAB Basel — Département de neuroréadaptation et de paraplégiologie, Bâle (4055, BS), Suisse.\n• Référence: 2022-133\n• Lieu: Bâle (BS)\n• Sujet: neuroréadaptation et paraplégiologie\n• Application via le portail Talentsoft de REHAB Basel"
+      },
+      "needsRetranslation": false,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d_133.aspx",
+      "source": "REHAB Basel Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-12T23:01:03.708Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4055",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://rehabbasel-career.talent-soft.com/stelle/stelle-assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d_133.aspx",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
+        ],
+        "en": [
+          "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
+        ],
+        "fr": [
+          "assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d-rehab-basel"
+        ]
+      },
+      "firstSeenAt": "2026-06-02T14:25:33.656Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "rehab-basel-8ef2764e8d2a",
       "slug": "terapie-di-gestione-gestione-dei-membri-80-100-m-w-d-rehab-basel-basel",
       "slugByLocale": {
@@ -1072,7 +1072,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-leitung-therapien-mitglied-geschaftsleitung-80-100-m-w-d_288.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.261Z",
+      "crawledAt": "2026-06-12T23:01:03.707Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1149,7 +1149,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-leitung-pflegedienst-mitglied-geschaftsleitung-80-100-m-w-d_287.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T12:46:27.260Z",
+      "crawledAt": "2026-06-12T23:01:03.706Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
