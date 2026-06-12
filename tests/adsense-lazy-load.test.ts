@@ -57,16 +57,16 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     );
   });
 
-  it('embeds the IntersectionObserver-based lazy loader (via external /assets/adsense-loader-{hash}.js)', () => {
+  it('embeds the IntersectionObserver-based lazy loader (via external /assets/adsense-loader.js)', () => {
     expect(ADSENSE_SNIPPET).toContain(ADSENSE_LAZY_LOADER);
-    // ADSENSE_LAZY_LOADER is now a tiny <script src="..."> tag pointing to the
-    // externalised loader file written by staticScriptsPlugin. The cachebuster
-    // moved from `?v=BUILD_ID` (query string) into the filename itself —
-    // `adsense-loader-{8charHash}.js` — so the per-page tag drops the query
-    // string entirely while still invalidating browser caches whenever the
-    // loader body changes.
+    // ADSENSE_LAZY_LOADER is a tiny <script src="..."> tag pointing to the
+    // externalised loader file written by staticScriptsPlugin. The filename is
+    // STABLE (no query string, no content hash — vite.config.ts stable-name
+    // policy, pinned by tests/stable-asset-names.test.ts): a loader-body change
+    // propagates via the serving stack's max-age=600 revalidation instead of a
+    // rename, so the ~822k pages embedding this tag never churn on it.
     expect(ADSENSE_LAZY_LOADER).toMatch(
-      /<script\s+defer\s+src=["']\/assets\/adsense-loader-[A-Za-z0-9_-]{8}\.js["']><\/script>/,
+      /<script\s+defer\s+src=["']\/assets\/adsense-loader\.js["']><\/script>/,
     );
     expect(ADSENSE_LOADER_CONTENT).toContain('IntersectionObserver');
     expect(ADSENSE_LOADER_CONTENT).toContain('rootMargin');

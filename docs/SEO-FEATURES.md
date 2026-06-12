@@ -27,7 +27,7 @@ Reference for F2–F8 SEO feature pages: page counts, data sources, cron pipelin
 ## Build config
 
 - Heap: `NODE_OPTIONS='--max-old-space-size=12288'` (12GB) in all build scripts — LAMal dataset grew to 4.7MB post YoY archive, 8GB caused rollup/zlib OOM
-- Vite entry: `/assets/index-{hash}.js` + `/assets/index-{hash}.css` resolved by `build-plugins/shared/seoPageShell.ts` for SPA hydration on statically-emitted SEO pages
+- Vite entry: `/assets/index-entry.js` + `/assets/index.css` (STABLE names, no content hash — like every chunk/CSS, see `vite.config.ts` output naming) resolved by `build-plugins/shared/seoPageShell.ts` for SPA hydration on statically-emitted SEO pages
 
 ## Webcam hotlink policy (F8)
 

@@ -1,30 +1,14 @@
 # Cache headers for GitHub Pages
-# Static assets with HASHED filenames (App-<hash>.js, *-<hash>.css, chunks) — 1 year immutable
+# ALL bundler assets have STABLE filenames (index-entry.js, App.js, index.css,
+# seo-static.css, ... — see vite.config.ts chunkFileNames/assetFileNames) so the
+# prerendered pages never churn on a bundle rehash and cached HTML never 404s
+# on a rotated name. Stable names mean bytes change UNDER the same URL on every
+# code-deploy -> NOTHING under /assets/ may ever be served `immutable`; the
+# short max-age + revalidation mirrors what GitHub Pages serves live today
+# (max-age=600 + ETag — Pages ignores _headers; this rule is honored once the
+# site moves to a _headers-reading CDN, e.g. Cloudflare Pages).
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
-# SPA entry has a STABLE name (assets/index-entry.js, see vite.config.ts) so the
-# ~1.28M prerendered pages don't churn on every bundle rehash. Its bytes DO change
-# per code-deploy (it imports the rotated App chunk), so it must REVALIDATE and
-# override the immutable /assets/* rule above. This entry rule is placed AFTER the
-# generic /assets/* rule so it wins under BOTH precedence semantics: last-match-wins
-# (e.g. Cloudflare Pages, the migration target — see infra/cloudflare-worker/) AND
-# more-specific-path-wins. Ordering it first would be stale-cached immutable under a
-# last-match-wins CDN → SPA serves an old entry → fails to hydrate, chunk-404.
-# (GitHub Pages ignores _headers today — Pages serves ~600s; this is honored once
-# the site moves to object storage / a CDN that reads _headers.)
-/assets/index-entry.js
-  Cache-Control: public, max-age=0, must-revalidate
-# SPA entry STYLESHEET has a STABLE name too (assets/index.css, see
-# vite.config.ts assetFileNames) for the same reason — a stable name never
-# 404s from old cached HTML referencing a rotated hash. Its bytes DO change on
-# real style changes, so it must REVALIDATE and override the immutable
-# /assets/* rule. Placed AFTER /assets/* so it wins under both precedence
-# semantics, exactly like index-entry.js above. (GitHub Pages ignores _headers
-# today; honored once the site serves from a _headers-reading CDN. If the
-# Fastly/CDN layer pins /assets/* immutable independently of _headers, add the
-# same revalidate override there — else a style change serves stale CSS.)
-/assets/index.css
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=600, must-revalidate
 
 # Icons — cache for 1 month
 /icons/*

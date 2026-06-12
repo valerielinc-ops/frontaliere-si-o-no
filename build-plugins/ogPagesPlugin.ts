@@ -13,6 +13,7 @@ import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { CRITICAL_CSS } from './shared/criticalCss';
@@ -619,23 +620,19 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const entryCss = spaBundle.entryCss;
  let vendorReactChunk = '';
  let blogMetaItChunk = '';
+ let itCriticalTags = '';
  try {
  const assetFiles = fs.readdirSync(assetsDir);
- vendorReactChunk = assetFiles.find((f: string) => f.startsWith('vendor-react-') && f.endsWith('.js') && !f.endsWith('.js.map')) ?? '';
- blogMetaItChunk = assetFiles.find((f: string) => /^blog-meta-it-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')) ?? '';
+ // Stable-name chunk resolution (legacy hashed fallback) via shared/chunkFiles.ts.
+ vendorReactChunk = findChunkFile(assetFiles, 'vendor-react') ?? '';
+ blogMetaItChunk = findChunkFile(assetFiles, 'blog-meta-it') ?? '';
+ itCriticalTags = findChunkFiles(assetFiles, ['it-core', 'it-calculator'])
+ .map(f => `\n <link rel="modulepreload" href="/assets/${f}">`)
+ .join('');
  } catch { /* assets dir missing */ }
  // Tautological after the resolver throws on missing bundle. Kept so the
  // template branches that gate on it stay readable.
  const hasSpaBundle = spaBundle.hasSpaBundle;
- let itCriticalTags = '';
- try {
- const af = fs.readdirSync(assetsDir);
- for (const f of af) {
- if (/^it-(core|calculator)-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')) {
- itCriticalTags += `\n <link rel="modulepreload" href="/assets/${f}">`;
- }
- }
- } catch { /* */ }
  const corePreloads = [
  vendorReactChunk ? `<link rel="modulepreload" crossorigin href="/assets/${vendorReactChunk}">` : '',
  itCriticalTags,

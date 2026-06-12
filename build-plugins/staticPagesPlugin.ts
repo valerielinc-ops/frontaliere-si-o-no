@@ -12,6 +12,7 @@ import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK } fr
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
+import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS } from './shared/criticalCss';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
@@ -1453,14 +1454,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const spaBundle = resolveSpaBundle(distDir);
  const entryJs = spaBundle.entryJs;
  const entryCss = spaBundle.entryCss;
- let vendorReactChunk = '';
+ let vendorReactChunk: string | undefined;
  let itCriticalChunks: string[] = [];
  try {
  const assetFiles = fs.readdirSync(assetsDir);
- itCriticalChunks = assetFiles.filter((f: string) =>
- /^it-(core|calculator)-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')
- );
- vendorReactChunk = assetFiles.find((f: string) => f.startsWith('vendor-react-') && f.endsWith('.js') && !f.endsWith('.js.map')) ?? '';
+ // Stable-name chunk resolution (legacy hashed fallback) via shared/chunkFiles.ts.
+ itCriticalChunks = findChunkFiles(assetFiles, ['it-core', 'it-calculator']);
+ vendorReactChunk = findChunkFile(assetFiles, 'vendor-react');
  } catch { /* assets dir missing — will fall back to redirect */ }
 
  // resolveSpaBundle throws when the bundle can't be located — no silent
@@ -1541,9 +1541,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  let assetFiles: string[] = [];
  try { assetFiles = fs.readdirSync(assetsDir); } catch { /* ignore */ }
 
- // Resolve a component name prefix to its hashed chunk filename
+ // Resolve a component chunk name to its built filename (stable name,
+ // legacy hashed fallback — shared/chunkFiles.ts).
  const resolveChunk = (prefix: string): string | undefined =>
- assetFiles.find((f: string) => f.startsWith(prefix + '-') && f.endsWith('.js') && !f.endsWith('.js.map'));
+ findChunkFile(assetFiles, prefix);
 
  // Build modulepreload tags for a given URL path
  // FRO-330: Extract blog article data from blog-articles-data.ts for hero image + SSG article cards
@@ -1641,9 +1642,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Add locale-specific translation chunk (e.g., it-guide-xxx.js)
  const localeChunkKey = sectionLocaleChunks[firstSeg];
  if (localeChunkKey) {
- const localeChunk = assetFiles.find((f: string) =>
- f.startsWith(`${locale}-${localeChunkKey}-`) && f.endsWith('.js') && !f.endsWith('.js.map')
- );
+ const localeChunk = findChunkFile(assetFiles, `${locale}-${localeChunkKey}`);
  if (localeChunk) tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
  }
  // Preload blog hero image on article listing pages
