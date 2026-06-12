@@ -1,16 +1,16 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-06-11T22:23:28.733Z",
+  "generatedAt": "2026-06-12T11:51:56.683Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2895,
-  "avgDurationMs": 2895,
+  "durationMs": 2807,
+  "avgDurationMs": 2807,
   "durationHistory": [
-    2895
+    2807
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/2cd0f761-3e00-42e3-844e-5975b3854624/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T22:23:26.579Z",
+      "crawledAt": "2026-06-12T11:51:54.553Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/24fecb22-41af-4430-a315-f148339d3a90/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-11T22:23:26.845Z",
+      "crawledAt": "2026-06-12T11:51:54.823Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -89,46 +89,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-cic-2650a02c3d84",
-      "slug": "segretario-a-medico-in-radiologia-clinique-cic-clarens-clarens",
-      "company": "Clinique CIC Clarens",
-      "companyKey": "clinique-cic",
-      "companyDomain": "cliniquecic-saxon.ch",
-      "title": "Secrétaire médical-e en radiologie",
-      "needsRetranslation": true,
-      "location": "Clarens",
-      "canton": "VD",
-      "url": "https://www.jobup.ch/fr/emplois/detail/a345e40d-4fac-4a3e-9921-36db13a93d35/",
-      "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-11T12:22:08.286Z",
-      "addressLocality": "Clarens",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1815",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/a345e40d-4fac-4a3e-9921-36db13a93d35/",
-      "firstSeenAt": "2026-05-19T13:47:18.127Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
