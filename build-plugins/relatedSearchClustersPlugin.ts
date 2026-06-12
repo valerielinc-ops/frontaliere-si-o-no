@@ -1822,9 +1822,28 @@ function injectHubLinkIntoSectionLanding(
   if (html.includes('data-related-search-hub-link="1"')) return;
 
   const hubPagePaths = listEmittedHubPagePaths(distDir, locale);
-  const pageLinks = hubPagePaths.slice(1).map((urlPath, idx) =>
-    `<a href="${esc(urlPath)}">${idx + 2}</a>`,
-  ).join(' ');
+  // Head+tail truncation, mirroring the cantonHubEditorial.ts archive
+  // paginator: the full list grew ~55 B per hub page (265 pages = ~15 KB)
+  // on the job-board landing and tipped dist/cerca-lavoro-ticino/index.html
+  // over the audit:page-weight budget (220 KB) on 2026-06-12. Crawler reach
+  // to every /ricerca/page-N/ is preserved by renderPageNavigator(), which
+  // links EVERY page on the hub pages themselves (root → job board → hub
+  // page 1 → page-N stays within the BFS depth gate), so the job-board
+  // injection only needs head+tail anchors.
+  const PAGINATOR_HEAD = 20;
+  const PAGINATOR_TAIL = 5;
+  const tailPaths = hubPagePaths.slice(1); // pages 2..N
+  const pageAnchor = (urlPath: string, pageNum: number): string =>
+    `<a href="${esc(urlPath)}">${pageNum}</a>`;
+  let pageLinks: string;
+  if (tailPaths.length <= PAGINATOR_HEAD + PAGINATOR_TAIL) {
+    pageLinks = tailPaths.map((urlPath, idx) => pageAnchor(urlPath, idx + 2)).join(' ');
+  } else {
+    const headLinks = tailPaths.slice(0, PAGINATOR_HEAD).map((urlPath, idx) => pageAnchor(urlPath, idx + 2));
+    const tailLinks = tailPaths.slice(-PAGINATOR_TAIL).map((urlPath, idx) =>
+      pageAnchor(urlPath, tailPaths.length - PAGINATOR_TAIL + idx + 2));
+    pageLinks = [...headLinks, '<span aria-hidden="true">…</span>', ...tailLinks].join(' ');
+  }
   const pageLinkBlock = pageLinks
     ? `<details><summary>${esc(copy.pageNavigatorLabel)}</summary><p>${pageLinks}</p></details>`
     : '';
