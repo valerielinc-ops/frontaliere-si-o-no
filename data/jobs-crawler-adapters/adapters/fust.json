@@ -10,6 +10,10 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/bd046326-bdc3-42a1-8698-102757f72472",
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/d940fc6e-6df8-4055-8d71-c93d4270a5b2",
+    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/f185bd53-676c-4ad4-b59a-1c09b447fd30",
+    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/c9a27775-39f7-45a4-8a42-5d6a17392ac6",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/e71d852a-c528-4e8a-9342-c854efb8e682",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-warenausgang/994f2a7f-3f51-4956-869b-75253df4b495",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/92ecb637-f6c5-49c8-9e01-05ee1c6f41b4",
@@ -44,13 +48,33 @@
     "https://jobs.fust.ch/offene-stellen/montage-assistent-in-fuer-die-heimlieferung-von-elektrohaushaltgeraeten/ba9b6c1b-d7bc-4765-bc20-a93b9b9004e8",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/538d26d3-af9c-4a31-b4d5-d5fe62957768",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/2ca3ca18-402e-4c0d-ae55-f0da30484b33",
-    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/32164758-b3a5-4415-9885-a588566625f9",
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/7e9a2a76-e04f-4ba6-a427-417ee580b97d",
-    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4",
-    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/de91cd6b-d9e2-435e-8f49-9606fbb13f81",
-    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/7ea0c4ca-9f1a-4678-846b-0dd5aa754d86"
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/32164758-b3a5-4415-9885-a588566625f9"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/bd046326-bdc3-42a1-8698-102757f72472": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/d940fc6e-6df8-4055-8d71-c93d4270a5b2": {
+      "location": "Soletta",
+      "canton": "SO",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/f185bd53-676c-4ad4-b59a-1c09b447fd30": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/c9a27775-39f7-45a4-8a42-5d6a17392ac6": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/e71d852a-c528-4e8a-9342-c854efb8e682": {
       "location": "Argovia",
       "canton": "AG",
@@ -260,32 +284,8 @@
       "canton": "BE",
       "company": "Fust",
       "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/7e9a2a76-e04f-4ba6-a427-417ee580b97d": {
-      "location": "Soletta",
-      "canton": "SO",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4": {
-      "location": "Ticino",
-      "canton": "TI",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/de91cd6b-d9e2-435e-8f49-9606fbb13f81": {
-      "location": "San Gallo",
-      "canton": "SG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/7ea0c4ca-9f1a-4678-846b-0dd5aa754d86": {
-      "location": "Berna",
-      "canton": "BE",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-06-11T22:40:10.039Z"
+  "updatedAt": "2026-06-12T12:08:37.737Z"
 }
