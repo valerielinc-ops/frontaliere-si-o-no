@@ -3976,6 +3976,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aeroporti-svizzeri-aumentano-pas-s-vieto': { name: 'Aeroporti svizzeri', path: '/articoli-svizzera/aeroporti-svizzeri-aumentano-pas-s-vieto/', parent: 'blog' },
     'blog-parlamento-avs-frontalieri-2025': { name: '13esima AVS finanziamento', path: '/articoli-frontaliere/parlamento-avs-frontalieri-2025', parent: 'blog' },
     'blog-parlamento-avs-protezione-adozione': { name: 'Parlamento', path: '/articoli-svizzera/parlamento-avs-protezione-adozione/', parent: 'blog' },
+    'blog-ingresso-svizzera-documenti-dogana-2026': { name: 'Frontalieri', path: '/articoli-frontaliere/ingresso-svizzera-documenti-dogana-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

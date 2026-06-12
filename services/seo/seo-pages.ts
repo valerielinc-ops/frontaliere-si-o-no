@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2779,
+ "numberOfItems": 2780,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7419,7 +7419,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2776, "name": "Frontaliere: documenti necessari inizio lavoro ...", "url": `${BASE_URL}/articoli-frontaliere/documenti-necessari-lavoro-svizzera` },
           { "@type": "ListItem", "position": 2777, "name": "Aeroporti svizzeri: aumentano i passeggeri e il...", "url": `${BASE_URL}/articoli-frontaliere/aeroporti-svizzeri-aumentano-pas-s-vieto` },
           { "@type": "ListItem", "position": 2778, "name": "13esima AVS, finanziamento misto: effetti per i...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-avs-frontalieri-2025` },
-          { "@type": "ListItem", "position": 2779, "name": "Parlamento approva finanziamento AVS e nuove tu...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-avs-protezione-adozione` }
+          { "@type": "ListItem", "position": 2779, "name": "Parlamento approva finanziamento AVS e nuove tu...", "url": `${BASE_URL}/articoli-frontaliere/parlamento-avs-protezione-adozione` },
+          { "@type": "ListItem", "position": 2780, "name": "Ingresso in Svizzera per frontalieri: documenti...", "url": `${BASE_URL}/articoli-frontaliere/ingresso-svizzera-documenti-dogana-2026` }
  ]
  },
  {

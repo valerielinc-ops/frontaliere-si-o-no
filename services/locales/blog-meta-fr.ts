@@ -8048,6 +8048,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parlamento-avs-frontalieri-2025.title': '13e AVS, financement mixte',
     'blog.article.parlamento-avs-frontalieri-2025.excerpt': 'Le Conseil des États approuve la proposition de la Conférence de conciliation. D\'autres décisions sur les ordonnances électroniques et la protection des mères adoptives. Voici l\'impact pour les frontaliers qui travaillent au Tessin.',
     'blog.article.parlamento-avs-frontalieri-2025.imageAlt': 'Palais fédéral à Berne, siège du Parlement.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Entrée en Suisse pour frontaliers : documents et règles douanières 2026',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Découvrez les documents nécessaires pour franchir la frontière en tant que frontalier et les règles douanières en Suisse en 2026.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Voiture traversant la frontière Suisse-Italie',
 };
 
 export default blogMetaFr;

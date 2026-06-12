@@ -8046,6 +8046,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parlamento-avs-frontalieri-2025.title': '13. AVS, Mischfinanzierung',
     'blog.article.parlamento-avs-frontalieri-2025.excerpt': 'Der Ständerat verabschiedet den Vorschlag der Einigungskonferenz. Weitere Entscheidungen zu elektronischen Rezepten und Schutz für adoptierende Mütter. Hier sind die Auswirkungen für Grenzgänger in der Region Ticino.',
     'blog.article.parlamento-avs-frontalieri-2025.imageAlt': 'Bundeshaus in Bern, Sitz des Parlaments.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Einreise in die Schweiz für Grenzgänger: Dokumente und Zollregeln 2026',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Entdecken Sie die notwendigen Dokumente, um als Grenzgänger die Grenze zu überschreiten, und die Zollregeln in der Schweiz im Jahr 2026.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Auto überquert die Schweizer-Italienische Grenze',
 };
 
 export default blogMetaDe;

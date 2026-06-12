@@ -8048,6 +8048,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parlamento-avs-frontalieri-2025.title': '13esima AVS, finanziamento misto: effetti per i frontalieri',
     'blog.article.parlamento-avs-frontalieri-2025.excerpt': 'Il Consiglio degli Stati approva la proposta della Conferenza di conciliazione. Altre decisioni su ricette elettroniche e protezione madri adottive. Ecco l\'impatto per chi lavora in Ticino.',
     'blog.article.parlamento-avs-frontalieri-2025.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.title': 'Ingresso in Svizzera per frontalieri: documenti e regole dogana 2026',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.excerpt': 'Scopri i documenti necessari per varcare il confine come frontaliere e le regole dogana in Svizzera nel 2026.',
+    'blog.article.ingresso-svizzera-documenti-dogana-2026.imageAlt': 'Auto che attraversa il confine Svizzera-Italia',
 };
 
 export default blogMetaIt;
