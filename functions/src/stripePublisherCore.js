@@ -39,7 +39,7 @@ async function getStripe() {
   const key = await getRemoteConfigValue('STRIPE_SECRET_KEY');
   if (!key) throw new Error('stripe_secret_key_missing');
   const { default: Stripe } = await import('stripe');
-  _stripe = new Stripe(key, { apiVersion: '2024-06-20' });
+  _stripe = new Stripe(key, { apiVersion: '2025-03-31.basil' });
   return _stripe;
 }
 
@@ -155,6 +155,7 @@ export async function handleCreatePublisherCheckout(req) {
     customer: customerId,
     line_items: [{ price: priceId, quantity: units }],
     discounts: couponId ? [{ coupon: couponId }] : undefined,
+    managed_payments: { enabled: true },
     success_url: successUrl,
     cancel_url: cancelUrl,
     client_reference_id: orderRef.id,
