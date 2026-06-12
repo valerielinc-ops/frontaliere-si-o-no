@@ -8041,6 +8041,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.richiesta-permesso-g-step-by-step-2026.title': 'G Permit Application Step by Step 2026',
     'blog.article.richiesta-permesso-g-step-by-step-2026.excerpt': 'Complete guide to the G permit application procedure for cross-border workers in 2026: required documents, employer\'s role, cantonal office, processing times, and costs.',
     'blog.article.richiesta-permesso-g-step-by-step-2026.imageAlt': 'Cantonal office for managing cross-border worker permits in Ticino',
+    'blog.article.documenti-necessari-lavoro-svizzera.title': 'Cross-border workers: documents for starting in Switzerland',
+    'blog.article.documenti-necessari-lavoro-svizzera.excerpt': 'A practical guide to essential documentation for cross-border commuters: from employment contracts to health insurance, here is what to prepare before crossing the border.',
+    'blog.article.documenti-necessari-lavoro-svizzera.imageAlt': 'Documents required to start working in Switzerland as a cross-border worker',
 };
 
 export default blogMetaEn;

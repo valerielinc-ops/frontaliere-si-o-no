@@ -25506,6 +25506,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'documenti-necessari-lavoro-svizzera',
+ category: 'pratico',
+ date: '2026-06-12T00:20:13.906Z',
+ image: '/images/blog/documenti-necessari-lavoro-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
