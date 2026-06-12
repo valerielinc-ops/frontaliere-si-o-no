@@ -485,7 +485,11 @@ function runBaseCrawler() {
       JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '100000',
       JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100000',
       JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
-      JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '4',
+      // 8 concurrent detail fetches against jobs.coopjobs.ch were verified
+      // live in #1882 (100% success for the full national set; the origin
+      // starts returning 503 only above ~12-16 in-flight). At 4 the CH-wide
+      // base crawl alone takes ~2h20 of the 6h CI budget.
+      JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '8',
     },
   });
 }

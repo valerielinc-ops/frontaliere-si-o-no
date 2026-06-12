@@ -417,7 +417,6 @@
           "digital-acquisition-manager-msc-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-08T13:28:50.344Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
@@ -435,12 +434,12 @@
     },
     {
       "id": "msc-cargo-1850ab808b78",
-      "slug": "junior-architect-port-development-intern-msc-geneva",
+      "slug": "junior-architetto-port-development-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "junior-architect-port-development-intern-msc-geneva",
-        "it": "junior-architect-port-development-intern-msc-geneva",
+        "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architect-port-development-intern-msc-geneva"
+        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -497,7 +496,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-11T23:13:41.598Z"
+      "firstSeenAt": "2026-06-11T23:13:41.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ],
+        "fr": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-architect-port-development-intern-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-72e4b16fc7fa",

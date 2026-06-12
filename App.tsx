@@ -274,13 +274,20 @@ const App: React.FC = () => {
  // every SPA-route page that has a static fallback. Measured CLS = 0.59 on
  // /cerca-lavoro-ticino/ (2026-05-27 desktop). On the server pass useLayoutEffect
  // falls back to a no-op, which is fine — the toggle is purely a client concern.
+ // `main.cluster-seo-prose` is the same handoff for the related-search
+ // cluster family (relatedSearchClustersPlugin) and the bridge prose pages:
+ // its body is now visible pre-hydration (the #1249 clip-rect hid it from
+ // users entirely, leaving these landings blank until the SPA painted —
+ // FCP ~4s on a fast desktop), so it must join the same pre-paint toggle
+ // or it would duplicate the hydrated JobBoard below the SPA view.
  useLayoutEffect(() => {
-   const staticMain = document.querySelector<HTMLElement>('main.seo-static-content');
-   if (!staticMain) return;
-   if (staticOverlay) {
-     staticMain.style.removeProperty('display');
-   } else {
-     staticMain.style.display = 'none';
+   const staticMains = document.querySelectorAll<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
+   for (const staticMain of staticMains) {
+     if (staticOverlay) {
+       staticMain.style.removeProperty('display');
+     } else {
+       staticMain.style.display = 'none';
+     }
    }
  }, [staticOverlay]);
 
