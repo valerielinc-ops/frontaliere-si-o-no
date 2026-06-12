@@ -24,6 +24,7 @@ import {
 } from './nursingLandingsData';
 import type { ProfessionJobsSnapshot, FeaturedJob } from './professionJobsAggregate';
 import { resolveJobCanton } from './shared/cantonSection';
+import { realSalaryMedianChf } from './shared/realSalaryMedian';
 
 // Re-export the snapshot/featured types so the plugin imports a single
 // canonical shape — different alias keeps grep-ability without forking the
@@ -137,22 +138,6 @@ function jobMatches(job: JobRecord, m: NursingMatcher): boolean {
   return true;
 }
 
-function median(values: readonly number[]): number | null {
-  const sorted = [...values].filter((v) => Number.isFinite(v) && v > 0).sort((a, b) => a - b);
-  if (sorted.length === 0) return null;
-  const mid = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0 ? Math.round((sorted[mid - 1] + sorted[mid]) / 2) : sorted[mid];
-}
-
-function jobMidpoint(job: JobRecord): number | null {
-  const min = typeof job.salaryMin === 'number' ? job.salaryMin : null;
-  const max = typeof job.salaryMax === 'number' ? job.salaryMax : null;
-  if (min && max) return Math.round((min + max) / 2);
-  if (min) return min;
-  if (max) return max;
-  return null;
-}
-
 function toFeatured(job: JobRecord, now: number): NursingFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   const postedDate = job.postedDate || job.firstSeenAt || '';
@@ -198,12 +183,7 @@ function buildSnapshotForId(
     if (Number.isFinite(ts) && ts >= last30) fresh30++;
   }
 
-  const salaryValues: number[] = [];
-  for (const job of matches) {
-    const mid = jobMidpoint(job);
-    if (mid) salaryValues.push(mid);
-  }
-  const medianSalary = median(salaryValues);
+  const medianSalary = realSalaryMedianChf(matches);
 
   const employerCounts = new Map<string, number>();
   for (const job of matches) {

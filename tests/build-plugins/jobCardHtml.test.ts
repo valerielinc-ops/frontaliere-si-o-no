@@ -11,6 +11,7 @@ import {
   relativePostedLabel,
   isJobNew,
   escHtml,
+  titleCaseLocalityIfLowercase,
   type JobCardJob,
 } from '../../build-plugins/shared/jobCardHtml';
 
@@ -99,6 +100,36 @@ describe('jobCardHtml — isJobNew', () => {
   });
 });
 
+describe('jobCardHtml — titleCaseLocalityIfLowercase', () => {
+  it('title-cases all-lowercase localities (spaces, dots, hyphens, apostrophes)', () => {
+    expect(titleCaseLocalityIfLowercase('quartino')).toBe('Quartino');
+    expect(titleCaseLocalityIfLowercase('castel san pietro')).toBe('Castel San Pietro');
+    expect(titleCaseLocalityIfLowercase('s. antonino')).toBe('S. Antonino');
+    expect(titleCaseLocalityIfLowercase("sant'antonino")).toBe("Sant'Antonino");
+    expect(titleCaseLocalityIfLowercase('lugano-besso')).toBe('Lugano-Besso');
+  });
+
+  it('leaves strings containing any uppercase letter untouched', () => {
+    expect(titleCaseLocalityIfLowercase('Lugano')).toBe('Lugano');
+    expect(titleCaseLocalityIfLowercase('SUPSI / DTI')).toBe('SUPSI / DTI');
+    expect(titleCaseLocalityIfLowercase('S. Antonino')).toBe('S. Antonino');
+    expect(titleCaseLocalityIfLowercase('McKinsey Campus')).toBe('McKinsey Campus');
+  });
+
+  it('handles empty input', () => {
+    expect(titleCaseLocalityIfLowercase('')).toBe('');
+  });
+
+  it('applies to both the subtitle and the location chip at render time', () => {
+    const html = renderJobCardHtml(
+      { ...baseJob, location: 'quartino' },
+      { href: '/x/', locale: 'it' },
+    );
+    expect(html).toContain('Quartino');
+    expect(html).not.toContain('quartino');
+  });
+});
+
 describe('jobCardHtml — renderJobCardHtml', () => {
   it('renders an article with the .jc-card atom (Tailwind tokens applied via @apply in index.css)', () => {
     const html = renderJobCardHtml(baseJob, {
@@ -138,7 +169,50 @@ describe('jobCardHtml — renderJobCardHtml', () => {
     const noSalary: JobCardJob = { ...baseJob, salaryMin: 0, salaryMax: 0 };
     const html = renderJobCardHtml(noSalary, { href: '/x/', locale: 'en' });
     expect(html).not.toContain('CHF');
+    expect(html).not.toContain('lucide-banknote');
+  });
+
+  it('uses the currency-neutral banknote icon (not the euro glyph) on the salary chip', () => {
+    const html = renderJobCardHtml(baseJob, { href: '/x/', locale: 'it' });
+    expect(html).toContain('lucide-banknote');
+    expect(html).toContain('#i-jc-bkn');
     expect(html).not.toContain('lucide-euro');
+    expect(html).not.toContain('i-jc-eur');
+  });
+
+  it('appends the per-locale estimate suffix when salarySource is "estimated"', () => {
+    const estimated: JobCardJob = { ...baseJob, salarySource: 'estimated' };
+    const it_ = renderJobCardHtml(estimated, { href: '/x/', locale: 'it' });
+    expect(it_).toContain('CHF 72k – 97k (stima)');
+    const en = renderJobCardHtml(estimated, { href: '/x/', locale: 'en' });
+    expect(en).toContain('CHF 72k – 97k (est.)');
+    const de = renderJobCardHtml(estimated, { href: '/x/', locale: 'de' });
+    expect(de).toContain('CHF 72k – 97k (Schätzung)');
+    const fr = renderJobCardHtml(estimated, { href: '/x/', locale: 'fr' });
+    expect(fr).toContain('CHF 72k – 97k (est.)');
+  });
+
+  it('renders no estimate suffix for reported/existing salarySource', () => {
+    for (const salarySource of ['reported', 'existing'] as const) {
+      const html = renderJobCardHtml(
+        { ...baseJob, salarySource },
+        { href: '/x/', locale: 'it' },
+      );
+      expect(html).toContain('CHF 72k – 97k<');
+      expect(html).not.toContain('(stima)');
+    }
+  });
+
+  it('is byte-identical to the legacy output when salarySource is absent', () => {
+    const legacy = renderJobCardHtml(baseJob, { href: '/x/', locale: 'it' });
+    expect(legacy).toContain('CHF 72k – 97k<');
+    expect(legacy).not.toContain('(stima)');
+    // Same record with the flag set differs ONLY by the suffix.
+    const flagged = renderJobCardHtml(
+      { ...baseJob, salarySource: 'estimated' },
+      { href: '/x/', locale: 'it' },
+    );
+    expect(flagged.replace(' (stima)', '')).toBe(legacy);
   });
 
   it('escapes user-supplied strings to prevent XSS', () => {

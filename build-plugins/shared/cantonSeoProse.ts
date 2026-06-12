@@ -49,6 +49,8 @@
  *    page's FAQPage JSON-LD (avoiding GSC "duplicate FAQPage" warnings).
  */
 
+import { CALC_HREF } from './jobBoardCommuterContext';
+
 export type CantonSeoLocale = 'it' | 'en' | 'de' | 'fr';
 
 /** Slot the helper is rendering for — drives the heading + FAQ flavour. */
@@ -106,12 +108,9 @@ interface SlotCopy {
   crossLinks: string;
 }
 
-const CALCULATOR_HREF: Record<CantonSeoLocale, string> = {
-  it: '/',
-  en: '/en/',
-  de: '/de/',
-  fr: '/fr/',
-};
+// Locale-aware calculator paths — single source in jobBoardCommuterContext
+// (the '/'-pointing local table sent users to the homepage, not the simulator).
+const CALCULATOR_HREF: Record<CantonSeoLocale, string> = CALC_HREF;
 
 const FX_HREF: Record<CantonSeoLocale, string> = {
   it: '/comparatori/cambio-valuta/',

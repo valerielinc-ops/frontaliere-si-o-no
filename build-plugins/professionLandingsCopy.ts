@@ -30,6 +30,20 @@
 import type { ProfessionLocale, ProfessionId } from './professionLandingsData';
 import { PROFESSION_FACTS } from './professionLandingsData';
 
+/**
+ * Build-time "month year" freshness label in the page language (e.g. it:
+ * "giugno 2026", en: "June 2026"). Replaces the previously hardcoded
+ * "aprile 2026" claim so the copy can never go stale between deploys.
+ */
+function buildMonthYearLabel(locale: ProfessionLocale): string {
+  const intlLocale = { it: 'it-CH', en: 'en-CH', de: 'de-CH', fr: 'fr-CH' }[locale];
+  return new Intl.DateTimeFormat(intlLocale, {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'Europe/Zurich',
+  }).format(new Date());
+}
+
 export interface ProfessionLandingSection {
   title: string;
   paragraphs: string[];
@@ -70,7 +84,9 @@ export interface ProfessionLandingCopy {
     salaryLabel: string;
   };
   employersTableTitle: string;
-  salaryTableTitle: string;
+  /** Framing line under the curated employers table — clarifies it lists
+   * historical sector employers, not necessarily companies hiring today. */
+  employersTableNote: string;
   sourcesLabel: string;
   // ── Template B labels (mostly static per locale) ─────────────────────────
   eyebrow: string;
@@ -548,7 +564,7 @@ interface LocaleShell {
   sectionHeadings: ProfessionLandingCopy['sectionHeadings'];
   tableHeadings: ProfessionLandingCopy['tableHeadings'];
   employersTableTitle: string;
-  salaryTableTitle: string;
+  employersTableNote: string;
   sourcesLabel: string;
   // ── Template B additions ───────────────────────────────────────────────
   /** Dense lede that lists 3 numbers (count · CHF · fresh) under the H1. */
@@ -579,7 +595,7 @@ interface LocaleShell {
 const IT_SHELL: LocaleShell = {
   titleTemplate: (role) => `Lavoro da ${role} in Ticino 2026`,
   descriptionTemplate: (role, median) =>
-    `Guida 2026 per frontalieri al lavoro da ${role} in Ticino: salario medio CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento titolo italiano, principali datori di lavoro. Aggiornato aprile 2026.`,
+    `Guida 2026 per frontalieri al lavoro da ${role} in Ticino: salario medio CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento titolo italiano, principali datori di lavoro. Aggiornato ${buildMonthYearLabel('it')}.`,
   h1Template: (role) => `Lavoro da ${role} in Ticino: guida 2026 per frontalieri`,
   ledeTemplate: (s, median, jobs) =>
     `Stai cercando ${s.descriptor}? Il mercato ticinese assorbe ogni anno centinaia di candidati italiani: nel dataset pubblico di Frontaliere Ticino risultano ${jobs} posizioni attive di recente per questo ruolo, con un salario medio stimato di CHF ${median.toLocaleString('it-CH')} lordi annui. ${s.roleSummary}`,
@@ -606,7 +622,8 @@ const IT_SHELL: LocaleShell = {
     salaryLabel: 'Forchetta salariale (CHF lordi annui)',
   },
   employersTableTitle: 'Top 5 datori di lavoro ticinesi',
-  salaryTableTitle: 'Forchetta salariale di riferimento',
+  employersTableNote:
+    'Datori di lavoro storici del settore in Ticino — non tutti hanno posizioni aperte oggi; vedi sopra chi sta assumendo ora.',
   sourcesLabel: 'Fonti ufficiali',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     `${live} posizioni aperte per ${role} in Ticino · ${fresh30} nuove negli ultimi 30 giorni · stipendio mediano CHF ${median.toLocaleString('it-CH')} lordi all'anno.`,
@@ -664,7 +681,8 @@ const EN_SHELL: LocaleShell = {
     salaryLabel: 'Salary band (CHF gross / year)',
   },
   employersTableTitle: 'Top 5 Ticino employers',
-  salaryTableTitle: 'Reference salary band',
+  employersTableNote:
+    'Long-standing sector employers in Ticino — not all have openings today; see above for who is hiring right now.',
   sourcesLabel: 'Official sources',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     `${live} open positions for ${role} in Ticino · ${fresh30} new in the last 30 days · median gross salary CHF ${median.toLocaleString('en-CH')} per year.`,
@@ -720,7 +738,8 @@ const DE_SHELL: LocaleShell = {
     salaryLabel: 'Lohnspanne (CHF brutto/Jahr)',
   },
   employersTableTitle: 'Top-5-Arbeitgeber im Tessin',
-  salaryTableTitle: 'Referenz-Lohnbandbreite',
+  employersTableNote:
+    'Etablierte Arbeitgeber der Branche im Tessin — nicht alle haben aktuell offene Stellen; wer gerade einstellt, steht oben.',
   sourcesLabel: 'Offizielle Quellen',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     `${live} offene Stellen für ${role} im Tessin · ${fresh30} neu in den letzten 30 Tagen · Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`,
@@ -778,7 +797,8 @@ const FR_SHELL: LocaleShell = {
     salaryLabel: 'Fourchette salariale (CHF brut/an)',
   },
   employersTableTitle: 'Top 5 des employeurs tessinois',
-  salaryTableTitle: 'Fourchette salariale de référence',
+  employersTableNote:
+    'Employeurs historiques du secteur au Tessin — tous n\'ont pas de postes ouverts aujourd\'hui ; voir plus haut qui recrute actuellement.',
   sourcesLabel: 'Sources officielles',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     `${live} postes ouverts pour ${role} au Tessin · ${fresh30} nouveaux ces 30 derniers jours · salaire médian CHF ${median.toLocaleString('fr-CH')} brut par an.`,
@@ -843,7 +863,7 @@ function buildSections(
           facts.regulated
             ? `Il ruolo di ${strings.role} in Svizzera è una professione regolamentata: per essere assunti a tempo pieno o accedere ai concorsi pubblici serve il riconoscimento del titolo italiano da parte di ${facts.recognitionAuthority}. La procedura è disciplinata dall'Accordo sulla libera circolazione delle persone CH-UE e dura tipicamente ${minLead}–${maxLead} mesi dall'inoltro della pratica completa.`
             : `Il ruolo di ${strings.role} in Svizzera non è una professione regolamentata: non è obbligatorio ottenere il riconoscimento del titolo italiano prima dell'assunzione. Tuttavia, molti datori di lavoro considerano la pratica ${facts.recognitionAuthority} un segnale positivo per posizioni tecniche o per accedere a concorsi pubblici.`,
-          `Documenti da preparare: diploma originale legalizzato (Apostille dell'Aia), traduzione ufficiale italiano/tedesco/francese, programma degli studi con elenco esami e ore di tirocinio, certificato di buona condotta, CV in formato europeo o svizzero. La pratica va inoltrata prima di accettare contratti a tempo indeterminato per evitare ritardi. [Fonte: ${facts.recognitionAuthority}](${facts.recognitionAuthorityUrl}) — aggiornato aprile 2026.`,
+          `Documenti da preparare: diploma originale legalizzato (Apostille dell'Aia), traduzione ufficiale italiano/tedesco/francese, programma degli studi con elenco esami e ore di tirocinio, certificato di buona condotta, CV in formato europeo o svizzero. La pratica va inoltrata prima di accettare contratti a tempo indeterminato per evitare ritardi. [Fonte: ${facts.recognitionAuthority}](${facts.recognitionAuthorityUrl}) — aggiornato ${buildMonthYearLabel('it')}.`,
           facts.regulated
             ? `Se il percorso italiano risulta non pienamente equivalente allo standard svizzero, l'autorità può richiedere misure di compensazione: modulo di adattamento in struttura accreditata (3–12 mesi) oppure esame attitudinale. Molti datori offrono contratti-ponte durante l'iter.`
             : `Il riconoscimento facoltativo è particolarmente utile per chi punta a passare nel tempo dal settore privato al pubblico (concorsi cantonali, amministrazioni comunali) dove può diventare discriminante.`,
@@ -852,7 +872,7 @@ function buildSections(
       {
         title: shell.sectionHeadings.ccl,
         paragraphs: [
-          `Il contratto di riferimento per ${strings.role} in Ticino è il **${facts.cclReference}**. Il CCL regola salario minimo, 13a mensilità, vacanze, maggiorazioni per notturni e festivi, periodi di preavviso, indennità di malattia e infortunio. [Fonte: SECO — CCL/GAV di obbligatorietà generale](${facts.cclUrl}) — consultato aprile 2026.`,
+          `Il contratto di riferimento per ${strings.role} in Ticino è il **${facts.cclReference}**. Il CCL regola salario minimo, 13a mensilità, vacanze, maggiorazioni per notturni e festivi, periodi di preavviso, indennità di malattia e infortunio. [Fonte: SECO — CCL/GAV di obbligatorietà generale](${facts.cclUrl}) — consultato ${buildMonthYearLabel('it')}.`,
           `Per i frontalieri con permesso G il CCL svizzero si applica integralmente: salario, ferie, tredicesima, indennità di turno. Le assicurazioni sociali svizzere (AVS, AI, IPG, AD, LAINF, LPP) sono trattenute alla fonte o versate dal datore, con totalizzazione ai sensi del Regolamento (CE) 883/2004 [fonte: INPS — Prestazioni pensionistiche verso Svizzera](https://www.inps.it).`,
           `Attenzione alle deroghe per piccoli datori di lavoro o settori scoperti dal CCL: in tal caso si applica il contratto individuale nel rispetto dei salari d'uso SECO per evitare dumping salariale.`,
         ],
@@ -1253,7 +1273,7 @@ export function buildProfessionLandingCopy(
     sectionHeadings: shell.sectionHeadings,
     tableHeadings: shell.tableHeadings,
     employersTableTitle: shell.employersTableTitle,
-    salaryTableTitle: shell.salaryTableTitle,
+    employersTableNote: shell.employersTableNote,
     sourcesLabel: shell.sourcesLabel,
     eyebrow: shell.eyebrow,
     statTileLiveLabel: shell.statTileLiveLabel,

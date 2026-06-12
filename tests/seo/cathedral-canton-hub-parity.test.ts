@@ -20,9 +20,12 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
       canton: 'TI',
       locale: 'it',
       display: 'Ticino',
-      // jobsCount is only consumed by the non-TI branch; the TI branch
-      // hard-codes the "oltre 1.500" string. Use a representative value.
-      jobsCount: 1500,
+      // 2026-06 intentional deviation from the original byte-identity
+      // contract: the TI branch now interpolates the live jobsCount in the
+      // intro + FAQ (the hardcoded "oltre 1.500" contradicted the real
+      // count surfaced in the page <title>, e.g. 5914). Everything else
+      // stays byte-identical to the legacy inline strings.
+      jobsCount: 5914,
       totalPages: 304,
       archiveBaseHref: '/cerca-lavoro-ticino/tutti/',
     });
@@ -43,9 +46,12 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
     expect(blocks[0]).toMatch(
       /^<h2 (style="font-size:1\.05rem;font-weight:700;margin:1rem 0 \.5rem"|class="s-[A-Za-z0-9_-]+")>Offerte di Lavoro in Ticino — Bacheca Lavoro per Frontalieri<\/h2>$/,
     );
-    // Intro paragraph mentions Ticino + "oltre 1.500 offerte" (legacy copy).
+    // Intro paragraph mentions Ticino + the LIVE job count (it-CH/de-CH
+    // thousands format, like the non-TI branch) instead of the legacy
+    // hardcoded "oltre 1.500" claim that contradicted the title count.
     expect(blocks[1]).toMatch(/lavoro in Ticino/);
-    expect(blocks[1]).toMatch(/oltre 1\.500/);
+    expect(blocks[1]).toContain(`<strong>${(5914).toLocaleString('de-CH')}</strong>`);
+    expect(blocks[1]).not.toMatch(/oltre 1\.500/);
     // Archive navigator is a single <details> collapsible. For long archives
     // (> 25 pages) the paginator emits head pages 1..20 + ellipsis + tail
     // pages (N-4)..N to stay under the 200 KB audit:page-weight budget.
@@ -74,6 +80,23 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
     expect(blocks[8].startsWith('<details ')).toBe(true);
     expect(blocks[8]).toMatch(/Domande frequenti sulla ricerca lavoro in Ticino/);
     expect(blocks[8]).toMatch(/CHF 62\.000-68\.000/);
+    // FAQ "Quante offerte…" answer interpolates the live count too.
+    expect(blocks[8]).toContain(`raccoglie ${(5914).toLocaleString('de-CH')} offerte attive`);
+    expect(blocks[8]).not.toMatch(/oltre 1\.500/);
+  });
+
+  it('falls back to the legacy "oltre 1.500" claim when jobsCount is unavailable', () => {
+    const blocks = buildCantonHubEditorial({
+      canton: 'TI',
+      locale: 'it',
+      display: 'Ticino',
+      jobsCount: 0,
+      totalPages: 1,
+      archiveBaseHref: '/cerca-lavoro-ticino/tutti/',
+    });
+    expect(blocks[1]).toMatch(/oltre 1\.500/);
+    const faq = blocks[blocks.length - 1];
+    expect(faq).toMatch(/raccoglie oltre 1\.500 offerte attive/);
   });
 
   it('omits the archive navigator when totalPages === 1 (single-page TI)', () => {

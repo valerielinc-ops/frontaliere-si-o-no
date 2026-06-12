@@ -193,11 +193,17 @@ const COPY: Record<CommuterLocale, CommuterCopy> = {
   },
 };
 
-const CALC_HREF: Record<CommuterLocale, string> = {
-  it: '/',
-  en: '/en/',
-  de: '/de/',
-  fr: '/fr/',
+// Per-locale net-salary calculator landing. Same paths as CALCULATOR_URL in
+// professionLandingsPlugin.ts — exported so host plugins (e.g. the
+// care-variant CTA in jobsSeoPagesPlugin) reuse one source of truth instead
+// of duplicating the table. Previously pointed at the locale homepage ('/'),
+// which made the "calcolatore stipendio netto frontaliere" cross-link land
+// on the homepage instead of the calculator.
+export const CALC_HREF: Record<CommuterLocale, string> = {
+  it: '/calcola-stipendio/',
+  en: '/en/calculate-salary/',
+  de: '/de/gehalt-berechnen/',
+  fr: '/fr/calculer-salaire/',
 };
 const FX_HREF: Record<CommuterLocale, string> = {
   it: '/comparatori/cambio-valuta/',
@@ -277,7 +283,21 @@ function buildScenarioCallout(locale: CommuterLocale, location: string, row: Cit
   return `<strong>${example}</strong> : un cadre avec offre brute CHF ${grossMonthly.toLocaleString('fr-CH')} par mois à ${location} (CHF ${grossK} 000 brut/an sur 13 mois). Impôt à la source ~${sourceTaxPct} % (~CHF ${sourceTax.toLocaleString('fr-CH')}), AVS-AI-APG 5,3 % (~CHF ${avs.toLocaleString('fr-CH')}), LPP ~7 % (~CHF ${lpp.toLocaleString('fr-CH')}). Net suisse ~CHF ${netCh.toLocaleString('fr-CH')}/mois. Taux EUR à 0,97 → ~EUR ${netEur.toLocaleString('fr-CH')}. Côté italien, 24,5 % de l\'impôt à la source revient à votre commune de résidence (zone frontalière) et le crédit d\'impôt italien IRPEF clôture le calcul. Le calculateur Frontaliere Ticino couvre les deux régimes (ancien + nouvel accord).`;
 }
 
-function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string | null): Array<{ q: string; a: string }> {
+// Region-scoped `location` values (whole canton / all of Switzerland).
+// Canton-scoped callers either pass `cantonDisplay === location` or one of
+// these literals; city pages always pass a municipality name. Used to pick
+// the correct locative preposition in the FAQ ("in Ticino", not "a Ticino").
+const CH_REGION_NAMES = new Set(['Svizzera', 'Switzerland', 'Schweiz', 'Suisse']);
+const TI_REGION_NAMES = new Set(['Ticino', 'Tessin']);
+
+function isRegionLocation(location: string, cantonDisplay?: string | null): boolean {
+  const loc = (location || '').trim();
+  if (!loc) return false;
+  if (CH_REGION_NAMES.has(loc) || TI_REGION_NAMES.has(loc)) return true;
+  return !!cantonDisplay && cantonDisplay.trim() === loc;
+}
+
+function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string | null, regionScope: boolean): Array<{ q: string; a: string }> {
   const safeSector = sectorOrType || (locale === 'it' ? 'questo settore' : locale === 'en' ? 'this sector' : locale === 'de' ? 'diesem Sektor' : 'ce secteur');
   if (locale === 'it') {
     return [
@@ -290,7 +310,7 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
         a: `No: la "zona di frontiera" del Nuovo Accordo Italia-Svizzera 2024 è la stessa per tutto il Cantone Ticino — i comuni italiani entro 20 km dal confine svizzero. Quello che cambia da Lugano a Bellinzona è il tempo di percorrenza, non il regime fiscale. La residenza italiana resta nello stesso comune anche se cambi azienda da una città ticinese all\'altra.`,
       },
       {
-        q: `I titoli di studio italiani sono riconosciuti per ${safeSector} a ${location}?`,
+        q: `I titoli di studio italiani sono riconosciuti ${sectorOrType ? `nel settore ${sectorOrType}` : `per ${safeSector}`} ${regionScope ? 'in' : 'a'} ${location}?`,
         a: `Per la maggioranza dei ruoli privati il datore svizzero accetta il diploma o la laurea italiana direttamente, senza riconoscimento formale. Per le professioni regolamentate (sanitarie, ingegneria civile, avvocati, contabili) serve il riconoscimento da SBFI/SEFRI: la procedura dura 3-6 mesi e va avviata in parallelo all\'invio del CV, non a posteriori.`,
       },
       {
@@ -349,7 +369,7 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
       a: `Non : la "zone frontalière" de l\'accord 2024 est identique dans tout le canton du Tessin — les communes italiennes dans les 20 km de la frontière suisse. Ce qui change entre Lugano et Bellinzone est le temps de trajet, pas le régime fiscal. Votre résidence italienne reste dans la même commune même si vous changez d\'employeur entre les villes tessinoises.`,
     },
     {
-      q: `Les qualifications italiennes sont-elles reconnues pour ${safeSector} à ${location} ?`,
+      q: `Les qualifications italiennes sont-elles reconnues ${sectorOrType ? `pour le secteur ${sectorOrType}` : `pour ${safeSector}`} ${regionScope ? (CH_REGION_NAMES.has(location.trim()) ? `en ${location}` : `dans le canton de ${location}`) : `à ${location}`} ?`,
       a: `Pour la plupart des postes privés, l\'employeur suisse accepte directement le diplôme italien sans reconnaissance formelle. Pour les professions réglementées (santé, génie civil, avocats, comptables), la reconnaissance auprès du SBFI/SEFRI est requise : la procédure dure 3-6 mois et doit être lancée en parallèle des candidatures, pas après coup.`,
     },
     {
@@ -524,7 +544,7 @@ export function renderJobBoardCommuterContext(
     : buildCommuterParagraph(locale, location, row);
   const salaryParagraph = buildSalaryParagraph(locale, row);
   const scenarioCallout = buildScenarioCallout(locale, location, row);
-  const faq = buildFaq(locale, location, sectorOrType);
+  const faq = buildFaq(locale, location, sectorOrType, isRegionLocation(location, cantonDisplay));
   const crossLinks = buildCrossLinks(locale);
 
   const faqHtml = faq
@@ -746,7 +766,9 @@ const FAQ_ITEMS_CACHE = new Map<string, ReadonlyArray<FaqItem>>();
 const FAQ_ITEMS_CACHE_MAX = 30000;
 
 function faqItemsCacheKey(opts: JobBoardCommuterContextOpts): string {
-  return `${opts.locale}\x00${opts.location}\x00${opts.sectorOrType ?? ''}`;
+  // The region flag is derived from (location, cantonDisplay) and changes the
+  // emitted question wording, so it must be part of the key.
+  return `${opts.locale}\x00${opts.location}\x00${opts.sectorOrType ?? ''}\x00${isRegionLocation(opts.location, opts.cantonDisplay) ? '1' : '0'}`;
 }
 
 export function buildJobBoardCommuterFaqItems(opts: JobBoardCommuterContextOpts): ReadonlyArray<FaqItem> {
@@ -763,7 +785,7 @@ export function buildJobBoardCommuterFaqItems(opts: JobBoardCommuterContextOpts)
   }
 
   const { locale, location, sectorOrType = null } = opts;
-  const faq = buildFaq(locale, location, sectorOrType);
+  const faq = buildFaq(locale, location, sectorOrType, isRegionLocation(location, opts.cantonDisplay));
   const items: ReadonlyArray<FaqItem> = faq
     .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
     .map((f) => ({

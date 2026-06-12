@@ -23,6 +23,8 @@
  * works in both light and dark mode.
  */
 
+import { CALC_HREF as SHARED_CALC_HREF } from './jobBoardCommuterContext';
+
 export type ListingProseLocale = 'it' | 'en' | 'de' | 'fr';
 
 interface ListingProseVariant {
@@ -66,12 +68,9 @@ const LABELS: Record<ListingProseLocale, ListingProseLabels> = {
 // Mirror of services/router.ts slug tables — kept inline here so the
 // build plugin doesn't pull in the SPA router. If router slugs ever drift
 // these strings need to follow.
-const CALC_HREF: Record<ListingProseLocale, string> = {
-  it: '/',
-  en: '/en/',
-  de: '/de/',
-  fr: '/fr/',
-};
+// Re-exported single source (jobBoardCommuterContext) — the old local table
+// pointed at '/' and sent users to the homepage instead of the simulator.
+const CALC_HREF: Record<ListingProseLocale, string> = SHARED_CALC_HREF;
 const FX_HREF: Record<ListingProseLocale, string> = {
   it: '/comparatori/cambio-valuta/',
   en: '/en/comparators/currency-exchange/',

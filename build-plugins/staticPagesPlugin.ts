@@ -4370,7 +4370,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // the strip, pages whose ogT carries the brand suffix produce identical
  // <title> and <h1> strings (Semrush "Duplicate H1 and title tags").
  const stripBrand = (s: string) => s.replace(/\s*[|·]\s*Frontaliere Ticino\s*$/i, '').trim();
- const h1Fallback = stripBrand(seoData.ogT) || seoData.ogT;
+ // SERP-style ogT decorations (🔥 prefix, " | Aggiornate Oggi" tail) read as
+ // clickbait in an on-page <h1>. Strip leading pictographs and turn pipes
+ // into an em-dash: "🔥 5914 Offerte … | Aggiornate Oggi" →
+ // "5914 Offerte … — Aggiornate Oggi". The <title>/ogT keep their format.
+ const cleanH1 = (s: string) =>
+ s.replace(/^[\p{Extended_Pictographic}\u{FE0F}\s]+/u, '').replace(/\s*\|\s*/g, ' — ').trim();
+ const h1Fallback = cleanH1(stripBrand(seoData.ogT)) || seoData.ogT;
  // Last-resort discriminator: if title == fallback (page that lacks the
  // brand suffix entirely), append a separator so the strings still differ.
  // Apply via differentiateH1FromTitle (locale-aware) so the same protection

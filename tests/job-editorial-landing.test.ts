@@ -346,6 +346,33 @@ describe('jobEditorialLanding', () => {
     );
   });
 
+  it('keeps the canton display casing in lowercased care-variant labels', () => {
+    const jobs = [
+      job({ slug: 'educatore-comunita', title: 'Educatore sociale', company: 'Fondazione Crescere', location: 'Mendrisio', category: 'health', postedDate: '2026-03-07' }),
+    ];
+
+    const model = buildJobCareVariantLandingModel({
+      jobs,
+      locale: 'it',
+      clusterKey: 'educators',
+      now: '2026-03-09T10:00:00.000+01:00',
+      localizedSlug: (item) => String(item.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'cerca-lavoro-ticino',
+      localePrefix: '',
+    });
+
+    // The label is lowercased for mid-sentence use, but the canton display
+    // name must keep its casing ("educatori in Ticino", never "in ticino").
+    expect(model.feed.label).toBe('Offerte educatori in Ticino');
+    expect(model.latestLabel).toBe('Nuove offerte educatori in Ticino negli ultimi 3 giorni');
+    expect(model.heading).toBe('Educatori in Ticino');
+    // Intro carries the accent fixes (sanità / così) and the cased canton.
+    expect(model.intro).toContain('cluster sanità');
+    expect(model.intro).toContain('così puoi leggere');
+    expect(model.intro).toContain('educatori in Ticino');
+  });
+
   it('resolves location and location+type editorial descriptors from route slugs', () => {
     expect(resolveEditorialJobLandingDescriptor('infermieri-in-ticino')).toMatchObject({
       kind: 'nurses-hub',
