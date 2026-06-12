@@ -170,11 +170,17 @@ function edit(num, { add = [], remove = [] }) {
   catch (e) { console.log(`::warning::edit #${num} fallito: ${String(e).slice(0, 120)}`); }
 }
 
-/** Esiste una PR fix aperta o mergiata per questa issue? (head fix/issue-N) */
+/** Esiste una PR fix APERTA per questa issue? (head fix/issue-N).
+ * Solo `--state open`: una PR MERGED/CLOSED con la issue ancora aperta NON è
+ * "in lavorazione" — è il caso aggregate "PR parziale mergiata senza Closes"
+ * (#1049/#1707/#1824: agent:fix zombie per giorni perché `--state all`
+ * contava la PR mergiata come in-flight per sempre → mai rescue né park).
+ * Issue aperta + PR chiusa + vecchia = orfana: re-queue; il pre-flight
+ * already-resolved di issue-fix protegge dal re-run inutile se è done. */
 function hasFixPR(num) {
   for (const branch of [`fix/issue-${num}`]) {
     try {
-      const prs = gh(['pr', 'list', '--repo', REPO, '--head', branch, '--state', 'all', '--json', 'number', '--limit', '1']);
+      const prs = gh(['pr', 'list', '--repo', REPO, '--head', branch, '--state', 'open', '--json', 'number', '--limit', '1']);
       if (Array.isArray(prs) && prs.length) return true;
     } catch { /* ignore */ }
   }

@@ -1701,35 +1701,49 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 }
 
 /*
- * Related-search cluster crawler body (build-plugins/relatedSearchClustersPlugin.ts).
+ * Related-search cluster static body (build-plugins/relatedSearchClustersPlugin.ts).
  *
- * The plugin emits `<div class="related-search-cluster">` (H1 + ~9 KB unique
- * AI intro + cross-link graph + cross-canton job links) as the page body. It
- * is 100% crawler-only: the hydrated SPA renders all visible chrome inside
- * `#root`, so this static layer MUST be off-screen for sighted users while
- * staying in the DOM for crawlers + screen readers (Googlebot indexes
- * off-screen content with the same weight as standard accordion content).
- *
- * The recipe used to live inline on `style=` in the plugin; it was moved here
- * to save ~24 MB across ~180k cluster pages (the plugin comment at
- * relatedSearchClustersPlugin.ts:1561 documents this), but the rule went
- * missing from this file in the move — so the block rendered fully visible
- * in normal flow, duplicating the SPA's job listing below it. This is the
- * standard visually-hidden recipe; restoring it puts the block back off-screen
- * without dropping the SEO payload. Only relatedSearchClustersPlugin emits
- * this class, so the rule is safely scoped.
+ * The plugin emits `<div class="related-search-cluster">` (H1 + job links +
+ * prose + cross-link graph) as the page body. It is VISIBLE pre-hydration:
+ * these landings carry no other paintable content (the SPA renders inside
+ * `#root` only after ~60 chunks arrive), so the former clip-rect recipe
+ * (#1249) left users on a blank page until the SPA painted — FCP ~4s on a
+ * fast desktop, far worse on the 75% mobile share. The duplication bug that
+ * motivated #1249 (static body visible BELOW the hydrated JobBoard) is now
+ * fixed at the root: App.tsx's pre-paint useLayoutEffect toggles
+ * `main.cluster-seo-prose` to display:none together with
+ * `main.seo-static-content` — same choreography as every other static
+ * handoff, and the same behaviour the thin cluster variant
+ * (clusterThinShell.ts, class `seo-static-content static-cluster`) always
+ * had. tests/seo/seo-static-css.test.ts locks this contract.
  */
 .related-search-cluster {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  color: var(--color-body);
+  line-height: 1.65;
+}
+.related-search-cluster h1 {
+  color: var(--color-heading);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: 0 0 16px;
+}
+.related-search-cluster .cluster-seo-jobs {
+  list-style: none;
+  margin: 0 0 24px;
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
+}
+.related-search-cluster .cluster-seo-jobs li {
+  margin: 0;
+  border-bottom: 1px solid var(--color-edge);
+}
+.related-search-cluster .cluster-seo-jobs a {
+  display: block;
+  padding: 12px 4px;
+  color: var(--color-heading);
+  text-decoration: none;
 }
 
 /* ── Fuel daily / station pages (fuelDailyPagesPlugin) ───────────────────

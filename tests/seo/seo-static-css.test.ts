@@ -25,60 +25,61 @@ describe('seo-static.css', () => {
     expect(selectors.has('.s-zzuqwx')).toBe(true);
   });
 
-  // Regression guard: relatedSearchClustersPlugin emits the crawler-only
-  // `<div class="related-search-cluster">` body and relies on THIS file
-  // carrying the off-screen (visually-hidden) recipe — the inline `style=`
-  // was dropped to save ~24 MB across ~180k cluster pages. When the rule
-  // went missing the block rendered fully visible in normal flow, duplicating
-  // the SPA's hydrated job listing below it. Keep the rule (and its
-  // off-screen positioning) so the SEO payload stays in the DOM for crawlers
-  // without being visible to sighted users.
-  it('keeps the .related-search-cluster crawler body off-screen (visually hidden)', () => {
+  // Regression guard (inverted from the #1249 clip-rect lock): the cluster
+  // static body must be VISIBLE pre-hydration. These landings have no other
+  // paintable content — `#root` is empty until the SPA chunks arrive — so an
+  // off-screen/hidden recipe here means users stare at a blank page until
+  // hydration (measured FCP ~4s desktop, worse on the 75% mobile share).
+  // The duplication bug #1249 worked around (static body visible BELOW the
+  // hydrated JobBoard) is fixed at the root in App.tsx, whose pre-paint
+  // useLayoutEffect hides `main.cluster-seo-prose` on hydration — asserted
+  // by the companion test below.
+  it('keeps the .related-search-cluster body visible pre-hydration (no off-screen recipe)', () => {
     const css = fs.readFileSync(CSS_PATH, 'utf8');
     const root = postcss.parse(css, { from: CSS_PATH });
 
     let rule: postcss.Rule | undefined;
     root.walkRules('.related-search-cluster', (r) => {
-      rule = r;
+      if (rule === undefined) rule = r;
     });
     expect(rule, '.related-search-cluster rule must exist in seo-static.css').toBeDefined();
 
     const decls = new Map<string, string>();
-    rule!.walkDecls((d) => decls.set(d.prop, d.value));
+    rule!.walkDecls((d) => decls.set(d.prop.toLowerCase(), d.value));
 
-    // The off-screen recipe: out of flow + clipped to 1px so sighted users
-    // see nothing while the content stays in the DOM for crawlers.
-    expect(decls.get('position')).toBe('absolute');
-    expect(decls.get('width')).toBe('1px');
-    expect(decls.get('height')).toBe('1px');
-    expect(decls.get('overflow')).toBe('hidden');
-    expect(decls.get('clip')).toMatch(/rect\(\s*0/);
+    // No hide vector may reappear: any single one of these blanks the page
+    // pre-hydration again.
+    expect(decls.get('display')).not.toBe('none');
+    expect(decls.get('visibility')).not.toBe('hidden');
+    expect(decls.get('position')).not.toBe('absolute');
+    expect(decls.get('width')).not.toBe('1px');
+    expect(decls.get('height')).not.toBe('1px');
+    expect(decls.has('clip')).toBe(false);
+    expect(decls.has('clip-path')).toBe(false);
+  });
+
+  // Companion contract: App.tsx must hide `main.cluster-seo-prose` in the
+  // same pre-paint useLayoutEffect that handles `main.seo-static-content`.
+  // Without it, the now-visible static body duplicates the hydrated
+  // JobBoard below the SPA view — the exact regression #1249 was papering
+  // over with the clip-rect.
+  it('App.tsx pre-paint toggle covers main.cluster-seo-prose', () => {
+    const appSrc = fs.readFileSync(path.resolve(process.cwd(), 'App.tsx'), 'utf8');
+    expect(appSrc).toMatch(/main\.seo-static-content,\s*main\.cluster-seo-prose/);
   });
 });
 
-// Cascade-source guard (follow-up #1257, deferred from #1249 review).
+// Cascade-source guard (inverted by the visible-pre-hydration contract).
 //
-// #1249 restored the off-screen `.related-search-cluster` recipe in
-// `seo-static.css`, but that file is only ONE layer of the cascade: every
-// cluster page also loads the hashed SPA bundle compiled from `index.css`
-// (`index-*.css`). If `index.css` later defines a more-specific or
-// later-source `.related-search-cluster` rule that resets `position` away
-// from `absolute`, the seo-static.css recipe is neutralised post-hydration
-// and the ~9 KB crawler-only body reflows VISIBLE on ~180k cluster pages —
-// re-opening the exact regression #1249 fixed, but invisible to the
+// Every cluster page loads BOTH `seo-static.css` and the hashed SPA bundle
+// compiled from `index.css`. With the static body now visible pre-hydration,
+// the failure mode flipped: a later-source `.related-search-cluster` (or
+// `.cluster-seo-prose`) rule in `index.css` that re-hides the block —
+// display:none, visibility:hidden, the old clip-rect recipe — silently
+// blanks ~180k cluster landings until the SPA paints, re-opening the
+// blank-page regression this PR fixed without failing the
 // seo-static.css-only guard above.
-//
-// Symmetrically, the wrapper `<main class="cluster-seo-prose">` (the plugin
-// keeps it OFF `seo-static-content` on purpose, relatedSearchClustersPlugin
-// line ~1602, so it dodges the SPA lite-shell detector). Its only child is
-// `position:absolute`, so the wrapper collapses to 0 height — UNLESS a
-// `cluster-seo-prose` rule in `index.css` adds `padding`/`min-height`,
-// which would leave a visible whitespace gap (added CLS → depressed Auto
-// Ads RPM) even with the child off-screen.
-//
-// This guard fails the build if either competing rule appears in the SPA
-// bundle source, locking the verification both review items deferred.
-describe('index.css (SPA bundle source) cascade does not un-hide the cluster', () => {
+describe('index.css (SPA bundle source) cascade does not re-hide the cluster body', () => {
   const collectRules = (selectorPart: string): postcss.Rule[] => {
     const css = fs.readFileSync(SPA_CSS_PATH, 'utf8');
     const root = postcss.parse(css, { from: SPA_CSS_PATH });
@@ -89,54 +90,33 @@ describe('index.css (SPA bundle source) cascade does not un-hide the cluster', (
     return matches;
   };
 
-  // The off-screen recipe hides the body with SIX co-operating properties
-  // (`seo-static.css:1722`): position:absolute; width:1px; height:1px;
-  // overflow:hidden; clip:rect(0,0,0,0); clip-path:inset(50%). Resetting ANY
-  // single one to its visible value un-hides the ~9 KB body — e.g.
-  // `width:auto`, `overflow:visible`, `clip:auto`, `clip-path:none` reflow it
-  // WITHOUT touching `position`. A position-only guard locks 1 vector of 6;
-  // `width` is the most likely culprit. So assert every hide-critical decl
-  // that `index.css` defines on `.related-search-cluster` keeps a hidden
-  // value (matchers mirror the recipe).
-  const HIDE_DECL_GUARDS: Record<string, RegExp> = {
+  // Any single one of these declarations hides the body pre-hydration.
+  const HIDE_VECTORS: Record<string, RegExp> = {
+    display: /^none$/i,
+    visibility: /^hidden$/i,
     position: /^absolute$/i,
     width: /^1px$/i,
     height: /^1px$/i,
-    overflow: /^hidden$/i,
-    clip: /^rect\(\s*0/i,
+    clip: /^rect\(/i,
     'clip-path': /^inset\(/i,
+    opacity: /^0$/,
   };
 
-  it('does not reset any .related-search-cluster hide property out of the off-screen recipe', () => {
-    for (const rule of collectRules('.related-search-cluster')) {
-      rule.walkDecls((d) => {
-        const prop = d.prop.toLowerCase();
-        const expected = HIDE_DECL_GUARDS[prop];
-        if (!expected) return;
-        expect(
-          expected.test(d.value.trim()),
-          `index.css rule "${rule.selector}" sets ${d.prop}:${d.value} on ` +
-            `.related-search-cluster — this un-hides the crawler-only body ` +
-            `(reflows VISIBLE on ~180k cluster pages post-hydration, re-opening ` +
-            `the #1249 regression). Keep the off-screen recipe value or drop the ` +
-            `override.`,
-        ).toBe(true);
-      });
-    }
-  });
-
-  it('does not give .cluster-seo-prose wrapper a visible footprint (padding/min-height/height/border)', () => {
-    for (const rule of collectRules('cluster-seo-prose')) {
-      rule.walkDecls(/^(padding|min-height|height|border)/, (d) => {
-        const collapses = /^(0|0px|0em|0rem|none)$/i.test(d.value.trim());
-        expect(
-          collapses,
-          `index.css rule "${rule.selector}" sets ${d.prop}:${d.value} on the ` +
-            `cluster wrapper — its child is position:absolute, so this leaves a ` +
-            `visible whitespace gap (added CLS) on ~180k cluster pages. Keep the ` +
-            `wrapper collapsible (no padding / min-height / height / border).`,
-        ).toBe(true);
-      });
+  it('does not hide .related-search-cluster or .cluster-seo-prose pre-hydration', () => {
+    for (const selectorPart of ['.related-search-cluster', 'cluster-seo-prose']) {
+      for (const rule of collectRules(selectorPart)) {
+        rule.walkDecls((d) => {
+          const hideMatcher = HIDE_VECTORS[d.prop.toLowerCase()];
+          if (!hideMatcher) return;
+          expect(
+            hideMatcher.test(d.value.trim()),
+            `index.css rule "${rule.selector}" sets ${d.prop}:${d.value} — this ` +
+              `re-hides the cluster static body pre-hydration, blanking ~180k ` +
+              `cluster landings until the SPA paints. Hiding-on-hydration is ` +
+              `App.tsx's job (pre-paint useLayoutEffect), not the stylesheet's.`,
+          ).toBe(false);
+        });
+      }
     }
   });
 });

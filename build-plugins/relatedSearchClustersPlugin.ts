@@ -1527,16 +1527,19 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   </details>`;
 
   // ── Body ────────────────────────────────────────────────────────
-  // 100% crawler-only. The SPA's hydrated JobBoard renders all visible
-  // chrome for users (sub-nav, breadcrumb, search-query header, JobCard
-  // grid, footer) inside `#root`. This static body holds the H1 + ~9KB
-  // prose ONLY for crawlers + screen readers — wrapped in an off-screen
-  // (clip-rect) container so sighted users see absolutely nothing from
-  // the static layer. No `hubChrome` is passed below either, so the
+  // Visible PRE-hydration, hidden at hydration. The SPA's hydrated JobBoard
+  // renders all visible chrome for users (sub-nav, breadcrumb, search-query
+  // header, JobCard grid, footer) inside `#root`; until those chunks arrive
+  // this static body (H1 + job links + prose) is the ONLY paintable content
+  // on the page, so it renders in normal flow — the former clip-rect
+  // recipe (#1249) blanked these landings until SPA paint (FCP ~4s desktop).
+  // App.tsx's pre-paint useLayoutEffect flips `main.cluster-seo-prose` to
+  // display:none on hydration, so it never duplicates the JobBoard.
+  // No `hubChrome` is passed below either, so the
   // sub-nav strip we previously emitted as a static sibling is gone.
   // SEO content stays in DOM (Googlebot indexes it with the same weight
   // as standard `<details>` accordion content per Search Central docs).
-  // Crawler-indexable job list. Always emitted (off-screen, no visual impact)
+  // Job list is always emitted
   // so the static HTML carries cross-canton job references even when the
   // SPA's canton-scoped grid would render zero — mirrors the SPA's Tier 3
   // cross-canton fallback at the build layer. Each link points to the job's
@@ -1560,11 +1563,11 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     : '';
 
   // The `.related-search-cluster` class in `public/assets/seo-static.css`
-  // carries the same `position:absolute;width:1px;...;border:0` recipe that
-  // used to live inline on `style=` here. Dropping the inline form saves
+  // carries the visible-pre-hydration layout (max-width, padding, job-list
+  // styling). Keeping it class-based (not inline `style=`) saves
   // ~132 B × 180k cluster pages = ~24 MB on the dist artifact. The class
   // is loaded by the shared `seoStaticCssLink` that every cluster page
-  // already imports — no extra request, identical computed style.
+  // already imports — no extra request.
   const bodyHtml = `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
     ${jobLinksHtml}
