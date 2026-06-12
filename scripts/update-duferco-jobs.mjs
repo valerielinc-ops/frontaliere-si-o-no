@@ -12,6 +12,7 @@ import {
   fetchAllDufercoJobs,
   isDufercoJob,
   isTrustedDomain,
+  dufercoMatchKey,
   DUFERCO_KEY,
   DUFERCO_COMPANY_NAME,
 } from './lib/duferco-job-parser.mjs';
@@ -26,6 +27,10 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllDufercoJobs,
   isCompanyJob: isDufercoJob,
   isTrustedDomain,
+  // Key the merge on the stable `/job/{jobId}` token so a Talentics title edit
+  // (which regenerates the slug) preserves previousSlugs + translations instead
+  // of orphaning the indexed URL. See dufercoMatchKey docblock (#1707 item 2).
+  matchKey: dufercoMatchKey,
   defaultSourceLang: 'en',
 }).catch((err) => {
   console.error(`❌ Duferco crawler failed: ${err?.message || err}`);
