@@ -1,49 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-06-12T12:04:10.012Z",
+  "generatedAt": "2026-06-12T22:18:50.930Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18887,
-  "avgDurationMs": 18887,
+  "durationMs": 19608,
+  "avgDurationMs": 19608,
   "durationHistory": [
-    18887
+    19608
   ],
-  "newJobs": [
-    {
-      "title": "Senior Immobilienmakler/in 50-100%",
-      "slug": "senior-immobilienmakler-in-50-100-engel-voelkers-frauenfeld",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
@@ -336,46 +305,45 @@
         "translation": 19,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Posizione aperta: consulente immobiliare (m/w/d) – 100% | Lugano",
-      "slug": "posizione-aperta-consulente-immobiliare-m-w-d-100-lugano-ticino-premium-properties-sa-lugano",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/da8aa31b-7f06-4058-86c1-2d0c58bf5d86",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/da8aa31b-7f06-4058-86c1-2d0c58bf5d86",
-      "company": "Ticino Premium Properties SA",
+      "title": "Senior Immobilienmakler/in 50-100%",
+      "slug": "senior-immobilienmakler-in-50-100-engel-voelkers-frauenfeld",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
+      "company": "buutiq Immobilien AG",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "AG",
       "addressCountry": "CH",
-      "canton": "TI",
+      "canton": "AG",
       "country": "CH",
       "category": "sales",
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-11",
+      "sourceLang": "de",
+      "postedDate": "2026-06-12",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "engel-voelkers-d0aa19ee3854",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
+      "id": "engel-voelkers-6bae9762160e",
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 127000,
       "currency": "CHF",
-      "streetAddress": "Via Nassa 17",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-04-22T09:54:24.792Z",
-      "_qualityScore": 89,
+      "postalCode": "8500",
+      "firstSeenAt": "2026-06-12T12:04:10.011Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 25
+        "richness": 18,
+        "translation": 16,
+        "completeness": 22
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
