@@ -98,6 +98,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Check PAT load-failure + expiry
+        id: patcheck
         env:
           WARN_DAYS: ${{ inputs.warn_days || '30' }}
           # GH_REPO is consumed by github-issue-creator.mjs for the --repo flag.
@@ -132,8 +133,13 @@ jobs:
             else
               echo "✅ PAT authenticates as '$LOGIN'."
               HEADERS="$(GH_TOKEN="$GITHUB_PAT" gh api -i / 2>/dev/null || true)"
+              # `|| true` obbligatorio: con `set -euo pipefail` un grep senza
+              # match (PAT classic SENZA header expiration = il caso normale)
+              # esce 1 e uccide lo script PRIMA di ogni alert/recovery — il
+              # monitor e' morto cosi' a OGNI run dal 2026-06-01 al 06-12,
+              # in silenzio (vedi fix + self-alert in fondo al workflow).
               EXPIRY="$(printf '%s\n' "$HEADERS" \
-                | grep -i '^github-authentication-token-expiration:' \
+                | { grep -i '^github-authentication-token-expiration:' || true; } \
                 | head -n1 \
                 | sed -E 's/^[^:]+:[[:space:]]*//' \
                 | tr -d '\r')"
@@ -176,6 +182,7 @@ jobs:
               --label automation \
               --workflow "GH_PAT Expiry Monitor"
 
+            echo "intentional_fail=true" >> "$GITHUB_OUTPUT"
             echo "::error::GITHUB_PAT load-failure detected — failing the run after filing the urgent alert."
             exit 1
           fi
@@ -252,6 +259,27 @@ jobs:
           node scripts/lib/github-issue-creator.mjs \
             --title "$EXPIRY_TITLE" \
             --description "$DESCRIPTION" \
+            --priority 2 \
+            --label automation \
+            --workflow "GH_PAT Expiry Monitor"
+
+      # Watcher-del-watcher: il monitor e' l'unico presidio del PAT-down, ma se
+      # CRASHA per un bug proprio (es. pipeline EXPIRY sotto pipefail, rotto
+      # in silenzio 2026-06-01->06-12) nessuno se ne accorge e tutta la
+      # rilevazione+recovery e' morta. Su failure NON intenzionale → issue
+      # dedup (titolo stabile, github-issue-creator) cosi' il loop issue-fix
+      # o l'owner la vedono subito. GH_TOKEN = GITHUB_TOKEN (il PAT potrebbe
+      # essere proprio la cosa rotta).
+      - name: Self-alert on monitor crash (dedup, zero-Claude)
+        if: failure() && steps.patcheck.outputs.intentional_fail != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "PAT monitor crashed: gh-pat-expiry-monitor failing" \
+            --description "Il run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} e' FALLITO senza passare dal path intenzionale di PAT-down ('intentional_fail' assente). Significa che il monitor stesso e' rotto: finche' non viene fixato, NESSUNO rileva un PAT-down ne' auto-chiude l'alert canonico. Storico: un bug pipefail l'ha tenuto rosso in silenzio dal 2026-06-01 al 06-12. Leggi il log del run e fixa la root cause." \
             --priority 2 \
             --label automation \
             --workflow "GH_PAT Expiry Monitor"

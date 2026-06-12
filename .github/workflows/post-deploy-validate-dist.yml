@@ -303,7 +303,11 @@ jobs:
           SRC_PASS=0
           SRC_FAIL=0
           while IFS= read -r line; do
-            rc=$(printf '%s' "$line" | grep -oE 'rc=[0-9]+$' | sed 's/rc=//')
+            # `|| true`: riga malformata (senza rc=N) + set -euo pipefail
+            # ucciderebbe il summary a meta' loop (stessa classe del bug che ha
+            # tenuto rosso gh-pat-expiry-monitor 06-01->06-12); rc vuoto cade
+            # nel ramo FAIL ed e' visibile, niente crash.
+            rc=$(printf '%s' "$line" | { grep -oE 'rc=[0-9]+$' || true; } | sed 's/rc=//')
             if [ "$rc" = "0" ]; then
               printf "✅ PASS  %s\n" "$line"
               SRC_PASS=$((SRC_PASS + 1))
@@ -505,7 +509,11 @@ jobs:
           PB_PASS=0
           PB_FAIL=0
           while IFS= read -r line; do
-            rc=$(printf '%s' "$line" | grep -oE 'rc=[0-9]+$' | sed 's/rc=//')
+            # `|| true`: riga malformata (senza rc=N) + set -euo pipefail
+            # ucciderebbe il summary a meta' loop (stessa classe del bug che ha
+            # tenuto rosso gh-pat-expiry-monitor 06-01->06-12); rc vuoto cade
+            # nel ramo FAIL ed e' visibile, niente crash.
+            rc=$(printf '%s' "$line" | { grep -oE 'rc=[0-9]+$' || true; } | sed 's/rc=//')
             if [ "$rc" = "0" ]; then
               printf "✅ PASS  %s\n" "$line"
               PB_PASS=$((PB_PASS + 1))

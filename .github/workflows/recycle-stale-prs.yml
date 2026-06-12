@@ -164,3 +164,33 @@ jobs:
             fi
           done
           echo "Recycle scan completo."
+
+      # Visibilita' needs-human: il 🔴-fixer al round-cap etichetta `needs-human`
+      # e STOPPA (by-design), ma NESSUN processo rilancia o segnala quelle PR —
+      # restano ferme finche' l'owner non guarda a mano la PR list (osservato
+      # #1526: 102h di latenza). Issue dedup giornaliera (titolo stabile, si
+      # aggiorna via recurrence-comment) finche' esistono PR needs-human aperte.
+      - name: Surface needs-human PRs (dedup, zero-Claude)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          LIST=$(gh pr list --repo "$GH_REPO" --state open --label needs-human \
+            --json number,title,updatedAt \
+            --jq '.[] | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
+          if [ -z "$LIST" ]; then
+            echo "Nessuna PR needs-human aperta."
+            exit 0
+          fi
+          COUNT=$(printf '%s\n' "$LIST" | wc -l | tr -d ' ')
+          echo "PR needs-human aperte: $COUNT"
+          DESC=$(printf 'Il fixer dei red-flag ha raggiunto il round-cap su queste PR e si e fermato (anti-loop): nessun processo automatico le sblocchera. Servono occhi umani:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esistono PR needs-human. Chiudila quando la lista e vuota._' "$LIST")
+          node scripts/lib/github-issue-creator.mjs \
+            --title "needs-human: PR bloccate in attesa di revisione umana" \
+            --description "$DESC" \
+            --priority 2 \
+            --label automation \
+            --workflow "Recycle stale PRs"

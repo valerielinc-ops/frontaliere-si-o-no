@@ -90,6 +90,37 @@ function hasLgtmReview(num) {
   );
 }
 
+/** Esiste ALMENO una review claude-bot (LGTM o 🔴, qualunque esito)? Serve a
+ * distinguere la classe-A "review mai postata" (workflow-validation drift 401:
+ * run review fallita, body vuoto) da "review postata con 🔴" (gestita dal
+ * redflag-fixer, NON va ri-triggerata qui). */
+function hasAnyClaudeReview(num) {
+  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
+  if (!Array.isArray(reviews)) return true; // fail-safe: su errore API assumi review esistente (no reopen)
+  return reviews.some(
+    (r) => r.user && r.user.type === 'Bot' && /^claude/i.test(r.user.login || '')
+  );
+}
+
+/** Re-trigger DETERMINISTICO di review+tests per una PR classe-A: il push PAT
+ * non ri-triggera `pull_request` in modo affidabile e pr-review-loop non ha
+ * workflow_dispatch — ma un close+reopen via PAT emette `reopened`, che
+ * triggera SIA pr-review-loop SIA tests.yml. Senza questo, una PR rebasata ma
+ * senza review resta senza LGTM fino al recycle 24h (finestra morta ~22h
+ * osservata, dead-end #4 della mappa loop 2026-06-12). */
+function reopenToRetrigger(num) {
+  if (DRY) { console.log(`[dry] close+reopen #${num} (re-trigger review+tests)`); return true; }
+  const closed = gh(['pr', 'close', String(num), '--repo', REPO], { json: false, allowFail: true });
+  if (closed === null) { console.log(`PR #${num}: close fallito — skip reopen.`); return false; }
+  const reopened = gh(['pr', 'reopen', String(num), '--repo', REPO], { json: false, allowFail: true });
+  if (reopened === null) {
+    // Mai lasciare la PR chiusa: retry una volta, poi log forte.
+    const retry = gh(['pr', 'reopen', String(num), '--repo', REPO], { json: false, allowFail: true });
+    if (retry === null) { console.log(`::error::PR #${num} chiusa ma reopen FALLITO due volte — riaprire a mano!`); return false; }
+  }
+  return true;
+}
+
 /** behind_by: commit di main non nella head. */
 function behindMain(head) {
   const out = gh(['api', `repos/${REPO}/compare/main...${head}`, '--jq', '.behind_by // 0'],
@@ -173,10 +204,11 @@ async function processPR(pr) {
   const labels = (pr.labels || []).map((l) => l.name);
 
   // GATE frugalità: solo near-merge.
+  const lgtm = hasLgtmReview(num);
   const nearMerge =
     labels.includes('collision-risk') ||
     labels.includes('stale-review') ||
-    hasLgtmReview(num);
+    lgtm;
   if (!nearMerge) {
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review) — skip.`);
     return;
@@ -193,8 +225,15 @@ async function processPR(pr) {
     // appena un run è queued, headHasVitestCheck torna true → niente
     // ri-dispatch. Nessun rebase, nessuna review Claude.
     if (!headHasVitestCheck(head)) {
-      console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests.yml (heal, no rebase).`);
-      dispatchTests(num, branch);
+      if (!lgtm && !hasAnyClaudeReview(num)) {
+        // Classe-A: nemmeno la review esiste (drift 401) — il solo vitest non
+        // sblocca (auto-merge esige LGTM). Reopen = review+tests insieme.
+        console.log(`PR #${num} 0 dietro main, NESSUNA review claude e niente vitest → close+reopen (re-trigger review+tests).`);
+        reopenToRetrigger(num);
+      } else {
+        console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests.yml (heal, no rebase).`);
+        dispatchTests(num, branch);
+      }
     } else {
       console.log(`PR #${num} 0 dietro main, vitest già presente sull'head — skip.`);
     }
@@ -272,6 +311,17 @@ async function processPR(pr) {
   // auto-merge-eval (contributo PR invariato su un rebase di solo main-merge),
   // quindi NESSUNA review Opus/Sonnet gira di nuovo. Best-effort: se il
   // dispatch fallisce (PAT senza scope actions:write) lo logghiamo soltanto.
+  if (!lgtm && !hasAnyClaudeReview(num)) {
+    // Classe-A (review mai postata per drift 401): ora il branch è allineato a
+    // main → la workflow-validation passa, ma serve ri-triggerare la review.
+    // Un dispatch non esiste per pr-review-loop → close+reopen (= reopened
+    // event: review + tests insieme). Costa UNA review Claude, che è comunque
+    // dovuta: la PR non ne ha mai avuta una.
+    if (reopenToRetrigger(num)) {
+      console.log(`✅ PR #${num}: rebasata, pushata e ri-aperta (classe-A senza review) → review+tests ri-triggerati.`);
+    }
+    return;
+  }
   if (dispatchTests(num, branch)) {
     console.log(`✅ PR #${num}: rebasata su origin/main, pushata (${branch}) e dispatchato tests.yml → vitest sull'head; LGTM carry-forward, zero Claude.`);
   }
