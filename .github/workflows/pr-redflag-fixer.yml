@@ -174,7 +174,11 @@ jobs:
           show_full_output: true
           # Le review/PR autonome sono di claude[bot] / github-actions[bot].
           allowed_bots: 'github-actions[bot], claude[bot]'
-          claude_args: "--max-turns 30 --model ${{ steps.guard.outputs.model }} --allowedTools 'Bash(gh:*),Bash(git:*),Bash(npm:*),Bash(node:*),Bash(rg:*),Bash(ls:*),Bash(cat:*),Read,Grep,Glob,Edit,Write'"
+          # 30->45 (misurato 06-12): 25 fail vs 20 success in 7gg, TUTTI
+          # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
+          # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run
+          # opus senza commit e lascia il rosso alla escalation needs-human.
+          claude_args: "--max-turns 45 --model ${{ steps.guard.outputs.model }} --allowedTools 'Bash(gh:*),Bash(git:*),Bash(npm:*),Bash(node:*),Bash(rg:*),Bash(ls:*),Bash(cat:*),Read,Grep,Glob,Edit,Write'"
           prompt: |
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
 
