@@ -51,6 +51,7 @@ import { BASE_URL } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
+import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildClusterThinHtml } from './shared/clusterThinShell';
@@ -1527,16 +1528,19 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   </details>`;
 
   // ── Body ────────────────────────────────────────────────────────
-  // 100% crawler-only. The SPA's hydrated JobBoard renders all visible
-  // chrome for users (sub-nav, breadcrumb, search-query header, JobCard
-  // grid, footer) inside `#root`. This static body holds the H1 + ~9KB
-  // prose ONLY for crawlers + screen readers — wrapped in an off-screen
-  // (clip-rect) container so sighted users see absolutely nothing from
-  // the static layer. No `hubChrome` is passed below either, so the
+  // Visible PRE-hydration, hidden at hydration. The SPA's hydrated JobBoard
+  // renders all visible chrome for users (sub-nav, breadcrumb, search-query
+  // header, JobCard grid, footer) inside `#root`; until those chunks arrive
+  // this static body (H1 + job links + prose) is the ONLY paintable content
+  // on the page, so it renders in normal flow — the former clip-rect
+  // recipe (#1249) blanked these landings until SPA paint (FCP ~4s desktop).
+  // App.tsx's pre-paint useLayoutEffect flips `main.cluster-seo-prose` to
+  // display:none on hydration, so it never duplicates the JobBoard.
+  // No `hubChrome` is passed below either, so the
   // sub-nav strip we previously emitted as a static sibling is gone.
   // SEO content stays in DOM (Googlebot indexes it with the same weight
   // as standard `<details>` accordion content per Search Central docs).
-  // Crawler-indexable job list. Always emitted (off-screen, no visual impact)
+  // Job list is always emitted
   // so the static HTML carries cross-canton job references even when the
   // SPA's canton-scoped grid would render zero — mirrors the SPA's Tier 3
   // cross-canton fallback at the build layer. Each link points to the job's
@@ -1560,11 +1564,11 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     : '';
 
   // The `.related-search-cluster` class in `public/assets/seo-static.css`
-  // carries the same `position:absolute;width:1px;...;border:0` recipe that
-  // used to live inline on `style=` here. Dropping the inline form saves
+  // carries the visible-pre-hydration layout (max-width, padding, job-list
+  // styling). Keeping it class-based (not inline `style=`) saves
   // ~132 B × 180k cluster pages = ~24 MB on the dist artifact. The class
   // is loaded by the shared `seoStaticCssLink` that every cluster page
-  // already imports — no extra request, identical computed style.
+  // already imports — no extra request.
   const bodyHtml = `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
     ${jobLinksHtml}
@@ -1794,7 +1798,9 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
  * Inject a link to the per-locale hub into the existing job-board section
  * landing (emitted by `jobsSeoPagesPlugin`). Keeps the hub at BFS depth
  * ≤4 from `/`. If the section landing is missing (jobs plugin skipped),
- * we log a warning and skip — never fail.
+ * we log a warning and skip — never fail on a missing/unwritable file.
+ * The ONE hard failure is the page-weight guard at the end: an oversized
+ * landing must fail the build here rather than the post-deploy audit.
  */
 function injectHubLinkIntoSectionLanding(
   distDir: string,
@@ -1865,6 +1871,77 @@ function injectHubLinkIntoSectionLanding(
     fs.writeFileSync(sectionPath, patched, 'utf-8');
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write section landing:', err);
+  }
+
+  // Build-time page-weight guard. This injection is the last known mutator
+  // of the job-board landing, the only repeat offender of the post-deploy
+  // audit:page-weight gate (215 KB; broke at 200 KB on run 26112128794,
+  // again at 215 KB on run 27386112992 → issue #1887). Failing HERE turns
+  // "deploy → validate-dist red → rollback → prod frozen on a stale build"
+  // into a build-job failure that never reaches deploy and names the page.
+  // 205 KB (10 KB under the audit budget) so the build fails before the
+  // audit ever can. Do NOT raise either limit to pass a build — trim the
+  // data-driven blocks instead (see .jbx-* in seo-static.css for the
+  // 119 KB inline-style precedent).
+  const JOB_BOARD_LANDING_GUARD_BYTES = 205 * 1024;
+  const patchedBytes = Buffer.byteLength(patched, 'utf-8');
+  if (patchedBytes > JOB_BOARD_LANDING_GUARD_BYTES) {
+    throw new Error(
+      `[related-search-clusters] job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
+      `over the ${JOB_BOARD_LANDING_GUARD_BYTES} B build-time guard (audit:page-weight budget is 215 KB). ` +
+      `A data-driven block on this landing grew past its headroom — trim the offending block ` +
+      `(do not raise this guard or the audit budget; non-negotiable #1).`,
+    );
+  }
+}
+
+/**
+ * Inject the FULL hub page-N index into the per-locale orphan-query hub
+ * (/ricerca/, /en/search/, /de/suche/, /fr/recherche/ — emitted by
+ * orphanQueryLandingPlugin and linked from the depth-1 site index). PR #1915
+ * truncated the job-board paginator to head+tail for the page-weight
+ * budget, which orphaned every cluster page reachable only through hub
+ * pages 22..N (max-bfs-depth: +134k unreachable, deploy 27393621559
+ * rolled back). This block restores reachability on a page with ample
+ * byte headroom (~79 KB of 220 KB): site index (1) -> orphan hub (2) ->
+ * hub page-N (3) -> cluster page (4) stays within the depth-4 gate.
+ * Idempotent via the data marker; missing hub file -> warn and skip.
+ */
+function injectPageIndexIntoOrphanHub(distDir: string, locale: Locale): void {
+  const prefix = LOCALE_PREFIX[locale];
+  const section = ORPHAN_LANDING_SECTION[locale];
+  const hubPath = path.join(distDir, prefix.replace(/^\//, ''), section, 'index.html');
+  if (!fs.existsSync(hubPath)) {
+    console.warn(`\x1b[33m[related-search-clusters]\x1b[0m orphan-query hub missing at ${hubPath} — skipping page-index injection.`);
+    return;
+  }
+  let html: string;
+  try {
+    html = fs.readFileSync(hubPath, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to read orphan-query hub:', err);
+    return;
+  }
+  if (html.includes('data-related-search-pages-index="1"')) return;
+  const hubPagePaths = listEmittedHubPagePaths(distDir, locale);
+  if (hubPagePaths.length === 0) return;
+  const copy = COPY[locale];
+  const links = hubPagePaths.map((urlPath, idx) =>
+    `<a href="${esc(urlPath)}">${idx + 1}</a>`,
+  ).join(' ');
+  const block = `<nav data-related-search-pages-index="1" aria-label="${esc(copy.pageNavigatorLabel)}"><details><summary>${esc(copy.pageNavigatorLabel)} (${hubPagePaths.length})</summary><p>${links}</p></details></nav>`;
+  let patched: string | null = null;
+  if (html.includes('</main>')) {
+    patched = html.replace('</main>', `${block}\n</main>`);
+  }
+  if (!patched) {
+    console.warn(`\x1b[33m[related-search-clusters]\x1b[0m no insertion anchor in ${hubPath} — skipping page-index injection.`);
+    return;
+  }
+  try {
+    fs.writeFileSync(hubPath, patched);
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write orphan-query hub:', err);
   }
 }
 
@@ -2252,6 +2329,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           const __tCacheHitPatch = profileStart();
           for (const { locale, url } of restored.hubs) {
             injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
+            injectPageIndexIntoOrphanHub(distDir, locale);
           }
           // Discover whatever shards the cache restored (legacy single-file
           // or sharded) and re-advertise them in the master sitemap.
@@ -2683,6 +2761,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tHubInject = profileStart();
       for (const { locale, url } of cachedHubs) {
         injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
+        injectPageIndexIntoOrphanHub(distDir, locale);
       }
       profileRecord('inject-hub-link', __tHubInject);
       const __tSitemap = profileStart();

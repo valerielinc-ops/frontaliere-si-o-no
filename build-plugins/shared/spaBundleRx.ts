@@ -6,15 +6,14 @@
  *   <script ... src="/assets/index-entry.js">                          (same-origin)
  *   <script ... src="https://cdn.frontaliereticino.ch/assets/index-entry.js"> (ASSET_CDN)
  *
- * NB: the JS entry filename is now STABLE — `assets/index-entry.js`, NOT
- * content-hashed (vite.config.ts `entryFileNames`), so the prerendered pages
- * don't churn on every bundle rehash. The regex still matches it unchanged
- * because `entry` ∈ the hash charset (`index-<hashchars>+.js`). The entry CSS
- * is now ALSO stabilized to `assets/index.css` (vite.config.ts assetFileNames)
- * — content-hashing it meant a rotated hash 404'd from old cached HTML still
- * referencing the superseded name; a stable name always resolves. Its bytes
- * still change on real style changes, so like index-entry.js it must REVALIDATE
- * (public/_headers), not be served immutable.
+ * NB: EVERY bundler filename is now STABLE (vite.config.ts entryFileNames /
+ * chunkFileNames / assetFileNames — see the rationale there): the entry is
+ * `assets/index-entry.js` and the entry CSS is `assets/index.css`. The JS regex
+ * still matches the stable entry unchanged because `entry` ∈ the hash charset
+ * (`index-<hashchars>+.js`); the CSS regex keeps the hash OPTIONAL so it also
+ * matches a legacy hashed dist (audit replays of old artifacts). Bytes change
+ * under the same URL per deploy, so /assets/* must REVALIDATE (public/_headers),
+ * never be served immutable.
  *
  * The `[^"]*` before `/assets/` tolerates an optional origin prefix so the
  * match works whether Vite emitted a same-origin path or an absolute CDN URL

@@ -53,6 +53,34 @@ export function isDufercoJob(job) {
 }
 
 /**
+ * Stable crawl-time merge key for slug-bridge continuity across a title edit.
+ *
+ * The public detail URL is `https://duferco.talentics.ai/job/{jobId}` — the
+ * Talentics internal id NEVER encodes the title, so when Talentics edits a title
+ * (which regenerates `slug = slugify(title duferco city)`) the `/job/{jobId}`
+ * token is unchanged. Keying the merge on that token (instead of the full URL)
+ * keeps `mergePreserveLocaleData` matching old↔fresh by stable id, so it
+ * preserves the job `id`, carried-over translations, and — critically — captures
+ * the old slug into `previousSlugs` (the redirect bridge that stops the indexed
+ * URL becoming a 404 → de-index, the exact concern in issue #1707 item 2).
+ *
+ * The default `extractStableJobId(url)` already keys on the stable token when the
+ * jobId is a UUID / ≥6-digit / ≥10-hex run, and otherwise falls back to the full
+ * URL — which is title-stable TODAY only because the URL carries no slug segment.
+ * Making the key explicit removes that fragile dependency on the URL shape: it
+ * stays stable even if the URL later gains a `/{lang}/` prefix or a tracking
+ * query. Mirrors the onlyfy `/job/{hash}` matchKey used by
+ * vitrea-gesundheit / spitex-zuerich (same `/job/{id}` URL class).
+ *
+ * @param {{url?: string}} job
+ * @returns {string}
+ */
+export function dufercoMatchKey(job) {
+  const url = String(job?.url || '');
+  return url.match(/\/job\/([a-z0-9-]+)/i)?.[1] || url || '';
+}
+
+/**
  * Validate that a URL belongs to Duferco's domain.
  */
 export function isTrustedDomain(rawUrl = '') {

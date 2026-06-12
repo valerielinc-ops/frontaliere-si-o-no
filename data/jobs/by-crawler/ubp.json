@@ -59,7 +59,6 @@
         "responsabile-delle-operazioni-bancarie-union-bancaire-privee-london-united-kingdom",
         "agente-delle-operazioni-bancarie-union-bancaire-privee-london-united-kingdom"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:36.670Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -669,7 +668,6 @@
         "programma-di-laurea-team-dell-ufficio-operativo-union-bancaire-privee-geneva-switzerland",
         "programma-di-laurea-squadra-operativa-union-bancaire-privee-geneva-switzerland"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:28.504Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -842,7 +840,7 @@
         "it": "phone-operator-union-bancaire-privee-geneva-switzerland",
         "en": "phone-operator-ubp-ch",
         "de": "phone-operator-ubp-ch",
-        "fr": "phone-operator-ubp-ch"
+        "fr": "phone-operateur-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -884,15 +882,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phone-operator-ubp-ch",
-        "phone-operateur-union-bancaire-privee-geneva-switzerland"
+        "phone-operator-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "phone-operator-ubp-ch"
         ],
         "fr": [
-          "phone-operateur-union-bancaire-privee-geneva-switzerland",
           "phone-operator-ubp-ch"
         ]
       },
@@ -2108,7 +2104,6 @@
           "junior-transformation-officer-union-bancaire-privee-geneva-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:10.175Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -2327,7 +2322,6 @@
           "wealth-management-assistant-m-f-x-ubp-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T13:25:07.937Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2419,9 +2413,9 @@
     },
     {
       "id": "ubp-a98ca2f3d610",
-      "slug": "graduate-programme-investment-services-ubp-ch",
+      "slug": "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
       "slugByLocale": {
-        "it": "graduate-programme-investment-services-ubp-ch",
+        "it": "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
         "en": "graduate-programme-investment-services-ubp-ch",
         "de": "graduate-programme-investment-services-ubp-ch",
         "fr": "graduate-programme-investment-services-union-bancaire-privee-singapore-singapore"
@@ -2466,11 +2460,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore"
+        "graduate-programme-investment-services-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
           "graduate-programme-investment-services-ubp-ch"
         ]
       },
@@ -3119,7 +3112,6 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/716",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T23:44:11.389Z",
       "salaryMin": 49500,
       "salaryMax": 75000,

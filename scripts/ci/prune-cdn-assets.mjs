@@ -159,8 +159,11 @@ async function fetchActiveHashes() {
  */
 function readDistAssetHashes() {
   if (!existsSync(DIST_ASSETS_DIR)) return null;
-  const set = new Set(readdirSync(DIST_ASSETS_DIR).filter(f => VITE_ASSET_RX.test(f)));
-  console.log(`[janitor] dist/assets/ active hashes: ${set.size} (from ${DIST_ASSETS_DIR})`);
+  // EVERY file in dist/assets/ is active — stable names (App.js, index.css,
+  // seo-static.css, … — vite.config.ts stable-name policy) as much as any
+  // legacy hashed name. The set is a PROTECT list, so broader is safer.
+  const set = new Set(readdirSync(DIST_ASSETS_DIR));
+  console.log(`[janitor] dist/assets/ active filenames: ${set.size} (from ${DIST_ASSETS_DIR})`);
   return set;
 }
 
@@ -196,9 +199,14 @@ async function main() {
       return;
     }
 
-    // List Vite content-hashed asset files (excludes .hash-age.json and other non-Vite files)
-    const allFiles = readdirSync(assetsDir).filter(f => VITE_ASSET_RX.test(f));
-    console.log(`[janitor] ${allFiles.length} Vite asset file(s) in CDN assets/`);
+    // Bundle files in CDN assets/: legacy content-hashed (`name-<hash8>.ext`,
+    // prunable once superseded) + stable-named (`name.ext` — the vite.config.ts
+    // stable-name policy; they supersede the hashed generations of the same
+    // chunk). `.hash-age.json` and other non-bundle files match neither filter.
+    const allDirFiles = readdirSync(assetsDir);
+    const allFiles = allDirFiles.filter(f => VITE_ASSET_RX.test(f));
+    const stableFiles = allDirFiles.filter(f => /\.(js|css)$/.test(f) && !VITE_ASSET_RX.test(f));
+    console.log(`[janitor] ${allFiles.length} hashed + ${stableFiles.length} stable asset file(s) in CDN assets/`);
     if (allFiles.length === 0) {
       console.log('[janitor] nothing to do');
       return;
@@ -214,9 +222,11 @@ async function main() {
     const now = new Date().toISOString();
     const graceCutoffMs = Date.now() - GRACE_DAYS * 86_400_000;
 
-    // Register new hashes (firstSeen = now)
+    // Register new files (firstSeen = now). Stable files are registered too:
+    // their firstSeen anchors the supersededAt of the hashed generation they
+    // replace (same grace semantics as a hashed rotation).
     let newCount = 0;
-    for (const f of allFiles) {
+    for (const f of [...allFiles, ...stableFiles]) {
       if (!registry[f]) {
         registry[f] = now;
         newCount++;
@@ -273,6 +283,19 @@ async function main() {
       const key = `${m[1]}.${m[3]}`;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push({ file: f, firstSeen: registry[f] ?? now });
+    }
+    // A STABLE-named file (`chunkName.ext` — exactly a group's key) supersedes
+    // every hashed generation of that chunk: add it as a sibling so the legacy
+    // hashed files age out through the normal strictly-newer + grace path.
+    // Without this, the LAST hashed generation of each chunk would never gain
+    // a newer sibling after the stable-name cutover and would linger forever.
+    // The stable file itself is shielded from pruning by the dist/assets/
+    // protect set (it ships with every current build).
+    const allDirSet = new Set(allDirFiles);
+    for (const [key, entries] of groups) {
+      if (allDirSet.has(key)) {
+        entries.push({ file: key, firstSeen: registry[key] ?? now });
+      }
     }
 
     // Build prune list. A candidate is pruned ONLY when ALL hold:

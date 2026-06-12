@@ -58,10 +58,14 @@ export function truncateHeadline(headline: string, max: number): string {
   const lastSpace = sliced.lastIndexOf(' ');
   // Only use the word boundary if it sits past the halfway mark — otherwise
   // we'd amputate too much content and the truncation looks worse than a hard cut.
-  if (lastSpace > Math.floor(max / 2)) {
-    return sliced.slice(0, lastSpace).trimEnd() + '…';
-  }
-  return sliced.trimEnd() + '…';
+  const cut = lastSpace > Math.floor(max / 2)
+    ? sliced.slice(0, lastSpace)
+    : sliced;
+  // Never leave a dangling delimiter before the ellipsis: a cut that lands
+  // right after a separator token produces "Role —…" in the SERP (live
+  // offender: "…Produzione PPS —… · rif. zell"), which reads as broken
+  // markup and tanks CTR. Strip trailing separators/punctuation first.
+  return cut.replace(/[\s—–\-·|,;:&(]+$/u, '').trimEnd() + '…';
 }
 
 /**
@@ -113,26 +117,96 @@ export const JOB_TITLE_CITY_CONNECTOR: Record<string, string> = {
   fr: 'à',
 };
 
+/** Options for {@link composeSerpJobTitle}. */
+export interface SerpJobTitleOptions {
+  /**
+   * Human-readable uniqueness token (e.g. "80%", "CHF 60-75k", "apr 2027",
+   * "rif. a1b2c3d4"). Rendered as ` · ${token}` and ALWAYS kept inside the
+   * cap — the headline shrinks around it, never the other way round.
+   */
+  disambiguator?: string;
+  brand?: string;
+  maxChars?: number;
+}
+
+/**
+ * Compose a job-page SERP <title> with a CTR-first token-priority cascade.
+ *
+ * SERP real estate is ~60 chars; every token must earn its place. Priority
+ * (validated against Indeed / LinkedIn / Jobagent SERP patterns, which
+ * front-load role + location and treat the company as expendable):
+ *
+ *   role > city > company > brand
+ *
+ * Candidate cascade — the FIRST one that fits the budget wins:
+ *   1. "{role} — {company} {conn} {city}"   (everything fits)
+ *   2. "{role} {conn} {city}"               (drop company, keep location)
+ *   3. "{role} — {company}"                 (no city available)
+ *   4. "{role}"                             (only the role fits)
+ *   5. word-truncated role + " {conn} {city}" (city tail preserved)
+ *   6. word-truncated role                  (no city to preserve)
+ *
+ * The city is NEVER dropped while it fits: it carries the local search
+ * intent ("<role> <città>" queries) AND it is the disambiguator that keeps
+ * multi-sede roles (same title × N cities) from collapsing into duplicate
+ * titles (audit:title-uniqueness is a hard deploy gate). The company is the
+ * first token sacrificed: it already appears in the H1, meta description
+ * and JSON-LD `hiringOrganization`.
+ *
+ * The brand suffix is appended only when the final headline still fits
+ * (buildTitleWithBrand policy). The optional disambiguator is budgeted
+ * BEFORE the cascade so it always lands inside the cap.
+ *
+ * Pure string logic (no Node deps) shared by the SSG plugin path and the
+ * SPA runtime. Callers must apply their own multi-location guard before
+ * passing `city` (the blob "ganz Schweiz" etc. must not become a city token).
+ */
+export function composeSerpJobTitle(
+  jobTitle: string,
+  company: string,
+  city: string,
+  locale: string,
+  options: SerpJobTitleOptions = {},
+): string {
+  const brand = options.brand ?? TITLE_BRAND_SUFFIX;
+  const maxChars = options.maxChars ?? TITLE_MAX_CHARS;
+  const role = String(jobTitle || '').trim().replace(/\s+/g, ' ');
+  const cleanCompany = String(company || '').trim();
+  const cleanCity = String(city || '').trim();
+  const connector = JOB_TITLE_CITY_CONNECTOR[locale] || JOB_TITLE_CITY_CONNECTOR.it;
+  const disambToken = String(options.disambiguator || '').trim().replace(/\s+/g, ' ');
+  const disamb = disambToken ? ` · ${disambToken}` : '';
+  const budget = Math.max(1, maxChars - disamb.length);
+
+  const candidates = [
+    cleanCompany && cleanCity ? `${role} — ${cleanCompany} ${connector} ${cleanCity}` : '',
+    cleanCity ? `${role} ${connector} ${cleanCity}` : '',
+    cleanCompany ? `${role} — ${cleanCompany}` : '',
+    role,
+  ].filter(Boolean);
+  let headline = candidates.find((c) => c.length <= budget);
+  if (!headline) {
+    const cityTail = cleanCity ? ` ${connector} ${cleanCity}` : '';
+    const roleBudget = budget - cityTail.length;
+    // Preserve the city tail while a meaningful role fragment (≥12 chars)
+    // still fits; a malformed/oversized `city` (crawler body-text leak)
+    // falls through to role-only truncation so the cap always holds.
+    headline = cityTail && roleBudget >= 12
+      ? truncateHeadline(role, roleBudget) + cityTail
+      : truncateHeadline(role, budget);
+  }
+  return buildTitleWithBrand(headline + disamb, brand, maxChars);
+}
+
 /**
  * Build a job-detail <title> headline that PREFERS the offer location over the
- * brand suffix. The city rides inside the headline ("{role} — {company} a
- * {city}") and {@link buildTitleWithBrand} keeps the headline verbatim while
- * dropping " | Frontaliere Ticino" first when the title exceeds the cap — so a
- * concrete place always beats the generic brand in the SERP. Falls back to
- * role+company (or role alone) when the city/company is missing.
- *
- * Pure string logic (no Node deps) so it is shared by the SSG plugin path and
- * the SPA runtime (services/seoService.ts, components/community/JobBoard.tsx).
- *
- * NOTE — partial parity with the SSG `composeJobPageTitle`: this helper caps
- * the headline verbatim at `maxChars` (default 66), whereas the SSG composer
- * budgets the core against JOB_TITLE_MAX=70 with city-preserving truncation
- * AND appends a collision disambiguator. The SPA title therefore matches the
- * static <title> only for short, non-colliding jobs; for long/multi-sede
- * titles they diverge. Acceptable because the indexed authority is the static
- * <title> (which keeps the disambiguator); the SPA value is a JS-render
- * convenience. Callers must apply their own multi-location guard before
- * passing `city` (the blob "ganz Schweiz" etc. must not become a city token).
+ * brand suffix. Thin wrapper over {@link composeSerpJobTitle} (no
+ * disambiguator) kept for the SPA call sites (services/seoService.ts,
+ * components/community/JobBoard.tsx) — the SSG composer additionally appends
+ * a collision disambiguator, so SPA and static titles match for all
+ * non-colliding jobs and diverge only by the ` · token` suffix on colliding
+ * ones. Callers must apply their own multi-location guard before passing
+ * `city` (the blob "ganz Schweiz" etc. must not become a city token).
  */
 export function buildJobTitleWithLocation(
   jobTitle: string,
@@ -142,13 +216,5 @@ export function buildJobTitleWithLocation(
   brand: string = TITLE_BRAND_SUFFIX,
   maxChars: number = TITLE_MAX_CHARS,
 ): string {
-  const cleanTitle = String(jobTitle || '').trim();
-  const cleanCompany = String(company || '').trim();
-  const cleanCity = String(city || '').trim();
-  const connector = JOB_TITLE_CITY_CONNECTOR[locale] || JOB_TITLE_CITY_CONNECTOR.it;
-  let headline = cleanTitle;
-  if (cleanCompany && cleanCity) headline = `${cleanTitle} — ${cleanCompany} ${connector} ${cleanCity}`;
-  else if (cleanCompany) headline = `${cleanTitle} — ${cleanCompany}`;
-  else if (cleanCity) headline = `${cleanTitle} ${connector} ${cleanCity}`;
-  return buildTitleWithBrand(headline, brand, maxChars);
+  return composeSerpJobTitle(jobTitle, company, city, locale, { brand, maxChars });
 }
