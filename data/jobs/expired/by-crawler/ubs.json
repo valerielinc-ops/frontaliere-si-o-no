@@ -1191,53 +1191,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "consulente-clienti-privato-in-affluent-thun-80-100-ubs-ticino",
-    "title": "Privatkundenberater/in Affluent Thun, 80 - 100%",
-    "titleByLocale": {
-      "it": "Consulente clienti privato in Affluent Thun, 80 - 100 %",
-      "en": "Private client advisor in Affluent Thun, 80 - 100 %",
-      "de": "Privatkundenberater/in Affluent Thun, 80 - 100%",
-      "fr": "Consultant client privé à Affluent Thun, 80 - 100 %"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "it": "Descrizione Sei un'iniziativa, personalità socievole? E sei al meglio quando consigli ai clienti con l'aiuto delle ultime tecnologie? Contattateci. Siamo alla ricerca di un collega che ha un tocco per le preoccupazioni del cliente e si sente a proprio agio nel mondo digitale. E questi sono i vostri compiti principali: Mansioni - Catturano le esigenze versatili dei nostri clienti con precisione e li consigliano con competenza. - Dopo un periodo di formazione completo, supporta e elabora il proprio portafoglio clienti con clienti di investimento e mutuo. - Hanno un forte senso di soluzioni ottimali. Questo garantisce rapporti e punteggi a lungo termine con nuovi clienti. - Nella tua consulenza, fai anche affidamento su strumenti e app innovativi. Questo è il modo di portare i vostri clienti nel nostro viaggio nel futuro: li incoraggiate a utilizzare i nostri prodotti digitali e supportarli in questo modo.",
-      "en": "Descrizione Are you an initiative, sociable personality? And are you at your best when you advise customers with the help of the latest technologies? Please contact us. We are looking for a colleague who has a flair for the concerns of the customer and feels comfortable in the digital world. And these are your core tasks: Mansioni - They capture the versatile needs of our customers precisely and advise them competently. - After a comprehensive training period, you support and process your own customer portfolio with investment and mortgage customers. - They have a strong sense of optimal solutions. This ensures long-term customer relationships and scores with new customers. - In your consulting, you also rely on innovative tools and apps. This is how you take your customers on our journey into the future: you encourage them to use our digital products and support them in doing so.",
-      "de": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-      "fr": "Descrizione Êtes-vous une initiative, une personnalité sociable ? Et êtes-vous à votre meilleur quand vous conseillez les clients avec l'aide des dernières technologies? Veuillez nous contacter. Nous recherchons un collègue qui a un goût pour les préoccupations du client et qui se sent à l'aise dans le monde numérique. Et voici vos tâches principales : Mansioni - Ils saisissent précisément les besoins polyvalents de nos clients et les conseillent avec compétence. - Après une période de formation complète, vous aidez et traitez votre propre portefeuille client avec des clients d'investissement et d'hypothèque. - Ils ont un fort sens des solutions optimales. Cela garantit des relations client à long terme et des scores avec de nouveaux clients. - Dans votre consultation, vous comptez également sur des outils et des applications innovants. C'est ainsi que vous emmenez vos clients dans notre voyage à l'avenir : vous les encouragez à utiliser nos produits numériques et les aidez à le faire."
-    },
-    "slugByLocale": {
-      "it": "consulente-clienti-privato-in-affluent-thun-80-100-ubs-ticino",
-      "en": "private-client-advisor-in-affluent-thun-80-100-ubs-ticino",
-      "de": "privatkundenberater-in-affluent-thun-80-100-ubs",
-      "fr": "consultant-client-prive-a-affluent-thun-80-100-ubs-ticino"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-11T13:41:34.224Z",
-    "previousSlugs": [
-      "privatkundenberater-in-affluent-thun-80-100-ubs",
-      "privatkundenberater-in-affluent-langenthal-80-100-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "privatkundenberater-in-affluent-thun-80-100-ubs"
-      ],
-      "en": [
-        "privatkundenberater-in-affluent-thun-80-100-ubs"
-      ],
-      "fr": [
-        "privatkundenberater-in-affluent-thun-80-100-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "client-associate-ubs",
     "title": "Client Associate",
     "titleByLocale": {
@@ -6724,38 +6677,6 @@
         "hf-fx-sales-ubs"
       ]
     },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "supervisory-officer-ubs",
-    "title": "Supervisory Officer",
-    "titleByLocale": {
-      "en": "Supervisory Officer",
-      "it": "Supervisory Officer",
-      "de": "Supervisory Officer",
-      "fr": "Supervisory Officer"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-      "it": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-      "de": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-      "fr": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required"
-    },
-    "slugByLocale": {
-      "en": "supervisory-officer-ubs",
-      "it": "supervisory-officer-ubs",
-      "de": "supervisory-officer-ubs",
-      "fr": "supervisory-officer-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-04T23:16:56.864Z",
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
