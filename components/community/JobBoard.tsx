@@ -18,6 +18,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
 import { trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 import PublisherApplyForm from '@/components/community/PublisherApplyForm';
+import { renderPublisherMarkdown } from '@/services/publisherMarkdown';
 import {
  fetchAggregatedJobs,
  fetchAllJobs,
@@ -292,6 +293,10 @@ export interface JobListing {
  applyUrl?: string;
  source?: string;
  companyDomain?: string;
+ /** Publisher-provided logo URL (https-only, projected from the publish form). */
+ companyLogo?: string | null;
+ /** Markdown description (sponsored publisher ads only). */
+ descriptionMd?: string | null;
  sector?: string;
  previousSlugs?: string[];
  previousSlugsByLocale?: Partial<Record<string, string[]>>;
@@ -508,6 +513,7 @@ function companyLogoUrl(job: JobListing): string | null {
  companyKey: job.companyKey,
  companyDomain: job.companyDomain,
  url: job.url,
+ companyLogo: job.companyLogo,
  });
  // cdnImageUrl rewrites a same-origin /images/{brands,…} logo path to the CDN
  // at runtime when offloaded (#1360); external favicon/clearbit URLs pass through
@@ -2610,6 +2616,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedJob && authLoading) eagerAuth();
  }, [selectedJob, authLoading]);
 
+ // Deep-link from the static /lavoro/<slug>/candidatura/ CTA (publisher ads
+ // with in-house / forward-email apply): once the detail view renders, bring
+ // the apply form into view so the click lands on the form, not the header.
+ useEffect(() => {
+ if (!selectedJob) return;
+ if (!/\/candidatura\/?$/.test(window.location.pathname)) return;
+ document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ }, [selectedJob]);
+
  const sortedJobs = useMemo(() => {
  // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
  const swissJobs = jobs.filter(j => {
@@ -2634,6 +2649,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const withMeta = swissJobs.map(j => ({
  job: j,
+ // Sponsored (featured) ads bought the top placement — they outrank every
+ // other signal. Inventory is scarce by construction (FEATURED_SLOTS_PER_CANTON
+ // caps featured at 6/canton in the projection), so this can't flood the list.
+ sp: j.featured ? 1 : 0,
  rank: cantonRank(j),
  day: dayTs(j.crawledAt || j.postedDate),
  qs: j.qualityScore ?? 0,
@@ -2642,7 +2661,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  : { score: 0, topSignal: '' },
  }));
  withMeta.sort((a, b) =>
- (b.personal.score - a.personal.score)
+ (b.sp - a.sp)
+ || (b.personal.score - a.personal.score)
  || (a.rank - b.rank)
  || (b.day - a.day)
  || (b.qs - a.qs)
@@ -3177,22 +3197,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
  // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
  const filteredJobs = useMemo<JobListing[]>(() => {
+ // Sponsored ads matching the query surface above organic results, even when
+ // they arrive via a fallback tier (e.g. a sponsored ad from another canton
+ // appended after in-canton matches). Stable partition — relative order
+ // within each group is untouched, and featured is capped at 6/canton.
+ const featuredFirst = (list: JobListing[]): JobListing[] => {
+ if (!list.some((j) => j.featured)) return list;
+ return [...list.filter((j) => j.featured), ...list.filter((j) => !j.featured)];
+ };
  const inCanton = strictFilteredJobs.length > 0
  ? strictFilteredJobs
  : orFallbackInCantonJobs.length > 0
  ? orFallbackInCantonJobs
  : [];
  if (inCanton.length > 0) {
- if (crossCantonFallbackJobs.length === 0) return inCanton;
+ if (crossCantonFallbackJobs.length === 0) return featuredFirst(inCanton);
  const seen = new Set<string>();
  const merged: JobListing[] = [];
  for (const j of inCanton) { if (!seen.has(j.id)) { seen.add(j.id); merged.push(j); } }
  for (const j of crossCantonFallbackJobs) { if (!seen.has(j.id)) { seen.add(j.id); merged.push(j); } }
- return merged;
+ return featuredFirst(merged);
  }
- if (crossCantonFallbackJobs.length > 0) return crossCantonFallbackJobs;
- if (companyBroadeningFallbackJobs.length > 0) return companyBroadeningFallbackJobs;
- return crossLocaleFallbackJobs;
+ if (crossCantonFallbackJobs.length > 0) return featuredFirst(crossCantonFallbackJobs);
+ if (companyBroadeningFallbackJobs.length > 0) return featuredFirst(companyBroadeningFallbackJobs);
+ return featuredFirst(crossLocaleFallbackJobs);
  }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
@@ -6553,6 +6581,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  bullets: [],
  }, 'overview')}
 
+ {(selectedJob.descriptionMd && locale === 'it') ? (
+ // Sponsored publisher ads with a markdown description render the
+ // publisher-authored sections directly (same renderer as the static
+ // /lavoro/ page and the editor preview — escape-first, injection-safe).
+ // IT-only: the markdown source is publisher-written Italian; other
+ // locales keep their translated plain-text sections.
+ <div
+ className="hybrid-ab-section"
+ dangerouslySetInnerHTML={{ __html: renderPublisherMarkdown(selectedJob.descriptionMd) }}
+ />
+ ) : (
  <div className="hybrid-ab-timeline">
  {timelineSections.map((section, index) => (
  <div key={`${section.id}-${index}`} className="hybrid-ab-step">
@@ -6567,14 +6606,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  ))}
  </div>
+ )}
 
  {((selectedJob as { applyMode?: string }).applyMode === 'in_house'
  || (selectedJob as { applyMode?: string }).applyMode === 'forward_email') ? (
+ <div id="candidatura">
  <PublisherApplyForm
  jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
  publisherUid={String((selectedJob as { publisherUid?: string }).publisherUid || '')}
  jobTitle={String(selectedJob.title || '')}
  />
+ </div>
  ) : (
  <a
  className="hybrid-ab-cta"

@@ -25,7 +25,7 @@ import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
-import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
+import { detectJobTitleLang, detectJobTitleLocaleDetails, pinnedTitleSourceLang } from './job-locale-utils.mjs';
 import {
   heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
   // FRO-231: slug utilities extracted from this file
@@ -1743,8 +1743,12 @@ function ensureLocaleFields(job) {
     normalizeSpace(descriptionByLocale.de || '') ||
     normalizeSpace(descriptionByLocale.fr || '') ||
     baseDescription;
-  const sourceLang = detectLang(`${bestTitle} ${bestDescription}`, 'en');
-  const titleSourceLang = detectJobTitleLang(baseTitle || bestTitle, sourceLang);
+  // Publisher-authored records pin their declared source language — heuristic
+  // detection must never reclassify (and then "repair") the slot the employer
+  // wrote (see pinnedTitleSourceLang in job-locale-utils.mjs).
+  const pinnedLang = pinnedTitleSourceLang(out);
+  const sourceLang = pinnedLang || detectLang(`${bestTitle} ${bestDescription}`, 'en');
+  const titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
 
   // Detect the language of the raw base description separately — it may differ
