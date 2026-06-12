@@ -14128,7 +14128,7 @@
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
         "de": "strategic-account-executive-pathology-lab-roche-ch",
-        "fr": "strategic-account-executive-pathology-lab-roche-ch"
+        "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -14169,8 +14169,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+        "strategischer-account-executive-pathologielabor-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14180,7 +14179,6 @@
           "strategischer-account-executive-pathologielabor-roche-basel"
         ],
         "fr": [
-          "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ]
       },
@@ -57120,12 +57118,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -57165,16 +57163,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -88357,12 +88352,12 @@
     },
     {
       "id": "roche-d925f3fc6e81",
-      "slug": "intern-roche-ch-2",
+      "slug": "tirocinante-roche-basel",
       "slugByLocale": {
         "en": "intern-roche-ch",
-        "it": "intern-roche-ch-2",
-        "de": "intern-roche-ch-2",
-        "fr": "intern-roche-ch-2"
+        "it": "tirocinante-roche-basel",
+        "de": "praktikant-roche-basel",
+        "fr": "stagiaire-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88418,7 +88413,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-11T23:22:27.665Z"
+      "firstSeenAt": "2026-06-11T23:22:27.665Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-roche-ch-2"
+        ],
+        "de": [
+          "intern-roche-ch-2"
+        ],
+        "fr": [
+          "intern-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "intern-roche-ch-2"
+      ]
     },
     {
       "id": "roche-35d98350baa3",
@@ -89280,7 +89289,7 @@
         "en": "quality-business-analyst-roche-ch",
         "it": "quality-business-analyst-roche-ch",
         "de": "quality-business-analyst-roche-ch",
-        "fr": "quality-business-analyst-roche-ch"
+        "fr": "qualite-business-analyste-roche-mississauga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89865,7 +89874,7 @@
         "en": "supply-chain-business-systems-analyst-3-year-fixed-term-roche-ch",
         "it": "supply-chain-business-systems-analyst-3-year-fixed-term-roche-ch",
         "de": "supply-chain-business-systems-analyst-3-year-fixed-term-roche-ch",
-        "fr": "supply-chain-business-systems-analyst-3-year-fixed-term-roche-ch"
+        "fr": "chaine-d-approvisionnement-business-systems-analyste-3-year-fixed-term-roche-indianapolis"
       },
       "company": "Roche",
       "companyKey": "roche",

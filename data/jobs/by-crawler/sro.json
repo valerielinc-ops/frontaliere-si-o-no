@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
         "it": "wiedereinstiegerinnen-come-dipl-pflegefachperson-fachperson-gesundheit-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
-        "fr": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        "en": "re-enters-as-dipl-nurse-health-professional-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "rentre-en-tant-que-dipl-infirmier-professionnel-de-la-sante-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -56,6 +56,12 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
+          "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        ],
+        "en": [
+          "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        ],
+        "fr": [
           "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
         ]
       },
@@ -538,12 +544,12 @@
     },
     {
       "id": "sro-cf1366c8fa71",
-      "slug": "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
+      "slug": "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
-        "it": "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
+        "it": "psicologo-psicologo-vecchio-eta-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
-        "fr": "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal"
+        "fr": "psychologue-psychologue-psychiatrie-de-l-age-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -605,10 +611,19 @@
       },
       "firstSeenAt": "2026-06-11T23:34:37.045Z",
       "previousSlugs": [
+        "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal",
         "psicologa-psicologo-psichiatria-geriatrica-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologue-therapeute-psychiatrie-geriatrique-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologin-psychologen-fur-alterspsychiatrie-80-100-or-klinische-psychologin-klinische-psychologen-schwerpunkt"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "psychologin-psychologen-alterspsychiatrie-80-100-sro-langenthal"
+        ]
+      }
     },
     {
       "id": "sro-35fc3dd3f41d",
@@ -2706,12 +2721,12 @@
     },
     {
       "id": "sro-2163623a80ea",
-      "slug": "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass",
+      "slug": "dipl-specialista-infermieristico-hf-fh-cosi-come-specialista-sanitario-fage-nel-pool-dei-dipendenti-in-base-alla-loro",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass",
-        "en": "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass",
+        "it": "dipl-specialista-infermieristico-hf-fh-cosi-come-specialista-sanitario-fage-nel-pool-dei-dipendenti-in-base-alla-loro",
+        "en": "dipl-nursing-specialist-hf-fh-as-well-as-health-specialist-fage-in-the-employee-pool-according-to-their-availability-or",
         "de": "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass",
-        "fr": "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-ainsi-que-specialiste-de-la-sante-fage-dans-le-bassin-d-employes-selon-leur"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2766,16 +2781,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass"
+      ]
     },
     {
       "id": "sro-442ed153e878",
       "slug": "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-infermieristica-hf-fh-80-100-servizio-privato-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
+        "en": "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2830,6 +2859,12 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
           "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:35.670Z",
@@ -2852,9 +2887,9 @@
       "slug": "dipl-hf-fh-50-100-servizio-notturno-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-hf-fh-50-100-servizio-notturno-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro",
+        "en": "dipl-hf-fh-50-100-on-night-service-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro"
+        "fr": "dipl-hf-fh-50-100-en-service-de-nuit-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2908,6 +2943,12 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro",
           "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:34.052Z",
@@ -2929,9 +2970,9 @@
       "slug": "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-infermieristica-hf-fh-40-100-dipartimento-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
+        "en": "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2985,6 +3026,12 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
           "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:32.031Z",
@@ -3006,9 +3053,9 @@
       "slug": "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
+        "en": "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        "fr": "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3059,6 +3106,12 @@
         "it": [
           "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
           "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-10T13:03:30.622Z",
@@ -3310,9 +3363,9 @@
       "slug": "dipl-esperto-in-pronto-soccorso-assistenza-intensiva-dal-40-nel-pool-dei-dipendenti-sro-ag-spital-region-oberaargau",
       "slugByLocale": {
         "it": "dipl-esperto-in-pronto-soccorso-assistenza-intensiva-dal-40-nel-pool-dei-dipendenti-sro-ag-spital-region-oberaargau",
-        "en": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro",
+        "en": "dipl-expert-in-emergency-care-intensive-care-from-40-in-the-employee-pool-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro",
-        "fr": "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro"
+        "fr": "dipl-expert-en-soins-d-urgence-soins-intensifs-a-partir-de-40-dans-le-bassin-d-employes-sro-ag-spital-region-oberaargau"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3363,6 +3416,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro"
+        ],
+        "en": [
+          "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro"
+        ],
+        "fr": [
           "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro"
         ]
       },
