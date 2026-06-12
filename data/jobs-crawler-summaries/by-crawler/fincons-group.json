@@ -1,93 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-12T12:06:56.782Z",
+  "generatedAt": "2026-06-12T22:21:50.538Z",
   "total": 7,
-  "newCount": 2,
+  "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1314,
-  "avgDurationMs": 1314,
+  "unchangedCount": 2,
+  "durationMs": 2203,
+  "avgDurationMs": 2203,
   "durationHistory": [
-    1314
+    2203
   ],
-  "newJobs": [
-    {
-      "title": "Cyber Security Expert",
-      "slug": "cyber-security-expert-fincons-group-lugano-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/bAiM1H8t7y/Cyber-Security-Expert",
-      "applyUrl": "https://fincons.applytojob.com/apply/bAiM1H8t7y/Cyber-Security-Expert",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-12",
-      "validThrough": "2026-09-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260612083607_GYS5AV9LIZTCYD9Z",
-        "listingLocation": "Lugano, Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Full-Stack Developer (Angular/Java)",
-      "slug": "full-stack-developer-angular-java-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/8qJTPPxEYj/FullStack-Developer-AngularJava",
-      "applyUrl": "https://fincons.applytojob.com/apply/8qJTPPxEYj/FullStack-Developer-AngularJava",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-12",
-      "validThrough": "2026-09-10",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260612114853_GVOMNWDTWRFE37NI",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": "Lugano"
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Developer PL/SQL - Banking Area",
@@ -306,5 +231,92 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Cyber Security Expert",
+      "slug": "cyber-security-expert-fincons-group-lugano-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/bAiM1H8t7y/Cyber-Security-Expert",
+      "applyUrl": "https://fincons.applytojob.com/apply/bAiM1H8t7y/Cyber-Security-Expert",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-12",
+      "validThrough": "2026-09-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260612083607_GYS5AV9LIZTCYD9Z",
+        "listingLocation": "Lugano, Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-17da97acf192",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-06-12T12:06:56.780Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Full-Stack Developer (Angular/Java)",
+      "slug": "full-stack-developer-angular-java-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/8qJTPPxEYj/FullStack-Developer-AngularJava",
+      "applyUrl": "https://fincons.applytojob.com/apply/8qJTPPxEYj/FullStack-Developer-AngularJava",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-12",
+      "validThrough": "2026-09-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260612114853_GVOMNWDTWRFE37NI",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": "Lugano"
+      },
+      "id": "fincons-group-dd6290e0ab74",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-06-12T12:06:56.780Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
