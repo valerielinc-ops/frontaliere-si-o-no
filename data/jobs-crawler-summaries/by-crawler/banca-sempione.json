@@ -1,18 +1,43 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-06-11T22:15:28.243Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-06-12T11:43:52.286Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4241,
-  "avgDurationMs": 4241,
+  "durationMs": 3639,
+  "avgDurationMs": 3639,
   "durationHistory": [
-    4241
+    3639
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch/",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "category": "legal",
+      "descriptionIt": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Responsabile Compliance AML della costituenda Branch di Banca del Sempione a Milano. Avrà la responsabilità delle attività di compliance, di prevenzione e di contrasto del riciclaggio di denaro e del finanziamento del terrorismo (AML/CFT). Riporterà direttamente al Branch Manager e…",
+      "postedDate": "2026-06-12",
+      "source": "company-website",
+      "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 52,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 2,
+        "completeness": 11
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
