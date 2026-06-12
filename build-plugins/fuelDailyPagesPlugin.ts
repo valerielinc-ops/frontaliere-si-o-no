@@ -29,6 +29,7 @@ import {
   FUEL_CHART_SCRIPT_TAG,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
+  DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
@@ -1816,6 +1817,7 @@ function renderPage(inp: PageInputs): string {
     ${trendTableHtml}
     ${periodAvgNoteHtml}
   </section>
+  ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
   ${renderFuelTodayFrontalierContext({ locale, fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt, isZone: !!zone })}
   <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle)}">

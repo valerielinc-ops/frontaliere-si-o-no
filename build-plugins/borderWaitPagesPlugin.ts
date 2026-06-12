@@ -41,6 +41,7 @@ import {
   BASE_URL,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
+  DRIVEBY_AD_SNIPPET,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
@@ -1712,6 +1713,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${weeklyHtml}
   ${infoHtml}
   ${alternativeRoutesHtml}
+  ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
   ${renderCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
   ${renderLeafLivePlanningProse(
