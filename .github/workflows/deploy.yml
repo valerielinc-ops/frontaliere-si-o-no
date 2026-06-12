@@ -764,17 +764,18 @@ jobs:
           printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
           export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
           # ── Additive assets/ (anti-clobber) ──────────────────────────────────
-          # The bundler assets/ are CONTENT-HASHED (index-*.js / App-*.js etc) and
-          # therefore immutable: a given hash always holds identical bytes. The old
-          # force-push replaced the whole CDN repo each deploy, DELETING the entry
-          # hashes still referenced by the currently-live HTML — which, for the
-          # ~13 GB Pages site, keeps serving the previous build for the 10-20 min
-          # the new publish takes to propagate (and longer on a rollback). Result:
-          # live HTML → 404 on its own JS → SPA dead (prod outage 2026-06-04).
-          # Fix: carry forward the prior CDN assets/ and merge the new build ON TOP
-          # (cp -n never overwrites a freshly-built file), so old + new hashes
-          # coexist and any in-flight HTML keeps booting. og/data/images are
-          # same-path and fully refreshed above (overwrite is correct for them).
+          # Bundler assets/ have STABLE names (index-entry.js, App.js, index.css …
+          # vite.config.ts chunkFileNames/assetFileNames): the stage already holds
+          # the freshly-built bytes for every stable name, and `cp -n` (never
+          # overwrites a freshly-built file) only carries forward files ABSENT
+          # from the new build — i.e. the legacy content-hashed generations still
+          # referenced by HTML cached/live from before the cutover. Replacing the
+          # whole repo each deploy used to DELETE those still-referenced files
+          # while the ~13 GB Pages site kept serving the previous build for the
+          # 10-20 min a publish takes to propagate → live HTML 404'd on its own
+          # JS → SPA dead (prod outage 2026-06-04). og/data/images are same-path
+          # and fully refreshed above (overwrite is correct for them).
+          # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
           # Sparse + blob:none keeps the clone to the small assets/ tree only.
           if [ -d "$stage/assets" ]; then
             prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
