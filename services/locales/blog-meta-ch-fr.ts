@@ -134,6 +134,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.title': 'Aéroports suisses : augmentation des passagers et du trafic marchandises',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.excerpt': 'Les trois principaux aéroports suisses ont enregistré un nombre accru de passagers et de marchandises au semestre hivernal 2025/26.',
     'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.imageAlt': 'Aéroport de Zurich',
+    'blog.article.parlamento-avs-protezione-adozione.title': 'Parlement approuve AVS et protections pour mères adoptives',
+    'blog.article.parlamento-avs-protezione-adozione.excerpt': 'Le Conseil des États a approuvé le financement mixte de la 13e AVS, tandis que le Conseil national a introduit des protections pour les mères adoptives et une seconde chance pour les surendettés.',
+    'blog.article.parlamento-avs-protezione-adozione.imageAlt': 'Parlement fédéral suisse à Berne avec symboles numériques de santé',
 };
 
 export default blogMetaChFr;

@@ -3975,6 +3975,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-documenti-necessari-lavoro-svizzera': { name: 'Documenti frontalieri', path: '/articoli-frontaliere/documenti-necessari-lavoro-svizzera', parent: 'blog' },
     'blog-aeroporti-svizzeri-aumentano-pas-s-vieto': { name: 'Aeroporti svizzeri', path: '/articoli-svizzera/aeroporti-svizzeri-aumentano-pas-s-vieto/', parent: 'blog' },
     'blog-parlamento-avs-frontalieri-2025': { name: '13esima AVS finanziamento', path: '/articoli-frontaliere/parlamento-avs-frontalieri-2025', parent: 'blog' },
+    'blog-parlamento-avs-protezione-adozione': { name: 'Parlamento', path: '/articoli-svizzera/parlamento-avs-protezione-adozione/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

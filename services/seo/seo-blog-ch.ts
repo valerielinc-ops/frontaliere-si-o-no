@@ -1658,6 +1658,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parlamento-avs-protezione-adozione': {
+    title: 'Parlamento approva finanziamento AVS e nuove tutele per mamme adottive',
+    description: 'Il Consiglio degli Stati ha approvato il finanziamento misto della 13ª AVS, mentre il Consiglio nazionale introduce nuove tutele per le madri adottive e una',
+    keywords: 'frontalieri, ticino, svizzera, italia, parlamento, approva, finanziamento, nuove',
+    ogTitle: 'Parlamento approva finanziamento AVS e protezione per madri adottive',
+    ogDescription: 'Novità legislative: finanziamento misto AVS, divieto di matrimonio per procura, ricette elettroniche e tutela per madri adottive.',
+    canonicalPath: '/articoli-svizzera/parlamento-avs-protezione-adozione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parlamento approva finanziamento AVS e nuove tutele per mamme adottive",
+      "description": "Il Consiglio degli Stati ha approvato il finanziamento misto della 13ª AVS, mentre il Consiglio nazionale introduce nuove tutele per le madri adottive e una",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parlamento-avs-protezione-adozione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del Parlamento federale svizzero a Berna, con simboli digitali della sanità"
+      },
+      "datePublished": "2026-06-12T01:50:31+00:00",
+      "dateModified": "2026-06-12T01:50:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parlamento-avs-protezione-adozione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
