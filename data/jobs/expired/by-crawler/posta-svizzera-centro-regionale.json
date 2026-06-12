@@ -49,49 +49,5 @@
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "consulente-alla-clientela-die-schweizerische-post-promontogno",
-    "title": "Kundenberater:in",
-    "titleByLocale": {
-      "it": "Consulente alla clientela",
-      "en": "Kundenberater:in",
-      "de": "Kundenberater:in",
-      "fr": "Kundenberater:in"
-    },
-    "company": "Die Schweizerische Post",
-    "companyKey": "posta-svizzera-centro-regionale",
-    "location": "Promontogno",
-    "addressLocality": "Promontogno",
-    "descriptionByLocale": {
-      "it": "Liebst du den persönlichen Kundenkontakt? Bereitet dir der aktive Verkauf und die Beratung Freude? Gemeinsam vernetzen wir die Schweiz. Mit dir sind wir nah bei den Menschen.",
-      "en": "Liebst du den persönlichen Kundenkontakt? Bereitet dir der aktive Verkauf und die Beratung Freude? Gemeinsam vernetzen wir die Schweiz. Mit dir sind wir nah bei den Menschen.",
-      "de": "Liebst du den persönlichen Kundenkontakt? Bereitet dir der aktive Verkauf und die Beratung Freude? Gemeinsam vernetzen wir die Schweiz. Mit dir sind wir nah bei den Menschen.",
-      "fr": "Liebst du den persönlichen Kundenkontakt? Bereitet dir der aktive Verkauf und die Beratung Freude? Gemeinsam vernetzen wir die Schweiz. Mit dir sind wir nah bei den Menschen."
-    },
-    "slugByLocale": {
-      "it": "consulente-alla-clientela-die-schweizerische-post-promontogno",
-      "en": "kundenberater-in-die-schweizerische-post-promontogno",
-      "de": "kundenberater-in-die-schweizerische-post-promontogno",
-      "fr": "kundenberater-in-die-schweizerische-post-promontogno"
-    },
-    "sector": "Servizi Postali",
-    "expiredAt": "2026-04-22",
-    "previousSlugs": [
-      "kundenberater-in-post",
-      "kundenberater-in-die-schweizerische-post-promontogno"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "kundenberater-in-post",
-        "kundenberater-in-die-schweizerische-post-promontogno"
-      ]
-    },
-    "postalCode": "6500",
-    "streetAddress": "Via la Santa 1",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
   }
 ]
