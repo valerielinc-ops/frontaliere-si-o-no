@@ -15,7 +15,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
-import { AD_SLOTS } from '../services/adsenseSlots';
+import { adSlotHtml } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 
 export const BUILD_ID = String(Date.now());
@@ -404,20 +404,20 @@ export const ADSENSE_LOADER_FILENAME = `adsense-loader-${shortContentHash(ADSENS
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
- * Above-the-fold manual display slot for drive-by SEO landings (health
- * premiums, fuel daily, border wait) — pages with 7-11s median sessions and
- * no manual <ins> slots, where Auto Ads alone arrived too late to serve
- * (2026-06 revenue deep dive). A visible slot makes the adsense lazy loader's
- * IntersectionObserver fire at first paint, so adsbygoogle.js loads
- * immediately instead of waiting for the idle fallback. Reuses the existing
- * ACTIVE responsive display unit HOMEPAGE_MID_DISPLAY (2093992129) — ad unit
- * creation needs a write-scope OAuth token the automation does not hold.
- * Wrapper reserves min-h-[280px] so an async fill causes zero CLS (AGENTS.md
- * non-negotiable 7: reserve space, never suppress the ad system).
+ * Above-the-fold manual slot for drive-by SEO landings (health premiums,
+ * fuel daily, border wait) — pages with 7-11s median sessions whose only
+ * manual unit was the end-of-page ARTICLE_END_MULTIPLEX, far below the
+ * fold (2026-06 revenue deep dive). A slot near the primary data area makes
+ * the adsense lazy loader's IntersectionObserver fire at first paint, so
+ * adsbygoogle.js loads immediately instead of waiting for the idle
+ * fallback. Markup comes from adSlotHtml('HOMEPAGE_MID_DISPLAY') so format
+ * (autorelaxed multiplex) and the CLS-reserving min-height stay driven by
+ * the services/adsenseSlots registry — never hand-roll the <ins> here
+ * (PR #1910 review). Reuses that ACTIVE unit because ad-unit creation via
+ * API needs a write-scope OAuth token the automation does not hold.
  */
-export const DRIVEBY_ATF_AD_SLOT_ID = AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot;
-export const DRIVEBY_AD_SNIPPET = `<div class="my-6 min-h-[280px]">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="${ADSENSE_CLIENT_ID}" data-ad-slot="${DRIVEBY_ATF_AD_SLOT_ID}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+export const DRIVEBY_AD_SNIPPET = `<div class="my-6">
+    ${adSlotHtml('HOMEPAGE_MID_DISPLAY')}
   </div>`;
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
