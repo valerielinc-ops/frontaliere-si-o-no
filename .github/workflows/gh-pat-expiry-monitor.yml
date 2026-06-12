@@ -271,7 +271,11 @@ jobs:
       # o l'owner la vedono subito. GH_TOKEN = GITHUB_TOKEN (il PAT potrebbe
       # essere proprio la cosa rotta).
       - name: Self-alert on monitor crash (dedup, zero-Claude)
-        if: failure() && steps.patcheck.outputs.intentional_fail != 'true'
+        # Gate su patcheck.conclusion: un flake infra (npm ci, setup-node,
+        # load RC) farebbe failure()=true con patcheck SKIPPED → issue
+        # depistante "monitor crashed" per una causa transiente. Alert solo se
+        # e' davvero lo step di check a fallire in modo non-intenzionale.
+        if: failure() && steps.patcheck.conclusion == 'failure' && steps.patcheck.outputs.intentional_fail != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

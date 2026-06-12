@@ -110,15 +110,30 @@ function hasAnyClaudeReview(num) {
  * osservata, dead-end #4 della mappa loop 2026-06-12). */
 function reopenToRetrigger(num) {
   if (DRY) { console.log(`[dry] close+reopen #${num} (re-trigger review+tests)`); return true; }
-  const closed = gh(['pr', 'close', String(num), '--repo', REPO], { json: false, allowFail: true });
-  if (closed === null) { console.log(`PR #${num}: close fallito — skip reopen.`); return false; }
-  const reopened = gh(['pr', 'reopen', String(num), '--repo', REPO], { json: false, allowFail: true });
-  if (reopened === null) {
-    // Mai lasciare la PR chiusa: retry una volta, poi log forte.
-    const retry = gh(['pr', 'reopen', String(num), '--repo', REPO], { json: false, allowFail: true });
-    if (retry === null) { console.log(`::error::PR #${num} chiusa ma reopen FALLITO due volte — riaprire a mano!`); return false; }
+  // NIENTE allowFail qui: con `json:false` allowFail ritorna '' sia su successo
+  // (gh pr close/reopen confermano su stderr, stdout vuoto) sia su fallimento —
+  // l'unico segnale affidabile è l'eccezione (🔴 review #1930: i guard ===null
+  // non scattavano mai → rischio PR lasciata CHIUSA con falso successo).
+  try {
+    gh(['pr', 'close', String(num), '--repo', REPO], { json: false });
+  } catch (e) {
+    console.log(`PR #${num}: close fallito (${String(e).slice(0, 120)}) — skip reopen, PR intatta.`);
+    return false;
   }
-  return true;
+  // Da qui la PR È CHIUSA: mai uscire senza riaprirla. Retry una volta, poi
+  // ::error forte (visibile nel run) — invariante "mai lasciare la PR chiusa".
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      gh(['pr', 'reopen', String(num), '--repo', REPO], { json: false });
+      return true;
+    } catch (e) {
+      if (attempt === 2) {
+        console.log(`::error::PR #${num} chiusa ma reopen FALLITO due volte (${String(e).slice(0, 120)}) — riaprire a mano!`);
+        return false;
+      }
+    }
+  }
+  return false;
 }
 
 /** behind_by: commit di main non nella head. */

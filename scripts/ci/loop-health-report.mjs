@@ -71,9 +71,13 @@ function mergedPrStats(since) {
   } catch { /* noop */ }
   const claudeReviews = (pr) => (pr.reviews || []).filter((r) => /^claude/i.test(r.author?.login || '')).length;
   const merged = prs.length;
-  const firstShot = prs.filter((p) => claudeReviews(p) <= 1).length;
+  // === 1 (non <=1): una PR mergiata con ZERO review claude (merge manuale,
+  // o reopen-path prima che la review atterri) non e' un "first-shot LGTM" —
+  // contarla gonfierebbe la metrica (adversarial check review #1930).
+  const firstShot = prs.filter((p) => claudeReviews(p) === 1).length;
+  const zeroReview = prs.filter((p) => claudeReviews(p) === 0).length;
   const totalReviews = prs.reduce((a, p) => a + claudeReviews(p), 0);
-  return { merged, firstShot, totalReviews };
+  return { merged, firstShot, zeroReview, totalReviews };
 }
 
 /** Zombie: issue follow-up con agent:fix, ferma da >24h, senza PR fix APERTA
@@ -130,7 +134,7 @@ function main() {
   const fsRate = pr.merged ? pr.firstShot / pr.merged : 0;
   if (pr.merged >= 10 && fsRate < 0.5) warns.push(`first-shot LGTM rate ${(fsRate * 100).toFixed(0)}% (<50%)`);
   lines.push('');
-  lines.push(`**PR merged:** ${pr.merged} (${(pr.merged / DAYS).toFixed(1)}/g) · first-shot LGTM ${pr.firstShot}/${pr.merged} (${(fsRate * 100).toFixed(0)}%) · review Claude totali ${pr.totalReviews} (overhead ${pr.merged ? ((pr.totalReviews / Math.max(pr.merged, 1) - 1) * 100).toFixed(0) : 0}%).`);
+  lines.push(`**PR merged:** ${pr.merged} (${(pr.merged / DAYS).toFixed(1)}/g) · first-shot LGTM ${pr.firstShot}/${pr.merged} (${(fsRate * 100).toFixed(0)}%, zero-review ${pr.zeroReview}) · review Claude totali ${pr.totalReviews} (overhead ${pr.merged ? ((pr.totalReviews / Math.max(pr.merged, 1) - 1) * 100).toFixed(0) : 0}%).`);
 
   const zombies = zombieCount();
   if (zombies > 0) warns.push(`${zombies} issue agent:fix zombie (>24h, nessuna PR aperta)`);
