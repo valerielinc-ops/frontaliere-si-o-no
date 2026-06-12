@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-06-11T22:54:28.642Z",
+  "assembledAt": "2026-06-12T12:22:39.738Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:23.783Z",
+      "crawledAt": "2026-06-12T12:22:31.082Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:23.127Z",
+      "crawledAt": "2026-06-12T12:22:30.405Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -200,6 +201,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -245,7 +247,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:22.466Z",
+      "crawledAt": "2026-06-12T12:22:29.726Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -306,6 +308,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -351,7 +354,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:21.809Z",
+      "crawledAt": "2026-06-12T12:22:29.048Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -412,6 +415,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -425,6 +429,76 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "kanton-gr-5ac21b098df3",
+      "slug": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
+        "it": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
+        "en": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch",
+        "fr": "mitglied-des-bankrats-der-graubundner-kantonalbank-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Mitglied des Bankrats der Graubündner Kantonalbank",
+      "titleByLocale": {
+        "de": "Mitglied des Bankrats der Graubündner Kantonalbank",
+        "it": "Mitglied des Bankrats der Graubündner Kantonalbank",
+        "en": "Mitglied des Bankrats der Graubündner Kantonalbank",
+        "fr": "Mitglied des Bankrats der Graubündner Kantonalbank"
+      },
+      "description": "Die Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank\n\nAufgaben\nAls Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt. Sie übernehmen insbesondere folgende\n• Aufgaben:\n\nAnforderungen\nSie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen. Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten. Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt.",
+      "descriptionByLocale": {
+        "de": "Die Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank\n\nAufgaben\nAls Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt. Sie übernehmen insbesondere folgende\n• Aufgaben:\n\nAnforderungen\nSie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen. Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten. Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt.",
+        "it": "Die Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank\n\nAufgaben\nAls Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt. Sie übernehmen insbesondere folgende\n• Aufgaben:\n\nAnforderungen\nSie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen. Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten. Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt.",
+        "en": "Die Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank\n\nAufgaben\nAls Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt. Sie übernehmen insbesondere folgende\n• Aufgaben:\n\nAnforderungen\nSie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen. Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten. Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt.",
+        "fr": "Die Regierung des Kantons Graubünden sucht per 1. April 2027 ein Mitglied des Bankrats der Graubündner Kantonalbank\n\nAufgaben\nAls Mitglied des siebenköpfigen Bankrats, dem obersten Organ der GKB, sind Sie mit der strategischen Führung der Bank beauftragt. Sie übernehmen insbesondere folgende\n• Aufgaben:\n\nAnforderungen\nSie verfügen über fundierte Wirtschafts- und Finanzexpertise mit Schwerpunkt Banking und entsprechende Erfahrungen. Erwartet werden ein breites Verständnis bankbetrieblicher Zusammenhänge entlang der Wertschöpfungskette sowie vertiefte Kenntnisse in zentralen Steuerungs- und Risikoaspekten. Ergänzend wird Erfahrung in der strategischen Weiterentwicklung von Finanzinstituten sowie im Umgang mit relevanten Markt- und Wettbewerbsdynamiken vorausgesetzt."
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2727/pub/3/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-12T12:22:28.368Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://apply.refline.ch/514915/2727/pub/3/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Graubündner Kantonalbank",
+      "applicationDeadline": "2026-07-10",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-12T12:22:28.368Z"
     },
     {
       "id": "kanton-gr-7dd1d820f95f",
@@ -447,17 +521,17 @@
       },
       "description": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Mittelbünden ist zuständig für 25 Gemeinden mit einem Einzugsgebiet von 23 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung\n\nWir suchen für den Standort Thusis per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in . Die Stelle ist aktuell bis 28. Februar 2027 befristet. Es besteht voraussichtlich die Option auf Verlängerung der Anstellung.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
       "descriptionByLocale": {
-        "it": "L'Ufficio cantonale dell'assistenza sociale svolge su incarico dei Comuni il compito di fornire assistenza sociale personale e contro le dipendenze e sostiene le persone nell'accesso all'aiuto sociale economico. Gestisce inoltre otto servizi sociali regionali nelle regioni del cantone. Il servizio sociale regionale Mittelbünden è responsabile di 25 comuni con un bacino di utenza di 23.000 persone. Consulenza sociale, aiuto in caso di dipendenza e sostegno finanziario Cerchiamo un assistente sociale per la sede di Così a partire dal 1° agosto 2026 o su appuntamento. La posizione è attualmente limitata al 28 febbraio 2027. Probabilmente c'è un'opzione per prolungare il tuo impiego. Compiti • Consulenza sociale orientata alle soluzioni e alle risorse per individui e famiglie • Accesso alle prestazioni di sicurezza sociale e all'aiuto sociale economico • Consulenza ai rifugiati e agli stranieri riconosciuti e ammessi temporaneamente sull'integrazione linguistica, professionale e sociale • Collaborazione con autorità sociali e dipartimenti specializzati • Altre attività diverse, interessanti e responsabili Requisiti • Formazione completata come assistente sociale BSc/FH • Piacere di lavorare con persone con background sociali e/o culturali diversi • Capacità di consulenza e conoscenze specialistiche nel diritto della previdenza sociale e nel settore della sicurezza sociale • Socievole, resiliente, giocatore di squadra, bravo capacità comunicative, organizzative e amministrative • Idealmente buone conoscenze delle lingue straniere • Lavoro indipendente e orientato alla soluzione",
-        "en": "The cantonal social welfare office carries out the task of providing personal social and addiction assistance on behalf of the municipalities and supports people in accessing economic social assistance. It also runs eight regional social services in the canton's regions. The Mittelbünden regional social service is responsible for 25 communities with a catchment area of ​​23,000 people. Social advice, addiction help and financial support We are looking for a social worker for the Thusis location as of August 1, 2026 or by appointment. The position is currently limited to February 28, 2027. There is probably an option to extend your employment. Tasks • Solution and resource-oriented social advice for individuals and families • Access to social security benefits and economic social assistance • Advice to recognized and temporarily admitted refugees and foreigners on linguistic, professional and social integration • Collaboration with social authorities and specialized departments • Other diverse, interesting and responsible activities Requirements • Completed training as a social worker BSc/FH • Enjoy working with people with different social and/or cultural backgrounds • Advice skills and specialist knowledge in Social welfare law and social security sector • Sociable, resilient, team player, good communicative, organizational and administrative skills • Ideally good foreign language skills • Independent and solution-oriented work",
-        "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Mittelbünden ist zuständig für 25 Gemeinden mit einem Einzugsgebiet von 23 000 Personen.\n\nSozialberatung, Suchthilfe und finanzielle Unterstützung\n\nWir suchen für den Standort Thusis per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in . Die Stelle ist aktuell bis 28. Februar 2027 befristet. Es besteht voraussichtlich die Option auf Verlängerung der Anstellung.\n\nAufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten\n\nAnforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH\n\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und Sozialversicherungsbereich\n\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n\n• Idealerweise gute Fremdsprachenkenntnisse\n\n• Selbstständiges und lösungsorientiertes Arbeiten",
-        "fr": "L'Office cantonal d'aide sociale assure pour le compte des communes une aide personnelle en matière sociale et en toxicomanie et accompagne les personnes dans l'accès à l'aide sociale économique. Elle gère également huit services sociaux régionaux dans les régions du canton. Le service social régional de Mittelbünden est responsable de 25 communes avec une zone de desserte de 23 000 personnes. Conseils sociaux, aide en addiction et soutien financier Nous recherchons une assistante sociale pour le site de Ainsiis à partir du 1er août 2026 ou sur rendez-vous. Le poste est actuellement limité au 28 février 2027. Il existe probablement une option pour prolonger votre emploi. Tâches • Conseil social axé sur les solutions et les ressources pour les individus et les familles • Accès aux prestations de sécurité sociale et à l'aide sociale économique • Conseils aux réfugiés et étrangers reconnus et temporairement admis en matière d'intégration linguistique, professionnelle et sociale • Collaboration avec les autorités sociales et les services spécialisés • Autres activités diverses, intéressantes et responsables Exigences • Formation complète de travailleur social BSc/FH • Aimer travailler avec des personnes d'origines sociales et/ou culturelles différentes • Compétences de conseil et connaissances spécialisées en droit de la protection sociale et dans le secteur de la sécurité sociale • Sociable, résilient, joueur d'équipe, bon compétences communicatives, organisationnelles et administratives • Idéalement bonnes compétences en langues étrangères • Travail indépendant et axé sur les solutions"
+        "it": "L'Ufficio cantonale dell'assistenza sociale svolge su incarico dei Comuni il compito di fornire assistenza sociale personale e contro le dipendenze e sostiene le persone nell'accesso all'aiuto sociale economico. Gestisce inoltre otto servizi sociali regionali nelle regioni del cantone. Il servizio sociale regionale Mittelbünden è responsabile di 25 comuni con un bacino di utenza di 23.000 persone. Consulenza sociale, aiuto in caso di dipendenza e sostegno finanziario Cerchiamo un assistente sociale per la sede di Così a partire dal 1° agosto 2026 o su appuntamento. La posizione è attualmente limitata al 28 febbraio 2027. Probabilmente c'è un'opzione per prolungare il tuo impiego. Compiti\n• Consulenza sociale orientata alle soluzioni e alle risorse per individui e famiglie\n• Accesso alle prestazioni di sicurezza sociale e all'aiuto sociale economico\n• Consulenza ai rifugiati e agli stranieri riconosciuti e ammessi temporaneamente sull'integrazione linguistica, professionale e sociale\n• Collaborazione con autorità sociali e dipartimenti specializzati\n• Altre attività diverse, interessanti e responsabili Requisiti\n• Formazione completata come assistente sociale BSc/FH\n• Piacere di lavorare con persone con background sociali e/o culturali diversi\n• Capacità di consulenza e conoscenze specialistiche nel diritto della previdenza sociale e nel settore della sicurezza sociale\n• Socievole, resiliente, giocatore di squadra, bravo capacità comunicative, organizzative e amministrative\n• Idealmente buone conoscenze delle lingue straniere\n• Lavoro indipendente e orientato alla soluzione",
+        "en": "The cantonal social welfare office carries out the task of providing personal social and addiction assistance on behalf of the municipalities and supports people in accessing economic social assistance. It also runs eight regional social services in the canton's regions. The Mittelbünden regional social service is responsible for 25 communities with a catchment area of ​​23,000 people. Social advice, addiction help and financial support We are looking for a social worker for the Thusis location as of August 1, 2026 or by appointment. The position is currently limited to February 28, 2027. There is probably an option to extend your employment. Tasks\n• Solution and resource-oriented social advice for individuals and families\n• Access to social security benefits and economic social assistance\n• Advice to recognized and temporarily admitted refugees and foreigners on linguistic, professional and social integration\n• Collaboration with social authorities and specialized departments\n• Other diverse, interesting and responsible activities Requirements\n• Completed training as a social worker BSc/FH\n• Enjoy working with people with different social and/or cultural backgrounds\n• Advice skills and specialist knowledge in Social welfare law and social security sector\n• Sociable, resilient, team player, good communicative, organizational and administrative skills\n• Ideally good foreign language skills\n• Independent and solution-oriented work",
+        "de": "Das kantonale Sozialamt erfüllt im Auftrag der Gemeinden die Aufgabe der persönlichen Sozial- und Suchthilfe und unterstützt Menschen bei der Erschliessung der wirtschaftlichen Sozialhilfe. Dazu führt es in den Regionen des Kantons acht regionale Sozialdienste. Der regionale Sozialdienst Mittelbünden ist zuständig für 25 Gemeinden mit einem Einzugsgebiet von 23 000 Personen. Sozialberatung, Suchthilfe und finanzielle Unterstützung Wir suchen für den Standort Thusis per 1. August 2026 oder nach Vereinbarung eine/-n Sozialarbeiter/-in . Die Stelle ist aktuell bis 28. Februar 2027 befristet. Es besteht voraussichtlich die Option auf Verlängerung der Anstellung. Aufgaben\n• Lösungs- und ressourcenorientierte Sozialberatung von Einzelpersonen und Familien\n• Erschliessung von Sozialversicherungsleistungen sowie wirtschaftlicher Sozialhilfe\n• Beratung von anerkannten und vorläufig aufgenommenen Flüchtlingen und Ausländerinnen und Ausländern zur sprachlichen, beruflichen und sozialen Integration\n• Zusammenarbeit mit Sozialbehörden und spezialisierten Fachstellen\n• Weitere vielseitige, interessante und verantwortungsvolle Tätigkeiten Anforderungen\n• Abgeschlossene Ausbildung als Sozialarbeiter/-in BSc/FH\n• Freude an der Arbeit mit Menschen mit unterschiedlichem sozialen und/oder kulturellem Hintergrund\n• Beratungskompetenz sowie Fachwissen im Sozialhilferecht und Sozialversicherungsbereich\n• Kontaktfreudig, belastbar, teamfähig, gute kommunikative, organisatorische und administrative Fähigkeiten\n• Idealerweise gute Fremdsprachenkenntnisse\n• Selbstständiges und lösungsorientiertes Arbeiten",
+        "fr": "L'Office cantonal d'aide sociale assure pour le compte des communes une aide personnelle en matière sociale et en toxicomanie et accompagne les personnes dans l'accès à l'aide sociale économique. Elle gère également huit services sociaux régionaux dans les régions du canton. Le service social régional de Mittelbünden est responsable de 25 communes avec une zone de desserte de 23 000 personnes. Conseils sociaux, aide en addiction et soutien financier Nous recherchons une assistante sociale pour le site de Ainsiis à partir du 1er août 2026 ou sur rendez-vous. Le poste est actuellement limité au 28 février 2027. Il existe probablement une option pour prolonger votre emploi. Tâches\n• Conseil social axé sur les solutions et les ressources pour les individus et les familles\n• Accès aux prestations de sécurité sociale et à l'aide sociale économique\n• Conseils aux réfugiés et étrangers reconnus et temporairement admis en matière d'intégration linguistique, professionnelle et sociale\n• Collaboration avec les autorités sociales et les services spécialisés\n• Autres activités diverses, intéressantes et responsables Exigences\n• Formation complète de travailleur social BSc/FH\n• Aimer travailler avec des personnes d'origines sociales et/ou culturelles différentes\n• Compétences de conseil et connaissances spécialisées en droit de la protection sociale et dans le secteur de la sécurité sociale\n• Sociable, résilient, joueur d'équipe, bon compétences communicatives, organisationnelles et administratives\n• Idéalement bonnes compétences en langues étrangères\n• Travail indépendant et axé sur les solutions"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2739/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:21.152Z",
+      "crawledAt": "2026-06-12T12:22:27.695Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -528,17 +602,17 @@
       },
       "description": "Das Amt für Wald und Naturgefahren (AWN) ist die kantonale Fachstelle für den Wald und den Schutz vor Naturgefahren. Die Mitarbeitenden des AWN setzen sich für die Bedürfnisse der Gesellschaft am Wald ein und stellen sicher, dass mit dem Wald nachhaltig umgegangen wird.\n\nAufgaben\n• Als Regionalforstingenieur/-in betreust du die dir zugeteilte Gemeinde Bregaglia: Vollzug der eidgenössischen und kantonalen Waldgesetzgebung; Sicherstellung der bestmöglichen Erfüllung der Waldfunktionen\n\n• Als Spezialist/-in Schutzbauten leitest du entsprechende Projekte in der Region Südbünden: Konzeption von Schutzbauten basierend auf aktuellen Naturgefahrengrundlagen; selbständige Projektierung und Begleitung externer Projektierungsarbeit bis zur Realisierung von Schutzbautenprojekten; Koordination der Kontrollen, der Instandhaltung sowie Instandsetzung der Schutzbauten in der Region\n\nAnforderungen\n• Diplom als Forstingenieur/-in ETH oder FH, oder Masterabschluss in Umweltnaturwissenschaften ETH mit Vertiefung in Wald- und Landschaftsmanagement\n\n• Fundiertes waldbauliches Wissen\n\n• Erfahrungen und gute Kenntnisse in der Projektierung und Realisierung von Schutzbauten gegen gravitative Naturgefahren; versierter Umgang im Beschaffungswesen sowie mit dem integralen Risikomanagement bei Naturgefahren im schweizerischen Kontext\n\n• Allgemeine Arbeitssprache ist Deutsch sowie Italienisch; gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
       "descriptionByLocale": {
-        "it": "L'Ufficio per i rischi forestali e naturali (AWN) è lo specialista cantonale per la silvicoltura e la protezione contro i pericoli naturali. I dipendenti dell'AWN sono impegnati alle esigenze della società nella foresta e assicurano che la foresta sia gestita in modo sostenibile.\n\nCompiti\n• In qualità di ingegnere forestale regionale, siete responsabili del comune di Bregaglia assegnato a voi: attuazione della legislazione federale e cantonale forestale; Garantire la migliore realizzazione possibile delle funzioni forestali\n\n• In qualità di specialista in edifici protettivi, si conducono progetti corrispondenti nella regione South Bundles: progettazione di edifici protettivi basati sui pericoli naturali attuali; progettazione indipendente del progetto e accompagnamento di progetti esterni fino alla realizzazione di progetti di costruzione protettiva; Coordinamento dei controlli, manutenzione e riparazione delle strutture protettive nella regione\n\nRequisiti\n• Diploma come ingegnere forestale/in ETH o FH, o Master in scienze ambientali ETH con specializzazione nella gestione forestale e del paesaggio\n\n• Conoscenza della silvicoltura\n\n• Esperienza e buona conoscenza nella progettazione e realizzazione di strutture protettive contro i pericoli naturali gravitazionali; una corretta gestione degli appalti nonché una gestione integrata dei rischi naturali nel contesto svizzero\n\n• La lingua di lavoro generale è tedesca e italiana; la buona conoscenza di diverse lingue cantonali è un vantaggio",
-        "en": "The Office for Forest and Natural Hazards (AWN) is the cantonal specialist for forestry and protection against natural hazards. The employees of the AWN are committed to the needs of society in the forest and ensure that the forest is handled sustainably.\n\nTasks\n• As a regional forestry engineer, you are responsible for the municipality of Bregaglia assigned to you: implementation of the federal and cantonal forest legislation; Ensuring the best possible fulfilment of forest functions\n\n• As a specialist in protective buildings, you lead corresponding projects in the South Bundles region: design of protective buildings based on current natural hazards; independent project planning and accompaniment of external project work up to the realization of protective construction projects; Coordination of checks, maintenance and repair of protective structures in the region\n\nRequirements\n• Diploma as forestry engineer/in ETH or FH, or Master’s degree in environmental sciences ETH with specialisation in forest and landscape management\n\n• Sound forestry knowledge\n\n• Experience and good knowledge in the design and realization of protective structures against gravitational natural hazards; adept handling of procurement as well as integrated risk management of natural hazards in the Swiss context\n\n• General working language is German as well as Italian; Good knowledge of several cantonal languages is an advantage",
-        "de": "Das Amt für Wald und Naturgefahren (AWN) ist die kantonale Fachstelle für den Wald und den Schutz vor Naturgefahren. Die Mitarbeitenden des AWN setzen sich für die Bedürfnisse der Gesellschaft am Wald ein und stellen sicher, dass mit dem Wald nachhaltig umgegangen wird.\n\nAufgaben\n• Als Regionalforstingenieur/-in betreust du die dir zugeteilte Gemeinde Bregaglia: Vollzug der eidgenössischen und kantonalen Waldgesetzgebung; Sicherstellung der bestmöglichen Erfüllung der Waldfunktionen\n\n• Als Spezialist/-in Schutzbauten leitest du entsprechende Projekte in der Region Südbünden: Konzeption von Schutzbauten basierend auf aktuellen Naturgefahrengrundlagen; selbständige Projektierung und Begleitung externer Projektierungsarbeit bis zur Realisierung von Schutzbautenprojekten; Koordination der Kontrollen, der Instandhaltung sowie Instandsetzung der Schutzbauten in der Region\n\nAnforderungen\n• Diplom als Forstingenieur/-in ETH oder FH, oder Masterabschluss in Umweltnaturwissenschaften ETH mit Vertiefung in Wald- und Landschaftsmanagement\n\n• Fundiertes waldbauliches Wissen\n\n• Erfahrungen und gute Kenntnisse in der Projektierung und Realisierung von Schutzbauten gegen gravitative Naturgefahren; versierter Umgang im Beschaffungswesen sowie mit dem integralen Risikomanagement bei Naturgefahren im schweizerischen Kontext\n\n• Allgemeine Arbeitssprache ist Deutsch sowie Italienisch; gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
-        "fr": "L'Office for Forest and Natural Hazards (AWN) est le spécialiste cantonal de la foresterie et de la protection contre les risques naturels. Les employés de l'AWN sont déterminés à répondre aux besoins de la société dans la forêt et à veiller à ce que la forêt soit gérée de manière durable.\n\nTâche\n• En tant qu'ingénieur forestier régional, vous êtes responsable de la municipalité de Bregaglia qui vous est assignée : mise en œuvre de la législation forestière fédérale et cantonale ; Assurer la meilleure exécution possible des fonctions forestières\n\n• En tant que spécialiste des bâtiments de protection, vous dirigez des projets correspondants dans la région de South Bundles : conception de bâtiments de protection en fonction des risques naturels actuels ; planification indépendante des projets et accompagnement de projets extérieurs jusqu'à la réalisation de projets de protection ; Coordination des contrôles, de l'entretien et de la réparation des structures de protection dans la région\n\nExigences\n• Diplôme d'ingénieur forestier en ETH ou FH, ou maîtrise en sciences de l'environnement ETH avec spécialisation en gestion forestière et paysagère\n\n• Bonnes connaissances forestières\n\n• Expérience et bonne connaissance de la conception et de la réalisation de structures de protection contre les risques naturels gravitationnels; gestion avisée des achats et gestion intégrée des risques naturels dans le contexte suisse\n\n• La langue de travail générale est l'allemand et l'italien; une bonne connaissance de plusieurs langues cantonales est un avantage"
+        "it": "L'Ufficio per i rischi forestali e naturali (AWN) è lo specialista cantonale per la silvicoltura e la protezione contro i pericoli naturali. I dipendenti dell'AWN sono impegnati alle esigenze della società nella foresta e assicurano che la foresta sia gestita in modo sostenibile. Compiti\n• In qualità di ingegnere forestale regionale, siete responsabili del comune di Bregaglia assegnato a voi: attuazione della legislazione federale e cantonale forestale; Garantire la migliore realizzazione possibile delle funzioni forestali\n• In qualità di specialista in edifici protettivi, si conducono progetti corrispondenti nella regione South Bundles: progettazione di edifici protettivi basati sui pericoli naturali attuali; progettazione indipendente del progetto e accompagnamento di progetti esterni fino alla realizzazione di progetti di costruzione protettiva; Coordinamento dei controlli, manutenzione e riparazione delle strutture protettive nella regione Requisiti\n• Diploma come ingegnere forestale/in ETH o FH, o Master in scienze ambientali ETH con specializzazione nella gestione forestale e del paesaggio\n• Conoscenza della silvicoltura\n• Esperienza e buona conoscenza nella progettazione e realizzazione di strutture protettive contro i pericoli naturali gravitazionali; una corretta gestione degli appalti nonché una gestione integrata dei rischi naturali nel contesto svizzero\n• La lingua di lavoro generale è tedesca e italiana; la buona conoscenza di diverse lingue cantonali è un vantaggio",
+        "en": "The Office for Forest and Natural Hazards (AWN) is the cantonal specialist for forestry and protection against natural hazards. The employees of the AWN are committed to the needs of society in the forest and ensure that the forest is handled sustainably. Tasks\n• As a regional forestry engineer, you are responsible for the municipality of Bregaglia assigned to you: implementation of the federal and cantonal forest legislation; Ensuring the best possible fulfilment of forest functions\n• As a specialist in protective buildings, you lead corresponding projects in the South Bundles region: design of protective buildings based on current natural hazards; independent project planning and accompaniment of external project work up to the realization of protective construction projects; Coordination of checks, maintenance and repair of protective structures in the region Requirements\n• Diploma as forestry engineer/in ETH or FH, or Master’s degree in environmental sciences ETH with specialisation in forest and landscape management\n• Sound forestry knowledge\n• Experience and good knowledge in the design and realization of protective structures against gravitational natural hazards; adept handling of procurement as well as integrated risk management of natural hazards in the Swiss context\n• General working language is German as well as Italian; Good knowledge of several cantonal languages is an advantage",
+        "de": "Das Amt für Wald und Naturgefahren (AWN) ist die kantonale Fachstelle für den Wald und den Schutz vor Naturgefahren. Die Mitarbeitenden des AWN setzen sich für die Bedürfnisse der Gesellschaft am Wald ein und stellen sicher, dass mit dem Wald nachhaltig umgegangen wird. Aufgaben\n• Als Regionalforstingenieur/-in betreust du die dir zugeteilte Gemeinde Bregaglia: Vollzug der eidgenössischen und kantonalen Waldgesetzgebung; Sicherstellung der bestmöglichen Erfüllung der Waldfunktionen\n• Als Spezialist/-in Schutzbauten leitest du entsprechende Projekte in der Region Südbünden: Konzeption von Schutzbauten basierend auf aktuellen Naturgefahrengrundlagen; selbständige Projektierung und Begleitung externer Projektierungsarbeit bis zur Realisierung von Schutzbautenprojekten; Koordination der Kontrollen, der Instandhaltung sowie Instandsetzung der Schutzbauten in der Region Anforderungen\n• Diplom als Forstingenieur/-in ETH oder FH, oder Masterabschluss in Umweltnaturwissenschaften ETH mit Vertiefung in Wald- und Landschaftsmanagement\n• Fundiertes waldbauliches Wissen\n• Erfahrungen und gute Kenntnisse in der Projektierung und Realisierung von Schutzbauten gegen gravitative Naturgefahren; versierter Umgang im Beschaffungswesen sowie mit dem integralen Risikomanagement bei Naturgefahren im schweizerischen Kontext\n• Allgemeine Arbeitssprache ist Deutsch sowie Italienisch; gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
+        "fr": "L'Office for Forest and Natural Hazards (AWN) est le spécialiste cantonal de la foresterie et de la protection contre les risques naturels. Les employés de l'AWN sont déterminés à répondre aux besoins de la société dans la forêt et à veiller à ce que la forêt soit gérée de manière durable. Tâche\n• En tant qu'ingénieur forestier régional, vous êtes responsable de la municipalité de Bregaglia qui vous est assignée : mise en œuvre de la législation forestière fédérale et cantonale ; Assurer la meilleure exécution possible des fonctions forestières\n• En tant que spécialiste des bâtiments de protection, vous dirigez des projets correspondants dans la région de South Bundles : conception de bâtiments de protection en fonction des risques naturels actuels ; planification indépendante des projets et accompagnement de projets extérieurs jusqu'à la réalisation de projets de protection ; Coordination des contrôles, de l'entretien et de la réparation des structures de protection dans la région Exigences\n• Diplôme d'ingénieur forestier en ETH ou FH, ou maîtrise en sciences de l'environnement ETH avec spécialisation en gestion forestière et paysagère\n• Bonnes connaissances forestières\n• Expérience et bonne connaissance de la conception et de la réalisation de structures de protection contre les risques naturels gravitationnels; gestion avisée des achats et gestion intégrée des risques naturels dans le contexte suisse\n• La langue de travail générale est l'allemand et l'italien; une bonne connaissance de plusieurs langues cantonales est un avantage"
       },
       "location": "Zuoz",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2721/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:20.496Z",
+      "crawledAt": "2026-06-12T12:22:27.017Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -603,17 +677,17 @@
       },
       "description": "Das Amt für Landwirtschaft und Geoinformation (ALG) ist eine Dienststelle des Departements für Volkswirtschaft und Soziales. Es umfasst die vier Abteilungen Agrarmassnahmen, Strukturverbesserungen, Vermessung und das GIS-Kompetenzzentrum.\n\nAufgaben\n• Kontrollen der Direktzahlungsprogramme (&Ouml;LN, GMF, RAUS und Weidebeitrag, Sömmerung), des Tierschutzes, der Primärproduktion (Tierverkehr, Tierarzneimittel, Tiergesundheit, Hygiene Milchproduktion) und von privatrechtlichen Labels wie IP-Suisse und QM-Schweizer Fleisch.\n\nAnforderungen\n• Landwirtschaftlicher Abschluss mit mindestens zwei Jahren praktischer Erfahrung auf einem &Ouml;LN- oder Bio-Betrieb. Praktische Erfahrung im Ackerbau ist erwünscht.\n\n• Gute EDV-Kenntnisse\n\n• Kommunikations- und Konfliktfähigkeit und Durchsetzungsvermögen\n\n• Selbständigkeit, Zuverlässigkeit sowie hohe Leistungsbereitschaft\n\n• Romanisch- und/oder Italienischkenntnisse sind von Vorteil",
       "descriptionByLocale": {
-        "it": "L'Ufficio per l'Agricoltura e la Geoinformazione (ALG) è un dipartimento del Dipartimento di Economia e Affari Sociali. Esso comprende i quattro dipartimenti di misure agricole, miglioramenti strutturali, indagini e il Centro di competenza GIS.\n\nCompiti\n• Controllo dei programmi di pagamento diretto (ÖLN, GMF, RAUS e pascolo, sommerung), benessere degli animali, produzione primaria (trasporto animale, medicinali veterinari, salute degli animali, produzione di latte igiene) e etichette private come IP-Suisse e carne QM-Swiss.\n\nRequisiti\n• Grado agricolo con almeno due anni di esperienza pratica in una fattoria Ö LN o biologica. L'esperienza pratica in agricoltura è desiderata.\n\n• Buone competenze informatiche\n\n• Capacità di comunicazione e di conflitto e assertività\n\n• Autooccupazione, affidabilità e prestazioni elevate\n\n• Le competenze romanze e/o italiane sono utili",
-        "en": "The Office for Agriculture and Geoinformation (ALG) is a department of the Department of Economics and Social Affairs. It comprises the four departments of agricultural measures, structural improvements, surveying and the GIS Competence Center.\n\nTasks\n• Controls of direct payment programs (ÖLN, GMF, RAUS and pasture contribution, sommerung), animal welfare, primary production (animal traffic, veterinary medicines, animal health, hygiene milk production) and private labels such as IP-Suisse and QM-Swiss meat.\n\nRequirements\n• Agricultural degree with at least two years of practical experience on a ÖLN or organic farm. Practical experience in agriculture is desired.\n\n• Good computer skills\n\n• Communication and conflict capability and assertiveness\n\n• Self-employment, reliability and high performance\n\n• Romance and/or Italian skills are beneficial",
-        "de": "Das Amt für Landwirtschaft und Geoinformation (ALG) ist eine Dienststelle des Departements für Volkswirtschaft und Soziales. Es umfasst die vier Abteilungen Agrarmassnahmen, Strukturverbesserungen, Vermessung und das GIS-Kompetenzzentrum.\n\nAufgaben\n• Kontrollen der Direktzahlungsprogramme (&Ouml;LN, GMF, RAUS und Weidebeitrag, Sömmerung), des Tierschutzes, der Primärproduktion (Tierverkehr, Tierarzneimittel, Tiergesundheit, Hygiene Milchproduktion) und von privatrechtlichen Labels wie IP-Suisse und QM-Schweizer Fleisch.\n\nAnforderungen\n• Landwirtschaftlicher Abschluss mit mindestens zwei Jahren praktischer Erfahrung auf einem &Ouml;LN- oder Bio-Betrieb. Praktische Erfahrung im Ackerbau ist erwünscht.\n\n• Gute EDV-Kenntnisse\n\n• Kommunikations- und Konfliktfähigkeit und Durchsetzungsvermögen\n\n• Selbständigkeit, Zuverlässigkeit sowie hohe Leistungsbereitschaft\n\n• Romanisch- und/oder Italienischkenntnisse sind von Vorteil",
-        "fr": "Le Bureau de l'agriculture et de la géoinformation (ALG) est un département du Département de l'économie et des affaires sociales. Il comprend les quatre départements des mesures agricoles, des améliorations structurelles, des enquêtes et le Centre de compétences SIG.\n\nTâche\n• Contrôle des programmes de paiement direct (ÖLN, GMF, RAUS et contribution des pâturages, sommerung), du bien-être animal, de la production primaire (trafic animal, médicaments vétérinaires, santé animale, production laitière d'hygiène) et des étiquettes privées telles que IP-Suisse et QM-Swiss.\n\nExigences\n• Diplôme d'agriculture avec au moins deux ans d'expérience pratique dans une exploitation agricole ou biologique. Une expérience pratique en agriculture est souhaitée.\n\n• Bonnes compétences en informatique\n\n• Capacité de communication et de conflit et assurance\n\n• Travail indépendant, fiabilité et haute performance\n\n• Les compétences romanes et/ou italiennes sont bénéfiques"
+        "it": "L'Ufficio per l'Agricoltura e la Geoinformazione (ALG) è un dipartimento del Dipartimento di Economia e Affari Sociali. Esso comprende i quattro dipartimenti di misure agricole, miglioramenti strutturali, indagini e il Centro di competenza GIS. Compiti\n• Controllo dei programmi di pagamento diretto (ÖLN, GMF, RAUS e pascolo, sommerung), benessere degli animali, produzione primaria (trasporto animale, medicinali veterinari, salute degli animali, produzione di latte igiene) e etichette private come IP-Suisse e carne QM-Swiss. Requisiti\n• Grado agricolo con almeno due anni di esperienza pratica in una fattoria Ö LN o biologica. L'esperienza pratica in agricoltura è desiderata.\n• Buone competenze informatiche\n• Capacità di comunicazione e di conflitto e assertività\n• Autooccupazione, affidabilità e prestazioni elevate\n• Le competenze romanze e/o italiane sono utili",
+        "en": "The Office for Agriculture and Geoinformation (ALG) is a department of the Department of Economics and Social Affairs. It comprises the four departments of agricultural measures, structural improvements, surveying and the GIS Competence Center. Tasks\n• Controls of direct payment programs (ÖLN, GMF, RAUS and pasture contribution, sommerung), animal welfare, primary production (animal traffic, veterinary medicines, animal health, hygiene milk production) and private labels such as IP-Suisse and QM-Swiss meat. Requirements\n• Agricultural degree with at least two years of practical experience on a ÖLN or organic farm. Practical experience in agriculture is desired.\n• Good computer skills\n• Communication and conflict capability and assertiveness\n• Self-employment, reliability and high performance\n• Romance and/or Italian skills are beneficial",
+        "de": "Das Amt für Landwirtschaft und Geoinformation (ALG) ist eine Dienststelle des Departements für Volkswirtschaft und Soziales. Es umfasst die vier Abteilungen Agrarmassnahmen, Strukturverbesserungen, Vermessung und das GIS-Kompetenzzentrum. Aufgaben\n• Kontrollen der Direktzahlungsprogramme (&Ouml;LN, GMF, RAUS und Weidebeitrag, Sömmerung), des Tierschutzes, der Primärproduktion (Tierverkehr, Tierarzneimittel, Tiergesundheit, Hygiene Milchproduktion) und von privatrechtlichen Labels wie IP-Suisse und QM-Schweizer Fleisch. Anforderungen\n• Landwirtschaftlicher Abschluss mit mindestens zwei Jahren praktischer Erfahrung auf einem &Ouml;LN- oder Bio-Betrieb. Praktische Erfahrung im Ackerbau ist erwünscht.\n• Gute EDV-Kenntnisse\n• Kommunikations- und Konfliktfähigkeit und Durchsetzungsvermögen\n• Selbständigkeit, Zuverlässigkeit sowie hohe Leistungsbereitschaft\n• Romanisch- und/oder Italienischkenntnisse sind von Vorteil",
+        "fr": "Le Bureau de l'agriculture et de la géoinformation (ALG) est un département du Département de l'économie et des affaires sociales. Il comprend les quatre départements des mesures agricoles, des améliorations structurelles, des enquêtes et le Centre de compétences SIG. Tâche\n• Contrôle des programmes de paiement direct (ÖLN, GMF, RAUS et contribution des pâturages, sommerung), du bien-être animal, de la production primaire (trafic animal, médicaments vétérinaires, santé animale, production laitière d'hygiène) et des étiquettes privées telles que IP-Suisse et QM-Swiss. Exigences\n• Diplôme d'agriculture avec au moins deux ans d'expérience pratique dans une exploitation agricole ou biologique. Une expérience pratique en agriculture est souhaitée.\n• Bonnes compétences en informatique\n• Capacité de communication et de conflit et assurance\n• Travail indépendant, fiabilité et haute performance\n• Les compétences romanes et/ou italiennes sont bénéfiques"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2731/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:19.837Z",
+      "crawledAt": "2026-06-12T12:22:26.337Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -677,17 +751,17 @@
       },
       "description": "Wir suchen für das Bündner Kunstmuseum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/n Mitarbeiter/-in in der Aufsicht.\n\nAufgaben\n• Betreuung der Besucherinnen und Besucher im Bündner Kunstmuseum\n\n• Überwachung der Ausstellungsräume und Kontrollgänge\n\n• Überprüfung der Verhaltensregeln\n\n• Beantwortung von Fragen über das Museum, die Sammlung und die Ausstellungen\n\n• Unterstützung des Teams bei speziellen Anlässen und Veranstaltungen\n\nAnforderungen\n• Abgeschlossene Ausbildung\n\n• Erfahrung in der Gästebetreuung\n\n• Kenntnisse von Vorsichts- und Präventionsmassnahmen\n\n• Sicheres Auftreten und eine angenehme, freundliche Umgangsform\n\n• Selbständige, dienstleistungs- und lösungsorientierte Arbeitsweise\n\n• Gute körperliche Konstitution\n\n• Flexibilität und Bereitschaft für Wochenendeinsätze\n\n• Interesse an Kunst und Kultur\n\n• Einwandfreie mündliche Ausdrucksweise in Deutsch, Englisch-, Rätoromanisch- und Italienischkenntnisse erwünscht",
       "descriptionByLocale": {
-        "it": "Stiamo cercando il Kunstmuseum Bündner nell'Ufficio della Cultura a partire dal 1° gennaio. Ottobre 2026 o d'intesa un dipendente nella supervisione.\n\nCompiti\n• Cura dei visitatori del Museo dei Grigioni\n\n• Monitoraggio dei locali espositivi e dei controlli\n\n• Revisione delle regole di comportamento\n\n• Rispondendo alle domande sul museo, la collezione e le mostre\n\n• Supporto del team per eventi ed eventi speciali\n\nRequisiti\n• Formazione completata\n\n• Esperienza nella cura degli ospiti\n\n• Conoscenza delle misure precauzionali e di prevenzione\n\n• aspetto sicuro e un modo piacevole e amichevole\n\n• Metodo di lavoro indipendente, orientato al servizio e alla soluzione\n\n• Buona costituzione fisica\n\n• Flessibilità e disponibilità per gli incarichi del fine settimana\n\n• Interesse all'arte e alla cultura\n\n• Una corretta espressione orale in tedesco, inglese, romanico e italiano",
-        "en": "We are looking for the Bündner Kunstmuseum in the Office of Culture as of 1 January. October 2026 or by agreement an employee in the supervision.\n\nTasks\n• Care of visitors in the Bündner Kunstmuseum\n\n• Monitoring of exhibition premises and controls\n\n• Review of the rules of conduct\n\n• Answering questions about the museum, the collection and the exhibitions\n\n• Support of the team for special events and events\n\nRequirements\n• Training completed\n\n• Experience in guest care\n\n• Knowledge of precautionary and prevention measures\n\n• Safe appearance and a pleasant, friendly manner\n\n• Independent, service- and solution-oriented working method\n\n• Good physical constitution\n\n• Flexibility and readiness for weekend assignments\n\n• Interest in art and culture\n\n• Proper oral expression in German, English, Romanesque and Italian skills desired",
-        "de": "Wir suchen für das Bündner Kunstmuseum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/n Mitarbeiter/-in in der Aufsicht.\n\nAufgaben\n• Betreuung der Besucherinnen und Besucher im Bündner Kunstmuseum\n\n• Überwachung der Ausstellungsräume und Kontrollgänge\n\n• Überprüfung der Verhaltensregeln\n\n• Beantwortung von Fragen über das Museum, die Sammlung und die Ausstellungen\n\n• Unterstützung des Teams bei speziellen Anlässen und Veranstaltungen\n\nAnforderungen\n• Abgeschlossene Ausbildung\n\n• Erfahrung in der Gästebetreuung\n\n• Kenntnisse von Vorsichts- und Präventionsmassnahmen\n\n• Sicheres Auftreten und eine angenehme, freundliche Umgangsform\n\n• Selbständige, dienstleistungs- und lösungsorientierte Arbeitsweise\n\n• Gute körperliche Konstitution\n\n• Flexibilität und Bereitschaft für Wochenendeinsätze\n\n• Interesse an Kunst und Kultur\n\n• Einwandfreie mündliche Ausdrucksweise in Deutsch, Englisch-, Rätoromanisch- und Italienischkenntnisse erwünscht",
-        "fr": "Nous recherchons le Bündner Kunstmuseum au bureau de la culture à partir du 1er janvier. Octobre 2026 ou par accord un employé sous la supervision.\n\nTâche\n• Prise en charge des visiteurs au musée Bündner\n\n• Surveillance des locaux d'exposition et des contrôles\n\n• Examen des règles de conduite\n\n• Répondre aux questions sur le musée, la collection et les expositions\n\n• Appui de l'équipe aux manifestations et manifestations spéciales\n\nExigences\n• Formation terminée\n\n• Expérience en soins aux clients\n\n• Connaissance des mesures de précaution et de prévention\n\n• Aspect sûr et une manière agréable et amicale\n\n• Méthode de travail indépendante axée sur les services et les solutions\n\n• Bonne constitution physique\n\n• Souplesse et disponibilité pour les affectations de fin de semaine\n\n• Intérêt pour l'art et la culture\n\n• Expression orale adéquate en allemand, anglais, roman et italien"
+        "it": "Stiamo cercando il Kunstmuseum Bündner nell'Ufficio della Cultura a partire dal 1° gennaio. Ottobre 2026 o d'intesa un dipendente nella supervisione. Compiti\n• Cura dei visitatori del Museo dei Grigioni\n• Monitoraggio dei locali espositivi e dei controlli\n• Revisione delle regole di comportamento\n• Rispondendo alle domande sul museo, la collezione e le mostre\n• Supporto del team per eventi ed eventi speciali Requisiti\n• Formazione completata\n• Esperienza nella cura degli ospiti\n• Conoscenza delle misure precauzionali e di prevenzione\n• aspetto sicuro e un modo piacevole e amichevole\n• Metodo di lavoro indipendente, orientato al servizio e alla soluzione\n• Buona costituzione fisica\n• Flessibilità e disponibilità per gli incarichi del fine settimana\n• Interesse all'arte e alla cultura\n• Una corretta espressione orale in tedesco, inglese, romanico e italiano",
+        "en": "We are looking for the Bündner Kunstmuseum in the Office of Culture as of 1 January. October 2026 or by agreement an employee in the supervision. Tasks\n• Care of visitors in the Bündner Kunstmuseum\n• Monitoring of exhibition premises and controls\n• Review of the rules of conduct\n• Answering questions about the museum, the collection and the exhibitions\n• Support of the team for special events and events Requirements\n• Training completed\n• Experience in guest care\n• Knowledge of precautionary and prevention measures\n• Safe appearance and a pleasant, friendly manner\n• Independent, service- and solution-oriented working method\n• Good physical constitution\n• Flexibility and readiness for weekend assignments\n• Interest in art and culture\n• Proper oral expression in German, English, Romanesque and Italian skills desired",
+        "de": "Wir suchen für das Bündner Kunstmuseum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/n Mitarbeiter/-in in der Aufsicht. Aufgaben\n• Betreuung der Besucherinnen und Besucher im Bündner Kunstmuseum\n• Überwachung der Ausstellungsräume und Kontrollgänge\n• Überprüfung der Verhaltensregeln\n• Beantwortung von Fragen über das Museum, die Sammlung und die Ausstellungen\n• Unterstützung des Teams bei speziellen Anlässen und Veranstaltungen Anforderungen\n• Abgeschlossene Ausbildung\n• Erfahrung in der Gästebetreuung\n• Kenntnisse von Vorsichts- und Präventionsmassnahmen\n• Sicheres Auftreten und eine angenehme, freundliche Umgangsform\n• Selbständige, dienstleistungs- und lösungsorientierte Arbeitsweise\n• Gute körperliche Konstitution\n• Flexibilität und Bereitschaft für Wochenendeinsätze\n• Interesse an Kunst und Kultur\n• Einwandfreie mündliche Ausdrucksweise in Deutsch, Englisch-, Rätoromanisch- und Italienischkenntnisse erwünscht",
+        "fr": "Nous recherchons le Bündner Kunstmuseum au bureau de la culture à partir du 1er janvier. Octobre 2026 ou par accord un employé sous la supervision. Tâche\n• Prise en charge des visiteurs au musée Bündner\n• Surveillance des locaux d'exposition et des contrôles\n• Examen des règles de conduite\n• Répondre aux questions sur le musée, la collection et les expositions\n• Appui de l'équipe aux manifestations et manifestations spéciales Exigences\n• Formation terminée\n• Expérience en soins aux clients\n• Connaissance des mesures de précaution et de prévention\n• Aspect sûr et une manière agréable et amicale\n• Méthode de travail indépendante axée sur les services et les solutions\n• Bonne constitution physique\n• Souplesse et disponibilité pour les affectations de fin de semaine\n• Intérêt pour l'art et la culture\n• Expression orale adéquate en allemand, anglais, roman et italien"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2734/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:19.182Z",
+      "crawledAt": "2026-06-12T12:22:25.658Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -752,17 +826,17 @@
       },
       "description": "Die Kantonspolizei Graubünden sucht eine engagierte Praktikantin oder einen engagierten Praktiktanten im Bereich Multimedia, um das Kommunikationsteam im Bereich Öffentlichkeitsarbeit und Marketing zu verstärken. Mit einer aktiven Kommunikation schaffen wir intern und extern Transparenz und fördern das Vertrauen in die Polizeiarbeit. Kreativ aufbereiteter Content für alle Kanäle zeigt die Vielfalt an beruflichen Tätigkeiten bei einer attraktiven Arbeitgeberin auf.\n\nWir suchen für die Kantonspolizei Graubünden nach Vereinbarung, befristet für mindestens 6 Monate, eine Praktikantin, einen Praktikanten Multimedia (80-100 %).\n\nAufgaben\n• Konzeption und Produktion multimedialer Inhalte für alle Kanäle und für alle Abteilungen\n\n• Veröffentlichung der Produkte auf ausgewählten Kanälen\n\n• Sicherstellung des Monitorings\n\n• Anfertigung von Vorlagen, Präsentationen, Dokumentationen, Flyern, Inseraten und Plakaten sowie Schulungsvideos\n\n• Qualitätsprüfung der Produkte\n\n• Unterstützung des Kommunikationsteams in sämtlichen Belangen/Projekte\n\nAnforderungen\n• Aufgestellte, flexible, innovative, junge Persönlichkeit\n\n• Beruflicher Hintergrund im gestalterischen oder multimedialen Bereich, z.B. Mediamatiker/-in, Social Media Manager/-in, Digital Content Producer/-in\n\n• Gutes Gespür für Social Media Trends\n\n• Ausgezeichnetes technisches Verständnis digitaler Systeme\n\n• Freude daran, Content zu erstellen und in ein attraktives Layout zu bringen\n\n• Offene, kommunikative Person, die herausfordernde Aufgaben mit kreativen Ideen und guter Laune löst",
       "descriptionByLocale": {
-        "it": "La Polizia cantonale dei Grigioni è alla ricerca di un tirocinante impegnato nel settore multimediale per rafforzare il team di comunicazione nel settore delle pubbliche relazioni e del marketing. Con una comunicazione attiva creiamo trasparenza interna ed esterna e promuoviamo la fiducia nel lavoro di polizia. I contenuti elaborati in modo creativo per tutti i canali mostrano la varietà delle attività professionali di un datore di lavoro attraente. Per la Polizia cantonale dei Grigioni cerchiamo per accordo, a tempo determinato per almeno 6 mesi, un tirocinante multimediale (80-100%). Compiti • Progettazione e produzione di contenuti multimediali per tutti i canali e per tutti i reparti • Pubblicazione dei prodotti su canali selezionati • Garantire il monitoraggio • Realizzazione di modelli, presentazioni, documentazione, volantini, inserzioni e manifesti e video di formazione • Controllo qualità dei prodotti • Supporto al team di comunicazione in tutte le questioni/esigenze del progetto • Personalità eretta, flessibile, innovativa, giovane • Esperienza professionale in ambito creativo o multimediale, ad es. mediamatico/a, social media manager, produttore/trice di contenuti digitali • Buon senso delle tendenze dei social media • Ottima conoscenza tecnica dei sistemi digitali • Piacere nel creare contenuti e portarli in un layout attraente • Aperte,",
-        "en": "The cantonal police Graubünden is looking for a committed intern or intern in the field of multimedia to strengthen the communication team in the field of public relations and marketing. With active communication, we create internal and external transparency and promote trust in police work. Creatively prepared content for all channels shows the diversity of professional activities at an attractive employer. We are looking for an intern, an intern multimedia (80-100%) for the cantonal police Graubünden by agreement, temporarily for at least 6 months. Tasks • Conception and production of multimedia content for all channels and for all departments • Publication of products on selected channels • Assurance of monitoring • Production of templates, presentations, documentation, flyers, advertisements and posters as well as training videos • Quality review of products • Support of the communication team in all aspects / projects Requirements • Structured, flexible, innovative, young personality • Professional background in the design or multimedia sector, e.g. mediamatist /-in, social media manager /-in, digital content producer /-in • Excellent technical understanding of digital systems • Joy in creating content and bringing it into an attractive layout • Open, communicative person who solves challenging tasks with creative ideas and good mood",
-        "de": "Die Kantonspolizei Graubünden sucht eine engagierte Praktikantin oder einen engagierten Praktiktanten im Bereich Multimedia, um das Kommunikationsteam im Bereich Öffentlichkeitsarbeit und Marketing zu verstärken. Mit einer aktiven Kommunikation schaffen wir intern und extern Transparenz und fördern das Vertrauen in die Polizeiarbeit. Kreativ aufbereiteter Content für alle Kanäle zeigt die Vielfalt an beruflichen Tätigkeiten bei einer attraktiven Arbeitgeberin auf.\n\nWir suchen für die Kantonspolizei Graubünden nach Vereinbarung, befristet für mindestens 6 Monate, eine Praktikantin, einen Praktikanten Multimedia (80-100 %).\n\nAufgaben\n• Konzeption und Produktion multimedialer Inhalte für alle Kanäle und für alle Abteilungen\n\n• Veröffentlichung der Produkte auf ausgewählten Kanälen\n\n• Sicherstellung des Monitorings\n\n• Anfertigung von Vorlagen, Präsentationen, Dokumentationen, Flyern, Inseraten und Plakaten sowie Schulungsvideos\n\n• Qualitätsprüfung der Produkte\n\n• Unterstützung des Kommunikationsteams in sämtlichen Belangen/Projekte\n\nAnforderungen\n• Aufgestellte, flexible, innovative, junge Persönlichkeit\n\n• Beruflicher Hintergrund im gestalterischen oder multimedialen Bereich, z.B. Mediamatiker/-in, Social Media Manager/-in, Digital Content Producer/-in\n\n• Gutes Gespür für Social Media Trends\n\n• Ausgezeichnetes technisches Verständnis digitaler Systeme\n\n• Freude daran, Content zu erstellen und in ein attraktives Layout zu bringen\n\n• Offene, kommunikative Person, die herausfordernde Aufgaben mit kreativen Ideen und guter Laune löst",
-        "fr": "La police cantonale Graubünden recherche un stagiaire engagé dans le domaine du multimédia pour renforcer l'équipe de communication dans le domaine des relations publiques et du marketing. Grâce à une communication active, nous créons une transparence interne et externe et promouvons la confiance dans le travail de la police. Un contenu créatif pour tous les canaux montre la diversité des activités professionnelles chez un employeur attrayant. Nous recherchons un interne, un interne multimédia (80-100%) pour la police cantonale Graubünden par accord, temporairement pendant au moins 6 mois. Tâches • Conception et production de contenu multimédia pour tous les canaux et pour tous les départements • Publication de produits sur des canaux sélectionnés • Assurance du suivi • Production de modèles, présentations, documentation, dépliants, publicités et affiches ainsi que de vidéos de formation • Qualité des produits • Soutien de l'équipe de communication dans tous les aspects / projets Exigences • Structurel, flexible, innovant, jeune personnalité • Expérience professionnelle dans le secteur de la conception ou du multimédia, p. ex. médiamatiste /-in, gestionnaire de médias sociaux /-in, producteur de contenu numérique /-in • Excellente compréhension technique des systèmes numériques • Joy à créer du contenu et à le mettre en page attrayante • Personne ouverte et communicative qui résout des tâches difficiles avec des idées créatives et une bonne humeur"
+        "it": "La Polizia cantonale dei Grigioni è alla ricerca di un tirocinante impegnato nel settore multimediale per rafforzare il team di comunicazione nel settore delle pubbliche relazioni e del marketing. Con una comunicazione attiva creiamo trasparenza interna ed esterna e promuoviamo la fiducia nel lavoro di polizia. I contenuti elaborati in modo creativo per tutti i canali mostrano la varietà delle attività professionali di un datore di lavoro attraente. Per la Polizia cantonale dei Grigioni cerchiamo per accordo, a tempo determinato per almeno 6 mesi, un tirocinante multimediale (80-100%). Compiti\n• Progettazione e produzione di contenuti multimediali per tutti i canali e per tutti i reparti\n• Pubblicazione dei prodotti su canali selezionati\n• Garantire il monitoraggio\n• Realizzazione di modelli, presentazioni, documentazione, volantini, inserzioni e manifesti e video di formazione\n• Controllo qualità dei prodotti\n• Supporto al team di comunicazione in tutte le questioni/esigenze del progetto\n• Personalità eretta, flessibile, innovativa, giovane\n• Esperienza professionale in ambito creativo o multimediale, ad es. mediamatico/a, social media manager, produttore/trice di contenuti digitali\n• Buon senso delle tendenze dei social media\n• Ottima conoscenza tecnica dei sistemi digitali\n• Piacere nel creare contenuti e portarli in un layout attraente\n• Aperte,",
+        "en": "The cantonal police Graubünden is looking for a committed intern or intern in the field of multimedia to strengthen the communication team in the field of public relations and marketing. With active communication, we create internal and external transparency and promote trust in police work. Creatively prepared content for all channels shows the diversity of professional activities at an attractive employer. We are looking for an intern, an intern multimedia (80-100%) for the cantonal police Graubünden by agreement, temporarily for at least 6 months. Tasks\n• Conception and production of multimedia content for all channels and for all departments\n• Publication of products on selected channels\n• Assurance of monitoring\n• Production of templates, presentations, documentation, flyers, advertisements and posters as well as training videos\n• Quality review of products\n• Support of the communication team in all aspects / projects Requirements\n• Structured, flexible, innovative, young personality\n• Professional background in the design or multimedia sector, e.g. mediamatist /-in, social media manager /-in, digital content producer /-in\n• Excellent technical understanding of digital systems\n• Joy in creating content and bringing it into an attractive layout\n• Open, communicative person who solves challenging tasks with creative ideas and good mood",
+        "de": "Die Kantonspolizei Graubünden sucht eine engagierte Praktikantin oder einen engagierten Praktiktanten im Bereich Multimedia, um das Kommunikationsteam im Bereich Öffentlichkeitsarbeit und Marketing zu verstärken. Mit einer aktiven Kommunikation schaffen wir intern und extern Transparenz und fördern das Vertrauen in die Polizeiarbeit. Kreativ aufbereiteter Content für alle Kanäle zeigt die Vielfalt an beruflichen Tätigkeiten bei einer attraktiven Arbeitgeberin auf. Wir suchen für die Kantonspolizei Graubünden nach Vereinbarung, befristet für mindestens 6 Monate, eine Praktikantin, einen Praktikanten Multimedia (80-100 %). Aufgaben\n• Konzeption und Produktion multimedialer Inhalte für alle Kanäle und für alle Abteilungen\n• Veröffentlichung der Produkte auf ausgewählten Kanälen\n• Sicherstellung des Monitorings\n• Anfertigung von Vorlagen, Präsentationen, Dokumentationen, Flyern, Inseraten und Plakaten sowie Schulungsvideos\n• Qualitätsprüfung der Produkte\n• Unterstützung des Kommunikationsteams in sämtlichen Belangen/Projekte Anforderungen\n• Aufgestellte, flexible, innovative, junge Persönlichkeit\n• Beruflicher Hintergrund im gestalterischen oder multimedialen Bereich, z.B. Mediamatiker/-in, Social Media Manager/-in, Digital Content Producer/-in\n• Gutes Gespür für Social Media Trends\n• Ausgezeichnetes technisches Verständnis digitaler Systeme\n• Freude daran, Content zu erstellen und in ein attraktives Layout zu bringen\n• Offene, kommunikative Person, die herausfordernde Aufgaben mit kreativen Ideen und guter Laune löst",
+        "fr": "La police cantonale Graubünden recherche un stagiaire engagé dans le domaine du multimédia pour renforcer l'équipe de communication dans le domaine des relations publiques et du marketing. Grâce à une communication active, nous créons une transparence interne et externe et promouvons la confiance dans le travail de la police. Un contenu créatif pour tous les canaux montre la diversité des activités professionnelles chez un employeur attrayant. Nous recherchons un interne, un interne multimédia (80-100%) pour la police cantonale Graubünden par accord, temporairement pendant au moins 6 mois. Tâches\n• Conception et production de contenu multimédia pour tous les canaux et pour tous les départements\n• Publication de produits sur des canaux sélectionnés\n• Assurance du suivi\n• Production de modèles, présentations, documentation, dépliants, publicités et affiches ainsi que de vidéos de formation\n• Qualité des produits\n• Soutien de l'équipe de communication dans tous les aspects / projets Exigences\n• Structurel, flexible, innovant, jeune personnalité\n• Expérience professionnelle dans le secteur de la conception ou du multimédia, p. ex. médiamatiste /-in, gestionnaire de médias sociaux /-in, producteur de contenu numérique /-in\n• Excellente compréhension technique des systèmes numériques\n• Joy à créer du contenu et à le mettre en page attrayante\n• Personne ouverte et communicative qui résout des tâches difficiles avec des idées créatives et une bonne humeur"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2719/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:18.526Z",
+      "crawledAt": "2026-06-12T12:22:24.979Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -833,17 +907,17 @@
       },
       "description": "Wir suchen für das Bündner Kunstmuseum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Mitarbeiter/-in an der Kasse\n\nAufgaben\n• Erste Ansprechperson für die Gäste am Empfang\n\n• Führung der Museumskasse samt Tagesabschluss\n\n• Beantwortung von Fragen über das Museum, die Sammlung und die Ausstellungen\n\n• Einsatz in der Museumsaufsicht\n\n• Administrative Aufgaben\n\n• Telefondienst an den Wochenenden\n\n• Unterstützung des Teams bei speziellen Anlässen und Veranstaltungen\n\nAnforderungen\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n\n• Erfahrung im Umgang mit einem Kassensystem\n\n• Kenntnisse von Vorsichts- und Präventionsmassnahmen\n\n• Sicheres Auftreten und eine angenehme, freundliche Umgangsform\n\n• Selbständige, dienstleistungs- und lösungsorientierte Arbeitsweise\n\n• Kommunikative Fähigkeiten\n\n• Flexibilität und Bereitschaft für Wochenendeinsätze\n\n• Interesse an Kunst und Kultur\n\n• Einwandfreie mündliche Ausdrucksweise in Deutsch, Englisch-, Rätoromanisch- und Italienischkenntnisse erwünscht",
       "descriptionByLocale": {
-        "it": "Stiamo cercando il Kunstmuseum Bündner nell'Ufficio della Cultura a partire dal 1° gennaio. Ottobre 2026 o per accordo un dipendente al registro di cassa\n\nCompiti\n• Prima persona di contatto per gli ospiti alla reception\n\n• Tour del Fondo Museo, compresa la fine della giornata\n\n• Rispondendo alle domande sul museo, la collezione e le mostre\n\n• Uso nella supervisione del museo\n\n• Attività amministrative\n\n• Servizio telefonico nei fine settimana\n\n• Supporto del team per eventi ed eventi speciali\n\nRequisiti\n• Formazione commerciale o equivalente completa\n\n• Esperienza nel trattare un sistema di cassa\n\n• Conoscenza delle misure precauzionali e di prevenzione\n\n• aspetto sicuro e un modo piacevole e amichevole\n\n• Metodo di lavoro indipendente, orientato al servizio e alla soluzione\n\n• Capacità comunicative\n\n• Flessibilità e disponibilità per gli incarichi del fine settimana\n\n• Interesse all'arte e alla cultura\n\n• Una corretta espressione orale in tedesco, inglese, romanico e italiano",
-        "en": "We are looking for the Bündner Kunstmuseum in the Office of Culture as of 1 January. October 2026 or by arrangement an employee at the cash register\n\nTasks\n• First contact person for guests at the reception\n\n• Tour of the Museum Fund including the end of the day\n\n• Answering questions about the museum, the collection and the exhibitions\n\n• Use in museum supervision\n\n• Administrative tasks\n\n• Telephone service on weekends\n\n• Support of the team for special events and events\n\nRequirements\n• Completed commercial or equivalent training\n\n• Experience in dealing with a cash register system\n\n• Knowledge of precautionary and prevention measures\n\n• Safe appearance and a pleasant, friendly manner\n\n• Independent, service- and solution-oriented working method\n\n• Communicative skills\n\n• Flexibility and readiness for weekend assignments\n\n• Interest in art and culture\n\n• Proper oral expression in German, English, Romanesque and Italian skills desired",
-        "de": "Wir suchen für das Bündner Kunstmuseum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Mitarbeiter/-in an der Kasse\n\nAufgaben\n• Erste Ansprechperson für die Gäste am Empfang\n\n• Führung der Museumskasse samt Tagesabschluss\n\n• Beantwortung von Fragen über das Museum, die Sammlung und die Ausstellungen\n\n• Einsatz in der Museumsaufsicht\n\n• Administrative Aufgaben\n\n• Telefondienst an den Wochenenden\n\n• Unterstützung des Teams bei speziellen Anlässen und Veranstaltungen\n\nAnforderungen\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n\n• Erfahrung im Umgang mit einem Kassensystem\n\n• Kenntnisse von Vorsichts- und Präventionsmassnahmen\n\n• Sicheres Auftreten und eine angenehme, freundliche Umgangsform\n\n• Selbständige, dienstleistungs- und lösungsorientierte Arbeitsweise\n\n• Kommunikative Fähigkeiten\n\n• Flexibilität und Bereitschaft für Wochenendeinsätze\n\n• Interesse an Kunst und Kultur\n\n• Einwandfreie mündliche Ausdrucksweise in Deutsch, Englisch-, Rätoromanisch- und Italienischkenntnisse erwünscht",
-        "fr": "Nous recherchons le Bündner Kunstmuseum au bureau de la culture à partir du 1er janvier. Octobre 2026 ou par arrangement un employé à la caisse enregistreuse\n\nTâche\n• Première personne de contact pour les invités à la réception\n\n• Visite du Fonds du Musée, y compris la fin de la journée\n\n• Répondre aux questions sur le musée, la collection et les expositions\n\n• Utilisation dans la supervision des musées\n\n• Tâches administratives\n\n• Service téléphonique le week-end\n\n• Appui de l'équipe aux manifestations et manifestations spéciales\n\nExigences\n• Formation commerciale ou équivalente\n\n• Expérience dans le traitement d'un système de caisse enregistreuse\n\n• Connaissance des mesures de précaution et de prévention\n\n• Aspect sûr et une manière agréable et amicale\n\n• Méthode de travail indépendante axée sur les services et les solutions\n\n• Compétences communicatives\n\n• Souplesse et disponibilité pour les affectations de fin de semaine\n\n• Intérêt pour l'art et la culture\n\n• Expression orale adéquate en allemand, anglais, roman et italien"
+        "it": "Stiamo cercando il Kunstmuseum Bündner nell'Ufficio della Cultura a partire dal 1° gennaio. Ottobre 2026 o per accordo un dipendente al registro di cassa Compiti\n• Prima persona di contatto per gli ospiti alla reception\n• Tour del Fondo Museo, compresa la fine della giornata\n• Rispondendo alle domande sul museo, la collezione e le mostre\n• Uso nella supervisione del museo\n• Attività amministrative\n• Servizio telefonico nei fine settimana\n• Supporto del team per eventi ed eventi speciali Requisiti\n• Formazione commerciale o equivalente completa\n• Esperienza nel trattare un sistema di cassa\n• Conoscenza delle misure precauzionali e di prevenzione\n• aspetto sicuro e un modo piacevole e amichevole\n• Metodo di lavoro indipendente, orientato al servizio e alla soluzione\n• Capacità comunicative\n• Flessibilità e disponibilità per gli incarichi del fine settimana\n• Interesse all'arte e alla cultura\n• Una corretta espressione orale in tedesco, inglese, romanico e italiano",
+        "en": "We are looking for the Bündner Kunstmuseum in the Office of Culture as of 1 January. October 2026 or by arrangement an employee at the cash register Tasks\n• First contact person for guests at the reception\n• Tour of the Museum Fund including the end of the day\n• Answering questions about the museum, the collection and the exhibitions\n• Use in museum supervision\n• Administrative tasks\n• Telephone service on weekends\n• Support of the team for special events and events Requirements\n• Completed commercial or equivalent training\n• Experience in dealing with a cash register system\n• Knowledge of precautionary and prevention measures\n• Safe appearance and a pleasant, friendly manner\n• Independent, service- and solution-oriented working method\n• Communicative skills\n• Flexibility and readiness for weekend assignments\n• Interest in art and culture\n• Proper oral expression in German, English, Romanesque and Italian skills desired",
+        "de": "Wir suchen für das Bündner Kunstmuseum im Amt für Kultur per 1. Oktober 2026 oder nach Vereinbarung eine/-n Mitarbeiter/-in an der Kasse Aufgaben\n• Erste Ansprechperson für die Gäste am Empfang\n• Führung der Museumskasse samt Tagesabschluss\n• Beantwortung von Fragen über das Museum, die Sammlung und die Ausstellungen\n• Einsatz in der Museumsaufsicht\n• Administrative Aufgaben\n• Telefondienst an den Wochenenden\n• Unterstützung des Teams bei speziellen Anlässen und Veranstaltungen Anforderungen\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erfahrung im Umgang mit einem Kassensystem\n• Kenntnisse von Vorsichts- und Präventionsmassnahmen\n• Sicheres Auftreten und eine angenehme, freundliche Umgangsform\n• Selbständige, dienstleistungs- und lösungsorientierte Arbeitsweise\n• Kommunikative Fähigkeiten\n• Flexibilität und Bereitschaft für Wochenendeinsätze\n• Interesse an Kunst und Kultur\n• Einwandfreie mündliche Ausdrucksweise in Deutsch, Englisch-, Rätoromanisch- und Italienischkenntnisse erwünscht",
+        "fr": "Nous recherchons le Bündner Kunstmuseum au bureau de la culture à partir du 1er janvier. Octobre 2026 ou par arrangement un employé à la caisse enregistreuse Tâche\n• Première personne de contact pour les invités à la réception\n• Visite du Fonds du Musée, y compris la fin de la journée\n• Répondre aux questions sur le musée, la collection et les expositions\n• Utilisation dans la supervision des musées\n• Tâches administratives\n• Service téléphonique le week-end\n• Appui de l'équipe aux manifestations et manifestations spéciales Exigences\n• Formation commerciale ou équivalente\n• Expérience dans le traitement d'un système de caisse enregistreuse\n• Connaissance des mesures de précaution et de prévention\n• Aspect sûr et une manière agréable et amicale\n• Méthode de travail indépendante axée sur les services et les solutions\n• Compétences communicatives\n• Souplesse et disponibilité pour les affectations de fin de semaine\n• Intérêt pour l'art et la culture\n• Expression orale adéquate en allemand, anglais, roman et italien"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2735/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:17.870Z",
+      "crawledAt": "2026-06-12T12:22:24.301Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -908,17 +982,17 @@
       },
       "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. September 2026 oder nach Vereinbarung eine/-n Quereinsteiger/-in als Bauleiter/-in\n\nAufgaben\n• Mitarbeit bei der Leitung und Kontrolle der zugeteilten Baustellen als Bauherrenvertreter/-in\n\n• Terminierung und Koordination der Arbeiten\n\n• Sicherstellen von Qualität, Ausmass und Ausführung der gesamten Vertragsarbeit\n\n• Erstellen von Kostenvoranschlägen, Ausschreibungsunterlagen und Abrechnungen\n\n• Überwachung des Budgets\n\n• Erledigung technischer Aufgaben für den Strassenunterhalt\n\n• Leisten von Pikettdienst als Einsatzleiter/-in\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Einige Jahre Berufserfahrung, idealerweise im Tiefbau\n\n• Bereitschaft, als Quereinsteiger/-in die notwendigen Weiterbildungen zur Ausübung von Bauleitungsaufgaben zu absolvieren\n\n• Lernbereitschaft und Durchsetzungsvermögen\n\n• Persönlichkeit mit hoher Sozialkompetenz, Organisations- und Verhandlungsgeschick sowie Teamfähigkeit\n\n• Italienischkenntnisse von Vorteil",
       "descriptionByLocale": {
-        "it": "L'ufficio di ingegneria civile è responsabile della progettazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché dell'ingegneria idraulica e del trasporto lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali sul territorio cantonale. L’infrastruttura stradale del cantone comprende oltre 1.450 edifici artificiali, tra cui ponti ad altezze ariose fino a 90 metri e gallerie fino a 3 chilometri di lunghezza. Le sfide che la natura del nostro cantone di montagna porta in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, la salute e la soddisfazione dei nostri circa 480 dipendenti sono particolarmente importanti per noi. Per questo motivo, siamo impegnati nella gestione sistematica della salute professionale (BGM).\n\nStiamo cercando il reparto manutenzione stradale nel distretto 7 Sois per 1. settembre 2026 o per accordo un entrante laterale come direttore di costruzione\n\nCompiti\n• Partecipazione alla gestione e al controllo dei cantieri assegnati come rappresentante del cliente\n\n• Terminizzazione e coordinamento del lavoro\n\n• Assicurare la qualità, la portata e l'esecuzione dell'intero lavoro contrattuale\n\n• Creazione di stime sui costi, documenti teneri e fatturazione\n\n• Controllo del bilancio\n\n• Completamento dei compiti tecnici per la manutenzione stradale\n\n• Performare Picettdienst come responsabile operativo/in\n\nRequisiti\n• Apprendistato completo nell'industria edile\n\n• Alcuni anni di esperienza professionale, idealmente in ingegneria civile\n\n• Volontà di completare l'ulteriore formazione necessaria come una componente laterale per l'esercizio di compiti di gestione delle costruzioni\n\n• Volontà di apprendere e affermare\n\n• Personalità con competenze sociali elevate, capacità organizzative e di negoziazione e competenze di squadra\n\n• La conoscenza dell'italiano è benefica",
-        "en": "The civil engineering office is responsible for the design, construction, maintenance and operation of the cantonal roads as well as the hydraulic engineering and slow transport in Graubünden. We also take care of the operational maintenance of the national roads on the cantonal territory. The canton’s road infrastructure comprises over 1,450 artificial buildings, including bridges at airy heights of up to 90 meters and tunnels of up to 3 kilometers in length. The challenges that the nature of our mountain canton brings in summer and winter make our work demanding and versatile. As a Friendly Work Space certified office, the health and satisfaction of our approximately 480 employees are particularly important to us. For this reason, we are committed to systematic occupational health management (BGM).\n\nWe are looking for the road maintenance department in district 7 Sois per 1. September 2026 or by arrangement a lateral entrant as construction manager\n\nTasks\n• Participation in the management and control of the assigned construction sites as a client representative\n\n• Termination and coordination of work\n\n• Ensuring the quality, extent and execution of the entire contract work\n\n• Creation of cost estimates, tender documents and billing\n\n• Monitoring the budget\n\n• Completion of technical tasks for road maintenance\n\n• Performing Picettdienst as operational manager/in\n\nRequirements\n• Completed apprenticeship in the construction industry\n\n• Some years of professional experience, ideally in civil engineering\n\n• Willingness to complete the necessary further training as a lateral entrant for the exercise of construction management tasks\n\n• Willingness to learn and assertiveness\n\n• Personality with high social skills, organisational and negotiation skills as well as team skills\n\n• Knowledge of Italian is beneficial",
-        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. September 2026 oder nach Vereinbarung eine/-n Quereinsteiger/-in als Bauleiter/-in\n\nAufgaben\n• Mitarbeit bei der Leitung und Kontrolle der zugeteilten Baustellen als Bauherrenvertreter/-in\n\n• Terminierung und Koordination der Arbeiten\n\n• Sicherstellen von Qualität, Ausmass und Ausführung der gesamten Vertragsarbeit\n\n• Erstellen von Kostenvoranschlägen, Ausschreibungsunterlagen und Abrechnungen\n\n• Überwachung des Budgets\n\n• Erledigung technischer Aufgaben für den Strassenunterhalt\n\n• Leisten von Pikettdienst als Einsatzleiter/-in\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Einige Jahre Berufserfahrung, idealerweise im Tiefbau\n\n• Bereitschaft, als Quereinsteiger/-in die notwendigen Weiterbildungen zur Ausübung von Bauleitungsaufgaben zu absolvieren\n\n• Lernbereitschaft und Durchsetzungsvermögen\n\n• Persönlichkeit mit hoher Sozialkompetenz, Organisations- und Verhandlungsgeschick sowie Teamfähigkeit\n\n• Italienischkenntnisse von Vorteil",
-        "fr": "Le bureau du génie civil est chargé de la conception, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de l'ingénierie hydraulique et du transport lent à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales sur le territoire cantonal. L'infrastructure routière cantonale comprend plus de 1.450 bâtiments artificiels, y compris des ponts à des hauteurs aérées allant jusqu'à 90 mètres et des tunnels pouvant atteindre 3 kilomètres de long. Les défis que la nature de notre canton de montagne apporte en été et en hiver rendent notre travail exigeant et polyvalent. En tant que bureau certifié Friendly Work Space, la santé et la satisfaction de nos quelque 480 employés sont particulièrement importantes pour nous. C'est pourquoi nous nous engageons à assurer une gestion systématique de la santé au travail.\n\nNous recherchons le département d'entretien de la route dans le district 7 Sois per 1. Septembre 2026 ou par arrangement un entrant latéral comme directeur de construction\n\nTâche\n• Participation à la gestion et au contrôle des chantiers en tant que représentant du client\n\n• Fin et coordination des travaux\n\n• Assurer la qualité, l'étendue et l'exécution de l'ensemble des travaux contractuels\n\n• Création d'estimations des coûts, de documents d'appel d'offres et de facturation\n\n• Contrôle du budget\n\n• Achèvement des tâches techniques d'entretien des routes\n\n• Performer Picettdienst en tant que gestionnaire opérationnel\n\nExigences\n• Apprentissage dans le secteur de la construction\n\n• Quelques années d'expérience professionnelle, idéalement en génie civil\n\n• Volonté de compléter la formation complémentaire nécessaire en tant que participant latéral pour l'exercice des tâches de gestion de la construction\n\n• Volonté d'apprendre et d'affirmer\n\n• Personnalité avec des compétences sociales élevées, des compétences en matière d'organisation et de négociation ainsi que des compétences en équipe\n\n• La connaissance de l'italien est bénéfique"
+        "it": "L'ufficio di ingegneria civile è responsabile della progettazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché dell'ingegneria idraulica e del trasporto lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali sul territorio cantonale. L’infrastruttura stradale del cantone comprende oltre 1.450 edifici artificiali, tra cui ponti ad altezze ariose fino a 90 metri e gallerie fino a 3 chilometri di lunghezza. Le sfide che la natura del nostro cantone di montagna porta in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, la salute e la soddisfazione dei nostri circa 480 dipendenti sono particolarmente importanti per noi. Per questo motivo, siamo impegnati nella gestione sistematica della salute professionale (BGM). Stiamo cercando il reparto manutenzione stradale nel distretto 7 Sois per 1. settembre 2026 o per accordo un entrante laterale come direttore di costruzione Compiti\n• Partecipazione alla gestione e al controllo dei cantieri assegnati come rappresentante del cliente\n• Terminizzazione e coordinamento del lavoro\n• Assicurare la qualità, la portata e l'esecuzione dell'intero lavoro contrattuale\n• Creazione di stime sui costi, documenti teneri e fatturazione\n• Controllo del bilancio\n• Completamento dei compiti tecnici per la manutenzione stradale\n• Performare Picettdienst come responsabile operativo/in Requisiti\n• Apprendistato completo nell'industria edile\n• Alcuni anni di esperienza professionale, idealmente in ingegneria civile\n• Volontà di completare l'ulteriore formazione necessaria come una componente laterale per l'esercizio di compiti di gestione delle costruzioni\n• Volontà di apprendere e affermare\n• Personalità con competenze sociali elevate, capacità organizzative e di negoziazione e competenze di squadra\n• La conoscenza dell'italiano è benefica",
+        "en": "The civil engineering office is responsible for the design, construction, maintenance and operation of the cantonal roads as well as the hydraulic engineering and slow transport in Graubünden. We also take care of the operational maintenance of the national roads on the cantonal territory. The canton’s road infrastructure comprises over 1,450 artificial buildings, including bridges at airy heights of up to 90 meters and tunnels of up to 3 kilometers in length. The challenges that the nature of our mountain canton brings in summer and winter make our work demanding and versatile. As a Friendly Work Space certified office, the health and satisfaction of our approximately 480 employees are particularly important to us. For this reason, we are committed to systematic occupational health management (BGM). We are looking for the road maintenance department in district 7 Sois per 1. September 2026 or by arrangement a lateral entrant as construction manager Tasks\n• Participation in the management and control of the assigned construction sites as a client representative\n• Termination and coordination of work\n• Ensuring the quality, extent and execution of the entire contract work\n• Creation of cost estimates, tender documents and billing\n• Monitoring the budget\n• Completion of technical tasks for road maintenance\n• Performing Picettdienst as operational manager/in Requirements\n• Completed apprenticeship in the construction industry\n• Some years of professional experience, ideally in civil engineering\n• Willingness to complete the necessary further training as a lateral entrant for the exercise of construction management tasks\n• Willingness to learn and assertiveness\n• Personality with high social skills, organisational and negotiation skills as well as team skills\n• Knowledge of Italian is beneficial",
+        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. September 2026 oder nach Vereinbarung eine/-n Quereinsteiger/-in als Bauleiter/-in Aufgaben\n• Mitarbeit bei der Leitung und Kontrolle der zugeteilten Baustellen als Bauherrenvertreter/-in\n• Terminierung und Koordination der Arbeiten\n• Sicherstellen von Qualität, Ausmass und Ausführung der gesamten Vertragsarbeit\n• Erstellen von Kostenvoranschlägen, Ausschreibungsunterlagen und Abrechnungen\n• Überwachung des Budgets\n• Erledigung technischer Aufgaben für den Strassenunterhalt\n• Leisten von Pikettdienst als Einsatzleiter/-in Anforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n• Einige Jahre Berufserfahrung, idealerweise im Tiefbau\n• Bereitschaft, als Quereinsteiger/-in die notwendigen Weiterbildungen zur Ausübung von Bauleitungsaufgaben zu absolvieren\n• Lernbereitschaft und Durchsetzungsvermögen\n• Persönlichkeit mit hoher Sozialkompetenz, Organisations- und Verhandlungsgeschick sowie Teamfähigkeit\n• Italienischkenntnisse von Vorteil",
+        "fr": "Le bureau du génie civil est chargé de la conception, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de l'ingénierie hydraulique et du transport lent à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales sur le territoire cantonal. L'infrastructure routière cantonale comprend plus de 1.450 bâtiments artificiels, y compris des ponts à des hauteurs aérées allant jusqu'à 90 mètres et des tunnels pouvant atteindre 3 kilomètres de long. Les défis que la nature de notre canton de montagne apporte en été et en hiver rendent notre travail exigeant et polyvalent. En tant que bureau certifié Friendly Work Space, la santé et la satisfaction de nos quelque 480 employés sont particulièrement importantes pour nous. C'est pourquoi nous nous engageons à assurer une gestion systématique de la santé au travail. Nous recherchons le département d'entretien de la route dans le district 7 Sois per 1. Septembre 2026 ou par arrangement un entrant latéral comme directeur de construction Tâche\n• Participation à la gestion et au contrôle des chantiers en tant que représentant du client\n• Fin et coordination des travaux\n• Assurer la qualité, l'étendue et l'exécution de l'ensemble des travaux contractuels\n• Création d'estimations des coûts, de documents d'appel d'offres et de facturation\n• Contrôle du budget\n• Achèvement des tâches techniques d'entretien des routes\n• Performer Picettdienst en tant que gestionnaire opérationnel Exigences\n• Apprentissage dans le secteur de la construction\n• Quelques années d'expérience professionnelle, idéalement en génie civil\n• Volonté de compléter la formation complémentaire nécessaire en tant que participant latéral pour l'exercice des tâches de gestion de la construction\n• Volonté d'apprendre et d'affirmer\n• Personnalité avec des compétences sociales élevées, des compétences en matière d'organisation et de négociation ainsi que des compétences en équipe\n• La connaissance de l'italien est bénéfique"
       },
       "location": "Thusis",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2729/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:17.212Z",
+      "crawledAt": "2026-06-12T12:22:23.616Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -954,15 +1028,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:40.462Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
@@ -999,7 +1073,7 @@
       "url": "https://apply.refline.ch/514915/2728/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:16.556Z",
+      "crawledAt": "2026-06-12T12:22:22.938Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1077,7 +1151,7 @@
       "url": "https://apply.refline.ch/514915/2699/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:15.899Z",
+      "crawledAt": "2026-06-12T12:22:22.258Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1140,6 +1214,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1185,7 +1260,7 @@
       "url": "https://apply.refline.ch/514915/2717/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:15.242Z",
+      "crawledAt": "2026-06-12T12:22:21.582Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1263,7 +1338,7 @@
       "url": "https://apply.refline.ch/514915/2724/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:14.573Z",
+      "crawledAt": "2026-06-12T12:22:20.891Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1338,7 +1413,7 @@
       "url": "https://apply.refline.ch/514915/2725/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:13.918Z",
+      "crawledAt": "2026-06-12T12:22:20.214Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1369,6 +1444,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:53.758Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1414,7 +1490,7 @@
       "url": "https://apply.refline.ch/514915/2722/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:13.253Z",
+      "crawledAt": "2026-06-12T12:22:19.537Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1500,7 +1576,7 @@
       "url": "https://apply.refline.ch/514915/2726/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:12.597Z",
+      "crawledAt": "2026-06-12T12:22:18.860Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1536,6 +1612,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:52.468Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1581,7 +1658,7 @@
       "url": "https://apply.refline.ch/514915/2723/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:11.941Z",
+      "crawledAt": "2026-06-12T12:22:18.182Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1659,7 +1736,7 @@
       "url": "https://apply.refline.ch/514915/2720/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:11.284Z",
+      "crawledAt": "2026-06-12T12:22:17.502Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1735,7 +1812,7 @@
       "url": "https://apply.refline.ch/514915/2714/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:10.612Z",
+      "crawledAt": "2026-06-12T12:22:16.795Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1816,7 +1893,7 @@
       "url": "https://apply.refline.ch/514915/2715/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:09.927Z",
+      "crawledAt": "2026-06-12T12:22:16.117Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1846,6 +1923,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.867Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1891,7 +1969,7 @@
       "url": "https://apply.refline.ch/514915/2716/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:09.271Z",
+      "crawledAt": "2026-06-12T12:22:15.438Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1966,7 +2044,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:08.615Z",
+      "crawledAt": "2026-06-12T12:22:14.759Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1996,6 +2074,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.927Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2041,7 +2120,7 @@
       "url": "https://apply.refline.ch/514915/2712/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:07.929Z",
+      "crawledAt": "2026-06-12T12:22:14.082Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2071,6 +2150,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.260Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2092,7 +2172,7 @@
         "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2116,7 +2196,7 @@
       "url": "https://apply.refline.ch/514915/2711/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:06.615Z",
+      "crawledAt": "2026-06-12T12:22:12.726Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2138,8 +2218,7 @@
       "pensumMax": 80,
       "pensum": "50-80%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
+        "dipl-pflegefachperson-hf-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2199,7 +2278,7 @@
       "url": "https://apply.refline.ch/514915/2625/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:05.954Z",
+      "crawledAt": "2026-06-12T12:22:12.042Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2254,9 +2333,9 @@
       "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
       "slugByLocale": {
         "it": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
-        "en": "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
+        "en": "strassenwart-in-kanton-gr-ch",
         "de": "strassenwart-in-kanton-gr-ch",
-        "fr": "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
+        "fr": "strassenwart-in-kanton-gr-ch"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2280,7 +2359,7 @@
       "url": "https://apply.refline.ch/514915/2706/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:05.296Z",
+      "crawledAt": "2026-06-12T12:22:11.360Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2302,20 +2381,25 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "strassenwart-in-kanton-gr-ch"
+        "strassenwart-in-kanton-gr-ch",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch"
         ],
         "en": [
+          "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
           "strassenwart-in-kanton-gr-ch"
         ],
         "fr": [
+          "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan",
           "strassenwart-in-kanton-gr-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:44.680Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2361,7 +2445,7 @@
       "url": "https://apply.refline.ch/514915/2708/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:04.617Z",
+      "crawledAt": "2026-06-12T12:22:10.678Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2393,6 +2477,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:43.387Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2438,7 +2523,7 @@
       "url": "https://apply.refline.ch/514915/2704/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:03.933Z",
+      "crawledAt": "2026-06-12T12:22:09.996Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2513,7 +2598,7 @@
       "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:03.248Z",
+      "crawledAt": "2026-06-12T12:22:09.316Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2591,7 +2676,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-11T22:54:02.545Z",
+      "crawledAt": "2026-06-12T12:22:08.626Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2655,6 +2740,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
