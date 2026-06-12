@@ -1,0 +1,69 @@
+# Osservabilità deterministica del loop autonomo (ZERO-Claude).
+#
+# Il ciclo osserva→fixa→valida del loop (review/issue-fix/followup/rescuer)
+# finora richiedeva un'analisi manuale multi-ora per misurare failure-rate,
+# overhead review e zombie (fatta il 2026-06-12 → tuning #1919/#1926). Questo
+# cron la automatizza: report settimanale con soglie ⚠️, postato come commento
+# su una issue-tracker permanente — il lessons-harvester e l'owner hanno i
+# numeri senza spendere un token Claude.
+#
+# Validazione tuning: dopo un cambio ai cap/gate (es. turn-cap bump #1919) il
+# primo report dice se il failure-rate è sceso o se va revertato (revert-trigger
+# dichiarati nei PR body).
+name: Loop health report (zero-Claude)
+
+on:
+  schedule:
+    # Lunedì 05:45 UTC — dopo il lessons-harvester (05:17) così un harvest
+    # appena uscito è già visibile, prima del compress-docs (04:00 +1g).
+    - cron: '45 5 * * 1'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Finestra di osservazione in giorni'
+        required: false
+        type: string
+        default: '7'
+      no_post:
+        description: 'Solo stdout, niente commento sulla issue tracker'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+  # gh run list legge le Actions API: read è implicito nel GITHUB_TOKEN.
+  actions: read
+  pull-requests: read
+
+concurrency:
+  group: loop-health-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Compute and post loop health report
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          ARGS="--days ${{ github.event.inputs.days || '7' }}"
+          if [ "${{ github.event.inputs.no_post }}" = "true" ]; then
+            ARGS="$ARGS --no-post"
+          fi
+          node scripts/ci/loop-health-report.mjs $ARGS | tee -a "$GITHUB_STEP_SUMMARY"
