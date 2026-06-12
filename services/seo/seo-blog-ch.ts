@@ -1619,6 +1619,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aeroporti-svizzeri-aumentano-pas-s-vieto': {
+    title: 'Aeroporti svizzeri: aumentano i passeggeri e il traffico merci',
+    description: 'I tre principali aeroporti svizzeri hanno movimentato più passeggeri e merci nel semestre invernale 2025/26. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporti, svizzeri, aumentano, passeggeri',
+    ogTitle: 'Aeroporti svizzeri aumentano i passeggeri e il traffico merci',
+    ogDescription: 'I tre principali aeroporti svizzeri hanno movimentato più passeggeri e merci nel semestre invernale 2025/26.',
+    canonicalPath: '/articoli-svizzera/aeroporti-svizzeri-aumentano-pas-s-vieto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporti svizzeri: aumentano i passeggeri e il traffico merci",
+      "description": "I tre principali aeroporti svizzeri hanno movimentato più passeggeri e merci nel semestre invernale 2025/26. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aeroporti-svizzeri-aumentano-pas-s-vieto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Zurigo"
+      },
+      "datePublished": "2026-06-12T00:34:56+00:00",
+      "dateModified": "2026-06-12T00:34:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aeroporti-svizzeri-aumentano-pas-s-vieto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

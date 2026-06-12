@@ -131,6 +131,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi cambia ai vertici e cerca nuovi soci',
     'blog.article.agefi-nuovi-vertici.excerpt': 'Frédéric Lelièvre lascia L\'Agefi per Le Temps; Jonas Follonier diventa redattore capo e Olivier Bloch direttore',
     'blog.article.agefi-nuovi-vertici.imageAlt': 'Un giornale economico svizzero letto in un caffè di Lugano',
+    'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.title': 'Aeroporti svizzeri: aumentano i passeggeri e il traffico merci',
+    'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.excerpt': 'I tre principali aeroporti svizzeri hanno movimentato più passeggeri e merci nel semestre invernale 2025/26.',
+    'blog.article.aeroporti-svizzeri-aumentano-pas-s-vieto.imageAlt': 'Aeroporto di Zurigo',
 };
 
 export default blogMetaChIt;
