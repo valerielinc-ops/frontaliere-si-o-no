@@ -8054,6 +8054,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-13esima-conciliazione-iva.title': '13esima AVS: va in conciliazione, IVA sale di 0,4%',
     'blog.article.avs-13esima-conciliazione-iva.excerpt': 'Nazionale e Stati in disaccordo: la 13esima AVS va in conciliazione. Rischio versamento senza finanziamento. Aumento IVA al centro del dibattito.',
     'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Parlamento svizzero e finanziamento 13esima AVS',
+    'blog.article.equita-fiscale-famiglie-ticino.title': 'Equità fiscale famiglie Ticino: mozione per costi lavoro-famiglia',
+    'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'Le Donne del Centro propongono una mozione al Gran Consiglio per riconoscere fiscalmente i costi sostenuti dalle famiglie in Ticino per conciliare lavoro e gestione familiare, con criteri rigorosi.',
+    'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande di Bellinzona con famiglie moderne in primo piano, simbolo delle sfide di conciliazione lavoro-famiglia in Ticino.',
 };
 
 export default blogMetaIt;

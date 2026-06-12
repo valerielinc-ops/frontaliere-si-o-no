@@ -8054,6 +8054,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avs-13esima-conciliazione-iva.title': '13e AVS en conciliation, IVA de 0,4%',
     'blog.article.avs-13esima-conciliazione-iva.excerpt': 'Nation et États en désaccord : la 13e AVS va en conciliation. Risque de versement sans financement. L\'augmentation de l\'IVA est au cœur du débat.',
     'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Parlement suisse et financement 13e AVS',
+    'blog.article.equita-fiscale-famiglie-ticino.title': 'Équité fiscale pour les familles tessinoises',
+    'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'Les Donne del Centro proposent une motion au Grand Conseil pour reconnaître fiscalement les coûts supportés par les familles tessinoises pour concilier travail et gestion familiale, avec des critères stricts.',
+    'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande à Bellinzone avec des familles modernes au premier plan, symbolisant les défis de conciliation travail-famille au Tessin.',
 };
 
 export default blogMetaFr;

@@ -8053,6 +8053,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-13esima-conciliazione-iva.title': '13th AVS: conciliation, VAT up 0.4%',
     'blog.article.avs-13esima-conciliazione-iva.excerpt': 'National and States disagree: 13th AVS goes to conciliation. Risk of payment without funding. VAT increase at the center of the debate.',
     'blog.article.avs-13esima-conciliazione-iva.imageAlt': 'Swiss Parliament and 13th AVS pension funding',
+    'blog.article.equita-fiscale-famiglie-ticino.title': 'Tax Equity for Ticinese Families: Motion for Work-Family Costs',
+    'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'The Women of the Centre propose a motion to the Grand Council to fiscally recognize the costs incurred by families in Ticino to reconcile work and family management, with rigorous criteria.',
+    'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande in Bellinzona with modern families in the foreground, symbolizing work-life balance challenges in Ticino.',
 };
 
 export default blogMetaEn;
