@@ -49,7 +49,7 @@
  *    page's FAQPage JSON-LD (avoiding GSC "duplicate FAQPage" warnings).
  */
 
-import { CALC_HREF } from './jobBoardCommuterContext';
+import { CALC_HREF } from './calcHref';
 
 export type CantonSeoLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -108,8 +108,12 @@ interface SlotCopy {
   crossLinks: string;
 }
 
-// Locale-aware calculator paths — single source in jobBoardCommuterContext
-// (the '/'-pointing local table sent users to the homepage, not the simulator).
+// Locale-aware calculator paths — single source in the LEAF module
+// ./calcHref (the '/'-pointing local table sent users to the homepage, not
+// the simulator). MUST come from the leaf: importing it from
+// jobBoardCommuterContext made a circular import (that module imports
+// renderCantonSeoProse from here) and this module-level alias froze
+// undefined → full-build crash (deploy run 27401576244). See calcHref.ts.
 const CALCULATOR_HREF: Record<CantonSeoLocale, string> = CALC_HREF;
 
 const FX_HREF: Record<CantonSeoLocale, string> = {

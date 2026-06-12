@@ -193,18 +193,14 @@ const COPY: Record<CommuterLocale, CommuterCopy> = {
   },
 };
 
-// Per-locale net-salary calculator landing. Same paths as CALCULATOR_URL in
-// professionLandingsPlugin.ts — exported so host plugins (e.g. the
-// care-variant CTA in jobsSeoPagesPlugin) reuse one source of truth instead
-// of duplicating the table. Previously pointed at the locale homepage ('/'),
-// which made the "calcolatore stipendio netto frontaliere" cross-link land
-// on the homepage instead of the calculator.
-export const CALC_HREF: Record<CommuterLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
+// Per-locale net-salary calculator landing — single source in the LEAF
+// module ./calcHref (re-exported here so host plugins keep their import
+// path). It moved out of this file because importing it from
+// cantonSeoProse.ts created a circular import (this module imports
+// renderCantonSeoProse) that froze `CALC_HREF` to undefined at module init
+// and crashed the full build (deploy run 27401576244). See calcHref.ts.
+export { CALC_HREF } from './calcHref';
+import { CALC_HREF } from './calcHref';
 const FX_HREF: Record<CommuterLocale, string> = {
   it: '/comparatori/cambio-valuta/',
   en: '/en/comparators/currency-exchange/',
