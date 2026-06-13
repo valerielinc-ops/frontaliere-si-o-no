@@ -1,18 +1,19 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-06-12T22:07:44.411Z",
+  "generatedAt": "2026-06-13T10:38:41.571Z",
   "total": 11,
-  "newCount": 2,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 91138,
-  "avgDurationMs": 91138,
+  "durationMs": 52344,
+  "avgDurationMs": 52344,
   "durationHistory": [
-    91138
+    52344
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Fachspezialistin Anlegen (w/m)",
       "slug": "fachspezialistin-anlegen-w-m-banca-cler",
@@ -38,13 +39,21 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:15.153Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-06-13T10:37:51.239Z",
+      "id": "company-ftg6n4",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-06-12T22:07:43.951Z",
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 10,
+        "completeness": 25
       }
     },
     {
@@ -72,17 +81,22 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:15.759Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-06-13T10:37:51.786Z",
+      "id": "company-qhwx0i",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-06-12T22:07:43.951Z",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 13,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Kundenberaterin Individual Zürich (w/m)",
       "slug": "kundenberaterin-individual-zurich-w-m-banca-cler",
@@ -108,7 +122,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:16.378Z",
+      "crawledAt": "2026-06-13T10:37:52.299Z",
       "id": "company-8i84hb",
       "contract": "full-time",
       "currency": "CHF",
@@ -150,7 +164,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:16.967Z",
+      "crawledAt": "2026-06-13T10:37:52.798Z",
       "id": "company-4fztxe",
       "contract": "full-time",
       "currency": "CHF",
@@ -191,7 +205,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:17.617Z",
+      "crawledAt": "2026-06-13T10:37:53.289Z",
       "id": "company-l8jomc",
       "contract": "full-time",
       "currency": "CHF",
@@ -232,7 +246,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:18.148Z",
+      "crawledAt": "2026-06-13T10:37:53.782Z",
       "id": "company-nvbo6q",
       "contract": "full-time",
       "currency": "CHF",
@@ -271,7 +285,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:18.694Z",
+      "crawledAt": "2026-06-13T10:37:54.263Z",
       "id": "company-4gqp43",
       "contract": "full-time",
       "currency": "CHF",
@@ -312,7 +326,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:19.284Z",
+      "crawledAt": "2026-06-13T10:37:54.753Z",
       "id": "company-1r5az3",
       "contract": "full-time",
       "currency": "CHF",
@@ -353,7 +367,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:19.856Z",
+      "crawledAt": "2026-06-13T10:37:55.238Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -394,7 +408,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:20.421Z",
+      "crawledAt": "2026-06-13T10:37:55.714Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -435,7 +449,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-12T22:06:20.984Z",
+      "crawledAt": "2026-06-13T10:37:56.207Z",
       "id": "company-phytkj",
       "contract": "full-time",
       "currency": "CHF",
@@ -445,11 +459,11 @@
       "salaryMax": 150000,
       "streetAddress": "Uraniastrasse 6",
       "postalCode": "8001",
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 21,
         "completeness": 25
       }
     }
