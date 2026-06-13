@@ -3981,6 +3981,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-avs-13esima-conciliazione-iva': { name: '13esima AVS', path: '/articoli-frontaliere/avs-13esima-conciliazione-iva', parent: 'blog' },
     'blog-smartworking-frontaliere-s-definitivo': { name: 'frontaliere', path: '/articoli-svizzera/smartworking-frontaliere-s-definitivo/', parent: 'blog' },
     'blog-equita-fiscale-famiglie-ticino': { name: 'Equità Fiscale Famiglie', path: '/articoli-frontaliere/equita-fiscale-famiglie-ticino', parent: 'blog' },
+    'blog-bocciatura-sportello-disoccupati-coldrerio': { name: 'Politica Coldrerio', path: '/articoli-svizzera/bocciatura-sportello-disoccupati-coldrerio/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

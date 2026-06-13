@@ -143,6 +143,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.smartworking-frontaliere-s-definitivo.title': 'Smartworking pour frontaliers : limites et ristorni validés',
     'blog.article.smartworking-frontaliere-s-definitivo.excerpt': 'Le Parlement suisse a définitivement adopté les nouvelles règles concernant le télétravail pour les travailleurs frontaliers, avec des limites et des ristorni de plus de 40 millions de francs.',
     'blog.article.smartworking-frontaliere-s-definitivo.imageAlt': 'Scène suisse avec frontalier travaillant à domicile',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: rejet de la motion pour un guichet chômage',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'La proposition pour un nouveau guichet de soutien aux chômeurs à Coldrerio a été rejetée. Analyse de la situation entre politique locale et marché du travail.',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Bâtiment municipal dans la région du Mendrisiotto',
 };
 
 export default blogMetaChFr;

@@ -1775,6 +1775,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bocciatura-sportello-disoccupati-coldrerio': {
+    title: 'Coldrerio: bocciata la mozione per lo sportello disoccupati',
+    description: 'Il Consiglio Comunale di Coldrerio ha respinto la mozione per uno sportello dedicato ai disoccupati. Analisi della situazione e dei supporti attivi in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, coldrerio, bocciata, mozione, sportello',
+    ogTitle: 'Coldrerio: bocciata la mozione per lo sportello disoccupati',
+    ogDescription: 'Il Consiglio Comunale di Coldrerio ha respinto la mozione per uno sportello dedicato ai disoccupati. Analisi della situazione e dei supporti attivi in Svizzera.',
+    canonicalPath: '/articoli-svizzera/bocciatura-sportello-disoccupati-coldrerio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coldrerio: bocciata la mozione per lo sportello disoccupati",
+      "description": "Il Consiglio Comunale di Coldrerio ha respinto la mozione per uno sportello dedicato ai disoccupati. Analisi della situazione e dei supporti attivi in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bocciatura-sportello-disoccupati-coldrerio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio comunale nel Mendrisiotto"
+      },
+      "datePublished": "2026-06-13T00:38:59+00:00",
+      "dateModified": "2026-06-13T00:38:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bocciatura-sportello-disoccupati-coldrerio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

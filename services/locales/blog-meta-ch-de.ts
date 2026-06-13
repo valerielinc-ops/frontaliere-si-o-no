@@ -143,6 +143,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.smartworking-frontaliere-s-definitivo.title': 'Smartworking für Grenzgänger: Limits und Rückerstattungen',
     'blog.article.smartworking-frontaliere-s-definitivo.excerpt': 'Das Schweizer Parlament hat die neuen Regeln zum Smartworking für Grenzgänger definitiv verabschiedet, inklusive Limits und Rückerstattungen von über 40 Millionen Franken.',
     'blog.article.smartworking-frontaliere-s-definitivo.imageAlt': 'Schweizerische Szene mit Grenzgängern, die von zu Hause aus arbeiten',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: Abgelehnt die Motion für den Job-Support-Service',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'Abgelehnt wurde die Vorlage für einen neuen Unterstützungs-Service für Arbeitslose in Coldrerio. Analyse der Situation zwischen lokaler Politik und Arbeitsmarkt. 📊💡⚠️',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Gemeindehaus in der Region Mendrisiotto',
 };
 
 export default blogMetaChDe;
