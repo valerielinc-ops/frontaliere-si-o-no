@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2785,
+ "numberOfItems": 2786,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7425,7 +7425,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2782, "name": "13esima AVS: va in conciliazione, IVA sale di 0,4%", "url": `${BASE_URL}/articoli-frontaliere/avs-13esima-conciliazione-iva` },
           { "@type": "ListItem", "position": 2783, "name": "Smartworking per frontalieri: limiti e ristorni...", "url": `${BASE_URL}/articoli-frontaliere/smartworking-frontaliere-s-definitivo` },
           { "@type": "ListItem", "position": 2784, "name": "Equità fiscale famiglie Ticino: mozione per cos...", "url": `${BASE_URL}/articoli-frontaliere/equita-fiscale-famiglie-ticino` },
-          { "@type": "ListItem", "position": 2785, "name": "Coldrerio: bocciata la mozione per lo sportello...", "url": `${BASE_URL}/articoli-frontaliere/bocciatura-sportello-disoccupati-coldrerio` }
+          { "@type": "ListItem", "position": 2785, "name": "Coldrerio: bocciata la mozione per lo sportello...", "url": `${BASE_URL}/articoli-frontaliere/bocciatura-sportello-disoccupati-coldrerio` },
+          { "@type": "ListItem", "position": 2786, "name": "Ristorni all'Italia", "url": `${BASE_URL}/articoli-frontaliere/ristorni-italia-sospesi` }
  ]
  },
  {
