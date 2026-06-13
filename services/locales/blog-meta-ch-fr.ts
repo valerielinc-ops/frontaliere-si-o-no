@@ -146,6 +146,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: rejet de la motion pour un guichet chômage',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'La proposition pour un nouveau guichet de soutien aux chômeurs à Coldrerio a été rejetée. Analyse de la situation entre politique locale et marché du travail.',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Bâtiment municipal dans la région du Mendrisiotto',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'CFF: voici la nouvelle locomotive de fret Stadler Rail',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'Les CFF présentent la nouvelle locomotive EURO DuFour pour le trafic marchandises : efficacité énergétique, réduction de l\'usure des rails et module batterie pour le dernier kilomètre.',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'Nouvelle locomotive de fret CFF par Stadler Rail en livrée rouge',
 };
 
 export default blogMetaChFr;
