@@ -1,18 +1,19 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-06-12T22:40:53.389Z",
+  "generatedAt": "2026-06-13T11:12:04.767Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8541,
-  "avgDurationMs": 8541,
+  "durationMs": 7762,
+  "avgDurationMs": 7762,
   "durationHistory": [
-    8541
+    7762
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-siloah-cfa29892567a",
       "slug": "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
@@ -20,14 +21,14 @@
       "companyKey": "klinik-siloah",
       "companyDomain": "swissmedical.net",
       "title": "Lehrstelle Fachperson Gesundheit per 2027 auf der chirurgischen Bettenstation",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Gümligen",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131894839-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131894839-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:40:49.147Z",
+      "crawledAt": "2026-06-13T11:12:00.939Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-06-12",
       "datePosted": "2026-06-12",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-06-12T22:40:49.147Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-siloah-8f9bee7f1757",
       "slug": "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129721320-fachperson-gesundheit-auf-der-chirurgischen-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:40:50.158Z",
+      "crawledAt": "2026-06-13T11:12:01.876Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116905314-dipl-fachperson-operationstechnik-hf",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:40:51.182Z",
+      "crawledAt": "2026-06-13T11:12:02.837Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",

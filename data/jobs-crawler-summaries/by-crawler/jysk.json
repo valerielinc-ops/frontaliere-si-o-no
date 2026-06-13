@@ -1,18 +1,19 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-06-12T22:36:09.033Z",
-  "total": 16,
-  "newCount": 1,
-  "updatedCount": 3,
+  "generatedAt": "2026-06-13T11:08:06.120Z",
+  "total": 15,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 36127,
-  "avgDurationMs": 36127,
+  "unchangedCount": 11,
+  "durationMs": 41596,
+  "avgDurationMs": 41596,
   "durationHistory": [
-    36127
+    41596
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-5o2e5f",
       "slug": "store-manager-apprendista-a-100-per-la-filiale-hinwil-jysk-hinwil-5o2e5f",
@@ -32,16 +33,21 @@
       "crawledAt": "2026-06-12T22:36:08.471Z",
       "firstSeenAt": "2026-06-12T22:36:08.471Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Hinwil",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "JU",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-t9nhwx",
       "slug": "facility-coordinatore-a-80-jysk-zofingen-t9nhwx",
@@ -445,40 +451,6 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "JU",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-o7thrg",
-      "slug": "verkaufer-in-con-lagerverantwortung-a-50-60-in-der-filiale-hinwil-jysk-hinwil-o7thrg",
-      "company": "JYSK",
-      "title": "Verkäufer/in mit Lagerverantwortung (a) 50-60% in der Filiale Hinwil",
-      "location": "Hinwil",
-      "canton": "JU",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-50-60-der-filiale-hinwil",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-10T10:23:36.404Z",
-      "firstSeenAt": "2026-05-10T10:23:36.404Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Hinwil",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "JU",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
