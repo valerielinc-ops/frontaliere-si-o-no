@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-06-12T22:32:16.815Z",
+  "assembledAt": "2026-06-13T11:03:43.125Z",
   "jobs": [
     {
       "id": "hopital-du-valais-79a54ad7b54b",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:14.240Z",
+      "crawledAt": "2026-06-13T11:03:40.603Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -61,6 +61,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:33.795Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -118,7 +119,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:13.897Z",
+      "crawledAt": "2026-06-13T11:03:40.265Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -202,7 +203,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:12.551Z",
+      "crawledAt": "2026-06-13T11:03:38.848Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -287,7 +288,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:12.195Z",
+      "crawledAt": "2026-06-13T11:03:38.508Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -309,6 +310,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:29:28.600Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -366,7 +368,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:11.823Z",
+      "crawledAt": "2026-06-13T11:03:38.163Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -440,7 +442,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:11.481Z",
+      "crawledAt": "2026-06-13T11:03:37.824Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -520,7 +522,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:11.136Z",
+      "crawledAt": "2026-06-13T11:03:37.487Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -600,7 +602,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:10.736Z",
+      "crawledAt": "2026-06-13T11:03:37.147Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -609,6 +611,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:30.516Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -666,7 +669,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:10.390Z",
+      "crawledAt": "2026-06-13T11:03:36.804Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -683,6 +686,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:36:37.068Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -740,7 +744,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:10.046Z",
+      "crawledAt": "2026-06-13T11:03:36.427Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -817,7 +821,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:09.703Z",
+      "crawledAt": "2026-06-13T11:03:36.089Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -891,7 +895,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:09.358Z",
+      "crawledAt": "2026-06-13T11:03:35.734Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -908,6 +912,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.837Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -965,7 +970,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:09.014Z",
+      "crawledAt": "2026-06-13T11:03:35.396Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -982,6 +987,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.192Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -1039,7 +1045,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:08.664Z",
+      "crawledAt": "2026-06-13T11:03:35.056Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -1116,7 +1122,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:08.320Z",
+      "crawledAt": "2026-06-13T11:03:34.712Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -1139,6 +1145,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:29.209Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1196,7 +1203,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c6e10fd973c07181b87322f2153af63/ATSANN0004668/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:07.970Z",
+      "crawledAt": "2026-06-13T11:03:34.373Z",
       "_hvsMeta": {
         "number": "ATSANN0004668",
         "sysId": "3c6e10fd973c07181b87322f2153af63",
@@ -1276,7 +1283,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:07.627Z",
+      "crawledAt": "2026-06-13T11:03:34.032Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -1296,6 +1303,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:14:12.660Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1353,7 +1361,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f2a0b45683b27a1017a39d20ceaad396/ATSANN0004517/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:07.283Z",
+      "crawledAt": "2026-06-13T11:03:33.691Z",
       "_hvsMeta": {
         "number": "ATSANN0004517",
         "sysId": "f2a0b45683b27a1017a39d20ceaad396",
@@ -1433,7 +1441,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8299376c97054350316bb0b71153af2c/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:06.929Z",
+      "crawledAt": "2026-06-13T11:03:33.351Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "8299376c97054350316bb0b71153af2c",
@@ -1453,6 +1461,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T22:41:43.801Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1510,7 +1519,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0a711d2297894f50e7ce346e2153afdb/ATSANN0004682/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:06.562Z",
+      "crawledAt": "2026-06-13T11:03:33.011Z",
       "_hvsMeta": {
         "number": "ATSANN0004682",
         "sysId": "0a711d2297894f50e7ce346e2153afdb",
@@ -1590,7 +1599,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9463f5a697c98f50e7ce346e2153af48/ATSANN0004683/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:06.216Z",
+      "crawledAt": "2026-06-13T11:03:32.670Z",
       "_hvsMeta": {
         "number": "ATSANN0004683",
         "sysId": "9463f5a697c98f50e7ce346e2153af48",
@@ -1670,7 +1679,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45483162978d8f50e7ce346e2153af79/ATSANN0004684/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:05.868Z",
+      "crawledAt": "2026-06-13T11:03:32.330Z",
       "_hvsMeta": {
         "number": "ATSANN0004684",
         "sysId": "45483162978d8f50e7ce346e2153af79",
@@ -1750,7 +1759,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:05.501Z",
+      "crawledAt": "2026-06-13T11:03:31.991Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -1824,7 +1833,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8fc1ef3683c18b9017a39d20ceaad33b/ATSANN0004692/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:05.154Z",
+      "crawledAt": "2026-06-13T11:03:31.650Z",
       "_hvsMeta": {
         "number": "ATSANN0004692",
         "sysId": "8fc1ef3683c18b9017a39d20ceaad33b",
@@ -1905,7 +1914,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b26b9b3283418b9017a39d20ceaad364/ATSANN0004690/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:04.769Z",
+      "crawledAt": "2026-06-13T11:03:31.310Z",
       "_hvsMeta": {
         "number": "ATSANN0004690",
         "sysId": "b26b9b3283418b9017a39d20ceaad364",
@@ -1993,7 +2002,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6599c15747010bd0339c9146736d431c/ATSANN0004697/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:04.404Z",
+      "crawledAt": "2026-06-13T11:03:30.968Z",
       "_hvsMeta": {
         "number": "ATSANN0004697",
         "sysId": "6599c15747010bd0339c9146736d431c",
@@ -2073,7 +2082,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1292a7c4835d8bd017a39d20ceaad3f5/ATSANN0004698/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:04.056Z",
+      "crawledAt": "2026-06-13T11:03:30.622Z",
       "_hvsMeta": {
         "number": "ATSANN0004698",
         "sysId": "1292a7c4835d8bd017a39d20ceaad3f5",
@@ -2082,6 +2091,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-06-01T14:51:58.054Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2139,7 +2149,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d7b4201097d187d0316bb0b71153af69/ATSANN0004702/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:03.709Z",
+      "crawledAt": "2026-06-13T11:03:30.281Z",
       "_hvsMeta": {
         "number": "ATSANN0004702",
         "sysId": "d7b4201097d187d0316bb0b71153af69",
@@ -2219,7 +2229,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5ac264d4975187d0316bb0b71153afaf/ATSANN0004701/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:03.358Z",
+      "crawledAt": "2026-06-13T11:03:29.939Z",
       "_hvsMeta": {
         "number": "ATSANN0004701",
         "sysId": "5ac264d4975187d0316bb0b71153afaf",
@@ -2299,7 +2309,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:03.011Z",
+      "crawledAt": "2026-06-13T11:03:29.597Z",
       "_hvsMeta": {
         "number": "ATSANN0004699",
         "sysId": "73f1ff408315cbd017a39d20ceaad318",
@@ -2316,6 +2326,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:51:57.681Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2373,7 +2384,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e5eadda8971103d0e7ce346e2153af5f/ATSANN0004706/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:02.650Z",
+      "crawledAt": "2026-06-13T11:03:29.255Z",
       "_hvsMeta": {
         "number": "ATSANN0004706",
         "sysId": "e5eadda8971103d0e7ce346e2153af5f",
@@ -2453,7 +2464,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7438a050875dcf90dbd6ebd30cbb35ad/ATSANN0004703/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:02.305Z",
+      "crawledAt": "2026-06-13T11:03:28.871Z",
       "_hvsMeta": {
         "number": "ATSANN0004703",
         "sysId": "7438a050875dcf90dbd6ebd30cbb35ad",
@@ -2533,7 +2544,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:32:01.962Z",
+      "crawledAt": "2026-06-13T11:03:28.522Z",
       "_hvsMeta": {
         "number": "ATSANN0004704",
         "sysId": "a05ddcac9711cf90e7ce346e2153af1c",
@@ -2542,6 +2553,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:19.092Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2599,7 +2611,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/16954f7847918714339c9146736d43ed/ATSANN0004710/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:01.614Z",
+      "crawledAt": "2026-06-13T11:03:28.182Z",
       "_hvsMeta": {
         "number": "ATSANN0004710",
         "sysId": "16954f7847918714339c9146736d43ed",
@@ -2678,7 +2690,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0ca3c3b047918714339c9146736d43a4/ATSANN0004709/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:01.268Z",
+      "crawledAt": "2026-06-13T11:03:27.795Z",
       "_hvsMeta": {
         "number": "ATSANN0004709",
         "sysId": "0ca3c3b047918714339c9146736d43a4",
@@ -2757,7 +2769,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a6a0f0ad979dc7d0e7ce346e2153af36/ATSANN0004711/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:00.893Z",
+      "crawledAt": "2026-06-13T11:03:27.452Z",
       "_hvsMeta": {
         "number": "ATSANN0004711",
         "sysId": "a6a0f0ad979dc7d0e7ce346e2153af36",
@@ -2837,7 +2849,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:32:00.184Z",
+      "crawledAt": "2026-06-13T11:03:26.720Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -2914,7 +2926,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6058dfa97590350316bb0b71153af23/ATSANN0004713/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:31:59.839Z",
+      "crawledAt": "2026-06-13T11:03:26.331Z",
       "_hvsMeta": {
         "number": "ATSANN0004713",
         "sysId": "c6058dfa97590350316bb0b71153af23",
@@ -2994,7 +3006,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d59e50b83d18b5417a39d20ceaad3b1/ATSANN0004715/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:31:59.496Z",
+      "crawledAt": "2026-06-13T11:03:25.992Z",
       "_hvsMeta": {
         "number": "ATSANN0004715",
         "sysId": "4d59e50b83d18b5417a39d20ceaad3b1",
@@ -3069,7 +3081,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7dbf924397590714e7ce346e2153af7c/ATSANN0004716/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:31:59.152Z",
+      "crawledAt": "2026-06-13T11:03:25.651Z",
       "_hvsMeta": {
         "number": "ATSANN0004716",
         "sysId": "7dbf924397590714e7ce346e2153af7c",
@@ -3144,7 +3156,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/27feeadb8399cf5417a39d20ceaad302/ATSANN0004717/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:31:58.809Z",
+      "crawledAt": "2026-06-13T11:03:25.309Z",
       "_hvsMeta": {
         "number": "ATSANN0004717",
         "sysId": "27feeadb8399cf5417a39d20ceaad302",
@@ -3219,7 +3231,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/aa75fed7839dcf5417a39d20ceaad37b/ATSANN0004718/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:31:58.445Z",
+      "crawledAt": "2026-06-13T11:03:24.966Z",
       "_hvsMeta": {
         "number": "ATSANN0004718",
         "sysId": "aa75fed7839dcf5417a39d20ceaad37b",
@@ -3294,7 +3306,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/77a63b1b9715c750316bb0b71153af9c/ATSANN0004719/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:31:58.098Z",
+      "crawledAt": "2026-06-13T11:03:24.615Z",
       "_hvsMeta": {
         "number": "ATSANN0004719",
         "sysId": "77a63b1b9715c750316bb0b71153af9c",
@@ -3361,7 +3373,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:31:57.747Z",
+      "crawledAt": "2026-06-13T11:03:24.268Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -3369,16 +3381,16 @@
         "famille": "Formation",
         "site": "BRIG"
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-12T12:17:23.769Z",
+      "previousSlugs": [
+        "schnupperangebote-efz-hopital-du-valais-brig"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "schnupperangebote-efz-hopital-du-valais-brig"
         ]
       },
-      "previousSlugs": [
-        "schnupperangebote-efz-hopital-du-valais-brig"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-12T12:17:23.769Z",
       "salaryMin": 42000,
       "salaryMax": 77500,
       "currency": "CHF",
@@ -3398,27 +3410,27 @@
       "id": "hopital-du-valais-f1413fb407af",
       "slug": "responsable-des-secretariats-medicaux-centralises-et-des-secretariats-de-service-du-chvr-a",
       "slugByLocale": {
-        "fr": "responsable-des-secretariats-medicaux-centralises-et-des-secretariats-de-service-du-chvr-a",
         "it": "responsable-des-secretariats-medicaux-centralises-et-des-secretariats-de-service-du-chvr-a",
         "en": "responsable-des-secretariats-medicaux-centralises-et-des-secretariats-de-service-du-chvr-a",
-        "de": "responsable-des-secretariats-medicaux-centralises-et-des-secretariats-de-service-du-chvr-a"
+        "de": "responsable-des-secretariats-medicaux-centralises-et-des-secretariats-de-service-du-chvr-a",
+        "fr": "responsable-des-secretariats-medicaux-centralises-et-des-secretariats-de-service-du-chvr-a"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%",
       "titleByLocale": {
-        "fr": "Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%",
         "it": "Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%",
         "en": "Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%",
-        "de": "Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%"
+        "de": "Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%",
+        "fr": "Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%"
       },
       "description": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont\n\n16 collaborateurs en supervision directe.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%\n\nMission:\nEncadrer, animer et accompagner les équipes réparties sur les différents sites du\n\nCHVR (60 collaborateurs, dont 16 en direct)\n\nCollaborer étroitement avec les équipes médicales, soignantes et administratives.\n\nPiloter et accompagner les projets institutionnels.\n\nPromouvoir le travail en transversalité et soutenir la conduite du changement.\n\nModerniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites.\n\nAssurer la qualité et l’efficacité des activités des services sous responsabilité.\n\nContribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux.\n\nVos domaines d’activité\n\n• Secrétariats médicaux centralisés\n\nPrésents sur Sion, Sierre et Martigny, ils-elles assurent :\n\nLa gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie).\n\nLa frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés.\n\nL’archivage et la bonne tenue des dossiers médicaux.\n\nLa composition complète du dossier médical en vue du codage et de la facturation.\n\n• Secrétaires de service\n\nPrésents sur tous les sites du CHVR, ils-elles :\n\nTravaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux.\n\nAssurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale.\n\nProfil:\nFormation commerciale de base complétée d’une formation supérieure ou jugée équivalente.\n\nUne formation spécifique dans le domaine hospitalier constitue un atout.\n\nExpérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux.\n\nCompétences avérées en management d’équipe et en travail pluridisciplinaire.\n\nExpérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle.\n\nTrès bonnes connaissances informatiques.\n\nLangue maternelle française, bonnes connaissances de l’allemand.\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
       "descriptionByLocale": {
-        "fr": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont\n\n16 collaborateurs en supervision directe.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%\n\nMission:\nEncadrer, animer et accompagner les équipes réparties sur les différents sites du\n\nCHVR (60 collaborateurs, dont 16 en direct)\n\nCollaborer étroitement avec les équipes médicales, soignantes et administratives.\n\nPiloter et accompagner les projets institutionnels.\n\nPromouvoir le travail en transversalité et soutenir la conduite du changement.\n\nModerniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites.\n\nAssurer la qualité et l’efficacité des activités des services sous responsabilité.\n\nContribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux.\n\nVos domaines d’activité\n\n• Secrétariats médicaux centralisés\n\nPrésents sur Sion, Sierre et Martigny, ils-elles assurent :\n\nLa gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie).\n\nLa frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés.\n\nL’archivage et la bonne tenue des dossiers médicaux.\n\nLa composition complète du dossier médical en vue du codage et de la facturation.\n\n• Secrétaires de service\n\nPrésents sur tous les sites du CHVR, ils-elles :\n\nTravaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux.\n\nAssurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale.\n\nProfil:\nFormation commerciale de base complétée d’une formation supérieure ou jugée équivalente.\n\nUne formation spécifique dans le domaine hospitalier constitue un atout.\n\nExpérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux.\n\nCompétences avérées en management d’équipe et en travail pluridisciplinaire.\n\nExpérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle.\n\nTrès bonnes connaissances informatiques.\n\nLangue maternelle française, bonnes connaissances de l’allemand.\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
-        "it": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont\n\n16 collaborateurs en supervision directe.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%\n\nMission:\nEncadrer, animer et accompagner les équipes réparties sur les différents sites du\n\nCHVR (60 collaborateurs, dont 16 en direct)\n\nCollaborer étroitement avec les équipes médicales, soignantes et administratives.\n\nPiloter et accompagner les projets institutionnels.\n\nPromouvoir le travail en transversalité et soutenir la conduite du changement.\n\nModerniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites.\n\nAssurer la qualité et l’efficacité des activités des services sous responsabilité.\n\nContribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux.\n\nVos domaines d’activité\n\n• Secrétariats médicaux centralisés\n\nPrésents sur Sion, Sierre et Martigny, ils-elles assurent :\n\nLa gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie).\n\nLa frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés.\n\nL’archivage et la bonne tenue des dossiers médicaux.\n\nLa composition complète du dossier médical en vue du codage et de la facturation.\n\n• Secrétaires de service\n\nPrésents sur tous les sites du CHVR, ils-elles :\n\nTravaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux.\n\nAssurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale.\n\nProfil:\nFormation commerciale de base complétée d’une formation supérieure ou jugée équivalente.\n\nUne formation spécifique dans le domaine hospitalier constitue un atout.\n\nExpérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux.\n\nCompétences avérées en management d’équipe et en travail pluridisciplinaire.\n\nExpérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle.\n\nTrès bonnes connaissances informatiques.\n\nLangue maternelle française, bonnes connaissances de l’allemand.\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
-        "en": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont\n\n16 collaborateurs en supervision directe.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%\n\nMission:\nEncadrer, animer et accompagner les équipes réparties sur les différents sites du\n\nCHVR (60 collaborateurs, dont 16 en direct)\n\nCollaborer étroitement avec les équipes médicales, soignantes et administratives.\n\nPiloter et accompagner les projets institutionnels.\n\nPromouvoir le travail en transversalité et soutenir la conduite du changement.\n\nModerniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites.\n\nAssurer la qualité et l’efficacité des activités des services sous responsabilité.\n\nContribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux.\n\nVos domaines d’activité\n\n• Secrétariats médicaux centralisés\n\nPrésents sur Sion, Sierre et Martigny, ils-elles assurent :\n\nLa gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie).\n\nLa frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés.\n\nL’archivage et la bonne tenue des dossiers médicaux.\n\nLa composition complète du dossier médical en vue du codage et de la facturation.\n\n• Secrétaires de service\n\nPrésents sur tous les sites du CHVR, ils-elles :\n\nTravaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux.\n\nAssurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale.\n\nProfil:\nFormation commerciale de base complétée d’une formation supérieure ou jugée équivalente.\n\nUne formation spécifique dans le domaine hospitalier constitue un atout.\n\nExpérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux.\n\nCompétences avérées en management d’équipe et en travail pluridisciplinaire.\n\nExpérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle.\n\nTrès bonnes connaissances informatiques.\n\nLangue maternelle française, bonnes connaissances de l’allemand.\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
-        "de": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont\n\n16 collaborateurs en supervision directe.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80%\n\nMission:\nEncadrer, animer et accompagner les équipes réparties sur les différents sites du\n\nCHVR (60 collaborateurs, dont 16 en direct)\n\nCollaborer étroitement avec les équipes médicales, soignantes et administratives.\n\nPiloter et accompagner les projets institutionnels.\n\nPromouvoir le travail en transversalité et soutenir la conduite du changement.\n\nModerniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites.\n\nAssurer la qualité et l’efficacité des activités des services sous responsabilité.\n\nContribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux.\n\nVos domaines d’activité\n\n• Secrétariats médicaux centralisés\n\nPrésents sur Sion, Sierre et Martigny, ils-elles assurent :\n\nLa gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie).\n\nLa frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés.\n\nL’archivage et la bonne tenue des dossiers médicaux.\n\nLa composition complète du dossier médical en vue du codage et de la facturation.\n\n• Secrétaires de service\n\nPrésents sur tous les sites du CHVR, ils-elles :\n\nTravaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux.\n\nAssurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale.\n\nProfil:\nFormation commerciale de base complétée d’une formation supérieure ou jugée équivalente.\n\nUne formation spécifique dans le domaine hospitalier constitue un atout.\n\nExpérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux.\n\nCompétences avérées en management d’équipe et en travail pluridisciplinaire.\n\nExpérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle.\n\nTrès bonnes connaissances informatiques.\n\nLangue maternelle française, bonnes connaissances de l’allemand.\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées."
+        "it": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont 16 collaborateurs en supervision directe. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80% Mission: Encadrer, animer et accompagner les équipes réparties sur les différents sites du CHVR (60 collaborateurs, dont 16 en direct) Collaborer étroitement avec les équipes médicales, soignantes et administratives. Piloter et accompagner les projets institutionnels. Promouvoir le travail en transversalité et soutenir la conduite du changement. Moderniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites. Assurer la qualité et l’efficacité des activités des services sous responsabilité. Contribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux. Vos domaines d’activité\n• Secrétariats médicaux centralisés Présents sur Sion, Sierre et Martigny, ils-elles assurent : La gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie). La frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés. L’archivage et la bonne tenue des dossiers médicaux. La composition complète du dossier médical en vue du codage et de la facturation.\n• Secrétaires de service Présents sur tous les sites du CHVR, ils-elles : Travaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux. Assurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale. Profil: Formation commerciale de base complétée d’une formation supérieure ou jugée équivalente. Une formation spécifique dans le domaine hospitalier constitue un atout. Expérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux. Compétences avérées en management d’équipe et en travail pluridisciplinaire. Expérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle. Très bonnes connaissances informatiques. Langue maternelle française, bonnes connaissances de l’allemand. Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
+        "en": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont 16 collaborateurs en supervision directe. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80% Mission: Encadrer, animer et accompagner les équipes réparties sur les différents sites du CHVR (60 collaborateurs, dont 16 en direct) Collaborer étroitement avec les équipes médicales, soignantes et administratives. Piloter et accompagner les projets institutionnels. Promouvoir le travail en transversalité et soutenir la conduite du changement. Moderniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites. Assurer la qualité et l’efficacité des activités des services sous responsabilité. Contribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux. Vos domaines d’activité\n• Secrétariats médicaux centralisés Présents sur Sion, Sierre et Martigny, ils-elles assurent : La gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie). La frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés. L’archivage et la bonne tenue des dossiers médicaux. La composition complète du dossier médical en vue du codage et de la facturation.\n• Secrétaires de service Présents sur tous les sites du CHVR, ils-elles : Travaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux. Assurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale. Profil: Formation commerciale de base complétée d’une formation supérieure ou jugée équivalente. Une formation spécifique dans le domaine hospitalier constitue un atout. Expérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux. Compétences avérées en management d’équipe et en travail pluridisciplinaire. Expérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle. Très bonnes connaissances informatiques. Langue maternelle française, bonnes connaissances de l’allemand. Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
+        "de": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont 16 collaborateurs en supervision directe. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80% Mission: Encadrer, animer et accompagner les équipes réparties sur les différents sites du CHVR (60 collaborateurs, dont 16 en direct) Collaborer étroitement avec les équipes médicales, soignantes et administratives. Piloter et accompagner les projets institutionnels. Promouvoir le travail en transversalité et soutenir la conduite du changement. Moderniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites. Assurer la qualité et l’efficacité des activités des services sous responsabilité. Contribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux. Vos domaines d’activité\n• Secrétariats médicaux centralisés Présents sur Sion, Sierre et Martigny, ils-elles assurent : La gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie). La frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés. L’archivage et la bonne tenue des dossiers médicaux. La composition complète du dossier médical en vue du codage et de la facturation.\n• Secrétaires de service Présents sur tous les sites du CHVR, ils-elles : Travaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux. Assurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale. Profil: Formation commerciale de base complétée d’une formation supérieure ou jugée équivalente. Une formation spécifique dans le domaine hospitalier constitue un atout. Expérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux. Compétences avérées en management d’équipe et en travail pluridisciplinaire. Expérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle. Très bonnes connaissances informatiques. Langue maternelle française, bonnes connaissances de l’allemand. Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
+        "fr": "Rejoignez une équipe engagée, au cœur du fonctionnement administratif et opérationnel de notre institution. À la tête d’une équipe de 60 collaborateurs, dont 16 collaborateurs en supervision directe. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats médicaux centralisés et des secrétariats de service du CHVR à 80% Mission: Encadrer, animer et accompagner les équipes réparties sur les différents sites du CHVR (60 collaborateurs, dont 16 en direct) Collaborer étroitement avec les équipes médicales, soignantes et administratives. Piloter et accompagner les projets institutionnels. Promouvoir le travail en transversalité et soutenir la conduite du changement. Moderniser et harmoniser les outils, processus et pratiques administratives entre les services et les sites. Assurer la qualité et l’efficacité des activités des services sous responsabilité. Contribuer à l’amélioration continue et à la refonte organisationnelle des secrétariats médicaux. Vos domaines d’activité\n• Secrétariats médicaux centralisés Présents sur Sion, Sierre et Martigny, ils-elles assurent : La gestion documentaire médicale de l’ensemble des disciplines médicales et chirurgicales du CHVR (hors psychiatrie). La frappe, correction, validation et suivi des documents médicaux, ainsi que leur transmission aux destinataires concernés. L’archivage et la bonne tenue des dossiers médicaux. La composition complète du dossier médical en vue du codage et de la facturation.\n• Secrétaires de service Présents sur tous les sites du CHVR, ils-elles : Travaillent en lien direct avec les médecins-chefs et médecins-cadres des services médicaux. Assurent la gestion administrative quotidienne : organisation de colloques, symposiums et formations ; gestion du courrier et des courriels ; coordination de diverses tâches liées à l’activité médicale. Profil: Formation commerciale de base complétée d’une formation supérieure ou jugée équivalente. Une formation spécifique dans le domaine hospitalier constitue un atout. Expérience confirmée dans l’administration des patients en milieu hospitalier et la gestion de secrétariats médicaux. Compétences avérées en management d’équipe et en travail pluridisciplinaire. Expérience réussie dans des projets d’optimisation de processus et d’harmonisation organisationnelle. Très bonnes connaissances informatiques. Langue maternelle française, bonnes connaissances de l’allemand. Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées."
       },
       "location": "Sion",
       "canton": "VS",
@@ -3436,7 +3448,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b12799f38795cf54dbd6ebd30cbb35ba/ATSANN0004735/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:31:57.404Z",
+      "crawledAt": "2026-06-13T11:03:23.924Z",
       "_hvsMeta": {
         "number": "ATSANN0004735",
         "sysId": "b12799f38795cf54dbd6ebd30cbb35ba",
@@ -3445,6 +3457,7 @@
         "site": "SION"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-12T22:31:57.404Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3458,34 +3471,33 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-12T22:31:57.404Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-4d84f8be8d9f",
       "slug": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
       "slugByLocale": {
-        "fr": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
         "it": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
         "en": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
-        "de": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+        "de": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
+        "fr": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%",
       "titleByLocale": {
-        "fr": "Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%",
         "it": "Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%",
         "en": "Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%",
-        "de": "Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%"
+        "de": "Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%",
+        "fr": "Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%\n\nMission:\nConduire et gérer de manière efficiente les services dont elle a la charge\n\nAssurer le bon fonctionnement des services\n\nAssurer une bonne gestion des consultations, y compris au niveau administratif\n\nAccueillir, informer et orienter les patients\n\nGarantir le suivi optimal des différents dossiers médicaux et de la dactylographie\n\nProfil:\nDiplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e\n\nConnaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout\n\nExpérience de 5 ans dans le domaine (en milieu hospitalier un atout)\n\nExpérience professionnelle dans la gestion de secrétariat de consultations\n\nFormation en gestion d’équipe Leadership (un atout)\n\nSens aigu de l’accueil et aisance dans le contact avec les patients\n\nSens de l’organisation et esprit d’initiative\n\nBonne gestion du stress\n\nFlexibilité et polyvalence\n\nMaîtrise des outils informatiques, de la bureautique générale et de la dactylographie\n\nExpérience professionnelle en milieu hospitalier un atout\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
       "descriptionByLocale": {
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%\n\nMission:\nConduire et gérer de manière efficiente les services dont elle a la charge\n\nAssurer le bon fonctionnement des services\n\nAssurer une bonne gestion des consultations, y compris au niveau administratif\n\nAccueillir, informer et orienter les patients\n\nGarantir le suivi optimal des différents dossiers médicaux et de la dactylographie\n\nProfil:\nDiplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e\n\nConnaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout\n\nExpérience de 5 ans dans le domaine (en milieu hospitalier un atout)\n\nExpérience professionnelle dans la gestion de secrétariat de consultations\n\nFormation en gestion d’équipe Leadership (un atout)\n\nSens aigu de l’accueil et aisance dans le contact avec les patients\n\nSens de l’organisation et esprit d’initiative\n\nBonne gestion du stress\n\nFlexibilité et polyvalence\n\nMaîtrise des outils informatiques, de la bureautique générale et de la dactylographie\n\nExpérience professionnelle en milieu hospitalier un atout\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
-        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%\n\nMission:\nConduire et gérer de manière efficiente les services dont elle a la charge\n\nAssurer le bon fonctionnement des services\n\nAssurer une bonne gestion des consultations, y compris au niveau administratif\n\nAccueillir, informer et orienter les patients\n\nGarantir le suivi optimal des différents dossiers médicaux et de la dactylographie\n\nProfil:\nDiplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e\n\nConnaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout\n\nExpérience de 5 ans dans le domaine (en milieu hospitalier un atout)\n\nExpérience professionnelle dans la gestion de secrétariat de consultations\n\nFormation en gestion d’équipe Leadership (un atout)\n\nSens aigu de l’accueil et aisance dans le contact avec les patients\n\nSens de l’organisation et esprit d’initiative\n\nBonne gestion du stress\n\nFlexibilité et polyvalence\n\nMaîtrise des outils informatiques, de la bureautique générale et de la dactylographie\n\nExpérience professionnelle en milieu hospitalier un atout\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
-        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%\n\nMission:\nConduire et gérer de manière efficiente les services dont elle a la charge\n\nAssurer le bon fonctionnement des services\n\nAssurer une bonne gestion des consultations, y compris au niveau administratif\n\nAccueillir, informer et orienter les patients\n\nGarantir le suivi optimal des différents dossiers médicaux et de la dactylographie\n\nProfil:\nDiplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e\n\nConnaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout\n\nExpérience de 5 ans dans le domaine (en milieu hospitalier un atout)\n\nExpérience professionnelle dans la gestion de secrétariat de consultations\n\nFormation en gestion d’équipe Leadership (un atout)\n\nSens aigu de l’accueil et aisance dans le contact avec les patients\n\nSens de l’organisation et esprit d’initiative\n\nBonne gestion du stress\n\nFlexibilité et polyvalence\n\nMaîtrise des outils informatiques, de la bureautique générale et de la dactylographie\n\nExpérience professionnelle en milieu hospitalier un atout\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
-        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nResponsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90%\n\nMission:\nConduire et gérer de manière efficiente les services dont elle a la charge\n\nAssurer le bon fonctionnement des services\n\nAssurer une bonne gestion des consultations, y compris au niveau administratif\n\nAccueillir, informer et orienter les patients\n\nGarantir le suivi optimal des différents dossiers médicaux et de la dactylographie\n\nProfil:\nDiplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e\n\nConnaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout\n\nExpérience de 5 ans dans le domaine (en milieu hospitalier un atout)\n\nExpérience professionnelle dans la gestion de secrétariat de consultations\n\nFormation en gestion d’équipe Leadership (un atout)\n\nSens aigu de l’accueil et aisance dans le contact avec les patients\n\nSens de l’organisation et esprit d’initiative\n\nBonne gestion du stress\n\nFlexibilité et polyvalence\n\nMaîtrise des outils informatiques, de la bureautique générale et de la dactylographie\n\nExpérience professionnelle en milieu hospitalier un atout\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traitées."
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90% Mission: Conduire et gérer de manière efficiente les services dont elle a la charge Assurer le bon fonctionnement des services Assurer une bonne gestion des consultations, y compris au niveau administratif Accueillir, informer et orienter les patients Garantir le suivi optimal des différents dossiers médicaux et de la dactylographie Profil: Diplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e Connaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout Expérience de 5 ans dans le domaine (en milieu hospitalier un atout) Expérience professionnelle dans la gestion de secrétariat de consultations Formation en gestion d’équipe Leadership (un atout) Sens aigu de l’accueil et aisance dans le contact avec les patients Sens de l’organisation et esprit d’initiative Bonne gestion du stress Flexibilité et polyvalence Maîtrise des outils informatiques, de la bureautique générale et de la dactylographie Expérience professionnelle en milieu hospitalier un atout Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90% Mission: Conduire et gérer de manière efficiente les services dont elle a la charge Assurer le bon fonctionnement des services Assurer une bonne gestion des consultations, y compris au niveau administratif Accueillir, informer et orienter les patients Garantir le suivi optimal des différents dossiers médicaux et de la dactylographie Profil: Diplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e Connaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout Expérience de 5 ans dans le domaine (en milieu hospitalier un atout) Expérience professionnelle dans la gestion de secrétariat de consultations Formation en gestion d’équipe Leadership (un atout) Sens aigu de l’accueil et aisance dans le contact avec les patients Sens de l’organisation et esprit d’initiative Bonne gestion du stress Flexibilité et polyvalence Maîtrise des outils informatiques, de la bureautique générale et de la dactylographie Expérience professionnelle en milieu hospitalier un atout Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
+        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90% Mission: Conduire et gérer de manière efficiente les services dont elle a la charge Assurer le bon fonctionnement des services Assurer une bonne gestion des consultations, y compris au niveau administratif Accueillir, informer et orienter les patients Garantir le suivi optimal des différents dossiers médicaux et de la dactylographie Profil: Diplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e Connaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout Expérience de 5 ans dans le domaine (en milieu hospitalier un atout) Expérience professionnelle dans la gestion de secrétariat de consultations Formation en gestion d’équipe Leadership (un atout) Sens aigu de l’accueil et aisance dans le contact avec les patients Sens de l’organisation et esprit d’initiative Bonne gestion du stress Flexibilité et polyvalence Maîtrise des outils informatiques, de la bureautique générale et de la dactylographie Expérience professionnelle en milieu hospitalier un atout Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées.",
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Responsable des secrétariats de consultations pour les secrétariats médicaux de l’oncologie et du centre du sein à 90% Mission: Conduire et gérer de manière efficiente les services dont elle a la charge Assurer le bon fonctionnement des services Assurer une bonne gestion des consultations, y compris au niveau administratif Accueillir, informer et orienter les patients Garantir le suivi optimal des différents dossiers médicaux et de la dactylographie Profil: Diplôme d’assistant-e médical-e ou CFC d’employé de commerce avec diplôme de secrétaire médical-e Connaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout Expérience de 5 ans dans le domaine (en milieu hospitalier un atout) Expérience professionnelle dans la gestion de secrétariat de consultations Connaissance du milieu hospitalier et plus particulièrement de l’oncologie, un atout Formation en gestion d’équipe Leadership (un atout) Sens aigu de l’accueil et aisance dans le contact avec les patients Sens de l’organisation et esprit d’initiative Bonne gestion du stress Flexibilité et polyvalence Maîtrise des outils informatiques, de la bureautique générale et de la dactylographie Expérience professionnelle en milieu hospitalier un atout Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées."
       },
       "location": "Sion",
       "canton": "VS",
@@ -3503,7 +3515,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bcbf89b38715cf54dbd6ebd30cbb35e7/ATSANN0004734/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:31:57.056Z",
+      "crawledAt": "2026-06-13T11:03:23.582Z",
       "_hvsMeta": {
         "number": "ATSANN0004734",
         "sysId": "bcbf89b38715cf54dbd6ebd30cbb35e7",
@@ -3512,6 +3524,7 @@
         "site": "SION"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-12T22:31:57.056Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3525,8 +3538,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-12T22:31:57.056Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-58323e4bcee1",
@@ -3570,7 +3582,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:31:56.710Z",
+      "crawledAt": "2026-06-13T11:03:23.201Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -3645,7 +3657,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/120f40fb87918f54dbd6ebd30cbb3507/ATSANN0004723/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:31:56.363Z",
+      "crawledAt": "2026-06-13T11:03:22.825Z",
       "_hvsMeta": {
         "number": "ATSANN0004723",
         "sysId": "120f40fb87918f54dbd6ebd30cbb3507",
