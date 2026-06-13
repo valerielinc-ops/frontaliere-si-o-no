@@ -1,6 +1,6 @@
 {
   "crawlerKey": "decathlon",
-  "assembledAt": "2026-06-12T22:15:33.489Z",
+  "assembledAt": "2026-06-13T10:47:11.909Z",
   "jobs": [
     {
       "id": "decathlon-3efdaf6cfdf8",
@@ -33,7 +33,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4134745-marketing-and-communication-manager-mittelland-region-deeng-3014-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T22:15:31.172Z",
+      "crawledAt": "2026-06-13T10:47:09.549Z",
       "addressLocality": "Bern",
       "postalCode": "3014",
       "addressRegion": "BE",
@@ -109,7 +109,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4195775-sportberaterin-velo-decathlon-zurich-center-20-90-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:30.902Z",
+      "crawledAt": "2026-06-13T10:47:09.263Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -186,7 +186,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4197337-transport-operations-coordinator-temporary-contract-6-months-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T22:15:30.598Z",
+      "crawledAt": "2026-06-13T10:47:08.949Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -265,7 +265,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4205211-sports-leader-verkaufstberater-mwd-20-decathlon-schweiz-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:30.338Z",
+      "crawledAt": "2026-06-13T10:47:08.681Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -344,7 +344,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3633105-velomechaniker-80-wmd-decathlon-hinwil-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:30.092Z",
+      "crawledAt": "2026-06-13T10:47:08.412Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -379,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.828Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -423,7 +424,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4227069-kassiererin-in-decathlon-zurich-center-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:29.856Z",
+      "crawledAt": "2026-06-13T10:47:08.164Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -492,7 +493,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4233513-sportberaterin-decathlon-herblingen-20-befristet-november-bis-ende-januar-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:29.590Z",
+      "crawledAt": "2026-06-13T10:47:07.924Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -569,7 +570,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4233519-sportberaterin-decathlon-herblingen-50-befristet-nov-bid-ende-januar-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:29.317Z",
+      "crawledAt": "2026-06-13T10:47:07.633Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -644,7 +645,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4250835-vendeur-technicien-atelier-20-80-cdd-hf-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:29.023Z",
+      "crawledAt": "2026-06-13T10:47:07.341Z",
       "addressLocality": "Matran",
       "postalCode": "1700",
       "addressRegion": "FR",
@@ -687,6 +688,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -731,7 +733,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4253597-sport-leader-verkaufsberater-mwd-80-bern-city-3011-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:28.778Z",
+      "crawledAt": "2026-06-13T10:47:07.033Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "BE",
@@ -808,7 +810,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3885171-store-leader-incubation-mwd-ost-und-zentralschweiz-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:28.445Z",
+      "crawledAt": "2026-06-13T10:47:06.674Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -888,7 +890,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4067317-sportberaterin-verkaufsberaterin-60-80-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:28.192Z",
+      "crawledAt": "2026-06-13T10:47:06.421Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -957,7 +959,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4287595-sportberaterin-decathlon-stans-40-60-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:27.861Z",
+      "crawledAt": "2026-06-13T10:47:06.117Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -1032,7 +1034,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4303781-sports-leader-sportberater-mwd-70-im-bereich-velo-befristet-5-monate-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:27.580Z",
+      "crawledAt": "2026-06-13T10:47:05.832Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -1107,7 +1109,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4304899-store-leader-mwd-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:27.287Z",
+      "crawledAt": "2026-06-13T10:47:05.538Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -1185,7 +1187,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4187381-sport-leader-verkaufsberater-wmd-20-80-decathlon-stans-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:27.013Z",
+      "crawledAt": "2026-06-13T10:47:05.278Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -1262,7 +1264,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4278405-store-leader-incubation-mwd-nord-und-westschweiz-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:26.701Z",
+      "crawledAt": "2026-06-13T10:47:04.968Z",
       "addressLocality": "Bern",
       "postalCode": "3001",
       "addressRegion": "BE",
@@ -1342,7 +1344,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4117941-team-leader-abteilungsleiter-mwd-hinwil-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:26.458Z",
+      "crawledAt": "2026-06-13T10:47:04.721Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -1373,6 +1375,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.817Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1417,7 +1420,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4329461-sportsleader-multisportracket-80-90-flexibel-einsetzbar-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:26.218Z",
+      "crawledAt": "2026-06-13T10:47:04.477Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -1492,7 +1495,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229055-sportberater-verkaufsberater-mwd-20-30-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:25.917Z",
+      "crawledAt": "2026-06-13T10:47:04.198Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1567,7 +1570,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229037-sportberater-warenbewirtschaftung-mwd-40-60-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:25.574Z",
+      "crawledAt": "2026-06-13T10:47:03.897Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1595,88 +1598,6 @@
         ],
         "fr": [
           "sportberater-warenbewirtschaftung-m-w-d-40-60-decathlon-schweiz-decathlon-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T09:03:00.815Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "decathlon-ba5586a1e6e6",
-      "slug": "consigliere-sportivo-glisse-50-csd-28-06-al-31-07-decathlon-marin-decathlon-marin-epagnier",
-      "slugByLocale": {
-        "it": "consigliere-sportivo-glisse-50-csd-28-06-al-31-07-decathlon-marin-decathlon-marin-epagnier",
-        "en": "sports-councillor-glisse-50-csd-28-06-to-31-07-decathlon-marin-decathlon-marin-epagnier",
-        "de": "sportrat-glisse-50-csd-28-06-bis-31-07-decathlon-marin-decathlon-marin-epagnier",
-        "fr": "conseiller-ere-sportif-ve-glisse-50-cdd-28-06-au-31-07-decathlon-marin-decathlon-ch"
-      },
-      "company": "Decathlon",
-      "companyKey": "decathlon",
-      "companyDomain": "decathlon.ch",
-      "title": "Conseiller-ère sportif-ve Glisse 50% CDD 28/06 au 31/07 - Decathlon Marin",
-      "titleByLocale": {
-        "it": "Consigliere sportivo Glisse 50% CSD 28/06 al 31/07 - Decathlon Marin",
-        "en": "Sports Councillor Glisse 50% CSD 28/06 to 31/07 - Decathlon Marin",
-        "de": "Sportrat Glisse 50% CSD 28/06 bis 31/07 - Decathlon Marin",
-        "fr": "Conseiller-ère sportif-ve Glisse 50% CDD 28/06 au 31/07 - Decathlon Marin"
-      },
-      "description": "Chez Decathlon, les équipes sont engagées pour le sport ! Chez Decathlon, le sport est au cœur de notre quotidien, et chaque membre de l'équipe peut s’investir et grandir. Ici, l’esprit d’équipe est essentiel : c’est en jouant collectif que nous atteignons nos objectifs ensemble. Partage ta passion du sport dans un environnement dynamique et stimulant ! Rejoins une entreprise où il fait bon vivre, et intègre une équipe motivée et unie. Viens exprimer ton esprit d’initiative, prends des responsabilités et aide-nous à rendre le sport accessible à tous. Dès ton arrivée, tu seras conseiller-ère sportif-ve au sein de notre magasin de xxx, avec de nombreuses opportunités pour évoluer. Ta mission : inspirer nos clients et leur transmettre ta passion\n• Accueille et conseille nos clients sur nos produits, services et innovations.\n• Assure la disponibilité et la mise en rayon des produits pour une expérience client optimale.\n• Participe aux encaissements, y compris aux caisses automatiques.\n• Prends part activement au développement économique de ton rayon et du magasin.\n• Sois pleinement responsable de tes ventes !\n• Ton terrain de jeu t'offre de réelles opportunités. Tu gères ton activité en toute autonomie avec le soutien de ton Team Leader. Tu bénéficies d’un plan de formation pour réussir dans chacune de tes missions. Alors, prêt-e à relever le défi et à partager ta passion du sport ? Rejoins-nous !",
-      "descriptionByLocale": {
-        "it": "A Decathlon, le squadre si impegnano per lo sport! A Decathlon, lo sport è al centro della nostra vita quotidiana, e ogni membro della squadra può investire e crescere. Qui, lo spirito di squadra è essenziale: è giocando insieme che raggiungiamo i nostri obiettivi insieme. Condividi la tua passione per lo sport in un ambiente dinamico e stimolante! Unisciti a una società in cui è bene vivere e integrare un team motivato e unito. Venite ad esprimere la vostra iniziativa, assumetevi la responsabilità e aiutateci a rendere lo sport accessibile a tutti. Non appena arrivate, sarete un consulente di sport-age al nostro negozio xxx, con molte opportunità di evolversi. La vostra missione: ispirare i nostri clienti e trasmettere la vostra passione a loro\n• Benvenuto e consiglia i nostri clienti sui nostri prodotti, servizi e innovazioni.\n• Garantisce la disponibilità e la spedizione di prodotti per una customer experience ottimale.\n• Partecipa alle ricevute in contanti, compresi i registri di cassa.\n• Partecipa attivamente allo sviluppo economico del tuo reparto e del tuo negozio.\n• Essere pienamente responsabile per le vostre vendite!\n• Il vostro parco giochi offre opportunità reali. Gestisci il tuo business in modo indipendente con il supporto del tuo Team Leader. Hai un piano di formazione per avere successo in ciascuna delle tue missioni. Allora, pronti a affrontare la sfida e condividere la vostra passione per lo sport? Ci vediamo!",
-        "en": "At Decathlon, teams are committed to sport! At Decathlon, sport is at the heart of our daily lives, and every member of the team can invest and grow. Here, team spirit is essential: it is by playing together that we achieve our goals together. Share your passion for sport in a dynamic and stimulating environment! Join a company where it is good to live, and integrate a motivated and united team. Come and express your initiative, take responsibility and help us make sport accessible to all. As soon as you arrive, you will be a sports-age advisor at our xxx store, with many opportunities to evolve. Your mission: inspire our customers and pass on your passion to them\n• Welcomes and advises our customers on our products, services and innovations.\n• Ensures the availability and dispatch of products for optimal customer experience.\n• Participates in cash receipts, including cash registers.\n• Take an active part in the economic development of your department and store.\n• Be fully responsible for your sales!\n• Your playground offers you real opportunities. You manage your business independently with the support of your Team Leader. You have a training plan to succeed in each of your missions. So, ready to take on the challenge and share your passion for sport? Meet us!",
-        "de": "Bei Decathlon engagieren sich die Teams für den Sport! Bei Decathlon steht der Sport im Mittelpunkt unseres täglichen Lebens und jedes Mitglied des Teams kann sich engagieren und wachsen. Hier ist Teamgeist gefragt: Nur durch gemeinsames Handeln erreichen wir gemeinsam unsere Ziele. Teilen Sie Ihre Leidenschaft für den Sport in einem dynamischen und anregenden Umfeld! Treten Sie einem Unternehmen bei, in dem es sich gut leben lässt, und werden Sie Teil eines motivierten und vereinten Teams. Bringen Sie Ihre Initiative zum Ausdruck, übernehmen Sie Verantwortung und helfen Sie uns, den Sport für alle zugänglich zu machen. Sobald Sie angekommen sind, werden Sie ein Sportberater in unserem XXX-Shop mit vielen Entwicklungsmöglichkeiten. Ihre Mission: Unsere Kunden begeistern und Ihre Leidenschaft an sie weitergeben\n• Begrüßen und beraten Sie unsere Kunden zu unseren Produkten, Dienstleistungen und Innovationen.\n• Gewährleistet Produktverfügbarkeit und Regale für ein optimales Kundenerlebnis.\n• Nimmt an Sammlungen teil, einschließlich automatischer Kassen.\n• Beteiligen Sie sich aktiv an der wirtschaftlichen Entwicklung Ihrer Abteilung und des Ladens.\n• Übernehmen Sie die volle Verantwortung für Ihre Verkäufe!\n• Ihr Spielplatz bietet Ihnen echte Möglichkeiten. Sie verwalten Ihre Aktivitäten völlig autonom mit der Unterstützung Ihres Teamleiters. Sie profitieren von einem Trainingsplan, um bei jeder Ihrer Missionen erfolgreich zu sein. Sind Sie bereit, die Herausforderung anzunehmen und Ihre Leidenschaft für den Sport zu teilen? Begleiten Sie uns!",
-        "fr": "Chez Decathlon, les équipes sont engagées pour le sport ! Chez Decathlon, le sport est au cœur de notre quotidien, et chaque membre de l'équipe peut s’investir et grandir. Ici, l’esprit d’équipe est essentiel : c’est en jouant collectif que nous atteignons nos objectifs ensemble. Partage ta passion du sport dans un environnement dynamique et stimulant ! Rejoins une entreprise où il fait bon vivre, et intègre une équipe motivée et unie. Viens exprimer ton esprit d’initiative, prends des responsabilités et aide-nous à rendre le sport accessible à tous. Dès ton arrivée, tu seras conseiller-ère sportif-ve au sein de notre magasin de xxx, avec de nombreuses opportunités pour évoluer. Ta mission : inspirer nos clients et leur transmettre ta passion\n• Accueille et conseille nos clients sur nos produits, services et innovations.\n• Assure la disponibilité et la mise en rayon des produits pour une expérience client optimale.\n• Participe aux encaissements, y compris aux caisses automatiques.\n• Prends part activement au développement économique de ton rayon et du magasin.\n• Sois pleinement responsable de tes ventes !\n• Ton terrain de jeu t'offre de réelles opportunités. Tu gères ton activité en toute autonomie avec le soutien de ton Team Leader. Tu bénéficies d’un plan de formation pour réussir dans chacune de tes missions. Alors, prêt-e à relever le défi et à partager ta passion du sport ? Rejoins-nous !"
-      },
-      "location": "Marin-Epagnier",
-      "canton": "GE",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4332367-conseiller-ere-sportif-ve-glisse-50-cdd-2806-au-3107-decathlon-marin-2074-marin-epagnier",
-      "source": "Decathlon Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:25.264Z",
-      "addressLocality": "Marin-Epagnier",
-      "postalCode": "2806",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4332367-conseiller-ere-sportif-ve-glisse-50-cdd-2806-au-3107-decathlon-marin-2074-marin-epagnier",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Garantisce la disponibilità e la spedizione di prodotti per una customer experience ottimale."
-        ],
-        "en": [
-          "Ensures the availability and dispatch of products for optimal customer experience."
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-ere-sportif-ve-glisse-50-cdd-28-06-au-31-07-decathlon-marin-decathlon-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-sportif-ve-glisse-50-cdd-28-06-au-31-07-decathlon-marin-decathlon-ch"
-        ],
-        "en": [
-          "conseiller-ere-sportif-ve-glisse-50-cdd-28-06-au-31-07-decathlon-marin-decathlon-ch"
-        ],
-        "de": [
-          "conseiller-ere-sportif-ve-glisse-50-cdd-28-06-au-31-07-decathlon-marin-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.815Z",
@@ -1724,7 +1645,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4334115-customer-service-team-leader-mfx-permanent-100-niederwangen-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T22:15:24.985Z",
+      "crawledAt": "2026-06-13T10:47:03.576Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -1804,7 +1725,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4303443-verkaufsberater-velo-radsport-mwd-80-decathlon-dietlikon-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:24.702Z",
+      "crawledAt": "2026-06-13T10:47:03.298Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1879,7 +1800,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4356299-conseiller-ere-sportif-ve-team-glisse-20-decathlon-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:24.398Z",
+      "crawledAt": "2026-06-13T10:47:03.022Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -1921,6 +1842,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.811Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1965,7 +1887,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4360613-sport-leaderverkaufsberater-outdoorsport-mwd-60-befristet-bern-westside-3027-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:24.146Z",
+      "crawledAt": "2026-06-13T10:47:02.708Z",
       "addressLocality": "Bern",
       "postalCode": "3027",
       "addressRegion": "BE",
@@ -2042,7 +1964,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4363465-werkstatt-techniker-60-stadt-zurich-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:23.837Z",
+      "crawledAt": "2026-06-13T10:47:02.412Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -2116,7 +2038,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4369567-bike-sales-advisor-im-premiumbereich-mwd-80-van-rysel-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:23.590Z",
+      "crawledAt": "2026-06-13T10:47:02.135Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -2153,6 +2075,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.808Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2197,7 +2120,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4370341-sports-leader-verkausberater-mwd-80-100-decathlon-winterthur-gruze-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:23.269Z",
+      "crawledAt": "2026-06-13T10:47:01.809Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -2272,7 +2195,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4127765-sport-leader-verkaufsberater-mwd-80-baar-6340-baar",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:22.949Z",
+      "crawledAt": "2026-06-13T10:47:01.533Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "ZG",
@@ -2347,7 +2270,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4370639-velo-verkaufer-und-montage-spezialist-mwd-20-80-baar-6340-baar",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:22.642Z",
+      "crawledAt": "2026-06-13T10:47:01.232Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "ZG",
@@ -2422,7 +2345,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4372983-sports-leader-mwd-60-80-fur-3-monate-decathlon-dietlikon-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:22.334Z",
+      "crawledAt": "2026-06-13T10:47:00.915Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2494,7 +2417,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4373005-sports-leader-mwd-60-80-fur-2-monate-decathlon-dietlikon-8305-dietlikon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:21.970Z",
+      "crawledAt": "2026-06-13T10:47:00.629Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2566,7 +2489,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4373697-customer-service-advisor-frdeeng-fixed-term-contract-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T22:15:21.655Z",
+      "crawledAt": "2026-06-13T10:47:00.368Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -2652,7 +2575,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4374793-junior-accounts-payable-accountant-mfx-fixed-term-contract-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T22:15:21.380Z",
+      "crawledAt": "2026-06-13T10:47:00.102Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -2733,7 +2656,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4377305-sport-leaderverkaufsberater-racketsport-mwd-50-befristet-basel-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:21.109Z",
+      "crawledAt": "2026-06-13T10:46:59.837Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -2810,7 +2733,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4380911-conseiller-ere-sportif-ve-decathlon-yverdon-30-60-1442-montagny-pres-yverdon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:20.820Z",
+      "crawledAt": "2026-06-13T10:46:59.512Z",
       "addressLocality": "Montagny-près-Yverdon",
       "postalCode": "1442",
       "addressRegion": "VD",
@@ -2850,6 +2773,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.796Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2894,7 +2818,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4387597-conseiller-ere-sportif-ve-rayon-junior-sportconutrition-80-decathlon-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:20.576Z",
+      "crawledAt": "2026-06-13T10:46:59.263Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -2934,6 +2858,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.795Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2978,7 +2903,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4389047-befristet-sports-leader-mwd-80-fur-3-monate-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:20.305Z",
+      "crawledAt": "2026-06-13T10:46:59.018Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -3053,7 +2978,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4389067-befristet-sports-leader-mwd-80-fur-2-monate-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:20.015Z",
+      "crawledAt": "2026-06-13T10:46:58.688Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -3128,7 +3053,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4389091-befristet-sports-leader-mwd-60-fur-2-monate-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:19.671Z",
+      "crawledAt": "2026-06-13T10:46:58.405Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -3203,7 +3128,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4389105-befristet-sports-leader-mwd-50-fur-3-monate-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:19.392Z",
+      "crawledAt": "2026-06-13T10:46:58.130Z",
       "addressLocality": "Winterthur",
       "postalCode": "8404",
       "addressRegion": "ZH",
@@ -3278,7 +3203,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4253105-sport-leader-verkaufsberater-mwd-20-befristet-letzipark-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:19.077Z",
+      "crawledAt": "2026-06-13T10:46:57.833Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -3353,7 +3278,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4390717-befristet-sports-leader-mwd-40-fur-3-monate-decathlon-zurich-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:18.743Z",
+      "crawledAt": "2026-06-13T10:46:57.515Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -3428,7 +3353,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4392641-sportberaterin-decathlon-stans-80-100-6370-stans",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:18.439Z",
+      "crawledAt": "2026-06-13T10:46:57.200Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -3503,7 +3428,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4395411-ai-automation-integration-developer-intern-fmx-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-12T22:15:18.117Z",
+      "crawledAt": "2026-06-13T10:46:56.894Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "5000",
       "addressRegion": "AG",
@@ -3578,7 +3503,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4396903-technicien-atelier-100-hf-geneve-blandonnet-1214-vernier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:17.827Z",
+      "crawledAt": "2026-06-13T10:46:56.601Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -3656,7 +3581,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4412989-store-leader-filialleiter-mwd-100-decathlon-chur-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:17.569Z",
+      "crawledAt": "2026-06-13T10:46:56.326Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -3695,6 +3620,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.783Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3739,7 +3665,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4414657-mecanicien-ne-technicien-ne-cycle-hf-60-80-cdi-neuchatelmarin-2074-marin-epagnier",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:17.297Z",
+      "crawledAt": "2026-06-13T10:46:56.064Z",
       "addressLocality": "Marin-Epagnier",
       "postalCode": "2074",
       "addressRegion": "GE",
@@ -3820,7 +3746,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4118089-team-leader-abteilungsleiter-wmd-decathlon-schaffhausen-8207-schaffhausen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:16.961Z",
+      "crawledAt": "2026-06-13T10:46:55.792Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressRegion": "SH",
@@ -3855,6 +3781,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.779Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3899,7 +3826,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4415799-sport-leaderverkaufsberater-mwd-80-basel-bergsport-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:16.709Z",
+      "crawledAt": "2026-06-13T10:46:55.543Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "addressRegion": "BS",
@@ -3976,7 +3903,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4363351-sport-leader-verkaufsberater-mwd-60-befristet-luzern-city-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:16.412Z",
+      "crawledAt": "2026-06-13T10:46:55.208Z",
       "addressLocality": "Luzern",
       "postalCode": "6004",
       "addressRegion": "LU",
@@ -4051,7 +3978,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4416195-technicien-atelier-80-hf-cdd-6-mois-bussigny-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:16.137Z",
+      "crawledAt": "2026-06-13T10:46:54.940Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -4143,7 +4070,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4416909-sport-leader-verkaufsberater-mwd-30-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:15.856Z",
+      "crawledAt": "2026-06-13T10:46:54.642Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3321",
       "addressRegion": "BE",
@@ -4218,7 +4145,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421375-ski-servicetechniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:15.551Z",
+      "crawledAt": "2026-06-13T10:46:54.324Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -4293,7 +4220,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421653-velomechaniker-mwd-100-unbefristet-federal-workshop-bern-3172-koniz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:15.254Z",
+      "crawledAt": "2026-06-13T10:46:54.040Z",
       "addressLocality": "Köniz",
       "postalCode": "3172",
       "addressRegion": "BE",
@@ -4368,7 +4295,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4421751-technicien-ne-atelier-hf-cdd-4-mois-100-federal-workshop-onnens-vd-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:14.918Z",
+      "crawledAt": "2026-06-13T10:46:53.731Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -4455,7 +4382,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4424029-mecanicien-ne-technicien-ne-cycle-hf-80100-cdi-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:14.668Z",
+      "crawledAt": "2026-06-13T10:46:53.458Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -4532,7 +4459,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4426171-sport-leader-verkaufsberater-mwd-40-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:14.404Z",
+      "crawledAt": "2026-06-13T10:46:53.173Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3321",
       "addressRegion": "BE",
@@ -4607,7 +4534,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4426337-team-leader-abteilungsleiter-mwd-okosystem-zugbaar-6300-zug",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:14.046Z",
+      "crawledAt": "2026-06-13T10:46:52.772Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "ZG",
@@ -4642,6 +4569,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.763Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4686,7 +4614,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4432115-sport-leader-verkaufsberater-mwd-80-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:13.692Z",
+      "crawledAt": "2026-06-13T10:46:52.458Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "SG",
@@ -4763,7 +4691,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4434841-sportberaterin-80-befristet-3-monate-decathlon-suhr-wassersport-kids-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:13.402Z",
+      "crawledAt": "2026-06-13T10:46:52.184Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -4838,7 +4766,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4434869-sport-leader-verkaufsberater-mwd-60-100-befristet-basel-city-4058-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:13.141Z",
+      "crawledAt": "2026-06-13T10:46:51.896Z",
       "addressLocality": "Basel",
       "postalCode": "4058",
       "addressRegion": "BS",
@@ -4924,7 +4852,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4436433-conseiller-ere-sportif-ve-cycle-atelier-location-cdd-3-mois-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:12.830Z",
+      "crawledAt": "2026-06-13T10:46:51.618Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -4970,6 +4898,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.738Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5014,7 +4943,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4308577-sportberaterin-decathlon-biel-city-cdd-60-bienne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:12.527Z",
+      "crawledAt": "2026-06-13T10:46:51.358Z",
       "addressLocality": "Bienne",
       "postalCode": "3001",
       "addressRegion": "BE",
@@ -5089,7 +5018,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4443315-conseiller-ere-sportif-ve-20-fitness-decathlon-bussigny-aout-2026-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:12.276Z",
+      "crawledAt": "2026-06-13T10:46:51.120Z",
       "addressLocality": "Bussigny",
       "postalCode": "2026",
       "addressRegion": "VD",
@@ -5114,6 +5043,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T07:52:51.234Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5131,9 +5061,9 @@
       "id": "decathlon-c0b39b8e09ba",
       "slug": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-heimberg",
       "slugByLocale": {
-        "de": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch",
         "it": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-heimberg",
         "en": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch",
+        "de": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch",
         "fr": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
       },
       "company": "Decathlon",
@@ -5141,16 +5071,16 @@
       "companyDomain": "decathlon.ch",
       "title": "Sport Leader / Verkaufsberater (m/w/d) 40-60% - Befristet - Heimberg",
       "titleByLocale": {
-        "de": "Sport Leader / Verkaufsberater (m/w/d) 40-60% - Befristet - Heimberg",
         "it": "Sport Leader / Verkaufsberater (m/w/d) 40-60% - Befristet - Heimberg",
         "en": "Sport Leader / Verkaufsberater (m/w/d) 40-60% - Befristet - Heimberg",
+        "de": "Sport Leader / Verkaufsberater (m/w/d) 40-60% - Befristet - Heimberg",
         "fr": "Sport Leader / Verkaufsberater (m/w/d) 40-60% - Befristet - Heimberg"
       },
       "description": "Brennst du für das Laufen, Zelten und die Berge und teilst deine Leidenschaft gerne mit anderen? Wir suchen Verstärkung für unser Outdoor--Team in Heimberg ! Pack während der Sommersaison mit an und begeistere unsere Kundinnen und Kunden für ihr nächstes Abenteuer. Deine Aufgaben: Mittendrin statt nur dabei\n• • Fachberatung Bergsport & Camping: Du bist die primäre Ansprechperson für Wanderer, Alpinisten und Camper. Ob das passende Zelt für das Wochenende, der richtige Trekkingschuh oder die perfekte Ausrüstung für die nächste Bergtour – du berätst kompetent, freundlich und auf Augenhöhe.\n• Showroom-Management: Du sorgst dafür, dass deine Abteilungen ( Hiking, Trekking, Camping ) immer top aussehen, kümmerst dich um ein ansprechendes Merchandising und die optimale Warenverfügbarkeit auf der Fläche.\n• Omnichannel & Kreislaufwirtschaft: Du verkaufst nicht nur Produkte, sondern bietest nachhaltige Lösungen an – von Click & Collect über unsere Mietmodelle (z. B. für Camping-Equipment) bis hin zu unserem Second-Life-Service.\n• Logistik-Power: Die Warenannahme, das Vorsortieren und das effiziente Bewirtschaften der Regale gehören für dich zum täglichen sportlichen Workout.",
       "descriptionByLocale": {
-        "de": "Brennst du für das Laufen, Zelten und die Berge und teilst deine Leidenschaft gerne mit anderen? Wir suchen Verstärkung für unser Outdoor--Team in Heimberg ! Pack während der Sommersaison mit an und begeistere unsere Kundinnen und Kunden für ihr nächstes Abenteuer. Deine Aufgaben: Mittendrin statt nur dabei\n• • Fachberatung Bergsport & Camping: Du bist die primäre Ansprechperson für Wanderer, Alpinisten und Camper. Ob das passende Zelt für das Wochenende, der richtige Trekkingschuh oder die perfekte Ausrüstung für die nächste Bergtour – du berätst kompetent, freundlich und auf Augenhöhe.\n• Showroom-Management: Du sorgst dafür, dass deine Abteilungen ( Hiking, Trekking, Camping ) immer top aussehen, kümmerst dich um ein ansprechendes Merchandising und die optimale Warenverfügbarkeit auf der Fläche.\n• Omnichannel & Kreislaufwirtschaft: Du verkaufst nicht nur Produkte, sondern bietest nachhaltige Lösungen an – von Click & Collect über unsere Mietmodelle (z. B. für Camping-Equipment) bis hin zu unserem Second-Life-Service.\n• Logistik-Power: Die Warenannahme, das Vorsortieren und das effiziente Bewirtschaften der Regale gehören für dich zum täglichen sportlichen Workout.",
         "it": "Brennst du für das Laufen, Zelten und die Berge und teilst deine Leidenschaft gerne mit anderen? Wir suchen Verstärkung für unser Outdoor--Team in Heimberg ! Pack während der Sommersaison mit an und begeistere unsere Kundinnen und Kunden für ihr nächstes Abenteuer. Deine Aufgaben: Mittendrin statt nur dabei\n• • Fachberatung Bergsport & Camping: Du bist die primäre Ansprechperson für Wanderer, Alpinisten und Camper. Ob das passende Zelt für das Wochenende, der richtige Trekkingschuh oder die perfekte Ausrüstung für die nächste Bergtour – du berätst kompetent, freundlich und auf Augenhöhe.\n• Showroom-Management: Du sorgst dafür, dass deine Abteilungen ( Hiking, Trekking, Camping ) immer top aussehen, kümmerst dich um ein ansprechendes Merchandising und die optimale Warenverfügbarkeit auf der Fläche.\n• Omnichannel & Kreislaufwirtschaft: Du verkaufst nicht nur Produkte, sondern bietest nachhaltige Lösungen an – von Click & Collect über unsere Mietmodelle (z. B. für Camping-Equipment) bis hin zu unserem Second-Life-Service.\n• Logistik-Power: Die Warenannahme, das Vorsortieren und das effiziente Bewirtschaften der Regale gehören für dich zum täglichen sportlichen Workout.",
         "en": "Brennst du für das Laufen, Zelten und die Berge und teilst deine Leidenschaft gerne mit anderen? Wir suchen Verstärkung für unser Outdoor--Team in Heimberg ! Pack während der Sommersaison mit an und begeistere unsere Kundinnen und Kunden für ihr nächstes Abenteuer. Deine Aufgaben: Mittendrin statt nur dabei\n• • Fachberatung Bergsport & Camping: Du bist die primäre Ansprechperson für Wanderer, Alpinisten und Camper. Ob das passende Zelt für das Wochenende, der richtige Trekkingschuh oder die perfekte Ausrüstung für die nächste Bergtour – du berätst kompetent, freundlich und auf Augenhöhe.\n• Showroom-Management: Du sorgst dafür, dass deine Abteilungen ( Hiking, Trekking, Camping ) immer top aussehen, kümmerst dich um ein ansprechendes Merchandising und die optimale Warenverfügbarkeit auf der Fläche.\n• Omnichannel & Kreislaufwirtschaft: Du verkaufst nicht nur Produkte, sondern bietest nachhaltige Lösungen an – von Click & Collect über unsere Mietmodelle (z. B. für Camping-Equipment) bis hin zu unserem Second-Life-Service.\n• Logistik-Power: Die Warenannahme, das Vorsortieren und das effiziente Bewirtschaften der Regale gehören für dich zum täglichen sportlichen Workout.",
+        "de": "Brennst du für das Laufen, Zelten und die Berge und teilst deine Leidenschaft gerne mit anderen? Wir suchen Verstärkung für unser Outdoor--Team in Heimberg ! Pack während der Sommersaison mit an und begeistere unsere Kundinnen und Kunden für ihr nächstes Abenteuer. Deine Aufgaben: Mittendrin statt nur dabei\n• • Fachberatung Bergsport & Camping: Du bist die primäre Ansprechperson für Wanderer, Alpinisten und Camper. Ob das passende Zelt für das Wochenende, der richtige Trekkingschuh oder die perfekte Ausrüstung für die nächste Bergtour – du berätst kompetent, freundlich und auf Augenhöhe.\n• Showroom-Management: Du sorgst dafür, dass deine Abteilungen ( Hiking, Trekking, Camping ) immer top aussehen, kümmerst dich um ein ansprechendes Merchandising und die optimale Warenverfügbarkeit auf der Fläche.\n• Omnichannel & Kreislaufwirtschaft: Du verkaufst nicht nur Produkte, sondern bietest nachhaltige Lösungen an – von Click & Collect über unsere Mietmodelle (z. B. für Camping-Equipment) bis hin zu unserem Second-Life-Service.\n• Logistik-Power: Die Warenannahme, das Vorsortieren und das effiziente Bewirtschaften der Regale gehören für dich zum täglichen sportlichen Workout.",
         "fr": "Brennst du für das Laufen, Zelten und die Berge und teilst deine Leidenschaft gerne mit anderen? Wir suchen Verstärkung für unser Outdoor--Team in Heimberg ! Pack während der Sommersaison mit an und begeistere unsere Kundinnen und Kunden für ihr nächstes Abenteuer. Deine Aufgaben: Mittendrin statt nur dabei\n• • Fachberatung Bergsport & Camping: Du bist die primäre Ansprechperson für Wanderer, Alpinisten und Camper. Ob das passende Zelt für das Wochenende, der richtige Trekkingschuh oder die perfekte Ausrüstung für die nächste Bergtour – du berätst kompetent, freundlich und auf Augenhöhe.\n• Showroom-Management: Du sorgst dafür, dass deine Abteilungen ( Hiking, Trekking, Camping ) immer top aussehen, kümmerst dich um ein ansprechendes Merchandising und die optimale Warenverfügbarkeit auf der Fläche.\n• Omnichannel & Kreislaufwirtschaft: Du verkaufst nicht nur Produkte, sondern bietest nachhaltige Lösungen an – von Click & Collect über unsere Mietmodelle (z. B. für Camping-Equipment) bis hin zu unserem Second-Life-Service.\n• Logistik-Power: Die Warenannahme, das Vorsortieren und das effiziente Bewirtschaften der Regale gehören für dich zum täglichen sportlichen Workout."
       },
       "location": "Heimberg",
@@ -5158,7 +5088,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4446805-sport-leader-verkaufsberater-mwd-40-60-befristet-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-12T22:15:11.978Z",
+      "crawledAt": "2026-06-13T10:46:50.844Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -5173,18 +5103,17 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4446805-sport-leader-verkaufsberater-mwd-40-60-befristet-heimberg-3627-heimberg",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-12T22:15:11.978Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5196,41 +5125,40 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-12T22:15:11.978Z"
+      }
     },
     {
       "id": "decathlon-878e338f75ba",
       "slug": "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel",
       "slugByLocale": {
-        "fr": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch",
         "it": "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel",
         "en": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch",
-        "de": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
+        "de": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch",
+        "fr": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
       "companyDomain": "decathlon.ch",
       "title": "Vendeur Sportif (H/F) - Passionné(e) Outdoor",
       "titleByLocale": {
-        "fr": "Vendeur Sportif (H/F) - Passionné(e) Outdoor",
         "it": "Vendeur Sportif (H/F) - Passionné(e) Outdoor",
         "en": "Vendeur Sportif (H/F) - Passionné(e) Outdoor",
-        "de": "Vendeur Sportif (H/F) - Passionné(e) Outdoor"
+        "de": "Vendeur Sportif (H/F) - Passionné(e) Outdoor",
+        "fr": "Vendeur Sportif (H/F) - Passionné(e) Outdoor"
       },
       "description": "Le magasin DECATHLON Biel/Bienne est à la recherche de : VENDEUR SPORTIF (H/F) - Randonnée 80% Chez DECATHLON, on aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Le magasin DECATHLON Biel/Bienne est situé à quelques minutes du centre-ville de Biel/Bienne. A mi-chemin entre Bern et Neuchâtel, entouré par les montagnes du Jura à l’Est et les bords du lac de Biel/Bienne au Sud, sa situation géographique est propice à toutes pratiques sportives tout au long de l’année (ski, randonnée, vélo, pêche, escalade, alpinisme, running, …). Ouvert fin 2018, le magasin s’étend sur une surface de 2600m² et compte une vingtaine de collaborateurs. Tes responsabilités:\n• Vendre par ta relation client : Accueil personnalisé, partage de ta passion du sport, satisfaire et fidéliser tes clients, donner envie au client de revenir te voir ;\n• Vendre par ton linéaire : ton offre produits correspond aux besoins de tes clients, tu mets en avant les meilleures ventes et les dernières nouveautés ;\n• Approvisionner ton linéaire : tu garantis un stock juste grâce à la réalisation d’inventaires, tu garantis une mise en rayon efficace suite à la réception du jour ;\n• Dynamiser ton commerce : tu garantis du stock sur tes meilleures ventes, tu mets en avant l’offre de Services, les Opérations Commerciales, etc ;\n• Développer la politique commerciale du rayon : tu analyses ton environnement local et adaptes ton offre produits en fonction des besoins qui évoluent sans cesse, tu multiplies les échanges avec tes clients par Email ou en créant des événements ;\n• Encaisser professionnellement tes clients ; Contrat proposé : CDD 1 mois 80% Date d’entrée : 29 Juin 2026",
       "descriptionByLocale": {
-        "fr": "Le magasin DECATHLON Biel/Bienne est à la recherche de : VENDEUR SPORTIF (H/F) - Randonnée 80% Chez DECATHLON, on aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Le magasin DECATHLON Biel/Bienne est situé à quelques minutes du centre-ville de Biel/Bienne. A mi-chemin entre Bern et Neuchâtel, entouré par les montagnes du Jura à l’Est et les bords du lac de Biel/Bienne au Sud, sa situation géographique est propice à toutes pratiques sportives tout au long de l’année (ski, randonnée, vélo, pêche, escalade, alpinisme, running, …). Ouvert fin 2018, le magasin s’étend sur une surface de 2600m² et compte une vingtaine de collaborateurs. Tes responsabilités:\n• Vendre par ta relation client : Accueil personnalisé, partage de ta passion du sport, satisfaire et fidéliser tes clients, donner envie au client de revenir te voir ;\n• Vendre par ton linéaire : ton offre produits correspond aux besoins de tes clients, tu mets en avant les meilleures ventes et les dernières nouveautés ;\n• Approvisionner ton linéaire : tu garantis un stock juste grâce à la réalisation d’inventaires, tu garantis une mise en rayon efficace suite à la réception du jour ;\n• Dynamiser ton commerce : tu garantis du stock sur tes meilleures ventes, tu mets en avant l’offre de Services, les Opérations Commerciales, etc ;\n• Développer la politique commerciale du rayon : tu analyses ton environnement local et adaptes ton offre produits en fonction des besoins qui évoluent sans cesse, tu multiplies les échanges avec tes clients par Email ou en créant des événements ;\n• Encaisser professionnellement tes clients ; Contrat proposé : CDD 1 mois 80% Date d’entrée : 29 Juin 2026",
         "it": "Le magasin DECATHLON Biel/Bienne est à la recherche de : VENDEUR SPORTIF (H/F) - Randonnée 80% Chez DECATHLON, on aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Le magasin DECATHLON Biel/Bienne est situé à quelques minutes du centre-ville de Biel/Bienne. A mi-chemin entre Bern et Neuchâtel, entouré par les montagnes du Jura à l’Est et les bords du lac de Biel/Bienne au Sud, sa situation géographique est propice à toutes pratiques sportives tout au long de l’année (ski, randonnée, vélo, pêche, escalade, alpinisme, running, …). Ouvert fin 2018, le magasin s’étend sur une surface de 2600m² et compte une vingtaine de collaborateurs. Tes responsabilités:\n• Vendre par ta relation client : Accueil personnalisé, partage de ta passion du sport, satisfaire et fidéliser tes clients, donner envie au client de revenir te voir ;\n• Vendre par ton linéaire : ton offre produits correspond aux besoins de tes clients, tu mets en avant les meilleures ventes et les dernières nouveautés ;\n• Approvisionner ton linéaire : tu garantis un stock juste grâce à la réalisation d’inventaires, tu garantis une mise en rayon efficace suite à la réception du jour ;\n• Dynamiser ton commerce : tu garantis du stock sur tes meilleures ventes, tu mets en avant l’offre de Services, les Opérations Commerciales, etc ;\n• Développer la politique commerciale du rayon : tu analyses ton environnement local et adaptes ton offre produits en fonction des besoins qui évoluent sans cesse, tu multiplies les échanges avec tes clients par Email ou en créant des événements ;\n• Encaisser professionnellement tes clients ; Contrat proposé : CDD 1 mois 80% Date d’entrée : 29 Juin 2026",
         "en": "Le magasin DECATHLON Biel/Bienne est à la recherche de : VENDEUR SPORTIF (H/F) - Randonnée 80% Chez DECATHLON, on aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Le magasin DECATHLON Biel/Bienne est situé à quelques minutes du centre-ville de Biel/Bienne. A mi-chemin entre Bern et Neuchâtel, entouré par les montagnes du Jura à l’Est et les bords du lac de Biel/Bienne au Sud, sa situation géographique est propice à toutes pratiques sportives tout au long de l’année (ski, randonnée, vélo, pêche, escalade, alpinisme, running, …). Ouvert fin 2018, le magasin s’étend sur une surface de 2600m² et compte une vingtaine de collaborateurs. Tes responsabilités:\n• Vendre par ta relation client : Accueil personnalisé, partage de ta passion du sport, satisfaire et fidéliser tes clients, donner envie au client de revenir te voir ;\n• Vendre par ton linéaire : ton offre produits correspond aux besoins de tes clients, tu mets en avant les meilleures ventes et les dernières nouveautés ;\n• Approvisionner ton linéaire : tu garantis un stock juste grâce à la réalisation d’inventaires, tu garantis une mise en rayon efficace suite à la réception du jour ;\n• Dynamiser ton commerce : tu garantis du stock sur tes meilleures ventes, tu mets en avant l’offre de Services, les Opérations Commerciales, etc ;\n• Développer la politique commerciale du rayon : tu analyses ton environnement local et adaptes ton offre produits en fonction des besoins qui évoluent sans cesse, tu multiplies les échanges avec tes clients par Email ou en créant des événements ;\n• Encaisser professionnellement tes clients ; Contrat proposé : CDD 1 mois 80% Date d’entrée : 29 Juin 2026",
-        "de": "Le magasin DECATHLON Biel/Bienne est à la recherche de : VENDEUR SPORTIF (H/F) - Randonnée 80% Chez DECATHLON, on aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Le magasin DECATHLON Biel/Bienne est situé à quelques minutes du centre-ville de Biel/Bienne. A mi-chemin entre Bern et Neuchâtel, entouré par les montagnes du Jura à l’Est et les bords du lac de Biel/Bienne au Sud, sa situation géographique est propice à toutes pratiques sportives tout au long de l’année (ski, randonnée, vélo, pêche, escalade, alpinisme, running, …). Ouvert fin 2018, le magasin s’étend sur une surface de 2600m² et compte une vingtaine de collaborateurs. Tes responsabilités:\n• Vendre par ta relation client : Accueil personnalisé, partage de ta passion du sport, satisfaire et fidéliser tes clients, donner envie au client de revenir te voir ;\n• Vendre par ton linéaire : ton offre produits correspond aux besoins de tes clients, tu mets en avant les meilleures ventes et les dernières nouveautés ;\n• Approvisionner ton linéaire : tu garantis un stock juste grâce à la réalisation d’inventaires, tu garantis une mise en rayon efficace suite à la réception du jour ;\n• Dynamiser ton commerce : tu garantis du stock sur tes meilleures ventes, tu mets en avant l’offre de Services, les Opérations Commerciales, etc ;\n• Développer la politique commerciale du rayon : tu analyses ton environnement local et adaptes ton offre produits en fonction des besoins qui évoluent sans cesse, tu multiplies les échanges avec tes clients par Email ou en créant des événements ;\n• Encaisser professionnellement tes clients ; Contrat proposé : CDD 1 mois 80% Date d’entrée : 29 Juin 2026"
+        "de": "Le magasin DECATHLON Biel/Bienne est à la recherche de : VENDEUR SPORTIF (H/F) - Randonnée 80% Chez DECATHLON, on aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Le magasin DECATHLON Biel/Bienne est situé à quelques minutes du centre-ville de Biel/Bienne. A mi-chemin entre Bern et Neuchâtel, entouré par les montagnes du Jura à l’Est et les bords du lac de Biel/Bienne au Sud, sa situation géographique est propice à toutes pratiques sportives tout au long de l’année (ski, randonnée, vélo, pêche, escalade, alpinisme, running, …). Ouvert fin 2018, le magasin s’étend sur une surface de 2600m² et compte une vingtaine de collaborateurs. Tes responsabilités:\n• Vendre par ta relation client : Accueil personnalisé, partage de ta passion du sport, satisfaire et fidéliser tes clients, donner envie au client de revenir te voir ;\n• Vendre par ton linéaire : ton offre produits correspond aux besoins de tes clients, tu mets en avant les meilleures ventes et les dernières nouveautés ;\n• Approvisionner ton linéaire : tu garantis un stock juste grâce à la réalisation d’inventaires, tu garantis une mise en rayon efficace suite à la réception du jour ;\n• Dynamiser ton commerce : tu garantis du stock sur tes meilleures ventes, tu mets en avant l’offre de Services, les Opérations Commerciales, etc ;\n• Développer la politique commerciale du rayon : tu analyses ton environnement local et adaptes ton offre produits en fonction des besoins qui évoluent sans cesse, tu multiplies les échanges avec tes clients par Email ou en créant des événements ;\n• Encaisser professionnellement tes clients ; Contrat proposé : CDD 1 mois 80% Date d’entrée : 29 Juin 2026",
+        "fr": "Le magasin DECATHLON Biel/Bienne est à la recherche de : VENDEUR SPORTIF (H/F) - Randonnée 80% Chez DECATHLON, on aime valoriser les initiatives, elle permet à tous de s’investir et d’évoluer. “Jouer collectif” fait partie de notre ADN, nous gagnons ensemble uniquement si nous sommes une équipe unie et engagée. Le magasin DECATHLON Biel/Bienne est situé à quelques minutes du centre-ville de Biel/Bienne. A mi-chemin entre Bern et Neuchâtel, entouré par les montagnes du Jura à l’Est et les bords du lac de Biel/Bienne au Sud, sa situation géographique est propice à toutes pratiques sportives tout au long de l’année (ski, randonnée, vélo, pêche, escalade, alpinisme, running, …). Ouvert fin 2018, le magasin s’étend sur une surface de 2600m² et compte une vingtaine de collaborateurs. Tes responsabilités:\n• Vendre par ta relation client : Accueil personnalisé, partage de ta passion du sport, satisfaire et fidéliser tes clients, donner envie au client de revenir te voir ;\n• Vendre par ton linéaire : ton offre produits correspond aux besoins de tes clients, tu mets en avant les meilleures ventes et les dernières nouveautés ;\n• Approvisionner ton linéaire : tu garantis un stock juste grâce à la réalisation d’inventaires, tu garantis une mise en rayon efficace suite à la réception du jour ;\n• Dynamiser ton commerce : tu garantis du stock sur tes meilleures ventes, tu mets en avant l’offre de Services, les Opérations Commerciales, etc ;\n• Développer la politique commerciale du rayon : tu analyses ton environnement local et adaptes ton offre produits en fonction des besoins qui évoluent sans cesse, tu multiplies les échanges avec tes clients par Email ou en créant des événements ;\n• Encaisser professionnellement tes clients ; Contrat proposé : CDD 1 mois 80% Date d’entrée : 29 Juin 2026"
       },
       "location": "Biel",
       "canton": "BE",
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4447885-vendeur-sportif-hf-passionnee-outdoor-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-12T22:15:11.663Z",
+      "crawledAt": "2026-06-13T10:46:50.543Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -5245,18 +5173,17 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4447885-vendeur-sportif-hf-passionnee-outdoor-2504-biel",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-12T22:15:11.663Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5268,8 +5195,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-12T22:15:11.663Z"
+      }
     }
   ]
 }
