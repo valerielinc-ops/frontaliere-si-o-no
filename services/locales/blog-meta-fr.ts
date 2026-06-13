@@ -8060,6 +8060,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-italia-sospesi.title': 'Remboursements à l\'Italie',
     'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Centre et Ligue demandent la suspension des rembourses vinci obligatoires',
     'blog.article.ristorni-italia-sospesi.imageAlt': 'Rue de Lugano',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.title': 'Travaux juin sentier Ronchitt Molinetto',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.excerpt': 'Deux jours de travaux : routes fermées à Gambarogno',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.imageAlt': 'Gambarogno zone de construction',
 };
 
 export default blogMetaFr;

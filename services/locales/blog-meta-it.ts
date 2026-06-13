@@ -8060,6 +8060,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-italia-sospesi.title': 'Ristorni all\'Italia',
     'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Centro e Lega chiedono la sospensione dei ristorni',
     'blog.article.ristorni-italia-sospesi.imageAlt': 'Strada di Lugano',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.title': 'Lavori giugno sentiero Ronchitt Molinetto',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.excerpt': 'Due giorni di lavori: strade chiuse a Gambarogno',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.imageAlt': 'Gambarogno zona lavori',
 };
 
 export default blogMetaIt;

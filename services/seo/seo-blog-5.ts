@@ -43637,6 +43637,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-giugno-sentiero-ronchitt-molinetto': {
+    title: 'Lavori giugno sentiero Ronchitt Molinetto | Frontaliere Ticino',
+    description: 'Due giorni di lavori a Gambarogno: strade chiuse e restrizioni alla viabilità. Scopri di più sui lavori e le scadenze. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, giugno, sentiero, ronchitt',
+    ogTitle: 'Lavori giugno sentiero Ronchitt Molinetto',
+    ogDescription: 'Due giorni di lavori a Gambarogno: strade chiuse e restrizioni alla viabilità. Scopri di più sui lavori e le scadenze.',
+    canonicalPath: '/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori giugno sentiero Ronchitt Molinetto",
+      "description": "Due giorni di lavori a Gambarogno: strade chiuse e restrizioni alla viabilità. Scopri di più sui lavori e le scadenze. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-giugno-sentiero-ronchitt-molinetto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gambarogno zona lavori"
+      },
+      "datePublished": "2026-06-13T02:46:01+00:00",
+      "dateModified": "2026-06-13T02:46:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

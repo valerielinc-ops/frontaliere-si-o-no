@@ -8059,6 +8059,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-italia-sospesi.title': 'Refunds to Italy',
     'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Centro and Lega ask for suspension of refunds',
     'blog.article.ristorni-italia-sospesi.imageAlt': 'Lugano street',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.title': 'June works on Ronchitt Molinetto trail',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.excerpt': 'Two days of works: roads closed in Gambarogno',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.imageAlt': 'Gambarogno construction zone',
 };
 
 export default blogMetaEn;
