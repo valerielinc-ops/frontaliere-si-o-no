@@ -70,6 +70,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'pensione-avs-inps-2026-famiglia-con-figli': { it: 'pensione-avs-inps-2026-famiglia-con-figli', en: 'swiss-frontier-pension-avs-inps-2026-family-with-children', de: 'schweizerischer-grenz-beitrag-avs-inps-2026-familienmit-kindern', fr: 'prelevement-suissier-avs-inps-2026-famille-avec-enfants' },
  'smartworking-frontaliere-s-definitivo': { it: 'smartworking-frontaliere-s-definitivo', en: 'cross-border-workers-final-yes-smartworking', de: 'grenzgaenger-endgueltig-ja-smartworking', fr: 'frontaliers-oui-definitif-travail-a-distance' },
  'bocciatura-sportello-disoccupati-coldrerio': { it: 'bocciatura-sportello-disoccupati-coldrerio', en: 'rejection-unemployed-center-coldrerio', de: 'ablehnung-arbeitslosenberatung-coldrerio', fr: 'rejet-guichet-chomeurs-coldrerio' },
+ 'ffs-nuova-locomotiva-merci-stadler': { it: 'ffs-nuova-locomotiva-merci-stadler', en: 'new-sbb-freight-locomotive-stadler', de: 'neue-sbb-gueterzuglokomotive-stadler', fr: 'nouvelle-locomotive-fret-cff-stadler' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

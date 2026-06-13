@@ -1814,6 +1814,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-nuova-locomotiva-merci-stadler': {
+    title: 'FFS: arriva la nuova locomotiva merci Stadler Rail',
+    description: 'Le FFS presentano la nuova locomotiva Re 494 per il traffico merci. Efficienza energetica, modulo batteria per l\'ultimo miglio e consegna entro il 2029.',
+    keywords: 'frontalieri, ticino, svizzera, italia, arriva, nuova, locomotiva, merci',
+    ogTitle: 'FFS: arriva la nuova locomotiva merci Stadler Rail',
+    ogDescription: 'Le FFS presentano la nuova locomotiva Re 494 di Stadler Rail: efficienza e innovazione per il trasporto merci su rotaia in Svizzera.',
+    canonicalPath: '/articoli-svizzera/ffs-nuova-locomotiva-merci-stadler/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS: arriva la nuova locomotiva merci Stadler Rail",
+      "description": "Le FFS presentano la nuova locomotiva Re 494 per il traffico merci. Efficienza energetica, modulo batteria per l'ultimo miglio e consegna entro il 2029.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-nuova-locomotiva-merci-stadler.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuova locomotiva merci FFS di Stadler Rail in livrea rossa"
+      },
+      "datePublished": "2026-06-13T01:20:37+00:00",
+      "dateModified": "2026-06-13T01:20:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ffs-nuova-locomotiva-merci-stadler/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

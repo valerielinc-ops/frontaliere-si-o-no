@@ -146,6 +146,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: bocciata la mozione per lo sportello disoccupati',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'Respinta la proposta per un nuovo sportello di sostegno ai disoccupati a Coldrerio. Analisi della situazione tra politica locale e mercato del lavoro.',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Edificio comunale nel Mendrisiotto',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'FFS: arriva la nuova locomotiva merci Stadler Rail',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'Le FFS presentano la nuova locomotiva EURO DuFour per il traffico merci: efficienza energetica, riduzione usura binari e modulo batteria per l\'ultimo miglio.',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'Nuova locomotiva merci FFS di Stadler Rail in livrea rossa',
 };
 
 export default blogMetaChIt;

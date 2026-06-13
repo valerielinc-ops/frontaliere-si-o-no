@@ -146,6 +146,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: Abgelehnt die Motion für den Job-Support-Service',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'Abgelehnt wurde die Vorlage für einen neuen Unterstützungs-Service für Arbeitslose in Coldrerio. Analyse der Situation zwischen lokaler Politik und Arbeitsmarkt. 📊💡⚠️',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Gemeindehaus in der Region Mendrisiotto',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'SBB: Neue Stadler Rail Güterzuglokomotive vorgestellt',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'Die SBB präsentiert die neue EURO DuFour-Lokomotive für den Güterverkehr: Energieeffizienz, weniger Gleisverschleiß und Batteriemodul für die letzte Meile.',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'Neue SBB-Güterzuglokomotive von Stadler Rail in roter Lackierung',
 };
 
 export default blogMetaChDe;

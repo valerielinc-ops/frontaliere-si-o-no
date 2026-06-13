@@ -146,6 +146,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: motion for unemployment desk rejected',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'The proposal for a new support desk for the unemployed in Coldrerio has been rejected. An analysis of the situation between local politics and the labor market.',
     'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Municipal building in the Mendrisiotto region',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'SBB: The new Stadler Rail freight locomotive arrives',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'SBB presents the new EURO DuFour freight locomotive: energy efficiency, reduced track wear, and a battery module for the last mile.',
+    'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'New SBB freight locomotive by Stadler Rail in red livery',
 };
 
 export default blogMetaChEn;
