@@ -1457,8 +1457,8 @@
       "slugByLocale": {
         "it": "commercial-swedish-food-market-bistro-manager-100-ikea-ch",
         "en": "commercial-swedish-food-market-bistro-manager-100-ikea-ch",
-        "de": "commercial-swedish-food-market-bistro-manager-100-ikea-ch",
-        "fr": "commercial-swedish-food-market-bistro-manager-100-ikea-ch"
+        "de": "kommerzieller-schwedischer-lebensmittelmarkt-bistro-manager-100-ikea-spreitenbach-aargau-switzerland",
+        "fr": "commercial-suedois-marche-alimentaire-bistro-manager-100-ikea-spreitenbach-aargau-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2922,9 +2922,9 @@
       "slug": "collaboratore-trice-ikea-kasse-20-ikea-pratteln-1",
       "slugByLocale": {
         "it": "collaboratore-trice-ikea-kasse-20-ikea-pratteln-1",
-        "en": "mitarbeiter-in-ikea-kasse-20-ikea-pratteln-1",
+        "en": "associate-ikea-kasse-20-ikea-pratteln-1-basel-landschaft-switzerland",
         "de": "mitarbeiter-in-ikea-kasse-20-ikea-ch",
-        "fr": "mitarbeiter-in-ikea-kasse-20-ikea-pratteln-1"
+        "fr": "collaborateur-trice-ikea-kasse-20-ikea-pratteln-1-basel-landschaft-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2966,11 +2966,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-ikea-kasse-20-ikea-ch"
+        "mitarbeiter-in-ikea-kasse-20-ikea-ch",
+        "mitarbeiter-in-ikea-kasse-20-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-kasse-20-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-kasse-20-ikea-pratteln-1"
+        ],
+        "fr": [
+          "mitarbeiter-in-ikea-kasse-20-ikea-pratteln-1"
         ]
       },
       "needsRetranslation": true,

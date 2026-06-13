@@ -866,7 +866,6 @@
         "assistant-en-sante-efz-viva-luzern-luzern",
         "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2",
         "fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-        "fachfrau-mann-gesundheit-cfc-viva-luzern",
         "specialista-della-salute-efz-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
@@ -1053,12 +1052,12 @@
     },
     {
       "id": "viva-luzern-9b3cae6f1fce",
-      "slug": "apotheker-in-viva-luzern-luzern",
+      "slug": "farmacista-in-viva-luzern-luzern",
       "slugByLocale": {
-        "it": "apotheker-in-viva-luzern-luzern",
-        "en": "apotheker-in-viva-luzern-luzern",
+        "it": "farmacista-in-viva-luzern-luzern",
+        "en": "pharmacist-in-viva-luzern-luzern",
         "de": "apotheker-in-viva-luzern-luzern",
-        "fr": "apotheker-in-viva-luzern-luzern"
+        "fr": "pharmacie-in-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1111,7 +1110,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-viva-luzern-luzern"
+        ],
+        "en": [
+          "apotheker-in-viva-luzern-luzern"
+        ],
+        "fr": [
+          "apotheker-in-viva-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-viva-luzern-luzern"
+      ]
     }
   ]
 }

@@ -2183,7 +2183,7 @@
         "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2229,7 +2229,8 @@
       "pensumMax": 80,
       "pensum": "50-80%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-kanton-gr-ch"
+        "dipl-pflegefachperson-hf-kanton-gr-ch",
+        "infirmier-ere-diplome-e-es-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2344,9 +2345,9 @@
       "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
       "slugByLocale": {
         "it": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
-        "en": "strassenwart-in-kanton-gr-ch",
+        "en": "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
         "de": "strassenwart-in-kanton-gr-ch",
-        "fr": "strassenwart-in-kanton-gr-ch"
+        "fr": "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2392,20 +2393,16 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "strassenwart-in-kanton-gr-ch",
-        "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
-        "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
+        "strassenwart-in-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch"
         ],
         "en": [
-          "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
           "strassenwart-in-kanton-gr-ch"
         ],
         "fr": [
-          "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan",
           "strassenwart-in-kanton-gr-ch"
         ]
       },

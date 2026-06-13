@@ -235,7 +235,7 @@
         "it": "befristet-legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "en": "befristet-legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "de": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "fr": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
+        "fr": "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -280,15 +280,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
+        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ],
         "fr": [
-          "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur",
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ]
       },
@@ -539,9 +537,9 @@
       "slug": "consulente-nella-regione-di-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
       "slugByLocale": {
         "it": "consulente-nella-regione-di-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
-        "en": "berater-in-hypotheken-region-lenzerheide-80-gkb-ch",
+        "en": "consultant-in-mortgage-region-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
         "de": "berater-in-hypotheken-region-lenzerheide-80-gkb-ch",
-        "fr": "berater-in-hypotheken-region-lenzerheide-80-gkb-ch"
+        "fr": "consultant-dans-la-region-hypothecaire-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -590,6 +588,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "berater-in-hypotheken-region-lenzerheide-80-gkb-ch"
+        ],
+        "en": [
+          "berater-in-hypotheken-region-lenzerheide-80-gkb-ch"
+        ],
+        "fr": [
           "berater-in-hypotheken-region-lenzerheide-80-gkb-ch"
         ]
       },
