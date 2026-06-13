@@ -54,8 +54,8 @@ const RULE_ACTION_PARAMETERS = {
   cache: true,
   edge_ttl: {
     mode: 'override_origin',
-    default: 7200, // 2h — only reachable by fail-open 2xx from the apex origin (none today)
-    status_code_ttl: [{ status_code_range: { from: 300, to: 599 }, value: 0 }], // 0 = no-cache
+    default: 86400, // 24h — matches cache.put() s-maxage; 7200 (2h) capped entries prematurely (EXPIRED observed 2026-06-11, Adversarial check A confirmed)
+    status_code_ttl: [{ status_code_range: { from: 300, to: 599 }, value: 0 }], // 0 = no-cache for 3xx-5xx apex origin miss
   },
   browser_ttl: { mode: 'respect_origin' },
 };
@@ -123,7 +123,7 @@ function ruleInShape(current) {
   const p = current.action_parameters || {};
   if (p.cache !== true) return false;
   const e = p.edge_ttl || {};
-  if (e.mode !== 'override_origin' || e.default !== 7200) return false;
+  if (e.mode !== 'override_origin' || e.default !== 86400) return false;
   const noCache3xx5xx = (e.status_code_ttl || []).find(
     (s) => s.status_code_range && s.status_code_range.from === 300 && s.status_code_range.to === 599,
   );
