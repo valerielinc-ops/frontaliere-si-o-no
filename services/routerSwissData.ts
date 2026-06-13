@@ -69,6 +69,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'parlamento-avs-protezione-adozione': { it: 'parlamento-avs-protezione-adozione', en: 'parliament-avs-adoption-protection', de: 'parlament-avs-adozione-schutz', fr: 'parlement-avs-protection-adoption' },
  'pensione-avs-inps-2026-famiglia-con-figli': { it: 'pensione-avs-inps-2026-famiglia-con-figli', en: 'swiss-frontier-pension-avs-inps-2026-family-with-children', de: 'schweizerischer-grenz-beitrag-avs-inps-2026-familienmit-kindern', fr: 'prelevement-suissier-avs-inps-2026-famille-avec-enfants' },
  'smartworking-frontaliere-s-definitivo': { it: 'smartworking-frontaliere-s-definitivo', en: 'cross-border-workers-final-yes-smartworking', de: 'grenzgaenger-endgueltig-ja-smartworking', fr: 'frontaliers-oui-definitif-travail-a-distance' },
+ 'bocciatura-sportello-disoccupati-coldrerio': { it: 'bocciatura-sportello-disoccupati-coldrerio', en: 'rejection-unemployed-center-coldrerio', de: 'ablehnung-arbeitslosenberatung-coldrerio', fr: 'rejet-guichet-chomeurs-coldrerio' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

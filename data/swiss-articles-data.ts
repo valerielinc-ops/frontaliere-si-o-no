@@ -431,6 +431,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'bocciatura-sportello-disoccupati-coldrerio',
+    category: 'pratico',
+    date: '2026-06-13T00:38:59.589Z',
+    image: '/images/blog/bocciatura-sportello-disoccupati-coldrerio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

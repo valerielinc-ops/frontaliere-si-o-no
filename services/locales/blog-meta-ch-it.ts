@@ -143,6 +143,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.smartworking-frontaliere-s-definitivo.title': 'Smartworking per frontalieri: limiti e ristorni approvati',
     'blog.article.smartworking-frontaliere-s-definitivo.excerpt': 'Il Parlamento svizzero ha approvato definitivamente le nuove regole sullo smartworking per i frontalieri, con limiti e ristorni di oltre 40 milioni di franchi.',
     'blog.article.smartworking-frontaliere-s-definitivo.imageAlt': 'Scene svizzera con frontalieri che lavorano da casa',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: bocciata la mozione per lo sportello disoccupati',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'Respinta la proposta per un nuovo sportello di sostegno ai disoccupati a Coldrerio. Analisi della situazione tra politica locale e mercato del lavoro.',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Edificio comunale nel Mendrisiotto',
 };
 
 export default blogMetaChIt;

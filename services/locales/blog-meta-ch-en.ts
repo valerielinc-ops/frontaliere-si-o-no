@@ -143,6 +143,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.smartworking-frontaliere-s-definitivo.title': 'Smartworking for Cross-Border Workers: Limits Approved',
     'blog.article.smartworking-frontaliere-s-definitivo.excerpt': 'The Swiss Parliament has definitively approved the new rules on smartworking for cross-border workers, with limits and refunds exceeding 40 million francs.',
     'blog.article.smartworking-frontaliere-s-definitivo.imageAlt': 'Swiss scene with cross-border workers working from home',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.title': 'Coldrerio: motion for unemployment desk rejected',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.excerpt': 'The proposal for a new support desk for the unemployed in Coldrerio has been rejected. An analysis of the situation between local politics and the labor market.',
+    'blog.article.bocciatura-sportello-disoccupati-coldrerio.imageAlt': 'Municipal building in the Mendrisiotto region',
 };
 
 export default blogMetaChEn;
