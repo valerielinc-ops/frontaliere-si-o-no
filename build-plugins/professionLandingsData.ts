@@ -105,6 +105,34 @@ export function buildProfessionLandingPath(locale: ProfessionLocale, id: Profess
   return `${prefix}/${slug}/`.replace(/\/+/g, '/');
 }
 
+/**
+ * Locale-natural "area" prefix shared by every profession slug
+ * ("lavoro-ticino", "jobs-ticino", "arbeit-tessin", "travail-tessin").
+ * Stripping it from a slug yields the role keyword. Co-located with
+ * PROFESSION_SLUGS so the two can't drift; if a slug ever stops matching its
+ * prefix the keyword degrades gracefully to the full slug, never crashes.
+ */
+export const PROFESSION_SLUG_AREA_PREFIX: Record<ProfessionLocale, string> = {
+  it: 'lavoro-ticino-',
+  en: 'jobs-ticino-',
+  de: 'arbeit-tessin-',
+  fr: 'travail-tessin-',
+};
+
+/**
+ * Role keyword for the SPA job-board `?q=` filter: the profession slug with
+ * its area prefix removed. Keeping every role token (not just the last
+ * segment via `.split('-').pop()`) means multi-word roles like
+ * "operatore-socio-sanitario" filter on the full role instead of a degenerate
+ * tail ("sanitario"). The board's `?q=` tokenizer normalises hyphens to
+ * spaces, so the hyphenated remainder matches as a multi-word query.
+ */
+export function professionRoleKeyword(locale: ProfessionLocale, id: ProfessionId): string {
+  const slug = PROFESSION_SLUGS[locale][id];
+  const prefix = PROFESSION_SLUG_AREA_PREFIX[locale];
+  return slug.startsWith(prefix) ? slug.slice(prefix.length) : slug;
+}
+
 /** Flat list of every canonical (all 4 locales × 10 ids = 40 URLs). */
 export const PROFESSION_LANDING_ROUTES: readonly string[] = PROFESSION_LOCALES.flatMap((loc) =>
   PROFESSION_IDS.map((id) => buildProfessionLandingPath(loc, id)),

@@ -57,8 +57,8 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
-  PROFESSION_SLUGS,
   buildProfessionLandingPath,
+  professionRoleKeyword,
   PROFESSION_FACTS,
   type ProfessionLocale,
   type ProfessionId,
@@ -107,15 +107,6 @@ function inlineFormat(s: string): string {
     return `<a class="s-6L_4jt" href="${esc(safeUrl)}" rel="noopener">${text}</a>`;
   });
   return linked;
-}
-
-/**
- * Profession search term for the SPA job board `?q=` filter — the last
- * segment of the locale slug (e.g. "jobs-ticino-nurse" → "nurse"), which is
- * always the single-token locale-natural role keyword.
- */
-function professionSearchTerm(locale: ProfessionLocale, id: ProfessionId): string {
-  return PROFESSION_SLUGS[locale][id].split('-').pop() ?? '';
 }
 
 const OG_LOCALE: Record<ProfessionLocale, string> = {
@@ -206,7 +197,7 @@ function renderFeaturedJobs(
   // Deep-link the "see all" CTA to the job board pre-filtered on the
   // profession (JobBoard reads `?q=` from the URL). Trailing slash stays on
   // the path, before the query string.
-  const searchTerm = professionSearchTerm(locale, id);
+  const searchTerm = professionRoleKeyword(locale, id);
   const ctaHref = searchTerm
     ? `${buildJobBoardUrl(locale)}?q=${encodeURIComponent(searchTerm)}`
     : buildJobBoardUrl(locale);
