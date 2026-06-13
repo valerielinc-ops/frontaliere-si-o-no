@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-06-12T21:50:14.355Z",
-  "total": 19,
+  "generatedAt": "2026-06-13T10:21:58.044Z",
+  "total": 18,
   "newCount": 1,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 1103,
-  "avgDurationMs": 1103,
+  "removedCount": 1,
+  "unchangedCount": 13,
+  "durationMs": 1076,
+  "avgDurationMs": 1076,
   "durationHistory": [
-    1103
+    1076
   ],
   "newJobs": [
     {
@@ -193,8 +193,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Dottorando/a - Fisiologia adattiva dei bovini da ingrasso",
       "slug": "dottorando-a-fisiologia-adattiva-dei-bovini-da-ingrasso-agroscope-posieux",
@@ -233,7 +232,9 @@
         "translation": 19,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Meccanico/a di macchine agricole AFC - 40 %",
       "slug": "meccanico-a-di-macchine-agricole-afc-40-agroscope-reckenholz",
