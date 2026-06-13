@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { fetchHtml } from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -57,7 +58,6 @@ const COMPANY_DOMAIN = 'tarchinigroup.com';
 const CAREERS_URL = 'https://www.tarchinigroup.com/it/lavora-con-noi';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 const MAX_DETAIL_PAGES = Number(process.env.TARCHINI_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 1200;
 
@@ -87,23 +87,14 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-async function fetchText(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
-}
+// fetchText removed: replaced by shared fetchHtml from crawler-template.mjs,
+// which adds connection-level Jina fallback for datacenter egress blocks (the
+// CI-IP-block de-index class, #1678/#1680/#1826). The local loop had no such
+// fallback — a runner egress block silently yielded zero jobs → de-index of the
+// Tarchini TI pages. fetchHtml already includes retry+backoff via fetchWithRetry;
+// the bot User-Agent is now the shared DEFAULT_UA (FrontaliereTicinoBot), so we
+// only keep the Accept: text/html override; 20s default timeout is unchanged.
+const TARCHINI_FETCH_OPTS = { headers: { Accept: 'text/html' } };
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -151,7 +142,7 @@ async function fetchAllListings() {
   console.log('🔍 Fetching Tarchini Group job listings...');
   console.log(`  📡 ${CAREERS_URL}`);
 
-  const html = await fetchText(CAREERS_URL);
+  const html = await fetchHtml(CAREERS_URL, TARCHINI_FETCH_OPTS);
   const { items } = parseTarchiniListingPage(html);
 
   console.log(`📋 Found ${items.length} job listings`);
@@ -167,7 +158,7 @@ async function enrichWithDetails(listings) {
   for (let i = 0; i < toFetch.length; i++) {
     const item = toFetch[i];
     try {
-      const html = await fetchText(item.detailUrl);
+      const html = await fetchHtml(item.detailUrl, TARCHINI_FETCH_OPTS);
       const detail = parseTarchiniDetailPage(html);
       enriched.push({
         ...item,
